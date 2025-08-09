@@ -12,7 +12,13 @@ import {
   type AwsErrorMeta,
 } from "./error.ts";
 import { serviceMetadata } from "./metadata.ts";
-import { ProtocolRegistry } from "./protocols/index.ts";
+import { AwsJson10Handler } from "./protocols/aws-json-1-0.ts";
+import { AwsJson11Handler } from "./protocols/aws-json-1-1.ts";
+import { AwsQueryHandler } from "./protocols/aws-query.ts";
+import { Ec2QueryHandler } from "./protocols/ec2-query.ts";
+import { type ProtocolHandler } from "./protocols/interface.ts";
+import { RestJson1Handler } from "./protocols/rest-json-1.ts";
+import { RestXmlHandler } from "./protocols/rest-xml.ts";
 
 // Helper function to extract simple error name from AWS namespaced error type
 function extractErrorName(awsErrorType: string): string {
@@ -22,8 +28,17 @@ function extractErrorName(awsErrorType: string): string {
   return parts.length > 1 ? parts[1] : awsErrorType;
 }
 
-// Global protocol registry instance
-const protocolRegistry = ProtocolRegistry.createDefault();
+function resolveProtocolHandler(protocol: string): ProtocolHandler {
+  switch (protocol) {
+    case "ec2Query":     return new Ec2QueryHandler();
+    case "awsQuery":   return new AwsQueryHandler();
+    case "awsJson1_0":return new AwsJson10Handler();
+    case "awsJson1_1":return new AwsJson11Handler();
+    case "restJson1": return new RestJson1Handler();
+    case "restXml":    return new RestXmlHandler();
+  }
+  throw new Error(`Unknown protocol: ${protocol}`)
+}
 
 // Helper to create service-specific error dynamically
 function createServiceError(
@@ -125,7 +140,7 @@ export function createServiceProxy<T>(
               methodName.charAt(0).toUpperCase() + methodName.slice(1);
 
             // Get protocol handler for this service
-            const protocolHandler = protocolRegistry.get(metadata.protocol);
+            const protocolHandler = resolveProtocolHandler(metadata.protocol)
 
             // Serialize request body using protocol handler
             const body = protocolHandler.buildRequest(input, action, metadata);
