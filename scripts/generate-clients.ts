@@ -1160,43 +1160,6 @@ const generateAwsFile = (
   return code;
 };
 
-// Generate package.json exports for all services
-const updatePackageJsonExports = (
-  serviceExports: Array<{ serviceName: string; sdkId: string }>,
-) =>
-  Effect.gen(function* () {
-    const fs = yield* FileSystem.FileSystem;
-
-    // Read current package.json
-    const packageJsonContent = yield* fs.readFileString("package.json");
-    const packageJson = JSON.parse(packageJsonContent);
-
-    // Create exports object with main export
-    const exports: Record<string, any> = {
-      ".": packageJson.exports["."], // Keep existing main export
-    };
-
-    // Add service exports sorted alphabetically
-    const sortedServices = serviceExports.sort((a, b) =>
-      a.serviceName.localeCompare(b.serviceName),
-    );
-
-    for (const { serviceName } of sortedServices) {
-      exports[`./${serviceName}`] = {
-        bun: `./src/services/${serviceName}/index.ts`,
-        import: `./dist/services/${serviceName}/index.js`,
-        types: `./dist/services/${serviceName}/index.d.ts`,
-      };
-    }
-
-    // Update package.json
-    packageJson.exports = exports;
-
-    // Write back to file with proper formatting
-    const updatedContent = `${JSON.stringify(packageJson, null, 2)}\n`;
-    yield* fs.writeFileString("package.json", updatedContent);
-  });
-
 // Main program
 const program = Effect.gen(function* () {
   const fs = yield* FileSystem.FileSystem;
@@ -1290,9 +1253,6 @@ const program = Effect.gen(function* () {
   // Generate AWS services type file
   const awsCode = generateAwsFile(awsServiceExports);
   yield* fs.writeFileString("src/aws.ts", awsCode);
-
-  // Update package.json exports
-  yield* updatePackageJsonExports(serviceExports);
 });
 
 // Run the program

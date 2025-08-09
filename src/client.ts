@@ -16,7 +16,7 @@ import { AwsJson10Handler } from "./protocols/aws-json-1-0.ts";
 import { AwsJson11Handler } from "./protocols/aws-json-1-1.ts";
 import { AwsQueryHandler } from "./protocols/aws-query.ts";
 import { Ec2QueryHandler } from "./protocols/ec2-query.ts";
-import { type ProtocolHandler } from "./protocols/interface.ts";
+import type { ProtocolHandler } from "./protocols/interface.ts";
 import { RestJson1Handler } from "./protocols/rest-json-1.ts";
 import { RestXmlHandler } from "./protocols/rest-xml.ts";
 
@@ -30,14 +30,20 @@ function extractErrorName(awsErrorType: string): string {
 
 function resolveProtocolHandler(protocol: string): ProtocolHandler {
   switch (protocol) {
-    case "ec2Query":     return new Ec2QueryHandler();
-    case "awsQuery":   return new AwsQueryHandler();
-    case "awsJson1_0":return new AwsJson10Handler();
-    case "awsJson1_1":return new AwsJson11Handler();
-    case "restJson1": return new RestJson1Handler();
-    case "restXml":    return new RestXmlHandler();
+    case "ec2Query":
+      return new Ec2QueryHandler();
+    case "awsQuery":
+      return new AwsQueryHandler();
+    case "awsJson1_0":
+      return new AwsJson10Handler();
+    case "awsJson1_1":
+      return new AwsJson11Handler();
+    case "restJson1":
+      return new RestJson1Handler();
+    case "restXml":
+      return new RestXmlHandler();
   }
-  throw new Error(`Unknown protocol: ${protocol}`)
+  throw new Error(`Unknown protocol: ${protocol}`);
 }
 
 // Helper to create service-specific error dynamically
@@ -114,9 +120,9 @@ export function createServiceProxy<T>(
   const metadata =
     serviceMetadata[normalizedServiceName as keyof typeof serviceMetadata];
 
-  if (!metadata) {
-    throw new Error(`Unknown service: ${serviceName}`);
-  }
+  // if (!metadata) {
+  //   throw new Error(`Unknown service: ${serviceName}`);
+  // }
 
   const _client: Promise<AwsClient> = createAwsClient(
     normalizedServiceName,
@@ -140,7 +146,7 @@ export function createServiceProxy<T>(
               methodName.charAt(0).toUpperCase() + methodName.slice(1);
 
             // Get protocol handler for this service
-            const protocolHandler = resolveProtocolHandler(metadata.protocol)
+            const protocolHandler = resolveProtocolHandler(metadata.protocol);
 
             // Serialize request body using protocol handler
             const body = protocolHandler.buildRequest(input, action, metadata);
@@ -190,7 +196,10 @@ export function createServiceProxy<T>(
                   requestId = (errorData as any).$metadata?.requestId;
                 } else {
                   // AWS JSON protocol format (plain object)
-                  errorType = (errorData as any).__type || (errorData as any).code || "UnknownError";
+                  errorType =
+                    (errorData as any).__type ||
+                    (errorData as any).code ||
+                    "UnknownError";
                   errorMessage = (errorData as any).message || "Unknown error";
                 }
               }
