@@ -12,7 +12,8 @@ export type ShapeKind =
   | "enum"
   | "double"
   | "long"
-  | "float";
+  | "float"
+  | "union";
 
 export interface MemberMeta {
   target: string;
@@ -3268,27 +3269,3 @@ export const metadata: AwsQueryServiceMeta = {
       },
   },
 } as const;
-
-// Convenience lookup functions
-export function getOperation(name: string): OperationMeta | undefined {
-  return metadata.operations[name];
-}
-
-export function getShape(id: string): ShapeMeta | undefined {
-  return metadata.shapes[id];
-}
-
-// Reverse lookup for response wrapper to operation
-const wrapperToOperation = new Map<string, string>();
-for (const [name, op] of Object.entries(metadata.operations)) {
-  if (op.responseWrapper) {
-    wrapperToOperation.set(op.responseWrapper, name);
-  }
-}
-
-export function getOperationByWrapper(
-  wrapper: string,
-): OperationMeta | undefined {
-  const opName = wrapperToOperation.get(wrapper);
-  return opName ? metadata.operations[opName] : undefined;
-}

@@ -275,27 +275,6 @@ export interface AwsQueryServiceMeta {
 
 export const metadata: AwsQueryServiceMeta = ${JSON.stringify(metadata, null, 2)} as const;
 
-// Convenience lookup functions
-export function getOperation(name: string): OperationMeta | undefined {
-  return metadata.operations[name];
-}
-
-export function getShape(id: string): ShapeMeta | undefined {
-  return metadata.shapes[id];
-}
-
-// Reverse lookup for response wrapper to operation
-const wrapperToOperation = new Map<string, string>();
-for (const [name, op] of Object.entries(metadata.operations)) {
-  if (op.responseWrapper) {
-    wrapperToOperation.set(op.responseWrapper, name);
-  }
-}
-
-export function getOperationByWrapper(wrapper: string): OperationMeta | undefined {
-  const opName = wrapperToOperation.get(wrapper);
-  return opName ? metadata.operations[opName] : undefined;
-}
 `;
 
   fs.writeFileSync(outputPath, ts, "utf8");
@@ -476,6 +455,6 @@ if (import.meta.main) {
 
 export {
   generateServiceMetadata,
-  writeServiceMetadata,
   generateServiceRegistry,
+  writeServiceMetadata,
 };

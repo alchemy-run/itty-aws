@@ -53081,27 +53081,3 @@ export const ec2ModelMeta: Ec2ModelMeta = {
     },
   },
 } as const;
-
-// Convenience lookup functions
-export function getOperation(name: string): OperationMeta | undefined {
-  return ec2ModelMeta.operations[name];
-}
-
-export function getShape(id: string): ShapeMeta | undefined {
-  return ec2ModelMeta.shapes[id];
-}
-
-// Reverse lookup for response wrapper to operation
-const wrapperToOperation = new Map<string, string>();
-for (const [name, op] of Object.entries(ec2ModelMeta.operations)) {
-  if (op.responseWrapper) {
-    wrapperToOperation.set(op.responseWrapper, name);
-  }
-}
-
-export function getOperationByWrapper(
-  wrapper: string,
-): OperationMeta | undefined {
-  const opName = wrapperToOperation.get(wrapper);
-  return opName ? ec2ModelMeta.operations[opName] : undefined;
-}

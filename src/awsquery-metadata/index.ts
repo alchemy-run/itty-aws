@@ -58,23 +58,11 @@ export function getServiceMeta(serviceId: string): AwsQueryServiceMeta | null {
     try {
       // Normalize service ID for file lookup
       const fileName = serviceId.toLowerCase().replace(/\s+/g, "-");
-      // Try both .js and .ts extensions for compatibility
-      let meta;
-      try {
-        // For compiled JS version, use relative to this file
-        meta = require(`./${fileName}.js`).metadata;
-      } catch {
-        try {
-          // For TypeScript source, use relative to project root
-          meta = require(`./src/awsquery-metadata/${fileName}.ts`).metadata;
-        } catch {
-          // For TypeScript source, try relative to this file
-          meta = require(`./${fileName}.ts`).metadata;
-        }
-      }
+      // Dynamic import for tree-shaking
+      const meta = require(`./${fileName}.js`).metadata;
       serviceMetadata.set(serviceId, meta);
       return meta;
-    } catch (_error) {
+    } catch (error) {
       console.warn(`No AWS Query metadata found for service: ${serviceId}`);
       return null;
     }
