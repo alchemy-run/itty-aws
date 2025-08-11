@@ -4,10 +4,10 @@ import { AwsQueryHandler } from "../../dist/protocols/aws-query.js";
 const handler = new AwsQueryHandler();
 const snsMetadata = {
   sdkId: "SNS",
-  version: "2010-03-31", 
+  version: "2010-03-31",
   endpointPrefix: "sns",
   protocol: "awsQuery",
-  targetPrefix: ""
+  targetPrefix: "",
 };
 
 describe("AWS Query Protocol - Request Serialization", () => {
@@ -20,7 +20,7 @@ describe("AWS Query Protocol - Request Serialization", () => {
   it("should serialize simple input parameters", () => {
     const input = {
       Message: "Hello World",
-      Subject: "Test Subject"
+      Subject: "Test Subject",
     };
     const result = handler.buildRequest(input, "Publish", snsMetadata);
     expect(result).toContain("Action=Publish");
@@ -33,7 +33,7 @@ describe("AWS Query Protocol - Request Serialization", () => {
     // Fields not in the operation shape should be ignored by metadata-driven serialization
     const input = {
       Message: "test",
-      InvalidField: "should-be-ignored"
+      InvalidField: "should-be-ignored",
     };
     const result = handler.buildRequest(input, "Publish", snsMetadata);
     expect(result).toContain("Message=test");
@@ -43,7 +43,7 @@ describe("AWS Query Protocol - Request Serialization", () => {
   it("should serialize numeric parameters", () => {
     const input = {
       IntValue: 42,
-      FloatValue: 10.5
+      FloatValue: 10.5,
     };
     const result = handler.buildRequest(input, "TestNumbers", snsMetadata);
     expect(result).toContain("IntValue=42");
@@ -54,8 +54,8 @@ describe("AWS Query Protocol - Request Serialization", () => {
     const input = {
       NestedStruct: {
         Foo: "nested-value",
-        Bar: 123
-      }
+        Bar: 123,
+      },
     };
     const result = handler.buildRequest(input, "NestedStructures", snsMetadata);
     expect(result).toContain("NestedStruct.Foo=nested-value");
@@ -64,7 +64,7 @@ describe("AWS Query Protocol - Request Serialization", () => {
 
   it("should serialize query lists", () => {
     const input = {
-      ListParam: ["item1", "item2", "item3"]
+      ListParam: ["item1", "item2", "item3"],
     };
     const result = handler.buildRequest(input, "QueryLists", snsMetadata);
     expect(result).toContain("ListParam.member.1=item1");
@@ -79,8 +79,8 @@ describe("AWS Query Protocol - Request Serialization", () => {
     const input = {
       MapParam: {
         key1: "value1",
-        key2: "value2"
-      }
+        key2: "value2",
+      },
     };
     const result = handler.buildRequest(input, "QueryMaps", snsMetadata);
     expect(result).toContain("MapParam.key1=value1");
@@ -90,20 +90,22 @@ describe("AWS Query Protocol - Request Serialization", () => {
   it("should serialize MessageAttributes as entry format", () => {
     const input = {
       MessageAttributes: {
-        "TestAttribute": {
+        TestAttribute: {
           DataType: "String",
-          StringValue: "test-value"
+          StringValue: "test-value",
         },
-        "Priority": {
+        Priority: {
           DataType: "Number",
-          StringValue: "5"
-        }
-      }
+          StringValue: "5",
+        },
+      },
     };
     const result = handler.buildRequest(input, "Publish", snsMetadata);
     expect(result).toContain("MessageAttributes.entry.1.key=TestAttribute");
     expect(result).toContain("MessageAttributes.entry.1.value.DataType=String");
-    expect(result).toContain("MessageAttributes.entry.1.value.StringValue=test-value");
+    expect(result).toContain(
+      "MessageAttributes.entry.1.value.StringValue=test-value",
+    );
     expect(result).toContain("MessageAttributes.entry.2.key=Priority");
     expect(result).toContain("MessageAttributes.entry.2.value.DataType=Number");
     expect(result).toContain("MessageAttributes.entry.2.value.StringValue=5");
@@ -111,7 +113,7 @@ describe("AWS Query Protocol - Request Serialization", () => {
 
   it("should handle timestamp values", () => {
     const input = {
-      Timestamp: new Date("2023-01-01T12:00:00.000Z")
+      Timestamp: new Date("2023-01-01T12:00:00.000Z"),
     };
     const result = handler.buildRequest(input, "QueryTimestamps", snsMetadata);
     expect(result).toContain("Timestamp=2023-01-01T12%3A00%3A00.000Z");
@@ -121,7 +123,7 @@ describe("AWS Query Protocol - Request Serialization", () => {
     const input = {
       NullValue: null,
       UndefinedValue: undefined,
-      ValidValue: "test"
+      ValidValue: "test",
     };
     const result = handler.buildRequest(input, "TestNulls", snsMetadata);
     expect(result).not.toContain("NullValue");
@@ -161,7 +163,9 @@ describe("AWS Query Protocol - Response Parsing", () => {
 
     const result = handler.parseResponse(xmlResponse, 200) as any;
     expect(result).toBeDefined();
-    expect(result.ResponseMetadata?.RequestId).toBe("12345678-1234-1234-1234-123456789012");
+    expect(result.ResponseMetadata?.RequestId).toBe(
+      "12345678-1234-1234-1234-123456789012",
+    );
   });
 
   it("should parse XML lists", () => {
@@ -230,7 +234,7 @@ describe("AWS Query Protocol - Response Parsing", () => {
     expect(result).toBeDefined();
     expect(result.myMap).toEqual({
       foo: "Foo",
-      bar: "Bar"
+      bar: "Bar",
     });
   });
 

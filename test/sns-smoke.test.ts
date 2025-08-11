@@ -10,7 +10,9 @@ describe("SNS Smoke Tests", () => {
     "should perform complete SNS lifecycle: create topic, list topics, publish message, and cleanup",
     () =>
       Effect.gen(function* () {
-        yield* Console.log(`Starting SNS smoke test with topic: ${testTopicName}`);
+        yield* Console.log(
+          `Starting SNS smoke test with topic: ${testTopicName}`,
+        );
         let topicArn: string | undefined;
 
         // Step 1: Create a new topic
@@ -32,12 +34,14 @@ describe("SNS Smoke Tests", () => {
         const listResult = yield* client.listTopics({});
 
         expect(listResult.Topics).toBeDefined();
-        const topicExists = listResult.Topics?.some(topic => 
-          topic.TopicArn === topicArn
+        const topicExists = listResult.Topics?.some(
+          (topic) => topic.TopicArn === topicArn,
         );
         expect(topicExists).toBe(true);
 
-        yield* Console.log(`Found ${listResult.Topics?.length} topics, including our test topic`);
+        yield* Console.log(
+          `Found ${listResult.Topics?.length} topics, including our test topic`,
+        );
 
         // Step 3: Get topic attributes
         yield* Console.log("Step 3: Getting topic attributes...");
@@ -47,7 +51,7 @@ describe("SNS Smoke Tests", () => {
         });
 
         expect(attributesResult.Attributes).toBeDefined();
-        expect(attributesResult.Attributes?.["TopicArn"]).toBe(topicArn);
+        expect(attributesResult.Attributes?.TopicArn).toBe(topicArn);
 
         yield* Console.log("Successfully retrieved topic attributes");
 
@@ -63,7 +67,9 @@ describe("SNS Smoke Tests", () => {
         expect(publishResult.MessageId).toBeDefined();
         expect(publishResult.MessageId).toMatch(/^[a-f0-9-]+$/);
 
-        yield* Console.log(`Message published with ID: ${publishResult.MessageId}`);
+        yield* Console.log(
+          `Message published with ID: ${publishResult.MessageId}`,
+        );
 
         // Step 5: Publish a message with message attributes
         yield* Console.log("Step 5: Publishing a message with attributes...");
@@ -73,42 +79,46 @@ describe("SNS Smoke Tests", () => {
           Message: "Message with attributes for testing",
           Subject: "SNS Test Message with Attributes",
           MessageAttributes: {
-            "TestAttribute": {
+            TestAttribute: {
               DataType: "String",
-              StringValue: "test-value"
+              StringValue: "test-value",
             },
-            "Environment": {
-              DataType: "String", 
-              StringValue: "development"
+            Environment: {
+              DataType: "String",
+              StringValue: "development",
             },
-            "Priority": {
+            Priority: {
               DataType: "Number",
-              StringValue: "5"
-            }
-          }
+              StringValue: "5",
+            },
+          },
         });
 
         expect(publishWithAttrsResult.MessageId).toBeDefined();
-        yield* Console.log(`Message with attributes published with ID: ${publishWithAttrsResult.MessageId}`);
+        yield* Console.log(
+          `Message with attributes published with ID: ${publishWithAttrsResult.MessageId}`,
+        );
 
         // Step 6: Test error handling - try to publish to non-existent topic
         yield* Console.log("Step 6: Testing error handling...");
 
-        const errorResult = yield* client.publish({
-          TopicArn: "arn:aws:sns:us-east-1:123456789012:non-existent-topic",
-          Message: "This should fail",
-        }).pipe(
-          Effect.map(() => ({ success: true, error: undefined })),
-          Effect.catchTag("NotFoundException", (error) =>
-            Effect.succeed({ success: false, error: error._tag }),
-          ),
-          Effect.catchAll((error) =>
-            Effect.succeed({ 
-              success: false, 
-              error: error._tag || "UnknownError" 
-            }),
-          ),
-        );
+        const errorResult = yield* client
+          .publish({
+            TopicArn: "arn:aws:sns:us-east-1:123456789012:non-existent-topic",
+            Message: "This should fail",
+          })
+          .pipe(
+            Effect.map(() => ({ success: true, error: undefined })),
+            Effect.catchTag("NotFoundException", (error) =>
+              Effect.succeed({ success: false, error: error._tag }),
+            ),
+            Effect.catchAll((error) =>
+              Effect.succeed({
+                success: false,
+                error: error._tag || "UnknownError",
+              }),
+            ),
+          );
 
         expect(errorResult.success).toBe(false);
         expect(errorResult.error).toBeDefined();
@@ -146,26 +156,29 @@ describe("SNS Smoke Tests", () => {
   );
 
   it.effect(
-    "should handle invalid topic operations gracefully", 
+    "should handle invalid topic operations gracefully",
     () =>
       Effect.gen(function* () {
-        const invalidArn = "arn:aws:sns:us-east-1:123456789012:non-existent-topic";
+        const invalidArn =
+          "arn:aws:sns:us-east-1:123456789012:non-existent-topic";
 
         // Test getting attributes for non-existent topic
-        const result = yield* client.getTopicAttributes({
-          TopicArn: invalidArn,
-        }).pipe(
-          Effect.map(() => ({ success: true, error: undefined })),
-          Effect.catchTag("NotFoundException", (error) =>
-            Effect.succeed({ success: false, error: error._tag }),
-          ),
-          Effect.catchAll((error) =>
-            Effect.succeed({ 
-              success: false, 
-              error: error._tag || "UnknownError" 
-            }),
-          ),
-        );
+        const result = yield* client
+          .getTopicAttributes({
+            TopicArn: invalidArn,
+          })
+          .pipe(
+            Effect.map(() => ({ success: true, error: undefined })),
+            Effect.catchTag("NotFoundException", (error) =>
+              Effect.succeed({ success: false, error: error._tag }),
+            ),
+            Effect.catchAll((error) =>
+              Effect.succeed({
+                success: false,
+                error: error._tag || "UnknownError",
+              }),
+            ),
+          );
 
         expect(result.success).toBe(false);
         expect(result.error).toBeDefined();

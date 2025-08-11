@@ -23,7 +23,11 @@ export class RestJson1Handler implements ProtocolHandler {
     };
   }
 
-  parseResponse(responseText: string, _statusCode: number, _metadata?: import("./interface.ts").ServiceMetadata): unknown {
+  parseResponse(
+    responseText: string,
+    _statusCode: number,
+    _metadata?: import("./interface.ts").ServiceMetadata,
+  ): unknown {
     if (!responseText) return {};
     return JSON.parse(responseText);
   }

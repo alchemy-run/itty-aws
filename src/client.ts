@@ -154,10 +154,12 @@ export function createServiceProxy<T>(
             // Get headers from protocol handler (with body for Content-Length)
             const headers = protocolHandler.getHeaders(action, metadata, body);
 
-            // Use custom endpoint or construct AWS endpoint
+            // Use custom endpoint, global endpoint, or construct regional AWS endpoint
             const endpoint = resolvedConfig.endpoint
               ? resolvedConfig.endpoint
-              : `https://${metadata.endpointPrefix}.${resolvedConfig.region}.amazonaws.com/`;
+              : (metadata as any).globalEndpoint
+                ? (metadata as any).globalEndpoint
+                : `https://${metadata.endpointPrefix}.${resolvedConfig.region}.amazonaws.com/`;
 
             const response = yield* Effect.promise(() =>
               client.fetch(endpoint, {

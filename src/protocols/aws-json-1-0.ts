@@ -28,7 +28,11 @@ export class AwsJson10Handler implements ProtocolHandler {
     };
   }
 
-  parseResponse(responseText: string, _statusCode: number, _metadata?: import("./interface.ts").ServiceMetadata): unknown {
+  parseResponse(
+    responseText: string,
+    _statusCode: number,
+    _metadata?: import("./interface.ts").ServiceMetadata,
+  ): unknown {
     // Empty response body should return empty object
     if (!responseText || responseText.trim() === "") return {};
     return JSON.parse(responseText);

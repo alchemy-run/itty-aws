@@ -35,7 +35,20 @@ export interface MemberMeta {
   timestampFormat?: "iso8601" | "epoch-seconds" | "http-date";
 }
 
-export type ShapeKind = "structure" | "list" | "map" | "string" | "integer" | "boolean" | "timestamp" | "blob" | "enum" | "double" | "long" | "float" | "union";
+export type ShapeKind =
+  | "structure"
+  | "list"
+  | "map"
+  | "string"
+  | "integer"
+  | "boolean"
+  | "timestamp"
+  | "blob"
+  | "enum"
+  | "double"
+  | "long"
+  | "float"
+  | "union";
 
 // Lazy-loaded service metadata cache
 const serviceMetadata = new Map<string, AwsQueryServiceMeta>();
@@ -44,7 +57,7 @@ export function getServiceMeta(serviceId: string): AwsQueryServiceMeta | null {
   if (!serviceMetadata.has(serviceId)) {
     try {
       // Normalize service ID for file lookup
-      const fileName = serviceId.toLowerCase().replace(/\s+/g, '-');
+      const fileName = serviceId.toLowerCase().replace(/\s+/g, "-");
       // Try both .js and .ts extensions for compatibility
       let meta;
       try {
@@ -61,7 +74,7 @@ export function getServiceMeta(serviceId: string): AwsQueryServiceMeta | null {
       }
       serviceMetadata.set(serviceId, meta);
       return meta;
-    } catch (error) {
+    } catch (_error) {
       console.warn(`No AWS Query metadata found for service: ${serviceId}`);
       return null;
     }
@@ -71,42 +84,42 @@ export function getServiceMeta(serviceId: string): AwsQueryServiceMeta | null {
 
 // Auto-generated list of supported services
 export const SUPPORTED_SERVICES = [
-  'auto-scaling',
-  'cloudwatch',
-  'sns',
-  'elastic-beanstalk',
-  'neptune',
-  'cloudsearch',
-  'redshift',
-  'iam',
-  'elastic-load-balancing-v2',
-  'elastic-load-balancing',
-  'docdb',
-  'ses',
-  'cloudformation',
-  'elasticache',
-  'rds',
-  'sts'
+  "auto-scaling",
+  "cloudwatch",
+  "sns",
+  "elastic-beanstalk",
+  "neptune",
+  "cloudsearch",
+  "redshift",
+  "iam",
+  "elastic-load-balancing-v2",
+  "elastic-load-balancing",
+  "docdb",
+  "ses",
+  "cloudformation",
+  "elasticache",
+  "rds",
+  "sts",
 ];
 
 // Service ID to file name mapping
 const serviceIdToFileName = new Map([
-  ['Auto Scaling', 'auto-scaling'],
-  ['CloudWatch', 'cloudwatch'],
-  ['SNS', 'sns'],
-  ['Elastic Beanstalk', 'elastic-beanstalk'],
-  ['Neptune', 'neptune'],
-  ['CloudSearch', 'cloudsearch'],
-  ['Redshift', 'redshift'],
-  ['IAM', 'iam'],
-  ['Elastic Load Balancing v2', 'elastic-load-balancing-v2'],
-  ['Elastic Load Balancing', 'elastic-load-balancing'],
-  ['DocDB', 'docdb'],
-  ['SES', 'ses'],
-  ['CloudFormation', 'cloudformation'],
-  ['ElastiCache', 'elasticache'],
-  ['RDS', 'rds'],
-  ['STS', 'sts']
+  ["Auto Scaling", "auto-scaling"],
+  ["CloudWatch", "cloudwatch"],
+  ["SNS", "sns"],
+  ["Elastic Beanstalk", "elastic-beanstalk"],
+  ["Neptune", "neptune"],
+  ["CloudSearch", "cloudsearch"],
+  ["Redshift", "redshift"],
+  ["IAM", "iam"],
+  ["Elastic Load Balancing v2", "elastic-load-balancing-v2"],
+  ["Elastic Load Balancing", "elastic-load-balancing"],
+  ["DocDB", "docdb"],
+  ["SES", "ses"],
+  ["CloudFormation", "cloudformation"],
+  ["ElastiCache", "elasticache"],
+  ["RDS", "rds"],
+  ["STS", "sts"],
 ]);
 
 export function getServiceFileName(serviceId: string): string | undefined {

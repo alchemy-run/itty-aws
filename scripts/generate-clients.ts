@@ -666,6 +666,18 @@ const generateServiceCode = (serviceName: string, manifest: Manifest) =>
         ? serviceShapeName
         : "";
 
+    // Extract global endpoint and signing region from endpoint rules for global services
+    let globalEndpoint: string | undefined;
+    let signingRegion: string | undefined;
+
+    // Handle known global services explicitly
+    if (endpointPrefix === "iam") {
+      globalEndpoint = "https://iam.amazonaws.com";
+      signingRegion = "us-east-1";
+    } else {
+      // FIXME: add in the other services
+    }
+
     // Find operations using the new Smithy 2.0 format
     let operations: Array<{ name: string; shape: any }> = [];
 
@@ -1058,6 +1070,8 @@ const generateServiceCode = (serviceName: string, manifest: Manifest) =>
       endpointPrefix,
       protocol,
       targetPrefix,
+      globalEndpoint,
+      signingRegion,
     };
 
     return { code, metadata };
@@ -1083,6 +1097,13 @@ export const serviceMetadata = {\n`;
       code += `    endpointPrefix: "${meta.endpointPrefix}",\n`;
       code += `    protocol: "${meta.protocol}",\n`;
       code += `    targetPrefix: "${meta.targetPrefix}",\n`;
+      // Only include optional fields if they are defined
+      if (meta.globalEndpoint) {
+        code += `    globalEndpoint: "${meta.globalEndpoint}",\n`;
+      }
+      if (meta.signingRegion) {
+        code += `    signingRegion: "${meta.signingRegion}",\n`;
+      }
       code += "  },\n";
     });
 

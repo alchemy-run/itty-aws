@@ -4,7 +4,7 @@ import { AwsQueryHandler } from "../src/protocols/aws-query.ts";
 describe("AwsQuery empty array handling", () => {
   test("should handle empty DBInstances array correctly", () => {
     const handler = new AwsQueryHandler();
-    
+
     // Simulate AWS response with empty DBInstances
     const xmlResponse = `
       <DescribeDBInstancesResponse xmlns="http://rds.amazonaws.com/doc/2014-10-31/">
@@ -19,9 +19,9 @@ describe("AwsQuery empty array handling", () => {
     `;
 
     const result = handler.parseResponse(xmlResponse, 200);
-    
+
     console.log("Parsed result:", JSON.stringify(result, null, 2));
-    
+
     // DBInstances should be an empty array, not an empty string
     expect(result.DBInstances).toEqual([]);
     expect(Array.isArray(result.DBInstances)).toBe(true);
@@ -29,7 +29,7 @@ describe("AwsQuery empty array handling", () => {
 
   test("should handle non-empty DBInstances array correctly", () => {
     const handler = new AwsQueryHandler();
-    
+
     // Simulate AWS response with one DB instance
     const xmlResponse = `
       <DescribeDBInstancesResponse xmlns="http://rds.amazonaws.com/doc/2014-10-31/">
@@ -50,9 +50,9 @@ describe("AwsQuery empty array handling", () => {
     `;
 
     const result = handler.parseResponse(xmlResponse, 200);
-    
+
     console.log("Parsed result with data:", JSON.stringify(result, null, 2));
-    
+
     // DBInstances should be an array with one item
     expect(Array.isArray(result.DBInstances)).toBe(true);
     expect(result.DBInstances).toHaveLength(1);
