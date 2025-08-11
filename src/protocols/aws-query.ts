@@ -175,8 +175,25 @@ function fromXml(shapes: Record<string, any>, shapeId: string, node: any): any {
     case "blob":
       return typeof node === "string" ? node : node?.toString?.("base64");
 
-    default:
+    default: {
+      // Handle URL-encoded JSON policy documents
+      // https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetRole.html
+      // weird, but this is not defined in the smithy model at all -- very unfortunate
+      if (
+        typeof node === "string" &&
+        shapeId === "com.amazonaws.iam#policyDocumentType" &&
+        node.includes("%")
+      ) {
+        try {
+          const decoded = decodeURIComponent(node);
+          return JSON.parse(decoded);
+        } catch {
+          // If parsing fails, return the original string
+          return node;
+        }
+      }
       return node?.toString?.() ?? node;
+    }
   }
 }
 
@@ -194,8 +211,7 @@ export class AwsQueryHandler implements ProtocolHandler {
     if (!serviceMeta) {
       throw new Error(
         `AWS Query metadata not found for service "${metadata.sdkId}". ` +
-          "AWS Query protocol requires shape metadata for proper serialization. " +
-          `Please generate metadata using: bun scripts/generate-awsquery-metadata.ts "${metadata.sdkId}"`,
+          "AWS Query protocol requires shape metadata for proper serialization. ",
       );
     }
 
