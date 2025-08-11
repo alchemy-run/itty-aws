@@ -2,6 +2,7 @@
 
 export interface ServiceMetadata {
   readonly sdkId: string;
+  readonly version: string;
   readonly endpointPrefix: string;
   readonly protocol: string;
   readonly targetPrefix: string;
