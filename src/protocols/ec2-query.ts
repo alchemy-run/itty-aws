@@ -17,6 +17,10 @@ function safeParseXml(xmlText: string): any {
   }
 }
 
+function capitalizeFirst(str: string): string {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
 function toParams(
   shapes: Record<string, any>,
   shapeId: string,
@@ -31,7 +35,8 @@ function toParams(
     case "structure": {
       if (value == null) return;
       for (const [memberName, member] of Object.entries(shape.members ?? {})) {
-        const fieldName = (member as any).locationName ?? memberName;
+        const rawFieldName = (member as any).locationName ?? memberName;
+        const fieldName = capitalizeFirst(rawFieldName);
         const nextPrefix = prefix ? `${prefix}.${fieldName}` : fieldName;
         toParams(
           shapes,
