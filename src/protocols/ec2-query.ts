@@ -1,17 +1,6 @@
 import { XMLParser } from "fast-xml-parser";
+import { ec2ModelMeta } from "../ec2-metadata.ts";
 import type { ProtocolHandler, ServiceMetadata } from "./interface.ts";
-
-// Lazy-loaded EC2 metadata for tree-shaking
-let ec2ModelMeta: any = null;
-
-// Synchronous lazy loader - only loads metadata when first accessed
-function getEc2ModelMeta() {
-  if (!ec2ModelMeta) {
-    // Use require() for synchronous dynamic loading
-    ec2ModelMeta = require("../ec2-metadata.js").ec2ModelMeta;
-  }
-  return ec2ModelMeta;
-}
 
 const xmlParser = new XMLParser({
   ignoreAttributes: true,
@@ -62,9 +51,8 @@ function toParams(
       const flattened = shape.member?.flattened || shape.flattened;
       value.forEach((item, i) => {
         const idx = i + 1;
-        const base = flattened
-          ? `${prefix}.${idx}` // e.g., "GroupId.1"
-          : `${prefix}.${memberName}.${idx}`; // e.g., "TagSet.member.1"
+        // For EC2 Query, most lists are flattened and use the prefix directly
+        const base = `${prefix}.${idx}`;
         toParams(shapes, shape.member!.target, item, base, out);
       });
       break;
@@ -209,7 +197,7 @@ export class Ec2QueryHandler implements ProtocolHandler {
     params.append("Version", "2016-11-15");
 
     // Use enhanced flattening with metadata (lazy-loaded)
-    const modelMeta = getEc2ModelMeta();
+    const modelMeta = ec2ModelMeta;
     const op = modelMeta.operations[action];
     if (op) {
       const enhancedParams: Record<string, string> = {
@@ -258,12 +246,11 @@ export class Ec2QueryHandler implements ProtocolHandler {
 
     if (wrapperName) {
       const opName = wrapperName.replace(/Response$/, "");
-      const modelMeta = getEc2ModelMeta();
-      const opMeta = modelMeta.operations[opName];
+      const opMeta = ec2ModelMeta.operations[opName];
       const outShape = opMeta?.output;
 
       if (outShape) {
-        return fromXml(modelMeta.shapes, outShape, payloadNode);
+        return fromXml(ec2ModelMeta.shapes, outShape, payloadNode);
       }
     }
 
