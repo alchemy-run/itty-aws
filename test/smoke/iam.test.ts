@@ -1,6 +1,6 @@
 import { describe, expect, it } from "@effect/vitest";
 import { Console, Effect } from "effect";
-import { AWS } from "../src/index.ts";
+import { AWS } from "../../src/index.ts";
 
 describe("IAM Smoke Tests", () => {
   const client = new AWS.IAM({ region: "us-east-1" });

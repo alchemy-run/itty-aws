@@ -1,5 +1,5 @@
-import { describe, test, expect } from "vitest";
-import { AwsQueryHandler } from "../src/protocols/aws-query.ts";
+import { describe, expect, test } from "vitest";
+import { AwsQueryHandler } from "../../src/protocols/aws-query.ts";
 
 describe("AwsQuery empty array handling", () => {
   test("should handle empty DBInstances array correctly", () => {
