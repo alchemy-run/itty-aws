@@ -2,9 +2,12 @@
 
 export interface ServiceMetadata {
   readonly sdkId: string;
+  readonly version: string;
   readonly endpointPrefix: string;
   readonly protocol: string;
   readonly targetPrefix: string;
+  readonly globalEndpoint?: string; // For global services like IAM and CloudFront
+  readonly signingRegion?: string; // Override signing region for global services
 }
 
 export interface ProtocolHandler {
@@ -25,7 +28,11 @@ export interface ProtocolHandler {
   ): Record<string, string>;
 
   // Translate protocol-specific response (e.g. XML) into JSON
-  parseResponse(responseText: string, statusCode: number): unknown;
+  parseResponse(
+    responseText: string,
+    statusCode: number,
+    metadata?: ServiceMetadata,
+  ): unknown;
   parseError(
     responseText: string,
     statusCode: number,

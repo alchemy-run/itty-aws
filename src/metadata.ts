@@ -1592,6 +1592,8 @@ export const serviceMetadata = {
     endpointPrefix: "iam",
     protocol: "awsQuery",
     targetPrefix: "",
+    globalEndpoint: "https://iam.amazonaws.com",
+    signingRegion: "us-east-1",
   },
   identitystore: {
     sdkId: "identitystore",

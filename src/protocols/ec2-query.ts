@@ -241,7 +241,11 @@ export class Ec2QueryHandler implements ProtocolHandler {
     };
   }
 
-  parseResponse(responseText: string, statusCode: number): unknown {
+  parseResponse(
+    responseText: string,
+    statusCode: number,
+    _metadata?: import("./interface.ts").ServiceMetadata,
+  ): unknown {
     if (statusCode >= 400) return this.parseError(responseText, statusCode);
     if (!responseText) return {};
 
