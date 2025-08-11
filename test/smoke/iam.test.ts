@@ -129,11 +129,11 @@ describe("IAM Smoke Tests", () => {
         expect(Array.isArray(policiesResult.Policies)).toBe(true);
 
         yield* Console.log(
-          `Found ${policiesResult.Policies.length} local IAM policies`,
+          `Found ${policiesResult.Policies?.length || 0} local IAM policies`,
         );
 
         // Verify policy structure if policies exist
-        if (policiesResult.Policies.length > 0) {
+        if (policiesResult.Policies && policiesResult.Policies.length > 0) {
           const firstPolicy = policiesResult.Policies[0];
           expect(firstPolicy.PolicyName).toBeDefined();
           expect(firstPolicy.PolicyId).toBeDefined();
@@ -159,13 +159,10 @@ describe("IAM Smoke Tests", () => {
           })
           .pipe(
             Effect.map(() => ({ success: true, error: undefined })),
-            Effect.catchTag("NoSuchEntityException", (error) =>
-              Effect.succeed({ success: false, error: error._tag }),
-            ),
             Effect.catchAll((error) =>
               Effect.succeed({
                 success: false,
-                error: error._tag || "UnknownError",
+                error: (error as any)?._tag || "UnknownError",
               }),
             ),
           );
@@ -205,5 +202,187 @@ describe("IAM Smoke Tests", () => {
         }
       }),
     { timeout: 20000 },
+  );
+
+  it.effect(
+    "should create and delete IAM user",
+    () =>
+      Effect.gen(function* () {
+        const testUserName = `test-user-${Date.now()}`;
+        yield* Console.log(`Testing IAM user creation and deletion: ${testUserName}`);
+
+        // Create user
+        const createResult = yield* client.createUser({
+          UserName: testUserName,
+          Path: "/test/",
+        });
+
+        expect(createResult.User).toBeDefined();
+        expect(createResult.User?.UserName).toBe(testUserName);
+        expect(createResult.User?.Path).toBe("/test/");
+
+        yield* Console.log(`Created user: ${createResult.User?.UserName}`);
+
+        // Verify user exists by getting it
+        const getResult = yield* client.getUser({
+          UserName: testUserName,
+        });
+
+        expect(getResult.User).toBeDefined();
+        expect(getResult.User.UserName).toBe(testUserName);
+
+        // Delete user
+        yield* client.deleteUser({
+          UserName: testUserName,
+        });
+
+        yield* Console.log(`Deleted user: ${testUserName}`);
+
+        // Verify user is deleted
+        const deleteVerification = yield* client
+          .getUser({
+            UserName: testUserName,
+          })
+          .pipe(
+            Effect.map(() => ({ exists: true })),
+            Effect.catchAll(() =>
+              Effect.succeed({ exists: false }),
+            ),
+          );
+
+        expect(deleteVerification.exists).toBe(false);
+      }),
+    { timeout: 30000 },
+  );
+
+  it.effect(
+    "should create and delete IAM role",
+    () =>
+      Effect.gen(function* () {
+        const testRoleName = `test-role-${Date.now()}`;
+        const assumeRolePolicyDocument = JSON.stringify({
+          Version: "2012-10-17",
+          Statement: [
+            {
+              Effect: "Allow",
+              Principal: {
+                Service: "lambda.amazonaws.com",
+              },
+              Action: "sts:AssumeRole",
+            },
+          ],
+        });
+
+        yield* Console.log(`Testing IAM role creation and deletion: ${testRoleName}`);
+
+        // Create role
+        const createResult = yield* client.createRole({
+          RoleName: testRoleName,
+          AssumeRolePolicyDocument: assumeRolePolicyDocument,
+          Path: "/test/",
+          Description: "Test role for IAM smoke tests",
+        });
+
+        expect(createResult.Role).toBeDefined();
+        expect(createResult.Role.RoleName).toBe(testRoleName);
+        expect(createResult.Role.Path).toBe("/test/");
+
+        yield* Console.log(`Created role: ${createResult.Role.RoleName}`);
+
+        // Verify role exists by getting it
+        const getResult = yield* client.getRole({
+          RoleName: testRoleName,
+        });
+
+        expect(getResult.Role).toBeDefined();
+        expect(getResult.Role.RoleName).toBe(testRoleName);
+        expect(typeof getResult.Role.AssumeRolePolicyDocument).toBe("object");
+
+        // Delete role
+        yield* client.deleteRole({
+          RoleName: testRoleName,
+        });
+
+        yield* Console.log(`Deleted role: ${testRoleName}`);
+
+        // Verify role is deleted
+        const deleteVerification = yield* client
+          .getRole({
+            RoleName: testRoleName,
+          })
+          .pipe(
+            Effect.map(() => ({ exists: true })),
+            Effect.catchAll(() =>
+              Effect.succeed({ exists: false }),
+            ),
+          );
+
+        expect(deleteVerification.exists).toBe(false);
+      }),
+    { timeout: 30000 },
+  );
+
+  it.effect(
+    "should create and delete IAM policy",
+    () =>
+      Effect.gen(function* () {
+        const testPolicyName = `test-policy-${Date.now()}`;
+        const policyDocument = JSON.stringify({
+          Version: "2012-10-17",
+          Statement: [
+            {
+              Effect: "Allow",
+              Action: ["s3:GetObject"],
+              Resource: "arn:aws:s3:::test-bucket/*",
+            },
+          ],
+        });
+
+        yield* Console.log(`Testing IAM policy creation and deletion: ${testPolicyName}`);
+
+        // Create policy
+        const createResult = yield* client.createPolicy({
+          PolicyName: testPolicyName,
+          PolicyDocument: policyDocument,
+          Path: "/test/",
+          Description: "Test policy for IAM smoke tests",
+        });
+
+        expect(createResult.Policy).toBeDefined();
+        expect(createResult.Policy?.PolicyName).toBe(testPolicyName);
+        expect(createResult.Policy?.Path).toBe("/test/");
+
+        yield* Console.log(`Created policy: ${createResult.Policy?.PolicyName}`);
+
+        // Verify policy exists by getting it
+        const getResult = yield* client.getPolicy({
+          PolicyArn: createResult.Policy?.Arn || "",
+        });
+
+        expect(getResult.Policy).toBeDefined();
+        expect(getResult.Policy?.PolicyName).toBe(testPolicyName);
+
+        // Delete policy
+        yield* client.deletePolicy({
+          PolicyArn: createResult.Policy?.Arn || "",
+        });
+
+        yield* Console.log(`Deleted policy: ${testPolicyName}`);
+
+        // Verify policy is deleted
+        const deleteVerification = yield* client
+          .getPolicy({
+            PolicyArn: createResult.Policy?.Arn || "",
+          })
+          .pipe(
+            Effect.map(() => ({ exists: true })),
+            Effect.catchAll(() =>
+              Effect.succeed({ exists: false }),
+            ),
+          );
+
+        expect(deleteVerification.exists).toBe(false);
+      }),
+    { timeout: 30000 },
   );
 });
