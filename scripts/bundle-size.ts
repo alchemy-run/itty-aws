@@ -39,6 +39,7 @@ async function bundleAndMeasure() {
         outfile: config.outfile,
         external: config.external,
         platform: "neutral",
+        mainFields: ["module", "main"],
         treeShaking: true,
       });
 

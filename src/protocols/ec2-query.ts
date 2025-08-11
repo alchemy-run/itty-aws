@@ -1,8 +1,17 @@
 import { XMLParser } from "fast-xml-parser";
 import type { ProtocolHandler, ServiceMetadata } from "./interface.ts";
 
-// Import EC2 metadata synchronously
-import { ec2ModelMeta } from "../ec2-metadata.js";
+// Lazy-loaded EC2 metadata for tree-shaking
+let ec2ModelMeta: any = null;
+
+// Synchronous lazy loader - only loads metadata when first accessed
+function getEc2ModelMeta() {
+  if (!ec2ModelMeta) {
+    // Use require() for synchronous dynamic loading
+    ec2ModelMeta = require("../ec2-metadata.js").ec2ModelMeta;
+  }
+  return ec2ModelMeta;
+}
 
 const xmlParser = new XMLParser({
   ignoreAttributes: true,
@@ -199,16 +208,17 @@ export class Ec2QueryHandler implements ProtocolHandler {
     params.append("Action", action);
     params.append("Version", "2016-11-15");
 
-    // Use enhanced flattening with metadata
-    const op = ec2ModelMeta.operations[action];
+    // Use enhanced flattening with metadata (lazy-loaded)
+    const modelMeta = getEc2ModelMeta();
+    const op = modelMeta.operations[action];
     if (op) {
       const enhancedParams: Record<string, string> = {
         Action: op.name,
-        Version: ec2ModelMeta.version,
+        Version: modelMeta.version,
       };
 
       if (op.input && input) {
-        toParams(ec2ModelMeta.shapes, op.input, input, "", enhancedParams);
+        toParams(modelMeta.shapes, op.input, input, "", enhancedParams);
       }
 
       const usp = new URLSearchParams();
@@ -238,17 +248,18 @@ export class Ec2QueryHandler implements ProtocolHandler {
     const doc = safeParseXml(responseText);
     if (!doc) return {};
 
-    // Use enhanced parsing with metadata
+    // Use enhanced parsing with metadata (lazy-loaded)
     const wrapperName = findResponseWrapperName(doc);
     const payloadNode = doc[wrapperName] ?? doc;
 
     if (wrapperName) {
       const opName = wrapperName.replace(/Response$/, "");
-      const opMeta = ec2ModelMeta.operations[opName];
+      const modelMeta = getEc2ModelMeta();
+      const opMeta = modelMeta.operations[opName];
       const outShape = opMeta?.output;
 
       if (outShape) {
-        return fromXml(ec2ModelMeta.shapes, outShape, payloadNode);
+        return fromXml(modelMeta.shapes, outShape, payloadNode);
       }
     }
 

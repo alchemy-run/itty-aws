@@ -12,7 +12,13 @@ import {
   type AwsErrorMeta,
 } from "./error.ts";
 import { serviceMetadata } from "./metadata.ts";
-import { ProtocolRegistry } from "./protocols/index.ts";
+import { AwsJson10Handler } from "./protocols/aws-json-1-0.ts";
+import { AwsJson11Handler } from "./protocols/aws-json-1-1.ts";
+import { AwsQueryHandler } from "./protocols/aws-query.ts";
+import { Ec2QueryHandler } from "./protocols/ec2-query.ts";
+import type { ProtocolHandler } from "./protocols/interface.ts";
+import { RestJson1Handler } from "./protocols/rest-json-1.ts";
+import { RestXmlHandler } from "./protocols/rest-xml.ts";
 
 // Helper function to extract simple error name from AWS namespaced error type
 function extractErrorName(awsErrorType: string): string {
@@ -22,8 +28,23 @@ function extractErrorName(awsErrorType: string): string {
   return parts.length > 1 ? parts[1] : awsErrorType;
 }
 
-// Global protocol registry instance
-const protocolRegistry = ProtocolRegistry.createDefault();
+function resolveProtocolHandler(protocol: string): ProtocolHandler {
+  switch (protocol) {
+    case "ec2Query":
+      return new Ec2QueryHandler();
+    case "awsQuery":
+      return new AwsQueryHandler();
+    case "awsJson1_0":
+      return new AwsJson10Handler();
+    case "awsJson1_1":
+      return new AwsJson11Handler();
+    case "restJson1":
+      return new RestJson1Handler();
+    case "restXml":
+      return new RestXmlHandler();
+  }
+  throw new Error(`Unknown protocol: ${protocol}`);
+}
 
 // Helper to create service-specific error dynamically
 function createServiceError(
@@ -99,9 +120,9 @@ export function createServiceProxy<T>(
   const metadata =
     serviceMetadata[normalizedServiceName as keyof typeof serviceMetadata];
 
-  if (!metadata) {
-    throw new Error(`Unknown service: ${serviceName}`);
-  }
+  // if (!metadata) {
+  //   throw new Error(`Unknown service: ${serviceName}`);
+  // }
 
   const _client: Promise<AwsClient> = createAwsClient(
     normalizedServiceName,
@@ -125,7 +146,7 @@ export function createServiceProxy<T>(
               methodName.charAt(0).toUpperCase() + methodName.slice(1);
 
             // Get protocol handler for this service
-            const protocolHandler = protocolRegistry.get(metadata.protocol);
+            const protocolHandler = resolveProtocolHandler(metadata.protocol);
 
             // Serialize request body using protocol handler
             const body = protocolHandler.buildRequest(input, action, metadata);
@@ -155,23 +176,45 @@ export function createServiceProxy<T>(
               return protocolHandler.parseResponse(responseText, 200);
             } else {
               // Error handling
-              const _errorData = protocolHandler.parseError(
+              const errorData = protocolHandler.parseError(
                 responseText,
                 statusCode,
                 response.headers,
               );
 
-              // Extract error info from different response formats
+              // Extract error info from protocol-specific error data
               let errorType = "UnknownError";
               let errorMessage = "Unknown error";
+              let requestId: string | undefined;
 
-              const requestId =
-                response.headers.get("x-amzn-requestid") ||
-                response.headers.get("x-amz-request-id");
+              // Handle different protocol error formats
+              if (errorData && typeof errorData === "object") {
+                if ("name" in errorData && "$metadata" in errorData) {
+                  // EC2 Query protocol format (Error object)
+                  errorType = (errorData as any).name;
+                  errorMessage = (errorData as any).message || "Unknown error";
+                  requestId = (errorData as any).$metadata?.requestId;
+                } else {
+                  // AWS JSON protocol format (plain object)
+                  errorType =
+                    (errorData as any).__type ||
+                    (errorData as any).code ||
+                    "UnknownError";
+                  errorMessage = (errorData as any).message || "Unknown error";
+                }
+              }
+
+              // Fallback to headers for request ID if not found in error data
+              if (!requestId) {
+                requestId =
+                  response.headers.get("x-amzn-requestid") ||
+                  response.headers.get("x-amz-request-id") ||
+                  undefined;
+              }
 
               const errorMeta: AwsErrorMeta = {
                 statusCode,
-                requestId: requestId || undefined,
+                requestId,
               };
 
               // Extract simple error name from AWS namespaced error type

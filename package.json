@@ -7,11 +7,17 @@
   "type": "module",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "sideEffects": false,
   "exports": {
     ".": {
       "bun": "./src/index.ts",
       "import": "./dist/index.js",
       "types": "./dist/index.d.ts"
+    },
+    "./*": {
+      "bun": "./src/services/*/index.ts",
+      "import": "./dist/services/*/index.js",
+      "types": "./dist/services/*/index.d.ts"
     }
   },
   "scripts": {
@@ -34,7 +40,6 @@
     "@aws-sdk/credential-providers": "^3",
     "@effect/platform": "^0.87.12",
     "@effect/platform-node": "^0.89.5",
-    "@smithy/node-config-provider": "^4",
     "effect": "^3"
   },
   "devDependencies": {
@@ -43,7 +48,6 @@
     "@effect/platform-node": "^0.89.5",
     "@effect/platform": "^0.87.12",
     "@effect/vitest": "^0.23.12",
-    "@smithy/node-config-provider": "^4",
     "@types/bun": "^1.2.18",
     "@types/node": "^20",
     "bun-types": "^1.2.18",

@@ -252,7 +252,7 @@ describe("EC2 Query Protocol - Data Type Handling", () => {
 
     const result = handler.parseResponse(xmlResponse, 200) as any;
     expect(result).toBeDefined();
-    expect(result.normalFloat).toBe(3.14159);
+    expect(result.normalFloat).toBe(Math.PI);
   });
 
   it("should handle enum values", () => {
