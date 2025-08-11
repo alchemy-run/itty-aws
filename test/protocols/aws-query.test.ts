@@ -2,41 +2,42 @@ import { describe, expect, it } from "@effect/vitest";
 import { AwsQueryHandler } from "../../dist/protocols/aws-query.js";
 
 const handler = new AwsQueryHandler();
-const testMetadata = {
-  sdkId: "TestService",
-  version: "2020-01-08", 
-  endpointPrefix: "test",
+const snsMetadata = {
+  sdkId: "SNS",
+  version: "2010-03-31", 
+  endpointPrefix: "sns",
   protocol: "awsQuery",
   targetPrefix: ""
 };
 
 describe("AWS Query Protocol - Request Serialization", () => {
   it("should serialize empty input and no output", () => {
-    const result = handler.buildRequest({}, "NoInputAndNoOutput", testMetadata);
-    expect(result).toContain("Action=NoInputAndNoOutput");
-    expect(result).toContain("Version=2020-01-08");
+    const result = handler.buildRequest({}, "Publish", snsMetadata);
+    expect(result).toContain("Action=Publish");
+    expect(result).toContain("Version=2010-03-31");
   });
 
   it("should serialize simple input parameters", () => {
     const input = {
-      Foo: "val1",
-      Bar: "val2"
+      Message: "Hello World",
+      Subject: "Test Subject"
     };
-    const result = handler.buildRequest(input, "SimpleInputParams", testMetadata);
-    expect(result).toContain("Action=SimpleInputParams");
-    expect(result).toContain("Version=2020-01-08");
-    expect(result).toContain("Foo=val1");
-    expect(result).toContain("Bar=val2");
+    const result = handler.buildRequest(input, "Publish", snsMetadata);
+    expect(result).toContain("Action=Publish");
+    expect(result).toContain("Version=2010-03-31");
+    expect(result).toContain("Message=Hello+World");
+    expect(result).toContain("Subject=Test+Subject");
   });
 
-  it("should serialize boolean parameters", () => {
+  it("should serialize and ignore invalid parameters", () => {
+    // Fields not in the operation shape should be ignored by metadata-driven serialization
     const input = {
-      TrueParam: true,
-      FalseParam: false
+      Message: "test",
+      InvalidField: "should-be-ignored"
     };
-    const result = handler.buildRequest(input, "TestBooleans", testMetadata);
-    expect(result).toContain("TrueParam=true");
-    expect(result).toContain("FalseParam=false");
+    const result = handler.buildRequest(input, "Publish", snsMetadata);
+    expect(result).toContain("Message=test");
+    expect(result).not.toContain("InvalidField");
   });
 
   it("should serialize numeric parameters", () => {
@@ -44,7 +45,7 @@ describe("AWS Query Protocol - Request Serialization", () => {
       IntValue: 42,
       FloatValue: 10.5
     };
-    const result = handler.buildRequest(input, "TestNumbers", testMetadata);
+    const result = handler.buildRequest(input, "TestNumbers", snsMetadata);
     expect(result).toContain("IntValue=42");
     expect(result).toContain("FloatValue=10.5");
   });
@@ -56,7 +57,7 @@ describe("AWS Query Protocol - Request Serialization", () => {
         Bar: 123
       }
     };
-    const result = handler.buildRequest(input, "NestedStructures", testMetadata);
+    const result = handler.buildRequest(input, "NestedStructures", snsMetadata);
     expect(result).toContain("NestedStruct.Foo=nested-value");
     expect(result).toContain("NestedStruct.Bar=123");
   });
@@ -65,7 +66,7 @@ describe("AWS Query Protocol - Request Serialization", () => {
     const input = {
       ListParam: ["item1", "item2", "item3"]
     };
-    const result = handler.buildRequest(input, "QueryLists", testMetadata);
+    const result = handler.buildRequest(input, "QueryLists", snsMetadata);
     expect(result).toContain("ListParam.member.1=item1");
     expect(result).toContain("ListParam.member.2=item2");
     expect(result).toContain("ListParam.member.3=item3");
@@ -81,7 +82,7 @@ describe("AWS Query Protocol - Request Serialization", () => {
         key2: "value2"
       }
     };
-    const result = handler.buildRequest(input, "QueryMaps", testMetadata);
+    const result = handler.buildRequest(input, "QueryMaps", snsMetadata);
     expect(result).toContain("MapParam.key1=value1");
     expect(result).toContain("MapParam.key2=value2");
   });
@@ -99,7 +100,7 @@ describe("AWS Query Protocol - Request Serialization", () => {
         }
       }
     };
-    const result = handler.buildRequest(input, "Publish", testMetadata);
+    const result = handler.buildRequest(input, "Publish", snsMetadata);
     expect(result).toContain("MessageAttributes.entry.1.key=TestAttribute");
     expect(result).toContain("MessageAttributes.entry.1.value.DataType=String");
     expect(result).toContain("MessageAttributes.entry.1.value.StringValue=test-value");
@@ -112,7 +113,7 @@ describe("AWS Query Protocol - Request Serialization", () => {
     const input = {
       Timestamp: new Date("2023-01-01T12:00:00.000Z")
     };
-    const result = handler.buildRequest(input, "QueryTimestamps", testMetadata);
+    const result = handler.buildRequest(input, "QueryTimestamps", snsMetadata);
     expect(result).toContain("Timestamp=2023-01-01T12%3A00%3A00.000Z");
   });
 
@@ -122,7 +123,7 @@ describe("AWS Query Protocol - Request Serialization", () => {
       UndefinedValue: undefined,
       ValidValue: "test"
     };
-    const result = handler.buildRequest(input, "TestNulls", testMetadata);
+    const result = handler.buildRequest(input, "TestNulls", snsMetadata);
     expect(result).not.toContain("NullValue");
     expect(result).not.toContain("UndefinedValue");
     expect(result).toContain("ValidValue=test");
@@ -512,7 +513,7 @@ describe("AWS Query Protocol - Edge Cases and Metadata", () => {
   });
 
   it("should get correct headers for requests", () => {
-    const headers = handler.getHeaders("TestAction", testMetadata, "test body");
+    const headers = handler.getHeaders("TestAction", snsMetadata, "test body");
     expect(headers["Content-Type"]).toBe("application/x-www-form-urlencoded");
     expect(headers["User-Agent"]).toBe("itty-aws");
   });

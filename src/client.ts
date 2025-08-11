@@ -173,7 +173,7 @@ export function createServiceProxy<T>(
             if (statusCode >= 200 && statusCode < 300) {
               // Success
               if (!responseText) return {};
-              return protocolHandler.parseResponse(responseText, 200);
+              return protocolHandler.parseResponse(responseText, 200, metadata);
             } else {
               // Error handling
               const errorData = protocolHandler.parseError(
