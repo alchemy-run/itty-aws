@@ -4,6 +4,14 @@
   "files": [
     "dist"
   ],
+  "homepage": "https://alchemy.run",
+  "author": "Sam Goodwin <sam@alchemy.run>",
+  "description": "Lightweight AWS SDK for Effect",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sam-goodwin/itty-aws.git",
+  },
   "type": "module",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
