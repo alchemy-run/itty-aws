@@ -41,7 +41,8 @@
     "test:run": "vitest run",
     "test:watch": "vitest watch",
     "test:ui": "vitest --ui",
-    "test:protocol": "bun run build && vitest run ./test/protocols/*.test.ts"
+    "test:protocol": "bun run build && vitest run ./test/protocols/*.test.ts",
+    "publish:npm": "bun publish"
   },
   "dependencies": {
     "aws4fetch": "^1.0.20"
