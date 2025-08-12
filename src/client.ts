@@ -186,7 +186,13 @@ export function createServiceProxy<T>(
               service: normalizedServiceName,
               action,
               statusCode,
-              headers: Object.fromEntries(response.headers.entries()),
+              headers: (() => {
+                const headersObj: Record<string, string> = {};
+                response.headers.forEach((value, key) => {
+                  headersObj[key] = value;
+                });
+                return headersObj;
+              })(),
               responseText,
             });
 
