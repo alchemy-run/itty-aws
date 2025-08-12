@@ -111,6 +111,45 @@ const program = Effect.gen(function* () {
 Effect.runPromise(program);
 ```
 
+## Debug Logging
+
+`itty-aws` includes built-in debug logging using Effect's structured logging system. Enable debug logging to see detailed AWS request and response information:
+
+```ts
+import { AWS } from "itty-aws";
+import { Effect, Logger, LogLevel } from "effect";
+
+const s3 = new AWS.S3({ region: "us-east-1" });
+
+const program = s3.listBuckets({}).pipe(
+  Logger.withMinimumLogLevel(LogLevel.Debug)
+);
+
+Effect.runPromise(program);
+```
+
+Debug logs include:
+- **AWS Request**: Service name, action, and input parameters
+- **AWS Response**: HTTP status code and response headers
+
+Example debug output:
+```
+timestamp=2025-08-12T13:38:21.596Z level=DEBUG fiber=#0 message="AWS Request" message="{
+  \"service\": \"dynamodb\",
+  \"action\": \"ListTables\", 
+  \"input\": {}
+}"
+timestamp=2025-08-12T13:38:21.722Z level=DEBUG fiber=#0 message="AWS Response" message="{
+  \"service\": \"dynamodb\",
+  \"action\": \"ListTables\",
+  \"statusCode\": 200,
+  \"headers\": {
+    \"content-type\": \"application/x-amz-json-1.0\",
+    \"x-amzn-requestid\": \"FJG4U0QQCEIBGU9T4QL7CAGDHFVV4KQNSO5AEMVJF66Q9ASUAAJG\"
+  }
+}"
+```
+
 ## Exact Error Modeling
 
 Each operation's `Effect.Effect` type specifies exactly which errors can occur:
