@@ -161,6 +161,15 @@ export function createServiceProxy<T>(
                 ? (metadata as any).globalEndpoint
                 : `https://${metadata.endpointPrefix}.${resolvedConfig.region}.amazonaws.com/`;
 
+            // Log the AWS request
+            yield* Effect.logDebug("AWS Request", {
+              service: normalizedServiceName,
+              action,
+              endpoint,
+              headers,
+              input,
+            });
+
             const response = yield* Effect.promise(() =>
               client.fetch(endpoint, {
                 method: "POST",
@@ -171,6 +180,21 @@ export function createServiceProxy<T>(
 
             const responseText = yield* Effect.promise(() => response.text());
             const statusCode = response.status;
+
+            // Log the AWS response
+            yield* Effect.logDebug("AWS Response", {
+              service: normalizedServiceName,
+              action,
+              statusCode,
+              headers: (() => {
+                const headersObj: Record<string, string> = {};
+                response.headers.forEach((value, key) => {
+                  headersObj[key] = value;
+                });
+                return headersObj;
+              })(),
+              responseText,
+            });
 
             if (statusCode >= 200 && statusCode < 300) {
               // Success
@@ -202,7 +226,10 @@ export function createServiceProxy<T>(
                     (errorData as any).__type ||
                     (errorData as any).code ||
                     "UnknownError";
-                  errorMessage = (errorData as any).message || "Unknown error";
+                  errorMessage =
+                    (errorData as any).Message ||
+                    (errorData as any).message ||
+                    "Unknown error";
                 }
               }
 
