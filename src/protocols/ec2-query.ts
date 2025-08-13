@@ -35,7 +35,7 @@ function toParams(
     case "structure": {
       if (value == null) return;
       for (const [memberName, member] of Object.entries(shape.members ?? {})) {
-        const rawFieldName = (member as any).locationName ?? memberName;
+        const rawFieldName = (member as any).xmlName ?? memberName;
         const fieldName = capitalizeFirst(rawFieldName);
         const nextPrefix = prefix ? `${prefix}.${fieldName}` : fieldName;
         toParams(
@@ -52,7 +52,7 @@ function toParams(
     case "list": {
       if (!Array.isArray(value)) return;
       const memberName =
-        shape.member?.locationName ?? shape.member?.queryName ?? "member";
+        shape.member?.xmlName ?? shape.member?.queryName ?? "member";
       value.forEach((item, i) => {
         const idx = i + 1;
         const base = `${prefix}.${idx}`;
@@ -123,7 +123,7 @@ function fromXml(shapes: Record<string, any>, shapeId: string, node: any): any {
     case "structure": {
       const out: any = {};
       for (const [memberName, member] of Object.entries(shape.members ?? {})) {
-        const key = (member as any).locationName ?? memberName;
+        const key = (member as any).xmlName ?? memberName;
         const child = node?.[key];
         if (child !== undefined) {
           out[memberName] = fromXml(shapes, (member as any).target, child);
@@ -134,7 +134,7 @@ function fromXml(shapes: Record<string, any>, shapeId: string, node: any): any {
 
     case "list": {
       const memberName =
-        shape.member?.locationName ?? shape.member?.queryName ?? "member";
+        shape.member?.xmlName ?? shape.member?.queryName ?? "member";
       const arrNode = node?.[memberName];
       const items = Array.isArray(arrNode)
         ? arrNode

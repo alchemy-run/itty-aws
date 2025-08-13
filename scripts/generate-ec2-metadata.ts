@@ -32,7 +32,7 @@ export type ShapeKind =
 
 export interface MemberMeta {
   target: string; // referenced shape id
-  locationName?: string; // xml/query field name override
+  xmlName?: string; // xml/query field name override
   queryName?: string; // for EC2 filter/list names when needed
   timestampFormat?: "iso8601" | "epoch-seconds" | "http-date";
 }
@@ -83,7 +83,7 @@ function toShapeMeta(id: string, rawShapes: any): ShapeMeta {
       const traits = m.traits ?? {};
 
       if (traits["smithy.api#xmlName"])
-        mm.locationName = traits["smithy.api#xmlName"];
+        mm.xmlName = traits["smithy.api#xmlName"];
       if (traits["aws.query#queryName"])
         mm.queryName = traits["aws.query#queryName"];
       if (traits["smithy.api#timestampFormat"])
@@ -97,7 +97,7 @@ function toShapeMeta(id: string, rawShapes: any): ShapeMeta {
     const traits = mem.traits ?? {};
 
     if (traits["smithy.api#xmlName"])
-      mm.locationName = traits["smithy.api#xmlName"];
+      mm.xmlName = traits["smithy.api#xmlName"];
     if (traits["aws.query#queryName"])
       mm.queryName = traits["aws.query#queryName"];
 
@@ -205,7 +205,7 @@ export type ShapeKind = "structure" | "list" | "map" | "string" | "integer" | "b
 
 export interface MemberMeta {
   target: string;
-  locationName?: string;
+  xmlName?: string;
   queryName?: string;
   timestampFormat?: "iso8601" | "epoch-seconds" | "http-date";
 }
