@@ -203,7 +203,7 @@ export class Ec2QueryHandler implements ProtocolHandler {
     const op = modelMeta.operations[action];
     if (op) {
       const enhancedParams: Record<string, string> = {
-        Action: op.name,
+        Action: action,
         Version: modelMeta.version,
       };
 
@@ -216,8 +216,8 @@ export class Ec2QueryHandler implements ProtocolHandler {
       return usp.toString();
     }
 
-    // Fallback for unknown operations
-    return params.toString();
+    // no fallback! if unknown operation, it's an error
+    throw new Error(`Unknown operation: ${action}`);
   }
 
   getHeaders(

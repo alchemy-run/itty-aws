@@ -48,7 +48,6 @@ export interface ShapeMeta {
 }
 
 export interface OperationMeta {
-  name: string; // DescribeRegions
   input?: string; // shape id
   output?: string; // shape id
   responseWrapper?: string; // xml wrapper (often `${name}Response`)
@@ -148,7 +147,7 @@ function main(inPath?: string, outPath?: string) {
       const responseWrapper =
         shape.traits?.["aws.query#resultWrapper"] ?? `${name}Response`;
 
-      operations[name] = { name, input, output, responseWrapper };
+      operations[name] = { input, output, responseWrapper };
 
       // Add reachable shapes from input/output
       if (input) reachableShapes.add(input);
@@ -221,7 +220,6 @@ export interface ShapeMeta {
 }
 
 export interface OperationMeta {
-  name: string;
   input?: string;
   output?: string;
   responseWrapper?: string;
