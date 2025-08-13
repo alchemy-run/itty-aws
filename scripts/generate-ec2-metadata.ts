@@ -34,7 +34,6 @@ export interface MemberMeta {
   target: string; // referenced shape id
   locationName?: string; // xml/query field name override
   queryName?: string; // for EC2 filter/list names when needed
-  flattened?: boolean; // smithy.api#xmlFlattened / aws.query#flattened
   timestampFormat?: "iso8601" | "epoch-seconds" | "http-date";
 }
 
@@ -46,7 +45,6 @@ export interface ShapeMeta {
   key?: MemberMeta; // for map
   value?: MemberMeta; // for map
   enum?: string[]; // optional
-  flattened?: boolean; // for lists/maps
 }
 
 export interface OperationMeta {
@@ -88,8 +86,6 @@ function toShapeMeta(id: string, rawShapes: any): ShapeMeta {
         mm.locationName = traits["smithy.api#xmlName"];
       if (traits["aws.query#queryName"])
         mm.queryName = traits["aws.query#queryName"];
-      if (traits["smithy.api#xmlFlattened"] || traits["aws.query#flattened"])
-        mm.flattened = true;
       if (traits["smithy.api#timestampFormat"])
         mm.timestampFormat = traits["smithy.api#timestampFormat"];
 
@@ -104,31 +100,15 @@ function toShapeMeta(id: string, rawShapes: any): ShapeMeta {
       mm.locationName = traits["smithy.api#xmlName"];
     if (traits["aws.query#queryName"])
       mm.queryName = traits["aws.query#queryName"];
-    if (traits["smithy.api#xmlFlattened"] || traits["aws.query#flattened"])
-      mm.flattened = true;
 
     meta.member = mm;
 
-    // Check if the list itself is flattened
-    if (
-      s.traits?.["smithy.api#xmlFlattened"] ||
-      s.traits?.["aws.query#flattened"]
-    ) {
-      meta.flattened = true;
-    }
   } else if (t === "map") {
     const k = s.key;
     const v = s.value;
     meta.key = { target: k.target };
     meta.value = { target: v.target };
 
-    // Check if the map itself is flattened
-    if (
-      s.traits?.["smithy.api#xmlFlattened"] ||
-      s.traits?.["aws.query#flattened"]
-    ) {
-      meta.flattened = true;
-    }
   } else if (t === "string" && Array.isArray(s.enum)) {
     meta.enum = s.enum.map((e: any) => e.value ?? e);
   }
@@ -227,7 +207,6 @@ export interface MemberMeta {
   target: string;
   locationName?: string;
   queryName?: string;
-  flattened?: boolean;
   timestampFormat?: "iso8601" | "epoch-seconds" | "http-date";
 }
 
@@ -239,7 +218,6 @@ export interface ShapeMeta {
   key?: MemberMeta;
   value?: MemberMeta;
   enum?: string[];
-  flattened?: boolean;
 }
 
 export interface OperationMeta {

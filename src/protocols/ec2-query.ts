@@ -53,10 +53,8 @@ function toParams(
       if (!Array.isArray(value)) return;
       const memberName =
         shape.member?.locationName ?? shape.member?.queryName ?? "member";
-      const flattened = shape.member?.flattened || shape.flattened;
       value.forEach((item, i) => {
         const idx = i + 1;
-        // For EC2 Query, most lists are flattened and use the prefix directly
         const base = `${prefix}.${idx}`;
         toParams(shapes, shape.member!.target, item, base, out);
       });
@@ -68,7 +66,7 @@ function toParams(
       let i = 1;
       for (const [k, v] of Object.entries(value)) {
         const entryBase =
-          `${prefix}.${shape.flattened ? "" : "entry."}${i}`.replace(/\.$/, "");
+          `${prefix}."entry."${i}`.replace(/\.$/, "");
         toParams(shapes, shape.key!.target, k, `${entryBase}.key`, out);
         toParams(shapes, shape.value!.target, v, `${entryBase}.value`, out);
         i++;
@@ -137,8 +135,7 @@ function fromXml(shapes: Record<string, any>, shapeId: string, node: any): any {
     case "list": {
       const memberName =
         shape.member?.locationName ?? shape.member?.queryName ?? "member";
-      const flattened = shape.member?.flattened || shape.flattened;
-      const arrNode = flattened ? node : node?.[memberName];
+      const arrNode = node?.[memberName];
       const items = Array.isArray(arrNode)
         ? arrNode
         : arrNode != null
@@ -148,7 +145,7 @@ function fromXml(shapes: Record<string, any>, shapeId: string, node: any): any {
     }
 
     case "map": {
-      const entry = shape.flattened ? node : node?.entry;
+      const entry = node?.entry;
       const items = Array.isArray(entry) ? entry : entry != null ? [entry] : [];
       const out: any = {};
       for (const it of items) {
