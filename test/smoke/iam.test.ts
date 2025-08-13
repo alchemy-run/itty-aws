@@ -209,7 +209,9 @@ describe("IAM Smoke Tests", () => {
     () =>
       Effect.gen(function* () {
         const testUserName = `test-user-${Date.now()}`;
-        yield* Console.log(`Testing IAM user creation and deletion: ${testUserName}`);
+        yield* Console.log(
+          `Testing IAM user creation and deletion: ${testUserName}`,
+        );
 
         // Create user
         const createResult = yield* client.createUser({
@@ -245,9 +247,7 @@ describe("IAM Smoke Tests", () => {
           })
           .pipe(
             Effect.map(() => ({ exists: true })),
-            Effect.catchAll(() =>
-              Effect.succeed({ exists: false }),
-            ),
+            Effect.catchAll(() => Effect.succeed({ exists: false })),
           );
 
         expect(deleteVerification.exists).toBe(false);
@@ -273,7 +273,9 @@ describe("IAM Smoke Tests", () => {
           ],
         });
 
-        yield* Console.log(`Testing IAM role creation and deletion: ${testRoleName}`);
+        yield* Console.log(
+          `Testing IAM role creation and deletion: ${testRoleName}`,
+        );
 
         // Create role
         const createResult = yield* client.createRole({
@@ -312,9 +314,7 @@ describe("IAM Smoke Tests", () => {
           })
           .pipe(
             Effect.map(() => ({ exists: true })),
-            Effect.catchAll(() =>
-              Effect.succeed({ exists: false }),
-            ),
+            Effect.catchAll(() => Effect.succeed({ exists: false })),
           );
 
         expect(deleteVerification.exists).toBe(false);
@@ -338,7 +338,9 @@ describe("IAM Smoke Tests", () => {
           ],
         });
 
-        yield* Console.log(`Testing IAM policy creation and deletion: ${testPolicyName}`);
+        yield* Console.log(
+          `Testing IAM policy creation and deletion: ${testPolicyName}`,
+        );
 
         // Create policy
         const createResult = yield* client.createPolicy({
@@ -352,7 +354,9 @@ describe("IAM Smoke Tests", () => {
         expect(createResult.Policy?.PolicyName).toBe(testPolicyName);
         expect(createResult.Policy?.Path).toBe("/test/");
 
-        yield* Console.log(`Created policy: ${createResult.Policy?.PolicyName}`);
+        yield* Console.log(
+          `Created policy: ${createResult.Policy?.PolicyName}`,
+        );
 
         // Verify policy exists by getting it
         const getResult = yield* client.getPolicy({
@@ -376,9 +380,7 @@ describe("IAM Smoke Tests", () => {
           })
           .pipe(
             Effect.map(() => ({ exists: true })),
-            Effect.catchAll(() =>
-              Effect.succeed({ exists: false }),
-            ),
+            Effect.catchAll(() => Effect.succeed({ exists: false })),
           );
 
         expect(deleteVerification.exists).toBe(false);

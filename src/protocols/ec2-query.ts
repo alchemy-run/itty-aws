@@ -51,9 +51,11 @@ function toParams(
 
     case "list": {
       if (!Array.isArray(value)) return;
-      const memberName =
+      // FIXME: review why these are unused. "most" lists is not good enough.
+      // https://github.com/sam-goodwin/itty-aws/issues/56
+      const _memberName =
         shape.member?.locationName ?? shape.member?.queryName ?? "member";
-      const flattened = shape.member?.flattened || shape.flattened;
+      const _flattened = shape.member?.flattened || shape.flattened;
       value.forEach((item, i) => {
         const idx = i + 1;
         // For EC2 Query, most lists are flattened and use the prefix directly
