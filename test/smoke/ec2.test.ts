@@ -39,10 +39,14 @@ describe("EC2 Smoke Tests", () => {
         const waitAttempts = 30; // ~60s
         let ready = false;
         for (let i = 0; i < waitAttempts; i++) {
-          const describeResult = yield* client.describeVpcs({ VpcIds: [vpcId!] });
+          const describeResult = yield* client.describeVpcs({
+            VpcIds: [vpcId!],
+          });
           const state = describeResult.Vpcs?.[0]?.State;
 
-          yield* Console.log(`VPC state check ${i + 1}/${waitAttempts}: ${state}`);
+          yield* Console.log(
+            `VPC state check ${i + 1}/${waitAttempts}: ${state}`,
+          );
 
           if (state === "available") {
             ready = true;
@@ -149,7 +153,8 @@ describe("EC2 Smoke Tests", () => {
             Effect.catchAll((error: any) =>
               Effect.succeed({
                 success: false,
-                error: error._tag || error?.name || error?.Code || "UnknownError",
+                error:
+                  error._tag || error?.name || error?.Code || "UnknownError",
               }),
             ),
           );
