@@ -33,6 +33,48 @@ export declare class BackupSearch extends AWSServiceClient {
     UntagResourceResponse,
     ResourceNotFoundException | CommonAwsError
   >;
+  getSearchJob(
+    input: GetSearchJobInput,
+  ): Effect.Effect<
+    GetSearchJobOutput,
+    ResourceNotFoundException | CommonAwsError
+  >;
+  getSearchResultExportJob(
+    input: GetSearchResultExportJobInput,
+  ): Effect.Effect<
+    GetSearchResultExportJobOutput,
+    ResourceNotFoundException | CommonAwsError
+  >;
+  listSearchJobs(
+    input: ListSearchJobsInput,
+  ): Effect.Effect<ListSearchJobsOutput, CommonAwsError>;
+  listSearchResultExportJobs(
+    input: ListSearchResultExportJobsInput,
+  ): Effect.Effect<
+    ListSearchResultExportJobsOutput,
+    ResourceNotFoundException | ServiceQuotaExceededException | CommonAwsError
+  >;
+  startSearchJob(
+    input: StartSearchJobInput,
+  ): Effect.Effect<
+    StartSearchJobOutput,
+    ConflictException | ServiceQuotaExceededException | CommonAwsError
+  >;
+  startSearchResultExportJob(
+    input: StartSearchResultExportJobInput,
+  ): Effect.Effect<
+    StartSearchResultExportJobOutput,
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | CommonAwsError
+  >;
+  stopSearchJob(
+    input: StopSearchJobInput,
+  ): Effect.Effect<
+    StopSearchJobOutput,
+    ConflictException | ResourceNotFoundException | CommonAwsError
+  >;
 }
 
 export declare class Backupsearch extends BackupSearch {}
@@ -396,4 +438,59 @@ export declare namespace UntagResource {
   export type Input = UntagResourceRequest;
   export type Output = UntagResourceResponse;
   export type Error = ResourceNotFoundException | CommonAwsError;
+}
+
+export declare namespace GetSearchJob {
+  export type Input = GetSearchJobInput;
+  export type Output = GetSearchJobOutput;
+  export type Error = ResourceNotFoundException | CommonAwsError;
+}
+
+export declare namespace GetSearchResultExportJob {
+  export type Input = GetSearchResultExportJobInput;
+  export type Output = GetSearchResultExportJobOutput;
+  export type Error = ResourceNotFoundException | CommonAwsError;
+}
+
+export declare namespace ListSearchJobs {
+  export type Input = ListSearchJobsInput;
+  export type Output = ListSearchJobsOutput;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace ListSearchResultExportJobs {
+  export type Input = ListSearchResultExportJobsInput;
+  export type Output = ListSearchResultExportJobsOutput;
+  export type Error =
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | CommonAwsError;
+}
+
+export declare namespace StartSearchJob {
+  export type Input = StartSearchJobInput;
+  export type Output = StartSearchJobOutput;
+  export type Error =
+    | ConflictException
+    | ServiceQuotaExceededException
+    | CommonAwsError;
+}
+
+export declare namespace StartSearchResultExportJob {
+  export type Input = StartSearchResultExportJobInput;
+  export type Output = StartSearchResultExportJobOutput;
+  export type Error =
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | CommonAwsError;
+}
+
+export declare namespace StopSearchJob {
+  export type Input = StopSearchJobInput;
+  export type Output = StopSearchJobOutput;
+  export type Error =
+    | ConflictException
+    | ResourceNotFoundException
+    | CommonAwsError;
 }

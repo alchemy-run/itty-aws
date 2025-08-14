@@ -39,6 +39,198 @@ export declare class CodeGuruProfiler extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
+  addNotificationChannels(
+    input: AddNotificationChannelsRequest,
+  ): Effect.Effect<
+    AddNotificationChannelsResponse,
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  batchGetFrameMetricData(
+    input: BatchGetFrameMetricDataRequest,
+  ): Effect.Effect<
+    BatchGetFrameMetricDataResponse,
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  configureAgent(
+    input: ConfigureAgentRequest,
+  ): Effect.Effect<
+    ConfigureAgentResponse,
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createProfilingGroup(
+    input: CreateProfilingGroupRequest,
+  ): Effect.Effect<
+    CreateProfilingGroupResponse,
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteProfilingGroup(
+    input: DeleteProfilingGroupRequest,
+  ): Effect.Effect<
+    DeleteProfilingGroupResponse,
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  describeProfilingGroup(
+    input: DescribeProfilingGroupRequest,
+  ): Effect.Effect<
+    DescribeProfilingGroupResponse,
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getNotificationConfiguration(
+    input: GetNotificationConfigurationRequest,
+  ): Effect.Effect<
+    GetNotificationConfigurationResponse,
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getPolicy(
+    input: GetPolicyRequest,
+  ): Effect.Effect<
+    GetPolicyResponse,
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
+  >;
+  getProfile(
+    input: GetProfileRequest,
+  ): Effect.Effect<
+    GetProfileResponse,
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getRecommendations(
+    input: GetRecommendationsRequest,
+  ): Effect.Effect<
+    GetRecommendationsResponse,
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listFindingsReports(
+    input: ListFindingsReportsRequest,
+  ): Effect.Effect<
+    ListFindingsReportsResponse,
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listProfileTimes(
+    input: ListProfileTimesRequest,
+  ): Effect.Effect<
+    ListProfileTimesResponse,
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listProfilingGroups(
+    input: ListProfilingGroupsRequest,
+  ): Effect.Effect<
+    ListProfilingGroupsResponse,
+    InternalServerException | ThrottlingException | CommonAwsError
+  >;
+  postAgentProfile(
+    input: PostAgentProfileRequest,
+  ): Effect.Effect<
+    PostAgentProfileResponse,
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  putPermission(
+    input: PutPermissionRequest,
+  ): Effect.Effect<
+    PutPermissionResponse,
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  removeNotificationChannel(
+    input: RemoveNotificationChannelRequest,
+  ): Effect.Effect<
+    RemoveNotificationChannelResponse,
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  removePermission(
+    input: RemovePermissionRequest,
+  ): Effect.Effect<
+    RemovePermissionResponse,
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  submitFeedback(
+    input: SubmitFeedbackRequest,
+  ): Effect.Effect<
+    SubmitFeedbackResponse,
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateProfilingGroup(
+    input: UpdateProfilingGroupRequest,
+  ): Effect.Effect<
+    UpdateProfilingGroupResponse,
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
 }
 
 export declare class Codeguruprofiler extends CodeGuruProfiler {}
@@ -486,6 +678,219 @@ export declare namespace UntagResource {
   export type Error =
     | InternalServerException
     | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace AddNotificationChannels {
+  export type Input = AddNotificationChannelsRequest;
+  export type Output = AddNotificationChannelsResponse;
+  export type Error =
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace BatchGetFrameMetricData {
+  export type Input = BatchGetFrameMetricDataRequest;
+  export type Output = BatchGetFrameMetricDataResponse;
+  export type Error =
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ConfigureAgent {
+  export type Input = ConfigureAgentRequest;
+  export type Output = ConfigureAgentResponse;
+  export type Error =
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateProfilingGroup {
+  export type Input = CreateProfilingGroupRequest;
+  export type Output = CreateProfilingGroupResponse;
+  export type Error =
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteProfilingGroup {
+  export type Input = DeleteProfilingGroupRequest;
+  export type Output = DeleteProfilingGroupResponse;
+  export type Error =
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DescribeProfilingGroup {
+  export type Input = DescribeProfilingGroupRequest;
+  export type Output = DescribeProfilingGroupResponse;
+  export type Error =
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetNotificationConfiguration {
+  export type Input = GetNotificationConfigurationRequest;
+  export type Output = GetNotificationConfigurationResponse;
+  export type Error =
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetPolicy {
+  export type Input = GetPolicyRequest;
+  export type Output = GetPolicyResponse;
+  export type Error =
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError;
+}
+
+export declare namespace GetProfile {
+  export type Input = GetProfileRequest;
+  export type Output = GetProfileResponse;
+  export type Error =
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetRecommendations {
+  export type Input = GetRecommendationsRequest;
+  export type Output = GetRecommendationsResponse;
+  export type Error =
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListFindingsReports {
+  export type Input = ListFindingsReportsRequest;
+  export type Output = ListFindingsReportsResponse;
+  export type Error =
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListProfileTimes {
+  export type Input = ListProfileTimesRequest;
+  export type Output = ListProfileTimesResponse;
+  export type Error =
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListProfilingGroups {
+  export type Input = ListProfilingGroupsRequest;
+  export type Output = ListProfilingGroupsResponse;
+  export type Error =
+    | InternalServerException
+    | ThrottlingException
+    | CommonAwsError;
+}
+
+export declare namespace PostAgentProfile {
+  export type Input = PostAgentProfileRequest;
+  export type Output = PostAgentProfileResponse;
+  export type Error =
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace PutPermission {
+  export type Input = PutPermissionRequest;
+  export type Output = PutPermissionResponse;
+  export type Error =
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace RemoveNotificationChannel {
+  export type Input = RemoveNotificationChannelRequest;
+  export type Output = RemoveNotificationChannelResponse;
+  export type Error =
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace RemovePermission {
+  export type Input = RemovePermissionRequest;
+  export type Output = RemovePermissionResponse;
+  export type Error =
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace SubmitFeedback {
+  export type Input = SubmitFeedbackRequest;
+  export type Output = SubmitFeedbackResponse;
+  export type Error =
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateProfilingGroup {
+  export type Input = UpdateProfilingGroupRequest;
+  export type Output = UpdateProfilingGroupResponse;
+  export type Error =
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
     | ValidationException
     | CommonAwsError;
 }

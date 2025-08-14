@@ -33,6 +33,119 @@ export declare class identitystore extends AWSServiceClient {
     ListGroupMembershipsForMemberResponse,
     ResourceNotFoundException | ValidationException | CommonAwsError
   >;
+  createGroup(
+    input: CreateGroupRequest,
+  ): Effect.Effect<
+    CreateGroupResponse,
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createGroupMembership(
+    input: CreateGroupMembershipRequest,
+  ): Effect.Effect<
+    CreateGroupMembershipResponse,
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createUser(
+    input: CreateUserRequest,
+  ): Effect.Effect<
+    CreateUserResponse,
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteGroup(
+    input: DeleteGroupRequest,
+  ): Effect.Effect<
+    DeleteGroupResponse,
+    | ConflictException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteGroupMembership(
+    input: DeleteGroupMembershipRequest,
+  ): Effect.Effect<
+    DeleteGroupMembershipResponse,
+    | ConflictException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteUser(
+    input: DeleteUserRequest,
+  ): Effect.Effect<
+    DeleteUserResponse,
+    | ConflictException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  describeGroup(
+    input: DescribeGroupRequest,
+  ): Effect.Effect<
+    DescribeGroupResponse,
+    ResourceNotFoundException | ValidationException | CommonAwsError
+  >;
+  describeGroupMembership(
+    input: DescribeGroupMembershipRequest,
+  ): Effect.Effect<
+    DescribeGroupMembershipResponse,
+    ResourceNotFoundException | ValidationException | CommonAwsError
+  >;
+  describeUser(
+    input: DescribeUserRequest,
+  ): Effect.Effect<
+    DescribeUserResponse,
+    ResourceNotFoundException | ValidationException | CommonAwsError
+  >;
+  listGroupMemberships(
+    input: ListGroupMembershipsRequest,
+  ): Effect.Effect<
+    ListGroupMembershipsResponse,
+    ResourceNotFoundException | ValidationException | CommonAwsError
+  >;
+  listGroups(
+    input: ListGroupsRequest,
+  ): Effect.Effect<
+    ListGroupsResponse,
+    ResourceNotFoundException | ValidationException | CommonAwsError
+  >;
+  listUsers(
+    input: ListUsersRequest,
+  ): Effect.Effect<
+    ListUsersResponse,
+    ResourceNotFoundException | ValidationException | CommonAwsError
+  >;
+  updateGroup(
+    input: UpdateGroupRequest,
+  ): Effect.Effect<
+    UpdateGroupResponse,
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateUser(
+    input: UpdateUserRequest,
+  ): Effect.Effect<
+    UpdateUserResponse,
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ValidationException
+    | CommonAwsError
+  >;
 }
 
 export declare class Identitystore extends identitystore {}
@@ -445,6 +558,145 @@ export declare namespace ListGroupMembershipsForMember {
   export type Output = ListGroupMembershipsForMemberResponse;
   export type Error =
     | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateGroup {
+  export type Input = CreateGroupRequest;
+  export type Output = CreateGroupResponse;
+  export type Error =
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateGroupMembership {
+  export type Input = CreateGroupMembershipRequest;
+  export type Output = CreateGroupMembershipResponse;
+  export type Error =
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateUser {
+  export type Input = CreateUserRequest;
+  export type Output = CreateUserResponse;
+  export type Error =
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteGroup {
+  export type Input = DeleteGroupRequest;
+  export type Output = DeleteGroupResponse;
+  export type Error =
+    | ConflictException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteGroupMembership {
+  export type Input = DeleteGroupMembershipRequest;
+  export type Output = DeleteGroupMembershipResponse;
+  export type Error =
+    | ConflictException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteUser {
+  export type Input = DeleteUserRequest;
+  export type Output = DeleteUserResponse;
+  export type Error =
+    | ConflictException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DescribeGroup {
+  export type Input = DescribeGroupRequest;
+  export type Output = DescribeGroupResponse;
+  export type Error =
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DescribeGroupMembership {
+  export type Input = DescribeGroupMembershipRequest;
+  export type Output = DescribeGroupMembershipResponse;
+  export type Error =
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DescribeUser {
+  export type Input = DescribeUserRequest;
+  export type Output = DescribeUserResponse;
+  export type Error =
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListGroupMemberships {
+  export type Input = ListGroupMembershipsRequest;
+  export type Output = ListGroupMembershipsResponse;
+  export type Error =
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListGroups {
+  export type Input = ListGroupsRequest;
+  export type Output = ListGroupsResponse;
+  export type Error =
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListUsers {
+  export type Input = ListUsersRequest;
+  export type Output = ListUsersResponse;
+  export type Error =
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateGroup {
+  export type Input = UpdateGroupRequest;
+  export type Output = UpdateGroupResponse;
+  export type Error =
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateUser {
+  export type Input = UpdateUserRequest;
+  export type Output = UpdateUserResponse;
+  export type Error =
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError;
 }

@@ -39,6 +39,257 @@ export declare class NetworkFlowMonitor extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
+  createMonitor(
+    input: CreateMonitorInput,
+  ): Effect.Effect<
+    CreateMonitorOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createScope(
+    input: CreateScopeInput,
+  ): Effect.Effect<
+    CreateScopeOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteMonitor(
+    input: DeleteMonitorInput,
+  ): Effect.Effect<
+    DeleteMonitorOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteScope(
+    input: DeleteScopeInput,
+  ): Effect.Effect<
+    DeleteScopeOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getMonitor(
+    input: GetMonitorInput,
+  ): Effect.Effect<
+    GetMonitorOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getQueryResultsMonitorTopContributors(
+    input: GetQueryResultsMonitorTopContributorsInput,
+  ): Effect.Effect<
+    GetQueryResultsMonitorTopContributorsOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getQueryResultsWorkloadInsightsTopContributors(
+    input: GetQueryResultsWorkloadInsightsTopContributorsInput,
+  ): Effect.Effect<
+    GetQueryResultsWorkloadInsightsTopContributorsOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getQueryResultsWorkloadInsightsTopContributorsData(
+    input: GetQueryResultsWorkloadInsightsTopContributorsDataInput,
+  ): Effect.Effect<
+    GetQueryResultsWorkloadInsightsTopContributorsDataOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getQueryStatusMonitorTopContributors(
+    input: GetQueryStatusMonitorTopContributorsInput,
+  ): Effect.Effect<
+    GetQueryStatusMonitorTopContributorsOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getQueryStatusWorkloadInsightsTopContributors(
+    input: GetQueryStatusWorkloadInsightsTopContributorsInput,
+  ): Effect.Effect<
+    GetQueryStatusWorkloadInsightsTopContributorsOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getQueryStatusWorkloadInsightsTopContributorsData(
+    input: GetQueryStatusWorkloadInsightsTopContributorsDataInput,
+  ): Effect.Effect<
+    GetQueryStatusWorkloadInsightsTopContributorsDataOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getScope(
+    input: GetScopeInput,
+  ): Effect.Effect<
+    GetScopeOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listMonitors(
+    input: ListMonitorsInput,
+  ): Effect.Effect<
+    ListMonitorsOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listScopes(
+    input: ListScopesInput,
+  ): Effect.Effect<
+    ListScopesOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  startQueryMonitorTopContributors(
+    input: StartQueryMonitorTopContributorsInput,
+  ): Effect.Effect<
+    StartQueryMonitorTopContributorsOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  startQueryWorkloadInsightsTopContributors(
+    input: StartQueryWorkloadInsightsTopContributorsInput,
+  ): Effect.Effect<
+    StartQueryWorkloadInsightsTopContributorsOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  startQueryWorkloadInsightsTopContributorsData(
+    input: StartQueryWorkloadInsightsTopContributorsDataInput,
+  ): Effect.Effect<
+    StartQueryWorkloadInsightsTopContributorsDataOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  stopQueryMonitorTopContributors(
+    input: StopQueryMonitorTopContributorsInput,
+  ): Effect.Effect<
+    StopQueryMonitorTopContributorsOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  stopQueryWorkloadInsightsTopContributors(
+    input: StopQueryWorkloadInsightsTopContributorsInput,
+  ): Effect.Effect<
+    StopQueryWorkloadInsightsTopContributorsOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  stopQueryWorkloadInsightsTopContributorsData(
+    input: StopQueryWorkloadInsightsTopContributorsDataInput,
+  ): Effect.Effect<
+    StopQueryWorkloadInsightsTopContributorsDataOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateMonitor(
+    input: UpdateMonitorInput,
+  ): Effect.Effect<
+    UpdateMonitorOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateScope(
+    input: UpdateScopeInput,
+  ): Effect.Effect<
+    UpdateScopeOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
 }
 
 export declare class Networkflowmonitor extends NetworkFlowMonitor {}
@@ -550,6 +801,279 @@ export declare namespace UntagResource {
     | ConflictException
     | InternalServerException
     | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateMonitor {
+  export type Input = CreateMonitorInput;
+  export type Output = CreateMonitorOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateScope {
+  export type Input = CreateScopeInput;
+  export type Output = CreateScopeOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteMonitor {
+  export type Input = DeleteMonitorInput;
+  export type Output = DeleteMonitorOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteScope {
+  export type Input = DeleteScopeInput;
+  export type Output = DeleteScopeOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetMonitor {
+  export type Input = GetMonitorInput;
+  export type Output = GetMonitorOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetQueryResultsMonitorTopContributors {
+  export type Input = GetQueryResultsMonitorTopContributorsInput;
+  export type Output = GetQueryResultsMonitorTopContributorsOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetQueryResultsWorkloadInsightsTopContributors {
+  export type Input = GetQueryResultsWorkloadInsightsTopContributorsInput;
+  export type Output = GetQueryResultsWorkloadInsightsTopContributorsOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetQueryResultsWorkloadInsightsTopContributorsData {
+  export type Input = GetQueryResultsWorkloadInsightsTopContributorsDataInput;
+  export type Output = GetQueryResultsWorkloadInsightsTopContributorsDataOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetQueryStatusMonitorTopContributors {
+  export type Input = GetQueryStatusMonitorTopContributorsInput;
+  export type Output = GetQueryStatusMonitorTopContributorsOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetQueryStatusWorkloadInsightsTopContributors {
+  export type Input = GetQueryStatusWorkloadInsightsTopContributorsInput;
+  export type Output = GetQueryStatusWorkloadInsightsTopContributorsOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetQueryStatusWorkloadInsightsTopContributorsData {
+  export type Input = GetQueryStatusWorkloadInsightsTopContributorsDataInput;
+  export type Output = GetQueryStatusWorkloadInsightsTopContributorsDataOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetScope {
+  export type Input = GetScopeInput;
+  export type Output = GetScopeOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListMonitors {
+  export type Input = ListMonitorsInput;
+  export type Output = ListMonitorsOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListScopes {
+  export type Input = ListScopesInput;
+  export type Output = ListScopesOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace StartQueryMonitorTopContributors {
+  export type Input = StartQueryMonitorTopContributorsInput;
+  export type Output = StartQueryMonitorTopContributorsOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace StartQueryWorkloadInsightsTopContributors {
+  export type Input = StartQueryWorkloadInsightsTopContributorsInput;
+  export type Output = StartQueryWorkloadInsightsTopContributorsOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace StartQueryWorkloadInsightsTopContributorsData {
+  export type Input = StartQueryWorkloadInsightsTopContributorsDataInput;
+  export type Output = StartQueryWorkloadInsightsTopContributorsDataOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace StopQueryMonitorTopContributors {
+  export type Input = StopQueryMonitorTopContributorsInput;
+  export type Output = StopQueryMonitorTopContributorsOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace StopQueryWorkloadInsightsTopContributors {
+  export type Input = StopQueryWorkloadInsightsTopContributorsInput;
+  export type Output = StopQueryWorkloadInsightsTopContributorsOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace StopQueryWorkloadInsightsTopContributorsData {
+  export type Input = StopQueryWorkloadInsightsTopContributorsDataInput;
+  export type Output = StopQueryWorkloadInsightsTopContributorsDataOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateMonitor {
+  export type Input = UpdateMonitorInput;
+  export type Output = UpdateMonitorOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateScope {
+  export type Input = UpdateScopeInput;
+  export type Output = UpdateScopeOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
     | ThrottlingException
     | ValidationException
     | CommonAwsError;

@@ -266,6 +266,56 @@ export declare class chatbot extends AWSServiceClient {
     | UpdateSlackChannelConfigurationException
     | CommonAwsError
   >;
+  createCustomAction(
+    input: CreateCustomActionRequest,
+  ): Effect.Effect<
+    CreateCustomActionResult,
+    | ConflictException
+    | InternalServiceError
+    | InvalidRequestException
+    | LimitExceededException
+    | UnauthorizedException
+    | CommonAwsError
+  >;
+  deleteCustomAction(
+    input: DeleteCustomActionRequest,
+  ): Effect.Effect<
+    DeleteCustomActionResult,
+    | InternalServiceError
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | CommonAwsError
+  >;
+  getCustomAction(
+    input: GetCustomActionRequest,
+  ): Effect.Effect<
+    GetCustomActionResult,
+    | InternalServiceError
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | CommonAwsError
+  >;
+  listCustomActions(
+    input: ListCustomActionsRequest,
+  ): Effect.Effect<
+    ListCustomActionsResult,
+    | InternalServiceError
+    | InvalidRequestException
+    | UnauthorizedException
+    | CommonAwsError
+  >;
+  updateCustomAction(
+    input: UpdateCustomActionRequest,
+  ): Effect.Effect<
+    UpdateCustomActionResult,
+    | InternalServiceError
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | CommonAwsError
+  >;
 }
 
 export declare class Chatbot extends chatbot {}
@@ -1176,5 +1226,60 @@ export declare namespace UpdateSlackChannelConfiguration {
     | InvalidRequestException
     | ResourceNotFoundException
     | UpdateSlackChannelConfigurationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateCustomAction {
+  export type Input = CreateCustomActionRequest;
+  export type Output = CreateCustomActionResult;
+  export type Error =
+    | ConflictException
+    | InternalServiceError
+    | InvalidRequestException
+    | LimitExceededException
+    | UnauthorizedException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteCustomAction {
+  export type Input = DeleteCustomActionRequest;
+  export type Output = DeleteCustomActionResult;
+  export type Error =
+    | InternalServiceError
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | CommonAwsError;
+}
+
+export declare namespace GetCustomAction {
+  export type Input = GetCustomActionRequest;
+  export type Output = GetCustomActionResult;
+  export type Error =
+    | InternalServiceError
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | CommonAwsError;
+}
+
+export declare namespace ListCustomActions {
+  export type Input = ListCustomActionsRequest;
+  export type Output = ListCustomActionsResult;
+  export type Error =
+    | InternalServiceError
+    | InvalidRequestException
+    | UnauthorizedException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateCustomAction {
+  export type Input = UpdateCustomActionRequest;
+  export type Output = UpdateCustomActionResult;
+  export type Error =
+    | InternalServiceError
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | UnauthorizedException
     | CommonAwsError;
 }

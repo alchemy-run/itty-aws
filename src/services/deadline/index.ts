@@ -220,6 +220,1053 @@ export declare class deadline extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
+  associateMemberToFarm(
+    input: AssociateMemberToFarmRequest,
+  ): Effect.Effect<
+    AssociateMemberToFarmResponse,
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  associateMemberToFleet(
+    input: AssociateMemberToFleetRequest,
+  ): Effect.Effect<
+    AssociateMemberToFleetResponse,
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  associateMemberToJob(
+    input: AssociateMemberToJobRequest,
+  ): Effect.Effect<
+    AssociateMemberToJobResponse,
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  associateMemberToQueue(
+    input: AssociateMemberToQueueRequest,
+  ): Effect.Effect<
+    AssociateMemberToQueueResponse,
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  assumeFleetRoleForRead(
+    input: AssumeFleetRoleForReadRequest,
+  ): Effect.Effect<
+    AssumeFleetRoleForReadResponse,
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  assumeFleetRoleForWorker(
+    input: AssumeFleetRoleForWorkerRequest,
+  ): Effect.Effect<
+    AssumeFleetRoleForWorkerResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  assumeQueueRoleForRead(
+    input: AssumeQueueRoleForReadRequest,
+  ): Effect.Effect<
+    AssumeQueueRoleForReadResponse,
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  assumeQueueRoleForUser(
+    input: AssumeQueueRoleForUserRequest,
+  ): Effect.Effect<
+    AssumeQueueRoleForUserResponse,
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  assumeQueueRoleForWorker(
+    input: AssumeQueueRoleForWorkerRequest,
+  ): Effect.Effect<
+    AssumeQueueRoleForWorkerResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  batchGetJobEntity(
+    input: BatchGetJobEntityRequest,
+  ): Effect.Effect<
+    BatchGetJobEntityResponse,
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  copyJobTemplate(
+    input: CopyJobTemplateRequest,
+  ): Effect.Effect<
+    CopyJobTemplateResponse,
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createBudget(
+    input: CreateBudgetRequest,
+  ): Effect.Effect<
+    CreateBudgetResponse,
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createFarm(
+    input: CreateFarmRequest,
+  ): Effect.Effect<
+    CreateFarmResponse,
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createFleet(
+    input: CreateFleetRequest,
+  ): Effect.Effect<
+    CreateFleetResponse,
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createJob(
+    input: CreateJobRequest,
+  ): Effect.Effect<
+    CreateJobResponse,
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createLicenseEndpoint(
+    input: CreateLicenseEndpointRequest,
+  ): Effect.Effect<
+    CreateLicenseEndpointResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerErrorException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createLimit(
+    input: CreateLimitRequest,
+  ): Effect.Effect<
+    CreateLimitResponse,
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createMonitor(
+    input: CreateMonitorRequest,
+  ): Effect.Effect<
+    CreateMonitorResponse,
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createQueue(
+    input: CreateQueueRequest,
+  ): Effect.Effect<
+    CreateQueueResponse,
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createQueueEnvironment(
+    input: CreateQueueEnvironmentRequest,
+  ): Effect.Effect<
+    CreateQueueEnvironmentResponse,
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createStorageProfile(
+    input: CreateStorageProfileRequest,
+  ): Effect.Effect<
+    CreateStorageProfileResponse,
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createWorker(
+    input: CreateWorkerRequest,
+  ): Effect.Effect<
+    CreateWorkerResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteBudget(
+    input: DeleteBudgetRequest,
+  ): Effect.Effect<
+    DeleteBudgetResponse,
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteFarm(
+    input: DeleteFarmRequest,
+  ): Effect.Effect<
+    DeleteFarmResponse,
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteFleet(
+    input: DeleteFleetRequest,
+  ): Effect.Effect<
+    DeleteFleetResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteLicenseEndpoint(
+    input: DeleteLicenseEndpointRequest,
+  ): Effect.Effect<
+    DeleteLicenseEndpointResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteLimit(
+    input: DeleteLimitRequest,
+  ): Effect.Effect<
+    DeleteLimitResponse,
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteMeteredProduct(
+    input: DeleteMeteredProductRequest,
+  ): Effect.Effect<
+    DeleteMeteredProductResponse,
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteMonitor(
+    input: DeleteMonitorRequest,
+  ): Effect.Effect<
+    DeleteMonitorResponse,
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteQueue(
+    input: DeleteQueueRequest,
+  ): Effect.Effect<
+    DeleteQueueResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteQueueEnvironment(
+    input: DeleteQueueEnvironmentRequest,
+  ): Effect.Effect<
+    DeleteQueueEnvironmentResponse,
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteStorageProfile(
+    input: DeleteStorageProfileRequest,
+  ): Effect.Effect<
+    DeleteStorageProfileResponse,
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteWorker(
+    input: DeleteWorkerRequest,
+  ): Effect.Effect<
+    DeleteWorkerResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  disassociateMemberFromFarm(
+    input: DisassociateMemberFromFarmRequest,
+  ): Effect.Effect<
+    DisassociateMemberFromFarmResponse,
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  disassociateMemberFromFleet(
+    input: DisassociateMemberFromFleetRequest,
+  ): Effect.Effect<
+    DisassociateMemberFromFleetResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  disassociateMemberFromJob(
+    input: DisassociateMemberFromJobRequest,
+  ): Effect.Effect<
+    DisassociateMemberFromJobResponse,
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  disassociateMemberFromQueue(
+    input: DisassociateMemberFromQueueRequest,
+  ): Effect.Effect<
+    DisassociateMemberFromQueueResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getBudget(
+    input: GetBudgetRequest,
+  ): Effect.Effect<
+    GetBudgetResponse,
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getFarm(
+    input: GetFarmRequest,
+  ): Effect.Effect<
+    GetFarmResponse,
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getFleet(
+    input: GetFleetRequest,
+  ): Effect.Effect<
+    GetFleetResponse,
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getJob(
+    input: GetJobRequest,
+  ): Effect.Effect<
+    GetJobResponse,
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getLicenseEndpoint(
+    input: GetLicenseEndpointRequest,
+  ): Effect.Effect<
+    GetLicenseEndpointResponse,
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getLimit(
+    input: GetLimitRequest,
+  ): Effect.Effect<
+    GetLimitResponse,
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getMonitor(
+    input: GetMonitorRequest,
+  ): Effect.Effect<
+    GetMonitorResponse,
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getQueue(
+    input: GetQueueRequest,
+  ): Effect.Effect<
+    GetQueueResponse,
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getQueueEnvironment(
+    input: GetQueueEnvironmentRequest,
+  ): Effect.Effect<
+    GetQueueEnvironmentResponse,
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getSession(
+    input: GetSessionRequest,
+  ): Effect.Effect<
+    GetSessionResponse,
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getSessionAction(
+    input: GetSessionActionRequest,
+  ): Effect.Effect<
+    GetSessionActionResponse,
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getStep(
+    input: GetStepRequest,
+  ): Effect.Effect<
+    GetStepResponse,
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getStorageProfile(
+    input: GetStorageProfileRequest,
+  ): Effect.Effect<
+    GetStorageProfileResponse,
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getStorageProfileForQueue(
+    input: GetStorageProfileForQueueRequest,
+  ): Effect.Effect<
+    GetStorageProfileForQueueResponse,
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getTask(
+    input: GetTaskRequest,
+  ): Effect.Effect<
+    GetTaskResponse,
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getWorker(
+    input: GetWorkerRequest,
+  ): Effect.Effect<
+    GetWorkerResponse,
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listBudgets(
+    input: ListBudgetsRequest,
+  ): Effect.Effect<
+    ListBudgetsResponse,
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listFarmMembers(
+    input: ListFarmMembersRequest,
+  ): Effect.Effect<
+    ListFarmMembersResponse,
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listFarms(
+    input: ListFarmsRequest,
+  ): Effect.Effect<
+    ListFarmsResponse,
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listFleetMembers(
+    input: ListFleetMembersRequest,
+  ): Effect.Effect<
+    ListFleetMembersResponse,
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listFleets(
+    input: ListFleetsRequest,
+  ): Effect.Effect<
+    ListFleetsResponse,
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listJobMembers(
+    input: ListJobMembersRequest,
+  ): Effect.Effect<
+    ListJobMembersResponse,
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listJobParameterDefinitions(
+    input: ListJobParameterDefinitionsRequest,
+  ): Effect.Effect<
+    ListJobParameterDefinitionsResponse,
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listJobs(
+    input: ListJobsRequest,
+  ): Effect.Effect<
+    ListJobsResponse,
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listLicenseEndpoints(
+    input: ListLicenseEndpointsRequest,
+  ): Effect.Effect<
+    ListLicenseEndpointsResponse,
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listLimits(
+    input: ListLimitsRequest,
+  ): Effect.Effect<
+    ListLimitsResponse,
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listMeteredProducts(
+    input: ListMeteredProductsRequest,
+  ): Effect.Effect<
+    ListMeteredProductsResponse,
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listMonitors(
+    input: ListMonitorsRequest,
+  ): Effect.Effect<
+    ListMonitorsResponse,
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listQueueEnvironments(
+    input: ListQueueEnvironmentsRequest,
+  ): Effect.Effect<
+    ListQueueEnvironmentsResponse,
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listQueueMembers(
+    input: ListQueueMembersRequest,
+  ): Effect.Effect<
+    ListQueueMembersResponse,
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listQueues(
+    input: ListQueuesRequest,
+  ): Effect.Effect<
+    ListQueuesResponse,
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listSessionActions(
+    input: ListSessionActionsRequest,
+  ): Effect.Effect<
+    ListSessionActionsResponse,
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listSessions(
+    input: ListSessionsRequest,
+  ): Effect.Effect<
+    ListSessionsResponse,
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listSessionsForWorker(
+    input: ListSessionsForWorkerRequest,
+  ): Effect.Effect<
+    ListSessionsForWorkerResponse,
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listStepConsumers(
+    input: ListStepConsumersRequest,
+  ): Effect.Effect<
+    ListStepConsumersResponse,
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listStepDependencies(
+    input: ListStepDependenciesRequest,
+  ): Effect.Effect<
+    ListStepDependenciesResponse,
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listSteps(
+    input: ListStepsRequest,
+  ): Effect.Effect<
+    ListStepsResponse,
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listStorageProfiles(
+    input: ListStorageProfilesRequest,
+  ): Effect.Effect<
+    ListStorageProfilesResponse,
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listStorageProfilesForQueue(
+    input: ListStorageProfilesForQueueRequest,
+  ): Effect.Effect<
+    ListStorageProfilesForQueueResponse,
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listTasks(
+    input: ListTasksRequest,
+  ): Effect.Effect<
+    ListTasksResponse,
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listWorkers(
+    input: ListWorkersRequest,
+  ): Effect.Effect<
+    ListWorkersResponse,
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  putMeteredProduct(
+    input: PutMeteredProductRequest,
+  ): Effect.Effect<
+    PutMeteredProductResponse,
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateBudget(
+    input: UpdateBudgetRequest,
+  ): Effect.Effect<
+    UpdateBudgetResponse,
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateFarm(
+    input: UpdateFarmRequest,
+  ): Effect.Effect<
+    UpdateFarmResponse,
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateFleet(
+    input: UpdateFleetRequest,
+  ): Effect.Effect<
+    UpdateFleetResponse,
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateJob(
+    input: UpdateJobRequest,
+  ): Effect.Effect<
+    UpdateJobResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateLimit(
+    input: UpdateLimitRequest,
+  ): Effect.Effect<
+    UpdateLimitResponse,
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateMonitor(
+    input: UpdateMonitorRequest,
+  ): Effect.Effect<
+    UpdateMonitorResponse,
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateQueue(
+    input: UpdateQueueRequest,
+  ): Effect.Effect<
+    UpdateQueueResponse,
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateQueueEnvironment(
+    input: UpdateQueueEnvironmentRequest,
+  ): Effect.Effect<
+    UpdateQueueEnvironmentResponse,
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateSession(
+    input: UpdateSessionRequest,
+  ): Effect.Effect<
+    UpdateSessionResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateStep(
+    input: UpdateStepRequest,
+  ): Effect.Effect<
+    UpdateStepResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateStorageProfile(
+    input: UpdateStorageProfileRequest,
+  ): Effect.Effect<
+    UpdateStorageProfileResponse,
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateTask(
+    input: UpdateTaskRequest,
+  ): Effect.Effect<
+    UpdateTaskResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateWorker(
+    input: UpdateWorkerRequest,
+  ): Effect.Effect<
+    UpdateWorkerResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateWorkerSchedule(
+    input: UpdateWorkerScheduleRequest,
+  ): Effect.Effect<
+    UpdateWorkerScheduleResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
 }
 
 export interface AcceleratorCapabilities {
@@ -3154,6 +4201,1146 @@ export declare namespace UpdateQueueLimitAssociation {
   export type Output = UpdateQueueLimitAssociationResponse;
   export type Error =
     | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace AssociateMemberToFarm {
+  export type Input = AssociateMemberToFarmRequest;
+  export type Output = AssociateMemberToFarmResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace AssociateMemberToFleet {
+  export type Input = AssociateMemberToFleetRequest;
+  export type Output = AssociateMemberToFleetResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace AssociateMemberToJob {
+  export type Input = AssociateMemberToJobRequest;
+  export type Output = AssociateMemberToJobResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace AssociateMemberToQueue {
+  export type Input = AssociateMemberToQueueRequest;
+  export type Output = AssociateMemberToQueueResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace AssumeFleetRoleForRead {
+  export type Input = AssumeFleetRoleForReadRequest;
+  export type Output = AssumeFleetRoleForReadResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace AssumeFleetRoleForWorker {
+  export type Input = AssumeFleetRoleForWorkerRequest;
+  export type Output = AssumeFleetRoleForWorkerResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace AssumeQueueRoleForRead {
+  export type Input = AssumeQueueRoleForReadRequest;
+  export type Output = AssumeQueueRoleForReadResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace AssumeQueueRoleForUser {
+  export type Input = AssumeQueueRoleForUserRequest;
+  export type Output = AssumeQueueRoleForUserResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace AssumeQueueRoleForWorker {
+  export type Input = AssumeQueueRoleForWorkerRequest;
+  export type Output = AssumeQueueRoleForWorkerResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace BatchGetJobEntity {
+  export type Input = BatchGetJobEntityRequest;
+  export type Output = BatchGetJobEntityResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CopyJobTemplate {
+  export type Input = CopyJobTemplateRequest;
+  export type Output = CopyJobTemplateResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateBudget {
+  export type Input = CreateBudgetRequest;
+  export type Output = CreateBudgetResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateFarm {
+  export type Input = CreateFarmRequest;
+  export type Output = CreateFarmResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateFleet {
+  export type Input = CreateFleetRequest;
+  export type Output = CreateFleetResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateJob {
+  export type Input = CreateJobRequest;
+  export type Output = CreateJobResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateLicenseEndpoint {
+  export type Input = CreateLicenseEndpointRequest;
+  export type Output = CreateLicenseEndpointResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerErrorException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateLimit {
+  export type Input = CreateLimitRequest;
+  export type Output = CreateLimitResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateMonitor {
+  export type Input = CreateMonitorRequest;
+  export type Output = CreateMonitorResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateQueue {
+  export type Input = CreateQueueRequest;
+  export type Output = CreateQueueResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateQueueEnvironment {
+  export type Input = CreateQueueEnvironmentRequest;
+  export type Output = CreateQueueEnvironmentResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateStorageProfile {
+  export type Input = CreateStorageProfileRequest;
+  export type Output = CreateStorageProfileResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateWorker {
+  export type Input = CreateWorkerRequest;
+  export type Output = CreateWorkerResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteBudget {
+  export type Input = DeleteBudgetRequest;
+  export type Output = DeleteBudgetResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteFarm {
+  export type Input = DeleteFarmRequest;
+  export type Output = DeleteFarmResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteFleet {
+  export type Input = DeleteFleetRequest;
+  export type Output = DeleteFleetResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteLicenseEndpoint {
+  export type Input = DeleteLicenseEndpointRequest;
+  export type Output = DeleteLicenseEndpointResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteLimit {
+  export type Input = DeleteLimitRequest;
+  export type Output = DeleteLimitResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteMeteredProduct {
+  export type Input = DeleteMeteredProductRequest;
+  export type Output = DeleteMeteredProductResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteMonitor {
+  export type Input = DeleteMonitorRequest;
+  export type Output = DeleteMonitorResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteQueue {
+  export type Input = DeleteQueueRequest;
+  export type Output = DeleteQueueResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteQueueEnvironment {
+  export type Input = DeleteQueueEnvironmentRequest;
+  export type Output = DeleteQueueEnvironmentResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteStorageProfile {
+  export type Input = DeleteStorageProfileRequest;
+  export type Output = DeleteStorageProfileResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteWorker {
+  export type Input = DeleteWorkerRequest;
+  export type Output = DeleteWorkerResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DisassociateMemberFromFarm {
+  export type Input = DisassociateMemberFromFarmRequest;
+  export type Output = DisassociateMemberFromFarmResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DisassociateMemberFromFleet {
+  export type Input = DisassociateMemberFromFleetRequest;
+  export type Output = DisassociateMemberFromFleetResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DisassociateMemberFromJob {
+  export type Input = DisassociateMemberFromJobRequest;
+  export type Output = DisassociateMemberFromJobResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DisassociateMemberFromQueue {
+  export type Input = DisassociateMemberFromQueueRequest;
+  export type Output = DisassociateMemberFromQueueResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetBudget {
+  export type Input = GetBudgetRequest;
+  export type Output = GetBudgetResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetFarm {
+  export type Input = GetFarmRequest;
+  export type Output = GetFarmResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetFleet {
+  export type Input = GetFleetRequest;
+  export type Output = GetFleetResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetJob {
+  export type Input = GetJobRequest;
+  export type Output = GetJobResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetLicenseEndpoint {
+  export type Input = GetLicenseEndpointRequest;
+  export type Output = GetLicenseEndpointResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetLimit {
+  export type Input = GetLimitRequest;
+  export type Output = GetLimitResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetMonitor {
+  export type Input = GetMonitorRequest;
+  export type Output = GetMonitorResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetQueue {
+  export type Input = GetQueueRequest;
+  export type Output = GetQueueResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetQueueEnvironment {
+  export type Input = GetQueueEnvironmentRequest;
+  export type Output = GetQueueEnvironmentResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetSession {
+  export type Input = GetSessionRequest;
+  export type Output = GetSessionResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetSessionAction {
+  export type Input = GetSessionActionRequest;
+  export type Output = GetSessionActionResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetStep {
+  export type Input = GetStepRequest;
+  export type Output = GetStepResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetStorageProfile {
+  export type Input = GetStorageProfileRequest;
+  export type Output = GetStorageProfileResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetStorageProfileForQueue {
+  export type Input = GetStorageProfileForQueueRequest;
+  export type Output = GetStorageProfileForQueueResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetTask {
+  export type Input = GetTaskRequest;
+  export type Output = GetTaskResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetWorker {
+  export type Input = GetWorkerRequest;
+  export type Output = GetWorkerResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListBudgets {
+  export type Input = ListBudgetsRequest;
+  export type Output = ListBudgetsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListFarmMembers {
+  export type Input = ListFarmMembersRequest;
+  export type Output = ListFarmMembersResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListFarms {
+  export type Input = ListFarmsRequest;
+  export type Output = ListFarmsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListFleetMembers {
+  export type Input = ListFleetMembersRequest;
+  export type Output = ListFleetMembersResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListFleets {
+  export type Input = ListFleetsRequest;
+  export type Output = ListFleetsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListJobMembers {
+  export type Input = ListJobMembersRequest;
+  export type Output = ListJobMembersResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListJobParameterDefinitions {
+  export type Input = ListJobParameterDefinitionsRequest;
+  export type Output = ListJobParameterDefinitionsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListJobs {
+  export type Input = ListJobsRequest;
+  export type Output = ListJobsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListLicenseEndpoints {
+  export type Input = ListLicenseEndpointsRequest;
+  export type Output = ListLicenseEndpointsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListLimits {
+  export type Input = ListLimitsRequest;
+  export type Output = ListLimitsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListMeteredProducts {
+  export type Input = ListMeteredProductsRequest;
+  export type Output = ListMeteredProductsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListMonitors {
+  export type Input = ListMonitorsRequest;
+  export type Output = ListMonitorsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListQueueEnvironments {
+  export type Input = ListQueueEnvironmentsRequest;
+  export type Output = ListQueueEnvironmentsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListQueueMembers {
+  export type Input = ListQueueMembersRequest;
+  export type Output = ListQueueMembersResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListQueues {
+  export type Input = ListQueuesRequest;
+  export type Output = ListQueuesResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListSessionActions {
+  export type Input = ListSessionActionsRequest;
+  export type Output = ListSessionActionsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListSessions {
+  export type Input = ListSessionsRequest;
+  export type Output = ListSessionsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListSessionsForWorker {
+  export type Input = ListSessionsForWorkerRequest;
+  export type Output = ListSessionsForWorkerResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListStepConsumers {
+  export type Input = ListStepConsumersRequest;
+  export type Output = ListStepConsumersResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListStepDependencies {
+  export type Input = ListStepDependenciesRequest;
+  export type Output = ListStepDependenciesResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListSteps {
+  export type Input = ListStepsRequest;
+  export type Output = ListStepsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListStorageProfiles {
+  export type Input = ListStorageProfilesRequest;
+  export type Output = ListStorageProfilesResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListStorageProfilesForQueue {
+  export type Input = ListStorageProfilesForQueueRequest;
+  export type Output = ListStorageProfilesForQueueResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListTasks {
+  export type Input = ListTasksRequest;
+  export type Output = ListTasksResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListWorkers {
+  export type Input = ListWorkersRequest;
+  export type Output = ListWorkersResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace PutMeteredProduct {
+  export type Input = PutMeteredProductRequest;
+  export type Output = PutMeteredProductResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateBudget {
+  export type Input = UpdateBudgetRequest;
+  export type Output = UpdateBudgetResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateFarm {
+  export type Input = UpdateFarmRequest;
+  export type Output = UpdateFarmResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateFleet {
+  export type Input = UpdateFleetRequest;
+  export type Output = UpdateFleetResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateJob {
+  export type Input = UpdateJobRequest;
+  export type Output = UpdateJobResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateLimit {
+  export type Input = UpdateLimitRequest;
+  export type Output = UpdateLimitResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateMonitor {
+  export type Input = UpdateMonitorRequest;
+  export type Output = UpdateMonitorResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateQueue {
+  export type Input = UpdateQueueRequest;
+  export type Output = UpdateQueueResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateQueueEnvironment {
+  export type Input = UpdateQueueEnvironmentRequest;
+  export type Output = UpdateQueueEnvironmentResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateSession {
+  export type Input = UpdateSessionRequest;
+  export type Output = UpdateSessionResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateStep {
+  export type Input = UpdateStepRequest;
+  export type Output = UpdateStepResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateStorageProfile {
+  export type Input = UpdateStorageProfileRequest;
+  export type Output = UpdateStorageProfileResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateTask {
+  export type Input = UpdateTaskRequest;
+  export type Output = UpdateTaskResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateWorker {
+  export type Input = UpdateWorkerRequest;
+  export type Output = UpdateWorkerResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerErrorException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateWorkerSchedule {
+  export type Input = UpdateWorkerScheduleRequest;
+  export type Output = UpdateWorkerScheduleResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
     | InternalServerErrorException
     | ResourceNotFoundException
     | ThrottlingException

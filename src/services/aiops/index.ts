@@ -39,6 +39,94 @@ export declare class AIOps extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
+  createInvestigationGroup(
+    input: CreateInvestigationGroupInput,
+  ): Effect.Effect<
+    CreateInvestigationGroupOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteInvestigationGroup(
+    input: DeleteInvestigationGroupRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
+  >;
+  deleteInvestigationGroupPolicy(
+    input: DeleteInvestigationGroupPolicyRequest,
+  ): Effect.Effect<
+    DeleteInvestigationGroupPolicyOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getInvestigationGroup(
+    input: GetInvestigationGroupRequest,
+  ): Effect.Effect<
+    GetInvestigationGroupResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
+  >;
+  getInvestigationGroupPolicy(
+    input: GetInvestigationGroupPolicyRequest,
+  ): Effect.Effect<
+    GetInvestigationGroupPolicyResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listInvestigationGroups(
+    input: ListInvestigationGroupsInput,
+  ): Effect.Effect<
+    ListInvestigationGroupsOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | CommonAwsError
+  >;
+  putInvestigationGroupPolicy(
+    input: PutInvestigationGroupPolicyRequest,
+  ): Effect.Effect<
+    PutInvestigationGroupPolicyResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateInvestigationGroup(
+    input: UpdateInvestigationGroupRequest,
+  ): Effect.Effect<
+    UpdateInvestigationGroupOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
 }
 
 export declare class Aiops extends AIOps {}
@@ -250,6 +338,102 @@ export declare namespace TagResource {
 export declare namespace UntagResource {
   export type Input = UntagResourceRequest;
   export type Output = UntagResourceResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateInvestigationGroup {
+  export type Input = CreateInvestigationGroupInput;
+  export type Output = CreateInvestigationGroupOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteInvestigationGroup {
+  export type Input = DeleteInvestigationGroupRequest;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteInvestigationGroupPolicy {
+  export type Input = DeleteInvestigationGroupPolicyRequest;
+  export type Output = DeleteInvestigationGroupPolicyOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetInvestigationGroup {
+  export type Input = GetInvestigationGroupRequest;
+  export type Output = GetInvestigationGroupResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError;
+}
+
+export declare namespace GetInvestigationGroupPolicy {
+  export type Input = GetInvestigationGroupPolicyRequest;
+  export type Output = GetInvestigationGroupPolicyResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListInvestigationGroups {
+  export type Input = ListInvestigationGroupsInput;
+  export type Output = ListInvestigationGroupsOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | CommonAwsError;
+}
+
+export declare namespace PutInvestigationGroupPolicy {
+  export type Input = PutInvestigationGroupPolicyRequest;
+  export type Output = PutInvestigationGroupPolicyResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateInvestigationGroup {
+  export type Input = UpdateInvestigationGroupRequest;
+  export type Output = UpdateInvestigationGroupOutput;
   export type Error =
     | AccessDeniedException
     | ConflictException

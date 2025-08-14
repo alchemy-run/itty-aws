@@ -49,6 +49,121 @@ export declare class BedrockDataAutomation extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
+  createBlueprint(
+    input: CreateBlueprintRequest,
+  ): Effect.Effect<
+    CreateBlueprintResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createDataAutomationProject(
+    input: CreateDataAutomationProjectRequest,
+  ): Effect.Effect<
+    CreateDataAutomationProjectResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteBlueprint(
+    input: DeleteBlueprintRequest,
+  ): Effect.Effect<
+    DeleteBlueprintResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteDataAutomationProject(
+    input: DeleteDataAutomationProjectRequest,
+  ): Effect.Effect<
+    DeleteDataAutomationProjectResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getBlueprint(
+    input: GetBlueprintRequest,
+  ): Effect.Effect<
+    GetBlueprintResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getDataAutomationProject(
+    input: GetDataAutomationProjectRequest,
+  ): Effect.Effect<
+    GetDataAutomationProjectResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listBlueprints(
+    input: ListBlueprintsRequest,
+  ): Effect.Effect<
+    ListBlueprintsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listDataAutomationProjects(
+    input: ListDataAutomationProjectsRequest,
+  ): Effect.Effect<
+    ListDataAutomationProjectsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateBlueprint(
+    input: UpdateBlueprintRequest,
+  ): Effect.Effect<
+    UpdateBlueprintResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateDataAutomationProject(
+    input: UpdateDataAutomationProjectRequest,
+  ): Effect.Effect<
+    UpdateDataAutomationProjectResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
 }
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
@@ -545,6 +660,131 @@ export declare namespace UntagResource {
     | AccessDeniedException
     | InternalServerException
     | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateBlueprint {
+  export type Input = CreateBlueprintRequest;
+  export type Output = CreateBlueprintResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateDataAutomationProject {
+  export type Input = CreateDataAutomationProjectRequest;
+  export type Output = CreateDataAutomationProjectResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteBlueprint {
+  export type Input = DeleteBlueprintRequest;
+  export type Output = DeleteBlueprintResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteDataAutomationProject {
+  export type Input = DeleteDataAutomationProjectRequest;
+  export type Output = DeleteDataAutomationProjectResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetBlueprint {
+  export type Input = GetBlueprintRequest;
+  export type Output = GetBlueprintResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetDataAutomationProject {
+  export type Input = GetDataAutomationProjectRequest;
+  export type Output = GetDataAutomationProjectResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListBlueprints {
+  export type Input = ListBlueprintsRequest;
+  export type Output = ListBlueprintsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListDataAutomationProjects {
+  export type Input = ListDataAutomationProjectsRequest;
+  export type Output = ListDataAutomationProjectsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateBlueprint {
+  export type Input = UpdateBlueprintRequest;
+  export type Output = UpdateBlueprintResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateDataAutomationProject {
+  export type Input = UpdateDataAutomationProjectRequest;
+  export type Output = UpdateDataAutomationProjectResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
     | ThrottlingException
     | ValidationException
     | CommonAwsError;

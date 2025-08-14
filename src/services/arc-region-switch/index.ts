@@ -85,6 +85,45 @@ export declare class ARCRegionswitch extends AWSServiceClient {
     UpdatePlanExecutionStepResponse,
     AccessDeniedException | ResourceNotFoundException | CommonAwsError
   >;
+  createPlan(
+    input: CreatePlanRequest,
+  ): Effect.Effect<CreatePlanResponse, CommonAwsError>;
+  deletePlan(
+    input: DeletePlanRequest,
+  ): Effect.Effect<
+    DeletePlanResponse,
+    IllegalStateException | ResourceNotFoundException | CommonAwsError
+  >;
+  getPlan(
+    input: GetPlanRequest,
+  ): Effect.Effect<GetPlanResponse, ResourceNotFoundException | CommonAwsError>;
+  listPlans(
+    input: ListPlansRequest,
+  ): Effect.Effect<ListPlansResponse, CommonAwsError>;
+  listTagsForResource(
+    input: ListTagsForResourceRequest,
+  ): Effect.Effect<
+    ListTagsForResourceResponse,
+    InternalServerException | ResourceNotFoundException | CommonAwsError
+  >;
+  tagResource(
+    input: TagResourceRequest,
+  ): Effect.Effect<
+    TagResourceResponse,
+    InternalServerException | ResourceNotFoundException | CommonAwsError
+  >;
+  untagResource(
+    input: UntagResourceRequest,
+  ): Effect.Effect<
+    UntagResourceResponse,
+    InternalServerException | ResourceNotFoundException | CommonAwsError
+  >;
+  updatePlan(
+    input: UpdatePlanRequest,
+  ): Effect.Effect<
+    UpdatePlanResponse,
+    ResourceNotFoundException | CommonAwsError
+  >;
 }
 
 export interface AbbreviatedExecution {
@@ -866,4 +905,64 @@ export declare namespace UpdatePlanExecutionStep {
     | AccessDeniedException
     | ResourceNotFoundException
     | CommonAwsError;
+}
+
+export declare namespace CreatePlan {
+  export type Input = CreatePlanRequest;
+  export type Output = CreatePlanResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace DeletePlan {
+  export type Input = DeletePlanRequest;
+  export type Output = DeletePlanResponse;
+  export type Error =
+    | IllegalStateException
+    | ResourceNotFoundException
+    | CommonAwsError;
+}
+
+export declare namespace GetPlan {
+  export type Input = GetPlanRequest;
+  export type Output = GetPlanResponse;
+  export type Error = ResourceNotFoundException | CommonAwsError;
+}
+
+export declare namespace ListPlans {
+  export type Input = ListPlansRequest;
+  export type Output = ListPlansResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace ListTagsForResource {
+  export type Input = ListTagsForResourceRequest;
+  export type Output = ListTagsForResourceResponse;
+  export type Error =
+    | InternalServerException
+    | ResourceNotFoundException
+    | CommonAwsError;
+}
+
+export declare namespace TagResource {
+  export type Input = TagResourceRequest;
+  export type Output = TagResourceResponse;
+  export type Error =
+    | InternalServerException
+    | ResourceNotFoundException
+    | CommonAwsError;
+}
+
+export declare namespace UntagResource {
+  export type Input = UntagResourceRequest;
+  export type Output = UntagResourceResponse;
+  export type Error =
+    | InternalServerException
+    | ResourceNotFoundException
+    | CommonAwsError;
+}
+
+export declare namespace UpdatePlan {
+  export type Input = UpdatePlanRequest;
+  export type Output = UpdatePlanResponse;
+  export type Error = ResourceNotFoundException | CommonAwsError;
 }

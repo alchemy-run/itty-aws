@@ -152,6 +152,860 @@ export declare class Proton extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
+  acceptEnvironmentAccountConnection(
+    input: AcceptEnvironmentAccountConnectionInput,
+  ): Effect.Effect<
+    AcceptEnvironmentAccountConnectionOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createComponent(
+    input: CreateComponentInput,
+  ): Effect.Effect<
+    CreateComponentOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createEnvironment(
+    input: CreateEnvironmentInput,
+  ): Effect.Effect<
+    CreateEnvironmentOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createEnvironmentAccountConnection(
+    input: CreateEnvironmentAccountConnectionInput,
+  ): Effect.Effect<
+    CreateEnvironmentAccountConnectionOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createEnvironmentTemplate(
+    input: CreateEnvironmentTemplateInput,
+  ): Effect.Effect<
+    CreateEnvironmentTemplateOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createEnvironmentTemplateVersion(
+    input: CreateEnvironmentTemplateVersionInput,
+  ): Effect.Effect<
+    CreateEnvironmentTemplateVersionOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createRepository(
+    input: CreateRepositoryInput,
+  ): Effect.Effect<
+    CreateRepositoryOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createService(
+    input: CreateServiceInput,
+  ): Effect.Effect<
+    CreateServiceOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createServiceInstance(
+    input: CreateServiceInstanceInput,
+  ): Effect.Effect<
+    CreateServiceInstanceOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createServiceSyncConfig(
+    input: CreateServiceSyncConfigInput,
+  ): Effect.Effect<
+    CreateServiceSyncConfigOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createServiceTemplate(
+    input: CreateServiceTemplateInput,
+  ): Effect.Effect<
+    CreateServiceTemplateOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createServiceTemplateVersion(
+    input: CreateServiceTemplateVersionInput,
+  ): Effect.Effect<
+    CreateServiceTemplateVersionOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createTemplateSyncConfig(
+    input: CreateTemplateSyncConfigInput,
+  ): Effect.Effect<
+    CreateTemplateSyncConfigOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteComponent(
+    input: DeleteComponentInput,
+  ): Effect.Effect<
+    DeleteComponentOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteDeployment(
+    input: DeleteDeploymentInput,
+  ): Effect.Effect<
+    DeleteDeploymentOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteEnvironment(
+    input: DeleteEnvironmentInput,
+  ): Effect.Effect<
+    DeleteEnvironmentOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteEnvironmentAccountConnection(
+    input: DeleteEnvironmentAccountConnectionInput,
+  ): Effect.Effect<
+    DeleteEnvironmentAccountConnectionOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteEnvironmentTemplate(
+    input: DeleteEnvironmentTemplateInput,
+  ): Effect.Effect<
+    DeleteEnvironmentTemplateOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteEnvironmentTemplateVersion(
+    input: DeleteEnvironmentTemplateVersionInput,
+  ): Effect.Effect<
+    DeleteEnvironmentTemplateVersionOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteRepository(
+    input: DeleteRepositoryInput,
+  ): Effect.Effect<
+    DeleteRepositoryOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteService(
+    input: DeleteServiceInput,
+  ): Effect.Effect<
+    DeleteServiceOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteServiceSyncConfig(
+    input: DeleteServiceSyncConfigInput,
+  ): Effect.Effect<
+    DeleteServiceSyncConfigOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteServiceTemplate(
+    input: DeleteServiceTemplateInput,
+  ): Effect.Effect<
+    DeleteServiceTemplateOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteServiceTemplateVersion(
+    input: DeleteServiceTemplateVersionInput,
+  ): Effect.Effect<
+    DeleteServiceTemplateVersionOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteTemplateSyncConfig(
+    input: DeleteTemplateSyncConfigInput,
+  ): Effect.Effect<
+    DeleteTemplateSyncConfigOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getAccountSettings(
+    input: GetAccountSettingsInput,
+  ): Effect.Effect<
+    GetAccountSettingsOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getComponent(
+    input: GetComponentInput,
+  ): Effect.Effect<
+    GetComponentOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getDeployment(
+    input: GetDeploymentInput,
+  ): Effect.Effect<
+    GetDeploymentOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getEnvironment(
+    input: GetEnvironmentInput,
+  ): Effect.Effect<
+    GetEnvironmentOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getEnvironmentAccountConnection(
+    input: GetEnvironmentAccountConnectionInput,
+  ): Effect.Effect<
+    GetEnvironmentAccountConnectionOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getEnvironmentTemplate(
+    input: GetEnvironmentTemplateInput,
+  ): Effect.Effect<
+    GetEnvironmentTemplateOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getEnvironmentTemplateVersion(
+    input: GetEnvironmentTemplateVersionInput,
+  ): Effect.Effect<
+    GetEnvironmentTemplateVersionOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getRepository(
+    input: GetRepositoryInput,
+  ): Effect.Effect<
+    GetRepositoryOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getService(
+    input: GetServiceInput,
+  ): Effect.Effect<
+    GetServiceOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getServiceInstance(
+    input: GetServiceInstanceInput,
+  ): Effect.Effect<
+    GetServiceInstanceOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getServiceSyncBlockerSummary(
+    input: GetServiceSyncBlockerSummaryInput,
+  ): Effect.Effect<
+    GetServiceSyncBlockerSummaryOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getServiceSyncConfig(
+    input: GetServiceSyncConfigInput,
+  ): Effect.Effect<
+    GetServiceSyncConfigOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getServiceTemplate(
+    input: GetServiceTemplateInput,
+  ): Effect.Effect<
+    GetServiceTemplateOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getServiceTemplateVersion(
+    input: GetServiceTemplateVersionInput,
+  ): Effect.Effect<
+    GetServiceTemplateVersionOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getTemplateSyncConfig(
+    input: GetTemplateSyncConfigInput,
+  ): Effect.Effect<
+    GetTemplateSyncConfigOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listComponentOutputs(
+    input: ListComponentOutputsInput,
+  ): Effect.Effect<
+    ListComponentOutputsOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listComponentProvisionedResources(
+    input: ListComponentProvisionedResourcesInput,
+  ): Effect.Effect<
+    ListComponentProvisionedResourcesOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listComponents(
+    input: ListComponentsInput,
+  ): Effect.Effect<
+    ListComponentsOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listDeployments(
+    input: ListDeploymentsInput,
+  ): Effect.Effect<
+    ListDeploymentsOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listEnvironmentAccountConnections(
+    input: ListEnvironmentAccountConnectionsInput,
+  ): Effect.Effect<
+    ListEnvironmentAccountConnectionsOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listEnvironmentOutputs(
+    input: ListEnvironmentOutputsInput,
+  ): Effect.Effect<
+    ListEnvironmentOutputsOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listEnvironmentProvisionedResources(
+    input: ListEnvironmentProvisionedResourcesInput,
+  ): Effect.Effect<
+    ListEnvironmentProvisionedResourcesOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listEnvironmentTemplateVersions(
+    input: ListEnvironmentTemplateVersionsInput,
+  ): Effect.Effect<
+    ListEnvironmentTemplateVersionsOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listEnvironmentTemplates(
+    input: ListEnvironmentTemplatesInput,
+  ): Effect.Effect<
+    ListEnvironmentTemplatesOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listEnvironments(
+    input: ListEnvironmentsInput,
+  ): Effect.Effect<
+    ListEnvironmentsOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listRepositories(
+    input: ListRepositoriesInput,
+  ): Effect.Effect<
+    ListRepositoriesOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listServiceInstanceOutputs(
+    input: ListServiceInstanceOutputsInput,
+  ): Effect.Effect<
+    ListServiceInstanceOutputsOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listServiceInstanceProvisionedResources(
+    input: ListServiceInstanceProvisionedResourcesInput,
+  ): Effect.Effect<
+    ListServiceInstanceProvisionedResourcesOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listServiceInstances(
+    input: ListServiceInstancesInput,
+  ): Effect.Effect<
+    ListServiceInstancesOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listServicePipelineOutputs(
+    input: ListServicePipelineOutputsInput,
+  ): Effect.Effect<
+    ListServicePipelineOutputsOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listServicePipelineProvisionedResources(
+    input: ListServicePipelineProvisionedResourcesInput,
+  ): Effect.Effect<
+    ListServicePipelineProvisionedResourcesOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listServiceTemplateVersions(
+    input: ListServiceTemplateVersionsInput,
+  ): Effect.Effect<
+    ListServiceTemplateVersionsOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listServiceTemplates(
+    input: ListServiceTemplatesInput,
+  ): Effect.Effect<
+    ListServiceTemplatesOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listServices(
+    input: ListServicesInput,
+  ): Effect.Effect<
+    ListServicesOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  rejectEnvironmentAccountConnection(
+    input: RejectEnvironmentAccountConnectionInput,
+  ): Effect.Effect<
+    RejectEnvironmentAccountConnectionOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateAccountSettings(
+    input: UpdateAccountSettingsInput,
+  ): Effect.Effect<
+    UpdateAccountSettingsOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateComponent(
+    input: UpdateComponentInput,
+  ): Effect.Effect<
+    UpdateComponentOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateEnvironment(
+    input: UpdateEnvironmentInput,
+  ): Effect.Effect<
+    UpdateEnvironmentOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateEnvironmentAccountConnection(
+    input: UpdateEnvironmentAccountConnectionInput,
+  ): Effect.Effect<
+    UpdateEnvironmentAccountConnectionOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateEnvironmentTemplate(
+    input: UpdateEnvironmentTemplateInput,
+  ): Effect.Effect<
+    UpdateEnvironmentTemplateOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateEnvironmentTemplateVersion(
+    input: UpdateEnvironmentTemplateVersionInput,
+  ): Effect.Effect<
+    UpdateEnvironmentTemplateVersionOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateService(
+    input: UpdateServiceInput,
+  ): Effect.Effect<
+    UpdateServiceOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateServiceInstance(
+    input: UpdateServiceInstanceInput,
+  ): Effect.Effect<
+    UpdateServiceInstanceOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateServicePipeline(
+    input: UpdateServicePipelineInput,
+  ): Effect.Effect<
+    UpdateServicePipelineOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateServiceSyncBlocker(
+    input: UpdateServiceSyncBlockerInput,
+  ): Effect.Effect<
+    UpdateServiceSyncBlockerOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateServiceSyncConfig(
+    input: UpdateServiceSyncConfigInput,
+  ): Effect.Effect<
+    UpdateServiceSyncConfigOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateServiceTemplate(
+    input: UpdateServiceTemplateInput,
+  ): Effect.Effect<
+    UpdateServiceTemplateOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateServiceTemplateVersion(
+    input: UpdateServiceTemplateVersionInput,
+  ): Effect.Effect<
+    UpdateServiceTemplateVersionOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateTemplateSyncConfig(
+    input: UpdateTemplateSyncConfigInput,
+  ): Effect.Effect<
+    UpdateTemplateSyncConfigOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
 }
 
 export interface AcceptEnvironmentAccountConnectionInput {
@@ -1768,6 +2622,934 @@ export declare namespace TagResource {
 export declare namespace UntagResource {
   export type Input = UntagResourceInput;
   export type Output = UntagResourceOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace AcceptEnvironmentAccountConnection {
+  export type Input = AcceptEnvironmentAccountConnectionInput;
+  export type Output = AcceptEnvironmentAccountConnectionOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateComponent {
+  export type Input = CreateComponentInput;
+  export type Output = CreateComponentOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateEnvironment {
+  export type Input = CreateEnvironmentInput;
+  export type Output = CreateEnvironmentOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateEnvironmentAccountConnection {
+  export type Input = CreateEnvironmentAccountConnectionInput;
+  export type Output = CreateEnvironmentAccountConnectionOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateEnvironmentTemplate {
+  export type Input = CreateEnvironmentTemplateInput;
+  export type Output = CreateEnvironmentTemplateOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateEnvironmentTemplateVersion {
+  export type Input = CreateEnvironmentTemplateVersionInput;
+  export type Output = CreateEnvironmentTemplateVersionOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateRepository {
+  export type Input = CreateRepositoryInput;
+  export type Output = CreateRepositoryOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateService {
+  export type Input = CreateServiceInput;
+  export type Output = CreateServiceOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateServiceInstance {
+  export type Input = CreateServiceInstanceInput;
+  export type Output = CreateServiceInstanceOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateServiceSyncConfig {
+  export type Input = CreateServiceSyncConfigInput;
+  export type Output = CreateServiceSyncConfigOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateServiceTemplate {
+  export type Input = CreateServiceTemplateInput;
+  export type Output = CreateServiceTemplateOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateServiceTemplateVersion {
+  export type Input = CreateServiceTemplateVersionInput;
+  export type Output = CreateServiceTemplateVersionOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateTemplateSyncConfig {
+  export type Input = CreateTemplateSyncConfigInput;
+  export type Output = CreateTemplateSyncConfigOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteComponent {
+  export type Input = DeleteComponentInput;
+  export type Output = DeleteComponentOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteDeployment {
+  export type Input = DeleteDeploymentInput;
+  export type Output = DeleteDeploymentOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteEnvironment {
+  export type Input = DeleteEnvironmentInput;
+  export type Output = DeleteEnvironmentOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteEnvironmentAccountConnection {
+  export type Input = DeleteEnvironmentAccountConnectionInput;
+  export type Output = DeleteEnvironmentAccountConnectionOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteEnvironmentTemplate {
+  export type Input = DeleteEnvironmentTemplateInput;
+  export type Output = DeleteEnvironmentTemplateOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteEnvironmentTemplateVersion {
+  export type Input = DeleteEnvironmentTemplateVersionInput;
+  export type Output = DeleteEnvironmentTemplateVersionOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteRepository {
+  export type Input = DeleteRepositoryInput;
+  export type Output = DeleteRepositoryOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteService {
+  export type Input = DeleteServiceInput;
+  export type Output = DeleteServiceOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteServiceSyncConfig {
+  export type Input = DeleteServiceSyncConfigInput;
+  export type Output = DeleteServiceSyncConfigOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteServiceTemplate {
+  export type Input = DeleteServiceTemplateInput;
+  export type Output = DeleteServiceTemplateOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteServiceTemplateVersion {
+  export type Input = DeleteServiceTemplateVersionInput;
+  export type Output = DeleteServiceTemplateVersionOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteTemplateSyncConfig {
+  export type Input = DeleteTemplateSyncConfigInput;
+  export type Output = DeleteTemplateSyncConfigOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetAccountSettings {
+  export type Input = GetAccountSettingsInput;
+  export type Output = GetAccountSettingsOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetComponent {
+  export type Input = GetComponentInput;
+  export type Output = GetComponentOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetDeployment {
+  export type Input = GetDeploymentInput;
+  export type Output = GetDeploymentOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetEnvironment {
+  export type Input = GetEnvironmentInput;
+  export type Output = GetEnvironmentOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetEnvironmentAccountConnection {
+  export type Input = GetEnvironmentAccountConnectionInput;
+  export type Output = GetEnvironmentAccountConnectionOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetEnvironmentTemplate {
+  export type Input = GetEnvironmentTemplateInput;
+  export type Output = GetEnvironmentTemplateOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetEnvironmentTemplateVersion {
+  export type Input = GetEnvironmentTemplateVersionInput;
+  export type Output = GetEnvironmentTemplateVersionOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetRepository {
+  export type Input = GetRepositoryInput;
+  export type Output = GetRepositoryOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetService {
+  export type Input = GetServiceInput;
+  export type Output = GetServiceOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetServiceInstance {
+  export type Input = GetServiceInstanceInput;
+  export type Output = GetServiceInstanceOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetServiceSyncBlockerSummary {
+  export type Input = GetServiceSyncBlockerSummaryInput;
+  export type Output = GetServiceSyncBlockerSummaryOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetServiceSyncConfig {
+  export type Input = GetServiceSyncConfigInput;
+  export type Output = GetServiceSyncConfigOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetServiceTemplate {
+  export type Input = GetServiceTemplateInput;
+  export type Output = GetServiceTemplateOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetServiceTemplateVersion {
+  export type Input = GetServiceTemplateVersionInput;
+  export type Output = GetServiceTemplateVersionOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetTemplateSyncConfig {
+  export type Input = GetTemplateSyncConfigInput;
+  export type Output = GetTemplateSyncConfigOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListComponentOutputs {
+  export type Input = ListComponentOutputsInput;
+  export type Output = ListComponentOutputsOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListComponentProvisionedResources {
+  export type Input = ListComponentProvisionedResourcesInput;
+  export type Output = ListComponentProvisionedResourcesOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListComponents {
+  export type Input = ListComponentsInput;
+  export type Output = ListComponentsOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListDeployments {
+  export type Input = ListDeploymentsInput;
+  export type Output = ListDeploymentsOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListEnvironmentAccountConnections {
+  export type Input = ListEnvironmentAccountConnectionsInput;
+  export type Output = ListEnvironmentAccountConnectionsOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListEnvironmentOutputs {
+  export type Input = ListEnvironmentOutputsInput;
+  export type Output = ListEnvironmentOutputsOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListEnvironmentProvisionedResources {
+  export type Input = ListEnvironmentProvisionedResourcesInput;
+  export type Output = ListEnvironmentProvisionedResourcesOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListEnvironmentTemplateVersions {
+  export type Input = ListEnvironmentTemplateVersionsInput;
+  export type Output = ListEnvironmentTemplateVersionsOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListEnvironmentTemplates {
+  export type Input = ListEnvironmentTemplatesInput;
+  export type Output = ListEnvironmentTemplatesOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListEnvironments {
+  export type Input = ListEnvironmentsInput;
+  export type Output = ListEnvironmentsOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListRepositories {
+  export type Input = ListRepositoriesInput;
+  export type Output = ListRepositoriesOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListServiceInstanceOutputs {
+  export type Input = ListServiceInstanceOutputsInput;
+  export type Output = ListServiceInstanceOutputsOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListServiceInstanceProvisionedResources {
+  export type Input = ListServiceInstanceProvisionedResourcesInput;
+  export type Output = ListServiceInstanceProvisionedResourcesOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListServiceInstances {
+  export type Input = ListServiceInstancesInput;
+  export type Output = ListServiceInstancesOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListServicePipelineOutputs {
+  export type Input = ListServicePipelineOutputsInput;
+  export type Output = ListServicePipelineOutputsOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListServicePipelineProvisionedResources {
+  export type Input = ListServicePipelineProvisionedResourcesInput;
+  export type Output = ListServicePipelineProvisionedResourcesOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListServiceTemplateVersions {
+  export type Input = ListServiceTemplateVersionsInput;
+  export type Output = ListServiceTemplateVersionsOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListServiceTemplates {
+  export type Input = ListServiceTemplatesInput;
+  export type Output = ListServiceTemplatesOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListServices {
+  export type Input = ListServicesInput;
+  export type Output = ListServicesOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace RejectEnvironmentAccountConnection {
+  export type Input = RejectEnvironmentAccountConnectionInput;
+  export type Output = RejectEnvironmentAccountConnectionOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateAccountSettings {
+  export type Input = UpdateAccountSettingsInput;
+  export type Output = UpdateAccountSettingsOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateComponent {
+  export type Input = UpdateComponentInput;
+  export type Output = UpdateComponentOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateEnvironment {
+  export type Input = UpdateEnvironmentInput;
+  export type Output = UpdateEnvironmentOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateEnvironmentAccountConnection {
+  export type Input = UpdateEnvironmentAccountConnectionInput;
+  export type Output = UpdateEnvironmentAccountConnectionOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateEnvironmentTemplate {
+  export type Input = UpdateEnvironmentTemplateInput;
+  export type Output = UpdateEnvironmentTemplateOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateEnvironmentTemplateVersion {
+  export type Input = UpdateEnvironmentTemplateVersionInput;
+  export type Output = UpdateEnvironmentTemplateVersionOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateService {
+  export type Input = UpdateServiceInput;
+  export type Output = UpdateServiceOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateServiceInstance {
+  export type Input = UpdateServiceInstanceInput;
+  export type Output = UpdateServiceInstanceOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateServicePipeline {
+  export type Input = UpdateServicePipelineInput;
+  export type Output = UpdateServicePipelineOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateServiceSyncBlocker {
+  export type Input = UpdateServiceSyncBlockerInput;
+  export type Output = UpdateServiceSyncBlockerOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateServiceSyncConfig {
+  export type Input = UpdateServiceSyncConfigInput;
+  export type Output = UpdateServiceSyncConfigOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateServiceTemplate {
+  export type Input = UpdateServiceTemplateInput;
+  export type Output = UpdateServiceTemplateOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateServiceTemplateVersion {
+  export type Input = UpdateServiceTemplateVersionInput;
+  export type Output = UpdateServiceTemplateVersionOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateTemplateSyncConfig {
+  export type Input = UpdateTemplateSyncConfigInput;
+  export type Output = UpdateTemplateSyncConfigOutput;
   export type Error =
     | AccessDeniedException
     | ConflictException

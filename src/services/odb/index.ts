@@ -83,6 +83,355 @@ export declare class odb extends AWSServiceClient {
     UntagResourceResponse,
     ResourceNotFoundException | CommonAwsError
   >;
+  createCloudAutonomousVmCluster(
+    input: CreateCloudAutonomousVmClusterInput,
+  ): Effect.Effect<
+    CreateCloudAutonomousVmClusterOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createCloudExadataInfrastructure(
+    input: CreateCloudExadataInfrastructureInput,
+  ): Effect.Effect<
+    CreateCloudExadataInfrastructureOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createCloudVmCluster(
+    input: CreateCloudVmClusterInput,
+  ): Effect.Effect<
+    CreateCloudVmClusterOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createOdbNetwork(
+    input: CreateOdbNetworkInput,
+  ): Effect.Effect<
+    CreateOdbNetworkOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createOdbPeeringConnection(
+    input: CreateOdbPeeringConnectionInput,
+  ): Effect.Effect<
+    CreateOdbPeeringConnectionOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteCloudAutonomousVmCluster(
+    input: DeleteCloudAutonomousVmClusterInput,
+  ): Effect.Effect<
+    DeleteCloudAutonomousVmClusterOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteCloudExadataInfrastructure(
+    input: DeleteCloudExadataInfrastructureInput,
+  ): Effect.Effect<
+    DeleteCloudExadataInfrastructureOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteCloudVmCluster(
+    input: DeleteCloudVmClusterInput,
+  ): Effect.Effect<
+    DeleteCloudVmClusterOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteOdbNetwork(
+    input: DeleteOdbNetworkInput,
+  ): Effect.Effect<
+    DeleteOdbNetworkOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteOdbPeeringConnection(
+    input: DeleteOdbPeeringConnectionInput,
+  ): Effect.Effect<
+    DeleteOdbPeeringConnectionOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getCloudAutonomousVmCluster(
+    input: GetCloudAutonomousVmClusterInput,
+  ): Effect.Effect<
+    GetCloudAutonomousVmClusterOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getCloudExadataInfrastructure(
+    input: GetCloudExadataInfrastructureInput,
+  ): Effect.Effect<
+    GetCloudExadataInfrastructureOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getCloudExadataInfrastructureUnallocatedResources(
+    input: GetCloudExadataInfrastructureUnallocatedResourcesInput,
+  ): Effect.Effect<
+    GetCloudExadataInfrastructureUnallocatedResourcesOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getCloudVmCluster(
+    input: GetCloudVmClusterInput,
+  ): Effect.Effect<
+    GetCloudVmClusterOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getDbNode(
+    input: GetDbNodeInput,
+  ): Effect.Effect<
+    GetDbNodeOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getDbServer(
+    input: GetDbServerInput,
+  ): Effect.Effect<
+    GetDbServerOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getOdbNetwork(
+    input: GetOdbNetworkInput,
+  ): Effect.Effect<
+    GetOdbNetworkOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getOdbPeeringConnection(
+    input: GetOdbPeeringConnectionInput,
+  ): Effect.Effect<
+    GetOdbPeeringConnectionOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listAutonomousVirtualMachines(
+    input: ListAutonomousVirtualMachinesInput,
+  ): Effect.Effect<
+    ListAutonomousVirtualMachinesOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listCloudAutonomousVmClusters(
+    input: ListCloudAutonomousVmClustersInput,
+  ): Effect.Effect<
+    ListCloudAutonomousVmClustersOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listCloudExadataInfrastructures(
+    input: ListCloudExadataInfrastructuresInput,
+  ): Effect.Effect<
+    ListCloudExadataInfrastructuresOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listCloudVmClusters(
+    input: ListCloudVmClustersInput,
+  ): Effect.Effect<
+    ListCloudVmClustersOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listDbNodes(
+    input: ListDbNodesInput,
+  ): Effect.Effect<
+    ListDbNodesOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listDbServers(
+    input: ListDbServersInput,
+  ): Effect.Effect<
+    ListDbServersOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listOdbNetworks(
+    input: ListOdbNetworksInput,
+  ): Effect.Effect<
+    ListOdbNetworksOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listOdbPeeringConnections(
+    input: ListOdbPeeringConnectionsInput,
+  ): Effect.Effect<
+    ListOdbPeeringConnectionsOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  rebootDbNode(
+    input: RebootDbNodeInput,
+  ): Effect.Effect<
+    RebootDbNodeOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  startDbNode(
+    input: StartDbNodeInput,
+  ): Effect.Effect<
+    StartDbNodeOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  stopDbNode(
+    input: StopDbNodeInput,
+  ): Effect.Effect<
+    StopDbNodeOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateCloudExadataInfrastructure(
+    input: UpdateCloudExadataInfrastructureInput,
+  ): Effect.Effect<
+    UpdateCloudExadataInfrastructureOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateOdbNetwork(
+    input: UpdateOdbNetworkInput,
+  ): Effect.Effect<
+    UpdateOdbNetworkOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
 }
 
 export interface AcceptMarketplaceRegistrationInput {
@@ -1289,4 +1638,384 @@ export declare namespace UntagResource {
   export type Input = UntagResourceRequest;
   export type Output = UntagResourceResponse;
   export type Error = ResourceNotFoundException | CommonAwsError;
+}
+
+export declare namespace CreateCloudAutonomousVmCluster {
+  export type Input = CreateCloudAutonomousVmClusterInput;
+  export type Output = CreateCloudAutonomousVmClusterOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateCloudExadataInfrastructure {
+  export type Input = CreateCloudExadataInfrastructureInput;
+  export type Output = CreateCloudExadataInfrastructureOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateCloudVmCluster {
+  export type Input = CreateCloudVmClusterInput;
+  export type Output = CreateCloudVmClusterOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateOdbNetwork {
+  export type Input = CreateOdbNetworkInput;
+  export type Output = CreateOdbNetworkOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateOdbPeeringConnection {
+  export type Input = CreateOdbPeeringConnectionInput;
+  export type Output = CreateOdbPeeringConnectionOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteCloudAutonomousVmCluster {
+  export type Input = DeleteCloudAutonomousVmClusterInput;
+  export type Output = DeleteCloudAutonomousVmClusterOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteCloudExadataInfrastructure {
+  export type Input = DeleteCloudExadataInfrastructureInput;
+  export type Output = DeleteCloudExadataInfrastructureOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteCloudVmCluster {
+  export type Input = DeleteCloudVmClusterInput;
+  export type Output = DeleteCloudVmClusterOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteOdbNetwork {
+  export type Input = DeleteOdbNetworkInput;
+  export type Output = DeleteOdbNetworkOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteOdbPeeringConnection {
+  export type Input = DeleteOdbPeeringConnectionInput;
+  export type Output = DeleteOdbPeeringConnectionOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetCloudAutonomousVmCluster {
+  export type Input = GetCloudAutonomousVmClusterInput;
+  export type Output = GetCloudAutonomousVmClusterOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetCloudExadataInfrastructure {
+  export type Input = GetCloudExadataInfrastructureInput;
+  export type Output = GetCloudExadataInfrastructureOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetCloudExadataInfrastructureUnallocatedResources {
+  export type Input = GetCloudExadataInfrastructureUnallocatedResourcesInput;
+  export type Output = GetCloudExadataInfrastructureUnallocatedResourcesOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetCloudVmCluster {
+  export type Input = GetCloudVmClusterInput;
+  export type Output = GetCloudVmClusterOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetDbNode {
+  export type Input = GetDbNodeInput;
+  export type Output = GetDbNodeOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetDbServer {
+  export type Input = GetDbServerInput;
+  export type Output = GetDbServerOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetOdbNetwork {
+  export type Input = GetOdbNetworkInput;
+  export type Output = GetOdbNetworkOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetOdbPeeringConnection {
+  export type Input = GetOdbPeeringConnectionInput;
+  export type Output = GetOdbPeeringConnectionOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListAutonomousVirtualMachines {
+  export type Input = ListAutonomousVirtualMachinesInput;
+  export type Output = ListAutonomousVirtualMachinesOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListCloudAutonomousVmClusters {
+  export type Input = ListCloudAutonomousVmClustersInput;
+  export type Output = ListCloudAutonomousVmClustersOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListCloudExadataInfrastructures {
+  export type Input = ListCloudExadataInfrastructuresInput;
+  export type Output = ListCloudExadataInfrastructuresOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListCloudVmClusters {
+  export type Input = ListCloudVmClustersInput;
+  export type Output = ListCloudVmClustersOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListDbNodes {
+  export type Input = ListDbNodesInput;
+  export type Output = ListDbNodesOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListDbServers {
+  export type Input = ListDbServersInput;
+  export type Output = ListDbServersOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListOdbNetworks {
+  export type Input = ListOdbNetworksInput;
+  export type Output = ListOdbNetworksOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListOdbPeeringConnections {
+  export type Input = ListOdbPeeringConnectionsInput;
+  export type Output = ListOdbPeeringConnectionsOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace RebootDbNode {
+  export type Input = RebootDbNodeInput;
+  export type Output = RebootDbNodeOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace StartDbNode {
+  export type Input = StartDbNodeInput;
+  export type Output = StartDbNodeOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace StopDbNode {
+  export type Input = StopDbNodeInput;
+  export type Output = StopDbNodeOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateCloudExadataInfrastructure {
+  export type Input = UpdateCloudExadataInfrastructureInput;
+  export type Output = UpdateCloudExadataInfrastructureOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateOdbNetwork {
+  export type Input = UpdateOdbNetworkInput;
+  export type Output = UpdateOdbNetworkOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
 }

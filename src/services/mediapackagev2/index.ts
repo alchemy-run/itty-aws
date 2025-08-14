@@ -15,6 +15,318 @@ export declare class MediaPackageV2 extends AWSServiceClient {
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<{}, ValidationException | CommonAwsError>;
+  cancelHarvestJob(
+    input: CancelHarvestJobRequest,
+  ): Effect.Effect<
+    CancelHarvestJobResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createChannel(
+    input: CreateChannelRequest,
+  ): Effect.Effect<
+    CreateChannelResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createChannelGroup(
+    input: CreateChannelGroupRequest,
+  ): Effect.Effect<
+    CreateChannelGroupResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createHarvestJob(
+    input: CreateHarvestJobRequest,
+  ): Effect.Effect<
+    CreateHarvestJobResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createOriginEndpoint(
+    input: CreateOriginEndpointRequest,
+  ): Effect.Effect<
+    CreateOriginEndpointResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteChannel(
+    input: DeleteChannelRequest,
+  ): Effect.Effect<
+    DeleteChannelResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteChannelGroup(
+    input: DeleteChannelGroupRequest,
+  ): Effect.Effect<
+    DeleteChannelGroupResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteChannelPolicy(
+    input: DeleteChannelPolicyRequest,
+  ): Effect.Effect<
+    DeleteChannelPolicyResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteOriginEndpoint(
+    input: DeleteOriginEndpointRequest,
+  ): Effect.Effect<
+    DeleteOriginEndpointResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteOriginEndpointPolicy(
+    input: DeleteOriginEndpointPolicyRequest,
+  ): Effect.Effect<
+    DeleteOriginEndpointPolicyResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getChannel(
+    input: GetChannelRequest,
+  ): Effect.Effect<
+    GetChannelResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getChannelGroup(
+    input: GetChannelGroupRequest,
+  ): Effect.Effect<
+    GetChannelGroupResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getChannelPolicy(
+    input: GetChannelPolicyRequest,
+  ): Effect.Effect<
+    GetChannelPolicyResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getHarvestJob(
+    input: GetHarvestJobRequest,
+  ): Effect.Effect<
+    GetHarvestJobResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getOriginEndpoint(
+    input: GetOriginEndpointRequest,
+  ): Effect.Effect<
+    GetOriginEndpointResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getOriginEndpointPolicy(
+    input: GetOriginEndpointPolicyRequest,
+  ): Effect.Effect<
+    GetOriginEndpointPolicyResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listChannelGroups(
+    input: ListChannelGroupsRequest,
+  ): Effect.Effect<
+    ListChannelGroupsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listChannels(
+    input: ListChannelsRequest,
+  ): Effect.Effect<
+    ListChannelsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listHarvestJobs(
+    input: ListHarvestJobsRequest,
+  ): Effect.Effect<
+    ListHarvestJobsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listOriginEndpoints(
+    input: ListOriginEndpointsRequest,
+  ): Effect.Effect<
+    ListOriginEndpointsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  putChannelPolicy(
+    input: PutChannelPolicyRequest,
+  ): Effect.Effect<
+    PutChannelPolicyResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  putOriginEndpointPolicy(
+    input: PutOriginEndpointPolicyRequest,
+  ): Effect.Effect<
+    PutOriginEndpointPolicyResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  resetChannelState(
+    input: ResetChannelStateRequest,
+  ): Effect.Effect<
+    ResetChannelStateResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  resetOriginEndpointState(
+    input: ResetOriginEndpointStateRequest,
+  ): Effect.Effect<
+    ResetOriginEndpointStateResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateChannel(
+    input: UpdateChannelRequest,
+  ): Effect.Effect<
+    UpdateChannelResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateChannelGroup(
+    input: UpdateChannelGroupRequest,
+  ): Effect.Effect<
+    UpdateChannelGroupResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateOriginEndpoint(
+    input: UpdateOriginEndpointRequest,
+  ): Effect.Effect<
+    UpdateOriginEndpointResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
 }
 
 export declare class Mediapackagev2 extends MediaPackageV2 {}
@@ -989,4 +1301,343 @@ export declare namespace UntagResource {
   export type Input = UntagResourceRequest;
   export type Output = {};
   export type Error = ValidationException | CommonAwsError;
+}
+
+export declare namespace CancelHarvestJob {
+  export type Input = CancelHarvestJobRequest;
+  export type Output = CancelHarvestJobResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateChannel {
+  export type Input = CreateChannelRequest;
+  export type Output = CreateChannelResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateChannelGroup {
+  export type Input = CreateChannelGroupRequest;
+  export type Output = CreateChannelGroupResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateHarvestJob {
+  export type Input = CreateHarvestJobRequest;
+  export type Output = CreateHarvestJobResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateOriginEndpoint {
+  export type Input = CreateOriginEndpointRequest;
+  export type Output = CreateOriginEndpointResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteChannel {
+  export type Input = DeleteChannelRequest;
+  export type Output = DeleteChannelResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteChannelGroup {
+  export type Input = DeleteChannelGroupRequest;
+  export type Output = DeleteChannelGroupResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteChannelPolicy {
+  export type Input = DeleteChannelPolicyRequest;
+  export type Output = DeleteChannelPolicyResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteOriginEndpoint {
+  export type Input = DeleteOriginEndpointRequest;
+  export type Output = DeleteOriginEndpointResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteOriginEndpointPolicy {
+  export type Input = DeleteOriginEndpointPolicyRequest;
+  export type Output = DeleteOriginEndpointPolicyResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetChannel {
+  export type Input = GetChannelRequest;
+  export type Output = GetChannelResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetChannelGroup {
+  export type Input = GetChannelGroupRequest;
+  export type Output = GetChannelGroupResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetChannelPolicy {
+  export type Input = GetChannelPolicyRequest;
+  export type Output = GetChannelPolicyResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetHarvestJob {
+  export type Input = GetHarvestJobRequest;
+  export type Output = GetHarvestJobResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetOriginEndpoint {
+  export type Input = GetOriginEndpointRequest;
+  export type Output = GetOriginEndpointResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetOriginEndpointPolicy {
+  export type Input = GetOriginEndpointPolicyRequest;
+  export type Output = GetOriginEndpointPolicyResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListChannelGroups {
+  export type Input = ListChannelGroupsRequest;
+  export type Output = ListChannelGroupsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListChannels {
+  export type Input = ListChannelsRequest;
+  export type Output = ListChannelsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListHarvestJobs {
+  export type Input = ListHarvestJobsRequest;
+  export type Output = ListHarvestJobsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListOriginEndpoints {
+  export type Input = ListOriginEndpointsRequest;
+  export type Output = ListOriginEndpointsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace PutChannelPolicy {
+  export type Input = PutChannelPolicyRequest;
+  export type Output = PutChannelPolicyResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace PutOriginEndpointPolicy {
+  export type Input = PutOriginEndpointPolicyRequest;
+  export type Output = PutOriginEndpointPolicyResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ResetChannelState {
+  export type Input = ResetChannelStateRequest;
+  export type Output = ResetChannelStateResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ResetOriginEndpointState {
+  export type Input = ResetOriginEndpointStateRequest;
+  export type Output = ResetOriginEndpointStateResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateChannel {
+  export type Input = UpdateChannelRequest;
+  export type Output = UpdateChannelResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateChannelGroup {
+  export type Input = UpdateChannelGroupRequest;
+  export type Output = UpdateChannelGroupResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateOriginEndpoint {
+  export type Input = UpdateOriginEndpointRequest;
+  export type Output = UpdateOriginEndpointResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
 }

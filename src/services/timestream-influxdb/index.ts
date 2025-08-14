@@ -18,6 +18,170 @@ export declare class TimestreamInfluxDB extends AWSServiceClient {
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<{}, ResourceNotFoundException | CommonAwsError>;
+  createDbCluster(
+    input: CreateDbClusterInput,
+  ): Effect.Effect<
+    CreateDbClusterOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createDbInstance(
+    input: CreateDbInstanceInput,
+  ): Effect.Effect<
+    CreateDbInstanceOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createDbParameterGroup(
+    input: CreateDbParameterGroupInput,
+  ): Effect.Effect<
+    CreateDbParameterGroupOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteDbCluster(
+    input: DeleteDbClusterInput,
+  ): Effect.Effect<
+    DeleteDbClusterOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteDbInstance(
+    input: DeleteDbInstanceInput,
+  ): Effect.Effect<
+    DeleteDbInstanceOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getDbCluster(
+    input: GetDbClusterInput,
+  ): Effect.Effect<
+    GetDbClusterOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getDbInstance(
+    input: GetDbInstanceInput,
+  ): Effect.Effect<
+    GetDbInstanceOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getDbParameterGroup(
+    input: GetDbParameterGroupInput,
+  ): Effect.Effect<
+    GetDbParameterGroupOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listDbClusters(
+    input: ListDbClustersInput,
+  ): Effect.Effect<
+    ListDbClustersOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listDbInstances(
+    input: ListDbInstancesInput,
+  ): Effect.Effect<
+    ListDbInstancesOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listDbInstancesForCluster(
+    input: ListDbInstancesForClusterInput,
+  ): Effect.Effect<
+    ListDbInstancesForClusterOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listDbParameterGroups(
+    input: ListDbParameterGroupsInput,
+  ): Effect.Effect<
+    ListDbParameterGroupsOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateDbCluster(
+    input: UpdateDbClusterInput,
+  ): Effect.Effect<
+    UpdateDbClusterOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateDbInstance(
+    input: UpdateDbInstanceInput,
+  ): Effect.Effect<
+    UpdateDbInstanceOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
 }
 
 export declare class TimestreamInfluxdb extends TimestreamInfluxDB {}
@@ -535,4 +699,182 @@ export declare namespace UntagResource {
   export type Input = UntagResourceRequest;
   export type Output = {};
   export type Error = ResourceNotFoundException | CommonAwsError;
+}
+
+export declare namespace CreateDbCluster {
+  export type Input = CreateDbClusterInput;
+  export type Output = CreateDbClusterOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateDbInstance {
+  export type Input = CreateDbInstanceInput;
+  export type Output = CreateDbInstanceOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateDbParameterGroup {
+  export type Input = CreateDbParameterGroupInput;
+  export type Output = CreateDbParameterGroupOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteDbCluster {
+  export type Input = DeleteDbClusterInput;
+  export type Output = DeleteDbClusterOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteDbInstance {
+  export type Input = DeleteDbInstanceInput;
+  export type Output = DeleteDbInstanceOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetDbCluster {
+  export type Input = GetDbClusterInput;
+  export type Output = GetDbClusterOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetDbInstance {
+  export type Input = GetDbInstanceInput;
+  export type Output = GetDbInstanceOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetDbParameterGroup {
+  export type Input = GetDbParameterGroupInput;
+  export type Output = GetDbParameterGroupOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListDbClusters {
+  export type Input = ListDbClustersInput;
+  export type Output = ListDbClustersOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListDbInstances {
+  export type Input = ListDbInstancesInput;
+  export type Output = ListDbInstancesOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListDbInstancesForCluster {
+  export type Input = ListDbInstancesForClusterInput;
+  export type Output = ListDbInstancesForClusterOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListDbParameterGroups {
+  export type Input = ListDbParameterGroupsInput;
+  export type Output = ListDbParameterGroupsOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateDbCluster {
+  export type Input = UpdateDbClusterInput;
+  export type Output = UpdateDbClusterOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateDbInstance {
+  export type Input = UpdateDbInstanceInput;
+  export type Output = UpdateDbInstanceOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
 }

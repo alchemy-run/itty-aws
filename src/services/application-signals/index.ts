@@ -87,6 +87,50 @@ export declare class ApplicationSignals extends AWSServiceClient {
     UntagResourceResponse,
     ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
+  createServiceLevelObjective(
+    input: CreateServiceLevelObjectiveInput,
+  ): Effect.Effect<
+    CreateServiceLevelObjectiveOutput,
+    | AccessDeniedException
+    | ConflictException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteServiceLevelObjective(
+    input: DeleteServiceLevelObjectiveInput,
+  ): Effect.Effect<
+    DeleteServiceLevelObjectiveOutput,
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getServiceLevelObjective(
+    input: GetServiceLevelObjectiveInput,
+  ): Effect.Effect<
+    GetServiceLevelObjectiveOutput,
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listServiceLevelObjectives(
+    input: ListServiceLevelObjectivesInput,
+  ): Effect.Effect<
+    ListServiceLevelObjectivesOutput,
+    ThrottlingException | ValidationException | CommonAwsError
+  >;
+  updateServiceLevelObjective(
+    input: UpdateServiceLevelObjectiveInput,
+  ): Effect.Effect<
+    UpdateServiceLevelObjectiveOutput,
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
 }
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
@@ -782,5 +826,56 @@ export declare namespace UntagResource {
   export type Error =
     | ResourceNotFoundException
     | ThrottlingException
+    | CommonAwsError;
+}
+
+export declare namespace CreateServiceLevelObjective {
+  export type Input = CreateServiceLevelObjectiveInput;
+  export type Output = CreateServiceLevelObjectiveOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteServiceLevelObjective {
+  export type Input = DeleteServiceLevelObjectiveInput;
+  export type Output = DeleteServiceLevelObjectiveOutput;
+  export type Error =
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetServiceLevelObjective {
+  export type Input = GetServiceLevelObjectiveInput;
+  export type Output = GetServiceLevelObjectiveOutput;
+  export type Error =
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListServiceLevelObjectives {
+  export type Input = ListServiceLevelObjectivesInput;
+  export type Output = ListServiceLevelObjectivesOutput;
+  export type Error =
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateServiceLevelObjective {
+  export type Input = UpdateServiceLevelObjectiveInput;
+  export type Output = UpdateServiceLevelObjectiveOutput;
+  export type Error =
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
     | CommonAwsError;
 }

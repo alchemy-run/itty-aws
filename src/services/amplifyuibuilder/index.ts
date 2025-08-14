@@ -60,6 +60,181 @@ export declare class AmplifyUIBuilder extends AWSServiceClient {
     | UnauthorizedException
     | CommonAwsError
   >;
+  createComponent(
+    input: CreateComponentRequest,
+  ): Effect.Effect<
+    CreateComponentResponse,
+    | InternalServerException
+    | InvalidParameterException
+    | ResourceConflictException
+    | ServiceQuotaExceededException
+    | CommonAwsError
+  >;
+  createForm(
+    input: CreateFormRequest,
+  ): Effect.Effect<
+    CreateFormResponse,
+    | InternalServerException
+    | InvalidParameterException
+    | ResourceConflictException
+    | ServiceQuotaExceededException
+    | CommonAwsError
+  >;
+  createTheme(
+    input: CreateThemeRequest,
+  ): Effect.Effect<
+    CreateThemeResponse,
+    | InternalServerException
+    | InvalidParameterException
+    | ResourceConflictException
+    | ServiceQuotaExceededException
+    | CommonAwsError
+  >;
+  deleteComponent(
+    input: DeleteComponentRequest,
+  ): Effect.Effect<
+    {},
+    | InternalServerException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | CommonAwsError
+  >;
+  deleteForm(
+    input: DeleteFormRequest,
+  ): Effect.Effect<
+    {},
+    | InternalServerException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | CommonAwsError
+  >;
+  deleteTheme(
+    input: DeleteThemeRequest,
+  ): Effect.Effect<
+    {},
+    | InternalServerException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | CommonAwsError
+  >;
+  exportComponents(
+    input: ExportComponentsRequest,
+  ): Effect.Effect<
+    ExportComponentsResponse,
+    InternalServerException | InvalidParameterException | CommonAwsError
+  >;
+  exportForms(
+    input: ExportFormsRequest,
+  ): Effect.Effect<
+    ExportFormsResponse,
+    InternalServerException | InvalidParameterException | CommonAwsError
+  >;
+  exportThemes(
+    input: ExportThemesRequest,
+  ): Effect.Effect<
+    ExportThemesResponse,
+    InternalServerException | InvalidParameterException | CommonAwsError
+  >;
+  getCodegenJob(
+    input: GetCodegenJobRequest,
+  ): Effect.Effect<
+    GetCodegenJobResponse,
+    | InternalServerException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
+  >;
+  getComponent(
+    input: GetComponentRequest,
+  ): Effect.Effect<
+    GetComponentResponse,
+    | InternalServerException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | CommonAwsError
+  >;
+  getForm(
+    input: GetFormRequest,
+  ): Effect.Effect<
+    GetFormResponse,
+    | InternalServerException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | CommonAwsError
+  >;
+  getTheme(
+    input: GetThemeRequest,
+  ): Effect.Effect<
+    GetThemeResponse,
+    | InternalServerException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | CommonAwsError
+  >;
+  listCodegenJobs(
+    input: ListCodegenJobsRequest,
+  ): Effect.Effect<
+    ListCodegenJobsResponse,
+    | InternalServerException
+    | InvalidParameterException
+    | ThrottlingException
+    | CommonAwsError
+  >;
+  listComponents(
+    input: ListComponentsRequest,
+  ): Effect.Effect<
+    ListComponentsResponse,
+    InternalServerException | InvalidParameterException | CommonAwsError
+  >;
+  listForms(
+    input: ListFormsRequest,
+  ): Effect.Effect<
+    ListFormsResponse,
+    InternalServerException | InvalidParameterException | CommonAwsError
+  >;
+  listThemes(
+    input: ListThemesRequest,
+  ): Effect.Effect<
+    ListThemesResponse,
+    InternalServerException | InvalidParameterException | CommonAwsError
+  >;
+  startCodegenJob(
+    input: StartCodegenJobRequest,
+  ): Effect.Effect<
+    StartCodegenJobResponse,
+    | InternalServerException
+    | InvalidParameterException
+    | ThrottlingException
+    | CommonAwsError
+  >;
+  updateComponent(
+    input: UpdateComponentRequest,
+  ): Effect.Effect<
+    UpdateComponentResponse,
+    | InternalServerException
+    | InvalidParameterException
+    | ResourceConflictException
+    | CommonAwsError
+  >;
+  updateForm(
+    input: UpdateFormRequest,
+  ): Effect.Effect<
+    UpdateFormResponse,
+    | InternalServerException
+    | InvalidParameterException
+    | ResourceConflictException
+    | CommonAwsError
+  >;
+  updateTheme(
+    input: UpdateThemeRequest,
+  ): Effect.Effect<
+    UpdateThemeResponse,
+    | InternalServerException
+    | InvalidParameterException
+    | ResourceConflictException
+    | CommonAwsError
+  >;
 }
 
 export declare class Amplifyuibuilder extends AmplifyUIBuilder {}
@@ -978,5 +1153,213 @@ export declare namespace UntagResource {
     | ResourceNotFoundException
     | ThrottlingException
     | UnauthorizedException
+    | CommonAwsError;
+}
+
+export declare namespace CreateComponent {
+  export type Input = CreateComponentRequest;
+  export type Output = CreateComponentResponse;
+  export type Error =
+    | InternalServerException
+    | InvalidParameterException
+    | ResourceConflictException
+    | ServiceQuotaExceededException
+    | CommonAwsError;
+}
+
+export declare namespace CreateForm {
+  export type Input = CreateFormRequest;
+  export type Output = CreateFormResponse;
+  export type Error =
+    | InternalServerException
+    | InvalidParameterException
+    | ResourceConflictException
+    | ServiceQuotaExceededException
+    | CommonAwsError;
+}
+
+export declare namespace CreateTheme {
+  export type Input = CreateThemeRequest;
+  export type Output = CreateThemeResponse;
+  export type Error =
+    | InternalServerException
+    | InvalidParameterException
+    | ResourceConflictException
+    | ServiceQuotaExceededException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteComponent {
+  export type Input = DeleteComponentRequest;
+  export type Output = {};
+  export type Error =
+    | InternalServerException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteForm {
+  export type Input = DeleteFormRequest;
+  export type Output = {};
+  export type Error =
+    | InternalServerException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteTheme {
+  export type Input = DeleteThemeRequest;
+  export type Output = {};
+  export type Error =
+    | InternalServerException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | CommonAwsError;
+}
+
+export declare namespace ExportComponents {
+  export type Input = ExportComponentsRequest;
+  export type Output = ExportComponentsResponse;
+  export type Error =
+    | InternalServerException
+    | InvalidParameterException
+    | CommonAwsError;
+}
+
+export declare namespace ExportForms {
+  export type Input = ExportFormsRequest;
+  export type Output = ExportFormsResponse;
+  export type Error =
+    | InternalServerException
+    | InvalidParameterException
+    | CommonAwsError;
+}
+
+export declare namespace ExportThemes {
+  export type Input = ExportThemesRequest;
+  export type Output = ExportThemesResponse;
+  export type Error =
+    | InternalServerException
+    | InvalidParameterException
+    | CommonAwsError;
+}
+
+export declare namespace GetCodegenJob {
+  export type Input = GetCodegenJobRequest;
+  export type Output = GetCodegenJobResponse;
+  export type Error =
+    | InternalServerException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError;
+}
+
+export declare namespace GetComponent {
+  export type Input = GetComponentRequest;
+  export type Output = GetComponentResponse;
+  export type Error =
+    | InternalServerException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | CommonAwsError;
+}
+
+export declare namespace GetForm {
+  export type Input = GetFormRequest;
+  export type Output = GetFormResponse;
+  export type Error =
+    | InternalServerException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | CommonAwsError;
+}
+
+export declare namespace GetTheme {
+  export type Input = GetThemeRequest;
+  export type Output = GetThemeResponse;
+  export type Error =
+    | InternalServerException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | CommonAwsError;
+}
+
+export declare namespace ListCodegenJobs {
+  export type Input = ListCodegenJobsRequest;
+  export type Output = ListCodegenJobsResponse;
+  export type Error =
+    | InternalServerException
+    | InvalidParameterException
+    | ThrottlingException
+    | CommonAwsError;
+}
+
+export declare namespace ListComponents {
+  export type Input = ListComponentsRequest;
+  export type Output = ListComponentsResponse;
+  export type Error =
+    | InternalServerException
+    | InvalidParameterException
+    | CommonAwsError;
+}
+
+export declare namespace ListForms {
+  export type Input = ListFormsRequest;
+  export type Output = ListFormsResponse;
+  export type Error =
+    | InternalServerException
+    | InvalidParameterException
+    | CommonAwsError;
+}
+
+export declare namespace ListThemes {
+  export type Input = ListThemesRequest;
+  export type Output = ListThemesResponse;
+  export type Error =
+    | InternalServerException
+    | InvalidParameterException
+    | CommonAwsError;
+}
+
+export declare namespace StartCodegenJob {
+  export type Input = StartCodegenJobRequest;
+  export type Output = StartCodegenJobResponse;
+  export type Error =
+    | InternalServerException
+    | InvalidParameterException
+    | ThrottlingException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateComponent {
+  export type Input = UpdateComponentRequest;
+  export type Output = UpdateComponentResponse;
+  export type Error =
+    | InternalServerException
+    | InvalidParameterException
+    | ResourceConflictException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateForm {
+  export type Input = UpdateFormRequest;
+  export type Output = UpdateFormResponse;
+  export type Error =
+    | InternalServerException
+    | InvalidParameterException
+    | ResourceConflictException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateTheme {
+  export type Input = UpdateThemeRequest;
+  export type Output = UpdateThemeResponse;
+  export type Error =
+    | InternalServerException
+    | InvalidParameterException
+    | ResourceConflictException
     | CommonAwsError;
 }

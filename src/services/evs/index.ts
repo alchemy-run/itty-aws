@@ -24,6 +24,54 @@ export declare class evs extends AWSServiceClient {
     UntagResourceResponse,
     ResourceNotFoundException | TagPolicyException | CommonAwsError
   >;
+  createEnvironment(
+    input: CreateEnvironmentRequest,
+  ): Effect.Effect<
+    CreateEnvironmentResponse,
+    ValidationException | CommonAwsError
+  >;
+  createEnvironmentHost(
+    input: CreateEnvironmentHostRequest,
+  ): Effect.Effect<
+    CreateEnvironmentHostResponse,
+    ThrottlingException | ValidationException | CommonAwsError
+  >;
+  deleteEnvironment(
+    input: DeleteEnvironmentRequest,
+  ): Effect.Effect<
+    DeleteEnvironmentResponse,
+    ResourceNotFoundException | ValidationException | CommonAwsError
+  >;
+  deleteEnvironmentHost(
+    input: DeleteEnvironmentHostRequest,
+  ): Effect.Effect<
+    DeleteEnvironmentHostResponse,
+    ResourceNotFoundException | ValidationException | CommonAwsError
+  >;
+  getEnvironment(
+    input: GetEnvironmentRequest,
+  ): Effect.Effect<
+    GetEnvironmentResponse,
+    ResourceNotFoundException | ValidationException | CommonAwsError
+  >;
+  listEnvironmentHosts(
+    input: ListEnvironmentHostsRequest,
+  ): Effect.Effect<
+    ListEnvironmentHostsResponse,
+    ResourceNotFoundException | ValidationException | CommonAwsError
+  >;
+  listEnvironmentVlans(
+    input: ListEnvironmentVlansRequest,
+  ): Effect.Effect<
+    ListEnvironmentVlansResponse,
+    ResourceNotFoundException | ValidationException | CommonAwsError
+  >;
+  listEnvironments(
+    input: ListEnvironmentsRequest,
+  ): Effect.Effect<
+    ListEnvironmentsResponse,
+    ValidationException | CommonAwsError
+  >;
 }
 
 export declare class Evs extends evs {}
@@ -384,4 +432,70 @@ export declare namespace UntagResource {
     | ResourceNotFoundException
     | TagPolicyException
     | CommonAwsError;
+}
+
+export declare namespace CreateEnvironment {
+  export type Input = CreateEnvironmentRequest;
+  export type Output = CreateEnvironmentResponse;
+  export type Error = ValidationException | CommonAwsError;
+}
+
+export declare namespace CreateEnvironmentHost {
+  export type Input = CreateEnvironmentHostRequest;
+  export type Output = CreateEnvironmentHostResponse;
+  export type Error =
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteEnvironment {
+  export type Input = DeleteEnvironmentRequest;
+  export type Output = DeleteEnvironmentResponse;
+  export type Error =
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteEnvironmentHost {
+  export type Input = DeleteEnvironmentHostRequest;
+  export type Output = DeleteEnvironmentHostResponse;
+  export type Error =
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetEnvironment {
+  export type Input = GetEnvironmentRequest;
+  export type Output = GetEnvironmentResponse;
+  export type Error =
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListEnvironmentHosts {
+  export type Input = ListEnvironmentHostsRequest;
+  export type Output = ListEnvironmentHostsResponse;
+  export type Error =
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListEnvironmentVlans {
+  export type Input = ListEnvironmentVlansRequest;
+  export type Output = ListEnvironmentVlansResponse;
+  export type Error =
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListEnvironments {
+  export type Input = ListEnvironmentsRequest;
+  export type Output = ListEnvironmentsResponse;
+  export type Error = ValidationException | CommonAwsError;
 }

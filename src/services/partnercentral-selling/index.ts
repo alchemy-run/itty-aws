@@ -58,6 +58,368 @@ export declare class PartnerCentralSelling extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
+  acceptEngagementInvitation(
+    input: AcceptEngagementInvitationRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  assignOpportunity(
+    input: AssignOpportunityRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  associateOpportunity(
+    input: AssociateOpportunityRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createEngagement(
+    input: CreateEngagementRequest,
+  ): Effect.Effect<
+    CreateEngagementResponse,
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createEngagementInvitation(
+    input: CreateEngagementInvitationRequest,
+  ): Effect.Effect<
+    CreateEngagementInvitationResponse,
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createOpportunity(
+    input: CreateOpportunityRequest,
+  ): Effect.Effect<
+    CreateOpportunityResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createResourceSnapshot(
+    input: CreateResourceSnapshotRequest,
+  ): Effect.Effect<
+    CreateResourceSnapshotResponse,
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createResourceSnapshotJob(
+    input: CreateResourceSnapshotJobRequest,
+  ): Effect.Effect<
+    CreateResourceSnapshotJobResponse,
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteResourceSnapshotJob(
+    input: DeleteResourceSnapshotJobRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  disassociateOpportunity(
+    input: DisassociateOpportunityRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getAwsOpportunitySummary(
+    input: GetAwsOpportunitySummaryRequest,
+  ): Effect.Effect<
+    GetAwsOpportunitySummaryResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getEngagement(
+    input: GetEngagementRequest,
+  ): Effect.Effect<
+    GetEngagementResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getEngagementInvitation(
+    input: GetEngagementInvitationRequest,
+  ): Effect.Effect<
+    GetEngagementInvitationResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getOpportunity(
+    input: GetOpportunityRequest,
+  ): Effect.Effect<
+    GetOpportunityResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getResourceSnapshot(
+    input: GetResourceSnapshotRequest,
+  ): Effect.Effect<
+    GetResourceSnapshotResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getResourceSnapshotJob(
+    input: GetResourceSnapshotJobRequest,
+  ): Effect.Effect<
+    GetResourceSnapshotJobResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listEngagementByAcceptingInvitationTasks(
+    input: ListEngagementByAcceptingInvitationTasksRequest,
+  ): Effect.Effect<
+    ListEngagementByAcceptingInvitationTasksResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listEngagementFromOpportunityTasks(
+    input: ListEngagementFromOpportunityTasksRequest,
+  ): Effect.Effect<
+    ListEngagementFromOpportunityTasksResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listEngagementInvitations(
+    input: ListEngagementInvitationsRequest,
+  ): Effect.Effect<
+    ListEngagementInvitationsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listEngagementMembers(
+    input: ListEngagementMembersRequest,
+  ): Effect.Effect<
+    ListEngagementMembersResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listEngagementResourceAssociations(
+    input: ListEngagementResourceAssociationsRequest,
+  ): Effect.Effect<
+    ListEngagementResourceAssociationsResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listEngagements(
+    input: ListEngagementsRequest,
+  ): Effect.Effect<
+    ListEngagementsResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listOpportunities(
+    input: ListOpportunitiesRequest,
+  ): Effect.Effect<
+    ListOpportunitiesResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listResourceSnapshotJobs(
+    input: ListResourceSnapshotJobsRequest,
+  ): Effect.Effect<
+    ListResourceSnapshotJobsResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listResourceSnapshots(
+    input: ListResourceSnapshotsRequest,
+  ): Effect.Effect<
+    ListResourceSnapshotsResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listSolutions(
+    input: ListSolutionsRequest,
+  ): Effect.Effect<
+    ListSolutionsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  rejectEngagementInvitation(
+    input: RejectEngagementInvitationRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  startEngagementByAcceptingInvitationTask(
+    input: StartEngagementByAcceptingInvitationTaskRequest,
+  ): Effect.Effect<
+    StartEngagementByAcceptingInvitationTaskResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  startEngagementFromOpportunityTask(
+    input: StartEngagementFromOpportunityTaskRequest,
+  ): Effect.Effect<
+    StartEngagementFromOpportunityTaskResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  startResourceSnapshotJob(
+    input: StartResourceSnapshotJobRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  stopResourceSnapshotJob(
+    input: StopResourceSnapshotJobRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  submitOpportunity(
+    input: SubmitOpportunityRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateOpportunity(
+    input: UpdateOpportunityRequest,
+  ): Effect.Effect<
+    UpdateOpportunityResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
 }
 
 export declare class PartnercentralSelling extends PartnerCentralSelling {}
@@ -1834,6 +2196,401 @@ export declare namespace TagResource {
 export declare namespace UntagResource {
   export type Input = UntagResourceRequest;
   export type Output = UntagResourceResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace AcceptEngagementInvitation {
+  export type Input = AcceptEngagementInvitationRequest;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace AssignOpportunity {
+  export type Input = AssignOpportunityRequest;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace AssociateOpportunity {
+  export type Input = AssociateOpportunityRequest;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateEngagement {
+  export type Input = CreateEngagementRequest;
+  export type Output = CreateEngagementResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateEngagementInvitation {
+  export type Input = CreateEngagementInvitationRequest;
+  export type Output = CreateEngagementInvitationResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateOpportunity {
+  export type Input = CreateOpportunityRequest;
+  export type Output = CreateOpportunityResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateResourceSnapshot {
+  export type Input = CreateResourceSnapshotRequest;
+  export type Output = CreateResourceSnapshotResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateResourceSnapshotJob {
+  export type Input = CreateResourceSnapshotJobRequest;
+  export type Output = CreateResourceSnapshotJobResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteResourceSnapshotJob {
+  export type Input = DeleteResourceSnapshotJobRequest;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DisassociateOpportunity {
+  export type Input = DisassociateOpportunityRequest;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetAwsOpportunitySummary {
+  export type Input = GetAwsOpportunitySummaryRequest;
+  export type Output = GetAwsOpportunitySummaryResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetEngagement {
+  export type Input = GetEngagementRequest;
+  export type Output = GetEngagementResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetEngagementInvitation {
+  export type Input = GetEngagementInvitationRequest;
+  export type Output = GetEngagementInvitationResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetOpportunity {
+  export type Input = GetOpportunityRequest;
+  export type Output = GetOpportunityResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetResourceSnapshot {
+  export type Input = GetResourceSnapshotRequest;
+  export type Output = GetResourceSnapshotResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetResourceSnapshotJob {
+  export type Input = GetResourceSnapshotJobRequest;
+  export type Output = GetResourceSnapshotJobResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListEngagementByAcceptingInvitationTasks {
+  export type Input = ListEngagementByAcceptingInvitationTasksRequest;
+  export type Output = ListEngagementByAcceptingInvitationTasksResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListEngagementFromOpportunityTasks {
+  export type Input = ListEngagementFromOpportunityTasksRequest;
+  export type Output = ListEngagementFromOpportunityTasksResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListEngagementInvitations {
+  export type Input = ListEngagementInvitationsRequest;
+  export type Output = ListEngagementInvitationsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListEngagementMembers {
+  export type Input = ListEngagementMembersRequest;
+  export type Output = ListEngagementMembersResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListEngagementResourceAssociations {
+  export type Input = ListEngagementResourceAssociationsRequest;
+  export type Output = ListEngagementResourceAssociationsResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListEngagements {
+  export type Input = ListEngagementsRequest;
+  export type Output = ListEngagementsResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListOpportunities {
+  export type Input = ListOpportunitiesRequest;
+  export type Output = ListOpportunitiesResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListResourceSnapshotJobs {
+  export type Input = ListResourceSnapshotJobsRequest;
+  export type Output = ListResourceSnapshotJobsResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListResourceSnapshots {
+  export type Input = ListResourceSnapshotsRequest;
+  export type Output = ListResourceSnapshotsResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListSolutions {
+  export type Input = ListSolutionsRequest;
+  export type Output = ListSolutionsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace RejectEngagementInvitation {
+  export type Input = RejectEngagementInvitationRequest;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace StartEngagementByAcceptingInvitationTask {
+  export type Input = StartEngagementByAcceptingInvitationTaskRequest;
+  export type Output = StartEngagementByAcceptingInvitationTaskResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace StartEngagementFromOpportunityTask {
+  export type Input = StartEngagementFromOpportunityTaskRequest;
+  export type Output = StartEngagementFromOpportunityTaskResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace StartResourceSnapshotJob {
+  export type Input = StartResourceSnapshotJobRequest;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace StopResourceSnapshotJob {
+  export type Input = StopResourceSnapshotJobRequest;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace SubmitOpportunity {
+  export type Input = SubmitOpportunityRequest;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateOpportunity {
+  export type Input = UpdateOpportunityRequest;
+  export type Output = UpdateOpportunityResponse;
   export type Error =
     | AccessDeniedException
     | ConflictException

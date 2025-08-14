@@ -18,6 +18,184 @@ export declare class PCS extends AWSServiceClient {
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<{}, ResourceNotFoundException | CommonAwsError>;
+  createCluster(
+    input: CreateClusterRequest,
+  ): Effect.Effect<
+    CreateClusterResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createComputeNodeGroup(
+    input: CreateComputeNodeGroupRequest,
+  ): Effect.Effect<
+    CreateComputeNodeGroupResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createQueue(
+    input: CreateQueueRequest,
+  ): Effect.Effect<
+    CreateQueueResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteCluster(
+    input: DeleteClusterRequest,
+  ): Effect.Effect<
+    DeleteClusterResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteComputeNodeGroup(
+    input: DeleteComputeNodeGroupRequest,
+  ): Effect.Effect<
+    DeleteComputeNodeGroupResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteQueue(
+    input: DeleteQueueRequest,
+  ): Effect.Effect<
+    DeleteQueueResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getCluster(
+    input: GetClusterRequest,
+  ): Effect.Effect<
+    GetClusterResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getComputeNodeGroup(
+    input: GetComputeNodeGroupRequest,
+  ): Effect.Effect<
+    GetComputeNodeGroupResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getQueue(
+    input: GetQueueRequest,
+  ): Effect.Effect<
+    GetQueueResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listClusters(
+    input: ListClustersRequest,
+  ): Effect.Effect<
+    ListClustersResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listComputeNodeGroups(
+    input: ListComputeNodeGroupsRequest,
+  ): Effect.Effect<
+    ListComputeNodeGroupsResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listQueues(
+    input: ListQueuesRequest,
+  ): Effect.Effect<
+    ListQueuesResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  registerComputeNodeGroupInstance(
+    input: RegisterComputeNodeGroupInstanceRequest,
+  ): Effect.Effect<
+    RegisterComputeNodeGroupInstanceResponse,
+    AccessDeniedException | InternalServerException | CommonAwsError
+  >;
+  updateComputeNodeGroup(
+    input: UpdateComputeNodeGroupRequest,
+  ): Effect.Effect<
+    UpdateComputeNodeGroupResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateQueue(
+    input: UpdateQueueRequest,
+  ): Effect.Effect<
+    UpdateQueueResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
 }
 
 export declare class Pcs extends PCS {}
@@ -494,4 +672,199 @@ export declare namespace UntagResource {
   export type Input = UntagResourceRequest;
   export type Output = {};
   export type Error = ResourceNotFoundException | CommonAwsError;
+}
+
+export declare namespace CreateCluster {
+  export type Input = CreateClusterRequest;
+  export type Output = CreateClusterResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateComputeNodeGroup {
+  export type Input = CreateComputeNodeGroupRequest;
+  export type Output = CreateComputeNodeGroupResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateQueue {
+  export type Input = CreateQueueRequest;
+  export type Output = CreateQueueResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteCluster {
+  export type Input = DeleteClusterRequest;
+  export type Output = DeleteClusterResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteComputeNodeGroup {
+  export type Input = DeleteComputeNodeGroupRequest;
+  export type Output = DeleteComputeNodeGroupResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteQueue {
+  export type Input = DeleteQueueRequest;
+  export type Output = DeleteQueueResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetCluster {
+  export type Input = GetClusterRequest;
+  export type Output = GetClusterResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetComputeNodeGroup {
+  export type Input = GetComputeNodeGroupRequest;
+  export type Output = GetComputeNodeGroupResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetQueue {
+  export type Input = GetQueueRequest;
+  export type Output = GetQueueResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListClusters {
+  export type Input = ListClustersRequest;
+  export type Output = ListClustersResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListComputeNodeGroups {
+  export type Input = ListComputeNodeGroupsRequest;
+  export type Output = ListComputeNodeGroupsResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListQueues {
+  export type Input = ListQueuesRequest;
+  export type Output = ListQueuesResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace RegisterComputeNodeGroupInstance {
+  export type Input = RegisterComputeNodeGroupInstanceRequest;
+  export type Output = RegisterComputeNodeGroupInstanceResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateComputeNodeGroup {
+  export type Input = UpdateComputeNodeGroupRequest;
+  export type Output = UpdateComputeNodeGroupResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateQueue {
+  export type Input = UpdateQueueRequest;
+  export type Output = UpdateQueueResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
 }

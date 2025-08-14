@@ -21,6 +21,81 @@ export declare class Pipes extends AWSServiceClient {
     UntagResourceResponse,
     InternalException | NotFoundException | ValidationException | CommonAwsError
   >;
+  createPipe(
+    input: CreatePipeRequest,
+  ): Effect.Effect<
+    CreatePipeResponse,
+    | ConflictException
+    | InternalException
+    | NotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deletePipe(
+    input: DeletePipeRequest,
+  ): Effect.Effect<
+    DeletePipeResponse,
+    | ConflictException
+    | InternalException
+    | NotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  describePipe(
+    input: DescribePipeRequest,
+  ): Effect.Effect<
+    DescribePipeResponse,
+    | InternalException
+    | NotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listPipes(
+    input: ListPipesRequest,
+  ): Effect.Effect<
+    ListPipesResponse,
+    | InternalException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  startPipe(
+    input: StartPipeRequest,
+  ): Effect.Effect<
+    StartPipeResponse,
+    | ConflictException
+    | InternalException
+    | NotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  stopPipe(
+    input: StopPipeRequest,
+  ): Effect.Effect<
+    StopPipeResponse,
+    | ConflictException
+    | InternalException
+    | NotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updatePipe(
+    input: UpdatePipeRequest,
+  ): Effect.Effect<
+    UpdatePipeResponse,
+    | ConflictException
+    | InternalException
+    | NotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
 }
 
 export type Arn = string;
@@ -888,6 +963,88 @@ export declare namespace UntagResource {
   export type Error =
     | InternalException
     | NotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreatePipe {
+  export type Input = CreatePipeRequest;
+  export type Output = CreatePipeResponse;
+  export type Error =
+    | ConflictException
+    | InternalException
+    | NotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeletePipe {
+  export type Input = DeletePipeRequest;
+  export type Output = DeletePipeResponse;
+  export type Error =
+    | ConflictException
+    | InternalException
+    | NotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DescribePipe {
+  export type Input = DescribePipeRequest;
+  export type Output = DescribePipeResponse;
+  export type Error =
+    | InternalException
+    | NotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListPipes {
+  export type Input = ListPipesRequest;
+  export type Output = ListPipesResponse;
+  export type Error =
+    | InternalException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace StartPipe {
+  export type Input = StartPipeRequest;
+  export type Output = StartPipeResponse;
+  export type Error =
+    | ConflictException
+    | InternalException
+    | NotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace StopPipe {
+  export type Input = StopPipeRequest;
+  export type Output = StopPipeResponse;
+  export type Error =
+    | ConflictException
+    | InternalException
+    | NotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdatePipe {
+  export type Input = UpdatePipeRequest;
+  export type Output = UpdatePipeResponse;
+  export type Error =
+    | ConflictException
+    | InternalException
+    | NotFoundException
+    | ThrottlingException
     | ValidationException
     | CommonAwsError;
 }

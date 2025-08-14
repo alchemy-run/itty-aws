@@ -229,6 +229,299 @@ export declare class MailManager extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
+  createAddonInstance(
+    input: CreateAddonInstanceRequest,
+  ): Effect.Effect<
+    CreateAddonInstanceResponse,
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createAddonSubscription(
+    input: CreateAddonSubscriptionRequest,
+  ): Effect.Effect<
+    CreateAddonSubscriptionResponse,
+    | ConflictException
+    | ServiceQuotaExceededException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createAddressList(
+    input: CreateAddressListRequest,
+  ): Effect.Effect<
+    CreateAddressListResponse,
+    | AccessDeniedException
+    | ConflictException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createArchive(
+    input: CreateArchiveRequest,
+  ): Effect.Effect<
+    CreateArchiveResponse,
+    | AccessDeniedException
+    | ConflictException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createIngressPoint(
+    input: CreateIngressPointRequest,
+  ): Effect.Effect<
+    CreateIngressPointResponse,
+    | ConflictException
+    | ServiceQuotaExceededException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createRelay(
+    input: CreateRelayRequest,
+  ): Effect.Effect<
+    CreateRelayResponse,
+    | ConflictException
+    | ServiceQuotaExceededException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createRuleSet(
+    input: CreateRuleSetRequest,
+  ): Effect.Effect<
+    CreateRuleSetResponse,
+    | ConflictException
+    | ServiceQuotaExceededException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createTrafficPolicy(
+    input: CreateTrafficPolicyRequest,
+  ): Effect.Effect<
+    CreateTrafficPolicyResponse,
+    | ConflictException
+    | ServiceQuotaExceededException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteAddonInstance(
+    input: DeleteAddonInstanceRequest,
+  ): Effect.Effect<
+    DeleteAddonInstanceResponse,
+    ConflictException | ValidationException | CommonAwsError
+  >;
+  deleteAddonSubscription(
+    input: DeleteAddonSubscriptionRequest,
+  ): Effect.Effect<
+    DeleteAddonSubscriptionResponse,
+    ConflictException | ValidationException | CommonAwsError
+  >;
+  deleteAddressList(
+    input: DeleteAddressListRequest,
+  ): Effect.Effect<
+    DeleteAddressListResponse,
+    | AccessDeniedException
+    | ConflictException
+    | ThrottlingException
+    | CommonAwsError
+  >;
+  deleteArchive(
+    input: DeleteArchiveRequest,
+  ): Effect.Effect<
+    DeleteArchiveResponse,
+    | AccessDeniedException
+    | ConflictException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteIngressPoint(
+    input: DeleteIngressPointRequest,
+  ): Effect.Effect<
+    DeleteIngressPointResponse,
+    | ConflictException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteRelay(
+    input: DeleteRelayRequest,
+  ): Effect.Effect<
+    DeleteRelayResponse,
+    | ConflictException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteRuleSet(
+    input: DeleteRuleSetRequest,
+  ): Effect.Effect<
+    DeleteRuleSetResponse,
+    ConflictException | ValidationException | CommonAwsError
+  >;
+  deleteTrafficPolicy(
+    input: DeleteTrafficPolicyRequest,
+  ): Effect.Effect<
+    DeleteTrafficPolicyResponse,
+    | ConflictException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getAddonInstance(
+    input: GetAddonInstanceRequest,
+  ): Effect.Effect<
+    GetAddonInstanceResponse,
+    ResourceNotFoundException | ValidationException | CommonAwsError
+  >;
+  getAddonSubscription(
+    input: GetAddonSubscriptionRequest,
+  ): Effect.Effect<
+    GetAddonSubscriptionResponse,
+    ResourceNotFoundException | ValidationException | CommonAwsError
+  >;
+  getAddressList(
+    input: GetAddressListRequest,
+  ): Effect.Effect<
+    GetAddressListResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getArchive(
+    input: GetArchiveRequest,
+  ): Effect.Effect<
+    GetArchiveResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getIngressPoint(
+    input: GetIngressPointRequest,
+  ): Effect.Effect<
+    GetIngressPointResponse,
+    ResourceNotFoundException | ValidationException | CommonAwsError
+  >;
+  getRelay(
+    input: GetRelayRequest,
+  ): Effect.Effect<
+    GetRelayResponse,
+    ResourceNotFoundException | ValidationException | CommonAwsError
+  >;
+  getRuleSet(
+    input: GetRuleSetRequest,
+  ): Effect.Effect<
+    GetRuleSetResponse,
+    ResourceNotFoundException | ValidationException | CommonAwsError
+  >;
+  getTrafficPolicy(
+    input: GetTrafficPolicyRequest,
+  ): Effect.Effect<
+    GetTrafficPolicyResponse,
+    ResourceNotFoundException | ValidationException | CommonAwsError
+  >;
+  listAddonInstances(
+    input: ListAddonInstancesRequest,
+  ): Effect.Effect<
+    ListAddonInstancesResponse,
+    ValidationException | CommonAwsError
+  >;
+  listAddonSubscriptions(
+    input: ListAddonSubscriptionsRequest,
+  ): Effect.Effect<
+    ListAddonSubscriptionsResponse,
+    ValidationException | CommonAwsError
+  >;
+  listAddressLists(
+    input: ListAddressListsRequest,
+  ): Effect.Effect<
+    ListAddressListsResponse,
+    | AccessDeniedException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listArchives(
+    input: ListArchivesRequest,
+  ): Effect.Effect<
+    ListArchivesResponse,
+    | AccessDeniedException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listIngressPoints(
+    input: ListIngressPointsRequest,
+  ): Effect.Effect<
+    ListIngressPointsResponse,
+    ValidationException | CommonAwsError
+  >;
+  listRelays(
+    input: ListRelaysRequest,
+  ): Effect.Effect<ListRelaysResponse, ValidationException | CommonAwsError>;
+  listRuleSets(
+    input: ListRuleSetsRequest,
+  ): Effect.Effect<ListRuleSetsResponse, ValidationException | CommonAwsError>;
+  listTrafficPolicies(
+    input: ListTrafficPoliciesRequest,
+  ): Effect.Effect<
+    ListTrafficPoliciesResponse,
+    ValidationException | CommonAwsError
+  >;
+  updateArchive(
+    input: UpdateArchiveRequest,
+  ): Effect.Effect<
+    UpdateArchiveResponse,
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateIngressPoint(
+    input: UpdateIngressPointRequest,
+  ): Effect.Effect<
+    UpdateIngressPointResponse,
+    | ConflictException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateRelay(
+    input: UpdateRelayRequest,
+  ): Effect.Effect<
+    UpdateRelayResponse,
+    | ConflictException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateRuleSet(
+    input: UpdateRuleSetRequest,
+  ): Effect.Effect<
+    UpdateRuleSetResponse,
+    | ConflictException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateTrafficPolicy(
+    input: UpdateTrafficPolicyRequest,
+  ): Effect.Effect<
+    UpdateTrafficPolicyResponse,
+    | ConflictException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
 }
 
 export declare class Mailmanager extends MailManager {}
@@ -1789,6 +2082,345 @@ export declare namespace TagResource {
 export declare namespace UntagResource {
   export type Input = UntagResourceRequest;
   export type Output = UntagResourceResponse;
+  export type Error =
+    | ConflictException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateAddonInstance {
+  export type Input = CreateAddonInstanceRequest;
+  export type Output = CreateAddonInstanceResponse;
+  export type Error =
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateAddonSubscription {
+  export type Input = CreateAddonSubscriptionRequest;
+  export type Output = CreateAddonSubscriptionResponse;
+  export type Error =
+    | ConflictException
+    | ServiceQuotaExceededException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateAddressList {
+  export type Input = CreateAddressListRequest;
+  export type Output = CreateAddressListResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateArchive {
+  export type Input = CreateArchiveRequest;
+  export type Output = CreateArchiveResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateIngressPoint {
+  export type Input = CreateIngressPointRequest;
+  export type Output = CreateIngressPointResponse;
+  export type Error =
+    | ConflictException
+    | ServiceQuotaExceededException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateRelay {
+  export type Input = CreateRelayRequest;
+  export type Output = CreateRelayResponse;
+  export type Error =
+    | ConflictException
+    | ServiceQuotaExceededException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateRuleSet {
+  export type Input = CreateRuleSetRequest;
+  export type Output = CreateRuleSetResponse;
+  export type Error =
+    | ConflictException
+    | ServiceQuotaExceededException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateTrafficPolicy {
+  export type Input = CreateTrafficPolicyRequest;
+  export type Output = CreateTrafficPolicyResponse;
+  export type Error =
+    | ConflictException
+    | ServiceQuotaExceededException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteAddonInstance {
+  export type Input = DeleteAddonInstanceRequest;
+  export type Output = DeleteAddonInstanceResponse;
+  export type Error = ConflictException | ValidationException | CommonAwsError;
+}
+
+export declare namespace DeleteAddonSubscription {
+  export type Input = DeleteAddonSubscriptionRequest;
+  export type Output = DeleteAddonSubscriptionResponse;
+  export type Error = ConflictException | ValidationException | CommonAwsError;
+}
+
+export declare namespace DeleteAddressList {
+  export type Input = DeleteAddressListRequest;
+  export type Output = DeleteAddressListResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ThrottlingException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteArchive {
+  export type Input = DeleteArchiveRequest;
+  export type Output = DeleteArchiveResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteIngressPoint {
+  export type Input = DeleteIngressPointRequest;
+  export type Output = DeleteIngressPointResponse;
+  export type Error =
+    | ConflictException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteRelay {
+  export type Input = DeleteRelayRequest;
+  export type Output = DeleteRelayResponse;
+  export type Error =
+    | ConflictException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteRuleSet {
+  export type Input = DeleteRuleSetRequest;
+  export type Output = DeleteRuleSetResponse;
+  export type Error = ConflictException | ValidationException | CommonAwsError;
+}
+
+export declare namespace DeleteTrafficPolicy {
+  export type Input = DeleteTrafficPolicyRequest;
+  export type Output = DeleteTrafficPolicyResponse;
+  export type Error =
+    | ConflictException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetAddonInstance {
+  export type Input = GetAddonInstanceRequest;
+  export type Output = GetAddonInstanceResponse;
+  export type Error =
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetAddonSubscription {
+  export type Input = GetAddonSubscriptionRequest;
+  export type Output = GetAddonSubscriptionResponse;
+  export type Error =
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetAddressList {
+  export type Input = GetAddressListRequest;
+  export type Output = GetAddressListResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetArchive {
+  export type Input = GetArchiveRequest;
+  export type Output = GetArchiveResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetIngressPoint {
+  export type Input = GetIngressPointRequest;
+  export type Output = GetIngressPointResponse;
+  export type Error =
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetRelay {
+  export type Input = GetRelayRequest;
+  export type Output = GetRelayResponse;
+  export type Error =
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetRuleSet {
+  export type Input = GetRuleSetRequest;
+  export type Output = GetRuleSetResponse;
+  export type Error =
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetTrafficPolicy {
+  export type Input = GetTrafficPolicyRequest;
+  export type Output = GetTrafficPolicyResponse;
+  export type Error =
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListAddonInstances {
+  export type Input = ListAddonInstancesRequest;
+  export type Output = ListAddonInstancesResponse;
+  export type Error = ValidationException | CommonAwsError;
+}
+
+export declare namespace ListAddonSubscriptions {
+  export type Input = ListAddonSubscriptionsRequest;
+  export type Output = ListAddonSubscriptionsResponse;
+  export type Error = ValidationException | CommonAwsError;
+}
+
+export declare namespace ListAddressLists {
+  export type Input = ListAddressListsRequest;
+  export type Output = ListAddressListsResponse;
+  export type Error =
+    | AccessDeniedException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListArchives {
+  export type Input = ListArchivesRequest;
+  export type Output = ListArchivesResponse;
+  export type Error =
+    | AccessDeniedException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListIngressPoints {
+  export type Input = ListIngressPointsRequest;
+  export type Output = ListIngressPointsResponse;
+  export type Error = ValidationException | CommonAwsError;
+}
+
+export declare namespace ListRelays {
+  export type Input = ListRelaysRequest;
+  export type Output = ListRelaysResponse;
+  export type Error = ValidationException | CommonAwsError;
+}
+
+export declare namespace ListRuleSets {
+  export type Input = ListRuleSetsRequest;
+  export type Output = ListRuleSetsResponse;
+  export type Error = ValidationException | CommonAwsError;
+}
+
+export declare namespace ListTrafficPolicies {
+  export type Input = ListTrafficPoliciesRequest;
+  export type Output = ListTrafficPoliciesResponse;
+  export type Error = ValidationException | CommonAwsError;
+}
+
+export declare namespace UpdateArchive {
+  export type Input = UpdateArchiveRequest;
+  export type Output = UpdateArchiveResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateIngressPoint {
+  export type Input = UpdateIngressPointRequest;
+  export type Output = UpdateIngressPointResponse;
+  export type Error =
+    | ConflictException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateRelay {
+  export type Input = UpdateRelayRequest;
+  export type Output = UpdateRelayResponse;
+  export type Error =
+    | ConflictException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateRuleSet {
+  export type Input = UpdateRuleSetRequest;
+  export type Output = UpdateRuleSetResponse;
+  export type Error =
+    | ConflictException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateTrafficPolicy {
+  export type Input = UpdateTrafficPolicyRequest;
+  export type Output = UpdateTrafficPolicyResponse;
   export type Error =
     | ConflictException
     | ResourceNotFoundException

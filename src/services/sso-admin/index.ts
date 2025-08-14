@@ -706,6 +706,144 @@ export declare class SSOAdmin extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
+  deleteApplicationAccessScope(
+    input: DeleteApplicationAccessScopeRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteApplicationAuthenticationMethod(
+    input: DeleteApplicationAuthenticationMethodRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteApplicationGrant(
+    input: DeleteApplicationGrantRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getApplicationAccessScope(
+    input: GetApplicationAccessScopeRequest,
+  ): Effect.Effect<
+    GetApplicationAccessScopeResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getApplicationAuthenticationMethod(
+    input: GetApplicationAuthenticationMethodRequest,
+  ): Effect.Effect<
+    GetApplicationAuthenticationMethodResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getApplicationGrant(
+    input: GetApplicationGrantRequest,
+  ): Effect.Effect<
+    GetApplicationGrantResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listApplicationAccessScopes(
+    input: ListApplicationAccessScopesRequest,
+  ): Effect.Effect<
+    ListApplicationAccessScopesResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listApplicationAuthenticationMethods(
+    input: ListApplicationAuthenticationMethodsRequest,
+  ): Effect.Effect<
+    ListApplicationAuthenticationMethodsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listApplicationGrants(
+    input: ListApplicationGrantsRequest,
+  ): Effect.Effect<
+    ListApplicationGrantsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  putApplicationAccessScope(
+    input: PutApplicationAccessScopeRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  putApplicationAuthenticationMethod(
+    input: PutApplicationAuthenticationMethodRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  putApplicationGrant(
+    input: PutApplicationGrantRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
 }
 
 export declare class SsoAdmin extends SSOAdmin {}
@@ -2456,6 +2594,156 @@ export declare namespace UpdatePermissionSet {
 export declare namespace UpdateTrustedTokenIssuer {
   export type Input = UpdateTrustedTokenIssuerRequest;
   export type Output = UpdateTrustedTokenIssuerResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteApplicationAccessScope {
+  export type Input = DeleteApplicationAccessScopeRequest;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteApplicationAuthenticationMethod {
+  export type Input = DeleteApplicationAuthenticationMethodRequest;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteApplicationGrant {
+  export type Input = DeleteApplicationGrantRequest;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetApplicationAccessScope {
+  export type Input = GetApplicationAccessScopeRequest;
+  export type Output = GetApplicationAccessScopeResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetApplicationAuthenticationMethod {
+  export type Input = GetApplicationAuthenticationMethodRequest;
+  export type Output = GetApplicationAuthenticationMethodResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetApplicationGrant {
+  export type Input = GetApplicationGrantRequest;
+  export type Output = GetApplicationGrantResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListApplicationAccessScopes {
+  export type Input = ListApplicationAccessScopesRequest;
+  export type Output = ListApplicationAccessScopesResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListApplicationAuthenticationMethods {
+  export type Input = ListApplicationAuthenticationMethodsRequest;
+  export type Output = ListApplicationAuthenticationMethodsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListApplicationGrants {
+  export type Input = ListApplicationGrantsRequest;
+  export type Output = ListApplicationGrantsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace PutApplicationAccessScope {
+  export type Input = PutApplicationAccessScopeRequest;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace PutApplicationAuthenticationMethod {
+  export type Input = PutApplicationAuthenticationMethodRequest;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace PutApplicationGrant {
+  export type Input = PutApplicationGrantRequest;
+  export type Output = {};
   export type Error =
     | AccessDeniedException
     | ConflictException

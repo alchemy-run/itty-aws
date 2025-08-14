@@ -37,6 +37,28 @@ export declare class BedrockDataAutomationRuntime extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
+  getDataAutomationStatus(
+    input: GetDataAutomationStatusRequest,
+  ): Effect.Effect<
+    GetDataAutomationStatusResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  invokeDataAutomationAsync(
+    input: InvokeDataAutomationAsyncRequest,
+  ): Effect.Effect<
+    InvokeDataAutomationAsyncResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
 }
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
@@ -227,6 +249,30 @@ export declare namespace UntagResource {
     | AccessDeniedException
     | InternalServerException
     | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetDataAutomationStatus {
+  export type Input = GetDataAutomationStatusRequest;
+  export type Output = GetDataAutomationStatusResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace InvokeDataAutomationAsync {
+  export type Input = InvokeDataAutomationAsyncRequest;
+  export type Output = InvokeDataAutomationAsyncResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ServiceQuotaExceededException
     | ThrottlingException
     | ValidationException
     | CommonAwsError;

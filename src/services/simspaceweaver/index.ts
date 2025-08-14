@@ -24,6 +24,144 @@ export declare class SimSpaceWeaver extends AWSServiceClient {
     UntagResourceOutput,
     ResourceNotFoundException | ValidationException | CommonAwsError
   >;
+  createSnapshot(
+    input: CreateSnapshotInput,
+  ): Effect.Effect<
+    CreateSnapshotOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteApp(
+    input: DeleteAppInput,
+  ): Effect.Effect<
+    DeleteAppOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteSimulation(
+    input: DeleteSimulationInput,
+  ): Effect.Effect<
+    DeleteSimulationOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  describeApp(
+    input: DescribeAppInput,
+  ): Effect.Effect<
+    DescribeAppOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  describeSimulation(
+    input: DescribeSimulationInput,
+  ): Effect.Effect<
+    DescribeSimulationOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listApps(
+    input: ListAppsInput,
+  ): Effect.Effect<
+    ListAppsOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listSimulations(
+    input: ListSimulationsInput,
+  ): Effect.Effect<
+    ListSimulationsOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ValidationException
+    | CommonAwsError
+  >;
+  startApp(
+    input: StartAppInput,
+  ): Effect.Effect<
+    StartAppOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ValidationException
+    | CommonAwsError
+  >;
+  startClock(
+    input: StartClockInput,
+  ): Effect.Effect<
+    StartClockOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  startSimulation(
+    input: StartSimulationInput,
+  ): Effect.Effect<
+    StartSimulationOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ValidationException
+    | CommonAwsError
+  >;
+  stopApp(
+    input: StopAppInput,
+  ): Effect.Effect<
+    StopAppOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  stopClock(
+    input: StopClockInput,
+  ): Effect.Effect<
+    StopClockOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  stopSimulation(
+    input: StopSimulationInput,
+  ): Effect.Effect<
+    StopSimulationOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
 }
 
 export declare class Simspaceweaver extends SimSpaceWeaver {}
@@ -331,6 +469,157 @@ export declare namespace UntagResource {
   export type Input = UntagResourceInput;
   export type Output = UntagResourceOutput;
   export type Error =
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateSnapshot {
+  export type Input = CreateSnapshotInput;
+  export type Output = CreateSnapshotOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteApp {
+  export type Input = DeleteAppInput;
+  export type Output = DeleteAppOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteSimulation {
+  export type Input = DeleteSimulationInput;
+  export type Output = DeleteSimulationOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DescribeApp {
+  export type Input = DescribeAppInput;
+  export type Output = DescribeAppOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DescribeSimulation {
+  export type Input = DescribeSimulationInput;
+  export type Output = DescribeSimulationOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListApps {
+  export type Input = ListAppsInput;
+  export type Output = ListAppsOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListSimulations {
+  export type Input = ListSimulationsInput;
+  export type Output = ListSimulationsOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace StartApp {
+  export type Input = StartAppInput;
+  export type Output = StartAppOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace StartClock {
+  export type Input = StartClockInput;
+  export type Output = StartClockOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace StartSimulation {
+  export type Input = StartSimulationInput;
+  export type Output = StartSimulationOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace StopApp {
+  export type Input = StopAppInput;
+  export type Output = StopAppOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace StopClock {
+  export type Input = StopClockInput;
+  export type Output = StopClockOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace StopSimulation {
+  export type Input = StopSimulationInput;
+  export type Output = StopSimulationOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError;

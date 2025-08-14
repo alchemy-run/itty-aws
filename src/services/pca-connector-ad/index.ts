@@ -36,6 +36,259 @@ export declare class PcaConnectorAd extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
+  createConnector(
+    input: CreateConnectorRequest,
+  ): Effect.Effect<
+    CreateConnectorResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createDirectoryRegistration(
+    input: CreateDirectoryRegistrationRequest,
+  ): Effect.Effect<
+    CreateDirectoryRegistrationResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createServicePrincipalName(
+    input: CreateServicePrincipalNameRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createTemplate(
+    input: CreateTemplateRequest,
+  ): Effect.Effect<
+    CreateTemplateResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createTemplateGroupAccessControlEntry(
+    input: CreateTemplateGroupAccessControlEntryRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteConnector(
+    input: DeleteConnectorRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteDirectoryRegistration(
+    input: DeleteDirectoryRegistrationRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteServicePrincipalName(
+    input: DeleteServicePrincipalNameRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteTemplate(
+    input: DeleteTemplateRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteTemplateGroupAccessControlEntry(
+    input: DeleteTemplateGroupAccessControlEntryRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getConnector(
+    input: GetConnectorRequest,
+  ): Effect.Effect<
+    GetConnectorResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getDirectoryRegistration(
+    input: GetDirectoryRegistrationRequest,
+  ): Effect.Effect<
+    GetDirectoryRegistrationResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getServicePrincipalName(
+    input: GetServicePrincipalNameRequest,
+  ): Effect.Effect<
+    GetServicePrincipalNameResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getTemplate(
+    input: GetTemplateRequest,
+  ): Effect.Effect<
+    GetTemplateResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getTemplateGroupAccessControlEntry(
+    input: GetTemplateGroupAccessControlEntryRequest,
+  ): Effect.Effect<
+    GetTemplateGroupAccessControlEntryResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listConnectors(
+    input: ListConnectorsRequest,
+  ): Effect.Effect<
+    ListConnectorsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listDirectoryRegistrations(
+    input: ListDirectoryRegistrationsRequest,
+  ): Effect.Effect<
+    ListDirectoryRegistrationsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listServicePrincipalNames(
+    input: ListServicePrincipalNamesRequest,
+  ): Effect.Effect<
+    ListServicePrincipalNamesResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listTemplateGroupAccessControlEntries(
+    input: ListTemplateGroupAccessControlEntriesRequest,
+  ): Effect.Effect<
+    ListTemplateGroupAccessControlEntriesResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listTemplates(
+    input: ListTemplatesRequest,
+  ): Effect.Effect<
+    ListTemplatesResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateTemplate(
+    input: UpdateTemplateRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateTemplateGroupAccessControlEntry(
+    input: UpdateTemplateGroupAccessControlEntryRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
 }
 
 export interface AccessControlEntry {
@@ -767,6 +1020,281 @@ export declare namespace UntagResource {
   export type Output = {};
   export type Error =
     | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateConnector {
+  export type Input = CreateConnectorRequest;
+  export type Output = CreateConnectorResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateDirectoryRegistration {
+  export type Input = CreateDirectoryRegistrationRequest;
+  export type Output = CreateDirectoryRegistrationResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateServicePrincipalName {
+  export type Input = CreateServicePrincipalNameRequest;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateTemplate {
+  export type Input = CreateTemplateRequest;
+  export type Output = CreateTemplateResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateTemplateGroupAccessControlEntry {
+  export type Input = CreateTemplateGroupAccessControlEntryRequest;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteConnector {
+  export type Input = DeleteConnectorRequest;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteDirectoryRegistration {
+  export type Input = DeleteDirectoryRegistrationRequest;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteServicePrincipalName {
+  export type Input = DeleteServicePrincipalNameRequest;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteTemplate {
+  export type Input = DeleteTemplateRequest;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteTemplateGroupAccessControlEntry {
+  export type Input = DeleteTemplateGroupAccessControlEntryRequest;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetConnector {
+  export type Input = GetConnectorRequest;
+  export type Output = GetConnectorResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetDirectoryRegistration {
+  export type Input = GetDirectoryRegistrationRequest;
+  export type Output = GetDirectoryRegistrationResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetServicePrincipalName {
+  export type Input = GetServicePrincipalNameRequest;
+  export type Output = GetServicePrincipalNameResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetTemplate {
+  export type Input = GetTemplateRequest;
+  export type Output = GetTemplateResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetTemplateGroupAccessControlEntry {
+  export type Input = GetTemplateGroupAccessControlEntryRequest;
+  export type Output = GetTemplateGroupAccessControlEntryResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListConnectors {
+  export type Input = ListConnectorsRequest;
+  export type Output = ListConnectorsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListDirectoryRegistrations {
+  export type Input = ListDirectoryRegistrationsRequest;
+  export type Output = ListDirectoryRegistrationsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListServicePrincipalNames {
+  export type Input = ListServicePrincipalNamesRequest;
+  export type Output = ListServicePrincipalNamesResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListTemplateGroupAccessControlEntries {
+  export type Input = ListTemplateGroupAccessControlEntriesRequest;
+  export type Output = ListTemplateGroupAccessControlEntriesResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListTemplates {
+  export type Input = ListTemplatesRequest;
+  export type Output = ListTemplatesResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateTemplate {
+  export type Input = UpdateTemplateRequest;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateTemplateGroupAccessControlEntry {
+  export type Input = UpdateTemplateGroupAccessControlEntryRequest;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
     | InternalServerException
     | ResourceNotFoundException
     | ThrottlingException

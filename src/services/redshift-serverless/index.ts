@@ -154,6 +154,490 @@ export declare class RedshiftServerless extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
+  convertRecoveryPointToSnapshot(
+    input: ConvertRecoveryPointToSnapshotRequest,
+  ): Effect.Effect<
+    ConvertRecoveryPointToSnapshotResponse,
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | TooManyTagsException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createEndpointAccess(
+    input: CreateEndpointAccessRequest,
+  ): Effect.Effect<
+    CreateEndpointAccessResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createNamespace(
+    input: CreateNamespaceRequest,
+  ): Effect.Effect<
+    CreateNamespaceResponse,
+    | ConflictException
+    | InternalServerException
+    | TooManyTagsException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createReservation(
+    input: CreateReservationRequest,
+  ): Effect.Effect<
+    CreateReservationResponse,
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | TooManyTagsException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createScheduledAction(
+    input: CreateScheduledActionRequest,
+  ): Effect.Effect<
+    CreateScheduledActionResponse,
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createSnapshot(
+    input: CreateSnapshotRequest,
+  ): Effect.Effect<
+    CreateSnapshotResponse,
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | TooManyTagsException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createSnapshotCopyConfiguration(
+    input: CreateSnapshotCopyConfigurationRequest,
+  ): Effect.Effect<
+    CreateSnapshotCopyConfigurationResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createUsageLimit(
+    input: CreateUsageLimitRequest,
+  ): Effect.Effect<
+    CreateUsageLimitResponse,
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createWorkgroup(
+    input: CreateWorkgroupRequest,
+  ): Effect.Effect<
+    CreateWorkgroupResponse,
+    | ConflictException
+    | InsufficientCapacityException
+    | InternalServerException
+    | Ipv6CidrBlockNotFoundException
+    | ResourceNotFoundException
+    | TooManyTagsException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteEndpointAccess(
+    input: DeleteEndpointAccessRequest,
+  ): Effect.Effect<
+    DeleteEndpointAccessResponse,
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteNamespace(
+    input: DeleteNamespaceRequest,
+  ): Effect.Effect<
+    DeleteNamespaceResponse,
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteScheduledAction(
+    input: DeleteScheduledActionRequest,
+  ): Effect.Effect<
+    DeleteScheduledActionResponse,
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteSnapshot(
+    input: DeleteSnapshotRequest,
+  ): Effect.Effect<
+    DeleteSnapshotResponse,
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteSnapshotCopyConfiguration(
+    input: DeleteSnapshotCopyConfigurationRequest,
+  ): Effect.Effect<
+    DeleteSnapshotCopyConfigurationResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteUsageLimit(
+    input: DeleteUsageLimitRequest,
+  ): Effect.Effect<
+    DeleteUsageLimitResponse,
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteWorkgroup(
+    input: DeleteWorkgroupRequest,
+  ): Effect.Effect<
+    DeleteWorkgroupResponse,
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getEndpointAccess(
+    input: GetEndpointAccessRequest,
+  ): Effect.Effect<
+    GetEndpointAccessResponse,
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getNamespace(
+    input: GetNamespaceRequest,
+  ): Effect.Effect<
+    GetNamespaceResponse,
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getRecoveryPoint(
+    input: GetRecoveryPointRequest,
+  ): Effect.Effect<
+    GetRecoveryPointResponse,
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getReservation(
+    input: GetReservationRequest,
+  ): Effect.Effect<
+    GetReservationResponse,
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getReservationOffering(
+    input: GetReservationOfferingRequest,
+  ): Effect.Effect<
+    GetReservationOfferingResponse,
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getScheduledAction(
+    input: GetScheduledActionRequest,
+  ): Effect.Effect<
+    GetScheduledActionResponse,
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getSnapshot(
+    input: GetSnapshotRequest,
+  ): Effect.Effect<
+    GetSnapshotResponse,
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getTableRestoreStatus(
+    input: GetTableRestoreStatusRequest,
+  ): Effect.Effect<
+    GetTableRestoreStatusResponse,
+    ResourceNotFoundException | ValidationException | CommonAwsError
+  >;
+  getUsageLimit(
+    input: GetUsageLimitRequest,
+  ): Effect.Effect<
+    GetUsageLimitResponse,
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getWorkgroup(
+    input: GetWorkgroupRequest,
+  ): Effect.Effect<
+    GetWorkgroupResponse,
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listEndpointAccess(
+    input: ListEndpointAccessRequest,
+  ): Effect.Effect<
+    ListEndpointAccessResponse,
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listManagedWorkgroups(
+    input: ListManagedWorkgroupsRequest,
+  ): Effect.Effect<
+    ListManagedWorkgroupsResponse,
+    AccessDeniedException | InternalServerException | CommonAwsError
+  >;
+  listNamespaces(
+    input: ListNamespacesRequest,
+  ): Effect.Effect<
+    ListNamespacesResponse,
+    InternalServerException | ValidationException | CommonAwsError
+  >;
+  listRecoveryPoints(
+    input: ListRecoveryPointsRequest,
+  ): Effect.Effect<
+    ListRecoveryPointsResponse,
+    InternalServerException | ValidationException | CommonAwsError
+  >;
+  listReservationOfferings(
+    input: ListReservationOfferingsRequest,
+  ): Effect.Effect<
+    ListReservationOfferingsResponse,
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listReservations(
+    input: ListReservationsRequest,
+  ): Effect.Effect<
+    ListReservationsResponse,
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listScheduledActions(
+    input: ListScheduledActionsRequest,
+  ): Effect.Effect<
+    ListScheduledActionsResponse,
+    | InternalServerException
+    | InvalidPaginationException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listSnapshotCopyConfigurations(
+    input: ListSnapshotCopyConfigurationsRequest,
+  ): Effect.Effect<
+    ListSnapshotCopyConfigurationsResponse,
+    | ConflictException
+    | InternalServerException
+    | InvalidPaginationException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listSnapshots(
+    input: ListSnapshotsRequest,
+  ): Effect.Effect<
+    ListSnapshotsResponse,
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listTableRestoreStatus(
+    input: ListTableRestoreStatusRequest,
+  ): Effect.Effect<
+    ListTableRestoreStatusResponse,
+    | InvalidPaginationException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listUsageLimits(
+    input: ListUsageLimitsRequest,
+  ): Effect.Effect<
+    ListUsageLimitsResponse,
+    | ConflictException
+    | InternalServerException
+    | InvalidPaginationException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listWorkgroups(
+    input: ListWorkgroupsRequest,
+  ): Effect.Effect<
+    ListWorkgroupsResponse,
+    InternalServerException | ValidationException | CommonAwsError
+  >;
+  restoreFromRecoveryPoint(
+    input: RestoreFromRecoveryPointRequest,
+  ): Effect.Effect<
+    RestoreFromRecoveryPointResponse,
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  restoreFromSnapshot(
+    input: RestoreFromSnapshotRequest,
+  ): Effect.Effect<
+    RestoreFromSnapshotResponse,
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ValidationException
+    | CommonAwsError
+  >;
+  restoreTableFromRecoveryPoint(
+    input: RestoreTableFromRecoveryPointRequest,
+  ): Effect.Effect<
+    RestoreTableFromRecoveryPointResponse,
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  restoreTableFromSnapshot(
+    input: RestoreTableFromSnapshotRequest,
+  ): Effect.Effect<
+    RestoreTableFromSnapshotResponse,
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateEndpointAccess(
+    input: UpdateEndpointAccessRequest,
+  ): Effect.Effect<
+    UpdateEndpointAccessResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateNamespace(
+    input: UpdateNamespaceRequest,
+  ): Effect.Effect<
+    UpdateNamespaceResponse,
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateScheduledAction(
+    input: UpdateScheduledActionRequest,
+  ): Effect.Effect<
+    UpdateScheduledActionResponse,
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateSnapshot(
+    input: UpdateSnapshotRequest,
+  ): Effect.Effect<
+    UpdateSnapshotResponse,
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateSnapshotCopyConfiguration(
+    input: UpdateSnapshotCopyConfigurationRequest,
+  ): Effect.Effect<
+    UpdateSnapshotCopyConfigurationResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateUsageLimit(
+    input: UpdateUsageLimitRequest,
+  ): Effect.Effect<
+    UpdateUsageLimitResponse,
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateWorkgroup(
+    input: UpdateWorkgroupRequest,
+  ): Effect.Effect<
+    UpdateWorkgroupResponse,
+    | ConflictException
+    | InsufficientCapacityException
+    | InternalServerException
+    | Ipv6CidrBlockNotFoundException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
 }
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
@@ -1293,6 +1777,549 @@ export declare namespace UpdateCustomDomainAssociation {
     | InternalServerException
     | ResourceNotFoundException
     | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ConvertRecoveryPointToSnapshot {
+  export type Input = ConvertRecoveryPointToSnapshotRequest;
+  export type Output = ConvertRecoveryPointToSnapshotResponse;
+  export type Error =
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | TooManyTagsException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateEndpointAccess {
+  export type Input = CreateEndpointAccessRequest;
+  export type Output = CreateEndpointAccessResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateNamespace {
+  export type Input = CreateNamespaceRequest;
+  export type Output = CreateNamespaceResponse;
+  export type Error =
+    | ConflictException
+    | InternalServerException
+    | TooManyTagsException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateReservation {
+  export type Input = CreateReservationRequest;
+  export type Output = CreateReservationResponse;
+  export type Error =
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | TooManyTagsException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateScheduledAction {
+  export type Input = CreateScheduledActionRequest;
+  export type Output = CreateScheduledActionResponse;
+  export type Error =
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateSnapshot {
+  export type Input = CreateSnapshotRequest;
+  export type Output = CreateSnapshotResponse;
+  export type Error =
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | TooManyTagsException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateSnapshotCopyConfiguration {
+  export type Input = CreateSnapshotCopyConfigurationRequest;
+  export type Output = CreateSnapshotCopyConfigurationResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateUsageLimit {
+  export type Input = CreateUsageLimitRequest;
+  export type Output = CreateUsageLimitResponse;
+  export type Error =
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateWorkgroup {
+  export type Input = CreateWorkgroupRequest;
+  export type Output = CreateWorkgroupResponse;
+  export type Error =
+    | ConflictException
+    | InsufficientCapacityException
+    | InternalServerException
+    | Ipv6CidrBlockNotFoundException
+    | ResourceNotFoundException
+    | TooManyTagsException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteEndpointAccess {
+  export type Input = DeleteEndpointAccessRequest;
+  export type Output = DeleteEndpointAccessResponse;
+  export type Error =
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteNamespace {
+  export type Input = DeleteNamespaceRequest;
+  export type Output = DeleteNamespaceResponse;
+  export type Error =
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteScheduledAction {
+  export type Input = DeleteScheduledActionRequest;
+  export type Output = DeleteScheduledActionResponse;
+  export type Error =
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteSnapshot {
+  export type Input = DeleteSnapshotRequest;
+  export type Output = DeleteSnapshotResponse;
+  export type Error =
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteSnapshotCopyConfiguration {
+  export type Input = DeleteSnapshotCopyConfigurationRequest;
+  export type Output = DeleteSnapshotCopyConfigurationResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteUsageLimit {
+  export type Input = DeleteUsageLimitRequest;
+  export type Output = DeleteUsageLimitResponse;
+  export type Error =
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteWorkgroup {
+  export type Input = DeleteWorkgroupRequest;
+  export type Output = DeleteWorkgroupResponse;
+  export type Error =
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetEndpointAccess {
+  export type Input = GetEndpointAccessRequest;
+  export type Output = GetEndpointAccessResponse;
+  export type Error =
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetNamespace {
+  export type Input = GetNamespaceRequest;
+  export type Output = GetNamespaceResponse;
+  export type Error =
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetRecoveryPoint {
+  export type Input = GetRecoveryPointRequest;
+  export type Output = GetRecoveryPointResponse;
+  export type Error =
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetReservation {
+  export type Input = GetReservationRequest;
+  export type Output = GetReservationResponse;
+  export type Error =
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetReservationOffering {
+  export type Input = GetReservationOfferingRequest;
+  export type Output = GetReservationOfferingResponse;
+  export type Error =
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetScheduledAction {
+  export type Input = GetScheduledActionRequest;
+  export type Output = GetScheduledActionResponse;
+  export type Error =
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetSnapshot {
+  export type Input = GetSnapshotRequest;
+  export type Output = GetSnapshotResponse;
+  export type Error =
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetTableRestoreStatus {
+  export type Input = GetTableRestoreStatusRequest;
+  export type Output = GetTableRestoreStatusResponse;
+  export type Error =
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetUsageLimit {
+  export type Input = GetUsageLimitRequest;
+  export type Output = GetUsageLimitResponse;
+  export type Error =
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetWorkgroup {
+  export type Input = GetWorkgroupRequest;
+  export type Output = GetWorkgroupResponse;
+  export type Error =
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListEndpointAccess {
+  export type Input = ListEndpointAccessRequest;
+  export type Output = ListEndpointAccessResponse;
+  export type Error =
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListManagedWorkgroups {
+  export type Input = ListManagedWorkgroupsRequest;
+  export type Output = ListManagedWorkgroupsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | CommonAwsError;
+}
+
+export declare namespace ListNamespaces {
+  export type Input = ListNamespacesRequest;
+  export type Output = ListNamespacesResponse;
+  export type Error =
+    | InternalServerException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListRecoveryPoints {
+  export type Input = ListRecoveryPointsRequest;
+  export type Output = ListRecoveryPointsResponse;
+  export type Error =
+    | InternalServerException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListReservationOfferings {
+  export type Input = ListReservationOfferingsRequest;
+  export type Output = ListReservationOfferingsResponse;
+  export type Error =
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListReservations {
+  export type Input = ListReservationsRequest;
+  export type Output = ListReservationsResponse;
+  export type Error =
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListScheduledActions {
+  export type Input = ListScheduledActionsRequest;
+  export type Output = ListScheduledActionsResponse;
+  export type Error =
+    | InternalServerException
+    | InvalidPaginationException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListSnapshotCopyConfigurations {
+  export type Input = ListSnapshotCopyConfigurationsRequest;
+  export type Output = ListSnapshotCopyConfigurationsResponse;
+  export type Error =
+    | ConflictException
+    | InternalServerException
+    | InvalidPaginationException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListSnapshots {
+  export type Input = ListSnapshotsRequest;
+  export type Output = ListSnapshotsResponse;
+  export type Error =
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListTableRestoreStatus {
+  export type Input = ListTableRestoreStatusRequest;
+  export type Output = ListTableRestoreStatusResponse;
+  export type Error =
+    | InvalidPaginationException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListUsageLimits {
+  export type Input = ListUsageLimitsRequest;
+  export type Output = ListUsageLimitsResponse;
+  export type Error =
+    | ConflictException
+    | InternalServerException
+    | InvalidPaginationException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListWorkgroups {
+  export type Input = ListWorkgroupsRequest;
+  export type Output = ListWorkgroupsResponse;
+  export type Error =
+    | InternalServerException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace RestoreFromRecoveryPoint {
+  export type Input = RestoreFromRecoveryPointRequest;
+  export type Output = RestoreFromRecoveryPointResponse;
+  export type Error =
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace RestoreFromSnapshot {
+  export type Input = RestoreFromSnapshotRequest;
+  export type Output = RestoreFromSnapshotResponse;
+  export type Error =
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace RestoreTableFromRecoveryPoint {
+  export type Input = RestoreTableFromRecoveryPointRequest;
+  export type Output = RestoreTableFromRecoveryPointResponse;
+  export type Error =
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace RestoreTableFromSnapshot {
+  export type Input = RestoreTableFromSnapshotRequest;
+  export type Output = RestoreTableFromSnapshotResponse;
+  export type Error =
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateEndpointAccess {
+  export type Input = UpdateEndpointAccessRequest;
+  export type Output = UpdateEndpointAccessResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateNamespace {
+  export type Input = UpdateNamespaceRequest;
+  export type Output = UpdateNamespaceResponse;
+  export type Error =
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateScheduledAction {
+  export type Input = UpdateScheduledActionRequest;
+  export type Output = UpdateScheduledActionResponse;
+  export type Error =
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateSnapshot {
+  export type Input = UpdateSnapshotRequest;
+  export type Output = UpdateSnapshotResponse;
+  export type Error =
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateSnapshotCopyConfiguration {
+  export type Input = UpdateSnapshotCopyConfigurationRequest;
+  export type Output = UpdateSnapshotCopyConfigurationResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateUsageLimit {
+  export type Input = UpdateUsageLimitRequest;
+  export type Output = UpdateUsageLimitResponse;
+  export type Error =
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateWorkgroup {
+  export type Input = UpdateWorkgroupRequest;
+  export type Output = UpdateWorkgroupResponse;
+  export type Error =
+    | ConflictException
+    | InsufficientCapacityException
+    | InternalServerException
+    | Ipv6CidrBlockNotFoundException
+    | ResourceNotFoundException
     | ValidationException
     | CommonAwsError;
 }
