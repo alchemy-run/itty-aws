@@ -168,6 +168,7 @@ export function createServiceProxy<T>(
               endpoint,
               headers,
               input,
+              body,
             });
 
             const response = yield* Effect.promise(() =>
