@@ -331,7 +331,7 @@ export interface ApplicationComponent {
   OsType?: OsType;
   Tier?: Tier;
   Monitor?: boolean;
-  DetectedWorkload?: Record<Tier, Record<string, string>>;
+  DetectedWorkload?: Partial<Record<Tier, Partial<Record<string, string>>>>;
 }
 export type ApplicationComponentList = Array<ApplicationComponent>;
 export interface ApplicationInfo {
@@ -534,7 +534,9 @@ export interface DescribeWorkloadResponse {
   WorkloadRemarks?: string;
   WorkloadConfiguration?: WorkloadConfiguration;
 }
-export type DetectedWorkload = Record<Tier, Record<string, string>>;
+export type DetectedWorkload = Partial<
+  Record<Tier, Partial<Record<string, string>>>
+>;
 export type DiscoveryType = "RESOURCE_GROUP_BASED" | "ACCOUNT_BASED";
 export type EbsCause = string;
 
@@ -552,7 +554,7 @@ export type ErrorMsg = string;
 
 export type ExceptionMessage = string;
 
-export type Feedback = Record<FeedbackKey, FeedbackValue>;
+export type Feedback = Partial<Record<FeedbackKey, FeedbackValue>>;
 export type FeedbackKey = "INSIGHTS_FEEDBACK";
 export type FeedbackValue = "NOT_SPECIFIED" | "USEFUL" | "NOT_USEFUL";
 export type GroupingType = "ACCOUNT_BASED";
@@ -773,7 +775,7 @@ export interface Problem {
   SeverityLevel?: SeverityLevel;
   AccountId?: string;
   ResourceGroupName?: string;
-  Feedback?: Record<FeedbackKey, FeedbackValue>;
+  Feedback?: Partial<Record<FeedbackKey, FeedbackValue>>;
   RecurringCount?: number;
   LastRecurrenceTime?: Date | string;
   Visibility?: Visibility;
@@ -987,7 +989,7 @@ export interface WorkloadConfiguration {
 export type WorkloadId = string;
 
 export type WorkloadList = Array<Workload>;
-export type WorkloadMetaData = Record<string, string>;
+export type WorkloadMetaData = Partial<Record<string, string>>;
 export type WorkloadName = string;
 
 export type XRayErrorPercent = number;

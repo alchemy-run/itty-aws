@@ -303,7 +303,7 @@ export interface CanaryRunConfigInput {
   TimeoutInSeconds?: number;
   MemoryInMB?: number;
   ActiveTracing?: boolean;
-  EnvironmentVariables?: Record<string, string>;
+  EnvironmentVariables?: Partial<Record<string, string>>;
   EphemeralStorage?: number;
 }
 export interface CanaryRunConfigOutput {
@@ -459,7 +459,7 @@ export interface DryRunConfigOutput {
 export type EncryptionMode = "SSE_S3" | "SSE_KMS";
 export type EnvironmentVariableName = string;
 
-export type EnvironmentVariablesMap = Record<string, string>;
+export type EnvironmentVariablesMap = Partial<Record<string, string>>;
 export type EnvironmentVariableValue = string;
 
 export type EphemeralStorageSize = number;

@@ -3085,7 +3085,7 @@ export interface ActiveViolation {
 export type ActiveViolations = Array<ActiveViolation>;
 export type AdditionalMetricsToRetainList = Array<string>;
 export type AdditionalMetricsToRetainV2List = Array<MetricToRetain>;
-export type AdditionalParameterMap = Record<string, string>;
+export type AdditionalParameterMap = Partial<Record<string, string>>;
 export interface AddThingsToThingGroupParams {
   thingGroupNames: Array<string>;
   overrideDynamicGroups?: boolean;
@@ -3123,7 +3123,7 @@ export interface AlertTarget {
 }
 export type AlertTargetArn = string;
 
-export type AlertTargets = Record<AlertTargetType, AlertTarget>;
+export type AlertTargets = Partial<Record<AlertTargetType, AlertTarget>>;
 export type AlertTargetType = "SNS";
 export type AllowAuthorizerOverride = boolean;
 
@@ -3232,18 +3232,20 @@ export type AttributeKey = string;
 export type AttributeName = string;
 
 export interface AttributePayload {
-  attributes?: Record<string, string>;
+  attributes?: Partial<Record<string, string>>;
   merge?: boolean;
 }
-export type Attributes = Record<string, string>;
-export type AttributesMap = Record<string, string>;
+export type Attributes = Partial<Record<string, string>>;
+export type AttributesMap = Partial<Record<string, string>>;
 export type AttributeValue = string;
 
 export interface AuditCheckConfiguration {
   enabled?: boolean;
-  configuration?: Record<ConfigName, string>;
+  configuration?: Partial<Record<ConfigName, string>>;
 }
-export type AuditCheckConfigurations = Record<string, AuditCheckConfiguration>;
+export type AuditCheckConfigurations = Partial<
+  Record<string, AuditCheckConfiguration>
+>;
 export interface AuditCheckDetails {
   checkRunStatus?: AuditCheckRunStatus;
   checkCompliant?: boolean;
@@ -3262,11 +3264,13 @@ export type AuditCheckRunStatus =
   | "COMPLETED_COMPLIANT"
   | "COMPLETED_NON_COMPLIANT"
   | "FAILED";
-export type AuditCheckToActionsMapping = Record<string, Array<string>>;
-export type AuditCheckToReasonCodeFilter = Record<string, Array<string>>;
+export type AuditCheckToActionsMapping = Partial<Record<string, Array<string>>>;
+export type AuditCheckToReasonCodeFilter = Partial<
+  Record<string, Array<string>>
+>;
 export type AuditDescription = string;
 
-export type AuditDetails = Record<string, AuditCheckDetails>;
+export type AuditDetails = Partial<Record<string, AuditCheckDetails>>;
 export interface AuditFinding {
   findingId?: string;
   taskId?: string;
@@ -3310,9 +3314,8 @@ export interface AuditMitigationActionsTaskMetadata {
 }
 export type AuditMitigationActionsTaskMetadataList =
   Array<AuditMitigationActionsTaskMetadata>;
-export type AuditMitigationActionsTaskStatistics = Record<
-  string,
-  TaskStatisticsForAuditCheck
+export type AuditMitigationActionsTaskStatistics = Partial<
+  Record<string, TaskStatisticsForAuditCheck>
 >;
 export type AuditMitigationActionsTaskStatus =
   | "IN_PROGRESS"
@@ -3322,16 +3325,15 @@ export type AuditMitigationActionsTaskStatus =
 export interface AuditMitigationActionsTaskTarget {
   auditTaskId?: string;
   findingIds?: Array<string>;
-  auditCheckToReasonCodeFilter?: Record<string, Array<string>>;
+  auditCheckToReasonCodeFilter?: Partial<Record<string, Array<string>>>;
 }
 export interface AuditNotificationTarget {
   targetArn?: string;
   roleArn?: string;
   enabled?: boolean;
 }
-export type AuditNotificationTargetConfigurations = Record<
-  AuditNotificationType,
-  AuditNotificationTarget
+export type AuditNotificationTargetConfigurations = Partial<
+  Record<AuditNotificationType, AuditNotificationTarget>
 >;
 export type AuditNotificationType = "SNS";
 export interface AuditSuppression {
@@ -3379,7 +3381,7 @@ export interface AuthorizerDescription {
   authorizerArn?: string;
   authorizerFunctionArn?: string;
   tokenKeyName?: string;
-  tokenSigningPublicKeys?: Record<string, string>;
+  tokenSigningPublicKeys?: Partial<Record<string, string>>;
   status?: AuthorizerStatus;
   creationDate?: Date | string;
   lastModifiedDate?: Date | string;
@@ -3596,7 +3598,7 @@ export interface CancelJobExecutionRequest {
   thingName: string;
   force?: boolean;
   expectedVersion?: number;
-  statusDetails?: Record<string, string>;
+  statusDetails?: Partial<Record<string, string>>;
 }
 export interface CancelJobRequest {
   jobId: string;
@@ -3699,7 +3701,7 @@ export type ChannelName = string;
 
 export type CheckCompliant = boolean;
 
-export type CheckCustomConfiguration = Record<ConfigName, string>;
+export type CheckCustomConfiguration = Partial<Record<ConfigName, string>>;
 export type Cidr = string;
 
 export type Cidrs = Array<string>;
@@ -3712,7 +3714,7 @@ export interface ClientCertificateConfig {
 }
 export type ClientId = string;
 
-export type ClientProperties = Record<string, string>;
+export type ClientProperties = Partial<Record<string, string>>;
 export type ClientRequestToken = string;
 
 export type ClientToken = string;
@@ -3906,7 +3908,7 @@ export interface CreateAuthorizerRequest {
   authorizerName: string;
   authorizerFunctionArn: string;
   tokenKeyName?: string;
-  tokenSigningPublicKeys?: Record<string, string>;
+  tokenSigningPublicKeys?: Partial<Record<string, string>>;
   status?: AuthorizerStatus;
   tags?: Array<Tag>;
   signingDisabled?: boolean;
@@ -4049,7 +4051,7 @@ export interface CreateJobRequest {
   namespaceId?: string;
   jobTemplateArn?: string;
   jobExecutionsRetryConfig?: JobExecutionsRetryConfig;
-  documentParameters?: Record<string, string>;
+  documentParameters?: Partial<Record<string, string>>;
   schedulingConfig?: SchedulingConfig;
   destinationPackageVersions?: Array<string>;
 }
@@ -4108,7 +4110,7 @@ export interface CreateOTAUpdateRequest {
   awsJobTimeoutConfig?: AwsJobTimeoutConfig;
   files: Array<OTAUpdateFile>;
   roleArn: string;
-  additionalParameters?: Record<string, string>;
+  additionalParameters?: Partial<Record<string, string>>;
   tags?: Array<Tag>;
 }
 export interface CreateOTAUpdateResponse {
@@ -4133,7 +4135,7 @@ export interface CreatePackageVersionRequest {
   packageName: string;
   versionName: string;
   description?: string;
-  attributes?: Record<string, string>;
+  attributes?: Partial<Record<string, string>>;
   artifact?: PackageVersionArtifact;
   recipe?: string;
   tags?: Record<string, string>;
@@ -4144,7 +4146,7 @@ export interface CreatePackageVersionResponse {
   packageName?: string;
   versionName?: string;
   description?: string;
-  attributes?: Record<string, string>;
+  attributes?: Partial<Record<string, string>>;
   status?: PackageVersionStatus;
   errorReason?: string;
 }
@@ -4230,7 +4232,7 @@ export interface CreateSecurityProfileRequest {
   securityProfileName: string;
   securityProfileDescription?: string;
   behaviors?: Array<Behavior>;
-  alertTargets?: Record<AlertTargetType, AlertTarget>;
+  alertTargets?: Partial<Record<AlertTargetType, AlertTarget>>;
   additionalMetricsToRetain?: Array<string>;
   additionalMetricsToRetainV2?: Array<MetricToRetain>;
   tags?: Array<Tag>;
@@ -4519,11 +4521,10 @@ export type DeprecationFlag = boolean;
 export interface DescribeAccountAuditConfigurationRequest {}
 export interface DescribeAccountAuditConfigurationResponse {
   roleArn?: string;
-  auditNotificationTargetConfigurations?: Record<
-    AuditNotificationType,
-    AuditNotificationTarget
+  auditNotificationTargetConfigurations?: Partial<
+    Record<AuditNotificationType, AuditNotificationTarget>
   >;
-  auditCheckConfigurations?: Record<string, AuditCheckConfiguration>;
+  auditCheckConfigurations?: Partial<Record<string, AuditCheckConfiguration>>;
 }
 export interface DescribeAuditFindingRequest {
   findingId: string;
@@ -4538,9 +4539,9 @@ export interface DescribeAuditMitigationActionsTaskResponse {
   taskStatus?: AuditMitigationActionsTaskStatus;
   startTime?: Date | string;
   endTime?: Date | string;
-  taskStatistics?: Record<string, TaskStatisticsForAuditCheck>;
+  taskStatistics?: Partial<Record<string, TaskStatisticsForAuditCheck>>;
   target?: AuditMitigationActionsTaskTarget;
-  auditCheckToActionsMapping?: Record<string, Array<string>>;
+  auditCheckToActionsMapping?: Partial<Record<string, Array<string>>>;
   actionsDefinition?: Array<MitigationAction>;
 }
 export interface DescribeAuditSuppressionRequest {
@@ -4563,7 +4564,7 @@ export interface DescribeAuditTaskResponse {
   taskStartTime?: Date | string;
   taskStatistics?: TaskStatistics;
   scheduledAuditName?: string;
-  auditDetails?: Record<string, AuditCheckDetails>;
+  auditDetails?: Partial<Record<string, AuditCheckDetails>>;
 }
 export interface DescribeAuthorizerRequest {
   authorizerName: string;
@@ -4673,7 +4674,7 @@ export interface DescribeEndpointResponse {
 }
 export interface DescribeEventConfigurationsRequest {}
 export interface DescribeEventConfigurationsResponse {
-  eventConfigurations?: Record<EventType, Configuration>;
+  eventConfigurations?: Partial<Record<EventType, Configuration>>;
   creationDate?: Date | string;
   lastModifiedDate?: Date | string;
 }
@@ -4814,7 +4815,7 @@ export interface DescribeSecurityProfileResponse {
   securityProfileArn?: string;
   securityProfileDescription?: string;
   behaviors?: Array<Behavior>;
-  alertTargets?: Record<AlertTargetType, AlertTarget>;
+  alertTargets?: Partial<Record<AlertTargetType, AlertTarget>>;
   additionalMetricsToRetain?: Array<string>;
   additionalMetricsToRetainV2?: Array<MetricToRetain>;
   version?: number;
@@ -4869,7 +4870,7 @@ export interface DescribeThingResponse {
   thingId?: string;
   thingArn?: string;
   thingTypeName?: string;
-  attributes?: Record<string, string>;
+  attributes?: Partial<Record<string, string>>;
   version?: number;
   billingGroupName?: string;
 }
@@ -4909,7 +4910,7 @@ export interface DetachThingPrincipalRequest {
 export interface DetachThingPrincipalResponse {}
 export type DetailsKey = string;
 
-export type DetailsMap = Record<string, string>;
+export type DetailsMap = Partial<Record<string, string>>;
 export type DetailsValue = string;
 
 export interface DetectMitigationActionExecution {
@@ -5112,7 +5113,7 @@ export type ErrorMessage2 = string;
 
 export type EvaluationStatistic = string;
 
-export type EventConfigurations = Record<EventType, Configuration>;
+export type EventConfigurations = Partial<Record<EventType, Configuration>>;
 export type EventType =
   | "THING"
   | "THING_GROUP"
@@ -5365,7 +5366,7 @@ export interface GetPackageVersionResponse {
   packageName?: string;
   versionName?: string;
   description?: string;
-  attributes?: Record<string, string>;
+  attributes?: Partial<Record<string, string>>;
   artifact?: PackageVersionArtifact;
   status?: PackageVersionStatus;
   errorReason?: string;
@@ -5481,12 +5482,12 @@ export interface HttpAuthorization {
   sigv4?: SigV4Authorization;
 }
 export interface HttpContext {
-  headers?: Record<string, string>;
+  headers?: Partial<Record<string, string>>;
   queryString?: string;
 }
 export type HttpHeaderName = string;
 
-export type HttpHeaders = Record<string, string>;
+export type HttpHeaders = Partial<Record<string, string>>;
 export type HttpHeaderValue = string;
 
 export type HttpQueryString = string;
@@ -5628,7 +5629,7 @@ export interface Job {
   namespaceId?: string;
   jobTemplateArn?: string;
   jobExecutionsRetryConfig?: JobExecutionsRetryConfig;
-  documentParameters?: Record<string, string>;
+  documentParameters?: Partial<Record<string, string>>;
   isConcurrent?: boolean;
   schedulingConfig?: SchedulingConfig;
   scheduledJobRollouts?: Array<ScheduledJobRollout>;
@@ -5678,7 +5679,7 @@ export type JobExecutionStatus =
   | "REMOVED"
   | "CANCELED";
 export interface JobExecutionStatusDetails {
-  detailsMap?: Record<string, string>;
+  detailsMap?: Partial<Record<string, string>>;
 }
 export interface JobExecutionSummary {
   status?: JobExecutionStatus;
@@ -5749,7 +5750,7 @@ export interface KafkaAction {
   topic: string;
   key?: string;
   partition?: string;
-  clientProperties: Record<string, string>;
+  clientProperties: Partial<Record<string, string>>;
   headers?: Array<KafkaActionHeader>;
 }
 export interface KafkaActionHeader {
@@ -6636,7 +6637,7 @@ export type NonCompliantChecksCount = number;
 export interface NonCompliantResource {
   resourceType?: ResourceType;
   resourceIdentifier?: ResourceIdentifier;
-  additionalInfo?: Record<string, string>;
+  additionalInfo?: Partial<Record<string, string>>;
 }
 export type NonCompliantResourcesCount = number;
 
@@ -6679,7 +6680,7 @@ export interface OTAUpdateFile {
   fileVersion?: string;
   fileLocation?: FileLocation;
   codeSigning?: CodeSigning;
-  attributes?: Record<string, string>;
+  attributes?: Partial<Record<string, string>>;
 }
 export type OTAUpdateFiles = Array<OTAUpdateFile>;
 export type OTAUpdateFileVersion = string;
@@ -6702,7 +6703,7 @@ export interface OTAUpdateInfo {
   awsIotJobId?: string;
   awsIotJobArn?: string;
   errorInfo?: ErrorInfo;
-  additionalParameters?: Record<string, string>;
+  additionalParameters?: Partial<Record<string, string>>;
 }
 export type OTAUpdatesSummary = Array<OTAUpdateSummary>;
 export type OTAUpdateStatus =
@@ -6766,8 +6767,8 @@ export type Parameter = string;
 
 export type ParameterKey = string;
 
-export type ParameterMap = Record<string, string>;
-export type Parameters = Record<string, string>;
+export type ParameterMap = Partial<Record<string, string>>;
+export type Parameters = Partial<Record<string, string>>;
 export type ParameterValue = string;
 
 export type PartitionKey = string;
@@ -6880,7 +6881,7 @@ export interface ProvisioningTemplateVersionSummary {
 }
 export type PublicKey = string;
 
-export type PublicKeyMap = Record<string, string>;
+export type PublicKeyMap = Partial<Record<string, string>>;
 export interface PublishFindingToSnsParams {
   topicArn: string;
 }
@@ -6967,11 +6968,11 @@ export interface RegisterCertificateWithoutCAResponse {
 }
 export interface RegisterThingRequest {
   templateBody: string;
-  parameters?: Record<string, string>;
+  parameters?: Partial<Record<string, string>>;
 }
 export interface RegisterThingResponse {
   certificatePem?: string;
-  resourceArns?: Record<string, string>;
+  resourceArns?: Partial<Record<string, string>>;
 }
 export type RegistrationCode = string;
 
@@ -7000,7 +7001,7 @@ export type RejectedThings = number;
 export interface RelatedResource {
   resourceType?: ResourceType;
   resourceIdentifier?: ResourceIdentifier;
-  additionalInfo?: Record<string, string>;
+  additionalInfo?: Partial<Record<string, string>>;
 }
 export type RelatedResources = Array<RelatedResource>;
 export type RemoveAuthorizerConfig = boolean;
@@ -7054,10 +7055,10 @@ export declare class ResourceAlreadyExistsException extends EffectData.TaggedErr
 }> {}
 export type ResourceArn = string;
 
-export type ResourceArns = Record<string, string>;
+export type ResourceArns = Partial<Record<string, string>>;
 export type ResourceAttributeKey = string;
 
-export type ResourceAttributes = Record<string, string>;
+export type ResourceAttributes = Partial<Record<string, string>>;
 export type ResourceAttributeValue = string;
 
 export type ResourceDescription = string;
@@ -7355,7 +7356,7 @@ export interface SqsAction {
 export interface StartAuditMitigationActionsTaskRequest {
   taskId: string;
   target: AuditMitigationActionsTaskTarget;
-  auditCheckToActionsMapping: Record<string, Array<string>>;
+  auditCheckToActionsMapping: Partial<Record<string, Array<string>>>;
   clientRequestToken: string;
 }
 export interface StartAuditMitigationActionsTaskResponse {
@@ -7482,7 +7483,7 @@ export type StringCommandExecutionResult = string;
 export type StringDateTime = string;
 
 export type StringList = Array<string>;
-export type StringMap = Record<string, string>;
+export type StringMap = Partial<Record<string, string>>;
 export type StringParameterValue = string;
 
 export type stringValue = string;
@@ -7603,7 +7604,7 @@ export interface ThingAttribute {
   thingName?: string;
   thingTypeName?: string;
   thingArn?: string;
-  attributes?: Record<string, string>;
+  attributes?: Partial<Record<string, string>>;
   version?: number;
 }
 export type ThingAttributeList = Array<ThingAttribute>;
@@ -7618,7 +7619,7 @@ export interface ThingDocument {
   thingId?: string;
   thingTypeName?: string;
   thingGroupNames?: Array<string>;
-  attributes?: Record<string, string>;
+  attributes?: Partial<Record<string, string>>;
   shadow?: string;
   deviceDefender?: string;
   connectivity?: ThingConnectivity;
@@ -7632,7 +7633,7 @@ export interface ThingGroupDocument {
   thingGroupName?: string;
   thingGroupId?: string;
   thingGroupDescription?: string;
-  attributes?: Record<string, string>;
+  attributes?: Partial<Record<string, string>>;
   parentGroupNames?: Array<string>;
 }
 export type ThingGroupDocumentList = Array<ThingGroupDocument>;
@@ -7877,11 +7878,10 @@ export interface UntagResourceRequest {
 export interface UntagResourceResponse {}
 export interface UpdateAccountAuditConfigurationRequest {
   roleArn?: string;
-  auditNotificationTargetConfigurations?: Record<
-    AuditNotificationType,
-    AuditNotificationTarget
+  auditNotificationTargetConfigurations?: Partial<
+    Record<AuditNotificationType, AuditNotificationTarget>
   >;
-  auditCheckConfigurations?: Record<string, AuditCheckConfiguration>;
+  auditCheckConfigurations?: Partial<Record<string, AuditCheckConfiguration>>;
 }
 export interface UpdateAccountAuditConfigurationResponse {}
 export interface UpdateAuditSuppressionRequest {
@@ -7896,7 +7896,7 @@ export interface UpdateAuthorizerRequest {
   authorizerName: string;
   authorizerFunctionArn?: string;
   tokenKeyName?: string;
-  tokenSigningPublicKeys?: Record<string, string>;
+  tokenSigningPublicKeys?: Partial<Record<string, string>>;
   status?: AuthorizerStatus;
   enableCachingForHttp?: boolean;
 }
@@ -8008,7 +8008,7 @@ export interface UpdateEncryptionConfigurationRequest {
 }
 export interface UpdateEncryptionConfigurationResponse {}
 export interface UpdateEventConfigurationsRequest {
-  eventConfigurations?: Record<EventType, Configuration>;
+  eventConfigurations?: Partial<Record<EventType, Configuration>>;
 }
 export interface UpdateEventConfigurationsResponse {}
 export interface UpdateFleetMetricRequest {
@@ -8064,7 +8064,7 @@ export interface UpdatePackageVersionRequest {
   packageName: string;
   versionName: string;
   description?: string;
-  attributes?: Record<string, string>;
+  attributes?: Partial<Record<string, string>>;
   artifact?: PackageVersionArtifact;
   action?: PackageVersionAction;
   recipe?: string;
@@ -8104,7 +8104,7 @@ export interface UpdateSecurityProfileRequest {
   securityProfileName: string;
   securityProfileDescription?: string;
   behaviors?: Array<Behavior>;
-  alertTargets?: Record<AlertTargetType, AlertTarget>;
+  alertTargets?: Partial<Record<AlertTargetType, AlertTarget>>;
   additionalMetricsToRetain?: Array<string>;
   additionalMetricsToRetainV2?: Array<MetricToRetain>;
   deleteBehaviors?: boolean;
@@ -8119,7 +8119,7 @@ export interface UpdateSecurityProfileResponse {
   securityProfileArn?: string;
   securityProfileDescription?: string;
   behaviors?: Array<Behavior>;
-  alertTargets?: Record<AlertTargetType, AlertTarget>;
+  alertTargets?: Partial<Record<AlertTargetType, AlertTarget>>;
   additionalMetricsToRetain?: Array<string>;
   additionalMetricsToRetainV2?: Array<MetricToRetain>;
   version?: number;

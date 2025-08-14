@@ -484,7 +484,7 @@ export interface GetCaseResponse {
   fields: Array<FieldValue>;
   templateId: string;
   nextToken?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface GetCaseRuleResponse {
   caseRuleId: string;
@@ -495,7 +495,7 @@ export interface GetCaseRuleResponse {
   deleted?: boolean;
   createdTime?: Date | string;
   lastModifiedTime?: Date | string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface GetDomainRequest {
   domainId: string;
@@ -506,7 +506,7 @@ export interface GetDomainResponse {
   name: string;
   createdTime: Date | string;
   domainStatus: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface GetFieldResponse {
   fieldId: string;
@@ -515,7 +515,7 @@ export interface GetFieldResponse {
   description?: string;
   type: string;
   namespace: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   deleted?: boolean;
   createdTime?: Date | string;
   lastModifiedTime?: Date | string;
@@ -529,7 +529,7 @@ export interface GetLayoutResponse {
   layoutArn: string;
   name: string;
   content: LayoutContent;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   deleted?: boolean;
   createdTime?: Date | string;
   lastModifiedTime?: Date | string;
@@ -545,7 +545,7 @@ export interface GetTemplateResponse {
   description?: string;
   layoutConfiguration?: LayoutConfiguration;
   requiredFields?: Array<RequiredField>;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   status: string;
   deleted?: boolean;
   createdTime?: Date | string;
@@ -645,7 +645,7 @@ export interface ListTagsForResourceRequest {
   arn: string;
 }
 export interface ListTagsForResourceResponse {
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface ListTemplatesRequest {
   domainId: string;
@@ -765,7 +765,7 @@ export interface SearchCasesResponseItem {
   caseId: string;
   templateId: string;
   fields: Array<FieldValue>;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type SearchCasesResponseItemList = Array<SearchCasesResponseItem>;
 export interface SearchRelatedItemsRequest {
@@ -784,7 +784,7 @@ export interface SearchRelatedItemsResponseItem {
   type: string;
   associationTime: Date | string;
   content: RelatedItemContent;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   performedBy?: UserUnion;
 }
 export type SearchRelatedItemsResponseItemList =
@@ -851,9 +851,9 @@ export type TagKey = string;
 export type TagKeyList = Array<string>;
 export interface TagResourceRequest {
   arn: string;
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
-export type Tags = Record<string, string>;
+export type Tags = Partial<Record<string, string>>;
 export type TargetSlaMinutes = number;
 
 export type TemplateArn = string;

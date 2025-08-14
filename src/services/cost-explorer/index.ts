@@ -448,11 +448,11 @@ export interface AnomalySubscription {
 }
 export type AnomalySubscriptionFrequency = "DAILY" | "IMMEDIATE" | "WEEKLY";
 export type AnomalySubscriptions = Array<AnomalySubscription>;
-export type ApproximateUsageRecordsPerService = Record<string, number>;
+export type ApproximateUsageRecordsPerService = Partial<Record<string, number>>;
 export type ApproximationDimension = "SERVICE" | "RESOURCE";
 export type Arn = string;
 
-export type Attributes = Record<string, string>;
+export type Attributes = Partial<Record<string, string>>;
 export type AttributeType = string;
 
 export type AttributeValue = string;
@@ -472,7 +472,7 @@ export type BillingViewArn = string;
 export interface CommitmentPurchaseAnalysisConfiguration {
   SavingsPlansPurchaseAnalysisConfiguration?: SavingsPlansPurchaseAnalysisConfiguration;
 }
-export type ComparisonMetrics = Record<string, ComparisonMetricValue>;
+export type ComparisonMetrics = Partial<Record<string, ComparisonMetricValue>>;
 export interface ComparisonMetricValue {
   BaselineTimePeriodAmount?: string;
   ComparisonTimePeriodAmount?: string;
@@ -513,7 +513,7 @@ export type CostAllocationTagStatusList = Array<CostAllocationTagStatusEntry>;
 export type CostAllocationTagType = "AWS_GENERATED" | "USER_DEFINED";
 export interface CostAndUsageComparison {
   CostAndUsageSelector?: Expression;
-  Metrics?: Record<string, ComparisonMetricValue>;
+  Metrics?: Partial<Record<string, ComparisonMetricValue>>;
 }
 export type CostAndUsageComparisons = Array<CostAndUsageComparison>;
 export type CostAndUsageComparisonsMaxResults = number;
@@ -597,7 +597,7 @@ export interface CostCategoryValues {
 export type CostCategoryValuesList = Array<string>;
 export interface CostComparisonDriver {
   CostSelector?: Expression;
-  Metrics?: Record<string, ComparisonMetricValue>;
+  Metrics?: Partial<Record<string, ComparisonMetricValue>>;
   CostDrivers?: Array<CostDriver>;
 }
 export type CostComparisonDrivers = Array<CostComparisonDriver>;
@@ -606,7 +606,7 @@ export type CostComparisonDriversMaxResults = number;
 export interface CostDriver {
   Type?: string;
   Name?: string;
-  Metrics?: Record<string, ComparisonMetricValue>;
+  Metrics?: Partial<Record<string, ComparisonMetricValue>>;
 }
 export type CostDrivers = Array<CostDriver>;
 export interface Coverage {
@@ -752,7 +752,7 @@ export interface DimensionValues {
 }
 export interface DimensionValuesWithAttributes {
   Value?: string;
-  Attributes?: Record<string, string>;
+  Attributes?: Partial<Record<string, string>>;
 }
 export type DimensionValuesWithAttributesList =
   Array<DimensionValuesWithAttributes>;
@@ -922,7 +922,7 @@ export interface GetApproximateUsageRecordsRequest {
   ApproximationDimension: ApproximationDimension;
 }
 export interface GetApproximateUsageRecordsResponse {
-  Services?: Record<string, number>;
+  Services?: Partial<Record<string, number>>;
   TotalRecords?: number;
   LookbackPeriod?: DateInterval;
 }
@@ -951,7 +951,7 @@ export interface GetCostAndUsageComparisonsRequest {
 }
 export interface GetCostAndUsageComparisonsResponse {
   CostAndUsageComparisons?: Array<CostAndUsageComparison>;
-  TotalCostAndUsage?: Record<string, ComparisonMetricValue>;
+  TotalCostAndUsage?: Partial<Record<string, ComparisonMetricValue>>;
   NextPageToken?: string;
 }
 export interface GetCostAndUsageRequest {
@@ -1195,7 +1195,7 @@ export interface GetUsageForecastResponse {
 export type Granularity = "DAILY" | "MONTHLY" | "HOURLY";
 export interface Group {
   Keys?: Array<string>;
-  Metrics?: Record<string, MetricValue>;
+  Metrics?: Partial<Record<string, MetricValue>>;
 }
 export interface GroupDefinition {
   Type?: GroupDefinitionType;
@@ -1321,7 +1321,7 @@ export type MetricAmount = string;
 export type MetricName = string;
 
 export type MetricNames = Array<string>;
-export type Metrics = Record<string, MetricValue>;
+export type Metrics = Partial<Record<string, MetricValue>>;
 export type MetricsOverLookbackPeriod =
   Array<RecommendationDetailHourlyMetrics>;
 export type MetricUnit = string;
@@ -1488,7 +1488,7 @@ export interface ReservationAggregates {
   UnrealizedSavings?: string;
 }
 export interface ReservationCoverageGroup {
-  Attributes?: Record<string, string>;
+  Attributes?: Partial<Record<string, string>>;
   Coverage?: Coverage;
 }
 export type ReservationCoverageGroups = Array<ReservationCoverageGroup>;
@@ -1548,7 +1548,7 @@ export interface ReservationPurchaseRecommendationSummary {
 export interface ReservationUtilizationGroup {
   Key?: string;
   Value?: string;
-  Attributes?: Record<string, string>;
+  Attributes?: Partial<Record<string, string>>;
   Utilization?: ReservationAggregates;
 }
 export type ReservationUtilizationGroups = Array<ReservationUtilizationGroup>;
@@ -1583,7 +1583,7 @@ export interface ResourceUtilization {
 }
 export interface ResultByTime {
   TimePeriod?: DateInterval;
-  Total?: Record<string, MetricValue>;
+  Total?: Partial<Record<string, MetricValue>>;
   Groups?: Array<Group>;
   Estimated?: boolean;
 }
@@ -1647,7 +1647,7 @@ export interface SavingsPlansAmortizedCommitment {
 export type SavingsPlansCommitment = number;
 
 export interface SavingsPlansCoverage {
-  Attributes?: Record<string, string>;
+  Attributes?: Partial<Record<string, string>>;
   Coverage?: SavingsPlansCoverageData;
   TimePeriod?: DateInterval;
 }
@@ -1776,7 +1776,7 @@ export interface SavingsPlansUtilizationByTime {
 }
 export interface SavingsPlansUtilizationDetail {
   SavingsPlanArn?: string;
-  Attributes?: Record<string, string>;
+  Attributes?: Partial<Record<string, string>>;
   Utilization?: SavingsPlansUtilization;
   Savings?: SavingsPlansSavings;
   AmortizedCommitment?: SavingsPlansAmortizedCommitment;

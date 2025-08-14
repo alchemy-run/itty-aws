@@ -769,11 +769,11 @@ export type AccountsCleanup = boolean;
 
 export interface AccountSettings {
   awsAccountNumber?: string;
-  unmeteredDevices?: Record<DevicePlatform, number>;
-  unmeteredRemoteAccessDevices?: Record<DevicePlatform, number>;
+  unmeteredDevices?: Partial<Record<DevicePlatform, number>>;
+  unmeteredRemoteAccessDevices?: Partial<Record<DevicePlatform, number>>;
   maxJobTimeoutMinutes?: number;
   trialMinutes?: TrialMinutes;
-  maxSlots?: Record<string, number>;
+  maxSlots?: Partial<Record<string, number>>;
   defaultJobTimeoutMinutes?: number;
   skipAppResign?: boolean;
 }
@@ -1205,8 +1205,8 @@ export interface GetOfferingStatusRequest {
   nextToken?: string;
 }
 export interface GetOfferingStatusResult {
-  current?: Record<string, OfferingStatus>;
-  nextPeriod?: Record<string, OfferingStatus>;
+  current?: Partial<Record<string, OfferingStatus>>;
+  nextPeriod?: Partial<Record<string, OfferingStatus>>;
   nextToken?: string;
 }
 export interface GetProjectRequest {
@@ -1519,7 +1519,7 @@ export interface ListUniqueProblemsRequest {
   nextToken?: string;
 }
 export interface ListUniqueProblemsResult {
-  uniqueProblems?: Record<ExecutionResult, Array<UniqueProblem>>;
+  uniqueProblems?: Partial<Record<ExecutionResult, Array<UniqueProblem>>>;
   nextToken?: string;
 }
 export interface ListUploadsRequest {
@@ -1547,7 +1547,7 @@ export type Long = number;
 
 export type MaxPageSize = number;
 
-export type MaxSlotMap = Record<string, number>;
+export type MaxSlotMap = Partial<Record<string, number>>;
 export type Message = string;
 
 export type Metadata = string;
@@ -1609,7 +1609,7 @@ export interface OfferingStatus {
   quantity?: number;
   effectiveOn?: Date | string;
 }
-export type OfferingStatusMap = Record<string, OfferingStatus>;
+export type OfferingStatusMap = Partial<Record<string, OfferingStatus>>;
 export interface OfferingTransaction {
   offeringStatus?: OfferingStatus;
   transactionId?: string;
@@ -1647,7 +1647,7 @@ export interface Project {
   vpcConfig?: VpcConfig;
 }
 export type Projects = Array<Project>;
-export type PurchasedDevicesMap = Record<DevicePlatform, number>;
+export type PurchasedDevicesMap = Partial<Record<DevicePlatform, number>>;
 export interface PurchaseOfferingRequest {
   offeringId: string;
   quantity: number;
@@ -1816,7 +1816,7 @@ export interface ScheduleRunTest {
   testPackageArn?: string;
   testSpecArn?: string;
   filter?: string;
-  parameters?: Record<string, string>;
+  parameters?: Partial<Record<string, string>>;
 }
 export type SecurityGroupId = string;
 
@@ -1954,7 +1954,7 @@ export interface TestGridVpcConfig {
   subnetIds: Array<string>;
   vpcId: string;
 }
-export type TestParameters = Record<string, string>;
+export type TestParameters = Partial<Record<string, string>>;
 export type Tests = Array<Test>;
 export type TestType =
   | "BUILTIN_FUZZ"
@@ -1988,9 +1988,8 @@ export interface UniqueProblem {
   problems?: Array<Problem>;
 }
 export type UniqueProblems = Array<UniqueProblem>;
-export type UniqueProblemsByExecutionResultMap = Record<
-  ExecutionResult,
-  Array<UniqueProblem>
+export type UniqueProblemsByExecutionResultMap = Partial<
+  Record<ExecutionResult, Array<UniqueProblem>>
 >;
 export interface UntagResourceRequest {
   ResourceARN: string;

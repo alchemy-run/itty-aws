@@ -874,9 +874,9 @@ export interface AddTagsRequest {
   ARN: string;
   TagList: Array<Tag>;
 }
-export type AdvancedOptions = Record<string, string>;
+export type AdvancedOptions = Partial<Record<string, string>>;
 export interface AdvancedOptionsStatus {
-  Options: Record<string, string>;
+  Options: Partial<Record<string, string>>;
   Status: OptionStatus;
 }
 export interface AdvancedSecurityOptions {
@@ -1214,8 +1214,8 @@ export interface CreateDomainRequest {
   CognitoOptions?: CognitoOptions;
   EncryptionAtRestOptions?: EncryptionAtRestOptions;
   NodeToNodeEncryptionOptions?: NodeToNodeEncryptionOptions;
-  AdvancedOptions?: Record<string, string>;
-  LogPublishingOptions?: Record<LogType, LogPublishingOption>;
+  AdvancedOptions?: Partial<Record<string, string>>;
+  LogPublishingOptions?: Partial<Record<LogType, LogPublishingOption>>;
   DomainEndpointOptions?: DomainEndpointOptions;
   AdvancedSecurityOptions?: AdvancedSecurityOptionsInput;
   IdentityCenterOptions?: IdentityCenterOptionsInput;
@@ -1434,7 +1434,7 @@ export interface DescribeInstanceTypeLimitsRequest {
   EngineVersion: string;
 }
 export interface DescribeInstanceTypeLimitsResponse {
-  LimitsByRole?: Record<string, Limits>;
+  LimitsByRole?: Partial<Record<string, Limits>>;
 }
 export interface DescribeOutboundConnectionsRequest {
   Filters?: Array<Filter>;
@@ -1656,7 +1656,7 @@ export interface DomainStatus {
   Deleted?: boolean;
   Endpoint?: string;
   EndpointV2?: string;
-  Endpoints?: Record<string, string>;
+  Endpoints?: Partial<Record<string, string>>;
   DomainEndpointV2HostedZoneId?: string;
   Processing?: boolean;
   UpgradeProcessing?: boolean;
@@ -1670,8 +1670,8 @@ export interface DomainStatus {
   CognitoOptions?: CognitoOptions;
   EncryptionAtRestOptions?: EncryptionAtRestOptions;
   NodeToNodeEncryptionOptions?: NodeToNodeEncryptionOptions;
-  AdvancedOptions?: Record<string, string>;
-  LogPublishingOptions?: Record<LogType, LogPublishingOption>;
+  AdvancedOptions?: Partial<Record<string, string>>;
+  LogPublishingOptions?: Partial<Record<LogType, LogPublishingOption>>;
   ServiceSoftwareOptions?: ServiceSoftwareOptions;
   DomainEndpointOptions?: DomainEndpointOptions;
   AdvancedSecurityOptions?: AdvancedSecurityOptions;
@@ -1728,7 +1728,7 @@ export interface EncryptionAtRestOptionsStatus {
 }
 export type Endpoint = string;
 
-export type EndpointsMap = Record<string, string>;
+export type EndpointsMap = Partial<Record<string, string>>;
 export type EngineType = "OpenSearch" | "Elasticsearch";
 export type EngineVersion = string;
 
@@ -1995,7 +1995,7 @@ export interface Limits {
   InstanceLimits?: InstanceLimits;
   AdditionalLimits?: Array<AdditionalLimit>;
 }
-export type LimitsByRole = Record<string, Limits>;
+export type LimitsByRole = Partial<Record<string, Limits>>;
 export type LimitValue = string;
 
 export type LimitValueList = Array<string>;
@@ -2118,9 +2118,11 @@ export interface LogPublishingOption {
   CloudWatchLogsLogGroupArn?: string;
   Enabled?: boolean;
 }
-export type LogPublishingOptions = Record<LogType, LogPublishingOption>;
+export type LogPublishingOptions = Partial<
+  Record<LogType, LogPublishingOption>
+>;
 export interface LogPublishingOptionsStatus {
-  Options?: Record<LogType, LogPublishingOption>;
+  Options?: Partial<Record<LogType, LogPublishingOption>>;
   Status?: OptionStatus;
 }
 export type LogType =
@@ -2766,10 +2768,10 @@ export interface UpdateDomainConfigRequest {
   SnapshotOptions?: SnapshotOptions;
   VPCOptions?: VPCOptions;
   CognitoOptions?: CognitoOptions;
-  AdvancedOptions?: Record<string, string>;
+  AdvancedOptions?: Partial<Record<string, string>>;
   AccessPolicies?: string;
   IPAddressType?: IPAddressType;
-  LogPublishingOptions?: Record<LogType, LogPublishingOption>;
+  LogPublishingOptions?: Partial<Record<LogType, LogPublishingOption>>;
   EncryptionAtRestOptions?: EncryptionAtRestOptions;
   DomainEndpointOptions?: DomainEndpointOptions;
   NodeToNodeEncryptionOptions?: NodeToNodeEncryptionOptions;
@@ -2831,14 +2833,14 @@ export interface UpgradeDomainRequest {
   DomainName: string;
   TargetVersion: string;
   PerformCheckOnly?: boolean;
-  AdvancedOptions?: Record<string, string>;
+  AdvancedOptions?: Partial<Record<string, string>>;
 }
 export interface UpgradeDomainResponse {
   UpgradeId?: string;
   DomainName?: string;
   TargetVersion?: string;
   PerformCheckOnly?: boolean;
-  AdvancedOptions?: Record<string, string>;
+  AdvancedOptions?: Partial<Record<string, string>>;
   ChangeProgressDetails?: ChangeProgressDetails;
 }
 export interface UpgradeHistory {

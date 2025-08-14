@@ -346,7 +346,7 @@ export interface CreateMLModelInput {
   MLModelId: string;
   MLModelName?: string;
   MLModelType: MLModelType;
-  Parameters?: Record<string, string>;
+  Parameters?: Partial<Record<string, string>>;
   TrainingDataSourceId: string;
   Recipe?: string;
   RecipeUri?: string;
@@ -511,7 +511,7 @@ export interface DescribeTagsOutput {
   Tags?: Array<Tag>;
 }
 export type DetailsAttributes = "PREDICTIVE_MODEL_TYPE" | "ALGORITHM";
-export type DetailsMap = Record<DetailsAttributes, string>;
+export type DetailsMap = Partial<Record<DetailsAttributes, string>>;
 export type DetailsValue = string;
 
 export type EDPPipelineId = string;
@@ -651,7 +651,7 @@ export interface GetMLModelOutput {
   Status?: EntityStatus;
   SizeInBytes?: number;
   EndpointInfo?: RealtimeEndpointInfo;
-  TrainingParameters?: Record<string, string>;
+  TrainingParameters?: Partial<Record<string, string>>;
   InputDataLocationS3?: string;
   MLModelType?: MLModelType;
   ScoreThreshold?: number;
@@ -711,7 +711,7 @@ export interface MLModel {
   Status?: EntityStatus;
   SizeInBytes?: number;
   EndpointInfo?: RealtimeEndpointInfo;
-  TrainingParameters?: Record<string, string>;
+  TrainingParameters?: Partial<Record<string, string>>;
   InputDataLocationS3?: string;
   Algorithm?: Algorithm;
   MLModelType?: MLModelType;
@@ -740,23 +740,23 @@ export type MLModelType = "REGRESSION" | "BINARY" | "MULTICLASS";
 export type PageLimit = number;
 
 export interface PerformanceMetrics {
-  Properties?: Record<string, string>;
+  Properties?: Partial<Record<string, string>>;
 }
-export type PerformanceMetricsProperties = Record<string, string>;
+export type PerformanceMetricsProperties = Partial<Record<string, string>>;
 export type PerformanceMetricsPropertyKey = string;
 
 export type PerformanceMetricsPropertyValue = string;
 
 export interface PredictInput {
   MLModelId: string;
-  Record: Record<string, string>;
+  Record: Partial<Record<string, string>>;
   PredictEndpoint: string;
 }
 export interface Prediction {
   predictedLabel?: string;
   predictedValue?: number;
-  predictedScores?: Record<string, number>;
-  details?: Record<DetailsAttributes, string>;
+  predictedScores?: Partial<Record<string, number>>;
+  details?: Partial<Record<DetailsAttributes, string>>;
 }
 export declare class PredictorNotMountedException extends EffectData.TaggedError(
   "PredictorNotMountedException",
@@ -816,7 +816,7 @@ export interface RealtimeEndpointInfo {
 export type RealtimeEndpointStatus = "NONE" | "READY" | "UPDATING" | "FAILED";
 export type Recipe = string;
 
-export type MachineLearningRecord = Record<string, string>;
+export type MachineLearningRecord = Partial<Record<string, string>>;
 export type RedshiftClusterIdentifier = string;
 
 export interface RedshiftDatabase {
@@ -869,7 +869,7 @@ export type ScoreThreshold = number;
 
 export type ScoreValue = number;
 
-export type ScoreValuePerLabelMap = Record<string, number>;
+export type ScoreValuePerLabelMap = Partial<Record<string, number>>;
 export type SortOrder = "ASC" | "DSC";
 export type StringType = string;
 
@@ -893,7 +893,7 @@ export declare class TagLimitExceededException extends EffectData.TaggedError(
 export type TagList = Array<Tag>;
 export type TagValue = string;
 
-export type TrainingParameters = Record<string, string>;
+export type TrainingParameters = Partial<Record<string, string>>;
 export interface UpdateBatchPredictionInput {
   BatchPredictionId: string;
   BatchPredictionName: string;

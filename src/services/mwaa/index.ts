@@ -112,7 +112,7 @@ export declare class AccessDeniedException extends EffectData.TaggedError(
 )<{
   readonly Message?: string;
 }> {}
-export type AirflowConfigurationOptions = Record<string, string>;
+export type AirflowConfigurationOptions = Partial<Record<string, string>>;
 export type AirflowIdentity = string;
 
 export type AirflowVersion = string;
@@ -146,7 +146,7 @@ export interface CreateEnvironmentInput {
   RequirementsS3ObjectVersion?: string;
   StartupScriptS3Path?: string;
   StartupScriptS3ObjectVersion?: string;
-  AirflowConfigurationOptions?: Record<string, string>;
+  AirflowConfigurationOptions?: Partial<Record<string, string>>;
   EnvironmentClass?: string;
   MaxWorkers?: number;
   KmsKey?: string;
@@ -202,7 +202,7 @@ export interface Environment {
   RequirementsS3ObjectVersion?: string;
   StartupScriptS3Path?: string;
   StartupScriptS3ObjectVersion?: string;
-  AirflowConfigurationOptions?: Record<string, string>;
+  AirflowConfigurationOptions?: Partial<Record<string, string>>;
   EnvironmentClass?: string;
   MaxWorkers?: number;
   NetworkConfiguration?: NetworkConfiguration;
@@ -409,7 +409,7 @@ export type UpdateCreatedAt = Date | string;
 export interface UpdateEnvironmentInput {
   Name: string;
   ExecutionRoleArn?: string;
-  AirflowConfigurationOptions?: Record<string, string>;
+  AirflowConfigurationOptions?: Partial<Record<string, string>>;
   AirflowVersion?: string;
   DagS3Path?: string;
   EnvironmentClass?: string;

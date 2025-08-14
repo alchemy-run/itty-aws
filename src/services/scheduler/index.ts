@@ -125,7 +125,7 @@ export interface EcsParameters {
   PlacementStrategy?: Array<PlacementStrategy>;
   PropagateTags?: string;
   ReferenceId?: string;
-  Tags?: Array<Record<string, string>>;
+  Tags?: Array<Partial<Record<string, string>>>;
 }
 export type EnableECSManagedTags = boolean;
 
@@ -344,7 +344,7 @@ export type TagKey = string;
 
 export type TagKeyList = Array<string>;
 export type TagList = Array<Tag>;
-export type TagMap = Record<string, string>;
+export type TagMap = Partial<Record<string, string>>;
 export type TagResourceArn = string;
 
 export interface TagResourceInput {
@@ -352,7 +352,7 @@ export interface TagResourceInput {
   Tags: Array<Tag>;
 }
 export interface TagResourceOutput {}
-export type Tags = Array<Record<string, string>>;
+export type Tags = Array<Partial<Record<string, string>>>;
 export type TagValue = string;
 
 export interface Target {

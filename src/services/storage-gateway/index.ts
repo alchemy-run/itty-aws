@@ -1362,7 +1362,7 @@ export type ErrorCode =
   | "VolumeInUse"
   | "VolumeNotFound"
   | "VolumeNotReady";
-export type errorDetails = Record<string, string>;
+export type errorDetails = Partial<Record<string, string>>;
 export interface EvictFilesFailingUploadInput {
   FileShareARN: string;
   ForceRemove?: boolean;
@@ -1878,7 +1878,7 @@ export type StorageClass = string;
 
 export interface StorageGatewayError {
   errorCode?: ErrorCode;
-  errorDetails?: Record<string, string>;
+  errorDetails?: Partial<Record<string, string>>;
 }
 export interface StorediSCSIVolume {
   VolumeARN?: string;

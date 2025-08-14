@@ -460,7 +460,7 @@ export interface CredentialLockerSummary {
   Name?: string;
   CreatedAt?: Date | string;
 }
-export type CustomProtocolDetail = Record<string, string>;
+export type CustomProtocolDetail = Partial<Record<string, string>>;
 export type CustomProtocolDetailKey = string;
 
 export type CustomProtocolDetailValue = string;
@@ -1552,7 +1552,7 @@ export interface StartAccountAssociationRefreshResponse {
 }
 export interface StartDeviceDiscoveryRequest {
   DiscoveryType: DiscoveryType;
-  CustomProtocolDetail?: Record<string, string>;
+  CustomProtocolDetail?: Partial<Record<string, string>>;
   ControllerIdentifier?: string;
   ConnectorAssociationIdentifier?: string;
   AccountAssociationId?: string;

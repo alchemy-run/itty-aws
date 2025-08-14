@@ -521,7 +521,7 @@ export interface Action {
 }
 export interface AdditionalDataset {
   Name: string;
-  Configuration?: Record<string, Array<string>>;
+  Configuration?: Partial<Record<string, Array<string>>>;
 }
 export type AdditionalDatasets = Array<AdditionalDataset>;
 export type Arn = string;
@@ -557,7 +557,7 @@ export interface CategoricalParameterRange {
 }
 export type CategoricalParameterRanges = Array<CategoricalParameterRange>;
 export type Condition = "EQUALS" | "NOT_EQUALS" | "LESS_THAN" | "GREATER_THAN";
-export type Configuration = Record<string, Array<string>>;
+export type Configuration = Partial<Record<string, Array<string>>>;
 export interface ContinuousParameterRange {
   Name: string;
   MaxValue: number;
@@ -689,7 +689,7 @@ export interface CreatePredictorRequest {
   PerformAutoML?: boolean;
   AutoMLOverrideStrategy?: AutoMLOverrideStrategy;
   PerformHPO?: boolean;
-  TrainingParameters?: Record<string, string>;
+  TrainingParameters?: Partial<Record<string, string>>;
   EvaluationParameters?: EvaluationParameters;
   HPOConfig?: HyperParameterTuningJobConfig;
   InputDataConfig: InputDataConfig;
@@ -873,7 +873,7 @@ export interface DescribeDatasetImportJobResponse {
   GeolocationFormat?: string;
   DataSource?: DataSource;
   EstimatedTimeRemainingInMinutes?: number;
-  FieldStatistics?: Record<string, Statistics>;
+  FieldStatistics?: Partial<Record<string, Statistics>>;
   DataSize?: number;
   Status?: string;
   Message?: string;
@@ -1003,7 +1003,7 @@ export interface DescribePredictorResponse {
   PerformAutoML?: boolean;
   AutoMLOverrideStrategy?: AutoMLOverrideStrategy;
   PerformHPO?: boolean;
-  TrainingParameters?: Record<string, string>;
+  TrainingParameters?: Partial<Record<string, string>>;
   EvaluationParameters?: EvaluationParameters;
   HPOConfig?: HyperParameterTuningJobConfig;
   InputDataConfig?: InputDataConfig;
@@ -1147,7 +1147,7 @@ export type FeaturizationMethodName = "filling";
 export type FeaturizationMethodParameters = Record<string, string>;
 export type FeaturizationPipeline = Array<FeaturizationMethod>;
 export type Featurizations = Array<Featurization>;
-export type FieldStatistics = Record<string, Statistics>;
+export type FieldStatistics = Partial<Record<string, Statistics>>;
 export interface Filter {
   Key: string;
   Value: string;
@@ -1625,7 +1625,7 @@ export type TimestampFormat = string;
 
 export type TimeZone = string;
 
-export type TrainingParameters = Record<string, string>;
+export type TrainingParameters = Partial<Record<string, string>>;
 export type Transformations = Record<string, string>;
 export interface UntagResourceRequest {
   ResourceArn: string;

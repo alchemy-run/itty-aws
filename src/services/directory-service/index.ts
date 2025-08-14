@@ -1471,9 +1471,8 @@ export type DirectoryConfigurationSettingLastUpdatedDateTime = Date | string;
 
 export type DirectoryConfigurationSettingName = string;
 
-export type DirectoryConfigurationSettingRequestDetailedStatus = Record<
-  string,
-  DirectoryConfigurationStatus
+export type DirectoryConfigurationSettingRequestDetailedStatus = Partial<
+  Record<string, DirectoryConfigurationStatus>
 >;
 export type DirectoryConfigurationSettingRequestStatusMessage = string;
 
@@ -2121,7 +2120,7 @@ export interface SettingEntry {
   AppliedValue?: string;
   RequestedValue?: string;
   RequestStatus?: DirectoryConfigurationStatus;
-  RequestDetailedStatus?: Record<string, DirectoryConfigurationStatus>;
+  RequestDetailedStatus?: Partial<Record<string, DirectoryConfigurationStatus>>;
   RequestStatusMessage?: string;
   LastUpdatedDateTime?: Date | string;
   LastRequestedDateTime?: Date | string;

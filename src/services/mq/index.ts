@@ -270,7 +270,7 @@ export type __listOfEngineVersion = Array<EngineVersion>;
 export type __listOfSanitizationWarning = Array<SanitizationWarning>;
 export type __listOfUser = Array<User>;
 export type __listOfUserSummary = Array<UserSummary>;
-export type __mapOf__string = Record<string, string>;
+export type __mapOf__string = Partial<Record<string, string>>;
 export type __string = string;
 
 export type __timestampIso8601 = Date | string;
@@ -336,7 +336,7 @@ export interface Configuration {
   Id: string;
   LatestRevision: ConfigurationRevision;
   Name: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface ConfigurationId {
   Id: string;
@@ -376,7 +376,7 @@ export interface CreateBrokerRequest {
   SecurityGroups?: Array<string>;
   StorageType?: BrokerStorageType;
   SubnetIds?: Array<string>;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   Users: Array<User>;
   DataReplicationMode?: DataReplicationMode;
   DataReplicationPrimaryBrokerArn?: string;
@@ -390,7 +390,7 @@ export interface CreateConfigurationRequest {
   EngineType: EngineType;
   EngineVersion?: string;
   Name: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateConfigurationResponse {
   Arn?: string;
@@ -402,7 +402,7 @@ export interface CreateConfigurationResponse {
 }
 export interface CreateTagsRequest {
   ResourceArn: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateUserRequest {
   BrokerId: string;
@@ -508,7 +508,7 @@ export interface DescribeBrokerResponse {
   SecurityGroups?: Array<string>;
   StorageType?: BrokerStorageType;
   SubnetIds?: Array<string>;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   Users?: Array<UserSummary>;
   DataReplicationMetadata?: DataReplicationMetadataOutput;
   DataReplicationMode?: DataReplicationMode;
@@ -528,7 +528,7 @@ export interface DescribeConfigurationResponse {
   Id?: string;
   LatestRevision?: ConfigurationRevision;
   Name?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface DescribeConfigurationRevisionRequest {
   ConfigurationId: string;
@@ -629,7 +629,7 @@ export interface ListTagsRequest {
   ResourceArn: string;
 }
 export interface ListTagsResponse {
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface ListUsersRequest {
   BrokerId: string;

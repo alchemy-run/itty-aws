@@ -611,7 +611,7 @@ export declare class AccessDeniedException extends EffectData.TaggedError(
 export type arn = string;
 
 export type AttachedClusterList = Array<string>;
-export type AttributeMap = Record<string, string>;
+export type AttributeMap = Partial<Record<string, string>>;
 export interface AutoScalingConfiguration {
   minNodeCount?: number;
   maxNodeCount?: number;
@@ -1003,7 +1003,7 @@ export interface FederationParameters {
   applicationCallBackURL?: string;
   federationURN?: string;
   federationProviderName?: string;
-  attributeMap?: Record<string, string>;
+  attributeMap?: Partial<Record<string, string>>;
 }
 export type FederationProviderName = string;
 

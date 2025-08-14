@@ -78,11 +78,11 @@ export type Accept = string;
 export interface ActiveContext {
   name: string;
   timeToLive: ActiveContextTimeToLive;
-  parameters: Record<string, string>;
+  parameters: Partial<Record<string, string>>;
 }
 export type ActiveContextName = string;
 
-export type ActiveContextParametersMap = Record<string, string>;
+export type ActiveContextParametersMap = Partial<Record<string, string>>;
 export type ActiveContextsList = Array<ActiveContext>;
 export interface ActiveContextTimeToLive {
   timeToLiveInSeconds?: number;
@@ -144,7 +144,7 @@ export declare class DependencyFailedException extends EffectData.TaggedError(
 export interface DialogAction {
   type: DialogActionType;
   intentName?: string;
-  slots?: Record<string, string>;
+  slots?: Partial<Record<string, string>>;
   slotToElicit?: string;
   fulfillmentState?: FulfillmentState;
   message?: string;
@@ -184,7 +184,7 @@ export interface GetSessionRequest {
 }
 export interface GetSessionResponse {
   recentIntentSummaryView?: Array<IntentSummary>;
-  sessionAttributes?: Record<string, string>;
+  sessionAttributes?: Partial<Record<string, string>>;
   sessionId?: string;
   dialogAction?: DialogAction;
   activeContexts?: Array<ActiveContext>;
@@ -200,7 +200,7 @@ export type IntentName = string;
 export interface IntentSummary {
   intentName?: string;
   checkpointLabel?: string;
-  slots?: Record<string, string>;
+  slots?: Partial<Record<string, string>>;
   confirmationStatus?: ConfirmationStatus;
   dialogActionType: DialogActionType;
   fulfillmentState?: FulfillmentState;
@@ -278,8 +278,8 @@ export interface PostTextRequest {
   botName: string;
   botAlias: string;
   userId: string;
-  sessionAttributes?: Record<string, string>;
-  requestAttributes?: Record<string, string>;
+  sessionAttributes?: Partial<Record<string, string>>;
+  requestAttributes?: Partial<Record<string, string>>;
   inputText: string;
   activeContexts?: Array<ActiveContext>;
 }
@@ -287,8 +287,8 @@ export interface PostTextResponse {
   intentName?: string;
   nluIntentConfidence?: IntentConfidence;
   alternativeIntents?: Array<PredictedIntent>;
-  slots?: Record<string, string>;
-  sessionAttributes?: Record<string, string>;
+  slots?: Partial<Record<string, string>>;
+  sessionAttributes?: Partial<Record<string, string>>;
   message?: string;
   sentimentResponse?: SentimentResponse;
   messageFormat?: MessageFormatType;
@@ -302,13 +302,13 @@ export interface PostTextResponse {
 export interface PredictedIntent {
   intentName?: string;
   nluIntentConfidence?: IntentConfidence;
-  slots?: Record<string, string>;
+  slots?: Partial<Record<string, string>>;
 }
 export interface PutSessionRequest {
   botName: string;
   botAlias: string;
   userId: string;
-  sessionAttributes?: Record<string, string>;
+  sessionAttributes?: Partial<Record<string, string>>;
   dialogAction?: DialogAction;
   recentIntentSummaryView?: Array<IntentSummary>;
   accept?: string;
@@ -352,7 +352,7 @@ export type SentimentScore = string;
 
 export type LexRuntimeServiceString = string;
 
-export type StringMap = Record<string, string>;
+export type StringMap = Partial<Record<string, string>>;
 export type StringUrlWithLength = string;
 
 export type StringWithLength = string;

@@ -155,7 +155,7 @@ export interface BrowserSettings {
   associatedPortalArns?: Array<string>;
   browserPolicy?: string;
   customerManagedKey?: string;
-  additionalEncryptionContext?: Record<string, string>;
+  additionalEncryptionContext?: Partial<Record<string, string>>;
 }
 export type BrowserSettingsList = Array<BrowserSettingsSummary>;
 export interface BrowserSettingsSummary {
@@ -219,7 +219,7 @@ export interface CookieSynchronizationConfiguration {
 export interface CreateBrowserSettingsRequest {
   tags?: Array<Tag>;
   customerManagedKey?: string;
-  additionalEncryptionContext?: Record<string, string>;
+  additionalEncryptionContext?: Partial<Record<string, string>>;
   browserPolicy: string;
   clientToken?: string;
 }
@@ -231,7 +231,7 @@ export interface CreateDataProtectionSettingsRequest {
   description?: string;
   tags?: Array<Tag>;
   customerManagedKey?: string;
-  additionalEncryptionContext?: Record<string, string>;
+  additionalEncryptionContext?: Partial<Record<string, string>>;
   inlineRedactionConfiguration?: InlineRedactionConfiguration;
   clientToken?: string;
 }
@@ -242,7 +242,7 @@ export interface CreateIdentityProviderRequest {
   portalArn: string;
   identityProviderName: string;
   identityProviderType: string;
-  identityProviderDetails: Record<string, string>;
+  identityProviderDetails: Partial<Record<string, string>>;
   clientToken?: string;
   tags?: Array<Tag>;
 }
@@ -254,7 +254,7 @@ export interface CreateIpAccessSettingsRequest {
   description?: string;
   tags?: Array<Tag>;
   customerManagedKey?: string;
-  additionalEncryptionContext?: Record<string, string>;
+  additionalEncryptionContext?: Partial<Record<string, string>>;
   ipRules: Array<IpRule>;
   clientToken?: string;
 }
@@ -275,7 +275,7 @@ export interface CreatePortalRequest {
   displayName?: string;
   tags?: Array<Tag>;
   customerManagedKey?: string;
-  additionalEncryptionContext?: Record<string, string>;
+  additionalEncryptionContext?: Partial<Record<string, string>>;
   clientToken?: string;
   authenticationType?: string;
   instanceType?: string;
@@ -290,7 +290,7 @@ export interface CreateSessionLoggerRequest {
   logConfiguration: LogConfiguration;
   displayName?: string;
   customerManagedKey?: string;
-  additionalEncryptionContext?: Record<string, string>;
+  additionalEncryptionContext?: Partial<Record<string, string>>;
   tags?: Array<Tag>;
   clientToken?: string;
 }
@@ -325,7 +325,7 @@ export interface CreateUserSettingsRequest {
   clientToken?: string;
   cookieSynchronizationConfiguration?: CookieSynchronizationConfiguration;
   customerManagedKey?: string;
-  additionalEncryptionContext?: Record<string, string>;
+  additionalEncryptionContext?: Partial<Record<string, string>>;
   deepLinkAllowed?: string;
   toolbarConfiguration?: ToolbarConfiguration;
 }
@@ -346,7 +346,7 @@ export interface DataProtectionSettings {
   description?: string;
   creationDate?: Date | string;
   customerManagedKey?: string;
-  additionalEncryptionContext?: Record<string, string>;
+  additionalEncryptionContext?: Partial<Record<string, string>>;
 }
 export type DataProtectionSettingsList = Array<DataProtectionSettingsSummary>;
 export interface DataProtectionSettingsSummary {
@@ -439,7 +439,7 @@ export type DisplayNameSafe = string;
 
 export type EnabledType = string;
 
-export type EncryptionContextMap = Record<string, string>;
+export type EncryptionContextMap = Partial<Record<string, string>>;
 export type Event =
   | "WEBSITE_INTERACT"
   | "FILE_DOWNLOAD_FROM_SECURE_BROWSER_TO_REMOTE_DISK"
@@ -564,9 +564,9 @@ export interface IdentityProvider {
   identityProviderArn: string;
   identityProviderName?: string;
   identityProviderType?: string;
-  identityProviderDetails?: Record<string, string>;
+  identityProviderDetails?: Partial<Record<string, string>>;
 }
-export type IdentityProviderDetails = Record<string, string>;
+export type IdentityProviderDetails = Partial<Record<string, string>>;
 export type IdentityProviderList = Array<IdentityProviderSummary>;
 export type IdentityProviderName = string;
 
@@ -613,7 +613,7 @@ export interface IpAccessSettings {
   description?: string;
   creationDate?: Date | string;
   customerManagedKey?: string;
-  additionalEncryptionContext?: Record<string, string>;
+  additionalEncryptionContext?: Partial<Record<string, string>>;
 }
 export type IpAccessSettingsList = Array<IpAccessSettingsSummary>;
 export interface IpAccessSettingsSummary {
@@ -791,7 +791,7 @@ export interface Portal {
   authenticationType?: string;
   ipAccessSettingsArn?: string;
   customerManagedKey?: string;
-  additionalEncryptionContext?: Record<string, string>;
+  additionalEncryptionContext?: Partial<Record<string, string>>;
   instanceType?: string;
   maxConcurrentSessions?: number;
 }
@@ -894,7 +894,7 @@ export interface SessionLogger {
   eventFilter?: EventFilter;
   logConfiguration?: LogConfiguration;
   customerManagedKey?: string;
-  additionalEncryptionContext?: Record<string, string>;
+  additionalEncryptionContext?: Partial<Record<string, string>>;
   associatedPortalArns?: Array<string>;
   displayName?: string;
   creationDate?: Date | string;
@@ -1005,7 +1005,7 @@ export interface UpdateIdentityProviderRequest {
   identityProviderArn: string;
   identityProviderName?: string;
   identityProviderType?: string;
-  identityProviderDetails?: Record<string, string>;
+  identityProviderDetails?: Partial<Record<string, string>>;
   clientToken?: string;
 }
 export interface UpdateIdentityProviderResponse {
@@ -1109,7 +1109,7 @@ export interface UserSettings {
   idleDisconnectTimeoutInMinutes?: number;
   cookieSynchronizationConfiguration?: CookieSynchronizationConfiguration;
   customerManagedKey?: string;
-  additionalEncryptionContext?: Record<string, string>;
+  additionalEncryptionContext?: Partial<Record<string, string>>;
   deepLinkAllowed?: string;
   toolbarConfiguration?: ToolbarConfiguration;
 }

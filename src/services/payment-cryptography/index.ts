@@ -370,7 +370,7 @@ export interface KeyBlockHeaders {
   KeyModesOfUse?: KeyModesOfUse;
   KeyExportability?: string;
   KeyVersion?: string;
-  OptionalBlocks?: Record<string, string>;
+  OptionalBlocks?: Partial<Record<string, string>>;
 }
 export type KeyCheckValue = string;
 
@@ -447,7 +447,7 @@ export type NextToken = string;
 
 export type OptionalBlockId = string;
 
-export type OptionalBlocks = Record<string, string>;
+export type OptionalBlocks = Partial<Record<string, string>>;
 export type OptionalBlockValue = string;
 
 export type ResourceArn = string;

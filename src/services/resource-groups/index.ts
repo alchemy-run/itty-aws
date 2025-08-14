@@ -284,7 +284,7 @@ export interface AccountSettings {
 }
 export type ApplicationArn = string;
 
-export type ApplicationTag = Record<string, string>;
+export type ApplicationTag = Partial<Record<string, string>>;
 export type ApplicationTagKey = string;
 
 export declare class BadRequestException extends EffectData.TaggedError(
@@ -299,7 +299,7 @@ export interface CreateGroupInput {
   Name: string;
   Description?: string;
   ResourceQuery?: ResourceQuery;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   Configuration?: Array<GroupConfigurationItem>;
   Criticality?: number;
   Owner?: string;
@@ -310,7 +310,7 @@ export type CreateGroupName = string;
 export interface CreateGroupOutput {
   Group?: Group;
   ResourceQuery?: ResourceQuery;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   GroupConfiguration?: GroupConfiguration;
 }
 export type Criticality = number;
@@ -369,7 +369,7 @@ export interface GetTagsInput {
 }
 export interface GetTagsOutput {
   Arn?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface GetTagSyncTaskInput {
   TaskArn: string;
@@ -393,7 +393,7 @@ export interface Group {
   Criticality?: number;
   Owner?: string;
   DisplayName?: string;
-  ApplicationTag?: Record<string, string>;
+  ApplicationTag?: Partial<Record<string, string>>;
 }
 export type GroupArn = string;
 
@@ -654,16 +654,16 @@ export interface StartTagSyncTaskOutput {
 }
 export interface TagInput {
   Arn: string;
-  Tags: Record<string, string>;
+  Tags: Partial<Record<string, string>>;
 }
 export type TagKey = string;
 
 export type TagKeyList = Array<string>;
 export interface TagOutput {
   Arn?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
-export type Tags = Record<string, string>;
+export type Tags = Partial<Record<string, string>>;
 export type TagSyncTaskArn = string;
 
 export interface TagSyncTaskItem {

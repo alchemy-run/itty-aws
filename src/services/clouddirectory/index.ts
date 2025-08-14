@@ -1212,7 +1212,7 @@ export interface BatchListObjectChildren {
   MaxResults?: number;
 }
 export interface BatchListObjectChildrenResponse {
-  Children?: Record<string, string>;
+  Children?: Partial<Record<string, string>>;
   NextToken?: string;
 }
 export interface BatchListObjectParentPaths {
@@ -1610,7 +1610,7 @@ export interface FacetAttributeDefinition {
   Type: FacetAttributeType;
   DefaultValue?: TypedAttributeValue;
   IsImmutable?: boolean;
-  Rules?: Record<string, Rule>;
+  Rules?: Partial<Record<string, Rule>>;
 }
 export type FacetAttributeList = Array<FacetAttribute>;
 export interface FacetAttributeReference {
@@ -1785,7 +1785,7 @@ export declare class LinkNameAlreadyInUseException extends EffectData.TaggedErro
 )<{
   readonly Message?: string;
 }> {}
-export type LinkNameToObjectIdentifierMap = Record<string, string>;
+export type LinkNameToObjectIdentifierMap = Partial<Record<string, string>>;
 export interface ListAppliedSchemaArnsRequest {
   DirectoryArn: string;
   SchemaArn?: string;
@@ -1897,7 +1897,7 @@ export interface ListObjectChildrenRequest {
   ConsistencyLevel?: ConsistencyLevel;
 }
 export interface ListObjectChildrenResponse {
-  Children?: Record<string, string>;
+  Children?: Partial<Record<string, string>>;
   NextToken?: string;
 }
 export interface ListObjectParentPathsRequest {
@@ -1919,7 +1919,7 @@ export interface ListObjectParentsRequest {
   IncludeAllLinksToEachParent?: boolean;
 }
 export interface ListObjectParentsResponse {
-  Parents?: Record<string, string>;
+  Parents?: Partial<Record<string, string>>;
   NextToken?: string;
   ParentLinks?: Array<ObjectIdentifierAndLinkNameTuple>;
 }
@@ -2054,7 +2054,7 @@ export interface ObjectIdentifierAndLinkNameTuple {
   LinkName?: string;
 }
 export type ObjectIdentifierList = Array<string>;
-export type ObjectIdentifierToLinkNameMap = Record<string, string>;
+export type ObjectIdentifierToLinkNameMap = Partial<Record<string, string>>;
 export declare class ObjectNotDetachedException extends EffectData.TaggedError(
   "ObjectNotDetachedException",
 )<{
@@ -2125,14 +2125,14 @@ export declare class RetryableConflictException extends EffectData.TaggedError(
 }> {}
 export interface Rule {
   Type?: RuleType;
-  Parameters?: Record<string, string>;
+  Parameters?: Partial<Record<string, string>>;
 }
 export type RuleKey = string;
 
-export type RuleMap = Record<string, Rule>;
+export type RuleMap = Partial<Record<string, Rule>>;
 export type RuleParameterKey = string;
 
-export type RuleParameterMap = Record<string, string>;
+export type RuleParameterMap = Partial<Record<string, string>>;
 export type RuleParameterValue = string;
 
 export type RuleType =
@@ -2210,7 +2210,7 @@ export interface TypedLinkAttributeDefinition {
   Type: FacetAttributeType;
   DefaultValue?: TypedAttributeValue;
   IsImmutable?: boolean;
-  Rules?: Record<string, Rule>;
+  Rules?: Partial<Record<string, Rule>>;
   RequiredBehavior: RequiredAttributeBehavior;
 }
 export type TypedLinkAttributeDefinitionList =

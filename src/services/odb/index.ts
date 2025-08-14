@@ -903,7 +903,7 @@ export interface ListTagsForResourceRequest {
   resourceArn: string;
 }
 export interface ListTagsForResourceResponse {
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface MaintenanceWindow {
   customActionTimeoutInMins?: number;
@@ -1085,7 +1085,7 @@ export type ResourceStatus =
   | "TERMINATING"
   | "UPDATING"
   | "MAINTENANCE_IN_PROGRESS";
-export type ResponseTagMap = Record<string, string>;
+export type ResponseTagMap = Partial<Record<string, string>>;
 export interface S3Access {
   status?: ManagedResourceStatus;
   ipv4Addresses?: Array<string>;

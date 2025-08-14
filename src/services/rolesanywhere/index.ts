@@ -126,10 +126,10 @@ export interface ImportCrlRequest {
 export type InstanceProperties = Array<InstanceProperty>;
 export interface InstanceProperty {
   seenAt?: Date | string;
-  properties?: Record<string, string>;
+  properties?: Partial<Record<string, string>>;
   failed?: boolean;
 }
-export type InstancePropertyMap = Record<string, string>;
+export type InstancePropertyMap = Partial<Record<string, string>>;
 export interface ListCrlsResponse {
   nextToken?: string;
   crls?: Array<CrlDetail>;

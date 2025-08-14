@@ -353,7 +353,7 @@ export interface CreateAudienceModelRequest {
   name: string;
   trainingDatasetArn: string;
   kmsKeyArn?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   description?: string;
 }
 export interface CreateAudienceModelResponse {
@@ -367,7 +367,7 @@ export interface CreateConfiguredAudienceModelRequest {
   sharedAudienceMetrics: Array<SharedAudienceMetrics>;
   minMatchingSeedSize?: number;
   audienceSizeConfig?: AudienceSizeConfig;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   childResourceTagOnCreatePolicy?: TagOnCreatePolicy;
 }
 export interface CreateConfiguredAudienceModelResponse {
@@ -379,7 +379,7 @@ export interface CreateConfiguredModelAlgorithmAssociationRequest {
   name: string;
   description?: string;
   privacyConfiguration?: PrivacyConfiguration;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateConfiguredModelAlgorithmAssociationResponse {
   configuredModelAlgorithmAssociationArn: string;
@@ -390,7 +390,7 @@ export interface CreateConfiguredModelAlgorithmRequest {
   roleArn: string;
   trainingContainerConfig?: ContainerConfig;
   inferenceContainerConfig?: InferenceContainerConfig;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   kmsKeyArn?: string;
 }
 export interface CreateConfiguredModelAlgorithmResponse {
@@ -404,7 +404,7 @@ export interface CreateMLInputChannelRequest {
   retentionInDays: number;
   description?: string;
   kmsKeyArn?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateMLInputChannelResponse {
   mlInputChannelArn: string;
@@ -413,8 +413,8 @@ export interface CreateTrainedModelRequest {
   membershipIdentifier: string;
   name: string;
   configuredModelAlgorithmAssociationArn: string;
-  hyperparameters?: Record<string, string>;
-  environment?: Record<string, string>;
+  hyperparameters?: Partial<Record<string, string>>;
+  environment?: Partial<Record<string, string>>;
   resourceConfig: ResourceConfig;
   stoppingCondition?: StoppingCondition;
   incrementalTrainingDataChannels?: Array<IncrementalTrainingDataChannel>;
@@ -422,7 +422,7 @@ export interface CreateTrainedModelRequest {
   trainingInputMode?: TrainingInputMode;
   description?: string;
   kmsKeyArn?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateTrainedModelResponse {
   trainedModelArn: string;
@@ -432,7 +432,7 @@ export interface CreateTrainingDatasetRequest {
   name: string;
   roleArn: string;
   trainingData: Array<Dataset>;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   description?: string;
 }
 export interface CreateTrainingDatasetResponse {
@@ -489,7 +489,7 @@ export interface DeleteTrainingDatasetRequest {
 export interface Destination {
   s3Destination: S3ConfigMap;
 }
-export type Environment = Record<string, string>;
+export type Environment = Partial<Record<string, string>>;
 export interface GetAudienceGenerationJobRequest {
   audienceGenerationJobArn: string;
 }
@@ -507,7 +507,7 @@ export interface GetAudienceGenerationJobResponse {
   collaborationId?: string;
   metrics?: AudienceQualityMetrics;
   startedBy?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   protectedQueryIdentifier?: string;
 }
 export interface GetAudienceModelRequest {
@@ -524,7 +524,7 @@ export interface GetAudienceModelResponse {
   status: AudienceModelStatus;
   statusDetails?: StatusDetails;
   kmsKeyArn?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   description?: string;
 }
 export interface GetCollaborationConfiguredModelAlgorithmAssociationRequest {
@@ -613,7 +613,7 @@ export interface GetConfiguredAudienceModelResponse {
   sharedAudienceMetrics: Array<SharedAudienceMetrics>;
   minMatchingSeedSize?: number;
   audienceSizeConfig?: AudienceSizeConfig;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   childResourceTagOnCreatePolicy?: TagOnCreatePolicy;
 }
 export interface GetConfiguredModelAlgorithmAssociationRequest {
@@ -630,7 +630,7 @@ export interface GetConfiguredModelAlgorithmAssociationResponse {
   name: string;
   privacyConfiguration?: PrivacyConfiguration;
   description?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface GetConfiguredModelAlgorithmRequest {
   configuredModelAlgorithmArn: string;
@@ -644,7 +644,7 @@ export interface GetConfiguredModelAlgorithmResponse {
   inferenceContainerConfig?: InferenceContainerConfig;
   roleArn: string;
   description?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   kmsKeyArn?: string;
 }
 export interface GetMLConfigurationRequest {
@@ -678,7 +678,7 @@ export interface GetMLInputChannelResponse {
   sizeInGb?: number;
   description?: string;
   kmsKeyArn?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface GetTrainedModelInferenceJobRequest {
   membershipIdentifier: string;
@@ -701,13 +701,13 @@ export interface GetTrainedModelInferenceJobResponse {
   statusDetails?: StatusDetails;
   description?: string;
   inferenceContainerImageDigest?: string;
-  environment?: Record<string, string>;
+  environment?: Partial<Record<string, string>>;
   kmsKeyArn?: string;
   metricsStatus?: MetricsStatus;
   metricsStatusDetails?: string;
   logsStatus?: LogsStatus;
   logsStatusDetails?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface GetTrainedModelRequest {
   trainedModelArn: string;
@@ -735,10 +735,10 @@ export interface GetTrainedModelResponse {
   trainingContainerImageDigest?: string;
   createTime: Date | string;
   updateTime: Date | string;
-  hyperparameters?: Record<string, string>;
-  environment?: Record<string, string>;
+  hyperparameters?: Partial<Record<string, string>>;
+  environment?: Partial<Record<string, string>>;
   kmsKeyArn?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   dataChannels: Array<ModelTrainingDataChannel>;
 }
 export interface GetTrainingDatasetRequest {
@@ -752,7 +752,7 @@ export interface GetTrainingDatasetResponse {
   trainingData: Array<Dataset>;
   status: TrainingDatasetStatus;
   roleArn: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   description?: string;
 }
 export type GlueDatabaseName = string;
@@ -766,7 +766,7 @@ export type GlueTableName = string;
 
 export type Hash = string;
 
-export type HyperParameters = Record<string, string>;
+export type HyperParameters = Partial<Record<string, string>>;
 export type IamRoleArn = string;
 
 export interface IncrementalTrainingDataChannel {
@@ -789,7 +789,7 @@ export interface InferenceContainerConfig {
 export interface InferenceContainerExecutionParameters {
   maxPayloadInMB?: number;
 }
-export type InferenceEnvironmentMap = Record<string, string>;
+export type InferenceEnvironmentMap = Partial<Record<string, string>>;
 export type InferenceInstanceType =
   | "ML_R7I_48XLARGE"
   | "ML_R6I_16XLARGE"
@@ -1119,7 +1119,7 @@ export interface ListTagsForResourceRequest {
   resourceArn: string;
 }
 export interface ListTagsForResourceResponse {
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
 export interface ListTrainedModelInferenceJobsRequest {
   nextToken?: string;
@@ -1230,7 +1230,7 @@ export type NextToken = string;
 export type NoiseLevelType = "HIGH" | "MEDIUM" | "LOW" | "NONE";
 export type ParameterKey = string;
 
-export type ParameterMap = Record<string, string>;
+export type ParameterMap = Partial<Record<string, string>>;
 export type ParameterValue = string;
 
 export type PolicyExistenceCondition =
@@ -1252,7 +1252,7 @@ export interface ProtectedQueryInputParameters {
 export interface ProtectedQuerySQLParameters {
   queryString?: string;
   analysisTemplateArn?: string;
-  parameters?: Record<string, string>;
+  parameters?: Partial<Record<string, string>>;
 }
 export interface PutConfiguredAudienceModelPolicyRequest {
   configuredAudienceModelArn: string;
@@ -1315,7 +1315,7 @@ export interface StartAudienceGenerationJobRequest {
   includeSeedInOutput?: boolean;
   collaborationId?: string;
   description?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface StartAudienceGenerationJobResponse {
   audienceGenerationJobArn: string;
@@ -1339,9 +1339,9 @@ export interface StartTrainedModelInferenceJobRequest {
   dataSource: ModelInferenceDataSource;
   description?: string;
   containerExecutionParameters?: InferenceContainerExecutionParameters;
-  environment?: Record<string, string>;
+  environment?: Partial<Record<string, string>>;
   kmsKeyArn?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface StartTrainedModelInferenceJobResponse {
   trainedModelInferenceJobArn: string;
@@ -1358,11 +1358,11 @@ export type TaggableArn = string;
 export type TagKey = string;
 
 export type TagKeys = Array<string>;
-export type TagMap = Record<string, string>;
+export type TagMap = Partial<Record<string, string>>;
 export type TagOnCreatePolicy = "FROM_PARENT_RESOURCE" | "NONE";
 export interface TagResourceRequest {
   resourceArn: string;
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
 export interface TagResourceResponse {}
 export type TagValue = string;

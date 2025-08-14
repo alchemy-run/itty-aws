@@ -39,7 +39,7 @@ export declare class DynamoDBStreams extends AWSServiceClient {
 
 export declare class DynamodbStreams extends DynamoDBStreams {}
 
-export type AttributeMap = Record<string, AttributeValue>;
+export type AttributeMap = Partial<Record<string, AttributeValue>>;
 export type AttributeName = string;
 
 interface _AttributeValue {
@@ -49,7 +49,7 @@ interface _AttributeValue {
   SS?: Array<string>;
   NS?: Array<string>;
   BS?: Array<Uint8Array | string>;
-  M?: Record<string, AttributeValue>;
+  M?: Partial<Record<string, AttributeValue>>;
   L?: Array<AttributeValue>;
   NULL?: boolean;
   BOOL?: boolean;
@@ -62,7 +62,7 @@ export type AttributeValue =
   | (_AttributeValue & { SS: Array<string> })
   | (_AttributeValue & { NS: Array<string> })
   | (_AttributeValue & { BS: Array<Uint8Array | string> })
-  | (_AttributeValue & { M: Record<string, AttributeValue> })
+  | (_AttributeValue & { M: Partial<Record<string, AttributeValue>> })
   | (_AttributeValue & { L: Array<AttributeValue> })
   | (_AttributeValue & { NULL: boolean })
   | (_AttributeValue & { BOOL: boolean });
@@ -138,7 +138,7 @@ export interface ListStreamsOutput {
   Streams?: Array<Stream>;
   LastEvaluatedStreamArn?: string;
 }
-export type MapAttributeValue = Record<string, AttributeValue>;
+export type MapAttributeValue = Partial<Record<string, AttributeValue>>;
 export type NullAttributeValue = boolean;
 
 export type NumberAttributeValue = string;
@@ -211,9 +211,9 @@ export interface StreamDescription {
 export type StreamList = Array<Stream>;
 export interface StreamRecord {
   ApproximateCreationDateTime?: Date | string;
-  Keys?: Record<string, AttributeValue>;
-  NewImage?: Record<string, AttributeValue>;
-  OldImage?: Record<string, AttributeValue>;
+  Keys?: Partial<Record<string, AttributeValue>>;
+  NewImage?: Partial<Record<string, AttributeValue>>;
+  OldImage?: Partial<Record<string, AttributeValue>>;
   SequenceNumber?: string;
   SizeBytes?: number;
   StreamViewType?: StreamViewType;

@@ -923,15 +923,15 @@ export type EventTime = Date | string;
 
 export type HeaderKey = string;
 
-export type HeaderParametersMap = Record<string, string>;
+export type HeaderParametersMap = Partial<Record<string, string>>;
 export type HeaderValue = string;
 
 export type HeaderValueSensitive = string;
 
 export interface HttpParameters {
   PathParameterValues?: Array<string>;
-  HeaderParameters?: Record<string, string>;
-  QueryStringParameters?: Record<string, string>;
+  HeaderParameters?: Partial<Record<string, string>>;
+  QueryStringParameters?: Partial<Record<string, string>>;
 }
 export type HttpsEndpoint = string;
 
@@ -941,7 +941,7 @@ export declare class IllegalStatusException extends EffectData.TaggedError(
   readonly message?: string;
 }> {}
 export interface InputTransformer {
-  InputPathsMap?: Record<string, string>;
+  InputPathsMap?: Partial<Record<string, string>>;
   InputTemplate: string;
 }
 export type InputTransformerPathKey = string;
@@ -1244,7 +1244,7 @@ export interface PutTargetsResultEntry {
 export type PutTargetsResultEntryList = Array<PutTargetsResultEntry>;
 export type QueryStringKey = string;
 
-export type QueryStringParametersMap = Record<string, string>;
+export type QueryStringParametersMap = Partial<Record<string, string>>;
 export type QueryStringValue = string;
 
 export type QueryStringValueSensitive = string;
@@ -1469,7 +1469,7 @@ export type TraceHeader = string;
 
 export type TransformerInput = string;
 
-export type TransformerPaths = Record<string, string>;
+export type TransformerPaths = Partial<Record<string, string>>;
 export interface UntagResourceRequest {
   ResourceARN: string;
   TagKeys: Array<string>;

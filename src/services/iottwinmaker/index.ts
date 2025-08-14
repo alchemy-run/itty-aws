@@ -500,24 +500,22 @@ export interface ComponentPropertyGroupRequest {
   propertyNames?: Array<string>;
   updateType?: string;
 }
-export type ComponentPropertyGroupRequests = Record<
-  string,
-  ComponentPropertyGroupRequest
+export type ComponentPropertyGroupRequests = Partial<
+  Record<string, ComponentPropertyGroupRequest>
 >;
 export interface ComponentPropertyGroupResponse {
   groupType: string;
   propertyNames: Array<string>;
   isInherited: boolean;
 }
-export type ComponentPropertyGroupResponses = Record<
-  string,
-  ComponentPropertyGroupResponse
+export type ComponentPropertyGroupResponses = Partial<
+  Record<string, ComponentPropertyGroupResponse>
 >;
 export interface ComponentRequest {
   description?: string;
   componentTypeId?: string;
-  properties?: Record<string, PropertyRequest>;
-  propertyGroups?: Record<string, ComponentPropertyGroupRequest>;
+  properties?: Partial<Record<string, PropertyRequest>>;
+  propertyGroups?: Partial<Record<string, ComponentPropertyGroupRequest>>;
 }
 export interface ComponentResponse {
   componentName?: string;
@@ -525,22 +523,22 @@ export interface ComponentResponse {
   componentTypeId?: string;
   status?: Status;
   definedIn?: string;
-  properties?: Record<string, PropertyResponse>;
-  propertyGroups?: Record<string, ComponentPropertyGroupResponse>;
+  properties?: Partial<Record<string, PropertyResponse>>;
+  propertyGroups?: Partial<Record<string, ComponentPropertyGroupResponse>>;
   syncSource?: string;
   areAllPropertiesReturned?: boolean;
-  compositeComponents?: Record<string, ComponentSummary>;
+  compositeComponents?: Partial<Record<string, ComponentSummary>>;
   areAllCompositeComponentsReturned?: boolean;
 }
-export type ComponentsMap = Record<string, ComponentResponse>;
-export type ComponentsMapRequest = Record<string, ComponentRequest>;
+export type ComponentsMap = Partial<Record<string, ComponentResponse>>;
+export type ComponentsMapRequest = Partial<Record<string, ComponentRequest>>;
 export type ComponentSummaries = Array<ComponentSummary>;
 export interface ComponentSummary {
   componentName: string;
   componentTypeId: string;
   definedIn?: string;
   description?: string;
-  propertyGroups?: Record<string, ComponentPropertyGroupResponse>;
+  propertyGroups?: Partial<Record<string, ComponentPropertyGroupResponse>>;
   status: Status;
   syncSource?: string;
   componentPath?: string;
@@ -563,21 +561,24 @@ export interface ComponentUpdateRequest {
   updateType?: string;
   description?: string;
   componentTypeId?: string;
-  propertyUpdates?: Record<string, PropertyRequest>;
-  propertyGroupUpdates?: Record<string, ComponentPropertyGroupRequest>;
+  propertyUpdates?: Partial<Record<string, PropertyRequest>>;
+  propertyGroupUpdates?: Partial<Record<string, ComponentPropertyGroupRequest>>;
 }
-export type ComponentUpdatesMapRequest = Record<string, ComponentUpdateRequest>;
+export type ComponentUpdatesMapRequest = Partial<
+  Record<string, ComponentUpdateRequest>
+>;
 export type ComponentUpdateType = string;
 
 export interface CompositeComponentRequest {
   description?: string;
-  properties?: Record<string, PropertyRequest>;
-  propertyGroups?: Record<string, ComponentPropertyGroupRequest>;
+  properties?: Partial<Record<string, PropertyRequest>>;
+  propertyGroups?: Partial<Record<string, ComponentPropertyGroupRequest>>;
 }
-export type CompositeComponentResponse = Record<string, ComponentSummary>;
-export type CompositeComponentsMapRequest = Record<
-  string,
-  CompositeComponentRequest
+export type CompositeComponentResponse = Partial<
+  Record<string, ComponentSummary>
+>;
+export type CompositeComponentsMapRequest = Partial<
+  Record<string, CompositeComponentRequest>
 >;
 export interface CompositeComponentTypeRequest {
   componentTypeId?: string;
@@ -586,25 +587,22 @@ export interface CompositeComponentTypeResponse {
   componentTypeId?: string;
   isInherited?: boolean;
 }
-export type CompositeComponentTypesRequest = Record<
-  string,
-  CompositeComponentTypeRequest
+export type CompositeComponentTypesRequest = Partial<
+  Record<string, CompositeComponentTypeRequest>
 >;
-export type CompositeComponentTypesResponse = Record<
-  string,
-  CompositeComponentTypeResponse
+export type CompositeComponentTypesResponse = Partial<
+  Record<string, CompositeComponentTypeResponse>
 >;
 export interface CompositeComponentUpdateRequest {
   updateType?: string;
   description?: string;
-  propertyUpdates?: Record<string, PropertyRequest>;
-  propertyGroupUpdates?: Record<string, ComponentPropertyGroupRequest>;
+  propertyUpdates?: Partial<Record<string, PropertyRequest>>;
+  propertyGroupUpdates?: Partial<Record<string, ComponentPropertyGroupRequest>>;
 }
-export type CompositeComponentUpdatesMapRequest = Record<
-  string,
-  CompositeComponentUpdateRequest
+export type CompositeComponentUpdatesMapRequest = Partial<
+  Record<string, CompositeComponentUpdateRequest>
 >;
-export type Configuration = Record<string, string>;
+export type Configuration = Partial<Record<string, string>>;
 export declare class ConflictException extends EffectData.TaggedError(
   "ConflictException",
 )<{
@@ -625,13 +623,15 @@ export interface CreateComponentTypeRequest {
   isSingleton?: boolean;
   componentTypeId: string;
   description?: string;
-  propertyDefinitions?: Record<string, PropertyDefinitionRequest>;
+  propertyDefinitions?: Partial<Record<string, PropertyDefinitionRequest>>;
   extendsFrom?: Array<string>;
-  functions?: Record<string, FunctionRequest>;
-  tags?: Record<string, string>;
-  propertyGroups?: Record<string, PropertyGroupRequest>;
+  functions?: Partial<Record<string, FunctionRequest>>;
+  tags?: Partial<Record<string, string>>;
+  propertyGroups?: Partial<Record<string, PropertyGroupRequest>>;
   componentTypeName?: string;
-  compositeComponentTypes?: Record<string, CompositeComponentTypeRequest>;
+  compositeComponentTypes?: Partial<
+    Record<string, CompositeComponentTypeRequest>
+  >;
 }
 export interface CreateComponentTypeResponse {
   arn: string;
@@ -643,10 +643,10 @@ export interface CreateEntityRequest {
   entityId?: string;
   entityName: string;
   description?: string;
-  components?: Record<string, ComponentRequest>;
-  compositeComponents?: Record<string, CompositeComponentRequest>;
+  components?: Partial<Record<string, ComponentRequest>>;
+  compositeComponents?: Partial<Record<string, CompositeComponentRequest>>;
   parentEntityId?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateEntityResponse {
   entityId: string;
@@ -672,8 +672,8 @@ export interface CreateSceneRequest {
   contentLocation: string;
   description?: string;
   capabilities?: Array<string>;
-  tags?: Record<string, string>;
-  sceneMetadata?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
+  sceneMetadata?: Partial<Record<string, string>>;
 }
 export interface CreateSceneResponse {
   arn: string;
@@ -683,7 +683,7 @@ export interface CreateSyncJobRequest {
   workspaceId: string;
   syncSource: string;
   syncRole: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateSyncJobResponse {
   arn: string;
@@ -695,7 +695,7 @@ export interface CreateWorkspaceRequest {
   description?: string;
   s3Location?: string;
   role?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateWorkspaceResponse {
   arn: string;
@@ -719,12 +719,12 @@ export interface DataValue {
   longValue?: number;
   stringValue?: string;
   listValue?: Array<DataValue>;
-  mapValue?: Record<string, DataValue>;
+  mapValue?: Partial<Record<string, DataValue>>;
   relationshipValue?: RelationshipValue;
   expression?: string;
 }
 export type DataValueList = Array<DataValue>;
-export type DataValueMap = Record<string, DataValue>;
+export type DataValueMap = Partial<Record<string, DataValue>>;
 export interface DeleteComponentTypeRequest {
   workspaceId: string;
   componentTypeId: string;
@@ -776,7 +776,7 @@ export type EntityName = string;
 export interface EntityPropertyReference {
   componentName?: string;
   componentPath?: string;
-  externalIdProperty?: Record<string, string>;
+  externalIdProperty?: Partial<Record<string, string>>;
   entityId?: string;
   propertyName: string;
 }
@@ -819,7 +819,7 @@ export interface ExecuteQueryResponse {
 export type Expression = string;
 
 export type ExtendsFrom = Array<string>;
-export type ExternalIdProperty = Record<string, string>;
+export type ExternalIdProperty = Partial<Record<string, string>>;
 export interface FilterByAsset {
   assetId?: string;
   assetExternalId?: string;
@@ -849,9 +849,9 @@ export interface FunctionResponse {
   implementedBy?: DataConnector;
   isInherited?: boolean;
 }
-export type FunctionsRequest = Record<string, FunctionRequest>;
-export type FunctionsResponse = Record<string, FunctionResponse>;
-export type GeneratedSceneMetadataMap = Record<string, string>;
+export type FunctionsRequest = Partial<Record<string, FunctionRequest>>;
+export type FunctionsResponse = Partial<Record<string, FunctionResponse>>;
+export type GeneratedSceneMetadataMap = Partial<Record<string, string>>;
 export interface GetComponentTypeRequest {
   workspaceId: string;
   componentTypeId: string;
@@ -861,19 +861,21 @@ export interface GetComponentTypeResponse {
   isSingleton?: boolean;
   componentTypeId: string;
   description?: string;
-  propertyDefinitions?: Record<string, PropertyDefinitionResponse>;
+  propertyDefinitions?: Partial<Record<string, PropertyDefinitionResponse>>;
   extendsFrom?: Array<string>;
-  functions?: Record<string, FunctionResponse>;
+  functions?: Partial<Record<string, FunctionResponse>>;
   creationDateTime: Date | string;
   updateDateTime: Date | string;
   arn: string;
   isAbstract?: boolean;
   isSchemaInitialized?: boolean;
   status?: Status;
-  propertyGroups?: Record<string, PropertyGroupResponse>;
+  propertyGroups?: Partial<Record<string, PropertyGroupResponse>>;
   syncSource?: string;
   componentTypeName?: string;
-  compositeComponentTypes?: Record<string, CompositeComponentTypeResponse>;
+  compositeComponentTypes?: Partial<
+    Record<string, CompositeComponentTypeResponse>
+  >;
 }
 export interface GetEntityRequest {
   workspaceId: string;
@@ -886,7 +888,7 @@ export interface GetEntityResponse {
   status: Status;
   workspaceId: string;
   description?: string;
-  components?: Record<string, ComponentResponse>;
+  components?: Partial<Record<string, ComponentResponse>>;
   parentEntityId: string;
   hasChildEntities: boolean;
   creationDateTime: Date | string;
@@ -949,9 +951,9 @@ export interface GetPropertyValueRequest {
   tabularConditions?: TabularConditions;
 }
 export interface GetPropertyValueResponse {
-  propertyValues?: Record<string, PropertyLatestValue>;
+  propertyValues?: Partial<Record<string, PropertyLatestValue>>;
   nextToken?: string;
-  tabularPropertyValues?: Array<Array<Record<string, DataValue>>>;
+  tabularPropertyValues?: Array<Array<Partial<Record<string, DataValue>>>>;
 }
 export interface GetSceneRequest {
   workspaceId: string;
@@ -966,8 +968,8 @@ export interface GetSceneResponse {
   updateDateTime: Date | string;
   description?: string;
   capabilities?: Array<string>;
-  sceneMetadata?: Record<string, string>;
-  generatedSceneMetadata?: Record<string, string>;
+  sceneMetadata?: Partial<Record<string, string>>;
+  generatedSceneMetadata?: Partial<Record<string, string>>;
   error?: SceneError;
 }
 export interface GetSyncJobRequest {
@@ -1184,7 +1186,7 @@ export interface ListTagsForResourceRequest {
   nextToken?: string;
 }
 export interface ListTagsForResourceResponse {
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   nextToken?: string;
 }
 export interface ListWorkspacesRequest {
@@ -1262,7 +1264,7 @@ export interface PropertyDefinitionRequest {
   isStoredExternally?: boolean;
   isTimeSeries?: boolean;
   defaultValue?: DataValue;
-  configuration?: Record<string, string>;
+  configuration?: Partial<Record<string, string>>;
   displayName?: string;
 }
 export interface PropertyDefinitionResponse {
@@ -1275,16 +1277,14 @@ export interface PropertyDefinitionResponse {
   isFinal: boolean;
   isInherited: boolean;
   defaultValue?: DataValue;
-  configuration?: Record<string, string>;
+  configuration?: Partial<Record<string, string>>;
   displayName?: string;
 }
-export type PropertyDefinitionsRequest = Record<
-  string,
-  PropertyDefinitionRequest
+export type PropertyDefinitionsRequest = Partial<
+  Record<string, PropertyDefinitionRequest>
 >;
-export type PropertyDefinitionsResponse = Record<
-  string,
-  PropertyDefinitionResponse
+export type PropertyDefinitionsResponse = Partial<
+  Record<string, PropertyDefinitionResponse>
 >;
 export type PropertyDisplayName = string;
 
@@ -1303,28 +1303,34 @@ export interface PropertyGroupResponse {
   propertyNames: Array<string>;
   isInherited: boolean;
 }
-export type PropertyGroupsRequest = Record<string, PropertyGroupRequest>;
-export type PropertyGroupsResponse = Record<string, PropertyGroupResponse>;
+export type PropertyGroupsRequest = Partial<
+  Record<string, PropertyGroupRequest>
+>;
+export type PropertyGroupsResponse = Partial<
+  Record<string, PropertyGroupResponse>
+>;
 export type PropertyGroupUpdateType = string;
 
 export interface PropertyLatestValue {
   propertyReference: EntityPropertyReference;
   propertyValue?: DataValue;
 }
-export type PropertyLatestValueMap = Record<string, PropertyLatestValue>;
+export type PropertyLatestValueMap = Partial<
+  Record<string, PropertyLatestValue>
+>;
 export type PropertyNames = Array<string>;
 export interface PropertyRequest {
   definition?: PropertyDefinitionRequest;
   value?: DataValue;
   updateType?: string;
 }
-export type PropertyRequests = Record<string, PropertyRequest>;
+export type PropertyRequests = Partial<Record<string, PropertyRequest>>;
 export interface PropertyResponse {
   definition?: PropertyDefinitionResponse;
   value?: DataValue;
   areAllPropertyValuesReturned?: boolean;
 }
-export type PropertyResponses = Record<string, PropertyResponse>;
+export type PropertyResponses = Partial<Record<string, PropertyResponse>>;
 export type PropertySummaries = Array<PropertySummary>;
 export interface PropertySummary {
   definition?: PropertyDefinitionResponse;
@@ -1332,7 +1338,7 @@ export interface PropertySummary {
   value?: DataValue;
   areAllPropertyValuesReturned?: boolean;
 }
-export type PropertyTableValue = Record<string, DataValue>;
+export type PropertyTableValue = Partial<Record<string, DataValue>>;
 export type PropertyUpdateType = string;
 
 export interface PropertyValue {
@@ -1405,7 +1411,7 @@ export interface SceneError {
 }
 export type SceneErrorCode = string;
 
-export type SceneMetadataMap = Record<string, string>;
+export type SceneMetadataMap = Partial<Record<string, string>>;
 export type SceneMetadataValue = string;
 
 export type SceneSummaries = Array<SceneSummary>;
@@ -1494,15 +1500,17 @@ export interface TabularConditions {
   orderBy?: Array<OrderBy>;
   propertyFilters?: Array<PropertyFilter>;
 }
-export type TabularPropertyValue = Array<Record<string, DataValue>>;
-export type TabularPropertyValues = Array<Array<Record<string, DataValue>>>;
+export type TabularPropertyValue = Array<Partial<Record<string, DataValue>>>;
+export type TabularPropertyValues = Array<
+  Array<Partial<Record<string, DataValue>>>
+>;
 export type TagKey = string;
 
 export type TagKeyList = Array<string>;
-export type TagMap = Record<string, string>;
+export type TagMap = Partial<Record<string, string>>;
 export interface TagResourceRequest {
   resourceARN: string;
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
 export interface TagResourceResponse {}
 export type TagValue = string;
@@ -1535,12 +1543,14 @@ export interface UpdateComponentTypeRequest {
   isSingleton?: boolean;
   componentTypeId: string;
   description?: string;
-  propertyDefinitions?: Record<string, PropertyDefinitionRequest>;
+  propertyDefinitions?: Partial<Record<string, PropertyDefinitionRequest>>;
   extendsFrom?: Array<string>;
-  functions?: Record<string, FunctionRequest>;
-  propertyGroups?: Record<string, PropertyGroupRequest>;
+  functions?: Partial<Record<string, FunctionRequest>>;
+  propertyGroups?: Partial<Record<string, PropertyGroupRequest>>;
   componentTypeName?: string;
-  compositeComponentTypes?: Record<string, CompositeComponentTypeRequest>;
+  compositeComponentTypes?: Partial<
+    Record<string, CompositeComponentTypeRequest>
+  >;
 }
 export interface UpdateComponentTypeResponse {
   workspaceId: string;
@@ -1553,8 +1563,10 @@ export interface UpdateEntityRequest {
   entityId: string;
   entityName?: string;
   description?: string;
-  componentUpdates?: Record<string, ComponentUpdateRequest>;
-  compositeComponentUpdates?: Record<string, CompositeComponentUpdateRequest>;
+  componentUpdates?: Partial<Record<string, ComponentUpdateRequest>>;
+  compositeComponentUpdates?: Partial<
+    Record<string, CompositeComponentUpdateRequest>
+  >;
   parentEntityUpdate?: ParentEntityUpdateRequest;
 }
 export interface UpdateEntityResponse {
@@ -1577,7 +1589,7 @@ export interface UpdateSceneRequest {
   contentLocation?: string;
   description?: string;
   capabilities?: Array<string>;
-  sceneMetadata?: Record<string, string>;
+  sceneMetadata?: Partial<Record<string, string>>;
 }
 export interface UpdateSceneResponse {
   updateDateTime: Date | string;

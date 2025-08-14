@@ -3395,7 +3395,7 @@ export type AgentUsername = string;
 
 export type AliasArn = string;
 
-export type AllowedAccessControlTags = Record<string, string>;
+export type AllowedAccessControlTags = Partial<Record<string, string>>;
 export interface AllowedCapabilities {
   Customer?: ParticipantCapabilities;
   Agent?: ParticipantCapabilities;
@@ -3614,7 +3614,7 @@ export interface AttributeCondition {
 export type AttributeName = string;
 
 export type AttributeOrConditionList = Array<AttributeAndCondition>;
-export type Attributes = Record<string, string>;
+export type Attributes = Partial<Record<string, string>>;
 export type AttributesList = Array<Attribute>;
 export type AttributeValue = string;
 
@@ -3745,7 +3745,7 @@ export interface CaseSlaConfiguration {
 export type Channel = "VOICE" | "CHAT" | "TASK" | "EMAIL";
 export type ChannelList = Array<Channel>;
 export type Channels = Array<Channel>;
-export type ChannelToCountMap = Record<Channel, number>;
+export type ChannelToCountMap = Partial<Record<Channel, number>>;
 export interface ChatContactMetrics {
   MultiParty?: boolean;
   TotalMessages?: number;
@@ -3890,12 +3890,12 @@ export interface Contact {
   ChatMetrics?: ChatMetrics;
   DisconnectDetails?: DisconnectDetails;
   AdditionalEmailRecipients?: AdditionalEmailRecipients;
-  SegmentAttributes?: Record<string, SegmentAttributeValue>;
+  SegmentAttributes?: Partial<Record<string, SegmentAttributeValue>>;
   Recordings?: Array<RecordingInfo>;
   DisconnectReason?: string;
-  ContactEvaluations?: Record<string, ContactEvaluation>;
+  ContactEvaluations?: Partial<Record<string, ContactEvaluation>>;
   ContactDetails?: ContactDetails;
-  Attributes?: Record<string, string>;
+  Attributes?: Partial<Record<string, string>>;
 }
 export interface ContactAnalysis {
   Transcript?: Transcript;
@@ -3910,7 +3910,7 @@ export interface ContactDataRequest {
   CustomerEndpoint?: Endpoint;
   RequestIdentifier?: string;
   QueueId?: string;
-  Attributes?: Record<string, string>;
+  Attributes?: Partial<Record<string, string>>;
   Campaign?: Campaign;
 }
 export type ContactDataRequestList = Array<ContactDataRequest>;
@@ -3931,7 +3931,7 @@ export interface ContactEvaluation {
   DeleteTimestamp?: Date | string;
   ExportLocation?: string;
 }
-export type ContactEvaluations = Record<string, ContactEvaluation>;
+export type ContactEvaluations = Partial<Record<string, ContactEvaluation>>;
 export interface ContactFilter {
   ContactStates?: Array<ContactState>;
 }
@@ -4067,7 +4067,7 @@ export declare class ContactNotFoundException extends EffectData.TaggedError(
   readonly Message?: string;
 }> {}
 export type ContactRecordingType = "AGENT" | "IVR" | "SCREEN";
-export type ContactReferences = Record<string, Reference>;
+export type ContactReferences = Partial<Record<string, Reference>>;
 export type Contacts = Array<ContactSearchSummary>;
 export interface ContactSearchSummary {
   Arn?: string;
@@ -4081,7 +4081,9 @@ export interface ContactSearchSummary {
   InitiationTimestamp?: Date | string;
   DisconnectTimestamp?: Date | string;
   ScheduledTimestamp?: Date | string;
-  SegmentAttributes?: Record<string, ContactSearchSummarySegmentAttributeValue>;
+  SegmentAttributes?: Partial<
+    Record<string, ContactSearchSummarySegmentAttributeValue>
+  >;
 }
 export interface ContactSearchSummaryAgentInfo {
   Id?: string;
@@ -4091,9 +4093,8 @@ export interface ContactSearchSummaryQueueInfo {
   Id?: string;
   EnqueueTimestamp?: Date | string;
 }
-export type ContactSearchSummarySegmentAttributes = Record<
-  string,
-  ContactSearchSummarySegmentAttributeValue
+export type ContactSearchSummarySegmentAttributes = Partial<
+  Record<string, ContactSearchSummarySegmentAttributeValue>
 >;
 export interface ContactSearchSummarySegmentAttributeValue {
   ValueString?: string;
@@ -4196,8 +4197,8 @@ export interface CreateContactRequest {
   InstanceId: string;
   ClientToken?: string;
   RelatedContactId?: string;
-  Attributes?: Record<string, string>;
-  References?: Record<string, Reference>;
+  Attributes?: Partial<Record<string, string>>;
+  References?: Partial<Record<string, Reference>>;
   Channel: Channel;
   InitiationMethod: ContactInitiationMethod;
   ExpiryDurationInMinutes?: number;
@@ -4205,7 +4206,7 @@ export interface CreateContactRequest {
   InitiateAs?: InitiateAs;
   Name?: string;
   Description?: string;
-  SegmentAttributes?: Record<string, SegmentAttributeValue>;
+  SegmentAttributes?: Partial<Record<string, SegmentAttributeValue>>;
   PreviousContactId?: string;
 }
 export interface CreateContactResponse {
@@ -4402,7 +4403,7 @@ export interface CreateSecurityProfileRequest {
   Permissions?: Array<string>;
   InstanceId: string;
   Tags?: Record<string, string>;
-  AllowedAccessControlTags?: Record<string, string>;
+  AllowedAccessControlTags?: Partial<Record<string, string>>;
   TagRestrictedResources?: Array<string>;
   Applications?: Array<Application>;
   HierarchyRestrictedResources?: Array<string>;
@@ -4961,7 +4962,7 @@ export interface Dimensions {
 }
 export type DimensionsV2Key = string;
 
-export type DimensionsV2Map = Record<string, string>;
+export type DimensionsV2Map = Partial<Record<string, string>>;
 export type DimensionsV2Value = string;
 
 export type DirectoryAlias = string;
@@ -5120,7 +5121,7 @@ export interface EmailAttachment {
   S3Url: string;
 }
 export type EmailAttachments = Array<EmailAttachment>;
-export type EmailHeaders = Record<EmailHeaderType, string>;
+export type EmailHeaders = Partial<Record<EmailHeaderType, string>>;
 export type EmailHeaderType =
   | "REFERENCES"
   | "MESSAGE_ID"
@@ -5183,10 +5184,10 @@ export interface Evaluation {
   EvaluationId: string;
   EvaluationArn: string;
   Metadata: EvaluationMetadata;
-  Answers: Record<string, EvaluationAnswerOutput>;
-  Notes: Record<string, EvaluationNote>;
+  Answers: Partial<Record<string, EvaluationAnswerOutput>>;
+  Notes: Partial<Record<string, EvaluationNote>>;
   Status: EvaluationStatus;
-  Scores?: Record<string, EvaluationScore>;
+  Scores?: Partial<Record<string, EvaluationScore>>;
   CreatedTime: Date | string;
   LastModifiedTime: Date | string;
   Tags?: Record<string, string>;
@@ -5212,8 +5213,12 @@ export interface EvaluationAnswerOutput {
   Value?: EvaluationAnswerData;
   SystemSuggestedValue?: EvaluationAnswerData;
 }
-export type EvaluationAnswersInputMap = Record<string, EvaluationAnswerInput>;
-export type EvaluationAnswersOutputMap = Record<string, EvaluationAnswerOutput>;
+export type EvaluationAnswersInputMap = Partial<
+  Record<string, EvaluationAnswerInput>
+>;
+export type EvaluationAnswersOutputMap = Partial<
+  Record<string, EvaluationAnswerOutput>
+>;
 export type EvaluationArn = string;
 
 export interface EvaluationForm {
@@ -5396,7 +5401,7 @@ export interface EvaluationMetadata {
 export interface EvaluationNote {
   Value?: string;
 }
-export type EvaluationNotesMap = Record<string, EvaluationNote>;
+export type EvaluationNotesMap = Partial<Record<string, EvaluationNote>>;
 export type EvaluationNoteString = string;
 
 export interface EvaluationScore {
@@ -5406,7 +5411,7 @@ export interface EvaluationScore {
 }
 export type EvaluationScorePercentage = number;
 
-export type EvaluationScoresMap = Record<string, EvaluationScore>;
+export type EvaluationScoresMap = Partial<Record<string, EvaluationScore>>;
 export type EvaluationStatus = "DRAFT" | "SUBMITTED";
 export interface EvaluationSummary {
   EvaluationId: string;
@@ -5551,7 +5556,7 @@ export interface GetContactAttributesRequest {
   InitialContactId: string;
 }
 export interface GetContactAttributesResponse {
-  Attributes?: Record<string, string>;
+  Attributes?: Partial<Record<string, string>>;
 }
 export interface GetCurrentMetricDataRequest {
   InstanceId: string;
@@ -5934,7 +5939,7 @@ export interface InboundRawMessage {
   Subject: string;
   Body: string;
   ContentType: string;
-  Headers?: Record<EmailHeaderType, string>;
+  Headers?: Partial<Record<EmailHeaderType, string>>;
 }
 export type InboundSubject = string;
 
@@ -6752,7 +6757,7 @@ export type MetricNameV2 = string;
 
 export type MetricResultsV2 = Array<MetricResultV2>;
 export interface MetricResultV2 {
-  Dimensions?: Record<string, string>;
+  Dimensions?: Partial<Record<string, string>>;
   MetricInterval?: MetricInterval;
   Collections?: Array<MetricDataV2>;
 }
@@ -6787,7 +6792,7 @@ export type NewChatCreated = boolean;
 export interface NewSessionDetails {
   SupportedMessagingContentTypes?: Array<string>;
   ParticipantDetails?: ParticipantDetails;
-  Attributes?: Record<string, string>;
+  Attributes?: Partial<Record<string, string>>;
   StreamingConfiguration?: ChatStreamingConfiguration;
 }
 export type NextToken = string;
@@ -6797,7 +6802,7 @@ export type NextToken2500 = string;
 export type NotificationContentType = "PLAIN_TEXT";
 export type NotificationDeliveryType = "EMAIL";
 export interface NotificationRecipientType {
-  UserTags?: Record<string, string>;
+  UserTags?: Partial<Record<string, string>>;
   UserIds?: Array<string>;
 }
 export type NullableBoolean = boolean;
@@ -7529,9 +7534,8 @@ export interface RealTimeContactAnalysisIssueDetected {
 }
 export type RealTimeContactAnalysisIssuesDetected =
   Array<RealTimeContactAnalysisIssueDetected>;
-export type RealTimeContactAnalysisMatchedDetails = Record<
-  string,
-  RealTimeContactAnalysisCategoryDetails
+export type RealTimeContactAnalysisMatchedDetails = Partial<
+  Record<string, RealTimeContactAnalysisCategoryDetails>
 >;
 export type RealTimeContactAnalysisOffset = number;
 
@@ -7589,7 +7593,9 @@ export interface RealTimeContactAnalysisSegmentAttachments {
   Time: RealTimeContactAnalysisTimeData;
 }
 export interface RealTimeContactAnalysisSegmentCategories {
-  MatchedDetails: Record<string, RealTimeContactAnalysisCategoryDetails>;
+  MatchedDetails: Partial<
+    Record<string, RealTimeContactAnalysisCategoryDetails>
+  >;
 }
 export interface RealTimeContactAnalysisSegmentEvent {
   Id: string;
@@ -8263,7 +8269,7 @@ export interface SecurityProfile {
   SecurityProfileName?: string;
   Description?: string;
   Tags?: Record<string, string>;
-  AllowedAccessControlTags?: Record<string, string>;
+  AllowedAccessControlTags?: Partial<Record<string, string>>;
   TagRestrictedResources?: Array<string>;
   LastModifiedTime?: Date | string;
   LastModifiedRegion?: string;
@@ -8315,15 +8321,17 @@ export type SecurityToken = string;
 
 export type SegmentAttributeName = string;
 
-export type SegmentAttributes = Record<string, SegmentAttributeValue>;
+export type SegmentAttributes = Partial<Record<string, SegmentAttributeValue>>;
 export interface SegmentAttributeValue {
   ValueString?: string;
-  ValueMap?: Record<string, SegmentAttributeValue>;
+  ValueMap?: Partial<Record<string, SegmentAttributeValue>>;
   ValueInteger?: number;
 }
 export type SegmentAttributeValueInteger = number;
 
-export type SegmentAttributeValueMap = Record<string, SegmentAttributeValue>;
+export type SegmentAttributeValueMap = Partial<
+  Record<string, SegmentAttributeValue>
+>;
 export type SegmentAttributeValueString = string;
 
 export interface SendChatIntegrationEventRequest {
@@ -8438,7 +8446,7 @@ export interface StartAttachedFileUploadResponse {
 export interface StartChatContactRequest {
   InstanceId: string;
   ContactFlowId: string;
-  Attributes?: Record<string, string>;
+  Attributes?: Partial<Record<string, string>>;
   ParticipantDetails: ParticipantDetails;
   InitialMessage?: ChatMessage;
   ClientToken?: string;
@@ -8446,7 +8454,7 @@ export interface StartChatContactRequest {
   SupportedMessagingContentTypes?: Array<string>;
   PersistentChat?: PersistentChat;
   RelatedContactId?: string;
-  SegmentAttributes?: Record<string, SegmentAttributeValue>;
+  SegmentAttributes?: Partial<Record<string, SegmentAttributeValue>>;
   CustomerId?: string;
 }
 export interface StartChatContactResponse {
@@ -8486,15 +8494,15 @@ export interface StartEmailContactRequest {
   FromEmailAddress: EmailAddressInfo;
   DestinationEmailAddress: string;
   Description?: string;
-  References?: Record<string, Reference>;
+  References?: Partial<Record<string, Reference>>;
   Name?: string;
   EmailMessage: InboundEmailContent;
   AdditionalRecipients?: InboundAdditionalRecipients;
   Attachments?: Array<EmailAttachment>;
   ContactFlowId?: string;
   RelatedContactId?: string;
-  Attributes?: Record<string, string>;
-  SegmentAttributes?: Record<string, SegmentAttributeValue>;
+  Attributes?: Partial<Record<string, string>>;
+  SegmentAttributes?: Partial<Record<string, SegmentAttributeValue>>;
   ClientToken?: string;
 }
 export interface StartEmailContactResponse {
@@ -8504,8 +8512,8 @@ export interface StartOutboundChatContactRequest {
   SourceEndpoint: Endpoint;
   DestinationEndpoint: Endpoint;
   InstanceId: string;
-  SegmentAttributes: Record<string, SegmentAttributeValue>;
-  Attributes?: Record<string, string>;
+  SegmentAttributes: Partial<Record<string, SegmentAttributeValue>>;
+  Attributes?: Partial<Record<string, string>>;
   ContactFlowId: string;
   ChatDurationInMinutes?: number;
   ParticipantDetails?: ParticipantDetails;
@@ -8532,7 +8540,7 @@ export interface StartOutboundEmailContactResponse {
 export interface StartOutboundVoiceContactRequest {
   Name?: string;
   Description?: string;
-  References?: Record<string, Reference>;
+  References?: Partial<Record<string, Reference>>;
   RelatedContactId?: string;
   DestinationPhoneNumber: string;
   ContactFlowId: string;
@@ -8540,7 +8548,7 @@ export interface StartOutboundVoiceContactRequest {
   ClientToken?: string;
   SourcePhoneNumber?: string;
   QueueId?: string;
-  Attributes?: Record<string, string>;
+  Attributes?: Partial<Record<string, string>>;
   AnswerMachineDetectionConfig?: AnswerMachineDetectionConfig;
   CampaignId?: string;
   TrafficType?: TrafficType;
@@ -8558,29 +8566,29 @@ export interface StartTaskContactRequest {
   InstanceId: string;
   PreviousContactId?: string;
   ContactFlowId?: string;
-  Attributes?: Record<string, string>;
+  Attributes?: Partial<Record<string, string>>;
   Name: string;
-  References?: Record<string, Reference>;
+  References?: Partial<Record<string, Reference>>;
   Description?: string;
   ClientToken?: string;
   ScheduledTime?: Date | string;
   TaskTemplateId?: string;
   QuickConnectId?: string;
   RelatedContactId?: string;
-  SegmentAttributes?: Record<string, SegmentAttributeValue>;
+  SegmentAttributes?: Partial<Record<string, SegmentAttributeValue>>;
 }
 export interface StartTaskContactResponse {
   ContactId?: string;
 }
 export interface StartWebRTCContactRequest {
-  Attributes?: Record<string, string>;
+  Attributes?: Partial<Record<string, string>>;
   ClientToken?: string;
   ContactFlowId: string;
   InstanceId: string;
   AllowedCapabilities?: AllowedCapabilities;
   ParticipantDetails: ParticipantDetails;
   RelatedContactId?: string;
-  References?: Record<string, Reference>;
+  References?: Partial<Record<string, Reference>>;
   Description?: string;
 }
 export interface StartWebRTCContactResponse {
@@ -8649,8 +8657,8 @@ export interface SubmitAutoEvaluationActionDefinition {
 export interface SubmitContactEvaluationRequest {
   InstanceId: string;
   EvaluationId: string;
-  Answers?: Record<string, EvaluationAnswerInput>;
-  Notes?: Record<string, EvaluationNote>;
+  Answers?: Partial<Record<string, EvaluationAnswerInput>>;
+  Notes?: Partial<Record<string, EvaluationNote>>;
 }
 export interface SubmitContactEvaluationResponse {
   EvaluationId: string;
@@ -8720,7 +8728,7 @@ export interface TaskActionDefinition {
   Name: string;
   Description?: string;
   ContactFlowId: string;
-  References?: Record<string, Reference>;
+  References?: Partial<Record<string, Reference>>;
 }
 export type TaskDescriptionExpression = string;
 
@@ -8796,7 +8804,7 @@ export interface TelephonyConfig {
   Distributions: Array<Distribution>;
 }
 export interface TemplateAttributes {
-  CustomAttributes?: Record<string, string>;
+  CustomAttributes?: Partial<Record<string, string>>;
   CustomerProfileAttributes?: string;
 }
 export interface TemplatedMessageConfig {
@@ -8936,14 +8944,14 @@ export interface UpdateCaseActionDefinition {
 export interface UpdateContactAttributesRequest {
   InitialContactId: string;
   InstanceId: string;
-  Attributes: Record<string, string>;
+  Attributes: Partial<Record<string, string>>;
 }
 export interface UpdateContactAttributesResponse {}
 export interface UpdateContactEvaluationRequest {
   InstanceId: string;
   EvaluationId: string;
-  Answers?: Record<string, EvaluationAnswerInput>;
-  Notes?: Record<string, EvaluationNote>;
+  Answers?: Partial<Record<string, EvaluationAnswerInput>>;
+  Notes?: Partial<Record<string, EvaluationNote>>;
 }
 export interface UpdateContactEvaluationResponse {
   EvaluationId: string;
@@ -8989,8 +8997,8 @@ export interface UpdateContactRequest {
   ContactId: string;
   Name?: string;
   Description?: string;
-  References?: Record<string, Reference>;
-  SegmentAttributes?: Record<string, SegmentAttributeValue>;
+  References?: Partial<Record<string, Reference>>;
+  SegmentAttributes?: Partial<Record<string, SegmentAttributeValue>>;
   QueueInfo?: QueueInfoInput;
   UserInfo?: UserInfo;
   CustomerEndpoint?: Endpoint;
@@ -9205,7 +9213,7 @@ export interface UpdateSecurityProfileRequest {
   Permissions?: Array<string>;
   SecurityProfileId: string;
   InstanceId: string;
-  AllowedAccessControlTags?: Record<string, string>;
+  AllowedAccessControlTags?: Partial<Record<string, string>>;
   TagRestrictedResources?: Array<string>;
   Applications?: Array<Application>;
   HierarchyRestrictedResources?: Array<string>;
@@ -9303,7 +9311,7 @@ export interface UpdateViewMetadataResponse {}
 export interface UploadUrlMetadata {
   Url?: string;
   UrlExpiry?: string;
-  HeadersToInclude?: Record<string, string>;
+  HeadersToInclude?: Partial<Record<string, string>>;
 }
 export type URI = string;
 
@@ -9311,7 +9319,7 @@ export type Url = string;
 
 export type URLExpiryInSeconds = number;
 
-export type UrlMetadataSignedHeaders = Record<string, string>;
+export type UrlMetadataSignedHeaders = Partial<Record<string, string>>;
 export type UrlMetadataSignedHeadersKey = string;
 
 export type UrlMetadataSignedHeadersValue = string;
@@ -9348,9 +9356,9 @@ export interface UserData {
   RoutingProfile?: RoutingProfileReference;
   HierarchyPath?: HierarchyPathReference;
   Status?: AgentStatusReference;
-  AvailableSlotsByChannel?: Record<Channel, number>;
-  MaxSlotsByChannel?: Record<Channel, number>;
-  ActiveSlotsByChannel?: Record<Channel, number>;
+  AvailableSlotsByChannel?: Partial<Record<Channel, number>>;
+  MaxSlotsByChannel?: Partial<Record<Channel, number>>;
+  ActiveSlotsByChannel?: Partial<Record<Channel, number>>;
   Contacts?: Array<AgentContactReference>;
   NextStatus?: string;
 }
@@ -9455,7 +9463,7 @@ export interface UserSummary {
   LastModifiedRegion?: string;
 }
 export type UserSummaryList = Array<UserSummary>;
-export type UserTagMap = Record<string, string>;
+export type UserTagMap = Partial<Record<string, string>>;
 export type Value = number;
 
 export type VersionNumber = number;

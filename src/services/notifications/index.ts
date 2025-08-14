@@ -122,13 +122,13 @@ export interface CreateEventRuleRequest {
 export interface CreateEventRuleResponse {
   arn: string;
   notificationConfigurationArn: string;
-  statusSummaryByRegion: Record<string, EventRuleStatusSummary>;
+  statusSummaryByRegion: Partial<Record<string, EventRuleStatusSummary>>;
 }
 export interface CreateNotificationConfigurationRequest {
   name: string;
   description: string;
   aggregationDuration?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateNotificationConfigurationResponse {
   arn: string;
@@ -199,7 +199,7 @@ export interface EventRuleStructure {
   eventPattern: string;
   regions: Array<string>;
   managedRules: Array<string>;
-  statusSummaryByRegion: Record<string, EventRuleStatusSummary>;
+  statusSummaryByRegion: Partial<Record<string, EventRuleStatusSummary>>;
 }
 export type EventStatus = string;
 
@@ -217,7 +217,7 @@ export interface GetEventRuleResponse {
   eventPattern: string;
   regions: Array<string>;
   managedRules: Array<string>;
-  statusSummaryByRegion: Record<string, EventRuleStatusSummary>;
+  statusSummaryByRegion: Partial<Record<string, EventRuleStatusSummary>>;
 }
 export interface GetManagedNotificationChildEventRequest {
   arn: string;
@@ -382,7 +382,7 @@ export interface ListTagsForResourceRequest {
   arn: string;
 }
 export interface ListTagsForResourceResponse {
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type LocaleCode = string;
 
@@ -404,7 +404,7 @@ export interface ManagedNotificationChildEvent {
   aggregateManagedNotificationEventArn: string;
   startTime?: Date | string;
   endTime?: Date | string;
-  textParts: Record<string, TextPartValue>;
+  textParts: Partial<Record<string, TextPartValue>>;
   organizationalUnitId?: string;
   aggregationDetail?: AggregationDetail;
 }
@@ -454,7 +454,7 @@ export interface ManagedNotificationEvent {
   aggregationSummary?: AggregationSummary;
   startTime?: Date | string;
   endTime?: Date | string;
-  textParts: Record<string, TextPartValue>;
+  textParts: Partial<Record<string, TextPartValue>>;
   organizationalUnitId?: string;
 }
 export type ManagedNotificationEventArn = string;
@@ -555,7 +555,7 @@ export interface NotificationEventSchema {
   aggregationSummary?: AggregationSummary;
   startTime?: Date | string;
   endTime?: Date | string;
-  textParts: Record<string, TextPartValue>;
+  textParts: Partial<Record<string, TextPartValue>>;
   media: Array<MediaElement>;
 }
 export interface NotificationEventSummary {
@@ -649,7 +649,9 @@ export interface SourceEventMetadataSummary {
   source: string;
   eventType: string;
 }
-export type StatusSummaryByRegion = Record<string, EventRuleStatusSummary>;
+export type StatusSummaryByRegion = Partial<
+  Record<string, EventRuleStatusSummary>
+>;
 export interface SummarizationDimensionDetail {
   name: string;
   value: string;
@@ -665,27 +667,27 @@ export type SummarizationDimensionOverviews =
 export type TagKey = string;
 
 export type TagKeys = Array<string>;
-export type TagMap = Record<string, string>;
+export type TagMap = Partial<Record<string, string>>;
 export interface TagResourceRequest {
   arn: string;
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
 export interface TagResourceResponse {}
 export type Tags = Array<string>;
 export type TagValue = string;
 
-export type TextByLocale = Record<string, string>;
+export type TextByLocale = Partial<Record<string, string>>;
 export type TextPartId = string;
 
 export type TextPartReference = string;
 
-export type TextParts = Record<string, TextPartValue>;
+export type TextParts = Partial<Record<string, TextPartValue>>;
 export type TextPartType = string;
 
 export interface TextPartValue {
   type: string;
   displayText?: string;
-  textByLocale?: Record<string, string>;
+  textByLocale?: Partial<Record<string, string>>;
   url?: string;
 }
 export declare class ThrottlingException extends EffectData.TaggedError(
@@ -709,7 +711,7 @@ export interface UpdateEventRuleRequest {
 export interface UpdateEventRuleResponse {
   arn: string;
   notificationConfigurationArn: string;
-  statusSummaryByRegion: Record<string, EventRuleStatusSummary>;
+  statusSummaryByRegion: Partial<Record<string, EventRuleStatusSummary>>;
 }
 export interface UpdateNotificationConfigurationRequest {
   arn: string;

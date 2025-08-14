@@ -226,7 +226,7 @@ export type __listOfHlsManifestCreateOrUpdateParameters =
   Array<HlsManifestCreateOrUpdateParameters>;
 export type __listOfIngestEndpoint = Array<IngestEndpoint>;
 export type __listOfOriginEndpoint = Array<OriginEndpoint>;
-export type __mapOf__string = Record<string, string>;
+export type __mapOf__string = Partial<Record<string, string>>;
 export type __PeriodTriggersElement = "ADS";
 export type __string = string;
 
@@ -253,7 +253,7 @@ export interface Channel {
   HlsIngest?: HlsIngest;
   Id?: string;
   IngressAccessLogs?: IngressAccessLogs;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CmafEncryption {
   ConstantInitializationVector?: string;
@@ -289,12 +289,12 @@ export interface ConfigureLogsResponse {
   HlsIngest?: HlsIngest;
   Id?: string;
   IngressAccessLogs?: IngressAccessLogs;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateChannelRequest {
   Description?: string;
   Id: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateChannelResponse {
   Arn?: string;
@@ -304,7 +304,7 @@ export interface CreateChannelResponse {
   HlsIngest?: HlsIngest;
   Id?: string;
   IngressAccessLogs?: IngressAccessLogs;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateHarvestJobRequest {
   EndTime: string;
@@ -336,7 +336,7 @@ export interface CreateOriginEndpointRequest {
   MssPackage?: MssPackage;
   Origination?: Origination;
   StartoverWindowSeconds?: number;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   TimeDelaySeconds?: number;
   Whitelist?: Array<string>;
 }
@@ -354,7 +354,7 @@ export interface CreateOriginEndpointResponse {
   MssPackage?: MssPackage;
   Origination?: Origination;
   StartoverWindowSeconds?: number;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   TimeDelaySeconds?: number;
   Url?: string;
   Whitelist?: Array<string>;
@@ -400,7 +400,7 @@ export interface DescribeChannelResponse {
   HlsIngest?: HlsIngest;
   Id?: string;
   IngressAccessLogs?: IngressAccessLogs;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface DescribeHarvestJobRequest {
   Id: string;
@@ -433,7 +433,7 @@ export interface DescribeOriginEndpointResponse {
   MssPackage?: MssPackage;
   Origination?: Origination;
   StartoverWindowSeconds?: number;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   TimeDelaySeconds?: number;
   Url?: string;
   Whitelist?: Array<string>;
@@ -554,7 +554,7 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string;
 }
 export interface ListTagsForResourceResponse {
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export type ManifestLayout = "FULL" | "COMPACT" | "DRM_TOP_LEVEL_COMPACT";
 export type MaxResults = number;
@@ -588,7 +588,7 @@ export interface OriginEndpoint {
   MssPackage?: MssPackage;
   Origination?: Origination;
   StartoverWindowSeconds?: number;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   TimeDelaySeconds?: number;
   Url?: string;
   Whitelist?: Array<string>;
@@ -623,7 +623,7 @@ export interface RotateChannelCredentialsResponse {
   HlsIngest?: HlsIngest;
   Id?: string;
   IngressAccessLogs?: IngressAccessLogs;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface RotateIngestEndpointCredentialsRequest {
   Id: string;
@@ -637,7 +637,7 @@ export interface RotateIngestEndpointCredentialsResponse {
   HlsIngest?: HlsIngest;
   Id?: string;
   IngressAccessLogs?: IngressAccessLogs;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface S3Destination {
   BucketName: string;
@@ -675,9 +675,9 @@ export interface StreamSelection {
 }
 export interface TagResourceRequest {
   ResourceArn: string;
-  Tags: Record<string, string>;
+  Tags: Partial<Record<string, string>>;
 }
-export type Tags = Record<string, string>;
+export type Tags = Partial<Record<string, string>>;
 export declare class TooManyRequestsException extends EffectData.TaggedError(
   "TooManyRequestsException",
 )<{
@@ -704,7 +704,7 @@ export interface UpdateChannelResponse {
   HlsIngest?: HlsIngest;
   Id?: string;
   IngressAccessLogs?: IngressAccessLogs;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface UpdateOriginEndpointRequest {
   Authorization?: Authorization;
@@ -734,7 +734,7 @@ export interface UpdateOriginEndpointResponse {
   MssPackage?: MssPackage;
   Origination?: Origination;
   StartoverWindowSeconds?: number;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   TimeDelaySeconds?: number;
   Url?: string;
   Whitelist?: Array<string>;

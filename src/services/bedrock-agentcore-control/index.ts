@@ -239,7 +239,7 @@ export interface CreateAgentRuntimeRequest {
   networkConfiguration: NetworkConfiguration;
   protocolConfiguration?: ProtocolConfiguration;
   clientToken?: string;
-  environmentVariables?: Record<string, string>;
+  environmentVariables?: Partial<Record<string, string>>;
   authorizerConfiguration?: AuthorizerConfiguration;
 }
 export interface CreateAgentRuntimeResponse {
@@ -583,7 +583,7 @@ export type EndpointName = string;
 
 export type EnvironmentVariableKey = string;
 
-export type EnvironmentVariablesMap = Record<string, string>;
+export type EnvironmentVariablesMap = Partial<Record<string, string>>;
 export type EnvironmentVariableValue = string;
 
 export type ExceptionLevel = "DEBUG";
@@ -676,7 +676,7 @@ export interface GetAgentRuntimeResponse {
   agentRuntimeArtifact?: AgentArtifact;
   networkConfiguration: NetworkConfiguration;
   protocolConfiguration?: ProtocolConfiguration;
-  environmentVariables?: Record<string, string>;
+  environmentVariables?: Partial<Record<string, string>>;
   authorizerConfiguration?: AuthorizerConfiguration;
   status: AgentStatus;
 }
@@ -1220,12 +1220,12 @@ export type SandboxName = string;
 
 export interface SchemaDefinition {
   type: SchemaType;
-  properties?: Record<string, SchemaDefinition>;
+  properties?: Partial<Record<string, SchemaDefinition>>;
   required?: Array<string>;
   items?: SchemaDefinition;
   description?: string;
 }
-export type SchemaProperties = Record<string, SchemaDefinition>;
+export type SchemaProperties = Partial<Record<string, SchemaDefinition>>;
 export type SchemaType =
   | "STRING"
   | "NUMBER"
@@ -1406,7 +1406,7 @@ export interface UpdateAgentRuntimeRequest {
   networkConfiguration: NetworkConfiguration;
   protocolConfiguration?: ProtocolConfiguration;
   clientToken?: string;
-  environmentVariables?: Record<string, string>;
+  environmentVariables?: Partial<Record<string, string>>;
   authorizerConfiguration?: AuthorizerConfiguration;
 }
 export interface UpdateAgentRuntimeResponse {

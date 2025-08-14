@@ -455,11 +455,11 @@ export interface App {
   Domains?: Array<string>;
   EnableSsl?: boolean;
   SslConfiguration?: SslConfiguration;
-  Attributes?: Record<AppAttributesKeys, string>;
+  Attributes?: Partial<Record<AppAttributesKeys, string>>;
   CreatedAt?: string;
   Environment?: Array<EnvironmentVariable>;
 }
-export type AppAttributes = Record<AppAttributesKeys, string>;
+export type AppAttributes = Partial<Record<AppAttributesKeys, string>>;
 export type AppAttributesKeys =
   | "DocumentRoot"
   | "RailsEnv"
@@ -519,7 +519,7 @@ export interface CloneStackRequest {
   Name?: string;
   Region?: string;
   VpcId?: string;
-  Attributes?: Record<StackAttributesKeys, string>;
+  Attributes?: Partial<Record<StackAttributesKeys, string>>;
   ServiceRoleArn: string;
   DefaultInstanceProfileArn?: string;
   DefaultOs?: string;
@@ -678,7 +678,7 @@ export interface CreateAppRequest {
   Domains?: Array<string>;
   EnableSsl?: boolean;
   SslConfiguration?: SslConfiguration;
-  Attributes?: Record<AppAttributesKeys, string>;
+  Attributes?: Partial<Record<AppAttributesKeys, string>>;
   Environment?: Array<EnvironmentVariable>;
 }
 export interface CreateAppResult {
@@ -724,7 +724,7 @@ export interface CreateLayerRequest {
   Type: LayerType;
   Name: string;
   Shortname: string;
-  Attributes?: Record<LayerAttributesKeys, string>;
+  Attributes?: Partial<Record<LayerAttributesKeys, string>>;
   CloudWatchLogsConfiguration?: CloudWatchLogsConfiguration;
   CustomInstanceProfileArn?: string;
   CustomJson?: string;
@@ -746,7 +746,7 @@ export interface CreateStackRequest {
   Name: string;
   Region: string;
   VpcId?: string;
-  Attributes?: Record<StackAttributesKeys, string>;
+  Attributes?: Partial<Record<StackAttributesKeys, string>>;
   ServiceRoleArn: string;
   DefaultInstanceProfileArn: string;
   DefaultOs?: string;
@@ -775,7 +775,7 @@ export interface CreateUserProfileRequest {
 export interface CreateUserProfileResult {
   IamUserArn?: string;
 }
-export type DailyAutoScalingSchedule = Record<string, string>;
+export type DailyAutoScalingSchedule = Partial<Record<string, string>>;
 export interface DataSource {
   Type?: string;
   Arn?: string;
@@ -817,9 +817,9 @@ export interface Deployment {
 }
 export interface DeploymentCommand {
   Name: DeploymentCommandName;
-  Args?: Record<string, Array<string>>;
+  Args?: Partial<Record<string, Array<string>>>;
 }
-export type DeploymentCommandArgs = Record<string, Array<string>>;
+export type DeploymentCommandArgs = Partial<Record<string, Array<string>>>;
 export type DeploymentCommandName =
   | "install_dependencies"
   | "update_dependencies"
@@ -966,7 +966,7 @@ export interface DescribeStackProvisioningParametersRequest {
 }
 export interface DescribeStackProvisioningParametersResult {
   AgentInstallerUrl?: string;
-  Parameters?: Record<string, string>;
+  Parameters?: Partial<Record<string, string>>;
 }
 export interface DescribeStacksRequest {
   StackIds?: Array<string>;
@@ -1145,7 +1145,7 @@ export interface Layer {
   Type?: LayerType;
   Name?: string;
   Shortname?: string;
-  Attributes?: Record<LayerAttributesKeys, string>;
+  Attributes?: Partial<Record<LayerAttributesKeys, string>>;
   CloudWatchLogsConfiguration?: CloudWatchLogsConfiguration;
   CustomInstanceProfileArn?: string;
   CustomJson?: string;
@@ -1163,7 +1163,7 @@ export interface Layer {
   UseEbsOptimizedInstances?: boolean;
   LifecycleEventConfiguration?: LifecycleEventConfiguration;
 }
-export type LayerAttributes = Record<LayerAttributesKeys, string>;
+export type LayerAttributes = Partial<Record<LayerAttributesKeys, string>>;
 export type LayerAttributesKeys =
   | "EcsClusterArn"
   | "EnableHaproxyStats"
@@ -1213,7 +1213,7 @@ export interface ListTagsRequest {
   NextToken?: string;
 }
 export interface ListTagsResult {
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   NextToken?: string;
 }
 export interface LoadBasedAutoScalingConfiguration {
@@ -1246,7 +1246,7 @@ export interface OperatingSystemConfigurationManager {
 export type OperatingSystemConfigurationManagers =
   Array<OperatingSystemConfigurationManager>;
 export type OperatingSystems = Array<OperatingSystem>;
-export type Parameters = Record<string, string>;
+export type Parameters = Partial<Record<string, string>>;
 export interface Permission {
   StackId?: string;
   IamUserArn?: string;
@@ -1401,7 +1401,7 @@ export interface Stack {
   Arn?: string;
   Region?: string;
   VpcId?: string;
-  Attributes?: Record<StackAttributesKeys, string>;
+  Attributes?: Partial<Record<StackAttributesKeys, string>>;
   ServiceRoleArn?: string;
   DefaultInstanceProfileArn?: string;
   DefaultOs?: string;
@@ -1419,7 +1419,7 @@ export interface Stack {
   DefaultRootDeviceType?: RootDeviceType;
   AgentVersion?: string;
 }
-export type StackAttributes = Record<StackAttributesKeys, string>;
+export type StackAttributes = Partial<Record<StackAttributesKeys, string>>;
 export type StackAttributesKeys = "Color";
 export interface StackConfigurationManager {
   Name?: string;
@@ -1457,9 +1457,9 @@ export type TagKey = string;
 export type TagKeys = Array<string>;
 export interface TagResourceRequest {
   ResourceArn: string;
-  Tags: Record<string, string>;
+  Tags: Partial<Record<string, string>>;
 }
-export type Tags = Record<string, string>;
+export type Tags = Partial<Record<string, string>>;
 export type TagValue = string;
 
 export interface TemporaryCredential {
@@ -1494,7 +1494,7 @@ export interface UpdateAppRequest {
   Domains?: Array<string>;
   EnableSsl?: boolean;
   SslConfiguration?: SslConfiguration;
-  Attributes?: Record<AppAttributesKeys, string>;
+  Attributes?: Partial<Record<AppAttributesKeys, string>>;
   Environment?: Array<EnvironmentVariable>;
 }
 export interface UpdateElasticIpRequest {
@@ -1519,7 +1519,7 @@ export interface UpdateLayerRequest {
   LayerId: string;
   Name?: string;
   Shortname?: string;
-  Attributes?: Record<LayerAttributesKeys, string>;
+  Attributes?: Partial<Record<LayerAttributesKeys, string>>;
   CloudWatchLogsConfiguration?: CloudWatchLogsConfiguration;
   CustomInstanceProfileArn?: string;
   CustomJson?: string;
@@ -1545,7 +1545,7 @@ export interface UpdateRdsDbInstanceRequest {
 export interface UpdateStackRequest {
   StackId: string;
   Name?: string;
-  Attributes?: Record<StackAttributesKeys, string>;
+  Attributes?: Partial<Record<StackAttributesKeys, string>>;
   ServiceRoleArn?: string;
   DefaultInstanceProfileArn?: string;
   DefaultOs?: string;
@@ -1618,13 +1618,13 @@ export type VolumeConfigurations = Array<VolumeConfiguration>;
 export type Volumes = Array<Volume>;
 export type VolumeType = "gp2" | "io1" | "standard";
 export interface WeeklyAutoScalingSchedule {
-  Monday?: Record<string, string>;
-  Tuesday?: Record<string, string>;
-  Wednesday?: Record<string, string>;
-  Thursday?: Record<string, string>;
-  Friday?: Record<string, string>;
-  Saturday?: Record<string, string>;
-  Sunday?: Record<string, string>;
+  Monday?: Partial<Record<string, string>>;
+  Tuesday?: Partial<Record<string, string>>;
+  Wednesday?: Partial<Record<string, string>>;
+  Thursday?: Partial<Record<string, string>>;
+  Friday?: Partial<Record<string, string>>;
+  Saturday?: Partial<Record<string, string>>;
+  Sunday?: Partial<Record<string, string>>;
 }
 export declare namespace AssignInstance {
   export type Input = AssignInstanceRequest;

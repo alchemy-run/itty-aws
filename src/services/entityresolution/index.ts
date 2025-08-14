@@ -467,7 +467,7 @@ export interface CreateIdMappingWorkflowInput {
   outputSourceConfig?: Array<IdMappingWorkflowOutputSource>;
   idMappingTechniques: IdMappingTechniques;
   roleArn?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateIdMappingWorkflowOutput {
   workflowName: string;
@@ -485,7 +485,7 @@ export interface CreateIdNamespaceInput {
   idMappingWorkflowProperties?: Array<IdNamespaceIdMappingWorkflowProperties>;
   type: IdNamespaceType;
   roleArn?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateIdNamespaceOutput {
   idNamespaceName: string;
@@ -497,7 +497,7 @@ export interface CreateIdNamespaceOutput {
   roleArn?: string;
   createdAt: Date | string;
   updatedAt: Date | string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateMatchingWorkflowInput {
   workflowName: string;
@@ -507,7 +507,7 @@ export interface CreateMatchingWorkflowInput {
   resolutionTechniques: ResolutionTechniques;
   incrementalRunConfig?: IncrementalRunConfig;
   roleArn: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateMatchingWorkflowOutput {
   workflowName: string;
@@ -523,7 +523,7 @@ export interface CreateSchemaMappingInput {
   schemaName: string;
   description?: string;
   mappedInputFields: Array<SchemaInputAttribute>;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateSchemaMappingOutput {
   schemaName: string;
@@ -637,7 +637,7 @@ export interface GetIdMappingWorkflowOutput {
   createdAt: Date | string;
   updatedAt: Date | string;
   roleArn?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface GetIdNamespaceInput {
   idNamespaceName: string;
@@ -652,11 +652,11 @@ export interface GetIdNamespaceOutput {
   roleArn?: string;
   createdAt: Date | string;
   updatedAt: Date | string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface GetMatchIdInput {
   workflowName: string;
-  record: Record<string, string>;
+  record: Partial<Record<string, string>>;
   applyNormalization?: boolean;
 }
 export interface GetMatchIdOutput {
@@ -690,7 +690,7 @@ export interface GetMatchingWorkflowOutput {
   updatedAt: Date | string;
   incrementalRunConfig?: IncrementalRunConfig;
   roleArn: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface GetPolicyInput {
   arn: string;
@@ -729,7 +729,7 @@ export interface GetSchemaMappingOutput {
   mappedInputFields: Array<SchemaInputAttribute>;
   createdAt: Date | string;
   updatedAt: Date | string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   hasWorkflows: boolean;
 }
 export type HeaderSafeUniqueId = string;
@@ -923,7 +923,7 @@ export interface ListTagsForResourceInput {
   resourceArn: string;
 }
 export interface ListTagsForResourceOutput {
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
 export interface MatchedRecord {
   inputSourceARN: string;
@@ -1040,10 +1040,10 @@ export interface PutPolicyOutput {
 export interface EntityresolutionRecord {
   inputSourceARN: string;
   uniqueId: string;
-  recordAttributeMap: Record<string, string>;
+  recordAttributeMap: Partial<Record<string, string>>;
 }
-export type RecordAttributeMap = Record<string, string>;
-export type RecordAttributeMapString255 = Record<string, string>;
+export type RecordAttributeMap = Partial<Record<string, string>>;
+export type RecordAttributeMapString255 = Partial<Record<string, string>>;
 export type RecordList = Array<EntityresolutionRecord>;
 export type RecordMatchingModel =
   | "ONE_SOURCE_TO_ONE_TARGET"
@@ -1158,10 +1158,10 @@ export type StatementPrincipalList = Array<string>;
 export type TagKey = string;
 
 export type TagKeyList = Array<string>;
-export type TagMap = Record<string, string>;
+export type TagMap = Partial<Record<string, string>>;
 export interface TagResourceInput {
   resourceArn: string;
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
 export interface TagResourceOutput {}
 export type TagValue = string;

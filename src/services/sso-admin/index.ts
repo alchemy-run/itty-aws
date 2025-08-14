@@ -1545,7 +1545,7 @@ export declare class ResourceNotFoundException extends EffectData.TaggedError(
 export type ResourceNotFoundMessage = string;
 
 export interface ResourceServerConfig {
-  Scopes?: Record<string, ResourceServerScopeDetails>;
+  Scopes?: Partial<Record<string, ResourceServerScopeDetails>>;
 }
 export type ResourceServerScope = string;
 
@@ -1553,7 +1553,9 @@ export interface ResourceServerScopeDetails {
   LongDescription?: string;
   DetailedTitle?: string;
 }
-export type ResourceServerScopes = Record<string, ResourceServerScopeDetails>;
+export type ResourceServerScopes = Partial<
+  Record<string, ResourceServerScopeDetails>
+>;
 export type Scope = string;
 
 export interface ScopeDetails {

@@ -1371,7 +1371,7 @@ export interface ReportGroupTrendStats {
 }
 export type ReportPackagingType = "ZIP" | "NONE";
 export type Reports = Array<Report>;
-export type ReportStatusCounts = Record<string, number>;
+export type ReportStatusCounts = Partial<Record<string, number>>;
 export type ReportStatusType =
   | "GENERATING"
   | "SUCCEEDED"
@@ -1681,7 +1681,7 @@ export interface TestCaseFilter {
 export type TestCases = Array<TestCase>;
 export interface TestReportSummary {
   total: number;
-  statusCounts: Record<string, number>;
+  statusCounts: Partial<Record<string, number>>;
   durationInNanoSeconds: number;
 }
 export type TimeOut = number;

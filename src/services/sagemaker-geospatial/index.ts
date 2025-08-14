@@ -70,7 +70,7 @@ export type AreaOfInterestGeometry =
     });
 export type Arn = string;
 
-export type AssetsMap = Record<string, AssetValue>;
+export type AssetsMap = Partial<Record<string, AssetValue>>;
 export interface AssetValue {
   Href?: string;
 }
@@ -208,7 +208,7 @@ export interface GetEarthObservationJobOutput {
   ErrorDetails?: EarthObservationJobErrorDetails;
   ExportStatus?: string;
   ExportErrorDetails?: ExportErrorDetails;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface GetRasterDataCollectionInput {
   Arn: string;
@@ -221,7 +221,7 @@ export interface GetRasterDataCollectionOutput {
   DescriptionPageUrl: string;
   SupportedFilters: Array<Filter>;
   ImageSourceBands: Array<string>;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface GetTileInput {
   x: number;
@@ -257,7 +257,7 @@ export interface GetVectorEnrichmentJobOutput {
   ErrorDetails?: VectorEnrichmentJobErrorDetails;
   ExportStatus?: string;
   ExportErrorDetails?: VectorEnrichmentJobExportErrorDetails;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export type GroupBy = string;
 
@@ -279,7 +279,7 @@ export declare class InternalServerException extends EffectData.TaggedError(
 export interface ItemSource {
   Id: string;
   Geometry: Geometry;
-  Assets?: Record<string, AssetValue>;
+  Assets?: Partial<Record<string, AssetValue>>;
   DateTime: Date | string;
   Properties?: Properties;
 }
@@ -338,7 +338,7 @@ export interface ListEarthObservationJobOutputConfig {
   DurationInSeconds: number;
   Status: string;
   OperationType: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface ListRasterDataCollectionsInput {
   NextToken?: string;
@@ -352,7 +352,7 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string;
 }
 export interface ListTagsForResourceResponse {
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface ListVectorEnrichmentJobInput {
   StatusEquals?: string;
@@ -372,7 +372,7 @@ export interface ListVectorEnrichmentJobOutputConfig {
   CreationTime: Date | string;
   DurationInSeconds: number;
   Status: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export type LogicalOperator = string;
 
@@ -458,7 +458,7 @@ export interface RasterDataCollectionMetadata {
   Description: string;
   DescriptionPageUrl?: string;
   SupportedFilters: Array<Filter>;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface RasterDataCollectionQueryInput {
   RasterDataCollectionArn: string;
@@ -525,7 +525,7 @@ export interface StartEarthObservationJobInput {
   InputConfig: InputConfigInput;
   JobConfig: JobConfigInput;
   ExecutionRoleArn: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface StartEarthObservationJobOutput {
   Name: string;
@@ -537,7 +537,7 @@ export interface StartEarthObservationJobOutput {
   InputConfig?: InputConfigOutput;
   JobConfig: JobConfigInput;
   ExecutionRoleArn: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface StartVectorEnrichmentJobInput {
   Name: string;
@@ -546,7 +546,7 @@ export interface StartVectorEnrichmentJobInput {
   InputConfig: VectorEnrichmentJobInputConfig;
   JobConfig: VectorEnrichmentJobConfig;
   ExecutionRoleArn: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface StartVectorEnrichmentJobOutput {
   Name: string;
@@ -559,7 +559,7 @@ export interface StartVectorEnrichmentJobOutput {
   InputConfig: VectorEnrichmentJobInputConfig;
   JobConfig: VectorEnrichmentJobConfig;
   ExecutionRoleArn: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface StopEarthObservationJobInput {
   Arn: string;
@@ -573,10 +573,10 @@ export type StringListInput = Array<string>;
 export type TagKeyList = Array<string>;
 export interface TagResourceRequest {
   ResourceArn: string;
-  Tags: Record<string, string>;
+  Tags: Partial<Record<string, string>>;
 }
 export interface TagResourceResponse {}
-export type Tags = Record<string, string>;
+export type Tags = Partial<Record<string, string>>;
 export type TargetOptions = string;
 
 export type TemporalStatistics = string;

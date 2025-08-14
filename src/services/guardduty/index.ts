@@ -593,12 +593,14 @@ export interface Administrator {
   InvitedAt?: string;
 }
 export type AdminStatus = "ENABLED" | "DISABLE_IN_PROGRESS";
-export type AffectedResources = Record<string, string>;
+export type AffectedResources = Partial<Record<string, string>>;
 export interface AgentDetails {
   Version?: string;
 }
 export interface Anomaly {
-  Profiles?: Record<string, Record<string, Array<AnomalyObject>>>;
+  Profiles?: Partial<
+    Record<string, Partial<Record<string, Array<AnomalyObject>>>>
+  >;
   Unusual?: AnomalyUnusual;
 }
 export interface AnomalyObject {
@@ -607,15 +609,18 @@ export interface AnomalyObject {
   Observations?: Observations;
 }
 export type AnomalyProfileFeatureObjects = Array<AnomalyObject>;
-export type AnomalyProfileFeatures = Record<string, Array<AnomalyObject>>;
-export type AnomalyProfiles = Record<
-  string,
+export type AnomalyProfileFeatures = Partial<
   Record<string, Array<AnomalyObject>>
 >;
+export type AnomalyProfiles = Partial<
+  Record<string, Partial<Record<string, Array<AnomalyObject>>>>
+>;
 export interface AnomalyUnusual {
-  Behavior?: Record<string, Record<string, AnomalyObject>>;
+  Behavior?: Partial<Record<string, Partial<Record<string, AnomalyObject>>>>;
 }
-export type AnomalyUnusualBehaviorFeature = Record<string, AnomalyObject>;
+export type AnomalyUnusualBehaviorFeature = Partial<
+  Record<string, AnomalyObject>
+>;
 export interface ArchiveFindingsRequest {
   DetectorId: string;
   FindingIds: Array<string>;
@@ -635,7 +640,7 @@ export interface AwsApiCallAction {
   RemoteIpDetails?: RemoteIpDetails;
   ServiceName?: string;
   RemoteAccountDetails?: RemoteAccountDetails;
-  AffectedResources?: Record<string, string>;
+  AffectedResources?: Partial<Record<string, string>>;
 }
 export declare class BadRequestException extends EffectData.TaggedError(
   "BadRequestException",
@@ -643,7 +648,9 @@ export declare class BadRequestException extends EffectData.TaggedError(
   readonly Message?: string;
   readonly Type?: string;
 }> {}
-export type Behavior = Record<string, Record<string, AnomalyObject>>;
+export type Behavior = Partial<
+  Record<string, Partial<Record<string, AnomalyObject>>>
+>;
 export interface BlockPublicAccess {
   IgnorePublicAcls?: boolean;
   RestrictPublicBuckets?: boolean;
@@ -719,9 +726,9 @@ export type Containers = Array<Container>;
 export type ContainerUid = string;
 
 export type ContainerUids = Array<string>;
-export type CountByCoverageStatus = Record<CoverageStatus, number>;
-export type CountByResourceType = Record<ResourceType, number>;
-export type CountBySeverity = Record<string, number>;
+export type CountByCoverageStatus = Partial<Record<CoverageStatus, number>>;
+export type CountByResourceType = Partial<Record<ResourceType, number>>;
+export type CountBySeverity = Partial<Record<string, number>>;
 export interface Country {
   CountryCode?: string;
   CountryName?: string;
@@ -800,8 +807,8 @@ export type CoverageSortKey =
   | "ECS_CLUSTER_NAME"
   | "INSTANCE_ID";
 export interface CoverageStatistics {
-  CountByResourceType?: Record<ResourceType, number>;
-  CountByCoverageStatus?: Record<CoverageStatus, number>;
+  CountByResourceType?: Partial<Record<ResourceType, number>>;
+  CountByCoverageStatus?: Partial<Record<CoverageStatus, number>>;
 }
 export type CoverageStatisticsType =
   | "COUNT_BY_RESOURCE_TYPE"
@@ -897,7 +904,7 @@ export interface CreateThreatIntelSetRequest {
 export interface CreateThreatIntelSetResponse {
   ThreatIntelSetId: string;
 }
-export type Criterion = Record<string, Condition>;
+export type Criterion = Partial<Record<string, Condition>>;
 export type CriterionKey =
   | "EC2_INSTANCE_ARN"
   | "SCAN_ID"
@@ -1270,7 +1277,7 @@ export interface Finding {
   AssociatedAttackSequenceArn?: string;
 }
 export interface FindingCriteria {
-  Criterion?: Record<string, Condition>;
+  Criterion?: Partial<Record<string, Condition>>;
 }
 export type FindingId = string;
 
@@ -1290,7 +1297,7 @@ export type FindingResourceType =
   | "CONTAINER";
 export type Findings = Array<Finding>;
 export interface FindingStatistics {
-  CountBySeverity?: Record<string, number>;
+  CountBySeverity?: Partial<Record<string, number>>;
   GroupedByAccount?: Array<AccountStatistics>;
   GroupedByDate?: Array<DateStatistics>;
   GroupedByFindingType?: Array<FindingTypeStatistics>;
@@ -2372,7 +2379,7 @@ export interface ScanConditionPair {
   Key: string;
   Value?: string;
 }
-export type ScanCriterion = Record<ScanCriterionKey, ScanCondition>;
+export type ScanCriterion = Partial<Record<ScanCriterionKey, ScanCondition>>;
 export type ScanCriterionKey = "EC2_INSTANCE_TAG";
 export interface ScanDetections {
   ScannedItemCount?: ScannedItemCount;
@@ -2398,8 +2405,8 @@ export interface ScannedItemCount {
   Volumes?: number;
 }
 export interface ScanResourceCriteria {
-  Include?: Record<ScanCriterionKey, ScanCondition>;
-  Exclude?: Record<ScanCriterionKey, ScanCondition>;
+  Include?: Partial<Record<ScanCriterionKey, ScanCondition>>;
+  Exclude?: Partial<Record<ScanCriterionKey, ScanCondition>>;
 }
 export type ScanResult = "CLEAN" | "INFECTED";
 export interface ScanResultDetails {

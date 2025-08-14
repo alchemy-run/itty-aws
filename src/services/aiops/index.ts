@@ -48,7 +48,7 @@ export declare class AccessDeniedException extends EffectData.TaggedError(
 )<{
   readonly message?: string;
 }> {}
-export type ChatbotNotificationChannel = Record<string, Array<string>>;
+export type ChatbotNotificationChannel = Partial<Record<string, Array<string>>>;
 export type ChatConfigurationArn = string;
 
 export type ChatConfigurationArns = Array<string>;
@@ -62,9 +62,9 @@ export interface CreateInvestigationGroupInput {
   roleArn: string;
   encryptionConfiguration?: EncryptionConfiguration;
   retentionInDays?: number;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   tagKeyBoundaries?: Array<string>;
-  chatbotNotificationChannel?: Record<string, Array<string>>;
+  chatbotNotificationChannel?: Partial<Record<string, Array<string>>>;
   isCloudTrailEventHistoryEnabled?: boolean;
   crossAccountConfigurations?: Array<CrossAccountConfiguration>;
 }
@@ -114,7 +114,7 @@ export interface GetInvestigationGroupResponse {
   roleArn?: string;
   encryptionConfiguration?: EncryptionConfiguration;
   retentionInDays?: number;
-  chatbotNotificationChannel?: Record<string, Array<string>>;
+  chatbotNotificationChannel?: Partial<Record<string, Array<string>>>;
   tagKeyBoundaries?: Array<string>;
   isCloudTrailEventHistoryEnabled?: boolean;
   crossAccountConfigurations?: Array<CrossAccountConfiguration>;
@@ -148,7 +148,7 @@ export interface ListInvestigationGroupsOutput {
   investigationGroups?: Array<ListInvestigationGroupsModel>;
 }
 export interface ListTagsForResourceOutput {
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface ListTagsForResourceRequest {
   resourceArn: string;
@@ -190,10 +190,10 @@ export type TagKeyBoundaries = Array<string>;
 export type TagKeys = Array<string>;
 export interface TagResourceRequest {
   resourceArn: string;
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
 export interface TagResourceResponse {}
-export type Tags = Record<string, string>;
+export type Tags = Partial<Record<string, string>>;
 export type TagValue = string;
 
 export declare class ThrottlingException extends EffectData.TaggedError(
@@ -212,7 +212,7 @@ export interface UpdateInvestigationGroupRequest {
   roleArn?: string;
   encryptionConfiguration?: EncryptionConfiguration;
   tagKeyBoundaries?: Array<string>;
-  chatbotNotificationChannel?: Record<string, Array<string>>;
+  chatbotNotificationChannel?: Partial<Record<string, Array<string>>>;
   isCloudTrailEventHistoryEnabled?: boolean;
   crossAccountConfigurations?: Array<CrossAccountConfiguration>;
 }

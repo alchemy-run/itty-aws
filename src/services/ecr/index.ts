@@ -873,7 +873,7 @@ export type FindingSeverity =
   | "HIGH"
   | "CRITICAL"
   | "UNDEFINED";
-export type FindingSeverityCounts = Record<FindingSeverity, number>;
+export type FindingSeverityCounts = Partial<Record<FindingSeverity, number>>;
 export type FixAvailable = string;
 
 export type FixedInVersion = string;
@@ -1035,14 +1035,14 @@ export type ImageScanFindingList = Array<ImageScanFinding>;
 export interface ImageScanFindings {
   imageScanCompletedAt?: Date | string;
   vulnerabilitySourceUpdatedAt?: Date | string;
-  findingSeverityCounts?: Record<FindingSeverity, number>;
+  findingSeverityCounts?: Partial<Record<FindingSeverity, number>>;
   findings?: Array<ImageScanFinding>;
   enhancedFindings?: Array<EnhancedImageScanFinding>;
 }
 export interface ImageScanFindingsSummary {
   imageScanCompletedAt?: Date | string;
   vulnerabilitySourceUpdatedAt?: Date | string;
-  findingSeverityCounts?: Record<FindingSeverity, number>;
+  findingSeverityCounts?: Partial<Record<FindingSeverity, number>>;
 }
 export interface ImageScanningConfiguration {
   scanOnPush?: boolean;
@@ -1514,7 +1514,7 @@ export type RepositoryTemplateDescription = string;
 export interface Resource {
   details?: ResourceDetails;
   id?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   type?: string;
 }
 export interface ResourceDetails {
@@ -1631,7 +1631,7 @@ export interface TagResourceRequest {
   tags: Array<Tag>;
 }
 export interface TagResourceResponse {}
-export type Tags = Record<string, string>;
+export type Tags = Partial<Record<string, string>>;
 export type TagStatus = "TAGGED" | "UNTAGGED" | "ANY";
 export type TagValue = string;
 

@@ -83,7 +83,7 @@ export declare class Health extends AWSServiceClient {
 export interface AccountEntityAggregate {
   accountId?: string;
   count?: number;
-  statuses?: Record<entityStatusCode, number>;
+  statuses?: Partial<Record<entityStatusCode, number>>;
 }
 export type AccountEntityAggregatesList = Array<AccountEntityAggregate>;
 export type accountId = string;
@@ -97,8 +97,8 @@ export interface AffectedEntity {
   awsAccountId?: string;
   lastUpdatedTime?: Date | string;
   statusCode?: entityStatusCode;
-  tags?: Record<string, string>;
-  entityMetadata?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
+  entityMetadata?: Partial<Record<string, string>>;
 }
 export type aggregateValue = string;
 
@@ -238,7 +238,7 @@ export interface EntityAccountFilter {
 export interface EntityAggregate {
   eventArn?: string;
   count?: number;
-  statuses?: Record<entityStatusCode, number>;
+  statuses?: Partial<Record<entityStatusCode, number>>;
 }
 export type EntityAggregateList = Array<EntityAggregate>;
 export type entityArn = string;
@@ -249,11 +249,11 @@ export interface EntityFilter {
   entityArns?: Array<string>;
   entityValues?: Array<string>;
   lastUpdatedTimes?: Array<DateTimeRange>;
-  tags?: Array<Record<string, string>>;
+  tags?: Array<Partial<Record<string, string>>>;
   statusCodes?: Array<entityStatusCode>;
 }
 export type EntityList = Array<AffectedEntity>;
-export type entityMetadata = Record<string, string>;
+export type entityMetadata = Partial<Record<string, string>>;
 export type entityMetadataKey = string;
 
 export type entityMetadataValue = string;
@@ -265,7 +265,7 @@ export type entityStatusCode =
   | "PENDING"
   | "RESOLVED";
 export type entityStatusCodeList = Array<entityStatusCode>;
-export type entityStatuses = Record<entityStatusCode, number>;
+export type entityStatuses = Partial<Record<entityStatusCode, number>>;
 export type entityUrl = string;
 
 export type entityValue = string;
@@ -306,7 +306,7 @@ export type EventDescription2 = string;
 export interface EventDetails {
   event?: Event;
   eventDescription?: EventDescription;
-  eventMetadata?: Record<string, string>;
+  eventMetadata?: Partial<Record<string, string>>;
 }
 export interface EventDetailsErrorItem {
   eventArn?: string;
@@ -325,11 +325,11 @@ export interface EventFilter {
   entityArns?: Array<string>;
   entityValues?: Array<string>;
   eventTypeCategories?: Array<eventTypeCategory>;
-  tags?: Array<Record<string, string>>;
+  tags?: Array<Partial<Record<string, string>>>;
   eventStatusCodes?: Array<eventStatusCode>;
 }
 export type EventList = Array<Event>;
-export type eventMetadata = Record<string, string>;
+export type eventMetadata = Partial<Record<string, string>>;
 export type eventScopeCode = "PUBLIC" | "ACCOUNT_SPECIFIC" | "NONE";
 export type eventStatusCode = "OPEN" | "CLOSED" | "UPCOMING";
 export type eventStatusCodeList = Array<eventStatusCode>;
@@ -387,7 +387,7 @@ export type OrganizationEntityAccountFiltersList = Array<EntityAccountFilter>;
 export interface OrganizationEntityAggregate {
   eventArn?: string;
   count?: number;
-  statuses?: Record<entityStatusCode, number>;
+  statuses?: Partial<Record<entityStatusCode, number>>;
   accounts?: Array<AccountEntityAggregate>;
 }
 export type OrganizationEntityAggregatesList =
@@ -411,7 +411,7 @@ export interface OrganizationEventDetails {
   awsAccountId?: string;
   event?: Event;
   eventDescription?: EventDescription;
-  eventMetadata?: Record<string, string>;
+  eventMetadata?: Partial<Record<string, string>>;
 }
 export interface OrganizationEventDetailsErrorItem {
   awsAccountId?: string;
@@ -441,10 +441,10 @@ export type service = string;
 export type serviceList = Array<string>;
 export type Healthstring = string;
 
-export type tagFilter = Array<Record<string, string>>;
+export type tagFilter = Array<Partial<Record<string, string>>>;
 export type tagKey = string;
 
-export type tagSet = Record<string, string>;
+export type tagSet = Partial<Record<string, string>>;
 export type tagValue = string;
 
 export type timestamp = Date | string;

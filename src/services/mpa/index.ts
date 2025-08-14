@@ -158,7 +158,7 @@ export interface CreateApprovalTeamRequest {
   Description: string;
   Policies: Array<PolicyReference>;
   Name: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateApprovalTeamResponse {
   CreationTime?: Date | string;
@@ -169,7 +169,7 @@ export interface CreateApprovalTeamResponse {
 export interface CreateIdentitySourceRequest {
   IdentitySourceParameters: IdentitySourceParameters;
   ClientToken?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateIdentitySourceResponse {
   IdentitySourceType?: IdentitySourceType;
@@ -272,7 +272,7 @@ export interface GetSessionResponse {
   ExpirationTime?: Date | string;
   CompletionTime?: Date | string;
   Description?: string;
-  Metadata?: Record<string, string>;
+  Metadata?: Partial<Record<string, string>>;
   Status?: SessionStatus;
   StatusCode?: SessionStatusCode;
   StatusMessage?: string;
@@ -457,7 +457,7 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string;
 }
 export interface ListTagsForResourceResponse {
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export type MaxResults = number;
 
@@ -555,7 +555,7 @@ export type SessionArn = string;
 export type SessionExecutionStatus = "EXECUTED" | "FAILED" | "PENDING";
 export type SessionKey = string;
 
-export type SessionMetadata = Record<string, string>;
+export type SessionMetadata = Partial<Record<string, string>>;
 export type SessionResponse = "APPROVED" | "REJECTED" | "NO_RESPONSE";
 export type SessionStatus =
   | "PENDING"
@@ -584,10 +584,10 @@ export type TagKey = string;
 export type TagKeyList = Array<string>;
 export interface TagResourceRequest {
   ResourceArn: string;
-  Tags: Record<string, string>;
+  Tags: Partial<Record<string, string>>;
 }
 export interface TagResourceResponse {}
-export type Tags = Record<string, string>;
+export type Tags = Partial<Record<string, string>>;
 export type TagValue = string;
 
 export declare class ThrottlingException extends EffectData.TaggedError(

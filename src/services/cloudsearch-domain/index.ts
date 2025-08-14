@@ -50,11 +50,11 @@ export type Double = number;
 
 export type Expr = string;
 
-export type Exprs = Record<string, string>;
+export type Exprs = Partial<Record<string, string>>;
 export type Facet = string;
 
-export type Facets = Record<string, BucketInfo>;
-export type Fields = Record<string, Array<string>>;
+export type Facets = Partial<Record<string, BucketInfo>>;
+export type Fields = Partial<Record<string, Array<string>>>;
 export interface FieldStats {
   min?: string;
   max?: string;
@@ -70,12 +70,12 @@ export type FilterQuery = string;
 
 export type Highlight = string;
 
-export type Highlights = Record<string, string>;
+export type Highlights = Partial<Record<string, string>>;
 export interface Hit {
   id?: string;
-  fields?: Record<string, Array<string>>;
-  exprs?: Record<string, string>;
-  highlights?: Record<string, string>;
+  fields?: Partial<Record<string, Array<string>>>;
+  exprs?: Partial<Record<string, string>>;
+  highlights?: Partial<Record<string, string>>;
 }
 export type HitList = Array<Hit>;
 export interface Hits {
@@ -119,8 +119,8 @@ export interface SearchRequest {
 export interface SearchResponse {
   status?: SearchStatus;
   hits?: Hits;
-  facets?: Record<string, BucketInfo>;
-  stats?: Record<string, FieldStats>;
+  facets?: Partial<Record<string, BucketInfo>>;
+  stats?: Partial<Record<string, FieldStats>>;
 }
 export interface SearchStatus {
   timems?: number;
@@ -134,7 +134,7 @@ export type Start = number;
 
 export type Stat = string;
 
-export type Stats = Record<string, FieldStats>;
+export type Stats = Partial<Record<string, FieldStats>>;
 export type CloudsearchDomainString = string;
 
 export type Suggester = string;

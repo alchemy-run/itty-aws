@@ -285,7 +285,7 @@ export declare class DuplicateRequestException extends EffectData.TaggedError(
 )<{
   readonly message: string;
 }> {}
-export type Events = Record<string, string>;
+export type Events = Partial<Record<string, string>>;
 export type ExceptionMessage = string;
 
 export interface GetBulkPublishDetailsRequest {
@@ -302,7 +302,7 @@ export interface GetCognitoEventsRequest {
   IdentityPoolId: string;
 }
 export interface GetCognitoEventsResponse {
-  Events?: Record<string, string>;
+  Events?: Partial<Record<string, string>>;
 }
 export interface GetIdentityPoolConfigurationRequest {
   IdentityPoolId: string;
@@ -465,7 +465,7 @@ export declare class ResourceNotFoundException extends EffectData.TaggedError(
 }> {}
 export interface SetCognitoEventsRequest {
   IdentityPoolId: string;
-  Events: Record<string, string>;
+  Events: Partial<Record<string, string>>;
 }
 export interface SetIdentityPoolConfigurationRequest {
   IdentityPoolId: string;

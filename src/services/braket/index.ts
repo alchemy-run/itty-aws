@@ -87,9 +87,9 @@ export interface CreateJobRequest {
   roleArn: string;
   stoppingCondition?: JobStoppingCondition;
   instanceConfig: InstanceConfig;
-  hyperParameters?: Record<string, string>;
+  hyperParameters?: Partial<Record<string, string>>;
   deviceConfig: DeviceConfig;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   associations?: Array<Association>;
 }
 export interface CreateJobResponse {
@@ -103,7 +103,7 @@ export interface CreateQuantumTaskRequest {
   outputS3Bucket: string;
   outputS3KeyPrefix: string;
   action: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   jobToken?: string;
   associations?: Array<Association>;
 }
@@ -168,7 +168,7 @@ export interface GetJobResponse {
   roleArn: string;
   failureReason?: string;
   jobName: string;
-  hyperParameters?: Record<string, string>;
+  hyperParameters?: Partial<Record<string, string>>;
   inputDataConfig?: Array<InputFileConfig>;
   outputDataConfig: JobOutputDataConfig;
   stoppingCondition?: JobStoppingCondition;
@@ -181,7 +181,7 @@ export interface GetJobResponse {
   billableDuration?: number;
   deviceConfig?: DeviceConfig;
   events?: Array<JobEventDetails>;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   queueInfo?: HybridJobQueueInfo;
   associations?: Array<Association>;
 }
@@ -200,7 +200,7 @@ export interface GetQuantumTaskResponse {
   outputS3Directory: string;
   createdAt: Date | string;
   endedAt?: Date | string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   jobArn?: string;
   queueInfo?: QuantumTaskQueueInfo;
   associations?: Array<Association>;
@@ -213,7 +213,7 @@ export interface HybridJobQueueInfo {
   position: string;
   message?: string;
 }
-export type HyperParameters = Record<string, string>;
+export type HyperParameters = Partial<Record<string, string>>;
 export type InputConfigList = Array<InputFileConfig>;
 export interface InputFileConfig {
   channelName: string;
@@ -263,7 +263,7 @@ export interface JobSummary {
   createdAt: Date | string;
   startedAt?: Date | string;
   endedAt?: Date | string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type JobSummaryList = Array<JobSummary>;
 export type JobToken = string;
@@ -274,7 +274,7 @@ export interface ListTagsForResourceRequest {
   resourceArn: string;
 }
 export interface ListTagsForResourceResponse {
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type QuantumTaskAdditionalAttributeName = string;
 
@@ -298,7 +298,7 @@ export interface QuantumTaskSummary {
   outputS3Directory: string;
   createdAt: Date | string;
   endedAt?: Date | string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type QuantumTaskSummaryList = Array<QuantumTaskSummary>;
 export type QueueName = string;
@@ -389,10 +389,10 @@ export type String64 = string;
 export type TagKeys = Array<string>;
 export interface TagResourceRequest {
   resourceArn: string;
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
 export interface TagResourceResponse {}
-export type TagsMap = Record<string, string>;
+export type TagsMap = Partial<Record<string, string>>;
 export declare class ThrottlingException extends EffectData.TaggedError(
   "ThrottlingException",
 )<{

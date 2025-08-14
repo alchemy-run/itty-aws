@@ -1652,7 +1652,7 @@ export interface AdminAddUserToGroupRequest {
 export interface AdminConfirmSignUpRequest {
   UserPoolId: string;
   Username: string;
-  ClientMetadata?: Record<string, string>;
+  ClientMetadata?: Partial<Record<string, string>>;
 }
 export interface AdminConfirmSignUpResponse {}
 export interface AdminCreateUserConfigType {
@@ -1669,7 +1669,7 @@ export interface AdminCreateUserRequest {
   ForceAliasCreation?: boolean;
   MessageAction?: MessageActionType;
   DesiredDeliveryMediums?: Array<DeliveryMediumType>;
-  ClientMetadata?: Record<string, string>;
+  ClientMetadata?: Partial<Record<string, string>>;
 }
 export interface AdminCreateUserResponse {
   User?: UserType;
@@ -1733,8 +1733,8 @@ export interface AdminInitiateAuthRequest {
   UserPoolId: string;
   ClientId: string;
   AuthFlow: AuthFlowType;
-  AuthParameters?: Record<string, string>;
-  ClientMetadata?: Record<string, string>;
+  AuthParameters?: Partial<Record<string, string>>;
+  ClientMetadata?: Partial<Record<string, string>>;
   AnalyticsMetadata?: AnalyticsMetadataType;
   ContextData?: ContextDataType;
   Session?: string;
@@ -1742,7 +1742,7 @@ export interface AdminInitiateAuthRequest {
 export interface AdminInitiateAuthResponse {
   ChallengeName?: ChallengeNameType;
   Session?: string;
-  ChallengeParameters?: Record<string, string>;
+  ChallengeParameters?: Partial<Record<string, string>>;
   AuthenticationResult?: AuthenticationResultType;
   AvailableChallenges?: Array<ChallengeNameType>;
 }
@@ -1790,23 +1790,23 @@ export interface AdminRemoveUserFromGroupRequest {
 export interface AdminResetUserPasswordRequest {
   UserPoolId: string;
   Username: string;
-  ClientMetadata?: Record<string, string>;
+  ClientMetadata?: Partial<Record<string, string>>;
 }
 export interface AdminResetUserPasswordResponse {}
 export interface AdminRespondToAuthChallengeRequest {
   UserPoolId: string;
   ClientId: string;
   ChallengeName: ChallengeNameType;
-  ChallengeResponses?: Record<string, string>;
+  ChallengeResponses?: Partial<Record<string, string>>;
   Session?: string;
   AnalyticsMetadata?: AnalyticsMetadataType;
   ContextData?: ContextDataType;
-  ClientMetadata?: Record<string, string>;
+  ClientMetadata?: Partial<Record<string, string>>;
 }
 export interface AdminRespondToAuthChallengeResponse {
   ChallengeName?: ChallengeNameType;
   Session?: string;
-  ChallengeParameters?: Record<string, string>;
+  ChallengeParameters?: Partial<Record<string, string>>;
   AuthenticationResult?: AuthenticationResultType;
 }
 export interface AdminSetUserMFAPreferenceRequest {
@@ -1848,7 +1848,7 @@ export interface AdminUpdateUserAttributesRequest {
   UserPoolId: string;
   Username: string;
   UserAttributes: Array<AttributeType>;
-  ClientMetadata?: Record<string, string>;
+  ClientMetadata?: Partial<Record<string, string>>;
 }
 export interface AdminUpdateUserAttributesResponse {}
 export interface AdminUserGlobalSignOutRequest {
@@ -1923,7 +1923,7 @@ export type AttributeDataType = "STRING" | "NUMBER" | "DATETIME" | "BOOLEAN";
 export type AttributeListType = Array<AttributeType>;
 export type AttributeMappingKeyType = string;
 
-export type AttributeMappingType = Record<string, string>;
+export type AttributeMappingType = Partial<Record<string, string>>;
 export type AttributeNameListType = Array<string>;
 export type AttributeNameType = string;
 
@@ -1964,7 +1964,7 @@ export type AuthFlowType =
   | "USER_PASSWORD_AUTH"
   | "ADMIN_USER_PASSWORD_AUTH"
   | "USER_AUTH";
-export type AuthParametersType = Record<string, string>;
+export type AuthParametersType = Partial<Record<string, string>>;
 export type AuthSessionValidityType = number;
 
 export type AvailableChallengeListType = Array<ChallengeNameType>;
@@ -1992,10 +1992,10 @@ export type ChallengeNameType =
   | "PASSWORD"
   | "WEB_AUTHN"
   | "PASSWORD_SRP";
-export type ChallengeParametersType = Record<string, string>;
+export type ChallengeParametersType = Partial<Record<string, string>>;
 export type ChallengeResponse = "Success" | "Failure";
 export type ChallengeResponseListType = Array<ChallengeResponseType>;
-export type ChallengeResponsesType = Record<string, string>;
+export type ChallengeResponsesType = Partial<Record<string, string>>;
 export interface ChallengeResponseType {
   ChallengeName?: ChallengeName;
   ChallengeResponse?: ChallengeResponse;
@@ -2008,7 +2008,7 @@ export interface ChangePasswordRequest {
 export interface ChangePasswordResponse {}
 export type ClientIdType = string;
 
-export type ClientMetadataType = Record<string, string>;
+export type ClientMetadataType = Partial<Record<string, string>>;
 export type ClientNameType = string;
 
 export type ClientPermissionListType = Array<string>;
@@ -2076,7 +2076,7 @@ export interface ConfirmForgotPasswordRequest {
   Password: string;
   AnalyticsMetadata?: AnalyticsMetadataType;
   UserContextData?: UserContextDataType;
-  ClientMetadata?: Record<string, string>;
+  ClientMetadata?: Partial<Record<string, string>>;
 }
 export interface ConfirmForgotPasswordResponse {}
 export interface ConfirmSignUpRequest {
@@ -2087,7 +2087,7 @@ export interface ConfirmSignUpRequest {
   ForceAliasCreation?: boolean;
   AnalyticsMetadata?: AnalyticsMetadataType;
   UserContextData?: UserContextDataType;
-  ClientMetadata?: Record<string, string>;
+  ClientMetadata?: Partial<Record<string, string>>;
   Session?: string;
 }
 export interface ConfirmSignUpResponse {
@@ -2114,8 +2114,8 @@ export interface CreateIdentityProviderRequest {
   UserPoolId: string;
   ProviderName: string;
   ProviderType: IdentityProviderTypeType;
-  ProviderDetails: Record<string, string>;
-  AttributeMapping?: Record<string, string>;
+  ProviderDetails: Partial<Record<string, string>>;
+  AttributeMapping?: Partial<Record<string, string>>;
   IdpIdentifiers?: Array<string>;
 }
 export interface CreateIdentityProviderResponse {
@@ -2204,7 +2204,7 @@ export interface CreateUserPoolRequest {
   DeviceConfiguration?: DeviceConfigurationType;
   EmailConfiguration?: EmailConfigurationType;
   SmsConfiguration?: SmsConfigurationType;
-  UserPoolTags?: Record<string, string>;
+  UserPoolTags?: Partial<Record<string, string>>;
   AdminCreateUserConfig?: AdminCreateUserConfigType;
   Schema?: Array<SchemaAttributeType>;
   UserPoolAddOns?: UserPoolAddOnsType;
@@ -2514,7 +2514,7 @@ export interface ForgotPasswordRequest {
   UserContextData?: UserContextDataType;
   Username: string;
   AnalyticsMetadata?: AnalyticsMetadataType;
-  ClientMetadata?: Record<string, string>;
+  ClientMetadata?: Partial<Record<string, string>>;
 }
 export interface ForgotPasswordResponse {
   CodeDeliveryDetails?: CodeDeliveryDetailsType;
@@ -2566,7 +2566,7 @@ export interface GetTokensFromRefreshTokenRequest {
   ClientId: string;
   ClientSecret?: string;
   DeviceKey?: string;
-  ClientMetadata?: Record<string, string>;
+  ClientMetadata?: Partial<Record<string, string>>;
 }
 export interface GetTokensFromRefreshTokenResponse {
   AuthenticationResult?: AuthenticationResultType;
@@ -2581,7 +2581,7 @@ export interface GetUICustomizationResponse {
 export interface GetUserAttributeVerificationCodeRequest {
   AccessToken: string;
   AttributeName: string;
-  ClientMetadata?: Record<string, string>;
+  ClientMetadata?: Partial<Record<string, string>>;
 }
 export interface GetUserAttributeVerificationCodeResponse {
   CodeDeliveryDetails?: CodeDeliveryDetailsType;
@@ -2647,8 +2647,8 @@ export interface IdentityProviderType {
   UserPoolId?: string;
   ProviderName?: string;
   ProviderType?: IdentityProviderTypeType;
-  ProviderDetails?: Record<string, string>;
-  AttributeMapping?: Record<string, string>;
+  ProviderDetails?: Partial<Record<string, string>>;
+  AttributeMapping?: Partial<Record<string, string>>;
   IdpIdentifiers?: Array<string>;
   LastModifiedDate?: Date | string;
   CreationDate?: Date | string;
@@ -2671,8 +2671,8 @@ export type ImageUrlType = string;
 
 export interface InitiateAuthRequest {
   AuthFlow: AuthFlowType;
-  AuthParameters?: Record<string, string>;
-  ClientMetadata?: Record<string, string>;
+  AuthParameters?: Partial<Record<string, string>>;
+  ClientMetadata?: Partial<Record<string, string>>;
   ClientId: string;
   AnalyticsMetadata?: AnalyticsMetadataType;
   UserContextData?: UserContextDataType;
@@ -2681,7 +2681,7 @@ export interface InitiateAuthRequest {
 export interface InitiateAuthResponse {
   ChallengeName?: ChallengeNameType;
   Session?: string;
-  ChallengeParameters?: Record<string, string>;
+  ChallengeParameters?: Partial<Record<string, string>>;
   AuthenticationResult?: AuthenticationResultType;
   AvailableChallenges?: Array<ChallengeNameType>;
 }
@@ -2801,7 +2801,7 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string;
 }
 export interface ListTagsForResourceResponse {
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface ListUserImportJobsRequest {
   UserPoolId: string;
@@ -2991,7 +2991,7 @@ export interface ProviderDescription {
   LastModifiedDate?: Date | string;
   CreationDate?: Date | string;
 }
-export type ProviderDetailsType = Record<string, string>;
+export type ProviderDetailsType = Partial<Record<string, string>>;
 export type ProviderNameType = string;
 
 export type ProviderNameTypeV2 = string;
@@ -3038,7 +3038,7 @@ export interface ResendConfirmationCodeRequest {
   UserContextData?: UserContextDataType;
   Username: string;
   AnalyticsMetadata?: AnalyticsMetadataType;
-  ClientMetadata?: Record<string, string>;
+  ClientMetadata?: Partial<Record<string, string>>;
 }
 export interface ResendConfirmationCodeResponse {
   CodeDeliveryDetails?: CodeDeliveryDetailsType;
@@ -3074,15 +3074,15 @@ export interface RespondToAuthChallengeRequest {
   ClientId: string;
   ChallengeName: ChallengeNameType;
   Session?: string;
-  ChallengeResponses?: Record<string, string>;
+  ChallengeResponses?: Partial<Record<string, string>>;
   AnalyticsMetadata?: AnalyticsMetadataType;
   UserContextData?: UserContextDataType;
-  ClientMetadata?: Record<string, string>;
+  ClientMetadata?: Partial<Record<string, string>>;
 }
 export interface RespondToAuthChallengeResponse {
   ChallengeName?: ChallengeNameType;
   Session?: string;
-  ChallengeParameters?: Record<string, string>;
+  ChallengeParameters?: Partial<Record<string, string>>;
   AuthenticationResult?: AuthenticationResultType;
 }
 export type RetryGracePeriodSecondsType = number;
@@ -3208,7 +3208,7 @@ export interface SignUpRequest {
   ValidationData?: Array<AttributeType>;
   AnalyticsMetadata?: AnalyticsMetadataType;
   UserContextData?: UserContextDataType;
-  ClientMetadata?: Record<string, string>;
+  ClientMetadata?: Partial<Record<string, string>>;
 }
 export interface SignUpResponse {
   UserConfirmed: boolean;
@@ -3280,7 +3280,7 @@ export type TagKeysType = string;
 
 export interface TagResourceRequest {
   ResourceArn: string;
-  Tags: Record<string, string>;
+  Tags: Partial<Record<string, string>>;
 }
 export interface TagResourceResponse {}
 export type TagValueType = string;
@@ -3381,8 +3381,8 @@ export interface UpdateGroupResponse {
 export interface UpdateIdentityProviderRequest {
   UserPoolId: string;
   ProviderName: string;
-  ProviderDetails?: Record<string, string>;
-  AttributeMapping?: Record<string, string>;
+  ProviderDetails?: Partial<Record<string, string>>;
+  AttributeMapping?: Partial<Record<string, string>>;
   IdpIdentifiers?: Array<string>;
 }
 export interface UpdateIdentityProviderResponse {
@@ -3410,7 +3410,7 @@ export interface UpdateResourceServerResponse {
 export interface UpdateUserAttributesRequest {
   UserAttributes: Array<AttributeType>;
   AccessToken: string;
-  ClientMetadata?: Record<string, string>;
+  ClientMetadata?: Partial<Record<string, string>>;
 }
 export interface UpdateUserAttributesResponse {
   CodeDeliveryDetailsList?: Array<CodeDeliveryDetailsType>;
@@ -3469,7 +3469,7 @@ export interface UpdateUserPoolRequest {
   DeviceConfiguration?: DeviceConfigurationType;
   EmailConfiguration?: EmailConfigurationType;
   SmsConfiguration?: SmsConfigurationType;
-  UserPoolTags?: Record<string, string>;
+  UserPoolTags?: Partial<Record<string, string>>;
   AdminCreateUserConfig?: AdminCreateUserConfigType;
   UserPoolAddOns?: UserPoolAddOnsType;
   AccountRecoverySetting?: AccountRecoverySettingType;
@@ -3615,7 +3615,7 @@ export declare class UserPoolTaggingException extends EffectData.TaggedError(
   readonly message?: string;
 }> {}
 export type UserPoolTagsListType = Array<string>;
-export type UserPoolTagsType = Record<string, string>;
+export type UserPoolTagsType = Partial<Record<string, string>>;
 export type UserPoolTierType = "LITE" | "ESSENTIALS" | "PLUS";
 export interface UserPoolType {
   Id?: string;
@@ -3641,7 +3641,7 @@ export interface UserPoolType {
   EstimatedNumberOfUsers?: number;
   EmailConfiguration?: EmailConfigurationType;
   SmsConfiguration?: SmsConfigurationType;
-  UserPoolTags?: Record<string, string>;
+  UserPoolTags?: Partial<Record<string, string>>;
   SmsConfigurationFailure?: string;
   EmailConfigurationFailure?: string;
   Domain?: string;

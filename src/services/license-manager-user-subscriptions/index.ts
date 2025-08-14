@@ -232,7 +232,7 @@ export interface AssociateUserRequest {
   InstanceId: string;
   IdentityProvider: IdentityProvider;
   Domain?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface AssociateUserResponse {
   InstanceUserSummary: InstanceUserSummary;
@@ -247,7 +247,7 @@ export declare class ConflictException extends EffectData.TaggedError(
 export interface CreateLicenseServerEndpointRequest {
   IdentityProviderArn: string;
   LicenseServerSettings: LicenseServerSettings;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateLicenseServerEndpointResponse {
   IdentityProviderArn?: string;
@@ -410,7 +410,7 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string;
 }
 export interface ListTagsForResourceResponse {
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface ListUserAssociationsRequest {
   InstanceId: string;
@@ -442,7 +442,7 @@ export interface RegisterIdentityProviderRequest {
   IdentityProvider: IdentityProvider;
   Product: string;
   Settings?: Settings;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface RegisterIdentityProviderResponse {
   IdentityProviderSummary: IdentityProviderSummary;
@@ -485,7 +485,7 @@ export interface StartProductSubscriptionRequest {
   IdentityProvider: IdentityProvider;
   Product: string;
   Domain?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface StartProductSubscriptionResponse {
   ProductUserSummary: ProductUserSummary;
@@ -507,10 +507,10 @@ export type Subnets = Array<string>;
 export type TagKeyList = Array<string>;
 export interface TagResourceRequest {
   ResourceArn: string;
-  Tags: Record<string, string>;
+  Tags: Partial<Record<string, string>>;
 }
 export interface TagResourceResponse {}
-export type Tags = Record<string, string>;
+export type Tags = Partial<Record<string, string>>;
 export declare class ThrottlingException extends EffectData.TaggedError(
   "ThrottlingException",
 )<{

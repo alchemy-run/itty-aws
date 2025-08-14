@@ -1436,8 +1436,8 @@ export interface CreateSipMediaApplicationCallRequest {
   FromPhoneNumber: string;
   ToPhoneNumber: string;
   SipMediaApplicationId: string;
-  SipHeaders?: Record<string, string>;
-  ArgumentsMap?: Record<string, string>;
+  SipHeaders?: Partial<Record<string, string>>;
+  ArgumentsMap?: Partial<Record<string, string>>;
 }
 export interface CreateSipMediaApplicationCallResponse {
   SipMediaApplicationCall?: SipMediaApplicationCall;
@@ -2166,7 +2166,7 @@ export type SessionBorderControllerTypeList =
   Array<SessionBorderControllerType>;
 export type SipApplicationPriority = number;
 
-export type SipHeadersMap = Record<string, string>;
+export type SipHeadersMap = Partial<Record<string, string>>;
 export interface SipMediaApplication {
   SipMediaApplicationId?: string;
   AwsRegion?: string;
@@ -2214,8 +2214,8 @@ export interface SipRuleTargetApplication {
 }
 export type SipRuleTargetApplicationList = Array<SipRuleTargetApplication>;
 export type SipRuleTriggerType = "ToPhoneNumber" | "RequestUriHostname";
-export type SMACreateCallArgumentsMap = Record<string, string>;
-export type SMAUpdateCallArgumentsMap = Record<string, string>;
+export type SMACreateCallArgumentsMap = Partial<Record<string, string>>;
+export type SMAUpdateCallArgumentsMap = Partial<Record<string, string>>;
 export interface SpeakerSearchDetails {
   Results?: Array<SpeakerSearchResult>;
   VoiceprintGenerationStatus?: string;
@@ -2362,7 +2362,7 @@ export interface UpdateProxySessionResponse {
 export interface UpdateSipMediaApplicationCallRequest {
   SipMediaApplicationId: string;
   TransactionId: string;
-  Arguments: Record<string, string>;
+  Arguments: Partial<Record<string, string>>;
 }
 export interface UpdateSipMediaApplicationCallResponse {
   SipMediaApplicationCall?: SipMediaApplicationCall;

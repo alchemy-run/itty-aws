@@ -377,7 +377,7 @@ export interface CellOutput {
   CellName: string;
   Cells: Array<string>;
   ParentReadinessScopes: Array<string>;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export declare class ConflictException extends EffectData.TaggedError(
   "ConflictException",
@@ -387,14 +387,14 @@ export declare class ConflictException extends EffectData.TaggedError(
 export interface CreateCellRequest {
   CellName: string;
   Cells?: Array<string>;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateCellResponse {
   CellArn?: string;
   CellName?: string;
   Cells?: Array<string>;
   ParentReadinessScopes?: Array<string>;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateCrossAccountAuthorizationRequest {
   CrossAccountAuthorization: string;
@@ -405,37 +405,37 @@ export interface CreateCrossAccountAuthorizationResponse {
 export interface CreateReadinessCheckRequest {
   ReadinessCheckName: string;
   ResourceSetName: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateReadinessCheckResponse {
   ReadinessCheckArn?: string;
   ReadinessCheckName?: string;
   ResourceSet?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateRecoveryGroupRequest {
   Cells?: Array<string>;
   RecoveryGroupName: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateRecoveryGroupResponse {
   Cells?: Array<string>;
   RecoveryGroupArn?: string;
   RecoveryGroupName?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateResourceSetRequest {
   ResourceSetName: string;
   ResourceSetType: string;
   Resources: Array<Resource>;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateResourceSetResponse {
   ResourceSetArn?: string;
   ResourceSetName?: string;
   ResourceSetType?: string;
   Resources?: Array<Resource>;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export type CrossAccountAuthorization = string;
 
@@ -490,7 +490,7 @@ export interface GetCellResponse {
   CellName?: string;
   Cells?: Array<string>;
   ParentReadinessScopes?: Array<string>;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface GetReadinessCheckRequest {
   ReadinessCheckName: string;
@@ -510,7 +510,7 @@ export interface GetReadinessCheckResponse {
   ReadinessCheckArn?: string;
   ReadinessCheckName?: string;
   ResourceSet?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface GetReadinessCheckStatusRequest {
   MaxResults?: number;
@@ -540,7 +540,7 @@ export interface GetRecoveryGroupResponse {
   Cells?: Array<string>;
   RecoveryGroupArn?: string;
   RecoveryGroupName?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface GetResourceSetRequest {
   ResourceSetName: string;
@@ -550,7 +550,7 @@ export interface GetResourceSetResponse {
   ResourceSetName?: string;
   ResourceSetType?: string;
   Resources?: Array<Resource>;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export declare class InternalServerException extends EffectData.TaggedError(
   "InternalServerException",
@@ -617,7 +617,7 @@ export interface ListTagsForResourcesRequest {
   ResourceArn: string;
 }
 export interface ListTagsForResourcesResponse {
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export type MaxResults = number;
 
@@ -636,7 +636,7 @@ export interface ReadinessCheckOutput {
   ReadinessCheckArn: string;
   ReadinessCheckName?: string;
   ResourceSet: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface ReadinessCheckSummary {
   Readiness?: Readiness;
@@ -651,7 +651,7 @@ export interface RecoveryGroupOutput {
   Cells: Array<string>;
   RecoveryGroupArn: string;
   RecoveryGroupName: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface Resource {
   ComponentId?: string;
@@ -675,7 +675,7 @@ export interface ResourceSetOutput {
   ResourceSetName: string;
   ResourceSetType: string;
   Resources: Array<Resource>;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface RuleResult {
   LastCheckedTimestamp: Date | string;
@@ -685,10 +685,10 @@ export interface RuleResult {
 }
 export interface TagResourceRequest {
   ResourceArn: string;
-  Tags: Record<string, string>;
+  Tags: Partial<Record<string, string>>;
 }
 export interface TagResourceResponse {}
-export type Tags = Record<string, string>;
+export type Tags = Partial<Record<string, string>>;
 export interface TargetResource {
   NLBResource?: NLBResource;
   R53Resource?: R53ResourceRecord;
@@ -711,7 +711,7 @@ export interface UpdateCellResponse {
   CellName?: string;
   Cells?: Array<string>;
   ParentReadinessScopes?: Array<string>;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface UpdateReadinessCheckRequest {
   ReadinessCheckName: string;
@@ -721,7 +721,7 @@ export interface UpdateReadinessCheckResponse {
   ReadinessCheckArn?: string;
   ReadinessCheckName?: string;
   ResourceSet?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface UpdateRecoveryGroupRequest {
   Cells: Array<string>;
@@ -731,7 +731,7 @@ export interface UpdateRecoveryGroupResponse {
   Cells?: Array<string>;
   RecoveryGroupArn?: string;
   RecoveryGroupName?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface UpdateResourceSetRequest {
   ResourceSetName: string;
@@ -743,7 +743,7 @@ export interface UpdateResourceSetResponse {
   ResourceSetName?: string;
   ResourceSetType?: string;
   Resources?: Array<Resource>;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export declare class ValidationException extends EffectData.TaggedError(
   "ValidationException",

@@ -138,7 +138,7 @@ export declare class ConflictException extends EffectData.TaggedError(
 export type ConflictExceptionReason = "CONCURRENT_MODIFICATION";
 export interface CreateGraphInput {
   graphName: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   publicConnectivity?: boolean;
   kmsKeyIdentifier?: string;
   vectorSearchConfiguration?: VectorSearchConfiguration;
@@ -166,7 +166,7 @@ export interface CreateGraphOutput {
 export interface CreateGraphSnapshotInput {
   graphIdentifier: string;
   snapshotName: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateGraphSnapshotOutput {
   id: string;
@@ -179,7 +179,7 @@ export interface CreateGraphSnapshotOutput {
 }
 export interface CreateGraphUsingImportTaskInput {
   graphName: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   publicConnectivity?: boolean;
   kmsKeyIdentifier?: string;
   vectorSearchConfiguration?: VectorSearchConfiguration;
@@ -260,7 +260,7 @@ export interface DeletePrivateGraphEndpointOutput {
   status: PrivateGraphEndpointStatus;
   vpcEndpointId?: string;
 }
-export type DocumentValuedMap = Record<string, unknown>;
+export type DocumentValuedMap = Partial<Record<string, unknown>>;
 export type EdgeLabels = Array<string>;
 export type EdgeProperties = Array<string>;
 export interface EdgeStructure {
@@ -272,7 +272,7 @@ export interface ExecuteQueryInput {
   graphIdentifier: string;
   queryString: string;
   language: QueryLanguage;
-  parameters?: Record<string, unknown>;
+  parameters?: Partial<Record<string, unknown>>;
   planCache?: PlanCacheType;
   explainMode?: ExplainMode;
   queryTimeoutMilliseconds?: number;
@@ -282,11 +282,11 @@ export interface ExecuteQueryOutput {
 }
 export type ExplainMode = "STATIC" | "DETAILS";
 export interface ExportFilter {
-  vertexFilter?: Record<string, ExportFilterElement>;
-  edgeFilter?: Record<string, ExportFilterElement>;
+  vertexFilter?: Partial<Record<string, ExportFilterElement>>;
+  edgeFilter?: Partial<Record<string, ExportFilterElement>>;
 }
 export interface ExportFilterElement {
-  properties?: Record<string, ExportFilterPropertyAttributes>;
+  properties?: Partial<Record<string, ExportFilterPropertyAttributes>>;
 }
 export type ExportFilterLabel = string;
 
@@ -294,15 +294,16 @@ export type ExportFilterOutputDataType = string;
 
 export type ExportFilterOutputPropertyName = string;
 
-export type ExportFilterPerLabelMap = Record<string, ExportFilterElement>;
+export type ExportFilterPerLabelMap = Partial<
+  Record<string, ExportFilterElement>
+>;
 export interface ExportFilterPropertyAttributes {
   outputType?: string;
   sourcePropertyName?: string;
   multiValueHandling?: MultiValueHandlingType;
 }
-export type ExportFilterPropertyMap = Record<
-  string,
-  ExportFilterPropertyAttributes
+export type ExportFilterPropertyMap = Partial<
+  Record<string, ExportFilterPropertyAttributes>
 >;
 export type ExportFilterSourcePropertyName = string;
 
@@ -440,8 +441,8 @@ export interface GraphDataSummary {
   edgeLabels?: Array<string>;
   numNodeProperties?: number;
   numEdgeProperties?: number;
-  nodeProperties?: Array<Record<string, number>>;
-  edgeProperties?: Array<Record<string, number>>;
+  nodeProperties?: Array<Partial<Record<string, number>>>;
+  edgeProperties?: Array<Partial<Record<string, number>>>;
   totalNodePropertyValues?: number;
   totalEdgePropertyValues?: number;
   nodeStructures?: Array<NodeStructure>;
@@ -585,10 +586,10 @@ export interface ListTagsForResourceInput {
   resourceArn: string;
 }
 export interface ListTagsForResourceOutput {
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
-export type LongValuedMap = Record<string, number>;
-export type LongValuedMapList = Array<Record<string, number>>;
+export type LongValuedMap = Partial<Record<string, number>>;
+export type LongValuedMapList = Array<Partial<Record<string, number>>>;
 export type MaxResults = number;
 
 export type MultiValueHandlingType = "TO_LIST" | "PICK_FIRST";
@@ -672,7 +673,7 @@ export interface RestoreGraphFromSnapshotInput {
   graphName: string;
   provisionedMemory?: number;
   deletionProtection?: boolean;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   replicaCount?: number;
   publicConnectivity?: boolean;
 }
@@ -722,7 +723,7 @@ export interface StartExportTaskInput {
   kmsKeyIdentifier: string;
   parquetType?: ParquetType;
   exportFilter?: ExportFilter;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface StartExportTaskOutput {
   graphId: string;
@@ -762,10 +763,10 @@ export type SubnetIds = Array<string>;
 export type TagKey = string;
 
 export type TagKeyList = Array<string>;
-export type TagMap = Record<string, string>;
+export type TagMap = Partial<Record<string, string>>;
 export interface TagResourceInput {
   resourceArn: string;
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
 export interface TagResourceOutput {}
 export type TagValue = string;

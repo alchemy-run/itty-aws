@@ -312,12 +312,12 @@ export interface CreateIdentityPoolInput {
   IdentityPoolName: string;
   AllowUnauthenticatedIdentities: boolean;
   AllowClassicFlow?: boolean;
-  SupportedLoginProviders?: Record<string, string>;
+  SupportedLoginProviders?: Partial<Record<string, string>>;
   DeveloperProviderName?: string;
   OpenIdConnectProviderARNs?: Array<string>;
   CognitoIdentityProviders?: Array<CognitoIdentityProvider>;
   SamlProviderARNs?: Array<string>;
-  IdentityPoolTags?: Record<string, string>;
+  IdentityPoolTags?: Partial<Record<string, string>>;
 }
 export interface Credentials {
   AccessKeyId?: string;
@@ -360,7 +360,7 @@ export declare class ExternalServiceException extends EffectData.TaggedError(
 }> {}
 export interface GetCredentialsForIdentityInput {
   IdentityId: string;
-  Logins?: Record<string, string>;
+  Logins?: Partial<Record<string, string>>;
   CustomRoleArn?: string;
 }
 export interface GetCredentialsForIdentityResponse {
@@ -372,13 +372,13 @@ export interface GetIdentityPoolRolesInput {
 }
 export interface GetIdentityPoolRolesResponse {
   IdentityPoolId?: string;
-  Roles?: Record<string, string>;
-  RoleMappings?: Record<string, RoleMapping>;
+  Roles?: Partial<Record<string, string>>;
+  RoleMappings?: Partial<Record<string, RoleMapping>>;
 }
 export interface GetIdInput {
   AccountId?: string;
   IdentityPoolId: string;
-  Logins?: Record<string, string>;
+  Logins?: Partial<Record<string, string>>;
 }
 export interface GetIdResponse {
   IdentityId?: string;
@@ -386,8 +386,8 @@ export interface GetIdResponse {
 export interface GetOpenIdTokenForDeveloperIdentityInput {
   IdentityPoolId: string;
   IdentityId?: string;
-  Logins: Record<string, string>;
-  PrincipalTags?: Record<string, string>;
+  Logins: Partial<Record<string, string>>;
+  PrincipalTags?: Partial<Record<string, string>>;
   TokenDuration?: number;
 }
 export interface GetOpenIdTokenForDeveloperIdentityResponse {
@@ -396,7 +396,7 @@ export interface GetOpenIdTokenForDeveloperIdentityResponse {
 }
 export interface GetOpenIdTokenInput {
   IdentityId: string;
-  Logins?: Record<string, string>;
+  Logins?: Partial<Record<string, string>>;
 }
 export interface GetOpenIdTokenResponse {
   IdentityId?: string;
@@ -410,7 +410,7 @@ export interface GetPrincipalTagAttributeMapResponse {
   IdentityPoolId?: string;
   IdentityProviderName?: string;
   UseDefaults?: boolean;
-  PrincipalTags?: Record<string, string>;
+  PrincipalTags?: Partial<Record<string, string>>;
 }
 export type HideDisabled = boolean;
 
@@ -429,12 +429,12 @@ export interface IdentityPool {
   IdentityPoolName: string;
   AllowUnauthenticatedIdentities: boolean;
   AllowClassicFlow?: boolean;
-  SupportedLoginProviders?: Record<string, string>;
+  SupportedLoginProviders?: Partial<Record<string, string>>;
   DeveloperProviderName?: string;
   OpenIdConnectProviderARNs?: Array<string>;
   CognitoIdentityProviders?: Array<CognitoIdentityProvider>;
   SamlProviderARNs?: Array<string>;
-  IdentityPoolTags?: Record<string, string>;
+  IdentityPoolTags?: Partial<Record<string, string>>;
 }
 export type IdentityPoolId = string;
 
@@ -446,14 +446,14 @@ export interface IdentityPoolShortDescription {
 }
 export type IdentityPoolsList = Array<IdentityPoolShortDescription>;
 export type IdentityPoolTagsListType = Array<string>;
-export type IdentityPoolTagsType = Record<string, string>;
+export type IdentityPoolTagsType = Partial<Record<string, string>>;
 export type IdentityPoolUnauthenticated = boolean;
 
 export type IdentityProviderId = string;
 
 export type IdentityProviderName = string;
 
-export type IdentityProviders = Record<string, string>;
+export type IdentityProviders = Partial<Record<string, string>>;
 export type IdentityProviderToken = string;
 
 export declare class InternalErrorException extends EffectData.TaggedError(
@@ -499,10 +499,10 @@ export interface ListTagsForResourceInput {
   ResourceArn: string;
 }
 export interface ListTagsForResourceResponse {
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export type LoginsList = Array<string>;
-export type LoginsMap = Record<string, string>;
+export type LoginsMap = Partial<Record<string, string>>;
 export interface LookupDeveloperIdentityInput {
   IdentityPoolId: string;
   IdentityId?: string;
@@ -548,7 +548,7 @@ export type PaginationKey = string;
 
 export type PrincipalTagID = string;
 
-export type PrincipalTags = Record<string, string>;
+export type PrincipalTags = Partial<Record<string, string>>;
 export type PrincipalTagValue = string;
 
 export type QueryLimit = number;
@@ -568,9 +568,9 @@ export interface RoleMapping {
   AmbiguousRoleResolution?: AmbiguousRoleResolutionType;
   RulesConfiguration?: RulesConfigurationType;
 }
-export type RoleMappingMap = Record<string, RoleMapping>;
+export type RoleMappingMap = Partial<Record<string, RoleMapping>>;
 export type RoleMappingType = "TOKEN" | "RULES";
-export type RolesMap = Record<string, string>;
+export type RolesMap = Partial<Record<string, string>>;
 export type RoleType = string;
 
 export interface RulesConfigurationType {
@@ -583,20 +583,20 @@ export type SessionTokenString = string;
 
 export interface SetIdentityPoolRolesInput {
   IdentityPoolId: string;
-  Roles: Record<string, string>;
-  RoleMappings?: Record<string, RoleMapping>;
+  Roles: Partial<Record<string, string>>;
+  RoleMappings?: Partial<Record<string, RoleMapping>>;
 }
 export interface SetPrincipalTagAttributeMapInput {
   IdentityPoolId: string;
   IdentityProviderName: string;
   UseDefaults?: boolean;
-  PrincipalTags?: Record<string, string>;
+  PrincipalTags?: Partial<Record<string, string>>;
 }
 export interface SetPrincipalTagAttributeMapResponse {
   IdentityPoolId?: string;
   IdentityProviderName?: string;
   UseDefaults?: boolean;
-  PrincipalTags?: Record<string, string>;
+  PrincipalTags?: Partial<Record<string, string>>;
 }
 export type CognitoIdentityString = string;
 
@@ -604,7 +604,7 @@ export type TagKeysType = string;
 
 export interface TagResourceInput {
   ResourceArn: string;
-  Tags: Record<string, string>;
+  Tags: Partial<Record<string, string>>;
 }
 export interface TagResourceResponse {}
 export type TagValueType = string;
@@ -624,7 +624,7 @@ export interface UnlinkDeveloperIdentityInput {
 }
 export interface UnlinkIdentityInput {
   IdentityId: string;
-  Logins: Record<string, string>;
+  Logins: Partial<Record<string, string>>;
   LoginsToRemove: Array<string>;
 }
 export interface UnprocessedIdentityId {

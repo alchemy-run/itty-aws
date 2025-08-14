@@ -718,7 +718,7 @@ export interface CreateAnalysisTemplateInput {
   name: string;
   format: AnalysisFormat;
   source: AnalysisSource;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   analysisParameters?: Array<AnalysisParameter>;
   schema?: AnalysisSchema;
 }
@@ -735,7 +735,7 @@ export interface CreateCollaborationInput {
   dataEncryptionMetadata?: DataEncryptionMetadata;
   queryLogStatus: CollaborationQueryLogStatus;
   jobLogStatus?: CollaborationJobLogStatus;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   creatorPaymentConfiguration?: PaymentConfiguration;
   analyticsEngine?: AnalyticsEngine;
 }
@@ -747,7 +747,7 @@ export interface CreateConfiguredAudienceModelAssociationInput {
   configuredAudienceModelArn: string;
   configuredAudienceModelAssociationName: string;
   manageResourcePolicies: boolean;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   description?: string;
 }
 export interface CreateConfiguredAudienceModelAssociationOutput {
@@ -776,7 +776,7 @@ export interface CreateConfiguredTableAssociationInput {
   membershipIdentifier: string;
   configuredTableIdentifier: string;
   roleArn: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateConfiguredTableAssociationOutput {
   configuredTableAssociation: ConfiguredTableAssociation;
@@ -788,7 +788,7 @@ export interface CreateConfiguredTableInput {
   allowedColumns: Array<string>;
   analysisMethod: AnalysisMethod;
   selectedAnalysisMethods?: Array<SelectedAnalysisMethod>;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateConfiguredTableOutput {
   configuredTable: ConfiguredTable;
@@ -798,7 +798,7 @@ export interface CreateIdMappingTableInput {
   name: string;
   description?: string;
   inputReferenceConfig: IdMappingTableInputReferenceConfig;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   kmsKeyArn?: string;
 }
 export interface CreateIdMappingTableOutput {
@@ -807,7 +807,7 @@ export interface CreateIdMappingTableOutput {
 export interface CreateIdNamespaceAssociationInput {
   membershipIdentifier: string;
   inputReferenceConfig: IdNamespaceAssociationInputReferenceConfig;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   name: string;
   description?: string;
   idMappingConfig?: IdMappingConfig;
@@ -819,7 +819,7 @@ export interface CreateMembershipInput {
   collaborationIdentifier: string;
   queryLogStatus: MembershipQueryLogStatus;
   jobLogStatus?: MembershipJobLogStatus;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   defaultResultConfiguration?: MembershipProtectedQueryResultConfiguration;
   defaultJobResultConfiguration?: MembershipProtectedJobResultConfiguration;
   paymentConfiguration?: MembershipPaymentConfiguration;
@@ -832,7 +832,7 @@ export interface CreatePrivacyBudgetTemplateInput {
   autoRefresh: PrivacyBudgetTemplateAutoRefresh;
   privacyBudgetType: PrivacyBudgetType;
   parameters: PrivacyBudgetTemplateParametersInput;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreatePrivacyBudgetTemplateOutput {
   privacyBudgetTemplate: PrivacyBudgetTemplate;
@@ -1420,7 +1420,7 @@ export interface ListTagsForResourceInput {
   resourceArn: string;
 }
 export interface ListTagsForResourceOutput {
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
 export type MaxResults = number;
 
@@ -1552,7 +1552,7 @@ export interface ModelTrainingPaymentConfig {
 }
 export type PaginationToken = string;
 
-export type ParameterMap = Record<string, string>;
+export type ParameterMap = Partial<Record<string, string>>;
 export type ParameterName = string;
 
 export type ParameterType =
@@ -1914,7 +1914,7 @@ export interface ProtectedQuerySingleMemberOutput {
 export interface ProtectedQuerySQLParameters {
   queryString?: string;
   analysisTemplateArn?: string;
-  parameters?: Record<string, string>;
+  parameters?: Partial<Record<string, string>>;
 }
 export interface ProtectedQueryStatistics {
   totalDurationInMillis?: number;
@@ -2127,10 +2127,10 @@ export type TableReference =
 export type TagKey = string;
 
 export type TagKeys = Array<string>;
-export type TagMap = Record<string, string>;
+export type TagMap = Partial<Record<string, string>>;
 export interface TagResourceInput {
   resourceArn: string;
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
 export interface TagResourceOutput {}
 export type TagValue = string;

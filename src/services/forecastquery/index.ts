@@ -47,7 +47,7 @@ export type ErrorMessage = string;
 
 export type Filters = Record<string, string>;
 export interface Forecast {
-  Predictions?: Record<string, Array<DataPoint>>;
+  Predictions?: Partial<Record<string, Array<DataPoint>>>;
 }
 export declare class InvalidInputException extends EffectData.TaggedError(
   "InvalidInputException",
@@ -68,7 +68,7 @@ export type LongArn = string;
 
 export type NextToken = string;
 
-export type Predictions = Record<string, Array<DataPoint>>;
+export type Predictions = Partial<Record<string, Array<DataPoint>>>;
 export interface QueryForecastRequest {
   ForecastArn: string;
   StartDate?: string;

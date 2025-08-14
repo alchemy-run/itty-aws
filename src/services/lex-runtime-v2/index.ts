@@ -90,11 +90,11 @@ export declare class AccessDeniedException extends EffectData.TaggedError(
 export interface ActiveContext {
   name: string;
   timeToLive: ActiveContextTimeToLive;
-  contextAttributes: Record<string, string>;
+  contextAttributes: Partial<Record<string, string>>;
 }
 export type ActiveContextName = string;
 
-export type ActiveContextParametersMap = Record<string, string>;
+export type ActiveContextParametersMap = Partial<Record<string, string>>;
 export type ActiveContextsList = Array<ActiveContext>;
 export interface ActiveContextTimeToLive {
   timeToLiveInSeconds: number;
@@ -147,7 +147,7 @@ export interface ConfidenceScore {
   score?: number;
 }
 export interface ConfigurationEvent {
-  requestAttributes?: Record<string, string>;
+  requestAttributes?: Partial<Record<string, string>>;
   responseContentType: string;
   sessionState?: SessionState;
   welcomeMessages?: Array<Message>;
@@ -237,7 +237,7 @@ export interface ImageResponseCard {
 export type InputMode = "TEXT" | "SPEECH" | "DTMF";
 export interface Intent {
   name: string;
-  slots?: Record<string, Slot>;
+  slots?: Partial<Record<string, Slot>>;
   state?: IntentState;
   confirmationState?: ConfirmationState;
 }
@@ -245,7 +245,7 @@ export interface IntentResultEvent {
   inputMode?: InputMode;
   interpretations?: Array<Interpretation>;
   sessionState?: SessionState;
-  requestAttributes?: Record<string, string>;
+  requestAttributes?: Partial<Record<string, string>>;
   sessionId?: string;
   eventId?: string;
   recognizedBotMember?: RecognizedBotMember;
@@ -309,7 +309,7 @@ export interface PutSessionRequest {
   sessionId: string;
   messages?: Array<Message>;
   sessionState: SessionState;
-  requestAttributes?: Record<string, string>;
+  requestAttributes?: Partial<Record<string, string>>;
   responseContentType?: string;
 }
 export interface PutSessionResponse {
@@ -331,13 +331,13 @@ export interface RecognizeTextRequest {
   sessionId: string;
   text: string;
   sessionState?: SessionState;
-  requestAttributes?: Record<string, string>;
+  requestAttributes?: Partial<Record<string, string>>;
 }
 export interface RecognizeTextResponse {
   messages?: Array<Message>;
   sessionState?: SessionState;
   interpretations?: Array<Interpretation>;
-  requestAttributes?: Record<string, string>;
+  requestAttributes?: Partial<Record<string, string>>;
   sessionId?: string;
   recognizedBotMember?: RecognizedBotMember;
 }
@@ -371,12 +371,14 @@ export declare class ResourceNotFoundException extends EffectData.TaggedError(
 }> {}
 export interface RuntimeHintDetails {
   runtimeHintValues?: Array<RuntimeHintValue>;
-  subSlotHints?: Record<string, RuntimeHintDetails>;
+  subSlotHints?: Partial<Record<string, RuntimeHintDetails>>;
 }
 export type RuntimeHintPhrase = string;
 
 export interface RuntimeHints {
-  slotHints?: Record<string, Record<string, RuntimeHintDetails>>;
+  slotHints?: Partial<
+    Record<string, Partial<Record<string, RuntimeHintDetails>>>
+  >;
 }
 export interface RuntimeHintValue {
   phrase: string;
@@ -401,7 +403,7 @@ export interface SessionState {
   dialogAction?: DialogAction;
   intent?: Intent;
   activeContexts?: Array<ActiveContext>;
-  sessionAttributes?: Record<string, string>;
+  sessionAttributes?: Partial<Record<string, string>>;
   originatingRequestId?: string;
   runtimeHints?: RuntimeHints;
 }
@@ -410,14 +412,13 @@ export interface Slot {
   value?: Value;
   shape?: Shape;
   values?: Array<Slot>;
-  subSlots?: Record<string, Slot>;
+  subSlots?: Partial<Record<string, Slot>>;
 }
-export type SlotHintsIntentMap = Record<
-  string,
-  Record<string, RuntimeHintDetails>
+export type SlotHintsIntentMap = Partial<
+  Record<string, Partial<Record<string, RuntimeHintDetails>>>
 >;
-export type SlotHintsSlotMap = Record<string, RuntimeHintDetails>;
-export type Slots = Record<string, Slot>;
+export type SlotHintsSlotMap = Partial<Record<string, RuntimeHintDetails>>;
+export type Slots = Partial<Record<string, Slot>>;
 export interface StartConversationRequest {
   botId: string;
   botAliasId: string;
@@ -514,7 +515,7 @@ export type StartConversationResponseEventStream =
 export type LexRuntimeV2String = string;
 
 export type StringList = Array<string>;
-export type StringMap = Record<string, string>;
+export type StringMap = Partial<Record<string, string>>;
 export type StyleType = "DEFAULT" | "SPELL_BY_LETTER" | "SPELL_BY_WORD";
 export type Text = string;
 

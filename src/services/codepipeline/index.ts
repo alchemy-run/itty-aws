@@ -440,11 +440,11 @@ export type ActionCategory =
   | "Approval"
   | "Compute";
 export interface ActionConfiguration {
-  configuration?: Record<string, string>;
+  configuration?: Partial<Record<string, string>>;
 }
 export type ActionConfigurationKey = string;
 
-export type ActionConfigurationMap = Record<string, string>;
+export type ActionConfigurationMap = Partial<Record<string, string>>;
 export interface ActionConfigurationProperty {
   name: string;
   required: boolean;
@@ -469,7 +469,7 @@ export interface ActionDeclaration {
   name: string;
   actionTypeId: ActionTypeId;
   runOrder?: number;
-  configuration?: Record<string, string>;
+  configuration?: Partial<Record<string, string>>;
   commands?: Array<string>;
   outputArtifacts?: Array<OutputArtifact>;
   inputArtifacts?: Array<InputArtifact>;
@@ -515,8 +515,8 @@ export type ActionExecutionId = string;
 
 export interface ActionExecutionInput {
   actionTypeId?: ActionTypeId;
-  configuration?: Record<string, string>;
-  resolvedConfiguration?: Record<string, string>;
+  configuration?: Partial<Record<string, string>>;
+  resolvedConfiguration?: Partial<Record<string, string>>;
   roleArn?: string;
   region?: string;
   inputArtifacts?: Array<ArtifactDetail>;
@@ -530,7 +530,7 @@ export declare class ActionExecutionNotFoundException extends EffectData.TaggedE
 export interface ActionExecutionOutput {
   outputArtifacts?: Array<ArtifactDetail>;
   executionResult?: ActionExecutionResult;
-  outputVariables?: Record<string, string>;
+  outputVariables?: Partial<Record<string, string>>;
 }
 export interface ActionExecutionResult {
   externalExecutionId?: string;
@@ -703,7 +703,7 @@ export interface ArtifactStore {
 }
 export type ArtifactStoreLocation = string;
 
-export type ArtifactStoreMap = Record<string, ArtifactStore>;
+export type ArtifactStoreMap = Partial<Record<string, ArtifactStore>>;
 export type ArtifactStoreType = "S3";
 export type AWSRegionName = string;
 
@@ -1291,7 +1291,7 @@ export type OutputVariable = string;
 export type OutputVariableList = Array<string>;
 export type OutputVariablesKey = string;
 
-export type OutputVariablesMap = Record<string, string>;
+export type OutputVariablesMap = Partial<Record<string, string>>;
 export declare class OutputVariablesSizeExceededException extends EffectData.TaggedError(
   "OutputVariablesSizeExceededException",
 )<{
@@ -1320,7 +1320,7 @@ export interface PipelineDeclaration {
   name: string;
   roleArn: string;
   artifactStore?: ArtifactStore;
-  artifactStores?: Record<string, ArtifactStore>;
+  artifactStores?: Partial<Record<string, ArtifactStore>>;
   stages: Array<StageDeclaration>;
   version?: number;
   executionMode?: ExecutionMode;
@@ -1453,7 +1453,7 @@ export type PolicyStatementsTemplate = string;
 export interface PollForJobsInput {
   actionTypeId: ActionTypeId;
   maxBatchSize?: number;
-  queryParam?: Record<string, string>;
+  queryParam?: Partial<Record<string, string>>;
 }
 export interface PollForJobsOutput {
   jobs?: Array<Job>;
@@ -1498,7 +1498,7 @@ export interface PutJobSuccessResultInput {
   currentRevision?: CurrentRevision;
   continuationToken?: string;
   executionDetails?: ExecutionDetails;
-  outputVariables?: Record<string, string>;
+  outputVariables?: Partial<Record<string, string>>;
 }
 export interface PutThirdPartyJobFailureResultInput {
   jobId: string;
@@ -1519,7 +1519,7 @@ export interface PutWebhookInput {
 export interface PutWebhookOutput {
   webhook?: ListWebhookItem;
 }
-export type QueryParamMap = Record<string, string>;
+export type QueryParamMap = Partial<Record<string, string>>;
 export interface RegisterWebhookWithThirdPartyInput {
   webhookName?: string;
 }
@@ -1529,13 +1529,13 @@ export declare class RequestFailedException extends EffectData.TaggedError(
 )<{
   readonly message?: string;
 }> {}
-export type ResolvedActionConfigurationMap = Record<string, string>;
+export type ResolvedActionConfigurationMap = Partial<Record<string, string>>;
 export interface ResolvedPipelineVariable {
   name?: string;
   resolvedValue?: string;
 }
 export type ResolvedPipelineVariableList = Array<ResolvedPipelineVariable>;
-export type ResolvedRuleConfigurationMap = Record<string, string>;
+export type ResolvedRuleConfigurationMap = Partial<Record<string, string>>;
 export type ResourceArn = string;
 
 export declare class ResourceNotFoundException extends EffectData.TaggedError(
@@ -1583,7 +1583,7 @@ export interface RollbackStageOutput {
 export type RuleCategory = "Rule";
 export type RuleConfigurationKey = string;
 
-export type RuleConfigurationMap = Record<string, string>;
+export type RuleConfigurationMap = Partial<Record<string, string>>;
 export interface RuleConfigurationProperty {
   name: string;
   required: boolean;
@@ -1600,7 +1600,7 @@ export type RuleConfigurationValue = string;
 export interface RuleDeclaration {
   name: string;
   ruleTypeId: RuleTypeId;
-  configuration?: Record<string, string>;
+  configuration?: Partial<Record<string, string>>;
   commands?: Array<string>;
   inputArtifacts?: Array<InputArtifact>;
   roleArn?: string;
@@ -1641,8 +1641,8 @@ export type RuleExecutionId = string;
 
 export interface RuleExecutionInput {
   ruleTypeId?: RuleTypeId;
-  configuration?: Record<string, string>;
-  resolvedConfiguration?: Record<string, string>;
+  configuration?: Partial<Record<string, string>>;
+  resolvedConfiguration?: Partial<Record<string, string>>;
   roleArn?: string;
   region?: string;
   inputArtifacts?: Array<ArtifactDetail>;

@@ -589,17 +589,16 @@ export interface ActionConfiguration {
 export type ActionConfigurationList = Array<ActionConfiguration>;
 export interface ActionExecution {
   pluginId: string;
-  payload: Record<string, ActionExecutionPayloadField>;
+  payload: Partial<Record<string, ActionExecutionPayloadField>>;
   payloadFieldNameSeparator: string;
 }
 export interface ActionExecutionEvent {
   pluginId: string;
-  payload: Record<string, ActionExecutionPayloadField>;
+  payload: Partial<Record<string, ActionExecutionPayloadField>>;
   payloadFieldNameSeparator: string;
 }
-export type ActionExecutionPayload = Record<
-  string,
-  ActionExecutionPayloadField
+export type ActionExecutionPayload = Partial<
+  Record<string, ActionExecutionPayloadField>
 >;
 export interface ActionExecutionPayloadField {
   value: unknown;
@@ -617,7 +616,7 @@ export type ActionPayloadFieldValue = unknown;
 export interface ActionReview {
   pluginId?: string;
   pluginType?: PluginType;
-  payload?: Record<string, ActionReviewPayloadField>;
+  payload?: Partial<Record<string, ActionReviewPayloadField>>;
   payloadFieldNameSeparator?: string;
 }
 export interface ActionReviewEvent {
@@ -626,10 +625,12 @@ export interface ActionReviewEvent {
   systemMessageId?: string;
   pluginId?: string;
   pluginType?: PluginType;
-  payload?: Record<string, ActionReviewPayloadField>;
+  payload?: Partial<Record<string, ActionReviewPayloadField>>;
   payloadFieldNameSeparator?: string;
 }
-export type ActionReviewPayload = Record<string, ActionReviewPayloadField>;
+export type ActionReviewPayload = Partial<
+  Record<string, ActionReviewPayloadField>
+>;
 export interface ActionReviewPayloadField {
   displayName?: string;
   displayOrder?: number;
@@ -791,12 +792,12 @@ export interface AuthChallengeRequestEvent {
   authorizationUrl: string;
 }
 export interface AuthChallengeResponse {
-  responseMap: Record<string, string>;
+  responseMap: Partial<Record<string, string>>;
 }
 export interface AuthChallengeResponseEvent {
-  responseMap: Record<string, string>;
+  responseMap: Partial<Record<string, string>>;
 }
-export type AuthorizationResponseMap = Record<string, string>;
+export type AuthorizationResponseMap = Partial<Record<string, string>>;
 export type AuthResponseKey = string;
 
 export type AuthResponseValue = string;

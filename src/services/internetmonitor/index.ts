@@ -78,7 +78,7 @@ export interface CreateMonitorInput {
   MonitorName: string;
   Resources?: Array<string>;
   ClientToken?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   MaxCityNetworksToMonitor?: number;
   InternetMeasurementsLogDelivery?: InternetMeasurementsLogDelivery;
   TrafficPercentageToMonitor?: number;
@@ -142,7 +142,7 @@ export interface GetMonitorOutput {
   ModifiedAt: Date | string;
   ProcessingStatus?: string;
   ProcessingStatusInfo?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   MaxCityNetworksToMonitor?: number;
   InternetMeasurementsLogDelivery?: InternetMeasurementsLogDelivery;
   TrafficPercentageToMonitor?: number;
@@ -290,7 +290,7 @@ export interface ListTagsForResourceInput {
   ResourceArn: string;
 }
 export interface ListTagsForResourceOutput {
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface LocalHealthEventsConfig {
   Status?: string;
@@ -393,10 +393,10 @@ export interface StopQueryOutput {}
 export type TagKey = string;
 
 export type TagKeys = Array<string>;
-export type TagMap = Record<string, string>;
+export type TagMap = Partial<Record<string, string>>;
 export interface TagResourceInput {
   ResourceArn: string;
-  Tags: Record<string, string>;
+  Tags: Partial<Record<string, string>>;
 }
 export interface TagResourceOutput {}
 export type TagValue = string;

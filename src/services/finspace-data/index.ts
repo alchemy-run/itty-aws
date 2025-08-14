@@ -417,8 +417,8 @@ export interface ChangesetSummary {
   changesetArn?: string;
   datasetId?: string;
   changeType?: ChangeType;
-  sourceParams?: Record<string, string>;
-  formatParams?: Record<string, string>;
+  sourceParams?: Partial<Record<string, string>>;
+  formatParams?: Partial<Record<string, string>>;
   createTime?: number;
   status?: IngestionStatus;
   errorInfo?: ChangesetErrorInfo;
@@ -464,8 +464,8 @@ export interface CreateChangesetRequest {
   clientToken?: string;
   datasetId: string;
   changeType: ChangeType;
-  sourceParams: Record<string, string>;
-  formatParams: Record<string, string>;
+  sourceParams: Partial<Record<string, string>>;
+  formatParams: Partial<Record<string, string>>;
 }
 export interface CreateChangesetResponse {
   datasetId?: string;
@@ -558,7 +558,7 @@ export type DataViewDestinationType = string;
 export interface DataViewDestinationTypeParams {
   destinationType: string;
   s3DestinationExportFileFormat?: ExportFileFormat;
-  s3DestinationExportFileFormatOptions?: Record<string, string>;
+  s3DestinationExportFileFormatOptions?: Partial<Record<string, string>>;
 }
 export interface DataViewErrorInfo {
   errorMessage?: string;
@@ -644,7 +644,7 @@ export type ErrorMessage2 = string;
 export type ExportFileFormat = "PARQUET" | "DELIMITED_TEXT";
 export type FirstName = string;
 
-export type FormatParams = Record<string, string>;
+export type FormatParams = Partial<Record<string, string>>;
 export interface GetChangesetRequest {
   datasetId: string;
   changesetId: string;
@@ -654,8 +654,8 @@ export interface GetChangesetResponse {
   changesetArn?: string;
   datasetId?: string;
   changeType?: ChangeType;
-  sourceParams?: Record<string, string>;
-  formatParams?: Record<string, string>;
+  sourceParams?: Partial<Record<string, string>>;
+  formatParams?: Partial<Record<string, string>>;
   createTime?: number;
   status?: IngestionStatus;
   errorInfo?: ChangesetErrorInfo;
@@ -889,7 +889,7 @@ export type RoleArn = string;
 
 export type S3BucketName = string;
 
-export type S3DestinationFormatOptions = Record<string, string>;
+export type S3DestinationFormatOptions = Partial<Record<string, string>>;
 export type S3Key = string;
 
 export interface S3Location {
@@ -910,7 +910,7 @@ export type SessionDuration = number;
 export type SessionToken = string;
 
 export type SortColumnList = Array<string>;
-export type SourceParams = Record<string, string>;
+export type SourceParams = Partial<Record<string, string>>;
 export type StatusCode = number;
 
 export type StringMapKey = string;
@@ -938,8 +938,8 @@ export interface UpdateChangesetRequest {
   clientToken?: string;
   datasetId: string;
   changesetId: string;
-  sourceParams: Record<string, string>;
-  formatParams: Record<string, string>;
+  sourceParams: Partial<Record<string, string>>;
+  formatParams: Partial<Record<string, string>>;
 }
 export interface UpdateChangesetResponse {
   changesetId?: string;

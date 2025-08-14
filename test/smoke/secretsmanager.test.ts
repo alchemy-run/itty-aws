@@ -232,9 +232,14 @@ describe("SecretsManager Smoke Tests", () => {
         });
 
         expect(binaryGetResult.SecretBinary).toBeDefined();
-        expect(
-          Buffer.from(binaryGetResult.SecretBinary || "", "base64").toString(),
-        ).toBe("binary-test-data");
+        const secretBinary = binaryGetResult.SecretBinary;
+        const binaryString =
+          typeof secretBinary === "string"
+            ? secretBinary
+            : Buffer.from(secretBinary ?? new Uint8Array()).toString("base64");
+        expect(Buffer.from(binaryString, "base64").toString()).toBe(
+          "binary-test-data",
+        );
 
         yield* Console.log("Binary secret operations completed successfully");
 
@@ -274,15 +279,15 @@ describe("SecretsManager Smoke Tests", () => {
 
         expect(listResult.SecretList).toBeDefined();
         expect(Array.isArray(listResult.SecretList)).toBe(true);
-        expect(listResult.SecretList.length).toBeLessThanOrEqual(10);
+        expect(listResult.SecretList?.length).toBeLessThanOrEqual(10);
 
         yield* Console.log(
-          `Listed ${listResult.SecretList.length} secrets (max 10)`,
+          `Listed ${listResult.SecretList?.length ?? 0} secrets (max 10)`,
         );
 
         // Test filtering by name
-        if (listResult.SecretList.length > 0) {
-          const firstSecret = listResult.SecretList[0];
+        if ((listResult.SecretList?.length ?? 0) > 0) {
+          const firstSecret = listResult.SecretList![0];
           const filterResult = yield* client.listSecrets({
             Filters: [
               {

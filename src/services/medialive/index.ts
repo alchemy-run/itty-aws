@@ -2353,7 +2353,7 @@ export interface Channel {
   PipelinesRunningCount?: number;
   RoleArn?: string;
   State?: ChannelState;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   Vpc?: VpcOutputSettingsDescription;
   AnywhereSettings?: DescribeAnywhereSettings;
   ChannelEngineVersion?: ChannelEngineVersionResponse;
@@ -2405,7 +2405,7 @@ export interface ChannelSummary {
   PipelinesRunningCount?: number;
   RoleArn?: string;
   State?: ChannelState;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   Vpc?: VpcOutputSettingsDescription;
   AnywhereSettings?: DescribeAnywhereSettings;
   ChannelEngineVersion?: ChannelEngineVersionResponse;
@@ -2427,7 +2427,7 @@ export interface CloudWatchAlarmTemplateGroupSummary {
   Id: string;
   ModifiedAt?: Date | string;
   Name: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   TemplateCount: number;
 }
 export type CloudWatchAlarmTemplateStatistic =
@@ -2450,7 +2450,7 @@ export interface CloudWatchAlarmTemplateSummary {
   Name: string;
   Period: number;
   Statistic: CloudWatchAlarmTemplateStatistic;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   TargetResourceType: CloudWatchAlarmTemplateTargetResourceType;
   Threshold: number;
   TreatMissingData: CloudWatchAlarmTemplateTreatMissingData;
@@ -2542,7 +2542,7 @@ export interface CreateChannelPlacementGroupRequest {
   Name?: string;
   Nodes?: Array<string>;
   RequestId?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateChannelPlacementGroupResponse {
   Arn?: string;
@@ -2566,7 +2566,7 @@ export interface CreateChannelRequest {
   RequestId?: string;
   Reserved?: string;
   RoleArn?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   Vpc?: VpcOutputSettings;
   AnywhereSettings?: AnywhereSettings;
   ChannelEngineVersion?: ChannelEngineVersionRequest;
@@ -2578,7 +2578,7 @@ export interface CreateChannelResponse {
 export interface CreateCloudWatchAlarmTemplateGroupRequest {
   Description?: string;
   Name: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   RequestId?: string;
 }
 export interface CreateCloudWatchAlarmTemplateGroupResponse {
@@ -2588,7 +2588,7 @@ export interface CreateCloudWatchAlarmTemplateGroupResponse {
   Id?: string;
   ModifiedAt?: Date | string;
   Name?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateCloudWatchAlarmTemplateRequest {
   ComparisonOperator: CloudWatchAlarmTemplateComparisonOperator;
@@ -2600,7 +2600,7 @@ export interface CreateCloudWatchAlarmTemplateRequest {
   Name: string;
   Period: number;
   Statistic: CloudWatchAlarmTemplateStatistic;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   TargetResourceType: CloudWatchAlarmTemplateTargetResourceType;
   Threshold: number;
   TreatMissingData: CloudWatchAlarmTemplateTreatMissingData;
@@ -2620,7 +2620,7 @@ export interface CreateCloudWatchAlarmTemplateResponse {
   Name?: string;
   Period?: number;
   Statistic?: CloudWatchAlarmTemplateStatistic;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   TargetResourceType?: CloudWatchAlarmTemplateTargetResourceType;
   Threshold?: number;
   TreatMissingData?: CloudWatchAlarmTemplateTreatMissingData;
@@ -2631,7 +2631,7 @@ export interface CreateClusterRequest {
   Name?: string;
   NetworkSettings?: ClusterNetworkSettingsCreateRequest;
   RequestId?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateClusterResponse {
   Arn?: string;
@@ -2646,7 +2646,7 @@ export interface CreateClusterResponse {
 export interface CreateEventBridgeRuleTemplateGroupRequest {
   Description?: string;
   Name: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   RequestId?: string;
 }
 export interface CreateEventBridgeRuleTemplateGroupResponse {
@@ -2656,7 +2656,7 @@ export interface CreateEventBridgeRuleTemplateGroupResponse {
   Id?: string;
   ModifiedAt?: Date | string;
   Name?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateEventBridgeRuleTemplateRequest {
   Description?: string;
@@ -2664,7 +2664,7 @@ export interface CreateEventBridgeRuleTemplateRequest {
   EventType: EventBridgeRuleTemplateEventType;
   GroupIdentifier: string;
   Name: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   RequestId?: string;
 }
 export interface CreateEventBridgeRuleTemplateResponse {
@@ -2677,7 +2677,7 @@ export interface CreateEventBridgeRuleTemplateResponse {
   Id?: string;
   ModifiedAt?: Date | string;
   Name?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateInputRequest {
   Destinations?: Array<InputDestinationRequest>;
@@ -2688,7 +2688,7 @@ export interface CreateInputRequest {
   RequestId?: string;
   RoleArn?: string;
   Sources?: Array<InputSourceRequest>;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   Type?: InputType;
   Vpc?: InputVpcRequest;
   SrtSettings?: SrtSettingsRequest;
@@ -2701,7 +2701,7 @@ export interface CreateInputResponse {
   Input?: Input;
 }
 export interface CreateInputSecurityGroupRequest {
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   WhitelistRules?: Array<InputWhitelistRuleCidr>;
 }
 export interface CreateInputSecurityGroupResponse {
@@ -2721,7 +2721,7 @@ export interface CreateMultiplexRequest {
   MultiplexSettings: MultiplexSettings;
   Name: string;
   RequestId: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateMultiplexResponse {
   Multiplex?: Multiplex;
@@ -2731,7 +2731,7 @@ export interface CreateNetworkRequest {
   Name?: string;
   RequestId?: string;
   Routes?: Array<RouteCreateRequest>;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateNetworkResponse {
   Arn?: string;
@@ -2759,7 +2759,7 @@ export interface CreateNodeRequest {
   NodeInterfaceMappings?: Array<NodeInterfaceMappingCreateRequest>;
   RequestId?: string;
   Role?: NodeRole;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateNodeResponse {
   Arn?: string;
@@ -2777,7 +2777,7 @@ export interface CreateNodeResponse {
 export interface CreatePartnerInputRequest {
   InputId: string;
   RequestId?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreatePartnerInputResponse {
   Input?: Input;
@@ -2786,7 +2786,7 @@ export interface CreateSdiSourceRequest {
   Mode?: SdiSourceMode;
   Name?: string;
   RequestId?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   Type?: SdiSourceType;
 }
 export interface CreateSdiSourceResponse {
@@ -2798,7 +2798,7 @@ export interface CreateSignalMapRequest {
   DiscoveryEntryPointArn: string;
   EventBridgeRuleTemplateGroupIdentifiers?: Array<string>;
   Name: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   RequestId?: string;
 }
 export interface CreateSignalMapResponse {
@@ -2809,21 +2809,21 @@ export interface CreateSignalMapResponse {
   DiscoveryEntryPointArn?: string;
   ErrorMessage?: string;
   EventBridgeRuleTemplateGroupIds?: Array<string>;
-  FailedMediaResourceMap?: Record<string, MediaResource>;
+  FailedMediaResourceMap?: Partial<Record<string, MediaResource>>;
   Id?: string;
   LastDiscoveredAt?: Date | string;
   LastSuccessfulMonitorDeployment?: SuccessfulMonitorDeployment;
-  MediaResourceMap?: Record<string, MediaResource>;
+  MediaResourceMap?: Partial<Record<string, MediaResource>>;
   ModifiedAt?: Date | string;
   MonitorChangesPendingDeployment?: boolean;
   MonitorDeployment?: MonitorDeployment;
   Name?: string;
   Status?: SignalMapStatus;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateTagsRequest {
   ResourceArn: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export type DashRoleAudio =
   | "ALTERNATE"
@@ -2882,7 +2882,7 @@ export interface DeleteChannelResponse {
   PipelinesRunningCount?: number;
   RoleArn?: string;
   State?: ChannelState;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   Vpc?: VpcOutputSettingsDescription;
   AnywhereSettings?: DescribeAnywhereSettings;
   ChannelEngineVersion?: ChannelEngineVersionResponse;
@@ -2944,7 +2944,7 @@ export interface DeleteMultiplexResponse {
   PipelinesRunningCount?: number;
   ProgramCount?: number;
   State?: MultiplexState;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface DeleteNetworkRequest {
   NetworkId: string;
@@ -2996,7 +2996,7 @@ export interface DeleteReservationResponse {
   ResourceSpecification?: ReservationResourceSpecification;
   Start?: string;
   State?: ReservationState;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   UsagePrice?: number;
 }
 export interface DeleteScheduleRequest {
@@ -3066,7 +3066,7 @@ export interface DescribeChannelResponse {
   PipelinesRunningCount?: number;
   RoleArn?: string;
   State?: ChannelState;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   Vpc?: VpcOutputSettingsDescription;
   AnywhereSettings?: DescribeAnywhereSettings;
   ChannelEngineVersion?: ChannelEngineVersionResponse;
@@ -3110,7 +3110,7 @@ export interface DescribeInputDeviceResponse {
   SerialNumber?: string;
   Type?: InputDeviceType;
   UhdDeviceSettings?: InputDeviceUhdSettings;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   AvailabilityZone?: string;
   MedialiveInputArns?: Array<string>;
   OutputType?: InputDeviceOutputType;
@@ -3144,7 +3144,7 @@ export interface DescribeInputResponse {
   SecurityGroups?: Array<string>;
   Sources?: Array<InputSource>;
   State?: InputState;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   Type?: InputType;
   SrtSettings?: SrtSettings;
   InputNetworkLocation?: InputNetworkLocation;
@@ -3160,7 +3160,7 @@ export interface DescribeInputSecurityGroupResponse {
   Id?: string;
   Inputs?: Array<string>;
   State?: InputSecurityGroupState;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   WhitelistRules?: Array<InputWhitelistRule>;
 }
 export interface DescribeMultiplexProgramRequest {
@@ -3187,7 +3187,7 @@ export interface DescribeMultiplexResponse {
   PipelinesRunningCount?: number;
   ProgramCount?: number;
   State?: MultiplexState;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface DescribeNetworkRequest {
   NetworkId: string;
@@ -3278,7 +3278,7 @@ export interface DescribeReservationResponse {
   ResourceSpecification?: ReservationResourceSpecification;
   Start?: string;
   State?: ReservationState;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   UsagePrice?: number;
 }
 export interface DescribeScheduleRequest {
@@ -3538,7 +3538,7 @@ export interface EventBridgeRuleTemplateGroupSummary {
   Id: string;
   ModifiedAt?: Date | string;
   Name: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   TemplateCount: number;
 }
 export interface EventBridgeRuleTemplateSummary {
@@ -3551,12 +3551,12 @@ export interface EventBridgeRuleTemplateSummary {
   Id: string;
   ModifiedAt?: Date | string;
   Name: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface EventBridgeRuleTemplateTarget {
   Arn: string;
 }
-export type FailedMediaResourceMap = Record<string, MediaResource>;
+export type FailedMediaResourceMap = Partial<Record<string, MediaResource>>;
 export interface FailoverCondition {
   FailoverConditionSettings?: FailoverConditionSettings;
 }
@@ -3648,7 +3648,7 @@ export interface GetCloudWatchAlarmTemplateGroupResponse {
   Id?: string;
   ModifiedAt?: Date | string;
   Name?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface GetCloudWatchAlarmTemplateRequest {
   Identifier: string;
@@ -3667,7 +3667,7 @@ export interface GetCloudWatchAlarmTemplateResponse {
   Name?: string;
   Period?: number;
   Statistic?: CloudWatchAlarmTemplateStatistic;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   TargetResourceType?: CloudWatchAlarmTemplateTargetResourceType;
   Threshold?: number;
   TreatMissingData?: CloudWatchAlarmTemplateTreatMissingData;
@@ -3682,7 +3682,7 @@ export interface GetEventBridgeRuleTemplateGroupResponse {
   Id?: string;
   ModifiedAt?: Date | string;
   Name?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface GetEventBridgeRuleTemplateRequest {
   Identifier: string;
@@ -3697,7 +3697,7 @@ export interface GetEventBridgeRuleTemplateResponse {
   Id?: string;
   ModifiedAt?: Date | string;
   Name?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface GetSignalMapRequest {
   Identifier: string;
@@ -3710,17 +3710,17 @@ export interface GetSignalMapResponse {
   DiscoveryEntryPointArn?: string;
   ErrorMessage?: string;
   EventBridgeRuleTemplateGroupIds?: Array<string>;
-  FailedMediaResourceMap?: Record<string, MediaResource>;
+  FailedMediaResourceMap?: Partial<Record<string, MediaResource>>;
   Id?: string;
   LastDiscoveredAt?: Date | string;
   LastSuccessfulMonitorDeployment?: SuccessfulMonitorDeployment;
-  MediaResourceMap?: Record<string, MediaResource>;
+  MediaResourceMap?: Partial<Record<string, MediaResource>>;
   ModifiedAt?: Date | string;
   MonitorChangesPendingDeployment?: boolean;
   MonitorDeployment?: MonitorDeployment;
   Name?: string;
   Status?: SignalMapStatus;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface GlobalConfiguration {
   InitialAudioGain?: number;
@@ -4110,7 +4110,7 @@ export interface Input {
   SecurityGroups?: Array<string>;
   Sources?: Array<InputSource>;
   State?: InputState;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   Type?: InputType;
   SrtSettings?: SrtSettings;
   InputNetworkLocation?: InputNetworkLocation;
@@ -4242,7 +4242,7 @@ export interface InputDeviceSummary {
   SerialNumber?: string;
   Type?: InputDeviceType;
   UhdDeviceSettings?: InputDeviceUhdSettings;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   AvailabilityZone?: string;
   MedialiveInputArns?: Array<string>;
   OutputType?: InputDeviceOutputType;
@@ -4328,7 +4328,7 @@ export interface InputSecurityGroup {
   Id?: string;
   Inputs?: Array<string>;
   State?: InputSecurityGroupState;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   WhitelistRules?: Array<InputWhitelistRule>;
 }
 export type InputSecurityGroupState =
@@ -4623,7 +4623,7 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string;
 }
 export interface ListTagsForResourceResponse {
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface ListVersionsRequest {}
 export interface ListVersionsResponse {
@@ -4776,7 +4776,7 @@ export interface MediaResource {
   Name?: string;
   Sources?: Array<MediaResourceNeighbor>;
 }
-export type MediaResourceMap = Record<string, MediaResource>;
+export type MediaResourceMap = Partial<Record<string, MediaResource>>;
 export interface MediaResourceNeighbor {
   Arn: string;
   Name?: string;
@@ -4902,7 +4902,7 @@ export interface Multiplex {
   PipelinesRunningCount?: number;
   ProgramCount?: number;
   State?: MultiplexState;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface MultiplexContainerSettings {
   MultiplexM2tsSettings?: MultiplexM2tsSettings;
@@ -4934,9 +4934,8 @@ export interface MultiplexOutputSettings {
   Destination: OutputLocationRef;
   ContainerSettings?: MultiplexContainerSettings;
 }
-export type MultiplexPacketIdentifiersMapping = Record<
-  string,
-  MultiplexProgramPacketIdentifiersMap
+export type MultiplexPacketIdentifiersMapping = Partial<
+  Record<string, MultiplexProgramPacketIdentifiersMap>
 >;
 export interface MultiplexProgram {
   ChannelId?: string;
@@ -5019,7 +5018,7 @@ export interface MultiplexSummary {
   PipelinesRunningCount?: number;
   ProgramCount?: number;
   State?: MultiplexState;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface MultiplexVideoSettings {
   ConstantBitrate?: number;
@@ -5209,7 +5208,7 @@ export interface PurchaseOfferingRequest {
   RenewalSettings?: RenewalSettings;
   RequestId?: string;
   Start?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface PurchaseOfferingResponse {
   Reservation?: Reservation;
@@ -5254,7 +5253,7 @@ export interface Reservation {
   ResourceSpecification?: ReservationResourceSpecification;
   Start?: string;
   State?: ReservationState;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   UsagePrice?: number;
 }
 export type ReservationAutomaticRenewal =
@@ -5318,7 +5317,7 @@ export interface RestartChannelPipelinesResponse {
   PipelinesRunningCount?: number;
   RoleArn?: string;
   State?: ChannelState;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   Vpc?: VpcOutputSettingsDescription;
   AnywhereSettings?: DescribeAnywhereSettings;
   ChannelEngineVersion?: ChannelEngineVersionResponse;
@@ -5543,7 +5542,7 @@ export interface SignalMapSummary {
   MonitorDeploymentStatus: SignalMapMonitorDeploymentStatus;
   Name: string;
   Status: SignalMapStatus;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export type SmoothGroupAudioOnlyTimecodeControl =
   | "PASSTHROUGH"
@@ -5646,7 +5645,7 @@ export interface StartChannelResponse {
   PipelinesRunningCount?: number;
   RoleArn?: string;
   State?: ChannelState;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   Vpc?: VpcOutputSettingsDescription;
   AnywhereSettings?: DescribeAnywhereSettings;
   ChannelEngineVersion?: ChannelEngineVersionResponse;
@@ -5662,17 +5661,17 @@ export interface StartDeleteMonitorDeploymentResponse {
   DiscoveryEntryPointArn?: string;
   ErrorMessage?: string;
   EventBridgeRuleTemplateGroupIds?: Array<string>;
-  FailedMediaResourceMap?: Record<string, MediaResource>;
+  FailedMediaResourceMap?: Partial<Record<string, MediaResource>>;
   Id?: string;
   LastDiscoveredAt?: Date | string;
   LastSuccessfulMonitorDeployment?: SuccessfulMonitorDeployment;
-  MediaResourceMap?: Record<string, MediaResource>;
+  MediaResourceMap?: Partial<Record<string, MediaResource>>;
   ModifiedAt?: Date | string;
   MonitorChangesPendingDeployment?: boolean;
   MonitorDeployment?: MonitorDeployment;
   Name?: string;
   Status?: SignalMapStatus;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface StartInputDeviceMaintenanceWindowRequest {
   InputDeviceId: string;
@@ -5694,17 +5693,17 @@ export interface StartMonitorDeploymentResponse {
   DiscoveryEntryPointArn?: string;
   ErrorMessage?: string;
   EventBridgeRuleTemplateGroupIds?: Array<string>;
-  FailedMediaResourceMap?: Record<string, MediaResource>;
+  FailedMediaResourceMap?: Partial<Record<string, MediaResource>>;
   Id?: string;
   LastDiscoveredAt?: Date | string;
   LastSuccessfulMonitorDeployment?: SuccessfulMonitorDeployment;
-  MediaResourceMap?: Record<string, MediaResource>;
+  MediaResourceMap?: Partial<Record<string, MediaResource>>;
   ModifiedAt?: Date | string;
   MonitorChangesPendingDeployment?: boolean;
   MonitorDeployment?: MonitorDeployment;
   Name?: string;
   Status?: SignalMapStatus;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface StartMultiplexRequest {
   MultiplexId: string;
@@ -5719,7 +5718,7 @@ export interface StartMultiplexResponse {
   PipelinesRunningCount?: number;
   ProgramCount?: number;
   State?: MultiplexState;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface StartTimecode {
   Timecode?: string;
@@ -5741,17 +5740,17 @@ export interface StartUpdateSignalMapResponse {
   DiscoveryEntryPointArn?: string;
   ErrorMessage?: string;
   EventBridgeRuleTemplateGroupIds?: Array<string>;
-  FailedMediaResourceMap?: Record<string, MediaResource>;
+  FailedMediaResourceMap?: Partial<Record<string, MediaResource>>;
   Id?: string;
   LastDiscoveredAt?: Date | string;
   LastSuccessfulMonitorDeployment?: SuccessfulMonitorDeployment;
-  MediaResourceMap?: Record<string, MediaResource>;
+  MediaResourceMap?: Partial<Record<string, MediaResource>>;
   ModifiedAt?: Date | string;
   MonitorChangesPendingDeployment?: boolean;
   MonitorDeployment?: MonitorDeployment;
   Name?: string;
   Status?: SignalMapStatus;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface StaticImageActivateScheduleActionSettings {
   Duration?: number;
@@ -5811,7 +5810,7 @@ export interface StopChannelResponse {
   PipelinesRunningCount?: number;
   RoleArn?: string;
   State?: ChannelState;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   Vpc?: VpcOutputSettingsDescription;
   AnywhereSettings?: DescribeAnywhereSettings;
   ChannelEngineVersion?: ChannelEngineVersionResponse;
@@ -5833,7 +5832,7 @@ export interface StopMultiplexResponse {
   PipelinesRunningCount?: number;
   ProgramCount?: number;
   State?: MultiplexState;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface StopTimecode {
   LastFrameClippingBehavior?: LastFrameClippingBehavior;
@@ -5843,8 +5842,8 @@ export interface SuccessfulMonitorDeployment {
   DetailsUri: string;
   Status: SignalMapMonitorDeploymentStatus;
 }
-export type TagMap = Record<string, string>;
-export type Tags = Record<string, string>;
+export type TagMap = Partial<Record<string, string>>;
+export type Tags = Partial<Record<string, string>>;
 export interface TeletextDestinationSettings {}
 export interface TeletextSourceSettings {
   OutputRectangle?: CaptionRectangle;
@@ -6020,7 +6019,7 @@ export interface UpdateCloudWatchAlarmTemplateGroupResponse {
   Id?: string;
   ModifiedAt?: Date | string;
   Name?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface UpdateCloudWatchAlarmTemplateRequest {
   ComparisonOperator?: CloudWatchAlarmTemplateComparisonOperator;
@@ -6051,7 +6050,7 @@ export interface UpdateCloudWatchAlarmTemplateResponse {
   Name?: string;
   Period?: number;
   Statistic?: CloudWatchAlarmTemplateStatistic;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   TargetResourceType?: CloudWatchAlarmTemplateTargetResourceType;
   Threshold?: number;
   TreatMissingData?: CloudWatchAlarmTemplateTreatMissingData;
@@ -6081,7 +6080,7 @@ export interface UpdateEventBridgeRuleTemplateGroupResponse {
   Id?: string;
   ModifiedAt?: Date | string;
   Name?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface UpdateEventBridgeRuleTemplateRequest {
   Description?: string;
@@ -6101,7 +6100,7 @@ export interface UpdateEventBridgeRuleTemplateResponse {
   Id?: string;
   ModifiedAt?: Date | string;
   Name?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface UpdateInputDeviceRequest {
   HdDeviceSettings?: InputDeviceConfigurableSettings;
@@ -6123,7 +6122,7 @@ export interface UpdateInputDeviceResponse {
   SerialNumber?: string;
   Type?: InputDeviceType;
   UhdDeviceSettings?: InputDeviceUhdSettings;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   AvailabilityZone?: string;
   MedialiveInputArns?: Array<string>;
   OutputType?: InputDeviceOutputType;
@@ -6147,7 +6146,7 @@ export interface UpdateInputResponse {
 }
 export interface UpdateInputSecurityGroupRequest {
   InputSecurityGroupId: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   WhitelistRules?: Array<InputWhitelistRuleCidr>;
 }
 export interface UpdateInputSecurityGroupResponse {
@@ -6165,9 +6164,8 @@ export interface UpdateMultiplexRequest {
   MultiplexId: string;
   MultiplexSettings?: MultiplexSettings;
   Name?: string;
-  PacketIdentifiersMapping?: Record<
-    string,
-    MultiplexProgramPacketIdentifiersMap
+  PacketIdentifiersMapping?: Partial<
+    Record<string, MultiplexProgramPacketIdentifiersMap>
   >;
 }
 export interface UpdateMultiplexResponse {

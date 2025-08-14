@@ -297,7 +297,7 @@ export interface ListResourceTelemetryForOrganizationInput {
   AccountIdentifiers?: Array<string>;
   ResourceIdentifierPrefix?: string;
   ResourceTypes?: Array<ResourceType>;
-  TelemetryConfigurationState?: Record<TelemetryType, TelemetryState>;
+  TelemetryConfigurationState?: Partial<Record<TelemetryType, TelemetryState>>;
   ResourceTags?: Record<string, string>;
   MaxResults?: number;
   NextToken?: string;
@@ -311,7 +311,7 @@ export interface ListResourceTelemetryForOrganizationOutput {
 export interface ListResourceTelemetryInput {
   ResourceIdentifierPrefix?: string;
   ResourceTypes?: Array<ResourceType>;
-  TelemetryConfigurationState?: Record<TelemetryType, TelemetryState>;
+  TelemetryConfigurationState?: Partial<Record<TelemetryType, TelemetryState>>;
   ResourceTags?: Record<string, string>;
   MaxResults?: number;
   NextToken?: string;
@@ -326,7 +326,7 @@ export interface ListTagsForResourceInput {
   ResourceARN: string;
 }
 export interface ListTagsForResourceOutput {
-  Tags: Record<string, string>;
+  Tags: Partial<Record<string, string>>;
 }
 export interface ListTelemetryRulesForOrganizationInput {
   RuleNamePrefix?: string;
@@ -397,7 +397,7 @@ export type TagKey = string;
 
 export type TagKeyList = Array<string>;
 export type TagMapInput = Record<string, string>;
-export type TagMapOutput = Record<string, string>;
+export type TagMapOutput = Partial<Record<string, string>>;
 export interface TagResourceInput {
   ResourceARN: string;
   Tags: Record<string, string>;
@@ -406,14 +406,16 @@ export type TagValue = string;
 
 export interface TelemetryConfiguration {
   AccountIdentifier?: string;
-  TelemetryConfigurationState?: Record<TelemetryType, TelemetryState>;
+  TelemetryConfigurationState?: Partial<Record<TelemetryType, TelemetryState>>;
   ResourceType?: ResourceType;
   ResourceIdentifier?: string;
-  ResourceTags?: Record<string, string>;
+  ResourceTags?: Partial<Record<string, string>>;
   LastUpdateTimeStamp?: number;
 }
 export type TelemetryConfigurations = Array<TelemetryConfiguration>;
-export type TelemetryConfigurationState = Record<TelemetryType, TelemetryState>;
+export type TelemetryConfigurationState = Partial<
+  Record<TelemetryType, TelemetryState>
+>;
 export interface TelemetryDestinationConfiguration {
   DestinationType?: DestinationType;
   DestinationPattern?: string;

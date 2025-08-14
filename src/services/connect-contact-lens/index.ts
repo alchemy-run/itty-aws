@@ -23,7 +23,7 @@ export declare class AccessDeniedException extends EffectData.TaggedError(
 }> {}
 export interface Categories {
   MatchedCategories: Array<string>;
-  MatchedDetails: Record<string, CategoryDetails>;
+  MatchedDetails: Partial<Record<string, CategoryDetails>>;
 }
 export interface CategoryDetails {
   PointsOfInterest: Array<PointOfInterest>;
@@ -65,7 +65,7 @@ export interface ListRealtimeContactAnalysisSegmentsResponse {
   NextToken?: string;
 }
 export type MatchedCategories = Array<string>;
-export type MatchedDetails = Record<string, CategoryDetails>;
+export type MatchedDetails = Partial<Record<string, CategoryDetails>>;
 export type MaxResults = number;
 
 export type Message = string;

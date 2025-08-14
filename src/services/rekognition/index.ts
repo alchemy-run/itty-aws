@@ -1231,7 +1231,7 @@ export interface CopyProjectVersionRequest {
   DestinationProjectArn: string;
   VersionName: string;
   OutputConfig: OutputConfig;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   KmsKeyId?: string;
 }
 export interface CopyProjectVersionResponse {
@@ -1243,7 +1243,7 @@ export interface CoversBodyPart {
 }
 export interface CreateCollectionRequest {
   CollectionId: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateCollectionResponse {
   StatusCode?: number;
@@ -1254,7 +1254,7 @@ export interface CreateDatasetRequest {
   DatasetSource?: DatasetSource;
   DatasetType: DatasetType;
   ProjectArn: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateDatasetResponse {
   DatasetArn?: string;
@@ -1276,7 +1276,7 @@ export interface CreateProjectRequest {
   ProjectName: string;
   Feature?: CustomizationFeature;
   AutoUpdate?: ProjectAutoUpdate;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateProjectResponse {
   ProjectArn?: string;
@@ -1287,7 +1287,7 @@ export interface CreateProjectVersionRequest {
   OutputConfig: OutputConfig;
   TrainingData?: TrainingData;
   TestingData?: TestingData;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   KmsKeyId?: string;
   VersionDescription?: string;
   FeatureConfig?: CustomizationFeatureConfig;
@@ -1301,7 +1301,7 @@ export interface CreateStreamProcessorRequest {
   Name: string;
   Settings: StreamProcessorSettings;
   RoleArn: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   NotificationChannel?: StreamProcessorNotificationChannel;
   KmsKeyId?: string;
   RegionsOfInterest?: Array<RegionOfInterest>;
@@ -2249,7 +2249,7 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string;
 }
 export interface ListTagsForResourceResponse {
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface ListUsersRequest {
   CollectionId: string;
@@ -2935,10 +2935,10 @@ export type SynthesizedJsonHumanLoopActivationConditionsEvaluationResults =
 export type TagKey = string;
 
 export type TagKeyList = Array<string>;
-export type TagMap = Record<string, string>;
+export type TagMap = Partial<Record<string, string>>;
 export interface TagResourceRequest {
   ResourceArn: string;
-  Tags: Record<string, string>;
+  Tags: Partial<Record<string, string>>;
 }
 export interface TagResourceResponse {}
 export type TagValue = string;

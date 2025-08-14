@@ -364,7 +364,7 @@ export interface ApplicationInstance {
   StatusDescription?: string;
   CreatedTime?: Date | string;
   Arn?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   RuntimeContextStates?: Array<ReportedRuntimeContextState>;
 }
 export type ApplicationInstanceArn = string;
@@ -415,7 +415,7 @@ export interface CreateApplicationInstanceRequest {
   ApplicationInstanceIdToReplace?: string;
   RuntimeRoleArn?: string;
   DefaultRuntimeContextDevice: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateApplicationInstanceResponse {
   ApplicationInstanceId: string;
@@ -436,7 +436,7 @@ export interface CreateNodeFromTemplateJobRequest {
   OutputPackageVersion: string;
   NodeName: string;
   NodeDescription?: string;
-  TemplateParameters: Record<string, string>;
+  TemplateParameters: Partial<Record<string, string>>;
   JobTags?: Array<JobResourceTags>;
 }
 export interface CreateNodeFromTemplateJobResponse {
@@ -454,7 +454,7 @@ export interface CreatePackageImportJobResponse {
 }
 export interface CreatePackageRequest {
   PackageName: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreatePackageResponse {
   PackageId?: string;
@@ -516,7 +516,7 @@ export interface DescribeApplicationInstanceResponse {
   LastUpdatedTime?: Date | string;
   ApplicationInstanceId?: string;
   Arn?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   RuntimeContextStates?: Array<ReportedRuntimeContextState>;
 }
 export interface DescribeDeviceJobRequest {
@@ -548,7 +548,7 @@ export interface DescribeDeviceResponse {
   LatestSoftware?: string;
   CurrentSoftware?: string;
   SerialNumber?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   NetworkingConfiguration?: NetworkPayload;
   CurrentNetworkingStatus?: NetworkStatus;
   LeaseExpirationTime?: Date | string;
@@ -572,7 +572,7 @@ export interface DescribeNodeFromTemplateJobResponse {
   NodeName: string;
   NodeDescription?: string;
   TemplateType: string;
-  TemplateParameters: Record<string, string>;
+  TemplateParameters: Partial<Record<string, string>>;
   JobTags?: Array<JobResourceTags>;
 }
 export interface DescribeNodeRequest {
@@ -622,7 +622,7 @@ export interface DescribePackageResponse {
   ReadAccessPrincipalArns?: Array<string>;
   WriteAccessPrincipalArns?: Array<string>;
   CreatedTime: Date | string;
-  Tags: Record<string, string>;
+  Tags: Partial<Record<string, string>>;
 }
 export interface DescribePackageVersionRequest {
   OwnerAccount?: string;
@@ -656,7 +656,7 @@ export interface Device {
   Brand?: string;
   CurrentSoftware?: string;
   Description?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   Type?: string;
   LatestDeviceJob?: LatestDeviceJob;
   DeviceAggregatedStatus?: string;
@@ -732,7 +732,7 @@ export type JobId = string;
 export type JobList = Array<Job>;
 export interface JobResourceTags {
   ResourceType: string;
-  Tags: Record<string, string>;
+  Tags: Partial<Record<string, string>>;
 }
 export type JobResourceType = string;
 
@@ -844,7 +844,7 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string;
 }
 export interface ListTagsForResourceResponse {
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 interface _ManifestOverridesPayload {
   PayloadData?: string;
@@ -1026,7 +1026,7 @@ export interface PackageListItem {
   PackageName?: string;
   Arn?: string;
   CreatedTime?: Date | string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface PackageObject {
   Name: string;
@@ -1060,7 +1060,7 @@ export type PrincipalArnsList = Array<string>;
 export interface ProvisionDeviceRequest {
   Name: string;
   Description?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   NetworkingConfiguration?: NetworkPayload;
 }
 export interface ProvisionDeviceResponse {
@@ -1149,17 +1149,17 @@ export type PanoramaString = string;
 export type TagKey = string;
 
 export type TagKeyList = Array<string>;
-export type TagMap = Record<string, string>;
+export type TagMap = Partial<Record<string, string>>;
 export interface TagResourceRequest {
   ResourceArn: string;
-  Tags: Record<string, string>;
+  Tags: Partial<Record<string, string>>;
 }
 export interface TagResourceResponse {}
 export type TagValue = string;
 
 export type TemplateKey = string;
 
-export type TemplateParametersMap = Record<string, string>;
+export type TemplateParametersMap = Partial<Record<string, string>>;
 export type TemplateType = string;
 
 export type TemplateValue = string;

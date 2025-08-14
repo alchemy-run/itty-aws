@@ -60,7 +60,7 @@ interface _AttributeValue {
   long?: number;
   string?: string;
   set?: Array<AttributeValue>;
-  record?: Record<string, AttributeValue>;
+  record?: Partial<Record<string, AttributeValue>>;
   ipaddr?: string;
   decimal?: string;
 }
@@ -71,7 +71,7 @@ export type AttributeValue =
   | (_AttributeValue & { long: number })
   | (_AttributeValue & { string: string })
   | (_AttributeValue & { set: Array<AttributeValue> })
-  | (_AttributeValue & { record: Record<string, AttributeValue> })
+  | (_AttributeValue & { record: Partial<Record<string, AttributeValue>> })
   | (_AttributeValue & { ipaddr: string })
   | (_AttributeValue & { decimal: string });
 export type Audience = string;
@@ -235,14 +235,16 @@ export declare class ConflictException extends EffectData.TaggedError(
   readonly resources: Array<ResourceConflict>;
 }> {}
 interface _ContextDefinition {
-  contextMap?: Record<string, AttributeValue>;
+  contextMap?: Partial<Record<string, AttributeValue>>;
   cedarJson?: string;
 }
 
 export type ContextDefinition =
-  | (_ContextDefinition & { contextMap: Record<string, AttributeValue> })
+  | (_ContextDefinition & {
+      contextMap: Partial<Record<string, AttributeValue>>;
+    })
   | (_ContextDefinition & { cedarJson: string });
-export type ContextMap = Record<string, AttributeValue>;
+export type ContextMap = Partial<Record<string, AttributeValue>>;
 export interface CreateIdentitySourceInput {
   clientToken?: string;
   policyStoreId: string;
@@ -276,7 +278,7 @@ export interface CreatePolicyStoreInput {
   validationSettings: ValidationSettings;
   description?: string;
   deletionProtection?: DeletionProtection;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreatePolicyStoreOutput {
   policyStoreId: string;
@@ -333,7 +335,7 @@ interface _EntitiesDefinition {
 export type EntitiesDefinition =
   | (_EntitiesDefinition & { entityList: Array<EntityItem> })
   | (_EntitiesDefinition & { cedarJson: string });
-export type EntityAttributes = Record<string, AttributeValue>;
+export type EntityAttributes = Partial<Record<string, AttributeValue>>;
 export type EntityId = string;
 
 export interface EntityIdentifier {
@@ -344,7 +346,7 @@ export type EntityIdPrefix = string;
 
 export interface EntityItem {
   identifier: EntityIdentifier;
-  attributes?: Record<string, AttributeValue>;
+  attributes?: Partial<Record<string, AttributeValue>>;
   parents?: Array<EntityIdentifier>;
 }
 export type EntityList = Array<EntityItem>;
@@ -404,7 +406,7 @@ export interface GetPolicyStoreOutput {
   description?: string;
   deletionProtection?: DeletionProtection;
   cedarVersion?: CedarVersion;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface GetPolicyTemplateInput {
   policyStoreId: string;
@@ -545,7 +547,7 @@ export interface ListTagsForResourceInput {
   resourceArn: string;
 }
 export interface ListTagsForResourceOutput {
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type LongAttribute = number;
 
@@ -737,7 +739,7 @@ export interface PutSchemaOutput {
   createdDate: Date | string;
   lastUpdatedDate: Date | string;
 }
-export type RecordAttribute = Record<string, AttributeValue>;
+export type RecordAttribute = Partial<Record<string, AttributeValue>>;
 export type ResourceArn = string;
 
 export interface ResourceConflict {
@@ -793,10 +795,10 @@ export type StringAttribute = string;
 export type TagKey = string;
 
 export type TagKeyList = Array<string>;
-export type TagMap = Record<string, string>;
+export type TagMap = Partial<Record<string, string>>;
 export interface TagResourceInput {
   resourceArn: string;
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
 export interface TagResourceOutput {}
 export type TagValue = string;

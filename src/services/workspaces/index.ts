@@ -1293,14 +1293,14 @@ export interface DefaultClientBrandingAttributes {
   SupportEmail?: string;
   SupportLink?: string;
   ForgotPasswordLink?: string;
-  LoginMessage?: Record<string, string>;
+  LoginMessage?: Partial<Record<string, string>>;
 }
 export interface DefaultImportClientBrandingAttributes {
   Logo?: Uint8Array | string;
   SupportEmail?: string;
   SupportLink?: string;
   ForgotPasswordLink?: string;
-  LoginMessage?: Record<string, string>;
+  LoginMessage?: Partial<Record<string, string>>;
 }
 export type DefaultLogo = Uint8Array | string;
 
@@ -1780,7 +1780,7 @@ export interface IosClientBrandingAttributes {
   SupportEmail?: string;
   SupportLink?: string;
   ForgotPasswordLink?: string;
-  LoginMessage?: Record<string, string>;
+  LoginMessage?: Partial<Record<string, string>>;
 }
 export interface IosImportClientBrandingAttributes {
   Logo?: Uint8Array | string;
@@ -1789,7 +1789,7 @@ export interface IosImportClientBrandingAttributes {
   SupportEmail?: string;
   SupportLink?: string;
   ForgotPasswordLink?: string;
-  LoginMessage?: Record<string, string>;
+  LoginMessage?: Partial<Record<string, string>>;
 }
 export type IosLogo = Uint8Array | string;
 
@@ -1837,7 +1837,7 @@ export interface ListAvailableManagementCidrRangesResult {
   ManagementCidrRanges?: Array<string>;
   NextToken?: string;
 }
-export type LoginMessage = Record<string, string>;
+export type LoginMessage = Partial<Record<string, string>>;
 export type LogUploadEnum = "ENABLED" | "DISABLED";
 export type ManagementCidrRangeConstraint = string;
 

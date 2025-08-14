@@ -391,7 +391,7 @@ export interface AddAttributesToFindingsRequest {
   attributes: Array<Attribute>;
 }
 export interface AddAttributesToFindingsResponse {
-  failedItems: Record<string, FailedItemDetails>;
+  failedItems: Partial<Record<string, FailedItemDetails>>;
 }
 export type AddRemoveAttributesFindingArnList = Array<string>;
 export interface AgentAlreadyRunningAssessment {
@@ -460,7 +460,7 @@ export interface AssessmentRun {
   dataCollected: boolean;
   stateChanges: Array<AssessmentRunStateChange>;
   notifications: Array<AssessmentRunNotification>;
-  findingCounts: Record<Severity, number>;
+  findingCounts: Partial<Record<Severity, number>>;
 }
 export interface AssessmentRunAgent {
   agentId: string;
@@ -483,7 +483,7 @@ export interface AssessmentRunFilter {
   completionTimeRange?: TimestampRange;
   stateChangeTimeRange?: TimestampRange;
 }
-export type AssessmentRunFindingCounts = Record<Severity, number>;
+export type AssessmentRunFindingCounts = Partial<Record<Severity, number>>;
 export type AssessmentRunInProgressArnList = Array<string>;
 export declare class AssessmentRunInProgressException extends EffectData.TaggedError(
   "AssessmentRunInProgressException",
@@ -633,21 +633,21 @@ export interface DescribeAssessmentRunsRequest {
 }
 export interface DescribeAssessmentRunsResponse {
   assessmentRuns: Array<AssessmentRun>;
-  failedItems: Record<string, FailedItemDetails>;
+  failedItems: Partial<Record<string, FailedItemDetails>>;
 }
 export interface DescribeAssessmentTargetsRequest {
   assessmentTargetArns: Array<string>;
 }
 export interface DescribeAssessmentTargetsResponse {
   assessmentTargets: Array<AssessmentTarget>;
-  failedItems: Record<string, FailedItemDetails>;
+  failedItems: Partial<Record<string, FailedItemDetails>>;
 }
 export interface DescribeAssessmentTemplatesRequest {
   assessmentTemplateArns: Array<string>;
 }
 export interface DescribeAssessmentTemplatesResponse {
   assessmentTemplates: Array<AssessmentTemplate>;
-  failedItems: Record<string, FailedItemDetails>;
+  failedItems: Partial<Record<string, FailedItemDetails>>;
 }
 export interface DescribeCrossAccountAccessRoleResponse {
   roleArn: string;
@@ -660,7 +660,7 @@ export interface DescribeExclusionsRequest {
 }
 export interface DescribeExclusionsResponse {
   exclusions: Record<string, Exclusion>;
-  failedItems: Record<string, FailedItemDetails>;
+  failedItems: Partial<Record<string, FailedItemDetails>>;
 }
 export interface DescribeFindingsRequest {
   findingArns: Array<string>;
@@ -668,14 +668,14 @@ export interface DescribeFindingsRequest {
 }
 export interface DescribeFindingsResponse {
   findings: Array<Finding>;
-  failedItems: Record<string, FailedItemDetails>;
+  failedItems: Partial<Record<string, FailedItemDetails>>;
 }
 export interface DescribeResourceGroupsRequest {
   resourceGroupArns: Array<string>;
 }
 export interface DescribeResourceGroupsResponse {
   resourceGroups: Array<ResourceGroup>;
-  failedItems: Record<string, FailedItemDetails>;
+  failedItems: Partial<Record<string, FailedItemDetails>>;
 }
 export interface DescribeRulesPackagesRequest {
   rulesPackageArns: Array<string>;
@@ -683,7 +683,7 @@ export interface DescribeRulesPackagesRequest {
 }
 export interface DescribeRulesPackagesResponse {
   rulesPackages: Array<RulesPackage>;
-  failedItems: Record<string, FailedItemDetails>;
+  failedItems: Partial<Record<string, FailedItemDetails>>;
 }
 export interface DurationRange {
   minSeconds?: number;
@@ -724,7 +724,7 @@ export type FailedItemErrorCode =
   | "ACCESS_DENIED"
   | "LIMIT_EXCEEDED"
   | "INTERNAL_ERROR";
-export type FailedItems = Record<string, FailedItemDetails>;
+export type FailedItems = Partial<Record<string, FailedItemDetails>>;
 export type FilterRulesPackageArnList = Array<string>;
 export interface Finding {
   arn: string;
@@ -1065,7 +1065,7 @@ export interface RemoveAttributesFromFindingsRequest {
   attributeKeys: Array<string>;
 }
 export interface RemoveAttributesFromFindingsResponse {
-  failedItems: Record<string, FailedItemDetails>;
+  failedItems: Partial<Record<string, FailedItemDetails>>;
 }
 export type ReportFileFormat = "HTML" | "PDF";
 export type ReportStatus = "WORK_IN_PROGRESS" | "FAILED" | "COMPLETED";

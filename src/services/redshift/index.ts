@@ -1909,7 +1909,7 @@ export interface CreateIntegrationMessage {
   IntegrationName: string;
   KMSKeyId?: string;
   TagList?: Array<Tag>;
-  AdditionalEncryptionContext?: Record<string, string>;
+  AdditionalEncryptionContext?: Partial<Record<string, string>>;
   Description?: string;
 }
 export interface CreateRedshiftIdcApplicationMessage {
@@ -2489,7 +2489,7 @@ export interface EnableSnapshotCopyMessage {
 export interface EnableSnapshotCopyResult {
   Cluster?: Cluster;
 }
-export type EncryptionContextMap = Record<string, string>;
+export type EncryptionContextMap = Partial<Record<string, string>>;
 export interface Endpoint {
   Address?: string;
   Port?: number;
@@ -2780,7 +2780,7 @@ export interface Integration {
   CreateTime?: Date | string;
   Description?: string;
   KMSKeyId?: string;
-  AdditionalEncryptionContext?: Record<string, string>;
+  AdditionalEncryptionContext?: Partial<Record<string, string>>;
   Tags?: Array<Tag>;
 }
 export declare class IntegrationAlreadyExistsFault extends EffectData.TaggedError(

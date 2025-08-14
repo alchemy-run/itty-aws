@@ -60,7 +60,7 @@ export declare class ConflictException extends EffectData.TaggedError(
 export interface CreateEmailContactRequest {
   name: string;
   emailAddress: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateEmailContactResponse {
   arn: string;
@@ -113,7 +113,7 @@ export interface ListTagsForResourceRequest {
   arn: string;
 }
 export interface ListTagsForResourceResponse {
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type QuotaCode = string;
 
@@ -148,10 +148,10 @@ export declare class ServiceQuotaExceededException extends EffectData.TaggedErro
 export type TagKey = string;
 
 export type TagKeys = Array<string>;
-export type TagMap = Record<string, string>;
+export type TagMap = Partial<Record<string, string>>;
 export interface TagResourceRequest {
   arn: string;
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
 export interface TagResourceResponse {}
 export type TagValue = string;

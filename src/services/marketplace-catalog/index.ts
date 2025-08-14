@@ -210,8 +210,8 @@ export interface BatchDescribeEntitiesRequest {
   EntityRequestList: Array<EntityRequest>;
 }
 export interface BatchDescribeEntitiesResponse {
-  EntityDetails?: Record<string, EntityDetail>;
-  Errors?: Record<string, BatchDescribeErrorDetail>;
+  EntityDetails?: Partial<Record<string, EntityDetail>>;
+  Errors?: Partial<Record<string, BatchDescribeErrorDetail>>;
 }
 export type BatchDescribeErrorCodeString = string;
 
@@ -417,7 +417,7 @@ export interface EntityDetail {
   LastModifiedDate?: string;
   DetailsDocument?: unknown;
 }
-export type EntityDetails = Record<string, EntityDetail>;
+export type EntityDetails = Partial<Record<string, EntityDetail>>;
 export type EntityId = string;
 
 export type EntityNameString = string;
@@ -494,7 +494,7 @@ export interface ErrorDetail {
   ErrorMessage?: string;
 }
 export type ErrorDetailList = Array<ErrorDetail>;
-export type Errors = Record<string, BatchDescribeErrorDetail>;
+export type Errors = Partial<Record<string, BatchDescribeErrorDetail>>;
 export type ExceptionMessageContent = string;
 
 export type FailureCode = "ClientError" | "ServerFault";

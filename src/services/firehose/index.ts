@@ -269,7 +269,7 @@ export interface CloudWatchLoggingOptions {
 }
 export type ClusterJDBCURL = string;
 
-export type ColumnToJsonKeyMappings = Record<string, string>;
+export type ColumnToJsonKeyMappings = Partial<Record<string, string>>;
 export type CompressionFormat =
   | "UNCOMPRESSED"
   | "GZIP"
@@ -894,7 +894,7 @@ export type NonNegativeIntegerObject = number;
 export interface OpenXJsonSerDe {
   ConvertDotsInJsonKeysToUnderscores?: boolean;
   CaseInsensitive?: boolean;
-  ColumnToJsonKeyMappings?: Record<string, string>;
+  ColumnToJsonKeyMappings?: Partial<Record<string, string>>;
 }
 export type OrcCompression = "NONE" | "ZLIB" | "SNAPPY";
 export type OrcFormatVersion = "V0_11" | "V0_12";

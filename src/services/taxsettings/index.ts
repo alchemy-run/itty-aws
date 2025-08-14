@@ -174,7 +174,7 @@ export interface AccountMetaData {
   seller?: string;
   address?: Address;
   addressType?: AddressRoleType;
-  addressRoleMap?: Record<AddressRoleType, Jurisdiction>;
+  addressRoleMap?: Partial<Record<AddressRoleType, Jurisdiction>>;
 }
 export type AccountName = string;
 
@@ -238,7 +238,7 @@ export type AddressLine2 = string;
 
 export type AddressLine3 = string;
 
-export type AddressRoleMap = Record<AddressRoleType, Jurisdiction>;
+export type AddressRoleMap = Partial<Record<AddressRoleType, Jurisdiction>>;
 export type AddressRoleType =
   | "TAX_ADDRESS"
   | "BILLING_ADDRESS"
@@ -270,7 +270,7 @@ export interface BatchGetTaxExemptionsRequest {
   accountIds: Array<string>;
 }
 export interface BatchGetTaxExemptionsResponse {
-  taxExemptionDetailsMap?: Record<string, TaxExemptionDetails>;
+  taxExemptionDetailsMap?: Partial<Record<string, TaxExemptionDetails>>;
   failedAccounts?: Array<string>;
 }
 export interface BatchPutTaxRegistrationError {
@@ -494,7 +494,7 @@ export interface ListTaxExemptionsRequest {
 }
 export interface ListTaxExemptionsResponse {
   nextToken?: string;
-  taxExemptionDetailsMap?: Record<string, TaxExemptionDetails>;
+  taxExemptionDetailsMap?: Partial<Record<string, TaxExemptionDetails>>;
 }
 export interface ListTaxRegistrationsRequest {
   maxResults?: number;
@@ -649,7 +649,9 @@ export interface TaxExemptionDetails {
   heritageObtainedParentEntity?: string;
   heritageObtainedReason?: string;
 }
-export type TaxExemptionDetailsMap = Record<string, TaxExemptionDetails>;
+export type TaxExemptionDetailsMap = Partial<
+  Record<string, TaxExemptionDetails>
+>;
 export type TaxExemptions = Array<TaxExemption>;
 export interface TaxExemptionType {
   displayName?: string;

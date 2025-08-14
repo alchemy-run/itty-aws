@@ -977,7 +977,7 @@ export interface BaseConfigurationItem {
   availabilityZone?: string;
   resourceCreationTime?: Date | string;
   configuration?: string;
-  supplementaryConfiguration?: Record<string, string>;
+  supplementaryConfiguration?: Partial<Record<string, string>>;
   recordingFrequency?: RecordingFrequency;
   configurationItemDeliveryTime?: Date | string;
 }
@@ -1145,11 +1145,11 @@ export interface ConfigurationItem {
   awsRegion?: string;
   availabilityZone?: string;
   resourceCreationTime?: Date | string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   relatedEvents?: Array<string>;
   relationships?: Array<Relationship>;
   configuration?: string;
-  supplementaryConfiguration?: Record<string, string>;
+  supplementaryConfiguration?: Partial<Record<string, string>>;
   recordingFrequency?: RecordingFrequency;
   configurationItemDeliveryTime?: Date | string;
 }
@@ -2551,7 +2551,7 @@ export interface PutResourceConfigRequest {
   ResourceId: string;
   ResourceName?: string;
   Configuration: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface PutRetentionConfigurationRequest {
   RetentionPeriodInDays: number;
@@ -2639,7 +2639,7 @@ export interface RemediationConfiguration {
   TargetType: RemediationTargetType;
   TargetId: string;
   TargetVersion?: string;
-  Parameters?: Record<string, RemediationParameterValue>;
+  Parameters?: Partial<Record<string, RemediationParameterValue>>;
   ResourceType?: string;
   Automatic?: boolean;
   ExecutionControls?: ExecutionControls;
@@ -2690,7 +2690,9 @@ export declare class RemediationInProgressException extends EffectData.TaggedErr
 )<{
   readonly message?: string;
 }> {}
-export type RemediationParameters = Record<string, RemediationParameterValue>;
+export type RemediationParameters = Partial<
+  Record<string, RemediationParameterValue>
+>;
 export interface RemediationParameterValue {
   ResourceValue?: ResourceValue;
   StaticValue?: StaticValue;
@@ -3374,7 +3376,7 @@ export type StringWithCharLimit64 = string;
 
 export type StringWithCharLimit768 = string;
 
-export type SupplementaryConfiguration = Record<string, string>;
+export type SupplementaryConfiguration = Partial<Record<string, string>>;
 export type SupplementaryConfigurationName = string;
 
 export type SupplementaryConfigurationValue = string;
@@ -3391,7 +3393,7 @@ export interface TagResourceRequest {
   ResourceArn: string;
   Tags: Array<Tag>;
 }
-export type Tags = Record<string, string>;
+export type Tags = Partial<Record<string, string>>;
 export type TagsList = Array<Tag>;
 export type TagValue = string;
 

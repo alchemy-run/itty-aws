@@ -248,7 +248,7 @@ export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",
 )<{
   readonly message: string;
-  readonly context?: Record<string, string>;
+  readonly context?: Partial<Record<string, string>>;
 }> {}
 export type AccessKeyId = string;
 
@@ -301,14 +301,14 @@ export type AssignedSessionActionDefinition =
       syncInputJobAttachments: AssignedSyncInputJobAttachmentsSessionActionDefinition;
     });
 export type AssignedSessionActions = Array<AssignedSessionAction>;
-export type AssignedSessions = Record<string, AssignedSession>;
+export type AssignedSessions = Partial<Record<string, AssignedSession>>;
 export interface AssignedSyncInputJobAttachmentsSessionActionDefinition {
   stepId?: string;
 }
 export interface AssignedTaskRunSessionActionDefinition {
   taskId?: string;
   stepId: string;
-  parameters: Record<string, TaskParameterValue>;
+  parameters: Partial<Record<string, TaskParameterValue>>;
 }
 export interface AssociateMemberToFarmRequest {
   farmId: string;
@@ -451,7 +451,7 @@ export interface BudgetSummary {
   updatedBy?: string;
   updatedAt?: Date | string;
 }
-export type CancelSessionActions = Record<string, Array<string>>;
+export type CancelSessionActions = Partial<Record<string, Array<string>>>;
 export type ClientToken = string;
 
 export type CombinationExpression = string;
@@ -476,7 +476,7 @@ export declare class ConflictException extends EffectData.TaggedError(
   readonly reason: ConflictExceptionReason;
   readonly resourceId: string;
   readonly resourceType: string;
-  readonly context?: Record<string, string>;
+  readonly context?: Partial<Record<string, string>>;
 }> {}
 export type ConflictExceptionReason =
   | "CONFLICT_EXCEPTION"
@@ -521,7 +521,7 @@ export interface CreateFarmRequest {
   displayName: string;
   description?: string;
   kmsKeyArn?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateFarmResponse {
   farmId: string;
@@ -535,7 +535,7 @@ export interface CreateFleetRequest {
   minWorkerCount?: number;
   maxWorkerCount: number;
   configuration: FleetConfiguration;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   hostConfiguration?: HostConfiguration;
 }
 export interface CreateFleetResponse {
@@ -548,7 +548,7 @@ export interface CreateJobRequest {
   template?: string;
   templateType?: JobTemplateType;
   priority: number;
-  parameters?: Record<string, JobParameter>;
+  parameters?: Partial<Record<string, JobParameter>>;
   attachments?: Attachments;
   storageProfileId?: string;
   targetTaskRunStatus?: CreateJobTargetTaskRunStatus;
@@ -566,7 +566,7 @@ export interface CreateLicenseEndpointRequest {
   vpcId: string;
   subnetIds: Array<string>;
   securityGroupIds: Array<string>;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateLicenseEndpointResponse {
   licenseEndpointId: string;
@@ -588,7 +588,7 @@ export interface CreateMonitorRequest {
   identityCenterInstanceArn: string;
   subdomain: string;
   roleArn: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateMonitorResponse {
   monitorId: string;
@@ -628,7 +628,7 @@ export interface CreateQueueRequest {
   jobRunAsUser?: JobRunAsUser;
   requiredFileSystemLocationNames?: Array<string>;
   allowedStorageProfileIds?: Array<string>;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateQueueResponse {
   queueId: string;
@@ -648,7 +648,7 @@ export interface CreateWorkerRequest {
   fleetId: string;
   hostProperties?: HostPropertiesRequest;
   clientToken?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateWorkerResponse {
   workerId: string;
@@ -843,7 +843,7 @@ export type EnvironmentName = string;
 export type EnvironmentTemplate = string;
 
 export type EnvironmentTemplateType = "JSON" | "YAML";
-export type ExceptionContext = Record<string, string>;
+export type ExceptionContext = Partial<Record<string, string>>;
 export type FarmId = string;
 
 export interface FarmMember {
@@ -1033,12 +1033,12 @@ export interface GetJobResponse {
   endedAt?: Date | string;
   taskRunStatus?: TaskRunStatus;
   targetTaskRunStatus?: JobTargetTaskRunStatus;
-  taskRunStatusCounts?: Record<TaskRunStatus, number>;
+  taskRunStatusCounts?: Partial<Record<TaskRunStatus, number>>;
   taskFailureRetryCount?: number;
   storageProfileId?: string;
   maxFailedTasksCount?: number;
   maxRetriesPerTask?: number;
-  parameters?: Record<string, JobParameter>;
+  parameters?: Partial<Record<string, JobParameter>>;
   attachments?: Attachments;
   description?: string;
   maxWorkerCount?: number;
@@ -1219,7 +1219,7 @@ export interface GetStepResponse {
   lifecycleStatus: StepLifecycleStatus;
   lifecycleStatusMessage?: string;
   taskRunStatus: TaskRunStatus;
-  taskRunStatusCounts: Record<TaskRunStatus, number>;
+  taskRunStatusCounts: Partial<Record<TaskRunStatus, number>>;
   taskFailureRetryCount?: number;
   targetTaskRunStatus?: StepTargetTaskRunStatus;
   createdAt: Date | string;
@@ -1272,7 +1272,7 @@ export interface GetTaskResponse {
   runStatus: TaskRunStatus;
   targetRunStatus?: TaskTargetRunStatus;
   failureRetryCount?: number;
-  parameters?: Record<string, TaskParameterValue>;
+  parameters?: Partial<Record<string, TaskParameterValue>>;
   startedAt?: Date | string;
   endedAt?: Date | string;
   updatedAt?: Date | string;
@@ -1374,7 +1374,7 @@ export interface JobDetailsEntity {
   jobRunAsUser?: JobRunAsUser;
   logGroupName: string;
   queueRoleArn?: string;
-  parameters?: Record<string, JobParameter>;
+  parameters?: Partial<Record<string, JobParameter>>;
   schemaVersion: string;
   pathMappingRules?: Array<PathMappingRule>;
 }
@@ -1461,7 +1461,7 @@ export type JobParameter =
 export type JobParameterDefinition = unknown;
 
 export type JobParameterDefinitions = Array<unknown>;
-export type JobParameters = Record<string, JobParameter>;
+export type JobParameters = Partial<Record<string, JobParameter>>;
 export type JobPriority = number;
 
 export interface JobRunAsUser {
@@ -1478,7 +1478,7 @@ export interface JobSearchSummary {
   lifecycleStatusMessage?: string;
   taskRunStatus?: TaskRunStatus;
   targetTaskRunStatus?: JobTargetTaskRunStatus;
-  taskRunStatusCounts?: Record<TaskRunStatus, number>;
+  taskRunStatusCounts?: Partial<Record<TaskRunStatus, number>>;
   taskFailureRetryCount?: number;
   priority?: number;
   maxFailedTasksCount?: number;
@@ -1489,7 +1489,7 @@ export interface JobSearchSummary {
   startedAt?: Date | string;
   updatedAt?: Date | string;
   updatedBy?: string;
-  jobParameters?: Record<string, JobParameter>;
+  jobParameters?: Partial<Record<string, JobParameter>>;
   maxWorkerCount?: number;
   sourceJobId?: string;
 }
@@ -1508,7 +1508,7 @@ export interface JobSummary {
   endedAt?: Date | string;
   taskRunStatus?: TaskRunStatus;
   targetTaskRunStatus?: JobTargetTaskRunStatus;
-  taskRunStatusCounts?: Record<TaskRunStatus, number>;
+  taskRunStatusCounts?: Partial<Record<TaskRunStatus, number>>;
   taskFailureRetryCount?: number;
   maxFailedTasksCount?: number;
   maxRetriesPerTask?: number;
@@ -1831,7 +1831,7 @@ export interface ListTagsForResourceRequest {
   resourceArn: string;
 }
 export interface ListTagsForResourceResponse {
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface ListTasksRequest {
   farmId: string;
@@ -1857,8 +1857,8 @@ export interface ListWorkersResponse {
 }
 export interface LogConfiguration {
   logDriver: string;
-  options?: Record<string, string>;
-  parameters?: Record<string, string>;
+  options?: Partial<Record<string, string>>;
+  parameters?: Partial<Record<string, string>>;
   error?: string;
 }
 export type LogDriver = string;
@@ -1866,8 +1866,8 @@ export type LogDriver = string;
 export type LogError = string;
 
 export type LogicalOperator = "AND" | "OR";
-export type LogOptions = Record<string, string>;
-export type LogParameters = Record<string, string>;
+export type LogOptions = Partial<Record<string, string>>;
+export type LogParameters = Partial<Record<string, string>>;
 export interface ManifestProperties {
   fileSystemLocationName?: string;
   rootPath: string;
@@ -2048,7 +2048,7 @@ export declare class ResourceNotFoundException extends EffectData.TaggedError(
   readonly message: string;
   readonly resourceId: string;
   readonly resourceType: string;
-  readonly context?: Record<string, string>;
+  readonly context?: Partial<Record<string, string>>;
 }> {}
 export interface ResponseBudgetAction {
   type: BudgetActionType;
@@ -2194,7 +2194,7 @@ export declare class ServiceQuotaExceededException extends EffectData.TaggedErro
   readonly serviceCode: string;
   readonly quotaCode: string;
   readonly resourceId?: string;
-  readonly context?: Record<string, string>;
+  readonly context?: Partial<Record<string, string>>;
 }> {}
 export type ServiceQuotaExceededExceptionReason =
   | "SERVICE_QUOTA_EXCEEDED_EXCEPTION"
@@ -2424,7 +2424,7 @@ export interface StepSearchSummary {
   lifecycleStatusMessage?: string;
   taskRunStatus?: TaskRunStatus;
   targetTaskRunStatus?: StepTargetTaskRunStatus;
-  taskRunStatusCounts?: Record<TaskRunStatus, number>;
+  taskRunStatusCounts?: Partial<Record<TaskRunStatus, number>>;
   taskFailureRetryCount?: number;
   createdAt?: Date | string;
   createdBy?: string;
@@ -2441,7 +2441,7 @@ export interface StepSummary {
   lifecycleStatus: StepLifecycleStatus;
   lifecycleStatusMessage?: string;
   taskRunStatus: TaskRunStatus;
-  taskRunStatusCounts: Record<TaskRunStatus, number>;
+  taskRunStatusCounts: Partial<Record<TaskRunStatus, number>>;
   taskFailureRetryCount?: number;
   targetTaskRunStatus?: StepTargetTaskRunStatus;
   createdAt: Date | string;
@@ -2495,15 +2495,15 @@ export type TagPropagationMode =
   | "PROPAGATE_TAGS_TO_WORKERS_AT_LAUNCH";
 export interface TagResourceRequest {
   resourceArn: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface TagResourceResponse {}
-export type Tags = Record<string, string>;
+export type Tags = Partial<Record<string, string>>;
 export type TaskFailureRetryCount = number;
 
 export type TaskId = string;
 
-export type TaskParameters = Record<string, TaskParameterValue>;
+export type TaskParameters = Partial<Record<string, TaskParameterValue>>;
 interface _TaskParameterValue {
   int?: string;
   float?: string;
@@ -2535,12 +2535,12 @@ export interface TaskRunManifestPropertiesResponse {
 export interface TaskRunSessionActionDefinition {
   taskId?: string;
   stepId: string;
-  parameters: Record<string, TaskParameterValue>;
+  parameters: Partial<Record<string, TaskParameterValue>>;
 }
 export interface TaskRunSessionActionDefinitionSummary {
   taskId?: string;
   stepId: string;
-  parameters?: Record<string, TaskParameterValue>;
+  parameters?: Partial<Record<string, TaskParameterValue>>;
 }
 export type TaskRunStatus =
   | "PENDING"
@@ -2555,7 +2555,7 @@ export type TaskRunStatus =
   | "FAILED"
   | "SUCCEEDED"
   | "NOT_COMPATIBLE";
-export type TaskRunStatusCounts = Record<TaskRunStatus, number>;
+export type TaskRunStatusCounts = Partial<Record<TaskRunStatus, number>>;
 export type TaskSearchSummaries = Array<TaskSearchSummary>;
 export interface TaskSearchSummary {
   taskId?: string;
@@ -2564,7 +2564,7 @@ export interface TaskSearchSummary {
   queueId?: string;
   runStatus?: TaskRunStatus;
   targetRunStatus?: TaskTargetRunStatus;
-  parameters?: Record<string, TaskParameterValue>;
+  parameters?: Partial<Record<string, TaskParameterValue>>;
   failureRetryCount?: number;
   startedAt?: Date | string;
   endedAt?: Date | string;
@@ -2579,7 +2579,7 @@ export interface TaskSummary {
   runStatus: TaskRunStatus;
   targetRunStatus?: TaskTargetRunStatus;
   failureRetryCount?: number;
-  parameters?: Record<string, TaskParameterValue>;
+  parameters?: Partial<Record<string, TaskParameterValue>>;
   startedAt?: Date | string;
   endedAt?: Date | string;
   updatedAt?: Date | string;
@@ -2602,7 +2602,7 @@ export declare class ThrottlingException extends EffectData.TaggedError(
   readonly serviceCode?: string;
   readonly quotaCode?: string;
   readonly retryAfterSeconds?: number;
-  readonly context?: Record<string, string>;
+  readonly context?: Partial<Record<string, string>>;
 }> {}
 export type Timestamp = Date | string;
 
@@ -2642,7 +2642,9 @@ export interface UpdatedSessionActionInfo {
   progressPercent?: number;
   manifests?: Array<TaskRunManifestPropertiesRequest>;
 }
-export type UpdatedSessionActions = Record<string, UpdatedSessionActionInfo>;
+export type UpdatedSessionActions = Partial<
+  Record<string, UpdatedSessionActionInfo>
+>;
 export type UpdatedWorkerStatus = "STARTED" | "STOPPING" | "STOPPED";
 export interface UpdateFarmRequest {
   farmId: string;
@@ -2796,11 +2798,11 @@ export interface UpdateWorkerScheduleRequest {
   farmId: string;
   fleetId: string;
   workerId: string;
-  updatedSessionActions?: Record<string, UpdatedSessionActionInfo>;
+  updatedSessionActions?: Partial<Record<string, UpdatedSessionActionInfo>>;
 }
 export interface UpdateWorkerScheduleResponse {
-  assignedSessions: Record<string, AssignedSession>;
-  cancelSessionActions: Record<string, Array<string>>;
+  assignedSessions: Partial<Record<string, AssignedSession>>;
+  cancelSessionActions: Partial<Record<string, Array<string>>>;
   desiredWorkerStatus?: DesiredWorkerStatus;
   updateIntervalSeconds: number;
 }
@@ -2836,7 +2838,7 @@ export declare class ValidationException extends EffectData.TaggedError(
   readonly message: string;
   readonly reason: ValidationExceptionReason;
   readonly fieldList?: Array<ValidationExceptionField>;
-  readonly context?: Record<string, string>;
+  readonly context?: Partial<Record<string, string>>;
 }> {}
 export interface ValidationExceptionField {
   name: string;

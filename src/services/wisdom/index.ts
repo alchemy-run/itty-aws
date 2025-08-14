@@ -41,7 +41,7 @@ export interface AssistantAssociationData {
   assistantArn: string;
   associationType: string;
   associationData: AssistantAssociationOutputData;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 interface _AssistantAssociationInputData {
   knowledgeBaseId?: string;
@@ -64,7 +64,7 @@ export interface AssistantAssociationSummary {
   assistantArn: string;
   associationType: string;
   associationData: AssistantAssociationOutputData;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type AssistantAssociationSummaryList =
   Array<AssistantAssociationSummary>;
@@ -75,7 +75,7 @@ export interface AssistantData {
   type: string;
   status: string;
   description?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   serverSideEncryptionConfiguration?: ServerSideEncryptionConfiguration;
   integrationConfiguration?: AssistantIntegrationConfiguration;
 }
@@ -92,7 +92,7 @@ export interface AssistantSummary {
   type: string;
   status: string;
   description?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   serverSideEncryptionConfiguration?: ServerSideEncryptionConfiguration;
   integrationConfiguration?: AssistantIntegrationConfiguration;
 }
@@ -123,7 +123,7 @@ export interface ConnectConfiguration {
 export type ContactAttributeKey = string;
 
 export type ContactAttributeKeys = Array<string>;
-export type ContactAttributes = Record<string, string>;
+export type ContactAttributes = Partial<Record<string, string>>;
 export type ContactAttributeValue = string;
 
 export interface ContentData {
@@ -136,13 +136,13 @@ export interface ContentData {
   title: string;
   contentType: string;
   status: string;
-  metadata: Record<string, string>;
-  tags?: Record<string, string>;
+  metadata: Partial<Record<string, string>>;
+  tags?: Partial<Record<string, string>>;
   linkOutUri?: string;
   url: string;
   urlExpiry: Date | string;
 }
-export type ContentMetadata = Record<string, string>;
+export type ContentMetadata = Partial<Record<string, string>>;
 export interface ContentReference {
   knowledgeBaseArn?: string;
   knowledgeBaseId?: string;
@@ -161,8 +161,8 @@ export interface ContentSummary {
   title: string;
   contentType: string;
   status: string;
-  metadata: Record<string, string>;
-  tags?: Record<string, string>;
+  metadata: Partial<Record<string, string>>;
+  tags?: Partial<Record<string, string>>;
 }
 export type ContentSummaryList = Array<ContentSummary>;
 export type ContentTitle = string;
@@ -174,7 +174,7 @@ export interface CreateAssistantAssociationRequest {
   associationType: string;
   association: AssistantAssociationInputData;
   clientToken?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateAssistantAssociationResponse {
   assistantAssociation?: AssistantAssociationData;
@@ -184,7 +184,7 @@ export interface CreateAssistantRequest {
   name: string;
   type: string;
   description?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   serverSideEncryptionConfiguration?: ServerSideEncryptionConfiguration;
 }
 export interface CreateAssistantResponse {
@@ -195,10 +195,10 @@ export interface CreateContentRequest {
   name: string;
   title?: string;
   overrideLinkOutUri?: string;
-  metadata?: Record<string, string>;
+  metadata?: Partial<Record<string, string>>;
   uploadId: string;
   clientToken?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateContentResponse {
   content?: ContentData;
@@ -211,7 +211,7 @@ export interface CreateKnowledgeBaseRequest {
   renderingConfiguration?: RenderingConfiguration;
   serverSideEncryptionConfiguration?: ServerSideEncryptionConfiguration;
   description?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateKnowledgeBaseResponse {
   knowledgeBase?: KnowledgeBaseData;
@@ -228,7 +228,7 @@ export interface CreateQuickResponseRequest {
   channels?: Array<string>;
   language?: string;
   clientToken?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateQuickResponseResponse {
   quickResponse?: QuickResponseData;
@@ -238,7 +238,7 @@ export interface CreateSessionRequest {
   assistantId: string;
   name: string;
   description?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateSessionResponse {
   session?: SessionData;
@@ -373,7 +373,7 @@ export type GroupingCriteria = string;
 export type GroupingValue = string;
 
 export type GroupingValues = Array<string>;
-export type Headers = Record<string, string>;
+export type Headers = Partial<Record<string, string>>;
 export interface Highlight {
   beginOffsetInclusive?: number;
   endOffsetExclusive?: number;
@@ -393,7 +393,7 @@ export interface ImportJobData {
   urlExpiry: Date | string;
   createdTime: Date | string;
   lastModifiedTime: Date | string;
-  metadata?: Record<string, string>;
+  metadata?: Partial<Record<string, string>>;
   externalSourceConfiguration?: ExternalSourceConfiguration;
 }
 export type ImportJobList = Array<ImportJobSummary>;
@@ -408,7 +408,7 @@ export interface ImportJobSummary {
   status: string;
   createdTime: Date | string;
   lastModifiedTime: Date | string;
-  metadata?: Record<string, string>;
+  metadata?: Partial<Record<string, string>>;
   externalSourceConfiguration?: ExternalSourceConfiguration;
 }
 export type ImportJobType = string;
@@ -428,7 +428,7 @@ export interface KnowledgeBaseData {
   renderingConfiguration?: RenderingConfiguration;
   serverSideEncryptionConfiguration?: ServerSideEncryptionConfiguration;
   description?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type KnowledgeBaseList = Array<KnowledgeBaseSummary>;
 export type KnowledgeBaseStatus = string;
@@ -443,7 +443,7 @@ export interface KnowledgeBaseSummary {
   renderingConfiguration?: RenderingConfiguration;
   serverSideEncryptionConfiguration?: ServerSideEncryptionConfiguration;
   description?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type KnowledgeBaseType = string;
 
@@ -505,7 +505,7 @@ export interface ListTagsForResourceRequest {
   resourceArn: string;
 }
 export interface ListTagsForResourceResponse {
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type MaxResults = number;
 
@@ -589,7 +589,7 @@ export interface QuickResponseData {
   isActive?: boolean;
   channels?: Array<string>;
   language?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 interface _QuickResponseDataProvider {
   content?: string;
@@ -656,7 +656,7 @@ export interface QuickResponseSearchResultData {
   language?: string;
   attributesNotInterpolated?: Array<string>;
   attributesInterpolated?: Array<string>;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type QuickResponseSearchResultsList =
   Array<QuickResponseSearchResultData>;
@@ -676,7 +676,7 @@ export interface QuickResponseSummary {
   lastModifiedBy?: string;
   isActive?: boolean;
   channels?: Array<string>;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type QuickResponseSummaryList = Array<QuickResponseSummary>;
 export type QuickResponseType = string;
@@ -756,7 +756,7 @@ export interface SearchQuickResponsesRequest {
   searchExpression: QuickResponseSearchExpression;
   nextToken?: string;
   maxResults?: number;
-  attributes?: Record<string, string>;
+  attributes?: Partial<Record<string, string>>;
 }
 export interface SearchQuickResponsesResponse {
   results: Array<QuickResponseSearchResultData>;
@@ -787,7 +787,7 @@ export interface SessionData {
   sessionId: string;
   name: string;
   description?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   integrationConfiguration?: SessionIntegrationConfiguration;
 }
 export interface SessionIntegrationConfiguration {
@@ -818,14 +818,14 @@ export interface StartContentUploadResponse {
   uploadId: string;
   url: string;
   urlExpiry: Date | string;
-  headersToInclude: Record<string, string>;
+  headersToInclude: Partial<Record<string, string>>;
 }
 export interface StartImportJobRequest {
   knowledgeBaseId: string;
   importJobType: string;
   uploadId: string;
   clientToken?: string;
-  metadata?: Record<string, string>;
+  metadata?: Partial<Record<string, string>>;
   externalSourceConfiguration?: ExternalSourceConfiguration;
 }
 export interface StartImportJobResponse {
@@ -836,10 +836,10 @@ export type TagKey = string;
 export type TagKeyList = Array<string>;
 export interface TagResourceRequest {
   resourceArn: string;
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
 export interface TagResourceResponse {}
-export type Tags = Record<string, string>;
+export type Tags = Partial<Record<string, string>>;
 export type TagValue = string;
 
 export type TimeToLive = number;
@@ -862,7 +862,7 @@ export interface UpdateContentRequest {
   title?: string;
   overrideLinkOutUri?: string;
   removeOverrideLinkOutUri?: boolean;
-  metadata?: Record<string, string>;
+  metadata?: Partial<Record<string, string>>;
   uploadId?: string;
 }
 export interface UpdateContentResponse {

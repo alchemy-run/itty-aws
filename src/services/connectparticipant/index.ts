@@ -383,9 +383,9 @@ export type Transcript = Array<Item>;
 export interface UploadMetadata {
   Url?: string;
   UrlExpiry?: string;
-  HeadersToInclude?: Record<string, string>;
+  HeadersToInclude?: Partial<Record<string, string>>;
 }
-export type UploadMetadataSignedHeaders = Record<string, string>;
+export type UploadMetadataSignedHeaders = Partial<Record<string, string>>;
 export type UploadMetadataSignedHeadersKey = string;
 
 export type UploadMetadataSignedHeadersValue = string;

@@ -795,7 +795,7 @@ export interface RegionInfo {
   statusMessage?: string;
   statusUpdateDateTime: Date | string;
 }
-export type RegionInfoMap = Record<string, RegionInfo>;
+export type RegionInfoMap = Partial<Record<string, RegionInfo>>;
 export type RegionMapInput = Record<string, RegionMapInputValue>;
 export interface RegionMapInputValue {
   sseKmsKeyId?: string;
@@ -820,7 +820,7 @@ export type RelatedItemsUpdate =
   | (_RelatedItemsUpdate & { itemToRemove: ItemIdentifier });
 export interface ReplicationSet {
   arn?: string;
-  regionMap: Record<string, RegionInfo>;
+  regionMap: Partial<Record<string, RegionInfo>>;
   status: string;
   deletionProtected: boolean;
   createdTime: Date | string;
@@ -907,7 +907,7 @@ export type TagKey = string;
 
 export type TagKeyList = Array<string>;
 export type TagMap = Record<string, string>;
-export type TagMapUpdate = Record<string, string>;
+export type TagMapUpdate = Partial<Record<string, string>>;
 export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
@@ -996,7 +996,7 @@ export interface UpdateResponsePlanInput {
   chatChannel?: ChatChannel;
   engagements?: Array<string>;
   actions?: Array<Action>;
-  incidentTemplateTags?: Record<string, string>;
+  incidentTemplateTags?: Partial<Record<string, string>>;
   integrations?: Array<Integration>;
 }
 export interface UpdateResponsePlanOutput {}

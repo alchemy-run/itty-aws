@@ -440,7 +440,7 @@ export interface Composition {
   state: string;
   layout: LayoutConfiguration;
   destinations: Array<Destination>;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   startTime?: Date | string;
   endTime?: Date | string;
 }
@@ -460,7 +460,7 @@ export interface CompositionSummary {
   stageArn: string;
   destinations: Array<DestinationSummary>;
   state: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   startTime?: Date | string;
   endTime?: Date | string;
 }
@@ -487,7 +487,7 @@ export declare class ConflictException extends EffectData.TaggedError(
 export interface CreateEncoderConfigurationRequest {
   name?: string;
   video?: Video;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateEncoderConfigurationResponse {
   encoderConfiguration?: EncoderConfiguration;
@@ -496,10 +496,10 @@ export interface CreateIngestConfigurationRequest {
   name?: string;
   stageArn?: string;
   userId?: string;
-  attributes?: Record<string, string>;
+  attributes?: Partial<Record<string, string>>;
   ingestProtocol: IngestProtocol;
   insecureIngest?: boolean;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateIngestConfigurationResponse {
   ingestConfiguration?: IngestConfiguration;
@@ -508,7 +508,7 @@ export interface CreateParticipantTokenRequest {
   stageArn: string;
   duration?: number;
   userId?: string;
-  attributes?: Record<string, string>;
+  attributes?: Partial<Record<string, string>>;
   capabilities?: Array<string>;
 }
 export interface CreateParticipantTokenResponse {
@@ -517,7 +517,7 @@ export interface CreateParticipantTokenResponse {
 export interface CreateStageRequest {
   name?: string;
   participantTokenConfigurations?: Array<ParticipantTokenConfiguration>;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   autoParticipantRecordingConfiguration?: AutoParticipantRecordingConfiguration;
 }
 export interface CreateStageResponse {
@@ -527,7 +527,7 @@ export interface CreateStageResponse {
 export interface CreateStorageConfigurationRequest {
   name?: string;
   s3: S3StorageConfiguration;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateStorageConfigurationResponse {
   storageConfiguration?: StorageConfiguration;
@@ -594,7 +594,7 @@ export interface EncoderConfiguration {
   arn: string;
   name?: string;
   video?: Video;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type EncoderConfigurationArn = string;
 
@@ -604,7 +604,7 @@ export type EncoderConfigurationName = string;
 export interface EncoderConfigurationSummary {
   arn: string;
   name?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type EncoderConfigurationSummaryList =
   Array<EncoderConfigurationSummary>;
@@ -705,7 +705,7 @@ export type Height = number;
 export interface ImportPublicKeyRequest {
   publicKeyMaterial: string;
   name?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface ImportPublicKeyResponse {
   publicKey?: PublicKey;
@@ -719,8 +719,8 @@ export interface IngestConfiguration {
   participantId: string;
   state: string;
   userId?: string;
-  attributes?: Record<string, string>;
-  tags?: Record<string, string>;
+  attributes?: Partial<Record<string, string>>;
+  tags?: Partial<Record<string, string>>;
 }
 export type IngestConfigurationArn = string;
 
@@ -860,7 +860,7 @@ export interface ListTagsForResourceRequest {
   resourceArn: string;
 }
 export interface ListTagsForResourceResponse {
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
 export type MaxCompositionResults = number;
 
@@ -891,7 +891,7 @@ export interface Participant {
   userId?: string;
   state?: string;
   firstJoinTime?: Date | string;
-  attributes?: Record<string, string>;
+  attributes?: Partial<Record<string, string>>;
   published?: boolean;
   ispName?: string;
   osName?: string;
@@ -908,7 +908,7 @@ export interface Participant {
   sourceStageArn?: string;
   sourceSessionId?: string;
 }
-export type ParticipantAttributes = Record<string, string>;
+export type ParticipantAttributes = Partial<Record<string, string>>;
 export type ParticipantClientAttribute = string;
 
 export type ParticipantId = string;
@@ -968,19 +968,19 @@ export interface ParticipantToken {
   participantId?: string;
   token?: string;
   userId?: string;
-  attributes?: Record<string, string>;
+  attributes?: Partial<Record<string, string>>;
   duration?: number;
   capabilities?: Array<string>;
   expirationTime?: Date | string;
 }
-export type ParticipantTokenAttributes = Record<string, string>;
+export type ParticipantTokenAttributes = Partial<Record<string, string>>;
 export type ParticipantTokenCapabilities = Array<string>;
 export type ParticipantTokenCapability = string;
 
 export interface ParticipantTokenConfiguration {
   duration?: number;
   userId?: string;
-  attributes?: Record<string, string>;
+  attributes?: Partial<Record<string, string>>;
   capabilities?: Array<string>;
 }
 export type ParticipantTokenConfigurations =
@@ -1038,7 +1038,7 @@ export interface PublicKey {
   name?: string;
   publicKeyMaterial?: string;
   fingerprint?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type PublicKeyArn = string;
 
@@ -1052,7 +1052,7 @@ export type PublicKeyName = string;
 export interface PublicKeySummary {
   arn?: string;
   name?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type Published = boolean;
 
@@ -1118,7 +1118,7 @@ export interface Stage {
   arn: string;
   name?: string;
   activeSessionId?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   autoParticipantRecordingConfiguration?: AutoParticipantRecordingConfiguration;
   endpoints?: StageEndpoints;
 }
@@ -1151,7 +1151,7 @@ export interface StageSummary {
   arn: string;
   name?: string;
   activeSessionId?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type StageSummaryList = Array<StageSummary>;
 export interface StartCompositionRequest {
@@ -1159,7 +1159,7 @@ export interface StartCompositionRequest {
   idempotencyToken?: string;
   layout?: LayoutConfiguration;
   destinations: Array<DestinationConfiguration>;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface StartCompositionResponse {
   composition?: Composition;
@@ -1169,7 +1169,7 @@ export interface StartParticipantReplicationRequest {
   destinationStageArn: string;
   participantId: string;
   reconnectWindowSeconds?: number;
-  attributes?: Record<string, string>;
+  attributes?: Partial<Record<string, string>>;
 }
 export interface StartParticipantReplicationResponse {
   accessControlAllowOrigin?: string;
@@ -1202,7 +1202,7 @@ export interface StorageConfiguration {
   arn: string;
   name?: string;
   s3?: S3StorageConfiguration;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type StorageConfigurationArn = string;
 
@@ -1212,7 +1212,7 @@ export interface StorageConfigurationSummary {
   arn: string;
   name?: string;
   s3?: S3StorageConfiguration;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type StorageConfigurationSummaryList =
   Array<StorageConfigurationSummary>;
@@ -1225,10 +1225,10 @@ export type TagKey = string;
 export type TagKeyList = Array<string>;
 export interface TagResourceRequest {
   resourceArn: string;
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
 export interface TagResourceResponse {}
-export type Tags = Record<string, string>;
+export type Tags = Partial<Record<string, string>>;
 export type TagValue = string;
 
 export type ThumbnailIntervalSeconds = number;

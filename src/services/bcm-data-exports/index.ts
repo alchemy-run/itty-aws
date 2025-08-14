@@ -142,7 +142,9 @@ export interface CreateExportResponse {
 }
 export interface DataQuery {
   QueryStatement: string;
-  TableConfigurations?: Record<string, Record<string, string>>;
+  TableConfigurations?: Partial<
+    Record<string, Partial<Record<string, string>>>
+  >;
 }
 export interface DeleteExportRequest {
   ExportArn: string;
@@ -224,12 +226,12 @@ export interface GetExportResponse {
 }
 export interface GetTableRequest {
   TableName: string;
-  TableProperties?: Record<string, string>;
+  TableProperties?: Partial<Record<string, string>>;
 }
 export interface GetTableResponse {
   TableName?: string;
   Description?: string;
-  TableProperties?: Record<string, string>;
+  TableProperties?: Partial<Record<string, string>>;
   Schema?: Array<Column>;
 }
 export declare class InternalServerException extends EffectData.TaggedError(
@@ -325,11 +327,13 @@ export interface Table {
   Description?: string;
   TableProperties?: Array<TablePropertyDescription>;
 }
-export type TableConfigurations = Record<string, Record<string, string>>;
+export type TableConfigurations = Partial<
+  Record<string, Partial<Record<string, string>>>
+>;
 export type TableList = Array<Table>;
 export type TableName = string;
 
-export type TableProperties = Record<string, string>;
+export type TableProperties = Partial<Record<string, string>>;
 export type TableProperty = string;
 
 export interface TablePropertyDescription {

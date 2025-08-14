@@ -1472,7 +1472,7 @@ export interface GetQueryResultsRequest {
 export interface GetQueryResultsResponse {
   QueryStatus?: QueryStatus;
   QueryStatistics?: QueryStatistics;
-  QueryResultRows?: Array<Array<Record<string, string>>>;
+  QueryResultRows?: Array<Array<Partial<Record<string, string>>>>;
   NextToken?: string;
   ErrorMessage?: string;
 }
@@ -2038,12 +2038,12 @@ export type QueryParameterKey = string;
 export type QueryParameters = Array<string>;
 export type QueryParameterValue = string;
 
-export type QueryParameterValues = Record<string, string>;
-export type QueryResultColumn = Record<string, string>;
+export type QueryParameterValues = Partial<Record<string, string>>;
+export type QueryResultColumn = Partial<Record<string, string>>;
 export type QueryResultKey = string;
 
-export type QueryResultRow = Array<Record<string, string>>;
-export type QueryResultRows = Array<Array<Record<string, string>>>;
+export type QueryResultRow = Array<Partial<Record<string, string>>>;
+export type QueryResultRows = Array<Array<Partial<Record<string, string>>>>;
 export type QueryResultValue = string;
 
 export type QueryStatement = string;
@@ -2095,7 +2095,7 @@ export interface RemoveTagsResponse {}
 export interface RequestWidget {
   QueryStatement: string;
   QueryParameters?: Array<string>;
-  ViewProperties: Record<string, string>;
+  ViewProperties: Partial<Record<string, string>>;
 }
 export type RequestWidgetList = Array<RequestWidget>;
 export interface Resource {
@@ -2213,7 +2213,7 @@ export interface SourceConfig {
 }
 export interface StartDashboardRefreshRequest {
   DashboardId: string;
-  QueryParameterValues?: Record<string, string>;
+  QueryParameterValues?: Partial<Record<string, string>>;
 }
 export interface StartDashboardRefreshResponse {
   RefreshId?: string;
@@ -2435,14 +2435,14 @@ export type UUID = string;
 
 export type ViewPropertiesKey = string;
 
-export type ViewPropertiesMap = Record<string, string>;
+export type ViewPropertiesMap = Partial<Record<string, string>>;
 export type ViewPropertiesValue = string;
 
 export interface Widget {
   QueryAlias?: string;
   QueryStatement?: string;
   QueryParameters?: Array<string>;
-  ViewProperties?: Record<string, string>;
+  ViewProperties?: Partial<Record<string, string>>;
 }
 export type WidgetList = Array<Widget>;
 export declare namespace AddTags {

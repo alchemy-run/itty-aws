@@ -189,7 +189,7 @@ export declare class ConflictException extends EffectData.TaggedError(
 }> {}
 export interface CreateIndexInput {
   ClientToken?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateIndexOutput {
   Arn?: string;
@@ -202,7 +202,7 @@ export interface CreateViewInput {
   IncludedProperties?: Array<IncludedProperty>;
   Scope?: string;
   Filters?: SearchFilter;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateViewOutput {
   View?: View;
@@ -235,7 +235,7 @@ export interface GetIndexOutput {
   ReplicatingTo?: Array<string>;
   CreatedAt?: Date | string;
   LastUpdatedAt?: Date | string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface GetManagedViewInput {
   ManagedViewArn: string;
@@ -248,7 +248,7 @@ export interface GetViewInput {
 }
 export interface GetViewOutput {
   View?: View;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface IncludedProperty {
   Name: string;
@@ -320,7 +320,7 @@ export interface ListTagsForResourceInput {
   resourceArn: string;
 }
 export interface ListTagsForResourceOutput {
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface ListViewsInput {
   NextToken?: string;
@@ -410,10 +410,10 @@ export interface SupportedResourceType {
   Service?: string;
   ResourceType?: string;
 }
-export type TagMap = Record<string, string>;
+export type TagMap = Partial<Record<string, string>>;
 export interface TagResourceInput {
   resourceArn: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface TagResourceOutput {}
 export declare class ThrottlingException extends EffectData.TaggedError(

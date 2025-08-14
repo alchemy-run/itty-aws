@@ -274,7 +274,7 @@ export type Arn = string;
 
 export type AttributeName = string;
 
-export type Attributes = Record<string, string>;
+export type Attributes = Partial<Record<string, string>>;
 export type AttributeValue = string;
 
 export type BandwidthAllocation = number;
@@ -286,7 +286,7 @@ export interface Campaign {
   connectInstanceId: string;
   dialerConfig: DialerConfig;
   outboundCallConfig: OutboundCallConfig;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type CampaignArn = string;
 
@@ -322,12 +322,12 @@ export interface CreateCampaignRequest {
   connectInstanceId: string;
   dialerConfig: DialerConfig;
   outboundCallConfig: OutboundCallConfig;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateCampaignResponse {
   id?: string;
   arn?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface DeleteCampaignRequest {
   id: string;
@@ -362,7 +362,7 @@ export interface DialRequest {
   clientToken: string;
   phoneNumber: string;
   expirationTime: Date | string;
-  attributes: Record<string, string>;
+  attributes: Partial<Record<string, string>>;
 }
 export type DialRequestId = string;
 
@@ -473,7 +473,7 @@ export interface ListTagsForResourceRequest {
   arn: string;
 }
 export interface ListTagsForResourceResponse {
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type MaxResults = number;
 
@@ -552,10 +552,10 @@ export type SuccessfulRequestList = Array<SuccessfulRequest>;
 export type TagKey = string;
 
 export type TagKeyList = Array<string>;
-export type TagMap = Record<string, string>;
+export type TagMap = Partial<Record<string, string>>;
 export interface TagResourceRequest {
   arn: string;
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
 export type TagValue = string;
 

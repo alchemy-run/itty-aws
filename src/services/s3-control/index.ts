@@ -793,7 +793,7 @@ export type DurationSeconds = number;
 export interface EncryptionConfiguration {
   ReplicaKmsKeyID?: string;
 }
-export type Endpoints = Record<string, string>;
+export type Endpoints = Partial<Record<string, string>>;
 export interface EstablishedMultiRegionAccessPointPolicy {
   Policy?: string;
 }
@@ -931,7 +931,7 @@ export interface GetAccessPointResult {
   CreationDate?: Date | string;
   Alias?: string;
   AccessPointArn?: string;
-  Endpoints?: Record<string, string>;
+  Endpoints?: Partial<Record<string, string>>;
   BucketAccountId?: string;
   DataSourceId?: string;
   DataSourceType?: string;
@@ -1975,7 +1975,7 @@ export interface S3ObjectMetadata {
   ContentDisposition?: string;
   ContentEncoding?: string;
   ContentLanguage?: string;
-  UserMetadata?: Record<string, string>;
+  UserMetadata?: Partial<Record<string, string>>;
   ContentLength?: number;
   ContentMD5?: string;
   ContentType?: string;
@@ -2036,7 +2036,7 @@ export interface S3Tag {
   Value: string;
 }
 export type S3TagSet = Array<S3Tag>;
-export type S3UserMetadata = Record<string, string>;
+export type S3UserMetadata = Partial<Record<string, string>>;
 export interface Scope {
   Prefixes?: Array<string>;
   Permissions?: Array<ScopePermission>;

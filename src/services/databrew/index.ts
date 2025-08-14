@@ -793,7 +793,7 @@ export interface FilesLimit {
 }
 export interface FilterExpression {
   Expression: string;
-  ValuesMap: Record<string, string>;
+  ValuesMap: Partial<Record<string, string>>;
 }
 export interface FormatOptions {
   Json?: JsonOptions;
@@ -1025,7 +1025,7 @@ export interface OutputFormatOptions {
 export type OutputList = Array<Output>;
 export type OverwriteOutput = boolean;
 
-export type ParameterMap = Record<string, string>;
+export type ParameterMap = Partial<Record<string, string>>;
 export type ParameterName = string;
 
 export type ParameterType = "Datetime" | "Number" | "String";
@@ -1094,7 +1094,7 @@ export interface Recipe {
 }
 export interface RecipeAction {
   Operation: string;
-  Parameters?: Record<string, string>;
+  Parameters?: Partial<Record<string, string>>;
 }
 export type RecipeDescription = string;
 
@@ -1134,7 +1134,7 @@ export interface Rule {
   Name: string;
   Disabled?: boolean;
   CheckExpression: string;
-  SubstitutionMap?: Record<string, string>;
+  SubstitutionMap?: Partial<Record<string, string>>;
   Threshold?: Threshold;
   ColumnSelectors?: Array<ColumnSelector>;
 }
@@ -1253,7 +1253,7 @@ export type Statistic = string;
 export type StatisticList = Array<string>;
 export interface StatisticOverride {
   Statistic: string;
-  Parameters: Record<string, string>;
+  Parameters: Partial<Record<string, string>>;
 }
 export type StatisticOverrideList = Array<StatisticOverride>;
 export interface StatisticsConfiguration {
@@ -1395,7 +1395,7 @@ export declare class ValidationException extends EffectData.TaggedError(
 export type ValidationMode = "CHECK_ALL";
 export type ValueReference = string;
 
-export type ValuesMap = Record<string, string>;
+export type ValuesMap = Partial<Record<string, string>>;
 export interface ViewFrame {
   StartColumnIndex: number;
   ColumnRange?: number;

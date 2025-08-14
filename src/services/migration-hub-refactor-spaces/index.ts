@@ -289,7 +289,7 @@ export declare class AccessDeniedException extends EffectData.TaggedError(
 }> {}
 export type AccountId = string;
 
-export type AdditionalDetails = Record<string, string>;
+export type AdditionalDetails = Partial<Record<string, string>>;
 export type AdditionalDetailsKey = string;
 
 export type AdditionalDetailsValue = string;
@@ -338,7 +338,7 @@ export interface ApplicationSummary {
   ProxyType?: string;
   ApiGatewayProxy?: ApiGatewayProxySummary;
   State?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   Error?: ErrorResponse;
   LastUpdatedTime?: Date | string;
   CreatedTime?: Date | string;
@@ -363,7 +363,7 @@ export interface CreateApplicationRequest {
   VpcId: string;
   ProxyType: string;
   ApiGatewayProxy?: ApiGatewayProxyInput;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   ClientToken?: string;
 }
 export interface CreateApplicationResponse {
@@ -377,7 +377,7 @@ export interface CreateApplicationResponse {
   ProxyType?: string;
   ApiGatewayProxy?: ApiGatewayProxyInput;
   State?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   LastUpdatedTime?: Date | string;
   CreatedTime?: Date | string;
 }
@@ -385,7 +385,7 @@ export interface CreateEnvironmentRequest {
   Name: string;
   Description?: string;
   NetworkFabricType: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   ClientToken?: string;
 }
 export interface CreateEnvironmentResponse {
@@ -396,7 +396,7 @@ export interface CreateEnvironmentResponse {
   NetworkFabricType?: string;
   OwnerAccountId?: string;
   State?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   LastUpdatedTime?: Date | string;
   CreatedTime?: Date | string;
 }
@@ -407,7 +407,7 @@ export interface CreateRouteRequest {
   RouteType: string;
   DefaultRoute?: DefaultRouteInput;
   UriPathRoute?: UriPathRouteInput;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   ClientToken?: string;
 }
 export interface CreateRouteResponse {
@@ -420,7 +420,7 @@ export interface CreateRouteResponse {
   ApplicationId?: string;
   UriPathRoute?: UriPathRouteInput;
   State?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   LastUpdatedTime?: Date | string;
   CreatedTime?: Date | string;
 }
@@ -433,7 +433,7 @@ export interface CreateServiceRequest {
   EndpointType: string;
   UrlEndpoint?: UrlEndpointInput;
   LambdaEndpoint?: LambdaEndpointInput;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   ClientToken?: string;
 }
 export interface CreateServiceResponse {
@@ -450,7 +450,7 @@ export interface CreateServiceResponse {
   UrlEndpoint?: UrlEndpointInput;
   LambdaEndpoint?: LambdaEndpointInput;
   State?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   LastUpdatedTime?: Date | string;
   CreatedTime?: Date | string;
 }
@@ -530,7 +530,7 @@ export interface EnvironmentSummary {
   OwnerAccountId?: string;
   TransitGatewayId?: string;
   State?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   Error?: ErrorResponse;
   LastUpdatedTime?: Date | string;
   CreatedTime?: Date | string;
@@ -557,7 +557,7 @@ export interface ErrorResponse {
   AccountId?: string;
   ResourceIdentifier?: string;
   ResourceType?: string;
-  AdditionalDetails?: Record<string, string>;
+  AdditionalDetails?: Partial<Record<string, string>>;
 }
 export interface GetApplicationRequest {
   EnvironmentIdentifier: string;
@@ -574,7 +574,7 @@ export interface GetApplicationResponse {
   ProxyType?: string;
   ApiGatewayProxy?: ApiGatewayProxyConfig;
   State?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   Error?: ErrorResponse;
   LastUpdatedTime?: Date | string;
   CreatedTime?: Date | string;
@@ -591,7 +591,7 @@ export interface GetEnvironmentResponse {
   OwnerAccountId?: string;
   TransitGatewayId?: string;
   State?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   Error?: ErrorResponse;
   LastUpdatedTime?: Date | string;
   CreatedTime?: Date | string;
@@ -619,9 +619,9 @@ export interface GetRouteResponse {
   SourcePath?: string;
   Methods?: Array<string>;
   IncludeChildPaths?: boolean;
-  PathResourceToId?: Record<string, string>;
+  PathResourceToId?: Partial<Record<string, string>>;
   State?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   Error?: ErrorResponse;
   LastUpdatedTime?: Date | string;
   CreatedTime?: Date | string;
@@ -646,7 +646,7 @@ export interface GetServiceResponse {
   UrlEndpoint?: UrlEndpointConfig;
   LambdaEndpoint?: LambdaEndpointConfig;
   State?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   Error?: ErrorResponse;
   LastUpdatedTime?: Date | string;
   CreatedTime?: Date | string;
@@ -725,7 +725,7 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string;
 }
 export interface ListTagsForResourceResponse {
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export type MaxResults = number;
 
@@ -737,7 +737,7 @@ export type NlbArn = string;
 
 export type NlbName = string;
 
-export type PathResourceToId = Record<string, string>;
+export type PathResourceToId = Partial<Record<string, string>>;
 export type PathResourceToIdKey = string;
 
 export type PathResourceToIdValue = string;
@@ -785,9 +785,9 @@ export interface RouteSummary {
   SourcePath?: string;
   Methods?: Array<string>;
   IncludeChildPaths?: boolean;
-  PathResourceToId?: Record<string, string>;
+  PathResourceToId?: Partial<Record<string, string>>;
   State?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   Error?: ErrorResponse;
   LastUpdatedTime?: Date | string;
   CreatedTime?: Date | string;
@@ -827,7 +827,7 @@ export interface ServiceSummary {
   UrlEndpoint?: UrlEndpointSummary;
   LambdaEndpoint?: LambdaEndpointSummary;
   State?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   Error?: ErrorResponse;
   LastUpdatedTime?: Date | string;
   CreatedTime?: Date | string;
@@ -837,10 +837,10 @@ export type StageName = string;
 export type MigrationHubRefactorSpacesString = string;
 
 export type TagKeys = Array<string>;
-export type TagMap = Record<string, string>;
+export type TagMap = Partial<Record<string, string>>;
 export interface TagResourceRequest {
   ResourceArn: string;
-  Tags: Record<string, string>;
+  Tags: Partial<Record<string, string>>;
 }
 export interface TagResourceResponse {}
 export declare class ThrottlingException extends EffectData.TaggedError(

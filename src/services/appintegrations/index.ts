@@ -300,7 +300,7 @@ export type ArnOrUUID = string;
 
 export type AppintegrationsBoolean = boolean;
 
-export type ClientAssociationMetadata = Record<string, string>;
+export type ClientAssociationMetadata = Partial<Record<string, string>>;
 export type ClientId = string;
 
 export interface ContactHandling {
@@ -329,9 +329,11 @@ export interface CreateApplicationResponse {
 export interface CreateDataIntegrationAssociationRequest {
   DataIntegrationIdentifier: string;
   ClientId?: string;
-  ObjectConfiguration?: Record<string, Record<string, Array<string>>>;
+  ObjectConfiguration?: Partial<
+    Record<string, Partial<Record<string, Array<string>>>>
+  >;
   DestinationURI?: string;
-  ClientAssociationMetadata?: Record<string, string>;
+  ClientAssociationMetadata?: Partial<Record<string, string>>;
   ClientToken?: string;
   ExecutionConfiguration?: ExecutionConfiguration;
 }
@@ -348,7 +350,9 @@ export interface CreateDataIntegrationRequest {
   Tags?: Record<string, string>;
   ClientToken?: string;
   FileConfiguration?: FileConfiguration;
-  ObjectConfiguration?: Record<string, Record<string, Array<string>>>;
+  ObjectConfiguration?: Partial<
+    Record<string, Partial<Record<string, Array<string>>>>
+  >;
 }
 export interface CreateDataIntegrationResponse {
   Arn?: string;
@@ -361,7 +365,9 @@ export interface CreateDataIntegrationResponse {
   Tags?: Record<string, string>;
   ClientToken?: string;
   FileConfiguration?: FileConfiguration;
-  ObjectConfiguration?: Record<string, Record<string, Array<string>>>;
+  ObjectConfiguration?: Partial<
+    Record<string, Partial<Record<string, Array<string>>>>
+  >;
 }
 export interface CreateEventIntegrationRequest {
   Name: string;
@@ -434,7 +440,7 @@ export interface EventIntegrationAssociation {
   EventIntegrationName?: string;
   ClientId?: string;
   EventBridgeRuleName?: string;
-  ClientAssociationMetadata?: Record<string, string>;
+  ClientAssociationMetadata?: Partial<Record<string, string>>;
 }
 export type EventIntegrationAssociationsList =
   Array<EventIntegrationAssociation>;
@@ -455,10 +461,10 @@ export interface ExternalUrlConfig {
 export type Fields = string;
 
 export type FieldsList = Array<string>;
-export type FieldsMap = Record<string, Array<string>>;
+export type FieldsMap = Partial<Record<string, Array<string>>>;
 export interface FileConfiguration {
   Folders: Array<string>;
-  Filters?: Record<string, Array<string>>;
+  Filters?: Partial<Record<string, Array<string>>>;
 }
 export type FolderList = Array<string>;
 export interface GetApplicationRequest {
@@ -495,7 +501,9 @@ export interface GetDataIntegrationResponse {
   ScheduleConfiguration?: ScheduleConfiguration;
   Tags?: Record<string, string>;
   FileConfiguration?: FileConfiguration;
-  ObjectConfiguration?: Record<string, Record<string, Array<string>>>;
+  ObjectConfiguration?: Partial<
+    Record<string, Partial<Record<string, Array<string>>>>
+  >;
 }
 export interface GetEventIntegrationRequest {
   Name: string;
@@ -606,7 +614,9 @@ export type NonBlankString = string;
 
 export type AppintegrationsObject = string;
 
-export type ObjectConfiguration = Record<string, Record<string, Array<string>>>;
+export type ObjectConfiguration = Partial<
+  Record<string, Partial<Record<string, Array<string>>>>
+>;
 export interface OnDemandConfiguration {
   StartTime: string;
   EndTime?: string;

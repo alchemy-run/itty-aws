@@ -1219,7 +1219,7 @@ export interface CisScanConfiguration {
   securityLevel?: CisSecurityLevel;
   schedule?: Schedule;
   targets?: CisTargets;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type CisScanConfigurationArn = string;
 
@@ -1321,7 +1321,7 @@ export interface CisStringFilter {
   comparison: CisStringComparison;
   value: string;
 }
-export type CisTagMap = Record<string, string>;
+export type CisTagMap = Partial<Record<string, string>>;
 export interface CisTargetResourceAggregation {
   scanArn: string;
   targetResourceId?: string;
@@ -1448,7 +1448,7 @@ export interface CodeSecurityIntegrationSummary {
   statusReason: string;
   createdOn: Date | string;
   lastUpdateOn: Date | string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 interface _CodeSecurityResource {
   projectId?: string;
@@ -1478,7 +1478,7 @@ export interface CodeSecurityScanConfigurationSummary {
   continuousIntegrationScanSupportedEvents?: Array<ContinuousIntegrationScanEvent>;
   ruleSetCategories: Array<RuleSetCategory>;
   scopeSettings?: ScopeSettings;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type CodeSecurityUuid = string;
 
@@ -1608,7 +1608,7 @@ export interface CreateCisScanConfigurationRequest {
   securityLevel: CisSecurityLevel;
   schedule: Schedule;
   targets: CreateCisTargets;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateCisScanConfigurationResponse {
   scanConfigurationArn?: string;
@@ -1621,7 +1621,7 @@ export interface CreateCodeSecurityIntegrationRequest {
   name: string;
   type: IntegrationType;
   details?: CreateIntegrationDetail;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateCodeSecurityIntegrationResponse {
   integrationArn: string;
@@ -1633,7 +1633,7 @@ export interface CreateCodeSecurityScanConfigurationRequest {
   level: ConfigurationLevel;
   configuration: CodeSecurityScanConfiguration;
   scopeSettings?: ScopeSettings;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateCodeSecurityScanConfigurationResponse {
   scanConfigurationArn: string;
@@ -1643,7 +1643,7 @@ export interface CreateFilterRequest {
   description?: string;
   filterCriteria: FilterCriteria;
   name: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   reason?: string;
 }
 export interface CreateFilterResponse {
@@ -1824,7 +1824,7 @@ export interface Ec2InstanceAggregationResponse {
   instanceId: string;
   ami?: string;
   operatingSystem?: string;
-  instanceTags?: Record<string, string>;
+  instanceTags?: Partial<Record<string, string>>;
   accountId?: string;
   severityCounts?: SeverityCounts;
   networkFindings?: number;
@@ -1832,7 +1832,7 @@ export interface Ec2InstanceAggregationResponse {
 export type Ec2InstanceSortBy = string;
 
 export interface Ec2Metadata {
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   amiId?: string;
   platform?: string;
 }
@@ -1971,7 +1971,7 @@ export interface Filter {
   updatedAt: Date | string;
   description?: string;
   reason?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type FilterAction = string;
 
@@ -2174,7 +2174,7 @@ export interface GetClustersForImageResponse {
 }
 export interface GetCodeSecurityIntegrationRequest {
   integrationArn: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface GetCodeSecurityIntegrationResponse {
   integrationArn: string;
@@ -2184,7 +2184,7 @@ export interface GetCodeSecurityIntegrationResponse {
   statusReason: string;
   createdOn: Date | string;
   lastUpdateOn: Date | string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   authorizationUrl?: string;
 }
 export interface GetCodeSecurityScanConfigurationRequest {
@@ -2198,7 +2198,7 @@ export interface GetCodeSecurityScanConfigurationResponse {
   scopeSettings?: ScopeSettings;
   createdAt?: Date | string;
   lastUpdatedAt?: Date | string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface GetCodeSecurityScanRequest {
   resource: CodeSecurityResource;
@@ -2336,13 +2336,13 @@ export interface LambdaFunctionAggregationResponse {
   resourceId: string;
   functionName?: string;
   runtime?: string;
-  lambdaTags?: Record<string, string>;
+  lambdaTags?: Partial<Record<string, string>>;
   accountId?: string;
   severityCounts?: SeverityCounts;
   lastModifiedAt?: Date | string;
 }
 export interface LambdaFunctionMetadata {
-  functionTags?: Record<string, string>;
+  functionTags?: Partial<Record<string, string>>;
   layers?: Array<string>;
   functionName?: string;
   runtime?: string;
@@ -2570,7 +2570,7 @@ export interface ListTagsForResourceRequest {
   resourceArn: string;
 }
 export interface ListTagsForResourceResponse {
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type ListUsageTotalsMaxResults = number;
 
@@ -2796,7 +2796,7 @@ export interface Resource {
   id: string;
   partition?: string;
   region?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   details?: ResourceDetails;
 }
 export interface ResourceDetails {
@@ -3056,10 +3056,10 @@ export type TagKey = string;
 
 export type TagKeyList = Array<string>;
 export type TagList = Array<string>;
-export type TagMap = Record<string, string>;
+export type TagMap = Partial<Record<string, string>>;
 export interface TagResourceRequest {
   resourceArn: string;
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
 export interface TagResourceResponse {}
 export type TagValueList = Array<string>;

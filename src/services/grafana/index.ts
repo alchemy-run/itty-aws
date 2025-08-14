@@ -131,7 +131,7 @@ export interface CreateWorkspaceRequest {
   workspaceOrganizationalUnits?: Array<string>;
   workspaceRoleArn?: string;
   authenticationProviders: Array<string>;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   vpcConfiguration?: VpcConfiguration;
   configuration?: string;
   networkAccessControl?: NetworkAccessConfiguration;
@@ -268,7 +268,7 @@ export interface ListTagsForResourceRequest {
   resourceArn: string;
 }
 export interface ListTagsForResourceResponse {
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface ListVersionsRequest {
   maxResults?: number;
@@ -416,10 +416,10 @@ export type SubnetIds = Array<string>;
 export type TagKey = string;
 
 export type TagKeys = Array<string>;
-export type TagMap = Record<string, string>;
+export type TagMap = Partial<Record<string, string>>;
 export interface TagResourceRequest {
   resourceArn: string;
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
 export interface TagResourceResponse {}
 export type TagValue = string;
@@ -542,7 +542,7 @@ export interface WorkspaceDescription {
   licenseExpiration?: Date | string;
   freeTrialExpiration?: Date | string;
   authentication: AuthenticationSummary;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   vpcConfiguration?: VpcConfiguration;
   networkAccessControl?: NetworkAccessConfiguration;
   grafanaToken?: string;
@@ -565,7 +565,7 @@ export interface WorkspaceSummary {
   notificationDestinations?: Array<string>;
   status: string;
   authentication: AuthenticationSummary;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   licenseType?: string;
   grafanaToken?: string;
 }

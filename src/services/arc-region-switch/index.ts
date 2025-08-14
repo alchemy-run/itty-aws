@@ -138,7 +138,9 @@ export interface ArcRoutingControlConfiguration {
   timeoutMinutes?: number;
   crossAccountRole?: string;
   externalId?: string;
-  regionAndRoutingControls: Record<string, Array<ArcRoutingControlState>>;
+  regionAndRoutingControls: Partial<
+    Record<string, Array<ArcRoutingControlState>>
+  >;
 }
 export interface ArcRoutingControlState {
   routingControlArn: string;
@@ -159,7 +161,7 @@ export interface AssociatedAlarm {
   resourceIdentifier: string;
   alarmType: AlarmType;
 }
-export type AssociatedAlarmMap = Record<string, AssociatedAlarm>;
+export type AssociatedAlarmMap = Partial<Record<string, AssociatedAlarm>>;
 export type AuroraClusterArn = string;
 
 export type AuroraClusterArns = Array<string>;
@@ -174,13 +176,13 @@ export interface CreatePlanRequest {
   workflows: Array<Workflow>;
   executionRole: string;
   recoveryTimeObjectiveMinutes?: number;
-  associatedAlarms?: Record<string, AssociatedAlarm>;
+  associatedAlarms?: Partial<Record<string, AssociatedAlarm>>;
   triggers?: Array<Trigger>;
   name: string;
   regions: Array<string>;
   recoveryApproach: RecoveryApproach;
   primaryRegion?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreatePlanResponse {
   plan?: Plan;
@@ -241,7 +243,7 @@ export interface EksResourceScalingConfiguration {
   timeoutMinutes?: number;
   kubernetesResourceType: KubernetesResourceType;
   scalingResources?: Array<
-    Record<string, Record<string, KubernetesScalingResource>>
+    Partial<Record<string, Partial<Record<string, KubernetesScalingResource>>>>
   >;
   eksClusters?: Array<EksCluster>;
   ungraceful?: EksResourceScalingUngraceful;
@@ -461,12 +463,11 @@ export interface KubernetesResourceType {
   apiVersion: string;
   kind: string;
 }
-export type KubernetesScalingApplication = Record<
-  string,
-  Record<string, KubernetesScalingResource>
+export type KubernetesScalingApplication = Partial<
+  Record<string, Partial<Record<string, KubernetesScalingResource>>>
 >;
 export type KubernetesScalingApps = Array<
-  Record<string, Record<string, KubernetesScalingResource>>
+  Partial<Record<string, Partial<Record<string, KubernetesScalingResource>>>>
 >;
 export interface KubernetesScalingResource {
   namespace: string;
@@ -541,7 +542,7 @@ export interface ListTagsForResourceRequest {
   arn: string;
 }
 export interface ListTagsForResourceResponse {
-  resourceTags?: Record<string, string>;
+  resourceTags?: Partial<Record<string, string>>;
 }
 export type MaxResults = number;
 
@@ -560,7 +561,7 @@ export interface Plan {
   workflows: Array<Workflow>;
   executionRole: string;
   recoveryTimeObjectiveMinutes?: number;
-  associatedAlarms?: Record<string, AssociatedAlarm>;
+  associatedAlarms?: Partial<Record<string, AssociatedAlarm>>;
   triggers?: Array<Trigger>;
   name: string;
   regions: Array<string>;
@@ -579,10 +580,11 @@ export type PlanWarnings = Array<ResourceWarning>;
 export type RecoveryApproach = "ACTIVE_ACTIVE" | "ACTIVE_PASSIVE";
 export type Region = string;
 
-export type RegionalScalingResource = Record<string, KubernetesScalingResource>;
-export type RegionAndRoutingControls = Record<
-  string,
-  Array<ArcRoutingControlState>
+export type RegionalScalingResource = Partial<
+  Record<string, KubernetesScalingResource>
+>;
+export type RegionAndRoutingControls = Partial<
+  Record<string, Array<ArcRoutingControlState>>
 >;
 export type RegionList = Array<string>;
 export interface RegionSwitchPlanConfiguration {
@@ -694,10 +696,10 @@ export type TagKey = string;
 export type TagKeys = Array<string>;
 export interface TagResourceRequest {
   arn: string;
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
 export interface TagResourceResponse {}
-export type Tags = Record<string, string>;
+export type Tags = Partial<Record<string, string>>;
 export type TagValue = string;
 
 export interface Trigger {
@@ -745,7 +747,7 @@ export interface UpdatePlanRequest {
   workflows: Array<Workflow>;
   executionRole: string;
   recoveryTimeObjectiveMinutes?: number;
-  associatedAlarms?: Record<string, AssociatedAlarm>;
+  associatedAlarms?: Partial<Record<string, AssociatedAlarm>>;
   triggers?: Array<Trigger>;
 }
 export interface UpdatePlanResponse {

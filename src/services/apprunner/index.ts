@@ -411,8 +411,8 @@ export interface CodeConfigurationValues {
   BuildCommand?: string;
   StartCommand?: string;
   Port?: string;
-  RuntimeEnvironmentVariables?: Record<string, string>;
-  RuntimeEnvironmentSecrets?: Record<string, string>;
+  RuntimeEnvironmentVariables?: Partial<Record<string, string>>;
+  RuntimeEnvironmentSecrets?: Partial<Record<string, string>>;
 }
 export interface CodeRepository {
   RepositoryUrl: string;
@@ -647,10 +647,10 @@ export type HealthCheckTimeout = number;
 export type HealthCheckUnhealthyThreshold = number;
 
 export interface ImageConfiguration {
-  RuntimeEnvironmentVariables?: Record<string, string>;
+  RuntimeEnvironmentVariables?: Partial<Record<string, string>>;
   StartCommand?: string;
   Port?: string;
-  RuntimeEnvironmentSecrets?: Record<string, string>;
+  RuntimeEnvironmentSecrets?: Partial<Record<string, string>>;
 }
 export type ImageIdentifier = string;
 
@@ -880,12 +880,12 @@ export type Runtime =
   | "PYTHON_311"
   | "NODEJS_18"
   | "NODEJS_22";
-export type RuntimeEnvironmentSecrets = Record<string, string>;
+export type RuntimeEnvironmentSecrets = Partial<Record<string, string>>;
 export type RuntimeEnvironmentSecretsName = string;
 
 export type RuntimeEnvironmentSecretsValue = string;
 
-export type RuntimeEnvironmentVariables = Record<string, string>;
+export type RuntimeEnvironmentVariables = Partial<Record<string, string>>;
 export type RuntimeEnvironmentVariablesKey = string;
 
 export type RuntimeEnvironmentVariablesValue = string;

@@ -282,7 +282,7 @@ export interface ListTagsForResourceRequest {
   ResourceARN: string;
 }
 export interface ListTagsForResourceResponse {
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface LoadForecast {
   Timestamps: Array<Date | string>;
@@ -484,7 +484,7 @@ export interface RegisterScalableTargetRequest {
   MaxCapacity?: number;
   RoleARN?: string;
   SuspendedState?: SuspendedState;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface RegisterScalableTargetResponse {
   ScalableTargetARN?: string;
@@ -641,10 +641,10 @@ export interface SuspendedState {
 export type TagKey = string;
 
 export type TagKeyList = Array<string>;
-export type TagMap = Record<string, string>;
+export type TagMap = Partial<Record<string, string>>;
 export interface TagResourceRequest {
   ResourceARN: string;
-  Tags: Record<string, string>;
+  Tags: Partial<Record<string, string>>;
 }
 export interface TagResourceResponse {}
 export type TagValue = string;

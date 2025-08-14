@@ -1605,14 +1605,14 @@ export interface ActivityResponse {
   TimezonesTotalCount?: number;
   TotalEndpointCount?: number;
   TreatmentId?: string;
-  ExecutionMetrics?: Record<string, string>;
+  ExecutionMetrics?: Partial<Record<string, string>>;
 }
 export interface AddressConfiguration {
   BodyOverride?: string;
   ChannelType?: ChannelType;
-  Context?: Record<string, string>;
+  Context?: Partial<Record<string, string>>;
   RawContent?: string;
-  Substitutions?: Record<string, Array<string>>;
+  Substitutions?: Partial<Record<string, Array<string>>>;
   TitleOverride?: string;
 }
 export interface ADMChannelRequest {
@@ -1636,7 +1636,7 @@ export interface ADMMessage {
   Action?: Action;
   Body?: string;
   ConsolidationKey?: string;
-  Data?: Record<string, string>;
+  Data?: Partial<Record<string, string>>;
   ExpiresAfter?: string;
   IconReference?: string;
   ImageIconUrl?: string;
@@ -1646,7 +1646,7 @@ export interface ADMMessage {
   SilentPush?: boolean;
   SmallImageIconUrl?: string;
   Sound?: string;
-  Substitutions?: Record<string, Array<string>>;
+  Substitutions?: Partial<Record<string, Array<string>>>;
   Title?: string;
   Url?: string;
 }
@@ -1693,14 +1693,14 @@ export interface APNSMessage {
   Body?: string;
   Category?: string;
   CollapseId?: string;
-  Data?: Record<string, string>;
+  Data?: Partial<Record<string, string>>;
   MediaUrl?: string;
   PreferredAuthenticationMethod?: string;
   Priority?: string;
   RawContent?: string;
   SilentPush?: boolean;
   Sound?: string;
-  Substitutions?: Record<string, Array<string>>;
+  Substitutions?: Partial<Record<string, Array<string>>>;
   ThreadId?: string;
   TimeToLive?: number;
   Title?: string;
@@ -1799,7 +1799,7 @@ export interface ApplicationResponse {
   Arn: string;
   Id: string;
   Name: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   CreationDate?: string;
 }
 export interface ApplicationSettingsJourneyLimits {
@@ -1863,7 +1863,7 @@ export interface BaiduChannelResponse {
 export interface BaiduMessage {
   Action?: Action;
   Body?: string;
-  Data?: Record<string, string>;
+  Data?: Partial<Record<string, string>>;
   IconReference?: string;
   ImageIconUrl?: string;
   ImageUrl?: string;
@@ -1871,7 +1871,7 @@ export interface BaiduMessage {
   SilentPush?: boolean;
   SmallImageIconUrl?: string;
   Sound?: string;
-  Substitutions?: Record<string, Array<string>>;
+  Substitutions?: Partial<Record<string, Array<string>>>;
   TimeToLive?: number;
   Title?: string;
   Url?: string;
@@ -1911,7 +1911,7 @@ export interface CampaignHook {
 export interface CampaignInAppMessage {
   Body?: string;
   Content?: Array<InAppMessageContent>;
-  CustomConfig?: Record<string, string>;
+  CustomConfig?: Partial<Record<string, string>>;
   Layout?: Layout;
 }
 export interface CampaignLimits {
@@ -1941,7 +1941,7 @@ export interface CampaignResponse {
   SegmentId: string;
   SegmentVersion: number;
   State?: CampaignState;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   TemplateConfiguration?: TemplateConfiguration;
   TreatmentDescription?: string;
   TreatmentName?: string;
@@ -1983,7 +1983,7 @@ export interface ChannelResponse {
   Version?: number;
 }
 export interface ChannelsResponse {
-  Channels: Record<string, ChannelResponse>;
+  Channels: Partial<Record<string, ChannelResponse>>;
 }
 export type ChannelType =
   | "PUSH"
@@ -2032,7 +2032,7 @@ export interface ContactCenterActivity {
 }
 export interface CreateApplicationRequest {
   Name: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateAppRequest {
   CreateApplicationRequest: CreateApplicationRequest;
@@ -2096,7 +2096,7 @@ export interface CreateRecommenderConfigurationResponse {
   RecommenderConfigurationResponse: RecommenderConfigurationResponse;
 }
 export interface CreateRecommenderConfigurationShape {
-  Attributes?: Record<string, string>;
+  Attributes?: Partial<Record<string, string>>;
   Description?: string;
   Name?: string;
   RecommendationProviderIdType?: string;
@@ -2162,14 +2162,14 @@ export interface DefaultButtonConfiguration {
 }
 export interface DefaultMessage {
   Body?: string;
-  Substitutions?: Record<string, Array<string>>;
+  Substitutions?: Partial<Record<string, Array<string>>>;
 }
 export interface DefaultPushNotificationMessage {
   Action?: Action;
   Body?: string;
-  Data?: Record<string, string>;
+  Data?: Partial<Record<string, string>>;
   SilentPush?: boolean;
-  Substitutions?: Record<string, Array<string>>;
+  Substitutions?: Partial<Record<string, Array<string>>>;
   Title?: string;
   Url?: string;
 }
@@ -2382,7 +2382,7 @@ export interface EmailMessage {
   RawEmail?: RawEmail;
   ReplyToAddresses?: Array<string>;
   SimpleEmail?: SimpleEmail;
-  Substitutions?: Record<string, Array<string>>;
+  Substitutions?: Partial<Record<string, Array<string>>>;
 }
 export interface EmailMessageActivity {
   MessageConfig?: JourneyEmailMessage;
@@ -2396,7 +2396,7 @@ export interface EmailTemplateRequest {
   RecommenderId?: string;
   Subject?: string;
   Headers?: Array<MessageHeader>;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   TemplateDescription?: string;
   TextPart?: string;
 }
@@ -2409,7 +2409,7 @@ export interface EmailTemplateResponse {
   RecommenderId?: string;
   Subject?: string;
   Headers?: Array<MessageHeader>;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   TemplateDescription?: string;
   TemplateName: string;
   TemplateType: TemplateType;
@@ -2418,14 +2418,14 @@ export interface EmailTemplateResponse {
 }
 export interface EndpointBatchItem {
   Address?: string;
-  Attributes?: Record<string, Array<string>>;
+  Attributes?: Partial<Record<string, Array<string>>>;
   ChannelType?: ChannelType;
   Demographic?: EndpointDemographic;
   EffectiveDate?: string;
   EndpointStatus?: string;
   Id?: string;
   Location?: EndpointLocation;
-  Metrics?: Record<string, number>;
+  Metrics?: Partial<Record<string, number>>;
   OptOut?: string;
   RequestId?: string;
   User?: EndpointUser;
@@ -2465,13 +2465,13 @@ export interface EndpointMessageResult {
 }
 export interface EndpointRequest {
   Address?: string;
-  Attributes?: Record<string, Array<string>>;
+  Attributes?: Partial<Record<string, Array<string>>>;
   ChannelType?: ChannelType;
   Demographic?: EndpointDemographic;
   EffectiveDate?: string;
   EndpointStatus?: string;
   Location?: EndpointLocation;
-  Metrics?: Record<string, number>;
+  Metrics?: Partial<Record<string, number>>;
   OptOut?: string;
   RequestId?: string;
   User?: EndpointUser;
@@ -2479,7 +2479,7 @@ export interface EndpointRequest {
 export interface EndpointResponse {
   Address?: string;
   ApplicationId?: string;
-  Attributes?: Record<string, Array<string>>;
+  Attributes?: Partial<Record<string, Array<string>>>;
   ChannelType?: ChannelType;
   CohortId?: string;
   CreationDate?: string;
@@ -2488,33 +2488,33 @@ export interface EndpointResponse {
   EndpointStatus?: string;
   Id?: string;
   Location?: EndpointLocation;
-  Metrics?: Record<string, number>;
+  Metrics?: Partial<Record<string, number>>;
   OptOut?: string;
   RequestId?: string;
   User?: EndpointUser;
 }
 export interface EndpointSendConfiguration {
   BodyOverride?: string;
-  Context?: Record<string, string>;
+  Context?: Partial<Record<string, string>>;
   RawContent?: string;
-  Substitutions?: Record<string, Array<string>>;
+  Substitutions?: Partial<Record<string, Array<string>>>;
   TitleOverride?: string;
 }
 export interface EndpointsResponse {
   Item: Array<EndpointResponse>;
 }
 export interface EndpointUser {
-  UserAttributes?: Record<string, Array<string>>;
+  UserAttributes?: Partial<Record<string, Array<string>>>;
   UserId?: string;
 }
 export interface Event {
   AppPackageName?: string;
   AppTitle?: string;
   AppVersionCode?: string;
-  Attributes?: Record<string, string>;
+  Attributes?: Partial<Record<string, string>>;
   ClientSdkVersion?: string;
   EventType: string;
-  Metrics?: Record<string, number>;
+  Metrics?: Partial<Record<string, number>>;
   SdkName?: string;
   Session?: Session;
   Timestamp: string;
@@ -2524,9 +2524,9 @@ export interface EventCondition {
   MessageActivity?: string;
 }
 export interface EventDimensions {
-  Attributes?: Record<string, AttributeDimension>;
+  Attributes?: Partial<Record<string, AttributeDimension>>;
   EventType?: SetDimension;
-  Metrics?: Record<string, MetricDimension>;
+  Metrics?: Partial<Record<string, MetricDimension>>;
 }
 export interface EventFilter {
   Dimensions: EventDimensions;
@@ -2538,13 +2538,13 @@ export interface EventItemResponse {
 }
 export interface EventsBatch {
   Endpoint: PublicEndpoint;
-  Events: Record<string, Event>;
+  Events: Partial<Record<string, Event>>;
 }
 export interface EventsRequest {
-  BatchItem: Record<string, EventsBatch>;
+  BatchItem: Partial<Record<string, EventsBatch>>;
 }
 export interface EventsResponse {
-  Results?: Record<string, ItemResponse>;
+  Results?: Partial<Record<string, ItemResponse>>;
 }
 export interface EventStartCondition {
   EventFilter?: EventFilter;
@@ -2630,7 +2630,7 @@ export interface GCMMessage {
   Action?: Action;
   Body?: string;
   CollapseKey?: string;
-  Data?: Record<string, string>;
+  Data?: Partial<Record<string, string>>;
   IconReference?: string;
   ImageIconUrl?: string;
   ImageUrl?: string;
@@ -2641,7 +2641,7 @@ export interface GCMMessage {
   SilentPush?: boolean;
   SmallImageIconUrl?: string;
   Sound?: string;
-  Substitutions?: Record<string, Array<string>>;
+  Substitutions?: Partial<Record<string, Array<string>>>;
   TimeToLive?: number;
   Title?: string;
   Url?: string;
@@ -3076,7 +3076,7 @@ export interface InAppCampaignSchedule {
 }
 export interface InAppMessage {
   Content?: Array<InAppMessageContent>;
-  CustomConfig?: Record<string, string>;
+  CustomConfig?: Partial<Record<string, string>>;
   Layout?: Layout;
 }
 export interface InAppMessageBodyConfig {
@@ -3118,19 +3118,19 @@ export interface InAppMessagesResponse {
 }
 export interface InAppTemplateRequest {
   Content?: Array<InAppMessageContent>;
-  CustomConfig?: Record<string, string>;
+  CustomConfig?: Partial<Record<string, string>>;
   Layout?: Layout;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   TemplateDescription?: string;
 }
 export interface InAppTemplateResponse {
   Arn?: string;
   Content?: Array<InAppMessageContent>;
   CreationDate: string;
-  CustomConfig?: Record<string, string>;
+  CustomConfig?: Partial<Record<string, string>>;
   LastModifiedDate: string;
   Layout?: Layout;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   TemplateDescription?: string;
   TemplateName: string;
   TemplateType: TemplateType;
@@ -3145,7 +3145,7 @@ export declare class InternalServerErrorException extends EffectData.TaggedError
 }> {}
 export interface ItemResponse {
   EndpointItemResponse?: EndpointItemResponse;
-  EventsItemResponse?: Record<string, EventItemResponse>;
+  EventsItemResponse?: Partial<Record<string, EventItemResponse>>;
 }
 export type JobStatus =
   | "CREATED"
@@ -3182,13 +3182,13 @@ export interface JourneyExecutionActivityMetricsResponse {
   JourneyActivityId: string;
   JourneyId: string;
   LastEvaluatedTime: string;
-  Metrics: Record<string, string>;
+  Metrics: Partial<Record<string, string>>;
 }
 export interface JourneyExecutionMetricsResponse {
   ApplicationId: string;
   JourneyId: string;
   LastEvaluatedTime: string;
-  Metrics: Record<string, string>;
+  Metrics: Partial<Record<string, string>>;
 }
 export interface JourneyLimits {
   DailyCap?: number;
@@ -3202,7 +3202,7 @@ export interface JourneyPushMessage {
   TimeToLive?: string;
 }
 export interface JourneyResponse {
-  Activities?: Record<string, Activity>;
+  Activities?: Partial<Record<string, Activity>>;
   ApplicationId: string;
   CreationDate?: string;
   Id: string;
@@ -3216,7 +3216,7 @@ export interface JourneyResponse {
   StartActivity?: string;
   StartCondition?: StartCondition;
   State?: State;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   WaitForQuietTime?: boolean;
   RefreshOnSegmentUpdate?: boolean;
   JourneyChannelSettings?: JourneyChannelSettings;
@@ -3231,14 +3231,14 @@ export interface JourneyRunExecutionActivityMetricsResponse {
   JourneyActivityId: string;
   JourneyId: string;
   LastEvaluatedTime: string;
-  Metrics: Record<string, string>;
+  Metrics: Partial<Record<string, string>>;
   RunId: string;
 }
 export interface JourneyRunExecutionMetricsResponse {
   ApplicationId: string;
   JourneyId: string;
   LastEvaluatedTime: string;
-  Metrics: Record<string, string>;
+  Metrics: Partial<Record<string, string>>;
   RunId: string;
 }
 export interface JourneyRunResponse {
@@ -3355,30 +3355,36 @@ export interface ListTemplateVersionsRequest {
 export interface ListTemplateVersionsResponse {
   TemplateVersionsResponse: TemplateVersionsResponse;
 }
-export type MapOf__double = Record<string, number>;
-export type MapOf__integer = Record<string, number>;
-export type MapOf__string = Record<string, string>;
-export type MapOfActivity = Record<string, Activity>;
-export type MapOfAddressConfiguration = Record<string, AddressConfiguration>;
-export type MapOfAttributeDimension = Record<string, AttributeDimension>;
-export type MapOfChannelResponse = Record<string, ChannelResponse>;
-export type MapOfEndpointMessageResult = Record<string, EndpointMessageResult>;
-export type MapOfEndpointSendConfiguration = Record<
-  string,
-  EndpointSendConfiguration
+export type MapOf__double = Partial<Record<string, number>>;
+export type MapOf__integer = Partial<Record<string, number>>;
+export type MapOf__string = Partial<Record<string, string>>;
+export type MapOfActivity = Partial<Record<string, Activity>>;
+export type MapOfAddressConfiguration = Partial<
+  Record<string, AddressConfiguration>
 >;
-export type MapOfEvent = Record<string, Event>;
-export type MapOfEventItemResponse = Record<string, EventItemResponse>;
-export type MapOfEventsBatch = Record<string, EventsBatch>;
-export type MapOfItemResponse = Record<string, ItemResponse>;
-export type MapOfListOf__string = Record<string, Array<string>>;
-export type MapOfListOfOpenHoursRules = Record<DayOfWeek, Array<OpenHoursRule>>;
-export type MapOfMapOfEndpointMessageResult = Record<
-  string,
+export type MapOfAttributeDimension = Partial<
+  Record<string, AttributeDimension>
+>;
+export type MapOfChannelResponse = Partial<Record<string, ChannelResponse>>;
+export type MapOfEndpointMessageResult = Partial<
   Record<string, EndpointMessageResult>
 >;
-export type MapOfMessageResult = Record<string, MessageResult>;
-export type MapOfMetricDimension = Record<string, MetricDimension>;
+export type MapOfEndpointSendConfiguration = Partial<
+  Record<string, EndpointSendConfiguration>
+>;
+export type MapOfEvent = Partial<Record<string, Event>>;
+export type MapOfEventItemResponse = Partial<Record<string, EventItemResponse>>;
+export type MapOfEventsBatch = Partial<Record<string, EventsBatch>>;
+export type MapOfItemResponse = Partial<Record<string, ItemResponse>>;
+export type MapOfListOf__string = Partial<Record<string, Array<string>>>;
+export type MapOfListOfOpenHoursRules = Partial<
+  Record<DayOfWeek, Array<OpenHoursRule>>
+>;
+export type MapOfMapOfEndpointMessageResult = Partial<
+  Record<string, Partial<Record<string, EndpointMessageResult>>>
+>;
+export type MapOfMessageResult = Partial<Record<string, MessageResult>>;
+export type MapOfMetricDimension = Partial<Record<string, MetricDimension>>;
 export interface Message {
   Action?: Action;
   Body?: string;
@@ -3413,18 +3419,18 @@ export interface MessageHeader {
   Value?: string;
 }
 export interface MessageRequest {
-  Addresses?: Record<string, AddressConfiguration>;
-  Context?: Record<string, string>;
-  Endpoints?: Record<string, EndpointSendConfiguration>;
+  Addresses?: Partial<Record<string, AddressConfiguration>>;
+  Context?: Partial<Record<string, string>>;
+  Endpoints?: Partial<Record<string, EndpointSendConfiguration>>;
   MessageConfiguration: DirectMessageConfiguration;
   TemplateConfiguration?: TemplateConfiguration;
   TraceId?: string;
 }
 export interface MessageResponse {
   ApplicationId: string;
-  EndpointResult?: Record<string, EndpointMessageResult>;
+  EndpointResult?: Partial<Record<string, EndpointMessageResult>>;
   RequestId?: string;
-  Result?: Record<string, MessageResult>;
+  Result?: Partial<Record<string, MessageResult>>;
 }
 export interface MessageResult {
   DeliveryStatus: DeliveryStatus;
@@ -3481,11 +3487,11 @@ export interface NumberValidateResponse {
   ZipCode?: string;
 }
 export interface OpenHours {
-  EMAIL?: Record<DayOfWeek, Array<OpenHoursRule>>;
-  SMS?: Record<DayOfWeek, Array<OpenHoursRule>>;
-  PUSH?: Record<DayOfWeek, Array<OpenHoursRule>>;
-  VOICE?: Record<DayOfWeek, Array<OpenHoursRule>>;
-  CUSTOM?: Record<DayOfWeek, Array<OpenHoursRule>>;
+  EMAIL?: Partial<Record<DayOfWeek, Array<OpenHoursRule>>>;
+  SMS?: Partial<Record<DayOfWeek, Array<OpenHoursRule>>>;
+  PUSH?: Partial<Record<DayOfWeek, Array<OpenHoursRule>>>;
+  VOICE?: Partial<Record<DayOfWeek, Array<OpenHoursRule>>>;
+  CUSTOM?: Partial<Record<DayOfWeek, Array<OpenHoursRule>>>;
 }
 export interface OpenHoursRule {
   StartTime?: string;
@@ -3510,13 +3516,13 @@ export interface PhoneNumberValidateResponse {
 }
 export interface PublicEndpoint {
   Address?: string;
-  Attributes?: Record<string, Array<string>>;
+  Attributes?: Partial<Record<string, Array<string>>>;
   ChannelType?: ChannelType;
   Demographic?: EndpointDemographic;
   EffectiveDate?: string;
   EndpointStatus?: string;
   Location?: EndpointLocation;
-  Metrics?: Record<string, number>;
+  Metrics?: Partial<Record<string, number>>;
   OptOut?: string;
   RequestId?: string;
   User?: EndpointUser;
@@ -3535,7 +3541,7 @@ export interface PushNotificationTemplateRequest {
   DefaultSubstitutions?: string;
   GCM?: AndroidPushNotificationTemplate;
   RecommenderId?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   TemplateDescription?: string;
 }
 export interface PushNotificationTemplateResponse {
@@ -3549,7 +3555,7 @@ export interface PushNotificationTemplateResponse {
   GCM?: AndroidPushNotificationTemplate;
   LastModifiedDate: string;
   RecommenderId?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   TemplateDescription?: string;
   TemplateName: string;
   TemplateType: TemplateType;
@@ -3589,7 +3595,7 @@ export interface RecencyDimension {
 }
 export type RecencyType = "ACTIVE" | "INACTIVE";
 export interface RecommenderConfigurationResponse {
-  Attributes?: Record<string, string>;
+  Attributes?: Partial<Record<string, string>>;
   CreationDate: string;
   Description?: string;
   Id: string;
@@ -3643,12 +3649,12 @@ export interface SegmentDemographics {
   Platform?: SetDimension;
 }
 export interface SegmentDimensions {
-  Attributes?: Record<string, AttributeDimension>;
+  Attributes?: Partial<Record<string, AttributeDimension>>;
   Behavior?: SegmentBehaviors;
   Demographic?: SegmentDemographics;
   Location?: SegmentLocation;
-  Metrics?: Record<string, MetricDimension>;
-  UserAttributes?: Record<string, AttributeDimension>;
+  Metrics?: Partial<Record<string, MetricDimension>>;
+  UserAttributes?: Partial<Record<string, AttributeDimension>>;
 }
 export interface SegmentGroup {
   Dimensions?: Array<SegmentDimensions>;
@@ -3661,7 +3667,7 @@ export interface SegmentGroupList {
   Include?: Include;
 }
 export interface SegmentImportResource {
-  ChannelCounts?: Record<string, number>;
+  ChannelCounts?: Partial<Record<string, number>>;
   ExternalId: string;
   Format: Format;
   RoleArn: string;
@@ -3687,7 +3693,7 @@ export interface SegmentResponse {
   Name?: string;
   SegmentGroups?: SegmentGroupList;
   SegmentType: SegmentType;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   Version?: number;
 }
 export interface SegmentsResponse {
@@ -3723,16 +3729,18 @@ export interface SendOTPMessageResponse {
   MessageResponse: MessageResponse;
 }
 export interface SendUsersMessageRequest {
-  Context?: Record<string, string>;
+  Context?: Partial<Record<string, string>>;
   MessageConfiguration: DirectMessageConfiguration;
   TemplateConfiguration?: TemplateConfiguration;
   TraceId?: string;
-  Users: Record<string, EndpointSendConfiguration>;
+  Users: Partial<Record<string, EndpointSendConfiguration>>;
 }
 export interface SendUsersMessageResponse {
   ApplicationId: string;
   RequestId?: string;
-  Result?: Record<string, Record<string, EndpointMessageResult>>;
+  Result?: Partial<
+    Record<string, Partial<Record<string, EndpointMessageResult>>>
+  >;
 }
 export interface SendUsersMessagesRequest {
   ApplicationId: string;
@@ -3794,7 +3802,7 @@ export interface SMSMessage {
   MessageType?: MessageType;
   OriginationNumber?: string;
   SenderId?: string;
-  Substitutions?: Record<string, Array<string>>;
+  Substitutions?: Partial<Record<string, Array<string>>>;
   EntityId?: string;
   TemplateId?: string;
 }
@@ -3808,7 +3816,7 @@ export interface SMSTemplateRequest {
   Body?: string;
   DefaultSubstitutions?: string;
   RecommenderId?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   TemplateDescription?: string;
 }
 export interface SMSTemplateResponse {
@@ -3818,7 +3826,7 @@ export interface SMSTemplateResponse {
   DefaultSubstitutions?: string;
   LastModifiedDate: string;
   RecommenderId?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   TemplateDescription?: string;
   TemplateName: string;
   TemplateType: TemplateType;
@@ -3842,7 +3850,7 @@ export interface TagResourceRequest {
   TagsModel: TagsModel;
 }
 export interface TagsModel {
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
 export interface Template {
   Name?: string;
@@ -3868,7 +3876,7 @@ export interface TemplateResponse {
   CreationDate: string;
   DefaultSubstitutions?: string;
   LastModifiedDate: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   TemplateDescription?: string;
   TemplateName: string;
   TemplateType: TemplateType;
@@ -4056,7 +4064,7 @@ export interface UpdateRecommenderConfigurationResponse {
   RecommenderConfigurationResponse: RecommenderConfigurationResponse;
 }
 export interface UpdateRecommenderConfigurationShape {
-  Attributes?: Record<string, string>;
+  Attributes?: Partial<Record<string, string>>;
   Description?: string;
   Name?: string;
   RecommendationProviderIdType?: string;
@@ -4148,14 +4156,14 @@ export interface VoiceMessage {
   Body?: string;
   LanguageCode?: string;
   OriginationNumber?: string;
-  Substitutions?: Record<string, Array<string>>;
+  Substitutions?: Partial<Record<string, Array<string>>>;
   VoiceId?: string;
 }
 export interface VoiceTemplateRequest {
   Body?: string;
   DefaultSubstitutions?: string;
   LanguageCode?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   TemplateDescription?: string;
   VoiceId?: string;
 }
@@ -4166,7 +4174,7 @@ export interface VoiceTemplateResponse {
   DefaultSubstitutions?: string;
   LanguageCode?: string;
   LastModifiedDate: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   TemplateDescription?: string;
   TemplateName: string;
   TemplateType: TemplateType;
@@ -4202,7 +4210,7 @@ export interface WriteCampaignRequest {
   Schedule?: Schedule;
   SegmentId?: string;
   SegmentVersion?: number;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   TemplateConfiguration?: TemplateConfiguration;
   TreatmentDescription?: string;
   TreatmentName?: string;
@@ -4213,7 +4221,7 @@ export interface WriteEventStream {
   RoleArn: string;
 }
 export interface WriteJourneyRequest {
-  Activities?: Record<string, Activity>;
+  Activities?: Partial<Record<string, Activity>>;
   CreationDate?: string;
   LastModifiedDate?: string;
   Limits?: JourneyLimits;
@@ -4237,7 +4245,7 @@ export interface WriteSegmentRequest {
   Dimensions?: SegmentDimensions;
   Name?: string;
   SegmentGroups?: SegmentGroupList;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface WriteTreatmentResource {
   CustomDeliveryConfiguration?: CustomDeliveryConfiguration;

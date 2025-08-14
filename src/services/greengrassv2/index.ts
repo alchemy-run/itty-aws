@@ -361,7 +361,7 @@ export type CloudComponentState =
 export interface CloudComponentStatus {
   componentState?: CloudComponentState;
   message?: string;
-  errors?: Record<string, string>;
+  errors?: Partial<Record<string, string>>;
   vendorGuidance?: VendorGuidance;
   vendorGuidanceMessage?: string;
 }
@@ -375,7 +375,7 @@ export type ComponentARN = string;
 export interface ComponentCandidate {
   componentName?: string;
   componentVersion?: string;
-  versionRequirements?: Record<string, string>;
+  versionRequirements?: Partial<Record<string, string>>;
 }
 export type ComponentCandidateList = Array<ComponentCandidate>;
 export type ComponentConfigurationPath = string;
@@ -387,9 +387,8 @@ export interface ComponentConfigurationUpdate {
   merge?: string;
   reset?: Array<string>;
 }
-export type ComponentDependencyMap = Record<
-  string,
-  ComponentDependencyRequirement
+export type ComponentDependencyMap = Partial<
+  Record<string, ComponentDependencyRequirement>
 >;
 export interface ComponentDependencyRequirement {
   versionRequirement?: string;
@@ -401,9 +400,8 @@ export interface ComponentDeploymentSpecification {
   configurationUpdate?: ComponentConfigurationUpdate;
   runWith?: ComponentRunWith;
 }
-export type ComponentDeploymentSpecifications = Record<
-  string,
-  ComponentDeploymentSpecification
+export type ComponentDeploymentSpecifications = Partial<
+  Record<string, ComponentDeploymentSpecification>
 >;
 export interface ComponentLatestVersion {
   arn?: string;
@@ -418,7 +416,7 @@ export type ComponentNameString = string;
 
 export interface ComponentPlatform {
   name?: string;
-  attributes?: Record<string, string>;
+  attributes?: Partial<Record<string, string>>;
 }
 export type ComponentPlatformList = Array<ComponentPlatform>;
 export interface ComponentRunWith {
@@ -434,7 +432,7 @@ export interface ComponentVersionListItem {
   componentVersion?: string;
   arn?: string;
 }
-export type ComponentVersionRequirementMap = Record<string, string>;
+export type ComponentVersionRequirementMap = Partial<Record<string, string>>;
 export type ComponentVersionString = string;
 
 export type ComponentVisibilityScope = "PRIVATE" | "PUBLIC";
@@ -488,7 +486,7 @@ export interface CreateComponentVersionResponse {
 export interface CreateDeploymentRequest {
   targetArn: string;
   deploymentName?: string;
-  components?: Record<string, ComponentDeploymentSpecification>;
+  components?: Partial<Record<string, ComponentDeploymentSpecification>>;
   iotJobConfiguration?: DeploymentIoTJobConfiguration;
   deploymentPolicies?: DeploymentPolicies;
   parentTargetArn?: string;
@@ -676,7 +674,7 @@ export interface GetDeploymentResponse {
   deploymentStatus?: DeploymentStatus;
   iotJobId?: string;
   iotJobArn?: string;
-  components?: Record<string, ComponentDeploymentSpecification>;
+  components?: Partial<Record<string, ComponentDeploymentSpecification>>;
   deploymentPolicies?: DeploymentPolicies;
   iotJobConfiguration?: DeploymentIoTJobConfiguration;
   creationTimestamp?: Date | string;
@@ -791,7 +789,7 @@ export interface LambdaDeviceMount {
   permission?: LambdaFilesystemPermission;
   addGroupOwner?: boolean;
 }
-export type LambdaEnvironmentVariables = Record<string, string>;
+export type LambdaEnvironmentVariables = Partial<Record<string, string>>;
 export interface LambdaEventSource {
   topic: string;
   type: LambdaEventSourceType;
@@ -811,7 +809,7 @@ export interface LambdaExecutionParameters {
   pinned?: boolean;
   inputPayloadEncodingType?: LambdaInputPayloadEncodingType;
   execArgs?: Array<string>;
-  environmentVariables?: Record<string, string>;
+  environmentVariables?: Partial<Record<string, string>>;
   linuxProcessParams?: LambdaLinuxProcessParams;
 }
 export type LambdaFilesystemPermission = "RO" | "RW";
@@ -820,7 +818,9 @@ export interface LambdaFunctionRecipeSource {
   componentName?: string;
   componentVersion?: string;
   componentPlatforms?: Array<ComponentPlatform>;
-  componentDependencies?: Record<string, ComponentDependencyRequirement>;
+  componentDependencies?: Partial<
+    Record<string, ComponentDependencyRequirement>
+  >;
   componentLambdaParameters?: LambdaExecutionParameters;
 }
 export type LambdaInputPayloadEncodingType = "JSON" | "BINARY";
@@ -924,7 +924,7 @@ export type OptionalBoolean = boolean;
 
 export type OptionalInteger = number;
 
-export type PlatformAttributesMap = Record<string, string>;
+export type PlatformAttributesMap = Partial<Record<string, string>>;
 export type PortNumberInt = number;
 
 export type PublisherString = string;
@@ -976,7 +976,7 @@ export declare class ServiceQuotaExceededException extends EffectData.TaggedErro
 }> {}
 export type Greengrassv2String = string;
 
-export type StringMap = Record<string, string>;
+export type StringMap = Partial<Record<string, string>>;
 export interface SystemResourceLimits {
   memory?: number;
   cpus?: number;

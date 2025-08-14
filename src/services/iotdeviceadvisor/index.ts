@@ -132,7 +132,7 @@ export declare class ConflictException extends EffectData.TaggedError(
 }> {}
 export interface CreateSuiteDefinitionRequest {
   suiteDefinitionConfiguration: SuiteDefinitionConfiguration;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   clientToken?: string;
 }
 export interface CreateSuiteDefinitionResponse {
@@ -178,7 +178,7 @@ export interface GetSuiteDefinitionResponse {
   suiteDefinitionConfiguration?: SuiteDefinitionConfiguration;
   createdAt?: Date | string;
   lastModifiedAt?: Date | string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface GetSuiteRunReportRequest {
   suiteDefinitionId: string;
@@ -202,7 +202,7 @@ export interface GetSuiteRunResponse {
   endTime?: Date | string;
   status?: SuiteRunStatus;
   errorReason?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type GroupName = string;
 
@@ -243,7 +243,7 @@ export interface ListTagsForResourceRequest {
   resourceArn: string;
 }
 export interface ListTagsForResourceResponse {
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type LogUrl = string;
 
@@ -272,7 +272,7 @@ export interface StartSuiteRunRequest {
   suiteDefinitionId: string;
   suiteDefinitionVersion?: string;
   suiteRunConfiguration: SuiteRunConfiguration;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface StartSuiteRunResponse {
   suiteRunId?: string;
@@ -355,10 +355,10 @@ export type SuiteRunStatus =
 export type SystemMessage = string;
 
 export type TagKeyList = Array<string>;
-export type TagMap = Record<string, string>;
+export type TagMap = Partial<Record<string, string>>;
 export interface TagResourceRequest {
   resourceArn: string;
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
 export interface TagResourceResponse {}
 export type TestCaseDefinitionName = string;

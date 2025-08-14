@@ -440,12 +440,12 @@ export type ActionGroupSignature =
   | "ANTHROPIC_COMPUTER"
   | "ANTHROPIC_BASH"
   | "ANTHROPIC_TEXTEDITOR";
-export type ActionGroupSignatureParams = Record<string, string>;
+export type ActionGroupSignatureParams = Partial<Record<string, string>>;
 export type ActionInvocationType =
   | "RESULT"
   | "USER_CONFIRMATION"
   | "USER_CONFIRMATION_AND_RESULT";
-export type AdditionalModelRequestFields = Record<string, unknown>;
+export type AdditionalModelRequestFields = Partial<Record<string, unknown>>;
 export type AdditionalModelRequestFieldsKey = string;
 
 export type AdditionalModelRequestFieldsValue = unknown;
@@ -457,7 +457,7 @@ export interface AgentActionGroup {
   actionGroupExecutor?: ActionGroupExecutor;
   apiSchema?: APISchema;
   functionSchema?: FunctionSchema;
-  parentActionGroupSignatureParams?: Record<string, string>;
+  parentActionGroupSignatureParams?: Partial<Record<string, string>>;
 }
 export type AgentActionGroups = Array<AgentActionGroup>;
 export type AgentAliasArn = string;
@@ -498,7 +498,7 @@ export type AgentVersion = string;
 export interface AnalyzePromptEvent {
   message?: string;
 }
-export type ApiContentMap = Record<string, PropertyParameters>;
+export type ApiContentMap = Partial<Record<string, PropertyParameters>>;
 export interface ApiInvocationInput {
   actionGroup: string;
   httpMethod?: string;
@@ -518,7 +518,7 @@ export type ApiParameters = Array<ApiParameter>;
 export type ApiPath = string;
 
 export interface ApiRequestBody {
-  content?: Record<string, PropertyParameters>;
+  content?: Partial<Record<string, PropertyParameters>>;
 }
 export interface ApiResult {
   actionGroup: string;
@@ -527,7 +527,7 @@ export interface ApiResult {
   confirmationState?: ConfirmationState;
   responseState?: ResponseState;
   httpStatusCode?: number;
-  responseBody?: Record<string, ContentBody>;
+  responseBody?: Partial<Record<string, ContentBody>>;
   agentId?: string;
 }
 interface _APISchema {
@@ -565,7 +565,7 @@ export type BedrockRerankingModelArn = string;
 
 export interface BedrockRerankingModelConfiguration {
   modelArn: string;
-  additionalModelRequestFields?: Record<string, unknown>;
+  additionalModelRequestFields?: Partial<Record<string, unknown>>;
 }
 interface _BedrockSessionContentBlock {
   text?: string;
@@ -658,7 +658,7 @@ export interface ContentBody {
   body?: string;
   images?: Array<ImageInput>;
 }
-export type ContentMap = Record<string, Array<Parameter>>;
+export type ContentMap = Partial<Record<string, Array<Parameter>>>;
 export type ContentType = string;
 
 export interface ConversationHistory {
@@ -676,7 +676,7 @@ export interface CreateInvocationResponse {
   createdAt: Date | string;
 }
 export interface CreateSessionRequest {
-  sessionMetadata?: Record<string, string>;
+  sessionMetadata?: Partial<Record<string, string>>;
   encryptionKeyArn?: string;
   tags?: Record<string, string>;
 }
@@ -736,7 +736,7 @@ export interface ExternalSourcesGenerationConfiguration {
   promptTemplate?: PromptTemplate;
   guardrailConfiguration?: GuardrailConfiguration;
   inferenceConfig?: InferenceConfig;
-  additionalModelRequestFields?: Record<string, unknown>;
+  additionalModelRequestFields?: Partial<Record<string, unknown>>;
   performanceConfig?: PerformanceConfiguration;
 }
 export interface ExternalSourcesRetrieveAndGenerateConfiguration {
@@ -1023,7 +1023,7 @@ export type BedrockAgentRuntimeFunction = string;
 export interface FunctionDefinition {
   name: string;
   description?: string;
-  parameters?: Record<string, ParameterDetail>;
+  parameters?: Partial<Record<string, ParameterDetail>>;
   requireConfirmation?: RequireConfirmation;
 }
 export type FunctionDescription = string;
@@ -1046,7 +1046,7 @@ export interface FunctionResult {
   actionGroup: string;
   confirmationState?: ConfirmationState;
   function?: string;
-  responseBody?: Record<string, ContentBody>;
+  responseBody?: Partial<Record<string, ContentBody>>;
   responseState?: ResponseState;
   agentId?: string;
 }
@@ -1078,7 +1078,7 @@ export interface GenerationConfiguration {
   promptTemplate?: PromptTemplate;
   guardrailConfiguration?: GuardrailConfiguration;
   inferenceConfig?: InferenceConfig;
-  additionalModelRequestFields?: Record<string, unknown>;
+  additionalModelRequestFields?: Partial<Record<string, unknown>>;
   performanceConfig?: PerformanceConfiguration;
 }
 export interface GetAgentMemoryRequest {
@@ -1138,7 +1138,7 @@ export interface GetSessionResponse {
   sessionStatus: SessionStatus;
   createdAt: Date | string;
   lastUpdatedAt: Date | string;
-  sessionMetadata?: Record<string, string>;
+  sessionMetadata?: Partial<Record<string, string>>;
   encryptionKeyArn?: string;
 }
 export type GuadrailAction = "INTERVENED" | "NONE";
@@ -1380,8 +1380,8 @@ export interface InlineBedrockModelConfigurations {
   performanceConfig?: PerformanceConfiguration;
 }
 export interface InlineSessionState {
-  sessionAttributes?: Record<string, string>;
-  promptSessionAttributes?: Record<string, string>;
+  sessionAttributes?: Partial<Record<string, string>>;
+  promptSessionAttributes?: Partial<Record<string, string>>;
   returnControlInvocationResults?: Array<InvocationResultMember>;
   invocationId?: string;
   files?: Array<InputFile>;
@@ -1824,7 +1824,7 @@ export interface OptimizePromptResponse {
 export interface OrchestrationConfiguration {
   promptTemplate?: PromptTemplate;
   inferenceConfig?: InferenceConfig;
-  additionalModelRequestFields?: Record<string, unknown>;
+  additionalModelRequestFields?: Partial<Record<string, unknown>>;
   queryTransformationConfiguration?: QueryTransformationConfiguration;
   performanceConfig?: PerformanceConfiguration;
 }
@@ -1877,7 +1877,7 @@ export interface ParameterDetail {
   required?: boolean;
 }
 export type ParameterList = Array<Parameter>;
-export type ParameterMap = Record<string, ParameterDetail>;
+export type ParameterMap = Partial<Record<string, ParameterDetail>>;
 export type ParameterName = string;
 
 export type Parameters = Array<Parameter>;
@@ -1960,7 +1960,7 @@ export interface PromptOverrideConfiguration {
   promptConfigurations: Array<PromptConfiguration>;
   overrideLambda?: string;
 }
-export type PromptSessionAttributesMap = Record<string, string>;
+export type PromptSessionAttributesMap = Partial<Record<string, string>>;
 export type PromptState = "ENABLED" | "DISABLED";
 export interface PromptTemplate {
   textPromptTemplate?: string;
@@ -2023,7 +2023,7 @@ export interface RepromptResponse {
   source?: Source;
 }
 export interface RequestBody {
-  content?: Record<string, Array<Parameter>>;
+  content?: Partial<Record<string, Array<Parameter>>>;
 }
 export type RequireConfirmation = "ENABLED" | "DISABLED";
 export interface RerankDocument {
@@ -2090,7 +2090,7 @@ export declare class ResourceNotFoundException extends EffectData.TaggedError(
 )<{
   readonly message?: string;
 }> {}
-export type ResponseBody = Record<string, ContentBody>;
+export type ResponseBody = Partial<Record<string, ContentBody>>;
 export type ResponseState = "FAILURE" | "REPROMPT";
 interface _ResponseStream {
   chunk?: PayloadPart;
@@ -2391,19 +2391,19 @@ export declare class ServiceQuotaExceededException extends EffectData.TaggedErro
 }> {}
 export type SessionArn = string;
 
-export type SessionAttributesMap = Record<string, string>;
+export type SessionAttributesMap = Partial<Record<string, string>>;
 export type SessionId = string;
 
 export type SessionIdentifier = string;
 
 export type SessionMetadataKey = string;
 
-export type SessionMetadataMap = Record<string, string>;
+export type SessionMetadataMap = Partial<Record<string, string>>;
 export type SessionMetadataValue = string;
 
 export interface SessionState {
-  sessionAttributes?: Record<string, string>;
-  promptSessionAttributes?: Record<string, string>;
+  sessionAttributes?: Partial<Record<string, string>>;
+  promptSessionAttributes?: Partial<Record<string, string>>;
   returnControlInvocationResults?: Array<InvocationResultMember>;
   invocationId?: string;
   files?: Array<InputFile>;
@@ -2548,7 +2548,7 @@ export interface UntagResourceRequest {
 }
 export interface UntagResourceResponse {}
 export interface UpdateSessionRequest {
-  sessionMetadata?: Record<string, string>;
+  sessionMetadata?: Partial<Record<string, string>>;
   sessionIdentifier: string;
 }
 export interface UpdateSessionResponse {
@@ -2576,7 +2576,7 @@ export interface VectorSearchBedrockRerankingConfiguration {
 }
 export interface VectorSearchBedrockRerankingModelConfiguration {
   modelArn: string;
-  additionalModelRequestFields?: Record<string, unknown>;
+  additionalModelRequestFields?: Partial<Record<string, unknown>>;
 }
 export interface VectorSearchRerankingConfiguration {
   type: VectorSearchRerankingConfigurationType;

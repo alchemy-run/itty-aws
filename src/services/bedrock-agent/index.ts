@@ -34,7 +34,7 @@ export type ActionGroupSignature =
   | "ANTHROPIC_COMPUTER"
   | "ANTHROPIC_BASH"
   | "ANTHROPIC_TEXTEDITOR";
-export type ActionGroupSignatureParams = Record<string, string>;
+export type ActionGroupSignatureParams = Partial<Record<string, string>>;
 export type ActionGroupState = "ENABLED" | "DISABLED";
 export type ActionGroupSummaries = Array<ActionGroupSummary>;
 export interface ActionGroupSummary {
@@ -44,7 +44,7 @@ export interface ActionGroupSummary {
   description?: string;
   updatedAt: Date | string;
 }
-export type AdditionalModelRequestFields = Record<string, unknown>;
+export type AdditionalModelRequestFields = Partial<Record<string, unknown>>;
 export type AdditionalModelRequestFieldsKey = string;
 
 export type AdditionalModelRequestFieldsValue = unknown;
@@ -84,7 +84,7 @@ export interface AgentActionGroup {
   createdAt: Date | string;
   updatedAt: Date | string;
   parentActionSignature?: ActionGroupSignature;
-  parentActionGroupSignatureParams?: Record<string, string>;
+  parentActionGroupSignatureParams?: Partial<Record<string, string>>;
   actionGroupExecutor?: ActionGroupExecutor;
   apiSchema?: APISchema;
   functionSchema?: FunctionSchema;
@@ -391,7 +391,7 @@ export interface CreateAgentActionGroupRequest {
   clientToken?: string;
   description?: string;
   parentActionGroupSignature?: ActionGroupSignature;
-  parentActionGroupSignatureParams?: Record<string, string>;
+  parentActionGroupSignatureParams?: Partial<Record<string, string>>;
   actionGroupExecutor?: ActionGroupExecutor;
   apiSchema?: APISchema;
   actionGroupState?: ActionGroupState;
@@ -406,7 +406,7 @@ export interface CreateAgentAliasRequest {
   clientToken?: string;
   description?: string;
   routingConfiguration?: Array<AgentAliasRoutingConfigurationListItem>;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateAgentAliasResponse {
   agentAlias: AgentAlias;
@@ -422,7 +422,7 @@ export interface CreateAgentRequest {
   idleSessionTTLInSeconds?: number;
   agentResourceRoleArn?: string;
   customerEncryptionKeyArn?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   promptOverrideConfiguration?: PromptOverrideConfiguration;
   guardrailConfiguration?: GuardrailConfiguration;
   memoryConfiguration?: MemoryConfiguration;
@@ -451,7 +451,7 @@ export interface CreateFlowAliasRequest {
   concurrencyConfiguration?: FlowAliasConcurrencyConfiguration;
   flowIdentifier: string;
   clientToken?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateFlowAliasResponse {
   name: string;
@@ -471,7 +471,7 @@ export interface CreateFlowRequest {
   customerEncryptionKeyArn?: string;
   definition?: FlowDefinition;
   clientToken?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateFlowResponse {
   name: string;
@@ -510,7 +510,7 @@ export interface CreateKnowledgeBaseRequest {
   roleArn: string;
   knowledgeBaseConfiguration: KnowledgeBaseConfiguration;
   storageConfiguration?: StorageConfiguration;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateKnowledgeBaseResponse {
   knowledgeBase: KnowledgeBase;
@@ -522,7 +522,7 @@ export interface CreatePromptRequest {
   defaultVariant?: string;
   variants?: Array<PromptVariant>;
   clientToken?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreatePromptResponse {
   name: string;
@@ -540,7 +540,7 @@ export interface CreatePromptVersionRequest {
   promptIdentifier: string;
   description?: string;
   clientToken?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreatePromptVersionResponse {
   name: string;
@@ -1183,7 +1183,7 @@ export interface FlowVersionSummary {
 export interface BedrockAgentFunction {
   name: string;
   description?: string;
-  parameters?: Record<string, ParameterDetail>;
+  parameters?: Partial<Record<string, ParameterDetail>>;
   requireConfirmation?: RequireConfirmation;
 }
 export type FunctionDescription = string;
@@ -1529,7 +1529,7 @@ export type KnowledgeBaseModelIdentifier = string;
 export interface KnowledgeBaseOrchestrationConfiguration {
   promptTemplate?: KnowledgeBasePromptTemplate;
   inferenceConfig?: PromptInferenceConfiguration;
-  additionalModelRequestFields?: Record<string, unknown>;
+  additionalModelRequestFields?: Partial<Record<string, unknown>>;
   performanceConfig?: PerformanceConfiguration;
 }
 export interface KnowledgeBasePromptTemplate {
@@ -1712,7 +1712,7 @@ export interface ListTagsForResourceRequest {
   resourceArn: string;
 }
 export interface ListTagsForResourceResponse {
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface LoopControllerFlowNodeConfiguration {
   continueCondition: FlowCondition;
@@ -1913,7 +1913,7 @@ export interface ParameterDetail {
   type: Type;
   required?: boolean;
 }
-export type ParameterMap = Record<string, ParameterDetail>;
+export type ParameterMap = Partial<Record<string, ParameterDetail>>;
 export interface ParsingConfiguration {
   parsingStrategy: ParsingStrategy;
   bedrockFoundationModelConfiguration?: BedrockFoundationModelConfiguration;
@@ -2432,10 +2432,10 @@ export type TagKey = string;
 export type TagKeyList = Array<string>;
 export interface TagResourceRequest {
   resourceArn: string;
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
 export interface TagResourceResponse {}
-export type TagsMap = Record<string, string>;
+export type TagsMap = Partial<Record<string, string>>;
 export type TagValue = string;
 
 export type Temperature = number;
@@ -2552,7 +2552,7 @@ export interface UpdateAgentActionGroupRequest {
   actionGroupName: string;
   description?: string;
   parentActionGroupSignature?: ActionGroupSignature;
-  parentActionGroupSignatureParams?: Record<string, string>;
+  parentActionGroupSignatureParams?: Partial<Record<string, string>>;
   actionGroupExecutor?: ActionGroupExecutor;
   actionGroupState?: ActionGroupState;
   apiSchema?: APISchema;
@@ -2743,7 +2743,7 @@ export interface VectorSearchBedrockRerankingConfiguration {
 }
 export interface VectorSearchBedrockRerankingModelConfiguration {
   modelArn: string;
-  additionalModelRequestFields?: Record<string, unknown>;
+  additionalModelRequestFields?: Partial<Record<string, unknown>>;
 }
 export interface VectorSearchRerankingConfiguration {
   type: VectorSearchRerankingConfigurationType;

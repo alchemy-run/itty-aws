@@ -1079,7 +1079,7 @@ export type BlacklistingDescription = string;
 export type BlacklistItemName = string;
 
 export type BlacklistItemNames = Array<string>;
-export type BlacklistReport = Record<string, Array<BlacklistEntry>>;
+export type BlacklistReport = Partial<Record<string, Array<BlacklistEntry>>>;
 export interface Body {
   Text?: Content;
   Html?: Content;
@@ -1691,7 +1691,7 @@ export interface GetBlacklistReportsRequest {
   BlacklistItemNames: Array<string>;
 }
 export interface GetBlacklistReportsResponse {
-  BlacklistReport: Record<string, Array<BlacklistEntry>>;
+  BlacklistReport: Partial<Record<string, Array<BlacklistEntry>>>;
 }
 export interface GetConfigurationSetEventDestinationsRequest {
   ConfigurationSetName: string;
@@ -1807,7 +1807,7 @@ export interface GetEmailIdentityPoliciesRequest {
   EmailIdentity: string;
 }
 export interface GetEmailIdentityPoliciesResponse {
-  Policies?: Record<string, string>;
+  Policies?: Partial<Record<string, string>>;
 }
 export interface GetEmailIdentityRequest {
   EmailIdentity: string;
@@ -1818,7 +1818,7 @@ export interface GetEmailIdentityResponse {
   VerifiedForSendingStatus?: boolean;
   DkimAttributes?: DkimAttributes;
   MailFromAttributes?: MailFromAttributes;
-  Policies?: Record<string, string>;
+  Policies?: Partial<Record<string, string>>;
   Tags?: Array<Tag>;
   ConfigurationSetName?: string;
   VerificationStatus?: VerificationStatus;
@@ -2129,7 +2129,7 @@ export interface ListRecommendationsResponse {
   NextToken?: string;
 }
 export interface ListReputationEntitiesRequest {
-  Filter?: Record<ReputationEntityFilterKey, string>;
+  Filter?: Partial<Record<ReputationEntityFilterKey, string>>;
   NextToken?: string;
   PageSize?: number;
 }
@@ -2163,16 +2163,15 @@ export interface ListTagsForResourceRequest {
 export interface ListTagsForResourceResponse {
   Tags: Array<Tag>;
 }
-export type ListTenantResourcesFilter = Record<
-  ListTenantResourcesFilterKey,
-  string
+export type ListTenantResourcesFilter = Partial<
+  Record<ListTenantResourcesFilterKey, string>
 >;
 export type ListTenantResourcesFilterKey = "RESOURCE_TYPE";
 export type ListTenantResourcesFilterValue = string;
 
 export interface ListTenantResourcesRequest {
   TenantName: string;
-  Filter?: Record<ListTenantResourcesFilterKey, string>;
+  Filter?: Partial<Record<ListTenantResourcesFilterKey, string>>;
   PageSize?: number;
   NextToken?: string;
 }
@@ -2346,7 +2345,7 @@ export interface PlacementStatistics {
 }
 export type Policy = string;
 
-export type PolicyMap = Record<string, string>;
+export type PolicyMap = Partial<Record<string, string>>;
 export type PolicyName = string;
 
 export type PoolName = string;
@@ -2537,7 +2536,9 @@ export interface ReputationEntity {
   SendingStatusAggregate?: SendingStatus;
   ReputationImpact?: RecommendationImpact;
 }
-export type ReputationEntityFilter = Record<ReputationEntityFilterKey, string>;
+export type ReputationEntityFilter = Partial<
+  Record<ReputationEntityFilterKey, string>
+>;
 export type ReputationEntityFilterKey =
   | "ENTITY_TYPE"
   | "REPUTATION_IMPACT"

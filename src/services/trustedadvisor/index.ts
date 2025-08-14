@@ -168,7 +168,7 @@ export interface CheckSummary {
   pillars: Array<RecommendationPillar>;
   awsServices: Array<string>;
   source: RecommendationSource;
-  metadata: Record<string, string>;
+  metadata: Partial<Record<string, string>>;
 }
 export type CheckSummaryList = Array<CheckSummary>;
 export declare class ConflictException extends EffectData.TaggedError(
@@ -306,7 +306,7 @@ export interface OrganizationRecommendationResourceSummary {
   awsResourceId: string;
   regionCode: string;
   status: ResourceStatus;
-  metadata: Record<string, string>;
+  metadata: Partial<Record<string, string>>;
   lastUpdatedAt: Date | string;
   exclusionStatus?: ExclusionStatus;
   accountId?: string;
@@ -411,7 +411,7 @@ export interface RecommendationResourceSummary {
   awsResourceId: string;
   regionCode: string;
   status: ResourceStatus;
-  metadata: Record<string, string>;
+  metadata: Partial<Record<string, string>>;
   lastUpdatedAt: Date | string;
   exclusionStatus?: ExclusionStatus;
   recommendationArn: string;
@@ -459,7 +459,7 @@ export declare class ResourceNotFoundException extends EffectData.TaggedError(
   readonly message: string;
 }> {}
 export type ResourceStatus = "OK" | "WARNING" | "ERROR";
-export type StringMap = Record<string, string>;
+export type StringMap = Partial<Record<string, string>>;
 export declare class ThrottlingException extends EffectData.TaggedError(
   "ThrottlingException",
 )<{

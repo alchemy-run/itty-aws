@@ -210,7 +210,7 @@ export type ErrorMessage = string;
 
 export type EventDestinationArn = string;
 
-export type Filter = Record<string, string>;
+export type Filter = Partial<Record<string, string>>;
 export interface GetLinkedWhatsAppBusinessAccountInput {
   id: string;
 }
@@ -242,7 +242,7 @@ export interface GetWhatsAppMessageTemplateInput {
 export interface GetWhatsAppMessageTemplateOutput {
   template?: string;
 }
-export type Headers = Record<string, string>;
+export type Headers = Partial<Record<string, string>>;
 export declare class InternalServiceException extends EffectData.TaggedError(
   "InternalServiceException",
 )<{
@@ -265,10 +265,10 @@ export interface LibraryTemplateBodyInputs {
 export interface LibraryTemplateButtonInput {
   type?: string;
   phoneNumber?: string;
-  url?: Record<string, string>;
+  url?: Partial<Record<string, string>>;
   otpType?: string;
   zeroTapTermsAccepted?: boolean;
-  supportedApps?: Array<Record<string, string>>;
+  supportedApps?: Array<Partial<Record<string, string>>>;
 }
 export interface LibraryTemplateButtonList {
   type?: string;
@@ -277,16 +277,15 @@ export interface LibraryTemplateButtonList {
   url?: string;
   otpType?: string;
   zeroTapTermsAccepted?: boolean;
-  supportedApps?: Array<Record<string, string>>;
+  supportedApps?: Array<Partial<Record<string, string>>>;
 }
 export declare class LimitExceededException extends EffectData.TaggedError(
   "LimitExceededException",
 )<{
   readonly message?: string;
 }> {}
-export type LinkedAccountWithIncompleteSetup = Record<
-  string,
-  LinkedWhatsAppBusinessAccountIdMetaData
+export type LinkedAccountWithIncompleteSetup = Partial<
+  Record<string, LinkedWhatsAppBusinessAccountIdMetaData>
 >;
 export interface LinkedWhatsAppBusinessAccount {
   arn: string;
@@ -349,7 +348,7 @@ export interface ListWhatsAppTemplateLibraryInput {
   nextToken?: string;
   maxResults?: number;
   id: string;
-  filters?: Record<string, string>;
+  filters?: Partial<Record<string, string>>;
 }
 export interface ListWhatsAppTemplateLibraryOutput {
   metaLibraryTemplates?: Array<MetaLibraryTemplateDefinition>;
@@ -413,7 +412,7 @@ export type MetaText = string;
 
 export type MetaUrl = string;
 
-export type MetaUrlWithSuffixExample = Record<string, string>;
+export type MetaUrlWithSuffixExample = Partial<Record<string, string>>;
 export type NextToken = string;
 
 export type OtpType = string;
@@ -447,7 +446,7 @@ export interface S3File {
 }
 export interface S3PresignedUrl {
   url: string;
-  headers: Record<string, string>;
+  headers: Partial<Record<string, string>>;
 }
 export interface SendWhatsAppMessageInput {
   originationPhoneNumberId: string;
@@ -458,8 +457,8 @@ export interface SendWhatsAppMessageOutput {
   messageId?: string;
 }
 export type StringList = Array<string>;
-export type SupportedApp = Record<string, string>;
-export type SupportedApps = Array<Record<string, string>>;
+export type SupportedApp = Partial<Record<string, string>>;
+export type SupportedApps = Array<Partial<Record<string, string>>>;
 export interface Tag {
   key: string;
   value?: string;
@@ -580,9 +579,8 @@ export interface WhatsAppSignupCallback {
 }
 export interface WhatsAppSignupCallbackResult {
   associateInProgressToken?: string;
-  linkedAccountsWithIncompleteSetup?: Record<
-    string,
-    LinkedWhatsAppBusinessAccountIdMetaData
+  linkedAccountsWithIncompleteSetup?: Partial<
+    Record<string, LinkedWhatsAppBusinessAccountIdMetaData>
   >;
 }
 export type ZeroTapTermsAccepted = boolean;

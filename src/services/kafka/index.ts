@@ -648,7 +648,7 @@ export type __listOfVpcConfig = Array<VpcConfig>;
 export type __listOfVpcConnection = Array<VpcConnection>;
 export type __long = number;
 
-export type __mapOf__string = Record<string, string>;
+export type __mapOf__string = Partial<Record<string, string>>;
 export type __string = string;
 
 export type __stringMax1024 = string;
@@ -755,7 +755,7 @@ export interface Cluster {
   CurrentVersion?: string;
   State?: ClusterState;
   StateInfo?: StateInfo;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   Provisioned?: Provisioned;
   Serverless?: Serverless;
 }
@@ -775,7 +775,7 @@ export interface ClusterInfo {
   NumberOfBrokerNodes?: number;
   State?: ClusterState;
   StateInfo?: StateInfo;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   ZookeeperConnectString?: string;
   ZookeeperConnectStringTls?: string;
   StorageMode?: StorageMode;
@@ -901,7 +901,7 @@ export interface CreateClusterRequest {
   KafkaVersion: string;
   LoggingInfo?: LoggingInfo;
   NumberOfBrokerNodes: number;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   StorageMode?: StorageMode;
 }
 export interface CreateClusterResponse {
@@ -911,7 +911,7 @@ export interface CreateClusterResponse {
 }
 export interface CreateClusterV2Request {
   ClusterName: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   Provisioned?: ProvisionedRequest;
   Serverless?: ServerlessRequest;
 }
@@ -940,7 +940,7 @@ export interface CreateReplicatorRequest {
   ReplicationInfoList: Array<ReplicationInfo>;
   ReplicatorName: string;
   ServiceExecutionRoleArn: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateReplicatorResponse {
   ReplicatorArn?: string;
@@ -953,7 +953,7 @@ export interface CreateVpcConnectionRequest {
   VpcId: string;
   ClientSubnets: Array<string>;
   SecurityGroups: Array<string>;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateVpcConnectionResponse {
   VpcConnectionArn?: string;
@@ -963,7 +963,7 @@ export interface CreateVpcConnectionResponse {
   ClientSubnets?: Array<string>;
   SecurityGroups?: Array<string>;
   CreationTime?: Date | string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export type CustomerActionStatus =
   | "CRITICAL_ACTION_REQUIRED"
@@ -1066,7 +1066,7 @@ export interface DescribeReplicatorResponse {
   ReplicatorState?: ReplicatorState;
   ServiceExecutionRoleArn?: string;
   StateInfo?: ReplicationStateInfo;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface DescribeVpcConnectionRequest {
   Arn: string;
@@ -1080,7 +1080,7 @@ export interface DescribeVpcConnectionResponse {
   Subnets?: Array<string>;
   SecurityGroups?: Array<string>;
   CreationTime?: Date | string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface EBSStorageInfo {
   ProvisionedThroughput?: ProvisionedThroughput;
@@ -1283,7 +1283,7 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string;
 }
 export interface ListTagsForResourceResponse {
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface ListVpcConnectionsRequest {
   MaxResults?: number;
@@ -1494,7 +1494,7 @@ export interface StorageInfo {
 export type StorageMode = "LOCAL" | "TIERED";
 export interface TagResourceRequest {
   ResourceArn: string;
-  Tags: Record<string, string>;
+  Tags: Partial<Record<string, string>>;
 }
 export type TargetCompressionType = "NONE" | "GZIP" | "SNAPPY" | "LZ4" | "ZSTD";
 export interface Tls {

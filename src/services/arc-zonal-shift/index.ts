@@ -181,7 +181,7 @@ export declare class AccessDeniedException extends EffectData.TaggedError(
   readonly message?: string;
 }> {}
 export type AppliedStatus = "APPLIED" | "NOT_APPLIED";
-export type AppliedWeights = Record<string, number>;
+export type AppliedWeights = Partial<Record<string, number>>;
 export type AutoshiftAppliedStatus = "APPLIED" | "NOT_APPLIED";
 export type AutoshiftExecutionStatus = "ACTIVE" | "COMPLETED";
 export interface AutoshiftInResource {
@@ -282,7 +282,7 @@ export interface GetManagedResourceRequest {
 export interface GetManagedResourceResponse {
   arn?: string;
   name?: string;
-  appliedWeights: Record<string, number>;
+  appliedWeights: Partial<Record<string, number>>;
   zonalShifts: Array<ZonalShiftInResource>;
   autoshifts?: Array<AutoshiftInResource>;
   practiceRunConfiguration?: PracticeRunConfiguration;
@@ -325,7 +325,7 @@ export interface ManagedResourceSummary {
   arn?: string;
   name?: string;
   availabilityZones: Array<string>;
-  appliedWeights?: Record<string, number>;
+  appliedWeights?: Partial<Record<string, number>>;
   zonalShifts?: Array<ZonalShiftInResource>;
   autoshifts?: Array<AutoshiftInResource>;
   zonalAutoshiftStatus?: ZonalAutoshiftStatus;

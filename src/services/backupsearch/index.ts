@@ -184,7 +184,7 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string;
 }
 export interface ListTagsForResourceResponse {
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface LongCondition {
   Value: number;
@@ -276,7 +276,7 @@ export interface SearchScope {
   BackupResourceCreationTime?: BackupCreationTimeFilter;
   SourceResourceArns?: Array<string>;
   BackupResourceArns?: Array<string>;
-  BackupResourceTags?: Record<string, string>;
+  BackupResourceTags?: Partial<Record<string, string>>;
 }
 export interface SearchScopeSummary {
   TotalRecoveryPointsToScanCount?: number;
@@ -292,7 +292,7 @@ export declare class ServiceQuotaExceededException extends EffectData.TaggedErro
   readonly quotaCode: string;
 }> {}
 export interface StartSearchJobInput {
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   Name?: string;
   EncryptionKeyArn?: string;
   ClientToken?: string;
@@ -308,7 +308,7 @@ export interface StartSearchResultExportJobInput {
   SearchJobIdentifier: string;
   ExportSpecification: ExportSpecification;
   ClientToken?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   RoleArn?: string;
 }
 export interface StartSearchResultExportJobOutput {
@@ -334,10 +334,10 @@ export type StringConditionOperator =
   | "DOES_NOT_BEGIN_WITH"
   | "DOES_NOT_END_WITH";
 export type TagKeys = Array<string>;
-export type TagMap = Record<string, string>;
+export type TagMap = Partial<Record<string, string>>;
 export interface TagResourceRequest {
   ResourceArn: string;
-  Tags: Record<string, string>;
+  Tags: Partial<Record<string, string>>;
 }
 export interface TagResourceResponse {}
 export declare class ThrottlingException extends EffectData.TaggedError(

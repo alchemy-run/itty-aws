@@ -337,7 +337,13 @@ const generateTypeReference = (
           contextShapeName,
           options,
         );
-        return `Record<${keyType}, ${valueType}>`;
+        // Make maps partial unless they have length constraints requiring items
+        const lengthTrait = targetShape.traits?.["smithy.api#length"];
+        const hasMinLength = lengthTrait?.min && lengthTrait.min > 0;
+
+        return hasMinLength
+          ? `Record<${keyType}, ${valueType}>`
+          : `Partial<Record<${keyType}, ${valueType}>>`;
       }
       return "Record<string, unknown>";
     case "structure":
@@ -572,7 +578,13 @@ const generateMapType = (
       name,
       options,
     );
-    code += `export type ${name} = Record<${keyType}, ${valueType}>;`;
+    // Make maps partial unless they have length constraints requiring items
+    const lengthTrait = shape.traits?.["smithy.api#length"];
+    const hasMinLength = lengthTrait?.min && lengthTrait.min > 0;
+
+    code += hasMinLength
+      ? `export type ${name} = Record<${keyType}, ${valueType}>;`
+      : `export type ${name} = Partial<Record<${keyType}, ${valueType}>>;`;
   } else {
     code += `export type ${name} = Record<string, unknown>;`;
   }

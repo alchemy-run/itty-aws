@@ -336,8 +336,8 @@ export declare class ConflictException extends EffectData.TaggedError(
 )<{
   readonly message?: string;
 }> {}
-export type ConnectorConfiguration = Record<string, string>;
-export type ConnectorConfigurationUpdate = Record<string, string>;
+export type ConnectorConfiguration = Partial<Record<string, string>>;
+export type ConnectorConfigurationUpdate = Partial<Record<string, string>>;
 export type ConnectorOperationState = string;
 
 export interface ConnectorOperationStep {
@@ -378,7 +378,7 @@ export interface ConnectorSummary {
 }
 export interface CreateConnectorRequest {
   capacity: Capacity;
-  connectorConfiguration: Record<string, string>;
+  connectorConfiguration: Partial<Record<string, string>>;
   connectorDescription?: string;
   connectorName: string;
   kafkaCluster: KafkaCluster;
@@ -389,7 +389,7 @@ export interface CreateConnectorRequest {
   plugins: Array<Plugin>;
   serviceExecutionRoleArn: string;
   workerConfiguration?: WorkerConfiguration;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateConnectorResponse {
   connectorArn?: string;
@@ -401,7 +401,7 @@ export interface CreateCustomPluginRequest {
   description?: string;
   location: CustomPluginLocation;
   name: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateCustomPluginResponse {
   customPluginArn?: string;
@@ -413,7 +413,7 @@ export interface CreateWorkerConfigurationRequest {
   description?: string;
   name: string;
   propertiesFileContent: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateWorkerConfigurationResponse {
   creationTime?: Date | string;
@@ -492,9 +492,9 @@ export interface DescribeConnectorOperationResponse {
   connectorOperationType?: string;
   operationSteps?: Array<ConnectorOperationStep>;
   originWorkerSetting?: WorkerSetting;
-  originConnectorConfiguration?: Record<string, string>;
+  originConnectorConfiguration?: Partial<Record<string, string>>;
   targetWorkerSetting?: WorkerSetting;
-  targetConnectorConfiguration?: Record<string, string>;
+  targetConnectorConfiguration?: Partial<Record<string, string>>;
   errorInfo?: StateDescription;
   creationTime?: Date | string;
   endTime?: Date | string;
@@ -505,7 +505,7 @@ export interface DescribeConnectorRequest {
 export interface DescribeConnectorResponse {
   capacity?: CapacityDescription;
   connectorArn?: string;
-  connectorConfiguration?: Record<string, string>;
+  connectorConfiguration?: Partial<Record<string, string>>;
   connectorDescription?: string;
   connectorName?: string;
   connectorState?: string;
@@ -615,7 +615,7 @@ export interface ListTagsForResourceRequest {
   resourceArn: string;
 }
 export interface ListTagsForResourceResponse {
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface ListWorkerConfigurationsRequest {
   maxResults?: number;
@@ -709,10 +709,10 @@ export type TagKey = string;
 export type TagKeyList = Array<string>;
 export interface TagResourceRequest {
   resourceArn: string;
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
 export interface TagResourceResponse {}
-export type Tags = Record<string, string>;
+export type Tags = Partial<Record<string, string>>;
 export type TagValue = string;
 
 export declare class TooManyRequestsException extends EffectData.TaggedError(
@@ -732,7 +732,7 @@ export interface UntagResourceRequest {
 export interface UntagResourceResponse {}
 export interface UpdateConnectorRequest {
   capacity?: CapacityUpdate;
-  connectorConfiguration?: Record<string, string>;
+  connectorConfiguration?: Partial<Record<string, string>>;
   connectorArn: string;
   currentVersion: string;
 }

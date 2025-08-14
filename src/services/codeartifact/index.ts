@@ -576,13 +576,13 @@ export type Arn = string;
 
 export type Asset = Uint8Array | string;
 
-export type AssetHashes = Record<HashAlgorithm, string>;
+export type AssetHashes = Partial<Record<HashAlgorithm, string>>;
 export type AssetName = string;
 
 export interface AssetSummary {
   name: string;
   size?: number;
-  hashes?: Record<HashAlgorithm, string>;
+  hashes?: Partial<Record<HashAlgorithm, string>>;
 }
 export type AssetSummaryList = Array<AssetSummary>;
 export interface AssociatedPackage {
@@ -621,13 +621,13 @@ export interface CopyPackageVersionsRequest {
   namespace?: string;
   package: string;
   versions?: Array<string>;
-  versionRevisions?: Record<string, string>;
+  versionRevisions?: Partial<Record<string, string>>;
   allowOverwrite?: boolean;
   includeFromUpstream?: boolean;
 }
 export interface CopyPackageVersionsResult {
-  successfulVersions?: Record<string, SuccessfulPackageVersionInfo>;
-  failedVersions?: Record<string, PackageVersionError>;
+  successfulVersions?: Partial<Record<string, SuccessfulPackageVersionInfo>>;
+  failedVersions?: Partial<Record<string, PackageVersionError>>;
 }
 export interface CreateDomainRequest {
   domain: string;
@@ -704,8 +704,8 @@ export interface DeletePackageVersionsRequest {
   expectedStatus?: PackageVersionStatus;
 }
 export interface DeletePackageVersionsResult {
-  successfulVersions?: Record<string, SuccessfulPackageVersionInfo>;
-  failedVersions?: Record<string, PackageVersionError>;
+  successfulVersions?: Partial<Record<string, SuccessfulPackageVersionInfo>>;
+  failedVersions?: Partial<Record<string, PackageVersionError>>;
 }
 export interface DeleteRepositoryPermissionsPolicyRequest {
   domain: string;
@@ -789,12 +789,12 @@ export interface DisposePackageVersionsRequest {
   namespace?: string;
   package: string;
   versions: Array<string>;
-  versionRevisions?: Record<string, string>;
+  versionRevisions?: Partial<Record<string, string>>;
   expectedStatus?: PackageVersionStatus;
 }
 export interface DisposePackageVersionsResult {
-  successfulVersions?: Record<string, SuccessfulPackageVersionInfo>;
-  failedVersions?: Record<string, PackageVersionError>;
+  successfulVersions?: Partial<Record<string, SuccessfulPackageVersionInfo>>;
+  failedVersions?: Partial<Record<string, PackageVersionError>>;
 }
 export interface DomainDescription {
   name?: string;
@@ -1100,9 +1100,8 @@ export type Long = number;
 
 export type LongOptional = number;
 
-export type OriginRestrictions = Record<
-  PackageGroupOriginRestrictionType,
-  PackageGroupOriginRestrictionMode
+export type OriginRestrictions = Partial<
+  Record<PackageGroupOriginRestrictionType, PackageGroupOriginRestrictionMode>
 >;
 export interface PackageDependency {
   namespace?: string;
@@ -1132,13 +1131,14 @@ export interface PackageGroupAllowedRepository {
 }
 export type PackageGroupAllowedRepositoryList =
   Array<PackageGroupAllowedRepository>;
-export type PackageGroupAllowedRepositoryUpdate = Record<
-  PackageGroupAllowedRepositoryUpdateType,
-  Array<string>
->;
-export type PackageGroupAllowedRepositoryUpdates = Record<
-  PackageGroupOriginRestrictionType,
+export type PackageGroupAllowedRepositoryUpdate = Partial<
   Record<PackageGroupAllowedRepositoryUpdateType, Array<string>>
+>;
+export type PackageGroupAllowedRepositoryUpdates = Partial<
+  Record<
+    PackageGroupOriginRestrictionType,
+    Partial<Record<PackageGroupAllowedRepositoryUpdateType, Array<string>>>
+  >
 >;
 export type PackageGroupAllowedRepositoryUpdateType = "ADDED" | "REMOVED";
 export type PackageGroupAssociationType = "STRONG" | "WEAK";
@@ -1156,9 +1156,8 @@ export interface PackageGroupDescription {
   parent?: PackageGroupReference;
 }
 export interface PackageGroupOriginConfiguration {
-  restrictions?: Record<
-    PackageGroupOriginRestrictionType,
-    PackageGroupOriginRestriction
+  restrictions?: Partial<
+    Record<PackageGroupOriginRestrictionType, PackageGroupOriginRestriction>
   >;
 }
 export interface PackageGroupOriginRestriction {
@@ -1172,9 +1171,8 @@ export type PackageGroupOriginRestrictionMode =
   | "ALLOW_SPECIFIC_REPOSITORIES"
   | "BLOCK"
   | "INHERIT";
-export type PackageGroupOriginRestrictions = Record<
-  PackageGroupOriginRestrictionType,
-  PackageGroupOriginRestriction
+export type PackageGroupOriginRestrictions = Partial<
+  Record<PackageGroupOriginRestrictionType, PackageGroupOriginRestriction>
 >;
 export type PackageGroupOriginRestrictionType =
   | "EXTERNAL_UPSTREAM"
@@ -1246,7 +1244,9 @@ export type PackageVersionErrorCode =
   | "NOT_ALLOWED"
   | "NOT_FOUND"
   | "SKIPPED";
-export type PackageVersionErrorMap = Record<string, PackageVersionError>;
+export type PackageVersionErrorMap = Partial<
+  Record<string, PackageVersionError>
+>;
 export type PackageVersionList = Array<string>;
 export interface PackageVersionOrigin {
   domainEntryPoint?: DomainEntryPoint;
@@ -1255,7 +1255,7 @@ export interface PackageVersionOrigin {
 export type PackageVersionOriginType = "INTERNAL" | "EXTERNAL" | "UNKNOWN";
 export type PackageVersionRevision = string;
 
-export type PackageVersionRevisionMap = Record<string, string>;
+export type PackageVersionRevisionMap = Partial<Record<string, string>>;
 export type PackageVersionSortType = "PUBLISHED_TIME";
 export type PackageVersionStatus =
   | "PUBLISHED"
@@ -1398,9 +1398,8 @@ export interface SuccessfulPackageVersionInfo {
   revision?: string;
   status?: PackageVersionStatus;
 }
-export type SuccessfulPackageVersionInfoMap = Record<
-  string,
-  SuccessfulPackageVersionInfo
+export type SuccessfulPackageVersionInfoMap = Partial<
+  Record<string, SuccessfulPackageVersionInfo>
 >;
 export interface Tag {
   key: string;
@@ -1434,18 +1433,19 @@ export interface UpdatePackageGroupOriginConfigurationRequest {
   domain: string;
   domainOwner?: string;
   packageGroup: string;
-  restrictions?: Record<
-    PackageGroupOriginRestrictionType,
-    PackageGroupOriginRestrictionMode
+  restrictions?: Partial<
+    Record<PackageGroupOriginRestrictionType, PackageGroupOriginRestrictionMode>
   >;
   addAllowedRepositories?: Array<PackageGroupAllowedRepository>;
   removeAllowedRepositories?: Array<PackageGroupAllowedRepository>;
 }
 export interface UpdatePackageGroupOriginConfigurationResult {
   packageGroup?: PackageGroupDescription;
-  allowedRepositoryUpdates?: Record<
-    PackageGroupOriginRestrictionType,
-    Record<PackageGroupAllowedRepositoryUpdateType, Array<string>>
+  allowedRepositoryUpdates?: Partial<
+    Record<
+      PackageGroupOriginRestrictionType,
+      Partial<Record<PackageGroupAllowedRepositoryUpdateType, Array<string>>>
+    >
   >;
 }
 export interface UpdatePackageGroupRequest {
@@ -1466,13 +1466,13 @@ export interface UpdatePackageVersionsStatusRequest {
   namespace?: string;
   package: string;
   versions: Array<string>;
-  versionRevisions?: Record<string, string>;
+  versionRevisions?: Partial<Record<string, string>>;
   expectedStatus?: PackageVersionStatus;
   targetStatus: PackageVersionStatus;
 }
 export interface UpdatePackageVersionsStatusResult {
-  successfulVersions?: Record<string, SuccessfulPackageVersionInfo>;
-  failedVersions?: Record<string, PackageVersionError>;
+  successfulVersions?: Partial<Record<string, SuccessfulPackageVersionInfo>>;
+  failedVersions?: Partial<Record<string, PackageVersionError>>;
 }
 export interface UpdateRepositoryRequest {
   domain: string;

@@ -1646,8 +1646,8 @@ export interface BotImportSpecification {
   dataPrivacy: DataPrivacy;
   errorLogSettings?: ErrorLogSettings;
   idleSessionTTLInSeconds?: number;
-  botTags?: Record<string, string>;
-  testBotAliasTags?: Record<string, string>;
+  botTags?: Partial<Record<string, string>>;
+  testBotAliasTags?: Partial<Record<string, string>>;
 }
 export interface BotLocaleExportSpecification {
   botId: string;
@@ -1892,8 +1892,10 @@ export type ConditionExpression = string;
 
 export type ConditionKey = string;
 
-export type ConditionKeyValueMap = Record<string, string>;
-export type ConditionMap = Record<string, Record<string, string>>;
+export type ConditionKeyValueMap = Partial<Record<string, string>>;
+export type ConditionMap = Partial<
+  Record<string, Partial<Record<string, string>>>
+>;
 export type ConditionOperator = string;
 
 export type ConditionValue = string;
@@ -1968,7 +1970,7 @@ export interface CreateBotAliasRequest {
   conversationLogSettings?: ConversationLogSettings;
   sentimentAnalysisSettings?: SentimentAnalysisSettings;
   botId: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateBotAliasResponse {
   botAliasId?: string;
@@ -1981,7 +1983,7 @@ export interface CreateBotAliasResponse {
   botAliasStatus?: BotAliasStatus;
   botId?: string;
   creationDateTime?: Date | string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateBotLocaleRequest {
   botId: string;
@@ -2021,8 +2023,8 @@ export interface CreateBotRequest {
   roleArn: string;
   dataPrivacy: DataPrivacy;
   idleSessionTTLInSeconds: number;
-  botTags?: Record<string, string>;
-  testBotAliasTags?: Record<string, string>;
+  botTags?: Partial<Record<string, string>>;
+  testBotAliasTags?: Partial<Record<string, string>>;
   botType?: BotType;
   botMembers?: Array<BotMember>;
   errorLogSettings?: ErrorLogSettings;
@@ -2036,8 +2038,8 @@ export interface CreateBotResponse {
   idleSessionTTLInSeconds?: number;
   botStatus?: BotStatus;
   creationDateTime?: Date | string;
-  botTags?: Record<string, string>;
-  testBotAliasTags?: Record<string, string>;
+  botTags?: Partial<Record<string, string>>;
+  testBotAliasTags?: Partial<Record<string, string>>;
   botType?: BotType;
   botMembers?: Array<BotMember>;
   errorLogSettings?: ErrorLogSettings;
@@ -2122,7 +2124,7 @@ export interface CreateResourcePolicyStatementRequest {
   effect: Effect;
   principal: Array<Principal>;
   action: Array<string>;
-  condition?: Record<string, Record<string, string>>;
+  condition?: Partial<Record<string, Partial<Record<string, string>>>>;
   expectedRevisionId?: string;
 }
 export interface CreateResourcePolicyStatementResponse {
@@ -2709,7 +2711,7 @@ export interface DialogCodeHookSettings {
 export interface DialogState {
   dialogAction?: DialogAction;
   intent?: IntentOverride;
-  sessionAttributes?: Record<string, string>;
+  sessionAttributes?: Partial<Record<string, string>>;
 }
 export type DomainEndpoint = string;
 
@@ -2940,7 +2942,7 @@ export interface InputContext {
 }
 export type InputContextsList = Array<InputContext>;
 export interface InputSessionStateSpecification {
-  sessionAttributes?: Record<string, string>;
+  sessionAttributes?: Partial<Record<string, string>>;
   activeContexts?: Array<ActiveContext>;
   runtimeHints?: RuntimeHints;
 }
@@ -2951,8 +2953,10 @@ export interface IntentClassificationTestResultItem {
 }
 export interface IntentClassificationTestResultItemCounts {
   totalResultCount: number;
-  speechTranscriptionResultCounts?: Record<TestResultMatchStatus, number>;
-  intentMatchResultCounts: Record<TestResultMatchStatus, number>;
+  speechTranscriptionResultCounts?: Partial<
+    Record<TestResultMatchStatus, number>
+  >;
+  intentMatchResultCounts: Partial<Record<TestResultMatchStatus, number>>;
 }
 export type IntentClassificationTestResultItemList =
   Array<IntentClassificationTestResultItem>;
@@ -3000,7 +3004,7 @@ export interface IntentLevelSlotResolutionTestResults {
 }
 export interface IntentOverride {
   name?: string;
-  slots?: Record<string, SlotValueOverride>;
+  slots?: Partial<Record<string, SlotValueOverride>>;
 }
 export type IntentSignature = string;
 
@@ -3400,7 +3404,7 @@ export interface ListTagsForResourceRequest {
   resourceARN: string;
 }
 export interface ListTagsForResourceResponse {
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface ListTestExecutionResultItemsRequest {
   testExecutionId: string;
@@ -3546,8 +3550,10 @@ export type OutputContextsList = Array<OutputContext>;
 export interface OverallTestResultItem {
   multiTurnConversation: boolean;
   totalResultCount: number;
-  speechTranscriptionResultCounts?: Record<TestResultMatchStatus, number>;
-  endToEndResultCounts: Record<TestResultMatchStatus, number>;
+  speechTranscriptionResultCounts?: Partial<
+    Record<TestResultMatchStatus, number>
+  >;
+  endToEndResultCounts: Partial<Record<TestResultMatchStatus, number>>;
 }
 export type OverallTestResultItemList = Array<OverallTestResultItem>;
 export interface OverallTestResults {
@@ -3621,9 +3627,8 @@ export interface PromptAttemptSpecification {
   audioAndDTMFInputSpecification?: AudioAndDTMFInputSpecification;
   textInputSpecification?: TextInputSpecification;
 }
-export type PromptAttemptsSpecificationMap = Record<
-  PromptAttempt,
-  PromptAttemptSpecification
+export type PromptAttemptsSpecificationMap = Partial<
+  Record<PromptAttempt, PromptAttemptSpecification>
 >;
 export type PromptMaxRetries = number;
 
@@ -3632,9 +3637,8 @@ export interface PromptSpecification {
   maxRetries: number;
   allowInterrupt?: boolean;
   messageSelectionStrategy?: MessageSelectionStrategy;
-  promptAttemptsSpecification?: Record<
-    PromptAttempt,
-    PromptAttemptSpecification
+  promptAttemptsSpecification?: Partial<
+    Record<PromptAttempt, PromptAttemptSpecification>
   >;
 }
 export type QInConnectAssistantARN = string;
@@ -3697,12 +3701,14 @@ export type RoleArn = string;
 
 export interface RuntimeHintDetails {
   runtimeHintValues?: Array<RuntimeHintValue>;
-  subSlotHints?: Record<string, RuntimeHintDetails>;
+  subSlotHints?: Partial<Record<string, RuntimeHintDetails>>;
 }
 export type RuntimeHintPhrase = string;
 
 export interface RuntimeHints {
-  slotHints?: Record<string, Record<string, RuntimeHintDetails>>;
+  slotHints?: Partial<
+    Record<string, Partial<Record<string, RuntimeHintDetails>>>
+  >;
 }
 export interface RuntimeHintValue {
   phrase: string;
@@ -3827,11 +3833,10 @@ export interface SlotFilter {
 export type SlotFilterName = "SlotName";
 export type SlotFilterOperator = "Contains" | "Equals";
 export type SlotFilters = Array<SlotFilter>;
-export type SlotHintsIntentMap = Record<
-  string,
-  Record<string, RuntimeHintDetails>
+export type SlotHintsIntentMap = Partial<
+  Record<string, Partial<Record<string, RuntimeHintDetails>>>
 >;
-export type SlotHintsSlotMap = Record<string, RuntimeHintDetails>;
+export type SlotHintsSlotMap = Partial<Record<string, RuntimeHintDetails>>;
 export type SlotPrioritiesList = Array<SlotPriority>;
 export interface SlotPriority {
   priority: number;
@@ -3851,8 +3856,10 @@ export interface SlotResolutionTestResultItem {
 }
 export interface SlotResolutionTestResultItemCounts {
   totalResultCount: number;
-  speechTranscriptionResultCounts?: Record<TestResultMatchStatus, number>;
-  slotMatchResultCounts: Record<TestResultMatchStatus, number>;
+  speechTranscriptionResultCounts?: Partial<
+    Record<TestResultMatchStatus, number>
+  >;
+  slotMatchResultCounts: Partial<Record<TestResultMatchStatus, number>>;
 }
 export type SlotResolutionTestResultItems = Array<SlotResolutionTestResultItem>;
 export type SlotShape = "Scalar" | "List";
@@ -3925,7 +3932,7 @@ export interface SlotValueOverride {
   value?: SlotValue;
   values?: Array<SlotValueOverride>;
 }
-export type SlotValueOverrideMap = Record<string, SlotValueOverride>;
+export type SlotValueOverrideMap = Partial<Record<string, SlotValueOverride>>;
 export interface SlotValueRegexFilter {
   pattern: string;
 }
@@ -4014,7 +4021,7 @@ export interface StartTestSetGenerationRequest {
   storageLocation: TestSetStorageLocation;
   generationDataSource: TestSetGenerationDataSource;
   roleArn: string;
-  testSetTags?: Record<string, string>;
+  testSetTags?: Partial<Record<string, string>>;
 }
 export interface StartTestSetGenerationResponse {
   testSetGenerationId?: string;
@@ -4025,7 +4032,7 @@ export interface StartTestSetGenerationResponse {
   storageLocation?: TestSetStorageLocation;
   generationDataSource?: TestSetGenerationDataSource;
   roleArn?: string;
-  testSetTags?: Record<string, string>;
+  testSetTags?: Partial<Record<string, string>>;
 }
 export type StillWaitingResponseFrequency = number;
 
@@ -4052,14 +4059,14 @@ export interface StopBotRecommendationResponse {
 }
 export type LexModelsV2String = string;
 
-export type StringMap = Record<string, string>;
+export type StringMap = Partial<Record<string, string>>;
 export type SubSlotExpression = string;
 
 export interface SubSlotSetting {
   expression?: string;
-  slotSpecifications?: Record<string, Specifications>;
+  slotSpecifications?: Partial<Record<string, Specifications>>;
 }
-export type SubSlotSpecificationMap = Record<string, Specifications>;
+export type SubSlotSpecificationMap = Partial<Record<string, Specifications>>;
 export interface SubSlotTypeComposition {
   name: string;
   slotTypeId: string;
@@ -4075,10 +4082,10 @@ export type SynonymList = Array<SampleValue>;
 export type TagKey = string;
 
 export type TagKeyList = Array<string>;
-export type TagMap = Record<string, string>;
+export type TagMap = Partial<Record<string, string>>;
 export interface TagResourceRequest {
   resourceARN: string;
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
 export interface TagResourceResponse {}
 export type TagValue = string;
@@ -4125,9 +4132,8 @@ export interface TestExecutionTarget {
   botAliasTarget?: BotAliasTestExecutionTarget;
 }
 export type TestResultMatchStatus = "Matched" | "Mismatched" | "ExecutionError";
-export type TestResultMatchStatusCountMap = Record<
-  TestResultMatchStatus,
-  number
+export type TestResultMatchStatusCountMap = Partial<
+  Record<TestResultMatchStatus, number>
 >;
 export type TestResultSlotName = string;
 
@@ -4179,7 +4185,7 @@ export interface TestSetImportResourceSpecification {
   storageLocation: TestSetStorageLocation;
   importInputLocation: TestSetImportInputLocation;
   modality: TestSetModality;
-  testSetTags?: Record<string, string>;
+  testSetTags?: Partial<Record<string, string>>;
 }
 export interface TestSetIntentDiscrepancyItem {
   intentName: string;
@@ -4513,12 +4519,12 @@ export interface UpdateTestSetResponse {
 }
 export interface UserTurnInputSpecification {
   utteranceInput: UtteranceInputSpecification;
-  requestAttributes?: Record<string, string>;
+  requestAttributes?: Partial<Record<string, string>>;
   sessionState?: InputSessionStateSpecification;
 }
 export interface UserTurnIntentOutput {
   name: string;
-  slots?: Record<string, UserTurnSlotOutput>;
+  slots?: Partial<Record<string, UserTurnSlotOutput>>;
 }
 export interface UserTurnOutputSpecification {
   intent: UserTurnIntentOutput;
@@ -4539,10 +4545,10 @@ export interface UserTurnResult {
 export interface UserTurnSlotOutput {
   value?: string;
   values?: Array<UserTurnSlotOutput>;
-  subSlots?: Record<string, UserTurnSlotOutput>;
+  subSlots?: Partial<Record<string, UserTurnSlotOutput>>;
 }
 export type UserTurnSlotOutputList = Array<UserTurnSlotOutput>;
-export type UserTurnSlotOutputMap = Record<string, UserTurnSlotOutput>;
+export type UserTurnSlotOutputMap = Partial<Record<string, UserTurnSlotOutput>>;
 export interface UserTurnSpecification {
   input: UserTurnInputSpecification;
   expected: UserTurnOutputSpecification;

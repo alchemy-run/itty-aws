@@ -329,7 +329,7 @@ export type AccessPointPolicy = string;
 export interface AccessPreview {
   id: string;
   analyzerArn: string;
-  configurations: Record<string, Configuration>;
+  configurations: Partial<Record<string, Configuration>>;
   createdAt: Date | string;
   status: string;
   statusReason?: AccessPreviewStatusReason;
@@ -338,9 +338,9 @@ export interface AccessPreviewFinding {
   id: string;
   existingFindingId?: string;
   existingFindingStatus?: string;
-  principal?: Record<string, string>;
+  principal?: Partial<Record<string, string>>;
   action?: Array<string>;
-  condition?: Record<string, string>;
+  condition?: Partial<Record<string, string>>;
   resource?: string;
   isPublic?: boolean;
   resourceType: string;
@@ -397,7 +397,7 @@ export interface AnalysisRule {
 }
 export interface AnalysisRuleCriteria {
   accountIds?: Array<string>;
-  resourceTags?: Array<Record<string, string>>;
+  resourceTags?: Array<Partial<Record<string, string>>>;
 }
 export type AnalysisRuleCriteriaList = Array<AnalysisRuleCriteria>;
 export interface AnalyzedResource {
@@ -439,7 +439,7 @@ export interface AnalyzerSummary {
   createdAt: Date | string;
   lastResourceAnalyzed?: string;
   lastResourceAnalyzedAt?: Date | string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   status: string;
   statusReason?: StatusReason;
   configuration?: AnalyzerConfiguration;
@@ -452,7 +452,7 @@ export interface ApplyArchiveRuleRequest {
 export type ArchiveRulesList = Array<ArchiveRuleSummary>;
 export interface ArchiveRuleSummary {
   ruleName: string;
-  filter: Record<string, Criterion>;
+  filter: Partial<Record<string, Criterion>>;
   createdAt: Date | string;
   updatedAt: Date | string;
 }
@@ -508,7 +508,7 @@ export interface CloudTrailProperties {
   startTime: Date | string;
   endTime: Date | string;
 }
-export type ConditionKeyMap = Record<string, string>;
+export type ConditionKeyMap = Partial<Record<string, string>>;
 interface _Configuration {
   ebsSnapshot?: EbsSnapshotConfiguration;
   ecrRepository?: EcrRepositoryConfiguration;
@@ -547,7 +547,7 @@ export type Configuration =
     })
   | (_Configuration & { dynamodbStream: DynamodbStreamConfiguration })
   | (_Configuration & { dynamodbTable: DynamodbTableConfiguration });
-export type ConfigurationsMap = Record<string, Configuration>;
+export type ConfigurationsMap = Partial<Record<string, Configuration>>;
 export type ConfigurationsMapKey = string;
 
 export declare class ConflictException extends EffectData.TaggedError(
@@ -559,7 +559,7 @@ export declare class ConflictException extends EffectData.TaggedError(
 }> {}
 export interface CreateAccessPreviewRequest {
   analyzerArn: string;
-  configurations: Record<string, Configuration>;
+  configurations: Partial<Record<string, Configuration>>;
   clientToken?: string;
 }
 export interface CreateAccessPreviewResponse {
@@ -569,7 +569,7 @@ export interface CreateAnalyzerRequest {
   analyzerName: string;
   type: string;
   archiveRules?: Array<InlineArchiveRule>;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   clientToken?: string;
   configuration?: AnalyzerConfiguration;
 }
@@ -579,7 +579,7 @@ export interface CreateAnalyzerResponse {
 export interface CreateArchiveRuleRequest {
   analyzerName: string;
   ruleName: string;
-  filter: Record<string, Criterion>;
+  filter: Partial<Record<string, Criterion>>;
   clientToken?: string;
 }
 export interface Criterion {
@@ -632,27 +632,27 @@ export type EfsFileSystemPolicy = string;
 
 export interface ExternalAccessDetails {
   action?: Array<string>;
-  condition: Record<string, string>;
+  condition: Partial<Record<string, string>>;
   isPublic?: boolean;
-  principal?: Record<string, string>;
+  principal?: Partial<Record<string, string>>;
   sources?: Array<FindingSource>;
   resourceControlPolicyRestriction?: string;
 }
 export interface ExternalAccessFindingsStatistics {
-  resourceTypeStatistics?: Record<string, ResourceTypeDetails>;
+  resourceTypeStatistics?: Partial<Record<string, ResourceTypeDetails>>;
   totalActiveFindings?: number;
   totalArchivedFindings?: number;
   totalResolvedFindings?: number;
 }
-export type FilterCriteriaMap = Record<string, Criterion>;
+export type FilterCriteriaMap = Partial<Record<string, Criterion>>;
 export interface Finding {
   id: string;
-  principal?: Record<string, string>;
+  principal?: Partial<Record<string, string>>;
   action?: Array<string>;
   resource?: string;
   isPublic?: boolean;
   resourceType: string;
-  condition: Record<string, string>;
+  condition: Partial<Record<string, string>>;
   createdAt: Date | string;
   analyzedAt: Date | string;
   updatedAt: Date | string;
@@ -665,9 +665,11 @@ export interface Finding {
 export interface FindingAggregationAccountDetails {
   account?: string;
   numberOfActiveFindings?: number;
-  details?: Record<string, number>;
+  details?: Partial<Record<string, number>>;
 }
-export type FindingAggregationAccountDetailsMap = Record<string, number>;
+export type FindingAggregationAccountDetailsMap = Partial<
+  Record<string, number>
+>;
 export type FindingChangeType = string;
 
 interface _FindingDetails {
@@ -730,12 +732,12 @@ export type FindingStatusUpdate = string;
 
 export interface FindingSummary {
   id: string;
-  principal?: Record<string, string>;
+  principal?: Partial<Record<string, string>>;
   action?: Array<string>;
   resource?: string;
   isPublic?: boolean;
   resourceType: string;
-  condition: Record<string, string>;
+  condition: Partial<Record<string, string>>;
   createdAt: Date | string;
   analyzedAt: Date | string;
   updatedAt: Date | string;
@@ -871,7 +873,7 @@ export type IamTrustPolicy = string;
 
 export interface InlineArchiveRule {
   ruleName: string;
-  filter: Record<string, Criterion>;
+  filter: Partial<Record<string, Criterion>>;
 }
 export type InlineArchiveRulesList = Array<InlineArchiveRule>;
 export interface InternalAccessAnalysisRule {
@@ -889,8 +891,8 @@ export interface InternalAccessConfiguration {
 }
 export interface InternalAccessDetails {
   action?: Array<string>;
-  condition?: Record<string, string>;
-  principal?: Record<string, string>;
+  condition?: Partial<Record<string, string>>;
+  principal?: Partial<Record<string, string>>;
   principalOwnerAccount?: string;
   accessType?: string;
   principalType?: string;
@@ -899,7 +901,9 @@ export interface InternalAccessDetails {
   serviceControlPolicyRestriction?: string;
 }
 export interface InternalAccessFindingsStatistics {
-  resourceTypeStatistics?: Record<string, InternalAccessResourceTypeDetails>;
+  resourceTypeStatistics?: Partial<
+    Record<string, InternalAccessResourceTypeDetails>
+  >;
   totalActiveFindings?: number;
   totalArchivedFindings?: number;
   totalResolvedFindings?: number;
@@ -909,9 +913,8 @@ export interface InternalAccessResourceTypeDetails {
   totalResolvedFindings?: number;
   totalArchivedFindings?: number;
 }
-export type InternalAccessResourceTypeStatisticsMap = Record<
-  string,
-  InternalAccessResourceTypeDetails
+export type InternalAccessResourceTypeStatisticsMap = Partial<
+  Record<string, InternalAccessResourceTypeDetails>
 >;
 export type InternalAccessType = string;
 
@@ -950,7 +953,7 @@ export type JobStatus = string;
 
 export type KmsConstraintsKey = string;
 
-export type KmsConstraintsMap = Record<string, string>;
+export type KmsConstraintsMap = Partial<Record<string, string>>;
 export type KmsConstraintsValue = string;
 
 export interface KmsGrantConfiguration {
@@ -962,17 +965,17 @@ export interface KmsGrantConfiguration {
 }
 export type KmsGrantConfigurationsList = Array<KmsGrantConfiguration>;
 export interface KmsGrantConstraints {
-  encryptionContextEquals?: Record<string, string>;
-  encryptionContextSubset?: Record<string, string>;
+  encryptionContextEquals?: Partial<Record<string, string>>;
+  encryptionContextSubset?: Partial<Record<string, string>>;
 }
 export type KmsGrantOperation = string;
 
 export type KmsGrantOperationsList = Array<string>;
 export interface KmsKeyConfiguration {
-  keyPolicies?: Record<string, string>;
+  keyPolicies?: Partial<Record<string, string>>;
   grants?: Array<KmsGrantConfiguration>;
 }
-export type KmsKeyPoliciesMap = Record<string, string>;
+export type KmsKeyPoliciesMap = Partial<Record<string, string>>;
 export type KmsKeyPolicy = string;
 
 export type LearnMoreLink = string;
@@ -980,7 +983,7 @@ export type LearnMoreLink = string;
 export interface ListAccessPreviewFindingsRequest {
   accessPreviewId: string;
   analyzerArn: string;
-  filter?: Record<string, Criterion>;
+  filter?: Partial<Record<string, Criterion>>;
   nextToken?: string;
   maxResults?: number;
 }
@@ -1027,7 +1030,7 @@ export interface ListArchiveRulesResponse {
 }
 export interface ListFindingsRequest {
   analyzerArn: string;
-  filter?: Record<string, Criterion>;
+  filter?: Partial<Record<string, Criterion>>;
   sort?: SortCriteria;
   nextToken?: string;
   maxResults?: number;
@@ -1038,7 +1041,7 @@ export interface ListFindingsResponse {
 }
 export interface ListFindingsV2Request {
   analyzerArn: string;
-  filter?: Record<string, Criterion>;
+  filter?: Partial<Record<string, Criterion>>;
   maxResults?: number;
   nextToken?: string;
   sort?: SortCriteria;
@@ -1060,7 +1063,7 @@ export interface ListTagsForResourceRequest {
   resourceArn: string;
 }
 export interface ListTagsForResourceResponse {
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type Locale = string;
 
@@ -1120,7 +1123,7 @@ export interface Position {
 }
 export type PrincipalArn = string;
 
-export type PrincipalMap = Record<string, string>;
+export type PrincipalMap = Partial<Record<string, string>>;
 export type PrincipalType = string;
 
 export type RdsDbClusterSnapshotAccountId = string;
@@ -1128,9 +1131,8 @@ export type RdsDbClusterSnapshotAccountId = string;
 export type RdsDbClusterSnapshotAccountIdsList = Array<string>;
 export type RdsDbClusterSnapshotAttributeName = string;
 
-export type RdsDbClusterSnapshotAttributesMap = Record<
-  string,
-  RdsDbClusterSnapshotAttributeValue
+export type RdsDbClusterSnapshotAttributesMap = Partial<
+  Record<string, RdsDbClusterSnapshotAttributeValue>
 >;
 interface _RdsDbClusterSnapshotAttributeValue {
   accountIds?: Array<string>;
@@ -1139,7 +1141,7 @@ interface _RdsDbClusterSnapshotAttributeValue {
 export type RdsDbClusterSnapshotAttributeValue =
   _RdsDbClusterSnapshotAttributeValue & { accountIds: Array<string> };
 export interface RdsDbClusterSnapshotConfiguration {
-  attributes?: Record<string, RdsDbClusterSnapshotAttributeValue>;
+  attributes?: Partial<Record<string, RdsDbClusterSnapshotAttributeValue>>;
   kmsKeyId?: string;
 }
 export type RdsDbClusterSnapshotKmsKeyId = string;
@@ -1149,9 +1151,8 @@ export type RdsDbSnapshotAccountId = string;
 export type RdsDbSnapshotAccountIdsList = Array<string>;
 export type RdsDbSnapshotAttributeName = string;
 
-export type RdsDbSnapshotAttributesMap = Record<
-  string,
-  RdsDbSnapshotAttributeValue
+export type RdsDbSnapshotAttributesMap = Partial<
+  Record<string, RdsDbSnapshotAttributeValue>
 >;
 interface _RdsDbSnapshotAttributeValue {
   accountIds?: Array<string>;
@@ -1161,7 +1162,7 @@ export type RdsDbSnapshotAttributeValue = _RdsDbSnapshotAttributeValue & {
   accountIds: Array<string>;
 };
 export interface RdsDbSnapshotConfiguration {
-  attributes?: Record<string, RdsDbSnapshotAttributeValue>;
+  attributes?: Partial<Record<string, RdsDbSnapshotAttributeValue>>;
   kmsKeyId?: string;
 }
 export type RdsDbSnapshotKmsKeyId = string;
@@ -1213,7 +1214,9 @@ export interface ResourceTypeDetails {
   totalActiveCrossAccount?: number;
 }
 export type ResourceTypeList = Array<string>;
-export type ResourceTypeStatisticsMap = Record<string, ResourceTypeDetails>;
+export type ResourceTypeStatisticsMap = Partial<
+  Record<string, ResourceTypeDetails>
+>;
 export type RetiringPrincipal = string;
 
 export type RoleArn = string;
@@ -1223,9 +1226,8 @@ export interface S3AccessPointConfiguration {
   publicAccessBlock?: S3PublicAccessBlockConfiguration;
   networkOrigin?: NetworkOriginConfiguration;
 }
-export type S3AccessPointConfigurationsMap = Record<
-  string,
-  S3AccessPointConfiguration
+export type S3AccessPointConfigurationsMap = Partial<
+  Record<string, S3AccessPointConfiguration>
 >;
 export interface S3BucketAclGrantConfiguration {
   permission: string;
@@ -1237,7 +1239,7 @@ export interface S3BucketConfiguration {
   bucketPolicy?: string;
   bucketAclGrants?: Array<S3BucketAclGrantConfiguration>;
   bucketPublicAccessBlock?: S3PublicAccessBlockConfiguration;
-  accessPoints?: Record<string, S3AccessPointConfiguration>;
+  accessPoints?: Partial<Record<string, S3AccessPointConfiguration>>;
 }
 export type S3BucketPolicy = string;
 
@@ -1247,13 +1249,14 @@ export interface S3ExpressDirectoryAccessPointConfiguration {
   accessPointPolicy?: string;
   networkOrigin?: NetworkOriginConfiguration;
 }
-export type S3ExpressDirectoryAccessPointConfigurationsMap = Record<
-  string,
-  S3ExpressDirectoryAccessPointConfiguration
+export type S3ExpressDirectoryAccessPointConfigurationsMap = Partial<
+  Record<string, S3ExpressDirectoryAccessPointConfiguration>
 >;
 export interface S3ExpressDirectoryBucketConfiguration {
   bucketPolicy?: string;
-  accessPoints?: Record<string, S3ExpressDirectoryAccessPointConfiguration>;
+  accessPoints?: Partial<
+    Record<string, S3ExpressDirectoryAccessPointConfiguration>
+  >;
 }
 export type S3ExpressDirectoryBucketPolicy = string;
 
@@ -1322,11 +1325,11 @@ export interface Substring {
 export type TagKeys = Array<string>;
 export interface TagResourceRequest {
   resourceArn: string;
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
 export interface TagResourceResponse {}
-export type TagsList = Array<Record<string, string>>;
-export type TagsMap = Record<string, string>;
+export type TagsList = Array<Partial<Record<string, string>>>;
+export type TagsMap = Partial<Record<string, string>>;
 export declare class ThrottlingException extends EffectData.TaggedError(
   "ThrottlingException",
 )<{
@@ -1413,7 +1416,7 @@ export interface UpdateAnalyzerResponse {
 export interface UpdateArchiveRuleRequest {
   analyzerName: string;
   ruleName: string;
-  filter: Record<string, Criterion>;
+  filter: Partial<Record<string, Criterion>>;
   clientToken?: string;
 }
 export interface UpdateFindingsRequest {

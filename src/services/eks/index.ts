@@ -638,7 +638,7 @@ export interface AccessScope {
   namespaces?: Array<string>;
 }
 export type AccessScopeType = "cluster" | "namespace";
-export type AdditionalInfoMap = Record<string, string>;
+export type AdditionalInfoMap = Partial<Record<string, string>>;
 export interface Addon {
   addonName?: string;
   clusterName?: string;
@@ -1031,7 +1031,7 @@ export interface CreateNodegroupRequest {
   amiType?: AMITypes;
   remoteAccess?: RemoteAccessConfig;
   nodeRole: string;
-  labels?: Record<string, string>;
+  labels?: Partial<Record<string, string>>;
   taints?: Array<Taint>;
   tags?: Record<string, string>;
   clientRequestToken?: string;
@@ -1334,10 +1334,10 @@ export type FargateProfileIssueCode =
   | "CLUSTER_UNREACHABLE"
   | "INTERNAL_FAILURE";
 export type FargateProfileIssueList = Array<FargateProfileIssue>;
-export type FargateProfileLabel = Record<string, string>;
+export type FargateProfileLabel = Partial<Record<string, string>>;
 export interface FargateProfileSelector {
   namespace?: string;
-  labels?: Record<string, string>;
+  labels?: Partial<Record<string, string>>;
 }
 export type FargateProfileSelectors = Array<FargateProfileSelector>;
 export type FargateProfilesRequestMaxResults = number;
@@ -1370,7 +1370,7 @@ export interface Insight {
   description?: string;
   insightStatus?: InsightStatus;
   recommendation?: string;
-  additionalInfo?: Record<string, string>;
+  additionalInfo?: Partial<Record<string, string>>;
   resources?: Array<InsightResourceDetail>;
   categorySpecificSummary?: InsightCategorySpecificSummary;
 }
@@ -1454,7 +1454,7 @@ export interface KubernetesNetworkConfigResponse {
 export type labelKey = string;
 
 export type labelsKeyList = Array<string>;
-export type labelsMap = Record<string, string>;
+export type labelsMap = Partial<Record<string, string>>;
 export type labelValue = string;
 
 export interface LaunchTemplateSpecification {
@@ -1646,7 +1646,7 @@ export interface Nodegroup {
   remoteAccess?: RemoteAccessConfig;
   amiType?: AMITypes;
   nodeRole?: string;
-  labels?: Record<string, string>;
+  labels?: Partial<Record<string, string>>;
   taints?: Array<Taint>;
   resources?: NodegroupResources;
   diskSize?: number;
@@ -1742,7 +1742,7 @@ export interface OidcIdentityProviderConfig {
   usernamePrefix?: string;
   groupsClaim?: string;
   groupsPrefix?: string;
-  requiredClaims?: Record<string, string>;
+  requiredClaims?: Partial<Record<string, string>>;
   tags?: Record<string, string>;
   status?: configStatus;
 }
@@ -1754,7 +1754,7 @@ export interface OidcIdentityProviderConfigRequest {
   usernamePrefix?: string;
   groupsClaim?: string;
   groupsPrefix?: string;
-  requiredClaims?: Record<string, string>;
+  requiredClaims?: Partial<Record<string, string>>;
 }
 export interface OutpostConfigRequest {
   outpostArns: Array<string>;
@@ -1827,7 +1827,7 @@ export interface RemotePodNetwork {
 export type RemotePodNetworkList = Array<RemotePodNetwork>;
 export type requiredClaimsKey = string;
 
-export type requiredClaimsMap = Record<string, string>;
+export type requiredClaimsMap = Partial<Record<string, string>>;
 export type requiredClaimsValue = string;
 
 export type ResolveConflicts = "OVERWRITE" | "NONE" | "PRESERVE";
@@ -1999,7 +1999,7 @@ export interface UpdateEksAnywhereSubscriptionResponse {
   subscription?: EksAnywhereSubscription;
 }
 export interface UpdateLabelsPayload {
-  addOrUpdateLabels?: Record<string, string>;
+  addOrUpdateLabels?: Partial<Record<string, string>>;
   removeLabels?: Array<string>;
 }
 export interface UpdateNodegroupConfigRequest {

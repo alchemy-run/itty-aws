@@ -240,12 +240,12 @@ export declare class Batch extends AWSServiceClient {
 }
 
 export type ArrayJobDependency = "N_TO_N" | "SEQUENTIAL";
-export type ArrayJobStatusSummary = Record<string, number>;
+export type ArrayJobStatusSummary = Partial<Record<string, number>>;
 export interface ArrayProperties {
   size?: number;
 }
 export interface ArrayPropertiesDetail {
-  statusSummary?: Record<string, number>;
+  statusSummary?: Partial<Record<string, number>>;
   size?: number;
   index?: number;
 }
@@ -346,7 +346,7 @@ export interface ComputeResource {
   securityGroupIds?: Array<string>;
   ec2KeyPair?: string;
   instanceRole?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   placementGroup?: string;
   bidPercentage?: number;
   spotIamFleetRole?: string;
@@ -363,7 +363,7 @@ export interface ComputeResourceUpdate {
   instanceTypes?: Array<string>;
   ec2KeyPair?: string;
   instanceRole?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   placementGroup?: string;
   bidPercentage?: number;
   launchTemplate?: LaunchTemplateSpecification;
@@ -703,7 +703,7 @@ export interface EFSVolumeConfiguration {
   transitEncryptionPort?: number;
   authorizationConfig?: EFSAuthorizationConfig;
 }
-export type EksAnnotationsMap = Record<string, string>;
+export type EksAnnotationsMap = Partial<Record<string, string>>;
 export interface EksAttemptContainerDetail {
   name?: string;
   containerID?: string;
@@ -768,8 +768,8 @@ export interface EksContainerOverride {
 }
 export type EksContainerOverrideList = Array<EksContainerOverride>;
 export interface EksContainerResourceRequirements {
-  limits?: Record<string, string>;
-  requests?: Record<string, string>;
+  limits?: Partial<Record<string, string>>;
+  requests?: Partial<Record<string, string>>;
 }
 export type EksContainers = Array<EksContainer>;
 export interface EksContainerSecurityContext {
@@ -794,11 +794,11 @@ export interface EksEmptyDir {
 export interface EksHostPath {
   path?: string;
 }
-export type EksLabelsMap = Record<string, string>;
-export type EksLimits = Record<string, string>;
+export type EksLabelsMap = Partial<Record<string, string>>;
+export type EksLimits = Partial<Record<string, string>>;
 export interface EksMetadata {
-  labels?: Record<string, string>;
-  annotations?: Record<string, string>;
+  labels?: Partial<Record<string, string>>;
+  annotations?: Partial<Record<string, string>>;
   namespace?: string;
 }
 export interface EksPersistentVolumeClaim {
@@ -843,7 +843,7 @@ export interface EksPropertiesDetail {
 export interface EksPropertiesOverride {
   podProperties?: EksPodPropertiesOverride;
 }
-export type EksRequests = Record<string, string>;
+export type EksRequests = Partial<Record<string, string>>;
 export interface EksSecret {
   secretName: string;
   optional?: boolean;
@@ -877,9 +877,9 @@ export interface FargatePlatformConfiguration {
 }
 export interface FirelensConfiguration {
   type: FirelensConfigurationType;
-  options?: Record<string, string>;
+  options?: Partial<Record<string, string>>;
 }
-export type FirelensConfigurationOptionsMap = Record<string, string>;
+export type FirelensConfigurationOptionsMap = Partial<Record<string, string>>;
 export type FirelensConfigurationType = "FLUENTD" | "FLUENTBIT";
 export type Float = number;
 
@@ -918,7 +918,7 @@ export interface JobDefinition {
   status?: string;
   type: string;
   schedulingPriority?: number;
-  parameters?: Record<string, string>;
+  parameters?: Partial<Record<string, string>>;
   retryStrategy?: RetryStrategy;
   containerProperties?: ContainerProperties;
   timeout?: JobTimeout;
@@ -954,7 +954,7 @@ export interface JobDetail {
   stoppedAt?: number;
   dependsOn?: Array<JobDependency>;
   jobDefinition: string;
-  parameters?: Record<string, string>;
+  parameters?: Partial<Record<string, string>>;
   container?: ContainerDetail;
   nodeDetails?: NodeDetails;
   nodeProperties?: NodeProperties;
@@ -1155,10 +1155,10 @@ export type ListTaskContainerProperties = Array<TaskContainerProperties>;
 export type ListTaskPropertiesOverride = Array<TaskPropertiesOverride>;
 export interface LogConfiguration {
   logDriver: LogDriver;
-  options?: Record<string, string>;
+  options?: Partial<Record<string, string>>;
   secretOptions?: Array<Secret>;
 }
-export type LogConfigurationOptionsMap = Record<string, string>;
+export type LogConfigurationOptionsMap = Partial<Record<string, string>>;
 export type LogDriver =
   | "JSON_FILE"
   | "SYSLOG"
@@ -1222,7 +1222,7 @@ export interface NodeRangeProperty {
   consumableResourceProperties?: ConsumableResourceProperties;
 }
 export type OrchestrationType = "ECS" | "EKS";
-export type ParametersMap = Record<string, string>;
+export type ParametersMap = Partial<Record<string, string>>;
 export type PlatformCapability = "EC2" | "FARGATE";
 export type PlatformCapabilityList = Array<PlatformCapability>;
 export type Quantity = string;
@@ -1230,7 +1230,7 @@ export type Quantity = string;
 export interface RegisterJobDefinitionRequest {
   jobDefinitionName: string;
   type: JobDefinitionType;
-  parameters?: Record<string, string>;
+  parameters?: Partial<Record<string, string>>;
   schedulingPriority?: number;
   containerProperties?: ContainerProperties;
   nodeProperties?: NodeProperties;
@@ -1377,7 +1377,7 @@ export interface SubmitJobRequest {
   arrayProperties?: ArrayProperties;
   dependsOn?: Array<JobDependency>;
   jobDefinition: string;
-  parameters?: Record<string, string>;
+  parameters?: Partial<Record<string, string>>;
   containerOverrides?: ContainerOverrides;
   nodeOverrides?: NodeOverrides;
   retryStrategy?: RetryStrategy;
@@ -1419,7 +1419,7 @@ export interface TagResourceRequest {
 }
 export interface TagResourceResponse {}
 export type TagrisTagsMap = Record<string, string>;
-export type TagsMap = Record<string, string>;
+export type TagsMap = Partial<Record<string, string>>;
 export type TagValue = string;
 
 export interface TaskContainerDependency {

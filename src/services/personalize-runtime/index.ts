@@ -37,7 +37,7 @@ export type ColumnName = string;
 export type ColumnNamesList = Array<string>;
 export type ColumnValue = string;
 
-export type Context = Record<string, string>;
+export type Context = Partial<Record<string, string>>;
 export type DatasetType = string;
 
 export type ErrorMessage = string;
@@ -46,13 +46,13 @@ export type FilterAttributeName = string;
 
 export type FilterAttributeValue = string;
 
-export type FilterValues = Record<string, string>;
+export type FilterValues = Partial<Record<string, string>>;
 export interface GetActionRecommendationsRequest {
   campaignArn?: string;
   userId?: string;
   numResults?: number;
   filterArn?: string;
-  filterValues?: Record<string, string>;
+  filterValues?: Partial<Record<string, string>>;
 }
 export interface GetActionRecommendationsResponse {
   actionList?: Array<PredictedAction>;
@@ -62,10 +62,10 @@ export interface GetPersonalizedRankingRequest {
   campaignArn: string;
   inputList: Array<string>;
   userId: string;
-  context?: Record<string, string>;
+  context?: Partial<Record<string, string>>;
   filterArn?: string;
-  filterValues?: Record<string, string>;
-  metadataColumns?: Record<string, Array<string>>;
+  filterValues?: Partial<Record<string, string>>;
+  metadataColumns?: Partial<Record<string, Array<string>>>;
 }
 export interface GetPersonalizedRankingResponse {
   personalizedRanking?: Array<PredictedItem>;
@@ -76,12 +76,12 @@ export interface GetRecommendationsRequest {
   itemId?: string;
   userId?: string;
   numResults?: number;
-  context?: Record<string, string>;
+  context?: Partial<Record<string, string>>;
   filterArn?: string;
-  filterValues?: Record<string, string>;
+  filterValues?: Partial<Record<string, string>>;
   recommenderArn?: string;
   promotions?: Array<Promotion>;
-  metadataColumns?: Record<string, Array<string>>;
+  metadataColumns?: Partial<Record<string, Array<string>>>;
 }
 export interface GetRecommendationsResponse {
   itemList?: Array<PredictedItem>;
@@ -96,8 +96,8 @@ export declare class InvalidInputException extends EffectData.TaggedError(
 export type ItemID = string;
 
 export type ItemList = Array<PredictedItem>;
-export type Metadata = Record<string, string>;
-export type MetadataColumns = Record<string, Array<string>>;
+export type Metadata = Partial<Record<string, string>>;
+export type MetadataColumns = Partial<Record<string, Array<string>>>;
 export type Name = string;
 
 export type NumResults = number;
@@ -112,14 +112,14 @@ export interface PredictedItem {
   itemId?: string;
   score?: number;
   promotionName?: string;
-  metadata?: Record<string, string>;
+  metadata?: Partial<Record<string, string>>;
   reason?: Array<string>;
 }
 export interface Promotion {
   name?: string;
   percentPromotedItems?: number;
   filterArn?: string;
-  filterValues?: Record<string, string>;
+  filterValues?: Partial<Record<string, string>>;
 }
 export type PromotionList = Array<Promotion>;
 export type Reason = string;

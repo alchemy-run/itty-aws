@@ -652,7 +652,7 @@ export interface CopyObjectRequest {
   GrantReadACP?: string;
   GrantWriteACP?: string;
   Key: string;
-  Metadata?: Record<string, string>;
+  Metadata?: Partial<Record<string, string>>;
   MetadataDirective?: MetadataDirective;
   TaggingDirective?: TaggingDirective;
   ServerSideEncryption?: ServerSideEncryption;
@@ -792,7 +792,7 @@ export interface CreateMultipartUploadRequest {
   GrantReadACP?: string;
   GrantWriteACP?: string;
   Key: string;
-  Metadata?: Record<string, string>;
+  Metadata?: Partial<Record<string, string>>;
   ServerSideEncryption?: ServerSideEncryption;
   StorageClass?: StorageClass;
   WebsiteRedirectLocation?: string;
@@ -1371,7 +1371,7 @@ export interface GetObjectOutput {
   Expires?: Date | string;
   WebsiteRedirectLocation?: string;
   ServerSideEncryption?: ServerSideEncryption;
-  Metadata?: Record<string, string>;
+  Metadata?: Partial<Record<string, string>>;
   SSECustomerAlgorithm?: string;
   SSECustomerKeyMD5?: string;
   SSEKMSKeyId?: string;
@@ -1510,7 +1510,7 @@ export interface HeadObjectOutput {
   Expires?: Date | string;
   WebsiteRedirectLocation?: string;
   ServerSideEncryption?: ServerSideEncryption;
-  Metadata?: Record<string, string>;
+  Metadata?: Partial<Record<string, string>>;
   SSECustomerAlgorithm?: string;
   SSECustomerKeyMD5?: string;
   SSEKMSKeyId?: string;
@@ -2010,7 +2010,7 @@ export type MaxUploads = number;
 
 export type Message = string;
 
-export type Metadata = Record<string, string>;
+export type Metadata = Partial<Record<string, string>>;
 export interface MetadataConfiguration {
   JournalTableConfiguration: JournalTableConfiguration;
   InventoryTableConfiguration?: InventoryTableConfiguration;
@@ -2550,7 +2550,7 @@ export interface PutObjectRequest {
   GrantWriteACP?: string;
   Key: string;
   WriteOffsetBytes?: number;
-  Metadata?: Record<string, string>;
+  Metadata?: Partial<Record<string, string>>;
   ServerSideEncryption?: ServerSideEncryption;
   StorageClass?: StorageClass;
   WebsiteRedirectLocation?: string;
@@ -3143,7 +3143,7 @@ export interface WriteGetObjectResponseRequest {
   Expiration?: string;
   LastModified?: Date | string;
   MissingMeta?: number;
-  Metadata?: Record<string, string>;
+  Metadata?: Partial<Record<string, string>>;
   ObjectLockMode?: ObjectLockMode;
   ObjectLockLegalHoldStatus?: ObjectLockLegalHoldStatus;
   ObjectLockRetainUntilDate?: Date | string;

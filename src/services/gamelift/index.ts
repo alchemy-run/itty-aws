@@ -1322,7 +1322,7 @@ export interface AttributeValue {
   S?: string;
   N?: number;
   SL?: Array<string>;
-  SDM?: Record<string, number>;
+  SDM?: Partial<Record<string, number>>;
 }
 export type AutoScalingGroupArn = string;
 
@@ -1745,7 +1745,7 @@ export interface CreatePlayerSessionOutput {
 export interface CreatePlayerSessionsInput {
   GameSessionId: string;
   PlayerIds: Array<string>;
-  PlayerDataMap?: Record<string, string>;
+  PlayerDataMap?: Partial<Record<string, string>>;
 }
 export interface CreatePlayerSessionsOutput {
   PlayerSessions?: Array<PlayerSession>;
@@ -1941,7 +1941,7 @@ export interface DescribeFleetDeploymentInput {
 }
 export interface DescribeFleetDeploymentOutput {
   FleetDeployment?: FleetDeployment;
-  LocationalDeployments?: Record<string, LocationalDeployment>;
+  LocationalDeployments?: Partial<Record<string, LocationalDeployment>>;
 }
 export interface DescribeFleetEventsInput {
   FleetId: string;
@@ -3282,7 +3282,7 @@ export type IpRange = string;
 
 export type LargeGameSessionData = string;
 
-export type LatencyMap = Record<string, number>;
+export type LatencyMap = Partial<Record<string, number>>;
 export type LaunchParametersStringModel = string;
 
 export type LaunchPathStringModel = string;
@@ -3431,7 +3431,9 @@ export interface ListTagsForResourceResponse {
 export interface LocationalDeployment {
   DeploymentStatus?: DeploymentStatus;
 }
-export type LocationalDeployments = Record<string, LocationalDeployment>;
+export type LocationalDeployments = Partial<
+  Record<string, LocationalDeployment>
+>;
 export type LocationArnModel = string;
 
 export interface LocationAttributes {
@@ -3612,18 +3614,18 @@ export type PlacedPlayerSessionList = Array<PlacedPlayerSession>;
 export type PlacementFallbackStrategy = "DEFAULT_AFTER_SINGLE_PASS" | "NONE";
 export interface Player {
   PlayerId?: string;
-  PlayerAttributes?: Record<string, AttributeValue>;
+  PlayerAttributes?: Partial<Record<string, AttributeValue>>;
   Team?: string;
-  LatencyInMs?: Record<string, number>;
+  LatencyInMs?: Partial<Record<string, number>>;
 }
-export type PlayerAttributeMap = Record<string, AttributeValue>;
+export type PlayerAttributeMap = Partial<Record<string, AttributeValue>>;
 export type PlayerAttributeString = string;
 
-export type PlayerAttributeStringDoubleMap = Record<string, number>;
+export type PlayerAttributeStringDoubleMap = Partial<Record<string, number>>;
 export type PlayerAttributeStringList = Array<string>;
 export type PlayerData = string;
 
-export type PlayerDataMap = Record<string, string>;
+export type PlayerDataMap = Partial<Record<string, string>>;
 export type PlayerId = string;
 
 export type PlayerIdList = Array<string>;

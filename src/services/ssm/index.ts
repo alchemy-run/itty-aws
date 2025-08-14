@@ -1466,7 +1466,7 @@ export interface AssociationDescription {
   Overview?: AssociationOverview;
   DocumentVersion?: string;
   AutomationTargetParameterName?: string;
-  Parameters?: Record<string, Array<string>>;
+  Parameters?: Partial<Record<string, Array<string>>>;
   AssociationId?: string;
   Targets?: Array<Target>;
   ScheduleExpression?: string;
@@ -1581,7 +1581,7 @@ export type AssociationName = string;
 export interface AssociationOverview {
   Status?: string;
   DetailedStatus?: string;
-  AssociationStatusAggregatedCount?: Record<string, number>;
+  AssociationStatusAggregatedCount?: Partial<Record<string, number>>;
 }
 export type AssociationResourceId = string;
 
@@ -1593,7 +1593,7 @@ export interface AssociationStatus {
   Message: string;
   AdditionalInfo?: string;
 }
-export type AssociationStatusAggregatedCount = Record<string, number>;
+export type AssociationStatusAggregatedCount = Partial<Record<string, number>>;
 export type AssociationStatusName = "Pending" | "Success" | "Failed";
 export type AssociationSyncCompliance = "Auto" | "Manual";
 export type AssociationVersion = string;
@@ -1604,7 +1604,7 @@ export interface AssociationVersionInfo {
   CreatedDate?: Date | string;
   Name?: string;
   DocumentVersion?: string;
-  Parameters?: Record<string, Array<string>>;
+  Parameters?: Partial<Record<string, Array<string>>>;
   Targets?: Array<Target>;
   ScheduleExpression?: string;
   OutputLocation?: InstanceAssociationOutputLocation;
@@ -1795,7 +1795,7 @@ export declare class AutomationExecutionNotFoundException extends EffectData.Tag
   readonly Message?: string;
 }> {}
 export interface AutomationExecutionPreview {
-  StepPreviews?: Record<ImpactType, number>;
+  StepPreviews?: Partial<Record<ImpactType, number>>;
   Regions?: Array<string>;
   TargetPreviews?: Array<TargetPreview>;
   TotalAccounts?: number;
@@ -1896,7 +1896,7 @@ export interface Command {
   DocumentVersion?: string;
   Comment?: string;
   ExpiresAfter?: Date | string;
-  Parameters?: Record<string, Array<string>>;
+  Parameters?: Partial<Record<string, Array<string>>>;
   InstanceIds?: Array<string>;
   Targets?: Array<Target>;
   RequestedDateTime?: Date | string;
@@ -2022,17 +2022,17 @@ export interface ComplianceItem {
   Status?: ComplianceStatus;
   Severity?: ComplianceSeverity;
   ExecutionSummary?: ComplianceExecutionSummary;
-  Details?: Record<string, string>;
+  Details?: Partial<Record<string, string>>;
 }
 export type ComplianceItemContentHash = string;
 
-export type ComplianceItemDetails = Record<string, string>;
+export type ComplianceItemDetails = Partial<Record<string, string>>;
 export interface ComplianceItemEntry {
   Id?: string;
   Title?: string;
   Severity: ComplianceSeverity;
   Status: ComplianceStatus;
-  Details?: Record<string, string>;
+  Details?: Partial<Record<string, string>>;
 }
 export type ComplianceItemEntryList = Array<ComplianceItemEntry>;
 export type ComplianceItemId = string;
@@ -2115,7 +2115,7 @@ export type CreateAssociationBatchRequestEntries =
 export interface CreateAssociationBatchRequestEntry {
   Name: string;
   InstanceId?: string;
-  Parameters?: Record<string, Array<string>>;
+  Parameters?: Partial<Record<string, Array<string>>>;
   AutomationTargetParameterName?: string;
   DocumentVersion?: string;
   Targets?: Array<Target>;
@@ -2142,7 +2142,7 @@ export interface CreateAssociationRequest {
   Name: string;
   DocumentVersion?: string;
   InstanceId?: string;
-  Parameters?: Record<string, Array<string>>;
+  Parameters?: Partial<Record<string, Array<string>>>;
   Targets?: Array<Target>;
   ScheduleExpression?: string;
   OutputLocation?: InstanceAssociationOutputLocation;
@@ -2201,7 +2201,7 @@ export interface CreateMaintenanceWindowResult {
 export interface CreateOpsItemRequest {
   Description: string;
   OpsItemType?: string;
-  OperationalData?: Record<string, OpsItemDataValue>;
+  OperationalData?: Partial<Record<string, OpsItemDataValue>>;
   Notifications?: Array<OpsItemNotification>;
   Priority?: number;
   RelatedOpsItems?: Array<RelatedOpsItem>;
@@ -2701,7 +2701,7 @@ export interface DescribePatchPropertiesRequest {
   NextToken?: string;
 }
 export interface DescribePatchPropertiesResult {
-  Properties?: Array<Record<string, string>>;
+  Properties?: Array<Partial<Record<string, string>>>;
   NextToken?: string;
 }
 export interface DescribeSessionsRequest {
@@ -3182,7 +3182,7 @@ export interface GetMaintenanceWindowExecutionTaskResult {
   ServiceRole?: string;
   Type?: MaintenanceWindowTaskType;
   TaskParameters?: Array<
-    Record<string, MaintenanceWindowTaskParameterValueExpression>
+    Partial<Record<string, MaintenanceWindowTaskParameterValueExpression>>
   >;
   Priority?: number;
   MaxConcurrency?: string;
@@ -3225,9 +3225,8 @@ export interface GetMaintenanceWindowTaskResult {
   TaskArn?: string;
   ServiceRoleArn?: string;
   TaskType?: MaintenanceWindowTaskType;
-  TaskParameters?: Record<
-    string,
-    MaintenanceWindowTaskParameterValueExpression
+  TaskParameters?: Partial<
+    Record<string, MaintenanceWindowTaskParameterValueExpression>
   >;
   TaskInvocationParameters?: MaintenanceWindowTaskInvocationParameters;
   Priority?: number;
@@ -3390,7 +3389,7 @@ export type InstallOverrideList = string;
 
 export interface InstanceAggregatedAssociationOverview {
   DetailedStatus?: string;
-  InstanceAssociationStatusAggregatedCount?: Record<string, number>;
+  InstanceAssociationStatusAggregatedCount?: Partial<Record<string, number>>;
 }
 export interface InstanceAssociation {
   AssociationId?: string;
@@ -3407,7 +3406,9 @@ export interface InstanceAssociationOutputLocation {
 export interface InstanceAssociationOutputUrl {
   S3OutputUrl?: S3OutputUrl;
 }
-export type InstanceAssociationStatusAggregatedCount = Record<string, number>;
+export type InstanceAssociationStatusAggregatedCount = Partial<
+  Record<string, number>
+>;
 export interface InstanceAssociationStatusInfo {
   AssociationId?: string;
   Name?: string;
@@ -3909,8 +3910,8 @@ export interface InventoryItem {
   SchemaVersion: string;
   CaptureTime: string;
   ContentHash?: string;
-  Content?: Array<Record<string, string>>;
-  Context?: Record<string, string>;
+  Content?: Array<Partial<Record<string, string>>>;
+  Context?: Partial<Record<string, string>>;
 }
 export interface InventoryItemAttribute {
   Name: string;
@@ -3921,11 +3922,11 @@ export type InventoryItemAttributeName = string;
 
 export type InventoryItemCaptureTime = string;
 
-export type InventoryItemContentContext = Record<string, string>;
+export type InventoryItemContentContext = Partial<Record<string, string>>;
 export type InventoryItemContentHash = string;
 
-export type InventoryItemEntry = Record<string, string>;
-export type InventoryItemEntryList = Array<Record<string, string>>;
+export type InventoryItemEntry = Partial<Record<string, string>>;
+export type InventoryItemEntryList = Array<Partial<Record<string, string>>>;
 export type InventoryItemList = Array<InventoryItem>;
 export interface InventoryItemSchema {
   TypeName: string;
@@ -3949,7 +3950,7 @@ export type InventoryQueryOperatorType =
   | "EXISTS";
 export interface InventoryResultEntity {
   Id?: string;
-  Data?: Record<string, InventoryResultItem>;
+  Data?: Partial<Record<string, InventoryResultItem>>;
 }
 export type InventoryResultEntityId = string;
 
@@ -3959,11 +3960,13 @@ export interface InventoryResultItem {
   SchemaVersion: string;
   CaptureTime?: string;
   ContentHash?: string;
-  Content: Array<Record<string, string>>;
+  Content: Array<Partial<Record<string, string>>>;
 }
 export type InventoryResultItemKey = string;
 
-export type InventoryResultItemMap = Record<string, InventoryResultItem>;
+export type InventoryResultItemMap = Partial<
+  Record<string, InventoryResultItem>
+>;
 export type InventorySchemaDeleteOption = "DISABLE_SCHEMA" | "DELETE_SCHEMA";
 export type InventoryTypeDisplayName = string;
 
@@ -4115,7 +4118,7 @@ export interface ListInventoryEntriesResult {
   InstanceId?: string;
   SchemaVersion?: string;
   CaptureTime?: string;
-  Entries?: Array<Record<string, string>>;
+  Entries?: Array<Partial<Record<string, string>>>;
   NextToken?: string;
 }
 export interface ListNodesRequest {
@@ -4136,7 +4139,7 @@ export interface ListNodesSummaryRequest {
   MaxResults?: number;
 }
 export interface ListNodesSummaryResult {
-  Summary?: Array<Record<string, string>>;
+  Summary?: Array<Partial<Record<string, string>>>;
   NextToken?: string;
 }
 export interface ListOpsItemEventsRequest {
@@ -4334,7 +4337,7 @@ export interface MaintenanceWindowRunCommandParameters {
   NotificationConfig?: NotificationConfig;
   OutputS3BucketName?: string;
   OutputS3KeyPrefix?: string;
-  Parameters?: Record<string, Array<string>>;
+  Parameters?: Partial<Record<string, Array<string>>>;
   ServiceRoleArn?: string;
   TimeoutSeconds?: number;
 }
@@ -4372,9 +4375,8 @@ export interface MaintenanceWindowTask {
   TaskArn?: string;
   Type?: MaintenanceWindowTaskType;
   Targets?: Array<Target>;
-  TaskParameters?: Record<
-    string,
-    MaintenanceWindowTaskParameterValueExpression
+  TaskParameters?: Partial<
+    Record<string, MaintenanceWindowTaskParameterValueExpression>
   >;
   Priority?: number;
   LoggingInfo?: LoggingInfo;
@@ -4400,12 +4402,11 @@ export interface MaintenanceWindowTaskInvocationParameters {
 export type MaintenanceWindowTaskList = Array<MaintenanceWindowTask>;
 export type MaintenanceWindowTaskParameterName = string;
 
-export type MaintenanceWindowTaskParameters = Record<
-  string,
-  MaintenanceWindowTaskParameterValueExpression
+export type MaintenanceWindowTaskParameters = Partial<
+  Record<string, MaintenanceWindowTaskParameterValueExpression>
 >;
 export type MaintenanceWindowTaskParametersList = Array<
-  Record<string, MaintenanceWindowTaskParameterValueExpression>
+  Partial<Record<string, MaintenanceWindowTaskParameterValueExpression>>
 >;
 export type MaintenanceWindowTaskParameterValue = string;
 
@@ -4532,8 +4533,8 @@ export interface NodeOwnerInfo {
 }
 export type NodeRegion = string;
 
-export type NodeSummary = Record<string, string>;
-export type NodeSummaryList = Array<Record<string, string>>;
+export type NodeSummary = Partial<Record<string, string>>;
+export type NodeSummaryList = Array<Partial<Record<string, string>>>;
 interface _NodeType {
   Instance?: InstanceInfo;
 }
@@ -4544,7 +4545,7 @@ export interface NonCompliantSummary {
   NonCompliantCount?: number;
   SeveritySummary?: SeveritySummary;
 }
-export type NormalStringMap = Record<string, string>;
+export type NormalStringMap = Partial<Record<string, string>>;
 export type NotificationArn = string;
 
 export interface NotificationConfig {
@@ -4581,7 +4582,7 @@ export interface OpsAggregator {
   AggregatorType?: string;
   TypeName?: string;
   AttributeName?: string;
-  Values?: Record<string, string>;
+  Values?: Partial<Record<string, string>>;
   Filters?: Array<OpsFilter>;
   Aggregators?: Array<OpsAggregator>;
 }
@@ -4592,28 +4593,28 @@ export type OpsAggregatorValue = string;
 
 export type OpsAggregatorValueKey = string;
 
-export type OpsAggregatorValueMap = Record<string, string>;
+export type OpsAggregatorValueMap = Partial<Record<string, string>>;
 export type OpsDataAttributeName = string;
 
 export type OpsDataTypeName = string;
 
 export interface OpsEntity {
   Id?: string;
-  Data?: Record<string, OpsEntityItem>;
+  Data?: Partial<Record<string, OpsEntityItem>>;
 }
 export type OpsEntityId = string;
 
 export interface OpsEntityItem {
   CaptureTime?: string;
-  Content?: Array<Record<string, string>>;
+  Content?: Array<Partial<Record<string, string>>>;
 }
 export type OpsEntityItemCaptureTime = string;
 
-export type OpsEntityItemEntry = Record<string, string>;
-export type OpsEntityItemEntryList = Array<Record<string, string>>;
+export type OpsEntityItemEntry = Partial<Record<string, string>>;
+export type OpsEntityItemEntryList = Array<Partial<Record<string, string>>>;
 export type OpsEntityItemKey = string;
 
-export type OpsEntityItemMap = Record<string, OpsEntityItem>;
+export type OpsEntityItemMap = Partial<Record<string, OpsEntityItem>>;
 export type OpsEntityList = Array<OpsEntity>;
 export interface OpsFilter {
   Key: string;
@@ -4648,7 +4649,7 @@ export interface OpsItem {
   Version?: string;
   Title?: string;
   Source?: string;
-  OperationalData?: Record<string, OpsItemDataValue>;
+  OperationalData?: Partial<Record<string, OpsItemDataValue>>;
   Category?: string;
   Severity?: string;
   ActualStartTime?: Date | string;
@@ -4795,7 +4796,7 @@ export interface OpsItemNotification {
   Arn?: string;
 }
 export type OpsItemNotifications = Array<OpsItemNotification>;
-export type OpsItemOperationalData = Record<string, OpsItemDataValue>;
+export type OpsItemOperationalData = Partial<Record<string, OpsItemDataValue>>;
 export type OpsItemOpsDataKeysList = Array<string>;
 export type OpsItemParameterNamesList = Array<string>;
 export type OpsItemPriority = number;
@@ -4884,7 +4885,7 @@ export interface OpsItemSummary {
   Status?: OpsItemStatus;
   OpsItemId?: string;
   Title?: string;
-  OperationalData?: Record<string, OpsItemDataValue>;
+  OperationalData?: Partial<Record<string, OpsItemDataValue>>;
   Category?: string;
   Severity?: string;
   OpsItemType?: string;
@@ -5051,7 +5052,7 @@ export declare class ParameterPatternMismatchException extends EffectData.Tagged
 export type ParameterPolicies = string;
 
 export type ParameterPolicyList = Array<ParameterInlinePolicy>;
-export type Parameters = Record<string, Array<string>>;
+export type Parameters = Partial<Record<string, Array<string>>>;
 export interface ParametersFilter {
   Key: ParametersFilterKey;
   Values: Array<string>;
@@ -5276,7 +5277,7 @@ export type PatchProduct = string;
 
 export type PatchProductFamily = string;
 
-export type PatchPropertiesList = Array<Record<string, string>>;
+export type PatchPropertiesList = Array<Partial<Record<string, string>>>;
 export type PatchProperty =
   | "Product"
   | "PatchProductFamily"
@@ -5284,7 +5285,7 @@ export type PatchProperty =
   | "PatchMsrcSeverity"
   | "PatchPriority"
   | "PatchSeverity";
-export type PatchPropertyEntry = Record<string, string>;
+export type PatchPropertyEntry = Partial<Record<string, string>>;
 export type PatchRelease = string;
 
 export type PatchRepository = string;
@@ -5451,9 +5452,8 @@ export interface RegisterTaskWithMaintenanceWindowRequest {
   TaskArn: string;
   ServiceRoleArn?: string;
   TaskType: MaintenanceWindowTaskType;
-  TaskParameters?: Record<
-    string,
-    MaintenanceWindowTaskParameterValueExpression
+  TaskParameters?: Partial<
+    Record<string, MaintenanceWindowTaskParameterValueExpression>
   >;
   TaskInvocationParameters?: MaintenanceWindowTaskInvocationParameters;
   Priority?: number;
@@ -5761,7 +5761,7 @@ export interface SendCommandRequest {
   DocumentHashType?: DocumentHashType;
   TimeoutSeconds?: number;
   Comment?: string;
-  Parameters?: Record<string, Array<string>>;
+  Parameters?: Partial<Record<string, Array<string>>>;
   OutputS3Region?: string;
   OutputS3BucketName?: string;
   OutputS3KeyPrefix?: string;
@@ -5845,7 +5845,7 @@ export interface SessionManagerOutputUrl {
 }
 export type SessionManagerParameterName = string;
 
-export type SessionManagerParameters = Record<string, Array<string>>;
+export type SessionManagerParameters = Partial<Record<string, Array<string>>>;
 export type SessionManagerParameterValue = string;
 
 export type SessionManagerParameterValueList = Array<string>;
@@ -5959,7 +5959,7 @@ export interface StartSessionRequest {
   Target: string;
   DocumentName?: string;
   Reason?: string;
-  Parameters?: Record<string, Array<string>>;
+  Parameters?: Partial<Record<string, Array<string>>>;
 }
 export interface StartSessionResponse {
   SessionId?: string;
@@ -5987,7 +5987,7 @@ export interface StepExecution {
   ExecutionEndTime?: Date | string;
   StepStatus?: AutomationExecutionStatus;
   ResponseCode?: string;
-  Inputs?: Record<string, string>;
+  Inputs?: Partial<Record<string, string>>;
   Outputs?: Record<string, Array<string>>;
   Response?: string;
   FailureMessage?: string;
@@ -6022,7 +6022,7 @@ export type StepExecutionFilterValue = string;
 
 export type StepExecutionFilterValueList = Array<string>;
 export type StepExecutionList = Array<StepExecution>;
-export type StepPreviewMap = Record<ImpactType, number>;
+export type StepPreviewMap = Partial<Record<ImpactType, number>>;
 export interface StopAutomationExecutionRequest {
   AutomationExecutionId: string;
   Type?: StopType;
@@ -6189,7 +6189,7 @@ export declare class UnsupportedPlatformType extends EffectData.TaggedError(
 }> {}
 export interface UpdateAssociationRequest {
   AssociationId: string;
-  Parameters?: Record<string, Array<string>>;
+  Parameters?: Partial<Record<string, Array<string>>>;
   DocumentVersion?: string;
   ScheduleExpression?: string;
   OutputLocation?: InstanceAssociationOutputLocation;
@@ -6299,9 +6299,8 @@ export interface UpdateMaintenanceWindowTaskRequest {
   Targets?: Array<Target>;
   TaskArn?: string;
   ServiceRoleArn?: string;
-  TaskParameters?: Record<
-    string,
-    MaintenanceWindowTaskParameterValueExpression
+  TaskParameters?: Partial<
+    Record<string, MaintenanceWindowTaskParameterValueExpression>
   >;
   TaskInvocationParameters?: MaintenanceWindowTaskInvocationParameters;
   Priority?: number;
@@ -6320,9 +6319,8 @@ export interface UpdateMaintenanceWindowTaskResult {
   Targets?: Array<Target>;
   TaskArn?: string;
   ServiceRoleArn?: string;
-  TaskParameters?: Record<
-    string,
-    MaintenanceWindowTaskParameterValueExpression
+  TaskParameters?: Partial<
+    Record<string, MaintenanceWindowTaskParameterValueExpression>
   >;
   TaskInvocationParameters?: MaintenanceWindowTaskInvocationParameters;
   Priority?: number;
@@ -6341,7 +6339,7 @@ export interface UpdateManagedInstanceRoleRequest {
 export interface UpdateManagedInstanceRoleResult {}
 export interface UpdateOpsItemRequest {
   Description?: string;
-  OperationalData?: Record<string, OpsItemDataValue>;
+  OperationalData?: Partial<Record<string, OpsItemDataValue>>;
   OperationalDataToDelete?: Array<string>;
   Notifications?: Array<OpsItemNotification>;
   Priority?: number;

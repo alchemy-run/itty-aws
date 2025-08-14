@@ -1821,7 +1821,7 @@ export interface ListDeploymentsOutput {
 export interface ListDeploymentTargetsInput {
   deploymentId: string;
   nextToken?: string;
-  targetFilters?: Record<TargetFilterName, Array<string>>;
+  targetFilters?: Partial<Record<TargetFilterName, Array<string>>>;
 }
 export interface ListDeploymentTargetsOutput {
   targetIds?: Array<string>;
@@ -2048,7 +2048,7 @@ export declare class TagSetListLimitExceededException extends EffectData.TaggedE
 export type TargetArn = string;
 
 export type TargetFilterName = "TARGET_STATUS" | "SERVER_INSTANCE_LABEL";
-export type TargetFilters = Record<TargetFilterName, Array<string>>;
+export type TargetFilters = Partial<Record<TargetFilterName, Array<string>>>;
 export interface TargetGroupInfo {
   name?: string;
 }

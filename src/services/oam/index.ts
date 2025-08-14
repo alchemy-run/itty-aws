@@ -161,7 +161,7 @@ export interface CreateLinkInput {
   LabelTemplate: string;
   ResourceTypes: Array<ResourceType>;
   SinkIdentifier: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   LinkConfiguration?: LinkConfiguration;
 }
 export interface CreateLinkOutput {
@@ -171,18 +171,18 @@ export interface CreateLinkOutput {
   LabelTemplate?: string;
   ResourceTypes?: Array<string>;
   SinkArn?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   LinkConfiguration?: LinkConfiguration;
 }
 export interface CreateSinkInput {
   Name: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateSinkOutput {
   Arn?: string;
   Id?: string;
   Name?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface DeleteLinkInput {
   Identifier: string;
@@ -203,7 +203,7 @@ export interface GetLinkOutput {
   LabelTemplate?: string;
   ResourceTypes?: Array<string>;
   SinkArn?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   LinkConfiguration?: LinkConfiguration;
 }
 export interface GetSinkInput {
@@ -214,7 +214,7 @@ export interface GetSinkOutput {
   Arn?: string;
   Id?: string;
   Name?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface GetSinkPolicyInput {
   SinkIdentifier: string;
@@ -299,7 +299,7 @@ export interface ListTagsForResourceInput {
   ResourceArn: string;
 }
 export interface ListTagsForResourceOutput {
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface LogGroupConfiguration {
   Filter: string;
@@ -359,11 +359,11 @@ export type SinkPolicy = string;
 export type TagKey = string;
 
 export type TagKeys = Array<string>;
-export type TagMapInput = Record<string, string>;
-export type TagMapOutput = Record<string, string>;
+export type TagMapInput = Partial<Record<string, string>>;
+export type TagMapOutput = Partial<Record<string, string>>;
 export interface TagResourceInput {
   ResourceArn: string;
-  Tags: Record<string, string>;
+  Tags: Partial<Record<string, string>>;
 }
 export interface TagResourceOutput {}
 export type TagValue = string;
@@ -391,7 +391,7 @@ export interface UpdateLinkOutput {
   LabelTemplate?: string;
   ResourceTypes?: Array<string>;
   SinkArn?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   LinkConfiguration?: LinkConfiguration;
 }
 export declare class ValidationException extends EffectData.TaggedError(

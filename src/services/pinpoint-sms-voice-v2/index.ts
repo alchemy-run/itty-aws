@@ -1135,7 +1135,7 @@ export type ConflictExceptionReason = string;
 
 export type ContextKey = string;
 
-export type ContextMap = Record<string, string>;
+export type ContextMap = Partial<Record<string, string>>;
 export type ContextValue = string;
 
 export interface CreateConfigurationSetRequest {
@@ -1248,7 +1248,7 @@ export interface CreateRegistrationResult {
   RegistrationType: string;
   RegistrationStatus: string;
   CurrentVersionNumber: number;
-  AdditionalAttributes?: Record<string, string>;
+  AdditionalAttributes?: Partial<Record<string, string>>;
   Tags?: Array<Tag>;
   CreatedTimestamp: Date | string;
 }
@@ -1424,7 +1424,7 @@ export interface DeleteRegistrationResult {
   CurrentVersionNumber: number;
   ApprovedVersionNumber?: number;
   LatestDeniedVersionNumber?: number;
-  AdditionalAttributes?: Record<string, string>;
+  AdditionalAttributes?: Partial<Record<string, string>>;
   CreatedTimestamp: Date | string;
 }
 export interface DeleteResourcePolicyRequest {
@@ -1661,7 +1661,7 @@ export interface DescribeVerifiedDestinationNumbersResult {
 }
 export type DestinationCountryParameterKey = string;
 
-export type DestinationCountryParameters = Record<string, string>;
+export type DestinationCountryParameters = Partial<Record<string, string>>;
 export type DestinationCountryParameterValue = string;
 
 export type DestinationPhoneNumberList = Array<string>;
@@ -2180,7 +2180,7 @@ export interface RegistrationInformation {
   CurrentVersionNumber: number;
   ApprovedVersionNumber?: number;
   LatestDeniedVersionNumber?: number;
-  AdditionalAttributes?: Record<string, string>;
+  AdditionalAttributes?: Partial<Record<string, string>>;
   CreatedTimestamp: Date | string;
 }
 export type RegistrationInformationList = Array<RegistrationInformation>;
@@ -2376,8 +2376,8 @@ export interface SendDestinationNumberVerificationCodeRequest {
   LanguageCode?: string;
   OriginationIdentity?: string;
   ConfigurationSetName?: string;
-  Context?: Record<string, string>;
-  DestinationCountryParameters?: Record<string, string>;
+  Context?: Partial<Record<string, string>>;
+  DestinationCountryParameters?: Partial<Record<string, string>>;
 }
 export interface SendDestinationNumberVerificationCodeResult {
   MessageId: string;
@@ -2417,7 +2417,7 @@ export interface SendMediaMessageRequest {
   ConfigurationSetName?: string;
   MaxPrice?: string;
   TimeToLive?: number;
-  Context?: Record<string, string>;
+  Context?: Partial<Record<string, string>>;
   DryRun?: boolean;
   ProtectConfigurationId?: string;
   MessageFeedbackEnabled?: boolean;
@@ -2434,8 +2434,8 @@ export interface SendTextMessageRequest {
   ConfigurationSetName?: string;
   MaxPrice?: string;
   TimeToLive?: number;
-  Context?: Record<string, string>;
-  DestinationCountryParameters?: Record<string, string>;
+  Context?: Partial<Record<string, string>>;
+  DestinationCountryParameters?: Partial<Record<string, string>>;
   DryRun?: boolean;
   ProtectConfigurationId?: string;
   MessageFeedbackEnabled?: boolean;
@@ -2452,7 +2452,7 @@ export interface SendVoiceMessageRequest {
   ConfigurationSetName?: string;
   MaxPricePerMinute?: string;
   TimeToLive?: number;
-  Context?: Record<string, string>;
+  Context?: Partial<Record<string, string>>;
   DryRun?: boolean;
   ProtectConfigurationId?: string;
   MessageFeedbackEnabled?: boolean;
@@ -2535,7 +2535,7 @@ export type SpendLimitList = Array<SpendLimit>;
 export type SpendLimitName = string;
 
 export type StringList = Array<string>;
-export type StringMap = Record<string, string>;
+export type StringMap = Partial<Record<string, string>>;
 export interface SubmitRegistrationVersionRequest {
   RegistrationId: string;
 }

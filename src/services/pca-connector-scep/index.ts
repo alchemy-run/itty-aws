@@ -122,7 +122,7 @@ export type ConnectorType = "GENERAL_PURPOSE" | "INTUNE";
 export interface CreateChallengeRequest {
   ConnectorArn: string;
   ClientToken?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateChallengeResponse {
   Challenge?: Challenge;
@@ -131,7 +131,7 @@ export interface CreateConnectorRequest {
   CertificateAuthorityArn: string;
   MobileDeviceManagement?: MobileDeviceManagement;
   ClientToken?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateConnectorResponse {
   ConnectorArn?: string;
@@ -190,7 +190,7 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string;
 }
 export interface ListTagsForResourceResponse {
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export type MaxResults = number;
 
@@ -228,9 +228,9 @@ export declare class ServiceQuotaExceededException extends EffectData.TaggedErro
 export type TagKeyList = Array<string>;
 export interface TagResourceRequest {
   ResourceArn: string;
-  Tags: Record<string, string>;
+  Tags: Partial<Record<string, string>>;
 }
-export type Tags = Record<string, string>;
+export type Tags = Partial<Record<string, string>>;
 export declare class ThrottlingException extends EffectData.TaggedError(
   "ThrottlingException",
 )<{

@@ -42,13 +42,12 @@ export type GetEntitlementFilterName =
   | "CUSTOMER_IDENTIFIER"
   | "DIMENSION"
   | "CUSTOMER_AWS_ACCOUNT_ID";
-export type GetEntitlementFilters = Record<
-  GetEntitlementFilterName,
-  Array<string>
+export type GetEntitlementFilters = Partial<
+  Record<GetEntitlementFilterName, Array<string>>
 >;
 export interface GetEntitlementsRequest {
   ProductCode: string;
-  Filter?: Record<GetEntitlementFilterName, Array<string>>;
+  Filter?: Partial<Record<GetEntitlementFilterName, Array<string>>>;
   NextToken?: string;
   MaxResults?: number;
 }

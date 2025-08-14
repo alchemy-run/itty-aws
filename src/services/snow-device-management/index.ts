@@ -69,7 +69,7 @@ export interface CreateTaskInput {
   targets: Array<string>;
   command: Command;
   description?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   clientToken?: string;
 }
 export interface CreateTaskOutput {
@@ -89,7 +89,7 @@ export interface DescribeDeviceInput {
 export interface DescribeDeviceOutput {
   lastReachedOutAt?: Date | string;
   lastUpdatedAt?: Date | string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   managedDeviceId?: string;
   managedDeviceArn?: string;
   deviceType?: string;
@@ -123,13 +123,13 @@ export interface DescribeTaskOutput {
   lastUpdatedAt?: Date | string;
   completedAt?: Date | string;
   description?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface DeviceSummary {
   managedDeviceId?: string;
   managedDeviceArn?: string;
   associatedWithJob?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type DeviceSummaryList = Array<DeviceSummary>;
 export interface EbsInstanceBlockDevice {
@@ -225,7 +225,7 @@ export interface ListTagsForResourceInput {
   resourceArn: string;
 }
 export interface ListTagsForResourceOutput {
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface ListTasksInput {
   state?: string;
@@ -282,10 +282,10 @@ export interface SoftwareInformation {
   installState?: string;
 }
 export type TagKeys = Array<string>;
-export type TagMap = Record<string, string>;
+export type TagMap = Partial<Record<string, string>>;
 export interface TagResourceInput {
   resourceArn: string;
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
 export type TargetList = Array<string>;
 export type TaskDescriptionString = string;
@@ -298,7 +298,7 @@ export interface TaskSummary {
   taskId: string;
   taskArn?: string;
   state?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type TaskSummaryList = Array<TaskSummary>;
 export declare class ThrottlingException extends EffectData.TaggedError(

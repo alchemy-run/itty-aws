@@ -509,7 +509,7 @@ export interface CreateDataGrantRequest {
   SourceDataSetId: string;
   EndsAt?: Date | string;
   Description?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateDataGrantResponse {
   Name: string;
@@ -526,13 +526,13 @@ export interface CreateDataGrantResponse {
   Arn: string;
   CreatedAt: Date | string;
   UpdatedAt: Date | string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateDataSetRequest {
   AssetType: string;
   Description: string;
   Name: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateDataSetResponse {
   Arn?: string;
@@ -544,13 +544,13 @@ export interface CreateDataSetResponse {
   Origin?: string;
   OriginDetails?: OriginDetails;
   SourceId?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   UpdatedAt?: Date | string;
 }
 export interface CreateEventActionRequest {
   Action: Action;
   Event: Event;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateEventActionResponse {
   Action?: Action;
@@ -558,7 +558,7 @@ export interface CreateEventActionResponse {
   CreatedAt?: Date | string;
   Event?: Event;
   Id?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   UpdatedAt?: Date | string;
 }
 export interface CreateJobRequest {
@@ -578,7 +578,7 @@ export interface CreateJobResponse {
 export interface CreateRevisionRequest {
   Comment?: string;
   DataSetId: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateRevisionResponse {
   Arn?: string;
@@ -588,7 +588,7 @@ export interface CreateRevisionResponse {
   Finalized?: boolean;
   Id?: string;
   SourceId?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   UpdatedAt?: Date | string;
   RevocationComment?: string;
   Revoked?: boolean;
@@ -766,7 +766,7 @@ export interface GetDataGrantResponse {
   Arn: string;
   CreatedAt: Date | string;
   UpdatedAt: Date | string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface GetDataSetRequest {
   DataSetId: string;
@@ -781,7 +781,7 @@ export interface GetDataSetResponse {
   Origin?: string;
   OriginDetails?: OriginDetails;
   SourceId?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   UpdatedAt?: Date | string;
 }
 export interface GetEventActionRequest {
@@ -793,7 +793,7 @@ export interface GetEventActionResponse {
   CreatedAt?: Date | string;
   Event?: Event;
   Id?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   UpdatedAt?: Date | string;
 }
 export interface GetJobRequest {
@@ -839,7 +839,7 @@ export interface GetRevisionResponse {
   Finalized?: boolean;
   Id?: string;
   SourceId?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   UpdatedAt?: Date | string;
   RevocationComment?: string;
   Revoked?: boolean;
@@ -1087,9 +1087,9 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string;
 }
 export interface ListTagsForResourceResponse {
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
-export type MapOf__string = Record<string, string>;
+export type MapOf__string = Partial<Record<string, string>>;
 export type MaxResults = number;
 
 export type Name = string;
@@ -1251,17 +1251,17 @@ export interface ScopeDetails {
 }
 export interface SendApiAssetRequest {
   Body?: string;
-  QueryStringParameters?: Record<string, string>;
+  QueryStringParameters?: Partial<Record<string, string>>;
   AssetId: string;
   DataSetId: string;
-  RequestHeaders?: Record<string, string>;
+  RequestHeaders?: Partial<Record<string, string>>;
   Method?: string;
   Path?: string;
   RevisionId: string;
 }
 export interface SendApiAssetResponse {
   Body?: string;
-  ResponseHeaders?: Record<string, string>;
+  ResponseHeaders?: Partial<Record<string, string>>;
 }
 export interface SendDataSetNotificationRequest {
   Scope?: ScopeDetails;
@@ -1300,7 +1300,7 @@ export type TableTagPolicyLFPermission = string;
 
 export interface TagResourceRequest {
   ResourceArn: string;
-  Tags: Record<string, string>;
+  Tags: Partial<Record<string, string>>;
 }
 export declare class ThrottlingException extends EffectData.TaggedError(
   "ThrottlingException",

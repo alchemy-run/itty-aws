@@ -543,9 +543,8 @@ export interface AnomalyDetection {
   MitigationInEffect?: MitigationInEffectEnum;
 }
 export type AnomalyResultEnum = "ANOMALOUS" | "NORMAL";
-export type AuthenticateCognitoActionAuthenticationRequestExtraParams = Record<
-  string,
-  string
+export type AuthenticateCognitoActionAuthenticationRequestExtraParams = Partial<
+  Record<string, string>
 >;
 export type AuthenticateCognitoActionAuthenticationRequestParamName = string;
 
@@ -562,7 +561,7 @@ export interface AuthenticateCognitoActionConfig {
   SessionCookieName?: string;
   Scope?: string;
   SessionTimeout?: number;
-  AuthenticationRequestExtraParams?: Record<string, string>;
+  AuthenticationRequestExtraParams?: Partial<Record<string, string>>;
   OnUnauthenticatedRequest?: AuthenticateCognitoActionConditionalBehaviorEnum;
 }
 export type AuthenticateCognitoActionScope = string;
@@ -577,9 +576,8 @@ export type AuthenticateCognitoActionUserPoolClientId = string;
 
 export type AuthenticateCognitoActionUserPoolDomain = string;
 
-export type AuthenticateOidcActionAuthenticationRequestExtraParams = Record<
-  string,
-  string
+export type AuthenticateOidcActionAuthenticationRequestExtraParams = Partial<
+  Record<string, string>
 >;
 export type AuthenticateOidcActionAuthenticationRequestParamName = string;
 
@@ -605,7 +603,7 @@ export interface AuthenticateOidcActionConfig {
   SessionCookieName?: string;
   Scope?: string;
   SessionTimeout?: number;
-  AuthenticationRequestExtraParams?: Record<string, string>;
+  AuthenticationRequestExtraParams?: Partial<Record<string, string>>;
   OnUnauthenticatedRequest?: AuthenticateOidcActionConditionalBehaviorEnum;
   UseExistingClientSecret?: boolean;
 }

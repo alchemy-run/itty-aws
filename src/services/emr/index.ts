@@ -363,7 +363,7 @@ export interface Application {
   Name?: string;
   Version?: string;
   Args?: Array<string>;
-  AdditionalInfo?: Record<string, string>;
+  AdditionalInfo?: Partial<Record<string, string>>;
 }
 export type ApplicationList = Array<Application>;
 export type ArnType = string;
@@ -405,7 +405,7 @@ export interface BlockPublicAccessConfiguration {
   PermittedPublicSecurityGroupRuleRanges?: Array<PortRange>;
   Classification?: string;
   Configurations?: Array<Configuration>;
-  Properties?: Record<string, string>;
+  Properties?: Partial<Record<string, string>>;
 }
 export interface BlockPublicAccessConfigurationMetadata {
   CreationDateTime: Date | string;
@@ -553,7 +553,7 @@ export type ComputeLimitsUnitType = "InstanceFleetUnits" | "Instances" | "VCPU";
 export interface Configuration {
   Classification?: string;
   Configurations?: Array<Configuration>;
-  Properties?: Record<string, string>;
+  Properties?: Partial<Record<string, string>>;
 }
 export type ConfigurationList = Array<Configuration>;
 export interface CreatePersistentAppUIInput {
@@ -721,13 +721,13 @@ export type EC2InstanceIdsToTerminateList = Array<string>;
 export interface EMRContainersConfig {
   JobRunId?: string;
 }
-export type EnvironmentVariablesMap = Record<string, string>;
+export type EnvironmentVariablesMap = Partial<Record<string, string>>;
 export type ErrorCode = string;
 
-export type ErrorData = Array<Record<string, string>>;
+export type ErrorData = Array<Partial<Record<string, string>>>;
 export interface ErrorDetail {
   ErrorCode?: string;
-  ErrorData?: Array<Record<string, string>>;
+  ErrorData?: Array<Partial<Record<string, string>>>;
   ErrorMessage?: string;
 }
 export type ErrorDetailList = Array<ErrorDetail>;
@@ -811,7 +811,7 @@ export interface HadoopJarStepConfig {
 }
 export interface HadoopStepConfig {
   Jar?: string;
-  Properties?: Record<string, string>;
+  Properties?: Partial<Record<string, string>>;
   MainClass?: string;
   Args?: Array<string>;
 }
@@ -1327,7 +1327,7 @@ export interface NotebookExecution {
   NotebookS3Location?: NotebookS3LocationForOutput;
   OutputNotebookS3Location?: OutputNotebookS3LocationForOutput;
   OutputNotebookFormat?: OutputNotebookFormat;
-  EnvironmentVariables?: Record<string, string>;
+  EnvironmentVariables?: Partial<Record<string, string>>;
 }
 export type NotebookExecutionStatus =
   | "START_PENDING"
@@ -1635,7 +1635,7 @@ export interface StartNotebookExecutionInput {
   NotebookS3Location?: NotebookS3LocationFromInput;
   OutputNotebookS3Location?: OutputNotebookS3LocationFromInput;
   OutputNotebookFormat?: OutputNotebookFormat;
-  EnvironmentVariables?: Record<string, string>;
+  EnvironmentVariables?: Partial<Record<string, string>>;
 }
 export interface StartNotebookExecutionOutput {
   NotebookExecutionId?: string;
@@ -1723,7 +1723,7 @@ export interface StopNotebookExecutionInput {
 export type EmrString = string;
 
 export type StringList = Array<string>;
-export type StringMap = Record<string, string>;
+export type StringMap = Partial<Record<string, string>>;
 export interface Studio {
   StudioId?: string;
   StudioArn?: string;

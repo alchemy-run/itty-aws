@@ -840,7 +840,7 @@ export interface AccountJiraConfigurationOutput {
   StatusMessage?: string;
 }
 export type AccountJiraIssueManagementStatus = "ENABLED" | "DISABLED";
-export type AccountSummary = Record<CheckStatus, number>;
+export type AccountSummary = Partial<Record<CheckStatus, number>>;
 export interface AdditionalResources {
   Type?: AdditionalResourceType;
   Content?: Array<ChoiceContent>;
@@ -953,7 +953,7 @@ export interface CheckSummary {
   QuestionId?: string;
   ChoiceId?: string;
   Status?: CheckStatus;
-  AccountSummary?: Record<CheckStatus, number>;
+  AccountSummary?: Partial<Record<CheckStatus, number>>;
 }
 export interface Choice {
   ChoiceId?: string;
@@ -1011,7 +1011,7 @@ export interface ChoiceUpdate {
   Reason?: ChoiceReason;
   Notes?: string;
 }
-export type ChoiceUpdates = Record<string, ChoiceUpdate>;
+export type ChoiceUpdates = Partial<Record<string, ChoiceUpdate>>;
 export type ClientRequestToken = string;
 
 export declare class ConflictException extends EffectData.TaggedError(
@@ -1023,7 +1023,7 @@ export declare class ConflictException extends EffectData.TaggedError(
 }> {}
 export interface ConsolidatedReportMetric {
   MetricType?: MetricType;
-  RiskCounts?: Record<Risk, number>;
+  RiskCounts?: Partial<Record<Risk, number>>;
   WorkloadId?: string;
   WorkloadName?: string;
   WorkloadArn?: string;
@@ -1398,7 +1398,7 @@ export type LensJSON = string;
 export interface LensMetric {
   LensArn?: string;
   Pillars?: Array<PillarMetric>;
-  RiskCounts?: Record<Risk, number>;
+  RiskCounts?: Partial<Record<Risk, number>>;
 }
 export type LensMetrics = Array<LensMetric>;
 export type LensName = string;
@@ -1417,10 +1417,10 @@ export interface LensReview {
   JiraConfiguration?: JiraSelectedQuestionConfiguration;
   UpdatedAt?: Date | string;
   Notes?: string;
-  RiskCounts?: Record<Risk, number>;
+  RiskCounts?: Partial<Record<Risk, number>>;
   NextToken?: string;
   Profiles?: Array<WorkloadProfile>;
-  PrioritizedRiskCounts?: Record<Risk, number>;
+  PrioritizedRiskCounts?: Partial<Record<Risk, number>>;
 }
 export interface LensReviewReport {
   LensAlias?: string;
@@ -1435,9 +1435,9 @@ export interface LensReviewSummary {
   LensName?: string;
   LensStatus?: LensStatus;
   UpdatedAt?: Date | string;
-  RiskCounts?: Record<Risk, number>;
+  RiskCounts?: Partial<Record<Risk, number>>;
   Profiles?: Array<WorkloadProfile>;
-  PrioritizedRiskCounts?: Record<Risk, number>;
+  PrioritizedRiskCounts?: Partial<Record<Risk, number>>;
 }
 export type LensShareSummaries = Array<LensShareSummary>;
 export interface LensShareSummary {
@@ -1763,20 +1763,20 @@ export type PillarId = string;
 
 export interface PillarMetric {
   PillarId?: string;
-  RiskCounts?: Record<Risk, number>;
+  RiskCounts?: Partial<Record<Risk, number>>;
   Questions?: Array<QuestionMetric>;
 }
 export type PillarMetrics = Array<PillarMetric>;
 export type PillarName = string;
 
-export type PillarNotes = Record<string, string>;
+export type PillarNotes = Partial<Record<string, string>>;
 export type PillarReviewSummaries = Array<PillarReviewSummary>;
 export interface PillarReviewSummary {
   PillarId?: string;
   PillarName?: string;
   Notes?: string;
-  RiskCounts?: Record<Risk, number>;
-  PrioritizedRiskCounts?: Record<Risk, number>;
+  RiskCounts?: Partial<Record<Risk, number>>;
+  PrioritizedRiskCounts?: Partial<Record<Risk, number>>;
 }
 export interface Profile {
   ProfileArn?: string;
@@ -1874,7 +1874,7 @@ export type ProfileTemplateQuestionChoices = Array<ProfileTemplateChoice>;
 export type ProfileVersion = string;
 
 export type Question = "UNANSWERED" | "ANSWERED";
-export type QuestionCounts = Record<Question, number>;
+export type QuestionCounts = Partial<Record<Question, number>>;
 export type QuestionDescription = string;
 
 export interface QuestionDifference {
@@ -1911,7 +1911,7 @@ export interface ReviewTemplate {
   Description?: string;
   Lenses?: Array<string>;
   Notes?: string;
-  QuestionCounts?: Record<Question, number>;
+  QuestionCounts?: Partial<Record<Question, number>>;
   Owner?: string;
   UpdatedAt?: Date | string;
   TemplateArn?: string;
@@ -1962,7 +1962,7 @@ export interface ReviewTemplateLensReview {
   PillarReviewSummaries?: Array<ReviewTemplatePillarReviewSummary>;
   UpdatedAt?: Date | string;
   Notes?: string;
-  QuestionCounts?: Record<Question, number>;
+  QuestionCounts?: Partial<Record<Question, number>>;
   NextToken?: string;
 }
 export type ReviewTemplatePillarReviewSummaries =
@@ -1971,7 +1971,7 @@ export interface ReviewTemplatePillarReviewSummary {
   PillarId?: string;
   PillarName?: string;
   Notes?: string;
-  QuestionCounts?: Record<Question, number>;
+  QuestionCounts?: Partial<Record<Question, number>>;
 }
 export type ReviewTemplates = Array<ReviewTemplateSummary>;
 export interface ReviewTemplateSummary {
@@ -1985,7 +1985,7 @@ export interface ReviewTemplateSummary {
 }
 export type ReviewTemplateUpdateStatus = "CURRENT" | "LENS_NOT_CURRENT";
 export type Risk = "UNANSWERED" | "HIGH" | "MEDIUM" | "NONE" | "NOT_APPLICABLE";
-export type RiskCounts = Record<Risk, number>;
+export type RiskCounts = Partial<Record<Risk, number>>;
 export type SelectedChoiceIds = Array<string>;
 export type SelectedChoices = Array<string>;
 export interface SelectedPillar {
@@ -2103,7 +2103,7 @@ export interface UpdateAnswerInput {
   LensAlias: string;
   QuestionId: string;
   SelectedChoices?: Array<string>;
-  ChoiceUpdates?: Record<string, ChoiceUpdate>;
+  ChoiceUpdates?: Partial<Record<string, ChoiceUpdate>>;
   Notes?: string;
   IsApplicable?: boolean;
   Reason?: AnswerReason;
@@ -2128,7 +2128,7 @@ export interface UpdateLensReviewInput {
   WorkloadId: string;
   LensAlias: string;
   LensNotes?: string;
-  PillarNotes?: Record<string, string>;
+  PillarNotes?: Partial<Record<string, string>>;
   JiraConfiguration?: JiraSelectedQuestionConfiguration;
 }
 export interface UpdateLensReviewOutput {
@@ -2148,7 +2148,7 @@ export interface UpdateReviewTemplateAnswerInput {
   LensAlias: string;
   QuestionId: string;
   SelectedChoices?: Array<string>;
-  ChoiceUpdates?: Record<string, ChoiceUpdate>;
+  ChoiceUpdates?: Partial<Record<string, ChoiceUpdate>>;
   Notes?: string;
   IsApplicable?: boolean;
   Reason?: AnswerReason;
@@ -2170,7 +2170,7 @@ export interface UpdateReviewTemplateLensReviewInput {
   TemplateArn: string;
   LensAlias: string;
   LensNotes?: string;
-  PillarNotes?: Record<string, string>;
+  PillarNotes?: Partial<Record<string, string>>;
 }
 export interface UpdateReviewTemplateLensReviewOutput {
   TemplateArn?: string;
@@ -2276,7 +2276,7 @@ export interface Workload {
   Industry?: string;
   Notes?: string;
   ImprovementStatus?: WorkloadImprovementStatus;
-  RiskCounts?: Record<Risk, number>;
+  RiskCounts?: Partial<Record<Risk, number>>;
   PillarPriorities?: Array<string>;
   Lenses?: Array<string>;
   Owner?: string;
@@ -2285,7 +2285,7 @@ export interface Workload {
   DiscoveryConfig?: WorkloadDiscoveryConfig;
   Applications?: Array<string>;
   Profiles?: Array<WorkloadProfile>;
-  PrioritizedRiskCounts?: Record<Risk, number>;
+  PrioritizedRiskCounts?: Partial<Record<Risk, number>>;
   JiraConfiguration?: WorkloadJiraConfigurationOutput;
 }
 export type WorkloadAccountIds = Array<string>;
@@ -2369,10 +2369,10 @@ export interface WorkloadSummary {
   Owner?: string;
   UpdatedAt?: Date | string;
   Lenses?: Array<string>;
-  RiskCounts?: Record<Risk, number>;
+  RiskCounts?: Partial<Record<Risk, number>>;
   ImprovementStatus?: WorkloadImprovementStatus;
   Profiles?: Array<WorkloadProfile>;
-  PrioritizedRiskCounts?: Record<Risk, number>;
+  PrioritizedRiskCounts?: Partial<Record<Risk, number>>;
 }
 export declare namespace AssociateLenses {
   export type Input = AssociateLensesInput;

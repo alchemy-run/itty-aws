@@ -280,7 +280,7 @@ export type __listOfClusterEndpoint = Array<ClusterEndpoint>;
 export type __listOfControlPanel = Array<ControlPanel>;
 export type __listOfRoutingControl = Array<RoutingControl>;
 export type __listOfRule = Array<Rule>;
-export type __mapOf__stringMin0Max256PatternS = Record<string, string>;
+export type __mapOf__stringMin0Max256PatternS = Partial<Record<string, string>>;
 export type __policy = string;
 
 export type __string = string;
@@ -350,7 +350,7 @@ export interface ControlPanel {
 export interface CreateClusterRequest {
   ClientToken?: string;
   ClusterName: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   NetworkType?: NetworkType;
 }
 export interface CreateClusterResponse {
@@ -360,7 +360,7 @@ export interface CreateControlPanelRequest {
   ClientToken?: string;
   ClusterArn: string;
   ControlPanelName: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateControlPanelResponse {
   ControlPanel?: ControlPanel;
@@ -378,7 +378,7 @@ export interface CreateSafetyRuleRequest {
   AssertionRule?: NewAssertionRule;
   ClientToken?: string;
   GatingRule?: NewGatingRule;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateSafetyRuleResponse {
   AssertionRule?: AssertionRule;
@@ -500,7 +500,7 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string;
 }
 export interface ListTagsForResourceResponse {
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export type MaxResults = number;
 
@@ -550,7 +550,7 @@ export declare class ServiceQuotaExceededException extends EffectData.TaggedErro
 export type Status = "PENDING" | "DEPLOYED" | "PENDING_DELETION";
 export interface TagResourceRequest {
   ResourceArn: string;
-  Tags: Record<string, string>;
+  Tags: Partial<Record<string, string>>;
 }
 export interface TagResourceResponse {}
 export declare class ThrottlingException extends EffectData.TaggedError(

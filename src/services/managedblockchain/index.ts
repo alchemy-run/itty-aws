@@ -328,7 +328,7 @@ export interface Accessor {
   Status?: AccessorStatus;
   CreationDate?: Date | string;
   Arn?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   NetworkType?: AccessorNetworkType;
 }
 export type AccessorBillingTokenString = string;
@@ -366,7 +366,7 @@ export type ClientRequestTokenString = string;
 export interface CreateAccessorInput {
   ClientRequestToken: string;
   AccessorType: AccessorType;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   NetworkType?: AccessorNetworkType;
 }
 export interface CreateAccessorOutput {
@@ -392,7 +392,7 @@ export interface CreateNetworkInput {
   FrameworkConfiguration?: NetworkFrameworkConfiguration;
   VotingPolicy: VotingPolicy;
   MemberConfiguration: MemberConfiguration;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateNetworkOutput {
   NetworkId?: string;
@@ -403,7 +403,7 @@ export interface CreateNodeInput {
   NetworkId: string;
   MemberId?: string;
   NodeConfiguration: NodeConfiguration;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateNodeOutput {
   NodeId?: string;
@@ -414,7 +414,7 @@ export interface CreateProposalInput {
   MemberId: string;
   Actions: ProposalActions;
   Description?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateProposalOutput {
   ProposalId?: string;
@@ -483,7 +483,7 @@ export declare class IllegalActionException extends EffectData.TaggedError(
 )<{
   readonly Message?: string;
 }> {}
-export type InputTagMap = Record<string, string>;
+export type InputTagMap = Partial<Record<string, string>>;
 export type InstanceTypeString = string;
 
 export declare class InternalServiceErrorException extends EffectData.TaggedError(
@@ -589,7 +589,7 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string;
 }
 export interface ListTagsForResourceResponse {
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface LogConfiguration {
   Enabled?: boolean;
@@ -606,7 +606,7 @@ export interface Member {
   LogPublishingConfiguration?: MemberLogPublishingConfiguration;
   Status?: MemberStatus;
   CreationDate?: Date | string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   Arn?: string;
   KmsKeyArn?: string;
 }
@@ -615,7 +615,7 @@ export interface MemberConfiguration {
   Description?: string;
   FrameworkConfiguration: MemberFrameworkConfiguration;
   LogPublishingConfiguration?: MemberLogPublishingConfiguration;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   KmsKeyArn?: string;
 }
 export interface MemberFabricAttributes {
@@ -671,7 +671,7 @@ export interface Network {
   VotingPolicy?: VotingPolicy;
   Status?: NetworkStatus;
   CreationDate?: Date | string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   Arn?: string;
 }
 export interface NetworkEthereumAttributes {
@@ -723,7 +723,7 @@ export interface Node {
   StateDB?: StateDBType;
   Status?: NodeStatus;
   CreationDate?: Date | string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   Arn?: string;
   KmsKeyArn?: string;
 }
@@ -773,7 +773,7 @@ export interface NodeSummary {
   Arn?: string;
 }
 export type NodeSummaryList = Array<NodeSummary>;
-export type OutputTagMap = Record<string, string>;
+export type OutputTagMap = Partial<Record<string, string>>;
 export type PaginationToken = string;
 
 export type PasswordString = string;
@@ -793,7 +793,7 @@ export interface Proposal {
   YesVoteCount?: number;
   NoVoteCount?: number;
   OutstandingVoteCount?: number;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   Arn?: string;
 }
 export interface ProposalActions {
@@ -861,7 +861,7 @@ export type TagKey = string;
 export type TagKeyList = Array<string>;
 export interface TagResourceRequest {
   ResourceArn: string;
-  Tags: Record<string, string>;
+  Tags: Partial<Record<string, string>>;
 }
 export interface TagResourceResponse {}
 export type TagValue = string;

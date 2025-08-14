@@ -2267,7 +2267,7 @@ export interface AttachedDisk {
   sizeInGb?: number;
 }
 export type AttachedDiskList = Array<AttachedDisk>;
-export type AttachedDiskMap = Record<string, Array<DiskMap>>;
+export type AttachedDiskMap = Partial<Record<string, Array<DiskMap>>>;
 export interface AttachInstancesToLoadBalancerRequest {
   loadBalancerName: string;
   instanceNames: Array<string>;
@@ -2512,8 +2512,8 @@ export type ContactProtocolsList = Array<ContactProtocol>;
 export interface Container {
   image?: string;
   command?: Array<string>;
-  environment?: Record<string, string>;
-  ports?: Record<string, ContainerServiceProtocol>;
+  environment?: Partial<Record<string, string>>;
+  ports?: Partial<Record<string, ContainerServiceProtocol>>;
 }
 export interface ContainerImage {
   image?: string;
@@ -2523,7 +2523,7 @@ export interface ContainerImage {
 export type ContainerImageList = Array<ContainerImage>;
 export type ContainerLabel = string;
 
-export type ContainerMap = Record<string, Container>;
+export type ContainerMap = Partial<Record<string, Container>>;
 export type ContainerName = string;
 
 export interface ContainerService {
@@ -2543,20 +2543,20 @@ export interface ContainerService {
   isDisabled?: boolean;
   principalArn?: string;
   privateDomainName?: string;
-  publicDomainNames?: Record<string, Array<string>>;
+  publicDomainNames?: Partial<Record<string, Array<string>>>;
   url?: string;
   privateRegistryAccess?: PrivateRegistryAccess;
 }
 export interface ContainerServiceDeployment {
   version?: number;
   state?: ContainerServiceDeploymentState;
-  containers?: Record<string, Container>;
+  containers?: Partial<Record<string, Container>>;
   publicEndpoint?: ContainerServiceEndpoint;
   createdAt?: Date | string;
 }
 export type ContainerServiceDeploymentList = Array<ContainerServiceDeployment>;
 export interface ContainerServiceDeploymentRequest {
-  containers?: Record<string, Container>;
+  containers?: Partial<Record<string, Container>>;
   publicEndpoint?: EndpointRequest;
 }
 export type ContainerServiceDeploymentState =
@@ -2590,8 +2590,10 @@ export interface ContainerServiceLogEvent {
   message?: string;
 }
 export type ContainerServiceLogEventList = Array<ContainerServiceLogEvent>;
-export type ContainerServiceMetadataEntry = Record<string, string>;
-export type ContainerServiceMetadataEntryList = Array<Record<string, string>>;
+export type ContainerServiceMetadataEntry = Partial<Record<string, string>>;
+export type ContainerServiceMetadataEntryList = Array<
+  Partial<Record<string, string>>
+>;
 export type ContainerServiceMetricName = "CPUUtilization" | "MemoryUtilization";
 export type ContainerServiceName = string;
 
@@ -2612,7 +2614,9 @@ export type ContainerServicePowerName =
   | "large"
   | "xlarge";
 export type ContainerServiceProtocol = "HTTP" | "HTTPS" | "TCP" | "UDP";
-export type ContainerServicePublicDomains = Record<string, Array<string>>;
+export type ContainerServicePublicDomains = Partial<
+  Record<string, Array<string>>
+>;
 export type ContainerServicePublicDomainsList = Array<string>;
 export interface ContainerServiceRegistryLogin {
   username?: string;
@@ -2709,7 +2713,7 @@ export interface CreateContactMethodResult {
 }
 export interface CreateContainerServiceDeploymentRequest {
   serviceName: string;
-  containers?: Record<string, Container>;
+  containers?: Partial<Record<string, Container>>;
   publicEndpoint?: EndpointRequest;
 }
 export interface CreateContainerServiceDeploymentResult {
@@ -2724,7 +2728,7 @@ export interface CreateContainerServiceRequest {
   power: ContainerServicePowerName;
   scale: number;
   tags?: Array<Tag>;
-  publicDomainNames?: Record<string, Array<string>>;
+  publicDomainNames?: Partial<Record<string, Array<string>>>;
   deployment?: ContainerServiceDeploymentRequest;
   privateRegistryAccess?: PrivateRegistryAccessRequest;
 }
@@ -2806,7 +2810,7 @@ export interface CreateGUISessionAccessDetailsResult {
 }
 export interface CreateInstancesFromSnapshotRequest {
   instanceNames: Array<string>;
-  attachedDiskMapping?: Record<string, Array<DiskMap>>;
+  attachedDiskMapping?: Partial<Record<string, Array<DiskMap>>>;
   availabilityZone: string;
   instanceSnapshotName?: string;
   bundleId: string;
@@ -3182,10 +3186,10 @@ export interface DomainEntry {
   target?: string;
   isAlias?: boolean;
   type?: string;
-  options?: Record<string, string>;
+  options?: Partial<Record<string, string>>;
 }
 export type DomainEntryList = Array<DomainEntry>;
-export type DomainEntryOptions = Record<string, string>;
+export type DomainEntryOptions = Partial<Record<string, string>>;
 export type DomainEntryOptionsKeys = string;
 
 export type DomainEntryType = string;
@@ -3225,7 +3229,7 @@ export interface EndpointRequest {
   containerPort: number;
   healthCheck?: ContainerServiceHealthCheckConfig;
 }
-export type Environment = Record<string, string>;
+export type Environment = Partial<Record<string, string>>;
 export interface EstimateByTime {
   usageCost?: number;
   pricingUnit?: PricingUnit;
@@ -3369,7 +3373,7 @@ export interface GetContactMethodsResult {
 }
 export interface GetContainerAPIMetadataRequest {}
 export interface GetContainerAPIMetadataResult {
-  metadata?: Array<Record<string, string>>;
+  metadata?: Array<Partial<Record<string, string>>>;
 }
 export interface GetContainerImagesRequest {
   serviceName: string;
@@ -4041,7 +4045,7 @@ export interface LoadBalancer {
   instancePort?: number;
   instanceHealthSummary?: Array<InstanceHealthSummary>;
   tlsCertificateSummaries?: Array<LoadBalancerTlsCertificateSummary>;
-  configurationOptions?: Record<LoadBalancerAttributeName, string>;
+  configurationOptions?: Partial<Record<LoadBalancerAttributeName, string>>;
   ipAddressType?: IpAddressType;
   httpsRedirectionEnabled?: boolean;
   tlsPolicyName?: string;
@@ -4052,9 +4056,8 @@ export type LoadBalancerAttributeName =
   | "SessionStickiness_LB_CookieDurationSeconds"
   | "HttpsRedirectionEnabled"
   | "TlsPolicyName";
-export type LoadBalancerConfigurationOptions = Record<
-  LoadBalancerAttributeName,
-  string
+export type LoadBalancerConfigurationOptions = Partial<
+  Record<LoadBalancerAttributeName, string>
 >;
 export type LoadBalancerList = Array<LoadBalancer>;
 export type LoadBalancerMetricName =
@@ -4453,7 +4456,7 @@ export interface PortInfo {
 export type PortInfoList = Array<PortInfo>;
 export type PortInfoSourceType = "Default" | "Instance" | "None" | "Closed";
 export type PortList = Array<number>;
-export type PortMap = Record<string, ContainerServiceProtocol>;
+export type PortMap = Partial<Record<string, ContainerServiceProtocol>>;
 export type PortState = "Open" | "Closed";
 export type PricingUnit = "GB" | "Hrs" | "GBMo" | "Bundles" | "Queries";
 export interface PrivateRegistryAccess {
@@ -4986,7 +4989,7 @@ export interface UpdateContainerServiceRequest {
   power?: ContainerServicePowerName;
   scale?: number;
   isDisabled?: boolean;
-  publicDomainNames?: Record<string, Array<string>>;
+  publicDomainNames?: Partial<Record<string, Array<string>>>;
   privateRegistryAccess?: PrivateRegistryAccessRequest;
 }
 export interface UpdateContainerServiceResult {

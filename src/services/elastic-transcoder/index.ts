@@ -289,7 +289,7 @@ export interface Clip {
 }
 export type CodecOption = string;
 
-export type CodecOptions = Record<string, string>;
+export type CodecOptions = Partial<Record<string, string>>;
 export type Composition = Array<Clip>;
 export interface CreateJobOutput {
   Key?: string;
@@ -321,7 +321,7 @@ export interface CreateJobRequest {
   Outputs?: Array<CreateJobOutput>;
   OutputKeyPrefix?: string;
   Playlists?: Array<CreateJobPlaylist>;
-  UserMetadata?: Record<string, string>;
+  UserMetadata?: Partial<Record<string, string>>;
 }
 export interface CreateJobResponse {
   Job?: Job;
@@ -437,7 +437,7 @@ export interface Job {
   OutputKeyPrefix?: string;
   Playlists?: Array<Playlist>;
   Status?: string;
-  UserMetadata?: Record<string, string>;
+  UserMetadata?: Partial<Record<string, string>>;
   Timing?: Timing;
 }
 export interface JobAlbumArt {
@@ -765,7 +765,7 @@ export interface UpdatePipelineStatusRequest {
 export interface UpdatePipelineStatusResponse {
   Pipeline?: Pipeline;
 }
-export type UserMetadata = Record<string, string>;
+export type UserMetadata = Partial<Record<string, string>>;
 export declare class ValidationException extends EffectData.TaggedError(
   "ValidationException",
 )<{
@@ -779,7 +779,7 @@ export type VideoCodec = string;
 
 export interface VideoParameters {
   Codec?: string;
-  CodecOptions?: Record<string, string>;
+  CodecOptions?: Partial<Record<string, string>>;
   KeyframesMaxDist?: string;
   FixedGOP?: string;
   BitRate?: string;

@@ -246,7 +246,7 @@ export type AmazonResourceName = string;
 
 export type Arn = string;
 
-export type Attributes = Record<string, string>;
+export type Attributes = Partial<Record<string, string>>;
 export type AttrKey = string;
 
 export type AttrValue = string;
@@ -329,8 +329,8 @@ export interface DiscoverInstancesRequest {
   NamespaceName: string;
   ServiceName: string;
   MaxResults?: number;
-  QueryParameters?: Record<string, string>;
-  OptionalParameters?: Record<string, string>;
+  QueryParameters?: Partial<Record<string, string>>;
+  OptionalParameters?: Partial<Record<string, string>>;
   HealthStatus?: HealthStatusFilter;
 }
 export interface DiscoverInstancesResponse {
@@ -391,7 +391,7 @@ export interface GetInstancesHealthStatusRequest {
   NextToken?: string;
 }
 export interface GetInstancesHealthStatusResponse {
-  Status?: Record<string, HealthStatus>;
+  Status?: Partial<Record<string, HealthStatus>>;
   NextToken?: string;
 }
 export interface GetNamespaceRequest {
@@ -438,7 +438,7 @@ export interface HttpInstanceSummary {
   NamespaceName?: string;
   ServiceName?: string;
   HealthStatus?: HealthStatus;
-  Attributes?: Record<string, string>;
+  Attributes?: Partial<Record<string, string>>;
 }
 export type HttpInstanceSummaryList = Array<HttpInstanceSummary>;
 export interface HttpNamespaceChange {
@@ -450,9 +450,9 @@ export interface HttpProperties {
 export interface Instance {
   Id: string;
   CreatorRequestId?: string;
-  Attributes?: Record<string, string>;
+  Attributes?: Partial<Record<string, string>>;
 }
-export type InstanceHealthStatusMap = Record<string, HealthStatus>;
+export type InstanceHealthStatusMap = Partial<Record<string, HealthStatus>>;
 export type InstanceId = string;
 
 export type InstanceIdList = Array<string>;
@@ -463,7 +463,7 @@ export declare class InstanceNotFound extends EffectData.TaggedError(
 }> {}
 export interface InstanceSummary {
   Id?: string;
-  Attributes?: Record<string, string>;
+  Attributes?: Partial<Record<string, string>>;
 }
 export type InstanceSummaryList = Array<InstanceSummary>;
 export declare class InvalidInput extends EffectData.TaggedError(
@@ -581,7 +581,7 @@ export interface Operation {
   ErrorCode?: string;
   CreateDate?: Date | string;
   UpdateDate?: Date | string;
-  Targets?: Record<OperationTargetType, string>;
+  Targets?: Partial<Record<OperationTargetType, string>>;
 }
 export interface OperationFilter {
   Name: OperationFilterName;
@@ -608,7 +608,7 @@ export interface OperationSummary {
   Status?: OperationStatus;
 }
 export type OperationSummaryList = Array<OperationSummary>;
-export type OperationTargetsMap = Record<OperationTargetType, string>;
+export type OperationTargetsMap = Partial<Record<OperationTargetType, string>>;
 export type OperationTargetType = "NAMESPACE" | "SERVICE" | "INSTANCE";
 export type OperationType =
   | "CREATE_NAMESPACE"
@@ -656,7 +656,7 @@ export interface RegisterInstanceRequest {
   ServiceId: string;
   InstanceId: string;
   CreatorRequestId?: string;
-  Attributes: Record<string, string>;
+  Attributes: Partial<Record<string, string>>;
 }
 export interface RegisterInstanceResponse {
   OperationId?: string;

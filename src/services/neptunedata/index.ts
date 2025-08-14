@@ -971,7 +971,7 @@ export interface DeleteStatisticsValueMap {
   active?: boolean;
   statisticsId?: string;
 }
-export type DocumentValuedMap = Record<string, unknown>;
+export type DocumentValuedMap = Partial<Record<string, unknown>>;
 export type EdgeLabels = Array<string>;
 export type EdgeProperties = Array<string>;
 export interface EdgeStructure {
@@ -1062,11 +1062,11 @@ export interface GetEngineStatusOutput {
   gremlin?: QueryLanguageVersion;
   sparql?: QueryLanguageVersion;
   opencypher?: QueryLanguageVersion;
-  labMode?: Record<string, string>;
+  labMode?: Partial<Record<string, string>>;
   rollingBackTrxCount?: number;
   rollingBackTrxEarliestStartTime?: string;
-  features?: Record<string, unknown>;
-  settings?: Record<string, string>;
+  features?: Partial<Record<string, unknown>>;
+  settings?: Partial<Record<string, string>>;
 }
 export interface GetGremlinQueryStatusInput {
   queryId: string;
@@ -1149,7 +1149,7 @@ export interface GetPropertygraphStreamInput {
   encoding?: Encoding;
 }
 export interface GetPropertygraphStreamOutput {
-  lastEventId: Record<string, string>;
+  lastEventId: Partial<Record<string, string>>;
   lastTrxTimestampInMillis: number;
   format: string;
   records: Array<PropertygraphRecord>;
@@ -1181,7 +1181,7 @@ export interface GetSparqlStreamInput {
   encoding?: Encoding;
 }
 export interface GetSparqlStreamOutput {
-  lastEventId: Record<string, string>;
+  lastEventId: Partial<Record<string, string>>;
   lastTrxTimestampInMillis: number;
   format: string;
   records: Array<SparqlRecord>;
@@ -1301,8 +1301,8 @@ export declare class LoadUrlAccessDeniedException extends EffectData.TaggedError
   readonly requestId: string;
   readonly code: string;
 }> {}
-export type LongValuedMap = Record<string, number>;
-export type LongValuedMapList = Array<Record<string, number>>;
+export type LongValuedMap = Partial<Record<string, number>>;
+export type LongValuedMapList = Array<Partial<Record<string, number>>>;
 export declare class MalformedQueryException extends EffectData.TaggedError(
   "MalformedQueryException",
 )<{
@@ -1406,7 +1406,7 @@ export interface PropertygraphData {
 }
 export interface PropertygraphRecord {
   commitTimestampInMillis: number;
-  eventId: Record<string, string>;
+  eventId: Partial<Record<string, string>>;
   data: PropertygraphData;
   op: string;
   isLastOp?: boolean;
@@ -1421,8 +1421,8 @@ export interface PropertygraphSummary {
   edgeLabels?: Array<string>;
   numNodeProperties?: number;
   numEdgeProperties?: number;
-  nodeProperties?: Array<Record<string, number>>;
-  edgeProperties?: Array<Record<string, number>>;
+  nodeProperties?: Array<Partial<Record<string, number>>>;
+  edgeProperties?: Array<Partial<Record<string, number>>>;
   totalNodePropertyValues?: number;
   totalEdgePropertyValues?: number;
   nodeStructures?: Array<NodeStructure>;
@@ -1469,7 +1469,7 @@ export interface RDFGraphSummary {
   numQuads?: number;
   numClasses?: number;
   classes?: Array<string>;
-  predicates?: Array<Record<string, number>>;
+  predicates?: Array<Partial<Record<string, number>>>;
   subjectStructures?: Array<SubjectStructure>;
 }
 export interface RDFGraphSummaryValueMap {
@@ -1543,7 +1543,7 @@ export interface SparqlData {
 }
 export interface SparqlRecord {
   commitTimestampInMillis: number;
-  eventId: Record<string, string>;
+  eventId: Partial<Record<string, string>>;
   data: SparqlData;
   op: string;
   isLastOp?: boolean;
@@ -1557,7 +1557,7 @@ export interface StartLoaderJobInput {
   mode?: Mode;
   failOnError?: boolean;
   parallelism?: Parallelism;
-  parserConfiguration?: Record<string, string>;
+  parserConfiguration?: Partial<Record<string, string>>;
   updateSingleCardinalityProperties?: boolean;
   queueRequest?: boolean;
   dependencies?: Array<string>;
@@ -1565,7 +1565,7 @@ export interface StartLoaderJobInput {
 }
 export interface StartLoaderJobOutput {
   status: string;
-  payload: Record<string, string>;
+  payload: Partial<Record<string, string>>;
 }
 export interface StartMLDataProcessingJobInput {
   id?: string;
@@ -1667,7 +1667,7 @@ export declare class StreamRecordsNotFoundException extends EffectData.TaggedErr
   readonly code: string;
 }> {}
 export type StringList = Array<string>;
-export type StringValuedMap = Record<string, string>;
+export type StringValuedMap = Partial<Record<string, string>>;
 export interface SubjectStructure {
   count?: number;
   predicates?: Array<string>;

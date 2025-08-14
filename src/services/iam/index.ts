@@ -1525,7 +1525,7 @@ export type certificateIdType = string;
 export type certificateListType = Array<SigningCertificate>;
 export type CertificationKeyType = string;
 
-export type CertificationMapType = Record<string, string>;
+export type CertificationMapType = Partial<Record<string, string>>;
 export type CertificationValueType = string;
 
 export interface ChangePasswordRequest {
@@ -1903,9 +1903,8 @@ export interface ErrorDetails {
   Message: string;
   Code: string;
 }
-export type EvalDecisionDetailsType = Record<
-  string,
-  PolicyEvaluationDecisionType
+export type EvalDecisionDetailsType = Partial<
+  Record<string, PolicyEvaluationDecisionType>
 >;
 export type EvalDecisionSourceType = string;
 
@@ -1917,7 +1916,7 @@ export interface EvaluationResult {
   MissingContextValues?: Array<string>;
   OrganizationsDecisionDetail?: OrganizationsDecisionDetail;
   PermissionsBoundaryDecisionDetail?: PermissionsBoundaryDecisionDetail;
-  EvalDecisionDetails?: Record<string, PolicyEvaluationDecisionType>;
+  EvalDecisionDetails?: Partial<Record<string, PolicyEvaluationDecisionType>>;
   ResourceSpecificResults?: Array<ResourceSpecificResult>;
 }
 export type EvaluationResultsListType = Array<EvaluationResult>;
@@ -1969,7 +1968,7 @@ export interface GetAccountPasswordPolicyResponse {
   PasswordPolicy: PasswordPolicy;
 }
 export interface GetAccountSummaryResponse {
-  SummaryMap?: Record<summaryKeyType, number>;
+  SummaryMap?: Partial<Record<summaryKeyType, number>>;
 }
 export interface GetContextKeysForCustomPolicyRequest {
   PolicyInputList: Array<string>;
@@ -2026,7 +2025,7 @@ export interface GetMFADeviceResponse {
   UserName?: string;
   SerialNumber: string;
   EnableDate?: Date | string;
-  Certifications?: Record<string, string>;
+  Certifications?: Partial<Record<string, string>>;
 }
 export interface GetOpenIDConnectProviderRequest {
   OpenIDConnectProviderArn: string;
@@ -2901,7 +2900,7 @@ export interface ResourceSpecificResult {
   EvalResourceDecision: PolicyEvaluationDecisionType;
   MatchedStatements?: Array<Statement>;
   MissingContextValues?: Array<string>;
-  EvalDecisionDetails?: Record<string, PolicyEvaluationDecisionType>;
+  EvalDecisionDetails?: Partial<Record<string, PolicyEvaluationDecisionType>>;
   PermissionsBoundaryDecisionDetail?: PermissionsBoundaryDecisionDetail;
 }
 export type ResourceSpecificResultListType = Array<ResourceSpecificResult>;
@@ -3166,7 +3165,7 @@ export type summaryKeyType =
   | "PolicyVersionsInUseQuota"
   | "VersionsPerPolicyQuota"
   | "GlobalEndpointTokenVersion";
-export type summaryMapType = Record<summaryKeyType, number>;
+export type summaryMapType = Partial<Record<summaryKeyType, number>>;
 export type summaryValueType = number;
 
 export interface Tag {

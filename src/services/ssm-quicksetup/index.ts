@@ -170,7 +170,7 @@ export declare class AccessDeniedException extends EffectData.TaggedError(
 }> {}
 export interface ConfigurationDefinition {
   Type: string;
-  Parameters: Record<string, string>;
+  Parameters: Partial<Record<string, string>>;
   TypeVersion?: string;
   LocalDeploymentExecutionRoleName?: string;
   LocalDeploymentAdministrationRoleArn?: string;
@@ -178,7 +178,7 @@ export interface ConfigurationDefinition {
 }
 export interface ConfigurationDefinitionInput {
   Type: string;
-  Parameters: Record<string, string>;
+  Parameters: Partial<Record<string, string>>;
   TypeVersion?: string;
   LocalDeploymentExecutionRoleName?: string;
   LocalDeploymentAdministrationRoleArn?: string;
@@ -192,7 +192,7 @@ export interface ConfigurationDefinitionSummary {
   Id?: string;
   Type?: string;
   TypeVersion?: string;
-  FirstClassParameters?: Record<string, string>;
+  FirstClassParameters?: Partial<Record<string, string>>;
 }
 export type ConfigurationManagerList = Array<ConfigurationManagerSummary>;
 export interface ConfigurationManagerSummary {
@@ -202,7 +202,7 @@ export interface ConfigurationManagerSummary {
   StatusSummaries?: Array<StatusSummary>;
   ConfigurationDefinitionSummaries?: Array<ConfigurationDefinitionSummary>;
 }
-export type ConfigurationParametersMap = Record<string, string>;
+export type ConfigurationParametersMap = Partial<Record<string, string>>;
 export type ConfigurationsList = Array<ConfigurationSummary>;
 export interface ConfigurationSummary {
   Id?: string;
@@ -213,7 +213,7 @@ export interface ConfigurationSummary {
   Region?: string;
   Account?: string;
   CreatedAt?: Date | string;
-  FirstClassParameters?: Record<string, string>;
+  FirstClassParameters?: Partial<Record<string, string>>;
   StatusSummaries?: Array<StatusSummary>;
 }
 export declare class ConflictException extends EffectData.TaggedError(
@@ -225,7 +225,7 @@ export interface CreateConfigurationManagerInput {
   Name?: string;
   Description?: string;
   ConfigurationDefinitions: Array<ConfigurationDefinitionInput>;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateConfigurationManagerOutput {
   ManagerArn: string;
@@ -253,7 +253,7 @@ export interface GetConfigurationManagerOutput {
   LastModifiedAt?: Date | string;
   StatusSummaries?: Array<StatusSummary>;
   ConfigurationDefinitions?: Array<ConfigurationDefinition>;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface GetConfigurationOutput {
   Id?: string;
@@ -266,7 +266,7 @@ export interface GetConfigurationOutput {
   CreatedAt?: Date | string;
   LastModifiedAt?: Date | string;
   StatusSummaries?: Array<StatusSummary>;
-  Parameters?: Record<string, string>;
+  Parameters?: Partial<Record<string, string>>;
 }
 export interface GetServiceSettingsOutput {
   ServiceSettings?: ServiceSettings;
@@ -331,14 +331,14 @@ export type Status =
   | "DELETE_FAILED"
   | "STOP_FAILED"
   | "NONE";
-export type StatusDetails = Record<string, string>;
+export type StatusDetails = Partial<Record<string, string>>;
 export type StatusSummariesList = Array<StatusSummary>;
 export interface StatusSummary {
   StatusType: StatusType;
   Status?: Status;
   StatusMessage?: string;
   LastUpdatedAt: Date | string;
-  StatusDetails?: Record<string, string>;
+  StatusDetails?: Partial<Record<string, string>>;
 }
 export type StatusType = "DEPLOYMENT" | "ASYNC_EXECUTIONS";
 export interface TagEntry {
@@ -348,10 +348,10 @@ export interface TagEntry {
 export type TagKeys = Array<string>;
 export interface TagResourceInput {
   ResourceArn: string;
-  Tags: Record<string, string>;
+  Tags: Partial<Record<string, string>>;
 }
 export type Tags = Array<TagEntry>;
-export type TagsMap = Record<string, string>;
+export type TagsMap = Partial<Record<string, string>>;
 export declare class ThrottlingException extends EffectData.TaggedError(
   "ThrottlingException",
 )<{
@@ -365,7 +365,7 @@ export interface UpdateConfigurationDefinitionInput {
   ManagerArn: string;
   Id: string;
   TypeVersion?: string;
-  Parameters?: Record<string, string>;
+  Parameters?: Partial<Record<string, string>>;
   LocalDeploymentExecutionRoleName?: string;
   LocalDeploymentAdministrationRoleArn?: string;
 }

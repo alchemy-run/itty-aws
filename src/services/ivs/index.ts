@@ -404,7 +404,7 @@ export interface Channel {
   ingestEndpoint?: string;
   playbackUrl?: string;
   authorized?: boolean;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   insecureIngest?: boolean;
   preset?: TranscodePreset;
   srt?: Srt;
@@ -436,7 +436,7 @@ export interface ChannelSummary {
   latencyMode?: string;
   authorized?: boolean;
   recordingConfigurationArn?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   insecureIngest?: boolean;
   type?: ChannelType;
   preset?: TranscodePreset;
@@ -460,7 +460,7 @@ export interface CreateChannelRequest {
   type?: ChannelType;
   authorized?: boolean;
   recordingConfigurationArn?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   insecureIngest?: boolean;
   preset?: TranscodePreset;
   playbackRestrictionPolicyArn?: string;
@@ -476,7 +476,7 @@ export interface CreatePlaybackRestrictionPolicyRequest {
   allowedOrigins?: Array<string>;
   enableStrictOriginEnforcement?: boolean;
   name?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreatePlaybackRestrictionPolicyResponse {
   playbackRestrictionPolicy?: PlaybackRestrictionPolicy;
@@ -484,7 +484,7 @@ export interface CreatePlaybackRestrictionPolicyResponse {
 export interface CreateRecordingConfigurationRequest {
   name?: string;
   destinationConfiguration: DestinationConfiguration;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   thumbnailConfiguration?: ThumbnailConfiguration;
   recordingReconnectWindowSeconds?: number;
   renditionConfiguration?: RenditionConfiguration;
@@ -494,7 +494,7 @@ export interface CreateRecordingConfigurationResponse {
 }
 export interface CreateStreamKeyRequest {
   channelArn: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateStreamKeyResponse {
   streamKey?: StreamKey;
@@ -568,7 +568,7 @@ export interface GetStreamSessionResponse {
 export interface ImportPlaybackKeyPairRequest {
   publicKeyMaterial: string;
   name?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface ImportPlaybackKeyPairResponse {
   keyPair?: PlaybackKeyPair;
@@ -662,7 +662,7 @@ export interface ListTagsForResourceRequest {
   resourceArn: string;
 }
 export interface ListTagsForResourceResponse {
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
 export type MaxChannelResults = number;
 
@@ -694,7 +694,7 @@ export interface PlaybackKeyPair {
   arn?: string;
   name?: string;
   fingerprint?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type PlaybackKeyPairArn = string;
 
@@ -706,7 +706,7 @@ export type PlaybackKeyPairName = string;
 export interface PlaybackKeyPairSummary {
   arn?: string;
   name?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type PlaybackPublicKeyMaterial = string;
 
@@ -716,7 +716,7 @@ export interface PlaybackRestrictionPolicy {
   allowedOrigins: Array<string>;
   enableStrictOriginEnforcement?: boolean;
   name?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type PlaybackRestrictionPolicyAllowedCountry = string;
 
@@ -738,7 +738,7 @@ export interface PlaybackRestrictionPolicySummary {
   allowedOrigins: Array<string>;
   enableStrictOriginEnforcement?: boolean;
   name?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type PlaybackURL = string;
 
@@ -751,7 +751,7 @@ export interface RecordingConfiguration {
   name?: string;
   destinationConfiguration: DestinationConfiguration;
   state: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   thumbnailConfiguration?: ThumbnailConfiguration;
   recordingReconnectWindowSeconds?: number;
   renditionConfiguration?: RenditionConfiguration;
@@ -768,7 +768,7 @@ export interface RecordingConfigurationSummary {
   name?: string;
   destinationConfiguration: DestinationConfiguration;
   state: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type RecordingMode = string;
 
@@ -849,7 +849,7 @@ export interface StreamKey {
   arn?: string;
   value?: string;
   channelArn?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type StreamKeyArn = string;
 
@@ -859,7 +859,7 @@ export type StreamKeys = Array<StreamKey>;
 export interface StreamKeySummary {
   arn?: string;
   channelArn?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type StreamKeyValue = string;
 
@@ -909,10 +909,10 @@ export type TagKey = string;
 export type TagKeyList = Array<string>;
 export interface TagResourceRequest {
   resourceArn: string;
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
 export interface TagResourceResponse {}
-export type Tags = Record<string, string>;
+export type Tags = Partial<Record<string, string>>;
 export type TagValue = string;
 
 export type TargetIntervalSeconds = number;

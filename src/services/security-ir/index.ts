@@ -178,7 +178,7 @@ export interface CreateCaseRequest {
   threatActorIpAddresses?: Array<ThreatActorIp>;
   impactedServices?: Array<string>;
   impactedAwsRegions?: Array<ImpactedAwsRegion>;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateCaseResponse {
   caseId: string;
@@ -188,7 +188,7 @@ export interface CreateMembershipRequest {
   membershipName: string;
   incidentResponseTeam: Array<IncidentResponder>;
   optInFeatures?: Array<OptInFeature>;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateMembershipResponse {
   membershipId: string;
@@ -370,7 +370,7 @@ export interface ListTagsForResourceInput {
   resourceArn: string;
 }
 export interface ListTagsForResourceOutput {
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
 export type MembershipAccountRelationshipStatus =
   | "ASSOCIATED"
@@ -422,10 +422,10 @@ export declare class ServiceQuotaExceededException extends EffectData.TaggedErro
 export type TagKey = string;
 
 export type TagKeys = Array<string>;
-export type TagMap = Record<string, string>;
+export type TagMap = Partial<Record<string, string>>;
 export interface TagResourceInput {
   resourceArn: string;
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
 export interface TagResourceOutput {}
 export type TagValue = string;

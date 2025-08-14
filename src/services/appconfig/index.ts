@@ -447,7 +447,7 @@ export interface AppliedExtension {
   ExtensionId?: string;
   ExtensionAssociationId?: string;
   VersionNumber?: number;
-  Parameters?: Record<string, string>;
+  Parameters?: Partial<Record<string, string>>;
 }
 export type AppliedExtensions = Array<AppliedExtension>;
 export type Arn = string;
@@ -513,7 +513,7 @@ export declare class ConflictException extends EffectData.TaggedError(
 export interface CreateApplicationRequest {
   Name: string;
   Description?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateConfigurationProfileRequest {
   ApplicationId: string;
@@ -522,7 +522,7 @@ export interface CreateConfigurationProfileRequest {
   LocationUri: string;
   RetrievalRoleArn?: string;
   Validators?: Array<Validator>;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   Type?: string;
   KmsKeyIdentifier?: string;
 }
@@ -534,28 +534,28 @@ export interface CreateDeploymentStrategyRequest {
   GrowthFactor: number;
   GrowthType?: GrowthType;
   ReplicateTo?: ReplicateTo;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateEnvironmentRequest {
   ApplicationId: string;
   Name: string;
   Description?: string;
   Monitors?: Array<Monitor>;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateExtensionAssociationRequest {
   ExtensionIdentifier: string;
   ExtensionVersionNumber?: number;
   ResourceIdentifier: string;
-  Parameters?: Record<string, string>;
-  Tags?: Record<string, string>;
+  Parameters?: Partial<Record<string, string>>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateExtensionRequest {
   Name: string;
   Description?: string;
   Actions: Record<ActionPoint, Array<Action>>;
   Parameters?: Record<string, Parameter>;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   LatestVersionNumber?: number;
 }
 export interface CreateHostedConfigurationVersionRequest {
@@ -724,7 +724,7 @@ export interface ExtensionAssociation {
   ExtensionArn?: string;
   ResourceArn?: string;
   Arn?: string;
-  Parameters?: Record<string, string>;
+  Parameters?: Partial<Record<string, string>>;
   ExtensionVersionNumber?: number;
 }
 export interface ExtensionAssociations {
@@ -912,7 +912,7 @@ export interface Parameter {
   Dynamic?: boolean;
 }
 export type ParameterMap = Record<string, Parameter>;
-export type ParameterValueMap = Record<string, string>;
+export type ParameterValueMap = Partial<Record<string, string>>;
 export declare class PayloadTooLargeException extends EffectData.TaggedError(
   "PayloadTooLargeException",
 )<{
@@ -933,7 +933,7 @@ export declare class ResourceNotFoundException extends EffectData.TaggedError(
   readonly ResourceName?: string;
 }> {}
 export interface ResourceTags {
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export type RoleArn = string;
 
@@ -949,7 +949,7 @@ export interface StartDeploymentRequest {
   ConfigurationProfileId: string;
   ConfigurationVersion: string;
   Description?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   KmsKeyIdentifier?: string;
   DynamicExtensionParameters?: Record<string, string>;
 }
@@ -972,10 +972,10 @@ export type StringWithLengthBetween1And64 = string;
 export type TagKey = string;
 
 export type TagKeyList = Array<string>;
-export type TagMap = Record<string, string>;
+export type TagMap = Partial<Record<string, string>>;
 export interface TagResourceRequest {
   ResourceArn: string;
-  Tags: Record<string, string>;
+  Tags: Partial<Record<string, string>>;
 }
 export type TagValue = string;
 
@@ -1022,7 +1022,7 @@ export interface UpdateEnvironmentRequest {
 }
 export interface UpdateExtensionAssociationRequest {
   ExtensionAssociationId: string;
-  Parameters?: Record<string, string>;
+  Parameters?: Partial<Record<string, string>>;
 }
 export interface UpdateExtensionRequest {
   ExtensionIdentifier: string;

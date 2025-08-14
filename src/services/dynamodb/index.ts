@@ -589,11 +589,11 @@ export interface AttributeDefinition {
   AttributeType: ScalarAttributeType;
 }
 export type AttributeDefinitions = Array<AttributeDefinition>;
-export type AttributeMap = Record<string, AttributeValue>;
+export type AttributeMap = Partial<Record<string, AttributeValue>>;
 export type AttributeName = string;
 
 export type AttributeNameList = Array<string>;
-export type AttributeUpdates = Record<string, AttributeValueUpdate>;
+export type AttributeUpdates = Partial<Record<string, AttributeValueUpdate>>;
 interface _AttributeValue {
   S?: string;
   N?: string;
@@ -601,7 +601,7 @@ interface _AttributeValue {
   SS?: Array<string>;
   NS?: Array<string>;
   BS?: Array<Uint8Array | string>;
-  M?: Record<string, AttributeValue>;
+  M?: Partial<Record<string, AttributeValue>>;
   L?: Array<AttributeValue>;
   NULL?: boolean;
   BOOL?: boolean;
@@ -614,7 +614,7 @@ export type AttributeValue =
   | (_AttributeValue & { SS: Array<string> })
   | (_AttributeValue & { NS: Array<string> })
   | (_AttributeValue & { BS: Array<Uint8Array | string> })
-  | (_AttributeValue & { M: Record<string, AttributeValue> })
+  | (_AttributeValue & { M: Partial<Record<string, AttributeValue>> })
   | (_AttributeValue & { L: Array<AttributeValue> })
   | (_AttributeValue & { NULL: boolean })
   | (_AttributeValue & { BOOL: boolean });
@@ -728,19 +728,20 @@ export interface BatchGetItemInput {
   ReturnConsumedCapacity?: ReturnConsumedCapacity;
 }
 export interface BatchGetItemOutput {
-  Responses?: Record<string, Array<Record<string, AttributeValue>>>;
+  Responses?: Partial<
+    Record<string, Array<Partial<Record<string, AttributeValue>>>>
+  >;
   UnprocessedKeys?: Record<string, KeysAndAttributes>;
   ConsumedCapacity?: Array<ConsumedCapacity>;
 }
 export type BatchGetRequestMap = Record<string, KeysAndAttributes>;
-export type BatchGetResponseMap = Record<
-  string,
-  Array<Record<string, AttributeValue>>
+export type BatchGetResponseMap = Partial<
+  Record<string, Array<Partial<Record<string, AttributeValue>>>>
 >;
 export interface BatchStatementError {
   Code?: BatchStatementErrorCodeEnum;
   Message?: string;
-  Item?: Record<string, AttributeValue>;
+  Item?: Partial<Record<string, AttributeValue>>;
 }
 export type BatchStatementErrorCodeEnum =
   | "ConditionalCheckFailed"
@@ -763,7 +764,7 @@ export interface BatchStatementRequest {
 export interface BatchStatementResponse {
   Error?: BatchStatementError;
   TableName?: string;
-  Item?: Record<string, AttributeValue>;
+  Item?: Partial<Record<string, AttributeValue>>;
 }
 export interface BatchWriteItemInput {
   RequestItems: Record<string, Array<WriteRequest>>;
@@ -772,7 +773,7 @@ export interface BatchWriteItemInput {
 }
 export interface BatchWriteItemOutput {
   UnprocessedItems?: Record<string, Array<WriteRequest>>;
-  ItemCollectionMetrics?: Record<string, Array<ItemCollectionMetrics>>;
+  ItemCollectionMetrics?: Partial<Record<string, Array<ItemCollectionMetrics>>>;
   ConsumedCapacity?: Array<ConsumedCapacity>;
 }
 export type BatchWriteItemRequestMap = Record<string, Array<WriteRequest>>;
@@ -791,7 +792,7 @@ export type BooleanAttributeValue = boolean;
 export type BooleanObject = boolean;
 
 export interface CancellationReason {
-  Item?: Record<string, AttributeValue>;
+  Item?: Partial<Record<string, AttributeValue>>;
   Code?: string;
   Message?: string;
 }
@@ -831,15 +832,15 @@ export declare class ConditionalCheckFailedException extends EffectData.TaggedEr
   "ConditionalCheckFailedException",
 )<{
   readonly message?: string;
-  readonly Item?: Record<string, AttributeValue>;
+  readonly Item?: Partial<Record<string, AttributeValue>>;
 }> {}
 export type ConditionalOperator = "AND" | "OR";
 export interface ConditionCheck {
-  Key: Record<string, AttributeValue>;
+  Key: Partial<Record<string, AttributeValue>>;
   TableName: string;
   ConditionExpression: string;
-  ExpressionAttributeNames?: Record<string, string>;
-  ExpressionAttributeValues?: Record<string, AttributeValue>;
+  ExpressionAttributeNames?: Partial<Record<string, string>>;
+  ExpressionAttributeValues?: Partial<Record<string, AttributeValue>>;
   ReturnValuesOnConditionCheckFailure?: ReturnValuesOnConditionCheckFailure;
 }
 export type ConditionExpression = string;
@@ -854,8 +855,8 @@ export interface ConsumedCapacity {
   ReadCapacityUnits?: number;
   WriteCapacityUnits?: number;
   Table?: Capacity;
-  LocalSecondaryIndexes?: Record<string, Capacity>;
-  GlobalSecondaryIndexes?: Record<string, Capacity>;
+  LocalSecondaryIndexes?: Partial<Record<string, Capacity>>;
+  GlobalSecondaryIndexes?: Partial<Record<string, Capacity>>;
 }
 export type ConsumedCapacityMultiple = Array<ConsumedCapacity>;
 export type ConsumedCapacityUnits = number;
@@ -954,11 +955,11 @@ export interface CsvOptions {
 export type DynamodbDate = Date | string;
 
 export interface Delete {
-  Key: Record<string, AttributeValue>;
+  Key: Partial<Record<string, AttributeValue>>;
   TableName: string;
   ConditionExpression?: string;
-  ExpressionAttributeNames?: Record<string, string>;
-  ExpressionAttributeValues?: Record<string, AttributeValue>;
+  ExpressionAttributeNames?: Partial<Record<string, string>>;
+  ExpressionAttributeValues?: Partial<Record<string, AttributeValue>>;
   ReturnValuesOnConditionCheckFailure?: ReturnValuesOnConditionCheckFailure;
 }
 export interface DeleteBackupInput {
@@ -975,19 +976,19 @@ export interface DeleteGlobalTableWitnessGroupMemberAction {
 }
 export interface DeleteItemInput {
   TableName: string;
-  Key: Record<string, AttributeValue>;
-  Expected?: Record<string, ExpectedAttributeValue>;
+  Key: Partial<Record<string, AttributeValue>>;
+  Expected?: Partial<Record<string, ExpectedAttributeValue>>;
   ConditionalOperator?: ConditionalOperator;
   ReturnValues?: ReturnValue;
   ReturnConsumedCapacity?: ReturnConsumedCapacity;
   ReturnItemCollectionMetrics?: ReturnItemCollectionMetrics;
   ConditionExpression?: string;
-  ExpressionAttributeNames?: Record<string, string>;
-  ExpressionAttributeValues?: Record<string, AttributeValue>;
+  ExpressionAttributeNames?: Partial<Record<string, string>>;
+  ExpressionAttributeValues?: Partial<Record<string, AttributeValue>>;
   ReturnValuesOnConditionCheckFailure?: ReturnValuesOnConditionCheckFailure;
 }
 export interface DeleteItemOutput {
-  Attributes?: Record<string, AttributeValue>;
+  Attributes?: Partial<Record<string, AttributeValue>>;
   ConsumedCapacity?: ConsumedCapacity;
   ItemCollectionMetrics?: ItemCollectionMetrics;
 }
@@ -998,7 +999,7 @@ export interface DeleteReplicationGroupMemberAction {
   RegionName: string;
 }
 export interface DeleteRequest {
-  Key: Record<string, AttributeValue>;
+  Key: Partial<Record<string, AttributeValue>>;
 }
 export interface DeleteResourcePolicyInput {
   ResourceArn: string;
@@ -1140,10 +1141,10 @@ export interface ExecuteStatementInput {
   ReturnValuesOnConditionCheckFailure?: ReturnValuesOnConditionCheckFailure;
 }
 export interface ExecuteStatementOutput {
-  Items?: Array<Record<string, AttributeValue>>;
+  Items?: Array<Partial<Record<string, AttributeValue>>>;
   NextToken?: string;
   ConsumedCapacity?: ConsumedCapacity;
-  LastEvaluatedKey?: Record<string, AttributeValue>;
+  LastEvaluatedKey?: Partial<Record<string, AttributeValue>>;
 }
 export interface ExecuteTransactionInput {
   TransactStatements: Array<ParameterizedStatement>;
@@ -1154,7 +1155,9 @@ export interface ExecuteTransactionOutput {
   Responses?: Array<ItemResponse>;
   ConsumedCapacity?: Array<ConsumedCapacity>;
 }
-export type ExpectedAttributeMap = Record<string, ExpectedAttributeValue>;
+export type ExpectedAttributeMap = Partial<
+  Record<string, ExpectedAttributeValue>
+>;
 export interface ExpectedAttributeValue {
   Value?: AttributeValue;
   Exists?: boolean;
@@ -1236,10 +1239,12 @@ export type ExportToTime = Date | string;
 
 export type ExportType = "FULL_EXPORT" | "INCREMENTAL_EXPORT";
 export type ExportViewType = "NEW_IMAGE" | "NEW_AND_OLD_IMAGES";
-export type ExpressionAttributeNameMap = Record<string, string>;
+export type ExpressionAttributeNameMap = Partial<Record<string, string>>;
 export type ExpressionAttributeNameVariable = string;
 
-export type ExpressionAttributeValueMap = Record<string, AttributeValue>;
+export type ExpressionAttributeValueMap = Partial<
+  Record<string, AttributeValue>
+>;
 export type ExpressionAttributeValueVariable = string;
 
 export type FailureCode = string;
@@ -1250,24 +1255,24 @@ export interface FailureException {
 }
 export type FailureMessage = string;
 
-export type FilterConditionMap = Record<string, Condition>;
+export type FilterConditionMap = Partial<Record<string, Condition>>;
 export interface Get {
-  Key: Record<string, AttributeValue>;
+  Key: Partial<Record<string, AttributeValue>>;
   TableName: string;
   ProjectionExpression?: string;
-  ExpressionAttributeNames?: Record<string, string>;
+  ExpressionAttributeNames?: Partial<Record<string, string>>;
 }
 export interface GetItemInput {
   TableName: string;
-  Key: Record<string, AttributeValue>;
+  Key: Partial<Record<string, AttributeValue>>;
   AttributesToGet?: Array<string>;
   ConsistentRead?: boolean;
   ReturnConsumedCapacity?: ReturnConsumedCapacity;
   ProjectionExpression?: string;
-  ExpressionAttributeNames?: Record<string, string>;
+  ExpressionAttributeNames?: Partial<Record<string, string>>;
 }
 export interface GetItemOutput {
-  Item?: Record<string, AttributeValue>;
+  Item?: Partial<Record<string, AttributeValue>>;
   ConsumedCapacity?: ConsumedCapacity;
 }
 export interface GetResourcePolicyInput {
@@ -1486,15 +1491,16 @@ export declare class InvalidRestoreTimeException extends EffectData.TaggedError(
 )<{
   readonly message?: string;
 }> {}
-export type ItemCollectionKeyAttributeMap = Record<string, AttributeValue>;
+export type ItemCollectionKeyAttributeMap = Partial<
+  Record<string, AttributeValue>
+>;
 export interface ItemCollectionMetrics {
-  ItemCollectionKey?: Record<string, AttributeValue>;
+  ItemCollectionKey?: Partial<Record<string, AttributeValue>>;
   SizeEstimateRangeGB?: Array<number>;
 }
 export type ItemCollectionMetricsMultiple = Array<ItemCollectionMetrics>;
-export type ItemCollectionMetricsPerTable = Record<
-  string,
-  Array<ItemCollectionMetrics>
+export type ItemCollectionMetricsPerTable = Partial<
+  Record<string, Array<ItemCollectionMetrics>>
 >;
 export type ItemCollectionSizeEstimateBound = number;
 
@@ -1506,22 +1512,22 @@ export declare class ItemCollectionSizeLimitExceededException extends EffectData
 }> {}
 export type ItemCount = number;
 
-export type ItemList = Array<Record<string, AttributeValue>>;
+export type ItemList = Array<Partial<Record<string, AttributeValue>>>;
 export interface ItemResponse {
-  Item?: Record<string, AttributeValue>;
+  Item?: Partial<Record<string, AttributeValue>>;
 }
 export type ItemResponseList = Array<ItemResponse>;
-export type Key = Record<string, AttributeValue>;
-export type KeyConditions = Record<string, Condition>;
+export type Key = Partial<Record<string, AttributeValue>>;
+export type KeyConditions = Partial<Record<string, Condition>>;
 export type KeyExpression = string;
 
-export type KeyList = Array<Record<string, AttributeValue>>;
+export type KeyList = Array<Partial<Record<string, AttributeValue>>>;
 export interface KeysAndAttributes {
-  Keys: Array<Record<string, AttributeValue>>;
+  Keys: Array<Partial<Record<string, AttributeValue>>>;
   AttributesToGet?: Array<string>;
   ConsistentRead?: boolean;
   ProjectionExpression?: string;
-  ExpressionAttributeNames?: Record<string, string>;
+  ExpressionAttributeNames?: Partial<Record<string, string>>;
 }
 export type KeySchema = Array<KeySchemaElement>;
 export type KeySchemaAttributeName = string;
@@ -1659,7 +1665,7 @@ export type Long = number;
 
 export type LongObject = number;
 
-export type MapAttributeValue = Record<string, AttributeValue>;
+export type MapAttributeValue = Partial<Record<string, AttributeValue>>;
 export type MultiRegionConsistency = "EVENTUAL" | "STRONG";
 export type NextTokenString = string;
 
@@ -1749,34 +1755,34 @@ export interface ProvisionedThroughputOverride {
   ReadCapacityUnits?: number;
 }
 export interface Put {
-  Item: Record<string, AttributeValue>;
+  Item: Partial<Record<string, AttributeValue>>;
   TableName: string;
   ConditionExpression?: string;
-  ExpressionAttributeNames?: Record<string, string>;
-  ExpressionAttributeValues?: Record<string, AttributeValue>;
+  ExpressionAttributeNames?: Partial<Record<string, string>>;
+  ExpressionAttributeValues?: Partial<Record<string, AttributeValue>>;
   ReturnValuesOnConditionCheckFailure?: ReturnValuesOnConditionCheckFailure;
 }
 export interface PutItemInput {
   TableName: string;
-  Item: Record<string, AttributeValue>;
-  Expected?: Record<string, ExpectedAttributeValue>;
+  Item: Partial<Record<string, AttributeValue>>;
+  Expected?: Partial<Record<string, ExpectedAttributeValue>>;
   ReturnValues?: ReturnValue;
   ReturnConsumedCapacity?: ReturnConsumedCapacity;
   ReturnItemCollectionMetrics?: ReturnItemCollectionMetrics;
   ConditionalOperator?: ConditionalOperator;
   ConditionExpression?: string;
-  ExpressionAttributeNames?: Record<string, string>;
-  ExpressionAttributeValues?: Record<string, AttributeValue>;
+  ExpressionAttributeNames?: Partial<Record<string, string>>;
+  ExpressionAttributeValues?: Partial<Record<string, AttributeValue>>;
   ReturnValuesOnConditionCheckFailure?: ReturnValuesOnConditionCheckFailure;
 }
-export type PutItemInputAttributeMap = Record<string, AttributeValue>;
+export type PutItemInputAttributeMap = Partial<Record<string, AttributeValue>>;
 export interface PutItemOutput {
-  Attributes?: Record<string, AttributeValue>;
+  Attributes?: Partial<Record<string, AttributeValue>>;
   ConsumedCapacity?: ConsumedCapacity;
   ItemCollectionMetrics?: ItemCollectionMetrics;
 }
 export interface PutRequest {
-  Item: Record<string, AttributeValue>;
+  Item: Partial<Record<string, AttributeValue>>;
 }
 export interface PutResourcePolicyInput {
   ResourceArn: string;
@@ -1794,23 +1800,23 @@ export interface QueryInput {
   AttributesToGet?: Array<string>;
   Limit?: number;
   ConsistentRead?: boolean;
-  KeyConditions?: Record<string, Condition>;
-  QueryFilter?: Record<string, Condition>;
+  KeyConditions?: Partial<Record<string, Condition>>;
+  QueryFilter?: Partial<Record<string, Condition>>;
   ConditionalOperator?: ConditionalOperator;
   ScanIndexForward?: boolean;
-  ExclusiveStartKey?: Record<string, AttributeValue>;
+  ExclusiveStartKey?: Partial<Record<string, AttributeValue>>;
   ReturnConsumedCapacity?: ReturnConsumedCapacity;
   ProjectionExpression?: string;
   FilterExpression?: string;
   KeyConditionExpression?: string;
-  ExpressionAttributeNames?: Record<string, string>;
-  ExpressionAttributeValues?: Record<string, AttributeValue>;
+  ExpressionAttributeNames?: Partial<Record<string, string>>;
+  ExpressionAttributeValues?: Partial<Record<string, AttributeValue>>;
 }
 export interface QueryOutput {
-  Items?: Array<Record<string, AttributeValue>>;
+  Items?: Array<Partial<Record<string, AttributeValue>>>;
   Count?: number;
   ScannedCount?: number;
-  LastEvaluatedKey?: Record<string, AttributeValue>;
+  LastEvaluatedKey?: Partial<Record<string, AttributeValue>>;
   ConsumedCapacity?: ConsumedCapacity;
 }
 export type RecoveryPeriodInDays = number;
@@ -2043,30 +2049,30 @@ export interface ScanInput {
   AttributesToGet?: Array<string>;
   Limit?: number;
   Select?: Select;
-  ScanFilter?: Record<string, Condition>;
+  ScanFilter?: Partial<Record<string, Condition>>;
   ConditionalOperator?: ConditionalOperator;
-  ExclusiveStartKey?: Record<string, AttributeValue>;
+  ExclusiveStartKey?: Partial<Record<string, AttributeValue>>;
   ReturnConsumedCapacity?: ReturnConsumedCapacity;
   TotalSegments?: number;
   Segment?: number;
   ProjectionExpression?: string;
   FilterExpression?: string;
-  ExpressionAttributeNames?: Record<string, string>;
-  ExpressionAttributeValues?: Record<string, AttributeValue>;
+  ExpressionAttributeNames?: Partial<Record<string, string>>;
+  ExpressionAttributeValues?: Partial<Record<string, AttributeValue>>;
   ConsistentRead?: boolean;
 }
 export interface ScanOutput {
-  Items?: Array<Record<string, AttributeValue>>;
+  Items?: Array<Partial<Record<string, AttributeValue>>>;
   Count?: number;
   ScannedCount?: number;
-  LastEvaluatedKey?: Record<string, AttributeValue>;
+  LastEvaluatedKey?: Partial<Record<string, AttributeValue>>;
   ConsumedCapacity?: ConsumedCapacity;
 }
 export type ScanSegment = number;
 
 export type ScanTotalSegments = number;
 
-export type SecondaryIndexesCapacityMap = Record<string, Capacity>;
+export type SecondaryIndexesCapacityMap = Partial<Record<string, Capacity>>;
 export type Select =
   | "ALL_ATTRIBUTES"
   | "ALL_PROJECTED_ATTRIBUTES"
@@ -2294,19 +2300,19 @@ export interface TransactWriteItemsInput {
 }
 export interface TransactWriteItemsOutput {
   ConsumedCapacity?: Array<ConsumedCapacity>;
-  ItemCollectionMetrics?: Record<string, Array<ItemCollectionMetrics>>;
+  ItemCollectionMetrics?: Partial<Record<string, Array<ItemCollectionMetrics>>>;
 }
 export interface UntagResourceInput {
   ResourceArn: string;
   TagKeys: Array<string>;
 }
 export interface Update {
-  Key: Record<string, AttributeValue>;
+  Key: Partial<Record<string, AttributeValue>>;
   UpdateExpression: string;
   TableName: string;
   ConditionExpression?: string;
-  ExpressionAttributeNames?: Record<string, string>;
-  ExpressionAttributeValues?: Record<string, AttributeValue>;
+  ExpressionAttributeNames?: Partial<Record<string, string>>;
+  ExpressionAttributeValues?: Partial<Record<string, AttributeValue>>;
   ReturnValuesOnConditionCheckFailure?: ReturnValuesOnConditionCheckFailure;
 }
 export interface UpdateContinuousBackupsInput {
@@ -2355,21 +2361,21 @@ export interface UpdateGlobalTableSettingsOutput {
 }
 export interface UpdateItemInput {
   TableName: string;
-  Key: Record<string, AttributeValue>;
-  AttributeUpdates?: Record<string, AttributeValueUpdate>;
-  Expected?: Record<string, ExpectedAttributeValue>;
+  Key: Partial<Record<string, AttributeValue>>;
+  AttributeUpdates?: Partial<Record<string, AttributeValueUpdate>>;
+  Expected?: Partial<Record<string, ExpectedAttributeValue>>;
   ConditionalOperator?: ConditionalOperator;
   ReturnValues?: ReturnValue;
   ReturnConsumedCapacity?: ReturnConsumedCapacity;
   ReturnItemCollectionMetrics?: ReturnItemCollectionMetrics;
   UpdateExpression?: string;
   ConditionExpression?: string;
-  ExpressionAttributeNames?: Record<string, string>;
-  ExpressionAttributeValues?: Record<string, AttributeValue>;
+  ExpressionAttributeNames?: Partial<Record<string, string>>;
+  ExpressionAttributeValues?: Partial<Record<string, AttributeValue>>;
   ReturnValuesOnConditionCheckFailure?: ReturnValuesOnConditionCheckFailure;
 }
 export interface UpdateItemOutput {
-  Attributes?: Record<string, AttributeValue>;
+  Attributes?: Partial<Record<string, AttributeValue>>;
   ConsumedCapacity?: ConsumedCapacity;
   ItemCollectionMetrics?: ItemCollectionMetrics;
 }

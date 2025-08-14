@@ -76,7 +76,7 @@ export interface CreateChannelGroupRequest {
   ChannelGroupName: string;
   ClientToken?: string;
   Description?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateChannelGroupResponse {
   ChannelGroupName: string;
@@ -86,7 +86,7 @@ export interface CreateChannelGroupResponse {
   ModifiedAt: Date | string;
   ETag?: string;
   Description?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateChannelRequest {
   ChannelGroupName: string;
@@ -96,7 +96,7 @@ export interface CreateChannelRequest {
   Description?: string;
   InputSwitchConfiguration?: InputSwitchConfiguration;
   OutputHeaderConfiguration?: OutputHeaderConfiguration;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateChannelResponse {
   Arn: string;
@@ -108,7 +108,7 @@ export interface CreateChannelResponse {
   IngestEndpoints?: Array<IngestEndpoint>;
   InputType?: InputType;
   ETag?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   InputSwitchConfiguration?: InputSwitchConfiguration;
   OutputHeaderConfiguration?: OutputHeaderConfiguration;
 }
@@ -142,7 +142,7 @@ export interface CreateHarvestJobRequest {
   Destination: Destination;
   ClientToken?: string;
   HarvestJobName?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateHarvestJobResponse {
   ChannelGroupName: string;
@@ -159,7 +159,7 @@ export interface CreateHarvestJobResponse {
   Status: HarvestJobStatus;
   ErrorMessage?: string;
   ETag?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateHlsManifestConfiguration {
   ManifestName: string;
@@ -205,7 +205,7 @@ export interface CreateOriginEndpointRequest {
   DashManifests?: Array<CreateDashManifestConfiguration>;
   MssManifests?: Array<CreateMssManifestConfiguration>;
   ForceEndpointErrorConfiguration?: ForceEndpointErrorConfiguration;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateOriginEndpointResponse {
   Arn: string;
@@ -224,7 +224,7 @@ export interface CreateOriginEndpointResponse {
   MssManifests?: Array<GetMssManifestConfiguration>;
   ForceEndpointErrorConfiguration?: ForceEndpointErrorConfiguration;
   ETag?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface DashBaseUrl {
   Url: string;
@@ -363,7 +363,7 @@ export interface GetChannelGroupResponse {
   ModifiedAt: Date | string;
   Description?: string;
   ETag?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface GetChannelPolicyRequest {
   ChannelGroupName: string;
@@ -389,7 +389,7 @@ export interface GetChannelResponse {
   IngestEndpoints?: Array<IngestEndpoint>;
   InputType?: InputType;
   ETag?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   InputSwitchConfiguration?: InputSwitchConfiguration;
   OutputHeaderConfiguration?: OutputHeaderConfiguration;
 }
@@ -435,7 +435,7 @@ export interface GetHarvestJobResponse {
   Status: HarvestJobStatus;
   ErrorMessage?: string;
   ETag?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface GetHlsManifestConfiguration {
   ManifestName: string;
@@ -505,7 +505,7 @@ export interface GetOriginEndpointResponse {
   MssManifests?: Array<GetMssManifestConfiguration>;
   ForceEndpointErrorConfiguration?: ForceEndpointErrorConfiguration;
   ETag?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface HarvestedDashManifest {
   ManifestName: string;
@@ -638,7 +638,7 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string;
 }
 export interface ListTagsForResourceResponse {
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export type ManifestName = string;
 
@@ -790,10 +790,10 @@ export type TagArn = string;
 export type TagKey = string;
 
 export type TagKeyList = Array<string>;
-export type TagMap = Record<string, string>;
+export type TagMap = Partial<Record<string, string>>;
 export interface TagResourceRequest {
   ResourceArn: string;
-  Tags: Record<string, string>;
+  Tags: Partial<Record<string, string>>;
 }
 export type TagValue = string;
 
@@ -820,7 +820,7 @@ export interface UpdateChannelGroupResponse {
   ModifiedAt: Date | string;
   Description?: string;
   ETag?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface UpdateChannelRequest {
   ChannelGroupName: string;
@@ -840,7 +840,7 @@ export interface UpdateChannelResponse {
   IngestEndpoints?: Array<IngestEndpoint>;
   InputType?: InputType;
   ETag?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   InputSwitchConfiguration?: InputSwitchConfiguration;
   OutputHeaderConfiguration?: OutputHeaderConfiguration;
 }
@@ -875,7 +875,7 @@ export interface UpdateOriginEndpointResponse {
   MssManifests?: Array<GetMssManifestConfiguration>;
   ForceEndpointErrorConfiguration?: ForceEndpointErrorConfiguration;
   ETag?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   DashManifests?: Array<GetDashManifestConfiguration>;
 }
 export declare class ValidationException extends EffectData.TaggedError(

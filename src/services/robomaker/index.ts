@@ -663,7 +663,7 @@ export interface CreateDeploymentJobRequest {
   clientRequestToken: string;
   fleet: string;
   deploymentApplicationConfigs: Array<DeploymentApplicationConfig>;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateDeploymentJobResponse {
   arn?: string;
@@ -674,23 +674,23 @@ export interface CreateDeploymentJobResponse {
   failureCode?: DeploymentJobErrorCode;
   createdAt?: Date | string;
   deploymentConfig?: DeploymentConfig;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateFleetRequest {
   name: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateFleetResponse {
   arn?: string;
   name?: string;
   createdAt?: Date | string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateRobotApplicationRequest {
   name: string;
   sources?: Array<SourceConfig>;
   robotSoftwareSuite: RobotSoftwareSuite;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   environment?: Environment;
 }
 export interface CreateRobotApplicationResponse {
@@ -701,7 +701,7 @@ export interface CreateRobotApplicationResponse {
   robotSoftwareSuite?: RobotSoftwareSuite;
   lastUpdatedAt?: Date | string;
   revisionId?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   environment?: Environment;
 }
 export interface CreateRobotApplicationVersionRequest {
@@ -724,7 +724,7 @@ export interface CreateRobotRequest {
   name: string;
   architecture: Architecture;
   greengrassGroupId: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateRobotResponse {
   arn?: string;
@@ -732,7 +732,7 @@ export interface CreateRobotResponse {
   createdAt?: Date | string;
   greengrassGroupId?: string;
   architecture?: Architecture;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateSimulationApplicationRequest {
   name: string;
@@ -740,7 +740,7 @@ export interface CreateSimulationApplicationRequest {
   simulationSoftwareSuite: SimulationSoftwareSuite;
   robotSoftwareSuite: RobotSoftwareSuite;
   renderingEngine?: RenderingEngine;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   environment?: Environment;
 }
 export interface CreateSimulationApplicationResponse {
@@ -753,7 +753,7 @@ export interface CreateSimulationApplicationResponse {
   renderingEngine?: RenderingEngine;
   lastUpdatedAt?: Date | string;
   revisionId?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   environment?: Environment;
 }
 export interface CreateSimulationApplicationVersionRequest {
@@ -784,7 +784,7 @@ export interface CreateSimulationJobRequest {
   robotApplications?: Array<RobotApplicationConfig>;
   simulationApplications?: Array<SimulationApplicationConfig>;
   dataSources?: Array<DataSourceConfig>;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   vpcConfig?: VPCConfig;
   compute?: Compute;
 }
@@ -805,7 +805,7 @@ export interface CreateSimulationJobResponse {
   robotApplications?: Array<RobotApplicationConfig>;
   simulationApplications?: Array<SimulationApplicationConfig>;
   dataSources?: Array<DataSource>;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   vpcConfig?: VPCConfigResponse;
   compute?: ComputeResponse;
 }
@@ -814,7 +814,7 @@ export interface CreateWorldExportJobRequest {
   worlds: Array<string>;
   outputLocation: OutputLocation;
   iamRole: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateWorldExportJobResponse {
   arn?: string;
@@ -824,14 +824,14 @@ export interface CreateWorldExportJobResponse {
   clientRequestToken?: string;
   outputLocation?: OutputLocation;
   iamRole?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateWorldGenerationJobRequest {
   clientRequestToken?: string;
   template: string;
   worldCount: WorldCount;
-  tags?: Record<string, string>;
-  worldTags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
+  worldTags?: Partial<Record<string, string>>;
 }
 export interface CreateWorldGenerationJobResponse {
   arn?: string;
@@ -841,22 +841,22 @@ export interface CreateWorldGenerationJobResponse {
   clientRequestToken?: string;
   template?: string;
   worldCount?: WorldCount;
-  tags?: Record<string, string>;
-  worldTags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
+  worldTags?: Partial<Record<string, string>>;
 }
 export interface CreateWorldTemplateRequest {
   clientRequestToken?: string;
   name?: string;
   templateBody?: string;
   templateLocation?: TemplateLocation;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateWorldTemplateResponse {
   arn?: string;
   clientRequestToken?: string;
   createdAt?: Date | string;
   name?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface DataSource {
   name?: string;
@@ -951,7 +951,7 @@ export interface DeploymentLaunchConfig {
   preLaunchFile?: string;
   launchFile: string;
   postLaunchFile?: string;
-  environmentVariables?: Record<string, string>;
+  environmentVariables?: Partial<Record<string, string>>;
 }
 export type DeploymentStatus =
   | "Pending"
@@ -985,7 +985,7 @@ export interface DescribeDeploymentJobResponse {
   failureCode?: DeploymentJobErrorCode;
   createdAt?: Date | string;
   robotDeploymentSummary?: Array<RobotDeployment>;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface DescribeFleetRequest {
   fleet: string;
@@ -998,7 +998,7 @@ export interface DescribeFleetResponse {
   lastDeploymentStatus?: DeploymentStatus;
   lastDeploymentJob?: string;
   lastDeploymentTime?: Date | string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface DescribeRobotApplicationRequest {
   application: string;
@@ -1012,7 +1012,7 @@ export interface DescribeRobotApplicationResponse {
   robotSoftwareSuite?: RobotSoftwareSuite;
   revisionId?: string;
   lastUpdatedAt?: Date | string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   environment?: Environment;
   imageDigest?: string;
 }
@@ -1029,7 +1029,7 @@ export interface DescribeRobotResponse {
   architecture?: Architecture;
   lastDeploymentJob?: string;
   lastDeploymentTime?: Date | string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface DescribeSimulationApplicationRequest {
   application: string;
@@ -1045,7 +1045,7 @@ export interface DescribeSimulationApplicationResponse {
   renderingEngine?: RenderingEngine;
   revisionId?: string;
   lastUpdatedAt?: Date | string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   environment?: Environment;
   imageDigest?: string;
 }
@@ -1064,7 +1064,7 @@ export interface DescribeSimulationJobBatchResponse {
   failedRequests?: Array<FailedCreateSimulationJobRequest>;
   pendingRequests?: Array<SimulationJobRequest>;
   createdRequests?: Array<SimulationJobSummary>;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface DescribeSimulationJobRequest {
   job: string;
@@ -1087,7 +1087,7 @@ export interface DescribeSimulationJobResponse {
   robotApplications?: Array<RobotApplicationConfig>;
   simulationApplications?: Array<SimulationApplicationConfig>;
   dataSources?: Array<DataSource>;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   vpcConfig?: VPCConfigResponse;
   networkInterface?: NetworkInterface;
   compute?: ComputeResponse;
@@ -1105,7 +1105,7 @@ export interface DescribeWorldExportJobResponse {
   worlds?: Array<string>;
   outputLocation?: OutputLocation;
   iamRole?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface DescribeWorldGenerationJobRequest {
   job: string;
@@ -1120,8 +1120,8 @@ export interface DescribeWorldGenerationJobResponse {
   template?: string;
   worldCount?: WorldCount;
   finishedWorldsSummary?: FinishedWorldsSummary;
-  tags?: Record<string, string>;
-  worldTags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
+  worldTags?: Partial<Record<string, string>>;
 }
 export interface DescribeWorldRequest {
   world: string;
@@ -1131,7 +1131,7 @@ export interface DescribeWorldResponse {
   generationJob?: string;
   template?: string;
   createdAt?: Date | string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   worldDescriptionBody?: string;
 }
 export interface DescribeWorldTemplateRequest {
@@ -1143,7 +1143,7 @@ export interface DescribeWorldTemplateResponse {
   name?: string;
   createdAt?: Date | string;
   lastUpdatedAt?: Date | string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   version?: string;
 }
 export interface Environment {
@@ -1151,7 +1151,7 @@ export interface Environment {
 }
 export type EnvironmentVariableKey = string;
 
-export type EnvironmentVariableMap = Record<string, string>;
+export type EnvironmentVariableMap = Partial<Record<string, string>>;
 export type EnvironmentVariableValue = string;
 
 export type errorMessage = string;
@@ -1243,7 +1243,7 @@ export type LastUpdatedAt = Date | string;
 export interface LaunchConfig {
   packageName?: string;
   launchFile?: string;
-  environmentVariables?: Record<string, string>;
+  environmentVariables?: Partial<Record<string, string>>;
   portForwardingConfig?: PortForwardingConfig;
   streamUI?: boolean;
   command?: Array<string>;
@@ -1322,7 +1322,7 @@ export interface ListTagsForResourceRequest {
   resourceArn: string;
 }
 export interface ListTagsForResourceResponse {
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface ListWorldExportJobsRequest {
   nextToken?: string;
@@ -1572,7 +1572,7 @@ export interface SimulationJob {
   robotApplications?: Array<RobotApplicationConfig>;
   simulationApplications?: Array<SimulationApplicationConfig>;
   dataSources?: Array<DataSource>;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   vpcConfig?: VPCConfigResponse;
   networkInterface?: NetworkInterface;
   compute?: ComputeResponse;
@@ -1642,7 +1642,7 @@ export interface SimulationJobRequest {
   dataSources?: Array<DataSourceConfig>;
   vpcConfig?: VPCConfig;
   compute?: Compute;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type SimulationJobs = Array<SimulationJob>;
 export type SimulationJobStatus =
@@ -1698,7 +1698,7 @@ export interface StartSimulationJobBatchRequest {
   clientRequestToken?: string;
   batchPolicy?: BatchPolicy;
   createSimulationJobRequests: Array<SimulationJobRequest>;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface StartSimulationJobBatchResponse {
   arn?: string;
@@ -1711,7 +1711,7 @@ export interface StartSimulationJobBatchResponse {
   failedRequests?: Array<FailedCreateSimulationJobRequest>;
   pendingRequests?: Array<SimulationJobRequest>;
   createdRequests?: Array<SimulationJobSummary>;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type Subnets = Array<string>;
 export interface SyncDeploymentJobRequest {
@@ -1731,10 +1731,10 @@ export interface SyncDeploymentJobResponse {
 export type TagKey = string;
 
 export type TagKeyList = Array<string>;
-export type TagMap = Record<string, string>;
+export type TagMap = Partial<Record<string, string>>;
 export interface TagResourceRequest {
   resourceArn: string;
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
 export interface TagResourceResponse {}
 export type TagValue = string;

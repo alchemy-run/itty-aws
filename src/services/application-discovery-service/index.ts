@@ -436,7 +436,7 @@ export type ClientRequestToken = string;
 
 export type Condition = string;
 
-export type Configuration = Record<string, string>;
+export type Configuration = Partial<Record<string, string>>;
 export type ConfigurationId = string;
 
 export type ConfigurationIdList = Array<string>;
@@ -445,7 +445,7 @@ export type ConfigurationItemType =
   | "PROCESS"
   | "CONNECTIONS"
   | "APPLICATION";
-export type Configurations = Array<Record<string, string>>;
+export type Configurations = Array<Partial<Record<string, string>>>;
 export type ConfigurationsDownloadUrl = string;
 
 export type ConfigurationsExportId = string;
@@ -471,7 +471,7 @@ export interface ContinuousExportDescription {
   startTime?: Date | string;
   stopTime?: Date | string;
   dataSource?: DataSource;
-  schemaStorageConfig?: Record<string, string>;
+  schemaStorageConfig?: Partial<Record<string, string>>;
 }
 export type ContinuousExportDescriptions = Array<ContinuousExportDescription>;
 export type ContinuousExportIds = Array<string>;
@@ -576,13 +576,15 @@ export interface DescribeBatchDeleteConfigurationTaskRequest {
 export interface DescribeBatchDeleteConfigurationTaskResponse {
   task?: BatchDeleteConfigurationTask;
 }
-export type DescribeConfigurationsAttribute = Record<string, string>;
-export type DescribeConfigurationsAttributes = Array<Record<string, string>>;
+export type DescribeConfigurationsAttribute = Partial<Record<string, string>>;
+export type DescribeConfigurationsAttributes = Array<
+  Partial<Record<string, string>>
+>;
 export interface DescribeConfigurationsRequest {
   configurationIds: Array<string>;
 }
 export interface DescribeConfigurationsResponse {
-  configurations?: Array<Record<string, string>>;
+  configurations?: Array<Partial<Record<string, string>>>;
 }
 export type DescribeContinuousExportsMaxResults = number;
 
@@ -804,7 +806,7 @@ export interface ListConfigurationsRequest {
   orderBy?: Array<OrderByElement>;
 }
 export interface ListConfigurationsResponse {
-  configurations?: Array<Record<string, string>>;
+  configurations?: Array<Partial<Record<string, string>>>;
   nextToken?: string;
 }
 export interface ListServerNeighborsRequest {
@@ -867,7 +869,7 @@ export type S3Bucket = string;
 
 export type S3PresignedUrl = string;
 
-export type SchemaStorageConfig = Record<string, string>;
+export type SchemaStorageConfig = Partial<Record<string, string>>;
 export declare class ServerInternalErrorException extends EffectData.TaggedError(
   "ServerInternalErrorException",
 )<{
@@ -886,7 +888,7 @@ export interface StartContinuousExportResponse {
   s3Bucket?: string;
   startTime?: Date | string;
   dataSource?: DataSource;
-  schemaStorageConfig?: Record<string, string>;
+  schemaStorageConfig?: Partial<Record<string, string>>;
 }
 export interface StartDataCollectionByAgentIdsRequest {
   agentIds: Array<string>;

@@ -235,7 +235,7 @@ export interface ListTagsForResourceRequest {
   resourceArn: string;
 }
 export interface ListTagsForResourceResponse {
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type MaxResults = number;
 
@@ -257,7 +257,7 @@ export declare class ResourceNotFoundException extends EffectData.TaggedError(
   readonly resourceId: string;
   readonly resourceType: string;
 }> {}
-export type ResponseTagMap = Record<string, string>;
+export type ResponseTagMap = Partial<Record<string, string>>;
 export type RouteServerPeering = string;
 
 export type RouteServerPeeringList = Array<string>;

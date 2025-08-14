@@ -2753,20 +2753,20 @@ export type AccountId = string;
 
 export interface Action {
   JobName?: string;
-  Arguments?: Record<string, string>;
+  Arguments?: Partial<Record<string, string>>;
   Timeout?: number;
   SecurityConfiguration?: string;
   NotificationProperty?: NotificationProperty;
   CrawlerName?: string;
 }
 export type ActionList = Array<Action>;
-export type AdditionalContextMap = Record<string, string>;
+export type AdditionalContextMap = Partial<Record<string, string>>;
 export type AdditionalOptionKeys =
   | "CacheOption"
   | "ObservationsOption"
   | "CompositeOption";
-export type AdditionalOptions = Record<string, string>;
-export type AdditionalPlanOptionsMap = Record<string, string>;
+export type AdditionalOptions = Partial<Record<string, string>>;
+export type AdditionalPlanOptionsMap = Partial<Record<string, string>>;
 export type AggFunction =
   | "avg"
   | "countDistinct"
@@ -2890,9 +2890,9 @@ export type AuditContextString = string;
 export interface AuthConfiguration {
   AuthenticationType: Property;
   SecretArn?: Property;
-  OAuth2Properties?: Record<string, Property>;
-  BasicAuthenticationProperties?: Record<string, Property>;
-  CustomAuthenticationProperties?: Record<string, Property>;
+  OAuth2Properties?: Partial<Record<string, Property>>;
+  BasicAuthenticationProperties?: Partial<Record<string, Property>>;
+  CustomAuthenticationProperties?: Partial<Record<string, Property>>;
 }
 export interface AuthenticationConfiguration {
   AuthenticationType?: AuthenticationType;
@@ -2905,7 +2905,7 @@ export interface AuthenticationConfigurationInput {
   SecretArn?: string;
   KmsKeyArn?: string;
   BasicAuthenticationCredentials?: BasicAuthenticationCredentials;
-  CustomAuthenticationCredentials?: Record<string, string>;
+  CustomAuthenticationCredentials?: Partial<Record<string, string>>;
 }
 export type AuthenticationType = "BASIC" | "OAUTH2" | "CUSTOM" | "IAM";
 export type AuthenticationTypes = Array<AuthenticationType>;
@@ -2961,7 +2961,7 @@ export interface BatchDeleteConnectionRequest {
 }
 export interface BatchDeleteConnectionResponse {
   Succeeded?: Array<string>;
-  Errors?: Record<string, ErrorDetail>;
+  Errors?: Partial<Record<string, ErrorDetail>>;
 }
 export interface BatchDeletePartitionRequest {
   CatalogId?: string;
@@ -3253,7 +3253,7 @@ export interface Catalog {
   Name: string;
   ResourceArn?: string;
   Description?: string;
-  Parameters?: Record<string, string>;
+  Parameters?: Partial<Record<string, string>>;
   CreateTime?: Date | string;
   UpdateTime?: Date | string;
   TargetRedshiftCatalog?: TargetRedshiftCatalog;
@@ -3267,7 +3267,7 @@ export interface CatalogDeltaSource {
   Name: string;
   Database: string;
   Table: string;
-  AdditionalDeltaOptions?: Record<string, string>;
+  AdditionalDeltaOptions?: Partial<Record<string, string>>;
   OutputSchemas?: Array<GlueSchema>;
 }
 export type CatalogEncryptionMode =
@@ -3285,14 +3285,14 @@ export interface CatalogHudiSource {
   Name: string;
   Database: string;
   Table: string;
-  AdditionalHudiOptions?: Record<string, string>;
+  AdditionalHudiOptions?: Partial<Record<string, string>>;
   OutputSchemas?: Array<GlueSchema>;
 }
 export interface CatalogIcebergSource {
   Name: string;
   Database: string;
   Table: string;
-  AdditionalIcebergOptions?: Record<string, string>;
+  AdditionalIcebergOptions?: Partial<Record<string, string>>;
   OutputSchemas?: Array<GlueSchema>;
 }
 export type CatalogIdString = string;
@@ -3305,7 +3305,7 @@ export interface CatalogImportStatus {
 export interface CatalogInput {
   Description?: string;
   FederatedCatalog?: FederatedCatalog;
-  Parameters?: Record<string, string>;
+  Parameters?: Partial<Record<string, string>>;
   TargetRedshiftCatalog?: TargetRedshiftCatalog;
   CatalogProperties?: CatalogProperties;
   CreateTableDefaultPermissions?: Array<PrincipalPermissions>;
@@ -3335,11 +3335,11 @@ export type CatalogNameString = string;
 
 export interface CatalogProperties {
   DataLakeAccessProperties?: DataLakeAccessProperties;
-  CustomProperties?: Record<string, string>;
+  CustomProperties?: Partial<Record<string, string>>;
 }
 export interface CatalogPropertiesOutput {
   DataLakeAccessProperties?: DataLakeAccessPropertiesOutput;
-  CustomProperties?: Record<string, string>;
+  CustomProperties?: Partial<Record<string, string>>;
 }
 export interface CatalogSchemaChangePolicy {
   EnableUpdateCatalog?: boolean;
@@ -3471,9 +3471,8 @@ export interface CodeGenConfigurationNode {
   S3HyperDirectTarget?: S3HyperDirectTarget;
   DynamoDBELTConnectorSource?: DynamoDBELTConnectorSource;
 }
-export type CodeGenConfigurationNodes = Record<
-  string,
-  CodeGenConfigurationNode
+export type CodeGenConfigurationNodes = Partial<
+  Record<string, CodeGenConfigurationNode>
 >;
 export interface CodeGenEdge {
   Source: string;
@@ -3500,7 +3499,7 @@ export interface Column {
   Name: string;
   Type?: string;
   Comment?: string;
-  Parameters?: Record<string, string>;
+  Parameters?: Partial<Record<string, string>>;
 }
 export interface ColumnError {
   ColumnName?: string;
@@ -3647,17 +3646,16 @@ export interface ComputeEnvironmentConfiguration {
   Description: string;
   ComputeEnvironment: ComputeEnvironment;
   SupportedAuthenticationTypes: Array<AuthenticationType>;
-  ConnectionOptions: Record<string, Property>;
-  ConnectionPropertyNameOverrides: Record<string, string>;
-  ConnectionOptionNameOverrides: Record<string, string>;
+  ConnectionOptions: Partial<Record<string, Property>>;
+  ConnectionPropertyNameOverrides: Partial<Record<string, string>>;
+  ConnectionOptionNameOverrides: Partial<Record<string, string>>;
   ConnectionPropertiesRequiredOverrides: Array<string>;
   PhysicalConnectionPropertiesRequired?: boolean;
 }
 export type ComputeEnvironmentConfigurationDescriptionString = string;
 
-export type ComputeEnvironmentConfigurationMap = Record<
-  string,
-  ComputeEnvironmentConfiguration
+export type ComputeEnvironmentConfigurationMap = Partial<
+  Record<string, ComputeEnvironmentConfiguration>
 >;
 export type ComputeEnvironmentList = Array<ComputeEnvironment>;
 export type ComputeEnvironmentName = string;
@@ -3692,7 +3690,7 @@ export interface ConditionExpression {
 }
 export type ConditionExpressionList = Array<ConditionExpression>;
 export type ConditionList = Array<Condition>;
-export type ConfigurationMap = Record<string, ConfigurationObject>;
+export type ConfigurationMap = Partial<Record<string, ConfigurationObject>>;
 export interface ConfigurationObject {
   DefaultValue?: string;
   AllowedValues?: Array<string>;
@@ -3717,10 +3715,10 @@ export interface Connection {
   Description?: string;
   ConnectionType?: ConnectionType;
   MatchCriteria?: Array<string>;
-  ConnectionProperties?: Record<ConnectionPropertyKey, string>;
-  SparkProperties?: Record<string, string>;
-  AthenaProperties?: Record<string, string>;
-  PythonProperties?: Record<string, string>;
+  ConnectionProperties?: Partial<Record<ConnectionPropertyKey, string>>;
+  SparkProperties?: Partial<Record<string, string>>;
+  AthenaProperties?: Partial<Record<string, string>>;
+  PythonProperties?: Partial<Record<string, string>>;
   PhysicalConnectionRequirements?: PhysicalConnectionRequirements;
   CreationTime?: Date | string;
   LastUpdatedTime?: Date | string;
@@ -3737,10 +3735,10 @@ export interface ConnectionInput {
   Description?: string;
   ConnectionType: ConnectionType;
   MatchCriteria?: Array<string>;
-  ConnectionProperties: Record<ConnectionPropertyKey, string>;
-  SparkProperties?: Record<string, string>;
-  AthenaProperties?: Record<string, string>;
-  PythonProperties?: Record<string, string>;
+  ConnectionProperties: Partial<Record<ConnectionPropertyKey, string>>;
+  SparkProperties?: Partial<Record<string, string>>;
+  AthenaProperties?: Partial<Record<string, string>>;
+  PythonProperties?: Partial<Record<string, string>>;
   PhysicalConnectionRequirements?: PhysicalConnectionRequirements;
   AuthenticationConfiguration?: AuthenticationConfigurationInput;
   ValidateCredentials?: boolean;
@@ -3749,12 +3747,14 @@ export interface ConnectionInput {
 export type ConnectionList = Array<Connection>;
 export type ConnectionName = string;
 
-export type ConnectionOptions = Record<string, string>;
+export type ConnectionOptions = Partial<Record<string, string>>;
 export interface ConnectionPasswordEncryption {
   ReturnConnectionPasswordEncrypted: boolean;
   AwsKmsKeyId?: string;
 }
-export type ConnectionProperties = Record<ConnectionPropertyKey, string>;
+export type ConnectionProperties = Partial<
+  Record<ConnectionPropertyKey, string>
+>;
 export type ConnectionPropertyKey =
   | "HOST"
   | "PORT"
@@ -3865,16 +3865,16 @@ export type ConnectionTypeVariantList = Array<ConnectionTypeVariant>;
 export interface ConnectorDataSource {
   Name: string;
   ConnectionType: string;
-  Data: Record<string, string>;
+  Data: Partial<Record<string, string>>;
   OutputSchemas?: Array<GlueSchema>;
 }
 export interface ConnectorDataTarget {
   Name: string;
   ConnectionType: string;
-  Data: Record<string, string>;
+  Data: Partial<Record<string, string>>;
   Inputs?: Array<string>;
 }
-export type ConnectorOptions = Record<string, string>;
+export type ConnectorOptions = Partial<Record<string, string>>;
 export type ContextKey = string;
 
 export type ContextValue = string;
@@ -3995,7 +3995,7 @@ export interface CreateBlueprintRequest {
   Name: string;
   Description?: string;
   BlueprintLocation: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateBlueprintResponse {
   Name?: string;
@@ -4003,7 +4003,7 @@ export interface CreateBlueprintResponse {
 export interface CreateCatalogRequest {
   Name: string;
   CatalogInput: CatalogInput;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateCatalogResponse {}
 export interface CreateClassifierRequest {
@@ -4022,13 +4022,13 @@ export interface CreateColumnStatisticsTaskSettingsRequest {
   SampleSize?: number;
   CatalogID?: string;
   SecurityConfiguration?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateColumnStatisticsTaskSettingsResponse {}
 export interface CreateConnectionRequest {
   CatalogId?: string;
   ConnectionInput: ConnectionInput;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateConnectionResponse {
   CreateConnectionStatus?: ConnectionStatus;
@@ -4048,7 +4048,7 @@ export interface CreateCrawlerRequest {
   LakeFormationConfiguration?: LakeFormationConfiguration;
   Configuration?: string;
   CrawlerSecurityConfiguration?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateCrawlerResponse {}
 export interface CreateCsvClassifierRequest {
@@ -4067,7 +4067,7 @@ export interface CreateCustomEntityTypeRequest {
   Name: string;
   RegexString: string;
   ContextWords?: Array<string>;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateCustomEntityTypeResponse {
   Name?: string;
@@ -4075,14 +4075,14 @@ export interface CreateCustomEntityTypeResponse {
 export interface CreateDatabaseRequest {
   CatalogId?: string;
   DatabaseInput: DatabaseInput;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateDatabaseResponse {}
 export interface CreateDataQualityRulesetRequest {
   Name: string;
   Description?: string;
   Ruleset: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   TargetTable?: DataQualityTargetTable;
   DataQualitySecurityConfiguration?: string;
   ClientToken?: string;
@@ -4104,8 +4104,8 @@ export interface CreateDevEndpointRequest {
   ExtraPythonLibsS3Path?: string;
   ExtraJarsS3Path?: string;
   SecurityConfiguration?: string;
-  Tags?: Record<string, string>;
-  Arguments?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
+  Arguments?: Partial<Record<string, string>>;
 }
 export interface CreateDevEndpointResponse {
   EndpointName?: string;
@@ -4126,7 +4126,7 @@ export interface CreateDevEndpointResponse {
   FailureReason?: string;
   SecurityConfiguration?: string;
   CreatedTimestamp?: Date | string;
-  Arguments?: Record<string, string>;
+  Arguments?: Partial<Record<string, string>>;
 }
 export type CreatedTimestamp = string;
 
@@ -4141,7 +4141,7 @@ export interface CreateIcebergTableInput {
   Schema: IcebergSchema;
   PartitionSpec?: IcebergPartitionSpec;
   WriteOrder?: IcebergSortOrder;
-  Properties?: Record<string, string>;
+  Properties?: Partial<Record<string, string>>;
 }
 export interface CreateIntegrationRequest {
   IntegrationName: string;
@@ -4150,7 +4150,7 @@ export interface CreateIntegrationRequest {
   Description?: string;
   DataFilter?: string;
   KmsKeyId?: string;
-  AdditionalEncryptionContext?: Record<string, string>;
+  AdditionalEncryptionContext?: Partial<Record<string, string>>;
   Tags?: Array<Tag>;
   IntegrationConfig?: IntegrationConfig;
 }
@@ -4171,7 +4171,7 @@ export interface CreateIntegrationResponse {
   Description?: string;
   IntegrationArn: string;
   KmsKeyId?: string;
-  AdditionalEncryptionContext?: Record<string, string>;
+  AdditionalEncryptionContext?: Partial<Record<string, string>>;
   Tags?: Array<Tag>;
   Status: IntegrationStatus;
   CreateTime: Date | string;
@@ -4195,20 +4195,20 @@ export interface CreateJobRequest {
   Role: string;
   ExecutionProperty?: ExecutionProperty;
   Command: JobCommand;
-  DefaultArguments?: Record<string, string>;
-  NonOverridableArguments?: Record<string, string>;
+  DefaultArguments?: Partial<Record<string, string>>;
+  NonOverridableArguments?: Partial<Record<string, string>>;
   Connections?: ConnectionsList;
   MaxRetries?: number;
   AllocatedCapacity?: number;
   Timeout?: number;
   MaxCapacity?: number;
   SecurityConfiguration?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   NotificationProperty?: NotificationProperty;
   GlueVersion?: string;
   NumberOfWorkers?: number;
   WorkerType?: WorkerType;
-  CodeGenConfigurationNodes?: Record<string, CodeGenConfigurationNode>;
+  CodeGenConfigurationNodes?: Partial<Record<string, CodeGenConfigurationNode>>;
   ExecutionClass?: ExecutionClass;
   SourceControlDetails?: SourceControlDetails;
   MaintenanceWindow?: string;
@@ -4232,7 +4232,7 @@ export interface CreateMLTransformRequest {
   NumberOfWorkers?: number;
   Timeout?: number;
   MaxRetries?: number;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   TransformEncryption?: TransformEncryption;
 }
 export interface CreateMLTransformResponse {
@@ -4255,13 +4255,13 @@ export interface CreatePartitionResponse {}
 export interface CreateRegistryInput {
   RegistryName: string;
   Description?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateRegistryResponse {
   RegistryArn?: string;
   RegistryName?: string;
   Description?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateSchemaInput {
   RegistryId?: RegistryId;
@@ -4269,7 +4269,7 @@ export interface CreateSchemaInput {
   DataFormat: DataFormat;
   Compatibility?: Compatibility;
   Description?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   SchemaDefinition?: string;
 }
 export interface CreateSchemaResponse {
@@ -4284,7 +4284,7 @@ export interface CreateSchemaResponse {
   LatestSchemaVersion?: number;
   NextSchemaVersion?: number;
   SchemaStatus?: SchemaStatus;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   SchemaVersionId?: string;
   SchemaVersionStatus?: SchemaVersionStatus;
 }
@@ -4312,14 +4312,14 @@ export interface CreateSessionRequest {
   Command: SessionCommand;
   Timeout?: number;
   IdleTimeout?: number;
-  DefaultArguments?: Record<string, string>;
+  DefaultArguments?: Partial<Record<string, string>>;
   Connections?: ConnectionsList;
   MaxCapacity?: number;
   NumberOfWorkers?: number;
   WorkerType?: WorkerType;
   SecurityConfiguration?: string;
   GlueVersion?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   RequestOrigin?: string;
 }
 export interface CreateSessionResponse {
@@ -4352,7 +4352,7 @@ export interface CreateTriggerRequest {
   Actions: Array<Action>;
   Description?: string;
   StartOnCreation?: boolean;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   EventBatchingCondition?: EventBatchingCondition;
 }
 export interface CreateTriggerResponse {
@@ -4362,7 +4362,7 @@ export interface CreateUsageProfileRequest {
   Name: string;
   Description?: string;
   Configuration: ProfileConfiguration;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateUsageProfileResponse {
   Name?: string;
@@ -4376,8 +4376,8 @@ export interface CreateUserDefinedFunctionResponse {}
 export interface CreateWorkflowRequest {
   Name: string;
   Description?: string;
-  DefaultRunProperties?: Record<string, string>;
-  Tags?: Record<string, string>;
+  DefaultRunProperties?: Partial<Record<string, string>>;
+  Tags?: Partial<Record<string, string>>;
   MaxConcurrentRuns?: number;
 }
 export interface CreateWorkflowResponse {
@@ -4390,7 +4390,7 @@ export interface CreateXMLClassifierRequest {
 }
 export type CredentialKey = string;
 
-export type CredentialMap = Record<string, string>;
+export type CredentialMap = Partial<Record<string, string>>;
 export type CredentialValue = string;
 
 export type CronExpression = string;
@@ -4434,14 +4434,14 @@ export type CustomEntityTypeNames = Array<string>;
 export type CustomEntityTypes = Array<CustomEntityType>;
 export type CustomPatterns = string;
 
-export type CustomProperties = Record<string, string>;
+export type CustomProperties = Partial<Record<string, string>>;
 export type DagEdges = Array<CodeGenEdge>;
 export type DagNodes = Array<CodeGenNode>;
 export interface Database {
   Name: string;
   Description?: string;
   LocationUri?: string;
-  Parameters?: Record<string, string>;
+  Parameters?: Partial<Record<string, string>>;
   CreateTime?: Date | string;
   CreateTableDefaultPermissions?: Array<PrincipalPermissions>;
   TargetDatabase?: DatabaseIdentifier;
@@ -4459,7 +4459,7 @@ export interface DatabaseInput {
   Name: string;
   Description?: string;
   LocationUri?: string;
-  Parameters?: Record<string, string>;
+  Parameters?: Partial<Record<string, string>>;
   CreateTableDefaultPermissions?: Array<PrincipalPermissions>;
   TargetDatabase?: DatabaseIdentifier;
   FederatedDatabase?: FederatedDatabase;
@@ -4518,7 +4518,7 @@ export interface DataQualityAnalyzerResult {
   Name?: string;
   Description?: string;
   EvaluationMessage?: string;
-  EvaluatedMetrics?: Record<string, number>;
+  EvaluatedMetrics?: Partial<Record<string, number>>;
 }
 export type DataQualityAnalyzerResults = Array<DataQualityAnalyzerResult>;
 export interface DataQualityEncryption {
@@ -4599,9 +4599,9 @@ export interface DataQualityRuleResult {
   Description?: string;
   EvaluationMessage?: string;
   Result?: DataQualityRuleResultStatus;
-  EvaluatedMetrics?: Record<string, number>;
+  EvaluatedMetrics?: Partial<Record<string, number>>;
   EvaluatedRule?: string;
-  RuleMetrics?: Record<string, number>;
+  RuleMetrics?: Partial<Record<string, number>>;
 }
 export type DataQualityRuleResultDescription = string;
 
@@ -4649,7 +4649,7 @@ export interface DataQualityTargetTable {
 export interface DataSource {
   GlueTable: GlueTable;
 }
-export type DataSourceMap = Record<string, DataSource>;
+export type DataSourceMap = Partial<Record<string, DataSource>>;
 export interface Datatype {
   Id: string;
   Label: string;
@@ -4761,7 +4761,7 @@ export interface DeleteIntegrationResponse {
   Description?: string;
   IntegrationArn: string;
   KmsKeyId?: string;
-  AdditionalEncryptionContext?: Record<string, string>;
+  AdditionalEncryptionContext?: Partial<Record<string, string>>;
   Tags?: Array<Tag>;
   Status: IntegrationStatus;
   CreateTime: Date | string;
@@ -4896,17 +4896,16 @@ export interface DescribeConnectionTypeResponse {
   ConnectionType?: string;
   Description?: string;
   Capabilities?: Capabilities;
-  ConnectionProperties?: Record<string, Property>;
-  ConnectionOptions?: Record<string, Property>;
+  ConnectionProperties?: Partial<Record<string, Property>>;
+  ConnectionOptions?: Partial<Record<string, Property>>;
   AuthenticationConfiguration?: AuthConfiguration;
-  ComputeEnvironmentConfigurations?: Record<
-    string,
-    ComputeEnvironmentConfiguration
+  ComputeEnvironmentConfigurations?: Partial<
+    Record<string, ComputeEnvironmentConfiguration>
   >;
-  PhysicalConnectionRequirements?: Record<string, Property>;
-  AthenaConnectionProperties?: Record<string, Property>;
-  PythonConnectionProperties?: Record<string, Property>;
-  SparkConnectionProperties?: Record<string, Property>;
+  PhysicalConnectionRequirements?: Partial<Record<string, Property>>;
+  AthenaConnectionProperties?: Partial<Record<string, Property>>;
+  PythonConnectionProperties?: Partial<Record<string, Property>>;
+  SparkConnectionProperties?: Partial<Record<string, Property>>;
 }
 export interface DescribeEntityRequest {
   ConnectionName: string;
@@ -4970,7 +4969,7 @@ export interface DevEndpoint {
   PublicKey?: string;
   PublicKeys?: Array<string>;
   SecurityConfiguration?: string;
-  Arguments?: Record<string, string>;
+  Arguments?: Partial<Record<string, string>>;
 }
 export interface DevEndpointCustomLibraries {
   ExtraPythonLibsS3Path?: string;
@@ -5026,9 +5025,9 @@ export type dpuDurationInHour = number;
 
 export type dpuHours = number;
 
-export type DQAdditionalOptions = Record<AdditionalOptionKeys, string>;
+export type DQAdditionalOptions = Partial<Record<AdditionalOptionKeys, string>>;
 export type DQCompositeRuleEvaluationMethod = "COLUMN" | "ROW";
-export type DQDLAliases = Record<string, string>;
+export type DQDLAliases = Partial<Record<string, string>>;
 export type DQDLString = string;
 
 export interface DQResultsPublishingOptions {
@@ -5116,7 +5115,7 @@ export interface Entity {
   IsParentEntity?: boolean;
   Description?: string;
   Category?: string;
-  CustomProperties?: Record<string, string>;
+  CustomProperties?: Partial<Record<string, string>>;
 }
 export type EntityDescription = string;
 
@@ -5133,7 +5132,7 @@ export declare class EntityNotFoundException extends EffectData.TaggedError(
   readonly Message?: string;
   readonly FromFederationSource?: boolean;
 }> {}
-export type ErrorByName = Record<string, ErrorDetail>;
+export type ErrorByName = Partial<Record<string, ErrorDetail>>;
 export type ErrorCodeString = string;
 
 export interface ErrorDetail {
@@ -5159,13 +5158,13 @@ export interface EvaluateDataQuality {
 export interface EvaluateDataQualityMultiFrame {
   Name: string;
   Inputs: Array<string>;
-  AdditionalDataSources?: Record<string, string>;
+  AdditionalDataSources?: Partial<Record<string, string>>;
   Ruleset: string;
   PublishingOptions?: DQResultsPublishingOptions;
-  AdditionalOptions?: Record<AdditionalOptionKeys, string>;
+  AdditionalOptions?: Partial<Record<AdditionalOptionKeys, string>>;
   StopJobOnFailureOptions?: DQStopJobOnFailureOptions;
 }
-export type EvaluatedMetricsMap = Record<string, number>;
+export type EvaluatedMetricsMap = Partial<Record<string, number>>;
 export interface EvaluationMetrics {
   TransformType: TransformType;
   FindMatchesMetrics?: FindMatchesMetrics;
@@ -5259,7 +5258,7 @@ export interface Field {
   SupportedFilterOperators?: Array<FieldFilterOperator>;
   ParentField?: string;
   NativeDataType?: string;
-  CustomProperties?: Record<string, string>;
+  CustomProperties?: Partial<Record<string, string>>;
 }
 export type FieldDataType =
   | "INT"
@@ -5367,7 +5366,7 @@ export type GenericBoundedDouble = number;
 
 export type GenericLimitedString = string;
 
-export type GenericMap = Record<string, string>;
+export type GenericMap = Partial<Record<string, string>>;
 export type GenericString = string;
 
 export interface GetBlueprintRequest {
@@ -5638,7 +5637,7 @@ export interface GetDataQualityRulesetEvaluationRunResponse {
   ExecutionTime?: number;
   RulesetNames?: Array<string>;
   ResultIds?: Array<string>;
-  AdditionalDataSources?: Record<string, DataSource>;
+  AdditionalDataSources?: Partial<Record<string, DataSource>>;
 }
 export interface GetDataQualityRulesetRequest {
   Name: string;
@@ -5673,7 +5672,7 @@ export interface GetEntityRecordsRequest {
   EntityName: string;
   NextToken?: string;
   DataStoreApiVersion?: string;
-  ConnectionOptions?: Record<string, string>;
+  ConnectionOptions?: Partial<Record<string, string>>;
   FilterPredicate?: string;
   Limit: number;
   OrderBy?: string;
@@ -5849,7 +5848,7 @@ export interface GetPlanRequest {
   Sinks?: Array<CatalogEntry>;
   Location?: Location;
   Language?: Language;
-  AdditionalPlanOptionsMap?: Record<string, string>;
+  AdditionalPlanOptionsMap?: Partial<Record<string, string>>;
 }
 export interface GetPlanResponse {
   PythonScript?: string;
@@ -6028,7 +6027,7 @@ export interface GetTagsRequest {
   ResourceArn: string;
 }
 export interface GetTagsResponse {
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface GetTriggerRequest {
   Name: string;
@@ -6143,7 +6142,7 @@ export interface GetWorkflowRunPropertiesRequest {
   RunId: string;
 }
 export interface GetWorkflowRunPropertiesResponse {
-  RunProperties?: Record<string, string>;
+  RunProperties?: Partial<Record<string, string>>;
 }
 export interface GetWorkflowRunRequest {
   Name: string;
@@ -6346,7 +6345,7 @@ export interface IcebergTableUpdate {
   PartitionSpec?: IcebergPartitionSpec;
   SortOrder?: IcebergSortOrder;
   Location: string;
-  Properties?: Record<string, string>;
+  Properties?: Partial<Record<string, string>>;
 }
 export type IcebergTableUpdateList = Array<IcebergTableUpdate>;
 export interface IcebergTarget {
@@ -6421,7 +6420,7 @@ export interface Integration {
   IntegrationName: string;
   IntegrationArn: string;
   KmsKeyId?: string;
-  AdditionalEncryptionContext?: Record<string, string>;
+  AdditionalEncryptionContext?: Partial<Record<string, string>>;
   Tags?: Array<Tag>;
   Status: IntegrationStatus;
   CreateTime: Date | string;
@@ -6429,10 +6428,12 @@ export interface Integration {
   Errors?: Array<IntegrationError>;
   DataFilter?: string;
 }
-export type IntegrationAdditionalEncryptionContextMap = Record<string, string>;
+export type IntegrationAdditionalEncryptionContextMap = Partial<
+  Record<string, string>
+>;
 export interface IntegrationConfig {
   RefreshInterval?: string;
-  SourceProperties?: Record<string, string>;
+  SourceProperties?: Partial<Record<string, string>>;
 }
 export declare class IntegrationConflictOperationFault extends EffectData.TaggedError(
   "IntegrationConflictOperationFault",
@@ -6473,7 +6474,7 @@ export declare class IntegrationQuotaExceededFault extends EffectData.TaggedErro
   readonly Message?: string;
 }> {}
 export type IntegrationsList = Array<Integration>;
-export type IntegrationSourcePropertiesMap = Record<string, string>;
+export type IntegrationSourcePropertiesMap = Partial<Record<string, string>>;
 export type IntegrationStatus =
   | "CREATING"
   | "ACTIVE"
@@ -6533,7 +6534,7 @@ export interface JDBCConnectorOptions {
   NumPartitions?: number;
   JobBookmarkKeys?: Array<string>;
   JobBookmarkKeysSortOrder?: string;
-  DataTypeMapping?: Record<JDBCDataType, GlueRecordType>;
+  DataTypeMapping?: Partial<Record<JDBCDataType, GlueRecordType>>;
 }
 export interface JDBCConnectorSource {
   Name: string;
@@ -6552,7 +6553,7 @@ export interface JDBCConnectorTarget {
   ConnectionTable: string;
   ConnectorName: string;
   ConnectionType: string;
-  AdditionalOptions?: Record<string, string>;
+  AdditionalOptions?: Partial<Record<string, string>>;
   OutputSchemas?: Array<GlueSchema>;
 }
 export type JDBCDataType =
@@ -6595,7 +6596,7 @@ export type JDBCDataType =
   | "TINYINT"
   | "VARBINARY"
   | "VARCHAR";
-export type JDBCDataTypeMapping = Record<JDBCDataType, GlueRecordType>;
+export type JDBCDataTypeMapping = Partial<Record<JDBCDataType, GlueRecordType>>;
 export type JdbcMetadataEntry = "COMMENTS" | "RAWTYPES";
 export interface JdbcTarget {
   ConnectionName?: string;
@@ -6615,8 +6616,8 @@ export interface Job {
   LastModifiedOn?: Date | string;
   ExecutionProperty?: ExecutionProperty;
   Command?: JobCommand;
-  DefaultArguments?: Record<string, string>;
-  NonOverridableArguments?: Record<string, string>;
+  DefaultArguments?: Partial<Record<string, string>>;
+  NonOverridableArguments?: Partial<Record<string, string>>;
   Connections?: ConnectionsList;
   MaxRetries?: number;
   AllocatedCapacity?: number;
@@ -6627,7 +6628,7 @@ export interface Job {
   SecurityConfiguration?: string;
   NotificationProperty?: NotificationProperty;
   GlueVersion?: string;
-  CodeGenConfigurationNodes?: Record<string, CodeGenConfigurationNode>;
+  CodeGenConfigurationNodes?: Partial<Record<string, CodeGenConfigurationNode>>;
   ExecutionClass?: ExecutionClass;
   SourceControlDetails?: SourceControlDetails;
   MaintenanceWindow?: string;
@@ -6673,7 +6674,7 @@ export interface JobRun {
   LastModifiedOn?: Date | string;
   CompletedOn?: Date | string;
   JobRunState?: JobRunState;
-  Arguments?: Record<string, string>;
+  Arguments?: Partial<Record<string, string>>;
   ErrorMessage?: string;
   PredecessorRuns?: Array<Predecessor>;
   AllocatedCapacity?: number;
@@ -6713,8 +6714,8 @@ export interface JobUpdate {
   Role?: string;
   ExecutionProperty?: ExecutionProperty;
   Command?: JobCommand;
-  DefaultArguments?: Record<string, string>;
-  NonOverridableArguments?: Record<string, string>;
+  DefaultArguments?: Partial<Record<string, string>>;
+  NonOverridableArguments?: Partial<Record<string, string>>;
   Connections?: ConnectionsList;
   MaxRetries?: number;
   AllocatedCapacity?: number;
@@ -6725,7 +6726,7 @@ export interface JobUpdate {
   SecurityConfiguration?: string;
   NotificationProperty?: NotificationProperty;
   GlueVersion?: string;
-  CodeGenConfigurationNodes?: Record<string, CodeGenConfigurationNode>;
+  CodeGenConfigurationNodes?: Partial<Record<string, CodeGenConfigurationNode>>;
   ExecutionClass?: ExecutionClass;
   SourceControlDetails?: SourceControlDetails;
   MaintenanceWindow?: string;
@@ -6859,7 +6860,7 @@ export interface LineageConfiguration {
 export interface ListBlueprintsRequest {
   NextToken?: string;
   MaxResults?: number;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface ListBlueprintsResponse {
   Blueprints?: Array<string>;
@@ -6884,7 +6885,7 @@ export interface ListConnectionTypesResponse {
 export interface ListCrawlersRequest {
   MaxResults?: number;
   NextToken?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface ListCrawlersResponse {
   CrawlerNames?: Array<string>;
@@ -6903,7 +6904,7 @@ export interface ListCrawlsResponse {
 export interface ListCustomEntityTypesRequest {
   NextToken?: string;
   MaxResults?: number;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface ListCustomEntityTypesResponse {
   CustomEntityTypes?: Array<CustomEntityType>;
@@ -6940,7 +6941,7 @@ export interface ListDataQualityRulesetsRequest {
   NextToken?: string;
   MaxResults?: number;
   Filter?: DataQualityRulesetFilterCriteria;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface ListDataQualityRulesetsResponse {
   Rulesets?: Array<DataQualityRulesetListDetails>;
@@ -6971,7 +6972,7 @@ export interface ListDataQualityStatisticsResponse {
 export interface ListDevEndpointsRequest {
   NextToken?: string;
   MaxResults?: number;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface ListDevEndpointsResponse {
   DevEndpointNames?: Array<string>;
@@ -6991,7 +6992,7 @@ export interface ListEntitiesResponse {
 export interface ListJobsRequest {
   NextToken?: string;
   MaxResults?: number;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface ListJobsResponse {
   JobNames?: Array<string>;
@@ -7002,7 +7003,7 @@ export interface ListMLTransformsRequest {
   MaxResults?: number;
   Filter?: TransformFilterCriteria;
   Sort?: TransformSortCriteria;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface ListMLTransformsResponse {
   TransformIds: Array<string>;
@@ -7038,7 +7039,7 @@ export interface ListSchemaVersionsResponse {
 export interface ListSessionsRequest {
   NextToken?: string;
   MaxResults?: number;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   RequestOrigin?: string;
 }
 export interface ListSessionsResponse {
@@ -7076,7 +7077,7 @@ export interface ListTriggersRequest {
   NextToken?: string;
   DependentJobName?: string;
   MaxResults?: number;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface ListTriggersResponse {
   TriggerNames?: Array<string>;
@@ -7103,7 +7104,7 @@ export interface Location {
   S3?: Array<CodeGenNodeArg>;
   DynamoDB?: Array<CodeGenNodeArg>;
 }
-export type LocationMap = Record<string, string>;
+export type LocationMap = Partial<Record<string, string>>;
 export type LocationString = string;
 
 export type LocationStringList = Array<string>;
@@ -7146,7 +7147,7 @@ export interface MappingEntry {
 }
 export type MappingList = Array<MappingEntry>;
 export type Mappings = Array<Mapping>;
-export type MapValue = Record<string, string>;
+export type MapValue = Partial<Record<string, string>>;
 export type MaskValue = string;
 
 export type MatchCriteria = Array<string>;
@@ -7175,7 +7176,7 @@ export interface MetadataInfo {
   CreatedTime?: string;
   OtherMetadataValueList?: Array<OtherMetadataValueListItem>;
 }
-export type MetadataInfoMap = Record<string, MetadataInfo>;
+export type MetadataInfoMap = Partial<Record<string, MetadataInfo>>;
 export type MetadataKeyString = string;
 
 export interface MetadataKeyValuePair {
@@ -7251,7 +7252,7 @@ export interface ModifyIntegrationResponse {
   Description?: string;
   IntegrationArn: string;
   KmsKeyId?: string;
-  AdditionalEncryptionContext?: Record<string, string>;
+  AdditionalEncryptionContext?: Partial<Record<string, string>>;
   Tags?: Array<Tag>;
   Status: IntegrationStatus;
   CreateTime: Date | string;
@@ -7352,13 +7353,13 @@ export interface OAuth2Properties {
   OAuth2GrantType?: OAuth2GrantType;
   OAuth2ClientApplication?: OAuth2ClientApplication;
   TokenUrl?: string;
-  TokenUrlParametersMap?: Record<string, string>;
+  TokenUrlParametersMap?: Partial<Record<string, string>>;
 }
 export interface OAuth2PropertiesInput {
   OAuth2GrantType?: OAuth2GrantType;
   OAuth2ClientApplication?: OAuth2ClientApplication;
   TokenUrl?: string;
-  TokenUrlParametersMap?: Record<string, string>;
+  TokenUrlParametersMap?: Partial<Record<string, string>>;
   AuthorizationCodeProperties?: AuthorizationCodeProperties;
   OAuth2Credentials?: OAuth2Credentials;
 }
@@ -7399,7 +7400,7 @@ export interface OracleSQLCatalogTarget {
   Database: string;
   Table: string;
 }
-export type OrchestrationArgumentsMap = Record<string, string>;
+export type OrchestrationArgumentsMap = Partial<Record<string, string>>;
 export type OrchestrationArgumentsValue = string;
 
 export type OrchestrationIAMRoleArn = string;
@@ -7443,10 +7444,10 @@ export type PageSize = number;
 
 export type PaginationToken = string;
 
-export type ParameterMap = Record<string, string>;
+export type ParameterMap = Partial<Record<string, string>>;
 export type ParameterName = string;
 
-export type ParametersMap = Record<string, string>;
+export type ParametersMap = Partial<Record<string, string>>;
 export type ParametersMapValue = string;
 
 export type ParameterValue = string;
@@ -7474,7 +7475,7 @@ export interface Partition {
   CreationTime?: Date | string;
   LastAccessTime?: Date | string;
   StorageDescriptor?: StorageDescriptor;
-  Parameters?: Record<string, string>;
+  Parameters?: Partial<Record<string, string>>;
   LastAnalyzedTime?: Date | string;
   CatalogId?: string;
 }
@@ -7504,7 +7505,7 @@ export interface PartitionInput {
   Values?: Array<string>;
   LastAccessTime?: Date | string;
   StorageDescriptor?: StorageDescriptor;
-  Parameters?: Record<string, string>;
+  Parameters?: Partial<Record<string, string>>;
   LastAnalyzedTime?: Date | string;
 }
 export type PartitionInputList = Array<PartitionInput>;
@@ -7609,10 +7610,10 @@ export type PrincipalType = "USER" | "ROLE" | "GROUP";
 export type Prob = number;
 
 export interface ProfileConfiguration {
-  SessionConfiguration?: Record<string, ConfigurationObject>;
-  JobConfiguration?: Record<string, ConfigurationObject>;
+  SessionConfiguration?: Partial<Record<string, ConfigurationObject>>;
+  JobConfiguration?: Partial<Record<string, ConfigurationObject>>;
 }
-export type PropertiesMap = Record<string, Property>;
+export type PropertiesMap = Partial<Record<string, Property>>;
 export interface Property {
   Name: string;
   Description: string;
@@ -7626,10 +7627,10 @@ export type PropertyDescriptionString = string;
 
 export type PropertyKey = string;
 
-export type PropertyMap = Record<string, string>;
+export type PropertyMap = Partial<Record<string, string>>;
 export type PropertyName = string;
 
-export type PropertyNameOverrides = Record<string, string>;
+export type PropertyNameOverrides = Partial<Record<string, string>>;
 export interface PropertyPredicate {
   Key?: string;
   Value?: string;
@@ -7684,7 +7685,7 @@ export interface PutSchemaVersionMetadataResponse {
 export interface PutWorkflowRunPropertiesRequest {
   Name: string;
   RunId: string;
-  RunProperties: Record<string, string>;
+  RunProperties: Partial<Record<string, string>>;
 }
 export interface PutWorkflowRunPropertiesResponse {}
 export type PythonScript = string;
@@ -7702,7 +7703,7 @@ export interface QuerySchemaVersionMetadataInput {
 export type QuerySchemaVersionMetadataMaxResults = number;
 
 export interface QuerySchemaVersionMetadataResponse {
-  MetadataInfoMap?: Record<string, MetadataInfo>;
+  MetadataInfoMap?: Partial<Record<string, MetadataInfo>>;
   SchemaVersionId?: string;
   NextToken?: string;
 }
@@ -7711,7 +7712,7 @@ export interface QuerySessionContext {
   QueryStartTime?: Date | string;
   ClusterId?: string;
   QueryAuthorizationId?: string;
-  AdditionalContext?: Record<string, string>;
+  AdditionalContext?: Partial<Record<string, string>>;
 }
 export type QuoteChar = "QUOTE" | "QUILLEMET" | "SINGLE_QUOTE" | "DISABLED";
 export interface Recipe {
@@ -7722,7 +7723,7 @@ export interface Recipe {
 }
 export interface RecipeAction {
   Operation: string;
-  Parameters?: Record<string, string>;
+  Parameters?: Partial<Record<string, string>>;
 }
 export interface RecipeReference {
   RecipeArn: string;
@@ -7886,7 +7887,7 @@ export interface Route {
 }
 export type RowTag = string;
 
-export type RuleMetricsMap = Record<string, number>;
+export type RuleMetricsMap = Partial<Record<string, number>>;
 export type RulesetNames = Array<string>;
 export type RunId = string;
 
@@ -7914,21 +7915,21 @@ export interface S3CatalogDeltaSource {
   Name: string;
   Database: string;
   Table: string;
-  AdditionalDeltaOptions?: Record<string, string>;
+  AdditionalDeltaOptions?: Partial<Record<string, string>>;
   OutputSchemas?: Array<GlueSchema>;
 }
 export interface S3CatalogHudiSource {
   Name: string;
   Database: string;
   Table: string;
-  AdditionalHudiOptions?: Record<string, string>;
+  AdditionalHudiOptions?: Partial<Record<string, string>>;
   OutputSchemas?: Array<GlueSchema>;
 }
 export interface S3CatalogIcebergSource {
   Name: string;
   Database: string;
   Table: string;
-  AdditionalIcebergOptions?: Record<string, string>;
+  AdditionalIcebergOptions?: Partial<Record<string, string>>;
   OutputSchemas?: Array<GlueSchema>;
 }
 export interface S3CatalogSource {
@@ -7974,7 +7975,7 @@ export interface S3DeltaCatalogTarget {
   PartitionKeys?: Array<Array<string>>;
   Table: string;
   Database: string;
-  AdditionalOptions?: Record<string, string>;
+  AdditionalOptions?: Partial<Record<string, string>>;
   SchemaChangePolicy?: CatalogSchemaChangePolicy;
   AutoDataQuality?: AutoDataQuality;
   OutputSchemas?: Array<GlueSchema>;
@@ -7987,14 +7988,14 @@ export interface S3DeltaDirectTarget {
   Compression: DeltaTargetCompressionType;
   NumberTargetPartitions?: string;
   Format: TargetFormat;
-  AdditionalOptions?: Record<string, string>;
+  AdditionalOptions?: Partial<Record<string, string>>;
   SchemaChangePolicy?: DirectSchemaChangePolicy;
   AutoDataQuality?: AutoDataQuality;
 }
 export interface S3DeltaSource {
   Name: string;
   Paths: Array<string>;
-  AdditionalDeltaOptions?: Record<string, string>;
+  AdditionalDeltaOptions?: Partial<Record<string, string>>;
   AdditionalOptions?: S3DirectSourceAdditionalOptions;
   OutputSchemas?: Array<GlueSchema>;
 }
@@ -8053,7 +8054,7 @@ export interface S3HudiCatalogTarget {
   PartitionKeys?: Array<Array<string>>;
   Table: string;
   Database: string;
-  AdditionalOptions: Record<string, string>;
+  AdditionalOptions: Partial<Record<string, string>>;
   SchemaChangePolicy?: CatalogSchemaChangePolicy;
   AutoDataQuality?: AutoDataQuality;
   OutputSchemas?: Array<GlueSchema>;
@@ -8066,14 +8067,14 @@ export interface S3HudiDirectTarget {
   NumberTargetPartitions?: string;
   PartitionKeys?: Array<Array<string>>;
   Format: TargetFormat;
-  AdditionalOptions: Record<string, string>;
+  AdditionalOptions: Partial<Record<string, string>>;
   SchemaChangePolicy?: DirectSchemaChangePolicy;
   AutoDataQuality?: AutoDataQuality;
 }
 export interface S3HudiSource {
   Name: string;
   Paths: Array<string>;
-  AdditionalHudiOptions?: Record<string, string>;
+  AdditionalHudiOptions?: Partial<Record<string, string>>;
   AdditionalOptions?: S3DirectSourceAdditionalOptions;
   OutputSchemas?: Array<GlueSchema>;
 }
@@ -8094,7 +8095,7 @@ export interface S3IcebergCatalogTarget {
   PartitionKeys?: Array<Array<string>>;
   Table: string;
   Database: string;
-  AdditionalOptions?: Record<string, string>;
+  AdditionalOptions?: Partial<Record<string, string>>;
   SchemaChangePolicy?: CatalogSchemaChangePolicy;
   AutoDataQuality?: AutoDataQuality;
 }
@@ -8104,7 +8105,7 @@ export interface S3IcebergDirectTarget {
   PartitionKeys?: Array<Array<string>>;
   Path: string;
   Format: TargetFormat;
-  AdditionalOptions?: Record<string, string>;
+  AdditionalOptions?: Partial<Record<string, string>>;
   SchemaChangePolicy?: DirectSchemaChangePolicy;
   AutoDataQuality?: AutoDataQuality;
   Compression: IcebergTargetCompressionType;
@@ -8290,7 +8291,7 @@ export type Separator = "COMMA" | "CTRLA" | "PIPE" | "SEMICOLON" | "TAB";
 export interface SerDeInfo {
   Name?: string;
   SerializationLibrary?: string;
-  Parameters?: Record<string, string>;
+  Parameters?: Partial<Record<string, string>>;
 }
 export interface Session {
   Id?: string;
@@ -8300,7 +8301,7 @@ export interface Session {
   Description?: string;
   Role?: string;
   Command?: SessionCommand;
-  DefaultArguments?: Record<string, string>;
+  DefaultArguments?: Partial<Record<string, string>>;
   Connections?: ConnectionsList;
   Progress?: number;
   MaxCapacity?: number;
@@ -8331,7 +8332,7 @@ export type SettingSource = "CATALOG" | "TABLE";
 export interface SkewedInfo {
   SkewedColumnNames?: Array<string>;
   SkewedColumnValues?: Array<string>;
-  SkewedColumnValueLocationMaps?: Record<string, string>;
+  SkewedColumnValueLocationMaps?: Partial<Record<string, string>>;
 }
 export interface SnowflakeNodeData {
   SourceType?: string;
@@ -8341,7 +8342,7 @@ export interface SnowflakeNodeData {
   Database?: string;
   TempDir?: string;
   IamRole?: Option;
-  AdditionalOptions?: Record<string, string>;
+  AdditionalOptions?: Partial<Record<string, string>>;
   SampleQuery?: string;
   PreAction?: string;
   PostAction?: string;
@@ -8406,7 +8407,7 @@ export interface SparkConnectorSource {
   ConnectionName: string;
   ConnectorName: string;
   ConnectionType: string;
-  AdditionalOptions?: Record<string, string>;
+  AdditionalOptions?: Partial<Record<string, string>>;
   OutputSchemas?: Array<GlueSchema>;
 }
 export interface SparkConnectorTarget {
@@ -8415,7 +8416,7 @@ export interface SparkConnectorTarget {
   ConnectionName: string;
   ConnectorName: string;
   ConnectionType: string;
-  AdditionalOptions?: Record<string, string>;
+  AdditionalOptions?: Partial<Record<string, string>>;
   OutputSchemas?: Array<GlueSchema>;
 }
 export interface SparkSQL {
@@ -8497,7 +8498,7 @@ export interface StartDataQualityRulesetEvaluationRunRequest {
   ClientToken?: string;
   AdditionalRunOptions?: DataQualityEvaluationRunAdditionalRunOptions;
   RulesetNames: Array<string>;
-  AdditionalDataSources?: Record<string, DataSource>;
+  AdditionalDataSources?: Partial<Record<string, DataSource>>;
 }
 export interface StartDataQualityRulesetEvaluationRunResponse {
   RunId?: string;
@@ -8530,7 +8531,7 @@ export interface StartJobRunRequest {
   JobName: string;
   JobRunQueuingEnabled?: boolean;
   JobRunId?: string;
-  Arguments?: Record<string, string>;
+  Arguments?: Partial<Record<string, string>>;
   AllocatedCapacity?: number;
   Timeout?: number;
   MaxCapacity?: number;
@@ -8565,7 +8566,7 @@ export interface StartTriggerResponse {
 }
 export interface StartWorkflowRunRequest {
   Name: string;
-  RunProperties?: Record<string, string>;
+  RunProperties?: Partial<Record<string, string>>;
 }
 export interface StartWorkflowRunResponse {
   RunId?: string;
@@ -8616,7 +8617,7 @@ export interface StatisticModelResult {
 export type StatisticModelResults = Array<StatisticModelResult>;
 export type StatisticNameString = string;
 
-export type StatisticPropertiesMap = Record<string, string>;
+export type StatisticPropertiesMap = Partial<Record<string, string>>;
 export interface StatisticSummary {
   StatisticId?: string;
   ProfileId?: string;
@@ -8626,7 +8627,7 @@ export interface StatisticSummary {
   EvaluationLevel?: StatisticEvaluationLevel;
   ColumnsReferenced?: Array<string>;
   ReferencedDatasets?: Array<string>;
-  StatisticProperties?: Record<string, string>;
+  StatisticProperties?: Partial<Record<string, string>>;
   RecordedOn?: Date | string;
   InclusionAnnotation?: TimestampedInclusionAnnotation;
 }
@@ -8682,7 +8683,7 @@ export interface StorageDescriptor {
   SerdeInfo?: SerDeInfo;
   BucketColumns?: Array<string>;
   SortColumns?: Array<Order>;
-  Parameters?: Record<string, string>;
+  Parameters?: Partial<Record<string, string>>;
   SkewedInfo?: SkewedInfo;
   StoredAsSubDirectories?: boolean;
   SchemaReference?: SchemaReference;
@@ -8702,7 +8703,7 @@ export interface StringColumnStatisticsData {
   NumberOfDistinctValues: number;
 }
 export type StringList = Array<string>;
-export type StringToStringMap = Record<string, string>;
+export type StringToStringMap = Partial<Record<string, string>>;
 export interface SupportedDialect {
   Dialect?: ViewDialect;
   DialectVersion?: string;
@@ -8722,7 +8723,7 @@ export interface Table {
   ViewOriginalText?: string;
   ViewExpandedText?: string;
   TableType?: string;
-  Parameters?: Record<string, string>;
+  Parameters?: Partial<Record<string, string>>;
   CreatedBy?: string;
   IsRegisteredWithLakeFormation?: boolean;
   TargetTable?: TableIdentifier;
@@ -8758,7 +8759,7 @@ export interface TableInput {
   ViewOriginalText?: string;
   ViewExpandedText?: string;
   TableType?: string;
-  Parameters?: Record<string, string>;
+  Parameters?: Partial<Record<string, string>>;
   TargetTable?: TableIdentifier;
   ViewDefinition?: ViewDefinitionInput;
 }
@@ -8843,10 +8844,10 @@ export type TagKey = string;
 export type TagKeysList = Array<string>;
 export interface TagResourceRequest {
   ResourceArn: string;
-  TagsToAdd: Record<string, string>;
+  TagsToAdd: Partial<Record<string, string>>;
 }
 export interface TagResourceResponse {}
-export type TagsMap = Record<string, string>;
+export type TagsMap = Partial<Record<string, string>>;
 export type TagValue = string;
 
 export type TargetColumn = string;
@@ -8928,7 +8929,7 @@ export type TaskType =
   | "FIND_MATCHES";
 export interface TestConnectionInput {
   ConnectionType: ConnectionType;
-  ConnectionProperties: Record<ConnectionPropertyKey, string>;
+  ConnectionProperties: Partial<Record<ConnectionPropertyKey, string>>;
   AuthenticationConfiguration?: AuthenticationConfigurationInput;
 }
 export interface TestConnectionRequest {
@@ -8962,7 +8963,7 @@ export type TokenUrl = string;
 
 export type TokenUrlParameterKey = string;
 
-export type TokenUrlParametersMap = Record<string, string>;
+export type TokenUrlParametersMap = Partial<Record<string, string>>;
 export type TokenUrlParameterValue = string;
 
 export type Topk = number;
@@ -9188,7 +9189,7 @@ export interface UpdateDevEndpointRequest {
   CustomLibraries?: DevEndpointCustomLibraries;
   UpdateEtlLibraries?: boolean;
   DeleteArguments?: Array<string>;
-  AddArguments?: Record<string, string>;
+  AddArguments?: Partial<Record<string, string>>;
 }
 export interface UpdateDevEndpointResponse {}
 export type UpdatedTimestamp = string;
@@ -9353,7 +9354,7 @@ export interface UpdateUserDefinedFunctionResponse {}
 export interface UpdateWorkflowRequest {
   Name: string;
   Description?: string;
-  DefaultRunProperties?: Record<string, string>;
+  DefaultRunProperties?: Partial<Record<string, string>>;
   MaxConcurrentRuns?: number;
 }
 export interface UpdateWorkflowResponse {
@@ -9485,7 +9486,7 @@ export type WorkerType =
 export interface Workflow {
   Name?: string;
   Description?: string;
-  DefaultRunProperties?: Record<string, string>;
+  DefaultRunProperties?: Partial<Record<string, string>>;
   CreatedOn?: Date | string;
   LastModifiedOn?: Date | string;
   LastRun?: WorkflowRun;
@@ -9504,7 +9505,7 @@ export interface WorkflowRun {
   Name?: string;
   WorkflowRunId?: string;
   PreviousRunId?: string;
-  WorkflowRunProperties?: Record<string, string>;
+  WorkflowRunProperties?: Partial<Record<string, string>>;
   StartedOn?: Date | string;
   CompletedOn?: Date | string;
   Status?: WorkflowRunStatus;
@@ -9513,7 +9514,7 @@ export interface WorkflowRun {
   Graph?: WorkflowGraph;
   StartingEventBatchCondition?: StartingEventBatchCondition;
 }
-export type WorkflowRunProperties = Record<string, string>;
+export type WorkflowRunProperties = Partial<Record<string, string>>;
 export type WorkflowRuns = Array<WorkflowRun>;
 export interface WorkflowRunStatistics {
   TotalActions?: number;

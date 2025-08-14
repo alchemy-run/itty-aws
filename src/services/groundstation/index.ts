@@ -55,7 +55,7 @@ export interface AgentDetails {
 export type AgentStatus = "SUCCESS" | "FAILED" | "ACTIVE" | "INACTIVE";
 export interface AggregateStatus {
   status: AgentStatus;
-  signatureMap?: Record<string, boolean>;
+  signatureMap?: Partial<Record<string, boolean>>;
 }
 export type AngleUnits = "DEGREE_ANGLE" | "RADIAN";
 export interface AntennaDemodDecodeDetails {
@@ -191,7 +191,7 @@ export interface ContactData {
   errorMessage?: string;
   maximumElevation?: Elevation;
   region?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   visibilityStartTime?: Date | string;
   visibilityEndTime?: Date | string;
 }
@@ -216,11 +216,11 @@ export type ContactStatus =
 export interface CreateConfigRequest {
   name: string;
   configData: ConfigTypeData;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateDataflowEndpointGroupRequest {
   endpointDetails: Array<EndpointDetails>;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   contactPrePassDurationSeconds?: number;
   contactPostPassDurationSeconds?: number;
 }
@@ -232,7 +232,7 @@ export interface CreateEphemerisRequest {
   name: string;
   kmsKeyArn?: string;
   ephemeris?: EphemerisData;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateMissionProfileRequest {
   name: string;
@@ -241,7 +241,7 @@ export interface CreateMissionProfileRequest {
   minimumViableContactDurationSeconds: number;
   dataflowEdges: Array<Array<string>>;
   trackingConfigArn: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   streamsKmsKey?: KmsKey;
   streamsKmsRole?: string;
 }
@@ -318,7 +318,7 @@ export interface DescribeContactResponse {
   contactStatus?: ContactStatus;
   errorMessage?: string;
   maximumElevation?: Elevation;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   region?: string;
   dataflowList?: Array<DataflowDetail>;
   visibilityStartTime?: Date | string;
@@ -335,7 +335,7 @@ export interface DescribeEphemerisResponse {
   creationTime?: Date | string;
   enabled?: boolean;
   name?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   suppliedData?: EphemerisTypeDescription;
   invalidReason?: EphemerisInvalidReason;
 }
@@ -457,7 +457,7 @@ export interface GetConfigResponse {
   name: string;
   configType?: ConfigCapabilityType;
   configData: ConfigTypeData;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface GetDataflowEndpointGroupRequest {
   dataflowEndpointGroupId: string;
@@ -466,7 +466,7 @@ export interface GetDataflowEndpointGroupResponse {
   dataflowEndpointGroupId?: string;
   dataflowEndpointGroupArn?: string;
   endpointsDetails?: Array<EndpointDetails>;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   contactPrePassDurationSeconds?: number;
   contactPostPassDurationSeconds?: number;
 }
@@ -494,7 +494,7 @@ export interface GetMissionProfileResponse {
   minimumViableContactDurationSeconds?: number;
   dataflowEdges?: Array<Array<string>>;
   trackingConfigArn?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   streamsKmsKey?: KmsKey;
   streamsKmsRole?: string;
 }
@@ -623,7 +623,7 @@ export interface ListTagsForResourceRequest {
   resourceArn: string;
 }
 export interface ListTagsForResourceResponse {
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type MissionProfileArn = string;
 
@@ -663,7 +663,7 @@ export interface RangedSocketAddress {
 export interface RegisterAgentRequest {
   discoveryData: DiscoveryData;
   agentDetails: AgentDetails;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface RegisterAgentResponse {
   agentId?: string;
@@ -674,7 +674,7 @@ export interface ReserveContactRequest {
   startTime: Date | string;
   endTime: Date | string;
   groundStation: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export declare class ResourceLimitExceededException extends EffectData.TaggedError(
   "ResourceLimitExceededException",
@@ -729,7 +729,7 @@ export interface SecurityDetails {
   roleArn: string;
 }
 export type SecurityGroupIdList = Array<string>;
-export type SignatureMap = Record<string, boolean>;
+export type SignatureMap = Partial<Record<string, boolean>>;
 export interface SocketAddress {
   name: string;
   port: number;
@@ -750,10 +750,10 @@ export type SubnetList = Array<string>;
 export type TagKeys = Array<string>;
 export interface TagResourceRequest {
   resourceArn: string;
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
 export interface TagResourceResponse {}
-export type TagsMap = Record<string, string>;
+export type TagsMap = Partial<Record<string, string>>;
 export interface TimeRange {
   startTime: Date | string;
   endTime: Date | string;

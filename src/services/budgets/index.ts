@@ -382,8 +382,8 @@ export type AutoAdjustType = "HISTORICAL" | "FORECAST";
 export interface Budget {
   BudgetName: string;
   BudgetLimit?: Spend;
-  PlannedBudgetLimits?: Record<string, Spend>;
-  CostFilters?: Record<string, Array<string>>;
+  PlannedBudgetLimits?: Partial<Record<string, Spend>>;
+  CostFilters?: Partial<Record<string, Array<string>>>;
   CostTypes?: CostTypes;
   TimeUnit: TimeUnit;
   TimePeriod?: TimePeriod;
@@ -411,7 +411,7 @@ export type BudgetNotificationsForAccountList =
 export interface BudgetPerformanceHistory {
   BudgetName?: string;
   BudgetType?: BudgetType;
-  CostFilters?: Record<string, Array<string>>;
+  CostFilters?: Partial<Record<string, Array<string>>>;
   CostTypes?: CostTypes;
   TimeUnit?: TimeUnit;
   BudgetedAndActualAmountsList?: Array<BudgetedAndActualAmounts>;
@@ -436,7 +436,7 @@ export interface CostCategoryValues {
   Values?: Array<string>;
   MatchOptions?: Array<MatchOption>;
 }
-export type CostFilters = Record<string, Array<string>>;
+export type CostFilters = Partial<Record<string, Array<string>>>;
 export interface CostTypes {
   IncludeTax?: boolean;
   IncludeSubscription?: boolean;
@@ -806,7 +806,7 @@ export type NullableBoolean = boolean;
 
 export type NumericValue = string;
 
-export type PlannedBudgetLimits = Record<string, Spend>;
+export type PlannedBudgetLimits = Partial<Record<string, Spend>>;
 export type PolicyArn = string;
 
 export type PolicyId = string;

@@ -1699,9 +1699,8 @@ export interface ComputationModelAnomalyDetectionConfiguration {
 export interface ComputationModelConfiguration {
   anomalyDetection?: ComputationModelAnomalyDetectionConfiguration;
 }
-export type ComputationModelDataBinding = Record<
-  string,
-  ComputationModelDataBindingValue
+export type ComputationModelDataBinding = Partial<
+  Record<string, ComputationModelDataBindingValue>
 >;
 export type ComputationModelDataBindingUsageSummaries =
   Array<ComputationModelDataBindingUsageSummary>;
@@ -1716,7 +1715,7 @@ export interface ComputationModelDataBindingValue {
 }
 export type ComputationModelDataBindingVariable = string;
 
-export type ComputationModelExecutionSummary = Record<string, string>;
+export type ComputationModelExecutionSummary = Partial<Record<string, string>>;
 export type ComputationModelExecutionSummaryKey = string;
 
 export type ComputationModelExecutionSummaryValue = string;
@@ -1861,7 +1860,9 @@ export interface CreateComputationModelRequest {
   computationModelName: string;
   computationModelDescription?: string;
   computationModelConfiguration: ComputationModelConfiguration;
-  computationModelDataBinding: Record<string, ComputationModelDataBindingValue>;
+  computationModelDataBinding: Partial<
+    Record<string, ComputationModelDataBindingValue>
+  >;
   clientToken?: string;
   tags?: Record<string, string>;
 }
@@ -1917,7 +1918,7 @@ export interface CreatePortalRequest {
   notificationSenderEmail?: string;
   alarms?: Alarms;
   portalType?: PortalType;
-  portalTypeConfiguration?: Record<string, PortalTypeEntry>;
+  portalTypeConfiguration?: Partial<Record<string, PortalTypeEntry>>;
 }
 export interface CreatePortalResponse {
   portalId: string;
@@ -2215,7 +2216,7 @@ export interface DescribeComputationModelExecutionSummaryRequest {
 export interface DescribeComputationModelExecutionSummaryResponse {
   computationModelId: string;
   resolveTo?: ResolveTo;
-  computationModelExecutionSummary: Record<string, string>;
+  computationModelExecutionSummary: Partial<Record<string, string>>;
 }
 export interface DescribeComputationModelRequest {
   computationModelId: string;
@@ -2226,7 +2227,9 @@ export interface DescribeComputationModelResponse {
   computationModelName: string;
   computationModelDescription?: string;
   computationModelConfiguration: ComputationModelConfiguration;
-  computationModelDataBinding: Record<string, ComputationModelDataBindingValue>;
+  computationModelDataBinding: Partial<
+    Record<string, ComputationModelDataBindingValue>
+  >;
   computationModelCreationDate: Date | string;
   computationModelLastUpdateDate: Date | string;
   computationModelStatus: ComputationModelStatus;
@@ -2278,8 +2281,8 @@ export interface DescribeExecutionResponse {
   executionStartTime: Date | string;
   executionEndTime?: Date | string;
   executionStatus: ExecutionStatus;
-  executionResult?: Record<string, string>;
-  executionDetails?: Record<string, string>;
+  executionResult?: Partial<Record<string, string>>;
+  executionDetails?: Partial<Record<string, string>>;
   executionEntityVersion?: string;
 }
 export interface DescribeGatewayCapabilityConfigurationRequest {
@@ -2329,7 +2332,7 @@ export interface DescribePortalResponse {
   notificationSenderEmail?: string;
   alarms?: Alarms;
   portalType?: PortalType;
-  portalTypeConfiguration?: Record<string, PortalTypeEntry>;
+  portalTypeConfiguration?: Partial<Record<string, PortalTypeEntry>>;
 }
 export interface DescribeProjectRequest {
   projectId: string;
@@ -2448,12 +2451,12 @@ export interface ExecuteQueryResponse {
   rows?: Array<Row>;
   nextToken?: string;
 }
-export type ExecutionDetails = Record<string, string>;
+export type ExecutionDetails = Partial<Record<string, string>>;
 export type ExecutionDetailsKey = string;
 
 export type ExecutionDetailsValue = string;
 
-export type ExecutionResult = Record<string, string>;
+export type ExecutionResult = Partial<Record<string, string>>;
 export type ExecutionResultKey = string;
 
 export type ExecutionResultValue = string;
@@ -3027,7 +3030,7 @@ export interface PortalSummary {
 }
 export type PortalTools = Array<string>;
 export type PortalType = "SITEWISE_PORTAL_V1" | "SITEWISE_PORTAL_V2";
-export type PortalTypeConfiguration = Record<string, PortalTypeEntry>;
+export type PortalTypeConfiguration = Partial<Record<string, PortalTypeEntry>>;
 export interface PortalTypeEntry {
   portalTools?: Array<string>;
 }
@@ -3388,7 +3391,9 @@ export interface UpdateComputationModelRequest {
   computationModelName: string;
   computationModelDescription?: string;
   computationModelConfiguration: ComputationModelConfiguration;
-  computationModelDataBinding: Record<string, ComputationModelDataBindingValue>;
+  computationModelDataBinding: Partial<
+    Record<string, ComputationModelDataBindingValue>
+  >;
   clientToken?: string;
 }
 export interface UpdateComputationModelResponse {
@@ -3438,7 +3443,7 @@ export interface UpdatePortalRequest {
   notificationSenderEmail?: string;
   alarms?: Alarms;
   portalType?: PortalType;
-  portalTypeConfiguration?: Record<string, PortalTypeEntry>;
+  portalTypeConfiguration?: Partial<Record<string, PortalTypeEntry>>;
 }
 export interface UpdatePortalResponse {
   portalStatus: PortalStatus;

@@ -420,7 +420,7 @@ export type BlacklistingDescription = string;
 export type BlacklistItemName = string;
 
 export type BlacklistItemNames = Array<string>;
-export type BlacklistReport = Record<string, Array<BlacklistEntry>>;
+export type BlacklistReport = Partial<Record<string, Array<BlacklistEntry>>>;
 export interface Body {
   Text?: Content;
   Html?: Content;
@@ -660,7 +660,7 @@ export interface GetBlacklistReportsRequest {
   BlacklistItemNames: Array<string>;
 }
 export interface GetBlacklistReportsResponse {
-  BlacklistReport: Record<string, Array<BlacklistEntry>>;
+  BlacklistReport: Partial<Record<string, Array<BlacklistEntry>>>;
 }
 export interface GetConfigurationSetEventDestinationsRequest {
   ConfigurationSetName: string;

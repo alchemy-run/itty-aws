@@ -2493,7 +2493,7 @@ export interface Relevance {
   Importance?: number;
   Duration?: string;
   RankOrder?: Order;
-  ValueImportanceMap?: Record<string, number>;
+  ValueImportanceMap?: Partial<Record<string, number>>;
 }
 export interface RelevanceFeedback {
   ResultId: string;
@@ -3065,7 +3065,7 @@ export declare class ValidationException extends EffectData.TaggedError(
 )<{
   readonly Message?: string;
 }> {}
-export type ValueImportanceMap = Record<string, number>;
+export type ValueImportanceMap = Partial<Record<string, number>>;
 export type ValueImportanceMapKey = string;
 
 export type VisitorId = string;

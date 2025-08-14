@@ -128,7 +128,7 @@ export interface CreateNotificationRuleRequest {
   Targets: Array<Target>;
   DetailType: DetailType;
   ClientRequestToken?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   Status?: NotificationRuleStatus;
 }
 export interface CreateNotificationRuleResult {
@@ -159,7 +159,7 @@ export interface DescribeNotificationRuleResult {
   Status?: NotificationRuleStatus;
   CreatedTimestamp?: Date | string;
   LastModifiedTimestamp?: Date | string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export type DetailType = "BASIC" | "FULL";
 export type EventTypeBatch = Array<EventTypeSummary>;
@@ -230,7 +230,7 @@ export interface ListTagsForResourceRequest {
   Arn: string;
 }
 export interface ListTagsForResourceResult {
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface ListTargetsFilter {
   Name: ListTargetsFilterName;
@@ -301,12 +301,12 @@ export type TagKey = string;
 export type TagKeys = Array<string>;
 export interface TagResourceRequest {
   Arn: string;
-  Tags: Record<string, string>;
+  Tags: Partial<Record<string, string>>;
 }
 export interface TagResourceResult {
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
-export type Tags = Record<string, string>;
+export type Tags = Partial<Record<string, string>>;
 export type TagValue = string;
 
 export interface Target {

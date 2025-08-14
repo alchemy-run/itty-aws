@@ -694,7 +694,7 @@ export interface Api {
   Name: string;
   ProtocolType: ProtocolType;
   RouteSelectionExpression: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   Version?: string;
   Warnings?: Array<string>;
 }
@@ -769,7 +769,7 @@ export interface CreateApiRequest {
   ProtocolType: ProtocolType;
   RouteKey?: string;
   RouteSelectionExpression?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   Target?: string;
   Version?: string;
 }
@@ -788,7 +788,7 @@ export interface CreateApiResponse {
   Name?: string;
   ProtocolType?: ProtocolType;
   RouteSelectionExpression?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   Version?: string;
   Warnings?: Array<string>;
 }
@@ -836,7 +836,7 @@ export interface CreateDomainNameRequest {
   DomainNameConfigurations?: Array<DomainNameConfiguration>;
   MutualTlsAuthentication?: MutualTlsAuthenticationInput;
   RoutingMode?: RoutingMode;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateDomainNameResponse {
   ApiMappingSelectionExpression?: string;
@@ -845,7 +845,7 @@ export interface CreateDomainNameResponse {
   DomainNameConfigurations?: Array<DomainNameConfiguration>;
   MutualTlsAuthentication?: MutualTlsAuthentication;
   RoutingMode?: RoutingMode;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateIntegrationRequest {
   ApiId: string;
@@ -860,9 +860,9 @@ export interface CreateIntegrationRequest {
   IntegrationUri?: string;
   PassthroughBehavior?: PassthroughBehavior;
   PayloadFormatVersion?: string;
-  RequestParameters?: Record<string, string>;
-  RequestTemplates?: Record<string, string>;
-  ResponseParameters?: Record<string, Record<string, string>>;
+  RequestParameters?: Partial<Record<string, string>>;
+  RequestTemplates?: Partial<Record<string, string>>;
+  ResponseParameters?: Partial<Record<string, Partial<Record<string, string>>>>;
   TemplateSelectionExpression?: string;
   TimeoutInMillis?: number;
   TlsConfig?: TlsConfigInput;
@@ -872,16 +872,16 @@ export interface CreateIntegrationResponseRequest {
   ContentHandlingStrategy?: ContentHandlingStrategy;
   IntegrationId: string;
   IntegrationResponseKey: string;
-  ResponseParameters?: Record<string, string>;
-  ResponseTemplates?: Record<string, string>;
+  ResponseParameters?: Partial<Record<string, string>>;
+  ResponseTemplates?: Partial<Record<string, string>>;
   TemplateSelectionExpression?: string;
 }
 export interface CreateIntegrationResponseResponse {
   ContentHandlingStrategy?: ContentHandlingStrategy;
   IntegrationResponseId?: string;
   IntegrationResponseKey?: string;
-  ResponseParameters?: Record<string, string>;
-  ResponseTemplates?: Record<string, string>;
+  ResponseParameters?: Partial<Record<string, string>>;
+  ResponseTemplates?: Partial<Record<string, string>>;
   TemplateSelectionExpression?: string;
 }
 export interface CreateIntegrationResult {
@@ -899,9 +899,9 @@ export interface CreateIntegrationResult {
   IntegrationUri?: string;
   PassthroughBehavior?: PassthroughBehavior;
   PayloadFormatVersion?: string;
-  RequestParameters?: Record<string, string>;
-  RequestTemplates?: Record<string, string>;
-  ResponseParameters?: Record<string, Record<string, string>>;
+  RequestParameters?: Partial<Record<string, string>>;
+  RequestTemplates?: Partial<Record<string, string>>;
+  ResponseParameters?: Partial<Record<string, Partial<Record<string, string>>>>;
   TemplateSelectionExpression?: string;
   TimeoutInMillis?: number;
   TlsConfig?: TlsConfig;
@@ -928,8 +928,8 @@ export interface CreateRouteRequest {
   AuthorizerId?: string;
   ModelSelectionExpression?: string;
   OperationName?: string;
-  RequestModels?: Record<string, string>;
-  RequestParameters?: Record<string, ParameterConstraints>;
+  RequestModels?: Partial<Record<string, string>>;
+  RequestParameters?: Partial<Record<string, ParameterConstraints>>;
   RouteKey: string;
   RouteResponseSelectionExpression?: string;
   Target?: string;
@@ -937,15 +937,15 @@ export interface CreateRouteRequest {
 export interface CreateRouteResponseRequest {
   ApiId: string;
   ModelSelectionExpression?: string;
-  ResponseModels?: Record<string, string>;
-  ResponseParameters?: Record<string, ParameterConstraints>;
+  ResponseModels?: Partial<Record<string, string>>;
+  ResponseParameters?: Partial<Record<string, ParameterConstraints>>;
   RouteId: string;
   RouteResponseKey: string;
 }
 export interface CreateRouteResponseResponse {
   ModelSelectionExpression?: string;
-  ResponseModels?: Record<string, string>;
-  ResponseParameters?: Record<string, ParameterConstraints>;
+  ResponseModels?: Partial<Record<string, string>>;
+  ResponseParameters?: Partial<Record<string, ParameterConstraints>>;
   RouteResponseId?: string;
   RouteResponseKey?: string;
 }
@@ -957,8 +957,8 @@ export interface CreateRouteResult {
   AuthorizerId?: string;
   ModelSelectionExpression?: string;
   OperationName?: string;
-  RequestModels?: Record<string, string>;
-  RequestParameters?: Record<string, ParameterConstraints>;
+  RequestModels?: Partial<Record<string, string>>;
+  RequestParameters?: Partial<Record<string, ParameterConstraints>>;
   RouteId?: string;
   RouteKey?: string;
   RouteResponseSelectionExpression?: string;
@@ -986,10 +986,10 @@ export interface CreateStageRequest {
   DefaultRouteSettings?: RouteSettings;
   DeploymentId?: string;
   Description?: string;
-  RouteSettings?: Record<string, RouteSettings>;
+  RouteSettings?: Partial<Record<string, RouteSettings>>;
   StageName: string;
-  StageVariables?: Record<string, string>;
-  Tags?: Record<string, string>;
+  StageVariables?: Partial<Record<string, string>>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateStageResponse {
   AccessLogSettings?: AccessLogSettings;
@@ -1002,23 +1002,23 @@ export interface CreateStageResponse {
   Description?: string;
   LastDeploymentStatusMessage?: string;
   LastUpdatedDate?: Date | string;
-  RouteSettings?: Record<string, RouteSettings>;
+  RouteSettings?: Partial<Record<string, RouteSettings>>;
   StageName?: string;
-  StageVariables?: Record<string, string>;
-  Tags?: Record<string, string>;
+  StageVariables?: Partial<Record<string, string>>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateVpcLinkRequest {
   Name: string;
   SecurityGroupIds?: Array<string>;
   SubnetIds: Array<string>;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateVpcLinkResponse {
   CreatedDate?: Date | string;
   Name?: string;
   SecurityGroupIds?: Array<string>;
   SubnetIds?: Array<string>;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   VpcLinkId?: string;
   VpcLinkStatus?: VpcLinkStatus;
   VpcLinkStatusMessage?: string;
@@ -1110,7 +1110,7 @@ export interface DomainName {
   DomainNameConfigurations?: Array<DomainNameConfiguration>;
   MutualTlsAuthentication?: MutualTlsAuthentication;
   RoutingMode?: RoutingMode;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface DomainNameConfiguration {
   ApiGatewayDomainName?: string;
@@ -1182,7 +1182,7 @@ export interface GetApiResponse {
   Name?: string;
   ProtocolType?: ProtocolType;
   RouteSelectionExpression?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   Version?: string;
   Warnings?: Array<string>;
 }
@@ -1251,7 +1251,7 @@ export interface GetDomainNameResponse {
   DomainNameConfigurations?: Array<DomainNameConfiguration>;
   MutualTlsAuthentication?: MutualTlsAuthentication;
   RoutingMode?: RoutingMode;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface GetDomainNamesRequest {
   MaxResults?: string;
@@ -1274,8 +1274,8 @@ export interface GetIntegrationResponseResponse {
   ContentHandlingStrategy?: ContentHandlingStrategy;
   IntegrationResponseId?: string;
   IntegrationResponseKey?: string;
-  ResponseParameters?: Record<string, string>;
-  ResponseTemplates?: Record<string, string>;
+  ResponseParameters?: Partial<Record<string, string>>;
+  ResponseTemplates?: Partial<Record<string, string>>;
   TemplateSelectionExpression?: string;
 }
 export interface GetIntegrationResponsesRequest {
@@ -1303,9 +1303,9 @@ export interface GetIntegrationResult {
   IntegrationUri?: string;
   PassthroughBehavior?: PassthroughBehavior;
   PayloadFormatVersion?: string;
-  RequestParameters?: Record<string, string>;
-  RequestTemplates?: Record<string, string>;
-  ResponseParameters?: Record<string, Record<string, string>>;
+  RequestParameters?: Partial<Record<string, string>>;
+  RequestTemplates?: Partial<Record<string, string>>;
+  ResponseParameters?: Partial<Record<string, Partial<Record<string, string>>>>;
   TemplateSelectionExpression?: string;
   TimeoutInMillis?: number;
   TlsConfig?: TlsConfig;
@@ -1357,8 +1357,8 @@ export interface GetRouteResponseRequest {
 }
 export interface GetRouteResponseResponse {
   ModelSelectionExpression?: string;
-  ResponseModels?: Record<string, string>;
-  ResponseParameters?: Record<string, ParameterConstraints>;
+  ResponseModels?: Partial<Record<string, string>>;
+  ResponseParameters?: Partial<Record<string, ParameterConstraints>>;
   RouteResponseId?: string;
   RouteResponseKey?: string;
 }
@@ -1380,8 +1380,8 @@ export interface GetRouteResult {
   AuthorizerId?: string;
   ModelSelectionExpression?: string;
   OperationName?: string;
-  RequestModels?: Record<string, string>;
-  RequestParameters?: Record<string, ParameterConstraints>;
+  RequestModels?: Partial<Record<string, string>>;
+  RequestParameters?: Partial<Record<string, ParameterConstraints>>;
   RouteId?: string;
   RouteKey?: string;
   RouteResponseSelectionExpression?: string;
@@ -1423,10 +1423,10 @@ export interface GetStageResponse {
   Description?: string;
   LastDeploymentStatusMessage?: string;
   LastUpdatedDate?: Date | string;
-  RouteSettings?: Record<string, RouteSettings>;
+  RouteSettings?: Partial<Record<string, RouteSettings>>;
   StageName?: string;
-  StageVariables?: Record<string, string>;
-  Tags?: Record<string, string>;
+  StageVariables?: Partial<Record<string, string>>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface GetStagesRequest {
   ApiId: string;
@@ -1441,7 +1441,7 @@ export interface GetTagsRequest {
   ResourceArn: string;
 }
 export interface GetTagsResponse {
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface GetVpcLinkRequest {
   VpcLinkId: string;
@@ -1451,7 +1451,7 @@ export interface GetVpcLinkResponse {
   Name?: string;
   SecurityGroupIds?: Array<string>;
   SubnetIds?: Array<string>;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   VpcLinkId?: string;
   VpcLinkStatus?: VpcLinkStatus;
   VpcLinkStatusMessage?: string;
@@ -1488,7 +1488,7 @@ export interface ImportApiResponse {
   Name?: string;
   ProtocolType?: ProtocolType;
   RouteSelectionExpression?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   Version?: string;
   Warnings?: Array<string>;
 }
@@ -1513,20 +1513,20 @@ export interface Integration {
   IntegrationUri?: string;
   PassthroughBehavior?: PassthroughBehavior;
   PayloadFormatVersion?: string;
-  RequestParameters?: Record<string, string>;
-  RequestTemplates?: Record<string, string>;
-  ResponseParameters?: Record<string, Record<string, string>>;
+  RequestParameters?: Partial<Record<string, string>>;
+  RequestTemplates?: Partial<Record<string, string>>;
+  ResponseParameters?: Partial<Record<string, Partial<Record<string, string>>>>;
   TemplateSelectionExpression?: string;
   TimeoutInMillis?: number;
   TlsConfig?: TlsConfig;
 }
-export type IntegrationParameters = Record<string, string>;
+export type IntegrationParameters = Partial<Record<string, string>>;
 export interface IntegrationResponse {
   ContentHandlingStrategy?: ContentHandlingStrategy;
   IntegrationResponseId?: string;
   IntegrationResponseKey: string;
-  ResponseParameters?: Record<string, string>;
-  ResponseTemplates?: Record<string, string>;
+  ResponseParameters?: Partial<Record<string, string>>;
+  ResponseTemplates?: Partial<Record<string, string>>;
   TemplateSelectionExpression?: string;
 }
 export type IntegrationType =
@@ -1621,7 +1621,7 @@ export interface ReimportApiResponse {
   Name?: string;
   ProtocolType?: ProtocolType;
   RouteSelectionExpression?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   Version?: string;
   Warnings?: Array<string>;
 }
@@ -1629,7 +1629,9 @@ export interface ResetAuthorizersCacheRequest {
   ApiId: string;
   StageName: string;
 }
-export type ResponseParameters = Record<string, Record<string, string>>;
+export type ResponseParameters = Partial<
+  Record<string, Partial<Record<string, string>>>
+>;
 export interface Route {
   ApiGatewayManaged?: boolean;
   ApiKeyRequired?: boolean;
@@ -1638,19 +1640,19 @@ export interface Route {
   AuthorizerId?: string;
   ModelSelectionExpression?: string;
   OperationName?: string;
-  RequestModels?: Record<string, string>;
-  RequestParameters?: Record<string, ParameterConstraints>;
+  RequestModels?: Partial<Record<string, string>>;
+  RequestParameters?: Partial<Record<string, ParameterConstraints>>;
   RouteId?: string;
   RouteKey: string;
   RouteResponseSelectionExpression?: string;
   Target?: string;
 }
-export type RouteModels = Record<string, string>;
-export type RouteParameters = Record<string, ParameterConstraints>;
+export type RouteModels = Partial<Record<string, string>>;
+export type RouteParameters = Partial<Record<string, ParameterConstraints>>;
 export interface RouteResponse {
   ModelSelectionExpression?: string;
-  ResponseModels?: Record<string, string>;
-  ResponseParameters?: Record<string, ParameterConstraints>;
+  ResponseModels?: Partial<Record<string, string>>;
+  ResponseParameters?: Partial<Record<string, ParameterConstraints>>;
   RouteResponseId?: string;
   RouteResponseKey: string;
 }
@@ -1661,7 +1663,7 @@ export interface RouteSettings {
   ThrottlingBurstLimit?: number;
   ThrottlingRateLimit?: number;
 }
-export type RouteSettingsMap = Record<string, RouteSettings>;
+export type RouteSettingsMap = Partial<Record<string, RouteSettings>>;
 export type RoutingMode =
   | "API_MAPPING_ONLY"
   | "ROUTING_RULE_ONLY"
@@ -1714,12 +1716,12 @@ export interface Stage {
   Description?: string;
   LastDeploymentStatusMessage?: string;
   LastUpdatedDate?: Date | string;
-  RouteSettings?: Record<string, RouteSettings>;
+  RouteSettings?: Partial<Record<string, RouteSettings>>;
   StageName: string;
-  StageVariables?: Record<string, string>;
-  Tags?: Record<string, string>;
+  StageVariables?: Partial<Record<string, string>>;
+  Tags?: Partial<Record<string, string>>;
 }
-export type StageVariablesMap = Record<string, string>;
+export type StageVariablesMap = Partial<Record<string, string>>;
 export type StringWithLengthBetween0And1024 = string;
 
 export type StringWithLengthBetween0And2048 = string;
@@ -1741,11 +1743,11 @@ export type StringWithLengthBetween1And64 = string;
 export type SubnetIdList = Array<string>;
 export interface TagResourceRequest {
   ResourceArn: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface TagResourceResponse {}
-export type Tags = Record<string, string>;
-export type TemplateMap = Record<string, string>;
+export type Tags = Partial<Record<string, string>>;
+export type TemplateMap = Partial<Record<string, string>>;
 export interface TlsConfig {
   ServerNameToVerify?: string;
 }
@@ -1805,7 +1807,7 @@ export interface UpdateApiResponse {
   Name?: string;
   ProtocolType?: ProtocolType;
   RouteSelectionExpression?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   Version?: string;
   Warnings?: Array<string>;
 }
@@ -1862,7 +1864,7 @@ export interface UpdateDomainNameResponse {
   DomainNameConfigurations?: Array<DomainNameConfiguration>;
   MutualTlsAuthentication?: MutualTlsAuthentication;
   RoutingMode?: RoutingMode;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface UpdateIntegrationRequest {
   ApiId: string;
@@ -1878,9 +1880,9 @@ export interface UpdateIntegrationRequest {
   IntegrationUri?: string;
   PassthroughBehavior?: PassthroughBehavior;
   PayloadFormatVersion?: string;
-  RequestParameters?: Record<string, string>;
-  RequestTemplates?: Record<string, string>;
-  ResponseParameters?: Record<string, Record<string, string>>;
+  RequestParameters?: Partial<Record<string, string>>;
+  RequestTemplates?: Partial<Record<string, string>>;
+  ResponseParameters?: Partial<Record<string, Partial<Record<string, string>>>>;
   TemplateSelectionExpression?: string;
   TimeoutInMillis?: number;
   TlsConfig?: TlsConfigInput;
@@ -1891,16 +1893,16 @@ export interface UpdateIntegrationResponseRequest {
   IntegrationId: string;
   IntegrationResponseId: string;
   IntegrationResponseKey?: string;
-  ResponseParameters?: Record<string, string>;
-  ResponseTemplates?: Record<string, string>;
+  ResponseParameters?: Partial<Record<string, string>>;
+  ResponseTemplates?: Partial<Record<string, string>>;
   TemplateSelectionExpression?: string;
 }
 export interface UpdateIntegrationResponseResponse {
   ContentHandlingStrategy?: ContentHandlingStrategy;
   IntegrationResponseId?: string;
   IntegrationResponseKey?: string;
-  ResponseParameters?: Record<string, string>;
-  ResponseTemplates?: Record<string, string>;
+  ResponseParameters?: Partial<Record<string, string>>;
+  ResponseTemplates?: Partial<Record<string, string>>;
   TemplateSelectionExpression?: string;
 }
 export interface UpdateIntegrationResult {
@@ -1918,9 +1920,9 @@ export interface UpdateIntegrationResult {
   IntegrationUri?: string;
   PassthroughBehavior?: PassthroughBehavior;
   PayloadFormatVersion?: string;
-  RequestParameters?: Record<string, string>;
-  RequestTemplates?: Record<string, string>;
-  ResponseParameters?: Record<string, Record<string, string>>;
+  RequestParameters?: Partial<Record<string, string>>;
+  RequestTemplates?: Partial<Record<string, string>>;
+  ResponseParameters?: Partial<Record<string, Partial<Record<string, string>>>>;
   TemplateSelectionExpression?: string;
   TimeoutInMillis?: number;
   TlsConfig?: TlsConfig;
@@ -1948,8 +1950,8 @@ export interface UpdateRouteRequest {
   AuthorizerId?: string;
   ModelSelectionExpression?: string;
   OperationName?: string;
-  RequestModels?: Record<string, string>;
-  RequestParameters?: Record<string, ParameterConstraints>;
+  RequestModels?: Partial<Record<string, string>>;
+  RequestParameters?: Partial<Record<string, ParameterConstraints>>;
   RouteId: string;
   RouteKey?: string;
   RouteResponseSelectionExpression?: string;
@@ -1958,16 +1960,16 @@ export interface UpdateRouteRequest {
 export interface UpdateRouteResponseRequest {
   ApiId: string;
   ModelSelectionExpression?: string;
-  ResponseModels?: Record<string, string>;
-  ResponseParameters?: Record<string, ParameterConstraints>;
+  ResponseModels?: Partial<Record<string, string>>;
+  ResponseParameters?: Partial<Record<string, ParameterConstraints>>;
   RouteId: string;
   RouteResponseId: string;
   RouteResponseKey?: string;
 }
 export interface UpdateRouteResponseResponse {
   ModelSelectionExpression?: string;
-  ResponseModels?: Record<string, string>;
-  ResponseParameters?: Record<string, ParameterConstraints>;
+  ResponseModels?: Partial<Record<string, string>>;
+  ResponseParameters?: Partial<Record<string, ParameterConstraints>>;
   RouteResponseId?: string;
   RouteResponseKey?: string;
 }
@@ -1979,8 +1981,8 @@ export interface UpdateRouteResult {
   AuthorizerId?: string;
   ModelSelectionExpression?: string;
   OperationName?: string;
-  RequestModels?: Record<string, string>;
-  RequestParameters?: Record<string, ParameterConstraints>;
+  RequestModels?: Partial<Record<string, string>>;
+  RequestParameters?: Partial<Record<string, ParameterConstraints>>;
   RouteId?: string;
   RouteKey?: string;
   RouteResponseSelectionExpression?: string;
@@ -1994,9 +1996,9 @@ export interface UpdateStageRequest {
   DefaultRouteSettings?: RouteSettings;
   DeploymentId?: string;
   Description?: string;
-  RouteSettings?: Record<string, RouteSettings>;
+  RouteSettings?: Partial<Record<string, RouteSettings>>;
   StageName: string;
-  StageVariables?: Record<string, string>;
+  StageVariables?: Partial<Record<string, string>>;
 }
 export interface UpdateStageResponse {
   AccessLogSettings?: AccessLogSettings;
@@ -2009,10 +2011,10 @@ export interface UpdateStageResponse {
   Description?: string;
   LastDeploymentStatusMessage?: string;
   LastUpdatedDate?: Date | string;
-  RouteSettings?: Record<string, RouteSettings>;
+  RouteSettings?: Partial<Record<string, RouteSettings>>;
   StageName?: string;
-  StageVariables?: Record<string, string>;
-  Tags?: Record<string, string>;
+  StageVariables?: Partial<Record<string, string>>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface UpdateVpcLinkRequest {
   Name?: string;
@@ -2023,7 +2025,7 @@ export interface UpdateVpcLinkResponse {
   Name?: string;
   SecurityGroupIds?: Array<string>;
   SubnetIds?: Array<string>;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   VpcLinkId?: string;
   VpcLinkStatus?: VpcLinkStatus;
   VpcLinkStatusMessage?: string;
@@ -2036,7 +2038,7 @@ export interface VpcLink {
   Name: string;
   SecurityGroupIds: Array<string>;
   SubnetIds: Array<string>;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   VpcLinkId: string;
   VpcLinkStatus?: VpcLinkStatus;
   VpcLinkStatusMessage?: string;

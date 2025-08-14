@@ -698,7 +698,7 @@ export interface AssociateSubnetsResponse {
   SubnetMappings?: Array<SubnetMapping>;
   UpdateToken?: string;
 }
-export type AssociationSyncState = Record<string, AZSyncState>;
+export type AssociationSyncState = Partial<Record<string, AZSyncState>>;
 export interface Attachment {
   SubnetId?: string;
   EndpointId?: string;
@@ -750,7 +750,7 @@ export type CIDRCount = number;
 export interface CIDRSummary {
   AvailableCIDRCount?: number;
   UtilizedCIDRCount?: number;
-  IPSetReferences?: Record<string, IPSetMetadata>;
+  IPSetReferences?: Partial<Record<string, IPSetMetadata>>;
 }
 export type CollectionMember_String = string;
 
@@ -895,7 +895,9 @@ export interface DescribeFirewallMetadataResponse {
   FirewallPolicyArn?: string;
   Description?: string;
   Status?: FirewallStatusValue;
-  SupportedAvailabilityZones?: Record<string, AvailabilityZoneMetadata>;
+  SupportedAvailabilityZones?: Partial<
+    Record<string, AvailabilityZoneMetadata>
+  >;
   TransitGatewayAttachmentId?: string;
 }
 export interface DescribeFirewallPolicyRequest {
@@ -1110,7 +1112,7 @@ export type Firewalls = Array<FirewallMetadata>;
 export interface FirewallStatus {
   Status: FirewallStatusValue;
   ConfigurationSyncStateSummary: ConfigurationSyncState;
-  SyncStates?: Record<string, SyncState>;
+  SyncStates?: Partial<Record<string, SyncState>>;
   CapacityUsageSummary?: CapacityUsageSummary;
   TransitGatewayAttachmentSyncState?: TransitGatewayAttachmentSyncState;
 }
@@ -1235,14 +1237,14 @@ export type IPSetArn = string;
 export interface IPSetMetadata {
   ResolvedCIDRCount?: number;
 }
-export type IPSetMetadataMap = Record<string, IPSetMetadata>;
+export type IPSetMetadataMap = Partial<Record<string, IPSetMetadata>>;
 export interface IPSetReference {
   ReferenceArn?: string;
 }
-export type IPSetReferenceMap = Record<string, IPSetReference>;
+export type IPSetReferenceMap = Partial<Record<string, IPSetReference>>;
 export type IPSetReferenceName = string;
 
-export type IPSets = Record<string, IPSet>;
+export type IPSets = Partial<Record<string, IPSet>>;
 export type KeyId = string;
 
 export type Keyword = string;
@@ -1357,10 +1359,10 @@ export interface ListVpcEndpointAssociationsResponse {
 export interface LogDestinationConfig {
   LogType: LogType;
   LogDestinationType: LogDestinationType;
-  LogDestination: Record<string, string>;
+  LogDestination: Partial<Record<string, string>>;
 }
 export type LogDestinationConfigs = Array<LogDestinationConfig>;
-export type LogDestinationMap = Record<string, string>;
+export type LogDestinationMap = Partial<Record<string, string>>;
 export declare class LogDestinationPermissionException extends EffectData.TaggedError(
   "LogDestinationPermissionException",
 )<{
@@ -1402,7 +1404,7 @@ export type PerObjectSyncStatus =
 export type PolicyString = string;
 
 export interface PolicyVariables {
-  RuleVariables?: Record<string, IPSet>;
+  RuleVariables?: Partial<Record<string, IPSet>>;
 }
 export type Port = string;
 
@@ -1416,7 +1418,7 @@ export type PortRanges = Array<PortRange>;
 export interface PortSet {
   Definition?: Array<string>;
 }
-export type PortSets = Record<string, PortSet>;
+export type PortSets = Partial<Record<string, PortSet>>;
 export type Priority = number;
 
 export type ProtocolNumber = number;
@@ -1434,7 +1436,7 @@ export interface PutResourcePolicyRequest {
 }
 export interface PutResourcePolicyResponse {}
 export interface ReferenceSets {
-  IPSetReferences?: Record<string, IPSetReference>;
+  IPSetReferences?: Partial<Record<string, IPSetReference>>;
 }
 export interface RejectNetworkFirewallTransitGatewayAttachmentRequest {
   TransitGatewayAttachmentId: string;
@@ -1534,8 +1536,8 @@ export type RuleTargets = Array<string>;
 export type RuleVariableName = string;
 
 export interface RuleVariables {
-  IPSets?: Record<string, IPSet>;
-  PortSets?: Record<string, PortSet>;
+  IPSets?: Partial<Record<string, IPSet>>;
+  PortSets?: Partial<Record<string, PortSet>>;
 }
 export interface ServerCertificate {
   ResourceArn?: string;
@@ -1686,16 +1688,15 @@ export interface SummaryConfiguration {
 }
 export type SummaryRuleOption = "SID" | "MSG" | "METADATA";
 export type SummaryRuleOptions = Array<SummaryRuleOption>;
-export type SupportedAvailabilityZones = Record<
-  string,
-  AvailabilityZoneMetadata
+export type SupportedAvailabilityZones = Partial<
+  Record<string, AvailabilityZoneMetadata>
 >;
 export interface SyncState {
   Attachment?: Attachment;
-  Config?: Record<string, PerObjectStatus>;
+  Config?: Partial<Record<string, PerObjectStatus>>;
 }
-export type SyncStateConfig = Record<string, PerObjectStatus>;
-export type SyncStates = Record<string, SyncState>;
+export type SyncStateConfig = Partial<Record<string, PerObjectStatus>>;
+export type SyncStates = Partial<Record<string, SyncState>>;
 export interface Tag {
   Key: string;
   Value: string;
@@ -1957,7 +1958,7 @@ export interface VpcEndpointAssociationMetadata {
 export type VpcEndpointAssociations = Array<VpcEndpointAssociationMetadata>;
 export interface VpcEndpointAssociationStatus {
   Status: FirewallStatusValue;
-  AssociationSyncState?: Record<string, AZSyncState>;
+  AssociationSyncState?: Partial<Record<string, AZSyncState>>;
 }
 export type VpcEndpointId = string;
 

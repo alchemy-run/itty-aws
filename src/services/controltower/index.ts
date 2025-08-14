@@ -100,7 +100,7 @@ export type ControlOperationTypes = Array<ControlOperationType>;
 export interface CreateLandingZoneInput {
   version: string;
   manifest: unknown;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateLandingZoneOutput {
   arn: string;
@@ -135,7 +135,7 @@ export interface EnableBaselineInput {
   parameters?: Array<EnabledBaselineParameter>;
   baselineIdentifier: string;
   targetIdentifier: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface EnableBaselineOutput {
   operationIdentifier: string;
@@ -144,7 +144,7 @@ export interface EnableBaselineOutput {
 export interface EnableControlInput {
   controlIdentifier: string;
   targetIdentifier: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   parameters?: Array<EnabledControlParameter>;
 }
 export interface EnableControlOutput {
@@ -408,7 +408,7 @@ export interface ListTagsForResourceInput {
   resourceArn: string;
 }
 export interface ListTagsForResourceOutput {
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
 export type Manifest = unknown;
 
@@ -452,10 +452,10 @@ export declare class ServiceQuotaExceededException extends EffectData.TaggedErro
 export type TagKey = string;
 
 export type TagKeys = Array<string>;
-export type TagMap = Record<string, string>;
+export type TagMap = Partial<Record<string, string>>;
 export interface TagResourceInput {
   resourceArn: string;
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
 export interface TagResourceOutput {}
 export type TagValue = string;

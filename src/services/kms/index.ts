@@ -929,7 +929,7 @@ export type DateType = Date | string;
 
 export interface DecryptRequest {
   CiphertextBlob: Uint8Array | string;
-  EncryptionContext?: Record<string, string>;
+  EncryptionContext?: Partial<Record<string, string>>;
   GrantTokens?: Array<string>;
   KeyId?: string;
   EncryptionAlgorithm?: EncryptionAlgorithmSpec;
@@ -1033,13 +1033,13 @@ export type EncryptionAlgorithmSpec =
 export type EncryptionAlgorithmSpecList = Array<EncryptionAlgorithmSpec>;
 export type EncryptionContextKey = string;
 
-export type EncryptionContextType = Record<string, string>;
+export type EncryptionContextType = Partial<Record<string, string>>;
 export type EncryptionContextValue = string;
 
 export interface EncryptRequest {
   KeyId: string;
   Plaintext: Uint8Array | string;
-  EncryptionContext?: Record<string, string>;
+  EncryptionContext?: Partial<Record<string, string>>;
   GrantTokens?: Array<string>;
   EncryptionAlgorithm?: EncryptionAlgorithmSpec;
   DryRun?: boolean;
@@ -1060,7 +1060,7 @@ export declare class ExpiredImportTokenException extends EffectData.TaggedError(
   readonly message?: string;
 }> {}
 export interface GenerateDataKeyPairRequest {
-  EncryptionContext?: Record<string, string>;
+  EncryptionContext?: Partial<Record<string, string>>;
   KeyId: string;
   KeyPairSpec: DataKeyPairSpec;
   GrantTokens?: Array<string>;
@@ -1077,7 +1077,7 @@ export interface GenerateDataKeyPairResponse {
   KeyMaterialId?: string;
 }
 export interface GenerateDataKeyPairWithoutPlaintextRequest {
-  EncryptionContext?: Record<string, string>;
+  EncryptionContext?: Partial<Record<string, string>>;
   KeyId: string;
   KeyPairSpec: DataKeyPairSpec;
   GrantTokens?: Array<string>;
@@ -1092,7 +1092,7 @@ export interface GenerateDataKeyPairWithoutPlaintextResponse {
 }
 export interface GenerateDataKeyRequest {
   KeyId: string;
-  EncryptionContext?: Record<string, string>;
+  EncryptionContext?: Partial<Record<string, string>>;
   NumberOfBytes?: number;
   KeySpec?: DataKeySpec;
   GrantTokens?: Array<string>;
@@ -1108,7 +1108,7 @@ export interface GenerateDataKeyResponse {
 }
 export interface GenerateDataKeyWithoutPlaintextRequest {
   KeyId: string;
-  EncryptionContext?: Record<string, string>;
+  EncryptionContext?: Partial<Record<string, string>>;
   KeySpec?: DataKeySpec;
   NumberOfBytes?: number;
   GrantTokens?: Array<string>;
@@ -1184,8 +1184,8 @@ export interface GetPublicKeyResponse {
   KeyAgreementAlgorithms?: Array<KeyAgreementAlgorithmSpec>;
 }
 export interface GrantConstraints {
-  EncryptionContextSubset?: Record<string, string>;
-  EncryptionContextEquals?: Record<string, string>;
+  EncryptionContextSubset?: Partial<Record<string, string>>;
+  EncryptionContextEquals?: Partial<Record<string, string>>;
 }
 export type GrantIdType = string;
 
@@ -1535,10 +1535,10 @@ export interface RecipientInfo {
 }
 export interface ReEncryptRequest {
   CiphertextBlob: Uint8Array | string;
-  SourceEncryptionContext?: Record<string, string>;
+  SourceEncryptionContext?: Partial<Record<string, string>>;
   SourceKeyId?: string;
   DestinationKeyId: string;
-  DestinationEncryptionContext?: Record<string, string>;
+  DestinationEncryptionContext?: Partial<Record<string, string>>;
   SourceEncryptionAlgorithm?: EncryptionAlgorithmSpec;
   DestinationEncryptionAlgorithm?: EncryptionAlgorithmSpec;
   GrantTokens?: Array<string>;

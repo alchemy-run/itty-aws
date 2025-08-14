@@ -1030,7 +1030,7 @@ export interface CreateVariableRequest {
   tags?: Array<Tag>;
 }
 export interface CreateVariableResult {}
-export type CsvIndexToVariableMap = Record<string, string>;
+export type CsvIndexToVariableMap = Partial<Record<string, string>>;
 export type DataSource = "EVENT" | "MODEL_SCORE" | "EXTERNAL_MODEL_SCORE";
 export type DataType = "STRING" | "INTEGER" | "FLOAT" | "BOOLEAN" | "DATETIME";
 export interface DataValidationMetrics {
@@ -1179,8 +1179,8 @@ export type entityTypesMaxResults = number;
 export interface EvaluatedExternalModel {
   modelEndpoint?: string;
   useEventVariables?: boolean;
-  inputVariables?: Record<string, string>;
-  outputVariables?: Record<string, string>;
+  inputVariables?: Partial<Record<string, string>>;
+  outputVariables?: Partial<Record<string, string>>;
 }
 export interface EvaluatedModelVersion {
   modelId?: string;
@@ -1202,12 +1202,12 @@ export interface Event {
   eventId?: string;
   eventTypeName?: string;
   eventTimestamp?: string;
-  eventVariables?: Record<string, string>;
+  eventVariables?: Partial<Record<string, string>>;
   currentLabel?: string;
   labelTimestamp?: string;
   entities?: Array<Entity>;
 }
-export type EventAttributeMap = Record<string, string>;
+export type EventAttributeMap = Partial<Record<string, string>>;
 export type EventIngestion = "ENABLED" | "DISABLED";
 export interface EventOrchestration {
   eventBridgeEnabled: boolean;
@@ -1259,16 +1259,15 @@ export interface ExternalModel {
   createdTime?: string;
   arn?: string;
 }
-export type ExternalModelEndpointDataBlobMap = Record<
-  string,
-  ModelEndpointDataBlob
+export type ExternalModelEndpointDataBlobMap = Partial<
+  Record<string, ModelEndpointDataBlob>
 >;
 export type ExternalModelList = Array<ExternalModel>;
 export interface ExternalModelOutputs {
   externalModel?: ExternalModelSummary;
-  outputs?: Record<string, string>;
+  outputs?: Partial<Record<string, string>>;
 }
-export type ExternalModelPredictionMap = Record<string, string>;
+export type ExternalModelPredictionMap = Partial<Record<string, string>>;
 export type ExternalModelsMaxResults = number;
 
 export interface ExternalModelSummary {
@@ -1392,7 +1391,9 @@ export interface GetEventPredictionRequest {
   entities: Array<Entity>;
   eventTimestamp: string;
   eventVariables: Record<string, string>;
-  externalModelEndpointDataBlobs?: Record<string, ModelEndpointDataBlob>;
+  externalModelEndpointDataBlobs?: Partial<
+    Record<string, ModelEndpointDataBlob>
+  >;
 }
 export interface GetEventPredictionResult {
   modelScores?: Array<ModelScores>;
@@ -1536,7 +1537,7 @@ export declare class InternalServerException extends EffectData.TaggedError(
 )<{
   readonly message: string;
 }> {}
-export type JsonKeyToVariableMap = Record<string, string>;
+export type JsonKeyToVariableMap = Partial<Record<string, string>>;
 export type KmsEncryptionKeyArn = string;
 
 export interface KMSKey {
@@ -1550,9 +1551,9 @@ export interface Label {
   arn?: string;
 }
 export type labelList = Array<Label>;
-export type labelMapper = Record<string, Array<string>>;
+export type labelMapper = Partial<Record<string, Array<string>>>;
 export interface LabelSchema {
-  labelMapper?: Record<string, Array<string>>;
+  labelMapper?: Partial<Record<string, Array<string>>>;
   unlabeledEventsTreatment?: UnlabeledEventsTreatment;
 }
 export type labelsMaxResults = number;
@@ -1608,7 +1609,7 @@ export interface LogOddsMetric {
 }
 export type Long = number;
 
-export type MapOfStrings = Record<string, string>;
+export type MapOfStrings = Partial<Record<string, string>>;
 export interface MetricDataPoint {
   fpr?: number;
   precision?: number;
@@ -1645,14 +1646,14 @@ export type modelInputTemplate = string;
 export type modelList = Array<Model>;
 export interface ModelOutputConfiguration {
   format: ModelOutputDataFormat;
-  jsonKeyToVariableMap?: Record<string, string>;
-  csvIndexToVariableMap?: Record<string, string>;
+  jsonKeyToVariableMap?: Partial<Record<string, string>>;
+  csvIndexToVariableMap?: Partial<Record<string, string>>;
 }
 export type ModelOutputDataFormat = "CSV" | "JSONLINES";
-export type ModelPredictionMap = Record<string, number>;
+export type ModelPredictionMap = Partial<Record<string, number>>;
 export interface ModelScores {
   modelVersion?: ModelVersion;
-  scores?: Record<string, number>;
+  scores?: Partial<Record<string, number>>;
 }
 export type modelsMaxPageSize = number;
 

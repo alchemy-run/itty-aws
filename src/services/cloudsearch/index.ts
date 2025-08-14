@@ -525,7 +525,7 @@ export type DomainId = string;
 export type DomainName = string;
 
 export type DomainNameList = Array<string>;
-export type DomainNameMap = Record<string, string>;
+export type DomainNameMap = Partial<Record<string, string>>;
 export interface DomainStatus {
   DomainId: string;
   DomainName: string;
@@ -670,7 +670,7 @@ export interface Limits {
   MaximumPartitionCount: number;
 }
 export interface ListDomainNamesResponse {
-  DomainNames?: Record<string, string>;
+  DomainNames?: Partial<Record<string, string>>;
 }
 export interface LiteralArrayOptions {
   DefaultValue?: string;

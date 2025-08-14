@@ -65,7 +65,9 @@ export type AIAgentConfiguration =
 export interface AIAgentConfigurationData {
   aiAgentId: string;
 }
-export type AIAgentConfigurationMap = Record<string, AIAgentConfigurationData>;
+export type AIAgentConfigurationMap = Partial<
+  Record<string, AIAgentConfigurationData>
+>;
 export interface AIAgentData {
   assistantId: string;
   assistantArn: string;
@@ -77,7 +79,7 @@ export interface AIAgentData {
   modifiedTime?: Date | string;
   description?: string;
   visibilityStatus: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   origin?: string;
   status?: string;
 }
@@ -94,7 +96,7 @@ export interface AIAgentSummary {
   origin?: string;
   description?: string;
   status?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type AIAgentSummaryList = Array<AIAgentSummary>;
 export type AIAgentType = string;
@@ -127,7 +129,7 @@ export interface AIGuardrailData {
   wordPolicyConfig?: AIGuardrailWordPolicyConfig;
   sensitiveInformationPolicyConfig?: AIGuardrailSensitiveInformationPolicyConfig;
   contextualGroundingPolicyConfig?: AIGuardrailContextualGroundingPolicyConfig;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   status?: string;
   modifiedTime?: Date | string;
 }
@@ -148,7 +150,7 @@ export interface AIGuardrailSummary {
   visibilityStatus: string;
   description?: string;
   status?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface AIGuardrailTopicPolicyConfig {
   topicsConfig: Array<GuardrailTopicConfig>;
@@ -178,7 +180,7 @@ export interface AIPromptData {
   modifiedTime?: Date | string;
   description?: string;
   visibilityStatus: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   origin?: string;
   status?: string;
 }
@@ -199,7 +201,7 @@ export interface AIPromptSummary {
   origin?: string;
   description?: string;
   status?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type AIPromptSummaryList = Array<AIPromptSummary>;
 interface _AIPromptTemplateConfiguration {
@@ -245,7 +247,7 @@ export interface AssistantAssociationData {
   assistantArn: string;
   associationType: string;
   associationData: AssistantAssociationOutputData;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 interface _AssistantAssociationInputData {
   knowledgeBaseId?: string;
@@ -268,7 +270,7 @@ export interface AssistantAssociationSummary {
   assistantArn: string;
   associationType: string;
   associationData: AssistantAssociationOutputData;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type AssistantAssociationSummaryList =
   Array<AssistantAssociationSummary>;
@@ -284,11 +286,11 @@ export interface AssistantData {
   type: string;
   status: string;
   description?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   serverSideEncryptionConfiguration?: ServerSideEncryptionConfiguration;
   integrationConfiguration?: AssistantIntegrationConfiguration;
   capabilityConfiguration?: AssistantCapabilityConfiguration;
-  aiAgentConfiguration?: Record<string, AIAgentConfigurationData>;
+  aiAgentConfiguration?: Partial<Record<string, AIAgentConfigurationData>>;
 }
 export interface AssistantIntegrationConfiguration {
   topicIntegrationArn?: string;
@@ -303,11 +305,11 @@ export interface AssistantSummary {
   type: string;
   status: string;
   description?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   serverSideEncryptionConfiguration?: ServerSideEncryptionConfiguration;
   integrationConfiguration?: AssistantIntegrationConfiguration;
   capabilityConfiguration?: AssistantCapabilityConfiguration;
-  aiAgentConfiguration?: Record<string, AIAgentConfigurationData>;
+  aiAgentConfiguration?: Partial<Record<string, AIAgentConfigurationData>>;
 }
 export type AssistantType = string;
 
@@ -373,7 +375,7 @@ export interface ConnectConfiguration {
 export type ContactAttributeKey = string;
 
 export type ContactAttributeKeys = Array<string>;
-export type ContactAttributes = Record<string, string>;
+export type ContactAttributes = Partial<Record<string, string>>;
 export type ContactAttributeValue = string;
 
 interface _ContentAssociationContents {
@@ -392,7 +394,7 @@ export interface ContentAssociationData {
   contentAssociationArn: string;
   associationType: string;
   associationData: ContentAssociationContents;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface ContentAssociationSummary {
   knowledgeBaseId: string;
@@ -403,7 +405,7 @@ export interface ContentAssociationSummary {
   contentAssociationArn: string;
   associationType: string;
   associationData: ContentAssociationContents;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type ContentAssociationSummaryList = Array<ContentAssociationSummary>;
 export type ContentAssociationType = string;
@@ -418,8 +420,8 @@ export interface ContentData {
   title: string;
   contentType: string;
   status: string;
-  metadata: Record<string, string>;
-  tags?: Record<string, string>;
+  metadata: Partial<Record<string, string>>;
+  tags?: Partial<Record<string, string>>;
   linkOutUri?: string;
   url: string;
   urlExpiry: Date | string;
@@ -437,7 +439,7 @@ interface _ContentFeedbackData {
 export type ContentFeedbackData = _ContentFeedbackData & {
   generativeContentFeedbackData: GenerativeContentFeedbackData;
 };
-export type ContentMetadata = Record<string, string>;
+export type ContentMetadata = Partial<Record<string, string>>;
 export interface ContentReference {
   knowledgeBaseArn?: string;
   knowledgeBaseId?: string;
@@ -458,8 +460,8 @@ export interface ContentSummary {
   title: string;
   contentType: string;
   status: string;
-  metadata: Record<string, string>;
-  tags?: Record<string, string>;
+  metadata: Partial<Record<string, string>>;
+  tags?: Partial<Record<string, string>>;
 }
 export type ContentSummaryList = Array<ContentSummary>;
 export type ContentTitle = string;
@@ -484,7 +486,7 @@ export interface CreateAIAgentRequest {
   type: string;
   configuration: AIAgentConfiguration;
   visibilityStatus: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   description?: string;
 }
 export interface CreateAIAgentResponse {
@@ -513,7 +515,7 @@ export interface CreateAIGuardrailRequest {
   wordPolicyConfig?: AIGuardrailWordPolicyConfig;
   sensitiveInformationPolicyConfig?: AIGuardrailSensitiveInformationPolicyConfig;
   contextualGroundingPolicyConfig?: AIGuardrailContextualGroundingPolicyConfig;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateAIGuardrailResponse {
   aiGuardrail?: AIGuardrailData;
@@ -538,7 +540,7 @@ export interface CreateAIPromptRequest {
   templateType: string;
   modelId: string;
   apiFormat: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   description?: string;
 }
 export interface CreateAIPromptResponse {
@@ -559,7 +561,7 @@ export interface CreateAssistantAssociationRequest {
   associationType: string;
   association: AssistantAssociationInputData;
   clientToken?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateAssistantAssociationResponse {
   assistantAssociation?: AssistantAssociationData;
@@ -569,7 +571,7 @@ export interface CreateAssistantRequest {
   name: string;
   type: string;
   description?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   serverSideEncryptionConfiguration?: ServerSideEncryptionConfiguration;
 }
 export interface CreateAssistantResponse {
@@ -581,7 +583,7 @@ export interface CreateContentAssociationRequest {
   contentId: string;
   associationType: string;
   association: ContentAssociationContents;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateContentAssociationResponse {
   contentAssociation?: ContentAssociationData;
@@ -591,10 +593,10 @@ export interface CreateContentRequest {
   name: string;
   title?: string;
   overrideLinkOutUri?: string;
-  metadata?: Record<string, string>;
+  metadata?: Partial<Record<string, string>>;
   uploadId: string;
   clientToken?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateContentResponse {
   content?: ContentData;
@@ -608,7 +610,7 @@ export interface CreateKnowledgeBaseRequest {
   vectorIngestionConfiguration?: VectorIngestionConfiguration;
   serverSideEncryptionConfiguration?: ServerSideEncryptionConfiguration;
   description?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateKnowledgeBaseResponse {
   knowledgeBase?: KnowledgeBaseData;
@@ -634,7 +636,7 @@ export interface CreateMessageTemplateRequest {
   defaultAttributes?: MessageTemplateAttributes;
   groupingConfiguration?: GroupingConfiguration;
   clientToken?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateMessageTemplateResponse {
   messageTemplate?: MessageTemplateData;
@@ -659,7 +661,7 @@ export interface CreateQuickResponseRequest {
   channels?: Array<string>;
   language?: string;
   clientToken?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateQuickResponseResponse {
   quickResponse?: QuickResponseData;
@@ -669,14 +671,14 @@ export interface CreateSessionRequest {
   assistantId: string;
   name: string;
   description?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   tagFilter?: TagFilter;
-  aiAgentConfiguration?: Record<string, AIAgentConfigurationData>;
+  aiAgentConfiguration?: Partial<Record<string, AIAgentConfigurationData>>;
 }
 export interface CreateSessionResponse {
   session?: SessionData;
 }
-export type CustomAttributes = Record<string, string>;
+export type CustomAttributes = Partial<Record<string, string>>;
 export interface CustomerProfileAttributes {
   profileId?: string;
   profileARN?: string;
@@ -735,7 +737,7 @@ export interface CustomerProfileAttributes {
   billingPostalCode?: string;
   billingProvince?: string;
   billingState?: string;
-  custom?: Record<string, string>;
+  custom?: Partial<Record<string, string>>;
 }
 interface _DataDetails {
   contentData?: ContentDataDetails;
@@ -901,7 +903,7 @@ export interface ExtendedMessageTemplateData {
   isActive?: boolean;
   versionNumber?: number;
   messageTemplateContentSha256: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type ExternalSource = string;
 
@@ -1140,7 +1142,7 @@ export interface GuardrailWordConfig {
 export type GuardrailWordsConfig = Array<GuardrailWordConfig>;
 export type GuardrailWordText = string;
 
-export type Headers = Record<string, string>;
+export type Headers = Partial<Record<string, string>>;
 export interface HierarchicalChunkingConfiguration {
   levelConfigurations: Array<HierarchicalChunkingLevelConfiguration>;
   overlapTokens: number;
@@ -1169,7 +1171,7 @@ export interface ImportJobData {
   urlExpiry: Date | string;
   createdTime: Date | string;
   lastModifiedTime: Date | string;
-  metadata?: Record<string, string>;
+  metadata?: Partial<Record<string, string>>;
   externalSourceConfiguration?: ExternalSourceConfiguration;
 }
 export type ImportJobList = Array<ImportJobSummary>;
@@ -1184,7 +1186,7 @@ export interface ImportJobSummary {
   status: string;
   createdTime: Date | string;
   lastModifiedTime: Date | string;
-  metadata?: Record<string, string>;
+  metadata?: Partial<Record<string, string>>;
   externalSourceConfiguration?: ExternalSourceConfiguration;
 }
 export type ImportJobType = string;
@@ -1217,7 +1219,7 @@ export interface KnowledgeBaseData {
   renderingConfiguration?: RenderingConfiguration;
   serverSideEncryptionConfiguration?: ServerSideEncryptionConfiguration;
   description?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   ingestionStatus?: string;
   ingestionFailureReasons?: Array<string>;
 }
@@ -1237,7 +1239,7 @@ export interface KnowledgeBaseSummary {
   renderingConfiguration?: RenderingConfiguration;
   serverSideEncryptionConfiguration?: ServerSideEncryptionConfiguration;
   description?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type KnowledgeBaseType = string;
 
@@ -1399,7 +1401,7 @@ export interface ListTagsForResourceRequest {
   resourceArn: string;
 }
 export interface ListTagsForResourceResponse {
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type LlmModelId = string;
 
@@ -1452,7 +1454,7 @@ export interface MessageTemplateAttributes {
   systemAttributes?: SystemAttributes;
   agentAttributes?: AgentAttributes;
   customerProfileAttributes?: CustomerProfileAttributes;
-  customAttributes?: Record<string, string>;
+  customAttributes?: Partial<Record<string, string>>;
 }
 export type MessageTemplateAttributeType = string;
 
@@ -1492,7 +1494,7 @@ export interface MessageTemplateData {
   defaultAttributes?: MessageTemplateAttributes;
   attributeTypes?: Array<string>;
   messageTemplateContentSha256: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface MessageTemplateFilterField {
   name: string;
@@ -1543,7 +1545,7 @@ export interface MessageTemplateSearchResultData {
   description?: string;
   groupingConfiguration?: GroupingConfiguration;
   language?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type MessageTemplateSearchResultsList =
   Array<MessageTemplateSearchResultData>;
@@ -1559,7 +1561,7 @@ export interface MessageTemplateSummary {
   lastModifiedBy: string;
   activeVersionNumber?: number;
   description?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type MessageTemplateSummaryList = Array<MessageTemplateSummary>;
 export interface MessageTemplateVersionSummary {
@@ -1729,7 +1731,7 @@ export interface QuickResponseData {
   isActive?: boolean;
   channels?: Array<string>;
   language?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 interface _QuickResponseDataProvider {
   content?: string;
@@ -1796,7 +1798,7 @@ export interface QuickResponseSearchResultData {
   language?: string;
   attributesNotInterpolated?: Array<string>;
   attributesInterpolated?: Array<string>;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type QuickResponseSearchResultsList =
   Array<QuickResponseSearchResultData>;
@@ -1816,7 +1818,7 @@ export interface QuickResponseSummary {
   lastModifiedBy?: string;
   isActive?: boolean;
   channels?: Array<string>;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type QuickResponseSummaryList = Array<QuickResponseSummary>;
 export type QuickResponseType = string;
@@ -1946,7 +1948,7 @@ export interface SearchQuickResponsesRequest {
   searchExpression: QuickResponseSearchExpression;
   nextToken?: string;
   maxResults?: number;
-  attributes?: Record<string, string>;
+  attributes?: Partial<Record<string, string>>;
 }
 export interface SearchQuickResponsesResponse {
   results: Array<QuickResponseSearchResultData>;
@@ -2013,10 +2015,10 @@ export interface SessionData {
   sessionId: string;
   name: string;
   description?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   integrationConfiguration?: SessionIntegrationConfiguration;
   tagFilter?: TagFilter;
-  aiAgentConfiguration?: Record<string, AIAgentConfigurationData>;
+  aiAgentConfiguration?: Partial<Record<string, AIAgentConfigurationData>>;
   origin?: string;
 }
 export type SessionDataNamespace = string;
@@ -2067,14 +2069,14 @@ export interface StartContentUploadResponse {
   uploadId: string;
   url: string;
   urlExpiry: Date | string;
-  headersToInclude: Record<string, string>;
+  headersToInclude: Partial<Record<string, string>>;
 }
 export interface StartImportJobRequest {
   knowledgeBaseId: string;
   importJobType: string;
   uploadId: string;
   clientToken?: string;
-  metadata?: Record<string, string>;
+  metadata?: Partial<Record<string, string>>;
   externalSourceConfiguration?: ExternalSourceConfiguration;
 }
 export interface StartImportJobResponse {
@@ -2111,10 +2113,10 @@ export type TagKey = string;
 export type TagKeyList = Array<string>;
 export interface TagResourceRequest {
   resourceArn: string;
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
 export interface TagResourceResponse {}
-export type Tags = Record<string, string>;
+export type Tags = Partial<Record<string, string>>;
 export type TagValue = string;
 
 export type TargetType = string;
@@ -2208,7 +2210,7 @@ export interface UpdateContentRequest {
   title?: string;
   overrideLinkOutUri?: string;
   removeOverrideLinkOutUri?: boolean;
-  metadata?: Record<string, string>;
+  metadata?: Partial<Record<string, string>>;
   uploadId?: string;
 }
 export interface UpdateContentResponse {
@@ -2277,7 +2279,7 @@ export interface UpdateSessionRequest {
   sessionId: string;
   description?: string;
   tagFilter?: TagFilter;
-  aiAgentConfiguration?: Record<string, AIAgentConfigurationData>;
+  aiAgentConfiguration?: Partial<Record<string, AIAgentConfigurationData>>;
 }
 export interface UpdateSessionResponse {
   session?: SessionData;

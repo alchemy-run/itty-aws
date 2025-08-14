@@ -349,7 +349,7 @@ export interface PipelineObject {
   fields: Array<Field>;
 }
 export type PipelineObjectList = Array<PipelineObject>;
-export type PipelineObjectMap = Record<string, PipelineObject>;
+export type PipelineObjectMap = Partial<Record<string, PipelineObject>>;
 export interface PollForTaskInput {
   workerGroup: string;
   hostname?: string;
@@ -445,7 +445,7 @@ export interface TaskObject {
   taskId?: string;
   pipelineId?: string;
   attemptId?: string;
-  objects?: Record<string, PipelineObject>;
+  objects?: Partial<Record<string, PipelineObject>>;
 }
 export type TaskStatus = "FINISHED" | "FAILED" | "FALSE";
 export type timestamp = Date | string;

@@ -419,7 +419,7 @@ export type AliasDescription = string;
 
 export type Arn = string;
 
-export type AssignedVariables = Record<string, string>;
+export type AssignedVariables = Partial<Record<string, string>>;
 export interface AssignedVariablesDetails {
   truncated?: boolean;
 }
@@ -580,7 +580,7 @@ export interface DescribeStateMachineForExecutionOutput {
   label?: string;
   revisionId?: string;
   encryptionConfiguration?: EncryptionConfiguration;
-  variableReferences?: Record<string, Array<string>>;
+  variableReferences?: Partial<Record<string, Array<string>>>;
 }
 export interface DescribeStateMachineInput {
   stateMachineArn: string;
@@ -600,7 +600,7 @@ export interface DescribeStateMachineOutput {
   revisionId?: string;
   description?: string;
   encryptionConfiguration?: EncryptionConfiguration;
-  variableReferences?: Record<string, Array<string>>;
+  variableReferences?: Partial<Record<string, Array<string>>>;
 }
 export type Enabled = boolean;
 
@@ -1216,7 +1216,7 @@ export interface StateExitedEventDetails {
   name: string;
   output?: string;
   outputDetails?: HistoryEventExecutionDataDetails;
-  assignedVariables?: Record<string, string>;
+  assignedVariables?: Partial<Record<string, string>>;
   assignedVariablesDetails?: AssignedVariablesDetails;
 }
 export type StateMachineAliasList = Array<StateMachineAliasListItem>;
@@ -1479,7 +1479,7 @@ export type ValidationExceptionReason =
 export type VariableName = string;
 
 export type VariableNameList = Array<string>;
-export type VariableReferences = Record<string, Array<string>>;
+export type VariableReferences = Partial<Record<string, Array<string>>>;
 export type VariableValue = string;
 
 export type VersionDescription = string;

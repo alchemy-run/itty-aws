@@ -71,7 +71,7 @@ export interface CreateMonitorInput {
   remoteResources?: Array<MonitorRemoteResource>;
   scopeArn: string;
   clientToken?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateMonitorOutput {
   monitorArn: string;
@@ -81,18 +81,18 @@ export interface CreateMonitorOutput {
   remoteResources: Array<MonitorRemoteResource>;
   createdAt: Date | string;
   modifiedAt: Date | string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateScopeInput {
   targets: Array<TargetResource>;
   clientToken?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateScopeOutput {
   scopeId: string;
   status: ScopeStatus;
   scopeArn: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface DeleteMonitorInput {
   monitorName: string;
@@ -120,7 +120,7 @@ export interface GetMonitorOutput {
   remoteResources: Array<MonitorRemoteResource>;
   createdAt: Date | string;
   modifiedAt: Date | string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface GetQueryResultsMonitorTopContributorsInput {
   monitorName: string;
@@ -183,7 +183,7 @@ export interface GetScopeOutput {
   status: ScopeStatus;
   scopeArn: string;
   targets: Array<TargetResource>;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type InstanceArn = string;
 
@@ -227,7 +227,7 @@ export interface ListTagsForResourceInput {
   resourceArn: string;
 }
 export interface ListTagsForResourceOutput {
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type MaxResults = number;
 
@@ -408,10 +408,10 @@ export type SubnetId = string;
 export type TagKey = string;
 
 export type TagKeyList = Array<string>;
-export type TagMap = Record<string, string>;
+export type TagMap = Partial<Record<string, string>>;
 export interface TagResourceInput {
   resourceArn: string;
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
 export interface TagResourceOutput {}
 export type TagValue = string;
@@ -464,7 +464,7 @@ export interface UpdateMonitorOutput {
   remoteResources: Array<MonitorRemoteResource>;
   createdAt: Date | string;
   modifiedAt: Date | string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface UpdateScopeInput {
   scopeId: string;
@@ -475,7 +475,7 @@ export interface UpdateScopeOutput {
   scopeId: string;
   status: ScopeStatus;
   scopeArn: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type UuidString = string;
 

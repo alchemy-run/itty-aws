@@ -55,14 +55,14 @@ export interface AddNotificationChannelsResponse {
 export interface AgentConfiguration {
   shouldProfile: boolean;
   periodInSeconds: number;
-  agentParameters?: Record<string, string>;
+  agentParameters?: Partial<Record<string, string>>;
 }
 export interface AgentOrchestrationConfig {
   profilingEnabled: boolean;
 }
 export type AgentParameterField = string;
 
-export type AgentParameters = Record<string, string>;
+export type AgentParameters = Partial<Record<string, string>>;
 export type AgentProfile = Uint8Array | string;
 
 export type AggregatedProfile = Uint8Array | string;
@@ -101,7 +101,7 @@ export interface BatchGetFrameMetricDataResponse {
   endTime: Date | string;
   resolution: string;
   endTimes: Array<TimestampStructure>;
-  unprocessedEndTimes: Record<string, Array<TimestampStructure>>;
+  unprocessedEndTimes: Partial<Record<string, Array<TimestampStructure>>>;
   frameMetricData: Array<FrameMetricDatum>;
 }
 export interface Channel {
@@ -121,7 +121,7 @@ export type ComputePlatform = string;
 export interface ConfigureAgentRequest {
   profilingGroupName: string;
   fleetInstanceId?: string;
-  metadata?: Record<string, string>;
+  metadata?: Partial<Record<string, string>>;
 }
 export interface ConfigureAgentResponse {
   configuration: AgentConfiguration;
@@ -136,7 +136,7 @@ export interface CreateProfilingGroupRequest {
   computePlatform?: string;
   clientToken: string;
   agentOrchestrationConfig?: AgentOrchestrationConfig;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateProfilingGroupResponse {
   profilingGroup: ProfilingGroupDescription;
@@ -275,7 +275,7 @@ export interface ListTagsForResourceRequest {
   resourceArn: string;
 }
 export interface ListTagsForResourceResponse {
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type Locale = string;
 
@@ -289,7 +289,7 @@ export type MaxDepth = number;
 
 export type MaxResults = number;
 
-export type Metadata = Record<string, string>;
+export type Metadata = Partial<Record<string, string>>;
 export type MetadataField = string;
 
 export interface Metric {
@@ -343,7 +343,7 @@ export interface ProfilingGroupDescription {
   updatedAt?: Date | string;
   profilingStatus?: ProfilingStatus;
   computePlatform?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type ProfilingGroupDescriptions = Array<ProfilingGroupDescription>;
 export type ProfilingGroupName = string;
@@ -412,10 +412,10 @@ export interface SubmitFeedbackResponse {}
 export type TagKeys = Array<string>;
 export interface TagResourceRequest {
   resourceArn: string;
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
 export interface TagResourceResponse {}
-export type TagsMap = Record<string, string>;
+export type TagsMap = Partial<Record<string, string>>;
 export type TargetFrame = Array<string>;
 export type TargetFrames = Array<Array<string>>;
 export type ThreadStates = Array<string>;
@@ -429,7 +429,9 @@ export type Timestamp = Date | string;
 export interface TimestampStructure {
   value: Date | string;
 }
-export type UnprocessedEndTimeMap = Record<string, Array<TimestampStructure>>;
+export type UnprocessedEndTimeMap = Partial<
+  Record<string, Array<TimestampStructure>>
+>;
 export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;

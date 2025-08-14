@@ -685,9 +685,8 @@ export interface AssociateWebACLRequest {
 }
 export interface AssociateWebACLResponse {}
 export interface AssociationConfig {
-  RequestBody?: Record<
-    AssociatedResourceType,
-    RequestBodyAssociatedResourceTypeConfig
+  RequestBody?: Partial<
+    Record<AssociatedResourceType, RequestBodyAssociatedResourceTypeConfig>
   >;
 }
 export type AttributeName = string;
@@ -1737,7 +1736,7 @@ export interface ManagedRuleSet {
   Id: string;
   ARN: string;
   Description?: string;
-  PublishedVersions?: Record<string, ManagedRuleSetVersion>;
+  PublishedVersions?: Partial<Record<string, ManagedRuleSetVersion>>;
   RecommendedVersion?: string;
   LabelNamespace?: string;
 }
@@ -1891,7 +1890,7 @@ export type ProductLink = string;
 
 export type ProductTitle = string;
 
-export type PublishedVersions = Record<string, ManagedRuleSetVersion>;
+export type PublishedVersions = Partial<Record<string, ManagedRuleSetVersion>>;
 export interface PutLoggingConfigurationRequest {
   LoggingConfiguration: LoggingConfiguration;
 }
@@ -1904,7 +1903,7 @@ export interface PutManagedRuleSetVersionsRequest {
   Id: string;
   LockToken: string;
   RecommendedVersion?: string;
-  VersionsToPublish?: Record<string, VersionToPublish>;
+  VersionsToPublish?: Partial<Record<string, VersionToPublish>>;
 }
 export interface PutManagedRuleSetVersionsResponse {
   NextLockToken?: string;
@@ -2021,9 +2020,8 @@ export interface ReleaseSummary {
   ReleaseVersion?: string;
   Timestamp?: Date | string;
 }
-export type RequestBody = Record<
-  AssociatedResourceType,
-  RequestBodyAssociatedResourceTypeConfig
+export type RequestBody = Partial<
+  Record<AssociatedResourceType, RequestBodyAssociatedResourceTypeConfig>
 >;
 export interface RequestBodyAssociatedResourceTypeConfig {
   DefaultSizeInspectionLimit: SizeInspectionLimit;
@@ -2373,7 +2371,7 @@ export type VendorName = string;
 
 export type VersionKeyString = string;
 
-export type VersionsToPublish = Record<string, VersionToPublish>;
+export type VersionsToPublish = Partial<Record<string, VersionToPublish>>;
 export interface VersionToPublish {
   AssociatedRuleGroupArn?: string;
   ForecastedLifetime?: number;

@@ -221,7 +221,7 @@ export interface CreateConnectorRequest {
   CertificateAuthorityArn: string;
   VpcInformation: VpcInformation;
   ClientToken?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateConnectorResponse {
   ConnectorArn?: string;
@@ -229,7 +229,7 @@ export interface CreateConnectorResponse {
 export interface CreateDirectoryRegistrationRequest {
   DirectoryId: string;
   ClientToken?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateDirectoryRegistrationResponse {
   DirectoryRegistrationArn?: string;
@@ -251,7 +251,7 @@ export interface CreateTemplateRequest {
   Name: string;
   Definition: TemplateDefinition;
   ClientToken?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateTemplateResponse {
   TemplateArn?: string;
@@ -452,7 +452,7 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string;
 }
 export interface ListTagsForResourceResponse {
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface ListTemplateGroupAccessControlEntriesRequest {
   MaxResults?: number;
@@ -606,9 +606,9 @@ export interface SubjectNameFlagsV4 {
 export type TagKeyList = Array<string>;
 export interface TagResourceRequest {
   ResourceArn: string;
-  Tags: Record<string, string>;
+  Tags: Partial<Record<string, string>>;
 }
-export type Tags = Record<string, string>;
+export type Tags = Partial<Record<string, string>>;
 export interface Template {
   Arn?: string;
   ConnectorArn?: string;

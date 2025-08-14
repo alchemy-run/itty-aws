@@ -387,23 +387,22 @@ export type DatasourcePackage =
   | "ASFF_SECURITYHUB_FINDING";
 export interface DatasourcePackageIngestDetail {
   DatasourcePackageIngestState?: DatasourcePackageIngestState;
-  LastIngestStateChange?: Record<
-    DatasourcePackageIngestState,
-    TimestampForCollection
+  LastIngestStateChange?: Partial<
+    Record<DatasourcePackageIngestState, TimestampForCollection>
   >;
 }
-export type DatasourcePackageIngestDetails = Record<
-  DatasourcePackage,
-  DatasourcePackageIngestDetail
+export type DatasourcePackageIngestDetails = Partial<
+  Record<DatasourcePackage, DatasourcePackageIngestDetail>
 >;
-export type DatasourcePackageIngestHistory = Record<
-  DatasourcePackage,
-  Record<DatasourcePackageIngestState, TimestampForCollection>
+export type DatasourcePackageIngestHistory = Partial<
+  Record<
+    DatasourcePackage,
+    Partial<Record<DatasourcePackageIngestState, TimestampForCollection>>
+  >
 >;
 export type DatasourcePackageIngestState = "STARTED" | "STOPPED" | "DISABLED";
-export type DatasourcePackageIngestStates = Record<
-  DatasourcePackage,
-  DatasourcePackageIngestState
+export type DatasourcePackageIngestStates = Partial<
+  Record<DatasourcePackage, DatasourcePackageIngestState>
 >;
 export type DatasourcePackageList = Array<DatasourcePackage>;
 export interface DatasourcePackageUsageInfo {
@@ -553,9 +552,8 @@ export type IpAddress = string;
 
 export type IsNewForEntireAccount = boolean;
 
-export type LastIngestStateChangeDates = Record<
-  DatasourcePackageIngestState,
-  TimestampForCollection
+export type LastIngestStateChangeDates = Partial<
+  Record<DatasourcePackageIngestState, TimestampForCollection>
 >;
 export interface ListDatasourcePackagesRequest {
   GraphArn: string;
@@ -563,7 +561,9 @@ export interface ListDatasourcePackagesRequest {
   MaxResults?: number;
 }
 export interface ListDatasourcePackagesResponse {
-  DatasourcePackages?: Record<DatasourcePackage, DatasourcePackageIngestDetail>;
+  DatasourcePackages?: Partial<
+    Record<DatasourcePackage, DatasourcePackageIngestDetail>
+  >;
   NextToken?: string;
 }
 export interface ListGraphsRequest {
@@ -648,13 +648,11 @@ export interface MemberDetail {
   PercentOfGraphUtilization?: number;
   PercentOfGraphUtilizationUpdatedTime?: Date | string;
   InvitationType?: InvitationType;
-  VolumeUsageByDatasourcePackage?: Record<
-    DatasourcePackage,
-    DatasourcePackageUsageInfo
+  VolumeUsageByDatasourcePackage?: Partial<
+    Record<DatasourcePackage, DatasourcePackageUsageInfo>
   >;
-  DatasourcePackageIngestStates?: Record<
-    DatasourcePackage,
-    DatasourcePackageIngestState
+  DatasourcePackageIngestStates?: Partial<
+    Record<DatasourcePackage, DatasourcePackageIngestState>
   >;
 }
 export type MemberDetailList = Array<MemberDetail>;
@@ -664,9 +662,11 @@ export type MemberResultsLimit = number;
 export interface MembershipDatasources {
   AccountId?: string;
   GraphArn?: string;
-  DatasourcePackageIngestHistory?: Record<
-    DatasourcePackage,
-    Record<DatasourcePackageIngestState, TimestampForCollection>
+  DatasourcePackageIngestHistory?: Partial<
+    Record<
+      DatasourcePackage,
+      Partial<Record<DatasourcePackageIngestState, TimestampForCollection>>
+    >
   >;
 }
 export type MembershipDatasourcesList = Array<MembershipDatasources>;
@@ -822,9 +822,8 @@ export declare class ValidationException extends EffectData.TaggedError(
 }> {}
 export type Value = string;
 
-export type VolumeUsageByDatasourcePackage = Record<
-  DatasourcePackage,
-  DatasourcePackageUsageInfo
+export type VolumeUsageByDatasourcePackage = Partial<
+  Record<DatasourcePackage, DatasourcePackageUsageInfo>
 >;
 export declare namespace AcceptInvitation {
   export type Input = AcceptInvitationRequest;

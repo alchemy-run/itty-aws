@@ -423,7 +423,7 @@ export type Arn = string;
 
 export type AttributeName = string;
 
-export type Attributes = Record<string, string>;
+export type Attributes = Partial<Record<string, string>>;
 export type AttributeValue = string;
 
 export type BandwidthAllocation = number;
@@ -439,7 +439,7 @@ export interface Campaign {
   schedule?: Schedule;
   communicationTimeConfig?: CommunicationTimeConfig;
   communicationLimitsOverride?: CommunicationLimitsConfig;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type CampaignArn = string;
 
@@ -535,25 +535,25 @@ export interface CreateCampaignRequest {
   schedule?: Schedule;
   communicationTimeConfig?: CommunicationTimeConfig;
   communicationLimitsOverride?: CommunicationLimitsConfig;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateCampaignResponse {
   id?: string;
   arn?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CustomerProfilesIntegrationConfig {
   domainArn: string;
-  objectTypeNames: Record<string, string>;
+  objectTypeNames: Partial<Record<string, string>>;
 }
 export interface CustomerProfilesIntegrationIdentifier {
   domainArn: string;
 }
 export interface CustomerProfilesIntegrationSummary {
   domainArn: string;
-  objectTypeNames: Record<string, string>;
+  objectTypeNames: Partial<Record<string, string>>;
 }
-export type DailyHours = Record<string, Array<TimeRange>>;
+export type DailyHours = Partial<Record<string, Array<TimeRange>>>;
 export type DayOfWeek = string;
 
 export interface DeleteCampaignChannelSubtypeConfigRequest {
@@ -603,7 +603,7 @@ export interface EmailChannelSubtypeParameters {
   destinationEmailAddress: string;
   connectSourceEmailAddress?: string;
   templateArn?: string;
-  templateParameters: Record<string, string>;
+  templateParameters: Partial<Record<string, string>>;
 }
 export type EmailDisplayName = string;
 
@@ -794,7 +794,7 @@ export interface ListTagsForResourceRequest {
   arn: string;
 }
 export interface ListTagsForResourceResponse {
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface LocalTimeZoneConfig {
   defaultTimeZone?: string;
@@ -809,13 +809,13 @@ export type NextToken = string;
 
 export type ObjectTypeName = string;
 
-export type ObjectTypeNamesMap = Record<string, string>;
+export type ObjectTypeNamesMap = Partial<Record<string, string>>;
 interface _OpenHours {
-  dailyHours?: Record<string, Array<TimeRange>>;
+  dailyHours?: Partial<Record<string, Array<TimeRange>>>;
 }
 
 export type OpenHours = _OpenHours & {
-  dailyHours: Record<string, Array<TimeRange>>;
+  dailyHours: Partial<Record<string, Array<TimeRange>>>;
 };
 export interface OutboundRequest {
   clientToken: string;
@@ -925,7 +925,7 @@ export interface SmsChannelSubtypeParameters {
   destinationPhoneNumber: string;
   connectSourcePhoneNumberArn?: string;
   templateArn?: string;
-  templateParameters: Record<string, string>;
+  templateParameters: Partial<Record<string, string>>;
 }
 export interface SmsOutboundConfig {
   connectSourcePhoneNumberArn: string;
@@ -979,10 +979,10 @@ export type SuccessfulRequestList = Array<SuccessfulRequest>;
 export type TagKey = string;
 
 export type TagKeyList = Array<string>;
-export type TagMap = Record<string, string>;
+export type TagMap = Partial<Record<string, string>>;
 export interface TagResourceRequest {
   arn: string;
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
 export type TagValue = string;
 
@@ -994,7 +994,7 @@ export interface TelephonyChannelSubtypeConfig {
 }
 export interface TelephonyChannelSubtypeParameters {
   destinationPhoneNumber: string;
-  attributes: Record<string, string>;
+  attributes: Partial<Record<string, string>>;
   connectSourcePhoneNumber?: string;
   answerMachineDetectionConfig?: AnswerMachineDetectionConfig;
 }

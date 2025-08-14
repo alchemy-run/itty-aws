@@ -120,7 +120,7 @@ export interface DescribeJobExecutionResponse {
 }
 export type DetailsKey = string;
 
-export type DetailsMap = Record<string, string>;
+export type DetailsMap = Partial<Record<string, string>>;
 export type DetailsValue = string;
 
 export type DoubleParameterValue = number;
@@ -165,7 +165,7 @@ export interface JobExecution {
   jobId?: string;
   thingName?: string;
   status?: JobExecutionStatus;
-  statusDetails?: Record<string, string>;
+  statusDetails?: Partial<Record<string, string>>;
   queuedAt?: number;
   startedAt?: number;
   lastUpdatedAt?: number;
@@ -176,7 +176,7 @@ export interface JobExecution {
 }
 export interface JobExecutionState {
   status?: JobExecutionStatus;
-  statusDetails?: Record<string, string>;
+  statusDetails?: Partial<Record<string, string>>;
   versionNumber?: number;
 }
 export type JobExecutionStatus =
@@ -236,7 +236,7 @@ export type StartedAt = number;
 
 export interface StartNextPendingJobExecutionRequest {
   thingName: string;
-  statusDetails?: Record<string, string>;
+  statusDetails?: Partial<Record<string, string>>;
   stepTimeoutInMinutes?: number;
 }
 export interface StartNextPendingJobExecutionResponse {
@@ -267,7 +267,7 @@ export interface UpdateJobExecutionRequest {
   jobId: string;
   thingName: string;
   status: JobExecutionStatus;
-  statusDetails?: Record<string, string>;
+  statusDetails?: Partial<Record<string, string>>;
   stepTimeoutInMinutes?: number;
   expectedVersion?: number;
   includeJobExecutionState?: boolean;

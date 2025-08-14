@@ -935,10 +935,12 @@ export interface DocumentMetadata {
 }
 export type DocumentMetadataList = Array<DocumentMetadata>;
 export type DocumentSourceType = "ORIGINAL" | "WITH_COMMENTS";
-export type DocumentSourceUrlMap = Record<DocumentSourceType, string>;
+export type DocumentSourceUrlMap = Partial<Record<DocumentSourceType, string>>;
 export type DocumentStatusType = "INITIALIZED" | "ACTIVE";
 export type DocumentThumbnailType = "SMALL" | "SMALL_HQ" | "LARGE";
-export type DocumentThumbnailUrlMap = Record<DocumentThumbnailType, string>;
+export type DocumentThumbnailUrlMap = Partial<
+  Record<DocumentThumbnailType, string>
+>;
 export type DocumentVersionIdType = string;
 
 export interface DocumentVersionMetadata {
@@ -953,8 +955,8 @@ export interface DocumentVersionMetadata {
   ContentCreatedTimestamp?: Date | string;
   ContentModifiedTimestamp?: Date | string;
   CreatorId?: string;
-  Thumbnail?: Record<DocumentThumbnailType, string>;
-  Source?: Record<DocumentSourceType, string>;
+  Thumbnail?: Partial<Record<DocumentThumbnailType, string>>;
+  Source?: Partial<Record<DocumentSourceType, string>>;
 }
 export type DocumentVersionMetadataList = Array<DocumentVersionMetadata>;
 export type DocumentVersionStatus = "ACTIVE";
@@ -1390,7 +1392,7 @@ export interface ShareResult {
 }
 export type ShareResultsList = Array<ShareResult>;
 export type ShareStatusType = "SUCCESS" | "FAILURE";
-export type SignedHeaderMap = Record<string, string>;
+export type SignedHeaderMap = Partial<Record<string, string>>;
 export type SizeType = number;
 
 export type SortOrder = "ASC" | "DESC";
@@ -1481,7 +1483,7 @@ export interface UpdateUserResponse {
 }
 export interface UploadMetadata {
   UploadUrl?: string;
-  SignedHeaders?: Record<string, string>;
+  SignedHeaders?: Partial<Record<string, string>>;
 }
 export type UrlType = string;
 

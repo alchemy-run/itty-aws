@@ -990,7 +990,7 @@ export type AccountId = string;
 
 export interface AdvancedBackupSetting {
   ResourceType?: string;
-  BackupOptions?: Record<string, string>;
+  BackupOptions?: Partial<Record<string, string>>;
 }
 export type AdvancedBackupSettings = Array<AdvancedBackupSetting>;
 export type AggregationPeriod = "ONE_DAY" | "SEVEN_DAYS" | "FOURTEEN_DAYS";
@@ -1030,7 +1030,7 @@ export interface BackupJob {
   StartBy?: Date | string;
   ResourceType?: string;
   BytesTransferred?: number;
-  BackupOptions?: Record<string, string>;
+  BackupOptions?: Partial<Record<string, string>>;
   BackupType?: string;
   ParentJobId?: string;
   IsParent?: boolean;
@@ -1038,7 +1038,7 @@ export interface BackupJob {
   InitiationDate?: Date | string;
   MessageCategory?: string;
 }
-export type BackupJobChildJobsInState = Record<BackupJobState, number>;
+export type BackupJobChildJobsInState = Partial<Record<BackupJobState, number>>;
 export type BackupJobsList = Array<BackupJob>;
 export type BackupJobState =
   | "CREATED"
@@ -1075,7 +1075,7 @@ export interface BackupJobSummary {
 export type BackupJobSummaryList = Array<BackupJobSummary>;
 export type BackupOptionKey = string;
 
-export type BackupOptions = Record<string, string>;
+export type BackupOptions = Partial<Record<string, string>>;
 export type BackupOptionValue = string;
 
 export interface BackupPlan {
@@ -1115,7 +1115,7 @@ export interface BackupRule {
   StartWindowMinutes?: number;
   CompletionWindowMinutes?: number;
   Lifecycle?: Lifecycle;
-  RecoveryPointTags?: Record<string, string>;
+  RecoveryPointTags?: Partial<Record<string, string>>;
   RuleId?: string;
   CopyActions?: Array<CopyAction>;
   EnableContinuousBackup?: boolean;
@@ -1129,7 +1129,7 @@ export interface BackupRuleInput {
   StartWindowMinutes?: number;
   CompletionWindowMinutes?: number;
   Lifecycle?: Lifecycle;
-  RecoveryPointTags?: Record<string, string>;
+  RecoveryPointTags?: Partial<Record<string, string>>;
   CopyActions?: Array<CopyAction>;
   EnableContinuousBackup?: boolean;
   ScheduleExpressionTimezone?: string;
@@ -1252,7 +1252,7 @@ export type ControlName = string;
 export interface ControlScope {
   ComplianceResourceIds?: Array<string>;
   ComplianceResourceTypes?: Array<string>;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CopyAction {
   Lifecycle?: Lifecycle;
@@ -1279,11 +1279,11 @@ export interface CopyJob {
   IsParent?: boolean;
   CompositeMemberIdentifier?: string;
   NumberOfChildJobs?: number;
-  ChildJobsInState?: Record<CopyJobState, number>;
+  ChildJobsInState?: Partial<Record<CopyJobState, number>>;
   ResourceName?: string;
   MessageCategory?: string;
 }
-export type CopyJobChildJobsInState = Record<CopyJobState, number>;
+export type CopyJobChildJobsInState = Partial<Record<CopyJobState, number>>;
 export type CopyJobsList = Array<CopyJob>;
 export type CopyJobState =
   | "CREATED"
@@ -1316,7 +1316,7 @@ export interface CopyJobSummary {
 export type CopyJobSummaryList = Array<CopyJobSummary>;
 export interface CreateBackupPlanInput {
   BackupPlan: BackupPlanInput;
-  BackupPlanTags?: Record<string, string>;
+  BackupPlanTags?: Partial<Record<string, string>>;
   CreatorRequestId?: string;
 }
 export interface CreateBackupPlanOutput {
@@ -1338,7 +1338,7 @@ export interface CreateBackupSelectionOutput {
 }
 export interface CreateBackupVaultInput {
   BackupVaultName: string;
-  BackupVaultTags?: Record<string, string>;
+  BackupVaultTags?: Partial<Record<string, string>>;
   EncryptionKeyArn?: string;
   CreatorRequestId?: string;
 }
@@ -1352,7 +1352,7 @@ export interface CreateFrameworkInput {
   FrameworkDescription?: string;
   FrameworkControls: Array<FrameworkControl>;
   IdempotencyToken?: string;
-  FrameworkTags?: Record<string, string>;
+  FrameworkTags?: Partial<Record<string, string>>;
 }
 export interface CreateFrameworkOutput {
   FrameworkName?: string;
@@ -1363,7 +1363,7 @@ export interface CreateLegalHoldInput {
   Description: string;
   IdempotencyToken?: string;
   RecoveryPointSelection?: RecoveryPointSelection;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateLegalHoldOutput {
   Title?: string;
@@ -1376,7 +1376,7 @@ export interface CreateLegalHoldOutput {
 }
 export interface CreateLogicallyAirGappedBackupVaultInput {
   BackupVaultName: string;
-  BackupVaultTags?: Record<string, string>;
+  BackupVaultTags?: Partial<Record<string, string>>;
   CreatorRequestId?: string;
   MinRetentionDays: number;
   MaxRetentionDays: number;
@@ -1392,7 +1392,7 @@ export interface CreateReportPlanInput {
   ReportPlanDescription?: string;
   ReportDeliveryChannel: ReportDeliveryChannel;
   ReportSetting: ReportSetting;
-  ReportPlanTags?: Record<string, string>;
+  ReportPlanTags?: Partial<Record<string, string>>;
   IdempotencyToken?: string;
 }
 export interface CreateReportPlanOutput {
@@ -1403,7 +1403,7 @@ export interface CreateReportPlanOutput {
 export interface CreateRestoreAccessBackupVaultInput {
   SourceBackupVaultArn: string;
   BackupVaultName?: string;
-  BackupVaultTags?: Record<string, string>;
+  BackupVaultTags?: Partial<Record<string, string>>;
   CreatorRequestId?: string;
   RequesterComment?: string;
 }
@@ -1416,7 +1416,7 @@ export interface CreateRestoreAccessBackupVaultOutput {
 export interface CreateRestoreTestingPlanInput {
   CreatorRequestId?: string;
   RestoreTestingPlan: RestoreTestingPlanForCreate;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateRestoreTestingPlanOutput {
   CreationTime: Date | string;
@@ -1512,12 +1512,12 @@ export interface DescribeBackupJobOutput {
   BytesTransferred?: number;
   ExpectedCompletionDate?: Date | string;
   StartBy?: Date | string;
-  BackupOptions?: Record<string, string>;
+  BackupOptions?: Partial<Record<string, string>>;
   BackupType?: string;
   ParentJobId?: string;
   IsParent?: boolean;
   NumberOfChildJobs?: number;
-  ChildJobsInState?: Record<BackupJobState, number>;
+  ChildJobsInState?: Partial<Record<BackupJobState, number>>;
   ResourceName?: string;
   InitiationDate?: Date | string;
   MessageCategory?: string;
@@ -1565,7 +1565,7 @@ export interface DescribeFrameworkOutput {
 }
 export interface DescribeGlobalSettingsInput {}
 export interface DescribeGlobalSettingsOutput {
-  GlobalSettings?: Record<string, string>;
+  GlobalSettings?: Partial<Record<string, string>>;
   LastUpdateTime?: Date | string;
 }
 export interface DescribeProtectedResourceInput {
@@ -1618,8 +1618,8 @@ export interface DescribeRecoveryPointOutput {
 }
 export interface DescribeRegionSettingsInput {}
 export interface DescribeRegionSettingsOutput {
-  ResourceTypeOptInPreference?: Record<string, boolean>;
-  ResourceTypeManagementPreference?: Record<string, boolean>;
+  ResourceTypeOptInPreference?: Partial<Record<string, boolean>>;
+  ResourceTypeManagementPreference?: Partial<Record<string, boolean>>;
 }
 export interface DescribeReportJobInput {
   ReportJobId: string;
@@ -1788,7 +1788,7 @@ export interface GetRecoveryPointRestoreMetadataInput {
 export interface GetRecoveryPointRestoreMetadataOutput {
   BackupVaultArn?: string;
   RecoveryPointArn?: string;
-  RestoreMetadata?: Record<string, string>;
+  RestoreMetadata?: Partial<Record<string, string>>;
   ResourceType?: string;
 }
 export interface GetRestoreJobMetadataInput {
@@ -1796,7 +1796,7 @@ export interface GetRestoreJobMetadataInput {
 }
 export interface GetRestoreJobMetadataOutput {
   RestoreJobId?: string;
-  Metadata?: Record<string, string>;
+  Metadata?: Partial<Record<string, string>>;
 }
 export interface GetRestoreTestingInferredMetadataInput {
   BackupVaultAccountId?: string;
@@ -1804,7 +1804,7 @@ export interface GetRestoreTestingInferredMetadataInput {
   RecoveryPointArn: string;
 }
 export interface GetRestoreTestingInferredMetadataOutput {
-  InferredMetadata: Record<string, string>;
+  InferredMetadata: Partial<Record<string, string>>;
 }
 export interface GetRestoreTestingPlanInput {
   RestoreTestingPlanName: string;
@@ -1822,7 +1822,7 @@ export interface GetRestoreTestingSelectionOutput {
 export interface GetSupportedResourceTypesOutput {
   ResourceTypes?: Array<string>;
 }
-export type GlobalSettings = Record<string, string>;
+export type GlobalSettings = Partial<Record<string, string>>;
 export type GlobalSettingsName = string;
 
 export type GlobalSettingsValue = string;
@@ -2212,7 +2212,7 @@ export interface ListTagsInput {
 }
 export interface ListTagsOutput {
   NextToken?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export type Long = number;
 
@@ -2224,7 +2224,7 @@ export type MaxResults = number;
 
 export type MessageCategory = string;
 
-export type Metadata = Record<string, string>;
+export type Metadata = Partial<Record<string, string>>;
 export type MetadataKey = string;
 
 export type MetadataValue = string;
@@ -2410,8 +2410,8 @@ export declare class ResourceNotFoundException extends EffectData.TaggedError(
 export type ResourceType = string;
 
 export type ResourceTypeList = Array<string>;
-export type ResourceTypeManagementPreference = Record<string, boolean>;
-export type ResourceTypeOptInPreference = Record<string, boolean>;
+export type ResourceTypeManagementPreference = Partial<Record<string, boolean>>;
+export type ResourceTypeOptInPreference = Partial<Record<string, boolean>>;
 export type ResourceTypes = Array<string>;
 export type RestoreAccessBackupVaultList =
   Array<RestoreAccessBackupVaultListMember>;
@@ -2529,7 +2529,7 @@ export interface RestoreTestingSelectionForCreate {
   ProtectedResourceArns?: Array<string>;
   ProtectedResourceConditions?: ProtectedResourceConditions;
   ProtectedResourceType: string;
-  RestoreMetadataOverrides?: Record<string, string>;
+  RestoreMetadataOverrides?: Partial<Record<string, string>>;
   RestoreTestingSelectionName: string;
   ValidationWindowHours?: number;
 }
@@ -2540,7 +2540,7 @@ export interface RestoreTestingSelectionForGet {
   ProtectedResourceArns?: Array<string>;
   ProtectedResourceConditions?: ProtectedResourceConditions;
   ProtectedResourceType: string;
-  RestoreMetadataOverrides?: Record<string, string>;
+  RestoreMetadataOverrides?: Partial<Record<string, string>>;
   RestoreTestingPlanName: string;
   RestoreTestingSelectionName: string;
   ValidationWindowHours?: number;
@@ -2557,7 +2557,7 @@ export interface RestoreTestingSelectionForUpdate {
   IamRoleArn?: string;
   ProtectedResourceArns?: Array<string>;
   ProtectedResourceConditions?: ProtectedResourceConditions;
-  RestoreMetadataOverrides?: Record<string, string>;
+  RestoreMetadataOverrides?: Partial<Record<string, string>>;
   ValidationWindowHours?: number;
 }
 export type RestoreTestingSelections = Array<RestoreTestingSelectionForList>;
@@ -2571,7 +2571,7 @@ export interface RevokeRestoreAccessBackupVaultInput {
   RestoreAccessBackupVaultArn: string;
   RequesterComment?: string;
 }
-export type SensitiveStringMap = Record<string, string>;
+export type SensitiveStringMap = Partial<Record<string, string>>;
 export declare class ServiceUnavailableException extends EffectData.TaggedError(
   "ServiceUnavailableException",
 )<{
@@ -2588,8 +2588,8 @@ export interface StartBackupJobInput {
   StartWindowMinutes?: number;
   CompleteWindowMinutes?: number;
   Lifecycle?: Lifecycle;
-  RecoveryPointTags?: Record<string, string>;
-  BackupOptions?: Record<string, string>;
+  RecoveryPointTags?: Partial<Record<string, string>>;
+  BackupOptions?: Partial<Record<string, string>>;
   Index?: Index;
 }
 export interface StartBackupJobOutput {
@@ -2620,7 +2620,7 @@ export interface StartReportJobOutput {
 }
 export interface StartRestoreJobInput {
   RecoveryPointArn: string;
-  Metadata: Record<string, string>;
+  Metadata: Partial<Record<string, string>>;
   IamRoleArn?: string;
   IdempotencyToken?: string;
   ResourceType?: string;
@@ -2636,15 +2636,15 @@ export type StorageClass = "WARM" | "COLD" | "DELETED";
 export type Backupstring = string;
 
 export type stringList = Array<string>;
-export type stringMap = Record<string, string>;
+export type stringMap = Partial<Record<string, string>>;
 export type TagKey = string;
 
 export type TagKeyList = Array<string>;
 export interface TagResourceInput {
   ResourceArn: string;
-  Tags: Record<string, string>;
+  Tags: Partial<Record<string, string>>;
 }
-export type Tags = Record<string, string>;
+export type Tags = Partial<Record<string, string>>;
 export type TagValue = string;
 
 export type timestamp = Date | string;
@@ -2678,7 +2678,7 @@ export interface UpdateFrameworkOutput {
   CreationTime?: Date | string;
 }
 export interface UpdateGlobalSettingsInput {
-  GlobalSettings?: Record<string, string>;
+  GlobalSettings?: Partial<Record<string, string>>;
 }
 export interface UpdateRecoveryPointIndexSettingsInput {
   BackupVaultName: string;
@@ -2704,8 +2704,8 @@ export interface UpdateRecoveryPointLifecycleOutput {
   CalculatedLifecycle?: CalculatedLifecycle;
 }
 export interface UpdateRegionSettingsInput {
-  ResourceTypeOptInPreference?: Record<string, boolean>;
-  ResourceTypeManagementPreference?: Record<string, boolean>;
+  ResourceTypeOptInPreference?: Partial<Record<string, boolean>>;
+  ResourceTypeManagementPreference?: Partial<Record<string, boolean>>;
 }
 export interface UpdateReportPlanInput {
   ReportPlanName: string;

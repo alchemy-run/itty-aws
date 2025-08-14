@@ -146,7 +146,7 @@ export type CallAnalyticsTranscriptResultStream =
     });
 export interface CategoryEvent {
   MatchedCategories?: Array<string>;
-  MatchedDetails?: Record<string, PointsOfInterest>;
+  MatchedDetails?: Partial<Record<string, PointsOfInterest>>;
 }
 export interface ChannelDefinition {
   ChannelId: number;
@@ -303,7 +303,7 @@ export declare class LimitExceededException extends EffectData.TaggedError(
 }> {}
 export type Long = number;
 
-export type MatchedCategoryDetails = Record<string, PointsOfInterest>;
+export type MatchedCategoryDetails = Partial<Record<string, PointsOfInterest>>;
 export type MediaEncoding = "PCM" | "OGG_OPUS" | "FLAC";
 export type MediaSampleRateHertz = number;
 

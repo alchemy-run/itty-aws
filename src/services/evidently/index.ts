@@ -82,7 +82,7 @@ export interface CreateExperimentRequest {
   samplingRate?: number;
   onlineAbConfig?: OnlineAbConfig;
   segment?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateExperimentResponse {
   experiment: Experiment;
@@ -94,8 +94,8 @@ export interface CreateFeatureRequest {
   description?: string;
   variations: Array<VariationConfig>;
   defaultVariation?: string;
-  tags?: Record<string, string>;
-  entityOverrides?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
+  entityOverrides?: Partial<Record<string, string>>;
 }
 export interface CreateFeatureResponse {
   feature?: Feature;
@@ -108,7 +108,7 @@ export interface CreateLaunchRequest {
   metricMonitors?: Array<MetricMonitorConfig>;
   groups: Array<LaunchGroupConfig>;
   randomizationSalt?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateLaunchResponse {
   launch: Launch;
@@ -118,7 +118,7 @@ export interface CreateProjectRequest {
   description?: string;
   dataDelivery?: ProjectDataDeliveryConfig;
   appConfigResource?: ProjectAppConfigResourceConfig;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateProjectResponse {
   project: Project;
@@ -127,7 +127,7 @@ export interface CreateSegmentRequest {
   name: string;
   pattern: string;
   description?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateSegmentResponse {
   segment: Segment;
@@ -164,7 +164,7 @@ export type Description = string;
 export type DoubleValueList = Array<number>;
 export type EntityId = string;
 
-export type EntityOverrideMap = Record<string, string>;
+export type EntityOverrideMap = Partial<Record<string, string>>;
 export type ErrorCodeEnum = string;
 
 export type ErrorMessage = string;
@@ -228,7 +228,7 @@ export interface Experiment {
   segment?: string;
   type: string;
   onlineAbDefinition?: OnlineAbDefinition;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type ExperimentArn = string;
 
@@ -285,8 +285,8 @@ export interface Feature {
   variations: Array<Variation>;
   defaultVariation?: string;
   evaluationRules?: Array<EvaluationRule>;
-  tags?: Record<string, string>;
-  entityOverrides?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
+  entityOverrides?: Partial<Record<string, string>>;
 }
 export type FeatureArn = string;
 
@@ -307,9 +307,9 @@ export interface FeatureSummary {
   evaluationStrategy: string;
   evaluationRules?: Array<EvaluationRule>;
   defaultVariation?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
-export type FeatureToVariationMap = Record<string, string>;
+export type FeatureToVariationMap = Partial<Record<string, string>>;
 export interface GetExperimentRequest {
   project: string;
   experiment: string;
@@ -363,7 +363,7 @@ export interface GetSegmentResponse {
 }
 export type GroupName = string;
 
-export type GroupToWeightMap = Record<string, number>;
+export type GroupToWeightMap = Partial<Record<string, number>>;
 export declare class InternalServerException extends EffectData.TaggedError(
   "InternalServerException",
 )<{
@@ -388,7 +388,7 @@ export interface Launch {
   randomizationSalt?: string;
   type: string;
   scheduledSplitsDefinition?: ScheduledSplitsLaunchDefinition;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type LaunchArn = string;
 
@@ -400,7 +400,7 @@ export interface LaunchExecution {
 export interface LaunchGroup {
   name: string;
   description?: string;
-  featureVariations: Record<string, string>;
+  featureVariations: Partial<Record<string, string>>;
 }
 export interface LaunchGroupConfig {
   name: string;
@@ -477,7 +477,7 @@ export interface ListTagsForResourceRequest {
   resourceArn: string;
 }
 export interface ListTagsForResourceResponse {
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type MaxExperiments = number;
 
@@ -530,11 +530,11 @@ export type NextToken = string;
 
 export interface OnlineAbConfig {
   controlTreatmentName?: string;
-  treatmentWeights?: Record<string, number>;
+  treatmentWeights?: Partial<Record<string, number>>;
 }
 export interface OnlineAbDefinition {
   controlTreatmentName?: string;
-  treatmentWeights?: Record<string, number>;
+  treatmentWeights?: Partial<Record<string, number>>;
 }
 export interface Project {
   arn: string;
@@ -550,7 +550,7 @@ export interface Project {
   activeExperimentCount?: number;
   dataDelivery?: ProjectDataDelivery;
   appConfigResource?: ProjectAppConfigResource;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface ProjectAppConfigResource {
   applicationId: string;
@@ -590,7 +590,7 @@ export interface ProjectSummary {
   activeLaunchCount?: number;
   experimentCount?: number;
   activeExperimentCount?: number;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface PutProjectEventsRequest {
   project: string;
@@ -646,12 +646,12 @@ export type S3PrefixSafeName = string;
 
 export interface ScheduledSplit {
   startTime: Date | string;
-  groupWeights?: Record<string, number>;
+  groupWeights?: Partial<Record<string, number>>;
   segmentOverrides?: Array<SegmentOverride>;
 }
 export interface ScheduledSplitConfig {
   startTime: Date | string;
-  groupWeights: Record<string, number>;
+  groupWeights: Partial<Record<string, number>>;
   segmentOverrides?: Array<SegmentOverride>;
 }
 export type ScheduledSplitConfigList = Array<ScheduledSplitConfig>;
@@ -671,7 +671,7 @@ export interface Segment {
   description?: string;
   experimentCount?: number;
   launchCount?: number;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type SegmentArn = string;
 
@@ -681,7 +681,7 @@ export type SegmentName = string;
 export interface SegmentOverride {
   segment: string;
   evaluationOrder: number;
-  weights: Record<string, number>;
+  weights: Partial<Record<string, number>>;
 }
 export type SegmentOverridesList = Array<SegmentOverride>;
 export type SegmentPattern = string;
@@ -742,10 +742,10 @@ export interface StopLaunchResponse {
 export type TagKey = string;
 
 export type TagKeyList = Array<string>;
-export type TagMap = Record<string, string>;
+export type TagMap = Partial<Record<string, string>>;
 export interface TagResourceRequest {
   resourceArn: string;
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
 export interface TagResourceResponse {}
 export type TagValue = string;
@@ -768,7 +768,7 @@ export type TimestampList = Array<Date | string>;
 export interface Treatment {
   name: string;
   description?: string;
-  featureVariations?: Record<string, string>;
+  featureVariations?: Partial<Record<string, string>>;
 }
 export interface TreatmentConfig {
   name: string;
@@ -781,7 +781,7 @@ export type TreatmentList = Array<Treatment>;
 export type TreatmentName = string;
 
 export type TreatmentNameList = Array<string>;
-export type TreatmentToWeightMap = Record<string, number>;
+export type TreatmentToWeightMap = Partial<Record<string, number>>;
 export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
@@ -810,7 +810,7 @@ export interface UpdateFeatureRequest {
   addOrUpdateVariations?: Array<VariationConfig>;
   removeVariations?: Array<string>;
   defaultVariation?: string;
-  entityOverrides?: Record<string, string>;
+  entityOverrides?: Partial<Record<string, string>>;
 }
 export interface UpdateFeatureResponse {
   feature: Feature;

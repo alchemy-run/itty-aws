@@ -2695,13 +2695,13 @@ export interface AdHocFilteringOption {
 }
 export interface AggFunction {
   Aggregation?: AggType;
-  AggregationFunctionParameters?: Record<string, string>;
+  AggregationFunctionParameters?: Partial<Record<string, string>>;
   Period?: TopicTimeGranularity;
   PeriodField?: string;
 }
 export type AggFunctionParamKey = string;
 
-export type AggFunctionParamMap = Record<string, string>;
+export type AggFunctionParamMap = Partial<Record<string, string>>;
 export type AggFunctionParamValue = string;
 
 export interface AggregationFunction {
@@ -2710,7 +2710,7 @@ export interface AggregationFunction {
   DateAggregationFunction?: DateAggregationFunction;
   AttributeAggregationFunction?: AttributeAggregationFunction;
 }
-export type AggregationFunctionParameters = Record<string, string>;
+export type AggregationFunctionParameters = Partial<Record<string, string>>;
 export interface AggregationPartitionBy {
   FieldName?: string;
   TimeGranularity?: TimeGranularity;
@@ -4164,11 +4164,11 @@ export interface CreateDataSetRequest {
   AwsAccountId: string;
   DataSetId: string;
   Name: string;
-  PhysicalTableMap: Record<string, PhysicalTable>;
+  PhysicalTableMap: Partial<Record<string, PhysicalTable>>;
   LogicalTableMap?: Record<string, LogicalTable>;
   ImportMode: DataSetImportMode;
   ColumnGroups?: Array<ColumnGroup>;
-  FieldFolders?: Record<string, FieldFolder>;
+  FieldFolders?: Partial<Record<string, FieldFolder>>;
   Permissions?: Array<ResourcePermission>;
   RowLevelPermissionDataSet?: RowLevelPermissionDataSet;
   RowLevelPermissionTagConfiguration?: RowLevelPermissionTagConfiguration;
@@ -4262,7 +4262,7 @@ export interface CreateIAMPolicyAssignmentRequest {
   AssignmentName: string;
   AssignmentStatus: AssignmentStatus;
   PolicyArn?: string;
-  Identities?: Record<string, Array<string>>;
+  Identities?: Partial<Record<string, Array<string>>>;
   Namespace: string;
 }
 export interface CreateIAMPolicyAssignmentResponse {
@@ -4270,7 +4270,7 @@ export interface CreateIAMPolicyAssignmentResponse {
   AssignmentId?: string;
   AssignmentStatus?: AssignmentStatus;
   PolicyArn?: string;
-  Identities?: Record<string, Array<string>>;
+  Identities?: Partial<Record<string, Array<string>>>;
   RequestId?: string;
   Status?: number;
 }
@@ -4792,13 +4792,13 @@ export interface DataSet {
   Name?: string;
   CreatedTime?: Date | string;
   LastUpdatedTime?: Date | string;
-  PhysicalTableMap?: Record<string, PhysicalTable>;
+  PhysicalTableMap?: Partial<Record<string, PhysicalTable>>;
   LogicalTableMap?: Record<string, LogicalTable>;
   OutputColumns?: Array<OutputColumn>;
   ImportMode?: DataSetImportMode;
   ConsumedSpiceCapacityInBytes?: number;
   ColumnGroups?: Array<ColumnGroup>;
-  FieldFolders?: Record<string, FieldFolder>;
+  FieldFolders?: Partial<Record<string, FieldFolder>>;
   RowLevelPermissionDataSet?: RowLevelPermissionDataSet;
   RowLevelPermissionTagConfiguration?: RowLevelPermissionTagConfiguration;
   ColumnLevelPermissionRules?: Array<ColumnLevelPermissionRule>;
@@ -5935,9 +5935,9 @@ export interface DescribeIpRestrictionRequest {
 }
 export interface DescribeIpRestrictionResponse {
   AwsAccountId?: string;
-  IpRestrictionRuleMap?: Record<string, string>;
-  VpcIdRestrictionRuleMap?: Record<string, string>;
-  VpcEndpointIdRestrictionRuleMap?: Record<string, string>;
+  IpRestrictionRuleMap?: Partial<Record<string, string>>;
+  VpcIdRestrictionRuleMap?: Partial<Record<string, string>>;
+  VpcEndpointIdRestrictionRuleMap?: Partial<Record<string, string>>;
   Enabled?: boolean;
   RequestId?: string;
   Status?: number;
@@ -6295,7 +6295,7 @@ export interface FieldFolder {
 }
 export type FieldFolderDescription = string;
 
-export type FieldFolderMap = Record<string, FieldFolder>;
+export type FieldFolderMap = Partial<Record<string, FieldFolder>>;
 export type FieldFolderPath = string;
 
 export type FieldId = string;
@@ -7190,7 +7190,7 @@ export interface IAMPolicyAssignment {
   AssignmentId?: string;
   AssignmentName?: string;
   PolicyArn?: string;
-  Identities?: Record<string, Array<string>>;
+  Identities?: Partial<Record<string, Array<string>>>;
   AssignmentStatus?: AssignmentStatus;
 }
 export type IAMPolicyAssignmentName = string;
@@ -7233,7 +7233,7 @@ export interface Identifier {
 export interface IdentityCenterConfiguration {
   EnableIdentityPropagation?: boolean;
 }
-export type IdentityMap = Record<string, Array<string>>;
+export type IdentityMap = Partial<Record<string, Array<string>>>;
 export type IdentityName = string;
 
 export type IdentityNameList = Array<string>;
@@ -7491,7 +7491,7 @@ export interface InvalidTopicReviewedAnswer {
 export type InvalidTopicReviewedAnswers = Array<InvalidTopicReviewedAnswer>;
 export type IpRestrictionRuleDescription = string;
 
-export type IpRestrictionRuleMap = Record<string, string>;
+export type IpRestrictionRuleMap = Partial<Record<string, string>>;
 export type IPv4Address = string;
 
 export interface ItemsLimitConfiguration {
@@ -8300,7 +8300,7 @@ export interface NamedEntityDefinition {
 }
 export interface NamedEntityDefinitionMetric {
   Aggregation?: NamedEntityAggType;
-  AggregationFunctionParameters?: Record<string, string>;
+  AggregationFunctionParameters?: Partial<Record<string, string>>;
 }
 export type NamedEntityDefinitions = Array<NamedEntityDefinition>;
 export interface NamedEntityRef {
@@ -8697,7 +8697,7 @@ export type PhysicalTable =
   | (_PhysicalTable & { S3Source: S3Source });
 export type PhysicalTableId = string;
 
-export type PhysicalTableMap = Record<string, PhysicalTable>;
+export type PhysicalTableMap = Partial<Record<string, PhysicalTable>>;
 export interface PieChartAggregatedFieldWells {
   Category?: Array<DimensionField>;
   Values?: Array<MeasureField>;
@@ -9648,12 +9648,12 @@ export type SelectedTooltipType = "BASIC" | "DETAILED";
 export interface SemanticEntityType {
   TypeName?: string;
   SubTypeName?: string;
-  TypeParameters?: Record<string, string>;
+  TypeParameters?: Partial<Record<string, string>>;
 }
 export interface SemanticType {
   TypeName?: string;
   SubTypeName?: string;
-  TypeParameters?: Record<string, string>;
+  TypeParameters?: Partial<Record<string, string>>;
   TruthyCellValue?: string;
   TruthyCellValueSynonyms?: Array<string>;
   FalseyCellValue?: string;
@@ -10762,7 +10762,7 @@ export interface TopicIRFilterOption {
   Inverse?: boolean;
   NullFilter?: NullFilterOption;
   Aggregation?: AggType;
-  AggregationFunctionParameters?: Record<string, string>;
+  AggregationFunctionParameters?: Partial<Record<string, string>>;
   AggregationPartitionBy?: Array<AggregationPartitionBy>;
   Range?: TopicConstantValue;
   Inclusive?: boolean;
@@ -11019,7 +11019,7 @@ export interface TwitterParameters {
 }
 export type TypeCastFormat = string;
 
-export type TypeParameters = Record<string, string>;
+export type TypeParameters = Partial<Record<string, string>>;
 export interface Typography {
   FontFamilies?: Array<Font>;
 }
@@ -11267,11 +11267,11 @@ export interface UpdateDataSetRequest {
   AwsAccountId: string;
   DataSetId: string;
   Name: string;
-  PhysicalTableMap: Record<string, PhysicalTable>;
+  PhysicalTableMap: Partial<Record<string, PhysicalTable>>;
   LogicalTableMap?: Record<string, LogicalTable>;
   ImportMode: DataSetImportMode;
   ColumnGroups?: Array<ColumnGroup>;
-  FieldFolders?: Record<string, FieldFolder>;
+  FieldFolders?: Partial<Record<string, FieldFolder>>;
   RowLevelPermissionDataSet?: RowLevelPermissionDataSet;
   RowLevelPermissionTagConfiguration?: RowLevelPermissionTagConfiguration;
   ColumnLevelPermissionRules?: Array<ColumnLevelPermissionRule>;
@@ -11365,13 +11365,13 @@ export interface UpdateIAMPolicyAssignmentRequest {
   Namespace: string;
   AssignmentStatus?: AssignmentStatus;
   PolicyArn?: string;
-  Identities?: Record<string, Array<string>>;
+  Identities?: Partial<Record<string, Array<string>>>;
 }
 export interface UpdateIAMPolicyAssignmentResponse {
   AssignmentName?: string;
   AssignmentId?: string;
   PolicyArn?: string;
-  Identities?: Record<string, Array<string>>;
+  Identities?: Partial<Record<string, Array<string>>>;
   AssignmentStatus?: AssignmentStatus;
   RequestId?: string;
   Status?: number;
@@ -11387,9 +11387,9 @@ export interface UpdateIdentityPropagationConfigResponse {
 }
 export interface UpdateIpRestrictionRequest {
   AwsAccountId: string;
-  IpRestrictionRuleMap?: Record<string, string>;
-  VpcIdRestrictionRuleMap?: Record<string, string>;
-  VpcEndpointIdRestrictionRuleMap?: Record<string, string>;
+  IpRestrictionRuleMap?: Partial<Record<string, string>>;
+  VpcIdRestrictionRuleMap?: Partial<Record<string, string>>;
+  VpcEndpointIdRestrictionRuleMap?: Partial<Record<string, string>>;
   Enabled?: boolean;
 }
 export interface UpdateIpRestrictionResponse {
@@ -11826,12 +11826,12 @@ export type VpcEndpointId = string;
 
 export type VpcEndpointIdRestrictionRuleDescription = string;
 
-export type VpcEndpointIdRestrictionRuleMap = Record<string, string>;
+export type VpcEndpointIdRestrictionRuleMap = Partial<Record<string, string>>;
 export type VpcId = string;
 
 export type VpcIdRestrictionRuleDescription = string;
 
-export type VpcIdRestrictionRuleMap = Record<string, string>;
+export type VpcIdRestrictionRuleMap = Partial<Record<string, string>>;
 export type Warehouse = string;
 
 export interface WaterfallChartAggregatedFieldWells {

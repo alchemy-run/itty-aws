@@ -375,7 +375,7 @@ export interface DeviceIdentifier {
 }
 export type DeviceIdentifierFilterKeys = string;
 
-export type DeviceIdentifierFilters = Record<string, Array<string>>;
+export type DeviceIdentifierFilters = Partial<Record<string, Array<string>>>;
 export type DeviceIdentifierFilterValues = Array<string>;
 export type DeviceIdentifierList = Array<DeviceIdentifier>;
 export type DeviceIdentifierStatus = string;
@@ -433,7 +433,7 @@ export declare class LimitExceededException extends EffectData.TaggedError(
   readonly message: string;
 }> {}
 export interface ListDeviceIdentifiersRequest {
-  filters?: Record<string, Array<string>>;
+  filters?: Partial<Record<string, Array<string>>>;
   networkArn: string;
   startToken?: string;
   maxResults?: number;
@@ -443,7 +443,7 @@ export interface ListDeviceIdentifiersResponse {
   nextToken?: string;
 }
 export interface ListNetworkResourcesRequest {
-  filters?: Record<string, Array<string>>;
+  filters?: Partial<Record<string, Array<string>>>;
   networkArn: string;
   startToken?: string;
   maxResults?: number;
@@ -453,7 +453,7 @@ export interface ListNetworkResourcesResponse {
   nextToken?: string;
 }
 export interface ListNetworkSitesRequest {
-  filters?: Record<string, Array<string>>;
+  filters?: Partial<Record<string, Array<string>>>;
   networkArn: string;
   startToken?: string;
   maxResults?: number;
@@ -463,7 +463,7 @@ export interface ListNetworkSitesResponse {
   nextToken?: string;
 }
 export interface ListNetworksRequest {
-  filters?: Record<string, Array<string>>;
+  filters?: Partial<Record<string, Array<string>>>;
   startToken?: string;
   maxResults?: number;
 }
@@ -475,7 +475,7 @@ export interface ListOrdersRequest {
   networkArn: string;
   startToken?: string;
   maxResults?: number;
-  filters?: Record<string, Array<string>>;
+  filters?: Partial<Record<string, Array<string>>>;
 }
 export interface ListOrdersResponse {
   orders?: Array<Order>;
@@ -504,7 +504,7 @@ export interface Network {
 }
 export type NetworkFilterKeys = string;
 
-export type NetworkFilters = Record<string, Array<string>>;
+export type NetworkFilters = Partial<Record<string, Array<string>>>;
 export type NetworkFilterValues = Array<string>;
 export type NetworkList = Array<Network>;
 export interface NetworkResource {
@@ -536,7 +536,7 @@ export type NetworkResourceDefinitionType = string;
 
 export type NetworkResourceFilterKeys = string;
 
-export type NetworkResourceFilters = Record<string, Array<string>>;
+export type NetworkResourceFilters = Partial<Record<string, Array<string>>>;
 export type NetworkResourceFilterValues = Array<string>;
 export type NetworkResourceList = Array<NetworkResource>;
 export type NetworkResourceStatus = string;
@@ -558,7 +558,7 @@ export interface NetworkSite {
 }
 export type NetworkSiteFilterKeys = string;
 
-export type NetworkSiteFilters = Record<string, Array<string>>;
+export type NetworkSiteFilters = Partial<Record<string, Array<string>>>;
 export type NetworkSiteFilterValues = Array<string>;
 export type NetworkSiteList = Array<NetworkSite>;
 export type NetworkSiteStatus = string;
@@ -584,7 +584,7 @@ export interface OrderedResourceDefinition {
 export type OrderedResourceDefinitions = Array<OrderedResourceDefinition>;
 export type OrderFilterKeys = string;
 
-export type OrderFilters = Record<string, Array<string>>;
+export type OrderFilters = Partial<Record<string, Array<string>>>;
 export type OrderFilterValues = Array<string>;
 export type OrderList = Array<Order>;
 export type PaginationToken = string;

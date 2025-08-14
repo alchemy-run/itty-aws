@@ -666,7 +666,7 @@ export declare class AccessDeniedException extends EffectData.TaggedError(
 }> {}
 export type AccessKeyIdString = string;
 
-export type AdditionalContextMap = Record<string, string>;
+export type AdditionalContextMap = Partial<Record<string, string>>;
 export interface AddLFTagsToResourceRequest {
   CatalogId?: string;
   Resource: Resource;
@@ -866,7 +866,7 @@ export interface DataLakeSettings {
   ReadOnlyAdmins?: Array<DataLakePrincipal>;
   CreateDatabaseDefaultPermissions?: Array<PrincipalPermissions>;
   CreateTableDefaultPermissions?: Array<PrincipalPermissions>;
-  Parameters?: Record<string, string>;
+  Parameters?: Partial<Record<string, string>>;
   TrustedResourceOwners?: Array<string>;
   AllowExternalDataFiltering?: boolean;
   AllowFullTableExternalDataAccess?: boolean;
@@ -1335,7 +1335,7 @@ export declare class OperationTimeoutException extends EffectData.TaggedError(
 export type OptimizerType = "COMPACTION" | "GARBAGE_COLLECTION" | "GENERIC";
 export type PageSize = number;
 
-export type ParametersMap = Record<string, string>;
+export type ParametersMap = Partial<Record<string, string>>;
 export type ParametersMapValue = string;
 
 export type PartitionedTableObjectsList = Array<PartitionObjects>;
@@ -1413,12 +1413,12 @@ export interface PutDataLakeSettingsRequest {
 export interface PutDataLakeSettingsResponse {}
 export type QueryIdString = string;
 
-export type QueryParameterMap = Record<string, string>;
+export type QueryParameterMap = Partial<Record<string, string>>;
 export interface QueryPlanningContext {
   CatalogId?: string;
   DatabaseName: string;
   QueryAsOfTime?: Date | string;
-  QueryParameters?: Record<string, string>;
+  QueryParameters?: Partial<Record<string, string>>;
   TransactionId?: string;
 }
 export type QueryPlanningContextDatabaseNameString = string;
@@ -1428,7 +1428,7 @@ export interface QuerySessionContext {
   QueryStartTime?: Date | string;
   ClusterId?: string;
   QueryAuthorizationId?: string;
-  AdditionalContext?: Record<string, string>;
+  AdditionalContext?: Partial<Record<string, string>>;
 }
 export type QueryStateString =
   | "PENDING"
@@ -1558,17 +1558,16 @@ export declare class StatisticsNotReadyYetException extends EffectData.TaggedErr
 }> {}
 export interface StorageOptimizer {
   StorageOptimizerType?: OptimizerType;
-  Config?: Record<string, string>;
+  Config?: Partial<Record<string, string>>;
   ErrorMessage?: string;
   Warnings?: string;
   LastRunDetails?: string;
 }
-export type StorageOptimizerConfig = Record<string, string>;
+export type StorageOptimizerConfig = Partial<Record<string, string>>;
 export type StorageOptimizerConfigKey = string;
 
-export type StorageOptimizerConfigMap = Record<
-  OptimizerType,
-  Record<string, string>
+export type StorageOptimizerConfigMap = Partial<
+  Record<OptimizerType, Partial<Record<string, string>>>
 >;
 export type StorageOptimizerConfigValue = string;
 
@@ -1706,7 +1705,9 @@ export interface UpdateTableStorageOptimizerRequest {
   CatalogId?: string;
   DatabaseName: string;
   TableName: string;
-  StorageOptimizerConfig: Record<OptimizerType, Record<string, string>>;
+  StorageOptimizerConfig: Partial<
+    Record<OptimizerType, Partial<Record<string, string>>>
+  >;
 }
 export interface UpdateTableStorageOptimizerResponse {
   Result?: string;

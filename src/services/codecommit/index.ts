@@ -1885,7 +1885,7 @@ export interface Comment {
   deleted?: boolean;
   clientRequestToken?: string;
   callerReactions?: Array<string>;
-  reactionCounts?: Record<string, number>;
+  reactionCounts?: Partial<Record<string, number>>;
 }
 export declare class CommentContentRequiredException extends EffectData.TaggedError(
   "CommentContentRequiredException",
@@ -2081,7 +2081,7 @@ export interface CreatePullRequestOutput {
 export interface CreateRepositoryInput {
   repositoryName: string;
   repositoryDescription?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   kmsKeyId?: string;
 }
 export interface CreateRepositoryOutput {
@@ -2978,7 +2978,7 @@ export interface ListTagsForResourceInput {
   nextToken?: string;
 }
 export interface ListTagsForResourceOutput {
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   nextToken?: string;
 }
 export interface Location {
@@ -3453,7 +3453,7 @@ export interface PutRepositoryTriggersInput {
 export interface PutRepositoryTriggersOutput {
   configurationId?: string;
 }
-export type ReactionCountsMap = Record<string, number>;
+export type ReactionCountsMap = Partial<Record<string, number>>;
 export type ReactionEmoji = string;
 
 export interface ReactionForComment {
@@ -3721,9 +3721,9 @@ export declare class TagPolicyException extends EffectData.TaggedError(
 }> {}
 export interface TagResourceInput {
   resourceArn: string;
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
-export type TagsMap = Record<string, string>;
+export type TagsMap = Partial<Record<string, string>>;
 export declare class TagsMapRequiredException extends EffectData.TaggedError(
   "TagsMapRequiredException",
 )<{

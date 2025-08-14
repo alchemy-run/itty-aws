@@ -1394,7 +1394,7 @@ export interface AssetTypeItem {
   name: string;
   revision: string;
   description?: string;
-  formsOutput: Record<string, FormEntryOutput>;
+  formsOutput: Partial<Record<string, FormEntryOutput>>;
   owningProjectId: string;
   originDomainId?: string;
   originProjectId?: string;
@@ -1435,7 +1435,7 @@ export interface AuthenticationConfigurationInput {
   secretArn?: string;
   kmsKeyArn?: string;
   basicAuthenticationCredentials?: BasicAuthenticationCredentials;
-  customAuthenticationCredentials?: Record<string, string>;
+  customAuthenticationCredentials?: Partial<Record<string, string>>;
 }
 export interface AuthenticationConfigurationPatch {
   secretArn?: string;
@@ -1539,7 +1539,7 @@ export type ConnectionId = string;
 
 export type ConnectionName = string;
 
-export type ConnectionProperties = Record<string, string>;
+export type ConnectionProperties = Partial<Record<string, string>>;
 interface _ConnectionPropertiesInput {
   athenaProperties?: AthenaPropertiesInput;
   glueProperties?: GluePropertiesInput;
@@ -1749,7 +1749,7 @@ export interface CreateAssetTypeInput {
   domainIdentifier: string;
   name: string;
   description?: string;
-  formsInput: Record<string, FormEntryInput>;
+  formsInput: Partial<Record<string, FormEntryInput>>;
   owningProjectIdentifier: string;
 }
 export interface CreateAssetTypeOutput {
@@ -1757,7 +1757,7 @@ export interface CreateAssetTypeOutput {
   name: string;
   revision: string;
   description?: string;
-  formsOutput: Record<string, FormEntryOutput>;
+  formsOutput: Partial<Record<string, FormEntryOutput>>;
   owningProjectId?: string;
   originDomainId?: string;
   originProjectId?: string;
@@ -1891,7 +1891,7 @@ export interface CreateDomainInput {
   singleSignOn?: SingleSignOn;
   domainExecutionRole: string;
   kmsKeyIdentifier?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   domainVersion?: DomainVersion;
   serviceRole?: string;
   clientToken?: string;
@@ -1907,7 +1907,7 @@ export interface CreateDomainOutput {
   kmsKeyIdentifier?: string;
   status?: DomainStatus;
   portalUrl?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   domainVersion?: DomainVersion;
   serviceRole?: string;
 }
@@ -2264,7 +2264,7 @@ export interface CreateUserProfileOutput {
   status?: UserProfileStatus;
   details?: UserProfileDetails;
 }
-export type CredentialMap = Record<string, string>;
+export type CredentialMap = Partial<Record<string, string>>;
 export type CronString = string;
 
 export interface CustomParameter {
@@ -2781,7 +2781,7 @@ export interface EnvironmentBlueprintConfigurationItem {
   environmentRolePermissionBoundary?: string;
   manageAccessRoleArn?: string;
   enabledRegions?: Array<string>;
-  regionalParameters?: Record<string, Record<string, string>>;
+  regionalParameters?: Partial<Record<string, Partial<Record<string, string>>>>;
   createdAt?: Date | string;
   updatedAt?: Date | string;
   provisioningConfigurations?: Array<ProvisioningConfiguration>;
@@ -2841,13 +2841,15 @@ export type EnvironmentConfigurationUserParametersList =
   Array<EnvironmentConfigurationUserParameter>;
 export interface EnvironmentDeploymentDetails {
   overallDeploymentStatus?: OverallDeploymentStatus;
-  environmentFailureReasons?: Record<string, Array<EnvironmentError>>;
+  environmentFailureReasons?: Partial<Record<string, Array<EnvironmentError>>>;
 }
 export interface EnvironmentError {
   code?: string;
   message: string;
 }
-export type EnvironmentFailureReasons = Record<string, Array<EnvironmentError>>;
+export type EnvironmentFailureReasons = Partial<
+  Record<string, Array<EnvironmentError>>
+>;
 export type EnvironmentFailureReasonsList = Array<EnvironmentError>;
 export type EnvironmentId = string;
 
@@ -2984,8 +2986,8 @@ export interface FormOutput {
 export type FormOutputList = Array<FormOutput>;
 export type Forms = string;
 
-export type FormsInputMap = Record<string, FormEntryInput>;
-export type FormsOutputMap = Record<string, FormEntryOutput>;
+export type FormsInputMap = Partial<Record<string, FormEntryInput>>;
+export type FormsOutputMap = Partial<Record<string, FormEntryOutput>>;
 export interface FormTypeData {
   domainId: string;
   name: string;
@@ -3058,7 +3060,7 @@ export interface GetAssetTypeOutput {
   name: string;
   revision: string;
   description?: string;
-  formsOutput: Record<string, FormEntryOutput>;
+  formsOutput: Partial<Record<string, FormEntryOutput>>;
   owningProjectId: string;
   originDomainId?: string;
   originProjectId?: string;
@@ -3172,7 +3174,7 @@ export interface GetDomainOutput {
   portalUrl?: string;
   createdAt?: Date | string;
   lastUpdatedAt?: Date | string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   domainVersion?: DomainVersion;
   serviceRole?: string;
 }
@@ -3216,7 +3218,7 @@ export interface GetEnvironmentBlueprintConfigurationOutput {
   environmentRolePermissionBoundary?: string;
   manageAccessRoleArn?: string;
   enabledRegions?: Array<string>;
-  regionalParameters?: Record<string, Record<string, string>>;
+  regionalParameters?: Partial<Record<string, Partial<Record<string, string>>>>;
   createdAt?: Date | string;
   updatedAt?: Date | string;
   provisioningConfigurations?: Array<ProvisioningConfiguration>;
@@ -3659,10 +3661,10 @@ export interface GlueConnection {
   description?: string;
   connectionType?: ConnectionType;
   matchCriteria?: Array<string>;
-  connectionProperties?: Record<string, string>;
-  sparkProperties?: Record<string, string>;
-  athenaProperties?: Record<string, string>;
-  pythonProperties?: Record<string, string>;
+  connectionProperties?: Partial<Record<string, string>>;
+  sparkProperties?: Partial<Record<string, string>>;
+  athenaProperties?: Partial<Record<string, string>>;
+  pythonProperties?: Partial<Record<string, string>>;
   physicalConnectionRequirements?: PhysicalConnectionRequirements;
   creationTime?: Date | string;
   lastUpdatedTime?: Date | string;
@@ -3675,7 +3677,7 @@ export interface GlueConnection {
   compatibleComputeEnvironments?: Array<ComputeEnvironments>;
 }
 export interface GlueConnectionInput {
-  connectionProperties?: Record<string, string>;
+  connectionProperties?: Partial<Record<string, string>>;
   physicalConnectionRequirements?: PhysicalConnectionRequirements;
   name?: string;
   description?: string;
@@ -3683,14 +3685,14 @@ export interface GlueConnectionInput {
   matchCriteria?: string;
   validateCredentials?: boolean;
   validateForComputeEnvironments?: Array<ComputeEnvironments>;
-  sparkProperties?: Record<string, string>;
-  athenaProperties?: Record<string, string>;
-  pythonProperties?: Record<string, string>;
+  sparkProperties?: Partial<Record<string, string>>;
+  athenaProperties?: Partial<Record<string, string>>;
+  pythonProperties?: Partial<Record<string, string>>;
   authenticationConfiguration?: AuthenticationConfigurationInput;
 }
 export interface GlueConnectionPatch {
   description?: string;
-  connectionProperties?: Record<string, string>;
+  connectionProperties?: Partial<Record<string, string>>;
   authenticationConfiguration?: AuthenticationConfigurationPatch;
 }
 export type GlueConnectionType =
@@ -3957,7 +3959,7 @@ export interface LineageNodeTypeItem {
   updatedAt?: Date | string;
   updatedBy?: string;
   revision: string;
-  formsOutput: Record<string, FormEntryOutput>;
+  formsOutput: Partial<Record<string, FormEntryOutput>>;
 }
 export interface LineageRunDetails {
   sqlQueryRunDetails?: LineageSqlQueryRunDetails;
@@ -4372,7 +4374,7 @@ export interface ListTagsForResourceRequest {
   resourceArn: string;
 }
 export interface ListTagsForResourceResponse {
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface ListTimeSeriesDataPointsInput {
   domainIdentifier: string;
@@ -4482,7 +4484,7 @@ export interface MetadataGenerationRunTarget {
 }
 export type MetadataGenerationRunType = "BUSINESS_DESCRIPTIONS";
 export type MetadataGenerationTargetType = "ASSET";
-export type MetadataMap = Record<string, string>;
+export type MetadataMap = Partial<Record<string, string>>;
 interface _Model {
   smithy?: string;
 }
@@ -4510,7 +4512,7 @@ export interface NotificationOutput {
   actionLink: string;
   creationTimestamp: Date | string;
   lastUpdatedTimestamp: Date | string;
-  metadata?: Record<string, string>;
+  metadata?: Partial<Record<string, string>>;
 }
 export interface NotificationResource {
   type: NotificationResourceType;
@@ -4547,7 +4549,7 @@ export interface OAuth2Properties {
   oAuth2GrantType?: OAuth2GrantType;
   oAuth2ClientApplication?: OAuth2ClientApplication;
   tokenUrl?: string;
-  tokenUrlParametersMap?: Record<string, string>;
+  tokenUrlParametersMap?: Partial<Record<string, string>>;
   authorizationCodeProperties?: AuthorizationCodeProperties;
   oAuth2Credentials?: GlueOAuth2Credentials;
 }
@@ -4788,7 +4790,7 @@ export interface ProjectSummary {
   updatedAt?: Date | string;
   domainUnitId?: string;
 }
-export type PropertyMap = Record<string, string>;
+export type PropertyMap = Partial<Record<string, string>>;
 export type Protocol =
   | "ATHENA"
   | "GLUE_INTERACTIVE_SESSION"
@@ -4819,7 +4821,7 @@ export interface PutEnvironmentBlueprintConfigurationInput {
   manageAccessRoleArn?: string;
   environmentRolePermissionBoundary?: string;
   enabledRegions: Array<string>;
-  regionalParameters?: Record<string, Record<string, string>>;
+  regionalParameters?: Partial<Record<string, Partial<Record<string, string>>>>;
   provisioningConfigurations?: Array<ProvisioningConfiguration>;
 }
 export interface PutEnvironmentBlueprintConfigurationOutput {
@@ -4829,7 +4831,7 @@ export interface PutEnvironmentBlueprintConfigurationOutput {
   environmentRolePermissionBoundary?: string;
   manageAccessRoleArn?: string;
   enabledRegions?: Array<string>;
-  regionalParameters?: Record<string, Record<string, string>>;
+  regionalParameters?: Partial<Record<string, Partial<Record<string, string>>>>;
   createdAt?: Date | string;
   updatedAt?: Date | string;
   provisioningConfigurations?: Array<ProvisioningConfiguration>;
@@ -4933,8 +4935,10 @@ interface _Region {
 export type Region =
   | (_Region & { regionName: string })
   | (_Region & { regionNamePath: string });
-export type RegionalParameter = Record<string, string>;
-export type RegionalParameterMap = Record<string, Record<string, string>>;
+export type RegionalParameter = Partial<Record<string, string>>;
+export type RegionalParameterMap = Partial<
+  Record<string, Partial<Record<string, string>>>
+>;
 export type RegionName = string;
 
 export interface RejectChoice {
@@ -5618,10 +5622,10 @@ export type TagKey = string;
 export type TagKeyList = Array<string>;
 export interface TagResourceRequest {
   resourceArn: string;
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
 export interface TagResourceResponse {}
-export type Tags = Record<string, string>;
+export type Tags = Partial<Record<string, string>>;
 export type TagValue = string;
 
 export type TargetEntityType =
@@ -5748,7 +5752,7 @@ export type Timezone =
   | "US_PACIFIC";
 export type Title = string;
 
-export type TokenUrlParametersMap = Record<string, string>;
+export type TokenUrlParametersMap = Partial<Record<string, string>>;
 export interface Topic {
   subject: string;
   resource: NotificationResource;

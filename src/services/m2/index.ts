@@ -146,7 +146,7 @@ export type BatchJobIdentifier =
   | (_BatchJobIdentifier & {
       restartBatchJobIdentifier: RestartBatchJobIdentifier;
     });
-export type BatchJobParametersMap = Record<string, string>;
+export type BatchJobParametersMap = Partial<Record<string, string>>;
 export type BatchJobStepList = Array<JobStep>;
 export type BatchJobType = string;
 
@@ -178,7 +178,7 @@ export interface CreateApplicationRequest {
   description?: string;
   engineType: string;
   definition: Definition;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   clientToken?: string;
   kmsKeyId?: string;
   roleArn?: string;
@@ -225,7 +225,7 @@ export interface CreateEnvironmentRequest {
   storageConfigurations?: Array<StorageConfiguration>;
   publiclyAccessible?: boolean;
   highAvailabilityConfig?: HighAvailabilityConfig;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   preferredMaintenanceWindow?: string;
   networkType?: string;
   clientToken?: string;
@@ -445,7 +445,7 @@ export interface GetApplicationResponse {
   logGroups?: Array<LogGroupSummary>;
   creationTime: Date | string;
   lastStartTime?: Date | string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   environmentId?: string;
   targetGroupArns?: Array<string>;
   listenerArns?: Array<string>;
@@ -552,7 +552,7 @@ export interface GetEnvironmentResponse {
   securityGroupIds: Array<string>;
   creationTime: Date | string;
   storageConfigurations?: Array<StorageConfiguration>;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   highAvailabilityConfig?: HighAvailabilityConfig;
   publiclyAccessible?: boolean;
   actualCapacity?: number;
@@ -721,7 +721,7 @@ export interface ListTagsForResourceRequest {
   resourceArn: string;
 }
 export interface ListTagsForResourceResponse {
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
 export type LogGroupIdentifier = string;
 
@@ -814,7 +814,7 @@ export interface StartApplicationResponse {}
 export interface StartBatchJobRequest {
   applicationId: string;
   batchJobIdentifier: BatchJobIdentifier;
-  jobParams?: Record<string, string>;
+  jobParams?: Partial<Record<string, string>>;
   authSecretsManagerArn?: string;
 }
 export interface StartBatchJobResponse {
@@ -851,10 +851,10 @@ export type StringFree65000 = string;
 export type TagKey = string;
 
 export type TagKeyList = Array<string>;
-export type TagMap = Record<string, string>;
+export type TagMap = Partial<Record<string, string>>;
 export interface TagResourceRequest {
   resourceArn: string;
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
 export interface TagResourceResponse {}
 export type TagValue = string;

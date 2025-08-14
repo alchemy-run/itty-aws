@@ -110,7 +110,7 @@ export interface KeyspacesCellMapDefinition {
   value?: KeyspacesCellValue;
   metadata?: KeyspacesMetadata;
 }
-export type KeyspacesCells = Record<string, KeyspacesCell>;
+export type KeyspacesCells = Partial<Record<string, KeyspacesCell>>;
 interface _KeyspacesCellValue {
   asciiT?: string;
   bigintT?: string;
@@ -136,7 +136,7 @@ interface _KeyspacesCellValue {
   uuidT?: string;
   varcharT?: string;
   varintT?: string;
-  udtT?: Record<string, KeyspacesCell>;
+  udtT?: Partial<Record<string, KeyspacesCell>>;
 }
 
 export type KeyspacesCellValue =
@@ -164,18 +164,18 @@ export type KeyspacesCellValue =
   | (_KeyspacesCellValue & { uuidT: string })
   | (_KeyspacesCellValue & { varcharT: string })
   | (_KeyspacesCellValue & { varintT: string })
-  | (_KeyspacesCellValue & { udtT: Record<string, KeyspacesCell> });
-export type KeyspacesKeysMap = Record<string, KeyspacesCellValue>;
+  | (_KeyspacesCellValue & { udtT: Partial<Record<string, KeyspacesCell>> });
+export type KeyspacesKeysMap = Partial<Record<string, KeyspacesCellValue>>;
 export interface KeyspacesMetadata {
   expirationTime?: string;
   writeTime?: string;
 }
 export interface KeyspacesRow {
-  valueCells?: Record<string, KeyspacesCell>;
-  staticCells?: Record<string, KeyspacesCell>;
+  valueCells?: Partial<Record<string, KeyspacesCell>>;
+  staticCells?: Partial<Record<string, KeyspacesCell>>;
   rowMetadata?: KeyspacesMetadata;
 }
-export type KeyspacesUdtMap = Record<string, KeyspacesCell>;
+export type KeyspacesUdtMap = Partial<Record<string, KeyspacesCell>>;
 export interface ListStreamsInput {
   keyspaceName?: string;
   tableName?: string;
@@ -191,8 +191,8 @@ export interface KeyspacesstreamsRecord {
   eventVersion?: string;
   createdAt?: Date | string;
   origin?: OriginType;
-  partitionKeys?: Record<string, KeyspacesCellValue>;
-  clusteringKeys?: Record<string, KeyspacesCellValue>;
+  partitionKeys?: Partial<Record<string, KeyspacesCellValue>>;
+  clusteringKeys?: Partial<Record<string, KeyspacesCellValue>>;
   newImage?: KeyspacesRow;
   oldImage?: KeyspacesRow;
   sequenceNumber?: string;

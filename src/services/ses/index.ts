@@ -728,7 +728,7 @@ export type DiagnosticCode = string;
 export type DimensionName = string;
 
 export type DimensionValueSource = "MESSAGE_TAG" | "EMAIL_HEADER" | "LINK_TAG";
-export type DkimAttributes = Record<string, IdentityDkimAttributes>;
+export type DkimAttributes = Partial<Record<string, IdentityDkimAttributes>>;
 export type Domain = string;
 
 export type DsnAction =
@@ -819,32 +819,38 @@ export interface GetIdentityDkimAttributesRequest {
   Identities: Array<string>;
 }
 export interface GetIdentityDkimAttributesResponse {
-  DkimAttributes: Record<string, IdentityDkimAttributes>;
+  DkimAttributes: Partial<Record<string, IdentityDkimAttributes>>;
 }
 export interface GetIdentityMailFromDomainAttributesRequest {
   Identities: Array<string>;
 }
 export interface GetIdentityMailFromDomainAttributesResponse {
-  MailFromDomainAttributes: Record<string, IdentityMailFromDomainAttributes>;
+  MailFromDomainAttributes: Partial<
+    Record<string, IdentityMailFromDomainAttributes>
+  >;
 }
 export interface GetIdentityNotificationAttributesRequest {
   Identities: Array<string>;
 }
 export interface GetIdentityNotificationAttributesResponse {
-  NotificationAttributes: Record<string, IdentityNotificationAttributes>;
+  NotificationAttributes: Partial<
+    Record<string, IdentityNotificationAttributes>
+  >;
 }
 export interface GetIdentityPoliciesRequest {
   Identity: string;
   PolicyNames: Array<string>;
 }
 export interface GetIdentityPoliciesResponse {
-  Policies: Record<string, string>;
+  Policies: Partial<Record<string, string>>;
 }
 export interface GetIdentityVerificationAttributesRequest {
   Identities: Array<string>;
 }
 export interface GetIdentityVerificationAttributesResponse {
-  VerificationAttributes: Record<string, IdentityVerificationAttributes>;
+  VerificationAttributes: Partial<
+    Record<string, IdentityVerificationAttributes>
+  >;
 }
 export interface GetSendQuotaResponse {
   Max24HourSend?: number;
@@ -1038,9 +1044,8 @@ export interface ListTemplatesResponse {
 export interface ListVerifiedEmailAddressesResponse {
   VerifiedEmailAddresses?: Array<string>;
 }
-export type MailFromDomainAttributes = Record<
-  string,
-  IdentityMailFromDomainAttributes
+export type MailFromDomainAttributes = Partial<
+  Record<string, IdentityMailFromDomainAttributes>
 >;
 export type MailFromDomainName = string;
 
@@ -1092,16 +1097,15 @@ export declare class MissingRenderingAttributeException extends EffectData.Tagge
 }> {}
 export type NextToken = string;
 
-export type NotificationAttributes = Record<
-  string,
-  IdentityNotificationAttributes
+export type NotificationAttributes = Partial<
+  Record<string, IdentityNotificationAttributes>
 >;
 export type NotificationTopic = string;
 
 export type NotificationType = "Bounce" | "Complaint" | "Delivery";
 export type Policy = string;
 
-export type PolicyMap = Record<string, string>;
+export type PolicyMap = Partial<Record<string, string>>;
 export type PolicyName = string;
 
 export type PolicyNameList = Array<string>;
@@ -1454,9 +1458,8 @@ export interface UpdateTemplateRequest {
   Template: Template;
 }
 export interface UpdateTemplateResponse {}
-export type VerificationAttributes = Record<
-  string,
-  IdentityVerificationAttributes
+export type VerificationAttributes = Partial<
+  Record<string, IdentityVerificationAttributes>
 >;
 export type VerificationStatus =
   | "Pending"

@@ -2151,7 +2151,7 @@ export interface CreateIntegrationMessage {
   TargetArn: string;
   IntegrationName: string;
   KMSKeyId?: string;
-  AdditionalEncryptionContext?: Record<string, string>;
+  AdditionalEncryptionContext?: Partial<Record<string, string>>;
   Tags?: Array<Tag>;
   DataFilter?: string;
   Description?: string;
@@ -3739,7 +3739,7 @@ export interface EnableHttpEndpointResponse {
   ResourceArn?: string;
   HttpEndpointEnabled?: boolean;
 }
-export type EncryptionContextMap = Record<string, string>;
+export type EncryptionContextMap = Partial<Record<string, string>>;
 export interface Endpoint {
   Address?: string;
   Port?: number;
@@ -3959,7 +3959,7 @@ export interface Integration {
   IntegrationName?: string;
   IntegrationArn?: string;
   KMSKeyId?: string;
-  AdditionalEncryptionContext?: Record<string, string>;
+  AdditionalEncryptionContext?: Partial<Record<string, string>>;
   Status?: IntegrationStatus;
   Tags?: Array<Tag>;
   CreateTime?: Date | string;

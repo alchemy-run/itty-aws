@@ -353,7 +353,7 @@ export type ActionCode = "ArchiveRetrieval" | "InventoryRetrieval" | "Select";
 export interface AddTagsToVaultInput {
   accountId: string;
   vaultName: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface ArchiveCreationOutput {
   location?: string;
@@ -535,7 +535,7 @@ export interface Grantee {
   ID?: string;
   EmailAddress?: string;
 }
-export type hashmap = Record<string, string>;
+export type hashmap = Partial<Record<string, string>>;
 export type httpstatus = number;
 
 export interface InitiateJobInput {
@@ -665,7 +665,7 @@ export interface ListTagsForVaultInput {
   vaultName: string;
 }
 export interface ListTagsForVaultOutput {
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface ListVaultsInput {
   accountId: string;
@@ -750,8 +750,8 @@ export interface S3Location {
   Encryption?: Encryption;
   CannedACL?: CannedACL;
   AccessControlList?: Array<Grant>;
-  Tagging?: Record<string, string>;
-  UserMetadata?: Record<string, string>;
+  Tagging?: Partial<Record<string, string>>;
+  UserMetadata?: Partial<Record<string, string>>;
   StorageClass?: StorageClass;
 }
 export interface SelectParameters {
@@ -795,7 +795,7 @@ export type Glacierstring = string;
 export type TagKey = string;
 
 export type TagKeyList = Array<string>;
-export type TagMap = Record<string, string>;
+export type TagMap = Partial<Record<string, string>>;
 export type TagValue = string;
 
 export type Type = "AmazonCustomerByEmail" | "CanonicalUser" | "Group";

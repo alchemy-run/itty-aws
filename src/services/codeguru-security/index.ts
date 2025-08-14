@@ -205,7 +205,7 @@ export interface CreateScanRequest {
   scanName: string;
   scanType?: ScanType;
   analysisType?: AnalysisType;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateScanResponse {
   scanName: string;
@@ -219,7 +219,7 @@ export interface CreateUploadUrlRequest {
 }
 export interface CreateUploadUrlResponse {
   s3Url: string;
-  requestHeaders: Record<string, string>;
+  requestHeaders: Partial<Record<string, string>>;
   codeArtifactId: string;
 }
 export type DetectorTags = Array<string>;
@@ -342,7 +342,7 @@ export interface ListTagsForResourceRequest {
   resourceArn: string;
 }
 export interface ListTagsForResourceResponse {
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface MetricsSummary {
   date?: Date | string;
@@ -363,7 +363,7 @@ export interface Remediation {
   recommendation?: Recommendation;
   suggestedFixes?: Array<SuggestedFix>;
 }
-export type RequestHeaderMap = Record<string, string>;
+export type RequestHeaderMap = Partial<Record<string, string>>;
 export interface Resource {
   id?: string;
   subResourceId?: string;
@@ -414,10 +414,10 @@ export type SuggestedFixes = Array<SuggestedFix>;
 export type TagKey = string;
 
 export type TagKeyList = Array<string>;
-export type TagMap = Record<string, string>;
+export type TagMap = Partial<Record<string, string>>;
 export interface TagResourceRequest {
   resourceArn: string;
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
 export interface TagResourceResponse {}
 export type TagValue = string;

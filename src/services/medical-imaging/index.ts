@@ -236,7 +236,7 @@ export interface CopySourceImageSetProperties {
 export interface CreateDatastoreRequest {
   datastoreName?: string;
   clientToken: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   kmsKeyArn?: string;
 }
 export interface CreateDatastoreResponse {
@@ -514,7 +514,7 @@ export interface ListTagsForResourceRequest {
   resourceArn: string;
 }
 export interface ListTagsForResourceResponse {
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
 export type Message = string;
 
@@ -618,10 +618,10 @@ export interface StartDICOMImportJobResponse {
 export type TagKey = string;
 
 export type TagKeyList = Array<string>;
-export type TagMap = Record<string, string>;
+export type TagMap = Partial<Record<string, string>>;
 export interface TagResourceRequest {
   resourceArn: string;
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
 export interface TagResourceResponse {}
 export type TagValue = string;

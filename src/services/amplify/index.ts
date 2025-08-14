@@ -399,7 +399,7 @@ export interface App {
   appId: string;
   appArn: string;
   name: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   description: string;
   repository: string;
   platform: Platform;
@@ -407,7 +407,7 @@ export interface App {
   updateTime: Date | string;
   computeRoleArn?: string;
   iamServiceRoleArn?: string;
-  environmentVariables: Record<string, string>;
+  environmentVariables: Partial<Record<string, string>>;
   defaultDomain: string;
   enableBranchAutoBuild: boolean;
   enableBranchAutoDeletion?: boolean;
@@ -451,7 +451,7 @@ export interface AutoBranchCreationConfig {
   stage?: Stage;
   framework?: string;
   enableAutoBuild?: boolean;
-  environmentVariables?: Record<string, string>;
+  environmentVariables?: Partial<Record<string, string>>;
   basicAuthCredentials?: string;
   enableBasicAuth?: boolean;
   enablePerformanceMode?: boolean;
@@ -492,13 +492,13 @@ export interface Branch {
   branchArn: string;
   branchName: string;
   description: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   stage: Stage;
   displayName: string;
   enableNotification: boolean;
   createTime: Date | string;
   updateTime: Date | string;
-  environmentVariables: Record<string, string>;
+  environmentVariables: Partial<Record<string, string>>;
   enableAutoBuild: boolean;
   enableSkewProtection?: boolean;
   customDomains: Array<string>;
@@ -569,13 +569,13 @@ export interface CreateAppRequest {
   iamServiceRoleArn?: string;
   oauthToken?: string;
   accessToken?: string;
-  environmentVariables?: Record<string, string>;
+  environmentVariables?: Partial<Record<string, string>>;
   enableBranchAutoBuild?: boolean;
   enableBranchAutoDeletion?: boolean;
   enableBasicAuth?: boolean;
   basicAuthCredentials?: string;
   customRules?: Array<CustomRule>;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   buildSpec?: string;
   customHeaders?: string;
   enableAutoBranchCreation?: boolean;
@@ -605,11 +605,11 @@ export interface CreateBranchRequest {
   enableNotification?: boolean;
   enableAutoBuild?: boolean;
   enableSkewProtection?: boolean;
-  environmentVariables?: Record<string, string>;
+  environmentVariables?: Partial<Record<string, string>>;
   basicAuthCredentials?: string;
   enableBasicAuth?: boolean;
   enablePerformanceMode?: boolean;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   buildSpec?: string;
   ttl?: string;
   displayName?: string;
@@ -625,11 +625,11 @@ export interface CreateBranchResult {
 export interface CreateDeploymentRequest {
   appId: string;
   branchName: string;
-  fileMap?: Record<string, string>;
+  fileMap?: Partial<Record<string, string>>;
 }
 export interface CreateDeploymentResult {
   jobId?: string;
-  fileUploadUrls: Record<string, string>;
+  fileUploadUrls: Partial<Record<string, string>>;
   zipUploadUrl: string;
 }
 export interface CreateDomainAssociationRequest {
@@ -777,17 +777,17 @@ export type EndTime = Date | string;
 
 export type EnvironmentName = string;
 
-export type EnvironmentVariables = Record<string, string>;
+export type EnvironmentVariables = Partial<Record<string, string>>;
 export type EnvKey = string;
 
 export type EnvValue = string;
 
 export type ErrorMessage = string;
 
-export type FileMap = Record<string, string>;
+export type FileMap = Partial<Record<string, string>>;
 export type FileName = string;
 
-export type FileUploadUrls = Record<string, string>;
+export type FileUploadUrls = Partial<Record<string, string>>;
 export type Framework = string;
 
 export interface GenerateAccessLogsRequest {
@@ -957,7 +957,7 @@ export interface ListTagsForResourceRequest {
   resourceArn: string;
 }
 export interface ListTagsForResourceResponse {
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface ListWebhooksRequest {
   appId: string;
@@ -1007,7 +1007,7 @@ export declare class ResourceNotFoundException extends EffectData.TaggedError(
   readonly code: string;
   readonly message: string;
 }> {}
-export type Screenshots = Record<string, string>;
+export type Screenshots = Partial<Record<string, string>>;
 export type ServiceRoleArn = string;
 
 export type Source = string;
@@ -1063,7 +1063,7 @@ export interface Step {
   artifactsUrl?: string;
   testArtifactsUrl?: string;
   testConfigUrl?: string;
-  screenshots?: Record<string, string>;
+  screenshots?: Partial<Record<string, string>>;
   statusReason?: string;
   context?: string;
 }
@@ -1092,10 +1092,10 @@ export type SubDomainSettings = Array<SubDomainSetting>;
 export type TagKey = string;
 
 export type TagKeyList = Array<string>;
-export type TagMap = Record<string, string>;
+export type TagMap = Partial<Record<string, string>>;
 export interface TagResourceRequest {
   resourceArn: string;
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
 export interface TagResourceResponse {}
 export type TagValue = string;
@@ -1131,7 +1131,7 @@ export interface UpdateAppRequest {
   platform?: Platform;
   computeRoleArn?: string;
   iamServiceRoleArn?: string;
-  environmentVariables?: Record<string, string>;
+  environmentVariables?: Partial<Record<string, string>>;
   enableBranchAutoBuild?: boolean;
   enableBranchAutoDeletion?: boolean;
   enableBasicAuth?: boolean;
@@ -1160,7 +1160,7 @@ export interface UpdateBranchRequest {
   enableNotification?: boolean;
   enableAutoBuild?: boolean;
   enableSkewProtection?: boolean;
-  environmentVariables?: Record<string, string>;
+  environmentVariables?: Partial<Record<string, string>>;
   basicAuthCredentials?: string;
   enableBasicAuth?: boolean;
   enablePerformanceMode?: boolean;

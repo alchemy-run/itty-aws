@@ -816,7 +816,7 @@ export type AccountId = string;
 
 export type AcknowledgementFormDataBody = Uint8Array | string;
 
-export type AdditionalModelRequestFields = Record<string, unknown>;
+export type AdditionalModelRequestFields = Partial<Record<string, unknown>>;
 export type AdditionalModelRequestFieldsKey = string;
 
 export type AdditionalModelRequestFieldsValue = unknown;
@@ -1027,7 +1027,7 @@ export interface CreateModelCustomizationJobRequest {
   trainingDataConfig: TrainingDataConfig;
   validationDataConfig?: ValidationDataConfig;
   outputDataConfig: OutputDataConfig;
-  hyperParameters?: Record<string, string>;
+  hyperParameters?: Partial<Record<string, string>>;
   vpcConfig?: VpcConfig;
   customizationConfig?: CustomizationConfig;
 }
@@ -1385,7 +1385,7 @@ export interface ExternalSourcesGenerationConfiguration {
   promptTemplate?: PromptTemplate;
   guardrailConfiguration?: GuardrailConfiguration;
   kbInferenceConfig?: KbInferenceConfig;
-  additionalModelRequestFields?: Record<string, unknown>;
+  additionalModelRequestFields?: Partial<Record<string, unknown>>;
 }
 export interface ExternalSourcesRetrieveAndGenerateConfiguration {
   modelArn: string;
@@ -1446,7 +1446,7 @@ export interface GenerationConfiguration {
   promptTemplate?: PromptTemplate;
   guardrailConfiguration?: GuardrailConfiguration;
   kbInferenceConfig?: KbInferenceConfig;
-  additionalModelRequestFields?: Record<string, unknown>;
+  additionalModelRequestFields?: Partial<Record<string, unknown>>;
 }
 export interface GetCustomModelDeploymentRequest {
   customModelDeploymentIdentifier: string;
@@ -1472,7 +1472,7 @@ export interface GetCustomModelResponse {
   baseModelArn?: string;
   customizationType?: CustomizationType;
   modelKmsKeyArn?: string;
-  hyperParameters?: Record<string, string>;
+  hyperParameters?: Partial<Record<string, string>>;
   trainingDataConfig?: TrainingDataConfig;
   validationDataConfig?: ValidationDataConfig;
   outputDataConfig?: OutputDataConfig;
@@ -1611,7 +1611,7 @@ export interface GetModelCustomizationJobResponse {
   lastModifiedTime?: Date | string;
   endTime?: Date | string;
   baseModelArn: string;
-  hyperParameters?: Record<string, string>;
+  hyperParameters?: Partial<Record<string, string>>;
   trainingDataConfig: TrainingDataConfig;
   validationDataConfig: ValidationDataConfig;
   outputDataConfig: OutputDataConfig;
@@ -2427,7 +2427,7 @@ export type ModelCustomization =
   | "FINE_TUNING"
   | "CONTINUED_PRE_TRAINING"
   | "DISTILLATION";
-export type ModelCustomizationHyperParameters = Record<string, string>;
+export type ModelCustomizationHyperParameters = Partial<Record<string, string>>;
 export type ModelCustomizationJobArn = string;
 
 export type ModelCustomizationJobIdentifier = string;
@@ -2973,7 +2973,7 @@ export interface VectorSearchBedrockRerankingConfiguration {
 }
 export interface VectorSearchBedrockRerankingModelConfiguration {
   modelArn: string;
-  additionalModelRequestFields?: Record<string, unknown>;
+  additionalModelRequestFields?: Partial<Record<string, unknown>>;
 }
 export interface VectorSearchRerankingConfiguration {
   type: VectorSearchRerankingConfigurationType;

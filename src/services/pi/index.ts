@@ -126,7 +126,7 @@ export declare class Pi extends PI {}
 
 export type AcceptLanguage = "EN_US";
 export type AdditionalMetricsList = Array<string>;
-export type AdditionalMetricsMap = Record<string, number>;
+export type AdditionalMetricsMap = Partial<Record<string, number>>;
 export type AmazonResourceName = string;
 
 export interface AnalysisReport {
@@ -190,7 +190,7 @@ export interface DescribeDimensionKeysRequest {
   GroupBy: DimensionGroup;
   AdditionalMetrics?: Array<string>;
   PartitionBy?: DimensionGroup;
-  Filter?: Record<string, string>;
+  Filter?: Partial<Record<string, string>>;
   MaxResults?: number;
   NextToken?: string;
 }
@@ -203,7 +203,7 @@ export interface DescribeDimensionKeysResponse {
 }
 export type Description = string;
 
-export type DescriptiveMap = Record<string, string>;
+export type DescriptiveMap = Partial<Record<string, string>>;
 export type DescriptiveString = string;
 
 export type DetailStatus = "AVAILABLE" | "PROCESSING" | "UNAVAILABLE";
@@ -222,9 +222,9 @@ export interface DimensionGroupDetail {
 }
 export type DimensionGroupDetailList = Array<DimensionGroupDetail>;
 export interface DimensionKeyDescription {
-  Dimensions?: Record<string, string>;
+  Dimensions?: Partial<Record<string, string>>;
   Total?: number;
-  AdditionalMetrics?: Record<string, number>;
+  AdditionalMetrics?: Partial<Record<string, number>>;
   Partitions?: Array<number>;
 }
 export type DimensionKeyDescriptionList = Array<DimensionKeyDescription>;
@@ -234,7 +234,7 @@ export interface DimensionKeyDetail {
   Status?: DetailStatus;
 }
 export type DimensionKeyDetailList = Array<DimensionKeyDetail>;
-export type DimensionMap = Record<string, string>;
+export type DimensionMap = Partial<Record<string, string>>;
 export type DimensionsMetricList = Array<string>;
 export type Double = number;
 
@@ -243,7 +243,7 @@ export type ErrorString = string;
 export interface FeatureMetadata {
   Status?: FeatureStatus;
 }
-export type FeatureMetadataMap = Record<string, FeatureMetadata>;
+export type FeatureMetadataMap = Partial<Record<string, FeatureMetadata>>;
 export type FeatureStatus =
   | "ENABLED"
   | "DISABLED"
@@ -281,7 +281,7 @@ export interface GetResourceMetadataRequest {
 }
 export interface GetResourceMetadataResponse {
   Identifier?: string;
-  Features?: Record<string, FeatureMetadata>;
+  Features?: Partial<Record<string, FeatureMetadata>>;
 }
 export interface GetResourceMetricsRequest {
   ServiceType: ServiceType;
@@ -391,9 +391,9 @@ export type MetricKeyDataPointsList = Array<MetricKeyDataPoints>;
 export interface MetricQuery {
   Metric: string;
   GroupBy?: DimensionGroup;
-  Filter?: Record<string, string>;
+  Filter?: Partial<Record<string, string>>;
 }
-export type MetricQueryFilterMap = Record<string, string>;
+export type MetricQueryFilterMap = Partial<Record<string, string>>;
 export type MetricQueryList = Array<MetricQuery>;
 export type MetricTypeList = Array<string>;
 export type MetricValuesList = Array<number>;
@@ -407,8 +407,8 @@ export declare class NotAuthorizedException extends EffectData.TaggedError(
 export interface PerformanceInsightsMetric {
   Metric?: string;
   DisplayName?: string;
-  Dimensions?: Record<string, string>;
-  Filter?: Record<string, string>;
+  Dimensions?: Partial<Record<string, string>>;
+  Filter?: Partial<Record<string, string>>;
   Value?: number;
 }
 export type PeriodAlignment = "END_TIME" | "START_TIME";
@@ -421,7 +421,7 @@ export type RequestedDimensionList = Array<string>;
 export type RequestString = string;
 
 export interface ResponsePartitionKey {
-  Dimensions: Record<string, string>;
+  Dimensions: Partial<Record<string, string>>;
 }
 export type ResponsePartitionKeyList = Array<ResponsePartitionKey>;
 export interface ResponseResourceMetric {
@@ -431,7 +431,7 @@ export interface ResponseResourceMetric {
 }
 export interface ResponseResourceMetricKey {
   Metric: string;
-  Dimensions?: Record<string, string>;
+  Dimensions?: Partial<Record<string, string>>;
 }
 export type ResponseResourceMetricList = Array<ResponseResourceMetric>;
 export type SanitizedString = string;

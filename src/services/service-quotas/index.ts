@@ -437,13 +437,13 @@ export type MaxResults = number;
 
 export type MetricDimensionName = string;
 
-export type MetricDimensionsMapDefinition = Record<string, string>;
+export type MetricDimensionsMapDefinition = Partial<Record<string, string>>;
 export type MetricDimensionValue = string;
 
 export interface MetricInfo {
   MetricNamespace?: string;
   MetricName?: string;
-  MetricDimensions?: Record<string, string>;
+  MetricDimensions?: Partial<Record<string, string>>;
   MetricStatisticRecommendation?: string;
 }
 export type NextToken = string;

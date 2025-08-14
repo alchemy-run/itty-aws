@@ -112,13 +112,13 @@ export interface CreateRuleGroupsNamespaceRequest {
   name: string;
   data: Uint8Array | string;
   clientToken?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateRuleGroupsNamespaceResponse {
   name: string;
   arn: string;
   status: RuleGroupsNamespaceStatus;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateScraperRequest {
   alias?: string;
@@ -127,25 +127,25 @@ export interface CreateScraperRequest {
   destination: Destination;
   roleConfiguration?: RoleConfiguration;
   clientToken?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateScraperResponse {
   scraperId: string;
   arn: string;
   status: ScraperStatus;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateWorkspaceRequest {
   alias?: string;
   clientToken?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   kmsKeyArn?: string;
 }
 export interface CreateWorkspaceResponse {
   workspaceId: string;
   arn: string;
   status: WorkspaceStatus;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   kmsKeyArn?: string;
 }
 export interface DeleteAlertManagerDefinitionRequest {
@@ -253,12 +253,12 @@ export type KmsKeyArn = string;
 
 export type LabelName = string;
 
-export type LabelSet = Record<string, string>;
+export type LabelSet = Partial<Record<string, string>>;
 export type LabelValue = string;
 
 export interface LimitsPerLabelSet {
   limits: LimitsPerLabelSetEntry;
-  labelSet: Record<string, string>;
+  labelSet: Partial<Record<string, string>>;
 }
 export interface LimitsPerLabelSetEntry {
   maxSeries?: number;
@@ -287,7 +287,7 @@ export interface ListTagsForResourceRequest {
   resourceArn: string;
 }
 export interface ListTagsForResourceResponse {
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface ListWorkspacesRequest {
   nextToken?: string;
@@ -341,7 +341,7 @@ export interface PutRuleGroupsNamespaceResponse {
   name: string;
   arn: string;
   status: RuleGroupsNamespaceStatus;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface QueryLoggingConfigurationMetadata {
   status: QueryLoggingConfigurationStatus;
@@ -378,7 +378,7 @@ export interface RuleGroupsNamespaceDescription {
   data: Uint8Array | string;
   createdAt: Date | string;
   modifiedAt: Date | string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type RuleGroupsNamespaceName = string;
 
@@ -394,7 +394,7 @@ export interface RuleGroupsNamespaceSummary {
   status: RuleGroupsNamespaceStatus;
   createdAt: Date | string;
   modifiedAt: Date | string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type RuleGroupsNamespaceSummaryList = Array<RuleGroupsNamespaceSummary>;
 interface _ScrapeConfiguration {
@@ -416,7 +416,7 @@ export interface ScraperDescription {
   status: ScraperStatus;
   createdAt: Date | string;
   lastModifiedAt: Date | string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   statusReason?: string;
   scrapeConfiguration: ScrapeConfiguration;
   source: Source;
@@ -439,7 +439,7 @@ export interface ScraperSummary {
   status: ScraperStatus;
   createdAt: Date | string;
   lastModifiedAt: Date | string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   statusReason?: string;
   source: Source;
   destination: Destination;
@@ -471,10 +471,10 @@ export type SubnetIds = Array<string>;
 export type TagKey = string;
 
 export type TagKeys = Array<string>;
-export type TagMap = Record<string, string>;
+export type TagMap = Partial<Record<string, string>>;
 export interface TagResourceRequest {
   resourceArn: string;
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
 export interface TagResourceResponse {}
 export type TagValue = string;
@@ -520,7 +520,7 @@ export interface UpdateScraperResponse {
   scraperId: string;
   arn: string;
   status: ScraperStatus;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface UpdateWorkspaceAliasRequest {
   workspaceId: string;
@@ -574,7 +574,7 @@ export interface WorkspaceDescription {
   status: WorkspaceStatus;
   prometheusEndpoint?: string;
   createdAt: Date | string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   kmsKeyArn?: string;
 }
 export type WorkspaceId = string;
@@ -590,7 +590,7 @@ export interface WorkspaceSummary {
   arn: string;
   status: WorkspaceStatus;
   createdAt: Date | string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   kmsKeyArn?: string;
 }
 export type WorkspaceSummaryList = Array<WorkspaceSummary>;

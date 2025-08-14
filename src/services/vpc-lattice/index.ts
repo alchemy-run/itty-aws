@@ -190,7 +190,7 @@ export interface CreateAccessLogSubscriptionRequest {
   resourceIdentifier: string;
   destinationArn: string;
   serviceNetworkLogType?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateAccessLogSubscriptionResponse {
   id: string;
@@ -207,7 +207,7 @@ export interface CreateListenerRequest {
   port?: number;
   defaultAction: RuleAction;
   clientToken?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateListenerResponse {
   arn?: string;
@@ -229,7 +229,7 @@ export interface CreateResourceConfigurationRequest {
   resourceConfigurationDefinition?: ResourceConfigurationDefinition;
   allowAssociationToShareableServiceNetwork?: boolean;
   clientToken?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateResourceConfigurationResponse {
   id?: string;
@@ -253,7 +253,7 @@ export interface CreateResourceGatewayRequest {
   subnetIds: Array<string>;
   securityGroupIds?: Array<string>;
   ipAddressType?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateResourceGatewayResponse {
   name?: string;
@@ -273,7 +273,7 @@ export interface CreateRuleRequest {
   priority: number;
   action: RuleAction;
   clientToken?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateRuleResponse {
   arn?: string;
@@ -287,14 +287,14 @@ export interface CreateServiceNetworkRequest {
   clientToken?: string;
   name: string;
   authType?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   sharingConfig?: SharingConfig;
 }
 export interface CreateServiceNetworkResourceAssociationRequest {
   clientToken?: string;
   resourceConfigurationIdentifier: string;
   serviceNetworkIdentifier: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateServiceNetworkResourceAssociationResponse {
   id?: string;
@@ -313,7 +313,7 @@ export interface CreateServiceNetworkServiceAssociationRequest {
   clientToken?: string;
   serviceIdentifier: string;
   serviceNetworkIdentifier: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateServiceNetworkServiceAssociationResponse {
   id?: string;
@@ -328,7 +328,7 @@ export interface CreateServiceNetworkVpcAssociationRequest {
   serviceNetworkIdentifier: string;
   vpcIdentifier: string;
   securityGroupIds?: Array<string>;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateServiceNetworkVpcAssociationResponse {
   id?: string;
@@ -340,7 +340,7 @@ export interface CreateServiceNetworkVpcAssociationResponse {
 export interface CreateServiceRequest {
   clientToken?: string;
   name: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   customDomainName?: string;
   certificateArn?: string;
   authType?: string;
@@ -360,7 +360,7 @@ export interface CreateTargetGroupRequest {
   type: string;
   config?: TargetGroupConfig;
   clientToken?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateTargetGroupResponse {
   id?: string;
@@ -903,7 +903,7 @@ export interface ListTagsForResourceRequest {
   resourceArn: string;
 }
 export interface ListTagsForResourceResponse {
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface ListTargetGroupsRequest {
   maxResults?: number;
@@ -1288,10 +1288,10 @@ export type SubnetList = Array<string>;
 export type TagKey = string;
 
 export type TagKeys = Array<string>;
-export type TagMap = Record<string, string>;
+export type TagMap = Partial<Record<string, string>>;
 export interface TagResourceRequest {
   resourceArn: string;
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
 export interface TagResourceResponse {}
 export type TagValue = string;

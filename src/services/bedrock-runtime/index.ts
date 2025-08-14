@@ -328,7 +328,7 @@ export interface ConverseRequest {
   toolConfig?: ToolConfiguration;
   guardrailConfig?: GuardrailConfiguration;
   additionalModelRequestFields?: unknown;
-  promptVariables?: Record<string, PromptVariableValues>;
+  promptVariables?: Partial<Record<string, PromptVariableValues>>;
   additionalModelResponseFieldPaths?: Array<string>;
   requestMetadata?: Record<string, string>;
   performanceConfig?: PerformanceConfiguration;
@@ -391,7 +391,7 @@ export interface ConverseStreamRequest {
   toolConfig?: ToolConfiguration;
   guardrailConfig?: GuardrailStreamConfiguration;
   additionalModelRequestFields?: unknown;
-  promptVariables?: Record<string, PromptVariableValues>;
+  promptVariables?: Partial<Record<string, PromptVariableValues>>;
   additionalModelResponseFieldPaths?: Array<string>;
   requestMetadata?: Record<string, string>;
   performanceConfig?: PerformanceConfiguration;
@@ -481,11 +481,12 @@ export interface GuardrailAssessment {
   invocationMetrics?: GuardrailInvocationMetrics;
 }
 export type GuardrailAssessmentList = Array<GuardrailAssessment>;
-export type GuardrailAssessmentListMap = Record<
-  string,
-  Array<GuardrailAssessment>
+export type GuardrailAssessmentListMap = Partial<
+  Record<string, Array<GuardrailAssessment>>
 >;
-export type GuardrailAssessmentMap = Record<string, GuardrailAssessment>;
+export type GuardrailAssessmentMap = Partial<
+  Record<string, GuardrailAssessment>
+>;
 export interface GuardrailConfiguration {
   guardrailIdentifier: string;
   guardrailVersion: string;
@@ -722,8 +723,8 @@ export type GuardrailTopicType = "DENY";
 export type GuardrailTrace = "ENABLED" | "DISABLED" | "ENABLED_FULL";
 export interface GuardrailTraceAssessment {
   modelOutput?: Array<string>;
-  inputAssessment?: Record<string, GuardrailAssessment>;
-  outputAssessments?: Record<string, Array<GuardrailAssessment>>;
+  inputAssessment?: Partial<Record<string, GuardrailAssessment>>;
+  outputAssessments?: Partial<Record<string, Array<GuardrailAssessment>>>;
   actionReason?: string;
 }
 export interface GuardrailUsage {
@@ -934,7 +935,7 @@ export interface PerformanceConfiguration {
 export interface PromptRouterTrace {
   invokedModelId?: string;
 }
-export type PromptVariableMap = Record<string, PromptVariableValues>;
+export type PromptVariableMap = Partial<Record<string, PromptVariableValues>>;
 interface _PromptVariableValues {
   text?: string;
 }

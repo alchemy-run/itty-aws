@@ -474,9 +474,8 @@ export interface GetTableBucketMaintenanceConfigurationRequest {
 }
 export interface GetTableBucketMaintenanceConfigurationResponse {
   tableBucketARN: string;
-  configuration: Record<
-    TableBucketMaintenanceType,
-    TableBucketMaintenanceConfigurationValue
+  configuration: Partial<
+    Record<TableBucketMaintenanceType, TableBucketMaintenanceConfigurationValue>
   >;
 }
 export interface GetTableBucketPolicyRequest {
@@ -511,9 +510,8 @@ export interface GetTableMaintenanceConfigurationRequest {
 }
 export interface GetTableMaintenanceConfigurationResponse {
   tableARN: string;
-  configuration: Record<
-    TableMaintenanceType,
-    TableMaintenanceConfigurationValue
+  configuration: Partial<
+    Record<TableMaintenanceType, TableMaintenanceConfigurationValue>
   >;
 }
 export interface GetTableMaintenanceJobStatusRequest {
@@ -523,7 +521,9 @@ export interface GetTableMaintenanceJobStatusRequest {
 }
 export interface GetTableMaintenanceJobStatusResponse {
   tableARN: string;
-  status: Record<TableMaintenanceJobType, TableMaintenanceJobStatusValue>;
+  status: Partial<
+    Record<TableMaintenanceJobType, TableMaintenanceJobStatusValue>
+  >;
 }
 export interface GetTableMetadataLocationRequest {
   tableBucketARN: string;
@@ -705,9 +705,8 @@ export type TableBucketARN = string;
 
 export type TableBucketId = string;
 
-export type TableBucketMaintenanceConfiguration = Record<
-  TableBucketMaintenanceType,
-  TableBucketMaintenanceConfigurationValue
+export type TableBucketMaintenanceConfiguration = Partial<
+  Record<TableBucketMaintenanceType, TableBucketMaintenanceConfigurationValue>
 >;
 export interface TableBucketMaintenanceConfigurationValue {
   status?: MaintenanceStatus;
@@ -733,17 +732,15 @@ export interface TableBucketSummary {
 }
 export type TableBucketSummaryList = Array<TableBucketSummary>;
 export type TableBucketType = "CUSTOMER" | "AWS";
-export type TableMaintenanceConfiguration = Record<
-  TableMaintenanceType,
-  TableMaintenanceConfigurationValue
+export type TableMaintenanceConfiguration = Partial<
+  Record<TableMaintenanceType, TableMaintenanceConfigurationValue>
 >;
 export interface TableMaintenanceConfigurationValue {
   status?: MaintenanceStatus;
   settings?: TableMaintenanceSettings;
 }
-export type TableMaintenanceJobStatus = Record<
-  TableMaintenanceJobType,
-  TableMaintenanceJobStatusValue
+export type TableMaintenanceJobStatus = Partial<
+  Record<TableMaintenanceJobType, TableMaintenanceJobStatusValue>
 >;
 export interface TableMaintenanceJobStatusValue {
   status: JobStatus;

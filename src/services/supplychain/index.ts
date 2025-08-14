@@ -141,7 +141,7 @@ export interface CreateDataIntegrationFlowRequest {
   sources: Array<DataIntegrationFlowSource>;
   transformation: DataIntegrationFlowTransformation;
   target: DataIntegrationFlowTarget;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateDataIntegrationFlowResponse {
   instanceId: string;
@@ -154,7 +154,7 @@ export interface CreateDataLakeDatasetRequest {
   schema?: DataLakeDatasetSchema;
   description?: string;
   partitionSpec?: DataLakeDatasetPartitionSpec;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateDataLakeDatasetResponse {
   dataset: DataLakeDataset;
@@ -163,7 +163,7 @@ export interface CreateDataLakeNamespaceRequest {
   instanceId: string;
   name: string;
   description?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateDataLakeNamespaceResponse {
   namespace: DataLakeNamespace;
@@ -173,7 +173,7 @@ export interface CreateInstanceRequest {
   instanceDescription?: string;
   kmsKeyArn?: string;
   webAppDnsDomain?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   clientToken?: string;
 }
 export interface CreateInstanceResponse {
@@ -632,7 +632,7 @@ export interface ListTagsForResourceRequest {
   resourceArn: string;
 }
 export interface ListTagsForResourceResponse {
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
 export declare class ResourceNotFoundException extends EffectData.TaggedError(
   "ResourceNotFoundException",
@@ -661,10 +661,10 @@ export declare class ServiceQuotaExceededException extends EffectData.TaggedErro
 export type TagKey = string;
 
 export type TagKeyList = Array<string>;
-export type TagMap = Record<string, string>;
+export type TagMap = Partial<Record<string, string>>;
 export interface TagResourceRequest {
   resourceArn: string;
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
 export interface TagResourceResponse {}
 export type TagValue = string;

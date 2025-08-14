@@ -548,7 +548,7 @@ describe("SQS Smoke Tests", () => {
     { timeout: 20000 },
   );
 
-  it.effect(
+  it.live(
     "should handle invalid queue operations gracefully",
     () =>
       Effect.gen(function* () {
@@ -561,9 +561,6 @@ describe("SQS Smoke Tests", () => {
           })
           .pipe(
             Effect.map(() => ({ success: true, error: undefined })),
-            Effect.catchTag("InvalidParameterValue", (error) =>
-              Effect.succeed({ success: false, error: error._tag }),
-            ),
             Effect.catchAll((error) =>
               Effect.succeed({
                 success: false,
@@ -582,9 +579,6 @@ describe("SQS Smoke Tests", () => {
           })
           .pipe(
             Effect.map(() => ({ success: true, error: undefined })),
-            Effect.catchTag("QueueDoesNotExist", (error) =>
-              Effect.succeed({ success: false, error: error._tag }),
-            ),
             Effect.catchAll((error) =>
               Effect.succeed({
                 success: false,

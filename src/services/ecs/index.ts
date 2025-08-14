@@ -892,7 +892,7 @@ export interface ContainerDefinition {
   dockerSecurityOptions?: Array<string>;
   interactive?: boolean;
   pseudoTerminal?: boolean;
-  dockerLabels?: Record<string, string>;
+  dockerLabels?: Partial<Record<string, string>>;
   ulimits?: Array<Ulimit>;
   logConfiguration?: LogConfiguration;
   healthCheck?: HealthCheck;
@@ -1274,13 +1274,13 @@ export interface DiscoverPollEndpointResponse {
   telemetryEndpoint?: string;
   serviceConnectEndpoint?: string;
 }
-export type DockerLabelsMap = Record<string, string>;
+export type DockerLabelsMap = Partial<Record<string, string>>;
 export interface DockerVolumeConfiguration {
   scope?: Scope;
   autoprovision?: boolean;
   driver?: string;
-  driverOpts?: Record<string, string>;
-  labels?: Record<string, string>;
+  driverOpts?: Partial<Record<string, string>>;
+  labels?: Partial<Record<string, string>>;
 }
 export type Double = number;
 
@@ -1360,9 +1360,9 @@ export interface Failure {
 export type Failures = Array<Failure>;
 export interface FirelensConfiguration {
   type: FirelensConfigurationType;
-  options?: Record<string, string>;
+  options?: Partial<Record<string, string>>;
 }
-export type FirelensConfigurationOptionsMap = Record<string, string>;
+export type FirelensConfigurationOptionsMap = Partial<Record<string, string>>;
 export type FirelensConfigurationType = "FLUENTD" | "FLUENTBIT";
 export interface FSxWindowsFileServerAuthorizationConfig {
   credentialsParameter: string;
@@ -1582,10 +1582,10 @@ export interface LoadBalancer {
 export type LoadBalancers = Array<LoadBalancer>;
 export interface LogConfiguration {
   logDriver: LogDriver;
-  options?: Record<string, string>;
+  options?: Partial<Record<string, string>>;
   secretOptions?: Array<Secret>;
 }
-export type LogConfigurationOptionsMap = Record<string, string>;
+export type LogConfigurationOptionsMap = Partial<Record<string, string>>;
 export type LogDriver =
   | "JSON_FILE"
   | "SYSLOG"
@@ -2187,7 +2187,7 @@ export interface StopTaskResponse {
 export type EcsString = string;
 
 export type StringList = Array<string>;
-export type StringMap = Record<string, string>;
+export type StringMap = Partial<Record<string, string>>;
 export interface SubmitAttachmentStateChangesRequest {
   cluster?: string;
   attachments: Array<AttachmentStateChange>;

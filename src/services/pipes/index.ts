@@ -59,7 +59,7 @@ export interface BatchJobDependency {
 }
 export type BatchJobDependencyType = string;
 
-export type BatchParametersMap = Record<string, string>;
+export type BatchParametersMap = Partial<Record<string, string>>;
 export interface BatchResourceRequirement {
   Type: string;
   Value: string;
@@ -261,7 +261,7 @@ export interface FirehoseLogDestinationParameters {
 }
 export type HeaderKey = string;
 
-export type HeaderParametersMap = Record<string, string>;
+export type HeaderParametersMap = Partial<Record<string, string>>;
 export type HeaderValue = string;
 
 export type IncludeExecutionData = Array<string>;
@@ -404,8 +404,8 @@ export type PipeDescription = string;
 
 export interface PipeEnrichmentHttpParameters {
   PathParameterValues?: Array<string>;
-  HeaderParameters?: Record<string, string>;
-  QueryStringParameters?: Record<string, string>;
+  HeaderParameters?: Partial<Record<string, string>>;
+  QueryStringParameters?: Partial<Record<string, string>>;
 }
 export interface PipeEnrichmentParameters {
   InputTemplate?: string;
@@ -506,7 +506,7 @@ export interface PipeTargetBatchJobParameters {
   RetryStrategy?: BatchRetryStrategy;
   ContainerOverrides?: BatchContainerOverrides;
   DependsOn?: Array<BatchJobDependency>;
-  Parameters?: Record<string, string>;
+  Parameters?: Partial<Record<string, string>>;
 }
 export interface PipeTargetCloudWatchLogsParameters {
   LogStreamName?: string;
@@ -538,8 +538,8 @@ export interface PipeTargetEventBridgeEventBusParameters {
 }
 export interface PipeTargetHttpParameters {
   PathParameterValues?: Array<string>;
-  HeaderParameters?: Record<string, string>;
-  QueryStringParameters?: Record<string, string>;
+  HeaderParameters?: Partial<Record<string, string>>;
+  QueryStringParameters?: Partial<Record<string, string>>;
 }
 export type PipeTargetInvocationType = string;
 
@@ -614,7 +614,7 @@ export type PropagateTags = string;
 
 export type QueryStringKey = string;
 
-export type QueryStringParametersMap = Record<string, string>;
+export type QueryStringParametersMap = Partial<Record<string, string>>;
 export type QueryStringValue = string;
 
 export type ReferenceId = string;

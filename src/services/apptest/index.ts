@@ -50,14 +50,14 @@ export type Arn = string;
 
 export interface Batch {
   batchJobName: string;
-  batchJobParameters?: Record<string, string>;
+  batchJobParameters?: Partial<Record<string, string>>;
   exportDataSetNames?: Array<string>;
 }
-export type BatchJobParameters = Record<string, string>;
+export type BatchJobParameters = Partial<Record<string, string>>;
 export interface BatchStepInput {
   resource: MainframeResourceSummary;
   batchJobName: string;
-  batchJobParameters?: Record<string, string>;
+  batchJobParameters?: Partial<Record<string, string>>;
   exportDataSetNames?: Array<string>;
   properties?: MainframeActionProperties;
 }
@@ -73,7 +73,7 @@ export interface BatchSummary {
 export type CaptureTool = "PRECISELY" | "AWS_DMS";
 export interface CloudFormation {
   templateLocation: string;
-  parameters?: Record<string, string>;
+  parameters?: Partial<Record<string, string>>;
 }
 export interface CloudFormationAction {
   resource: string;
@@ -146,11 +146,11 @@ export declare class ConflictException extends EffectData.TaggedError(
 }> {}
 export interface CreateCloudFormationStepInput {
   templateLocation: string;
-  parameters?: Record<string, string>;
+  parameters?: Partial<Record<string, string>>;
 }
 export interface CreateCloudFormationStepOutput {
   stackId: string;
-  exports?: Record<string, string>;
+  exports?: Partial<Record<string, string>>;
 }
 export interface CreateCloudFormationSummary {
   stepInput: CreateCloudFormationStepInput;
@@ -161,7 +161,7 @@ export interface CreateTestCaseRequest {
   description?: string;
   steps: Array<Step>;
   clientToken?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateTestCaseResponse {
   testCaseId: string;
@@ -171,9 +171,9 @@ export interface CreateTestConfigurationRequest {
   name: string;
   description?: string;
   resources: Array<Resource>;
-  properties?: Record<string, string>;
+  properties?: Partial<Record<string, string>>;
   clientToken?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   serviceSettings?: ServiceSettings;
 }
 export interface CreateTestConfigurationResponse {
@@ -187,7 +187,7 @@ export interface CreateTestSuiteRequest {
   afterSteps?: Array<Step>;
   testCases: TestCases;
   clientToken?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateTestSuiteResponse {
   testSuiteId: string;
@@ -261,7 +261,7 @@ export interface GetTestCaseResponse {
   creationTime: Date | string;
   lastUpdateTime: Date | string;
   steps: Array<Step>;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface GetTestConfigurationRequest {
   testConfigurationId: string;
@@ -279,8 +279,8 @@ export interface GetTestConfigurationResponse {
   lastUpdateTime: Date | string;
   description?: string;
   resources: Array<Resource>;
-  properties: Record<string, string>;
-  tags?: Record<string, string>;
+  properties: Partial<Record<string, string>>;
+  tags?: Partial<Record<string, string>>;
   serviceSettings?: ServiceSettings;
 }
 export interface GetTestRunStepRequest {
@@ -322,7 +322,7 @@ export interface GetTestSuiteResponse {
   beforeSteps: Array<Step>;
   afterSteps: Array<Step>;
   testCases: TestCases;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type IdempotencyTokenString = string;
 
@@ -348,7 +348,7 @@ export interface ListTagsForResourceRequest {
   resourceArn: string;
 }
 export interface ListTagsForResourceResponse {
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
 export interface ListTestCasesRequest {
   testCaseIds?: Array<string>;
@@ -432,7 +432,7 @@ export interface M2ManagedApplicationStepInput {
   properties?: M2ManagedActionProperties;
 }
 export interface M2ManagedApplicationStepOutput {
-  importDataSetSummary?: Record<string, string>;
+  importDataSetSummary?: Partial<Record<string, string>>;
 }
 export interface M2ManagedApplicationStepSummary {
   stepInput: M2ManagedApplicationStepInput;
@@ -522,7 +522,7 @@ export type Output = _Output & { file: OutputFile };
 export interface OutputFile {
   fileLocation?: string;
 }
-export type Properties = Record<string, string>;
+export type Properties = Partial<Record<string, string>>;
 export interface Resource {
   name: string;
   type: ResourceType;
@@ -609,7 +609,7 @@ export interface StartTestRunRequest {
   testSuiteId: string;
   testConfigurationId?: string;
   clientToken?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface StartTestRunResponse {
   testRunId: string;
@@ -649,10 +649,10 @@ export type String50 = string;
 export type TagKey = string;
 
 export type TagKeyList = Array<string>;
-export type TagMap = Record<string, string>;
+export type TagMap = Partial<Record<string, string>>;
 export interface TagResourceRequest {
   resourceArn: string;
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
 export interface TagResourceResponse {}
 export type TagValue = string;
@@ -814,7 +814,7 @@ export interface UpdateTestConfigurationRequest {
   testConfigurationId: string;
   description?: string;
   resources?: Array<Resource>;
-  properties?: Record<string, string>;
+  properties?: Partial<Record<string, string>>;
   serviceSettings?: ServiceSettings;
 }
 export interface UpdateTestConfigurationResponse {

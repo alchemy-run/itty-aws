@@ -1375,7 +1375,7 @@ export type IsDefaultConfiguration = boolean;
 export type IsDefaultVersion = boolean;
 
 export type JazzLogicalResourceIds = Array<string>;
-export type JazzResourceIdentifierProperties = Record<string, string>;
+export type JazzResourceIdentifierProperties = Partial<Record<string, string>>;
 export type JazzResourceIdentifierPropertyKey = string;
 
 export type JazzResourceIdentifierPropertyValue = string;
@@ -2073,12 +2073,12 @@ export interface ScanFilter {
 export type ScanFilters = Array<ScanFilter>;
 export interface ScannedResource {
   ResourceType?: string;
-  ResourceIdentifier?: Record<string, string>;
+  ResourceIdentifier?: Partial<Record<string, string>>;
   ManagedByStack?: boolean;
 }
 export interface ScannedResourceIdentifier {
   ResourceType: string;
-  ResourceIdentifier: Record<string, string>;
+  ResourceIdentifier: Partial<Record<string, string>>;
 }
 export type ScannedResourceIdentifiers = Array<ScannedResourceIdentifier>;
 export type ScannedResources = Array<ScannedResource>;

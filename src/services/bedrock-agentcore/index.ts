@@ -236,7 +236,7 @@ export type CredentialProviderName = string;
 
 export type CustomRequestKeyType = string;
 
-export type CustomRequestParametersType = Record<string, string>;
+export type CustomRequestParametersType = Partial<Record<string, string>>;
 export type CustomRequestValueType = string;
 
 export type DateTimestamp = Date | string;
@@ -333,7 +333,7 @@ export interface GetResourceOauth2TokenRequest {
   oauth2Flow: Oauth2FlowType;
   resourceOauth2ReturnUrl?: string;
   forceAuthentication?: boolean;
-  customParameters?: Record<string, string>;
+  customParameters?: Partial<Record<string, string>>;
 }
 export interface GetResourceOauth2TokenResponse {
   authorizationUrl?: string;

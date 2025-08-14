@@ -64,7 +64,7 @@ export declare class ConflictException extends EffectData.TaggedError(
 export interface CreateClusterInput {
   deletionProtectionEnabled?: boolean;
   kmsEncryptionKey?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   clientToken?: string;
   multiRegionProperties?: MultiRegionProperties;
 }
@@ -110,7 +110,7 @@ export interface GetClusterOutput {
   creationTime: Date | string;
   deletionProtectionEnabled: boolean;
   multiRegionProperties?: MultiRegionProperties;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   encryptionDetails?: EncryptionDetails;
 }
 export interface GetVpcEndpointServiceNameInput {
@@ -141,7 +141,7 @@ export interface ListTagsForResourceInput {
   resourceArn: string;
 }
 export interface ListTagsForResourceOutput {
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type MaxResults = number;
 
@@ -174,10 +174,10 @@ export declare class ServiceQuotaExceededException extends EffectData.TaggedErro
 export type TagKey = string;
 
 export type TagKeyList = Array<string>;
-export type TagMap = Record<string, string>;
+export type TagMap = Partial<Record<string, string>>;
 export interface TagResourceInput {
   resourceArn: string;
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
 export type TagValue = string;
 

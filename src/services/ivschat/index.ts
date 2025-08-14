@@ -185,7 +185,7 @@ export type BucketName = string;
 
 export type ChatToken = string;
 
-export type ChatTokenAttributes = Record<string, string>;
+export type ChatTokenAttributes = Partial<Record<string, string>>;
 export type ChatTokenCapabilities = Array<string>;
 export type ChatTokenCapability = string;
 
@@ -204,7 +204,7 @@ export interface CreateChatTokenRequest {
   userId: string;
   capabilities?: Array<string>;
   sessionDurationInMinutes?: number;
-  attributes?: Record<string, string>;
+  attributes?: Partial<Record<string, string>>;
 }
 export interface CreateChatTokenResponse {
   token?: string;
@@ -214,7 +214,7 @@ export interface CreateChatTokenResponse {
 export interface CreateLoggingConfigurationRequest {
   name?: string;
   destinationConfiguration: DestinationConfiguration;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateLoggingConfigurationResponse {
   arn?: string;
@@ -224,7 +224,7 @@ export interface CreateLoggingConfigurationResponse {
   name?: string;
   destinationConfiguration?: DestinationConfiguration;
   state?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type CreateLoggingConfigurationState = string;
 
@@ -233,7 +233,7 @@ export interface CreateRoomRequest {
   maximumMessageRatePerSecond?: number;
   maximumMessageLength?: number;
   messageReviewHandler?: MessageReviewHandler;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   loggingConfigurationIdentifiers?: Array<string>;
 }
 export interface CreateRoomResponse {
@@ -245,7 +245,7 @@ export interface CreateRoomResponse {
   maximumMessageRatePerSecond?: number;
   maximumMessageLength?: number;
   messageReviewHandler?: MessageReviewHandler;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   loggingConfigurationIdentifiers?: Array<string>;
 }
 export interface DeleteLoggingConfigurationRequest {
@@ -286,7 +286,7 @@ export interface DisconnectUserRequest {
 export interface DisconnectUserResponse {}
 export type ErrorMessage = string;
 
-export type EventAttributes = Record<string, string>;
+export type EventAttributes = Partial<Record<string, string>>;
 export type EventName = string;
 
 export type FallbackResult = string;
@@ -307,7 +307,7 @@ export interface GetLoggingConfigurationResponse {
   name?: string;
   destinationConfiguration?: DestinationConfiguration;
   state?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface GetRoomRequest {
   identifier: string;
@@ -321,7 +321,7 @@ export interface GetRoomResponse {
   maximumMessageRatePerSecond?: number;
   maximumMessageLength?: number;
   messageReviewHandler?: MessageReviewHandler;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   loggingConfigurationIdentifiers?: Array<string>;
 }
 export type ID = string;
@@ -358,7 +358,7 @@ export interface ListTagsForResourceRequest {
   resourceArn: string;
 }
 export interface ListTagsForResourceResponse {
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
 export type LoggingConfigurationArn = string;
 
@@ -380,7 +380,7 @@ export interface LoggingConfigurationSummary {
   name?: string;
   destinationConfiguration?: DestinationConfiguration;
   state?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type LogGroupName = string;
 
@@ -436,7 +436,7 @@ export interface RoomSummary {
   messageReviewHandler?: MessageReviewHandler;
   createTime?: Date | string;
   updateTime?: Date | string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   loggingConfigurationIdentifiers?: Array<string>;
 }
 export interface S3DestinationConfiguration {
@@ -445,7 +445,7 @@ export interface S3DestinationConfiguration {
 export interface SendEventRequest {
   roomIdentifier: string;
   eventName: string;
-  attributes?: Record<string, string>;
+  attributes?: Partial<Record<string, string>>;
 }
 export interface SendEventResponse {
   id?: string;
@@ -467,10 +467,10 @@ export type TagKey = string;
 export type TagKeyList = Array<string>;
 export interface TagResourceRequest {
   resourceArn: string;
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
 export interface TagResourceResponse {}
-export type Tags = Record<string, string>;
+export type Tags = Partial<Record<string, string>>;
 export type TagValue = string;
 
 export declare class ThrottlingException extends EffectData.TaggedError(
@@ -501,7 +501,7 @@ export interface UpdateLoggingConfigurationResponse {
   name?: string;
   destinationConfiguration?: DestinationConfiguration;
   state?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type UpdateLoggingConfigurationState = string;
 
@@ -522,7 +522,7 @@ export interface UpdateRoomResponse {
   maximumMessageRatePerSecond?: number;
   maximumMessageLength?: number;
   messageReviewHandler?: MessageReviewHandler;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   loggingConfigurationIdentifiers?: Array<string>;
 }
 export type UserID = string;

@@ -59,7 +59,7 @@ export interface AppMonitor {
   Id?: string;
   Created?: string;
   LastModified?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   State?: string;
   AppMonitorConfiguration?: AppMonitorConfiguration;
   DataStorage?: DataStorage;
@@ -155,7 +155,7 @@ export interface CreateAppMonitorRequest {
   Name: string;
   Domain?: string;
   DomainList?: Array<string>;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   AppMonitorConfiguration?: AppMonitorConfiguration;
   CwLogEnabled?: boolean;
   CustomEvents?: CustomEvents;
@@ -204,7 +204,7 @@ export type DestinationArn = string;
 
 export type DimensionKey = string;
 
-export type DimensionKeysMap = Record<string, string>;
+export type DimensionKeysMap = Partial<Record<string, string>>;
 export type DimensionName = string;
 
 export type EventData = string;
@@ -282,7 +282,7 @@ export interface ListTagsForResourceRequest {
 }
 export interface ListTagsForResourceResponse {
   ResourceArn: string;
-  Tags: Record<string, string>;
+  Tags: Partial<Record<string, string>>;
 }
 export declare class MalformedPolicyDocumentException extends EffectData.TaggedError(
   "MalformedPolicyDocumentException",
@@ -298,7 +298,7 @@ export interface MetricDefinition {
   Name: string;
   ValueKey?: string;
   UnitLabel?: string;
-  DimensionKeys?: Record<string, string>;
+  DimensionKeys?: Partial<Record<string, string>>;
   EventPattern?: string;
   Namespace?: string;
 }
@@ -309,7 +309,7 @@ export interface MetricDefinitionRequest {
   Name: string;
   ValueKey?: string;
   UnitLabel?: string;
-  DimensionKeys?: Record<string, string>;
+  DimensionKeys?: Partial<Record<string, string>>;
   EventPattern?: string;
   Namespace?: string;
 }
@@ -404,10 +404,10 @@ export type StateEnum = string;
 export type TagKey = string;
 
 export type TagKeyList = Array<string>;
-export type TagMap = Record<string, string>;
+export type TagMap = Partial<Record<string, string>>;
 export interface TagResourceRequest {
   ResourceArn: string;
-  Tags: Record<string, string>;
+  Tags: Partial<Record<string, string>>;
 }
 export interface TagResourceResponse {}
 export type TagValue = string;

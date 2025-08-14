@@ -1193,7 +1193,9 @@ export interface BucketCountPolicyAllowsUnencryptedObjectUploads {
   deniesUnencryptedObjectUploads?: number;
   unknown?: number;
 }
-export type BucketCriteria = Record<string, BucketCriteriaAdditionalProperties>;
+export type BucketCriteria = Partial<
+  Record<string, BucketCriteriaAdditionalProperties>
+>;
 export interface BucketCriteriaAdditionalProperties {
   eq?: Array<string>;
   gt?: number;
@@ -1314,7 +1316,7 @@ export interface CreateAllowListRequest {
   criteria: AllowListCriteria;
   description?: string;
   name: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateAllowListResponse {
   arn?: string;
@@ -1333,7 +1335,7 @@ export interface CreateClassificationJobRequest {
   s3JobDefinition: S3JobDefinition;
   samplingPercentage?: number;
   scheduleFrequency?: JobScheduleFrequency;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateClassificationJobResponse {
   jobArn?: string;
@@ -1348,7 +1350,7 @@ export interface CreateCustomDataIdentifierRequest {
   name: string;
   regex: string;
   severityLevels?: Array<SeverityLevel>;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateCustomDataIdentifierResponse {
   customDataIdentifierId?: string;
@@ -1360,7 +1362,7 @@ export interface CreateFindingsFilterRequest {
   findingCriteria: FindingCriteria;
   name: string;
   position?: number;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateFindingsFilterResponse {
   arn?: string;
@@ -1376,7 +1378,7 @@ export interface CreateInvitationsResponse {
 }
 export interface CreateMemberRequest {
   account: AccountDetail;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateMemberResponse {
   arn?: string;
@@ -1392,7 +1394,7 @@ export interface CriteriaForJob {
   simpleCriterion?: SimpleCriterionForJob;
   tagCriterion?: TagCriterionForJob;
 }
-export type Criterion = Record<string, CriterionAdditionalProperties>;
+export type Criterion = Partial<Record<string, CriterionAdditionalProperties>>;
 export interface CriterionAdditionalProperties {
   eq?: Array<string>;
   eqExactMatch?: Array<string>;
@@ -1468,7 +1470,7 @@ export interface DeleteMemberRequest {
 }
 export interface DeleteMemberResponse {}
 export interface DescribeBucketsRequest {
-  criteria?: Record<string, BucketCriteriaAdditionalProperties>;
+  criteria?: Partial<Record<string, BucketCriteriaAdditionalProperties>>;
   maxResults?: number;
   nextToken?: string;
   sortCriteria?: BucketSortCriteria;
@@ -1500,7 +1502,7 @@ export interface DescribeClassificationJobResponse {
   samplingPercentage?: number;
   scheduleFrequency?: JobScheduleFrequency;
   statistics?: Statistics;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   userPausedDetails?: UserPausedDetails;
 }
 export interface DescribeOrganizationConfigurationRequest {}
@@ -1594,7 +1596,7 @@ export interface FindingActor {
 }
 export type FindingCategory = "CLASSIFICATION" | "POLICY";
 export interface FindingCriteria {
-  criterion?: Record<string, CriterionAdditionalProperties>;
+  criterion?: Partial<Record<string, CriterionAdditionalProperties>>;
 }
 export type FindingPublishingFrequency =
   | "FIFTEEN_MINUTES"
@@ -1606,7 +1608,7 @@ export interface FindingsFilterListItem {
   arn?: string;
   id?: string;
   name?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type FindingStatisticsSortAttributeName = "groupKey" | "count";
 export interface FindingStatisticsSortCriteria {
@@ -1640,7 +1642,7 @@ export interface GetAllowListResponse {
   id?: string;
   name?: string;
   status?: AllowListStatus;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   updatedAt?: Date | string;
 }
 export interface GetAutomatedDiscoveryConfigurationRequest {}
@@ -1699,7 +1701,7 @@ export interface GetCustomDataIdentifierResponse {
   name?: string;
   regex?: string;
   severityLevels?: Array<SeverityLevel>;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface GetFindingsFilterRequest {
   id: string;
@@ -1712,7 +1714,7 @@ export interface GetFindingsFilterResponse {
   id?: string;
   name?: string;
   position?: number;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface GetFindingsPublicationConfigurationRequest {}
 export interface GetFindingsPublicationConfigurationResponse {
@@ -1761,7 +1763,7 @@ export interface GetMemberResponse {
   invitedAt?: Date | string;
   masterAccountId?: string;
   relationshipStatus?: RelationshipStatus;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   updatedAt?: Date | string;
 }
 export interface GetResourceProfileRequest {
@@ -1790,7 +1792,9 @@ export interface GetSensitiveDataOccurrencesRequest {
 }
 export interface GetSensitiveDataOccurrencesResponse {
   error?: string;
-  sensitiveDataOccurrences?: Record<string, Array<DetectedDataDetails>>;
+  sensitiveDataOccurrences?: Partial<
+    Record<string, Array<DetectedDataDetails>>
+  >;
   status?: RevealRequestStatus;
 }
 export interface GetSensitivityInspectionTemplateRequest {
@@ -2070,7 +2074,7 @@ export interface ListTagsForResourceRequest {
   resourceArn: string;
 }
 export interface ListTagsForResourceResponse {
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type MacieStatus = "PAUSED" | "ENABLED";
 export type ManagedDataIdentifierSelector =
@@ -2114,7 +2118,7 @@ export interface Member {
   invitedAt?: Date | string;
   masterAccountId?: string;
   relationshipStatus?: RelationshipStatus;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   updatedAt?: Date | string;
 }
 export interface MonthlySchedule {
@@ -2369,9 +2373,8 @@ export type SensitiveDataItemCategory =
   | "PERSONAL_INFORMATION"
   | "CREDENTIALS"
   | "CUSTOM_IDENTIFIER";
-export type SensitiveDataOccurrences = Record<
-  string,
-  Array<DetectedDataDetails>
+export type SensitiveDataOccurrences = Partial<
+  Record<string, Array<DetectedDataDetails>>
 >;
 export interface SensitivityAggregations {
   classifiableSizeInBytes?: number;
@@ -2478,10 +2481,10 @@ export interface TagCriterionPairForJob {
   key?: string;
   value?: string;
 }
-export type TagMap = Record<string, string>;
+export type TagMap = Partial<Record<string, string>>;
 export interface TagResourceRequest {
   resourceArn: string;
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
 export interface TagResourceResponse {}
 export interface TagScopeTerm {

@@ -1330,7 +1330,7 @@ export interface AutomationRulesFindingFieldsUpdate {
   Confidence?: number;
   Criticality?: number;
   Types?: Array<string>;
-  UserDefinedFields?: Record<string, string>;
+  UserDefinedFields?: Partial<Record<string, string>>;
   Workflow?: WorkflowUpdate;
   RelatedFindings?: Array<RelatedFinding>;
 }
@@ -1471,7 +1471,7 @@ export interface AwsApiCallAction {
   CallerType?: string;
   RemoteIpDetails?: ActionRemoteIpDetails;
   DomainDetails?: AwsApiCallActionDomainDetails;
-  AffectedResources?: Record<string, string>;
+  AffectedResources?: Partial<Record<string, string>>;
   FirstSeen?: string;
   LastSeen?: string;
 }
@@ -1485,7 +1485,7 @@ export interface AwsApiGatewayAccessLogSettings {
 export interface AwsApiGatewayCanarySettings {
   PercentTraffic?: number;
   DeploymentId?: string;
-  StageVariableOverrides?: Record<string, string>;
+  StageVariableOverrides?: Partial<Record<string, string>>;
   UseStageCache?: boolean;
 }
 export interface AwsApiGatewayEndpointConfiguration {
@@ -1527,7 +1527,7 @@ export interface AwsApiGatewayStageDetails {
   CacheClusterSize?: string;
   CacheClusterStatus?: string;
   MethodSettings?: Array<AwsApiGatewayMethodSettings>;
-  Variables?: Record<string, string>;
+  Variables?: Partial<Record<string, string>>;
   DocumentationVersion?: string;
   AccessLogSettings?: AwsApiGatewayAccessLogSettings;
   CanarySettings?: AwsApiGatewayCanarySettings;
@@ -1564,7 +1564,7 @@ export interface AwsApiGatewayV2StageDetails {
   LastUpdatedDate?: string;
   RouteSettings?: AwsApiGatewayV2RouteSettings;
   StageName?: string;
-  StageVariables?: Record<string, string>;
+  StageVariables?: Partial<Record<string, string>>;
   AccessLogSettings?: AwsApiGatewayAccessLogSettings;
   AutoDeploy?: boolean;
   LastDeploymentStatusMessage?: string;
@@ -1724,7 +1724,7 @@ export interface AwsAutoScalingLaunchConfigurationMetadataOptions {
   HttpTokens?: string;
 }
 export interface AwsBackupBackupPlanAdvancedBackupSettingsDetails {
-  BackupOptions?: Record<string, string>;
+  BackupOptions?: Partial<Record<string, string>>;
   ResourceType?: string;
 }
 export type AwsBackupBackupPlanAdvancedBackupSettingsList =
@@ -3010,7 +3010,7 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsDetails {
   DisableNetworking?: boolean;
   DnsSearchDomains?: Array<string>;
   DnsServers?: Array<string>;
-  DockerLabels?: Record<string, string>;
+  DockerLabels?: Partial<Record<string, string>>;
   DockerSecurityOptions?: Array<string>;
   EntryPoint?: Array<string>;
   Environment?: Array<AwsEcsTaskDefinitionContainerDefinitionsEnvironmentDetails>;
@@ -3063,7 +3063,7 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails {
 export type AwsEcsTaskDefinitionContainerDefinitionsExtraHostsList =
   Array<AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails>;
 export interface AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails {
-  Options?: Record<string, string>;
+  Options?: Partial<Record<string, string>>;
   Type?: string;
 }
 export interface AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails {
@@ -3104,7 +3104,7 @@ export type AwsEcsTaskDefinitionContainerDefinitionsList =
   Array<AwsEcsTaskDefinitionContainerDefinitionsDetails>;
 export interface AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails {
   LogDriver?: string;
-  Options?: Record<string, string>;
+  Options?: Partial<Record<string, string>>;
   SecretOptions?: Array<AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetails>;
 }
 export interface AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetails {
@@ -3210,8 +3210,8 @@ export interface AwsEcsTaskDefinitionVolumesDetails {
 export interface AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails {
   Autoprovision?: boolean;
   Driver?: string;
-  DriverOpts?: Record<string, string>;
-  Labels?: Record<string, string>;
+  DriverOpts?: Partial<Record<string, string>>;
+  Labels?: Partial<Record<string, string>>;
   Scope?: string;
 }
 export interface AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails {
@@ -3339,7 +3339,7 @@ export interface AwsElasticsearchDomainDetails {
   DomainId?: string;
   DomainName?: string;
   Endpoint?: string;
-  Endpoints?: Record<string, string>;
+  Endpoints?: Partial<Record<string, string>>;
   ElasticsearchVersion?: string;
   ElasticsearchClusterConfig?: AwsElasticsearchDomainElasticsearchClusterConfigDetails;
   EncryptionAtRestOptions?: AwsElasticsearchDomainEncryptionAtRestOptions;
@@ -3778,7 +3778,7 @@ export interface AwsLambdaFunctionDetails {
   PackageType?: string;
 }
 export interface AwsLambdaFunctionEnvironment {
-  Variables?: Record<string, string>;
+  Variables?: Partial<Record<string, string>>;
   Error?: AwsLambdaFunctionEnvironmentError;
 }
 export interface AwsLambdaFunctionEnvironmentError {
@@ -3921,7 +3921,7 @@ export interface AwsOpenSearchServiceDomainDetails {
   DomainEndpointOptions?: AwsOpenSearchServiceDomainDomainEndpointOptionsDetails;
   VpcOptions?: AwsOpenSearchServiceDomainVpcOptionsDetails;
   LogPublishingOptions?: AwsOpenSearchServiceDomainLogPublishingOptionsDetails;
-  DomainEndpoints?: Record<string, string>;
+  DomainEndpoints?: Partial<Record<string, string>>;
   AdvancedSecurityOptions?: AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetails;
 }
 export interface AwsOpenSearchServiceDomainDomainEndpointOptionsDetails {
@@ -4673,8 +4673,8 @@ export interface AwsSecurityFinding {
   Description: string;
   Remediation?: Remediation;
   SourceUrl?: string;
-  ProductFields?: Record<string, string>;
-  UserDefinedFields?: Record<string, string>;
+  ProductFields?: Partial<Record<string, string>>;
+  UserDefinedFields?: Partial<Record<string, string>>;
   Malware?: Array<Malware>;
   Network?: Network;
   NetworkPath?: Array<NetworkPathComponent>;
@@ -5165,7 +5165,7 @@ export interface BatchUpdateFindingsRequest {
   Confidence?: number;
   Criticality?: number;
   Types?: Array<string>;
-  UserDefinedFields?: Record<string, string>;
+  UserDefinedFields?: Partial<Record<string, string>>;
   Workflow?: WorkflowUpdate;
   RelatedFindings?: Array<RelatedFinding>;
 }
@@ -5733,7 +5733,7 @@ export interface EnumListConfigurationOptions {
 export interface ExternalIntegrationConfiguration {
   ConnectorArn?: string;
 }
-export type FieldMap = Record<string, string>;
+export type FieldMap = Partial<Record<string, string>>;
 export type FilePathList = Array<FilePaths>;
 export interface FilePaths {
   FilePath?: string;
@@ -6534,8 +6534,8 @@ export interface ParameterDefinition {
   Description: string;
   ConfigurationOptions: ConfigurationOptions;
 }
-export type ParameterDefinitions = Record<string, ParameterDefinition>;
-export type Parameters = Record<string, ParameterConfiguration>;
+export type ParameterDefinitions = Partial<Record<string, ParameterDefinition>>;
+export type Parameters = Partial<Record<string, ParameterConfiguration>>;
 interface _ParameterValue {
   Integer?: number;
   IntegerList?: Array<number>;
@@ -6691,7 +6691,7 @@ export interface Resource {
   Partition?: Partition;
   Region?: string;
   ResourceRole?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   DataClassification?: DataClassificationDetails;
   Details?: ResourceDetails;
   ApplicationName?: string;
@@ -6764,7 +6764,7 @@ export interface ResourceDetails {
   AwsEcsContainer?: AwsEcsContainerDetails;
   AwsEcsTaskDefinition?: AwsEcsTaskDefinitionDetails;
   Container?: ContainerDetails;
-  Other?: Record<string, string>;
+  Other?: Partial<Record<string, string>>;
   AwsRdsEventSubscription?: AwsRdsEventSubscriptionDetails;
   AwsEcsService?: AwsEcsServiceDetails;
   AwsAutoScalingLaunchConfiguration?: AwsAutoScalingLaunchConfigurationDetails;
@@ -7080,12 +7080,12 @@ export interface SecurityControl {
   SeverityRating: SeverityRating;
   SecurityControlStatus: ControlStatus;
   UpdateStatus?: UpdateStatus;
-  Parameters?: Record<string, ParameterConfiguration>;
+  Parameters?: Partial<Record<string, ParameterConfiguration>>;
   LastUpdateReason?: string;
 }
 export interface SecurityControlCustomParameter {
   SecurityControlId?: string;
-  Parameters?: Record<string, ParameterConfiguration>;
+  Parameters?: Partial<Record<string, ParameterConfiguration>>;
 }
 export type SecurityControlCustomParametersList =
   Array<SecurityControlCustomParameter>;
@@ -7097,7 +7097,7 @@ export interface SecurityControlDefinition {
   SeverityRating: SeverityRating;
   CurrentRegionAvailability: RegionAvailabilityStatus;
   CustomizableProperties?: Array<SecurityControlProperty>;
-  ParameterDefinitions?: Record<string, ParameterDefinition>;
+  ParameterDefinitions?: Partial<Record<string, ParameterDefinition>>;
 }
 export type SecurityControlDefinitions = Array<SecurityControlDefinition>;
 export interface SecurityControlParameter {
@@ -7274,7 +7274,7 @@ export type StandardsControls = Array<StandardsControl>;
 export type StandardsControlsUpdatable =
   | "READY_FOR_UPDATES"
   | "NOT_READY_FOR_UPDATES";
-export type StandardsInputParameterMap = Record<string, string>;
+export type StandardsInputParameterMap = Partial<Record<string, string>>;
 export interface StandardsManagedBy {
   Company?: string;
   Product?: string;
@@ -7291,7 +7291,7 @@ export interface StandardsStatusReason {
 export interface StandardsSubscription {
   StandardsSubscriptionArn: string;
   StandardsArn: string;
-  StandardsInput: Record<string, string>;
+  StandardsInput: Partial<Record<string, string>>;
   StandardsStatus: StandardsStatus;
   StandardsControlsUpdatable?: StandardsControlsUpdatable;
   StandardsStatusReason?: StandardsStatusReason;
@@ -7299,7 +7299,7 @@ export interface StandardsSubscription {
 export type StandardsSubscriptionArns = Array<string>;
 export interface StandardsSubscriptionRequest {
   StandardsArn: string;
-  StandardsInput?: Record<string, string>;
+  StandardsInput?: Partial<Record<string, string>>;
 }
 export type StandardsSubscriptionRequests = Array<StandardsSubscriptionRequest>;
 export type StandardsSubscriptions = Array<StandardsSubscription>;
@@ -7569,7 +7569,7 @@ export interface UpdateOrganizationConfigurationRequest {
 export interface UpdateOrganizationConfigurationResponse {}
 export interface UpdateSecurityControlRequest {
   SecurityControlId: string;
-  Parameters: Record<string, ParameterConfiguration>;
+  Parameters: Partial<Record<string, ParameterConfiguration>>;
   LastUpdateReason?: string;
 }
 export interface UpdateSecurityControlResponse {}

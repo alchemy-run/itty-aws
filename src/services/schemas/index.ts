@@ -418,7 +418,7 @@ export interface CreateDiscovererRequest {
   Description?: string;
   SourceArn: string;
   CrossAccount?: boolean;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateDiscovererResponse {
   Description?: string;
@@ -427,25 +427,25 @@ export interface CreateDiscovererResponse {
   SourceArn?: string;
   State?: DiscovererState;
   CrossAccount?: boolean;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateRegistryRequest {
   Description?: string;
   RegistryName: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateRegistryResponse {
   Description?: string;
   RegistryArn?: string;
   RegistryName?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateSchemaRequest {
   Content: string;
   Description?: string;
   RegistryName: string;
   SchemaName: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   Type: Type;
 }
 export interface CreateSchemaResponse {
@@ -454,7 +454,7 @@ export interface CreateSchemaResponse {
   SchemaArn?: string;
   SchemaName?: string;
   SchemaVersion?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   Type?: string;
   VersionCreatedDate?: Date | string;
 }
@@ -498,7 +498,7 @@ export interface DescribeDiscovererResponse {
   SourceArn?: string;
   State?: DiscovererState;
   CrossAccount?: boolean;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface DescribeRegistryRequest {
   RegistryName: string;
@@ -507,7 +507,7 @@ export interface DescribeRegistryResponse {
   Description?: string;
   RegistryArn?: string;
   RegistryName?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface DescribeSchemaRequest {
   RegistryName: string;
@@ -521,7 +521,7 @@ export interface DescribeSchemaResponse {
   SchemaArn?: string;
   SchemaName?: string;
   SchemaVersion?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   Type?: string;
   VersionCreatedDate?: Date | string;
 }
@@ -532,7 +532,7 @@ export interface DiscovererSummary {
   SourceArn?: string;
   State?: DiscovererState;
   CrossAccount?: boolean;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface ExportSchemaRequest {
   RegistryName: string;
@@ -634,7 +634,7 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string;
 }
 export interface ListTagsForResourceResponse {
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export declare class NotFoundException extends EffectData.TaggedError(
   "NotFoundException",
@@ -672,13 +672,13 @@ export interface PutResourcePolicyResponse {
 export interface RegistrySummary {
   RegistryArn?: string;
   RegistryName?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface SchemaSummary {
   LastModified?: Date | string;
   SchemaArn?: string;
   SchemaName?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   VersionCount?: number;
 }
 export interface SchemaVersionSummary {
@@ -732,9 +732,9 @@ export type SynthesizedJson__string = string;
 
 export interface TagResourceRequest {
   ResourceArn: string;
-  Tags: Record<string, string>;
+  Tags: Partial<Record<string, string>>;
 }
-export type Tags = Record<string, string>;
+export type Tags = Partial<Record<string, string>>;
 export declare class TooManyRequestsException extends EffectData.TaggedError(
   "TooManyRequestsException",
 )<{
@@ -764,7 +764,7 @@ export interface UpdateDiscovererResponse {
   SourceArn?: string;
   State?: DiscovererState;
   CrossAccount?: boolean;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface UpdateRegistryRequest {
   Description?: string;
@@ -774,7 +774,7 @@ export interface UpdateRegistryResponse {
   Description?: string;
   RegistryArn?: string;
   RegistryName?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface UpdateSchemaRequest {
   ClientTokenId?: string;
@@ -790,7 +790,7 @@ export interface UpdateSchemaResponse {
   SchemaArn?: string;
   SchemaName?: string;
   SchemaVersion?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   Type?: string;
   VersionCreatedDate?: Date | string;
 }

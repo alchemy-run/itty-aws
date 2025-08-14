@@ -217,8 +217,8 @@ export interface CreateEnvironmentRequest {
   desiredSoftwareSetId?: string;
   kmsKeyArn?: string;
   clientToken?: string;
-  tags?: Record<string, string>;
-  deviceCreationTags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
+  deviceCreationTags?: Partial<Record<string, string>>;
 }
 export interface CreateEnvironmentResponse {
   environment?: EnvironmentSummary;
@@ -276,7 +276,7 @@ export interface Device {
 }
 export type DeviceCreationTagKey = string;
 
-export type DeviceCreationTagsMap = Record<string, string>;
+export type DeviceCreationTagsMap = Partial<Record<string, string>>;
 export type DeviceCreationTagValue = string;
 
 export type DeviceId = string;
@@ -330,7 +330,7 @@ export interface Environment {
   updatedAt?: Date | string;
   arn?: string;
   kmsKeyArn?: string;
-  deviceCreationTags?: Record<string, string>;
+  deviceCreationTags?: Partial<Record<string, string>>;
 }
 export type EnvironmentId = string;
 
@@ -417,7 +417,7 @@ export interface ListTagsForResourceRequest {
   resourceArn: string;
 }
 export interface ListTagsForResourceResponse {
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface MaintenanceWindow {
   type: MaintenanceWindowType;
@@ -500,10 +500,10 @@ export type SoftwareSetValidationStatus = "VALIDATED" | "NOT_VALIDATED";
 export type TagKeys = Array<string>;
 export interface TagResourceRequest {
   resourceArn: string;
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
 export interface TagResourceResponse {}
-export type TagsMap = Record<string, string>;
+export type TagsMap = Partial<Record<string, string>>;
 export type TargetDeviceStatus = "DEREGISTERED" | "ARCHIVED";
 export declare class ThrottlingException extends EffectData.TaggedError(
   "ThrottlingException",
@@ -538,7 +538,7 @@ export interface UpdateEnvironmentRequest {
   maintenanceWindow?: MaintenanceWindow;
   softwareSetUpdateMode?: SoftwareSetUpdateMode;
   desiredSoftwareSetId?: string;
-  deviceCreationTags?: Record<string, string>;
+  deviceCreationTags?: Partial<Record<string, string>>;
 }
 export interface UpdateEnvironmentResponse {
   environment?: EnvironmentSummary;

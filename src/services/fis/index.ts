@@ -174,9 +174,9 @@ export interface Action {
   id?: string;
   arn?: string;
   description?: string;
-  parameters?: Record<string, ActionParameter>;
-  targets?: Record<string, ActionTarget>;
-  tags?: Record<string, string>;
+  parameters?: Partial<Record<string, ActionParameter>>;
+  targets?: Partial<Record<string, ActionTarget>>;
+  tags?: Partial<Record<string, string>>;
 }
 export type ActionDescription = string;
 
@@ -188,7 +188,7 @@ export interface ActionParameter {
 }
 export type ActionParameterDescription = string;
 
-export type ActionParameterMap = Record<string, ActionParameter>;
+export type ActionParameterMap = Partial<Record<string, ActionParameter>>;
 export type ActionParameterName = string;
 
 export type ActionParameterRequired = boolean;
@@ -198,14 +198,14 @@ export interface ActionSummary {
   id?: string;
   arn?: string;
   description?: string;
-  targets?: Record<string, ActionTarget>;
-  tags?: Record<string, string>;
+  targets?: Partial<Record<string, ActionTarget>>;
+  tags?: Partial<Record<string, string>>;
 }
 export type ActionSummaryList = Array<ActionSummary>;
 export interface ActionTarget {
   resourceType?: string;
 }
-export type ActionTargetMap = Record<string, ActionTarget>;
+export type ActionTargetMap = Partial<Record<string, ActionTarget>>;
 export type ActionTargetName = string;
 
 export type ClientToken = string;
@@ -220,13 +220,12 @@ export declare class ConflictException extends EffectData.TaggedError(
 export interface CreateExperimentTemplateActionInput {
   actionId: string;
   description?: string;
-  parameters?: Record<string, string>;
-  targets?: Record<string, string>;
+  parameters?: Partial<Record<string, string>>;
+  targets?: Partial<Record<string, string>>;
   startAfter?: Array<string>;
 }
-export type CreateExperimentTemplateActionInputMap = Record<
-  string,
-  CreateExperimentTemplateActionInput
+export type CreateExperimentTemplateActionInputMap = Partial<
+  Record<string, CreateExperimentTemplateActionInput>
 >;
 export interface CreateExperimentTemplateExperimentOptionsInput {
   accountTargeting?: AccountTargeting;
@@ -247,10 +246,10 @@ export interface CreateExperimentTemplateRequest {
   clientToken: string;
   description: string;
   stopConditions: Array<CreateExperimentTemplateStopConditionInput>;
-  targets?: Record<string, CreateExperimentTemplateTargetInput>;
-  actions: Record<string, CreateExperimentTemplateActionInput>;
+  targets?: Partial<Record<string, CreateExperimentTemplateTargetInput>>;
+  actions: Partial<Record<string, CreateExperimentTemplateActionInput>>;
   roleArn: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   logConfiguration?: CreateExperimentTemplateLogConfigurationInput;
   experimentOptions?: CreateExperimentTemplateExperimentOptionsInput;
   experimentReportConfiguration?: CreateExperimentTemplateReportConfigurationInput;
@@ -267,14 +266,13 @@ export type CreateExperimentTemplateStopConditionInputList =
 export interface CreateExperimentTemplateTargetInput {
   resourceType: string;
   resourceArns?: Array<string>;
-  resourceTags?: Record<string, string>;
+  resourceTags?: Partial<Record<string, string>>;
   filters?: Array<ExperimentTemplateTargetInputFilter>;
   selectionMode: string;
-  parameters?: Record<string, string>;
+  parameters?: Partial<Record<string, string>>;
 }
-export type CreateExperimentTemplateTargetInputMap = Record<
-  string,
-  CreateExperimentTemplateTargetInput
+export type CreateExperimentTemplateTargetInputMap = Partial<
+  Record<string, CreateExperimentTemplateTargetInput>
 >;
 export interface CreateTargetAccountConfigurationRequest {
   clientToken?: string;
@@ -310,13 +308,13 @@ export interface Experiment {
   experimentTemplateId?: string;
   roleArn?: string;
   state?: ExperimentState;
-  targets?: Record<string, ExperimentTarget>;
-  actions?: Record<string, ExperimentAction>;
+  targets?: Partial<Record<string, ExperimentTarget>>;
+  actions?: Partial<Record<string, ExperimentAction>>;
   stopConditions?: Array<ExperimentStopCondition>;
   creationTime?: Date | string;
   startTime?: Date | string;
   endTime?: Date | string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   logConfiguration?: ExperimentLogConfiguration;
   experimentOptions?: ExperimentOptions;
   targetAccountConfigurationsCount?: number;
@@ -326,8 +324,8 @@ export interface Experiment {
 export interface ExperimentAction {
   actionId?: string;
   description?: string;
-  parameters?: Record<string, string>;
-  targets?: Record<string, string>;
+  parameters?: Partial<Record<string, string>>;
+  targets?: Partial<Record<string, string>>;
   startAfter?: Array<string>;
   state?: ExperimentActionState;
   startTime?: Date | string;
@@ -337,12 +335,12 @@ export type ExperimentActionDescription = string;
 
 export type ExperimentActionEndTime = Date | string;
 
-export type ExperimentActionMap = Record<string, ExperimentAction>;
+export type ExperimentActionMap = Partial<Record<string, ExperimentAction>>;
 export type ExperimentActionName = string;
 
 export type ExperimentActionParameter = string;
 
-export type ExperimentActionParameterMap = Record<string, string>;
+export type ExperimentActionParameterMap = Partial<Record<string, string>>;
 export type ExperimentActionParameterName = string;
 
 export type ExperimentActionStartAfter = string;
@@ -366,7 +364,7 @@ export type ExperimentActionStatus =
   | "skipped";
 export type ExperimentActionStatusReason = string;
 
-export type ExperimentActionTargetMap = Record<string, string>;
+export type ExperimentActionTargetMap = Partial<Record<string, string>>;
 export type ExperimentActionTargetName = string;
 
 export interface ExperimentCloudWatchLogsLogConfiguration {
@@ -482,17 +480,17 @@ export interface ExperimentSummary {
   experimentTemplateId?: string;
   state?: ExperimentState;
   creationTime?: Date | string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   experimentOptions?: ExperimentOptions;
 }
 export type ExperimentSummaryList = Array<ExperimentSummary>;
 export interface ExperimentTarget {
   resourceType?: string;
   resourceArns?: Array<string>;
-  resourceTags?: Record<string, string>;
+  resourceTags?: Partial<Record<string, string>>;
   filters?: Array<ExperimentTargetFilter>;
   selectionMode?: string;
-  parameters?: Record<string, string>;
+  parameters?: Partial<Record<string, string>>;
 }
 export interface ExperimentTargetAccountConfiguration {
   roleArn?: string;
@@ -516,10 +514,10 @@ export type ExperimentTargetFilterPath = string;
 export type ExperimentTargetFilterValue = string;
 
 export type ExperimentTargetFilterValues = Array<string>;
-export type ExperimentTargetMap = Record<string, ExperimentTarget>;
+export type ExperimentTargetMap = Partial<Record<string, ExperimentTarget>>;
 export type ExperimentTargetName = string;
 
-export type ExperimentTargetParameterMap = Record<string, string>;
+export type ExperimentTargetParameterMap = Partial<Record<string, string>>;
 export type ExperimentTargetParameterName = string;
 
 export type ExperimentTargetParameterValue = string;
@@ -530,13 +528,13 @@ export interface ExperimentTemplate {
   id?: string;
   arn?: string;
   description?: string;
-  targets?: Record<string, ExperimentTemplateTarget>;
-  actions?: Record<string, ExperimentTemplateAction>;
+  targets?: Partial<Record<string, ExperimentTemplateTarget>>;
+  actions?: Partial<Record<string, ExperimentTemplateAction>>;
   stopConditions?: Array<ExperimentTemplateStopCondition>;
   creationTime?: Date | string;
   lastUpdateTime?: Date | string;
   roleArn?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   logConfiguration?: ExperimentTemplateLogConfiguration;
   experimentOptions?: ExperimentTemplateExperimentOptions;
   targetAccountConfigurationsCount?: number;
@@ -545,27 +543,28 @@ export interface ExperimentTemplate {
 export interface ExperimentTemplateAction {
   actionId?: string;
   description?: string;
-  parameters?: Record<string, string>;
-  targets?: Record<string, string>;
+  parameters?: Partial<Record<string, string>>;
+  targets?: Partial<Record<string, string>>;
   startAfter?: Array<string>;
 }
 export type ExperimentTemplateActionDescription = string;
 
-export type ExperimentTemplateActionMap = Record<
-  string,
-  ExperimentTemplateAction
+export type ExperimentTemplateActionMap = Partial<
+  Record<string, ExperimentTemplateAction>
 >;
 export type ExperimentTemplateActionName = string;
 
 export type ExperimentTemplateActionParameter = string;
 
-export type ExperimentTemplateActionParameterMap = Record<string, string>;
+export type ExperimentTemplateActionParameterMap = Partial<
+  Record<string, string>
+>;
 export type ExperimentTemplateActionParameterName = string;
 
 export type ExperimentTemplateActionStartAfter = string;
 
 export type ExperimentTemplateActionStartAfterList = Array<string>;
-export type ExperimentTemplateActionTargetMap = Record<string, string>;
+export type ExperimentTemplateActionTargetMap = Partial<Record<string, string>>;
 export type ExperimentTemplateActionTargetName = string;
 
 export interface ExperimentTemplateCloudWatchLogsLogConfiguration {
@@ -630,16 +629,16 @@ export interface ExperimentTemplateSummary {
   description?: string;
   creationTime?: Date | string;
   lastUpdateTime?: Date | string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type ExperimentTemplateSummaryList = Array<ExperimentTemplateSummary>;
 export interface ExperimentTemplateTarget {
   resourceType?: string;
   resourceArns?: Array<string>;
-  resourceTags?: Record<string, string>;
+  resourceTags?: Partial<Record<string, string>>;
   filters?: Array<ExperimentTemplateTargetFilter>;
   selectionMode?: string;
-  parameters?: Record<string, string>;
+  parameters?: Partial<Record<string, string>>;
 }
 export interface ExperimentTemplateTargetFilter {
   path?: string;
@@ -658,13 +657,14 @@ export interface ExperimentTemplateTargetInputFilter {
   path: string;
   values: Array<string>;
 }
-export type ExperimentTemplateTargetMap = Record<
-  string,
-  ExperimentTemplateTarget
+export type ExperimentTemplateTargetMap = Partial<
+  Record<string, ExperimentTemplateTarget>
 >;
 export type ExperimentTemplateTargetName = string;
 
-export type ExperimentTemplateTargetParameterMap = Record<string, string>;
+export type ExperimentTemplateTargetParameterMap = Partial<
+  Record<string, string>
+>;
 export type ExperimentTemplateTargetParameterName = string;
 
 export type ExperimentTemplateTargetParameterValue = string;
@@ -772,7 +772,7 @@ export interface ListTagsForResourceRequest {
   resourceArn: string;
 }
 export interface ListTagsForResourceResponse {
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type ListTargetAccountConfigurationsMaxResults = number;
 
@@ -821,7 +821,7 @@ export type ReportConfigurationS3OutputPrefix = string;
 export interface ResolvedTarget {
   resourceType?: string;
   targetName?: string;
-  targetInformation?: Record<string, string>;
+  targetInformation?: Partial<Record<string, string>>;
 }
 export type ResolvedTargetList = Array<ResolvedTarget>;
 export type ResourceArn = string;
@@ -865,7 +865,7 @@ export interface StartExperimentRequest {
   clientToken: string;
   experimentTemplateId: string;
   experimentOptions?: StartExperimentExperimentOptionsInput;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface StartExperimentResponse {
   experiment?: Experiment;
@@ -883,10 +883,10 @@ export interface StopExperimentResponse {
 export type TagKey = string;
 
 export type TagKeyList = Array<string>;
-export type TagMap = Record<string, string>;
+export type TagMap = Partial<Record<string, string>>;
 export interface TagResourceRequest {
   resourceArn: string;
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
 export interface TagResourceResponse {}
 export type TagValue = string;
@@ -911,7 +911,7 @@ export type TargetAccountId = string;
 
 export type TargetInformationKey = string;
 
-export type TargetInformationMap = Record<string, string>;
+export type TargetInformationMap = Partial<Record<string, string>>;
 export type TargetInformationValue = string;
 
 export type TargetName = string;
@@ -919,7 +919,7 @@ export type TargetName = string;
 export interface TargetResourceType {
   resourceType?: string;
   description?: string;
-  parameters?: Record<string, TargetResourceTypeParameter>;
+  parameters?: Partial<Record<string, TargetResourceTypeParameter>>;
 }
 export type TargetResourceTypeDescription = string;
 
@@ -931,9 +931,8 @@ export interface TargetResourceTypeParameter {
 }
 export type TargetResourceTypeParameterDescription = string;
 
-export type TargetResourceTypeParameterMap = Record<
-  string,
-  TargetResourceTypeParameter
+export type TargetResourceTypeParameterMap = Partial<
+  Record<string, TargetResourceTypeParameter>
 >;
 export type TargetResourceTypeParameterName = string;
 
@@ -952,13 +951,12 @@ export interface UntagResourceResponse {}
 export interface UpdateExperimentTemplateActionInputItem {
   actionId?: string;
   description?: string;
-  parameters?: Record<string, string>;
-  targets?: Record<string, string>;
+  parameters?: Partial<Record<string, string>>;
+  targets?: Partial<Record<string, string>>;
   startAfter?: Array<string>;
 }
-export type UpdateExperimentTemplateActionInputMap = Record<
-  string,
-  UpdateExperimentTemplateActionInputItem
+export type UpdateExperimentTemplateActionInputMap = Partial<
+  Record<string, UpdateExperimentTemplateActionInputItem>
 >;
 export interface UpdateExperimentTemplateExperimentOptionsInput {
   emptyTargetResolutionMode?: EmptyTargetResolutionMode;
@@ -978,8 +976,8 @@ export interface UpdateExperimentTemplateRequest {
   id: string;
   description?: string;
   stopConditions?: Array<UpdateExperimentTemplateStopConditionInput>;
-  targets?: Record<string, UpdateExperimentTemplateTargetInput>;
-  actions?: Record<string, UpdateExperimentTemplateActionInputItem>;
+  targets?: Partial<Record<string, UpdateExperimentTemplateTargetInput>>;
+  actions?: Partial<Record<string, UpdateExperimentTemplateActionInputItem>>;
   roleArn?: string;
   logConfiguration?: UpdateExperimentTemplateLogConfigurationInput;
   experimentOptions?: UpdateExperimentTemplateExperimentOptionsInput;
@@ -997,14 +995,13 @@ export type UpdateExperimentTemplateStopConditionInputList =
 export interface UpdateExperimentTemplateTargetInput {
   resourceType: string;
   resourceArns?: Array<string>;
-  resourceTags?: Record<string, string>;
+  resourceTags?: Partial<Record<string, string>>;
   filters?: Array<ExperimentTemplateTargetInputFilter>;
   selectionMode: string;
-  parameters?: Record<string, string>;
+  parameters?: Partial<Record<string, string>>;
 }
-export type UpdateExperimentTemplateTargetInputMap = Record<
-  string,
-  UpdateExperimentTemplateTargetInput
+export type UpdateExperimentTemplateTargetInputMap = Partial<
+  Record<string, UpdateExperimentTemplateTargetInput>
 >;
 export interface UpdateSafetyLeverStateInput {
   status: SafetyLeverStatusInput;

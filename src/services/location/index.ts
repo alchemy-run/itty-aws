@@ -766,7 +766,7 @@ export interface BatchPutGeofenceRequest {
 export interface BatchPutGeofenceRequestEntry {
   GeofenceId: string;
   Geometry: GeofenceGeometry;
-  GeofenceProperties?: Record<string, string>;
+  GeofenceProperties?: Partial<Record<string, string>>;
 }
 export type BatchPutGeofenceRequestEntryList =
   Array<BatchPutGeofenceRequestEntry>;
@@ -878,7 +878,7 @@ export interface CreateGeofenceCollectionRequest {
   PricingPlan?: string;
   PricingPlanDataSource?: string;
   Description?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   KmsKeyId?: string;
 }
 export interface CreateGeofenceCollectionResponse {
@@ -892,7 +892,7 @@ export interface CreateKeyRequest {
   Description?: string;
   ExpireTime?: Date | string;
   NoExpiry?: boolean;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateKeyResponse {
   Key: string;
@@ -905,7 +905,7 @@ export interface CreateMapRequest {
   Configuration: MapConfiguration;
   PricingPlan?: string;
   Description?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateMapResponse {
   MapName: string;
@@ -918,7 +918,7 @@ export interface CreatePlaceIndexRequest {
   PricingPlan?: string;
   Description?: string;
   DataSourceConfiguration?: DataSourceConfiguration;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreatePlaceIndexResponse {
   IndexName: string;
@@ -930,7 +930,7 @@ export interface CreateRouteCalculatorRequest {
   DataSource: string;
   PricingPlan?: string;
   Description?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateRouteCalculatorResponse {
   CalculatorName: string;
@@ -943,7 +943,7 @@ export interface CreateTrackerRequest {
   KmsKeyId?: string;
   PricingPlanDataSource?: string;
   Description?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   PositionFiltering?: string;
   EventBridgeEnabled?: boolean;
   KmsKeyEnableGeospatialQueries?: boolean;
@@ -994,7 +994,7 @@ export interface DescribeGeofenceCollectionResponse {
   PricingPlan?: string;
   PricingPlanDataSource?: string;
   KmsKeyId?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   CreateTime: Date | string;
   UpdateTime: Date | string;
   GeofenceCount?: number;
@@ -1011,7 +1011,7 @@ export interface DescribeKeyResponse {
   ExpireTime: Date | string;
   UpdateTime: Date | string;
   Description?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface DescribeMapRequest {
   MapName: string;
@@ -1023,7 +1023,7 @@ export interface DescribeMapResponse {
   DataSource: string;
   Configuration: MapConfiguration;
   Description: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   CreateTime: Date | string;
   UpdateTime: Date | string;
 }
@@ -1039,7 +1039,7 @@ export interface DescribePlaceIndexResponse {
   UpdateTime: Date | string;
   DataSource: string;
   DataSourceConfiguration: DataSourceConfiguration;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface DescribeRouteCalculatorRequest {
   CalculatorName: string;
@@ -1052,7 +1052,7 @@ export interface DescribeRouteCalculatorResponse {
   CreateTime: Date | string;
   UpdateTime: Date | string;
   DataSource: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface DescribeTrackerRequest {
   TrackerName: string;
@@ -1063,7 +1063,7 @@ export interface DescribeTrackerResponse {
   Description: string;
   PricingPlan?: string;
   PricingPlanDataSource?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   CreateTime: Date | string;
   UpdateTime: Date | string;
   KmsKeyId?: string;
@@ -1078,7 +1078,7 @@ export interface DevicePosition {
   ReceivedTime: Date | string;
   Position: Array<number>;
   Accuracy?: PositionalAccuracy;
-  PositionProperties?: Record<string, string>;
+  PositionProperties?: Partial<Record<string, string>>;
 }
 export type DevicePositionList = Array<DevicePosition>;
 export interface DevicePositionUpdate {
@@ -1086,7 +1086,7 @@ export interface DevicePositionUpdate {
   SampleTime: Date | string;
   Position: Array<number>;
   Accuracy?: PositionalAccuracy;
-  PositionProperties?: Record<string, string>;
+  PositionProperties?: Partial<Record<string, string>>;
 }
 export type DevicePositionUpdateList = Array<DevicePositionUpdate>;
 export interface DeviceState {
@@ -1119,7 +1119,7 @@ export interface ForecastedEvent {
   NearestDistance: number;
   EventType: string;
   ForecastedBreachTime?: Date | string;
-  GeofenceProperties?: Record<string, string>;
+  GeofenceProperties?: Partial<Record<string, string>>;
 }
 export type ForecastedEventsList = Array<ForecastedEvent>;
 export type ForecastedGeofenceEventType = string;
@@ -1176,7 +1176,7 @@ export interface GetDevicePositionResponse {
   ReceivedTime: Date | string;
   Position: Array<number>;
   Accuracy?: PositionalAccuracy;
-  PositionProperties?: Record<string, string>;
+  PositionProperties?: Partial<Record<string, string>>;
 }
 export interface GetGeofenceRequest {
   CollectionName: string;
@@ -1188,7 +1188,7 @@ export interface GetGeofenceResponse {
   Status: string;
   CreateTime: Date | string;
   UpdateTime: Date | string;
-  GeofenceProperties?: Record<string, string>;
+  GeofenceProperties?: Partial<Record<string, string>>;
 }
 export interface GetMapGlyphsRequest {
   MapName: string;
@@ -1293,7 +1293,7 @@ export interface ListDevicePositionsResponseEntry {
   SampleTime: Date | string;
   Position: Array<number>;
   Accuracy?: PositionalAccuracy;
-  PositionProperties?: Record<string, string>;
+  PositionProperties?: Partial<Record<string, string>>;
 }
 export type ListDevicePositionsResponseEntryList =
   Array<ListDevicePositionsResponseEntry>;
@@ -1321,7 +1321,7 @@ export interface ListGeofenceResponseEntry {
   Status: string;
   CreateTime: Date | string;
   UpdateTime: Date | string;
-  GeofenceProperties?: Record<string, string>;
+  GeofenceProperties?: Partial<Record<string, string>>;
 }
 export type ListGeofenceResponseEntryList = Array<ListGeofenceResponseEntry>;
 export interface ListGeofencesRequest {
@@ -1408,7 +1408,7 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string;
 }
 export interface ListTagsForResourceResponse {
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface ListTrackerConsumersRequest {
   TrackerName: string;
@@ -1518,15 +1518,15 @@ export interface PositionalAccuracy {
 export type PositionFiltering = string;
 
 export type PositionList = Array<Array<number>>;
-export type PositionPropertyMap = Record<string, string>;
+export type PositionPropertyMap = Partial<Record<string, string>>;
 export type PricingPlan = string;
 
-export type PropertyMap = Record<string, string>;
+export type PropertyMap = Partial<Record<string, string>>;
 export interface PutGeofenceRequest {
   CollectionName: string;
   GeofenceId: string;
   Geometry: GeofenceGeometry;
-  GeofenceProperties?: Record<string, string>;
+  GeofenceProperties?: Partial<Record<string, string>>;
 }
 export interface PutGeofenceResponse {
   GeofenceId: string;
@@ -1674,10 +1674,10 @@ export type StepList = Array<Step>;
 export type TagKey = string;
 
 export type TagKeys = Array<string>;
-export type TagMap = Record<string, string>;
+export type TagMap = Partial<Record<string, string>>;
 export interface TagResourceRequest {
   ResourceArn: string;
-  Tags: Record<string, string>;
+  Tags: Partial<Record<string, string>>;
 }
 export interface TagResourceResponse {}
 export type TagValue = string;

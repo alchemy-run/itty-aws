@@ -394,9 +394,8 @@ export interface ConnectorConfiguration {
   supportedDataTransferTypes?: Array<SupportedDataTransferType>;
   supportedDataTransferApis?: Array<DataTransferApi>;
 }
-export type ConnectorConfigurationsMap = Record<
-  ConnectorType,
-  ConnectorConfiguration
+export type ConnectorConfigurationsMap = Partial<
+  Record<ConnectorType, ConnectorConfiguration>
 >;
 export type ConnectorDescription = string;
 
@@ -430,11 +429,13 @@ export interface ConnectorEntityField {
   description?: string;
   sourceProperties?: SourceFieldProperties;
   destinationProperties?: DestinationFieldProperties;
-  customProperties?: Record<string, string>;
+  customProperties?: Partial<Record<string, string>>;
 }
 export type ConnectorEntityFieldList = Array<ConnectorEntityField>;
 export type ConnectorEntityList = Array<ConnectorEntity>;
-export type ConnectorEntityMap = Record<string, Array<ConnectorEntity>>;
+export type ConnectorEntityMap = Partial<
+  Record<string, Array<ConnectorEntity>>
+>;
 export type ConnectorLabel = string;
 
 export type ConnectorList = Array<ConnectorDetail>;
@@ -633,7 +634,7 @@ export interface CreateFlowRequest {
   sourceFlowConfig: SourceFlowConfig;
   destinationFlowConfigList: Array<DestinationFlowConfig>;
   tasks: Array<Task>;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   metadataCatalogConfig?: MetadataCatalogConfig;
   clientToken?: string;
 }
@@ -641,7 +642,7 @@ export interface CreateFlowResponse {
   flowArn?: string;
   flowStatus?: FlowStatus;
 }
-export type CredentialsMap = Record<string, string>;
+export type CredentialsMap = Partial<Record<string, string>>;
 export type CredentialsMapKey = string;
 
 export type CredentialsMapValue = string;
@@ -653,7 +654,7 @@ export interface CustomAuthConfig {
 export type CustomAuthConfigList = Array<CustomAuthConfig>;
 export interface CustomAuthCredentials {
   customAuthenticationType: string;
-  credentialsMap?: Record<string, string>;
+  credentialsMap?: Partial<Record<string, string>>;
 }
 export type CustomAuthenticationType = string;
 
@@ -662,7 +663,7 @@ export interface CustomConnectorDestinationProperties {
   errorHandlingConfig?: ErrorHandlingConfig;
   writeOperationType?: WriteOperationType;
   idFieldNames?: Array<string>;
-  customProperties?: Record<string, string>;
+  customProperties?: Partial<Record<string, string>>;
 }
 export interface CustomConnectorProfileCredentials {
   authenticationType: AuthenticationType;
@@ -672,12 +673,12 @@ export interface CustomConnectorProfileCredentials {
   custom?: CustomAuthCredentials;
 }
 export interface CustomConnectorProfileProperties {
-  profileProperties?: Record<string, string>;
+  profileProperties?: Partial<Record<string, string>>;
   oAuth2Properties?: OAuth2Properties;
 }
 export interface CustomConnectorSourceProperties {
   entityName: string;
-  customProperties?: Record<string, string>;
+  customProperties?: Partial<Record<string, string>>;
   dataTransferApi?: DataTransferApi;
 }
 export interface CustomerProfilesDestinationProperties {
@@ -685,7 +686,7 @@ export interface CustomerProfilesDestinationProperties {
   objectTypeName?: string;
 }
 export interface CustomerProfilesMetadata {}
-export type CustomProperties = Record<string, string>;
+export type CustomProperties = Partial<Record<string, string>>;
 export type CustomPropertyKey = string;
 
 export type CustomPropertyValue = string;
@@ -778,7 +779,9 @@ export interface DescribeConnectorsRequest {
   nextToken?: string;
 }
 export interface DescribeConnectorsResponse {
-  connectorConfigurations?: Record<ConnectorType, ConnectorConfiguration>;
+  connectorConfigurations?: Partial<
+    Record<ConnectorType, ConnectorConfiguration>
+  >;
   connectors?: Array<ConnectorDetail>;
   nextToken?: string;
 }
@@ -810,7 +813,7 @@ export interface DescribeFlowResponse {
   lastUpdatedAt?: Date | string;
   createdBy?: string;
   lastUpdatedBy?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   metadataCatalogConfig?: MetadataCatalogConfig;
   lastRunMetadataCatalogDetails?: Array<MetadataCatalogDetail>;
   schemaVersion?: number;
@@ -964,7 +967,7 @@ export interface FlowDefinition {
   lastUpdatedAt?: Date | string;
   createdBy?: string;
   lastUpdatedBy?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   lastRunExecutionDetails?: ExecutionDetails;
 }
 export type FlowDescription = string;
@@ -1089,7 +1092,7 @@ export interface ListConnectorEntitiesRequest {
   nextToken?: string;
 }
 export interface ListConnectorEntitiesResponse {
-  connectorEntityMap: Record<string, Array<ConnectorEntity>>;
+  connectorEntityMap: Partial<Record<string, Array<ConnectorEntity>>>;
   nextToken?: string;
 }
 export interface ListConnectorsRequest {
@@ -1114,7 +1117,7 @@ export interface ListTagsForResourceRequest {
   resourceArn: string;
 }
 export interface ListTagsForResourceResponse {
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type LogonLanguage = string;
 
@@ -1208,7 +1211,7 @@ export type OAuth2GrantTypeSupportedList = Array<OAuth2GrantType>;
 export interface OAuth2Properties {
   tokenUrl: string;
   oAuth2GrantType: OAuth2GrantType;
-  tokenUrlCustomProperties?: Record<string, string>;
+  tokenUrlCustomProperties?: Partial<Record<string, string>>;
 }
 export interface OAuthCredentials {
   clientId: string;
@@ -1353,7 +1356,7 @@ export type PrivateConnectionProvisioningStatus =
   | "CREATED";
 export type PrivateLinkServiceName = string;
 
-export type ProfilePropertiesMap = Record<string, string>;
+export type ProfilePropertiesMap = Partial<Record<string, string>>;
 export type ProfilePropertyKey = string;
 
 export type ProfilePropertyValue = string;
@@ -1795,10 +1798,10 @@ export type SupportedWriteOperationList = Array<WriteOperationType>;
 export type TagKey = string;
 
 export type TagKeyList = Array<string>;
-export type TagMap = Record<string, string>;
+export type TagMap = Partial<Record<string, string>>;
 export interface TagResourceRequest {
   resourceArn: string;
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
 export interface TagResourceResponse {}
 export type TagValue = string;
@@ -1808,9 +1811,9 @@ export interface Task {
   connectorOperator?: ConnectorOperator;
   destinationField?: string;
   taskType: TaskType;
-  taskProperties?: Record<OperatorPropertiesKeys, string>;
+  taskProperties?: Partial<Record<OperatorPropertiesKeys, string>>;
 }
-export type TaskPropertiesMap = Record<OperatorPropertiesKeys, string>;
+export type TaskPropertiesMap = Partial<Record<OperatorPropertiesKeys, string>>;
 export type Tasks = Array<Task>;
 export type TaskType =
   | "ARITHMETIC"
@@ -1832,7 +1835,7 @@ export type Timezone = string;
 
 export type TokenUrl = string;
 
-export type TokenUrlCustomProperties = Record<string, string>;
+export type TokenUrlCustomProperties = Partial<Record<string, string>>;
 export type TokenUrlList = Array<string>;
 export type TrendmicroConnectorOperator =
   | "PROJECTION"

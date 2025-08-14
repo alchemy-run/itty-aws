@@ -946,7 +946,7 @@ export interface Anomaly {
   description: string;
   active: boolean;
   state: State;
-  histogram: Record<string, number>;
+  histogram: Partial<Record<string, number>>;
   logSamples: Array<LogEvent>;
   patternTokens: Array<PatternToken>;
   logGroupArnList: Array<string>;
@@ -1426,7 +1426,7 @@ export type DetectorKmsKeyArn = string;
 
 export type DetectorName = string;
 
-export type Dimensions = Record<string, string>;
+export type Dimensions = Partial<Record<string, string>>;
 export type DimensionsKey = string;
 
 export type DimensionsValue = string;
@@ -1442,9 +1442,9 @@ export type EncryptionKey = string;
 
 export interface Entity {
   keyAttributes?: Record<string, string>;
-  attributes?: Record<string, string>;
+  attributes?: Partial<Record<string, string>>;
 }
-export type EntityAttributes = Record<string, string>;
+export type EntityAttributes = Partial<Record<string, string>>;
 export type EntityAttributesKey = string;
 
 export type EntityAttributesValue = string;
@@ -1462,7 +1462,7 @@ export type EntityRejectionErrorType =
   | "ENTITY_SIZE_TOO_LARGE"
   | "UNSUPPORTED_LOG_GROUP_TYPE"
   | "MISSING_REQUIRED_FIELDS";
-export type Enumerations = Record<string, number>;
+export type Enumerations = Partial<Record<string, number>>;
 export type EpochMillis = number;
 
 export type EvaluationFrequency =
@@ -1525,7 +1525,7 @@ export type ExportTaskStatusCode =
   | "RUNNING";
 export type ExportTaskStatusMessage = string;
 
-export type ExtractedValues = Record<string, string>;
+export type ExtractedValues = Partial<Record<string, string>>;
 export type Field = string;
 
 export type FieldDelimiter = string;
@@ -1687,7 +1687,7 @@ export interface GetLogRecordRequest {
   unmask?: boolean;
 }
 export interface GetLogRecordResponse {
-  logRecord?: Record<string, string>;
+  logRecord?: Partial<Record<string, string>>;
 }
 export interface GetQueryResultsRequest {
   queryId: string;
@@ -1714,7 +1714,7 @@ export interface Grok {
 }
 export type GrokMatch = string;
 
-export type Histogram = Record<string, number>;
+export type Histogram = Partial<Record<string, number>>;
 export type IncludeLinkedAccounts = boolean;
 
 export type IndexPolicies = Array<IndexPolicy>;
@@ -1945,7 +1945,7 @@ export interface LogGroupSummary {
 }
 export type LogObjectPointer = string;
 
-export type LogRecord = Record<string, string>;
+export type LogRecord = Partial<Record<string, string>>;
 export type LogRecordPointer = string;
 
 export type LogSamples = Array<LogEvent>;
@@ -1994,7 +1994,7 @@ export type MetricFilterMatches = Array<MetricFilterMatchRecord>;
 export interface MetricFilterMatchRecord {
   eventNumber?: number;
   eventMessage?: string;
-  extractedValues?: Record<string, string>;
+  extractedValues?: Partial<Record<string, string>>;
 }
 export type MetricFilters = Array<MetricFilter>;
 export type MetricName = string;
@@ -2006,7 +2006,7 @@ export interface MetricTransformation {
   metricNamespace: string;
   metricValue: string;
   defaultValue?: number;
-  dimensions?: Record<string, string>;
+  dimensions?: Partial<Record<string, string>>;
   unit?: StandardUnit;
 }
 export type MetricTransformations = Array<MetricTransformation>;
@@ -2156,7 +2156,7 @@ export interface PatternToken {
   dynamicTokenPosition?: number;
   isDynamic?: boolean;
   tokenString?: string;
-  enumerations?: Record<string, number>;
+  enumerations?: Partial<Record<string, number>>;
   inferredTokenName?: string;
 }
 export type PatternTokens = Array<PatternToken>;

@@ -220,7 +220,7 @@ export type ClusterId = string;
 
 export interface Configuration {
   classification: string;
-  properties?: Record<string, string>;
+  properties?: Partial<Record<string, string>>;
   configurations?: Array<Configuration>;
 }
 export type ConfigurationList = Array<Configuration>;
@@ -247,7 +247,7 @@ export interface CreateJobTemplateRequest {
   name: string;
   clientToken: string;
   jobTemplateData: JobTemplateData;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   kmsKeyArn?: string;
 }
 export interface CreateJobTemplateResponse {
@@ -265,7 +265,7 @@ export interface CreateManagedEndpointRequest {
   certificateArn?: string;
   configurationOverrides?: ConfigurationOverrides;
   clientToken: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateManagedEndpointResponse {
   id?: string;
@@ -277,7 +277,7 @@ export interface CreateSecurityConfigurationRequest {
   clientToken: string;
   name: string;
   securityConfigurationData: SecurityConfigurationData;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateSecurityConfigurationResponse {
   id?: string;
@@ -288,7 +288,7 @@ export interface CreateVirtualClusterRequest {
   name: string;
   containerProvider: ContainerProvider;
   clientToken: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   securityConfigurationId?: string;
 }
 export interface CreateVirtualClusterResponse {
@@ -386,7 +386,7 @@ export interface Endpoint {
   subnetIds?: Array<string>;
   stateDetails?: string;
   failureReason?: FailureReason;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type EndpointArn = string;
 
@@ -459,7 +459,7 @@ export interface JobRun {
   finishedAt?: Date | string;
   stateDetails?: string;
   failureReason?: FailureReason;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   retryPolicyConfiguration?: RetryPolicyConfiguration;
   retryPolicyExecution?: RetryPolicyExecution;
 }
@@ -479,7 +479,7 @@ export interface JobTemplate {
   arn?: string;
   createdAt?: Date | string;
   createdBy?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   jobTemplateData: JobTemplateData;
   kmsKeyArn?: string;
   decryptionError?: string;
@@ -491,8 +491,10 @@ export interface JobTemplateData {
   releaseLabel: string;
   configurationOverrides?: ParametricConfigurationOverrides;
   jobDriver: JobDriver;
-  parameterConfiguration?: Record<string, TemplateParameterConfiguration>;
-  jobTags?: Record<string, string>;
+  parameterConfiguration?: Partial<
+    Record<string, TemplateParameterConfiguration>
+  >;
+  jobTags?: Partial<Record<string, string>>;
 }
 export type JobTemplates = Array<JobTemplate>;
 export type KmsKeyArn = string;
@@ -554,7 +556,7 @@ export interface ListTagsForResourceRequest {
   resourceArn: string;
 }
 export interface ListTagsForResourceResponse {
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface ListVirtualClustersRequest {
   containerProviderId?: string;
@@ -654,7 +656,7 @@ export interface SecurityConfiguration {
   createdAt?: Date | string;
   createdBy?: string;
   securityConfigurationData?: SecurityConfigurationData;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type SecurityConfigurationArn = string;
 
@@ -662,7 +664,7 @@ export interface SecurityConfigurationData {
   authorizationConfiguration?: AuthorizationConfiguration;
 }
 export type SecurityConfigurations = Array<SecurityConfiguration>;
-export type SensitivePropertiesMap = Record<string, string>;
+export type SensitivePropertiesMap = Partial<Record<string, string>>;
 export type SessionTagValue = string;
 
 export interface SparkSqlJobDriver {
@@ -686,9 +688,9 @@ export interface StartJobRunRequest {
   releaseLabel?: string;
   jobDriver?: JobDriver;
   configurationOverrides?: ConfigurationOverrides;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   jobTemplateId?: string;
-  jobTemplateParameters?: Record<string, string>;
+  jobTemplateParameters?: Partial<Record<string, string>>;
   retryPolicyConfiguration?: RetryPolicyConfiguration;
 }
 export interface StartJobRunResponse {
@@ -709,10 +711,10 @@ export type StringEmpty256 = string;
 
 export type SubnetIds = Array<string>;
 export type TagKeyList = Array<string>;
-export type TagMap = Record<string, string>;
+export type TagMap = Partial<Record<string, string>>;
 export interface TagResourceRequest {
   resourceArn: string;
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
 export interface TagResourceResponse {}
 export type TemplateParameter = string;
@@ -721,12 +723,11 @@ export interface TemplateParameterConfiguration {
   type?: TemplateParameterDataType;
   defaultValue?: string;
 }
-export type TemplateParameterConfigurationMap = Record<
-  string,
-  TemplateParameterConfiguration
+export type TemplateParameterConfigurationMap = Partial<
+  Record<string, TemplateParameterConfiguration>
 >;
 export type TemplateParameterDataType = "NUMBER" | "STRING";
-export type TemplateParameterInputMap = Record<string, string>;
+export type TemplateParameterInputMap = Partial<Record<string, string>>;
 export type TemplateParameterName = string;
 
 export interface TLSCertificateConfiguration {
@@ -755,7 +756,7 @@ export interface VirtualCluster {
   state?: VirtualClusterState;
   containerProvider?: ContainerProvider;
   createdAt?: Date | string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   securityConfigurationId?: string;
 }
 export type VirtualClusterArn = string;

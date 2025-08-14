@@ -591,9 +591,9 @@ export interface Algorithm {
   name?: string;
   algorithmArn?: string;
   algorithmImage?: AlgorithmImage;
-  defaultHyperParameters?: Record<string, string>;
+  defaultHyperParameters?: Partial<Record<string, string>>;
   defaultHyperParameterRanges?: DefaultHyperParameterRanges;
-  defaultResourceConfig?: Record<string, string>;
+  defaultResourceConfig?: Partial<Record<string, string>>;
   trainingInputMode?: string;
   roleArn?: string;
   creationDateTime?: Date | string;
@@ -636,7 +636,7 @@ export interface BatchInferenceJob {
   lastUpdatedDateTime?: Date | string;
 }
 export interface BatchInferenceJobConfig {
-  itemExplorationConfig?: Record<string, string>;
+  itemExplorationConfig?: Partial<Record<string, string>>;
 }
 export interface BatchInferenceJobInput {
   s3DataSource: S3DataConfig;
@@ -701,7 +701,7 @@ export interface Campaign {
   latestCampaignUpdate?: CampaignUpdateSummary;
 }
 export interface CampaignConfig {
-  itemExplorationConfig?: Record<string, string>;
+  itemExplorationConfig?: Partial<Record<string, string>>;
   enableMetadataWithRecommendations?: boolean;
   syncWithLatestSolutionVersion?: boolean;
 }
@@ -1252,19 +1252,19 @@ export type EventTypeWeight = number;
 
 export type EventValueThreshold = string;
 
-export type ExcludedDatasetColumns = Record<string, Array<string>>;
+export type ExcludedDatasetColumns = Partial<Record<string, Array<string>>>;
 export type FailureReason = string;
 
 export interface FeatureTransformation {
   name?: string;
   featureTransformationArn?: string;
-  defaultParameters?: Record<string, string>;
+  defaultParameters?: Partial<Record<string, string>>;
   creationDateTime?: Date | string;
   lastUpdatedDateTime?: Date | string;
   status?: string;
 }
-export type FeatureTransformationParameters = Record<string, string>;
-export type FeaturizationParameters = Record<string, string>;
+export type FeatureTransformationParameters = Partial<Record<string, string>>;
+export type FeaturizationParameters = Partial<Record<string, string>>;
 export interface FieldsForThemeGeneration {
   itemName: string;
 }
@@ -1295,7 +1295,7 @@ export interface GetSolutionMetricsRequest {
 }
 export interface GetSolutionMetricsResponse {
   solutionVersionArn?: string;
-  metrics?: Record<string, number>;
+  metrics?: Partial<Record<string, number>>;
 }
 export interface HPOConfig {
   hpoObjective?: HPOObjective;
@@ -1320,7 +1320,7 @@ export interface HyperParameterRanges {
   continuousHyperParameterRanges?: Array<ContinuousHyperParameterRange>;
   categoricalHyperParameterRanges?: Array<CategoricalHyperParameterRange>;
 }
-export type HyperParameters = Record<string, string>;
+export type HyperParameters = Partial<Record<string, string>>;
 export type ImportMode = "FULL" | "INCREMENTAL";
 export type IngestionMode = "BULK" | "PUT" | "ALL";
 export type Integer = number;
@@ -1550,7 +1550,7 @@ export type MetricName = string;
 
 export type MetricRegex = string;
 
-export type Metrics = Record<string, number>;
+export type Metrics = Partial<Record<string, number>>;
 export type MetricValue = number;
 
 export type Name = string;
@@ -1608,10 +1608,10 @@ export interface Recommender {
   status?: string;
   failureReason?: string;
   latestRecommenderUpdate?: RecommenderUpdateSummary;
-  modelMetrics?: Record<string, number>;
+  modelMetrics?: Partial<Record<string, number>>;
 }
 export interface RecommenderConfig {
-  itemExplorationConfig?: Record<string, string>;
+  itemExplorationConfig?: Partial<Record<string, string>>;
   minRecommendationRequestsPerSecond?: number;
   trainingDataConfig?: TrainingDataConfig;
   enableMetadataWithRecommendations?: boolean;
@@ -1639,7 +1639,7 @@ export declare class ResourceAlreadyExistsException extends EffectData.TaggedErr
 )<{
   readonly message?: string;
 }> {}
-export type ResourceConfig = Record<string, string>;
+export type ResourceConfig = Partial<Record<string, string>>;
 export declare class ResourceInUseException extends EffectData.TaggedError(
   "ResourceInUseException",
 )<{
@@ -1681,8 +1681,8 @@ export interface Solution {
 export interface SolutionConfig {
   eventValueThreshold?: string;
   hpoConfig?: HPOConfig;
-  algorithmHyperParameters?: Record<string, string>;
-  featureTransformationParameters?: Record<string, string>;
+  algorithmHyperParameters?: Partial<Record<string, string>>;
+  featureTransformationParameters?: Partial<Record<string, string>>;
   autoMLConfig?: AutoMLConfig;
   eventsConfig?: EventsConfig;
   optimizationObjective?: OptimizationObjective;
@@ -1787,7 +1787,7 @@ export declare class TooManyTagsException extends EffectData.TaggedError(
 export type TrackingId = string;
 
 export interface TrainingDataConfig {
-  excludedDatasetColumns?: Record<string, Array<string>>;
+  excludedDatasetColumns?: Partial<Record<string, Array<string>>>;
 }
 export type TrainingHours = number;
 
@@ -1800,7 +1800,7 @@ export type TransactionsPerSecond = number;
 export type Tunable = boolean;
 
 export interface TunedHPOParams {
-  algorithmHyperParameters?: Record<string, string>;
+  algorithmHyperParameters?: Partial<Record<string, string>>;
 }
 export interface UntagResourceRequest {
   resourceArn: string;

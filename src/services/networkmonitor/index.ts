@@ -63,14 +63,14 @@ export interface CreateMonitorInput {
   probes?: Array<CreateMonitorProbeInput>;
   aggregationPeriod?: number;
   clientToken?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateMonitorOutput {
   monitorArn: string;
   monitorName: string;
   state: MonitorState;
   aggregationPeriod?: number;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateMonitorProbeInput {
   sourceArn: string;
@@ -78,14 +78,14 @@ export interface CreateMonitorProbeInput {
   destinationPort?: number;
   protocol: Protocol;
   packetSize?: number;
-  probeTags?: Record<string, string>;
+  probeTags?: Partial<Record<string, string>>;
 }
 export type CreateMonitorProbeInputList = Array<CreateMonitorProbeInput>;
 export interface CreateProbeInput {
   monitorName: string;
   probe: ProbeInput;
   clientToken?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateProbeOutput {
   probeId?: string;
@@ -100,7 +100,7 @@ export interface CreateProbeOutput {
   state?: ProbeState;
   createdAt?: Date | string;
   modifiedAt?: Date | string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface DeleteMonitorInput {
   monitorName: string;
@@ -121,7 +121,7 @@ export interface GetMonitorOutput {
   monitorName: string;
   state: MonitorState;
   aggregationPeriod: number;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   probes?: Array<Probe>;
   createdAt: Date | string;
   modifiedAt: Date | string;
@@ -143,7 +143,7 @@ export interface GetProbeOutput {
   state?: ProbeState;
   createdAt?: Date | string;
   modifiedAt?: Date | string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export declare class InternalServerException extends EffectData.TaggedError(
   "InternalServerException",
@@ -165,7 +165,7 @@ export interface ListTagsForResourceInput {
   resourceArn: string;
 }
 export interface ListTagsForResourceOutput {
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type MaxResults = number;
 
@@ -183,7 +183,7 @@ export interface MonitorSummary {
   monitorName: string;
   state: MonitorState;
   aggregationPeriod?: number;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type PacketSize = number;
 
@@ -204,7 +204,7 @@ export interface Probe {
   state?: ProbeState;
   createdAt?: Date | string;
   modifiedAt?: Date | string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type ProbeId = string;
 
@@ -214,7 +214,7 @@ export interface ProbeInput {
   destinationPort?: number;
   protocol: Protocol;
   packetSize?: number;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type ProbeList = Array<Probe>;
 export type ProbeState =
@@ -240,10 +240,10 @@ export declare class ServiceQuotaExceededException extends EffectData.TaggedErro
 export type TagKey = string;
 
 export type TagKeyList = Array<string>;
-export type TagMap = Record<string, string>;
+export type TagMap = Partial<Record<string, string>>;
 export interface TagResourceInput {
   resourceArn: string;
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
 export interface TagResourceOutput {}
 export type TagValue = string;
@@ -267,7 +267,7 @@ export interface UpdateMonitorOutput {
   monitorName: string;
   state: MonitorState;
   aggregationPeriod?: number;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface UpdateProbeInput {
   monitorName: string;
@@ -291,7 +291,7 @@ export interface UpdateProbeOutput {
   state?: ProbeState;
   createdAt?: Date | string;
   modifiedAt?: Date | string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export declare class ValidationException extends EffectData.TaggedError(
   "ValidationException",

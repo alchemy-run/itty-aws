@@ -1399,7 +1399,7 @@ export interface ApiKey {
   createdDate?: Date | string;
   lastUpdatedDate?: Date | string;
   stageKeys?: Array<string>;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface ApiKeyIds {
   ids?: Array<string>;
@@ -1415,7 +1415,7 @@ export type ApiKeySourceType = "HEADER" | "AUTHORIZER";
 export interface ApiStage {
   apiId?: string;
   stage?: string;
-  throttle?: Record<string, ThrottleSettings>;
+  throttle?: Partial<Record<string, ThrottleSettings>>;
 }
 export interface Authorizer {
   id?: string;
@@ -1470,7 +1470,7 @@ export type CacheClusterStatus =
 export interface CanarySettings {
   percentTraffic?: number;
   deploymentId?: string;
-  stageVariableOverrides?: Record<string, string>;
+  stageVariableOverrides?: Partial<Record<string, string>>;
   useStageCache?: boolean;
 }
 export interface ClientCertificate {
@@ -1479,7 +1479,7 @@ export interface ClientCertificate {
   pemEncodedCertificate?: string;
   createdDate?: Date | string;
   expirationDate?: Date | string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface ClientCertificates {
   items?: Array<ClientCertificate>;
@@ -1500,7 +1500,7 @@ export interface CreateApiKeyRequest {
   value?: string;
   stageKeys?: Array<StageKey>;
   customerId?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateAuthorizerRequest {
   restApiId: string;
@@ -1528,7 +1528,7 @@ export interface CreateDeploymentRequest {
   description?: string;
   cacheClusterEnabled?: boolean;
   cacheClusterSize?: CacheClusterSize;
-  variables?: Record<string, string>;
+  variables?: Partial<Record<string, string>>;
   canarySettings?: DeploymentCanarySettings;
   tracingEnabled?: boolean;
 }
@@ -1547,7 +1547,7 @@ export interface CreateDomainNameAccessAssociationRequest {
   domainNameArn: string;
   accessAssociationSourceType: AccessAssociationSourceType;
   accessAssociationSource: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateDomainNameRequest {
   domainName: string;
@@ -1559,7 +1559,7 @@ export interface CreateDomainNameRequest {
   regionalCertificateName?: string;
   regionalCertificateArn?: string;
   endpointConfiguration?: EndpointConfiguration;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   securityPolicy?: SecurityPolicy;
   mutualTlsAuthentication?: MutualTlsAuthenticationInput;
   ownershipVerificationCertificateArn?: string;
@@ -1594,7 +1594,7 @@ export interface CreateRestApiRequest {
   apiKeySource?: ApiKeySourceType;
   endpointConfiguration?: EndpointConfiguration;
   policy?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   disableExecuteApiEndpoint?: boolean;
 }
 export interface CreateStageRequest {
@@ -1604,11 +1604,11 @@ export interface CreateStageRequest {
   description?: string;
   cacheClusterEnabled?: boolean;
   cacheClusterSize?: CacheClusterSize;
-  variables?: Record<string, string>;
+  variables?: Partial<Record<string, string>>;
   documentationVersion?: string;
   canarySettings?: CanarySettings;
   tracingEnabled?: boolean;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateUsagePlanKeyRequest {
   usagePlanId: string;
@@ -1621,13 +1621,13 @@ export interface CreateUsagePlanRequest {
   apiStages?: Array<ApiStage>;
   throttle?: ThrottleSettings;
   quota?: QuotaSettings;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateVpcLinkRequest {
   name: string;
   description?: string;
   targetArns: Array<string>;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface DeleteApiKeyRequest {
   apiKey: string;
@@ -1722,11 +1722,11 @@ export interface Deployment {
   id?: string;
   description?: string;
   createdDate?: Date | string;
-  apiSummary?: Record<string, Record<string, MethodSnapshot>>;
+  apiSummary?: Partial<Record<string, Partial<Record<string, MethodSnapshot>>>>;
 }
 export interface DeploymentCanarySettings {
   percentTraffic?: number;
-  stageVariableOverrides?: Record<string, string>;
+  stageVariableOverrides?: Partial<Record<string, string>>;
   useStageCache?: boolean;
 }
 export interface Deployments {
@@ -1794,7 +1794,7 @@ export interface DomainName {
   domainNameStatus?: DomainNameStatus;
   domainNameStatusMessage?: string;
   securityPolicy?: SecurityPolicy;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   mutualTlsAuthentication?: MutualTlsAuthentication;
   ownershipVerificationCertificateArn?: string;
   managementPolicy?: string;
@@ -1806,7 +1806,7 @@ export interface DomainNameAccessAssociation {
   domainNameArn?: string;
   accessAssociationSourceType?: AccessAssociationSourceType;
   accessAssociationSource?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface DomainNameAccessAssociations {
   items?: Array<DomainNameAccessAssociation>;
@@ -1846,8 +1846,8 @@ export interface FlushStageCacheRequest {
 export interface GatewayResponse {
   responseType?: GatewayResponseType;
   statusCode?: string;
-  responseParameters?: Record<string, string>;
-  responseTemplates?: Record<string, string>;
+  responseParameters?: Partial<Record<string, string>>;
+  responseTemplates?: Partial<Record<string, string>>;
   defaultResponse?: boolean;
 }
 export interface GatewayResponses {
@@ -1878,7 +1878,7 @@ export type GatewayResponseType =
   | "WAF_FILTERED";
 export interface GenerateClientCertificateRequest {
   description?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface GetAccountRequest {}
 export interface GetApiKeyRequest {
@@ -1969,7 +1969,7 @@ export interface GetExportRequest {
   restApiId: string;
   stageName: string;
   exportType: string;
-  parameters?: Record<string, string>;
+  parameters?: Partial<Record<string, string>>;
   accepts?: string;
 }
 export interface GetGatewayResponseRequest {
@@ -2048,7 +2048,7 @@ export interface GetSdkRequest {
   restApiId: string;
   stageName: string;
   sdkType: string;
-  parameters?: Record<string, string>;
+  parameters?: Partial<Record<string, string>>;
 }
 export interface GetSdkTypeRequest {
   id: string;
@@ -2116,7 +2116,7 @@ export interface ImportDocumentationPartsRequest {
 }
 export interface ImportRestApiRequest {
   failOnWarnings?: boolean;
-  parameters?: Record<string, string>;
+  parameters?: Partial<Record<string, string>>;
   body: Uint8Array | string | Buffer | Stream.Stream<Uint8Array>;
 }
 export type Integer = number;
@@ -2128,21 +2128,21 @@ export interface Integration {
   connectionType?: ConnectionType;
   connectionId?: string;
   credentials?: string;
-  requestParameters?: Record<string, string>;
-  requestTemplates?: Record<string, string>;
+  requestParameters?: Partial<Record<string, string>>;
+  requestTemplates?: Partial<Record<string, string>>;
   passthroughBehavior?: string;
   contentHandling?: ContentHandlingStrategy;
   timeoutInMillis?: number;
   cacheNamespace?: string;
   cacheKeyParameters?: Array<string>;
-  integrationResponses?: Record<string, IntegrationResponse>;
+  integrationResponses?: Partial<Record<string, IntegrationResponse>>;
   tlsConfig?: TlsConfig;
 }
 export interface IntegrationResponse {
   statusCode?: string;
   selectionPattern?: string;
-  responseParameters?: Record<string, string>;
-  responseTemplates?: Record<string, string>;
+  responseParameters?: Partial<Record<string, string>>;
+  responseTemplates?: Partial<Record<string, string>>;
   contentHandling?: ContentHandlingStrategy;
 }
 export type IntegrationType =
@@ -2190,16 +2190,20 @@ export type ListOfVpcLink = Array<VpcLink>;
 export type LocationStatusType = "DOCUMENTED" | "UNDOCUMENTED";
 export type Long = number;
 
-export type MapOfApiStageThrottleSettings = Record<string, ThrottleSettings>;
-export type MapOfIntegrationResponse = Record<string, IntegrationResponse>;
-export type MapOfKeyUsages = Record<string, Array<Array<number>>>;
-export type MapOfMethod = Record<string, Method>;
-export type MapOfMethodResponse = Record<string, MethodResponse>;
-export type MapOfMethodSettings = Record<string, MethodSetting>;
-export type MapOfMethodSnapshot = Record<string, MethodSnapshot>;
-export type MapOfStringToBoolean = Record<string, boolean>;
-export type MapOfStringToList = Record<string, Array<string>>;
-export type MapOfStringToString = Record<string, string>;
+export type MapOfApiStageThrottleSettings = Partial<
+  Record<string, ThrottleSettings>
+>;
+export type MapOfIntegrationResponse = Partial<
+  Record<string, IntegrationResponse>
+>;
+export type MapOfKeyUsages = Partial<Record<string, Array<Array<number>>>>;
+export type MapOfMethod = Partial<Record<string, Method>>;
+export type MapOfMethodResponse = Partial<Record<string, MethodResponse>>;
+export type MapOfMethodSettings = Partial<Record<string, MethodSetting>>;
+export type MapOfMethodSnapshot = Partial<Record<string, MethodSnapshot>>;
+export type MapOfStringToBoolean = Partial<Record<string, boolean>>;
+export type MapOfStringToList = Partial<Record<string, Array<string>>>;
+export type MapOfStringToString = Partial<Record<string, string>>;
 export interface Method {
   httpMethod?: string;
   authorizationType?: string;
@@ -2207,16 +2211,16 @@ export interface Method {
   apiKeyRequired?: boolean;
   requestValidatorId?: string;
   operationName?: string;
-  requestParameters?: Record<string, boolean>;
-  requestModels?: Record<string, string>;
-  methodResponses?: Record<string, MethodResponse>;
+  requestParameters?: Partial<Record<string, boolean>>;
+  requestModels?: Partial<Record<string, string>>;
+  methodResponses?: Partial<Record<string, MethodResponse>>;
   methodIntegration?: Integration;
   authorizationScopes?: Array<string>;
 }
 export interface MethodResponse {
   statusCode?: string;
-  responseParameters?: Record<string, boolean>;
-  responseModels?: Record<string, string>;
+  responseParameters?: Partial<Record<string, boolean>>;
+  responseModels?: Partial<Record<string, string>>;
 }
 export interface MethodSetting {
   metricsEnabled?: boolean;
@@ -2270,9 +2274,8 @@ export interface PatchOperation {
   value?: string;
   from?: string;
 }
-export type PathToMapOfMethodSnapshot = Record<
-  string,
-  Record<string, MethodSnapshot>
+export type PathToMapOfMethodSnapshot = Partial<
+  Record<string, Partial<Record<string, MethodSnapshot>>>
 >;
 export type ProviderARN = string;
 
@@ -2280,8 +2283,8 @@ export interface PutGatewayResponseRequest {
   restApiId: string;
   responseType: GatewayResponseType;
   statusCode?: string;
-  responseParameters?: Record<string, string>;
-  responseTemplates?: Record<string, string>;
+  responseParameters?: Partial<Record<string, string>>;
+  responseTemplates?: Partial<Record<string, string>>;
 }
 export interface PutIntegrationRequest {
   restApiId: string;
@@ -2293,8 +2296,8 @@ export interface PutIntegrationRequest {
   connectionType?: ConnectionType;
   connectionId?: string;
   credentials?: string;
-  requestParameters?: Record<string, string>;
-  requestTemplates?: Record<string, string>;
+  requestParameters?: Partial<Record<string, string>>;
+  requestTemplates?: Partial<Record<string, string>>;
   passthroughBehavior?: string;
   cacheNamespace?: string;
   cacheKeyParameters?: Array<string>;
@@ -2308,8 +2311,8 @@ export interface PutIntegrationResponseRequest {
   httpMethod: string;
   statusCode: string;
   selectionPattern?: string;
-  responseParameters?: Record<string, string>;
-  responseTemplates?: Record<string, string>;
+  responseParameters?: Partial<Record<string, string>>;
+  responseTemplates?: Partial<Record<string, string>>;
   contentHandling?: ContentHandlingStrategy;
 }
 export interface PutMethodRequest {
@@ -2320,8 +2323,8 @@ export interface PutMethodRequest {
   authorizerId?: string;
   apiKeyRequired?: boolean;
   operationName?: string;
-  requestParameters?: Record<string, boolean>;
-  requestModels?: Record<string, string>;
+  requestParameters?: Partial<Record<string, boolean>>;
+  requestModels?: Partial<Record<string, string>>;
   requestValidatorId?: string;
   authorizationScopes?: Array<string>;
 }
@@ -2330,15 +2333,15 @@ export interface PutMethodResponseRequest {
   resourceId: string;
   httpMethod: string;
   statusCode: string;
-  responseParameters?: Record<string, boolean>;
-  responseModels?: Record<string, string>;
+  responseParameters?: Partial<Record<string, boolean>>;
+  responseModels?: Partial<Record<string, string>>;
 }
 export type PutMode = "Merge" | "Overwrite";
 export interface PutRestApiRequest {
   restApiId: string;
   mode?: PutMode;
   failOnWarnings?: boolean;
-  parameters?: Record<string, string>;
+  parameters?: Partial<Record<string, string>>;
   body: Uint8Array | string | Buffer | Stream.Stream<Uint8Array>;
 }
 export type QuotaPeriodType = "DAY" | "WEEK" | "MONTH";
@@ -2366,7 +2369,7 @@ export interface Resource {
   parentId?: string;
   pathPart?: string;
   path?: string;
-  resourceMethods?: Record<string, Method>;
+  resourceMethods?: Partial<Record<string, Method>>;
 }
 export type ResourceOwner = "SELF" | "OTHER_ACCOUNTS";
 export interface Resources {
@@ -2385,7 +2388,7 @@ export interface RestApi {
   apiKeySource?: ApiKeySourceType;
   endpointConfiguration?: EndpointConfiguration;
   policy?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   disableExecuteApiEndpoint?: boolean;
   rootResourceId?: string;
 }
@@ -2433,14 +2436,14 @@ export interface Stage {
   cacheClusterEnabled?: boolean;
   cacheClusterSize?: CacheClusterSize;
   cacheClusterStatus?: CacheClusterStatus;
-  methodSettings?: Record<string, MethodSetting>;
-  variables?: Record<string, string>;
+  methodSettings?: Partial<Record<string, MethodSetting>>;
+  variables?: Partial<Record<string, string>>;
   documentationVersion?: string;
   accessLogSettings?: AccessLogSettings;
   canarySettings?: CanarySettings;
   tracingEnabled?: boolean;
   webAclArn?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   createdDate?: Date | string;
   lastUpdatedDate?: Date | string;
 }
@@ -2457,10 +2460,10 @@ export type ApiGatewayString = string;
 
 export interface TagResourceRequest {
   resourceArn: string;
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
 export interface Tags {
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface Template {
   value?: string;
@@ -2468,12 +2471,12 @@ export interface Template {
 export interface TestInvokeAuthorizerRequest {
   restApiId: string;
   authorizerId: string;
-  headers?: Record<string, string>;
-  multiValueHeaders?: Record<string, Array<string>>;
+  headers?: Partial<Record<string, string>>;
+  multiValueHeaders?: Partial<Record<string, Array<string>>>;
   pathWithQueryString?: string;
   body?: string;
-  stageVariables?: Record<string, string>;
-  additionalContext?: Record<string, string>;
+  stageVariables?: Partial<Record<string, string>>;
+  additionalContext?: Partial<Record<string, string>>;
 }
 export interface TestInvokeAuthorizerResponse {
   clientStatus?: number;
@@ -2481,8 +2484,8 @@ export interface TestInvokeAuthorizerResponse {
   latency?: number;
   principalId?: string;
   policy?: string;
-  authorization?: Record<string, Array<string>>;
-  claims?: Record<string, string>;
+  authorization?: Partial<Record<string, Array<string>>>;
+  claims?: Partial<Record<string, string>>;
 }
 export interface TestInvokeMethodRequest {
   restApiId: string;
@@ -2490,16 +2493,16 @@ export interface TestInvokeMethodRequest {
   httpMethod: string;
   pathWithQueryString?: string;
   body?: string;
-  headers?: Record<string, string>;
-  multiValueHeaders?: Record<string, Array<string>>;
+  headers?: Partial<Record<string, string>>;
+  multiValueHeaders?: Partial<Record<string, Array<string>>>;
   clientCertificateId?: string;
-  stageVariables?: Record<string, string>;
+  stageVariables?: Partial<Record<string, string>>;
 }
 export interface TestInvokeMethodResponse {
   status?: number;
   body?: string;
-  headers?: Record<string, string>;
-  multiValueHeaders?: Record<string, Array<string>>;
+  headers?: Partial<Record<string, string>>;
+  multiValueHeaders?: Partial<Record<string, Array<string>>>;
   log?: string;
   latency?: number;
 }
@@ -2645,7 +2648,7 @@ export interface Usage {
   usagePlanId?: string;
   startDate?: string;
   endDate?: string;
-  items?: Record<string, Array<Array<number>>>;
+  items?: Partial<Record<string, Array<Array<number>>>>;
   position?: string;
 }
 export interface UsagePlan {
@@ -2656,7 +2659,7 @@ export interface UsagePlan {
   throttle?: ThrottleSettings;
   quota?: QuotaSettings;
   productCode?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface UsagePlanKey {
   id?: string;
@@ -2679,7 +2682,7 @@ export interface VpcLink {
   targetArns?: Array<string>;
   status?: VpcLinkStatus;
   statusMessage?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface VpcLinks {
   items?: Array<VpcLink>;

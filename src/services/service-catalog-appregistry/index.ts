@@ -235,8 +235,8 @@ export interface Application {
   description?: string;
   creationTime?: Date | string;
   lastUpdateTime?: Date | string;
-  tags?: Record<string, string>;
-  applicationTag?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
+  applicationTag?: Partial<Record<string, string>>;
 }
 export type ApplicationArn = string;
 
@@ -253,7 +253,7 @@ export interface ApplicationSummary {
   creationTime?: Date | string;
   lastUpdateTime?: Date | string;
 }
-export type ApplicationTagDefinition = Record<string, string>;
+export type ApplicationTagDefinition = Partial<Record<string, string>>;
 export interface ApplicationTagResult {
   applicationTagStatus?: ApplicationTagStatus;
   errorMessage?: string;
@@ -297,7 +297,7 @@ export interface AttributeGroup {
   description?: string;
   creationTime?: Date | string;
   lastUpdateTime?: Date | string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type AttributeGroupArn = string;
 
@@ -335,7 +335,7 @@ export declare class ConflictException extends EffectData.TaggedError(
 export interface CreateApplicationRequest {
   name: string;
   description?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   clientToken: string;
 }
 export interface CreateApplicationResponse {
@@ -345,7 +345,7 @@ export interface CreateAttributeGroupRequest {
   name: string;
   description?: string;
   attributes: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   clientToken: string;
 }
 export interface CreateAttributeGroupResponse {
@@ -395,9 +395,9 @@ export interface GetApplicationResponse {
   creationTime?: Date | string;
   lastUpdateTime?: Date | string;
   associatedResourceCount?: number;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   integrations?: Integrations;
-  applicationTag?: Record<string, string>;
+  applicationTag?: Partial<Record<string, string>>;
 }
 export type GetAssociatedResourceFilter = Array<ResourceItemStatus>;
 export interface GetAssociatedResourceRequest {
@@ -424,7 +424,7 @@ export interface GetAttributeGroupResponse {
   attributes?: string;
   creationTime?: Date | string;
   lastUpdateTime?: Date | string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   createdBy?: string;
 }
 export interface GetConfigurationResponse {
@@ -486,7 +486,7 @@ export interface ListTagsForResourceRequest {
   resourceArn: string;
 }
 export interface ListTagsForResourceResponse {
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type MaxResults = number;
 
@@ -581,10 +581,10 @@ export interface TagQueryConfiguration {
 }
 export interface TagResourceRequest {
   resourceArn: string;
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
 export interface TagResourceResponse {}
-export type Tags = Record<string, string>;
+export type Tags = Partial<Record<string, string>>;
 export type TagValue = string;
 
 export declare class ThrottlingException extends EffectData.TaggedError(

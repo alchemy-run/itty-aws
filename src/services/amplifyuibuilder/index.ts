@@ -72,7 +72,7 @@ export interface ActionParameters {
   global?: ComponentProperty;
   model?: string;
   id?: ComponentProperty;
-  fields?: Record<string, ComponentProperty>;
+  fields?: Partial<Record<string, ComponentProperty>>;
   state?: MutationActionSetStateParameter;
 }
 interface _ApiConfiguration {
@@ -102,7 +102,9 @@ export interface CodegenFeatureFlags {
 export interface CodegenGenericDataEnum {
   values: Array<string>;
 }
-export type CodegenGenericDataEnums = Record<string, CodegenGenericDataEnum>;
+export type CodegenGenericDataEnums = Partial<
+  Record<string, CodegenGenericDataEnum>
+>;
 export type CodegenGenericDataEnumValuesList = Array<string>;
 export interface CodegenGenericDataField {
   dataType: CodegenGenericDataFieldDataType;
@@ -130,23 +132,25 @@ export type CodegenGenericDataFieldDataType =
   | "ENUM"
   | "MODEL"
   | "NON_MODEL";
-export type CodegenGenericDataFields = Record<string, CodegenGenericDataField>;
+export type CodegenGenericDataFields = Partial<
+  Record<string, CodegenGenericDataField>
+>;
 export interface CodegenGenericDataModel {
-  fields: Record<string, CodegenGenericDataField>;
+  fields: Partial<Record<string, CodegenGenericDataField>>;
   isJoinTable?: boolean;
   primaryKeys: Array<string>;
 }
-export type CodegenGenericDataModels = Record<string, CodegenGenericDataModel>;
-export interface CodegenGenericDataNonModel {
-  fields: Record<string, CodegenGenericDataField>;
-}
-export type CodegenGenericDataNonModelFields = Record<
-  string,
-  CodegenGenericDataField
+export type CodegenGenericDataModels = Partial<
+  Record<string, CodegenGenericDataModel>
 >;
-export type CodegenGenericDataNonModels = Record<
-  string,
-  CodegenGenericDataNonModel
+export interface CodegenGenericDataNonModel {
+  fields: Partial<Record<string, CodegenGenericDataField>>;
+}
+export type CodegenGenericDataNonModelFields = Partial<
+  Record<string, CodegenGenericDataField>
+>;
+export type CodegenGenericDataNonModels = Partial<
+  Record<string, CodegenGenericDataNonModel>
 >;
 export interface CodegenGenericDataRelationshipType {
   type: GenericDataRelationshipType;
@@ -170,7 +174,7 @@ export interface CodegenJob {
   status?: CodegenJobStatus;
   statusMessage?: string;
   asset?: CodegenJobAsset;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   createdAt?: Date | string;
   modifiedAt?: Date | string;
   dependencies?: Array<CodegenDependency>;
@@ -180,9 +184,9 @@ export interface CodegenJobAsset {
 }
 export interface CodegenJobGenericDataSchema {
   dataSourceType: CodegenJobGenericDataSourceType;
-  models: Record<string, CodegenGenericDataModel>;
-  enums: Record<string, CodegenGenericDataEnum>;
-  nonModels: Record<string, CodegenGenericDataNonModel>;
+  models: Partial<Record<string, CodegenGenericDataModel>>;
+  enums: Partial<Record<string, CodegenGenericDataEnum>>;
+  nonModels: Partial<Record<string, CodegenGenericDataNonModel>>;
 }
 export type CodegenJobGenericDataSourceType = "DATA_STORE";
 interface _CodegenJobRenderConfig {
@@ -209,21 +213,20 @@ export interface Component {
   id: string;
   name: string;
   componentType: string;
-  properties: Record<string, ComponentProperty>;
+  properties: Partial<Record<string, ComponentProperty>>;
   children?: Array<ComponentChild>;
   variants: Array<ComponentVariant>;
-  overrides: Record<string, Record<string, string>>;
-  bindingProperties: Record<string, ComponentBindingPropertiesValue>;
-  collectionProperties?: Record<string, ComponentDataConfiguration>;
+  overrides: Partial<Record<string, Partial<Record<string, string>>>>;
+  bindingProperties: Partial<Record<string, ComponentBindingPropertiesValue>>;
+  collectionProperties?: Partial<Record<string, ComponentDataConfiguration>>;
   createdAt: Date | string;
   modifiedAt?: Date | string;
-  tags?: Record<string, string>;
-  events?: Record<string, ComponentEvent>;
+  tags?: Partial<Record<string, string>>;
+  events?: Partial<Record<string, ComponentEvent>>;
   schemaVersion?: string;
 }
-export type ComponentBindingProperties = Record<
-  string,
-  ComponentBindingPropertiesValue
+export type ComponentBindingProperties = Partial<
+  Record<string, ComponentBindingPropertiesValue>
 >;
 export interface ComponentBindingPropertiesValue {
   type?: string;
@@ -243,15 +246,14 @@ export interface ComponentBindingPropertiesValueProperties {
 export interface ComponentChild {
   componentType: string;
   name: string;
-  properties: Record<string, ComponentProperty>;
+  properties: Partial<Record<string, ComponentProperty>>;
   children?: Array<ComponentChild>;
-  events?: Record<string, ComponentEvent>;
+  events?: Partial<Record<string, ComponentEvent>>;
   sourceId?: string;
 }
 export type ComponentChildList = Array<ComponentChild>;
-export type ComponentCollectionProperties = Record<
-  string,
-  ComponentDataConfiguration
+export type ComponentCollectionProperties = Partial<
+  Record<string, ComponentDataConfiguration>
 >;
 export interface ComponentConditionProperty {
   property?: string;
@@ -273,20 +275,22 @@ export interface ComponentEvent {
   parameters?: ActionParameters;
   bindingEvent?: string;
 }
-export type ComponentEvents = Record<string, ComponentEvent>;
+export type ComponentEvents = Partial<Record<string, ComponentEvent>>;
 export type ComponentList = Array<Component>;
 export type ComponentName = string;
 
-export type ComponentOverrides = Record<string, Record<string, string>>;
-export type ComponentOverridesValue = Record<string, string>;
-export type ComponentProperties = Record<string, ComponentProperty>;
+export type ComponentOverrides = Partial<
+  Record<string, Partial<Record<string, string>>>
+>;
+export type ComponentOverridesValue = Partial<Record<string, string>>;
+export type ComponentProperties = Partial<Record<string, ComponentProperty>>;
 export interface ComponentProperty {
   value?: string;
   bindingProperties?: ComponentPropertyBindingProperties;
   collectionBindingProperties?: ComponentPropertyBindingProperties;
   defaultValue?: string;
   model?: string;
-  bindings?: Record<string, FormBindingElement>;
+  bindings?: Partial<Record<string, FormBindingElement>>;
   event?: string;
   userAttribute?: string;
   concat?: Array<ComponentProperty>;
@@ -313,23 +317,23 @@ export type ComponentSummaryList = Array<ComponentSummary>;
 export type ComponentType = string;
 
 export interface ComponentVariant {
-  variantValues?: Record<string, string>;
-  overrides?: Record<string, Record<string, string>>;
+  variantValues?: Partial<Record<string, string>>;
+  overrides?: Partial<Record<string, Partial<Record<string, string>>>>;
 }
 export type ComponentVariants = Array<ComponentVariant>;
-export type ComponentVariantValues = Record<string, string>;
+export type ComponentVariantValues = Partial<Record<string, string>>;
 export interface CreateComponentData {
   name: string;
   sourceId?: string;
   componentType: string;
-  properties: Record<string, ComponentProperty>;
+  properties: Partial<Record<string, ComponentProperty>>;
   children?: Array<ComponentChild>;
   variants: Array<ComponentVariant>;
-  overrides: Record<string, Record<string, string>>;
-  bindingProperties: Record<string, ComponentBindingPropertiesValue>;
-  collectionProperties?: Record<string, ComponentDataConfiguration>;
-  tags?: Record<string, string>;
-  events?: Record<string, ComponentEvent>;
+  overrides: Partial<Record<string, Partial<Record<string, string>>>>;
+  bindingProperties: Partial<Record<string, ComponentBindingPropertiesValue>>;
+  collectionProperties?: Partial<Record<string, ComponentDataConfiguration>>;
+  tags?: Partial<Record<string, string>>;
+  events?: Partial<Record<string, ComponentEvent>>;
   schemaVersion?: string;
 }
 export interface CreateComponentRequest {
@@ -345,12 +349,12 @@ export interface CreateFormData {
   name: string;
   dataType: FormDataTypeConfig;
   formActionType: FormActionType;
-  fields: Record<string, FieldConfig>;
+  fields: Partial<Record<string, FieldConfig>>;
   style: FormStyle;
-  sectionalElements: Record<string, SectionalElement>;
+  sectionalElements: Partial<Record<string, SectionalElement>>;
   schemaVersion: string;
   cta?: FormCTA;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   labelDecorator?: string;
 }
 export interface CreateFormRequest {
@@ -366,7 +370,7 @@ export interface CreateThemeData {
   name: string;
   values: Array<ThemeValues>;
   overrides?: Array<ThemeValues>;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateThemeRequest {
   appId: string;
@@ -434,7 +438,7 @@ export interface ExportThemesResponse {
   entities: Array<Theme>;
   nextToken?: string;
 }
-export type FeaturesMap = Record<string, string>;
+export type FeaturesMap = Partial<Record<string, string>>;
 export interface FieldConfig {
   label?: string;
   position?: FieldPosition;
@@ -470,7 +474,7 @@ export type FieldPosition =
   | (_FieldPosition & { fixed: FixedPosition })
   | (_FieldPosition & { rightOf: string })
   | (_FieldPosition & { below: string });
-export type FieldsMap = Record<string, FieldConfig>;
+export type FieldsMap = Partial<Record<string, FieldConfig>>;
 export interface FieldValidationConfiguration {
   type: string;
   strValues?: Array<string>;
@@ -494,10 +498,10 @@ export interface Form {
   formActionType: FormActionType;
   style: FormStyle;
   dataType: FormDataTypeConfig;
-  fields: Record<string, FieldConfig>;
-  sectionalElements: Record<string, SectionalElement>;
+  fields: Partial<Record<string, FieldConfig>>;
+  sectionalElements: Partial<Record<string, SectionalElement>>;
   schemaVersion: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   cta?: FormCTA;
   labelDecorator?: string;
 }
@@ -506,7 +510,7 @@ export interface FormBindingElement {
   element: string;
   property: string;
 }
-export type FormBindings = Record<string, FormBindingElement>;
+export type FormBindings = Partial<Record<string, FormBindingElement>>;
 export interface FormButton {
   excluded?: boolean;
   children?: string;
@@ -525,9 +529,8 @@ export interface FormDataTypeConfig {
   dataSourceType: string;
   dataTypeName: string;
 }
-export type FormInputBindingProperties = Record<
-  string,
-  FormInputBindingPropertiesValue
+export type FormInputBindingProperties = Partial<
+  Record<string, FormInputBindingPropertiesValue>
 >;
 export interface FormInputBindingPropertiesValue {
   type?: string;
@@ -601,7 +604,7 @@ export interface GetMetadataRequest {
   environmentName: string;
 }
 export interface GetMetadataResponse {
-  features: Record<string, string>;
+  features: Partial<Record<string, string>>;
 }
 export interface GetThemeRequest {
   appId: string;
@@ -672,7 +675,7 @@ export interface ListTagsForResourceRequest {
   resourceArn: string;
 }
 export interface ListTagsForResourceResponse {
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
 export interface ListThemesRequest {
   appId: string;
@@ -711,7 +714,7 @@ export interface PutMetadataFlagRequest {
   featureName: string;
   body: PutMetadataFlagBody;
 }
-export type ReactCodegenDependencies = Record<string, string>;
+export type ReactCodegenDependencies = Partial<Record<string, string>>;
 export interface ReactStartCodegenJobData {
   module?: JSModule;
   target?: JSTarget;
@@ -719,7 +722,7 @@ export interface ReactStartCodegenJobData {
   renderTypeDeclarations?: boolean;
   inlineSourceMap?: boolean;
   apiConfiguration?: ApiConfiguration;
-  dependencies?: Record<string, string>;
+  dependencies?: Partial<Record<string, string>>;
 }
 export interface RefreshTokenRequest {
   provider: string;
@@ -752,7 +755,7 @@ export interface SectionalElement {
   orientation?: string;
   excluded?: boolean;
 }
-export type SectionalElementMap = Record<string, SectionalElement>;
+export type SectionalElementMap = Partial<Record<string, SectionalElement>>;
 export type SensitiveString = string;
 
 export declare class ServiceQuotaExceededException extends EffectData.TaggedError(
@@ -771,7 +774,7 @@ export interface StartCodegenJobData {
   genericDataSchema?: CodegenJobGenericDataSchema;
   autoGenerateForms?: boolean;
   features?: CodegenFeatureFlags;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface StartCodegenJobRequest {
   appId: string;
@@ -789,10 +792,10 @@ export type TagKey = string;
 export type TagKeyList = Array<string>;
 export interface TagResourceRequest {
   resourceArn: string;
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
 export interface TagResourceResponse {}
-export type Tags = Record<string, string>;
+export type Tags = Partial<Record<string, string>>;
 export type TagValue = string;
 
 export interface Theme {
@@ -804,7 +807,7 @@ export interface Theme {
   modifiedAt?: Date | string;
   values: Array<ThemeValues>;
   overrides?: Array<ThemeValues>;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type ThemeList = Array<Theme>;
 export type ThemeName = string;
@@ -847,13 +850,13 @@ export interface UpdateComponentData {
   name?: string;
   sourceId?: string;
   componentType?: string;
-  properties?: Record<string, ComponentProperty>;
+  properties?: Partial<Record<string, ComponentProperty>>;
   children?: Array<ComponentChild>;
   variants?: Array<ComponentVariant>;
-  overrides?: Record<string, Record<string, string>>;
-  bindingProperties?: Record<string, ComponentBindingPropertiesValue>;
-  collectionProperties?: Record<string, ComponentDataConfiguration>;
-  events?: Record<string, ComponentEvent>;
+  overrides?: Partial<Record<string, Partial<Record<string, string>>>>;
+  bindingProperties?: Partial<Record<string, ComponentBindingPropertiesValue>>;
+  collectionProperties?: Partial<Record<string, ComponentDataConfiguration>>;
+  events?: Partial<Record<string, ComponentEvent>>;
   schemaVersion?: string;
 }
 export interface UpdateComponentRequest {
@@ -870,9 +873,9 @@ export interface UpdateFormData {
   name?: string;
   dataType?: FormDataTypeConfig;
   formActionType?: FormActionType;
-  fields?: Record<string, FieldConfig>;
+  fields?: Partial<Record<string, FieldConfig>>;
   style?: FormStyle;
-  sectionalElements?: Record<string, SectionalElement>;
+  sectionalElements?: Partial<Record<string, SectionalElement>>;
   schemaVersion?: string;
   cta?: FormCTA;
   labelDecorator?: string;
@@ -913,7 +916,7 @@ export interface ValueMapping {
 export type ValueMappingList = Array<ValueMapping>;
 export interface ValueMappings {
   values: Array<ValueMapping>;
-  bindingProperties?: Record<string, FormInputBindingPropertiesValue>;
+  bindingProperties?: Partial<Record<string, FormInputBindingPropertiesValue>>;
 }
 export declare namespace ExchangeCodeForToken {
   export type Input = ExchangeCodeForTokenRequest;

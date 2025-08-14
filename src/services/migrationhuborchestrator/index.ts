@@ -44,9 +44,9 @@ export interface CreateMigrationWorkflowRequest {
   description?: string;
   templateId: string;
   applicationConfigurationId?: string;
-  inputParameters: Record<string, StepInput>;
+  inputParameters: Partial<Record<string, StepInput>>;
   stepTargets?: Array<string>;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateMigrationWorkflowResponse {
   id?: string;
@@ -55,23 +55,23 @@ export interface CreateMigrationWorkflowResponse {
   description?: string;
   templateId?: string;
   adsApplicationConfigurationId?: string;
-  workflowInputs?: Record<string, StepInput>;
+  workflowInputs?: Partial<Record<string, StepInput>>;
   stepTargets?: Array<string>;
   status?: string;
   creationTime?: Date | string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateTemplateRequest {
   templateName: string;
   templateDescription?: string;
   templateSource: TemplateSource;
   clientToken?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateTemplateResponse {
   templateId?: string;
   templateArn?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateWorkflowStepGroupRequest {
   workflowId: string;
@@ -154,8 +154,8 @@ export interface GetMigrationWorkflowResponse {
   tools?: Array<Tool>;
   totalSteps?: number;
   completedSteps?: number;
-  workflowInputs?: Record<string, StepInput>;
-  tags?: Record<string, string>;
+  workflowInputs?: Partial<Record<string, StepInput>>;
+  tags?: Partial<Record<string, string>>;
   workflowBucket?: string;
 }
 export interface GetMigrationWorkflowTemplateRequest {
@@ -173,7 +173,7 @@ export interface GetMigrationWorkflowTemplateResponse {
   status?: string;
   statusMessage?: string;
   templateClass?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface GetTemplateStepGroupRequest {
   templateId: string;
@@ -295,7 +295,7 @@ export interface ListTagsForResourceRequest {
   resourceArn: string;
 }
 export interface ListTagsForResourceResponse {
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface ListTemplateStepGroupsRequest {
   maxResults?: number;
@@ -447,15 +447,15 @@ interface _StepInput {
   integerValue?: number;
   stringValue?: string;
   listOfStringsValue?: Array<string>;
-  mapOfStringValue?: Record<string, string>;
+  mapOfStringValue?: Partial<Record<string, string>>;
 }
 
 export type StepInput =
   | (_StepInput & { integerValue: number })
   | (_StepInput & { stringValue: string })
   | (_StepInput & { listOfStringsValue: Array<string> })
-  | (_StepInput & { mapOfStringValue: Record<string, string> });
-export type StepInputParameters = Record<string, StepInput>;
+  | (_StepInput & { mapOfStringValue: Partial<Record<string, string>> });
+export type StepInputParameters = Partial<Record<string, StepInput>>;
 export type StepInputParametersKey = string;
 
 export type StepName = string;
@@ -481,7 +481,7 @@ export interface StopMigrationWorkflowResponse {
 export type StringList = Array<string>;
 export type StringListMember = string;
 
-export type StringMap = Record<string, string>;
+export type StringMap = Partial<Record<string, string>>;
 export type StringMapKey = string;
 
 export type StringMapValue = string;
@@ -491,10 +491,10 @@ export type StringValue = string;
 export type TagKey = string;
 
 export type TagKeyList = Array<string>;
-export type TagMap = Record<string, string>;
+export type TagMap = Partial<Record<string, string>>;
 export interface TagResourceRequest {
   resourceArn: string;
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
 export interface TagResourceResponse {}
 export type TagValue = string;
@@ -565,7 +565,7 @@ export interface UpdateMigrationWorkflowRequest {
   id: string;
   name?: string;
   description?: string;
-  inputParameters?: Record<string, StepInput>;
+  inputParameters?: Partial<Record<string, StepInput>>;
   stepTargets?: Array<string>;
 }
 export interface UpdateMigrationWorkflowResponse {
@@ -575,12 +575,12 @@ export interface UpdateMigrationWorkflowResponse {
   description?: string;
   templateId?: string;
   adsApplicationConfigurationId?: string;
-  workflowInputs?: Record<string, StepInput>;
+  workflowInputs?: Partial<Record<string, StepInput>>;
   stepTargets?: Array<string>;
   status?: string;
   creationTime?: Date | string;
   lastModifiedTime?: Date | string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface UpdateTemplateRequest {
   id: string;
@@ -591,7 +591,7 @@ export interface UpdateTemplateRequest {
 export interface UpdateTemplateResponse {
   templateId?: string;
   templateArn?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface UpdateWorkflowStepGroupRequest {
   workflowId: string;

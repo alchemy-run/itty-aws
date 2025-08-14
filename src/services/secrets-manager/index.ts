@@ -350,7 +350,7 @@ export interface DescribeSecretResponse {
   DeletedDate?: Date | string;
   NextRotationDate?: Date | string;
   Tags?: Array<Tag>;
-  VersionIdsToStages?: Record<string, Array<string>>;
+  VersionIdsToStages?: Partial<Record<string, Array<string>>>;
   OwningService?: string;
   CreatedDate?: Date | string;
   PrimaryRegion?: string;
@@ -644,7 +644,7 @@ export interface SecretListEntry {
   DeletedDate?: Date | string;
   NextRotationDate?: Date | string;
   Tags?: Array<Tag>;
-  SecretVersionsToStages?: Record<string, Array<string>>;
+  SecretVersionsToStages?: Partial<Record<string, Array<string>>>;
   OwningService?: string;
   CreatedDate?: Date | string;
   PrimaryRegion?: string;
@@ -677,7 +677,9 @@ export type SecretVersionsListType = Array<SecretVersionsListEntry>;
 export type SecretVersionStagesType = Array<string>;
 export type SecretVersionStageType = string;
 
-export type SecretVersionsToStagesMapType = Record<string, Array<string>>;
+export type SecretVersionsToStagesMapType = Partial<
+  Record<string, Array<string>>
+>;
 export type SortOrderType = "asc" | "desc";
 export type StatusMessageType = string;
 

@@ -555,7 +555,7 @@ export interface CreateEndpointResponse {
 export interface CreatePlatformApplicationInput {
   Name: string;
   Platform: string;
-  Attributes: Record<string, string>;
+  Attributes: Partial<Record<string, string>>;
 }
 export interface CreatePlatformApplicationResponse {
   PlatformApplicationArn?: string;
@@ -564,7 +564,7 @@ export interface CreatePlatformEndpointInput {
   PlatformApplicationArn: string;
   Token: string;
   CustomUserData?: string;
-  Attributes?: Record<string, string>;
+  Attributes?: Partial<Record<string, string>>;
 }
 export interface CreateSMSSandboxPhoneNumberInput {
   PhoneNumber: string;
@@ -573,7 +573,7 @@ export interface CreateSMSSandboxPhoneNumberInput {
 export interface CreateSMSSandboxPhoneNumberResult {}
 export interface CreateTopicInput {
   Name: string;
-  Attributes?: Record<string, string>;
+  Attributes?: Partial<Record<string, string>>;
   Tags?: Array<Tag>;
   DataProtectionPolicy?: string;
 }
@@ -603,7 +603,7 @@ export declare class EmptyBatchRequestException extends EffectData.TaggedError(
 }> {}
 export interface Endpoint {
   EndpointArn?: string;
-  Attributes?: Record<string, string>;
+  Attributes?: Partial<Record<string, string>>;
 }
 export type Endpoint2 = string;
 
@@ -627,19 +627,19 @@ export interface GetEndpointAttributesInput {
   EndpointArn: string;
 }
 export interface GetEndpointAttributesResponse {
-  Attributes?: Record<string, string>;
+  Attributes?: Partial<Record<string, string>>;
 }
 export interface GetPlatformApplicationAttributesInput {
   PlatformApplicationArn: string;
 }
 export interface GetPlatformApplicationAttributesResponse {
-  Attributes?: Record<string, string>;
+  Attributes?: Partial<Record<string, string>>;
 }
 export interface GetSMSAttributesInput {
   attributes?: Array<string>;
 }
 export interface GetSMSAttributesResponse {
-  attributes?: Record<string, string>;
+  attributes?: Partial<Record<string, string>>;
 }
 export interface GetSMSSandboxAccountStatusInput {}
 export interface GetSMSSandboxAccountStatusResult {
@@ -649,13 +649,13 @@ export interface GetSubscriptionAttributesInput {
   SubscriptionArn: string;
 }
 export interface GetSubscriptionAttributesResponse {
-  Attributes?: Record<string, string>;
+  Attributes?: Partial<Record<string, string>>;
 }
 export interface GetTopicAttributesInput {
   TopicArn: string;
 }
 export interface GetTopicAttributesResponse {
-  Attributes?: Record<string, string>;
+  Attributes?: Partial<Record<string, string>>;
 }
 export declare class InternalErrorException extends EffectData.TaggedError(
   "InternalErrorException",
@@ -804,14 +804,16 @@ export interface ListTopicsResponse {
   Topics?: Array<Topic>;
   NextToken?: string;
 }
-export type MapStringToString = Record<string, string>;
+export type MapStringToString = Partial<Record<string, string>>;
 export type MaxItems = number;
 
 export type MaxItemsListOriginationNumbers = number;
 
 export type message = string;
 
-export type MessageAttributeMap = Record<string, MessageAttributeValue>;
+export type MessageAttributeMap = Partial<
+  Record<string, MessageAttributeValue>
+>;
 export interface MessageAttributeValue {
   DataType: string;
   StringValue?: string;
@@ -857,7 +859,7 @@ export type PhoneNumberString = string;
 
 export interface PlatformApplication {
   PlatformApplicationArn?: string;
-  Attributes?: Record<string, string>;
+  Attributes?: Partial<Record<string, string>>;
 }
 export declare class PlatformApplicationDisabledException extends EffectData.TaggedError(
   "PlatformApplicationDisabledException",
@@ -875,7 +877,7 @@ export interface PublishBatchRequestEntry {
   Message: string;
   Subject?: string;
   MessageStructure?: string;
-  MessageAttributes?: Record<string, MessageAttributeValue>;
+  MessageAttributes?: Partial<Record<string, MessageAttributeValue>>;
   MessageDeduplicationId?: string;
   MessageGroupId?: string;
 }
@@ -897,7 +899,7 @@ export interface PublishInput {
   Message: string;
   Subject?: string;
   MessageStructure?: string;
-  MessageAttributes?: Record<string, MessageAttributeValue>;
+  MessageAttributes?: Partial<Record<string, MessageAttributeValue>>;
   MessageDeduplicationId?: string;
   MessageGroupId?: string;
 }
@@ -926,14 +928,14 @@ export declare class ResourceNotFoundException extends EffectData.TaggedError(
 export type RouteType = "Transactional" | "Promotional" | "Premium";
 export interface SetEndpointAttributesInput {
   EndpointArn: string;
-  Attributes: Record<string, string>;
+  Attributes: Partial<Record<string, string>>;
 }
 export interface SetPlatformApplicationAttributesInput {
   PlatformApplicationArn: string;
-  Attributes: Record<string, string>;
+  Attributes: Partial<Record<string, string>>;
 }
 export interface SetSMSAttributesInput {
-  attributes: Record<string, string>;
+  attributes: Partial<Record<string, string>>;
 }
 export interface SetSMSAttributesResponse {}
 export interface SetSubscriptionAttributesInput {
@@ -965,7 +967,7 @@ export interface SubscribeInput {
   TopicArn: string;
   Protocol: string;
   Endpoint?: string;
-  Attributes?: Record<string, string>;
+  Attributes?: Partial<Record<string, string>>;
   ReturnSubscriptionArn?: boolean;
 }
 export interface SubscribeResponse {
@@ -980,7 +982,7 @@ export interface Subscription {
 }
 export type subscriptionARN = string;
 
-export type SubscriptionAttributesMap = Record<string, string>;
+export type SubscriptionAttributesMap = Partial<Record<string, string>>;
 export declare class SubscriptionLimitExceededException extends EffectData.TaggedError(
   "SubscriptionLimitExceededException",
 )<{
@@ -1031,7 +1033,7 @@ export interface Topic {
 }
 export type topicARN = string;
 
-export type TopicAttributesMap = Record<string, string>;
+export type TopicAttributesMap = Partial<Record<string, string>>;
 export declare class TopicLimitExceededException extends EffectData.TaggedError(
   "TopicLimitExceededException",
 )<{

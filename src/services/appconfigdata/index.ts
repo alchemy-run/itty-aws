@@ -18,11 +18,11 @@ export declare class AppConfigData extends AWSServiceClient {
 export declare class Appconfigdata extends AppConfigData {}
 
 interface _BadRequestDetails {
-  InvalidParameters?: Record<string, InvalidParameterDetail>;
+  InvalidParameters?: Partial<Record<string, InvalidParameterDetail>>;
 }
 
 export type BadRequestDetails = _BadRequestDetails & {
-  InvalidParameters: Record<string, InvalidParameterDetail>;
+  InvalidParameters: Partial<Record<string, InvalidParameterDetail>>;
 };
 export declare class BadRequestException extends EffectData.TaggedError(
   "BadRequestException",
@@ -57,7 +57,9 @@ export declare class InternalServerException extends EffectData.TaggedError(
 export interface InvalidParameterDetail {
   Problem?: string;
 }
-export type InvalidParameterMap = Record<string, InvalidParameterDetail>;
+export type InvalidParameterMap = Partial<
+  Record<string, InvalidParameterDetail>
+>;
 export type InvalidParameterProblem = string;
 
 export type OptionalPollSeconds = number;
@@ -67,7 +69,7 @@ export declare class ResourceNotFoundException extends EffectData.TaggedError(
 )<{
   readonly Message?: string;
   readonly ResourceType?: string;
-  readonly ReferencedBy?: Record<string, string>;
+  readonly ReferencedBy?: Partial<Record<string, string>>;
 }> {}
 export type ResourceType = string;
 
@@ -84,7 +86,7 @@ export interface StartConfigurationSessionResponse {
 }
 export type AppconfigdataString = string;
 
-export type StringMap = Record<string, string>;
+export type StringMap = Partial<Record<string, string>>;
 export declare class ThrottlingException extends EffectData.TaggedError(
   "ThrottlingException",
 )<{

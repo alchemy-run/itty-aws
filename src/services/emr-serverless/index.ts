@@ -42,17 +42,17 @@ export interface Application {
   type: string;
   state: string;
   stateDetails?: string;
-  initialCapacity?: Record<string, InitialCapacityConfig>;
+  initialCapacity?: Partial<Record<string, InitialCapacityConfig>>;
   maximumCapacity?: MaximumAllowedResources;
   createdAt: Date | string;
   updatedAt: Date | string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   autoStartConfiguration?: AutoStartConfig;
   autoStopConfiguration?: AutoStopConfig;
   networkConfiguration?: NetworkConfiguration;
   architecture?: string;
   imageConfiguration?: ImageConfiguration;
-  workerTypeSpecifications?: Record<string, WorkerTypeSpecification>;
+  workerTypeSpecifications?: Partial<Record<string, WorkerTypeSpecification>>;
   runtimeConfiguration?: Array<Configuration>;
   monitoringConfiguration?: MonitoringConfiguration;
   interactiveConfiguration?: InteractiveConfiguration;
@@ -114,7 +114,7 @@ export interface CloudWatchLoggingConfiguration {
 }
 export interface Configuration {
   classification: string;
-  properties?: Record<string, string>;
+  properties?: Partial<Record<string, string>>;
   configurations?: Array<Configuration>;
 }
 export type ConfigurationList = Array<Configuration>;
@@ -138,15 +138,17 @@ export interface CreateApplicationRequest {
   releaseLabel: string;
   type: string;
   clientToken: string;
-  initialCapacity?: Record<string, InitialCapacityConfig>;
+  initialCapacity?: Partial<Record<string, InitialCapacityConfig>>;
   maximumCapacity?: MaximumAllowedResources;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   autoStartConfiguration?: AutoStartConfig;
   autoStopConfiguration?: AutoStopConfig;
   networkConfiguration?: NetworkConfiguration;
   architecture?: string;
   imageConfiguration?: ImageConfigurationInput;
-  workerTypeSpecifications?: Record<string, WorkerTypeSpecificationInput>;
+  workerTypeSpecifications?: Partial<
+    Record<string, WorkerTypeSpecificationInput>
+  >;
   runtimeConfiguration?: Array<Configuration>;
   monitoringConfiguration?: MonitoringConfiguration;
   interactiveConfiguration?: InteractiveConfiguration;
@@ -237,7 +239,9 @@ export interface InitialCapacityConfig {
   workerCount: number;
   workerConfiguration?: WorkerResourceConfig;
 }
-export type InitialCapacityConfigMap = Record<string, InitialCapacityConfig>;
+export type InitialCapacityConfigMap = Partial<
+  Record<string, InitialCapacityConfig>
+>;
 export type InitScriptPath = string;
 
 export interface InteractiveConfiguration {
@@ -274,7 +278,7 @@ export interface JobRun {
   releaseLabel: string;
   configurationOverrides?: ConfigurationOverrides;
   jobDriver: JobDriver;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   totalResourceUtilization?: TotalResourceUtilization;
   networkConfiguration?: NetworkConfiguration;
   totalExecutionDurationSeconds?: number;
@@ -375,7 +379,7 @@ export interface ListTagsForResourceRequest {
   resourceArn: string;
 }
 export interface ListTagsForResourceResponse {
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type LogGroupName = string;
 
@@ -449,7 +453,7 @@ export interface SchedulerConfiguration {
 export type SecurityGroupIds = Array<string>;
 export type SecurityGroupString = string;
 
-export type SensitivePropertiesMap = Record<string, string>;
+export type SensitivePropertiesMap = Partial<Record<string, string>>;
 export declare class ServiceQuotaExceededException extends EffectData.TaggedError(
   "ServiceQuotaExceededException",
 )<{
@@ -475,7 +479,7 @@ export interface StartJobRunRequest {
   executionIamPolicy?: JobRunExecutionIamPolicy;
   jobDriver?: JobDriver;
   configurationOverrides?: ConfigurationOverrides;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   executionTimeoutMinutes?: number;
   name?: string;
   mode?: string;
@@ -500,10 +504,10 @@ export type SubnetString = string;
 export type TagKey = string;
 
 export type TagKeyList = Array<string>;
-export type TagMap = Record<string, string>;
+export type TagMap = Partial<Record<string, string>>;
 export interface TagResourceRequest {
   resourceArn: string;
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
 export interface TagResourceResponse {}
 export type TagValue = string;
@@ -521,14 +525,16 @@ export interface UntagResourceResponse {}
 export interface UpdateApplicationRequest {
   applicationId: string;
   clientToken: string;
-  initialCapacity?: Record<string, InitialCapacityConfig>;
+  initialCapacity?: Partial<Record<string, InitialCapacityConfig>>;
   maximumCapacity?: MaximumAllowedResources;
   autoStartConfiguration?: AutoStartConfig;
   autoStopConfiguration?: AutoStopConfig;
   networkConfiguration?: NetworkConfiguration;
   architecture?: string;
   imageConfiguration?: ImageConfigurationInput;
-  workerTypeSpecifications?: Record<string, WorkerTypeSpecificationInput>;
+  workerTypeSpecifications?: Partial<
+    Record<string, WorkerTypeSpecificationInput>
+  >;
   interactiveConfiguration?: InteractiveConfiguration;
   releaseLabel?: string;
   runtimeConfiguration?: Array<Configuration>;
@@ -562,13 +568,11 @@ export interface WorkerTypeSpecification {
 export interface WorkerTypeSpecificationInput {
   imageConfiguration?: ImageConfigurationInput;
 }
-export type WorkerTypeSpecificationInputMap = Record<
-  string,
-  WorkerTypeSpecificationInput
+export type WorkerTypeSpecificationInputMap = Partial<
+  Record<string, WorkerTypeSpecificationInput>
 >;
-export type WorkerTypeSpecificationMap = Record<
-  string,
-  WorkerTypeSpecification
+export type WorkerTypeSpecificationMap = Partial<
+  Record<string, WorkerTypeSpecification>
 >;
 export type WorkerTypeString = string;
 

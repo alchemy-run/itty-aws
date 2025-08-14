@@ -982,12 +982,12 @@ export interface AttributeItem {
   Name: string;
 }
 export type AttributeList = Array<AttributeItem>;
-export type AttributeMap = Record<string, FilterAttributeDimension>;
+export type AttributeMap = Partial<Record<string, FilterAttributeDimension>>;
 export type AttributeMatchingModel = "ONE_TO_ONE" | "MANY_TO_MANY";
 export type attributeName = string;
 
-export type Attributes = Record<string, string>;
-export type AttributeSourceIdMap = Record<string, string>;
+export type Attributes = Partial<Record<string, string>>;
+export type AttributeSourceIdMap = Partial<Record<string, string>>;
 export interface AttributeTypesSelector {
   AttributeMatchingModel: AttributeMatchingModel;
   Address?: Array<string>;
@@ -1072,9 +1072,8 @@ export interface CalculatedAttributeValue {
   LastObjectTimestamp?: Date | string;
 }
 export type CalculatedAttributeValueList = Array<CalculatedAttributeValue>;
-export type CalculatedCustomAttributes = Record<
-  string,
-  CalculatedAttributeDimension
+export type CalculatedCustomAttributes = Partial<
+  Record<string, CalculatedAttributeDimension>
 >;
 export type ComparisonOperator =
   | "INCLUSIVE"
@@ -1265,7 +1264,7 @@ export interface CreateProfileRequest {
   ShippingAddress?: Address;
   MailingAddress?: Address;
   BillingAddress?: Address;
-  Attributes?: Record<string, string>;
+  Attributes?: Partial<Record<string, string>>;
   PartyTypeString?: string;
   GenderString?: string;
   ProfileType?: ProfileType;
@@ -1313,14 +1312,14 @@ export interface CreateSegmentSnapshotResponse {
 export interface CreateUploadJobRequest {
   DomainName: string;
   DisplayName: string;
-  Fields: Record<string, ObjectTypeField>;
+  Fields: Partial<Record<string, ObjectTypeField>>;
   UniqueKey: string;
   DataExpiry?: number;
 }
 export interface CreateUploadJobResponse {
   JobId: string;
 }
-export type CustomAttributes = Record<string, AttributeDimension>;
+export type CustomAttributes = Partial<Record<string, AttributeDimension>>;
 export type DataFormat = "CSV" | "JSONL" | "ORC";
 export type DataPullMode = "INCREMENTAL" | "COMPLETE";
 export type CustomerProfilesDate = Date | string;
@@ -1428,8 +1427,8 @@ export interface DestinationSummary {
 }
 export interface DetectedProfileObjectType {
   SourceLastUpdatedTimestampFormat?: string;
-  Fields?: Record<string, ObjectTypeField>;
-  Keys?: Record<string, Array<ObjectTypeKey>>;
+  Fields?: Partial<Record<string, ObjectTypeField>>;
+  Keys?: Partial<Record<string, Array<ObjectTypeKey>>>;
 }
 export type DetectedProfileObjectTypes = Array<DetectedProfileObjectType>;
 export interface DetectProfileObjectTypeRequest {
@@ -1441,13 +1440,15 @@ export interface DetectProfileObjectTypeResponse {
 }
 interface _Dimension {
   ProfileAttributes?: ProfileAttributes;
-  CalculatedAttributes?: Record<string, CalculatedAttributeDimension>;
+  CalculatedAttributes?: Partial<Record<string, CalculatedAttributeDimension>>;
 }
 
 export type Dimension =
   | (_Dimension & { ProfileAttributes: ProfileAttributes })
   | (_Dimension & {
-      CalculatedAttributes: Record<string, CalculatedAttributeDimension>;
+      CalculatedAttributes: Partial<
+        Record<string, CalculatedAttributeDimension>
+      >;
     });
 export type DimensionList = Array<Dimension>;
 export type displayName = string;
@@ -1537,7 +1538,7 @@ export type FieldContentType =
   | "PHONE_NUMBER"
   | "EMAIL_ADDRESS"
   | "NAME";
-export type FieldMap = Record<string, ObjectTypeField>;
+export type FieldMap = Partial<Record<string, ObjectTypeField>>;
 export type fieldName = string;
 
 export type FieldNameList = Array<string>;
@@ -1562,7 +1563,7 @@ export interface FieldSourceProfileIds {
   ShippingAddress?: string;
   MailingAddress?: string;
   BillingAddress?: string;
-  Attributes?: Record<string, string>;
+  Attributes?: Partial<Record<string, string>>;
   ProfileType?: string;
   EngagementPreferences?: string;
 }
@@ -1575,7 +1576,7 @@ export interface FilterAttributeDimension {
   Values: Array<string>;
 }
 export interface FilterDimension {
-  Attributes: Record<string, FilterAttributeDimension>;
+  Attributes: Partial<Record<string, FilterAttributeDimension>>;
 }
 export type FilterDimensionList = Array<FilterDimension>;
 export type FilterDimensionType =
@@ -1746,7 +1747,7 @@ export interface GetIntegrationResponse {
   CreatedAt: Date | string;
   LastUpdatedAt: Date | string;
   Tags?: Record<string, string>;
-  ObjectTypeNames?: Record<string, string>;
+  ObjectTypeNames?: Partial<Record<string, string>>;
   WorkflowId?: string;
   IsUnstructured?: boolean;
   RoleArn?: string;
@@ -1777,8 +1778,8 @@ export interface GetProfileObjectTypeResponse {
   SourceLastUpdatedTimestampFormat?: string;
   MaxAvailableProfileObjectCount?: number;
   MaxProfileObjectCount?: number;
-  Fields?: Record<string, ObjectTypeField>;
-  Keys?: Record<string, Array<ObjectTypeKey>>;
+  Fields?: Partial<Record<string, ObjectTypeField>>;
+  Keys?: Partial<Record<string, Array<ObjectTypeKey>>>;
   CreatedAt?: Date | string;
   LastUpdatedAt?: Date | string;
   Tags?: Record<string, string>;
@@ -1792,8 +1793,8 @@ export interface GetProfileObjectTypeTemplateResponse {
   SourceObject?: string;
   AllowProfileCreation?: boolean;
   SourceLastUpdatedTimestampFormat?: string;
-  Fields?: Record<string, ObjectTypeField>;
-  Keys?: Record<string, Array<ObjectTypeKey>>;
+  Fields?: Partial<Record<string, ObjectTypeField>>;
+  Keys?: Partial<Record<string, Array<ObjectTypeKey>>>;
 }
 export interface GetSegmentDefinitionRequest {
   DomainName: string;
@@ -1884,7 +1885,7 @@ export interface GetUploadJobResponse {
   StatusReason?: StatusReason;
   CreatedAt?: Date | string;
   CompletedAt?: Date | string;
-  Fields?: Record<string, ObjectTypeField>;
+  Fields?: Partial<Record<string, ObjectTypeField>>;
   UniqueKey?: string;
   ResultsSummary?: ResultsSummary;
   DataExpiry?: number;
@@ -1974,7 +1975,7 @@ export interface JobStats {
   NumberOfMatchesFound?: number;
   NumberOfMergesDone?: number;
 }
-export type KeyMap = Record<string, Array<ObjectTypeKey>>;
+export type KeyMap = Partial<Record<string, Array<ObjectTypeKey>>>;
 export type KmsArn = string;
 
 export interface LayoutItem {
@@ -2092,7 +2093,7 @@ export interface ListIntegrationItem {
   CreatedAt: Date | string;
   LastUpdatedAt: Date | string;
   Tags?: Record<string, string>;
-  ObjectTypeNames?: Record<string, string>;
+  ObjectTypeNames?: Partial<Record<string, string>>;
   WorkflowId?: string;
   IsUnstructured?: boolean;
   RoleArn?: string;
@@ -2332,7 +2333,7 @@ export interface ObjectTypeKey {
   FieldNames?: Array<string>;
 }
 export type ObjectTypeKeyList = Array<ObjectTypeKey>;
-export type ObjectTypeNames = Record<string, string>;
+export type ObjectTypeNames = Partial<Record<string, string>>;
 export type Operator =
   | "EQUAL_TO"
   | "GREATER_THAN"
@@ -2392,7 +2393,7 @@ export interface Profile {
   ShippingAddress?: Address;
   MailingAddress?: Address;
   BillingAddress?: Address;
-  Attributes?: Record<string, string>;
+  Attributes?: Partial<Record<string, string>>;
   FoundByItems?: Array<FoundByKeyValue>;
   PartyTypeString?: string;
   GenderString?: string;
@@ -2420,7 +2421,7 @@ export interface ProfileAttributes {
   ShippingAddress?: AddressDimension;
   MailingAddress?: AddressDimension;
   BillingAddress?: AddressDimension;
-  Attributes?: Record<string, AttributeDimension>;
+  Attributes?: Partial<Record<string, AttributeDimension>>;
   ProfileType?: ProfileTypeDimension;
 }
 export interface ProfileAttributeValuesRequest {
@@ -2473,7 +2474,7 @@ export interface PutIntegrationRequest {
   ObjectTypeName?: string;
   Tags?: Record<string, string>;
   FlowDefinition?: FlowDefinition;
-  ObjectTypeNames?: Record<string, string>;
+  ObjectTypeNames?: Partial<Record<string, string>>;
   RoleArn?: string;
   EventTriggerNames?: Array<string>;
 }
@@ -2484,7 +2485,7 @@ export interface PutIntegrationResponse {
   CreatedAt: Date | string;
   LastUpdatedAt: Date | string;
   Tags?: Record<string, string>;
-  ObjectTypeNames?: Record<string, string>;
+  ObjectTypeNames?: Partial<Record<string, string>>;
   WorkflowId?: string;
   IsUnstructured?: boolean;
   RoleArn?: string;
@@ -2508,8 +2509,8 @@ export interface PutProfileObjectTypeRequest {
   AllowProfileCreation?: boolean;
   SourceLastUpdatedTimestampFormat?: string;
   MaxProfileObjectCount?: number;
-  Fields?: Record<string, ObjectTypeField>;
-  Keys?: Record<string, Array<ObjectTypeKey>>;
+  Fields?: Partial<Record<string, ObjectTypeField>>;
+  Keys?: Partial<Record<string, Array<ObjectTypeKey>>>;
   Tags?: Record<string, string>;
 }
 export interface PutProfileObjectTypeResponse {
@@ -2522,8 +2523,8 @@ export interface PutProfileObjectTypeResponse {
   SourceLastUpdatedTimestampFormat?: string;
   MaxProfileObjectCount?: number;
   MaxAvailableProfileObjectCount?: number;
-  Fields?: Record<string, ObjectTypeField>;
-  Keys?: Record<string, Array<ObjectTypeKey>>;
+  Fields?: Partial<Record<string, ObjectTypeField>>;
+  Keys?: Partial<Record<string, Array<ObjectTypeKey>>>;
   CreatedAt?: Date | string;
   LastUpdatedAt?: Date | string;
   Tags?: Record<string, string>;
@@ -2847,10 +2848,10 @@ export interface Task {
   ConnectorOperator?: ConnectorOperator;
   DestinationField?: string;
   SourceFields: Array<string>;
-  TaskProperties?: Record<OperatorPropertiesKeys, string>;
+  TaskProperties?: Partial<Record<OperatorPropertiesKeys, string>>;
   TaskType: TaskType;
 }
-export type TaskPropertiesMap = Record<OperatorPropertiesKeys, string>;
+export type TaskPropertiesMap = Partial<Record<OperatorPropertiesKeys, string>>;
 export type Tasks = Array<Task>;
 export type TaskType =
   | "ARITHMETIC"
@@ -2906,7 +2907,7 @@ export interface UpdateAddress {
   Country?: string;
   PostalCode?: string;
 }
-export type UpdateAttributes = Record<string, string>;
+export type UpdateAttributes = Partial<Record<string, string>>;
 export interface UpdateCalculatedAttributeDefinitionRequest {
   DomainName: string;
   CalculatedAttributeName: string;
@@ -3012,7 +3013,7 @@ export interface UpdateProfileRequest {
   ShippingAddress?: UpdateAddress;
   MailingAddress?: UpdateAddress;
   BillingAddress?: UpdateAddress;
-  Attributes?: Record<string, string>;
+  Attributes?: Partial<Record<string, string>>;
   PartyTypeString?: string;
   GenderString?: string;
   ProfileType?: ProfileType;

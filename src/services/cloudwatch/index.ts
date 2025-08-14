@@ -439,14 +439,14 @@ export interface Datapoint {
   Minimum?: number;
   Maximum?: number;
   Unit?: StandardUnit;
-  ExtendedStatistics?: Record<string, number>;
+  ExtendedStatistics?: Partial<Record<string, number>>;
 }
 export type Datapoints = Array<Datapoint>;
 export type DatapointsToAlarm = number;
 
 export type DatapointValue = number;
 
-export type DatapointValueMap = Record<string, number>;
+export type DatapointValueMap = Partial<Record<string, number>>;
 export type DatapointValues = Array<number>;
 export interface DeleteAlarmsInput {
   AlarmNames: Array<string>;
@@ -570,9 +570,9 @@ export interface EnableInsightRulesOutput {
 }
 export interface Entity {
   KeyAttributes?: Record<string, string>;
-  Attributes?: Record<string, string>;
+  Attributes?: Partial<Record<string, string>>;
 }
-export type EntityAttributesMap = Record<string, string>;
+export type EntityAttributesMap = Partial<Record<string, string>>;
 export type EntityAttributesMapKeyString = string;
 
 export type EntityAttributesMapValueString = string;

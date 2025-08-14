@@ -298,7 +298,7 @@ export interface CopyClusterSnapshotInput {
   targetSnapshotName: string;
   kmsKeyId?: string;
   copyTags?: boolean;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CopyClusterSnapshotOutput {
   snapshot: ClusterSnapshot;
@@ -315,7 +315,7 @@ export interface CreateClusterInput {
   kmsKeyId?: string;
   clientToken?: string;
   preferredMaintenanceWindow?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   backupRetentionPeriod?: number;
   preferredBackupWindow?: string;
   shardInstanceCount?: number;
@@ -326,7 +326,7 @@ export interface CreateClusterOutput {
 export interface CreateClusterSnapshotInput {
   clusterArn: string;
   snapshotName: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateClusterSnapshotOutput {
   snapshot: ClusterSnapshot;
@@ -398,7 +398,7 @@ export interface ListTagsForResourceRequest {
   resourceArn: string;
 }
 export interface ListTagsForResourceResponse {
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type OptInType = string;
 
@@ -435,7 +435,7 @@ export interface RestoreClusterFromSnapshotInput {
   vpcSecurityGroupIds?: Array<string>;
   subnetIds?: Array<string>;
   kmsKeyId?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   shardCapacity?: number;
   shardInstanceCount?: number;
 }
@@ -473,10 +473,10 @@ export type StringList = Array<string>;
 export type TagKey = string;
 
 export type TagKeyList = Array<string>;
-export type TagMap = Record<string, string>;
+export type TagMap = Partial<Record<string, string>>;
 export interface TagResourceRequest {
   resourceArn: string;
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
 export interface TagResourceResponse {}
 export type TagValue = string;

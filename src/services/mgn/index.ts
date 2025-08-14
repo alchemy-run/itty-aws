@@ -80,7 +80,7 @@ export interface Application {
   applicationAggregatedStatus?: ApplicationAggregatedStatus;
   creationDateTime?: string;
   lastModifiedDateTime?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   waveID?: string;
 }
 export interface ApplicationAggregatedStatus {
@@ -160,7 +160,7 @@ export interface Connector {
   name?: string;
   ssmInstanceID?: string;
   arn?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   ssmCommandConfig?: ConnectorSsmCommandConfig;
 }
 export type ConnectorArn = string;
@@ -185,20 +185,20 @@ export type Cpus = Array<CPU>;
 export interface CreateApplicationRequest {
   name: string;
   description?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   accountID?: string;
 }
 export interface CreateConnectorRequest {
   name: string;
   ssmInstanceID: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   ssmCommandConfig?: ConnectorSsmCommandConfig;
 }
 export interface CreateLaunchConfigurationTemplateRequest {
   postLaunchActions?: PostLaunchActions;
   enableMapAutoTagging?: boolean;
   mapAutoTaggingMpeID?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   launchDisposition?: string;
   targetInstanceTypeRightSizingMethod?: string;
   copyPrivateIp?: boolean;
@@ -222,14 +222,14 @@ export interface CreateReplicationConfigurationTemplateRequest {
   bandwidthThrottling: number;
   dataPlaneRouting: string;
   createPublicIP: boolean;
-  stagingAreaTags: Record<string, string>;
+  stagingAreaTags: Partial<Record<string, string>>;
   useFipsEndpoint?: boolean;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateWaveRequest {
   name: string;
   description?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   accountID?: string;
 }
 export interface DataReplicationError {
@@ -541,7 +541,7 @@ export interface Job {
   endDateTime?: string;
   status?: string;
   participatingServers?: Array<ParticipatingServer>;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type JobID = string;
 
@@ -593,7 +593,7 @@ export interface LaunchConfigurationTemplate {
   postLaunchActions?: PostLaunchActions;
   enableMapAutoTagging?: boolean;
   mapAutoTaggingMpeID?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   ec2LaunchTemplateID?: string;
   launchDisposition?: string;
   targetInstanceTypeRightSizingMethod?: string;
@@ -762,7 +762,7 @@ export interface ListTagsForResourceRequest {
   resourceArn: string;
 }
 export interface ListTagsForResourceResponse {
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface ListTemplateActionsRequest {
   launchConfigurationTemplateID: string;
@@ -853,8 +853,8 @@ export interface PutSourceServerActionRequest {
   active?: boolean;
   timeoutSeconds?: number;
   mustSucceedForCutover?: boolean;
-  parameters?: Record<string, Array<SsmParameterStoreParameter>>;
-  externalParameters?: Record<string, SsmExternalParameter>;
+  parameters?: Partial<Record<string, Array<SsmParameterStoreParameter>>>;
+  externalParameters?: Partial<Record<string, SsmExternalParameter>>;
   description?: string;
   category?: string;
   accountID?: string;
@@ -869,9 +869,9 @@ export interface PutTemplateActionRequest {
   active?: boolean;
   timeoutSeconds?: number;
   mustSucceedForCutover?: boolean;
-  parameters?: Record<string, Array<SsmParameterStoreParameter>>;
+  parameters?: Partial<Record<string, Array<SsmParameterStoreParameter>>>;
   operatingSystem?: string;
-  externalParameters?: Record<string, SsmExternalParameter>;
+  externalParameters?: Partial<Record<string, SsmExternalParameter>>;
   description?: string;
   category?: string;
 }
@@ -901,7 +901,7 @@ export interface ReplicationConfiguration {
   bandwidthThrottling?: number;
   dataPlaneRouting?: string;
   createPublicIP?: boolean;
-  stagingAreaTags?: Record<string, string>;
+  stagingAreaTags?: Partial<Record<string, string>>;
   useFipsEndpoint?: boolean;
 }
 export type ReplicationConfigurationDataPlaneRouting = string;
@@ -935,9 +935,9 @@ export interface ReplicationConfigurationTemplate {
   bandwidthThrottling?: number;
   dataPlaneRouting?: string;
   createPublicIP?: boolean;
-  stagingAreaTags?: Record<string, string>;
+  stagingAreaTags?: Partial<Record<string, string>>;
   useFipsEndpoint?: boolean;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type ReplicationConfigurationTemplateID = string;
 
@@ -1006,7 +1006,7 @@ export interface SourceServer {
   sourceServerID?: string;
   arn?: string;
   isArchived?: boolean;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   launchedInstance?: LaunchedInstance;
   dataReplicationInfo?: DataReplicationInfo;
   lifeCycle?: LifeCycle;
@@ -1027,8 +1027,8 @@ export interface SourceServerActionDocument {
   active?: boolean;
   timeoutSeconds?: number;
   mustSucceedForCutover?: boolean;
-  parameters?: Record<string, Array<SsmParameterStoreParameter>>;
-  externalParameters?: Record<string, SsmExternalParameter>;
+  parameters?: Partial<Record<string, Array<SsmParameterStoreParameter>>>;
+  externalParameters?: Partial<Record<string, SsmExternalParameter>>;
   description?: string;
   category?: string;
 }
@@ -1048,20 +1048,18 @@ export interface SsmDocument {
   ssmDocumentName: string;
   timeoutSeconds?: number;
   mustSucceedForCutover?: boolean;
-  parameters?: Record<string, Array<SsmParameterStoreParameter>>;
-  externalParameters?: Record<string, SsmExternalParameter>;
+  parameters?: Partial<Record<string, Array<SsmParameterStoreParameter>>>;
+  externalParameters?: Partial<Record<string, SsmExternalParameter>>;
 }
-export type SsmDocumentExternalParameters = Record<
-  string,
-  SsmExternalParameter
+export type SsmDocumentExternalParameters = Partial<
+  Record<string, SsmExternalParameter>
 >;
 export type SsmDocumentName = string;
 
 export type SsmDocumentParameterName = string;
 
-export type SsmDocumentParameters = Record<
-  string,
-  Array<SsmParameterStoreParameter>
+export type SsmDocumentParameters = Partial<
+  Record<string, Array<SsmParameterStoreParameter>>
 >;
 export type SsmDocuments = Array<SsmDocument>;
 export type SsmDocumentType = string;
@@ -1086,7 +1084,7 @@ export type SsmParameterStoreParameterType = string;
 
 export interface StartCutoverRequest {
   sourceServerIDs: Array<string>;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   accountID?: string;
 }
 export type StartCutoverRequestSourceServerIDs = Array<string>;
@@ -1114,7 +1112,7 @@ export interface StartReplicationRequest {
 }
 export interface StartTestRequest {
   sourceServerIDs: Array<string>;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   accountID?: string;
 }
 export type StartTestRequestSourceServerIDs = Array<string>;
@@ -1134,9 +1132,9 @@ export type TagKey = string;
 export type TagKeys = Array<string>;
 export interface TagResourceRequest {
   resourceArn: string;
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
-export type TagsMap = Record<string, string>;
+export type TagsMap = Partial<Record<string, string>>;
 export type TagValue = string;
 
 export type TargetInstanceTypeRightSizingMethod = string;
@@ -1150,9 +1148,9 @@ export interface TemplateActionDocument {
   active?: boolean;
   timeoutSeconds?: number;
   mustSucceedForCutover?: boolean;
-  parameters?: Record<string, Array<SsmParameterStoreParameter>>;
+  parameters?: Partial<Record<string, Array<SsmParameterStoreParameter>>>;
   operatingSystem?: string;
-  externalParameters?: Record<string, SsmExternalParameter>;
+  externalParameters?: Partial<Record<string, SsmExternalParameter>>;
   description?: string;
   category?: string;
 }
@@ -1162,7 +1160,7 @@ export interface TemplateActionsRequestFilters {
 }
 export interface TerminateTargetInstancesRequest {
   sourceServerIDs: Array<string>;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   accountID?: string;
 }
 export type TerminateTargetInstancesRequestSourceServerIDs = Array<string>;
@@ -1253,7 +1251,7 @@ export interface UpdateReplicationConfigurationRequest {
   bandwidthThrottling?: number;
   dataPlaneRouting?: string;
   createPublicIP?: boolean;
-  stagingAreaTags?: Record<string, string>;
+  stagingAreaTags?: Partial<Record<string, string>>;
   useFipsEndpoint?: boolean;
   accountID?: string;
 }
@@ -1271,7 +1269,7 @@ export interface UpdateReplicationConfigurationTemplateRequest {
   bandwidthThrottling?: number;
   dataPlaneRouting?: string;
   createPublicIP?: boolean;
-  stagingAreaTags?: Record<string, string>;
+  stagingAreaTags?: Partial<Record<string, string>>;
   useFipsEndpoint?: boolean;
 }
 export interface UpdateSourceServerReplicationTypeRequest {
@@ -1312,8 +1310,8 @@ export interface VcenterClient {
   vcenterUUID?: string;
   datacenterName?: string;
   lastSeenDatetime?: string;
-  sourceServerTags?: Record<string, string>;
-  tags?: Record<string, string>;
+  sourceServerTags?: Partial<Record<string, string>>;
+  tags?: Partial<Record<string, string>>;
 }
 export type VcenterClientID = string;
 
@@ -1329,7 +1327,7 @@ export interface Wave {
   waveAggregatedStatus?: WaveAggregatedStatus;
   creationDateTime?: string;
   lastModifiedDateTime?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface WaveAggregatedStatus {
   lastUpdateDateTime?: string;

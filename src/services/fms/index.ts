@@ -454,7 +454,7 @@ export interface AppsListData {
   CreateTime?: Date | string;
   LastUpdateTime?: Date | string;
   AppsList: Array<App>;
-  PreviousAppsList?: Record<string, Array<App>>;
+  PreviousAppsList?: Partial<Record<string, Array<App>>>;
 }
 export interface AppsListDataSummary {
   ListArn?: string;
@@ -524,9 +524,9 @@ export interface ComplianceViolator {
   ResourceId?: string;
   ViolationReason?: ViolationReason;
   ResourceType?: string;
-  Metadata?: Record<string, string>;
+  Metadata?: Partial<Record<string, string>>;
 }
-export type ComplianceViolatorMetadata = Record<string, string>;
+export type ComplianceViolatorMetadata = Partial<Record<string, string>>;
 export type ComplianceViolators = Array<ComplianceViolator>;
 export interface CreateNetworkAclAction {
   Description?: string;
@@ -543,9 +543,8 @@ export type CustomerPolicyScopeId = string;
 
 export type CustomerPolicyScopeIdList = Array<string>;
 export type CustomerPolicyScopeIdType = "ACCOUNT" | "ORG_UNIT";
-export type CustomerPolicyScopeMap = Record<
-  CustomerPolicyScopeIdType,
-  Array<string>
+export type CustomerPolicyScopeMap = Partial<
+  Record<CustomerPolicyScopeIdType, Array<string>>
 >;
 export type CustomerPolicyStatus = "ACTIVE" | "OUT_OF_ADMIN_SCOPE";
 export interface DeleteAppsListRequest {
@@ -853,7 +852,7 @@ export type IPPortNumber = number;
 
 export type IPPortNumberInteger = number;
 
-export type IssueInfoMap = Record<DependentServiceName, string>;
+export type IssueInfoMap = Partial<Record<DependentServiceName, string>>;
 export type LengthBoundedNonEmptyString = string;
 
 export type LengthBoundedString = string;
@@ -1142,8 +1141,8 @@ export interface Policy {
   ExcludeResourceTags: boolean;
   RemediationEnabled: boolean;
   DeleteUnusedFMManagedResources?: boolean;
-  IncludeMap?: Record<CustomerPolicyScopeIdType, Array<string>>;
-  ExcludeMap?: Record<CustomerPolicyScopeIdType, Array<string>>;
+  IncludeMap?: Partial<Record<CustomerPolicyScopeIdType, Array<string>>>;
+  ExcludeMap?: Partial<Record<CustomerPolicyScopeIdType, Array<string>>>;
   ResourceSetIds?: Array<string>;
   PolicyDescription?: string;
   PolicyStatus?: CustomerPolicyStatus;
@@ -1156,7 +1155,7 @@ export interface PolicyComplianceDetail {
   Violators?: Array<ComplianceViolator>;
   EvaluationLimitExceeded?: boolean;
   ExpiredAt?: Date | string;
-  IssueInfoMap?: Record<DependentServiceName, string>;
+  IssueInfoMap?: Partial<Record<DependentServiceName, string>>;
 }
 export interface PolicyComplianceStatus {
   PolicyOwner?: string;
@@ -1165,7 +1164,7 @@ export interface PolicyComplianceStatus {
   MemberAccount?: string;
   EvaluationResults?: Array<EvaluationResult>;
   LastUpdated?: Date | string;
-  IssueInfoMap?: Record<DependentServiceName, string>;
+  IssueInfoMap?: Partial<Record<DependentServiceName, string>>;
 }
 export type PolicyComplianceStatusList = Array<PolicyComplianceStatus>;
 export type PolicyComplianceStatusType = "Compliant" | "NonCompliant";
@@ -1203,10 +1202,10 @@ export interface PossibleRemediationActions {
   Description?: string;
   Actions?: Array<PossibleRemediationAction>;
 }
-export type PreviousAppsList = Record<string, Array<App>>;
+export type PreviousAppsList = Partial<Record<string, Array<App>>>;
 export type PreviousListVersion = string;
 
-export type PreviousProtocolsList = Record<string, Array<string>>;
+export type PreviousProtocolsList = Partial<Record<string, Array<string>>>;
 export type PriorityNumber = number;
 
 export type ProtectionData = string;
@@ -1221,7 +1220,7 @@ export interface ProtocolsListData {
   CreateTime?: Date | string;
   LastUpdateTime?: Date | string;
   ProtocolsList: Array<string>;
-  PreviousProtocolsList?: Record<string, Array<string>>;
+  PreviousProtocolsList?: Partial<Record<string, Array<string>>>;
 }
 export interface ProtocolsListDataSummary {
   ListArn?: string;

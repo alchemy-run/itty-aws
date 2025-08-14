@@ -547,7 +547,7 @@ export interface CreateAdapterRequest {
   Description?: string;
   FeatureTypes: Array<FeatureType>;
   AutoUpdate?: AutoUpdate;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateAdapterResponse {
   AdapterId?: string;
@@ -558,7 +558,7 @@ export interface CreateAdapterVersionRequest {
   DatasetConfig: AdapterVersionDatasetConfig;
   KMSKeyId?: string;
   OutputConfig: OutputConfig;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateAdapterVersionResponse {
   AdapterId?: string;
@@ -695,7 +695,7 @@ export interface GetAdapterResponse {
   Description?: string;
   FeatureTypes?: Array<FeatureType>;
   AutoUpdate?: AutoUpdate;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface GetAdapterVersionRequest {
   AdapterId: string;
@@ -712,7 +712,7 @@ export interface GetAdapterVersionResponse {
   KMSKeyId?: string;
   OutputConfig?: OutputConfig;
   EvaluationMetrics?: Array<AdapterVersionEvaluationMetric>;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface GetDocumentAnalysisRequest {
   JobId: string;
@@ -938,7 +938,7 @@ export interface ListTagsForResourceRequest {
   ResourceARN: string;
 }
 export interface ListTagsForResourceResponse {
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export type MaxResults = number;
 
@@ -1107,10 +1107,10 @@ export type SynthesizedJsonHumanLoopActivationConditionsEvaluationResults =
 export type TagKey = string;
 
 export type TagKeyList = Array<string>;
-export type TagMap = Record<string, string>;
+export type TagMap = Partial<Record<string, string>>;
 export interface TagResourceRequest {
   ResourceARN: string;
-  Tags: Record<string, string>;
+  Tags: Partial<Record<string, string>>;
 }
 export interface TagResourceResponse {}
 export type TagValue = string;

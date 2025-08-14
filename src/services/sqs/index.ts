@@ -374,8 +374,8 @@ export interface ChangeMessageVisibilityRequest {
 }
 export interface CreateQueueRequest {
   QueueName: string;
-  Attributes?: Record<QueueAttributeName, string>;
-  tags?: Record<string, string>;
+  Attributes?: Partial<Record<QueueAttributeName, string>>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateQueueResult {
   QueueUrl?: string;
@@ -418,7 +418,7 @@ export interface GetQueueAttributesRequest {
   AttributeNames?: Array<QueueAttributeName>;
 }
 export interface GetQueueAttributesResult {
-  Attributes?: Record<QueueAttributeName, string>;
+  Attributes?: Partial<Record<QueueAttributeName, string>>;
 }
 export interface GetQueueUrlRequest {
   QueueName: string;
@@ -533,7 +533,7 @@ export interface ListQueueTagsRequest {
   QueueUrl: string;
 }
 export interface ListQueueTagsResult {
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export type Long = number;
 
@@ -542,9 +542,9 @@ export interface Message {
   ReceiptHandle?: string;
   MD5OfBody?: string;
   Body?: string;
-  Attributes?: Record<MessageSystemAttributeName, string>;
+  Attributes?: Partial<Record<MessageSystemAttributeName, string>>;
   MD5OfMessageAttributes?: string;
-  MessageAttributes?: Record<string, MessageAttributeValue>;
+  MessageAttributes?: Partial<Record<string, MessageAttributeValue>>;
 }
 export type MessageAttributeName = string;
 
@@ -556,19 +556,19 @@ export interface MessageAttributeValue {
   BinaryListValues?: Array<Uint8Array | string>;
   DataType: string;
 }
-export type MessageBodyAttributeMap = Record<string, MessageAttributeValue>;
-export type MessageBodySystemAttributeMap = Record<
-  MessageSystemAttributeNameForSends,
-  MessageSystemAttributeValue
+export type MessageBodyAttributeMap = Partial<
+  Record<string, MessageAttributeValue>
+>;
+export type MessageBodySystemAttributeMap = Partial<
+  Record<MessageSystemAttributeNameForSends, MessageSystemAttributeValue>
 >;
 export type MessageList = Array<Message>;
 export declare class MessageNotInflight extends EffectData.TaggedError(
   "MessageNotInflight",
 )<{}> {}
 export type MessageSystemAttributeList = Array<MessageSystemAttributeName>;
-export type MessageSystemAttributeMap = Record<
-  MessageSystemAttributeName,
-  string
+export type MessageSystemAttributeMap = Partial<
+  Record<MessageSystemAttributeName, string>
 >;
 export type MessageSystemAttributeName =
   | "All"
@@ -604,7 +604,7 @@ export declare class PurgeQueueInProgress extends EffectData.TaggedError(
 export interface PurgeQueueRequest {
   QueueUrl: string;
 }
-export type QueueAttributeMap = Record<QueueAttributeName, string>;
+export type QueueAttributeMap = Partial<Record<QueueAttributeName, string>>;
 export type QueueAttributeName =
   | "All"
   | "Policy"
@@ -684,10 +684,9 @@ export interface SendMessageBatchRequestEntry {
   Id: string;
   MessageBody: string;
   DelaySeconds?: number;
-  MessageAttributes?: Record<string, MessageAttributeValue>;
-  MessageSystemAttributes?: Record<
-    MessageSystemAttributeNameForSends,
-    MessageSystemAttributeValue
+  MessageAttributes?: Partial<Record<string, MessageAttributeValue>>;
+  MessageSystemAttributes?: Partial<
+    Record<MessageSystemAttributeNameForSends, MessageSystemAttributeValue>
   >;
   MessageDeduplicationId?: string;
   MessageGroupId?: string;
@@ -712,10 +711,9 @@ export interface SendMessageRequest {
   QueueUrl: string;
   MessageBody: string;
   DelaySeconds?: number;
-  MessageAttributes?: Record<string, MessageAttributeValue>;
-  MessageSystemAttributes?: Record<
-    MessageSystemAttributeNameForSends,
-    MessageSystemAttributeValue
+  MessageAttributes?: Partial<Record<string, MessageAttributeValue>>;
+  MessageSystemAttributes?: Partial<
+    Record<MessageSystemAttributeNameForSends, MessageSystemAttributeValue>
   >;
   MessageDeduplicationId?: string;
   MessageGroupId?: string;
@@ -729,7 +727,7 @@ export interface SendMessageResult {
 }
 export interface SetQueueAttributesRequest {
   QueueUrl: string;
-  Attributes: Record<QueueAttributeName, string>;
+  Attributes: Partial<Record<QueueAttributeName, string>>;
 }
 export interface StartMessageMoveTaskRequest {
   SourceArn: string;
@@ -745,10 +743,10 @@ export type StringList = Array<string>;
 export type TagKey = string;
 
 export type TagKeyList = Array<string>;
-export type TagMap = Record<string, string>;
+export type TagMap = Partial<Record<string, string>>;
 export interface TagQueueRequest {
   QueueUrl: string;
-  Tags: Record<string, string>;
+  Tags: Partial<Record<string, string>>;
 }
 export type TagValue = string;
 

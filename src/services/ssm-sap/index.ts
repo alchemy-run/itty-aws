@@ -233,7 +233,7 @@ export interface ApplicationSummary {
   DiscoveryStatus?: ApplicationDiscoveryStatus;
   Type?: ApplicationType;
   Arn?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export type ApplicationSummaryList = Array<ApplicationSummary>;
 export type ApplicationType = "HANA" | "SAP_ABAP";
@@ -302,7 +302,7 @@ export interface ComponentSummary {
   ApplicationId?: string;
   ComponentId?: string;
   ComponentType?: ComponentType;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   Arn?: string;
 }
 export type ComponentSummaryList = Array<ComponentSummary>;
@@ -360,7 +360,7 @@ export interface DatabaseSummary {
   DatabaseId?: string;
   DatabaseType?: DatabaseType;
   Arn?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export type DatabaseSummaryList = Array<DatabaseSummary>;
 export type DatabaseType = "SYSTEM" | "TENANT";
@@ -397,7 +397,7 @@ export interface GetApplicationInput {
 }
 export interface GetApplicationOutput {
   Application?: Application;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface GetComponentInput {
   ApplicationId: string;
@@ -405,7 +405,7 @@ export interface GetComponentInput {
 }
 export interface GetComponentOutput {
   Component?: Component;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface GetDatabaseInput {
   ApplicationId?: string;
@@ -415,7 +415,7 @@ export interface GetDatabaseInput {
 }
 export interface GetDatabaseOutput {
   Database?: Database;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface GetOperationInput {
   OperationId: string;
@@ -506,7 +506,7 @@ export interface ListTagsForResourceRequest {
   resourceArn: string;
 }
 export interface ListTagsForResourceResponse {
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type MaxResults = number;
 
@@ -517,7 +517,7 @@ export interface Operation {
   Type?: string;
   Status?: OperationStatus;
   StatusMessage?: string;
-  Properties?: Record<string, string>;
+  Properties?: Partial<Record<string, string>>;
   ResourceType?: string;
   ResourceId?: string;
   ResourceArn?: string;
@@ -546,7 +546,7 @@ export type OperationMode =
   | "DELTA_DATASHIPPING"
   | "LOGREPLAY_READACCESS"
   | "NONE";
-export type OperationProperties = Record<string, string>;
+export type OperationProperties = Partial<Record<string, string>>;
 export type OperationStatus = "INPROGRESS" | "SUCCESS" | "ERROR";
 export type OperationType = string;
 
@@ -565,7 +565,7 @@ export interface RegisterApplicationInput {
   Instances: Array<string>;
   SapInstanceNumber?: string;
   Sid?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   Credentials?: Array<ApplicationCredential>;
   DatabaseArn?: string;
   ComponentsInfo?: Array<ComponentInfo>;
@@ -626,10 +626,10 @@ export interface StopApplicationOutput {
 export type TagKey = string;
 
 export type TagKeyList = Array<string>;
-export type TagMap = Record<string, string>;
+export type TagMap = Partial<Record<string, string>>;
 export interface TagResourceRequest {
   resourceArn: string;
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
 export interface TagResourceResponse {}
 export type TagValue = string;

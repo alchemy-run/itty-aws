@@ -534,7 +534,7 @@ export type __listOfResource = Array<Resource>;
 export type __listOfResourceAccessPolicy = Array<ResourceAccessPolicy>;
 export type __listOfSubscription = Array<Subscription>;
 export type __listOfVersionInformation = Array<VersionInformation>;
-export type __mapOf__string = Record<string, string>;
+export type __mapOf__string = Partial<Record<string, string>>;
 export type __string = string;
 
 export interface AssociateRoleToGroupRequest {
@@ -595,7 +595,7 @@ export interface ConnectivityInfo {
 export interface Connector {
   ConnectorArn: string;
   Id: string;
-  Parameters?: Record<string, string>;
+  Parameters?: Partial<Record<string, string>>;
 }
 export interface ConnectorDefinitionVersion {
   Connectors?: Array<Connector>;
@@ -613,7 +613,7 @@ export interface CreateConnectorDefinitionRequest {
   AmznClientToken?: string;
   InitialVersion?: ConnectorDefinitionVersion;
   Name?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateConnectorDefinitionResponse {
   Arn?: string;
@@ -639,7 +639,7 @@ export interface CreateCoreDefinitionRequest {
   AmznClientToken?: string;
   InitialVersion?: CoreDefinitionVersion;
   Name?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateCoreDefinitionResponse {
   Arn?: string;
@@ -676,7 +676,7 @@ export interface CreateDeviceDefinitionRequest {
   AmznClientToken?: string;
   InitialVersion?: DeviceDefinitionVersion;
   Name?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateDeviceDefinitionResponse {
   Arn?: string;
@@ -702,7 +702,7 @@ export interface CreateFunctionDefinitionRequest {
   AmznClientToken?: string;
   InitialVersion?: FunctionDefinitionVersion;
   Name?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateFunctionDefinitionResponse {
   Arn?: string;
@@ -736,7 +736,7 @@ export interface CreateGroupRequest {
   AmznClientToken?: string;
   InitialVersion?: GroupVersion;
   Name: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateGroupResponse {
   Arn?: string;
@@ -768,7 +768,7 @@ export interface CreateLoggerDefinitionRequest {
   AmznClientToken?: string;
   InitialVersion?: LoggerDefinitionVersion;
   Name?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateLoggerDefinitionResponse {
   Arn?: string;
@@ -794,7 +794,7 @@ export interface CreateResourceDefinitionRequest {
   AmznClientToken?: string;
   InitialVersion?: ResourceDefinitionVersion;
   Name?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateResourceDefinitionResponse {
   Arn?: string;
@@ -834,7 +834,7 @@ export interface CreateSubscriptionDefinitionRequest {
   AmznClientToken?: string;
   InitialVersion?: SubscriptionDefinitionVersion;
   Name?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateSubscriptionDefinitionResponse {
   Arn?: string;
@@ -864,7 +864,7 @@ export interface DefinitionInformation {
   LatestVersion?: string;
   LatestVersionArn?: string;
   Name?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface DeleteConnectorDefinitionRequest {
   ConnectorDefinitionId: string;
@@ -955,7 +955,7 @@ export interface FunctionConfigurationEnvironment {
   AccessSysfs?: boolean;
   Execution?: FunctionExecutionConfig;
   ResourceAccessPolicies?: Array<ResourceAccessPolicy>;
-  Variables?: Record<string, string>;
+  Variables?: Partial<Record<string, string>>;
 }
 export interface FunctionDefaultConfig {
   Execution?: FunctionDefaultExecutionConfig;
@@ -993,7 +993,7 @@ export interface GetBulkDeploymentStatusResponse {
   CreatedAt?: string;
   ErrorDetails?: Array<ErrorDetail>;
   ErrorMessage?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface GetConnectivityInfoRequest {
   ThingName: string;
@@ -1013,7 +1013,7 @@ export interface GetConnectorDefinitionResponse {
   LatestVersion?: string;
   LatestVersionArn?: string;
   Name?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface GetConnectorDefinitionVersionRequest {
   ConnectorDefinitionId: string;
@@ -1039,7 +1039,7 @@ export interface GetCoreDefinitionResponse {
   LatestVersion?: string;
   LatestVersionArn?: string;
   Name?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface GetCoreDefinitionVersionRequest {
   CoreDefinitionId: string;
@@ -1075,7 +1075,7 @@ export interface GetDeviceDefinitionResponse {
   LatestVersion?: string;
   LatestVersionArn?: string;
   Name?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface GetDeviceDefinitionVersionRequest {
   DeviceDefinitionId: string;
@@ -1101,7 +1101,7 @@ export interface GetFunctionDefinitionResponse {
   LatestVersion?: string;
   LatestVersionArn?: string;
   Name?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface GetFunctionDefinitionVersionRequest {
   FunctionDefinitionId: string;
@@ -1144,7 +1144,7 @@ export interface GetGroupResponse {
   LatestVersion?: string;
   LatestVersionArn?: string;
   Name?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface GetGroupVersionRequest {
   GroupId: string;
@@ -1168,7 +1168,7 @@ export interface GetLoggerDefinitionResponse {
   LatestVersion?: string;
   LatestVersionArn?: string;
   Name?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface GetLoggerDefinitionVersionRequest {
   LoggerDefinitionId: string;
@@ -1193,7 +1193,7 @@ export interface GetResourceDefinitionResponse {
   LatestVersion?: string;
   LatestVersionArn?: string;
   Name?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface GetResourceDefinitionVersionRequest {
   ResourceDefinitionId: string;
@@ -1222,7 +1222,7 @@ export interface GetSubscriptionDefinitionResponse {
   LatestVersion?: string;
   LatestVersionArn?: string;
   Name?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface GetSubscriptionDefinitionVersionRequest {
   NextToken?: string;
@@ -1447,7 +1447,7 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string;
 }
 export interface ListTagsForResourceResponse {
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface LocalDeviceResourceData {
   GroupOwnerSetting?: GroupOwnerSetting;
@@ -1528,7 +1528,7 @@ export interface StartBulkDeploymentRequest {
   AmznClientToken?: string;
   ExecutionRoleArn: string;
   InputFileUri: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface StartBulkDeploymentResponse {
   BulkDeploymentArn?: string;
@@ -1549,9 +1549,9 @@ export interface SubscriptionDefinitionVersion {
 }
 export interface TagResourceRequest {
   ResourceArn: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
-export type Tags = Record<string, string>;
+export type Tags = Partial<Record<string, string>>;
 export type Telemetry = "On" | "Off";
 export interface TelemetryConfiguration {
   ConfigurationSyncStatus?: ConfigurationSyncStatus;

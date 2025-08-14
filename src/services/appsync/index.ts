@@ -824,7 +824,7 @@ export interface Api {
   name?: string;
   ownerContact?: string;
   tags?: Record<string, string>;
-  dns?: Record<string, string>;
+  dns?: Partial<Record<string, string>>;
   apiArn?: string;
   created?: Date | string;
   xrayEnabled?: boolean;
@@ -1340,7 +1340,7 @@ export interface EnhancedMetricsConfig {
 }
 export type EnvironmentVariableKey = string;
 
-export type EnvironmentVariableMap = Record<string, string>;
+export type EnvironmentVariableMap = Partial<Record<string, string>>;
 export type EnvironmentVariableValue = string;
 
 export interface ErrorDetail {
@@ -1475,7 +1475,7 @@ export interface GetGraphqlApiEnvironmentVariablesRequest {
   apiId: string;
 }
 export interface GetGraphqlApiEnvironmentVariablesResponse {
-  environmentVariables?: Record<string, string>;
+  environmentVariables?: Partial<Record<string, string>>;
 }
 export interface GetGraphqlApiRequest {
   apiId: string;
@@ -1529,13 +1529,13 @@ export interface GraphqlApi {
   userPoolConfig?: UserPoolConfig;
   openIDConnectConfig?: OpenIDConnectConfig;
   arn?: string;
-  uris?: Record<string, string>;
+  uris?: Partial<Record<string, string>>;
   tags?: Record<string, string>;
   additionalAuthenticationProviders?: Array<AdditionalAuthenticationProvider>;
   xrayEnabled?: boolean;
   wafWebAclArn?: string;
   lambdaAuthorizerConfig?: LambdaAuthorizerConfig;
-  dns?: Record<string, string>;
+  dns?: Partial<Record<string, string>>;
   visibility?: GraphQLApiVisibility;
   apiType?: GraphQLApiType;
   mergedApiExecutionRoleArn?: string;
@@ -1723,7 +1723,7 @@ export interface LogConfig {
 export type Logs = Array<string>;
 export type Long = number;
 
-export type MapOfStringToString = Record<string, string>;
+export type MapOfStringToString = Partial<Record<string, string>>;
 export type MappingTemplate = string;
 
 export type MaxBatchSize = number;
@@ -1762,10 +1762,10 @@ export interface PipelineConfig {
 }
 export interface PutGraphqlApiEnvironmentVariablesRequest {
   apiId: string;
-  environmentVariables: Record<string, string>;
+  environmentVariables: Partial<Record<string, string>>;
 }
 export interface PutGraphqlApiEnvironmentVariablesResponse {
-  environmentVariables?: Record<string, string>;
+  environmentVariables?: Partial<Record<string, string>>;
 }
 export type QueryDepthLimit = number;
 

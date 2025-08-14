@@ -554,7 +554,7 @@ export interface CardStatus {
   currentValue: string;
   submissions?: Array<Submission>;
 }
-export type CardStatusMap = Record<string, CardStatus>;
+export type CardStatusMap = Partial<Record<string, CardStatus>>;
 export type CardType =
   | "TEXT_INPUT"
   | "Q_QUERY"
@@ -628,7 +628,7 @@ export interface CreatePresignedUrlInput {
 export interface CreatePresignedUrlOutput {
   fileId: string;
   presignedUrl: string;
-  presignedUrlFields: Record<string, string>;
+  presignedUrlFields: Partial<Record<string, string>>;
   presignedUrlExpiration: Date | string;
 }
 export interface CreateQAppInput {
@@ -636,7 +636,7 @@ export interface CreateQAppInput {
   title: string;
   description?: string;
   appDefinition: AppDefinitionInput;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateQAppOutput {
   appId: string;
@@ -816,7 +816,7 @@ export interface GetQAppSessionOutput {
   appVersion?: number;
   latestPublishedAppVersion?: number;
   status: ExecutionStatus;
-  cardStatus: Record<string, CardStatus>;
+  cardStatus: Partial<Record<string, CardStatus>>;
   userIsHost?: boolean;
 }
 export interface ImportDocumentInput {
@@ -898,7 +898,7 @@ export interface ListTagsForResourceRequest {
   resourceARN: string;
 }
 export interface ListTagsForResourceResponse {
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type Long = number;
 
@@ -962,7 +962,7 @@ export interface PredictQAppOutput {
   app: PredictAppDefinition;
   problemStatement: string;
 }
-export type PresignedUrlFields = Record<string, string>;
+export type PresignedUrlFields = Partial<Record<string, string>>;
 export interface PrincipalOutput {
   userId?: string;
   userType?: UserType;
@@ -1052,7 +1052,7 @@ export interface StartQAppSessionInput {
   appVersion: number;
   initialValues?: Array<CardValue>;
   sessionId?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface StartQAppSessionOutput {
   sessionId: string;
@@ -1076,13 +1076,13 @@ export type SubmissionMutationKind = "edit" | "delete" | "add";
 export type TagKey = string;
 
 export type TagKeys = Array<string>;
-export type TagMap = Record<string, string>;
+export type TagMap = Partial<Record<string, string>>;
 export interface TagResourceRequest {
   resourceARN: string;
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
 export interface TagResourceResponse {}
-export type Tags = Record<string, string>;
+export type Tags = Partial<Record<string, string>>;
 export type TagValue = string;
 
 export interface TextInputCard {

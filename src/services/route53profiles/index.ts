@@ -331,7 +331,7 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string;
 }
 export interface ListTagsForResourceResponse {
-  Tags: Record<string, string>;
+  Tags: Partial<Record<string, string>>;
 }
 export type MaxResults = number;
 
@@ -420,10 +420,10 @@ export type TagKey = string;
 
 export type TagKeyList = Array<string>;
 export type TagList = Array<Tag>;
-export type TagMap = Record<string, string>;
+export type TagMap = Partial<Record<string, string>>;
 export interface TagResourceRequest {
   ResourceArn: string;
-  Tags: Record<string, string>;
+  Tags: Partial<Record<string, string>>;
 }
 export interface TagResourceResponse {}
 export type TagValue = string;

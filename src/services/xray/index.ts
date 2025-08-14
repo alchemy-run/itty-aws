@@ -283,7 +283,7 @@ export type AmazonResourceName = string;
 
 export type AnnotationKey = string;
 
-export type Annotations = Record<string, Array<ValueWithServiceIds>>;
+export type Annotations = Partial<Record<string, Array<ValueWithServiceIds>>>;
 interface _AnnotationValue {
   NumberValue?: number;
   BooleanValue?: boolean;
@@ -300,7 +300,7 @@ export interface AnomalousService {
 export type AnomalousServiceList = Array<AnomalousService>;
 export type AttributeKey = string;
 
-export type AttributeMap = Record<string, string>;
+export type AttributeMap = Partial<Record<string, string>>;
 export type AttributeValue = string;
 
 export interface AvailabilityZoneDetail {
@@ -955,7 +955,7 @@ export interface SamplingRule {
   HTTPMethod: string;
   URLPath: string;
   Version: number;
-  Attributes?: Record<string, string>;
+  Attributes?: Partial<Record<string, string>>;
 }
 export interface SamplingRuleRecord {
   SamplingRule?: SamplingRule;
@@ -975,7 +975,7 @@ export interface SamplingRuleUpdate {
   ServiceType?: string;
   HTTPMethod?: string;
   URLPath?: string;
-  Attributes?: Record<string, string>;
+  Attributes?: Partial<Record<string, string>>;
 }
 export interface SamplingStatisticsDocument {
   RuleName: string;
@@ -1150,7 +1150,7 @@ export interface TraceSummary {
   HasThrottle?: boolean;
   IsPartial?: boolean;
   Http?: Http;
-  Annotations?: Record<string, Array<ValueWithServiceIds>>;
+  Annotations?: Partial<Record<string, Array<ValueWithServiceIds>>>;
   Users?: Array<TraceUser>;
   ServiceIds?: Array<ServiceId>;
   ResourceARNs?: Array<ResourceARNDetail>;

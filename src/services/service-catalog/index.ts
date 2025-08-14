@@ -786,7 +786,7 @@ export interface CopyProductInput {
   TargetProductId?: string;
   TargetProductName?: string;
   SourceProvisioningArtifactIdentifiers?: Array<
-    Record<ProvisioningArtifactPropertyName, string>
+    Partial<Record<ProvisioningArtifactPropertyName, string>>
   >;
   CopyOptions?: Array<CopyOption>;
   IdempotencyToken: string;
@@ -1632,9 +1632,8 @@ export type ProductType =
   | "TERRAFORM_OPEN_SOURCE"
   | "TERRAFORM_CLOUD"
   | "EXTERNAL";
-export type ProductViewAggregations = Record<
-  string,
-  Array<ProductViewAggregationValue>
+export type ProductViewAggregations = Partial<
+  Record<string, Array<ProductViewAggregationValue>>
 >;
 export type ProductViewAggregationType = string;
 
@@ -1658,7 +1657,9 @@ export type ProductViewFilterBy =
   | "Owner"
   | "ProductType"
   | "SourceProductId";
-export type ProductViewFilters = Record<ProductViewFilterBy, Array<string>>;
+export type ProductViewFilters = Partial<
+  Record<ProductViewFilterBy, Array<string>>
+>;
 export type ProductViewFilterValue = string;
 
 export type ProductViewFilterValues = Array<string>;
@@ -1729,9 +1730,8 @@ export interface ProvisionedProductDetail {
   LaunchRoleArn?: string;
 }
 export type ProvisionedProductDetails = Array<ProvisionedProductDetail>;
-export type ProvisionedProductFilters = Record<
-  ProvisionedProductViewFilterBy,
-  Array<string>
+export type ProvisionedProductFilters = Partial<
+  Record<ProvisionedProductViewFilterBy, Array<string>>
 >;
 export type ProvisionedProductId = string;
 
@@ -2050,7 +2050,7 @@ export type SearchFilterValue = string;
 export interface SearchProductsAsAdminInput {
   AcceptLanguage?: string;
   PortfolioId?: string;
-  Filters?: Record<ProductViewFilterBy, Array<string>>;
+  Filters?: Partial<Record<ProductViewFilterBy, Array<string>>>;
   SortBy?: ProductViewSortBy;
   SortOrder?: SortOrder;
   PageToken?: string;
@@ -2063,7 +2063,7 @@ export interface SearchProductsAsAdminOutput {
 }
 export interface SearchProductsInput {
   AcceptLanguage?: string;
-  Filters?: Record<ProductViewFilterBy, Array<string>>;
+  Filters?: Partial<Record<ProductViewFilterBy, Array<string>>>;
   PageSize?: number;
   SortBy?: ProductViewSortBy;
   SortOrder?: SortOrder;
@@ -2071,13 +2071,15 @@ export interface SearchProductsInput {
 }
 export interface SearchProductsOutput {
   ProductViewSummaries?: Array<ProductViewSummary>;
-  ProductViewAggregations?: Record<string, Array<ProductViewAggregationValue>>;
+  ProductViewAggregations?: Partial<
+    Record<string, Array<ProductViewAggregationValue>>
+  >;
   NextPageToken?: string;
 }
 export interface SearchProvisionedProductsInput {
   AcceptLanguage?: string;
   AccessLevelFilter?: AccessLevelFilter;
-  Filters?: Record<ProvisionedProductViewFilterBy, Array<string>>;
+  Filters?: Partial<Record<ProvisionedProductViewFilterBy, Array<string>>>;
   SortBy?: string;
   SortOrder?: SortOrder;
   PageSize?: number;
@@ -2164,11 +2166,10 @@ export interface SourceConnectionParameters {
   CodeStar?: CodeStarParameters;
 }
 export type SourceProvisioningArtifactProperties = Array<
-  Record<ProvisioningArtifactPropertyName, string>
+  Partial<Record<ProvisioningArtifactPropertyName, string>>
 >;
-export type SourceProvisioningArtifactPropertiesMap = Record<
-  ProvisioningArtifactPropertyName,
-  string
+export type SourceProvisioningArtifactPropertiesMap = Partial<
+  Record<ProvisioningArtifactPropertyName, string>
 >;
 export type SourceRevision = string;
 

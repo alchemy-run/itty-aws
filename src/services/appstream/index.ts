@@ -810,7 +810,7 @@ export interface Application {
   LaunchPath?: string;
   LaunchParameters?: string;
   Enabled?: boolean;
-  Metadata?: Record<string, string>;
+  Metadata?: Partial<Record<string, string>>;
   WorkingDirectory?: string;
   Description?: string;
   Arn?: string;
@@ -1664,7 +1664,7 @@ export type Long = number;
 export type MaxResults = number;
 
 export type MessageAction = "SUPPRESS" | "RESEND";
-export type Metadata = Record<string, string>;
+export type Metadata = Partial<Record<string, string>>;
 export type Name = string;
 
 export interface NetworkAccessConfiguration {

@@ -755,7 +755,7 @@ export type LineItemStatus =
   | "ERROR"
   | "CANCELLED"
   | "REPLACED";
-export type LineItemStatusCounts = Record<LineItemStatus, number>;
+export type LineItemStatusCounts = Partial<Record<LineItemStatus, number>>;
 export interface ListAssetInstancesInput {
   OutpostIdentifier: string;
   AssetIdFilter?: Array<string>;
@@ -917,7 +917,7 @@ export interface OrderSummary {
   OrderId?: string;
   OrderType?: OrderType;
   Status?: OrderStatus;
-  LineItemCountsByStatus?: Record<LineItemStatus, number>;
+  LineItemCountsByStatus?: Partial<Record<LineItemStatus, number>>;
   OrderSubmissionDate?: Date | string;
   OrderFulfilledDate?: Date | string;
 }

@@ -88,7 +88,7 @@ export type __listOfTransportStreamProgram = Array<TransportStreamProgram>;
 export type __listOfVideoMonitoringSetting = Array<VideoMonitoringSetting>;
 export type __listOfVpcInterface = Array<VpcInterface>;
 export type __listOfVpcInterfaceRequest = Array<VpcInterfaceRequest>;
-export type __mapOfString = Record<string, string>;
+export type __mapOfString = Partial<Record<string, string>>;
 export interface AddBridgeFlowSourceRequest {
   FlowArn: string;
   FlowVpcInterfaceAttachment?: VpcInterfaceAttachment;
@@ -726,7 +726,7 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string;
 }
 export interface ListTagsForResourceResponse {
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface Maintenance {
   MaintenanceDay?: MaintenanceDay;
@@ -1039,7 +1039,7 @@ export interface StopFlowResponse {
 }
 export interface TagResourceRequest {
   ResourceArn: string;
-  Tags: Record<string, string>;
+  Tags: Partial<Record<string, string>>;
 }
 export type Tcs =
   | "SDR"

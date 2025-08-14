@@ -907,7 +907,7 @@ export interface RecurrenceSettings {
   WeeklySettings?: Array<WeeklySetting>;
   DailySettings?: Array<HandOffTime>;
   NumberOfOnCalls: number;
-  ShiftCoverages?: Record<DayOfWeek, Array<CoverageTime>>;
+  ShiftCoverages?: Partial<Record<DayOfWeek, Array<CoverageTime>>>;
   RecurrenceMultiplier: number;
 }
 export interface ResolutionContact {
@@ -973,7 +973,7 @@ export declare class ServiceQuotaExceededException extends EffectData.TaggedErro
   readonly QuotaCode: string;
   readonly ServiceCode: string;
 }> {}
-export type ShiftCoveragesMap = Record<DayOfWeek, Array<CoverageTime>>;
+export type ShiftCoveragesMap = Partial<Record<DayOfWeek, Array<CoverageTime>>>;
 export interface ShiftDetails {
   OverriddenContactIds: Array<string>;
 }

@@ -180,7 +180,7 @@ export interface Attribute {
 export type attributeName = string;
 
 export type attributeNamesList = Array<string>;
-export type attributesMap = Record<string, string>;
+export type attributesMap = Partial<Record<string, string>>;
 export type attributeValue = string;
 
 export type attributeValuesList = Array<string>;
@@ -227,7 +227,7 @@ export interface CampaignSummary {
 export interface CanDbcDefinition {
   networkInterface: string;
   canDbcFiles: Array<Uint8Array | string>;
-  signalsMap?: Record<string, string>;
+  signalsMap?: Partial<Record<string, string>>;
 }
 export interface CanInterface {
   name: string;
@@ -379,7 +379,7 @@ export interface CreateVehicleRequest {
   vehicleName: string;
   modelManifestArn: string;
   decoderManifestArn: string;
-  attributes?: Record<string, string>;
+  attributes?: Partial<Record<string, string>>;
   associationBehavior?: VehicleAssociationBehavior;
   tags?: Array<Tag>;
   stateTemplates?: Array<StateTemplateAssociation>;
@@ -388,7 +388,7 @@ export interface CreateVehicleRequestItem {
   vehicleName: string;
   modelManifestArn: string;
   decoderManifestArn: string;
-  attributes?: Record<string, string>;
+  attributes?: Partial<Record<string, string>>;
   associationBehavior?: VehicleAssociationBehavior;
   tags?: Array<Tag>;
   stateTemplates?: Array<StateTemplateAssociation>;
@@ -690,7 +690,7 @@ export interface GetVehicleResponse {
   arn?: string;
   modelManifestArn?: string;
   decoderManifestArn?: string;
-  attributes?: Record<string, string>;
+  attributes?: Partial<Record<string, string>>;
   stateTemplates?: Array<StateTemplateAssociation>;
   creationTime?: Date | string;
   lastModificationTime?: Date | string;
@@ -936,7 +936,7 @@ export interface ModelManifestSummary {
   creationTime: Date | string;
   lastModificationTime: Date | string;
 }
-export type ModelSignalsMap = Record<string, string>;
+export type ModelSignalsMap = Partial<Record<string, string>>;
 export type MqttTopicArn = string;
 
 export interface MqttTopicConfig {
@@ -1487,7 +1487,7 @@ export interface UpdateVehicleRequest {
   vehicleName: string;
   modelManifestArn?: string;
   decoderManifestArn?: string;
-  attributes?: Record<string, string>;
+  attributes?: Partial<Record<string, string>>;
   attributeUpdateMode?: UpdateMode;
   stateTemplatesToAdd?: Array<StateTemplateAssociation>;
   stateTemplatesToRemove?: Array<string>;
@@ -1497,7 +1497,7 @@ export interface UpdateVehicleRequestItem {
   vehicleName: string;
   modelManifestArn?: string;
   decoderManifestArn?: string;
-  attributes?: Record<string, string>;
+  attributes?: Partial<Record<string, string>>;
   attributeUpdateMode?: UpdateMode;
   stateTemplatesToAdd?: Array<StateTemplateAssociation>;
   stateTemplatesToRemove?: Array<string>;
@@ -1564,7 +1564,7 @@ export interface VehicleSummary {
   decoderManifestArn: string;
   creationTime: Date | string;
   lastModificationTime: Date | string;
-  attributes?: Record<string, string>;
+  attributes?: Partial<Record<string, string>>;
 }
 export type wildcardSignalName = string;
 

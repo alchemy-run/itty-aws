@@ -710,7 +710,7 @@ export interface CreateDataCatalogInput {
   Name: string;
   Type: DataCatalogType;
   Description?: string;
-  Parameters?: Record<string, string>;
+  Parameters?: Partial<Record<string, string>>;
   Tags?: Array<Tag>;
 }
 export interface CreateDataCatalogOutput {
@@ -763,7 +763,7 @@ export interface CustomerContentEncryptionConfiguration {
 export interface Database {
   Name: string;
   Description?: string;
-  Parameters?: Record<string, string>;
+  Parameters?: Partial<Record<string, string>>;
 }
 export type DatabaseList = Array<Database>;
 export type DatabaseString = string;
@@ -772,7 +772,7 @@ export interface DataCatalog {
   Name: string;
   Description?: string;
   Type: DataCatalogType;
-  Parameters?: Record<string, string>;
+  Parameters?: Partial<Record<string, string>>;
   Status?: DataCatalogStatus;
   ConnectionType?: ConnectionType;
   Error?: string;
@@ -846,8 +846,8 @@ export interface EngineConfiguration {
   CoordinatorDpuSize?: number;
   MaxConcurrentDpus: number;
   DefaultExecutorDpuSize?: number;
-  AdditionalConfigs?: Record<string, string>;
-  SparkProperties?: Record<string, string>;
+  AdditionalConfigs?: Partial<Record<string, string>>;
+  SparkProperties?: Partial<Record<string, string>>;
 }
 export interface EngineVersion {
   SelectedEngineVersion?: string;
@@ -1301,7 +1301,7 @@ export interface NotebookSessionSummary {
   CreationTime?: Date | string;
 }
 export type NotebookType = "IPYNB";
-export type ParametersMap = Record<string, string>;
+export type ParametersMap = Partial<Record<string, string>>;
 export type ParametersMapValue = string;
 
 export type Payload = string;
@@ -1573,7 +1573,7 @@ export interface TableMetadata {
   TableType?: string;
   Columns?: Array<Column>;
   PartitionKeys?: Array<Column>;
-  Parameters?: Record<string, string>;
+  Parameters?: Partial<Record<string, string>>;
 }
 export type TableMetadataList = Array<TableMetadata>;
 export type TableTypeString = string;
@@ -1648,7 +1648,7 @@ export interface UpdateDataCatalogInput {
   Name: string;
   Type: DataCatalogType;
   Description?: string;
-  Parameters?: Record<string, string>;
+  Parameters?: Partial<Record<string, string>>;
 }
 export interface UpdateDataCatalogOutput {}
 export interface UpdateNamedQueryInput {

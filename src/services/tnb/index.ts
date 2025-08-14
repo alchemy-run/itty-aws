@@ -378,7 +378,7 @@ export interface CancelSolNetworkOperationInput {
   nsLcmOpOccId: string;
 }
 export interface CreateSolFunctionPackageInput {
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateSolFunctionPackageOutput {
   id: string;
@@ -386,23 +386,23 @@ export interface CreateSolFunctionPackageOutput {
   onboardingState: OnboardingState;
   operationalState: OperationalState;
   usageState: UsageState;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateSolNetworkInstanceInput {
   nsdInfoId: string;
   nsName: string;
   nsDescription?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateSolNetworkInstanceOutput {
   id: string;
   arn: string;
   nsdInfoId: string;
   nsInstanceName: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateSolNetworkPackageInput {
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateSolNetworkPackageOutput {
   id: string;
@@ -410,7 +410,7 @@ export interface CreateSolNetworkPackageOutput {
   nsdOnboardingState: NsdOnboardingState;
   nsdOperationalState: NsdOperationalState;
   nsdUsageState: NsdUsageState;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface DeleteSolFunctionPackageInput {
   vnfPkgId: string;
@@ -452,7 +452,7 @@ export interface GetSolFunctionInstanceOutput {
   instantiationState: VnfInstantiationState;
   instantiatedVnfInfo?: GetSolVnfInfo;
   metadata: GetSolFunctionInstanceMetadata;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface GetSolFunctionPackageContentInput {
   vnfPkgId: string;
@@ -489,7 +489,7 @@ export interface GetSolFunctionPackageOutput {
   vnfProductName?: string;
   vnfdVersion?: string;
   metadata?: GetSolFunctionPackageMetadata;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface GetSolInstantiatedVnfInfo {
   vnfState?: VnfOperationalState;
@@ -511,7 +511,7 @@ export interface GetSolNetworkInstanceOutput {
   nsState?: NsState;
   lcmOpInfo?: LcmOperationInfo;
   metadata: GetSolNetworkInstanceMetadata;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface GetSolNetworkOperationInput {
   nsLcmOpOccId: string;
@@ -533,11 +533,11 @@ export interface GetSolNetworkOperationOutput {
   error?: ProblemDetails;
   metadata?: GetSolNetworkOperationMetadata;
   tasks?: Array<GetSolNetworkOperationTaskDetails>;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface GetSolNetworkOperationTaskDetails {
   taskName?: string;
-  taskContext?: Record<string, string>;
+  taskContext?: Partial<Record<string, string>>;
   taskErrorDetails?: ErrorInfo;
   taskStatus?: TaskStatus;
   taskStartTime?: Date | string;
@@ -579,7 +579,7 @@ export interface GetSolNetworkPackageOutput {
   nsdVersion: string;
   vnfPkgIds: Array<string>;
   metadata: GetSolNetworkPackageMetadata;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface GetSolVnfcResourceInfo {
   metadata?: GetSolVnfcResourceInfoMetadata;
@@ -602,11 +602,11 @@ export interface InstantiateSolNetworkInstanceInput {
   nsInstanceId: string;
   dryRun?: boolean;
   additionalParamsForNs?: unknown;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface InstantiateSolNetworkInstanceOutput {
   nsLcmOpOccId: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export declare class InternalServerException extends EffectData.TaggedError(
   "InternalServerException",
@@ -747,7 +747,7 @@ export interface ListTagsForResourceInput {
   resourceArn: string;
 }
 export interface ListTagsForResourceOutput {
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
 export interface ModifyVnfInfoMetadata {
   vnfInstanceId: string;
@@ -846,14 +846,14 @@ export declare class ServiceQuotaExceededException extends EffectData.TaggedErro
 )<{
   readonly message: string;
 }> {}
-export type StringMap = Record<string, string>;
+export type StringMap = Partial<Record<string, string>>;
 export type TagKey = string;
 
 export type TagKeys = Array<string>;
-export type TagMap = Record<string, string>;
+export type TagMap = Partial<Record<string, string>>;
 export interface TagResourceInput {
   resourceArn: string;
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
 export interface TagResourceOutput {}
 export type TagValue = string;
@@ -868,11 +868,11 @@ export type TaskStatus =
   | "CANCELLED";
 export interface TerminateSolNetworkInstanceInput {
   nsInstanceId: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface TerminateSolNetworkInstanceOutput {
   nsLcmOpOccId?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export declare class ThrottlingException extends EffectData.TaggedError(
   "ThrottlingException",
@@ -906,11 +906,11 @@ export interface UpdateSolNetworkInstanceInput {
   updateType: UpdateSolNetworkType;
   modifyVnfInfoData?: UpdateSolNetworkModify;
   updateNs?: UpdateSolNetworkServiceData;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface UpdateSolNetworkInstanceOutput {
   nsLcmOpOccId?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface UpdateSolNetworkModify {
   vnfInstanceId: string;

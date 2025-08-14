@@ -86,7 +86,7 @@ export interface ActivateReadSetSourceItem {
 export type ActivateReadSetSourceList = Array<ActivateReadSetSourceItem>;
 export type ActivationJobId = string;
 
-export type AnnotationFieldMap = Record<string, string>;
+export type AnnotationFieldMap = Partial<Record<string, string>>;
 export interface AnnotationImportItemDetail {
   source: string;
   jobStatus: string;
@@ -106,7 +106,7 @@ export interface AnnotationImportJobItem {
   updateTime: Date | string;
   completionTime?: Date | string;
   runLeftNormalization?: boolean;
-  annotationFields?: Record<string, string>;
+  annotationFields?: Partial<Record<string, string>>;
 }
 export type AnnotationImportJobItems = Array<AnnotationImportJobItem>;
 export interface AnnotationStoreItem {
@@ -197,7 +197,7 @@ export interface CreateAnnotationStoreRequest {
   reference?: ReferenceItem;
   name?: string;
   description?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   versionName?: string;
   sseConfig?: SseConfig;
   storeFormat: string;
@@ -218,7 +218,7 @@ export interface CreateAnnotationStoreVersionRequest {
   versionName: string;
   description?: string;
   versionOptions?: VersionOptions;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateAnnotationStoreVersionResponse {
   id: string;
@@ -239,7 +239,7 @@ export interface CreateMultipartReadSetUploadRequest {
   referenceArn?: string;
   name: string;
   description?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateMultipartReadSetUploadResponse {
   sequenceStoreId: string;
@@ -251,14 +251,14 @@ export interface CreateMultipartReadSetUploadResponse {
   referenceArn: string;
   name?: string;
   description?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   creationTime: Date | string;
 }
 export interface CreateReferenceStoreRequest {
   name: string;
   description?: string;
   sseConfig?: SseConfig;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   clientToken?: string;
 }
 export interface CreateReferenceStoreResponse {
@@ -275,34 +275,34 @@ export interface CreateRunCacheRequest {
   description?: string;
   name?: string;
   requestId: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   cacheBucketOwnerId?: string;
 }
 export interface CreateRunCacheResponse {
   arn?: string;
   id?: string;
   status?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateRunGroupRequest {
   name?: string;
   maxCpus?: number;
   maxRuns?: number;
   maxDuration?: number;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   requestId: string;
   maxGpus?: number;
 }
 export interface CreateRunGroupResponse {
   arn?: string;
   id?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateSequenceStoreRequest {
   name: string;
   description?: string;
   sseConfig?: SseConfig;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   clientToken?: string;
   fallbackLocation?: string;
   eTagAlgorithmFamily?: string;
@@ -337,7 +337,7 @@ export interface CreateVariantStoreRequest {
   reference: ReferenceItem;
   name?: string;
   description?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   sseConfig?: SseConfig;
 }
 export interface CreateVariantStoreResponse {
@@ -356,7 +356,7 @@ export interface CreateWorkflowRequest {
   main?: string;
   parameterTemplate?: Record<string, WorkflowParameter>;
   storageCapacity?: number;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   requestId: string;
   accelerators?: string;
   storageType?: string;
@@ -371,7 +371,7 @@ export interface CreateWorkflowResponse {
   arn?: string;
   id?: string;
   status?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   uuid?: string;
 }
 export interface CreateWorkflowVersionRequest {
@@ -387,7 +387,7 @@ export interface CreateWorkflowVersionRequest {
   requestId: string;
   storageType?: string;
   storageCapacity?: number;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   workflowBucketOwnerId?: string;
   readmeMarkdown?: string;
   parameterTemplatePath?: string;
@@ -400,7 +400,7 @@ export interface CreateWorkflowVersionResponse {
   workflowId?: string;
   versionName?: string;
   status?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   uuid?: string;
 }
 export type CreationJobId = string;
@@ -556,7 +556,7 @@ interface _FormatOptions {
 export type FormatOptions =
   | (_FormatOptions & { tsvOptions: TsvOptions })
   | (_FormatOptions & { vcfOptions: VcfOptions });
-export type FormatToHeader = Record<string, string>;
+export type FormatToHeader = Partial<Record<string, string>>;
 export type FormatToHeaderKey = string;
 
 export type FullRepositoryId = string;
@@ -579,7 +579,7 @@ export interface GetAnnotationImportResponse {
   items: Array<AnnotationImportItemDetail>;
   runLeftNormalization: boolean;
   formatOptions: FormatOptions;
-  annotationFields?: Record<string, string>;
+  annotationFields?: Partial<Record<string, string>>;
 }
 export interface GetAnnotationStoreRequest {
   name: string;
@@ -594,7 +594,7 @@ export interface GetAnnotationStoreResponse {
   sseConfig: SseConfig;
   creationTime: Date | string;
   updateTime: Date | string;
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
   storeOptions?: StoreOptions;
   storeFormat?: string;
   statusMessage: string;
@@ -615,7 +615,7 @@ export interface GetAnnotationStoreVersionResponse {
   description: string;
   creationTime: Date | string;
   updateTime: Date | string;
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
   versionOptions?: VersionOptions;
   statusMessage: string;
   versionSizeBytes: number;
@@ -759,7 +759,7 @@ export interface GetRunCacheResponse {
   id?: string;
   name?: string;
   status?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface GetRunGroupRequest {
   id: string;
@@ -772,7 +772,7 @@ export interface GetRunGroupResponse {
   maxRuns?: number;
   maxDuration?: number;
   creationTime?: Date | string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   maxGpus?: number;
 }
 export interface GetRunRequest {
@@ -799,13 +799,13 @@ export interface GetRunResponse {
   storageCapacity?: number;
   outputUri?: string;
   logLevel?: string;
-  resourceDigests?: Record<string, string>;
+  resourceDigests?: Partial<Record<string, string>>;
   startedBy?: string;
   creationTime?: Date | string;
   startTime?: Date | string;
   stopTime?: Date | string;
   statusMessage?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   accelerators?: string;
   retentionMode?: string;
   failureReason?: string;
@@ -886,7 +886,7 @@ export interface GetVariantImportResponse {
   completionTime?: Date | string;
   items: Array<VariantImportItemDetail>;
   runLeftNormalization: boolean;
-  annotationFields?: Record<string, string>;
+  annotationFields?: Partial<Record<string, string>>;
 }
 export interface GetVariantStoreRequest {
   name: string;
@@ -901,7 +901,7 @@ export interface GetVariantStoreResponse {
   sseConfig: SseConfig;
   creationTime: Date | string;
   updateTime: Date | string;
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
   statusMessage: string;
   storeSizeBytes: number;
 }
@@ -926,8 +926,8 @@ export interface GetWorkflowResponse {
   storageCapacity?: number;
   creationTime?: Date | string;
   statusMessage?: string;
-  tags?: Record<string, string>;
-  metadata?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
+  metadata?: Partial<Record<string, string>>;
   accelerators?: string;
   storageType?: string;
   uuid?: string;
@@ -953,14 +953,14 @@ export interface GetWorkflowVersionResponse {
   digest?: string;
   engine?: string;
   main?: string;
-  metadata?: Record<string, string>;
+  metadata?: Partial<Record<string, string>>;
   parameterTemplate?: Record<string, WorkflowParameter>;
   status?: string;
   statusMessage?: string;
   storageType?: string;
   storageCapacity?: number;
   type?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   uuid?: string;
   workflowBucketOwnerId?: string;
   readme?: string;
@@ -997,7 +997,7 @@ export interface ImportReadSetSourceItem {
   referenceArn?: string;
   name?: string;
   description?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   readSetId?: string;
 }
 export type ImportReadSetSourceList = Array<ImportReadSetSourceItem>;
@@ -1021,7 +1021,7 @@ export interface ImportReferenceSourceItem {
   statusMessage?: string;
   name?: string;
   description?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   referenceId?: string;
 }
 export type ImportReferenceSourceList = Array<ImportReferenceSourceItem>;
@@ -1229,7 +1229,7 @@ export interface ListTagsForResourceRequest {
   resourceArn: string;
 }
 export interface ListTagsForResourceResponse {
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
 export type ListToken = string;
 
@@ -1294,7 +1294,7 @@ export interface MultipartReadSetUploadListItem {
   referenceArn: string;
   name?: string;
   description?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   creationTime: Date | string;
 }
 export type NextToken = string;
@@ -1615,7 +1615,7 @@ export type RunResourceDigest = string;
 
 export type RunResourceDigestKey = string;
 
-export type RunResourceDigests = Record<string, string>;
+export type RunResourceDigests = Partial<Record<string, string>>;
 export type RunRetentionMode = string;
 
 export type RunRoleArn = string;
@@ -1745,7 +1745,7 @@ export interface StartAnnotationImportRequest {
   versionName?: string;
   formatOptions?: FormatOptions;
   runLeftNormalization?: boolean;
-  annotationFields?: Record<string, string>;
+  annotationFields?: Partial<Record<string, string>>;
 }
 export interface StartAnnotationImportResponse {
   jobId: string;
@@ -1802,7 +1802,7 @@ export interface StartReadSetImportJobSourceItem {
   referenceArn?: string;
   name?: string;
   description?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type StartReadSetImportJobSourceList =
   Array<StartReadSetImportJobSourceItem>;
@@ -1823,7 +1823,7 @@ export interface StartReferenceImportJobSourceItem {
   sourceFile: string;
   name: string;
   description?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type StartReferenceImportJobSourceList =
   Array<StartReferenceImportJobSourceItem>;
@@ -1841,7 +1841,7 @@ export interface StartRunRequest {
   storageCapacity?: number;
   outputUri?: string;
   logLevel?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   requestId: string;
   retentionMode?: string;
   storageType?: string;
@@ -1852,7 +1852,7 @@ export interface StartRunResponse {
   arn?: string;
   id?: string;
   status?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   uuid?: string;
   runOutputUri?: string;
 }
@@ -1861,7 +1861,7 @@ export interface StartVariantImportRequest {
   roleArn: string;
   items: Array<VariantImportItemSource>;
   runLeftNormalization?: boolean;
-  annotationFields?: Record<string, string>;
+  annotationFields?: Partial<Record<string, string>>;
 }
 export interface StartVariantImportResponse {
   jobId: string;
@@ -1892,10 +1892,10 @@ export type TagArn = string;
 export type TagKey = string;
 
 export type TagKeyList = Array<string>;
-export type TagMap = Record<string, string>;
+export type TagMap = Partial<Record<string, string>>;
 export interface TagResourceRequest {
   resourceArn: string;
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
 export interface TagResourceResponse {}
 export type TagValue = string;
@@ -1943,12 +1943,12 @@ export interface TsvOptions {
 }
 export interface TsvStoreOptions {
   annotationType?: string;
-  formatToHeader?: Record<string, string>;
+  formatToHeader?: Partial<Record<string, string>>;
   schema?: Array<Record<string, string>>;
 }
 export interface TsvVersionOptions {
   annotationType?: string;
-  formatToHeader?: Record<string, string>;
+  formatToHeader?: Partial<Record<string, string>>;
   schema?: Array<Record<string, string>>;
 }
 export type TypeList = Array<string>;
@@ -2096,7 +2096,7 @@ export interface VariantImportJobItem {
   updateTime: Date | string;
   completionTime?: Date | string;
   runLeftNormalization?: boolean;
-  annotationFields?: Record<string, string>;
+  annotationFields?: Partial<Record<string, string>>;
 }
 export type VariantImportJobItems = Array<VariantImportJobItem>;
 export interface VariantStoreItem {
@@ -2160,13 +2160,13 @@ export interface WorkflowListItem {
   type?: string;
   digest?: string;
   creationTime?: Date | string;
-  metadata?: Record<string, string>;
+  metadata?: Partial<Record<string, string>>;
 }
 export type WorkflowListToken = string;
 
 export type WorkflowMain = string;
 
-export type WorkflowMetadata = Record<string, string>;
+export type WorkflowMetadata = Partial<Record<string, string>>;
 export type WorkflowMetadataKey = string;
 
 export type WorkflowMetadataValue = string;
@@ -2210,7 +2210,7 @@ export interface WorkflowVersionListItem {
   type?: string;
   digest?: string;
   creationTime?: Date | string;
-  metadata?: Record<string, string>;
+  metadata?: Partial<Record<string, string>>;
 }
 export type WorkflowVersionListToken = string;
 

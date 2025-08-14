@@ -133,7 +133,7 @@ export interface GetServiceSettingsResponse {
   LinuxSubscriptionsDiscovery?: string;
   LinuxSubscriptionsDiscoverySettings?: LinuxSubscriptionsDiscoverySettings;
   Status?: string;
-  StatusMessage?: Record<string, string>;
+  StatusMessage?: Partial<Record<string, string>>;
   HomeRegions?: Array<string>;
 }
 export interface Instance {
@@ -196,7 +196,7 @@ export interface ListTagsForResourceRequest {
   resourceArn: string;
 }
 export interface ListTagsForResourceResponse {
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type Operator = string;
 
@@ -216,7 +216,7 @@ export type RegisteredSubscriptionProviderList =
 export interface RegisterSubscriptionProviderRequest {
   SubscriptionProviderSource: string;
   SecretArn: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface RegisterSubscriptionProviderResponse {
   SubscriptionProviderSource?: string;
@@ -233,7 +233,7 @@ export type SecretArn = string;
 export type Status = string;
 
 export type StringList = Array<string>;
-export type StringMap = Record<string, string>;
+export type StringMap = Partial<Record<string, string>>;
 export interface Subscription {
   Name?: string;
   Type?: string;
@@ -250,10 +250,10 @@ export type SubscriptionProviderStatus = string;
 export type TagKeyList = Array<string>;
 export interface TagResourceRequest {
   resourceArn: string;
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
 export interface TagResourceResponse {}
-export type Tags = Record<string, string>;
+export type Tags = Partial<Record<string, string>>;
 export declare class ThrottlingException extends EffectData.TaggedError(
   "ThrottlingException",
 )<{
@@ -273,7 +273,7 @@ export interface UpdateServiceSettingsResponse {
   LinuxSubscriptionsDiscovery?: string;
   LinuxSubscriptionsDiscoverySettings?: LinuxSubscriptionsDiscoverySettings;
   Status?: string;
-  StatusMessage?: Record<string, string>;
+  StatusMessage?: Partial<Record<string, string>>;
   HomeRegions?: Array<string>;
 }
 export declare class ValidationException extends EffectData.TaggedError(

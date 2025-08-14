@@ -387,7 +387,7 @@ export interface ListTagsForResourceRequest {
   resourceArn: string;
 }
 export interface ListTagsForResourceResponse {
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface LogDeliveryConfiguration {
   s3Configuration: S3Configuration;
@@ -417,7 +417,7 @@ export declare class ResourceNotFoundException extends EffectData.TaggedError(
   readonly resourceId: string;
   readonly resourceType: string;
 }> {}
-export type ResponseTagMap = Record<string, string>;
+export type ResponseTagMap = Partial<Record<string, string>>;
 export interface S3Configuration {
   bucketName: string;
   enabled: boolean;

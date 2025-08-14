@@ -310,7 +310,7 @@ export interface Cluster {
   SourceBackupId?: string;
   State?: ClusterState;
   StateMessage?: string;
-  SubnetMapping?: Record<string, string>;
+  SubnetMapping?: Partial<Record<string, string>>;
   VpcId?: string;
   NetworkType?: NetworkType;
   Certificates?: Certificates;
@@ -394,7 +394,7 @@ export interface DeleteResourcePolicyResponse {
 export interface DescribeBackupsRequest {
   NextToken?: string;
   MaxResults?: number;
-  Filters?: Record<string, Array<string>>;
+  Filters?: Partial<Record<string, Array<string>>>;
   Shared?: boolean;
   SortAscending?: boolean;
 }
@@ -403,7 +403,7 @@ export interface DescribeBackupsResponse {
   NextToken?: string;
 }
 export interface DescribeClustersRequest {
-  Filters?: Record<string, Array<string>>;
+  Filters?: Partial<Record<string, Array<string>>>;
   NextToken?: string;
   MaxResults?: number;
 }
@@ -423,10 +423,10 @@ export type errorMessage = string;
 
 export type ExternalAz = string;
 
-export type ExternalSubnetMapping = Record<string, string>;
+export type ExternalSubnetMapping = Partial<Record<string, string>>;
 export type Field = string;
 
-export type Filters = Record<string, Array<string>>;
+export type Filters = Partial<Record<string, Array<string>>>;
 export interface GetResourcePolicyRequest {
   ResourceArn?: string;
 }

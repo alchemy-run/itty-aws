@@ -336,7 +336,7 @@ export interface BillEstimateCommitmentSummary {
 }
 export interface BillEstimateCostSummary {
   totalCostDifference?: CostDifference;
-  serviceCostDifferences?: Record<string, CostDifference>;
+  serviceCostDifferences?: Partial<Record<string, CostDifference>>;
 }
 export type BillEstimateInputCommitmentModificationSummaries =
   Array<BillEstimateInputCommitmentModificationSummary>;
@@ -470,7 +470,7 @@ export interface CreateBillEstimateRequest {
   billScenarioId: string;
   name: string;
   clientToken?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateBillEstimateResponse {
   id: string;
@@ -485,7 +485,7 @@ export interface CreateBillEstimateResponse {
 export interface CreateBillScenarioRequest {
   name: string;
   clientToken?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateBillScenarioResponse {
   id: string;
@@ -500,7 +500,7 @@ export interface CreateWorkloadEstimateRequest {
   name: string;
   clientToken?: string;
   rateType?: WorkloadEstimateRateType;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateWorkloadEstimateResponse {
   id: string;
@@ -727,7 +727,7 @@ export interface ListTagsForResourceRequest {
   arn: string;
 }
 export interface ListTagsForResourceResponse {
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface ListUsageFilter {
   name: ListUsageFilterName;
@@ -817,7 +817,7 @@ export type SavingsPlanCommitment = number;
 
 export type ServiceCode = string;
 
-export type ServiceCostDifferenceMap = Record<string, CostDifference>;
+export type ServiceCostDifferenceMap = Partial<Record<string, CostDifference>>;
 export declare class ServiceQuotaExceededException extends EffectData.TaggedError(
   "ServiceQuotaExceededException",
 )<{
@@ -830,10 +830,10 @@ export declare class ServiceQuotaExceededException extends EffectData.TaggedErro
 export type StringList = Array<string>;
 export interface TagResourceRequest {
   arn: string;
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
 export interface TagResourceResponse {}
-export type Tags = Record<string, string>;
+export type Tags = Partial<Record<string, string>>;
 export declare class ThrottlingException extends EffectData.TaggedError(
   "ThrottlingException",
 )<{

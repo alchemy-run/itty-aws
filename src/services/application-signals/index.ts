@@ -102,8 +102,8 @@ export type Attainment = number;
 
 export type AttainmentGoal = number;
 
-export type AttributeMap = Record<string, string>;
-export type AttributeMaps = Array<Record<string, string>>;
+export type AttributeMap = Partial<Record<string, string>>;
+export type AttributeMaps = Array<Partial<Record<string, string>>>;
 export type Attributes = Record<string, string>;
 export type AwsAccountId = string;
 
@@ -447,7 +447,7 @@ export type RollingIntervalDuration = number;
 
 export interface Service {
   KeyAttributes: Record<string, string>;
-  AttributeMaps?: Array<Record<string, string>>;
+  AttributeMaps?: Array<Partial<Record<string, string>>>;
   MetricReferences: Array<MetricReference>;
   LogGroupReferences?: Array<Record<string, string>>;
 }
@@ -583,7 +583,7 @@ export declare class ServiceQuotaExceededException extends EffectData.TaggedErro
 export type ServiceSummaries = Array<ServiceSummary>;
 export interface ServiceSummary {
   KeyAttributes: Record<string, string>;
-  AttributeMaps?: Array<Record<string, string>>;
+  AttributeMaps?: Array<Partial<Record<string, string>>>;
   MetricReferences: Array<MetricReference>;
 }
 export type SLIPeriodSeconds = number;

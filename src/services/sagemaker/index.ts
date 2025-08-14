@@ -2058,7 +2058,7 @@ export type ArtifactArn = string;
 
 export type ArtifactDigest = string;
 
-export type ArtifactProperties = Record<string, string>;
+export type ArtifactProperties = Partial<Record<string, string>>;
 export type ArtifactPropertyValue = string;
 
 export interface ArtifactSource {
@@ -2164,7 +2164,7 @@ export type AthenaWorkGroup = string;
 export type AttributeName = string;
 
 export type AttributeNames = Array<string>;
-export type AuthenticationRequestExtraParams = Record<string, string>;
+export type AuthenticationRequestExtraParams = Partial<Record<string, string>>;
 export type AuthenticationRequestExtraParamsKey = string;
 
 export type AuthenticationRequestExtraParamsValue = string;
@@ -2210,9 +2210,8 @@ export interface AutoMLCandidate {
   LastModifiedTime: Date | string;
   FailureReason?: string;
   CandidateProperties?: CandidateProperties;
-  InferenceContainerDefinitions?: Record<
-    AutoMLProcessingUnit,
-    Array<AutoMLContainerDefinition>
+  InferenceContainerDefinitions?: Partial<
+    Record<AutoMLProcessingUnit, Array<AutoMLContainerDefinition>>
   >;
 }
 export interface AutoMLCandidateGenerationConfig {
@@ -2240,7 +2239,7 @@ export interface AutoMLComputeConfig {
 export interface AutoMLContainerDefinition {
   Image: string;
   ModelDataUrl: string;
-  Environment?: Record<string, string>;
+  Environment?: Partial<Record<string, string>>;
 }
 export type AutoMLContainerDefinitions = Array<AutoMLContainerDefinition>;
 export interface AutoMLDataSource {
@@ -2251,9 +2250,8 @@ export interface AutoMLDataSplitConfig {
 }
 export type AutoMLFailureReason = string;
 
-export type AutoMLInferenceContainerDefinitions = Record<
-  AutoMLProcessingUnit,
-  Array<AutoMLContainerDefinition>
+export type AutoMLInferenceContainerDefinitions = Partial<
+  Record<AutoMLProcessingUnit, Array<AutoMLContainerDefinition>>
 >;
 export type AutoMLInputDataConfig = Array<AutoMLChannel>;
 export type AutoMLJobArn = string;
@@ -2502,18 +2500,18 @@ export interface BatchDescribeModelPackageError {
   ErrorCode: string;
   ErrorResponse: string;
 }
-export type BatchDescribeModelPackageErrorMap = Record<
-  string,
-  BatchDescribeModelPackageError
+export type BatchDescribeModelPackageErrorMap = Partial<
+  Record<string, BatchDescribeModelPackageError>
 >;
 export interface BatchDescribeModelPackageInput {
   ModelPackageArnList: Array<string>;
 }
 export interface BatchDescribeModelPackageOutput {
-  ModelPackageSummaries?: Record<string, BatchDescribeModelPackageSummary>;
-  BatchDescribeModelPackageErrorMap?: Record<
-    string,
-    BatchDescribeModelPackageError
+  ModelPackageSummaries?: Partial<
+    Record<string, BatchDescribeModelPackageSummary>
+  >;
+  BatchDescribeModelPackageErrorMap?: Partial<
+    Record<string, BatchDescribeModelPackageError>
   >;
 }
 export interface BatchDescribeModelPackageSummary {
@@ -3254,12 +3252,12 @@ export type CollectionConfig = _CollectionConfig & {
 };
 export interface CollectionConfiguration {
   CollectionName?: string;
-  CollectionParameters?: Record<string, string>;
+  CollectionParameters?: Partial<Record<string, string>>;
 }
 export type CollectionConfigurations = Array<CollectionConfiguration>;
 export type CollectionName = string;
 
-export type CollectionParameters = Record<string, string>;
+export type CollectionParameters = Partial<Record<string, string>>;
 export type CollectionType = "LIST" | "SET" | "VECTOR";
 export type CompilationJobArn = string;
 
@@ -3342,7 +3340,7 @@ export type ContainerArguments = Array<string>;
 export interface ContainerConfig {
   ContainerArguments?: Array<string>;
   ContainerEntrypoint?: Array<string>;
-  ContainerEnvironmentVariables?: Record<string, string>;
+  ContainerEnvironmentVariables?: Partial<Record<string, string>>;
 }
 export interface ContainerDefinition {
   ContainerHostname?: string;
@@ -3352,7 +3350,7 @@ export interface ContainerDefinition {
   ModelDataUrl?: string;
   ModelDataSource?: ModelDataSource;
   AdditionalModelDataSources?: Array<AdditionalModelDataSource>;
-  Environment?: Record<string, string>;
+  Environment?: Partial<Record<string, string>>;
   ModelPackageName?: string;
   InferenceSpecificationName?: string;
   MultiModelConfig?: MultiModelConfig;
@@ -3419,7 +3417,7 @@ export interface CreateActionRequest {
   ActionType: string;
   Description?: string;
   Status?: ActionStatus;
-  Properties?: Record<string, string>;
+  Properties?: Partial<Record<string, string>>;
   MetadataProperties?: MetadataProperties;
   Tags?: Array<Tag>;
 }
@@ -3465,7 +3463,7 @@ export interface CreateArtifactRequest {
   ArtifactName?: string;
   Source: ArtifactSource;
   ArtifactType: string;
-  Properties?: Record<string, string>;
+  Properties?: Partial<Record<string, string>>;
   MetadataProperties?: MetadataProperties;
   Tags?: Array<Tag>;
 }
@@ -3565,7 +3563,7 @@ export interface CreateContextRequest {
   Source: ContextSource;
   ContextType: string;
   Description?: string;
-  Properties?: Record<string, string>;
+  Properties?: Partial<Record<string, string>>;
   Tags?: Array<Tag>;
 }
 export interface CreateContextResponse {
@@ -4004,7 +4002,7 @@ export interface CreateOptimizationJobRequest {
   RoleArn: string;
   ModelSource: OptimizationJobModelSource;
   DeploymentInstanceType: OptimizationJobDeploymentInstanceType;
-  OptimizationEnvironment?: Record<string, string>;
+  OptimizationEnvironment?: Partial<Record<string, string>>;
   OptimizationConfigs: Array<OptimizationConfig>;
   OutputConfig: OptimizationJobOutputConfig;
   StoppingCondition: StoppingCondition;
@@ -4085,7 +4083,7 @@ export interface CreateProcessingJobRequest {
   ProcessingResources: ProcessingResources;
   StoppingCondition?: ProcessingStoppingCondition;
   AppSpecification: AppSpecification;
-  Environment?: Record<string, string>;
+  Environment?: Partial<Record<string, string>>;
   NetworkConfig?: NetworkConfig;
   RoleArn: string;
   Tags?: Array<Tag>;
@@ -4132,7 +4130,7 @@ export interface CreateTemplateProvider {
 export type CreateTemplateProviderList = Array<CreateTemplateProvider>;
 export interface CreateTrainingJobRequest {
   TrainingJobName: string;
-  HyperParameters?: Record<string, string>;
+  HyperParameters?: Partial<Record<string, string>>;
   AlgorithmSpecification: AlgorithmSpecification;
   RoleArn: string;
   InputDataConfig?: Array<Channel>;
@@ -4151,7 +4149,7 @@ export interface CreateTrainingJobRequest {
   ExperimentConfig?: ExperimentConfig;
   ProfilerConfig?: ProfilerConfig;
   ProfilerRuleConfigurations?: Array<ProfilerRuleConfiguration>;
-  Environment?: Record<string, string>;
+  Environment?: Partial<Record<string, string>>;
   RetryStrategy?: RetryStrategy;
   RemoteDebugConfig?: RemoteDebugConfig;
   InfraCheckConfig?: InfraCheckConfig;
@@ -4175,7 +4173,7 @@ export interface CreateTransformJobRequest {
   ModelClientConfig?: ModelClientConfig;
   MaxPayloadInMB?: number;
   BatchStrategy?: BatchStrategy;
-  Environment?: Record<string, string>;
+  Environment?: Partial<Record<string, string>>;
   TransformInput: TransformInput;
   TransformOutput: TransformOutput;
   DataCaptureConfig?: BatchDataCaptureConfig;
@@ -4193,9 +4191,9 @@ export interface CreateTrialComponentRequest {
   Status?: TrialComponentStatus;
   StartTime?: Date | string;
   EndTime?: Date | string;
-  Parameters?: Record<string, TrialComponentParameterValue>;
-  InputArtifacts?: Record<string, TrialComponentArtifact>;
-  OutputArtifacts?: Record<string, TrialComponentArtifact>;
+  Parameters?: Partial<Record<string, TrialComponentParameterValue>>;
+  InputArtifacts?: Partial<Record<string, TrialComponentArtifact>>;
+  OutputArtifacts?: Partial<Record<string, TrialComponentArtifact>>;
   MetadataProperties?: MetadataProperties;
   Tags?: Array<Tag>;
 }
@@ -4294,7 +4292,9 @@ export interface CustomImage {
 }
 export type CustomImageContainerArguments = Array<string>;
 export type CustomImageContainerEntrypoint = Array<string>;
-export type CustomImageContainerEnvironmentVariables = Record<string, string>;
+export type CustomImageContainerEnvironmentVariables = Partial<
+  Record<string, string>
+>;
 export type CustomImages = Array<CustomImage>;
 export interface CustomizedMetricSpecification {
   MetricName?: string;
@@ -4343,7 +4343,7 @@ export interface DataQualityAppSpecification {
   ContainerArguments?: Array<string>;
   RecordPreprocessorSourceUri?: string;
   PostAnalyticsProcessorSourceUri?: string;
-  Environment?: Record<string, string>;
+  Environment?: Partial<Record<string, string>>;
 }
 export interface DataQualityBaselineConfig {
   BaseliningJobName?: string;
@@ -4369,7 +4369,7 @@ export type DataSourceName = "SalesforceGenie" | "Snowflake";
 export interface DebugHookConfig {
   LocalPath?: string;
   S3OutputPath: string;
-  HookParameters?: Record<string, string>;
+  HookParameters?: Partial<Record<string, string>>;
   CollectionConfigurations?: Array<CollectionConfiguration>;
 }
 export interface DebugRuleConfiguration {
@@ -4379,7 +4379,7 @@ export interface DebugRuleConfiguration {
   RuleEvaluatorImage: string;
   InstanceType?: ProcessingInstanceType;
   VolumeSizeInGB?: number;
-  RuleParameters?: Record<string, string>;
+  RuleParameters?: Partial<Record<string, string>>;
 }
 export type DebugRuleConfigurations = Array<DebugRuleConfiguration>;
 export interface DebugRuleEvaluationStatus {
@@ -4700,7 +4700,7 @@ export interface DescribeActionResponse {
   ActionType?: string;
   Description?: string;
   Status?: ActionStatus;
-  Properties?: Record<string, string>;
+  Properties?: Partial<Record<string, string>>;
   CreationTime?: Date | string;
   CreatedBy?: UserContext;
   LastModifiedTime?: Date | string;
@@ -4767,7 +4767,7 @@ export interface DescribeArtifactResponse {
   ArtifactArn?: string;
   Source?: ArtifactSource;
   ArtifactType?: string;
-  Properties?: Record<string, string>;
+  Properties?: Partial<Record<string, string>>;
   CreationTime?: Date | string;
   CreatedBy?: UserContext;
   LastModifiedTime?: Date | string;
@@ -4933,7 +4933,7 @@ export interface DescribeContextResponse {
   Source?: ContextSource;
   ContextType?: string;
   Description?: string;
-  Properties?: Record<string, string>;
+  Properties?: Partial<Record<string, string>>;
   CreationTime?: Date | string;
   CreatedBy?: UserContext;
   LastModifiedTime?: Date | string;
@@ -5590,7 +5590,7 @@ export interface DescribeOptimizationJobResponse {
   FailureReason?: string;
   OptimizationJobName: string;
   ModelSource: OptimizationJobModelSource;
-  OptimizationEnvironment?: Record<string, string>;
+  OptimizationEnvironment?: Partial<Record<string, string>>;
   DeploymentInstanceType: OptimizationJobDeploymentInstanceType;
   OptimizationConfigs: Array<OptimizationConfig>;
   OutputConfig: OptimizationJobOutputConfig;
@@ -5677,7 +5677,7 @@ export interface DescribeProcessingJobResponse {
   ProcessingResources: ProcessingResources;
   StoppingCondition?: ProcessingStoppingCondition;
   AppSpecification: AppSpecification;
-  Environment?: Record<string, string>;
+  Environment?: Partial<Record<string, string>>;
   NetworkConfig?: NetworkConfig;
   RoleArn?: string;
   ExperimentConfig?: ExperimentConfig;
@@ -5759,7 +5759,7 @@ export interface DescribeTrainingJobResponse {
   TrainingJobStatus: TrainingJobStatus;
   SecondaryStatus: SecondaryStatus;
   FailureReason?: string;
-  HyperParameters?: Record<string, string>;
+  HyperParameters?: Partial<Record<string, string>>;
   AlgorithmSpecification: AlgorithmSpecification;
   RoleArn?: string;
   InputDataConfig?: Array<Channel>;
@@ -5789,7 +5789,7 @@ export interface DescribeTrainingJobResponse {
   ProfilerRuleConfigurations?: Array<ProfilerRuleConfiguration>;
   ProfilerRuleEvaluationStatuses?: Array<ProfilerRuleEvaluationStatus>;
   ProfilingStatus?: ProfilingStatus;
-  Environment?: Record<string, string>;
+  Environment?: Partial<Record<string, string>>;
   RetryStrategy?: RetryStrategy;
   RemoteDebugConfig?: RemoteDebugConfig;
   InfraCheckConfig?: InfraCheckConfig;
@@ -5827,7 +5827,7 @@ export interface DescribeTransformJobResponse {
   ModelClientConfig?: ModelClientConfig;
   MaxPayloadInMB?: number;
   BatchStrategy?: BatchStrategy;
-  Environment?: Record<string, string>;
+  Environment?: Partial<Record<string, string>>;
   TransformInput: TransformInput;
   TransformOutput?: TransformOutput;
   DataCaptureConfig?: BatchDataCaptureConfig;
@@ -5855,9 +5855,9 @@ export interface DescribeTrialComponentResponse {
   CreatedBy?: UserContext;
   LastModifiedTime?: Date | string;
   LastModifiedBy?: UserContext;
-  Parameters?: Record<string, TrialComponentParameterValue>;
-  InputArtifacts?: Record<string, TrialComponentArtifact>;
-  OutputArtifacts?: Record<string, TrialComponentArtifact>;
+  Parameters?: Partial<Record<string, TrialComponentParameterValue>>;
+  InputArtifacts?: Partial<Record<string, TrialComponentArtifact>>;
+  OutputArtifacts?: Partial<Record<string, TrialComponentArtifact>>;
   MetadataProperties?: MetadataProperties;
   Metrics?: Array<TrialComponentMetricSummary>;
   LineageGroupArn?: string;
@@ -6368,7 +6368,7 @@ export interface EnvironmentConfigDetails {
 }
 export type EnvironmentKey = string;
 
-export type EnvironmentMap = Record<string, string>;
+export type EnvironmentMap = Partial<Record<string, string>>;
 export interface EnvironmentParameter {
   Key: string;
   ValueType: string;
@@ -6759,7 +6759,7 @@ export type HolidayConfig = Array<HolidayConfigAttributes>;
 export interface HolidayConfigAttributes {
   CountryCode?: string;
 }
-export type HookParameters = Record<string, string>;
+export type HookParameters = Partial<Record<string, string>>;
 export type Horovod = boolean;
 
 export interface HubAccessConfig {
@@ -6916,7 +6916,7 @@ export interface HyperParameterAlgorithmSpecification {
 }
 export type HyperParameterKey = string;
 
-export type HyperParameters = Record<string, string>;
+export type HyperParameters = Partial<Record<string, string>>;
 export type HyperParameterScalingType =
   | "AUTO"
   | "LINEAR"
@@ -6936,7 +6936,7 @@ export interface HyperParameterTrainingJobDefinition {
   DefinitionName?: string;
   TuningObjective?: HyperParameterTuningJobObjective;
   HyperParameterRanges?: ParameterRanges;
-  StaticHyperParameters?: Record<string, string>;
+  StaticHyperParameters?: Partial<Record<string, string>>;
   AlgorithmSpecification: HyperParameterAlgorithmSpecification;
   RoleArn: string;
   InputDataConfig?: Array<Channel>;
@@ -6950,7 +6950,7 @@ export interface HyperParameterTrainingJobDefinition {
   EnableManagedSpotTraining?: boolean;
   CheckpointConfig?: CheckpointConfig;
   RetryStrategy?: RetryStrategy;
-  Environment?: Record<string, string>;
+  Environment?: Partial<Record<string, string>>;
 }
 export type HyperParameterTrainingJobDefinitionName = string;
 
@@ -6958,7 +6958,9 @@ export type HyperParameterTrainingJobDefinitions =
   Array<HyperParameterTrainingJobDefinition>;
 export type HyperParameterTrainingJobEnvironmentKey = string;
 
-export type HyperParameterTrainingJobEnvironmentMap = Record<string, string>;
+export type HyperParameterTrainingJobEnvironmentMap = Partial<
+  Record<string, string>
+>;
 export type HyperParameterTrainingJobEnvironmentValue = string;
 
 export type HyperParameterTrainingJobSummaries =
@@ -6972,7 +6974,7 @@ export interface HyperParameterTrainingJobSummary {
   TrainingStartTime?: Date | string;
   TrainingEndTime?: Date | string;
   TrainingJobStatus: TrainingJobStatus;
-  TunedHyperParameters: Record<string, string>;
+  TunedHyperParameters: Partial<Record<string, string>>;
   FailureReason?: string;
   FinalHyperParameterTuningJobObjectiveMetric?: FinalHyperParameterTuningJobObjectiveMetric;
   ObjectiveStatus?: ObjectiveStatus;
@@ -7225,12 +7227,12 @@ export interface InferenceComponentComputeResourceRequirements {
 export interface InferenceComponentContainerSpecification {
   Image?: string;
   ArtifactUrl?: string;
-  Environment?: Record<string, string>;
+  Environment?: Partial<Record<string, string>>;
 }
 export interface InferenceComponentContainerSpecificationSummary {
   DeployedImage?: DeployedImage;
   ArtifactUrl?: string;
-  Environment?: Record<string, string>;
+  Environment?: Partial<Record<string, string>>;
 }
 export type InferenceComponentCopyCount = number;
 
@@ -7798,7 +7800,7 @@ export interface LastUpdateStatus {
 export type LastUpdateStatusValue = "SUCCESSFUL" | "FAILED" | "IN_PROGRESS";
 export type LifecycleConfigArns = Array<string>;
 export type LifecycleManagement = "Enabled" | "Disabled";
-export type LineageEntityParameters = Record<string, string>;
+export type LineageEntityParameters = Partial<Record<string, string>>;
 export type LineageGroupArn = string;
 
 export type LineageGroupNameOrArn = string;
@@ -9147,7 +9149,7 @@ export interface ModelArtifacts {
 export interface ModelBiasAppSpecification {
   ImageUri: string;
   ConfigUri: string;
-  Environment?: Record<string, string>;
+  Environment?: Partial<Record<string, string>>;
 }
 export interface ModelBiasBaselineConfig {
   BaseliningJobName?: string;
@@ -9243,7 +9245,7 @@ export interface ModelClientConfig {
 }
 export interface ModelCompilationConfig {
   Image?: string;
-  OverrideEnvironment?: Record<string, string>;
+  OverrideEnvironment?: Partial<Record<string, string>>;
 }
 export type ModelCompressionType = "None" | "Gzip";
 export interface ModelConfiguration {
@@ -9319,7 +9321,7 @@ export interface ModelDigests {
 export interface ModelExplainabilityAppSpecification {
   ImageUri: string;
   ConfigUri: string;
-  Environment?: Record<string, string>;
+  Environment?: Partial<Record<string, string>>;
 }
 export interface ModelExplainabilityBaselineConfig {
   BaseliningJobName?: string;
@@ -9423,7 +9425,7 @@ export interface ModelPackageContainerDefinition {
   ModelDataUrl?: string;
   ModelDataSource?: ModelDataSource;
   ProductId?: string;
-  Environment?: Record<string, string>;
+  Environment?: Partial<Record<string, string>>;
   ModelInput?: ModelInput;
   Framework?: string;
   FrameworkVersion?: string;
@@ -9488,9 +9490,8 @@ export interface ModelPackageStatusItem {
   FailureReason?: string;
 }
 export type ModelPackageStatusItemList = Array<ModelPackageStatusItem>;
-export type ModelPackageSummaries = Record<
-  string,
-  BatchDescribeModelPackageSummary
+export type ModelPackageSummaries = Partial<
+  Record<string, BatchDescribeModelPackageSummary>
 >;
 export interface ModelPackageSummary {
   ModelPackageName?: string;
@@ -9528,7 +9529,7 @@ export interface ModelQualityAppSpecification {
   RecordPreprocessorSourceUri?: string;
   PostAnalyticsProcessorSourceUri?: string;
   ProblemType?: MonitoringProblemType;
-  Environment?: Record<string, string>;
+  Environment?: Partial<Record<string, string>>;
 }
 export interface ModelQualityBaselineConfig {
   BaseliningJobName?: string;
@@ -9541,7 +9542,7 @@ export interface ModelQualityJobInput {
 }
 export interface ModelQuantizationConfig {
   Image?: string;
-  OverrideEnvironment?: Record<string, string>;
+  OverrideEnvironment?: Partial<Record<string, string>>;
 }
 export interface ModelRegisterSettings {
   Status?: FeatureStatus;
@@ -9551,7 +9552,7 @@ export type ModelSetupTime = number;
 
 export interface ModelShardingConfig {
   Image?: string;
-  OverrideEnvironment?: Record<string, string>;
+  OverrideEnvironment?: Partial<Record<string, string>>;
 }
 export type ModelSortKey = "Name" | "CreationTime";
 export interface ModelStepMetadata {
@@ -9642,7 +9643,7 @@ export interface MonitoringDatasetFormat {
   Json?: MonitoringJsonDatasetFormat;
   Parquet?: MonitoringParquetDatasetFormat;
 }
-export type MonitoringEnvironmentMap = Record<string, string>;
+export type MonitoringEnvironmentMap = Partial<Record<string, string>>;
 export type MonitoringEvaluationPeriod = number;
 
 export type MonitoringExecutionSortKey =
@@ -9677,7 +9678,7 @@ export interface MonitoringJobDefinition {
   MonitoringResources: MonitoringResources;
   MonitoringAppSpecification: MonitoringAppSpecification;
   StoppingCondition?: MonitoringStoppingCondition;
-  Environment?: Record<string, string>;
+  Environment?: Partial<Record<string, string>>;
   NetworkConfig?: NetworkConfig;
   RoleArn: string;
 }
@@ -9927,7 +9928,7 @@ export interface OidcConfig {
   LogoutEndpoint: string;
   JwksUri: string;
   Scope?: string;
-  AuthenticationRequestExtraParams?: Record<string, string>;
+  AuthenticationRequestExtraParams?: Partial<Record<string, string>>;
 }
 export interface OidcConfigForResponse {
   ClientId?: string;
@@ -9938,7 +9939,7 @@ export interface OidcConfigForResponse {
   LogoutEndpoint?: string;
   JwksUri?: string;
   Scope?: string;
-  AuthenticationRequestExtraParams?: Record<string, string>;
+  AuthenticationRequestExtraParams?: Partial<Record<string, string>>;
 }
 export type OidcEndpoint = string;
 
@@ -10021,7 +10022,9 @@ export type OptimizationJobDeploymentInstanceType =
   | "ML_TRN1_2XLARGE"
   | "ML_TRN1_32XLARGE"
   | "ML_TRN1N_32XLARGE";
-export type OptimizationJobEnvironmentVariables = Record<string, string>;
+export type OptimizationJobEnvironmentVariables = Partial<
+  Record<string, string>
+>;
 export interface OptimizationJobModelSource {
   S3?: OptimizationJobModelSourceS3;
 }
@@ -10148,13 +10151,13 @@ export type ParentHyperParameterTuningJobs =
   Array<ParentHyperParameterTuningJob>;
 export type Parents = Array<Parent>;
 export type PartnerAppAdminUserList = Array<string>;
-export type PartnerAppArguments = Record<string, string>;
+export type PartnerAppArguments = Partial<Record<string, string>>;
 export type PartnerAppArn = string;
 
 export type PartnerAppAuthType = "IAM";
 export interface PartnerAppConfig {
   AdminUsers?: Array<string>;
-  Arguments?: Record<string, string>;
+  Arguments?: Partial<Record<string, string>>;
 }
 export interface PartnerAppMaintenanceConfig {
   MaintenanceWindowStart?: string;
@@ -10397,7 +10400,7 @@ export interface ProcessingClusterConfig {
 }
 export type ProcessingEnvironmentKey = string;
 
-export type ProcessingEnvironmentMap = Record<string, string>;
+export type ProcessingEnvironmentMap = Partial<Record<string, string>>;
 export type ProcessingEnvironmentValue = string;
 
 export interface ProcessingFeatureStoreOutput {
@@ -10540,7 +10543,7 @@ export interface ProcessingJob {
   ProcessingResources?: ProcessingResources;
   StoppingCondition?: ProcessingStoppingCondition;
   AppSpecification?: AppSpecification;
-  Environment?: Record<string, string>;
+  Environment?: Partial<Record<string, string>>;
   NetworkConfig?: NetworkConfig;
   RoleArn?: string;
   ExperimentConfig?: ExperimentConfig;
@@ -10989,13 +10992,13 @@ export type ProductListings = Array<string>;
 export interface ProfilerConfig {
   S3OutputPath?: string;
   ProfilingIntervalInMilliseconds?: number;
-  ProfilingParameters?: Record<string, string>;
+  ProfilingParameters?: Partial<Record<string, string>>;
   DisableProfiler?: boolean;
 }
 export interface ProfilerConfigForUpdate {
   S3OutputPath?: string;
   ProfilingIntervalInMilliseconds?: number;
-  ProfilingParameters?: Record<string, string>;
+  ProfilingParameters?: Partial<Record<string, string>>;
   DisableProfiler?: boolean;
 }
 export interface ProfilerRuleConfiguration {
@@ -11005,7 +11008,7 @@ export interface ProfilerRuleConfiguration {
   RuleEvaluatorImage: string;
   InstanceType?: ProcessingInstanceType;
   VolumeSizeInGB?: number;
-  RuleParameters?: Record<string, string>;
+  RuleParameters?: Partial<Record<string, string>>;
 }
 export type ProfilerRuleConfigurations = Array<ProfilerRuleConfiguration>;
 export interface ProfilerRuleEvaluationStatus {
@@ -11019,7 +11022,7 @@ export type ProfilerRuleEvaluationStatuses =
   Array<ProfilerRuleEvaluationStatus>;
 export type ProfilingIntervalInMilliseconds = number;
 
-export type ProfilingParameters = Record<string, string>;
+export type ProfilingParameters = Partial<Record<string, string>>;
 export type ProfilingStatus = "ENABLED" | "DISABLED";
 export type ProgrammingLang = string;
 
@@ -11117,7 +11120,7 @@ export interface QueryFilters {
   CreatedAfter?: Date | string;
   ModifiedBefore?: Date | string;
   ModifiedAfter?: Date | string;
-  Properties?: Record<string, string>;
+  Properties?: Partial<Record<string, string>>;
 }
 export type QueryLineageMaxDepth = number;
 
@@ -11139,7 +11142,7 @@ export interface QueryLineageResponse {
 }
 export type QueryLineageStartArns = Array<string>;
 export type QueryLineageTypes = Array<LineageType>;
-export type QueryProperties = Record<string, string>;
+export type QueryProperties = Partial<Record<string, string>>;
 export type QueryTypes = Array<string>;
 export type RandomSeed = number;
 
@@ -11152,7 +11155,7 @@ export type RealtimeInferenceInstanceTypes =
 export interface RealTimeInferenceRecommendation {
   RecommendationId: string;
   InstanceType: ProductionVariantInstanceType;
-  Environment?: Record<string, string>;
+  Environment?: Partial<Record<string, string>>;
 }
 export type RealTimeInferenceRecommendations =
   Array<RealTimeInferenceRecommendation>;
@@ -11543,7 +11546,7 @@ export type RuleEvaluationStatus =
   | "ERROR"
   | "STOPPING"
   | "STOPPED";
-export type RuleParameters = Record<string, string>;
+export type RuleParameters = Partial<Record<string, string>>;
 export type S3DataDistribution = "FULLY_REPLICATED" | "SHARDED_BY_S3_KEY";
 export interface S3DataSource {
   S3DataType: S3DataType;
@@ -12285,13 +12288,13 @@ export interface TextClassificationJobConfig {
 }
 export type TextGenerationHyperParameterKey = string;
 
-export type TextGenerationHyperParameters = Record<string, string>;
+export type TextGenerationHyperParameters = Partial<Record<string, string>>;
 export type TextGenerationHyperParameterValue = string;
 
 export interface TextGenerationJobConfig {
   CompletionCriteria?: AutoMLJobCompletionCriteria;
   BaseModelName?: string;
-  TextGenerationHyperParameters?: Record<string, string>;
+  TextGenerationHyperParameters?: Partial<Record<string, string>>;
   ModelAccessConfig?: ModelAccessConfig;
 }
 export interface TextGenerationResolvedAttributes {
@@ -12414,7 +12417,7 @@ export type TrainingContainerEntrypointString = string;
 
 export type TrainingEnvironmentKey = string;
 
-export type TrainingEnvironmentMap = Record<string, string>;
+export type TrainingEnvironmentMap = Partial<Record<string, string>>;
 export type TrainingEnvironmentValue = string;
 
 export interface TrainingImageConfig {
@@ -12572,7 +12575,7 @@ export interface TrainingJob {
   TrainingJobStatus?: TrainingJobStatus;
   SecondaryStatus?: SecondaryStatus;
   FailureReason?: string;
-  HyperParameters?: Record<string, string>;
+  HyperParameters?: Partial<Record<string, string>>;
   AlgorithmSpecification?: AlgorithmSpecification;
   RoleArn?: string;
   InputDataConfig?: Array<Channel>;
@@ -12598,7 +12601,7 @@ export interface TrainingJob {
   TensorBoardOutputConfig?: TensorBoardOutputConfig;
   DebugRuleEvaluationStatuses?: Array<DebugRuleEvaluationStatus>;
   ProfilerConfig?: ProfilerConfig;
-  Environment?: Record<string, string>;
+  Environment?: Partial<Record<string, string>>;
   RetryStrategy?: RetryStrategy;
   Tags?: Array<Tag>;
 }
@@ -12606,7 +12609,7 @@ export type TrainingJobArn = string;
 
 export interface TrainingJobDefinition {
   TrainingInputMode: TrainingInputMode;
-  HyperParameters?: Record<string, string>;
+  HyperParameters?: Partial<Record<string, string>>;
   InputDataConfig: Array<Channel>;
   OutputDataConfig: OutputDataConfig;
   ResourceConfig: ResourceConfig;
@@ -12737,7 +12740,7 @@ export interface TransformDataSource {
 }
 export type TransformEnvironmentKey = string;
 
-export type TransformEnvironmentMap = Record<string, string>;
+export type TransformEnvironmentMap = Partial<Record<string, string>>;
 export type TransformEnvironmentValue = string;
 
 export interface TransformInput {
@@ -12860,7 +12863,7 @@ export interface TransformJob {
   ModelClientConfig?: ModelClientConfig;
   MaxPayloadInMB?: number;
   BatchStrategy?: BatchStrategy;
-  Environment?: Record<string, string>;
+  Environment?: Partial<Record<string, string>>;
   TransformInput?: TransformInput;
   TransformOutput?: TransformOutput;
   DataCaptureConfig?: BatchDataCaptureConfig;
@@ -12880,7 +12883,7 @@ export interface TransformJobDefinition {
   MaxConcurrentTransforms?: number;
   MaxPayloadInMB?: number;
   BatchStrategy?: BatchStrategy;
-  Environment?: Record<string, string>;
+  Environment?: Partial<Record<string, string>>;
   TransformInput: TransformInput;
   TransformOutput: TransformOutput;
   TransformResources: TransformResources;
@@ -12950,9 +12953,9 @@ export interface TrialComponent {
   CreatedBy?: UserContext;
   LastModifiedTime?: Date | string;
   LastModifiedBy?: UserContext;
-  Parameters?: Record<string, TrialComponentParameterValue>;
-  InputArtifacts?: Record<string, TrialComponentArtifact>;
-  OutputArtifacts?: Record<string, TrialComponentArtifact>;
+  Parameters?: Partial<Record<string, TrialComponentParameterValue>>;
+  InputArtifacts?: Partial<Record<string, TrialComponentArtifact>>;
+  OutputArtifacts?: Partial<Record<string, TrialComponentArtifact>>;
   Metrics?: Array<TrialComponentMetricSummary>;
   MetadataProperties?: MetadataProperties;
   SourceDetail?: TrialComponentSourceDetail;
@@ -12967,7 +12970,9 @@ export interface TrialComponentArtifact {
   MediaType?: string;
   Value: string;
 }
-export type TrialComponentArtifacts = Record<string, TrialComponentArtifact>;
+export type TrialComponentArtifacts = Partial<
+  Record<string, TrialComponentArtifact>
+>;
 export type TrialComponentArtifactValue = string;
 
 export type TrialComponentKey128 = string;
@@ -12988,9 +12993,8 @@ export interface TrialComponentMetricSummary {
   Avg?: number;
   StdDev?: number;
 }
-export type TrialComponentParameters = Record<
-  string,
-  TrialComponentParameterValue
+export type TrialComponentParameters = Partial<
+  Record<string, TrialComponentParameterValue>
 >;
 interface _TrialComponentParameterValue {
   StringValue?: string;
@@ -13115,7 +13119,7 @@ export interface UpdateActionRequest {
   ActionName: string;
   Description?: string;
   Status?: ActionStatus;
-  Properties?: Record<string, string>;
+  Properties?: Partial<Record<string, string>>;
   PropertiesToRemove?: Array<string>;
 }
 export interface UpdateActionResponse {
@@ -13133,7 +13137,7 @@ export interface UpdateAppImageConfigResponse {
 export interface UpdateArtifactRequest {
   ArtifactArn: string;
   ArtifactName?: string;
-  Properties?: Record<string, string>;
+  Properties?: Partial<Record<string, string>>;
   PropertiesToRemove?: Array<string>;
 }
 export interface UpdateArtifactResponse {
@@ -13194,7 +13198,7 @@ export interface UpdateComputeQuotaResponse {
 export interface UpdateContextRequest {
   ContextName: string;
   Description?: string;
-  Properties?: Record<string, string>;
+  Properties?: Partial<Record<string, string>>;
   PropertiesToRemove?: Array<string>;
 }
 export interface UpdateContextResponse {
@@ -13511,11 +13515,11 @@ export interface UpdateTrialComponentRequest {
   Status?: TrialComponentStatus;
   StartTime?: Date | string;
   EndTime?: Date | string;
-  Parameters?: Record<string, TrialComponentParameterValue>;
+  Parameters?: Partial<Record<string, TrialComponentParameterValue>>;
   ParametersToRemove?: Array<string>;
-  InputArtifacts?: Record<string, TrialComponentArtifact>;
+  InputArtifacts?: Partial<Record<string, TrialComponentArtifact>>;
   InputArtifactsToRemove?: Array<string>;
-  OutputArtifacts?: Record<string, TrialComponentArtifact>;
+  OutputArtifacts?: Partial<Record<string, TrialComponentArtifact>>;
   OutputArtifactsToRemove?: Array<string>;
 }
 export interface UpdateTrialComponentResponse {

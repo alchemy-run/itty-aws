@@ -642,7 +642,7 @@ export interface Assessment {
   awsAccount?: AWSAccount;
   metadata?: AssessmentMetadata;
   framework?: AssessmentFramework;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface AssessmentControl {
   id?: string;
@@ -908,7 +908,7 @@ export interface Control {
   lastUpdatedAt?: Date | string;
   createdBy?: string;
   lastUpdatedBy?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   state?: ControlState;
 }
 export type ControlCatalogId = string;
@@ -1010,7 +1010,7 @@ export interface CreateAssessmentFrameworkRequest {
   description?: string;
   complianceType?: string;
   controlSets: Array<CreateAssessmentFrameworkControlSet>;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateAssessmentFrameworkResponse {
   framework?: Framework;
@@ -1031,7 +1031,7 @@ export interface CreateAssessmentRequest {
   scope: Scope;
   roles: Array<Role>;
   frameworkId: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateAssessmentResponse {
   assessment?: Assessment;
@@ -1053,7 +1053,7 @@ export interface CreateControlRequest {
   actionPlanTitle?: string;
   actionPlanInstructions?: string;
   controlMappingSources: Array<CreateControlMappingSource>;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateControlResponse {
   control?: Control;
@@ -1160,7 +1160,7 @@ export interface Evidence {
   eventName?: string;
   evidenceByType?: string;
   resourcesIncluded?: Array<Resource>;
-  attributes?: Record<string, string>;
+  attributes?: Partial<Record<string, string>>;
   iamId?: string;
   complianceCheck?: string;
   awsOrganization?: string;
@@ -1171,7 +1171,7 @@ export interface Evidence {
 }
 export type EvidenceAttributeKey = string;
 
-export type EvidenceAttributes = Record<string, string>;
+export type EvidenceAttributes = Partial<Record<string, string>>;
 export type EvidenceAttributeValue = string;
 
 export type EvidenceFinderBackfillStatus =
@@ -1214,7 +1214,7 @@ export interface Framework {
   lastUpdatedAt?: Date | string;
   createdBy?: string;
   lastUpdatedBy?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type FrameworkDescription = string;
 
@@ -1501,7 +1501,7 @@ export interface ListTagsForResourceRequest {
   resourceArn: string;
 }
 export interface ListTagsForResourceResponse {
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface ManualEvidence {
   s3ResourcePath?: string;
@@ -1663,10 +1663,10 @@ export type AuditmanagerString = string;
 export type TagKey = string;
 
 export type TagKeyList = Array<string>;
-export type TagMap = Record<string, string>;
+export type TagMap = Partial<Record<string, string>>;
 export interface TagResourceRequest {
   resourceArn: string;
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
 export interface TagResourceResponse {}
 export type TagValue = string;

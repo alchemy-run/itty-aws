@@ -72,14 +72,14 @@ export interface ListTagsForResourceRequest {
   resourceArn: string;
 }
 export interface ListTagsForResourceResponse {
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface PutDeploymentParameterRequest {
   catalog: string;
   productId: string;
   agreementId: string;
   deploymentParameter: DeploymentParameterInput;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   expirationDate?: Date | string;
   clientToken?: string;
 }
@@ -87,7 +87,7 @@ export interface PutDeploymentParameterResponse {
   resourceArn: string;
   agreementId: string;
   deploymentParameterId: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type ResourceArn = string;
 
@@ -110,11 +110,11 @@ export type TagKey = string;
 
 export interface TagResourceRequest {
   resourceArn: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface TagResourceResponse {}
-export type Tags = Record<string, string>;
-export type TagsMap = Record<string, string>;
+export type Tags = Partial<Record<string, string>>;
+export type TagsMap = Partial<Record<string, string>>;
 export type TagValue = string;
 
 export declare class ThrottlingException extends EffectData.TaggedError(

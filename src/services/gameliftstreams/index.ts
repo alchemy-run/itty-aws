@@ -295,7 +295,7 @@ export interface DisassociateApplicationsOutput {
   Arn?: string;
   ApplicationArns?: Array<string>;
 }
-export type EnvironmentVariables = Record<string, string>;
+export type EnvironmentVariables = Partial<Record<string, string>>;
 export type ExecutablePath = string;
 
 export interface ExportFilesMetadata {
@@ -371,7 +371,7 @@ export interface GetStreamSessionOutput {
   ConnectionTimeoutSeconds?: number;
   SessionLengthSeconds?: number;
   AdditionalLaunchArgs?: Array<string>;
-  AdditionalEnvironmentVariables?: Record<string, string>;
+  AdditionalEnvironmentVariables?: Partial<Record<string, string>>;
   LogFileLocationUri?: string;
   WebSdkProtocolUrl?: string;
   LastUpdatedAt?: Date | string;
@@ -506,7 +506,7 @@ export interface StartStreamSessionInput {
   ConnectionTimeoutSeconds?: number;
   SessionLengthSeconds?: number;
   AdditionalLaunchArgs?: Array<string>;
-  AdditionalEnvironmentVariables?: Record<string, string>;
+  AdditionalEnvironmentVariables?: Partial<Record<string, string>>;
 }
 export interface StartStreamSessionOutput {
   Arn?: string;
@@ -522,7 +522,7 @@ export interface StartStreamSessionOutput {
   ConnectionTimeoutSeconds?: number;
   SessionLengthSeconds?: number;
   AdditionalLaunchArgs?: Array<string>;
-  AdditionalEnvironmentVariables?: Record<string, string>;
+  AdditionalEnvironmentVariables?: Partial<Record<string, string>>;
   LogFileLocationUri?: string;
   WebSdkProtocolUrl?: string;
   LastUpdatedAt?: Date | string;

@@ -675,11 +675,15 @@ export type __listOfVideoOverlayTransition = Array<VideoOverlayTransition>;
 export type __listOfWarningGroup = Array<WarningGroup>;
 export type __long = number;
 
-export type __mapOf__string = Record<string, string>;
-export type __mapOfAudioSelector = Record<string, AudioSelector>;
-export type __mapOfAudioSelectorGroup = Record<string, AudioSelectorGroup>;
-export type __mapOfCaptionSelector = Record<string, CaptionSelector>;
-export type __mapOfDynamicAudioSelector = Record<string, DynamicAudioSelector>;
+export type __mapOf__string = Partial<Record<string, string>>;
+export type __mapOfAudioSelector = Partial<Record<string, AudioSelector>>;
+export type __mapOfAudioSelectorGroup = Partial<
+  Record<string, AudioSelectorGroup>
+>;
+export type __mapOfCaptionSelector = Partial<Record<string, CaptionSelector>>;
+export type __mapOfDynamicAudioSelector = Partial<
+  Record<string, DynamicAudioSelector>
+>;
 export type __string = string;
 
 export type __stringMax1000 = string;
@@ -1555,8 +1559,8 @@ export interface CreateJobRequest {
   Settings: JobSettings;
   SimulateReservedQueue?: SimulateReservedQueue;
   StatusUpdateInterval?: StatusUpdateInterval;
-  Tags?: Record<string, string>;
-  UserMetadata?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
+  UserMetadata?: Partial<Record<string, string>>;
 }
 export interface CreateJobResponse {
   Job?: Job;
@@ -1571,7 +1575,7 @@ export interface CreateJobTemplateRequest {
   Queue?: string;
   Settings: JobTemplateSettings;
   StatusUpdateInterval?: StatusUpdateInterval;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateJobTemplateResponse {
   JobTemplate?: JobTemplate;
@@ -1581,7 +1585,7 @@ export interface CreatePresetRequest {
   Description?: string;
   Name: string;
   Settings: PresetSettings;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreatePresetResponse {
   Preset?: Preset;
@@ -1593,7 +1597,7 @@ export interface CreateQueueRequest {
   PricingPlan?: PricingPlan;
   ReservationPlanSettings?: ReservationPlanSettings;
   Status?: QueueStatus;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateQueueResponse {
   Queue?: Queue;
@@ -2454,15 +2458,15 @@ export type ImscStylePassthrough = "ENABLED" | "DISABLED";
 export interface Input {
   AdvancedInputFilter?: AdvancedInputFilter;
   AdvancedInputFilterSettings?: AdvancedInputFilterSettings;
-  AudioSelectorGroups?: Record<string, AudioSelectorGroup>;
-  AudioSelectors?: Record<string, AudioSelector>;
-  CaptionSelectors?: Record<string, CaptionSelector>;
+  AudioSelectorGroups?: Partial<Record<string, AudioSelectorGroup>>;
+  AudioSelectors?: Partial<Record<string, AudioSelector>>;
+  CaptionSelectors?: Partial<Record<string, CaptionSelector>>;
   Crop?: Rectangle;
   DeblockFilter?: InputDeblockFilter;
   DecryptionSettings?: InputDecryptionSettings;
   DenoiseFilter?: InputDenoiseFilter;
   DolbyVisionMetadataXml?: string;
-  DynamicAudioSelectors?: Record<string, DynamicAudioSelector>;
+  DynamicAudioSelectors?: Partial<Record<string, DynamicAudioSelector>>;
   FileInput?: string;
   FilterEnable?: InputFilterEnable;
   FilterStrength?: number;
@@ -2512,14 +2516,14 @@ export interface InputTamsSettings {
 export interface InputTemplate {
   AdvancedInputFilter?: AdvancedInputFilter;
   AdvancedInputFilterSettings?: AdvancedInputFilterSettings;
-  AudioSelectorGroups?: Record<string, AudioSelectorGroup>;
-  AudioSelectors?: Record<string, AudioSelector>;
-  CaptionSelectors?: Record<string, CaptionSelector>;
+  AudioSelectorGroups?: Partial<Record<string, AudioSelectorGroup>>;
+  AudioSelectors?: Partial<Record<string, AudioSelector>>;
+  CaptionSelectors?: Partial<Record<string, CaptionSelector>>;
   Crop?: Rectangle;
   DeblockFilter?: InputDeblockFilter;
   DenoiseFilter?: InputDenoiseFilter;
   DolbyVisionMetadataXml?: string;
-  DynamicAudioSelectors?: Record<string, DynamicAudioSelector>;
+  DynamicAudioSelectors?: Partial<Record<string, DynamicAudioSelector>>;
   FilterEnable?: InputFilterEnable;
   FilterStrength?: number;
   ImageInserter?: ImageInserter;
@@ -2587,7 +2591,7 @@ export interface Job {
   Status?: JobStatus;
   StatusUpdateInterval?: StatusUpdateInterval;
   Timing?: Timing;
-  UserMetadata?: Record<string, string>;
+  UserMetadata?: Partial<Record<string, string>>;
   Warnings?: Array<WarningGroup>;
 }
 export interface JobEngineVersion {
@@ -3529,7 +3533,7 @@ export interface ReservationPlanSettings {
 export type ReservationPlanStatus = "ACTIVE" | "EXPIRED";
 export interface ResourceTags {
   Arn?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export type RespondToAfd = "NONE" | "RESPOND" | "PASSTHROUGH";
 export type RuleType =
@@ -3647,7 +3651,7 @@ export type StatusUpdateInterval =
   | "SECONDS_600";
 export interface TagResourceRequest {
   Arn: string;
-  Tags: Record<string, string>;
+  Tags: Partial<Record<string, string>>;
 }
 export interface TagResourceResponse {}
 export type TamsGapHandling =

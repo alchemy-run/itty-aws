@@ -269,7 +269,7 @@ export interface DescribeSigningJobResponse {
   profileName?: string;
   profileVersion?: string;
   overrides?: SigningPlatformOverrides;
-  signingParameters?: Record<string, string>;
+  signingParameters?: Partial<Record<string, string>>;
   createdAt?: Date | string;
   completedAt?: Date | string;
   signatureExpiresAt?: Date | string;
@@ -334,7 +334,7 @@ export interface GetSigningProfileResponse {
   platformDisplayName?: string;
   signatureValidityPeriod?: SignatureValidityPeriod;
   overrides?: SigningPlatformOverrides;
-  signingParameters?: Record<string, string>;
+  signingParameters?: Partial<Record<string, string>>;
   status?: SigningProfileStatus;
   statusReason?: string;
   arn?: string;
@@ -417,7 +417,7 @@ export type MaxResults = number;
 
 export type MaxSizeInMB = number;
 
-export type Metadata = Record<string, string>;
+export type Metadata = Partial<Record<string, string>>;
 export type NextToken = string;
 
 export declare class NotFoundException extends EffectData.TaggedError(
@@ -451,7 +451,7 @@ export interface PutSigningProfileRequest {
   signatureValidityPeriod?: SignatureValidityPeriod;
   platformId: string;
   overrides?: SigningPlatformOverrides;
-  signingParameters?: Record<string, string>;
+  signingParameters?: Partial<Record<string, string>>;
   tags?: Record<string, string>;
 }
 export interface PutSigningProfileResponse {
@@ -554,7 +554,7 @@ export interface SigningMaterial {
 }
 export type SigningParameterKey = string;
 
-export type SigningParameters = Record<string, string>;
+export type SigningParameters = Partial<Record<string, string>>;
 export type SigningParameterValue = string;
 
 export interface SigningPlatform {
@@ -581,7 +581,7 @@ export interface SigningProfile {
   signatureValidityPeriod?: SignatureValidityPeriod;
   platformId?: string;
   platformDisplayName?: string;
-  signingParameters?: Record<string, string>;
+  signingParameters?: Partial<Record<string, string>>;
   status?: SigningProfileStatus;
   arn?: string;
   tags?: Record<string, string>;
@@ -603,7 +603,7 @@ export interface SignPayloadRequest {
 export interface SignPayloadResponse {
   jobId?: string;
   jobOwner?: string;
-  metadata?: Record<string, string>;
+  metadata?: Partial<Record<string, string>>;
   signature?: Uint8Array | string;
 }
 export interface Source {

@@ -796,7 +796,7 @@ export interface ChannelMessage {
   Redacted?: boolean;
   Persistence?: ChannelMessagePersistenceType;
   Status?: ChannelMessageStatusStructure;
-  MessageAttributes?: Record<string, MessageAttributeValue>;
+  MessageAttributes?: Partial<Record<string, MessageAttributeValue>>;
   SubChannelId?: string;
   ContentType?: string;
   Target?: Array<Target>;
@@ -806,7 +806,7 @@ export interface ChannelMessageCallback {
   Content?: string;
   Metadata?: string;
   PushNotification?: PushNotificationConfiguration;
-  MessageAttributes?: Record<string, MessageAttributeValue>;
+  MessageAttributes?: Partial<Record<string, MessageAttributeValue>>;
   SubChannelId?: string;
   ContentType?: string;
 }
@@ -827,7 +827,7 @@ export interface ChannelMessageSummary {
   Sender?: Identity;
   Redacted?: boolean;
   Status?: ChannelMessageStatusStructure;
-  MessageAttributes?: Record<string, MessageAttributeValue>;
+  MessageAttributes?: Partial<Record<string, MessageAttributeValue>>;
   ContentType?: string;
   Target?: Array<Target>;
 }
@@ -1236,7 +1236,9 @@ export type MemberArns = Array<string>;
 export type Members = Array<Identity>;
 export type MembershipCount = number;
 
-export type MessageAttributeMap = Record<string, MessageAttributeValue>;
+export type MessageAttributeMap = Partial<
+  Record<string, MessageAttributeValue>
+>;
 export type MessageAttributeName = string;
 
 export type MessageAttributeStringValue = string;
@@ -1369,7 +1371,7 @@ export interface SendChannelMessageRequest {
   ClientRequestToken: string;
   ChimeBearer: string;
   PushNotification?: PushNotificationConfiguration;
-  MessageAttributes?: Record<string, MessageAttributeValue>;
+  MessageAttributes?: Partial<Record<string, MessageAttributeValue>>;
   SubChannelId?: string;
   ContentType?: string;
   Target?: Array<Target>;

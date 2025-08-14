@@ -296,7 +296,7 @@ export type ChannelName = string;
 
 export type ChannelRole = "ASKER" | "EXPERT" | "MODERATOR" | "SUPPORTREQUESTOR";
 export type ChannelRoleList = Array<ChannelRole>;
-export type ChannelRoles = Record<string, Array<ChannelRole>>;
+export type ChannelRoles = Partial<Record<string, Array<ChannelRole>>>;
 export type ChannelsList = Array<ChannelData>;
 export type ChannelStatus =
   | "CREATED"
@@ -331,7 +331,7 @@ export interface CreateSpaceInput {
   tier: TierLevel;
   description?: string;
   userKMSKey?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   roleArn?: string;
   supportedEmailDomains?: SupportedEmailDomainsParameters;
 }
@@ -364,7 +364,7 @@ export interface GetChannelOutput {
   channelDescription?: string;
   createDateTime: Date | string;
   deleteDateTime?: Date | string;
-  channelRoles?: Record<string, Array<ChannelRole>>;
+  channelRoles?: Partial<Record<string, Array<ChannelRole>>>;
   channelStatus: ChannelStatus;
 }
 export interface GetSpaceInput {
@@ -390,7 +390,7 @@ export interface GetSpaceOutput {
   storageLimit: number;
   userAdmins?: Array<string>;
   groupAdmins?: Array<string>;
-  roles?: Record<string, Array<Role>>;
+  roles?: Partial<Record<string, Array<Role>>>;
   userKMSKey?: string;
   userCount?: number;
   contentSize?: number;
@@ -438,7 +438,7 @@ export interface ListTagsForResourceRequest {
   resourceArn: string;
 }
 export interface ListTagsForResourceResponse {
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type ProvisioningStatus = string;
 
@@ -459,7 +459,7 @@ export type Role =
   | "ADMINISTRATOR"
   | "SUPPORTREQUESTOR";
 export type RoleList = Array<Role>;
-export type Roles = Record<string, Array<Role>>;
+export type Roles = Partial<Record<string, Array<Role>>>;
 export interface SendInvitesInput {
   spaceId: string;
   accessorIds: Array<string>;
@@ -518,10 +518,10 @@ export type TagKey = string;
 export type TagKeyList = Array<string>;
 export interface TagResourceRequest {
   resourceArn: string;
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
 export interface TagResourceResponse {}
-export type Tags = Record<string, string>;
+export type Tags = Partial<Record<string, string>>;
 export type TagValue = string;
 
 export declare class ThrottlingException extends EffectData.TaggedError(

@@ -193,7 +193,7 @@ export type __listOfHlsManifest = Array<HlsManifest>;
 export type __listOfMssManifest = Array<MssManifest>;
 export type __listOfPackagingConfiguration = Array<PackagingConfiguration>;
 export type __listOfPackagingGroup = Array<PackagingGroup>;
-export type __mapOf__string = Record<string, string>;
+export type __mapOf__string = Partial<Record<string, string>>;
 export type __PeriodTriggersElement = "ADS";
 export type __string = string;
 
@@ -206,7 +206,7 @@ export interface AssetShallow {
   ResourceId?: string;
   SourceArn?: string;
   SourceRoleArn?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface Authorization {
   CdnIdentifierSecret: string;
@@ -233,7 +233,7 @@ export interface ConfigureLogsResponse {
   DomainName?: string;
   EgressAccessLogs?: EgressAccessLogs;
   Id?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateAssetRequest {
   Id: string;
@@ -241,7 +241,7 @@ export interface CreateAssetRequest {
   ResourceId?: string;
   SourceArn: string;
   SourceRoleArn: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateAssetResponse {
   Arn?: string;
@@ -252,7 +252,7 @@ export interface CreateAssetResponse {
   ResourceId?: string;
   SourceArn?: string;
   SourceRoleArn?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreatePackagingConfigurationRequest {
   CmafPackage?: CmafPackage;
@@ -261,7 +261,7 @@ export interface CreatePackagingConfigurationRequest {
   Id: string;
   MssPackage?: MssPackage;
   PackagingGroupId: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreatePackagingConfigurationResponse {
   Arn?: string;
@@ -272,13 +272,13 @@ export interface CreatePackagingConfigurationResponse {
   Id?: string;
   MssPackage?: MssPackage;
   PackagingGroupId?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreatePackagingGroupRequest {
   Authorization?: Authorization;
   EgressAccessLogs?: EgressAccessLogs;
   Id: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreatePackagingGroupResponse {
   Arn?: string;
@@ -287,7 +287,7 @@ export interface CreatePackagingGroupResponse {
   DomainName?: string;
   EgressAccessLogs?: EgressAccessLogs;
   Id?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface DashEncryption {
   SpekeKeyProvider: SpekeKeyProvider;
@@ -333,7 +333,7 @@ export interface DescribeAssetResponse {
   ResourceId?: string;
   SourceArn?: string;
   SourceRoleArn?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface DescribePackagingConfigurationRequest {
   Id: string;
@@ -347,7 +347,7 @@ export interface DescribePackagingConfigurationResponse {
   Id?: string;
   MssPackage?: MssPackage;
   PackagingGroupId?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface DescribePackagingGroupRequest {
   Id: string;
@@ -360,7 +360,7 @@ export interface DescribePackagingGroupResponse {
   DomainName?: string;
   EgressAccessLogs?: EgressAccessLogs;
   Id?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface EgressAccessLogs {
   LogGroupName?: string;
@@ -435,7 +435,7 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string;
 }
 export interface ListTagsForResourceResponse {
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export type ManifestLayout = "FULL" | "COMPACT";
 export type MaxResults = number;
@@ -466,7 +466,7 @@ export interface PackagingConfiguration {
   Id?: string;
   MssPackage?: MssPackage;
   PackagingGroupId?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface PackagingGroup {
   ApproximateAssetCount?: number;
@@ -476,7 +476,7 @@ export interface PackagingGroup {
   DomainName?: string;
   EgressAccessLogs?: EgressAccessLogs;
   Id?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export type PresetSpeke20Audio =
   | "PRESET_AUDIO_1"
@@ -523,9 +523,9 @@ export interface StreamSelection {
 }
 export interface TagResourceRequest {
   ResourceArn: string;
-  Tags: Record<string, string>;
+  Tags: Partial<Record<string, string>>;
 }
-export type Tags = Record<string, string>;
+export type Tags = Partial<Record<string, string>>;
 export declare class TooManyRequestsException extends EffectData.TaggedError(
   "TooManyRequestsException",
 )<{
@@ -552,7 +552,7 @@ export interface UpdatePackagingGroupResponse {
   DomainName?: string;
   EgressAccessLogs?: EgressAccessLogs;
   Id?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export declare namespace ConfigureLogs {
   export type Input = ConfigureLogsRequest;

@@ -1734,7 +1734,7 @@ export type EdgeSet = Array<string>;
 export type EdgeSetList = Array<Array<string>>;
 export type ExceptionContextKey = string;
 
-export type ExceptionContextMap = Record<string, string>;
+export type ExceptionContextMap = Partial<Record<string, string>>;
 export type ExceptionContextValue = string;
 
 export interface ExecuteCoreNetworkChangeSetRequest {
@@ -1745,7 +1745,7 @@ export interface ExecuteCoreNetworkChangeSetResponse {}
 export type ExternalRegionCode = string;
 
 export type ExternalRegionCodeList = Array<string>;
-export type FilterMap = Record<string, Array<string>>;
+export type FilterMap = Partial<Record<string, Array<string>>>;
 export type FilterName = string;
 
 export type FilterValue = string;
@@ -1919,7 +1919,7 @@ export interface GetNetworkRoutesRequest {
   PrefixListIds?: Array<string>;
   States?: Array<RouteState>;
   Types?: Array<RouteType>;
-  DestinationFilters?: Record<string, Array<string>>;
+  DestinationFilters?: Partial<Record<string, Array<string>>>;
 }
 export interface GetNetworkRoutesResponse {
   RouteTableArn?: string;
@@ -2162,7 +2162,7 @@ export interface NetworkResource {
   Definition?: string;
   DefinitionTimestamp?: Date | string;
   Tags?: Array<Tag>;
-  Metadata?: Record<string, string>;
+  Metadata?: Partial<Record<string, string>>;
 }
 export interface NetworkResourceCount {
   ResourceType?: string;
@@ -2170,7 +2170,7 @@ export interface NetworkResourceCount {
 }
 export type NetworkResourceCountList = Array<NetworkResourceCount>;
 export type NetworkResourceList = Array<NetworkResource>;
-export type NetworkResourceMetadataMap = Record<string, string>;
+export type NetworkResourceMetadataMap = Partial<Record<string, string>>;
 export interface NetworkResourceSummary {
   RegisteredGatewayArn?: string;
   ResourceArn?: string;
@@ -2290,7 +2290,7 @@ export interface PutResourcePolicyRequest {
 export interface PutResourcePolicyResponse {}
 export type ReasonContextKey = string;
 
-export type ReasonContextMap = Record<string, string>;
+export type ReasonContextMap = Partial<Record<string, string>>;
 export type ReasonContextValue = string;
 
 export interface RegisterTransitGatewayRequest {
@@ -2319,7 +2319,7 @@ export declare class ResourceNotFoundException extends EffectData.TaggedError(
   readonly Message: string;
   readonly ResourceId: string;
   readonly ResourceType: string;
-  readonly Context?: Record<string, string>;
+  readonly Context?: Partial<Record<string, string>>;
 }> {}
 export interface RestoreCoreNetworkPolicyVersionRequest {
   CoreNetworkId: string;
@@ -2346,7 +2346,7 @@ export interface RouteAnalysis {
 export interface RouteAnalysisCompletion {
   ResultCode?: RouteAnalysisCompletionResultCode;
   ReasonCode?: RouteAnalysisCompletionReasonCode;
-  ReasonContext?: Record<string, string>;
+  ReasonContext?: Partial<Record<string, string>>;
 }
 export type RouteAnalysisCompletionReasonCode =
   | "TRANSIT_GATEWAY_ATTACHMENT_NOT_FOUND"
@@ -2599,11 +2599,11 @@ export interface UpdateLinkResponse {
 export interface UpdateNetworkResourceMetadataRequest {
   GlobalNetworkId: string;
   ResourceArn: string;
-  Metadata: Record<string, string>;
+  Metadata: Partial<Record<string, string>>;
 }
 export interface UpdateNetworkResourceMetadataResponse {
   ResourceArn?: string;
-  Metadata?: Record<string, string>;
+  Metadata?: Partial<Record<string, string>>;
 }
 export interface UpdateSiteRequest {
   GlobalNetworkId: string;

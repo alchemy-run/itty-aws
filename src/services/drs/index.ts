@@ -159,14 +159,16 @@ export declare class ConflictException extends EffectData.TaggedError(
   readonly resourceId?: string;
   readonly resourceType?: string;
 }> {}
-export type ConversionMap = Record<string, string>;
+export type ConversionMap = Partial<Record<string, string>>;
 export interface ConversionProperties {
-  volumeToConversionMap?: Record<string, Record<string, string>>;
+  volumeToConversionMap?: Partial<
+    Record<string, Partial<Record<string, string>>>
+  >;
   rootVolumeName?: string;
   forceUefi?: boolean;
   dataTimestamp?: string;
-  volumeToVolumeSize?: Record<string, number>;
-  volumeToProductCodes?: Record<string, Array<ProductCode>>;
+  volumeToVolumeSize?: Partial<Record<string, number>>;
+  volumeToProductCodes?: Partial<Record<string, Array<ProductCode>>>;
 }
 export interface CPU {
   cores?: number;
@@ -175,13 +177,13 @@ export interface CPU {
 export type Cpus = Array<CPU>;
 export interface CreateExtendedSourceServerRequest {
   sourceServerArn: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateExtendedSourceServerResponse {
   sourceServer?: SourceServer;
 }
 export interface CreateLaunchConfigurationTemplateRequest {
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   launchDisposition?: string;
   targetInstanceTypeRightSizingMethod?: string;
   copyPrivateIp?: boolean;
@@ -206,16 +208,16 @@ export interface CreateReplicationConfigurationTemplateRequest {
   bandwidthThrottling: number;
   dataPlaneRouting: string;
   createPublicIP: boolean;
-  stagingAreaTags: Record<string, string>;
+  stagingAreaTags: Partial<Record<string, string>>;
   pitPolicy: Array<PITPolicyRule>;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   autoReplicateNewDisks?: boolean;
 }
 export interface CreateSourceNetworkRequest {
   vpcID: string;
   originAccountID: string;
   originRegion: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateSourceNetworkResponse {
   sourceNetworkID?: string;
@@ -482,7 +484,7 @@ export interface Job {
   endDateTime?: string;
   status?: string;
   participatingServers?: Array<ParticipatingServer>;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   participatingResources?: Array<ParticipatingResource>;
 }
 export type JobID = string;
@@ -523,7 +525,7 @@ export interface LaunchAction {
   order?: number;
   actionVersion?: string;
   optional?: boolean;
-  parameters?: Record<string, LaunchActionParameter>;
+  parameters?: Partial<Record<string, LaunchActionParameter>>;
   description?: string;
   category?: string;
 }
@@ -544,7 +546,9 @@ export interface LaunchActionParameter {
 }
 export type LaunchActionParameterName = string;
 
-export type LaunchActionParameters = Record<string, LaunchActionParameter>;
+export type LaunchActionParameters = Partial<
+  Record<string, LaunchActionParameter>
+>;
 export type LaunchActionParameterType = string;
 
 export type LaunchActionParameterValue = string;
@@ -589,7 +593,7 @@ export interface LaunchConfiguration {
 export interface LaunchConfigurationTemplate {
   launchConfigurationTemplateID?: string;
   arn?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   launchDisposition?: string;
   targetInstanceTypeRightSizingMethod?: string;
   copyPrivateIp?: boolean;
@@ -660,7 +664,7 @@ export interface ListTagsForResourceRequest {
   resourceArn: string;
 }
 export interface ListTagsForResourceResponse {
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type MaxResultsReplicatingSourceServers = number;
 
@@ -731,7 +735,7 @@ export interface PutLaunchActionRequest {
   name: string;
   actionVersion: string;
   category: string;
-  parameters?: Record<string, LaunchActionParameter>;
+  parameters?: Partial<Record<string, LaunchActionParameter>>;
   description: string;
 }
 export interface PutLaunchActionResponse {
@@ -744,7 +748,7 @@ export interface PutLaunchActionResponse {
   order?: number;
   actionVersion?: string;
   optional?: boolean;
-  parameters?: Record<string, LaunchActionParameter>;
+  parameters?: Partial<Record<string, LaunchActionParameter>>;
   description?: string;
   category?: string;
 }
@@ -755,7 +759,7 @@ export interface RecoveryInstance {
   recoveryInstanceID?: string;
   sourceServerID?: string;
   arn?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   failback?: RecoveryInstanceFailback;
   dataReplicationInfo?: RecoveryInstanceDataReplicationInfo;
   recoveryInstanceProperties?: RecoveryInstanceProperties;
@@ -870,7 +874,7 @@ export interface ReplicationConfiguration {
   bandwidthThrottling?: number;
   dataPlaneRouting?: string;
   createPublicIP?: boolean;
-  stagingAreaTags?: Record<string, string>;
+  stagingAreaTags?: Partial<Record<string, string>>;
   pitPolicy?: Array<PITPolicyRule>;
   autoReplicateNewDisks?: boolean;
 }
@@ -906,8 +910,8 @@ export interface ReplicationConfigurationTemplate {
   bandwidthThrottling?: number;
   dataPlaneRouting?: string;
   createPublicIP?: boolean;
-  stagingAreaTags?: Record<string, string>;
-  tags?: Record<string, string>;
+  stagingAreaTags?: Partial<Record<string, string>>;
+  tags?: Partial<Record<string, string>>;
   pitPolicy?: Array<PITPolicyRule>;
   autoReplicateNewDisks?: boolean;
 }
@@ -964,7 +968,7 @@ export interface SourceNetwork {
   sourceNetworkID?: string;
   sourceVpcID?: string;
   arn?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   replicationStatus?: string;
   replicationStatusDetails?: string;
   cfnStackName?: string;
@@ -996,7 +1000,7 @@ export interface SourceProperties {
 export interface SourceServer {
   sourceServerID?: string;
   arn?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   recoveryInstanceId?: string;
   lastLaunchResult?: string;
   dataReplicationInfo?: DataReplicationInfo;
@@ -1026,12 +1030,12 @@ export interface StagingArea {
 export interface StagingSourceServer {
   hostname?: string;
   arn?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type StagingSourceServersList = Array<StagingSourceServer>;
 export interface StartFailbackLaunchRequest {
   recoveryInstanceIDs: Array<string>;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface StartFailbackLaunchResponse {
   job?: Job;
@@ -1040,7 +1044,7 @@ export type StartFailbackRequestRecoveryInstanceIDs = Array<string>;
 export interface StartRecoveryRequest {
   sourceServers: Array<StartRecoveryRequestSourceServer>;
   isDrill?: boolean;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface StartRecoveryRequestSourceServer {
   sourceServerID: string;
@@ -1060,7 +1064,7 @@ export interface StartReplicationResponse {
 export interface StartSourceNetworkRecoveryRequest {
   sourceNetworks: Array<StartSourceNetworkRecoveryRequestNetworkEntry>;
   deployAsNew?: boolean;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type StartSourceNetworkRecoveryRequestNetworkEntries =
   Array<StartSourceNetworkRecoveryRequestNetworkEntry>;
@@ -1101,9 +1105,9 @@ export type TagKey = string;
 export type TagKeys = Array<string>;
 export interface TagResourceRequest {
   resourceArn: string;
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
-export type TagsMap = Record<string, string>;
+export type TagsMap = Partial<Record<string, string>>;
 export type TagValue = string;
 
 export type TargetInstanceTypeRightSizingMethod = string;
@@ -1178,7 +1182,7 @@ export interface UpdateReplicationConfigurationRequest {
   bandwidthThrottling?: number;
   dataPlaneRouting?: string;
   createPublicIP?: boolean;
-  stagingAreaTags?: Record<string, string>;
+  stagingAreaTags?: Partial<Record<string, string>>;
   pitPolicy?: Array<PITPolicyRule>;
   autoReplicateNewDisks?: boolean;
 }
@@ -1196,7 +1200,7 @@ export interface UpdateReplicationConfigurationTemplateRequest {
   bandwidthThrottling?: number;
   dataPlaneRouting?: string;
   createPublicIP?: boolean;
-  stagingAreaTags?: Record<string, string>;
+  stagingAreaTags?: Partial<Record<string, string>>;
   pitPolicy?: Array<PITPolicyRule>;
   autoReplicateNewDisks?: boolean;
 }
@@ -1217,9 +1221,11 @@ export type ValidationExceptionReason = string;
 
 export type VolumeStatus = string;
 
-export type VolumeToConversionMap = Record<string, Record<string, string>>;
-export type VolumeToProductCodes = Record<string, Array<ProductCode>>;
-export type VolumeToSizeMap = Record<string, number>;
+export type VolumeToConversionMap = Partial<
+  Record<string, Partial<Record<string, string>>>
+>;
+export type VolumeToProductCodes = Partial<Record<string, Array<ProductCode>>>;
+export type VolumeToSizeMap = Partial<Record<string, number>>;
 export type VpcID = string;
 
 export declare namespace CreateExtendedSourceServer {

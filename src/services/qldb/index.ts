@@ -162,7 +162,7 @@ export interface CancelJournalKinesisStreamResponse {
 }
 export interface CreateLedgerRequest {
   Name: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   PermissionsMode: PermissionsMode;
   DeletionProtection?: boolean;
   KmsKey?: string;
@@ -350,7 +350,7 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string;
 }
 export interface ListTagsForResourceResponse {
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export type MaxResults = number;
 
@@ -409,7 +409,7 @@ export type S3Prefix = string;
 export interface StreamJournalToKinesisRequest {
   LedgerName: string;
   RoleArn: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   InclusiveStartTime: Date | string;
   ExclusiveEndTime?: Date | string;
   KinesisConfiguration: KinesisConfiguration;
@@ -431,10 +431,10 @@ export type TagKey = string;
 export type TagKeyList = Array<string>;
 export interface TagResourceRequest {
   ResourceArn: string;
-  Tags: Record<string, string>;
+  Tags: Partial<Record<string, string>>;
 }
 export interface TagResourceResponse {}
-export type Tags = Record<string, string>;
+export type Tags = Partial<Record<string, string>>;
 export type TagValue = string;
 
 export type Timestamp = Date | string;

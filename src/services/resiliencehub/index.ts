@@ -760,7 +760,7 @@ export interface AddDraftAppVersionResourceMappingsResponse {
   appVersion: string;
   resourceMappings: Array<ResourceMapping>;
 }
-export type AdditionalInfoMap = Record<string, Array<string>>;
+export type AdditionalInfoMap = Partial<Record<string, Array<string>>>;
 export type AdditionalInfoValueList = Array<string>;
 export interface Alarm {
   alarmArn?: string;
@@ -808,7 +808,7 @@ export interface AppAssessment {
   invoker: AssessmentInvoker;
   cost?: Cost;
   resiliencyScore?: ResiliencyScore;
-  compliance?: Record<DisruptionType, DisruptionCompliance>;
+  compliance?: Partial<Record<DisruptionType, DisruptionCompliance>>;
   complianceStatus?: ComplianceStatus;
   assessmentStatus: AssessmentStatus;
   startTime?: Date | string;
@@ -852,12 +852,12 @@ export interface AppComponent {
   name: string;
   type: string;
   id?: string;
-  additionalInfo?: Record<string, Array<string>>;
+  additionalInfo?: Partial<Record<string, Array<string>>>;
 }
 export interface AppComponentCompliance {
   cost?: Cost;
   appComponentName?: string;
-  compliance?: Record<DisruptionType, DisruptionCompliance>;
+  compliance?: Partial<Record<DisruptionType, DisruptionCompliance>>;
   message?: string;
   status?: ComplianceStatus;
   resiliencyScore?: ResiliencyScore;
@@ -903,7 +903,9 @@ export interface AppVersionSummary {
 export type Arn = string;
 
 export type ArnList = Array<string>;
-export type AssessmentCompliance = Record<DisruptionType, DisruptionCompliance>;
+export type AssessmentCompliance = Partial<
+  Record<DisruptionType, DisruptionCompliance>
+>;
 export type AssessmentInvoker = "USER" | "SYSTEM";
 export interface AssessmentRiskRecommendation {
   risk?: string;
@@ -956,9 +958,9 @@ export interface ComplianceDrift {
   appId?: string;
   appVersion?: string;
   expectedReferenceId?: string;
-  expectedValue?: Record<DisruptionType, DisruptionCompliance>;
+  expectedValue?: Partial<Record<DisruptionType, DisruptionCompliance>>;
   actualReferenceId?: string;
-  actualValue?: Record<DisruptionType, DisruptionCompliance>;
+  actualValue?: Partial<Record<DisruptionType, DisruptionCompliance>>;
   diffType?: DifferenceType;
 }
 export type ComplianceDriftList = Array<ComplianceDrift>;
@@ -990,10 +992,9 @@ export type ConditionOperatorType =
 export interface ConfigRecommendation {
   cost?: Cost;
   appComponentName?: string;
-  compliance?: Record<DisruptionType, DisruptionCompliance>;
-  recommendationCompliance?: Record<
-    DisruptionType,
-    RecommendationDisruptionCompliance
+  compliance?: Partial<Record<DisruptionType, DisruptionCompliance>>;
+  recommendationCompliance?: Partial<
+    Record<DisruptionType, RecommendationDisruptionCompliance>
   >;
   optimizationType: ConfigRecommendationOptimizationType;
   name: string;
@@ -1042,7 +1043,7 @@ export interface CreateAppVersionAppComponentRequest {
   id?: string;
   name: string;
   type: string;
-  additionalInfo?: Record<string, Array<string>>;
+  additionalInfo?: Partial<Record<string, Array<string>>>;
   clientToken?: string;
 }
 export interface CreateAppVersionAppComponentResponse {
@@ -1059,7 +1060,7 @@ export interface CreateAppVersionResourceRequest {
   awsAccountId?: string;
   resourceType: string;
   appComponents: Array<string>;
-  additionalInfo?: Record<string, Array<string>>;
+  additionalInfo?: Partial<Record<string, Array<string>>>;
   clientToken?: string;
 }
 export interface CreateAppVersionResourceResponse {
@@ -1085,7 +1086,7 @@ export interface CreateResiliencyPolicyRequest {
   policyDescription?: string;
   dataLocationConstraint?: DataLocationConstraint;
   tier: ResiliencyPolicyTier;
-  policy: Record<DisruptionType, FailurePolicy>;
+  policy: Partial<Record<DisruptionType, FailurePolicy>>;
   clientToken?: string;
   tags?: Record<string, string>;
 }
@@ -1221,7 +1222,7 @@ export interface DescribeAppVersionResourcesResolutionStatusResponse {
 export interface DescribeAppVersionResponse {
   appArn: string;
   appVersion: string;
-  additionalInfo?: Record<string, Array<string>>;
+  additionalInfo?: Partial<Record<string, Array<string>>>;
 }
 export interface DescribeAppVersionTemplateRequest {
   appArn: string;
@@ -1280,8 +1281,8 @@ export interface DisruptionCompliance {
   achievableRpoInSecs?: number;
   message?: string;
 }
-export type DisruptionPolicy = Record<DisruptionType, FailurePolicy>;
-export type DisruptionResiliencyScore = Record<DisruptionType, number>;
+export type DisruptionPolicy = Partial<Record<DisruptionType, FailurePolicy>>;
+export type DisruptionResiliencyScore = Partial<Record<DisruptionType, number>>;
 export type DisruptionType = "SOFTWARE" | "HARDWARE" | "AZ" | "REGION";
 export type DocumentName = string;
 
@@ -1670,7 +1671,7 @@ export interface PhysicalResource {
   physicalResourceId: PhysicalResourceId;
   resourceType: string;
   appComponents?: Array<AppComponent>;
-  additionalInfo?: Record<string, Array<string>>;
+  additionalInfo?: Partial<Record<string, Array<string>>>;
   excluded?: boolean;
   sourceType?: ResourceSourceType;
   parentResourceName?: string;
@@ -1700,9 +1701,8 @@ export interface PutDraftAppVersionTemplateResponse {
   appArn?: string;
   appVersion?: string;
 }
-export type RecommendationCompliance = Record<
-  DisruptionType,
-  RecommendationDisruptionCompliance
+export type RecommendationCompliance = Partial<
+  Record<DisruptionType, RecommendationDisruptionCompliance>
 >;
 export type RecommendationComplianceStatus =
   | "BREACHED_UNATTAINABLE"
@@ -1794,7 +1794,7 @@ export interface ResiliencyPolicy {
   dataLocationConstraint?: DataLocationConstraint;
   tier?: ResiliencyPolicyTier;
   estimatedCostTier?: EstimatedCostTier;
-  policy?: Record<DisruptionType, FailurePolicy>;
+  policy?: Partial<Record<DisruptionType, FailurePolicy>>;
   creationTime?: Date | string;
   tags?: Record<string, string>;
 }
@@ -1807,8 +1807,10 @@ export type ResiliencyPolicyTier =
   | "NOT_APPLICABLE";
 export interface ResiliencyScore {
   score: number;
-  disruptionScore: Record<DisruptionType, number>;
-  componentScore?: Record<ResiliencyScoreType, ScoringComponentResiliencyScore>;
+  disruptionScore: Partial<Record<DisruptionType, number>>;
+  componentScore?: Partial<
+    Record<ResiliencyScoreType, ScoringComponentResiliencyScore>
+  >;
 }
 export type ResiliencyScoreType = "COMPLIANCE" | "TEST" | "ALARM" | "SOP";
 export interface ResolveAppVersionResourcesRequest {
@@ -1905,9 +1907,8 @@ export interface ScoringComponentResiliencyScore {
   outstandingCount?: number;
   excludedCount?: number;
 }
-export type ScoringComponentResiliencyScores = Record<
-  ResiliencyScoreType,
-  ScoringComponentResiliencyScore
+export type ScoringComponentResiliencyScores = Partial<
+  Record<ResiliencyScoreType, ScoringComponentResiliencyScore>
 >;
 export type Seconds = number;
 
@@ -2046,7 +2047,7 @@ export interface UpdateAppVersionAppComponentRequest {
   id: string;
   name?: string;
   type?: string;
-  additionalInfo?: Record<string, Array<string>>;
+  additionalInfo?: Partial<Record<string, Array<string>>>;
 }
 export interface UpdateAppVersionAppComponentResponse {
   appArn: string;
@@ -2055,7 +2056,7 @@ export interface UpdateAppVersionAppComponentResponse {
 }
 export interface UpdateAppVersionRequest {
   appArn: string;
-  additionalInfo?: Record<string, Array<string>>;
+  additionalInfo?: Partial<Record<string, Array<string>>>;
 }
 export interface UpdateAppVersionResourceRequest {
   appArn: string;
@@ -2066,7 +2067,7 @@ export interface UpdateAppVersionResourceRequest {
   awsAccountId?: string;
   resourceType?: string;
   appComponents?: Array<string>;
-  additionalInfo?: Record<string, Array<string>>;
+  additionalInfo?: Partial<Record<string, Array<string>>>;
   excluded?: boolean;
 }
 export interface UpdateAppVersionResourceResponse {
@@ -2077,7 +2078,7 @@ export interface UpdateAppVersionResourceResponse {
 export interface UpdateAppVersionResponse {
   appArn: string;
   appVersion: string;
-  additionalInfo?: Record<string, Array<string>>;
+  additionalInfo?: Partial<Record<string, Array<string>>>;
 }
 export interface UpdateRecommendationStatusItem {
   resourceId?: string;
@@ -2100,7 +2101,7 @@ export interface UpdateResiliencyPolicyRequest {
   policyDescription?: string;
   dataLocationConstraint?: DataLocationConstraint;
   tier?: ResiliencyPolicyTier;
-  policy?: Record<DisruptionType, FailurePolicy>;
+  policy?: Partial<Record<DisruptionType, FailurePolicy>>;
 }
 export interface UpdateResiliencyPolicyResponse {
   policy: ResiliencyPolicy;

@@ -970,7 +970,9 @@ export type PerformanceInsightsMetricDisplayName = string;
 
 export type PerformanceInsightsMetricFilterKey = string;
 
-export type PerformanceInsightsMetricFilterMap = Record<string, string>;
+export type PerformanceInsightsMetricFilterMap = Partial<
+  Record<string, string>
+>;
 export type PerformanceInsightsMetricFilterValue = string;
 
 export type PerformanceInsightsMetricGroup = string;
@@ -982,7 +984,7 @@ export type PerformanceInsightsMetricName = string;
 export interface PerformanceInsightsMetricQuery {
   Metric?: string;
   GroupBy?: PerformanceInsightsMetricDimensionGroup;
-  Filter?: Record<string, string>;
+  Filter?: Partial<Record<string, string>>;
 }
 export interface PerformanceInsightsMetricsDetail {
   MetricDisplayName?: string;

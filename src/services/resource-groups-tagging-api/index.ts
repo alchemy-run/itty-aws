@@ -121,7 +121,7 @@ export type ExceptionMessage = string;
 
 export type ExcludeCompliantResources = boolean;
 
-export type FailedResourcesMap = Record<string, FailureInfo>;
+export type FailedResourcesMap = Partial<Record<string, FailureInfo>>;
 export interface FailureInfo {
   StatusCode?: number;
   ErrorCode?: ErrorCode;
@@ -256,7 +256,7 @@ export interface TagResourcesInput {
   Tags: Record<string, string>;
 }
 export interface TagResourcesOutput {
-  FailedResourcesMap?: Record<string, FailureInfo>;
+  FailedResourcesMap?: Partial<Record<string, FailureInfo>>;
 }
 export type TagsPerPage = number;
 
@@ -278,7 +278,7 @@ export interface UntagResourcesInput {
   TagKeys: Array<string>;
 }
 export interface UntagResourcesOutput {
-  FailedResourcesMap?: Record<string, FailureInfo>;
+  FailedResourcesMap?: Partial<Record<string, FailureInfo>>;
 }
 export declare namespace DescribeReportCreation {
   export type Input = DescribeReportCreationInput;

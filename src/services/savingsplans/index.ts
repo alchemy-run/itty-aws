@@ -99,7 +99,7 @@ export interface CreateSavingsPlanRequest {
   upfrontPaymentAmount?: string;
   purchaseTime?: Date | string;
   clientToken?: string;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export interface CreateSavingsPlanResponse {
   savingsPlanId?: string;
@@ -186,7 +186,7 @@ export interface ListTagsForResourceRequest {
   resourceArn: string;
 }
 export interface ListTagsForResourceResponse {
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
 }
 export type MaxResults = number;
 
@@ -234,7 +234,7 @@ export interface SavingsPlan {
   upfrontPaymentAmount?: string;
   recurringPaymentAmount?: string;
   termDurationInSeconds?: number;
-  tags?: Record<string, string>;
+  tags?: Partial<Record<string, string>>;
   returnableUntil?: string;
 }
 export type SavingsPlanArn = string;
@@ -414,10 +414,10 @@ export type SavingsplansString = string;
 export type TagKey = string;
 
 export type TagKeyList = Array<string>;
-export type TagMap = Record<string, string>;
+export type TagMap = Partial<Record<string, string>>;
 export interface TagResourceRequest {
   resourceArn: string;
-  tags: Record<string, string>;
+  tags: Partial<Record<string, string>>;
 }
 export interface TagResourceResponse {}
 export type TagValue = string;

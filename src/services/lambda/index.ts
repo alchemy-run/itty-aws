@@ -58,7 +58,7 @@ export type Action = string;
 
 export type AdditionalVersion = string;
 
-export type AdditionalVersionWeights = Record<string, number>;
+export type AdditionalVersionWeights = Partial<Record<string, number>>;
 export interface AddLayerVersionPermissionRequest {
   LayerName: string;
   VersionNumber: number;
@@ -100,7 +100,7 @@ export interface AliasConfiguration {
 }
 export type AliasList = Array<AliasConfiguration>;
 export interface AliasRoutingConfiguration {
-  AdditionalVersionWeights?: Record<string, number>;
+  AdditionalVersionWeights?: Partial<Record<string, number>>;
 }
 export type AllowCredentials = boolean;
 
@@ -195,7 +195,7 @@ export interface CreateCodeSigningConfigRequest {
   Description?: string;
   AllowedPublishers: AllowedPublishers;
   CodeSigningPolicies?: CodeSigningPolicies;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateCodeSigningConfigResponse {
   CodeSigningConfig: CodeSigningConfig;
@@ -214,7 +214,7 @@ export interface CreateEventSourceMappingRequest {
   MaximumRecordAgeInSeconds?: number;
   BisectBatchOnFunctionError?: boolean;
   MaximumRetryAttempts?: number;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   TumblingWindowInSeconds?: number;
   Topics?: Array<string>;
   Queues?: Array<string>;
@@ -245,7 +245,7 @@ export interface CreateFunctionRequest {
   Environment?: Environment;
   KMSKeyArn?: string;
   TracingConfig?: TracingConfig;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   Layers?: Array<string>;
   FileSystemConfigs?: Array<FileSystemConfig>;
   ImageConfig?: ImageConfig;
@@ -384,19 +384,19 @@ export declare class ENILimitReachedException extends EffectData.TaggedError(
   readonly Message?: string;
 }> {}
 export interface Environment {
-  Variables?: Record<string, string>;
+  Variables?: Partial<Record<string, string>>;
 }
 export interface EnvironmentError {
   ErrorCode?: string;
   Message?: string;
 }
 export interface EnvironmentResponse {
-  Variables?: Record<string, string>;
+  Variables?: Partial<Record<string, string>>;
   Error?: EnvironmentError;
 }
 export type EnvironmentVariableName = string;
 
-export type EnvironmentVariables = Record<string, string>;
+export type EnvironmentVariables = Partial<Record<string, string>>;
 export type EnvironmentVariableValue = string;
 
 export interface EphemeralStorage {
@@ -609,7 +609,7 @@ export interface GetFunctionRequest {
 export interface GetFunctionResponse {
   Configuration?: FunctionConfiguration;
   Code?: FunctionCodeLocation;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   TagsError?: TagsError;
   Concurrency?: Concurrency;
 }
@@ -1026,7 +1026,7 @@ export interface ListTagsRequest {
   Resource: string;
 }
 export interface ListTagsResponse {
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface ListVersionsByFunctionRequest {
   FunctionName: string;
@@ -1465,9 +1465,9 @@ export type TagKey = string;
 export type TagKeyList = Array<string>;
 export interface TagResourceRequest {
   Resource: string;
-  Tags: Record<string, string>;
+  Tags: Partial<Record<string, string>>;
 }
-export type Tags = Record<string, string>;
+export type Tags = Partial<Record<string, string>>;
 export interface TagsError {
   ErrorCode: string;
   Message: string;

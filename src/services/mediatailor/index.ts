@@ -61,7 +61,7 @@ export type __long = number;
 
 export type __manifestServiceExcludeEventTypesList =
   Array<ManifestServiceExcludeEventType>;
-export type __mapOf__string = Record<string, string>;
+export type __mapOf__string = Partial<Record<string, string>>;
 export type __string = string;
 
 export type __timestampUnix = Date | string;
@@ -196,7 +196,7 @@ export interface Channel {
   LastModifiedTime?: Date | string;
   Outputs: Array<ResponseOutputItem>;
   PlaybackMode: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   Tier: string;
   LogConfiguration: LogConfigurationForChannel;
   Audiences?: Array<string>;
@@ -206,13 +206,11 @@ export interface ClipRange {
   EndOffsetMillis?: number;
   StartOffsetMillis?: number;
 }
-export type ConfigurationAliasesRequest = Record<
-  string,
-  Record<string, string>
+export type ConfigurationAliasesRequest = Partial<
+  Record<string, Partial<Record<string, string>>>
 >;
-export type ConfigurationAliasesResponse = Record<
-  string,
-  Record<string, string>
+export type ConfigurationAliasesResponse = Partial<
+  Record<string, Partial<Record<string, string>>>
 >;
 export interface ConfigureLogsForChannelRequest {
   ChannelName: string;
@@ -241,7 +239,7 @@ export interface CreateChannelRequest {
   FillerSlate?: SlateSource;
   Outputs: Array<RequestOutputItem>;
   PlaybackMode: PlaybackMode;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   Tier?: Tier;
   TimeShiftConfiguration?: TimeShiftConfiguration;
   Audiences?: Array<string>;
@@ -255,7 +253,7 @@ export interface CreateChannelResponse {
   LastModifiedTime?: Date | string;
   Outputs?: Array<ResponseOutputItem>;
   PlaybackMode?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   Tier?: string;
   TimeShiftConfiguration?: TimeShiftConfiguration;
   Audiences?: Array<string>;
@@ -264,7 +262,7 @@ export interface CreateLiveSourceRequest {
   HttpPackageConfigurations: Array<HttpPackageConfiguration>;
   LiveSourceName: string;
   SourceLocationName: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateLiveSourceResponse {
   Arn?: string;
@@ -273,7 +271,7 @@ export interface CreateLiveSourceResponse {
   LastModifiedTime?: Date | string;
   LiveSourceName?: string;
   SourceLocationName?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreatePrefetchScheduleRequest {
   Consumption?: PrefetchConsumption;
@@ -324,7 +322,7 @@ export interface CreateSourceLocationRequest {
   HttpConfiguration: HttpConfiguration;
   SegmentDeliveryConfigurations?: Array<SegmentDeliveryConfiguration>;
   SourceLocationName: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateSourceLocationResponse {
   AccessConfiguration?: AccessConfiguration;
@@ -335,12 +333,12 @@ export interface CreateSourceLocationResponse {
   LastModifiedTime?: Date | string;
   SegmentDeliveryConfigurations?: Array<SegmentDeliveryConfiguration>;
   SourceLocationName?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface CreateVodSourceRequest {
   HttpPackageConfigurations: Array<HttpPackageConfiguration>;
   SourceLocationName: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   VodSourceName: string;
 }
 export interface CreateVodSourceResponse {
@@ -349,7 +347,7 @@ export interface CreateVodSourceResponse {
   HttpPackageConfigurations?: Array<HttpPackageConfiguration>;
   LastModifiedTime?: Date | string;
   SourceLocationName?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   VodSourceName?: string;
 }
 export interface DashConfiguration {
@@ -418,7 +416,7 @@ export interface DescribeChannelResponse {
   LastModifiedTime?: Date | string;
   Outputs?: Array<ResponseOutputItem>;
   PlaybackMode?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   Tier?: string;
   LogConfiguration: LogConfigurationForChannel;
   TimeShiftConfiguration?: TimeShiftConfiguration;
@@ -435,7 +433,7 @@ export interface DescribeLiveSourceResponse {
   LastModifiedTime?: Date | string;
   LiveSourceName?: string;
   SourceLocationName?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface DescribeProgramRequest {
   ChannelName: string;
@@ -467,7 +465,7 @@ export interface DescribeSourceLocationResponse {
   LastModifiedTime?: Date | string;
   SegmentDeliveryConfigurations?: Array<SegmentDeliveryConfiguration>;
   SourceLocationName?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface DescribeVodSourceRequest {
   SourceLocationName: string;
@@ -480,7 +478,7 @@ export interface DescribeVodSourceResponse {
   HttpPackageConfigurations?: Array<HttpPackageConfiguration>;
   LastModifiedTime?: Date | string;
   SourceLocationName?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   VodSourceName?: string;
 }
 export type FillPolicy = "FULL_AVAIL_ONLY" | "PARTIAL_AVAIL";
@@ -509,7 +507,9 @@ export interface GetPlaybackConfigurationResponse {
   AvailSuppression?: AvailSuppression;
   Bumper?: Bumper;
   CdnConfiguration?: CdnConfiguration;
-  ConfigurationAliases?: Record<string, Record<string, string>>;
+  ConfigurationAliases?: Partial<
+    Record<string, Partial<Record<string, string>>>
+  >;
   DashConfiguration?: DashConfiguration;
   HlsConfiguration?: HlsConfiguration;
   InsertionMode?: InsertionMode;
@@ -522,7 +522,7 @@ export interface GetPlaybackConfigurationResponse {
   PlaybackEndpointPrefix?: string;
   SessionInitializationEndpointPrefix?: string;
   SlateAdUrl?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   TranscodeProfileName?: string;
   VideoContentSourceUrl?: string;
   AdConditioningConfiguration?: AdConditioningConfiguration;
@@ -620,7 +620,7 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string;
 }
 export interface ListTagsForResourceResponse {
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface ListVodSourcesRequest {
   MaxResults?: number;
@@ -642,7 +642,7 @@ export interface LiveSource {
   LastModifiedTime?: Date | string;
   LiveSourceName: string;
   SourceLocationName: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface LogConfiguration {
   PercentEnabled: number;
@@ -706,7 +706,9 @@ export interface PlaybackConfiguration {
   AvailSuppression?: AvailSuppression;
   Bumper?: Bumper;
   CdnConfiguration?: CdnConfiguration;
-  ConfigurationAliases?: Record<string, Record<string, string>>;
+  ConfigurationAliases?: Partial<
+    Record<string, Partial<Record<string, string>>>
+  >;
   DashConfiguration?: DashConfiguration;
   HlsConfiguration?: HlsConfiguration;
   InsertionMode?: InsertionMode;
@@ -719,7 +721,7 @@ export interface PlaybackConfiguration {
   PlaybackEndpointPrefix?: string;
   SessionInitializationEndpointPrefix?: string;
   SlateAdUrl?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   TranscodeProfileName?: string;
   VideoContentSourceUrl?: string;
   AdConditioningConfiguration?: AdConditioningConfiguration;
@@ -731,7 +733,7 @@ export interface PrefetchConsumption {
   StartTime?: Date | string;
 }
 export interface PrefetchRetrieval {
-  DynamicVariables?: Record<string, string>;
+  DynamicVariables?: Partial<Record<string, string>>;
   EndTime: Date | string;
   StartTime?: Date | string;
   TrafficShapingType?: TrafficShapingType;
@@ -758,7 +760,9 @@ export interface PutPlaybackConfigurationRequest {
   AvailSuppression?: AvailSuppression;
   Bumper?: Bumper;
   CdnConfiguration?: CdnConfiguration;
-  ConfigurationAliases?: Record<string, Record<string, string>>;
+  ConfigurationAliases?: Partial<
+    Record<string, Partial<Record<string, string>>>
+  >;
   DashConfiguration?: DashConfigurationForPut;
   InsertionMode?: InsertionMode;
   LivePreRollConfiguration?: LivePreRollConfiguration;
@@ -766,7 +770,7 @@ export interface PutPlaybackConfigurationRequest {
   Name: string;
   PersonalizationThresholdSeconds?: number;
   SlateAdUrl?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   TranscodeProfileName?: string;
   VideoContentSourceUrl?: string;
   AdConditioningConfiguration?: AdConditioningConfiguration;
@@ -776,7 +780,9 @@ export interface PutPlaybackConfigurationResponse {
   AvailSuppression?: AvailSuppression;
   Bumper?: Bumper;
   CdnConfiguration?: CdnConfiguration;
-  ConfigurationAliases?: Record<string, Record<string, string>>;
+  ConfigurationAliases?: Partial<
+    Record<string, Partial<Record<string, string>>>
+  >;
   DashConfiguration?: DashConfiguration;
   HlsConfiguration?: HlsConfiguration;
   InsertionMode?: InsertionMode;
@@ -789,7 +795,7 @@ export interface PutPlaybackConfigurationResponse {
   PlaybackEndpointPrefix?: string;
   SessionInitializationEndpointPrefix?: string;
   SlateAdUrl?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   TranscodeProfileName?: string;
   VideoContentSourceUrl?: string;
   AdConditioningConfiguration?: AdConditioningConfiguration;
@@ -805,7 +811,7 @@ export interface RecurringPrefetchConfiguration {
   RecurringRetrieval: RecurringRetrieval;
 }
 export interface RecurringRetrieval {
-  DynamicVariables?: Record<string, string>;
+  DynamicVariables?: Partial<Record<string, string>>;
   DelayAfterAvailEndSeconds?: number;
   TrafficShapingType?: TrafficShapingType;
   TrafficShapingRetrievalWindow?: TrafficShapingRetrievalWindow;
@@ -883,7 +889,7 @@ export interface SourceLocation {
   LastModifiedTime?: Date | string;
   SegmentDeliveryConfigurations?: Array<SegmentDeliveryConfiguration>;
   SourceLocationName: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface SpliceInsertMessage {
   AvailNum?: number;
@@ -902,7 +908,7 @@ export interface StopChannelResponse {}
 export type StreamingMediaFileConditioning = "TRANSCODE" | "NONE";
 export interface TagResourceRequest {
   ResourceArn: string;
-  Tags: Record<string, string>;
+  Tags: Partial<Record<string, string>>;
 }
 export type Tier = "BASIC" | "STANDARD";
 export interface TimeShiftConfiguration {
@@ -943,7 +949,7 @@ export interface UpdateChannelResponse {
   LastModifiedTime?: Date | string;
   Outputs?: Array<ResponseOutputItem>;
   PlaybackMode?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   Tier?: string;
   TimeShiftConfiguration?: TimeShiftConfiguration;
   Audiences?: Array<string>;
@@ -960,7 +966,7 @@ export interface UpdateLiveSourceResponse {
   LastModifiedTime?: Date | string;
   LiveSourceName?: string;
   SourceLocationName?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface UpdateProgramRequest {
   AdBreaks?: Array<AdBreak>;
@@ -1007,7 +1013,7 @@ export interface UpdateSourceLocationResponse {
   LastModifiedTime?: Date | string;
   SegmentDeliveryConfigurations?: Array<SegmentDeliveryConfiguration>;
   SourceLocationName?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
 }
 export interface UpdateVodSourceRequest {
   HttpPackageConfigurations: Array<HttpPackageConfiguration>;
@@ -1020,7 +1026,7 @@ export interface UpdateVodSourceResponse {
   HttpPackageConfigurations?: Array<HttpPackageConfiguration>;
   LastModifiedTime?: Date | string;
   SourceLocationName?: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   VodSourceName?: string;
 }
 export interface VodSource {
@@ -1029,7 +1035,7 @@ export interface VodSource {
   HttpPackageConfigurations: Array<HttpPackageConfiguration>;
   LastModifiedTime?: Date | string;
   SourceLocationName: string;
-  Tags?: Record<string, string>;
+  Tags?: Partial<Record<string, string>>;
   VodSourceName: string;
 }
 export declare namespace ConfigureLogsForPlaybackConfiguration {

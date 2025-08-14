@@ -640,7 +640,7 @@ export interface CreateMediaInsightsPipelineConfigurationResponse {
 export interface CreateMediaInsightsPipelineRequest {
   MediaInsightsPipelineConfigurationArn: string;
   KinesisVideoStreamSourceRuntimeConfiguration?: KinesisVideoStreamSourceRuntimeConfiguration;
-  MediaInsightsRuntimeMetadata?: Record<string, string>;
+  MediaInsightsRuntimeMetadata?: Partial<Record<string, string>>;
   KinesisVideoStreamRecordingSourceRuntimeConfiguration?: KinesisVideoStreamRecordingSourceRuntimeConfiguration;
   S3RecordingSinkRuntimeConfiguration?: S3RecordingSinkRuntimeConfiguration;
   Tags?: Array<Tag>;
@@ -955,7 +955,7 @@ export interface MediaInsightsPipeline {
   MediaInsightsPipelineConfigurationArn?: string;
   Status?: MediaPipelineStatus;
   KinesisVideoStreamSourceRuntimeConfiguration?: KinesisVideoStreamSourceRuntimeConfiguration;
-  MediaInsightsRuntimeMetadata?: Record<string, string>;
+  MediaInsightsRuntimeMetadata?: Partial<Record<string, string>>;
   KinesisVideoStreamRecordingSourceRuntimeConfiguration?: KinesisVideoStreamRecordingSourceRuntimeConfiguration;
   S3RecordingSinkRuntimeConfiguration?: S3RecordingSinkRuntimeConfiguration;
   CreatedTimestamp?: Date | string;
@@ -1010,7 +1010,7 @@ export interface MediaInsightsPipelineElementStatus {
 }
 export type MediaInsightsPipelineElementStatuses =
   Array<MediaInsightsPipelineElementStatus>;
-export type MediaInsightsRuntimeMetadata = Record<string, string>;
+export type MediaInsightsRuntimeMetadata = Partial<Record<string, string>>;
 export interface MediaLiveConnectorPipeline {
   Sources?: Array<LiveConnectorSourceConfiguration>;
   Sinks?: Array<LiveConnectorSinkConfiguration>;
