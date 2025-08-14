@@ -3,16 +3,36 @@ import { Console, Effect } from "effect";
 import { AWS } from "../../src/index.ts";
 
 describe("SecretsManager Smoke Tests", () => {
-  const testSecretName = `itty-aws-test-secret-${Date.now()}`;
+  const testSecretName = "itty-aws-test-secret";
+  const binarySecretName = "itty-aws-test-secret-binary";
+  const rotationSecretName = "itty-aws-test-secret-rotation";
   const client = new AWS.SecretsManager({ region: "us-east-1" });
 
-  it.effect(
+  const deleteSecretIfExists = (secretName: string) =>
+    client
+      .deleteSecret({
+        SecretId: secretName,
+        ForceDeleteWithoutRecovery: true,
+      })
+      .pipe(
+        Effect.tap(() =>
+          Console.log(`Cleaned up existing secret: ${secretName}`),
+        ),
+        Effect.catchTag("ResourceNotFoundException", () => Effect.void),
+        Effect.catchAll(() => Effect.void),
+      );
+
+  it.live(
     "should perform complete SecretsManager lifecycle: create secret, get secret, update secret, and cleanup",
     () =>
       Effect.gen(function* () {
         yield* Console.log(
           `Starting SecretsManager smoke test with secret: ${testSecretName}`,
         );
+
+        // Step 0: Clean up any existing secret
+        yield* Console.log("Step 0: Cleaning up any existing secret...");
+        yield* deleteSecretIfExists(testSecretName);
 
         // Step 1: Create a new secret
         yield* Console.log("Step 1: Creating secret...");
@@ -193,7 +213,9 @@ describe("SecretsManager Smoke Tests", () => {
         // Step 10: Create a binary secret
         yield* Console.log("Step 10: Testing binary secret...");
 
-        const binarySecretName = `${testSecretName}-binary`;
+        // Clean up any existing binary secret
+        yield* deleteSecretIfExists(binarySecretName);
+
         const binaryData = Buffer.from("binary-test-data").toString("base64");
 
         const binaryCreateResult = yield* client.createSecret({
@@ -236,7 +258,7 @@ describe("SecretsManager Smoke Tests", () => {
 
         yield* Console.log("SecretsManager smoke test completed successfully!");
       }),
-    { timeout: 60000 }, // 60 seconds timeout for SecretsManager operations
+    { timeout: 120000 }, // 2 minutes timeout for SecretsManager operations
   );
 
   it.effect(
@@ -315,17 +337,21 @@ describe("SecretsManager Smoke Tests", () => {
     { timeout: 10000 },
   );
 
-  it.effect(
+  it.live(
     "should handle secret rotation configuration",
     () =>
       Effect.gen(function* () {
-        const rotationTestSecretName = `itty-aws-rotation-test-${Date.now()}`;
-
         yield* Console.log("Testing secret rotation configuration...");
+
+        // Step 0: Clean up any existing rotation test secret
+        yield* Console.log(
+          "Step 0: Cleaning up any existing rotation test secret...",
+        );
+        yield* deleteSecretIfExists(rotationSecretName);
 
         // Create a secret for rotation testing
         const createResult = yield* client.createSecret({
-          Name: rotationTestSecretName,
+          Name: rotationSecretName,
           SecretString: JSON.stringify({ password: "initial-password" }),
           Description: "Secret for rotation testing",
           ClientRequestToken: `${crypto.randomUUID()}`,
@@ -335,7 +361,7 @@ describe("SecretsManager Smoke Tests", () => {
 
         // Describe the secret to check rotation status
         const describeResult = yield* client.describeSecret({
-          SecretId: rotationTestSecretName,
+          SecretId: rotationSecretName,
         });
 
         // RotationEnabled might not be in the response if it's false by default
@@ -345,7 +371,7 @@ describe("SecretsManager Smoke Tests", () => {
 
         // Cleanup
         yield* client.deleteSecret({
-          SecretId: rotationTestSecretName,
+          SecretId: rotationSecretName,
           ForceDeleteWithoutRecovery: true,
         });
 

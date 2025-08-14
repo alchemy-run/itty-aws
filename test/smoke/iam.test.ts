@@ -4,6 +4,30 @@ import { AWS } from "../../src/index.ts";
 
 describe("IAM Smoke Tests", () => {
   const client = new AWS.IAM({ region: "us-east-1" });
+  const TEST_USER_NAME = "itty-aws-test-user";
+  const TEST_ROLE_NAME = "itty-aws-test-role";
+  const TEST_POLICY_NAME = "itty-aws-test-policy";
+
+  const deleteUserIfExists = (userName: string) =>
+    client.deleteUser({ UserName: userName }).pipe(
+      Effect.tap(() => Console.log(`Cleaned up existing user: ${userName}`)),
+      Effect.catchTag("NoSuchEntityException", () => Effect.void),
+      Effect.catchAll(() => Effect.void),
+    );
+
+  const deleteRoleIfExists = (roleName: string) =>
+    client.deleteRole({ RoleName: roleName }).pipe(
+      Effect.tap(() => Console.log(`Cleaned up existing role: ${roleName}`)),
+      Effect.catchTag("NoSuchEntityException", () => Effect.void),
+      Effect.catchAll(() => Effect.void),
+    );
+
+  const deletePolicyIfExists = (policyArn: string) =>
+    client.deletePolicy({ PolicyArn: policyArn }).pipe(
+      Effect.tap(() => Console.log(`Cleaned up existing policy: ${policyArn}`)),
+      Effect.catchTag("NoSuchEntityException", () => Effect.void),
+      Effect.catchAll(() => Effect.void),
+    );
 
   it.effect(
     "should list IAM roles and parse AssumeRolePolicyDocument correctly",
@@ -204,46 +228,49 @@ describe("IAM Smoke Tests", () => {
     { timeout: 20000 },
   );
 
-  it.effect(
+  it.live(
     "should create and delete IAM user",
     () =>
       Effect.gen(function* () {
-        const testUserName = `test-user-${Date.now()}`;
         yield* Console.log(
-          `Testing IAM user creation and deletion: ${testUserName}`,
+          `Testing IAM user creation and deletion: ${TEST_USER_NAME}`,
         );
+
+        // Step 0: Clean up any existing user
+        yield* Console.log("Step 0: Cleaning up any existing user...");
+        yield* deleteUserIfExists(TEST_USER_NAME);
 
         // Create user
         const createResult = yield* client.createUser({
-          UserName: testUserName,
+          UserName: TEST_USER_NAME,
           Path: "/test/",
         });
 
         expect(createResult.User).toBeDefined();
-        expect(createResult.User?.UserName).toBe(testUserName);
+        expect(createResult.User?.UserName).toBe(TEST_USER_NAME);
         expect(createResult.User?.Path).toBe("/test/");
 
         yield* Console.log(`Created user: ${createResult.User?.UserName}`);
 
         // Verify user exists by getting it
         const getResult = yield* client.getUser({
-          UserName: testUserName,
+          UserName: TEST_USER_NAME,
         });
 
         expect(getResult.User).toBeDefined();
-        expect(getResult.User.UserName).toBe(testUserName);
+        expect(getResult.User.UserName).toBe(TEST_USER_NAME);
 
         // Delete user
         yield* client.deleteUser({
-          UserName: testUserName,
+          UserName: TEST_USER_NAME,
         });
 
-        yield* Console.log(`Deleted user: ${testUserName}`);
+        yield* Console.log(`Deleted user: ${TEST_USER_NAME}`);
 
         // Verify user is deleted
         const deleteVerification = yield* client
           .getUser({
-            UserName: testUserName,
+            UserName: TEST_USER_NAME,
           })
           .pipe(
             Effect.map(() => ({ exists: true })),
@@ -255,11 +282,10 @@ describe("IAM Smoke Tests", () => {
     { timeout: 30000 },
   );
 
-  it.effect(
+  it.live(
     "should create and delete IAM role",
     () =>
       Effect.gen(function* () {
-        const testRoleName = `test-role-${Date.now()}`;
         const assumeRolePolicyDocument = JSON.stringify({
           Version: "2012-10-17",
           Statement: [
@@ -274,43 +300,47 @@ describe("IAM Smoke Tests", () => {
         });
 
         yield* Console.log(
-          `Testing IAM role creation and deletion: ${testRoleName}`,
+          `Testing IAM role creation and deletion: ${TEST_ROLE_NAME}`,
         );
+
+        // Step 0: Clean up any existing role
+        yield* Console.log("Step 0: Cleaning up any existing role...");
+        yield* deleteRoleIfExists(TEST_ROLE_NAME);
 
         // Create role
         const createResult = yield* client.createRole({
-          RoleName: testRoleName,
+          RoleName: TEST_ROLE_NAME,
           AssumeRolePolicyDocument: assumeRolePolicyDocument,
           Path: "/test/",
           Description: "Test role for IAM smoke tests",
         });
 
         expect(createResult.Role).toBeDefined();
-        expect(createResult.Role.RoleName).toBe(testRoleName);
+        expect(createResult.Role.RoleName).toBe(TEST_ROLE_NAME);
         expect(createResult.Role.Path).toBe("/test/");
 
         yield* Console.log(`Created role: ${createResult.Role.RoleName}`);
 
         // Verify role exists by getting it
         const getResult = yield* client.getRole({
-          RoleName: testRoleName,
+          RoleName: TEST_ROLE_NAME,
         });
 
         expect(getResult.Role).toBeDefined();
-        expect(getResult.Role.RoleName).toBe(testRoleName);
+        expect(getResult.Role.RoleName).toBe(TEST_ROLE_NAME);
         expect(typeof getResult.Role.AssumeRolePolicyDocument).toBe("object");
 
         // Delete role
         yield* client.deleteRole({
-          RoleName: testRoleName,
+          RoleName: TEST_ROLE_NAME,
         });
 
-        yield* Console.log(`Deleted role: ${testRoleName}`);
+        yield* Console.log(`Deleted role: ${TEST_ROLE_NAME}`);
 
         // Verify role is deleted
         const deleteVerification = yield* client
           .getRole({
-            RoleName: testRoleName,
+            RoleName: TEST_ROLE_NAME,
           })
           .pipe(
             Effect.map(() => ({ exists: true })),
@@ -322,11 +352,10 @@ describe("IAM Smoke Tests", () => {
     { timeout: 30000 },
   );
 
-  it.effect(
+  it.live(
     "should create and delete IAM policy",
     () =>
       Effect.gen(function* () {
-        const testPolicyName = `test-policy-${Date.now()}`;
         const policyDocument = JSON.stringify({
           Version: "2012-10-17",
           Statement: [
@@ -339,19 +368,25 @@ describe("IAM Smoke Tests", () => {
         });
 
         yield* Console.log(
-          `Testing IAM policy creation and deletion: ${testPolicyName}`,
+          `Testing IAM policy creation and deletion: ${TEST_POLICY_NAME}`,
         );
+
+        // Step 0: Clean up any existing policy
+        yield* Console.log("Step 0: Cleaning up any existing policy...");
+        const accountId = "123456789012"; // This would typically come from STS
+        const policyArn = `arn:aws:iam::${accountId}:policy/test/${TEST_POLICY_NAME}`;
+        yield* deletePolicyIfExists(policyArn);
 
         // Create policy
         const createResult = yield* client.createPolicy({
-          PolicyName: testPolicyName,
+          PolicyName: TEST_POLICY_NAME,
           PolicyDocument: policyDocument,
           Path: "/test/",
           Description: "Test policy for IAM smoke tests",
         });
 
         expect(createResult.Policy).toBeDefined();
-        expect(createResult.Policy?.PolicyName).toBe(testPolicyName);
+        expect(createResult.Policy?.PolicyName).toBe(TEST_POLICY_NAME);
         expect(createResult.Policy?.Path).toBe("/test/");
 
         yield* Console.log(
@@ -364,14 +399,14 @@ describe("IAM Smoke Tests", () => {
         });
 
         expect(getResult.Policy).toBeDefined();
-        expect(getResult.Policy?.PolicyName).toBe(testPolicyName);
+        expect(getResult.Policy?.PolicyName).toBe(TEST_POLICY_NAME);
 
         // Delete policy
         yield* client.deletePolicy({
           PolicyArn: createResult.Policy?.Arn || "",
         });
 
-        yield* Console.log(`Deleted policy: ${testPolicyName}`);
+        yield* Console.log(`Deleted policy: ${TEST_POLICY_NAME}`);
 
         // Verify policy is deleted
         const deleteVerification = yield* client

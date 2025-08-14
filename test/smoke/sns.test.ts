@@ -6,7 +6,26 @@ describe("SNS Smoke Tests", () => {
   const testTopicName = "itty-aws-test-topic";
   const client = new AWS.SNS({ region: "us-east-1" });
 
-  it.effect(
+  const deleteTopicIfExists = (topicName: string) =>
+    client.listTopics({}).pipe(
+      Effect.flatMap((result) => {
+        const topic = result.Topics?.find((t) =>
+          t.TopicArn?.includes(topicName),
+        );
+        if (topic?.TopicArn) {
+          return client.deleteTopic({ TopicArn: topic.TopicArn }).pipe(
+            Effect.tap(() =>
+              Console.log(`Cleaned up existing topic: ${topic.TopicArn}`),
+            ),
+            Effect.catchAll(() => Effect.void),
+          );
+        }
+        return Effect.void;
+      }),
+      Effect.catchAll(() => Effect.void),
+    );
+
+  it.live(
     "should perform complete SNS lifecycle: create topic, list topics, publish message, and cleanup",
     () =>
       Effect.gen(function* () {
@@ -14,6 +33,10 @@ describe("SNS Smoke Tests", () => {
           `Starting SNS smoke test with topic: ${testTopicName}`,
         );
         let topicArn: string | undefined;
+
+        // Step 0: Clean up any existing topic
+        yield* Console.log("Step 0: Cleaning up any existing topic...");
+        yield* deleteTopicIfExists(testTopicName);
 
         // Step 1: Create a new topic
         yield* Console.log("Step 1: Creating SNS topic...");
@@ -134,7 +157,7 @@ describe("SNS Smoke Tests", () => {
 
         yield* Console.log("SNS smoke test completed successfully!");
       }),
-    { timeout: 30000 }, // 30 seconds timeout
+    { timeout: 60000 }, // 60 seconds timeout for SNS operations
   );
 
   it.effect(

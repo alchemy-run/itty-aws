@@ -6,13 +6,31 @@ describe("SQS Smoke Tests", () => {
   const testQueueName = "itty-aws-test-queue";
   const client = new AWS.SQS({ region: "us-east-1" });
 
-  it.effect(
+  const deleteQueueIfExists = (queueName: string) =>
+    client.getQueueUrl({ QueueName: queueName }).pipe(
+      Effect.flatMap((result) =>
+        client.deleteQueue({ QueueUrl: result.QueueUrl! }).pipe(
+          Effect.tap(() =>
+            Console.log(`Cleaned up existing queue: ${result.QueueUrl}`),
+          ),
+          Effect.catchAll(() => Effect.void),
+        ),
+      ),
+      Effect.catchTag("QueueDoesNotExist", () => Effect.void),
+      Effect.catchAll(() => Effect.void),
+    );
+
+  it.live(
     "should perform complete SQS lifecycle: create queue, send messages, receive messages, and cleanup",
     () =>
       Effect.gen(function* () {
         yield* Console.log(
           `Starting SQS smoke test with queue: ${testQueueName}`,
         );
+
+        // Step 0: Clean up any existing queue
+        yield* Console.log("Step 0: Cleaning up any existing queue...");
+        yield* deleteQueueIfExists(testQueueName);
 
         // Step 1: Create a new queue
         yield* Console.log("Step 1: Creating SQS queue...");
@@ -324,10 +342,10 @@ describe("SQS Smoke Tests", () => {
 
         yield* Console.log("SQS smoke test completed successfully!");
       }),
-    { timeout: 90000 }, // 90 seconds timeout for SQS operations
+    { timeout: 180000 }, // 3 minutes timeout for SQS operations
   );
 
-  it.effect(
+  it.live(
     "should handle dead letter queue configuration",
     () =>
       Effect.gen(function* () {
@@ -335,6 +353,10 @@ describe("SQS Smoke Tests", () => {
         const dlqName = "itty-aws-dlq";
 
         yield* Console.log("Testing dead letter queue configuration...");
+
+        // Step 0: Clean up any existing queues
+        yield* deleteQueueIfExists(mainQueueName);
+        yield* deleteQueueIfExists(dlqName);
 
         // Create DLQ first
         const dlqResult = yield* client.createQueue({
@@ -389,13 +411,16 @@ describe("SQS Smoke Tests", () => {
     { timeout: 30000 },
   );
 
-  it.effect(
+  it.live(
     "should handle FIFO queue operations",
     () =>
       Effect.gen(function* () {
         const fifoQueueName = "itty-aws-fifo-test.fifo";
 
         yield* Console.log("Testing FIFO queue operations...");
+
+        // Step 0: Clean up any existing FIFO queue
+        yield* deleteQueueIfExists(fifoQueueName);
 
         // Create FIFO queue
         const createResult = yield* client.createQueue({
@@ -453,13 +478,16 @@ describe("SQS Smoke Tests", () => {
     { timeout: 30000 },
   );
 
-  it.effect(
+  it.live(
     "should handle queue tagging operations",
     () =>
       Effect.gen(function* () {
         const tagTestQueueName = "itty-aws-tag-test";
 
         yield* Console.log("Testing queue tagging operations...");
+
+        // Step 0: Clean up any existing tag test queue
+        yield* deleteQueueIfExists(tagTestQueueName);
 
         // Create queue
         const createResult = yield* client.createQueue({
