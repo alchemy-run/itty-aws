@@ -678,6 +678,8 @@ const generateServiceCode = (serviceName: string, manifest: Manifest) =>
       // FIXME: add in the other services
     }
 
+    // Operations can be defined at the top level of the Smithy spec,
+    // and under the service. Sometimes even within the same service.
     // Collect operations from both places and merge
     const fromService = (
       serviceShape.type === "service" && serviceShape.operations
