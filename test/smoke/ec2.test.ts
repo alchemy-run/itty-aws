@@ -85,8 +85,10 @@ describe("EC2 Smoke Tests", () => {
 
         // Step 2: Wait for VPC to become available
         yield* Console.log("Step 2: Waiting for VPC to become available...");
+
         const vpcDescription = yield* waitForVpcState(vpcId!, "available");
         expect(vpcDescription.Vpcs?.[0]?.State).toBe("available");
+
         yield* Console.log("VPC is now available");
 
         // Step 3: Delete VPC
@@ -154,7 +156,8 @@ describe("EC2 Smoke Tests", () => {
             Effect.catchAll((error: any) =>
               Effect.succeed({
                 success: false,
-                error: error._tag || error?.name || error?.Code || "UnknownError",
+                error:
+                  error._tag || error?.name || error?.Code || "UnknownError",
               }),
             ),
           );

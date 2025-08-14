@@ -272,9 +272,7 @@ describe("IAM Smoke Tests", () => {
           })
           .pipe(
             Effect.map(() => ({ exists: true })),
-            Effect.catchAll(() =>
-              Effect.succeed({ exists: false }),
-            ),
+            Effect.catchAll(() => Effect.succeed({ exists: false })),
           );
 
         expect(deleteVerification.exists).toBe(false);
@@ -342,9 +340,7 @@ describe("IAM Smoke Tests", () => {
           })
           .pipe(
             Effect.map(() => ({ exists: true })),
-            Effect.catchAll(() =>
-              Effect.succeed({ exists: false }),
-            ),
+            Effect.catchAll(() => Effect.succeed({ exists: false })),
           );
 
         expect(deleteVerification.exists).toBe(false);
@@ -387,7 +383,9 @@ describe("IAM Smoke Tests", () => {
         expect(createResult.Policy?.PolicyName).toBe(TEST_POLICY_NAME);
         expect(createResult.Policy?.Path).toBe("/test/");
 
-        yield* Console.log(`Created policy: ${createResult.Policy?.PolicyName}`);
+        yield* Console.log(
+          `Created policy: ${createResult.Policy?.PolicyName}`,
+        );
 
         // Verify policy exists by getting it
         const getResult = yield* client.getPolicy({
@@ -411,9 +409,7 @@ describe("IAM Smoke Tests", () => {
           })
           .pipe(
             Effect.map(() => ({ exists: true })),
-            Effect.catchAll(() =>
-              Effect.succeed({ exists: false }),
-            ),
+            Effect.catchAll(() => Effect.succeed({ exists: false })),
           );
 
         expect(deleteVerification.exists).toBe(false);

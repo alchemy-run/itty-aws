@@ -1,5 +1,5 @@
 import { describe, expect, it } from "@effect/vitest";
-import { AwsQueryHandler } from "../../dist/protocols/aws-query.js";
+import { AwsQueryHandler } from "../../src/protocols/aws-query.ts";
 
 const handler = new AwsQueryHandler();
 const snsMetadata = {
