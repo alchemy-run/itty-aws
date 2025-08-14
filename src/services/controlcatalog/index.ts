@@ -13,6 +13,57 @@ export declare class ControlCatalog extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
+  getControl(
+    input: GetControlRequest,
+  ): Effect.Effect<
+    GetControlResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listCommonControls(
+    input: ListCommonControlsRequest,
+  ): Effect.Effect<
+    ListCommonControlsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listControls(
+    input: ListControlsRequest,
+  ): Effect.Effect<
+    ListControlsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listDomains(
+    input: ListDomainsRequest,
+  ): Effect.Effect<
+    ListDomainsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listObjectives(
+    input: ListObjectivesRequest,
+  ): Effect.Effect<
+    ListObjectivesResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
 }
 
 export declare class Controlcatalog extends ControlCatalog {}
@@ -261,6 +312,62 @@ export declare class ValidationException extends EffectData.TaggedError(
 export declare namespace ListControlMappings {
   export type Input = ListControlMappingsRequest;
   export type Output = ListControlMappingsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetControl {
+  export type Input = GetControlRequest;
+  export type Output = GetControlResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListCommonControls {
+  export type Input = ListCommonControlsRequest;
+  export type Output = ListCommonControlsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListControls {
+  export type Input = ListControlsRequest;
+  export type Output = ListControlsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListDomains {
+  export type Input = ListDomainsRequest;
+  export type Output = ListDomainsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListObjectives {
+  export type Input = ListObjectivesRequest;
+  export type Output = ListObjectivesResponse;
   export type Error =
     | AccessDeniedException
     | InternalServerException

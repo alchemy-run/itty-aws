@@ -118,6 +118,114 @@ export declare class SocialMessaging extends AWSServiceClient {
     | ThrottledRequestException
     | CommonAwsError
   >;
+  associateWhatsAppBusinessAccount(
+    input: AssociateWhatsAppBusinessAccountInput,
+  ): Effect.Effect<
+    AssociateWhatsAppBusinessAccountOutput,
+    | DependencyException
+    | InvalidParametersException
+    | LimitExceededException
+    | ThrottledRequestException
+    | CommonAwsError
+  >;
+  deleteWhatsAppMessageMedia(
+    input: DeleteWhatsAppMessageMediaInput,
+  ): Effect.Effect<
+    DeleteWhatsAppMessageMediaOutput,
+    | AccessDeniedByMetaException
+    | DependencyException
+    | InternalServiceException
+    | InvalidParametersException
+    | ResourceNotFoundException
+    | ThrottledRequestException
+    | CommonAwsError
+  >;
+  disassociateWhatsAppBusinessAccount(
+    input: DisassociateWhatsAppBusinessAccountInput,
+  ): Effect.Effect<
+    DisassociateWhatsAppBusinessAccountOutput,
+    | DependencyException
+    | InvalidParametersException
+    | ResourceNotFoundException
+    | ThrottledRequestException
+    | CommonAwsError
+  >;
+  getLinkedWhatsAppBusinessAccount(
+    input: GetLinkedWhatsAppBusinessAccountInput,
+  ): Effect.Effect<
+    GetLinkedWhatsAppBusinessAccountOutput,
+    | DependencyException
+    | InternalServiceException
+    | InvalidParametersException
+    | ResourceNotFoundException
+    | ThrottledRequestException
+    | CommonAwsError
+  >;
+  getLinkedWhatsAppBusinessAccountPhoneNumber(
+    input: GetLinkedWhatsAppBusinessAccountPhoneNumberInput,
+  ): Effect.Effect<
+    GetLinkedWhatsAppBusinessAccountPhoneNumberOutput,
+    | DependencyException
+    | InternalServiceException
+    | InvalidParametersException
+    | ResourceNotFoundException
+    | ThrottledRequestException
+    | CommonAwsError
+  >;
+  getWhatsAppMessageMedia(
+    input: GetWhatsAppMessageMediaInput,
+  ): Effect.Effect<
+    GetWhatsAppMessageMediaOutput,
+    | AccessDeniedByMetaException
+    | DependencyException
+    | InternalServiceException
+    | InvalidParametersException
+    | ResourceNotFoundException
+    | ThrottledRequestException
+    | CommonAwsError
+  >;
+  listLinkedWhatsAppBusinessAccounts(
+    input: ListLinkedWhatsAppBusinessAccountsInput,
+  ): Effect.Effect<
+    ListLinkedWhatsAppBusinessAccountsOutput,
+    | InternalServiceException
+    | InvalidParametersException
+    | ResourceNotFoundException
+    | ThrottledRequestException
+    | CommonAwsError
+  >;
+  postWhatsAppMessageMedia(
+    input: PostWhatsAppMessageMediaInput,
+  ): Effect.Effect<
+    PostWhatsAppMessageMediaOutput,
+    | AccessDeniedByMetaException
+    | DependencyException
+    | InternalServiceException
+    | InvalidParametersException
+    | ResourceNotFoundException
+    | ThrottledRequestException
+    | CommonAwsError
+  >;
+  putWhatsAppBusinessAccountEventDestinations(
+    input: PutWhatsAppBusinessAccountEventDestinationsInput,
+  ): Effect.Effect<
+    PutWhatsAppBusinessAccountEventDestinationsOutput,
+    | InternalServiceException
+    | InvalidParametersException
+    | ThrottledRequestException
+    | CommonAwsError
+  >;
+  sendWhatsAppMessage(
+    input: SendWhatsAppMessageInput,
+  ): Effect.Effect<
+    SendWhatsAppMessageOutput,
+    | DependencyException
+    | InternalServiceException
+    | InvalidParametersException
+    | ResourceNotFoundException
+    | ThrottledRequestException
+    | CommonAwsError
+  >;
 }
 
 export declare class Socialmessaging extends SocialMessaging {}
@@ -704,6 +812,124 @@ export declare namespace UntagResource {
 export declare namespace UpdateWhatsAppMessageTemplate {
   export type Input = UpdateWhatsAppMessageTemplateInput;
   export type Output = UpdateWhatsAppMessageTemplateOutput;
+  export type Error =
+    | DependencyException
+    | InternalServiceException
+    | InvalidParametersException
+    | ResourceNotFoundException
+    | ThrottledRequestException
+    | CommonAwsError;
+}
+
+export declare namespace AssociateWhatsAppBusinessAccount {
+  export type Input = AssociateWhatsAppBusinessAccountInput;
+  export type Output = AssociateWhatsAppBusinessAccountOutput;
+  export type Error =
+    | DependencyException
+    | InvalidParametersException
+    | LimitExceededException
+    | ThrottledRequestException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteWhatsAppMessageMedia {
+  export type Input = DeleteWhatsAppMessageMediaInput;
+  export type Output = DeleteWhatsAppMessageMediaOutput;
+  export type Error =
+    | AccessDeniedByMetaException
+    | DependencyException
+    | InternalServiceException
+    | InvalidParametersException
+    | ResourceNotFoundException
+    | ThrottledRequestException
+    | CommonAwsError;
+}
+
+export declare namespace DisassociateWhatsAppBusinessAccount {
+  export type Input = DisassociateWhatsAppBusinessAccountInput;
+  export type Output = DisassociateWhatsAppBusinessAccountOutput;
+  export type Error =
+    | DependencyException
+    | InvalidParametersException
+    | ResourceNotFoundException
+    | ThrottledRequestException
+    | CommonAwsError;
+}
+
+export declare namespace GetLinkedWhatsAppBusinessAccount {
+  export type Input = GetLinkedWhatsAppBusinessAccountInput;
+  export type Output = GetLinkedWhatsAppBusinessAccountOutput;
+  export type Error =
+    | DependencyException
+    | InternalServiceException
+    | InvalidParametersException
+    | ResourceNotFoundException
+    | ThrottledRequestException
+    | CommonAwsError;
+}
+
+export declare namespace GetLinkedWhatsAppBusinessAccountPhoneNumber {
+  export type Input = GetLinkedWhatsAppBusinessAccountPhoneNumberInput;
+  export type Output = GetLinkedWhatsAppBusinessAccountPhoneNumberOutput;
+  export type Error =
+    | DependencyException
+    | InternalServiceException
+    | InvalidParametersException
+    | ResourceNotFoundException
+    | ThrottledRequestException
+    | CommonAwsError;
+}
+
+export declare namespace GetWhatsAppMessageMedia {
+  export type Input = GetWhatsAppMessageMediaInput;
+  export type Output = GetWhatsAppMessageMediaOutput;
+  export type Error =
+    | AccessDeniedByMetaException
+    | DependencyException
+    | InternalServiceException
+    | InvalidParametersException
+    | ResourceNotFoundException
+    | ThrottledRequestException
+    | CommonAwsError;
+}
+
+export declare namespace ListLinkedWhatsAppBusinessAccounts {
+  export type Input = ListLinkedWhatsAppBusinessAccountsInput;
+  export type Output = ListLinkedWhatsAppBusinessAccountsOutput;
+  export type Error =
+    | InternalServiceException
+    | InvalidParametersException
+    | ResourceNotFoundException
+    | ThrottledRequestException
+    | CommonAwsError;
+}
+
+export declare namespace PostWhatsAppMessageMedia {
+  export type Input = PostWhatsAppMessageMediaInput;
+  export type Output = PostWhatsAppMessageMediaOutput;
+  export type Error =
+    | AccessDeniedByMetaException
+    | DependencyException
+    | InternalServiceException
+    | InvalidParametersException
+    | ResourceNotFoundException
+    | ThrottledRequestException
+    | CommonAwsError;
+}
+
+export declare namespace PutWhatsAppBusinessAccountEventDestinations {
+  export type Input = PutWhatsAppBusinessAccountEventDestinationsInput;
+  export type Output = PutWhatsAppBusinessAccountEventDestinationsOutput;
+  export type Error =
+    | InternalServiceException
+    | InvalidParametersException
+    | ThrottledRequestException
+    | CommonAwsError;
+}
+
+export declare namespace SendWhatsAppMessage {
+  export type Input = SendWhatsAppMessageInput;
+  export type Output = SendWhatsAppMessageOutput;
   export type Error =
     | DependencyException
     | InternalServiceException

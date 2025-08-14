@@ -122,6 +122,679 @@ export declare class VPCLattice extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
+  createAccessLogSubscription(
+    input: CreateAccessLogSubscriptionRequest,
+  ): Effect.Effect<
+    CreateAccessLogSubscriptionResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createListener(
+    input: CreateListenerRequest,
+  ): Effect.Effect<
+    CreateListenerResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createResourceConfiguration(
+    input: CreateResourceConfigurationRequest,
+  ): Effect.Effect<
+    CreateResourceConfigurationResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createResourceGateway(
+    input: CreateResourceGatewayRequest,
+  ): Effect.Effect<
+    CreateResourceGatewayResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createRule(
+    input: CreateRuleRequest,
+  ): Effect.Effect<
+    CreateRuleResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createService(
+    input: CreateServiceRequest,
+  ): Effect.Effect<
+    CreateServiceResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createServiceNetwork(
+    input: CreateServiceNetworkRequest,
+  ): Effect.Effect<
+    CreateServiceNetworkResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createServiceNetworkResourceAssociation(
+    input: CreateServiceNetworkResourceAssociationRequest,
+  ): Effect.Effect<
+    CreateServiceNetworkResourceAssociationResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createServiceNetworkServiceAssociation(
+    input: CreateServiceNetworkServiceAssociationRequest,
+  ): Effect.Effect<
+    CreateServiceNetworkServiceAssociationResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createServiceNetworkVpcAssociation(
+    input: CreateServiceNetworkVpcAssociationRequest,
+  ): Effect.Effect<
+    CreateServiceNetworkVpcAssociationResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createTargetGroup(
+    input: CreateTargetGroupRequest,
+  ): Effect.Effect<
+    CreateTargetGroupResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteAccessLogSubscription(
+    input: DeleteAccessLogSubscriptionRequest,
+  ): Effect.Effect<
+    DeleteAccessLogSubscriptionResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteListener(
+    input: DeleteListenerRequest,
+  ): Effect.Effect<
+    DeleteListenerResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteResourceConfiguration(
+    input: DeleteResourceConfigurationRequest,
+  ): Effect.Effect<
+    DeleteResourceConfigurationResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteResourceEndpointAssociation(
+    input: DeleteResourceEndpointAssociationRequest,
+  ): Effect.Effect<
+    DeleteResourceEndpointAssociationResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteResourceGateway(
+    input: DeleteResourceGatewayRequest,
+  ): Effect.Effect<
+    DeleteResourceGatewayResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteRule(
+    input: DeleteRuleRequest,
+  ): Effect.Effect<
+    DeleteRuleResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteService(
+    input: DeleteServiceRequest,
+  ): Effect.Effect<
+    DeleteServiceResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteServiceNetwork(
+    input: DeleteServiceNetworkRequest,
+  ): Effect.Effect<
+    DeleteServiceNetworkResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteServiceNetworkResourceAssociation(
+    input: DeleteServiceNetworkResourceAssociationRequest,
+  ): Effect.Effect<
+    DeleteServiceNetworkResourceAssociationResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteServiceNetworkServiceAssociation(
+    input: DeleteServiceNetworkServiceAssociationRequest,
+  ): Effect.Effect<
+    DeleteServiceNetworkServiceAssociationResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteServiceNetworkVpcAssociation(
+    input: DeleteServiceNetworkVpcAssociationRequest,
+  ): Effect.Effect<
+    DeleteServiceNetworkVpcAssociationResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteTargetGroup(
+    input: DeleteTargetGroupRequest,
+  ): Effect.Effect<
+    DeleteTargetGroupResponse,
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deregisterTargets(
+    input: DeregisterTargetsRequest,
+  ): Effect.Effect<
+    DeregisterTargetsResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getAccessLogSubscription(
+    input: GetAccessLogSubscriptionRequest,
+  ): Effect.Effect<
+    GetAccessLogSubscriptionResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getListener(
+    input: GetListenerRequest,
+  ): Effect.Effect<
+    GetListenerResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getResourceConfiguration(
+    input: GetResourceConfigurationRequest,
+  ): Effect.Effect<
+    GetResourceConfigurationResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getResourceGateway(
+    input: GetResourceGatewayRequest,
+  ): Effect.Effect<
+    GetResourceGatewayResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getRule(
+    input: GetRuleRequest,
+  ): Effect.Effect<
+    GetRuleResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getService(
+    input: GetServiceRequest,
+  ): Effect.Effect<
+    GetServiceResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getServiceNetwork(
+    input: GetServiceNetworkRequest,
+  ): Effect.Effect<
+    GetServiceNetworkResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getServiceNetworkResourceAssociation(
+    input: GetServiceNetworkResourceAssociationRequest,
+  ): Effect.Effect<
+    GetServiceNetworkResourceAssociationResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getServiceNetworkServiceAssociation(
+    input: GetServiceNetworkServiceAssociationRequest,
+  ): Effect.Effect<
+    GetServiceNetworkServiceAssociationResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getServiceNetworkVpcAssociation(
+    input: GetServiceNetworkVpcAssociationRequest,
+  ): Effect.Effect<
+    GetServiceNetworkVpcAssociationResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getTargetGroup(
+    input: GetTargetGroupRequest,
+  ): Effect.Effect<
+    GetTargetGroupResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listAccessLogSubscriptions(
+    input: ListAccessLogSubscriptionsRequest,
+  ): Effect.Effect<
+    ListAccessLogSubscriptionsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listListeners(
+    input: ListListenersRequest,
+  ): Effect.Effect<
+    ListListenersResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listResourceConfigurations(
+    input: ListResourceConfigurationsRequest,
+  ): Effect.Effect<
+    ListResourceConfigurationsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listResourceEndpointAssociations(
+    input: ListResourceEndpointAssociationsRequest,
+  ): Effect.Effect<
+    ListResourceEndpointAssociationsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listResourceGateways(
+    input: ListResourceGatewaysRequest,
+  ): Effect.Effect<
+    ListResourceGatewaysResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listRules(
+    input: ListRulesRequest,
+  ): Effect.Effect<
+    ListRulesResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listServiceNetworkResourceAssociations(
+    input: ListServiceNetworkResourceAssociationsRequest,
+  ): Effect.Effect<
+    ListServiceNetworkResourceAssociationsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listServiceNetworkServiceAssociations(
+    input: ListServiceNetworkServiceAssociationsRequest,
+  ): Effect.Effect<
+    ListServiceNetworkServiceAssociationsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listServiceNetworkVpcAssociations(
+    input: ListServiceNetworkVpcAssociationsRequest,
+  ): Effect.Effect<
+    ListServiceNetworkVpcAssociationsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listServiceNetworks(
+    input: ListServiceNetworksRequest,
+  ): Effect.Effect<
+    ListServiceNetworksResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listServices(
+    input: ListServicesRequest,
+  ): Effect.Effect<
+    ListServicesResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listTargetGroups(
+    input: ListTargetGroupsRequest,
+  ): Effect.Effect<
+    ListTargetGroupsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listTargets(
+    input: ListTargetsRequest,
+  ): Effect.Effect<
+    ListTargetsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  registerTargets(
+    input: RegisterTargetsRequest,
+  ): Effect.Effect<
+    RegisterTargetsResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateAccessLogSubscription(
+    input: UpdateAccessLogSubscriptionRequest,
+  ): Effect.Effect<
+    UpdateAccessLogSubscriptionResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateListener(
+    input: UpdateListenerRequest,
+  ): Effect.Effect<
+    UpdateListenerResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateResourceConfiguration(
+    input: UpdateResourceConfigurationRequest,
+  ): Effect.Effect<
+    UpdateResourceConfigurationResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateResourceGateway(
+    input: UpdateResourceGatewayRequest,
+  ): Effect.Effect<
+    UpdateResourceGatewayResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateRule(
+    input: UpdateRuleRequest,
+  ): Effect.Effect<
+    UpdateRuleResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateService(
+    input: UpdateServiceRequest,
+  ): Effect.Effect<
+    UpdateServiceResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateServiceNetwork(
+    input: UpdateServiceNetworkRequest,
+  ): Effect.Effect<
+    UpdateServiceNetworkResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateServiceNetworkVpcAssociation(
+    input: UpdateServiceNetworkVpcAssociationRequest,
+  ): Effect.Effect<
+    UpdateServiceNetworkVpcAssociationResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateTargetGroup(
+    input: UpdateTargetGroupRequest,
+  ): Effect.Effect<
+    UpdateTargetGroupResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
 }
 
 export declare class VpcLattice extends VPCLattice {}
@@ -1652,6 +2325,737 @@ export declare namespace UntagResource {
     | AccessDeniedException
     | InternalServerException
     | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateAccessLogSubscription {
+  export type Input = CreateAccessLogSubscriptionRequest;
+  export type Output = CreateAccessLogSubscriptionResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateListener {
+  export type Input = CreateListenerRequest;
+  export type Output = CreateListenerResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateResourceConfiguration {
+  export type Input = CreateResourceConfigurationRequest;
+  export type Output = CreateResourceConfigurationResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateResourceGateway {
+  export type Input = CreateResourceGatewayRequest;
+  export type Output = CreateResourceGatewayResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateRule {
+  export type Input = CreateRuleRequest;
+  export type Output = CreateRuleResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateService {
+  export type Input = CreateServiceRequest;
+  export type Output = CreateServiceResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateServiceNetwork {
+  export type Input = CreateServiceNetworkRequest;
+  export type Output = CreateServiceNetworkResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateServiceNetworkResourceAssociation {
+  export type Input = CreateServiceNetworkResourceAssociationRequest;
+  export type Output = CreateServiceNetworkResourceAssociationResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateServiceNetworkServiceAssociation {
+  export type Input = CreateServiceNetworkServiceAssociationRequest;
+  export type Output = CreateServiceNetworkServiceAssociationResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateServiceNetworkVpcAssociation {
+  export type Input = CreateServiceNetworkVpcAssociationRequest;
+  export type Output = CreateServiceNetworkVpcAssociationResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateTargetGroup {
+  export type Input = CreateTargetGroupRequest;
+  export type Output = CreateTargetGroupResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteAccessLogSubscription {
+  export type Input = DeleteAccessLogSubscriptionRequest;
+  export type Output = DeleteAccessLogSubscriptionResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteListener {
+  export type Input = DeleteListenerRequest;
+  export type Output = DeleteListenerResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteResourceConfiguration {
+  export type Input = DeleteResourceConfigurationRequest;
+  export type Output = DeleteResourceConfigurationResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteResourceEndpointAssociation {
+  export type Input = DeleteResourceEndpointAssociationRequest;
+  export type Output = DeleteResourceEndpointAssociationResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteResourceGateway {
+  export type Input = DeleteResourceGatewayRequest;
+  export type Output = DeleteResourceGatewayResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteRule {
+  export type Input = DeleteRuleRequest;
+  export type Output = DeleteRuleResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteService {
+  export type Input = DeleteServiceRequest;
+  export type Output = DeleteServiceResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteServiceNetwork {
+  export type Input = DeleteServiceNetworkRequest;
+  export type Output = DeleteServiceNetworkResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteServiceNetworkResourceAssociation {
+  export type Input = DeleteServiceNetworkResourceAssociationRequest;
+  export type Output = DeleteServiceNetworkResourceAssociationResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteServiceNetworkServiceAssociation {
+  export type Input = DeleteServiceNetworkServiceAssociationRequest;
+  export type Output = DeleteServiceNetworkServiceAssociationResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteServiceNetworkVpcAssociation {
+  export type Input = DeleteServiceNetworkVpcAssociationRequest;
+  export type Output = DeleteServiceNetworkVpcAssociationResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteTargetGroup {
+  export type Input = DeleteTargetGroupRequest;
+  export type Output = DeleteTargetGroupResponse;
+  export type Error =
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeregisterTargets {
+  export type Input = DeregisterTargetsRequest;
+  export type Output = DeregisterTargetsResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetAccessLogSubscription {
+  export type Input = GetAccessLogSubscriptionRequest;
+  export type Output = GetAccessLogSubscriptionResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetListener {
+  export type Input = GetListenerRequest;
+  export type Output = GetListenerResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetResourceConfiguration {
+  export type Input = GetResourceConfigurationRequest;
+  export type Output = GetResourceConfigurationResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetResourceGateway {
+  export type Input = GetResourceGatewayRequest;
+  export type Output = GetResourceGatewayResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetRule {
+  export type Input = GetRuleRequest;
+  export type Output = GetRuleResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetService {
+  export type Input = GetServiceRequest;
+  export type Output = GetServiceResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetServiceNetwork {
+  export type Input = GetServiceNetworkRequest;
+  export type Output = GetServiceNetworkResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetServiceNetworkResourceAssociation {
+  export type Input = GetServiceNetworkResourceAssociationRequest;
+  export type Output = GetServiceNetworkResourceAssociationResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetServiceNetworkServiceAssociation {
+  export type Input = GetServiceNetworkServiceAssociationRequest;
+  export type Output = GetServiceNetworkServiceAssociationResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetServiceNetworkVpcAssociation {
+  export type Input = GetServiceNetworkVpcAssociationRequest;
+  export type Output = GetServiceNetworkVpcAssociationResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetTargetGroup {
+  export type Input = GetTargetGroupRequest;
+  export type Output = GetTargetGroupResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListAccessLogSubscriptions {
+  export type Input = ListAccessLogSubscriptionsRequest;
+  export type Output = ListAccessLogSubscriptionsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListListeners {
+  export type Input = ListListenersRequest;
+  export type Output = ListListenersResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListResourceConfigurations {
+  export type Input = ListResourceConfigurationsRequest;
+  export type Output = ListResourceConfigurationsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListResourceEndpointAssociations {
+  export type Input = ListResourceEndpointAssociationsRequest;
+  export type Output = ListResourceEndpointAssociationsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListResourceGateways {
+  export type Input = ListResourceGatewaysRequest;
+  export type Output = ListResourceGatewaysResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListRules {
+  export type Input = ListRulesRequest;
+  export type Output = ListRulesResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListServiceNetworkResourceAssociations {
+  export type Input = ListServiceNetworkResourceAssociationsRequest;
+  export type Output = ListServiceNetworkResourceAssociationsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListServiceNetworkServiceAssociations {
+  export type Input = ListServiceNetworkServiceAssociationsRequest;
+  export type Output = ListServiceNetworkServiceAssociationsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListServiceNetworkVpcAssociations {
+  export type Input = ListServiceNetworkVpcAssociationsRequest;
+  export type Output = ListServiceNetworkVpcAssociationsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListServiceNetworks {
+  export type Input = ListServiceNetworksRequest;
+  export type Output = ListServiceNetworksResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListServices {
+  export type Input = ListServicesRequest;
+  export type Output = ListServicesResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListTargetGroups {
+  export type Input = ListTargetGroupsRequest;
+  export type Output = ListTargetGroupsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListTargets {
+  export type Input = ListTargetsRequest;
+  export type Output = ListTargetsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace RegisterTargets {
+  export type Input = RegisterTargetsRequest;
+  export type Output = RegisterTargetsResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateAccessLogSubscription {
+  export type Input = UpdateAccessLogSubscriptionRequest;
+  export type Output = UpdateAccessLogSubscriptionResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateListener {
+  export type Input = UpdateListenerRequest;
+  export type Output = UpdateListenerResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateResourceConfiguration {
+  export type Input = UpdateResourceConfigurationRequest;
+  export type Output = UpdateResourceConfigurationResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateResourceGateway {
+  export type Input = UpdateResourceGatewayRequest;
+  export type Output = UpdateResourceGatewayResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateRule {
+  export type Input = UpdateRuleRequest;
+  export type Output = UpdateRuleResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateService {
+  export type Input = UpdateServiceRequest;
+  export type Output = UpdateServiceResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateServiceNetwork {
+  export type Input = UpdateServiceNetworkRequest;
+  export type Output = UpdateServiceNetworkResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateServiceNetworkVpcAssociation {
+  export type Input = UpdateServiceNetworkVpcAssociationRequest;
+  export type Output = UpdateServiceNetworkVpcAssociationResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateTargetGroup {
+  export type Input = UpdateTargetGroupRequest;
+  export type Output = UpdateTargetGroupResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
     | ValidationException
     | CommonAwsError;
 }

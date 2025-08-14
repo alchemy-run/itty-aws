@@ -21,6 +21,135 @@ export declare class BackupGateway extends AWSServiceClient {
     UntagResourceOutput,
     ResourceNotFoundException | CommonAwsError
   >;
+  associateGatewayToServer(
+    input: AssociateGatewayToServerInput,
+  ): Effect.Effect<
+    AssociateGatewayToServerOutput,
+    ConflictException | CommonAwsError
+  >;
+  createGateway(
+    input: CreateGatewayInput,
+  ): Effect.Effect<CreateGatewayOutput, CommonAwsError>;
+  deleteGateway(
+    input: DeleteGatewayInput,
+  ): Effect.Effect<
+    DeleteGatewayOutput,
+    ResourceNotFoundException | CommonAwsError
+  >;
+  deleteHypervisor(
+    input: DeleteHypervisorInput,
+  ): Effect.Effect<
+    DeleteHypervisorOutput,
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | CommonAwsError
+  >;
+  disassociateGatewayFromServer(
+    input: DisassociateGatewayFromServerInput,
+  ): Effect.Effect<
+    DisassociateGatewayFromServerOutput,
+    ConflictException | ResourceNotFoundException | CommonAwsError
+  >;
+  getBandwidthRateLimitSchedule(
+    input: GetBandwidthRateLimitScheduleInput,
+  ): Effect.Effect<
+    GetBandwidthRateLimitScheduleOutput,
+    ResourceNotFoundException | CommonAwsError
+  >;
+  getGateway(
+    input: GetGatewayInput,
+  ): Effect.Effect<
+    GetGatewayOutput,
+    ResourceNotFoundException | CommonAwsError
+  >;
+  getHypervisor(
+    input: GetHypervisorInput,
+  ): Effect.Effect<
+    GetHypervisorOutput,
+    ResourceNotFoundException | CommonAwsError
+  >;
+  getHypervisorPropertyMappings(
+    input: GetHypervisorPropertyMappingsInput,
+  ): Effect.Effect<
+    GetHypervisorPropertyMappingsOutput,
+    ResourceNotFoundException | CommonAwsError
+  >;
+  getVirtualMachine(
+    input: GetVirtualMachineInput,
+  ): Effect.Effect<
+    GetVirtualMachineOutput,
+    ResourceNotFoundException | CommonAwsError
+  >;
+  importHypervisorConfiguration(
+    input: ImportHypervisorConfigurationInput,
+  ): Effect.Effect<
+    ImportHypervisorConfigurationOutput,
+    AccessDeniedException | ConflictException | CommonAwsError
+  >;
+  listGateways(
+    input: ListGatewaysInput,
+  ): Effect.Effect<ListGatewaysOutput, CommonAwsError>;
+  listHypervisors(
+    input: ListHypervisorsInput,
+  ): Effect.Effect<ListHypervisorsOutput, CommonAwsError>;
+  listVirtualMachines(
+    input: ListVirtualMachinesInput,
+  ): Effect.Effect<ListVirtualMachinesOutput, CommonAwsError>;
+  putBandwidthRateLimitSchedule(
+    input: PutBandwidthRateLimitScheduleInput,
+  ): Effect.Effect<
+    PutBandwidthRateLimitScheduleOutput,
+    ResourceNotFoundException | CommonAwsError
+  >;
+  putHypervisorPropertyMappings(
+    input: PutHypervisorPropertyMappingsInput,
+  ): Effect.Effect<
+    PutHypervisorPropertyMappingsOutput,
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | CommonAwsError
+  >;
+  putMaintenanceStartTime(
+    input: PutMaintenanceStartTimeInput,
+  ): Effect.Effect<
+    PutMaintenanceStartTimeOutput,
+    ConflictException | ResourceNotFoundException | CommonAwsError
+  >;
+  startVirtualMachinesMetadataSync(
+    input: StartVirtualMachinesMetadataSyncInput,
+  ): Effect.Effect<
+    StartVirtualMachinesMetadataSyncOutput,
+    AccessDeniedException | ResourceNotFoundException | CommonAwsError
+  >;
+  testHypervisorConfiguration(
+    input: TestHypervisorConfigurationInput,
+  ): Effect.Effect<
+    TestHypervisorConfigurationOutput,
+    ConflictException | ResourceNotFoundException | CommonAwsError
+  >;
+  updateGatewayInformation(
+    input: UpdateGatewayInformationInput,
+  ): Effect.Effect<
+    UpdateGatewayInformationOutput,
+    ConflictException | ResourceNotFoundException | CommonAwsError
+  >;
+  updateGatewaySoftwareNow(
+    input: UpdateGatewaySoftwareNowInput,
+  ): Effect.Effect<
+    UpdateGatewaySoftwareNowOutput,
+    ResourceNotFoundException | CommonAwsError
+  >;
+  updateHypervisor(
+    input: UpdateHypervisorInput,
+  ): Effect.Effect<
+    UpdateHypervisorOutput,
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | CommonAwsError
+  >;
 }
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
@@ -411,4 +540,166 @@ export declare namespace UntagResource {
   export type Input = UntagResourceInput;
   export type Output = UntagResourceOutput;
   export type Error = ResourceNotFoundException | CommonAwsError;
+}
+
+export declare namespace AssociateGatewayToServer {
+  export type Input = AssociateGatewayToServerInput;
+  export type Output = AssociateGatewayToServerOutput;
+  export type Error = ConflictException | CommonAwsError;
+}
+
+export declare namespace CreateGateway {
+  export type Input = CreateGatewayInput;
+  export type Output = CreateGatewayOutput;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace DeleteGateway {
+  export type Input = DeleteGatewayInput;
+  export type Output = DeleteGatewayOutput;
+  export type Error = ResourceNotFoundException | CommonAwsError;
+}
+
+export declare namespace DeleteHypervisor {
+  export type Input = DeleteHypervisorInput;
+  export type Output = DeleteHypervisorOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | CommonAwsError;
+}
+
+export declare namespace DisassociateGatewayFromServer {
+  export type Input = DisassociateGatewayFromServerInput;
+  export type Output = DisassociateGatewayFromServerOutput;
+  export type Error =
+    | ConflictException
+    | ResourceNotFoundException
+    | CommonAwsError;
+}
+
+export declare namespace GetBandwidthRateLimitSchedule {
+  export type Input = GetBandwidthRateLimitScheduleInput;
+  export type Output = GetBandwidthRateLimitScheduleOutput;
+  export type Error = ResourceNotFoundException | CommonAwsError;
+}
+
+export declare namespace GetGateway {
+  export type Input = GetGatewayInput;
+  export type Output = GetGatewayOutput;
+  export type Error = ResourceNotFoundException | CommonAwsError;
+}
+
+export declare namespace GetHypervisor {
+  export type Input = GetHypervisorInput;
+  export type Output = GetHypervisorOutput;
+  export type Error = ResourceNotFoundException | CommonAwsError;
+}
+
+export declare namespace GetHypervisorPropertyMappings {
+  export type Input = GetHypervisorPropertyMappingsInput;
+  export type Output = GetHypervisorPropertyMappingsOutput;
+  export type Error = ResourceNotFoundException | CommonAwsError;
+}
+
+export declare namespace GetVirtualMachine {
+  export type Input = GetVirtualMachineInput;
+  export type Output = GetVirtualMachineOutput;
+  export type Error = ResourceNotFoundException | CommonAwsError;
+}
+
+export declare namespace ImportHypervisorConfiguration {
+  export type Input = ImportHypervisorConfigurationInput;
+  export type Output = ImportHypervisorConfigurationOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | CommonAwsError;
+}
+
+export declare namespace ListGateways {
+  export type Input = ListGatewaysInput;
+  export type Output = ListGatewaysOutput;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace ListHypervisors {
+  export type Input = ListHypervisorsInput;
+  export type Output = ListHypervisorsOutput;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace ListVirtualMachines {
+  export type Input = ListVirtualMachinesInput;
+  export type Output = ListVirtualMachinesOutput;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace PutBandwidthRateLimitSchedule {
+  export type Input = PutBandwidthRateLimitScheduleInput;
+  export type Output = PutBandwidthRateLimitScheduleOutput;
+  export type Error = ResourceNotFoundException | CommonAwsError;
+}
+
+export declare namespace PutHypervisorPropertyMappings {
+  export type Input = PutHypervisorPropertyMappingsInput;
+  export type Output = PutHypervisorPropertyMappingsOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | CommonAwsError;
+}
+
+export declare namespace PutMaintenanceStartTime {
+  export type Input = PutMaintenanceStartTimeInput;
+  export type Output = PutMaintenanceStartTimeOutput;
+  export type Error =
+    | ConflictException
+    | ResourceNotFoundException
+    | CommonAwsError;
+}
+
+export declare namespace StartVirtualMachinesMetadataSync {
+  export type Input = StartVirtualMachinesMetadataSyncInput;
+  export type Output = StartVirtualMachinesMetadataSyncOutput;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | CommonAwsError;
+}
+
+export declare namespace TestHypervisorConfiguration {
+  export type Input = TestHypervisorConfigurationInput;
+  export type Output = TestHypervisorConfigurationOutput;
+  export type Error =
+    | ConflictException
+    | ResourceNotFoundException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateGatewayInformation {
+  export type Input = UpdateGatewayInformationInput;
+  export type Output = UpdateGatewayInformationOutput;
+  export type Error =
+    | ConflictException
+    | ResourceNotFoundException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateGatewaySoftwareNow {
+  export type Input = UpdateGatewaySoftwareNowInput;
+  export type Output = UpdateGatewaySoftwareNowOutput;
+  export type Error = ResourceNotFoundException | CommonAwsError;
+}
+
+export declare namespace UpdateHypervisor {
+  export type Input = UpdateHypervisorInput;
+  export type Output = UpdateHypervisorOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | CommonAwsError;
 }

@@ -36,6 +36,144 @@ export declare class InternetMonitor extends AWSServiceClient {
     | TooManyRequestsException
     | CommonAwsError
   >;
+  createMonitor(
+    input: CreateMonitorInput,
+  ): Effect.Effect<
+    CreateMonitorOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | LimitExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteMonitor(
+    input: DeleteMonitorInput,
+  ): Effect.Effect<
+    DeleteMonitorOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getHealthEvent(
+    input: GetHealthEventInput,
+  ): Effect.Effect<
+    GetHealthEventOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getInternetEvent(
+    input: GetInternetEventInput,
+  ): Effect.Effect<
+    GetInternetEventOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getMonitor(
+    input: GetMonitorInput,
+  ): Effect.Effect<
+    GetMonitorOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getQueryResults(
+    input: GetQueryResultsInput,
+  ): Effect.Effect<
+    GetQueryResultsOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | LimitExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getQueryStatus(
+    input: GetQueryStatusInput,
+  ): Effect.Effect<
+    GetQueryStatusOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | LimitExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listHealthEvents(
+    input: ListHealthEventsInput,
+  ): Effect.Effect<
+    ListHealthEventsOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listInternetEvents(
+    input: ListInternetEventsInput,
+  ): Effect.Effect<
+    ListInternetEventsOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listMonitors(
+    input: ListMonitorsInput,
+  ): Effect.Effect<
+    ListMonitorsOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  startQuery(
+    input: StartQueryInput,
+  ): Effect.Effect<
+    StartQueryOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | LimitExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  stopQuery(
+    input: StopQueryInput,
+  ): Effect.Effect<
+    StopQueryOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | LimitExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateMonitor(
+    input: UpdateMonitorInput,
+  ): Effect.Effect<
+    UpdateMonitorOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | LimitExceededException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
 }
 
 export declare class Internetmonitor extends InternetMonitor {}
@@ -473,5 +611,156 @@ export declare namespace UntagResource {
     | InternalServerErrorException
     | NotFoundException
     | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace CreateMonitor {
+  export type Input = CreateMonitorInput;
+  export type Output = CreateMonitorOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | LimitExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteMonitor {
+  export type Input = DeleteMonitorInput;
+  export type Output = DeleteMonitorOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetHealthEvent {
+  export type Input = GetHealthEventInput;
+  export type Output = GetHealthEventOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetInternetEvent {
+  export type Input = GetInternetEventInput;
+  export type Output = GetInternetEventOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetMonitor {
+  export type Input = GetMonitorInput;
+  export type Output = GetMonitorOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetQueryResults {
+  export type Input = GetQueryResultsInput;
+  export type Output = GetQueryResultsOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | LimitExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetQueryStatus {
+  export type Input = GetQueryStatusInput;
+  export type Output = GetQueryStatusOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | LimitExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListHealthEvents {
+  export type Input = ListHealthEventsInput;
+  export type Output = ListHealthEventsOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListInternetEvents {
+  export type Input = ListInternetEventsInput;
+  export type Output = ListInternetEventsOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListMonitors {
+  export type Input = ListMonitorsInput;
+  export type Output = ListMonitorsOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace StartQuery {
+  export type Input = StartQueryInput;
+  export type Output = StartQueryOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | LimitExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace StopQuery {
+  export type Input = StopQueryInput;
+  export type Output = StopQueryOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | LimitExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateMonitor {
+  export type Input = UpdateMonitorInput;
+  export type Output = UpdateMonitorOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | LimitExceededException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
     | CommonAwsError;
 }

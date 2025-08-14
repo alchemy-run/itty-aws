@@ -13,6 +13,844 @@ export declare class BedrockAgent extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
+  associateAgentCollaborator(
+    input: AssociateAgentCollaboratorRequest,
+  ): Effect.Effect<
+    AssociateAgentCollaboratorResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  associateAgentKnowledgeBase(
+    input: AssociateAgentKnowledgeBaseRequest,
+  ): Effect.Effect<
+    AssociateAgentKnowledgeBaseResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createAgent(
+    input: CreateAgentRequest,
+  ): Effect.Effect<
+    CreateAgentResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createAgentActionGroup(
+    input: CreateAgentActionGroupRequest,
+  ): Effect.Effect<
+    CreateAgentActionGroupResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createAgentAlias(
+    input: CreateAgentAliasRequest,
+  ): Effect.Effect<
+    CreateAgentAliasResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createDataSource(
+    input: CreateDataSourceRequest,
+  ): Effect.Effect<
+    CreateDataSourceResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createFlow(
+    input: CreateFlowRequest,
+  ): Effect.Effect<
+    CreateFlowResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createFlowAlias(
+    input: CreateFlowAliasRequest,
+  ): Effect.Effect<
+    CreateFlowAliasResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createFlowVersion(
+    input: CreateFlowVersionRequest,
+  ): Effect.Effect<
+    CreateFlowVersionResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createKnowledgeBase(
+    input: CreateKnowledgeBaseRequest,
+  ): Effect.Effect<
+    CreateKnowledgeBaseResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createPrompt(
+    input: CreatePromptRequest,
+  ): Effect.Effect<
+    CreatePromptResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createPromptVersion(
+    input: CreatePromptVersionRequest,
+  ): Effect.Effect<
+    CreatePromptVersionResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteAgent(
+    input: DeleteAgentRequest,
+  ): Effect.Effect<
+    DeleteAgentResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteAgentActionGroup(
+    input: DeleteAgentActionGroupRequest,
+  ): Effect.Effect<
+    DeleteAgentActionGroupResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteAgentAlias(
+    input: DeleteAgentAliasRequest,
+  ): Effect.Effect<
+    DeleteAgentAliasResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteAgentVersion(
+    input: DeleteAgentVersionRequest,
+  ): Effect.Effect<
+    DeleteAgentVersionResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteDataSource(
+    input: DeleteDataSourceRequest,
+  ): Effect.Effect<
+    DeleteDataSourceResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteFlow(
+    input: DeleteFlowRequest,
+  ): Effect.Effect<
+    DeleteFlowResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteFlowAlias(
+    input: DeleteFlowAliasRequest,
+  ): Effect.Effect<
+    DeleteFlowAliasResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteFlowVersion(
+    input: DeleteFlowVersionRequest,
+  ): Effect.Effect<
+    DeleteFlowVersionResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteKnowledgeBase(
+    input: DeleteKnowledgeBaseRequest,
+  ): Effect.Effect<
+    DeleteKnowledgeBaseResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteKnowledgeBaseDocuments(
+    input: DeleteKnowledgeBaseDocumentsRequest,
+  ): Effect.Effect<
+    DeleteKnowledgeBaseDocumentsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deletePrompt(
+    input: DeletePromptRequest,
+  ): Effect.Effect<
+    DeletePromptResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  disassociateAgentCollaborator(
+    input: DisassociateAgentCollaboratorRequest,
+  ): Effect.Effect<
+    DisassociateAgentCollaboratorResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  disassociateAgentKnowledgeBase(
+    input: DisassociateAgentKnowledgeBaseRequest,
+  ): Effect.Effect<
+    DisassociateAgentKnowledgeBaseResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getAgent(
+    input: GetAgentRequest,
+  ): Effect.Effect<
+    GetAgentResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getAgentActionGroup(
+    input: GetAgentActionGroupRequest,
+  ): Effect.Effect<
+    GetAgentActionGroupResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getAgentAlias(
+    input: GetAgentAliasRequest,
+  ): Effect.Effect<
+    GetAgentAliasResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getAgentCollaborator(
+    input: GetAgentCollaboratorRequest,
+  ): Effect.Effect<
+    GetAgentCollaboratorResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getAgentKnowledgeBase(
+    input: GetAgentKnowledgeBaseRequest,
+  ): Effect.Effect<
+    GetAgentKnowledgeBaseResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getAgentVersion(
+    input: GetAgentVersionRequest,
+  ): Effect.Effect<
+    GetAgentVersionResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getDataSource(
+    input: GetDataSourceRequest,
+  ): Effect.Effect<
+    GetDataSourceResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getFlow(
+    input: GetFlowRequest,
+  ): Effect.Effect<
+    GetFlowResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getFlowAlias(
+    input: GetFlowAliasRequest,
+  ): Effect.Effect<
+    GetFlowAliasResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getFlowVersion(
+    input: GetFlowVersionRequest,
+  ): Effect.Effect<
+    GetFlowVersionResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getIngestionJob(
+    input: GetIngestionJobRequest,
+  ): Effect.Effect<
+    GetIngestionJobResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getKnowledgeBase(
+    input: GetKnowledgeBaseRequest,
+  ): Effect.Effect<
+    GetKnowledgeBaseResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getKnowledgeBaseDocuments(
+    input: GetKnowledgeBaseDocumentsRequest,
+  ): Effect.Effect<
+    GetKnowledgeBaseDocumentsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getPrompt(
+    input: GetPromptRequest,
+  ): Effect.Effect<
+    GetPromptResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  ingestKnowledgeBaseDocuments(
+    input: IngestKnowledgeBaseDocumentsRequest,
+  ): Effect.Effect<
+    IngestKnowledgeBaseDocumentsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listAgentActionGroups(
+    input: ListAgentActionGroupsRequest,
+  ): Effect.Effect<
+    ListAgentActionGroupsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listAgentAliases(
+    input: ListAgentAliasesRequest,
+  ): Effect.Effect<
+    ListAgentAliasesResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listAgentCollaborators(
+    input: ListAgentCollaboratorsRequest,
+  ): Effect.Effect<
+    ListAgentCollaboratorsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listAgentKnowledgeBases(
+    input: ListAgentKnowledgeBasesRequest,
+  ): Effect.Effect<
+    ListAgentKnowledgeBasesResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listAgentVersions(
+    input: ListAgentVersionsRequest,
+  ): Effect.Effect<
+    ListAgentVersionsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listAgents(
+    input: ListAgentsRequest,
+  ): Effect.Effect<
+    ListAgentsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listDataSources(
+    input: ListDataSourcesRequest,
+  ): Effect.Effect<
+    ListDataSourcesResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listFlowAliases(
+    input: ListFlowAliasesRequest,
+  ): Effect.Effect<
+    ListFlowAliasesResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listFlowVersions(
+    input: ListFlowVersionsRequest,
+  ): Effect.Effect<
+    ListFlowVersionsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listFlows(
+    input: ListFlowsRequest,
+  ): Effect.Effect<
+    ListFlowsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listIngestionJobs(
+    input: ListIngestionJobsRequest,
+  ): Effect.Effect<
+    ListIngestionJobsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listKnowledgeBaseDocuments(
+    input: ListKnowledgeBaseDocumentsRequest,
+  ): Effect.Effect<
+    ListKnowledgeBaseDocumentsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listKnowledgeBases(
+    input: ListKnowledgeBasesRequest,
+  ): Effect.Effect<
+    ListKnowledgeBasesResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listPrompts(
+    input: ListPromptsRequest,
+  ): Effect.Effect<
+    ListPromptsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listTagsForResource(
+    input: ListTagsForResourceRequest,
+  ): Effect.Effect<
+    ListTagsForResourceResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  prepareAgent(
+    input: PrepareAgentRequest,
+  ): Effect.Effect<
+    PrepareAgentResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  prepareFlow(
+    input: PrepareFlowRequest,
+  ): Effect.Effect<
+    PrepareFlowResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  startIngestionJob(
+    input: StartIngestionJobRequest,
+  ): Effect.Effect<
+    StartIngestionJobResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  stopIngestionJob(
+    input: StopIngestionJobRequest,
+  ): Effect.Effect<
+    StopIngestionJobResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  tagResource(
+    input: TagResourceRequest,
+  ): Effect.Effect<
+    TagResourceResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  untagResource(
+    input: UntagResourceRequest,
+  ): Effect.Effect<
+    UntagResourceResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateAgent(
+    input: UpdateAgentRequest,
+  ): Effect.Effect<
+    UpdateAgentResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateAgentActionGroup(
+    input: UpdateAgentActionGroupRequest,
+  ): Effect.Effect<
+    UpdateAgentActionGroupResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateAgentAlias(
+    input: UpdateAgentAliasRequest,
+  ): Effect.Effect<
+    UpdateAgentAliasResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateAgentCollaborator(
+    input: UpdateAgentCollaboratorRequest,
+  ): Effect.Effect<
+    UpdateAgentCollaboratorResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateAgentKnowledgeBase(
+    input: UpdateAgentKnowledgeBaseRequest,
+  ): Effect.Effect<
+    UpdateAgentKnowledgeBaseResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateDataSource(
+    input: UpdateDataSourceRequest,
+  ): Effect.Effect<
+    UpdateDataSourceResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateFlow(
+    input: UpdateFlowRequest,
+  ): Effect.Effect<
+    UpdateFlowResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateFlowAlias(
+    input: UpdateFlowAliasRequest,
+  ): Effect.Effect<
+    UpdateFlowAliasResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateKnowledgeBase(
+    input: UpdateKnowledgeBaseRequest,
+  ): Effect.Effect<
+    UpdateKnowledgeBaseResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updatePrompt(
+    input: UpdatePromptRequest,
+  ): Effect.Effect<
+    UpdatePromptResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
 }
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
@@ -2780,6 +3618,915 @@ export declare namespace ValidateFlowDefinition {
   export type Error =
     | AccessDeniedException
     | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace AssociateAgentCollaborator {
+  export type Input = AssociateAgentCollaboratorRequest;
+  export type Output = AssociateAgentCollaboratorResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace AssociateAgentKnowledgeBase {
+  export type Input = AssociateAgentKnowledgeBaseRequest;
+  export type Output = AssociateAgentKnowledgeBaseResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateAgent {
+  export type Input = CreateAgentRequest;
+  export type Output = CreateAgentResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateAgentActionGroup {
+  export type Input = CreateAgentActionGroupRequest;
+  export type Output = CreateAgentActionGroupResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateAgentAlias {
+  export type Input = CreateAgentAliasRequest;
+  export type Output = CreateAgentAliasResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateDataSource {
+  export type Input = CreateDataSourceRequest;
+  export type Output = CreateDataSourceResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateFlow {
+  export type Input = CreateFlowRequest;
+  export type Output = CreateFlowResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateFlowAlias {
+  export type Input = CreateFlowAliasRequest;
+  export type Output = CreateFlowAliasResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateFlowVersion {
+  export type Input = CreateFlowVersionRequest;
+  export type Output = CreateFlowVersionResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateKnowledgeBase {
+  export type Input = CreateKnowledgeBaseRequest;
+  export type Output = CreateKnowledgeBaseResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreatePrompt {
+  export type Input = CreatePromptRequest;
+  export type Output = CreatePromptResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreatePromptVersion {
+  export type Input = CreatePromptVersionRequest;
+  export type Output = CreatePromptVersionResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteAgent {
+  export type Input = DeleteAgentRequest;
+  export type Output = DeleteAgentResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteAgentActionGroup {
+  export type Input = DeleteAgentActionGroupRequest;
+  export type Output = DeleteAgentActionGroupResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteAgentAlias {
+  export type Input = DeleteAgentAliasRequest;
+  export type Output = DeleteAgentAliasResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteAgentVersion {
+  export type Input = DeleteAgentVersionRequest;
+  export type Output = DeleteAgentVersionResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteDataSource {
+  export type Input = DeleteDataSourceRequest;
+  export type Output = DeleteDataSourceResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteFlow {
+  export type Input = DeleteFlowRequest;
+  export type Output = DeleteFlowResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteFlowAlias {
+  export type Input = DeleteFlowAliasRequest;
+  export type Output = DeleteFlowAliasResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteFlowVersion {
+  export type Input = DeleteFlowVersionRequest;
+  export type Output = DeleteFlowVersionResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteKnowledgeBase {
+  export type Input = DeleteKnowledgeBaseRequest;
+  export type Output = DeleteKnowledgeBaseResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteKnowledgeBaseDocuments {
+  export type Input = DeleteKnowledgeBaseDocumentsRequest;
+  export type Output = DeleteKnowledgeBaseDocumentsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeletePrompt {
+  export type Input = DeletePromptRequest;
+  export type Output = DeletePromptResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DisassociateAgentCollaborator {
+  export type Input = DisassociateAgentCollaboratorRequest;
+  export type Output = DisassociateAgentCollaboratorResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DisassociateAgentKnowledgeBase {
+  export type Input = DisassociateAgentKnowledgeBaseRequest;
+  export type Output = DisassociateAgentKnowledgeBaseResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetAgent {
+  export type Input = GetAgentRequest;
+  export type Output = GetAgentResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetAgentActionGroup {
+  export type Input = GetAgentActionGroupRequest;
+  export type Output = GetAgentActionGroupResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetAgentAlias {
+  export type Input = GetAgentAliasRequest;
+  export type Output = GetAgentAliasResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetAgentCollaborator {
+  export type Input = GetAgentCollaboratorRequest;
+  export type Output = GetAgentCollaboratorResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetAgentKnowledgeBase {
+  export type Input = GetAgentKnowledgeBaseRequest;
+  export type Output = GetAgentKnowledgeBaseResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetAgentVersion {
+  export type Input = GetAgentVersionRequest;
+  export type Output = GetAgentVersionResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetDataSource {
+  export type Input = GetDataSourceRequest;
+  export type Output = GetDataSourceResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetFlow {
+  export type Input = GetFlowRequest;
+  export type Output = GetFlowResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetFlowAlias {
+  export type Input = GetFlowAliasRequest;
+  export type Output = GetFlowAliasResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetFlowVersion {
+  export type Input = GetFlowVersionRequest;
+  export type Output = GetFlowVersionResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetIngestionJob {
+  export type Input = GetIngestionJobRequest;
+  export type Output = GetIngestionJobResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetKnowledgeBase {
+  export type Input = GetKnowledgeBaseRequest;
+  export type Output = GetKnowledgeBaseResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetKnowledgeBaseDocuments {
+  export type Input = GetKnowledgeBaseDocumentsRequest;
+  export type Output = GetKnowledgeBaseDocumentsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetPrompt {
+  export type Input = GetPromptRequest;
+  export type Output = GetPromptResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace IngestKnowledgeBaseDocuments {
+  export type Input = IngestKnowledgeBaseDocumentsRequest;
+  export type Output = IngestKnowledgeBaseDocumentsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListAgentActionGroups {
+  export type Input = ListAgentActionGroupsRequest;
+  export type Output = ListAgentActionGroupsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListAgentAliases {
+  export type Input = ListAgentAliasesRequest;
+  export type Output = ListAgentAliasesResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListAgentCollaborators {
+  export type Input = ListAgentCollaboratorsRequest;
+  export type Output = ListAgentCollaboratorsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListAgentKnowledgeBases {
+  export type Input = ListAgentKnowledgeBasesRequest;
+  export type Output = ListAgentKnowledgeBasesResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListAgentVersions {
+  export type Input = ListAgentVersionsRequest;
+  export type Output = ListAgentVersionsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListAgents {
+  export type Input = ListAgentsRequest;
+  export type Output = ListAgentsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListDataSources {
+  export type Input = ListDataSourcesRequest;
+  export type Output = ListDataSourcesResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListFlowAliases {
+  export type Input = ListFlowAliasesRequest;
+  export type Output = ListFlowAliasesResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListFlowVersions {
+  export type Input = ListFlowVersionsRequest;
+  export type Output = ListFlowVersionsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListFlows {
+  export type Input = ListFlowsRequest;
+  export type Output = ListFlowsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListIngestionJobs {
+  export type Input = ListIngestionJobsRequest;
+  export type Output = ListIngestionJobsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListKnowledgeBaseDocuments {
+  export type Input = ListKnowledgeBaseDocumentsRequest;
+  export type Output = ListKnowledgeBaseDocumentsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListKnowledgeBases {
+  export type Input = ListKnowledgeBasesRequest;
+  export type Output = ListKnowledgeBasesResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListPrompts {
+  export type Input = ListPromptsRequest;
+  export type Output = ListPromptsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListTagsForResource {
+  export type Input = ListTagsForResourceRequest;
+  export type Output = ListTagsForResourceResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace PrepareAgent {
+  export type Input = PrepareAgentRequest;
+  export type Output = PrepareAgentResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace PrepareFlow {
+  export type Input = PrepareFlowRequest;
+  export type Output = PrepareFlowResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace StartIngestionJob {
+  export type Input = StartIngestionJobRequest;
+  export type Output = StartIngestionJobResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace StopIngestionJob {
+  export type Input = StopIngestionJobRequest;
+  export type Output = StopIngestionJobResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace TagResource {
+  export type Input = TagResourceRequest;
+  export type Output = TagResourceResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UntagResource {
+  export type Input = UntagResourceRequest;
+  export type Output = UntagResourceResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateAgent {
+  export type Input = UpdateAgentRequest;
+  export type Output = UpdateAgentResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateAgentActionGroup {
+  export type Input = UpdateAgentActionGroupRequest;
+  export type Output = UpdateAgentActionGroupResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateAgentAlias {
+  export type Input = UpdateAgentAliasRequest;
+  export type Output = UpdateAgentAliasResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateAgentCollaborator {
+  export type Input = UpdateAgentCollaboratorRequest;
+  export type Output = UpdateAgentCollaboratorResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateAgentKnowledgeBase {
+  export type Input = UpdateAgentKnowledgeBaseRequest;
+  export type Output = UpdateAgentKnowledgeBaseResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateDataSource {
+  export type Input = UpdateDataSourceRequest;
+  export type Output = UpdateDataSourceResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateFlow {
+  export type Input = UpdateFlowRequest;
+  export type Output = UpdateFlowResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateFlowAlias {
+  export type Input = UpdateFlowAliasRequest;
+  export type Output = UpdateFlowAliasResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateKnowledgeBase {
+  export type Input = UpdateKnowledgeBaseRequest;
+  export type Output = UpdateKnowledgeBaseResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdatePrompt {
+  export type Input = UpdatePromptRequest;
+  export type Output = UpdatePromptResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
     | ThrottlingException
     | ValidationException
     | CommonAwsError;

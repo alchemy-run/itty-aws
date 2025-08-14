@@ -302,6 +302,118 @@ export declare class AccessAnalyzer extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
+  createAnalyzer(
+    input: CreateAnalyzerRequest,
+  ): Effect.Effect<
+    CreateAnalyzerResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createArchiveRule(
+    input: CreateArchiveRuleRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteAnalyzer(
+    input: DeleteAnalyzerRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteArchiveRule(
+    input: DeleteArchiveRuleRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getAnalyzer(
+    input: GetAnalyzerRequest,
+  ): Effect.Effect<
+    GetAnalyzerResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getArchiveRule(
+    input: GetArchiveRuleRequest,
+  ): Effect.Effect<
+    GetArchiveRuleResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listAnalyzers(
+    input: ListAnalyzersRequest,
+  ): Effect.Effect<
+    ListAnalyzersResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listArchiveRules(
+    input: ListArchiveRulesRequest,
+  ): Effect.Effect<
+    ListArchiveRulesResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateAnalyzer(
+    input: UpdateAnalyzerRequest,
+  ): Effect.Effect<
+    UpdateAnalyzerResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateArchiveRule(
+    input: UpdateArchiveRuleRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
 }
 
 export declare class Accessanalyzer extends AccessAnalyzer {}
@@ -1788,6 +1900,128 @@ export declare namespace ValidatePolicy {
   export type Error =
     | AccessDeniedException
     | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateAnalyzer {
+  export type Input = CreateAnalyzerRequest;
+  export type Output = CreateAnalyzerResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateArchiveRule {
+  export type Input = CreateArchiveRuleRequest;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteAnalyzer {
+  export type Input = DeleteAnalyzerRequest;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteArchiveRule {
+  export type Input = DeleteArchiveRuleRequest;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetAnalyzer {
+  export type Input = GetAnalyzerRequest;
+  export type Output = GetAnalyzerResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetArchiveRule {
+  export type Input = GetArchiveRuleRequest;
+  export type Output = GetArchiveRuleResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListAnalyzers {
+  export type Input = ListAnalyzersRequest;
+  export type Output = ListAnalyzersResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListArchiveRules {
+  export type Input = ListArchiveRulesRequest;
+  export type Output = ListArchiveRulesResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateAnalyzer {
+  export type Input = UpdateAnalyzerRequest;
+  export type Output = UpdateAnalyzerResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateArchiveRule {
+  export type Input = UpdateArchiveRuleRequest;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
     | ThrottlingException
     | ValidationException
     | CommonAwsError;

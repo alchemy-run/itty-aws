@@ -38,6 +38,19 @@ export declare class MarketplaceDeployment extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
+  putDeploymentParameter(
+    input: PutDeploymentParameterRequest,
+  ): Effect.Effect<
+    PutDeploymentParameterResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
 }
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
@@ -166,6 +179,20 @@ export declare namespace UntagResource {
     | ConflictException
     | InternalServerException
     | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace PutDeploymentParameter {
+  export type Input = PutDeploymentParameterRequest;
+  export type Output = PutDeploymentParameterResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
     | ThrottlingException
     | ValidationException
     | CommonAwsError;

@@ -1,4 +1,6 @@
 import type { Effect, Stream, Data as EffectData } from "effect";
+import type { ResponseError } from "@effect/platform/HttpClientError";
+import type { Buffer } from "node:buffer";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
@@ -67,6 +69,258 @@ export declare class BedrockAgentCore extends AWSServiceClient {
     input: InvokeCodeInterpreterRequest,
   ): Effect.Effect<
     InvokeCodeInterpreterResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createEvent(
+    input: CreateEventInput,
+  ): Effect.Effect<
+    CreateEventOutput,
+    | AccessDeniedException
+    | InvalidInputException
+    | ResourceNotFoundException
+    | ServiceException
+    | ServiceQuotaExceededException
+    | ThrottledException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteEvent(
+    input: DeleteEventInput,
+  ): Effect.Effect<
+    DeleteEventOutput,
+    | AccessDeniedException
+    | InvalidInputException
+    | ResourceNotFoundException
+    | ServiceException
+    | ServiceQuotaExceededException
+    | ThrottledException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteMemoryRecord(
+    input: DeleteMemoryRecordInput,
+  ): Effect.Effect<
+    DeleteMemoryRecordOutput,
+    | AccessDeniedException
+    | InvalidInputException
+    | ResourceNotFoundException
+    | ServiceException
+    | ServiceQuotaExceededException
+    | ThrottledException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getBrowserSession(
+    input: GetBrowserSessionRequest,
+  ): Effect.Effect<
+    GetBrowserSessionResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getCodeInterpreterSession(
+    input: GetCodeInterpreterSessionRequest,
+  ): Effect.Effect<
+    GetCodeInterpreterSessionResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getEvent(
+    input: GetEventInput,
+  ): Effect.Effect<
+    GetEventOutput,
+    | AccessDeniedException
+    | InvalidInputException
+    | ResourceNotFoundException
+    | ServiceException
+    | ServiceQuotaExceededException
+    | ThrottledException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getMemoryRecord(
+    input: GetMemoryRecordInput,
+  ): Effect.Effect<
+    GetMemoryRecordOutput,
+    | AccessDeniedException
+    | InvalidInputException
+    | ResourceNotFoundException
+    | ServiceException
+    | ServiceQuotaExceededException
+    | ThrottledException
+    | ValidationException
+    | CommonAwsError
+  >;
+  invokeAgentRuntime(
+    input: InvokeAgentRuntimeRequest,
+  ): Effect.Effect<
+    InvokeAgentRuntimeResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | RuntimeClientError
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listActors(
+    input: ListActorsInput,
+  ): Effect.Effect<
+    ListActorsOutput,
+    | AccessDeniedException
+    | InvalidInputException
+    | ResourceNotFoundException
+    | ServiceException
+    | ServiceQuotaExceededException
+    | ThrottledException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listBrowserSessions(
+    input: ListBrowserSessionsRequest,
+  ): Effect.Effect<
+    ListBrowserSessionsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listCodeInterpreterSessions(
+    input: ListCodeInterpreterSessionsRequest,
+  ): Effect.Effect<
+    ListCodeInterpreterSessionsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listEvents(
+    input: ListEventsInput,
+  ): Effect.Effect<
+    ListEventsOutput,
+    | AccessDeniedException
+    | InvalidInputException
+    | ResourceNotFoundException
+    | ServiceException
+    | ServiceQuotaExceededException
+    | ThrottledException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listMemoryRecords(
+    input: ListMemoryRecordsInput,
+  ): Effect.Effect<
+    ListMemoryRecordsOutput,
+    | AccessDeniedException
+    | InvalidInputException
+    | ResourceNotFoundException
+    | ServiceException
+    | ServiceQuotaExceededException
+    | ThrottledException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listSessions(
+    input: ListSessionsInput,
+  ): Effect.Effect<
+    ListSessionsOutput,
+    | AccessDeniedException
+    | InvalidInputException
+    | ResourceNotFoundException
+    | ServiceException
+    | ServiceQuotaExceededException
+    | ThrottledException
+    | ValidationException
+    | CommonAwsError
+  >;
+  retrieveMemoryRecords(
+    input: RetrieveMemoryRecordsInput,
+  ): Effect.Effect<
+    RetrieveMemoryRecordsOutput,
+    | AccessDeniedException
+    | InvalidInputException
+    | ResourceNotFoundException
+    | ServiceException
+    | ServiceQuotaExceededException
+    | ThrottledException
+    | ValidationException
+    | CommonAwsError
+  >;
+  startBrowserSession(
+    input: StartBrowserSessionRequest,
+  ): Effect.Effect<
+    StartBrowserSessionResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  startCodeInterpreterSession(
+    input: StartCodeInterpreterSessionRequest,
+  ): Effect.Effect<
+    StartCodeInterpreterSessionResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  stopBrowserSession(
+    input: StopBrowserSessionRequest,
+  ): Effect.Effect<
+    StopBrowserSessionResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  stopCodeInterpreterSession(
+    input: StopCodeInterpreterSessionRequest,
+  ): Effect.Effect<
+    StopCodeInterpreterSessionResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateBrowserStream(
+    input: UpdateBrowserStreamRequest,
+  ): Effect.Effect<
+    UpdateBrowserStreamResponse,
     | AccessDeniedException
     | ConflictException
     | InternalServerException
@@ -390,7 +644,7 @@ export interface InvokeAgentRuntimeRequest {
   baggage?: string;
   agentRuntimeArn: string;
   qualifier?: string;
-  payload: Uint8Array | string | Stream.Stream<Uint8Array>;
+  payload: Uint8Array | string | Buffer | Stream.Stream<Uint8Array>;
 }
 export interface InvokeAgentRuntimeResponse {
   runtimeSessionId?: string;
@@ -401,7 +655,7 @@ export interface InvokeAgentRuntimeResponse {
   traceState?: string;
   baggage?: string;
   contentType: string;
-  response?: Uint8Array | string | Stream.Stream<Uint8Array>;
+  response?: Stream.Stream<Uint8Array, ResponseError>;
   statusCode?: number;
 }
 export interface InvokeCodeInterpreterRequest {
@@ -817,6 +1071,278 @@ export declare namespace GetWorkloadAccessTokenForUserId {
 export declare namespace InvokeCodeInterpreter {
   export type Input = InvokeCodeInterpreterRequest;
   export type Output = InvokeCodeInterpreterResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateEvent {
+  export type Input = CreateEventInput;
+  export type Output = CreateEventOutput;
+  export type Error =
+    | AccessDeniedException
+    | InvalidInputException
+    | ResourceNotFoundException
+    | ServiceException
+    | ServiceQuotaExceededException
+    | ThrottledException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteEvent {
+  export type Input = DeleteEventInput;
+  export type Output = DeleteEventOutput;
+  export type Error =
+    | AccessDeniedException
+    | InvalidInputException
+    | ResourceNotFoundException
+    | ServiceException
+    | ServiceQuotaExceededException
+    | ThrottledException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteMemoryRecord {
+  export type Input = DeleteMemoryRecordInput;
+  export type Output = DeleteMemoryRecordOutput;
+  export type Error =
+    | AccessDeniedException
+    | InvalidInputException
+    | ResourceNotFoundException
+    | ServiceException
+    | ServiceQuotaExceededException
+    | ThrottledException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetBrowserSession {
+  export type Input = GetBrowserSessionRequest;
+  export type Output = GetBrowserSessionResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetCodeInterpreterSession {
+  export type Input = GetCodeInterpreterSessionRequest;
+  export type Output = GetCodeInterpreterSessionResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetEvent {
+  export type Input = GetEventInput;
+  export type Output = GetEventOutput;
+  export type Error =
+    | AccessDeniedException
+    | InvalidInputException
+    | ResourceNotFoundException
+    | ServiceException
+    | ServiceQuotaExceededException
+    | ThrottledException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetMemoryRecord {
+  export type Input = GetMemoryRecordInput;
+  export type Output = GetMemoryRecordOutput;
+  export type Error =
+    | AccessDeniedException
+    | InvalidInputException
+    | ResourceNotFoundException
+    | ServiceException
+    | ServiceQuotaExceededException
+    | ThrottledException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace InvokeAgentRuntime {
+  export type Input = InvokeAgentRuntimeRequest;
+  export type Output = InvokeAgentRuntimeResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | RuntimeClientError
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListActors {
+  export type Input = ListActorsInput;
+  export type Output = ListActorsOutput;
+  export type Error =
+    | AccessDeniedException
+    | InvalidInputException
+    | ResourceNotFoundException
+    | ServiceException
+    | ServiceQuotaExceededException
+    | ThrottledException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListBrowserSessions {
+  export type Input = ListBrowserSessionsRequest;
+  export type Output = ListBrowserSessionsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListCodeInterpreterSessions {
+  export type Input = ListCodeInterpreterSessionsRequest;
+  export type Output = ListCodeInterpreterSessionsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListEvents {
+  export type Input = ListEventsInput;
+  export type Output = ListEventsOutput;
+  export type Error =
+    | AccessDeniedException
+    | InvalidInputException
+    | ResourceNotFoundException
+    | ServiceException
+    | ServiceQuotaExceededException
+    | ThrottledException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListMemoryRecords {
+  export type Input = ListMemoryRecordsInput;
+  export type Output = ListMemoryRecordsOutput;
+  export type Error =
+    | AccessDeniedException
+    | InvalidInputException
+    | ResourceNotFoundException
+    | ServiceException
+    | ServiceQuotaExceededException
+    | ThrottledException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListSessions {
+  export type Input = ListSessionsInput;
+  export type Output = ListSessionsOutput;
+  export type Error =
+    | AccessDeniedException
+    | InvalidInputException
+    | ResourceNotFoundException
+    | ServiceException
+    | ServiceQuotaExceededException
+    | ThrottledException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace RetrieveMemoryRecords {
+  export type Input = RetrieveMemoryRecordsInput;
+  export type Output = RetrieveMemoryRecordsOutput;
+  export type Error =
+    | AccessDeniedException
+    | InvalidInputException
+    | ResourceNotFoundException
+    | ServiceException
+    | ServiceQuotaExceededException
+    | ThrottledException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace StartBrowserSession {
+  export type Input = StartBrowserSessionRequest;
+  export type Output = StartBrowserSessionResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace StartCodeInterpreterSession {
+  export type Input = StartCodeInterpreterSessionRequest;
+  export type Output = StartCodeInterpreterSessionResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace StopBrowserSession {
+  export type Input = StopBrowserSessionRequest;
+  export type Output = StopBrowserSessionResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace StopCodeInterpreterSession {
+  export type Input = StopCodeInterpreterSessionRequest;
+  export type Output = StopCodeInterpreterSessionResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateBrowserStream {
+  export type Input = UpdateBrowserStreamRequest;
+  export type Output = UpdateBrowserStreamResponse;
   export type Error =
     | AccessDeniedException
     | ConflictException

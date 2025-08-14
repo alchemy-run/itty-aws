@@ -13,6 +13,16 @@ export declare class AppConfigData extends AWSServiceClient {
     | ThrottlingException
     | CommonAwsError
   >;
+  startConfigurationSession(
+    input: StartConfigurationSessionRequest,
+  ): Effect.Effect<
+    StartConfigurationSessionResponse,
+    | BadRequestException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
+  >;
 }
 
 export declare class Appconfigdata extends AppConfigData {}
@@ -95,6 +105,17 @@ export type Token = string;
 export declare namespace GetLatestConfiguration {
   export type Input = GetLatestConfigurationRequest;
   export type Output = GetLatestConfigurationResponse;
+  export type Error =
+    | BadRequestException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError;
+}
+
+export declare namespace StartConfigurationSession {
+  export type Input = StartConfigurationSessionRequest;
+  export type Output = StartConfigurationSessionResponse;
   export type Error =
     | BadRequestException
     | InternalServerException

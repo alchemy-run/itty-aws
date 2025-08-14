@@ -10,6 +10,114 @@ export declare class CodeCatalyst extends AWSServiceClient {
     VerifySessionResponse,
     CommonAwsError
   >;
+  createAccessToken(
+    input: CreateAccessTokenRequest,
+  ): Effect.Effect<CreateAccessTokenResponse, CommonAwsError>;
+  createDevEnvironment(
+    input: CreateDevEnvironmentRequest,
+  ): Effect.Effect<CreateDevEnvironmentResponse, CommonAwsError>;
+  createProject(
+    input: CreateProjectRequest,
+  ): Effect.Effect<CreateProjectResponse, CommonAwsError>;
+  createSourceRepository(
+    input: CreateSourceRepositoryRequest,
+  ): Effect.Effect<CreateSourceRepositoryResponse, CommonAwsError>;
+  createSourceRepositoryBranch(
+    input: CreateSourceRepositoryBranchRequest,
+  ): Effect.Effect<CreateSourceRepositoryBranchResponse, CommonAwsError>;
+  deleteAccessToken(
+    input: DeleteAccessTokenRequest,
+  ): Effect.Effect<DeleteAccessTokenResponse, CommonAwsError>;
+  deleteDevEnvironment(
+    input: DeleteDevEnvironmentRequest,
+  ): Effect.Effect<DeleteDevEnvironmentResponse, CommonAwsError>;
+  deleteProject(
+    input: DeleteProjectRequest,
+  ): Effect.Effect<DeleteProjectResponse, CommonAwsError>;
+  deleteSourceRepository(
+    input: DeleteSourceRepositoryRequest,
+  ): Effect.Effect<DeleteSourceRepositoryResponse, CommonAwsError>;
+  deleteSpace(
+    input: DeleteSpaceRequest,
+  ): Effect.Effect<DeleteSpaceResponse, CommonAwsError>;
+  getDevEnvironment(
+    input: GetDevEnvironmentRequest,
+  ): Effect.Effect<GetDevEnvironmentResponse, CommonAwsError>;
+  getProject(
+    input: GetProjectRequest,
+  ): Effect.Effect<GetProjectResponse, CommonAwsError>;
+  getSourceRepository(
+    input: GetSourceRepositoryRequest,
+  ): Effect.Effect<GetSourceRepositoryResponse, CommonAwsError>;
+  getSourceRepositoryCloneUrls(
+    input: GetSourceRepositoryCloneUrlsRequest,
+  ): Effect.Effect<GetSourceRepositoryCloneUrlsResponse, CommonAwsError>;
+  getSpace(
+    input: GetSpaceRequest,
+  ): Effect.Effect<GetSpaceResponse, CommonAwsError>;
+  getSubscription(
+    input: GetSubscriptionRequest,
+  ): Effect.Effect<GetSubscriptionResponse, CommonAwsError>;
+  getWorkflow(
+    input: GetWorkflowRequest,
+  ): Effect.Effect<GetWorkflowResponse, CommonAwsError>;
+  getWorkflowRun(
+    input: GetWorkflowRunRequest,
+  ): Effect.Effect<GetWorkflowRunResponse, CommonAwsError>;
+  listAccessTokens(
+    input: ListAccessTokensRequest,
+  ): Effect.Effect<ListAccessTokensResponse, CommonAwsError>;
+  listDevEnvironmentSessions(
+    input: ListDevEnvironmentSessionsRequest,
+  ): Effect.Effect<ListDevEnvironmentSessionsResponse, CommonAwsError>;
+  listDevEnvironments(
+    input: ListDevEnvironmentsRequest,
+  ): Effect.Effect<ListDevEnvironmentsResponse, CommonAwsError>;
+  listEventLogs(
+    input: ListEventLogsRequest,
+  ): Effect.Effect<ListEventLogsResponse, CommonAwsError>;
+  listProjects(
+    input: ListProjectsRequest,
+  ): Effect.Effect<ListProjectsResponse, CommonAwsError>;
+  listSourceRepositories(
+    input: ListSourceRepositoriesRequest,
+  ): Effect.Effect<ListSourceRepositoriesResponse, CommonAwsError>;
+  listSourceRepositoryBranches(
+    input: ListSourceRepositoryBranchesRequest,
+  ): Effect.Effect<ListSourceRepositoryBranchesResponse, CommonAwsError>;
+  listSpaces(
+    input: ListSpacesRequest,
+  ): Effect.Effect<ListSpacesResponse, CommonAwsError>;
+  listWorkflowRuns(
+    input: ListWorkflowRunsRequest,
+  ): Effect.Effect<ListWorkflowRunsResponse, CommonAwsError>;
+  listWorkflows(
+    input: ListWorkflowsRequest,
+  ): Effect.Effect<ListWorkflowsResponse, CommonAwsError>;
+  startDevEnvironment(
+    input: StartDevEnvironmentRequest,
+  ): Effect.Effect<StartDevEnvironmentResponse, CommonAwsError>;
+  startDevEnvironmentSession(
+    input: StartDevEnvironmentSessionRequest,
+  ): Effect.Effect<StartDevEnvironmentSessionResponse, CommonAwsError>;
+  startWorkflowRun(
+    input: StartWorkflowRunRequest,
+  ): Effect.Effect<StartWorkflowRunResponse, CommonAwsError>;
+  stopDevEnvironment(
+    input: StopDevEnvironmentRequest,
+  ): Effect.Effect<StopDevEnvironmentResponse, CommonAwsError>;
+  stopDevEnvironmentSession(
+    input: StopDevEnvironmentSessionRequest,
+  ): Effect.Effect<StopDevEnvironmentSessionResponse, CommonAwsError>;
+  updateDevEnvironment(
+    input: UpdateDevEnvironmentRequest,
+  ): Effect.Effect<UpdateDevEnvironmentResponse, CommonAwsError>;
+  updateProject(
+    input: UpdateProjectRequest,
+  ): Effect.Effect<UpdateProjectResponse, CommonAwsError>;
+  updateSpace(
+    input: UpdateSpaceRequest,
+  ): Effect.Effect<UpdateSpaceResponse, CommonAwsError>;
 }
 
 export declare class Codecatalyst extends CodeCatalyst {}
@@ -723,5 +831,221 @@ export declare namespace GetUserDetails {
 export declare namespace VerifySession {
   export type Input = {};
   export type Output = VerifySessionResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace CreateAccessToken {
+  export type Input = CreateAccessTokenRequest;
+  export type Output = CreateAccessTokenResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace CreateDevEnvironment {
+  export type Input = CreateDevEnvironmentRequest;
+  export type Output = CreateDevEnvironmentResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace CreateProject {
+  export type Input = CreateProjectRequest;
+  export type Output = CreateProjectResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace CreateSourceRepository {
+  export type Input = CreateSourceRepositoryRequest;
+  export type Output = CreateSourceRepositoryResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace CreateSourceRepositoryBranch {
+  export type Input = CreateSourceRepositoryBranchRequest;
+  export type Output = CreateSourceRepositoryBranchResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace DeleteAccessToken {
+  export type Input = DeleteAccessTokenRequest;
+  export type Output = DeleteAccessTokenResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace DeleteDevEnvironment {
+  export type Input = DeleteDevEnvironmentRequest;
+  export type Output = DeleteDevEnvironmentResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace DeleteProject {
+  export type Input = DeleteProjectRequest;
+  export type Output = DeleteProjectResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace DeleteSourceRepository {
+  export type Input = DeleteSourceRepositoryRequest;
+  export type Output = DeleteSourceRepositoryResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace DeleteSpace {
+  export type Input = DeleteSpaceRequest;
+  export type Output = DeleteSpaceResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace GetDevEnvironment {
+  export type Input = GetDevEnvironmentRequest;
+  export type Output = GetDevEnvironmentResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace GetProject {
+  export type Input = GetProjectRequest;
+  export type Output = GetProjectResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace GetSourceRepository {
+  export type Input = GetSourceRepositoryRequest;
+  export type Output = GetSourceRepositoryResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace GetSourceRepositoryCloneUrls {
+  export type Input = GetSourceRepositoryCloneUrlsRequest;
+  export type Output = GetSourceRepositoryCloneUrlsResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace GetSpace {
+  export type Input = GetSpaceRequest;
+  export type Output = GetSpaceResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace GetSubscription {
+  export type Input = GetSubscriptionRequest;
+  export type Output = GetSubscriptionResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace GetWorkflow {
+  export type Input = GetWorkflowRequest;
+  export type Output = GetWorkflowResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace GetWorkflowRun {
+  export type Input = GetWorkflowRunRequest;
+  export type Output = GetWorkflowRunResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace ListAccessTokens {
+  export type Input = ListAccessTokensRequest;
+  export type Output = ListAccessTokensResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace ListDevEnvironmentSessions {
+  export type Input = ListDevEnvironmentSessionsRequest;
+  export type Output = ListDevEnvironmentSessionsResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace ListDevEnvironments {
+  export type Input = ListDevEnvironmentsRequest;
+  export type Output = ListDevEnvironmentsResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace ListEventLogs {
+  export type Input = ListEventLogsRequest;
+  export type Output = ListEventLogsResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace ListProjects {
+  export type Input = ListProjectsRequest;
+  export type Output = ListProjectsResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace ListSourceRepositories {
+  export type Input = ListSourceRepositoriesRequest;
+  export type Output = ListSourceRepositoriesResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace ListSourceRepositoryBranches {
+  export type Input = ListSourceRepositoryBranchesRequest;
+  export type Output = ListSourceRepositoryBranchesResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace ListSpaces {
+  export type Input = ListSpacesRequest;
+  export type Output = ListSpacesResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace ListWorkflowRuns {
+  export type Input = ListWorkflowRunsRequest;
+  export type Output = ListWorkflowRunsResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace ListWorkflows {
+  export type Input = ListWorkflowsRequest;
+  export type Output = ListWorkflowsResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace StartDevEnvironment {
+  export type Input = StartDevEnvironmentRequest;
+  export type Output = StartDevEnvironmentResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace StartDevEnvironmentSession {
+  export type Input = StartDevEnvironmentSessionRequest;
+  export type Output = StartDevEnvironmentSessionResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace StartWorkflowRun {
+  export type Input = StartWorkflowRunRequest;
+  export type Output = StartWorkflowRunResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace StopDevEnvironment {
+  export type Input = StopDevEnvironmentRequest;
+  export type Output = StopDevEnvironmentResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace StopDevEnvironmentSession {
+  export type Input = StopDevEnvironmentSessionRequest;
+  export type Output = StopDevEnvironmentSessionResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace UpdateDevEnvironment {
+  export type Input = UpdateDevEnvironmentRequest;
+  export type Output = UpdateDevEnvironmentResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace UpdateProject {
+  export type Input = UpdateProjectRequest;
+  export type Output = UpdateProjectResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace UpdateSpace {
+  export type Input = UpdateSpaceRequest;
+  export type Output = UpdateSpaceResponse;
   export type Error = CommonAwsError;
 }

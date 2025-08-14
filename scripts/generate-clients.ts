@@ -678,32 +678,40 @@ const generateServiceCode = (serviceName: string, manifest: Manifest) =>
       // FIXME: add in the other services
     }
 
-    // Find operations using the new Smithy 2.0 format
-    let operations: Array<{ name: string; shape: any }> = [];
+    // Operations can be defined at the top level of the Smithy spec,
+    // and under the service. Sometimes even within the same service.
+    // Collect operations from both places and merge
+    const fromService = (
+      serviceShape.type === "service" && serviceShape.operations
+        ? serviceShape.operations
+            .map((opRef: { target: string }) => {
+              const op = manifest.shapes[opRef.target];
+              return op?.type === "operation"
+                ? { name: extractShapeName(opRef.target), shape: op }
+                : null;
+            })
+            .filter(Boolean)
+        : []
+    ) as Array<{ name: string; shape: any }>;
 
-    if (serviceShape.type === "service" && serviceShape.operations) {
-      // Smithy 2.0 format: operations are referenced in service.operations array
-      operations = serviceShape.operations
-        .map((opRef) => {
-          const operationShape = manifest.shapes[opRef.target];
-          if (operationShape && operationShape.type === "operation") {
-            return {
-              name: extractShapeName(opRef.target),
-              shape: operationShape,
-            };
-          }
-          return null;
-        })
-        .filter((op) => op !== null);
-    } else {
-      // Fallback: look for operations as separate shapes (old format)
-      operations = Object.entries(manifest.shapes)
-        .filter(([, shape]) => shape.type === "operation")
-        .map(([shapeId, shape]) => ({
-          name: extractShapeName(shapeId),
-          shape: shape as any,
-        }));
-    }
+    const fromShapes = Object.entries(manifest.shapes)
+      .filter(([, shape]: any) => shape.type === "operation")
+      .map(([shapeId, shape]) => ({
+        name: extractShapeName(shapeId),
+        shape: shape as any,
+      }));
+
+    // Merge with stable de-dupe by name
+    const seen = new Set<string>();
+    const operations: Array<{ name: string; shape: any }> = [
+      ...fromService,
+      ...fromShapes,
+    ].filter((op) => {
+      const key = op.name;
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    });
 
     // Build maps of input and output shapes from operations
     const inputShapes = new Set<string>();

@@ -34,6 +34,171 @@ export declare class VerifiedPermissions extends AWSServiceClient {
     | ThrottlingException
     | CommonAwsError
   >;
+  batchGetPolicy(
+    input: BatchGetPolicyInput,
+  ): Effect.Effect<BatchGetPolicyOutput, CommonAwsError>;
+  batchIsAuthorized(
+    input: BatchIsAuthorizedInput,
+  ): Effect.Effect<
+    BatchIsAuthorizedOutput,
+    ResourceNotFoundException | CommonAwsError
+  >;
+  batchIsAuthorizedWithToken(
+    input: BatchIsAuthorizedWithTokenInput,
+  ): Effect.Effect<
+    BatchIsAuthorizedWithTokenOutput,
+    ResourceNotFoundException | CommonAwsError
+  >;
+  createIdentitySource(
+    input: CreateIdentitySourceInput,
+  ): Effect.Effect<
+    CreateIdentitySourceOutput,
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | CommonAwsError
+  >;
+  createPolicy(
+    input: CreatePolicyInput,
+  ): Effect.Effect<
+    CreatePolicyOutput,
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | CommonAwsError
+  >;
+  createPolicyStore(
+    input: CreatePolicyStoreInput,
+  ): Effect.Effect<
+    CreatePolicyStoreOutput,
+    ConflictException | ServiceQuotaExceededException | CommonAwsError
+  >;
+  createPolicyTemplate(
+    input: CreatePolicyTemplateInput,
+  ): Effect.Effect<
+    CreatePolicyTemplateOutput,
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | CommonAwsError
+  >;
+  deleteIdentitySource(
+    input: DeleteIdentitySourceInput,
+  ): Effect.Effect<
+    DeleteIdentitySourceOutput,
+    ConflictException | ResourceNotFoundException | CommonAwsError
+  >;
+  deletePolicy(
+    input: DeletePolicyInput,
+  ): Effect.Effect<
+    DeletePolicyOutput,
+    ConflictException | ResourceNotFoundException | CommonAwsError
+  >;
+  deletePolicyStore(
+    input: DeletePolicyStoreInput,
+  ): Effect.Effect<
+    DeletePolicyStoreOutput,
+    InvalidStateException | CommonAwsError
+  >;
+  deletePolicyTemplate(
+    input: DeletePolicyTemplateInput,
+  ): Effect.Effect<
+    DeletePolicyTemplateOutput,
+    ConflictException | ResourceNotFoundException | CommonAwsError
+  >;
+  getIdentitySource(
+    input: GetIdentitySourceInput,
+  ): Effect.Effect<
+    GetIdentitySourceOutput,
+    ResourceNotFoundException | CommonAwsError
+  >;
+  getPolicy(
+    input: GetPolicyInput,
+  ): Effect.Effect<GetPolicyOutput, ResourceNotFoundException | CommonAwsError>;
+  getPolicyStore(
+    input: GetPolicyStoreInput,
+  ): Effect.Effect<
+    GetPolicyStoreOutput,
+    ResourceNotFoundException | CommonAwsError
+  >;
+  getPolicyTemplate(
+    input: GetPolicyTemplateInput,
+  ): Effect.Effect<
+    GetPolicyTemplateOutput,
+    ResourceNotFoundException | CommonAwsError
+  >;
+  getSchema(
+    input: GetSchemaInput,
+  ): Effect.Effect<GetSchemaOutput, ResourceNotFoundException | CommonAwsError>;
+  isAuthorized(
+    input: IsAuthorizedInput,
+  ): Effect.Effect<
+    IsAuthorizedOutput,
+    ResourceNotFoundException | CommonAwsError
+  >;
+  isAuthorizedWithToken(
+    input: IsAuthorizedWithTokenInput,
+  ): Effect.Effect<
+    IsAuthorizedWithTokenOutput,
+    ResourceNotFoundException | CommonAwsError
+  >;
+  listIdentitySources(
+    input: ListIdentitySourcesInput,
+  ): Effect.Effect<
+    ListIdentitySourcesOutput,
+    ResourceNotFoundException | CommonAwsError
+  >;
+  listPolicies(
+    input: ListPoliciesInput,
+  ): Effect.Effect<
+    ListPoliciesOutput,
+    ResourceNotFoundException | CommonAwsError
+  >;
+  listPolicyStores(
+    input: ListPolicyStoresInput,
+  ): Effect.Effect<ListPolicyStoresOutput, CommonAwsError>;
+  listPolicyTemplates(
+    input: ListPolicyTemplatesInput,
+  ): Effect.Effect<
+    ListPolicyTemplatesOutput,
+    ResourceNotFoundException | CommonAwsError
+  >;
+  putSchema(
+    input: PutSchemaInput,
+  ): Effect.Effect<
+    PutSchemaOutput,
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | CommonAwsError
+  >;
+  updateIdentitySource(
+    input: UpdateIdentitySourceInput,
+  ): Effect.Effect<
+    UpdateIdentitySourceOutput,
+    ConflictException | ResourceNotFoundException | CommonAwsError
+  >;
+  updatePolicy(
+    input: UpdatePolicyInput,
+  ): Effect.Effect<
+    UpdatePolicyOutput,
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | CommonAwsError
+  >;
+  updatePolicyStore(
+    input: UpdatePolicyStoreInput,
+  ): Effect.Effect<
+    UpdatePolicyStoreOutput,
+    ConflictException | ResourceNotFoundException | CommonAwsError
+  >;
+  updatePolicyTemplate(
+    input: UpdatePolicyTemplateInput,
+  ): Effect.Effect<
+    UpdatePolicyTemplateOutput,
+    ConflictException | ResourceNotFoundException | CommonAwsError
+  >;
 }
 
 export declare class Verifiedpermissions extends VerifiedPermissions {}
@@ -999,5 +1164,208 @@ export declare namespace UntagResource {
     | InternalServerException
     | ResourceNotFoundException
     | ThrottlingException
+    | CommonAwsError;
+}
+
+export declare namespace BatchGetPolicy {
+  export type Input = BatchGetPolicyInput;
+  export type Output = BatchGetPolicyOutput;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace BatchIsAuthorized {
+  export type Input = BatchIsAuthorizedInput;
+  export type Output = BatchIsAuthorizedOutput;
+  export type Error = ResourceNotFoundException | CommonAwsError;
+}
+
+export declare namespace BatchIsAuthorizedWithToken {
+  export type Input = BatchIsAuthorizedWithTokenInput;
+  export type Output = BatchIsAuthorizedWithTokenOutput;
+  export type Error = ResourceNotFoundException | CommonAwsError;
+}
+
+export declare namespace CreateIdentitySource {
+  export type Input = CreateIdentitySourceInput;
+  export type Output = CreateIdentitySourceOutput;
+  export type Error =
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | CommonAwsError;
+}
+
+export declare namespace CreatePolicy {
+  export type Input = CreatePolicyInput;
+  export type Output = CreatePolicyOutput;
+  export type Error =
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | CommonAwsError;
+}
+
+export declare namespace CreatePolicyStore {
+  export type Input = CreatePolicyStoreInput;
+  export type Output = CreatePolicyStoreOutput;
+  export type Error =
+    | ConflictException
+    | ServiceQuotaExceededException
+    | CommonAwsError;
+}
+
+export declare namespace CreatePolicyTemplate {
+  export type Input = CreatePolicyTemplateInput;
+  export type Output = CreatePolicyTemplateOutput;
+  export type Error =
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteIdentitySource {
+  export type Input = DeleteIdentitySourceInput;
+  export type Output = DeleteIdentitySourceOutput;
+  export type Error =
+    | ConflictException
+    | ResourceNotFoundException
+    | CommonAwsError;
+}
+
+export declare namespace DeletePolicy {
+  export type Input = DeletePolicyInput;
+  export type Output = DeletePolicyOutput;
+  export type Error =
+    | ConflictException
+    | ResourceNotFoundException
+    | CommonAwsError;
+}
+
+export declare namespace DeletePolicyStore {
+  export type Input = DeletePolicyStoreInput;
+  export type Output = DeletePolicyStoreOutput;
+  export type Error = InvalidStateException | CommonAwsError;
+}
+
+export declare namespace DeletePolicyTemplate {
+  export type Input = DeletePolicyTemplateInput;
+  export type Output = DeletePolicyTemplateOutput;
+  export type Error =
+    | ConflictException
+    | ResourceNotFoundException
+    | CommonAwsError;
+}
+
+export declare namespace GetIdentitySource {
+  export type Input = GetIdentitySourceInput;
+  export type Output = GetIdentitySourceOutput;
+  export type Error = ResourceNotFoundException | CommonAwsError;
+}
+
+export declare namespace GetPolicy {
+  export type Input = GetPolicyInput;
+  export type Output = GetPolicyOutput;
+  export type Error = ResourceNotFoundException | CommonAwsError;
+}
+
+export declare namespace GetPolicyStore {
+  export type Input = GetPolicyStoreInput;
+  export type Output = GetPolicyStoreOutput;
+  export type Error = ResourceNotFoundException | CommonAwsError;
+}
+
+export declare namespace GetPolicyTemplate {
+  export type Input = GetPolicyTemplateInput;
+  export type Output = GetPolicyTemplateOutput;
+  export type Error = ResourceNotFoundException | CommonAwsError;
+}
+
+export declare namespace GetSchema {
+  export type Input = GetSchemaInput;
+  export type Output = GetSchemaOutput;
+  export type Error = ResourceNotFoundException | CommonAwsError;
+}
+
+export declare namespace IsAuthorized {
+  export type Input = IsAuthorizedInput;
+  export type Output = IsAuthorizedOutput;
+  export type Error = ResourceNotFoundException | CommonAwsError;
+}
+
+export declare namespace IsAuthorizedWithToken {
+  export type Input = IsAuthorizedWithTokenInput;
+  export type Output = IsAuthorizedWithTokenOutput;
+  export type Error = ResourceNotFoundException | CommonAwsError;
+}
+
+export declare namespace ListIdentitySources {
+  export type Input = ListIdentitySourcesInput;
+  export type Output = ListIdentitySourcesOutput;
+  export type Error = ResourceNotFoundException | CommonAwsError;
+}
+
+export declare namespace ListPolicies {
+  export type Input = ListPoliciesInput;
+  export type Output = ListPoliciesOutput;
+  export type Error = ResourceNotFoundException | CommonAwsError;
+}
+
+export declare namespace ListPolicyStores {
+  export type Input = ListPolicyStoresInput;
+  export type Output = ListPolicyStoresOutput;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace ListPolicyTemplates {
+  export type Input = ListPolicyTemplatesInput;
+  export type Output = ListPolicyTemplatesOutput;
+  export type Error = ResourceNotFoundException | CommonAwsError;
+}
+
+export declare namespace PutSchema {
+  export type Input = PutSchemaInput;
+  export type Output = PutSchemaOutput;
+  export type Error =
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateIdentitySource {
+  export type Input = UpdateIdentitySourceInput;
+  export type Output = UpdateIdentitySourceOutput;
+  export type Error =
+    | ConflictException
+    | ResourceNotFoundException
+    | CommonAwsError;
+}
+
+export declare namespace UpdatePolicy {
+  export type Input = UpdatePolicyInput;
+  export type Output = UpdatePolicyOutput;
+  export type Error =
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | CommonAwsError;
+}
+
+export declare namespace UpdatePolicyStore {
+  export type Input = UpdatePolicyStoreInput;
+  export type Output = UpdatePolicyStoreOutput;
+  export type Error =
+    | ConflictException
+    | ResourceNotFoundException
+    | CommonAwsError;
+}
+
+export declare namespace UpdatePolicyTemplate {
+  export type Input = UpdatePolicyTemplateInput;
+  export type Output = UpdatePolicyTemplateOutput;
+  export type Error =
+    | ConflictException
+    | ResourceNotFoundException
     | CommonAwsError;
 }

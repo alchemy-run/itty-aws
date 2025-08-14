@@ -152,6 +152,121 @@ export declare class ResourceExplorer2 extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
+  associateDefaultView(
+    input: AssociateDefaultViewInput,
+  ): Effect.Effect<
+    AssociateDefaultViewOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createIndex(
+    input: CreateIndexInput,
+  ): Effect.Effect<
+    CreateIndexOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createView(
+    input: CreateViewInput,
+  ): Effect.Effect<
+    CreateViewOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteIndex(
+    input: DeleteIndexInput,
+  ): Effect.Effect<
+    DeleteIndexOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteView(
+    input: DeleteViewInput,
+  ): Effect.Effect<
+    DeleteViewOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getView(
+    input: GetViewInput,
+  ): Effect.Effect<
+    GetViewOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listIndexes(
+    input: ListIndexesInput,
+  ): Effect.Effect<
+    ListIndexesOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listViews(
+    input: ListViewsInput,
+  ): Effect.Effect<
+    ListViewsOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateIndexType(
+    input: UpdateIndexTypeInput,
+  ): Effect.Effect<
+    UpdateIndexTypeOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateView(
+    input: UpdateViewInput,
+  ): Effect.Effect<
+    UpdateViewOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
 }
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
@@ -637,6 +752,131 @@ export declare namespace UntagResource {
     | AccessDeniedException
     | InternalServerException
     | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace AssociateDefaultView {
+  export type Input = AssociateDefaultViewInput;
+  export type Output = AssociateDefaultViewOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateIndex {
+  export type Input = CreateIndexInput;
+  export type Output = CreateIndexOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateView {
+  export type Input = CreateViewInput;
+  export type Output = CreateViewOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteIndex {
+  export type Input = DeleteIndexInput;
+  export type Output = DeleteIndexOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteView {
+  export type Input = DeleteViewInput;
+  export type Output = DeleteViewOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetView {
+  export type Input = GetViewInput;
+  export type Output = GetViewOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListIndexes {
+  export type Input = ListIndexesInput;
+  export type Output = ListIndexesOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListViews {
+  export type Input = ListViewsInput;
+  export type Output = ListViewsOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateIndexType {
+  export type Input = UpdateIndexTypeInput;
+  export type Output = UpdateIndexTypeOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateView {
+  export type Input = UpdateViewInput;
+  export type Output = UpdateViewOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ServiceQuotaExceededException
     | ThrottlingException
     | UnauthorizedException
     | ValidationException

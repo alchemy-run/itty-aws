@@ -1159,6 +1159,661 @@ export declare class DataZone extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
+  cancelMetadataGenerationRun(
+    input: CancelMetadataGenerationRunInput,
+  ): Effect.Effect<
+    CancelMetadataGenerationRunOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createAsset(
+    input: CreateAssetInput,
+  ): Effect.Effect<
+    CreateAssetOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createAssetRevision(
+    input: CreateAssetRevisionInput,
+  ): Effect.Effect<
+    CreateAssetRevisionOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createAssetType(
+    input: CreateAssetTypeInput,
+  ): Effect.Effect<
+    CreateAssetTypeOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createDataProduct(
+    input: CreateDataProductInput,
+  ): Effect.Effect<
+    CreateDataProductOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createDataProductRevision(
+    input: CreateDataProductRevisionInput,
+  ): Effect.Effect<
+    CreateDataProductRevisionOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createDataSource(
+    input: CreateDataSourceInput,
+  ): Effect.Effect<
+    CreateDataSourceOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createDomain(
+    input: CreateDomainInput,
+  ): Effect.Effect<
+    CreateDomainOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createDomainUnit(
+    input: CreateDomainUnitInput,
+  ): Effect.Effect<
+    CreateDomainUnitOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createFormType(
+    input: CreateFormTypeInput,
+  ): Effect.Effect<
+    CreateFormTypeOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createGlossary(
+    input: CreateGlossaryInput,
+  ): Effect.Effect<
+    CreateGlossaryOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createGlossaryTerm(
+    input: CreateGlossaryTermInput,
+  ): Effect.Effect<
+    CreateGlossaryTermOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createRule(
+    input: CreateRuleInput,
+  ): Effect.Effect<
+    CreateRuleOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteAsset(
+    input: DeleteAssetInput,
+  ): Effect.Effect<
+    DeleteAssetOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteAssetType(
+    input: DeleteAssetTypeInput,
+  ): Effect.Effect<
+    DeleteAssetTypeOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteDataProduct(
+    input: DeleteDataProductInput,
+  ): Effect.Effect<
+    DeleteDataProductOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteDataSource(
+    input: DeleteDataSourceInput,
+  ): Effect.Effect<
+    DeleteDataSourceOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteDomain(
+    input: DeleteDomainInput,
+  ): Effect.Effect<
+    DeleteDomainOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteDomainUnit(
+    input: DeleteDomainUnitInput,
+  ): Effect.Effect<
+    DeleteDomainUnitOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteEnvironmentBlueprintConfiguration(
+    input: DeleteEnvironmentBlueprintConfigurationInput,
+  ): Effect.Effect<
+    DeleteEnvironmentBlueprintConfigurationOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteFormType(
+    input: DeleteFormTypeInput,
+  ): Effect.Effect<
+    DeleteFormTypeOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteGlossary(
+    input: DeleteGlossaryInput,
+  ): Effect.Effect<
+    DeleteGlossaryOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteGlossaryTerm(
+    input: DeleteGlossaryTermInput,
+  ): Effect.Effect<
+    DeleteGlossaryTermOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteListing(
+    input: DeleteListingInput,
+  ): Effect.Effect<
+    DeleteListingOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteRule(
+    input: DeleteRuleInput,
+  ): Effect.Effect<
+    DeleteRuleOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getAsset(
+    input: GetAssetInput,
+  ): Effect.Effect<
+    GetAssetOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getAssetType(
+    input: GetAssetTypeInput,
+  ): Effect.Effect<
+    GetAssetTypeOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getDataProduct(
+    input: GetDataProductInput,
+  ): Effect.Effect<
+    GetDataProductOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getDataSource(
+    input: GetDataSourceInput,
+  ): Effect.Effect<
+    GetDataSourceOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getDataSourceRun(
+    input: GetDataSourceRunInput,
+  ): Effect.Effect<
+    GetDataSourceRunOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getDomain(
+    input: GetDomainInput,
+  ): Effect.Effect<
+    GetDomainOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getDomainUnit(
+    input: GetDomainUnitInput,
+  ): Effect.Effect<
+    GetDomainUnitOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getEnvironmentBlueprintConfiguration(
+    input: GetEnvironmentBlueprintConfigurationInput,
+  ): Effect.Effect<
+    GetEnvironmentBlueprintConfigurationOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getFormType(
+    input: GetFormTypeInput,
+  ): Effect.Effect<
+    GetFormTypeOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getGlossary(
+    input: GetGlossaryInput,
+  ): Effect.Effect<
+    GetGlossaryOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getGlossaryTerm(
+    input: GetGlossaryTermInput,
+  ): Effect.Effect<
+    GetGlossaryTermOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getListing(
+    input: GetListingInput,
+  ): Effect.Effect<
+    GetListingOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getMetadataGenerationRun(
+    input: GetMetadataGenerationRunInput,
+  ): Effect.Effect<
+    GetMetadataGenerationRunOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getRule(
+    input: GetRuleInput,
+  ): Effect.Effect<
+    GetRuleOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listDataSourceRuns(
+    input: ListDataSourceRunsInput,
+  ): Effect.Effect<
+    ListDataSourceRunsOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listDataSources(
+    input: ListDataSourcesInput,
+  ): Effect.Effect<
+    ListDataSourcesOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listDomainUnitsForParent(
+    input: ListDomainUnitsForParentInput,
+  ): Effect.Effect<
+    ListDomainUnitsForParentOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listDomains(
+    input: ListDomainsInput,
+  ): Effect.Effect<
+    ListDomainsOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listEnvironmentBlueprintConfigurations(
+    input: ListEnvironmentBlueprintConfigurationsInput,
+  ): Effect.Effect<
+    ListEnvironmentBlueprintConfigurationsOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listMetadataGenerationRuns(
+    input: ListMetadataGenerationRunsInput,
+  ): Effect.Effect<
+    ListMetadataGenerationRunsOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listRules(
+    input: ListRulesInput,
+  ): Effect.Effect<
+    ListRulesOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  putEnvironmentBlueprintConfiguration(
+    input: PutEnvironmentBlueprintConfigurationInput,
+  ): Effect.Effect<
+    PutEnvironmentBlueprintConfigurationOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  startDataSourceRun(
+    input: StartDataSourceRunInput,
+  ): Effect.Effect<
+    StartDataSourceRunOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  startMetadataGenerationRun(
+    input: StartMetadataGenerationRunInput,
+  ): Effect.Effect<
+    StartMetadataGenerationRunOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateDataSource(
+    input: UpdateDataSourceInput,
+  ): Effect.Effect<
+    UpdateDataSourceOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateDomain(
+    input: UpdateDomainInput,
+  ): Effect.Effect<
+    UpdateDomainOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateDomainUnit(
+    input: UpdateDomainUnitInput,
+  ): Effect.Effect<
+    UpdateDomainUnitOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateGlossary(
+    input: UpdateGlossaryInput,
+  ): Effect.Effect<
+    UpdateGlossaryOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateGlossaryTerm(
+    input: UpdateGlossaryTermInput,
+  ): Effect.Effect<
+    UpdateGlossaryTermOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateRule(
+    input: UpdateRuleInput,
+  ): Effect.Effect<
+    UpdateRuleOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
 }
 
 export declare class Datazone extends DataZone {}
@@ -7488,6 +8143,716 @@ export declare namespace UpdateUserProfile {
     | AccessDeniedException
     | InternalServerException
     | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CancelMetadataGenerationRun {
+  export type Input = CancelMetadataGenerationRunInput;
+  export type Output = CancelMetadataGenerationRunOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateAsset {
+  export type Input = CreateAssetInput;
+  export type Output = CreateAssetOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateAssetRevision {
+  export type Input = CreateAssetRevisionInput;
+  export type Output = CreateAssetRevisionOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateAssetType {
+  export type Input = CreateAssetTypeInput;
+  export type Output = CreateAssetTypeOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateDataProduct {
+  export type Input = CreateDataProductInput;
+  export type Output = CreateDataProductOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateDataProductRevision {
+  export type Input = CreateDataProductRevisionInput;
+  export type Output = CreateDataProductRevisionOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateDataSource {
+  export type Input = CreateDataSourceInput;
+  export type Output = CreateDataSourceOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateDomain {
+  export type Input = CreateDomainInput;
+  export type Output = CreateDomainOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateDomainUnit {
+  export type Input = CreateDomainUnitInput;
+  export type Output = CreateDomainUnitOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateFormType {
+  export type Input = CreateFormTypeInput;
+  export type Output = CreateFormTypeOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateGlossary {
+  export type Input = CreateGlossaryInput;
+  export type Output = CreateGlossaryOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateGlossaryTerm {
+  export type Input = CreateGlossaryTermInput;
+  export type Output = CreateGlossaryTermOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateRule {
+  export type Input = CreateRuleInput;
+  export type Output = CreateRuleOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteAsset {
+  export type Input = DeleteAssetInput;
+  export type Output = DeleteAssetOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteAssetType {
+  export type Input = DeleteAssetTypeInput;
+  export type Output = DeleteAssetTypeOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteDataProduct {
+  export type Input = DeleteDataProductInput;
+  export type Output = DeleteDataProductOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteDataSource {
+  export type Input = DeleteDataSourceInput;
+  export type Output = DeleteDataSourceOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteDomain {
+  export type Input = DeleteDomainInput;
+  export type Output = DeleteDomainOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteDomainUnit {
+  export type Input = DeleteDomainUnitInput;
+  export type Output = DeleteDomainUnitOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteEnvironmentBlueprintConfiguration {
+  export type Input = DeleteEnvironmentBlueprintConfigurationInput;
+  export type Output = DeleteEnvironmentBlueprintConfigurationOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteFormType {
+  export type Input = DeleteFormTypeInput;
+  export type Output = DeleteFormTypeOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteGlossary {
+  export type Input = DeleteGlossaryInput;
+  export type Output = DeleteGlossaryOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteGlossaryTerm {
+  export type Input = DeleteGlossaryTermInput;
+  export type Output = DeleteGlossaryTermOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteListing {
+  export type Input = DeleteListingInput;
+  export type Output = DeleteListingOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteRule {
+  export type Input = DeleteRuleInput;
+  export type Output = DeleteRuleOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetAsset {
+  export type Input = GetAssetInput;
+  export type Output = GetAssetOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetAssetType {
+  export type Input = GetAssetTypeInput;
+  export type Output = GetAssetTypeOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetDataProduct {
+  export type Input = GetDataProductInput;
+  export type Output = GetDataProductOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetDataSource {
+  export type Input = GetDataSourceInput;
+  export type Output = GetDataSourceOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetDataSourceRun {
+  export type Input = GetDataSourceRunInput;
+  export type Output = GetDataSourceRunOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetDomain {
+  export type Input = GetDomainInput;
+  export type Output = GetDomainOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetDomainUnit {
+  export type Input = GetDomainUnitInput;
+  export type Output = GetDomainUnitOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetEnvironmentBlueprintConfiguration {
+  export type Input = GetEnvironmentBlueprintConfigurationInput;
+  export type Output = GetEnvironmentBlueprintConfigurationOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetFormType {
+  export type Input = GetFormTypeInput;
+  export type Output = GetFormTypeOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetGlossary {
+  export type Input = GetGlossaryInput;
+  export type Output = GetGlossaryOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetGlossaryTerm {
+  export type Input = GetGlossaryTermInput;
+  export type Output = GetGlossaryTermOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetListing {
+  export type Input = GetListingInput;
+  export type Output = GetListingOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetMetadataGenerationRun {
+  export type Input = GetMetadataGenerationRunInput;
+  export type Output = GetMetadataGenerationRunOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetRule {
+  export type Input = GetRuleInput;
+  export type Output = GetRuleOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListDataSourceRuns {
+  export type Input = ListDataSourceRunsInput;
+  export type Output = ListDataSourceRunsOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListDataSources {
+  export type Input = ListDataSourcesInput;
+  export type Output = ListDataSourcesOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListDomainUnitsForParent {
+  export type Input = ListDomainUnitsForParentInput;
+  export type Output = ListDomainUnitsForParentOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListDomains {
+  export type Input = ListDomainsInput;
+  export type Output = ListDomainsOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListEnvironmentBlueprintConfigurations {
+  export type Input = ListEnvironmentBlueprintConfigurationsInput;
+  export type Output = ListEnvironmentBlueprintConfigurationsOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListMetadataGenerationRuns {
+  export type Input = ListMetadataGenerationRunsInput;
+  export type Output = ListMetadataGenerationRunsOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListRules {
+  export type Input = ListRulesInput;
+  export type Output = ListRulesOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace PutEnvironmentBlueprintConfiguration {
+  export type Input = PutEnvironmentBlueprintConfigurationInput;
+  export type Output = PutEnvironmentBlueprintConfigurationOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace StartDataSourceRun {
+  export type Input = StartDataSourceRunInput;
+  export type Output = StartDataSourceRunOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace StartMetadataGenerationRun {
+  export type Input = StartMetadataGenerationRunInput;
+  export type Output = StartMetadataGenerationRunOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateDataSource {
+  export type Input = UpdateDataSourceInput;
+  export type Output = UpdateDataSourceOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateDomain {
+  export type Input = UpdateDomainInput;
+  export type Output = UpdateDomainOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateDomainUnit {
+  export type Input = UpdateDomainUnitInput;
+  export type Output = UpdateDomainUnitOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateGlossary {
+  export type Input = UpdateGlossaryInput;
+  export type Output = UpdateGlossaryOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateGlossaryTerm {
+  export type Input = UpdateGlossaryTermInput;
+  export type Output = UpdateGlossaryTermOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateRule {
+  export type Input = UpdateRuleInput;
+  export type Output = UpdateRuleOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
     | ValidationException
     | CommonAwsError;
 }

@@ -18,6 +18,52 @@ export declare class DSQL extends AWSServiceClient {
   untagResource(
     input: UntagResourceInput,
   ): Effect.Effect<{}, ResourceNotFoundException | CommonAwsError>;
+  createCluster(
+    input: CreateClusterInput,
+  ): Effect.Effect<
+    CreateClusterOutput,
+    | ConflictException
+    | ServiceQuotaExceededException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteCluster(
+    input: DeleteClusterInput,
+  ): Effect.Effect<
+    DeleteClusterOutput,
+    ConflictException | ResourceNotFoundException | CommonAwsError
+  >;
+  getCluster(
+    input: GetClusterInput,
+  ): Effect.Effect<
+    GetClusterOutput,
+    ResourceNotFoundException | CommonAwsError
+  >;
+  getVpcEndpointServiceName(
+    input: GetVpcEndpointServiceNameInput,
+  ): Effect.Effect<
+    GetVpcEndpointServiceNameOutput,
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listClusters(
+    input: ListClustersInput,
+  ): Effect.Effect<
+    ListClustersOutput,
+    ResourceNotFoundException | CommonAwsError
+  >;
+  updateCluster(
+    input: UpdateClusterInput,
+  ): Effect.Effect<
+    UpdateClusterOutput,
+    | ConflictException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
 }
 
 export declare class Dsql extends DSQL {}
@@ -243,4 +289,56 @@ export declare namespace UntagResource {
   export type Input = UntagResourceInput;
   export type Output = {};
   export type Error = ResourceNotFoundException | CommonAwsError;
+}
+
+export declare namespace CreateCluster {
+  export type Input = CreateClusterInput;
+  export type Output = CreateClusterOutput;
+  export type Error =
+    | ConflictException
+    | ServiceQuotaExceededException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteCluster {
+  export type Input = DeleteClusterInput;
+  export type Output = DeleteClusterOutput;
+  export type Error =
+    | ConflictException
+    | ResourceNotFoundException
+    | CommonAwsError;
+}
+
+export declare namespace GetCluster {
+  export type Input = GetClusterInput;
+  export type Output = GetClusterOutput;
+  export type Error = ResourceNotFoundException | CommonAwsError;
+}
+
+export declare namespace GetVpcEndpointServiceName {
+  export type Input = GetVpcEndpointServiceNameInput;
+  export type Output = GetVpcEndpointServiceNameOutput;
+  export type Error =
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListClusters {
+  export type Input = ListClustersInput;
+  export type Output = ListClustersOutput;
+  export type Error = ResourceNotFoundException | CommonAwsError;
+}
+
+export declare namespace UpdateCluster {
+  export type Input = UpdateClusterInput;
+  export type Output = UpdateClusterOutput;
+  export type Error =
+    | ConflictException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
 }

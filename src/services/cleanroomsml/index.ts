@@ -75,6 +75,498 @@ export declare class CleanRoomsML extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
+  cancelTrainedModel(
+    input: CancelTrainedModelRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  cancelTrainedModelInferenceJob(
+    input: CancelTrainedModelInferenceJobRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createAudienceModel(
+    input: CreateAudienceModelRequest,
+  ): Effect.Effect<
+    CreateAudienceModelResponse,
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createConfiguredAudienceModel(
+    input: CreateConfiguredAudienceModelRequest,
+  ): Effect.Effect<
+    CreateConfiguredAudienceModelResponse,
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createConfiguredModelAlgorithm(
+    input: CreateConfiguredModelAlgorithmRequest,
+  ): Effect.Effect<
+    CreateConfiguredModelAlgorithmResponse,
+    | AccessDeniedException
+    | ConflictException
+    | ServiceQuotaExceededException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createConfiguredModelAlgorithmAssociation(
+    input: CreateConfiguredModelAlgorithmAssociationRequest,
+  ): Effect.Effect<
+    CreateConfiguredModelAlgorithmAssociationResponse,
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createMLInputChannel(
+    input: CreateMLInputChannelRequest,
+  ): Effect.Effect<
+    CreateMLInputChannelResponse,
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createTrainedModel(
+    input: CreateTrainedModelRequest,
+  ): Effect.Effect<
+    CreateTrainedModelResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServiceException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createTrainingDataset(
+    input: CreateTrainingDatasetRequest,
+  ): Effect.Effect<
+    CreateTrainingDatasetResponse,
+    | AccessDeniedException
+    | ConflictException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteAudienceGenerationJob(
+    input: DeleteAudienceGenerationJobRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteAudienceModel(
+    input: DeleteAudienceModelRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteConfiguredAudienceModel(
+    input: DeleteConfiguredAudienceModelRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteConfiguredAudienceModelPolicy(
+    input: DeleteConfiguredAudienceModelPolicyRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteConfiguredModelAlgorithm(
+    input: DeleteConfiguredModelAlgorithmRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteConfiguredModelAlgorithmAssociation(
+    input: DeleteConfiguredModelAlgorithmAssociationRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteMLConfiguration(
+    input: DeleteMLConfigurationRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteMLInputChannelData(
+    input: DeleteMLInputChannelDataRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteTrainedModelOutput(
+    input: DeleteTrainedModelOutputRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteTrainingDataset(
+    input: DeleteTrainingDatasetRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getAudienceGenerationJob(
+    input: GetAudienceGenerationJobRequest,
+  ): Effect.Effect<
+    GetAudienceGenerationJobResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getAudienceModel(
+    input: GetAudienceModelRequest,
+  ): Effect.Effect<
+    GetAudienceModelResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getCollaborationConfiguredModelAlgorithmAssociation(
+    input: GetCollaborationConfiguredModelAlgorithmAssociationRequest,
+  ): Effect.Effect<
+    GetCollaborationConfiguredModelAlgorithmAssociationResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getCollaborationMLInputChannel(
+    input: GetCollaborationMLInputChannelRequest,
+  ): Effect.Effect<
+    GetCollaborationMLInputChannelResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getCollaborationTrainedModel(
+    input: GetCollaborationTrainedModelRequest,
+  ): Effect.Effect<
+    GetCollaborationTrainedModelResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getConfiguredAudienceModel(
+    input: GetConfiguredAudienceModelRequest,
+  ): Effect.Effect<
+    GetConfiguredAudienceModelResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getConfiguredAudienceModelPolicy(
+    input: GetConfiguredAudienceModelPolicyRequest,
+  ): Effect.Effect<
+    GetConfiguredAudienceModelPolicyResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getConfiguredModelAlgorithm(
+    input: GetConfiguredModelAlgorithmRequest,
+  ): Effect.Effect<
+    GetConfiguredModelAlgorithmResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getConfiguredModelAlgorithmAssociation(
+    input: GetConfiguredModelAlgorithmAssociationRequest,
+  ): Effect.Effect<
+    GetConfiguredModelAlgorithmAssociationResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getMLConfiguration(
+    input: GetMLConfigurationRequest,
+  ): Effect.Effect<
+    GetMLConfigurationResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getMLInputChannel(
+    input: GetMLInputChannelRequest,
+  ): Effect.Effect<
+    GetMLInputChannelResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getTrainedModel(
+    input: GetTrainedModelRequest,
+  ): Effect.Effect<
+    GetTrainedModelResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getTrainedModelInferenceJob(
+    input: GetTrainedModelInferenceJobRequest,
+  ): Effect.Effect<
+    GetTrainedModelInferenceJobResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getTrainingDataset(
+    input: GetTrainingDatasetRequest,
+  ): Effect.Effect<
+    GetTrainingDatasetResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listAudienceExportJobs(
+    input: ListAudienceExportJobsRequest,
+  ): Effect.Effect<
+    ListAudienceExportJobsResponse,
+    AccessDeniedException | ValidationException | CommonAwsError
+  >;
+  listAudienceGenerationJobs(
+    input: ListAudienceGenerationJobsRequest,
+  ): Effect.Effect<
+    ListAudienceGenerationJobsResponse,
+    AccessDeniedException | ValidationException | CommonAwsError
+  >;
+  listAudienceModels(
+    input: ListAudienceModelsRequest,
+  ): Effect.Effect<
+    ListAudienceModelsResponse,
+    AccessDeniedException | ValidationException | CommonAwsError
+  >;
+  listConfiguredAudienceModels(
+    input: ListConfiguredAudienceModelsRequest,
+  ): Effect.Effect<
+    ListConfiguredAudienceModelsResponse,
+    AccessDeniedException | ValidationException | CommonAwsError
+  >;
+  listConfiguredModelAlgorithmAssociations(
+    input: ListConfiguredModelAlgorithmAssociationsRequest,
+  ): Effect.Effect<
+    ListConfiguredModelAlgorithmAssociationsResponse,
+    | AccessDeniedException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listConfiguredModelAlgorithms(
+    input: ListConfiguredModelAlgorithmsRequest,
+  ): Effect.Effect<
+    ListConfiguredModelAlgorithmsResponse,
+    AccessDeniedException | ValidationException | CommonAwsError
+  >;
+  listMLInputChannels(
+    input: ListMLInputChannelsRequest,
+  ): Effect.Effect<
+    ListMLInputChannelsResponse,
+    | AccessDeniedException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listTrainedModelInferenceJobs(
+    input: ListTrainedModelInferenceJobsRequest,
+  ): Effect.Effect<
+    ListTrainedModelInferenceJobsResponse,
+    | AccessDeniedException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listTrainedModelVersions(
+    input: ListTrainedModelVersionsRequest,
+  ): Effect.Effect<
+    ListTrainedModelVersionsResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listTrainedModels(
+    input: ListTrainedModelsRequest,
+  ): Effect.Effect<
+    ListTrainedModelsResponse,
+    | AccessDeniedException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listTrainingDatasets(
+    input: ListTrainingDatasetsRequest,
+  ): Effect.Effect<
+    ListTrainingDatasetsResponse,
+    AccessDeniedException | ValidationException | CommonAwsError
+  >;
+  putConfiguredAudienceModelPolicy(
+    input: PutConfiguredAudienceModelPolicyRequest,
+  ): Effect.Effect<
+    PutConfiguredAudienceModelPolicyResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  putMLConfiguration(
+    input: PutMLConfigurationRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  startAudienceExportJob(
+    input: StartAudienceExportJobRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ValidationException
+    | CommonAwsError
+  >;
+  startAudienceGenerationJob(
+    input: StartAudienceGenerationJobRequest,
+  ): Effect.Effect<
+    StartAudienceGenerationJobResponse,
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  startTrainedModelExportJob(
+    input: StartTrainedModelExportJobRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  startTrainedModelInferenceJob(
+    input: StartTrainedModelInferenceJobRequest,
+  ): Effect.Effect<
+    StartTrainedModelInferenceJobResponse,
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateConfiguredAudienceModel(
+    input: UpdateConfiguredAudienceModelRequest,
+  ): Effect.Effect<
+    UpdateConfiguredAudienceModelResponse,
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
 }
 
 export declare class Cleanroomsml extends CleanRoomsML {}
@@ -1601,6 +2093,563 @@ export declare namespace UntagResource {
   export type Output = UntagResourceResponse;
   export type Error =
     | AccessDeniedException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CancelTrainedModel {
+  export type Input = CancelTrainedModelRequest;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CancelTrainedModelInferenceJob {
+  export type Input = CancelTrainedModelInferenceJobRequest;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateAudienceModel {
+  export type Input = CreateAudienceModelRequest;
+  export type Output = CreateAudienceModelResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateConfiguredAudienceModel {
+  export type Input = CreateConfiguredAudienceModelRequest;
+  export type Output = CreateConfiguredAudienceModelResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateConfiguredModelAlgorithm {
+  export type Input = CreateConfiguredModelAlgorithmRequest;
+  export type Output = CreateConfiguredModelAlgorithmResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ServiceQuotaExceededException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateConfiguredModelAlgorithmAssociation {
+  export type Input = CreateConfiguredModelAlgorithmAssociationRequest;
+  export type Output = CreateConfiguredModelAlgorithmAssociationResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateMLInputChannel {
+  export type Input = CreateMLInputChannelRequest;
+  export type Output = CreateMLInputChannelResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateTrainedModel {
+  export type Input = CreateTrainedModelRequest;
+  export type Output = CreateTrainedModelResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServiceException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateTrainingDataset {
+  export type Input = CreateTrainingDatasetRequest;
+  export type Output = CreateTrainingDatasetResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteAudienceGenerationJob {
+  export type Input = DeleteAudienceGenerationJobRequest;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteAudienceModel {
+  export type Input = DeleteAudienceModelRequest;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteConfiguredAudienceModel {
+  export type Input = DeleteConfiguredAudienceModelRequest;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteConfiguredAudienceModelPolicy {
+  export type Input = DeleteConfiguredAudienceModelPolicyRequest;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteConfiguredModelAlgorithm {
+  export type Input = DeleteConfiguredModelAlgorithmRequest;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteConfiguredModelAlgorithmAssociation {
+  export type Input = DeleteConfiguredModelAlgorithmAssociationRequest;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteMLConfiguration {
+  export type Input = DeleteMLConfigurationRequest;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteMLInputChannelData {
+  export type Input = DeleteMLInputChannelDataRequest;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteTrainedModelOutput {
+  export type Input = DeleteTrainedModelOutputRequest;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteTrainingDataset {
+  export type Input = DeleteTrainingDatasetRequest;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetAudienceGenerationJob {
+  export type Input = GetAudienceGenerationJobRequest;
+  export type Output = GetAudienceGenerationJobResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetAudienceModel {
+  export type Input = GetAudienceModelRequest;
+  export type Output = GetAudienceModelResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetCollaborationConfiguredModelAlgorithmAssociation {
+  export type Input =
+    GetCollaborationConfiguredModelAlgorithmAssociationRequest;
+  export type Output =
+    GetCollaborationConfiguredModelAlgorithmAssociationResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetCollaborationMLInputChannel {
+  export type Input = GetCollaborationMLInputChannelRequest;
+  export type Output = GetCollaborationMLInputChannelResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetCollaborationTrainedModel {
+  export type Input = GetCollaborationTrainedModelRequest;
+  export type Output = GetCollaborationTrainedModelResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetConfiguredAudienceModel {
+  export type Input = GetConfiguredAudienceModelRequest;
+  export type Output = GetConfiguredAudienceModelResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetConfiguredAudienceModelPolicy {
+  export type Input = GetConfiguredAudienceModelPolicyRequest;
+  export type Output = GetConfiguredAudienceModelPolicyResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetConfiguredModelAlgorithm {
+  export type Input = GetConfiguredModelAlgorithmRequest;
+  export type Output = GetConfiguredModelAlgorithmResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetConfiguredModelAlgorithmAssociation {
+  export type Input = GetConfiguredModelAlgorithmAssociationRequest;
+  export type Output = GetConfiguredModelAlgorithmAssociationResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetMLConfiguration {
+  export type Input = GetMLConfigurationRequest;
+  export type Output = GetMLConfigurationResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetMLInputChannel {
+  export type Input = GetMLInputChannelRequest;
+  export type Output = GetMLInputChannelResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetTrainedModel {
+  export type Input = GetTrainedModelRequest;
+  export type Output = GetTrainedModelResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetTrainedModelInferenceJob {
+  export type Input = GetTrainedModelInferenceJobRequest;
+  export type Output = GetTrainedModelInferenceJobResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetTrainingDataset {
+  export type Input = GetTrainingDatasetRequest;
+  export type Output = GetTrainingDatasetResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListAudienceExportJobs {
+  export type Input = ListAudienceExportJobsRequest;
+  export type Output = ListAudienceExportJobsResponse;
+  export type Error =
+    | AccessDeniedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListAudienceGenerationJobs {
+  export type Input = ListAudienceGenerationJobsRequest;
+  export type Output = ListAudienceGenerationJobsResponse;
+  export type Error =
+    | AccessDeniedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListAudienceModels {
+  export type Input = ListAudienceModelsRequest;
+  export type Output = ListAudienceModelsResponse;
+  export type Error =
+    | AccessDeniedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListConfiguredAudienceModels {
+  export type Input = ListConfiguredAudienceModelsRequest;
+  export type Output = ListConfiguredAudienceModelsResponse;
+  export type Error =
+    | AccessDeniedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListConfiguredModelAlgorithmAssociations {
+  export type Input = ListConfiguredModelAlgorithmAssociationsRequest;
+  export type Output = ListConfiguredModelAlgorithmAssociationsResponse;
+  export type Error =
+    | AccessDeniedException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListConfiguredModelAlgorithms {
+  export type Input = ListConfiguredModelAlgorithmsRequest;
+  export type Output = ListConfiguredModelAlgorithmsResponse;
+  export type Error =
+    | AccessDeniedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListMLInputChannels {
+  export type Input = ListMLInputChannelsRequest;
+  export type Output = ListMLInputChannelsResponse;
+  export type Error =
+    | AccessDeniedException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListTrainedModelInferenceJobs {
+  export type Input = ListTrainedModelInferenceJobsRequest;
+  export type Output = ListTrainedModelInferenceJobsResponse;
+  export type Error =
+    | AccessDeniedException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListTrainedModelVersions {
+  export type Input = ListTrainedModelVersionsRequest;
+  export type Output = ListTrainedModelVersionsResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListTrainedModels {
+  export type Input = ListTrainedModelsRequest;
+  export type Output = ListTrainedModelsResponse;
+  export type Error =
+    | AccessDeniedException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListTrainingDatasets {
+  export type Input = ListTrainingDatasetsRequest;
+  export type Output = ListTrainingDatasetsResponse;
+  export type Error =
+    | AccessDeniedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace PutConfiguredAudienceModelPolicy {
+  export type Input = PutConfiguredAudienceModelPolicyRequest;
+  export type Output = PutConfiguredAudienceModelPolicyResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace PutMLConfiguration {
+  export type Input = PutMLConfigurationRequest;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace StartAudienceExportJob {
+  export type Input = StartAudienceExportJobRequest;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace StartAudienceGenerationJob {
+  export type Input = StartAudienceGenerationJobRequest;
+  export type Output = StartAudienceGenerationJobResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace StartTrainedModelExportJob {
+  export type Input = StartTrainedModelExportJobRequest;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace StartTrainedModelInferenceJob {
+  export type Input = StartTrainedModelInferenceJobRequest;
+  export type Output = StartTrainedModelInferenceJobResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateConfiguredAudienceModel {
+  export type Input = UpdateConfiguredAudienceModelRequest;
+  export type Output = UpdateConfiguredAudienceModelResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError;

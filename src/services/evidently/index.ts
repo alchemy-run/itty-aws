@@ -39,6 +39,361 @@ export declare class Evidently extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
+  batchEvaluateFeature(
+    input: BatchEvaluateFeatureRequest,
+  ): Effect.Effect<
+    BatchEvaluateFeatureResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createExperiment(
+    input: CreateExperimentRequest,
+  ): Effect.Effect<
+    CreateExperimentResponse,
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createFeature(
+    input: CreateFeatureRequest,
+  ): Effect.Effect<
+    CreateFeatureResponse,
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createLaunch(
+    input: CreateLaunchRequest,
+  ): Effect.Effect<
+    CreateLaunchResponse,
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createProject(
+    input: CreateProjectRequest,
+  ): Effect.Effect<
+    CreateProjectResponse,
+    | AccessDeniedException
+    | ConflictException
+    | ServiceQuotaExceededException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createSegment(
+    input: CreateSegmentRequest,
+  ): Effect.Effect<
+    CreateSegmentResponse,
+    | AccessDeniedException
+    | ConflictException
+    | ServiceQuotaExceededException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteExperiment(
+    input: DeleteExperimentRequest,
+  ): Effect.Effect<
+    DeleteExperimentResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteFeature(
+    input: DeleteFeatureRequest,
+  ): Effect.Effect<
+    DeleteFeatureResponse,
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteLaunch(
+    input: DeleteLaunchRequest,
+  ): Effect.Effect<
+    DeleteLaunchResponse,
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteProject(
+    input: DeleteProjectRequest,
+  ): Effect.Effect<
+    DeleteProjectResponse,
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteSegment(
+    input: DeleteSegmentRequest,
+  ): Effect.Effect<
+    DeleteSegmentResponse,
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  evaluateFeature(
+    input: EvaluateFeatureRequest,
+  ): Effect.Effect<
+    EvaluateFeatureResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getExperiment(
+    input: GetExperimentRequest,
+  ): Effect.Effect<
+    GetExperimentResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getExperimentResults(
+    input: GetExperimentResultsRequest,
+  ): Effect.Effect<
+    GetExperimentResultsResponse,
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getFeature(
+    input: GetFeatureRequest,
+  ): Effect.Effect<
+    GetFeatureResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getLaunch(
+    input: GetLaunchRequest,
+  ): Effect.Effect<
+    GetLaunchResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getProject(
+    input: GetProjectRequest,
+  ): Effect.Effect<
+    GetProjectResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getSegment(
+    input: GetSegmentRequest,
+  ): Effect.Effect<
+    GetSegmentResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listExperiments(
+    input: ListExperimentsRequest,
+  ): Effect.Effect<
+    ListExperimentsResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listFeatures(
+    input: ListFeaturesRequest,
+  ): Effect.Effect<
+    ListFeaturesResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listLaunches(
+    input: ListLaunchesRequest,
+  ): Effect.Effect<
+    ListLaunchesResponse,
+    | AccessDeniedException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listProjects(
+    input: ListProjectsRequest,
+  ): Effect.Effect<
+    ListProjectsResponse,
+    | AccessDeniedException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listSegmentReferences(
+    input: ListSegmentReferencesRequest,
+  ): Effect.Effect<
+    ListSegmentReferencesResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listSegments(
+    input: ListSegmentsRequest,
+  ): Effect.Effect<
+    ListSegmentsResponse,
+    | AccessDeniedException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  putProjectEvents(
+    input: PutProjectEventsRequest,
+  ): Effect.Effect<
+    PutProjectEventsResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  startExperiment(
+    input: StartExperimentRequest,
+  ): Effect.Effect<
+    StartExperimentResponse,
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  startLaunch(
+    input: StartLaunchRequest,
+  ): Effect.Effect<
+    StartLaunchResponse,
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  stopExperiment(
+    input: StopExperimentRequest,
+  ): Effect.Effect<
+    StopExperimentResponse,
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  stopLaunch(
+    input: StopLaunchRequest,
+  ): Effect.Effect<
+    StopLaunchResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateExperiment(
+    input: UpdateExperimentRequest,
+  ): Effect.Effect<
+    UpdateExperimentResponse,
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateFeature(
+    input: UpdateFeatureRequest,
+  ): Effect.Effect<
+    UpdateFeatureResponse,
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateLaunch(
+    input: UpdateLaunchRequest,
+  ): Effect.Effect<
+    UpdateLaunchResponse,
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateProject(
+    input: UpdateProjectRequest,
+  ): Effect.Effect<
+    UpdateProjectResponse,
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateProjectDataDelivery(
+    input: UpdateProjectDataDeliveryRequest,
+  ): Effect.Effect<
+    UpdateProjectDataDeliveryResponse,
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ValidationException
+    | CommonAwsError
+  >;
 }
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
@@ -922,6 +1277,395 @@ export declare namespace UntagResource {
   export type Error =
     | ConflictException
     | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace BatchEvaluateFeature {
+  export type Input = BatchEvaluateFeatureRequest;
+  export type Output = BatchEvaluateFeatureResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateExperiment {
+  export type Input = CreateExperimentRequest;
+  export type Output = CreateExperimentResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateFeature {
+  export type Input = CreateFeatureRequest;
+  export type Output = CreateFeatureResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateLaunch {
+  export type Input = CreateLaunchRequest;
+  export type Output = CreateLaunchResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateProject {
+  export type Input = CreateProjectRequest;
+  export type Output = CreateProjectResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ServiceQuotaExceededException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateSegment {
+  export type Input = CreateSegmentRequest;
+  export type Output = CreateSegmentResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ServiceQuotaExceededException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteExperiment {
+  export type Input = DeleteExperimentRequest;
+  export type Output = DeleteExperimentResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteFeature {
+  export type Input = DeleteFeatureRequest;
+  export type Output = DeleteFeatureResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteLaunch {
+  export type Input = DeleteLaunchRequest;
+  export type Output = DeleteLaunchResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteProject {
+  export type Input = DeleteProjectRequest;
+  export type Output = DeleteProjectResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteSegment {
+  export type Input = DeleteSegmentRequest;
+  export type Output = DeleteSegmentResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace EvaluateFeature {
+  export type Input = EvaluateFeatureRequest;
+  export type Output = EvaluateFeatureResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetExperiment {
+  export type Input = GetExperimentRequest;
+  export type Output = GetExperimentResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetExperimentResults {
+  export type Input = GetExperimentResultsRequest;
+  export type Output = GetExperimentResultsResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetFeature {
+  export type Input = GetFeatureRequest;
+  export type Output = GetFeatureResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetLaunch {
+  export type Input = GetLaunchRequest;
+  export type Output = GetLaunchResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetProject {
+  export type Input = GetProjectRequest;
+  export type Output = GetProjectResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetSegment {
+  export type Input = GetSegmentRequest;
+  export type Output = GetSegmentResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListExperiments {
+  export type Input = ListExperimentsRequest;
+  export type Output = ListExperimentsResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListFeatures {
+  export type Input = ListFeaturesRequest;
+  export type Output = ListFeaturesResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListLaunches {
+  export type Input = ListLaunchesRequest;
+  export type Output = ListLaunchesResponse;
+  export type Error =
+    | AccessDeniedException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListProjects {
+  export type Input = ListProjectsRequest;
+  export type Output = ListProjectsResponse;
+  export type Error =
+    | AccessDeniedException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListSegmentReferences {
+  export type Input = ListSegmentReferencesRequest;
+  export type Output = ListSegmentReferencesResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListSegments {
+  export type Input = ListSegmentsRequest;
+  export type Output = ListSegmentsResponse;
+  export type Error =
+    | AccessDeniedException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace PutProjectEvents {
+  export type Input = PutProjectEventsRequest;
+  export type Output = PutProjectEventsResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace StartExperiment {
+  export type Input = StartExperimentRequest;
+  export type Output = StartExperimentResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace StartLaunch {
+  export type Input = StartLaunchRequest;
+  export type Output = StartLaunchResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace StopExperiment {
+  export type Input = StopExperimentRequest;
+  export type Output = StopExperimentResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace StopLaunch {
+  export type Input = StopLaunchRequest;
+  export type Output = StopLaunchResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateExperiment {
+  export type Input = UpdateExperimentRequest;
+  export type Output = UpdateExperimentResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateFeature {
+  export type Input = UpdateFeatureRequest;
+  export type Output = UpdateFeatureResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateLaunch {
+  export type Input = UpdateLaunchRequest;
+  export type Output = UpdateLaunchResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateProject {
+  export type Input = UpdateProjectRequest;
+  export type Output = UpdateProjectResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateProjectDataDelivery {
+  export type Input = UpdateProjectDataDeliveryRequest;
+  export type Output = UpdateProjectDataDeliveryResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
     | ValidationException
     | CommonAwsError;
 }

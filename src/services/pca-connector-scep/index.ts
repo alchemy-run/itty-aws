@@ -36,6 +36,111 @@ export declare class PcaConnectorScep extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
+  createChallenge(
+    input: CreateChallengeRequest,
+  ): Effect.Effect<
+    CreateChallengeResponse,
+    | AccessDeniedException
+    | BadRequestException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createConnector(
+    input: CreateConnectorRequest,
+  ): Effect.Effect<
+    CreateConnectorResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteChallenge(
+    input: DeleteChallengeRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteConnector(
+    input: DeleteConnectorRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getChallengeMetadata(
+    input: GetChallengeMetadataRequest,
+  ): Effect.Effect<
+    GetChallengeMetadataResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getChallengePassword(
+    input: GetChallengePasswordRequest,
+  ): Effect.Effect<
+    GetChallengePasswordResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getConnector(
+    input: GetConnectorRequest,
+  ): Effect.Effect<
+    GetConnectorResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listChallengeMetadata(
+    input: ListChallengeMetadataRequest,
+  ): Effect.Effect<
+    ListChallengeMetadataResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listConnectors(
+    input: ListConnectorsRequest,
+  ): Effect.Effect<
+    ListConnectorsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
 }
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
@@ -285,6 +390,120 @@ export declare namespace UntagResource {
     | AccessDeniedException
     | InternalServerException
     | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateChallenge {
+  export type Input = CreateChallengeRequest;
+  export type Output = CreateChallengeResponse;
+  export type Error =
+    | AccessDeniedException
+    | BadRequestException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateConnector {
+  export type Input = CreateConnectorRequest;
+  export type Output = CreateConnectorResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteChallenge {
+  export type Input = DeleteChallengeRequest;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteConnector {
+  export type Input = DeleteConnectorRequest;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetChallengeMetadata {
+  export type Input = GetChallengeMetadataRequest;
+  export type Output = GetChallengeMetadataResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetChallengePassword {
+  export type Input = GetChallengePasswordRequest;
+  export type Output = GetChallengePasswordResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetConnector {
+  export type Input = GetConnectorRequest;
+  export type Output = GetConnectorResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListChallengeMetadata {
+  export type Input = ListChallengeMetadataRequest;
+  export type Output = ListChallengeMetadataResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListConnectors {
+  export type Input = ListConnectorsRequest;
+  export type Output = ListConnectorsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
     | ThrottlingException
     | ValidationException
     | CommonAwsError;

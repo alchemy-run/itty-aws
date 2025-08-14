@@ -131,6 +131,521 @@ export declare class IoTFleetWise extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
+  associateVehicleFleet(
+    input: AssociateVehicleFleetRequest,
+  ): Effect.Effect<
+    AssociateVehicleFleetResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | LimitExceededException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createCampaign(
+    input: CreateCampaignRequest,
+  ): Effect.Effect<
+    CreateCampaignResponse,
+    | AccessDeniedException
+    | ConflictException
+    | LimitExceededException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createDecoderManifest(
+    input: CreateDecoderManifestRequest,
+  ): Effect.Effect<
+    CreateDecoderManifestResponse,
+    | AccessDeniedException
+    | ConflictException
+    | DecoderManifestValidationException
+    | LimitExceededException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createFleet(
+    input: CreateFleetRequest,
+  ): Effect.Effect<
+    CreateFleetResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | LimitExceededException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createModelManifest(
+    input: CreateModelManifestRequest,
+  ): Effect.Effect<
+    CreateModelManifestResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InvalidSignalsException
+    | LimitExceededException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createSignalCatalog(
+    input: CreateSignalCatalogRequest,
+  ): Effect.Effect<
+    CreateSignalCatalogResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InvalidNodeException
+    | InvalidSignalsException
+    | LimitExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createStateTemplate(
+    input: CreateStateTemplateRequest,
+  ): Effect.Effect<
+    CreateStateTemplateResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | InvalidSignalsException
+    | LimitExceededException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createVehicle(
+    input: CreateVehicleRequest,
+  ): Effect.Effect<
+    CreateVehicleResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | LimitExceededException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteCampaign(
+    input: DeleteCampaignRequest,
+  ): Effect.Effect<
+    DeleteCampaignResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteDecoderManifest(
+    input: DeleteDecoderManifestRequest,
+  ): Effect.Effect<
+    DeleteDecoderManifestResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteFleet(
+    input: DeleteFleetRequest,
+  ): Effect.Effect<
+    DeleteFleetResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteModelManifest(
+    input: DeleteModelManifestRequest,
+  ): Effect.Effect<
+    DeleteModelManifestResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteSignalCatalog(
+    input: DeleteSignalCatalogRequest,
+  ): Effect.Effect<
+    DeleteSignalCatalogResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteStateTemplate(
+    input: DeleteStateTemplateRequest,
+  ): Effect.Effect<
+    DeleteStateTemplateResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteVehicle(
+    input: DeleteVehicleRequest,
+  ): Effect.Effect<
+    DeleteVehicleResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  disassociateVehicleFleet(
+    input: DisassociateVehicleFleetRequest,
+  ): Effect.Effect<
+    DisassociateVehicleFleetResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getCampaign(
+    input: GetCampaignRequest,
+  ): Effect.Effect<
+    GetCampaignResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getDecoderManifest(
+    input: GetDecoderManifestRequest,
+  ): Effect.Effect<
+    GetDecoderManifestResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getFleet(
+    input: GetFleetRequest,
+  ): Effect.Effect<
+    GetFleetResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getModelManifest(
+    input: GetModelManifestRequest,
+  ): Effect.Effect<
+    GetModelManifestResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getSignalCatalog(
+    input: GetSignalCatalogRequest,
+  ): Effect.Effect<
+    GetSignalCatalogResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getStateTemplate(
+    input: GetStateTemplateRequest,
+  ): Effect.Effect<
+    GetStateTemplateResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getVehicle(
+    input: GetVehicleRequest,
+  ): Effect.Effect<
+    GetVehicleResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  importDecoderManifest(
+    input: ImportDecoderManifestRequest,
+  ): Effect.Effect<
+    ImportDecoderManifestResponse,
+    | AccessDeniedException
+    | ConflictException
+    | DecoderManifestValidationException
+    | InvalidSignalsException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  importSignalCatalog(
+    input: ImportSignalCatalogRequest,
+  ): Effect.Effect<
+    ImportSignalCatalogResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | InvalidSignalsException
+    | LimitExceededException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listCampaigns(
+    input: ListCampaignsRequest,
+  ): Effect.Effect<
+    ListCampaignsResponse,
+    | AccessDeniedException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listDecoderManifestNetworkInterfaces(
+    input: ListDecoderManifestNetworkInterfacesRequest,
+  ): Effect.Effect<
+    ListDecoderManifestNetworkInterfacesResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listDecoderManifestSignals(
+    input: ListDecoderManifestSignalsRequest,
+  ): Effect.Effect<
+    ListDecoderManifestSignalsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listDecoderManifests(
+    input: ListDecoderManifestsRequest,
+  ): Effect.Effect<
+    ListDecoderManifestsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listFleets(
+    input: ListFleetsRequest,
+  ): Effect.Effect<
+    ListFleetsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listFleetsForVehicle(
+    input: ListFleetsForVehicleRequest,
+  ): Effect.Effect<
+    ListFleetsForVehicleResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listModelManifestNodes(
+    input: ListModelManifestNodesRequest,
+  ): Effect.Effect<
+    ListModelManifestNodesResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | LimitExceededException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listModelManifests(
+    input: ListModelManifestsRequest,
+  ): Effect.Effect<
+    ListModelManifestsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listSignalCatalogNodes(
+    input: ListSignalCatalogNodesRequest,
+  ): Effect.Effect<
+    ListSignalCatalogNodesResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | LimitExceededException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listSignalCatalogs(
+    input: ListSignalCatalogsRequest,
+  ): Effect.Effect<
+    ListSignalCatalogsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listStateTemplates(
+    input: ListStateTemplatesRequest,
+  ): Effect.Effect<
+    ListStateTemplatesResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listVehicles(
+    input: ListVehiclesRequest,
+  ): Effect.Effect<
+    ListVehiclesResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listVehiclesInFleet(
+    input: ListVehiclesInFleetRequest,
+  ): Effect.Effect<
+    ListVehiclesInFleetResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateCampaign(
+    input: UpdateCampaignRequest,
+  ): Effect.Effect<
+    UpdateCampaignResponse,
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateDecoderManifest(
+    input: UpdateDecoderManifestRequest,
+  ): Effect.Effect<
+    UpdateDecoderManifestResponse,
+    | AccessDeniedException
+    | ConflictException
+    | DecoderManifestValidationException
+    | LimitExceededException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateFleet(
+    input: UpdateFleetRequest,
+  ): Effect.Effect<
+    UpdateFleetResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateModelManifest(
+    input: UpdateModelManifestRequest,
+  ): Effect.Effect<
+    UpdateModelManifestResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | InvalidSignalsException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateSignalCatalog(
+    input: UpdateSignalCatalogRequest,
+  ): Effect.Effect<
+    UpdateSignalCatalogResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | InvalidNodeException
+    | InvalidSignalsException
+    | LimitExceededException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateStateTemplate(
+    input: UpdateStateTemplateRequest,
+  ): Effect.Effect<
+    UpdateStateTemplateResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | InvalidSignalsException
+    | LimitExceededException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateVehicle(
+    input: UpdateVehicleRequest,
+  ): Effect.Effect<
+    UpdateVehicleResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | LimitExceededException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
 }
 
 export declare class Iotfleetwise extends IoTFleetWise {}
@@ -1704,6 +2219,566 @@ export declare namespace UntagResource {
   export type Error =
     | AccessDeniedException
     | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace AssociateVehicleFleet {
+  export type Input = AssociateVehicleFleetRequest;
+  export type Output = AssociateVehicleFleetResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | LimitExceededException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateCampaign {
+  export type Input = CreateCampaignRequest;
+  export type Output = CreateCampaignResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | LimitExceededException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateDecoderManifest {
+  export type Input = CreateDecoderManifestRequest;
+  export type Output = CreateDecoderManifestResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | DecoderManifestValidationException
+    | LimitExceededException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateFleet {
+  export type Input = CreateFleetRequest;
+  export type Output = CreateFleetResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | LimitExceededException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateModelManifest {
+  export type Input = CreateModelManifestRequest;
+  export type Output = CreateModelManifestResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InvalidSignalsException
+    | LimitExceededException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateSignalCatalog {
+  export type Input = CreateSignalCatalogRequest;
+  export type Output = CreateSignalCatalogResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InvalidNodeException
+    | InvalidSignalsException
+    | LimitExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateStateTemplate {
+  export type Input = CreateStateTemplateRequest;
+  export type Output = CreateStateTemplateResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | InvalidSignalsException
+    | LimitExceededException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateVehicle {
+  export type Input = CreateVehicleRequest;
+  export type Output = CreateVehicleResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | LimitExceededException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteCampaign {
+  export type Input = DeleteCampaignRequest;
+  export type Output = DeleteCampaignResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteDecoderManifest {
+  export type Input = DeleteDecoderManifestRequest;
+  export type Output = DeleteDecoderManifestResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteFleet {
+  export type Input = DeleteFleetRequest;
+  export type Output = DeleteFleetResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteModelManifest {
+  export type Input = DeleteModelManifestRequest;
+  export type Output = DeleteModelManifestResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteSignalCatalog {
+  export type Input = DeleteSignalCatalogRequest;
+  export type Output = DeleteSignalCatalogResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteStateTemplate {
+  export type Input = DeleteStateTemplateRequest;
+  export type Output = DeleteStateTemplateResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteVehicle {
+  export type Input = DeleteVehicleRequest;
+  export type Output = DeleteVehicleResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DisassociateVehicleFleet {
+  export type Input = DisassociateVehicleFleetRequest;
+  export type Output = DisassociateVehicleFleetResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetCampaign {
+  export type Input = GetCampaignRequest;
+  export type Output = GetCampaignResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetDecoderManifest {
+  export type Input = GetDecoderManifestRequest;
+  export type Output = GetDecoderManifestResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetFleet {
+  export type Input = GetFleetRequest;
+  export type Output = GetFleetResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetModelManifest {
+  export type Input = GetModelManifestRequest;
+  export type Output = GetModelManifestResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetSignalCatalog {
+  export type Input = GetSignalCatalogRequest;
+  export type Output = GetSignalCatalogResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetStateTemplate {
+  export type Input = GetStateTemplateRequest;
+  export type Output = GetStateTemplateResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetVehicle {
+  export type Input = GetVehicleRequest;
+  export type Output = GetVehicleResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ImportDecoderManifest {
+  export type Input = ImportDecoderManifestRequest;
+  export type Output = ImportDecoderManifestResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | DecoderManifestValidationException
+    | InvalidSignalsException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ImportSignalCatalog {
+  export type Input = ImportSignalCatalogRequest;
+  export type Output = ImportSignalCatalogResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | InvalidSignalsException
+    | LimitExceededException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListCampaigns {
+  export type Input = ListCampaignsRequest;
+  export type Output = ListCampaignsResponse;
+  export type Error =
+    | AccessDeniedException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListDecoderManifestNetworkInterfaces {
+  export type Input = ListDecoderManifestNetworkInterfacesRequest;
+  export type Output = ListDecoderManifestNetworkInterfacesResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListDecoderManifestSignals {
+  export type Input = ListDecoderManifestSignalsRequest;
+  export type Output = ListDecoderManifestSignalsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListDecoderManifests {
+  export type Input = ListDecoderManifestsRequest;
+  export type Output = ListDecoderManifestsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListFleets {
+  export type Input = ListFleetsRequest;
+  export type Output = ListFleetsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListFleetsForVehicle {
+  export type Input = ListFleetsForVehicleRequest;
+  export type Output = ListFleetsForVehicleResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListModelManifestNodes {
+  export type Input = ListModelManifestNodesRequest;
+  export type Output = ListModelManifestNodesResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | LimitExceededException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListModelManifests {
+  export type Input = ListModelManifestsRequest;
+  export type Output = ListModelManifestsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListSignalCatalogNodes {
+  export type Input = ListSignalCatalogNodesRequest;
+  export type Output = ListSignalCatalogNodesResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | LimitExceededException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListSignalCatalogs {
+  export type Input = ListSignalCatalogsRequest;
+  export type Output = ListSignalCatalogsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListStateTemplates {
+  export type Input = ListStateTemplatesRequest;
+  export type Output = ListStateTemplatesResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListVehicles {
+  export type Input = ListVehiclesRequest;
+  export type Output = ListVehiclesResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListVehiclesInFleet {
+  export type Input = ListVehiclesInFleetRequest;
+  export type Output = ListVehiclesInFleetResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateCampaign {
+  export type Input = UpdateCampaignRequest;
+  export type Output = UpdateCampaignResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateDecoderManifest {
+  export type Input = UpdateDecoderManifestRequest;
+  export type Output = UpdateDecoderManifestResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | DecoderManifestValidationException
+    | LimitExceededException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateFleet {
+  export type Input = UpdateFleetRequest;
+  export type Output = UpdateFleetResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateModelManifest {
+  export type Input = UpdateModelManifestRequest;
+  export type Output = UpdateModelManifestResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | InvalidSignalsException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateSignalCatalog {
+  export type Input = UpdateSignalCatalogRequest;
+  export type Output = UpdateSignalCatalogResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | InvalidNodeException
+    | InvalidSignalsException
+    | LimitExceededException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateStateTemplate {
+  export type Input = UpdateStateTemplateRequest;
+  export type Output = UpdateStateTemplateResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | InvalidSignalsException
+    | LimitExceededException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateVehicle {
+  export type Input = UpdateVehicleRequest;
+  export type Output = UpdateVehicleResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | LimitExceededException
     | ResourceNotFoundException
     | ThrottlingException
     | ValidationException

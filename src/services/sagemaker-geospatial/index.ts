@@ -36,6 +36,194 @@ export declare class SageMakerGeospatial extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
+  deleteEarthObservationJob(
+    input: DeleteEarthObservationJobInput,
+  ): Effect.Effect<
+    DeleteEarthObservationJobOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteVectorEnrichmentJob(
+    input: DeleteVectorEnrichmentJobInput,
+  ): Effect.Effect<
+    DeleteVectorEnrichmentJobOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  exportEarthObservationJob(
+    input: ExportEarthObservationJobInput,
+  ): Effect.Effect<
+    ExportEarthObservationJobOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  exportVectorEnrichmentJob(
+    input: ExportVectorEnrichmentJobInput,
+  ): Effect.Effect<
+    ExportVectorEnrichmentJobOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getEarthObservationJob(
+    input: GetEarthObservationJobInput,
+  ): Effect.Effect<
+    GetEarthObservationJobOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getRasterDataCollection(
+    input: GetRasterDataCollectionInput,
+  ): Effect.Effect<
+    GetRasterDataCollectionOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getTile(
+    input: GetTileInput,
+  ): Effect.Effect<
+    GetTileOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getVectorEnrichmentJob(
+    input: GetVectorEnrichmentJobInput,
+  ): Effect.Effect<
+    GetVectorEnrichmentJobOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listEarthObservationJobs(
+    input: ListEarthObservationJobInput,
+  ): Effect.Effect<
+    ListEarthObservationJobOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listRasterDataCollections(
+    input: ListRasterDataCollectionsInput,
+  ): Effect.Effect<
+    ListRasterDataCollectionsOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listVectorEnrichmentJobs(
+    input: ListVectorEnrichmentJobInput,
+  ): Effect.Effect<
+    ListVectorEnrichmentJobOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  searchRasterDataCollection(
+    input: SearchRasterDataCollectionInput,
+  ): Effect.Effect<
+    SearchRasterDataCollectionOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  startEarthObservationJob(
+    input: StartEarthObservationJobInput,
+  ): Effect.Effect<
+    StartEarthObservationJobOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  startVectorEnrichmentJob(
+    input: StartVectorEnrichmentJobInput,
+  ): Effect.Effect<
+    StartVectorEnrichmentJobOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  stopEarthObservationJob(
+    input: StopEarthObservationJobInput,
+  ): Effect.Effect<
+    StopEarthObservationJobOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  stopVectorEnrichmentJob(
+    input: StopVectorEnrichmentJobInput,
+  ): Effect.Effect<
+    StopVectorEnrichmentJobOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
 }
 
 export declare class SagemakerGeospatial extends SageMakerGeospatial {}
@@ -718,6 +906,210 @@ export declare namespace UntagResource {
   export type Output = UntagResourceResponse;
   export type Error =
     | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteEarthObservationJob {
+  export type Input = DeleteEarthObservationJobInput;
+  export type Output = DeleteEarthObservationJobOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteVectorEnrichmentJob {
+  export type Input = DeleteVectorEnrichmentJobInput;
+  export type Output = DeleteVectorEnrichmentJobOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ExportEarthObservationJob {
+  export type Input = ExportEarthObservationJobInput;
+  export type Output = ExportEarthObservationJobOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ExportVectorEnrichmentJob {
+  export type Input = ExportVectorEnrichmentJobInput;
+  export type Output = ExportVectorEnrichmentJobOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetEarthObservationJob {
+  export type Input = GetEarthObservationJobInput;
+  export type Output = GetEarthObservationJobOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetRasterDataCollection {
+  export type Input = GetRasterDataCollectionInput;
+  export type Output = GetRasterDataCollectionOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetTile {
+  export type Input = GetTileInput;
+  export type Output = GetTileOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetVectorEnrichmentJob {
+  export type Input = GetVectorEnrichmentJobInput;
+  export type Output = GetVectorEnrichmentJobOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListEarthObservationJobs {
+  export type Input = ListEarthObservationJobInput;
+  export type Output = ListEarthObservationJobOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListRasterDataCollections {
+  export type Input = ListRasterDataCollectionsInput;
+  export type Output = ListRasterDataCollectionsOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListVectorEnrichmentJobs {
+  export type Input = ListVectorEnrichmentJobInput;
+  export type Output = ListVectorEnrichmentJobOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace SearchRasterDataCollection {
+  export type Input = SearchRasterDataCollectionInput;
+  export type Output = SearchRasterDataCollectionOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace StartEarthObservationJob {
+  export type Input = StartEarthObservationJobInput;
+  export type Output = StartEarthObservationJobOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace StartVectorEnrichmentJob {
+  export type Input = StartVectorEnrichmentJobInput;
+  export type Output = StartVectorEnrichmentJobOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace StopEarthObservationJob {
+  export type Input = StopEarthObservationJobInput;
+  export type Output = StopEarthObservationJobOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace StopVectorEnrichmentJob {
+  export type Input = StopVectorEnrichmentJobInput;
+  export type Output = StopVectorEnrichmentJobOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
     | InternalServerException
     | ResourceNotFoundException
     | ThrottlingException

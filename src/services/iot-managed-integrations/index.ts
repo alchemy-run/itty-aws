@@ -73,6 +73,900 @@ export declare class IoTManagedIntegrations extends AWSServiceClient {
     | UnauthorizedException
     | CommonAwsError
   >;
+  createAccountAssociation(
+    input: CreateAccountAssociationRequest,
+  ): Effect.Effect<
+    CreateAccountAssociationResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createCloudConnector(
+    input: CreateCloudConnectorRequest,
+  ): Effect.Effect<
+    CreateCloudConnectorResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createConnectorDestination(
+    input: CreateConnectorDestinationRequest,
+  ): Effect.Effect<
+    CreateConnectorDestinationResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createCredentialLocker(
+    input: CreateCredentialLockerRequest,
+  ): Effect.Effect<
+    CreateCredentialLockerResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createDestination(
+    input: CreateDestinationRequest,
+  ): Effect.Effect<
+    CreateDestinationResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createEventLogConfiguration(
+    input: CreateEventLogConfigurationRequest,
+  ): Effect.Effect<
+    CreateEventLogConfigurationResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createManagedThing(
+    input: CreateManagedThingRequest,
+  ): Effect.Effect<
+    CreateManagedThingResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createNotificationConfiguration(
+    input: CreateNotificationConfigurationRequest,
+  ): Effect.Effect<
+    CreateNotificationConfigurationResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createOtaTask(
+    input: CreateOtaTaskRequest,
+  ): Effect.Effect<
+    CreateOtaTaskResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createOtaTaskConfiguration(
+    input: CreateOtaTaskConfigurationRequest,
+  ): Effect.Effect<
+    CreateOtaTaskConfigurationResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createProvisioningProfile(
+    input: CreateProvisioningProfileRequest,
+  ): Effect.Effect<
+    CreateProvisioningProfileResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteAccountAssociation(
+    input: DeleteAccountAssociationRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteCloudConnector(
+    input: DeleteCloudConnectorRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteConnectorDestination(
+    input: DeleteConnectorDestinationRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteCredentialLocker(
+    input: DeleteCredentialLockerRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteDestination(
+    input: DeleteDestinationRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteEventLogConfiguration(
+    input: DeleteEventLogConfigurationRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteManagedThing(
+    input: DeleteManagedThingRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteNotificationConfiguration(
+    input: DeleteNotificationConfigurationRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteOtaTask(
+    input: DeleteOtaTaskRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | InternalServerException
+    | LimitExceededException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteOtaTaskConfiguration(
+    input: DeleteOtaTaskConfigurationRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteProvisioningProfile(
+    input: DeleteProvisioningProfileRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deregisterAccountAssociation(
+    input: DeregisterAccountAssociationRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getAccountAssociation(
+    input: GetAccountAssociationRequest,
+  ): Effect.Effect<
+    GetAccountAssociationResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getCloudConnector(
+    input: GetCloudConnectorRequest,
+  ): Effect.Effect<
+    GetCloudConnectorResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getConnectorDestination(
+    input: GetConnectorDestinationRequest,
+  ): Effect.Effect<
+    GetConnectorDestinationResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getCredentialLocker(
+    input: GetCredentialLockerRequest,
+  ): Effect.Effect<
+    GetCredentialLockerResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getDefaultEncryptionConfiguration(
+    input: GetDefaultEncryptionConfigurationRequest,
+  ): Effect.Effect<
+    GetDefaultEncryptionConfigurationResponse,
+    | AccessDeniedException
+    | InternalFailureException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getDestination(
+    input: GetDestinationRequest,
+  ): Effect.Effect<
+    GetDestinationResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getDeviceDiscovery(
+    input: GetDeviceDiscoveryRequest,
+  ): Effect.Effect<
+    GetDeviceDiscoveryResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getEventLogConfiguration(
+    input: GetEventLogConfigurationRequest,
+  ): Effect.Effect<
+    GetEventLogConfigurationResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getHubConfiguration(
+    input: GetHubConfigurationRequest,
+  ): Effect.Effect<
+    GetHubConfigurationResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getManagedThing(
+    input: GetManagedThingRequest,
+  ): Effect.Effect<
+    GetManagedThingResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getManagedThingCapabilities(
+    input: GetManagedThingCapabilitiesRequest,
+  ): Effect.Effect<
+    GetManagedThingCapabilitiesResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getManagedThingConnectivityData(
+    input: GetManagedThingConnectivityDataRequest,
+  ): Effect.Effect<
+    GetManagedThingConnectivityDataResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getManagedThingMetaData(
+    input: GetManagedThingMetaDataRequest,
+  ): Effect.Effect<
+    GetManagedThingMetaDataResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getManagedThingState(
+    input: GetManagedThingStateRequest,
+  ): Effect.Effect<
+    GetManagedThingStateResponse,
+    | AccessDeniedException
+    | InternalFailureException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getNotificationConfiguration(
+    input: GetNotificationConfigurationRequest,
+  ): Effect.Effect<
+    GetNotificationConfigurationResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getOtaTask(
+    input: GetOtaTaskRequest,
+  ): Effect.Effect<
+    GetOtaTaskResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getOtaTaskConfiguration(
+    input: GetOtaTaskConfigurationRequest,
+  ): Effect.Effect<
+    GetOtaTaskConfigurationResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getProvisioningProfile(
+    input: GetProvisioningProfileRequest,
+  ): Effect.Effect<
+    GetProvisioningProfileResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getRuntimeLogConfiguration(
+    input: GetRuntimeLogConfigurationRequest,
+  ): Effect.Effect<
+    GetRuntimeLogConfigurationResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getSchemaVersion(
+    input: GetSchemaVersionRequest,
+  ): Effect.Effect<
+    GetSchemaVersionResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listAccountAssociations(
+    input: ListAccountAssociationsRequest,
+  ): Effect.Effect<
+    ListAccountAssociationsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listCloudConnectors(
+    input: ListCloudConnectorsRequest,
+  ): Effect.Effect<
+    ListCloudConnectorsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listConnectorDestinations(
+    input: ListConnectorDestinationsRequest,
+  ): Effect.Effect<
+    ListConnectorDestinationsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listCredentialLockers(
+    input: ListCredentialLockersRequest,
+  ): Effect.Effect<
+    ListCredentialLockersResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listDestinations(
+    input: ListDestinationsRequest,
+  ): Effect.Effect<
+    ListDestinationsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listDeviceDiscoveries(
+    input: ListDeviceDiscoveriesRequest,
+  ): Effect.Effect<
+    ListDeviceDiscoveriesResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listDiscoveredDevices(
+    input: ListDiscoveredDevicesRequest,
+  ): Effect.Effect<
+    ListDiscoveredDevicesResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listEventLogConfigurations(
+    input: ListEventLogConfigurationsRequest,
+  ): Effect.Effect<
+    ListEventLogConfigurationsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listManagedThingAccountAssociations(
+    input: ListManagedThingAccountAssociationsRequest,
+  ): Effect.Effect<
+    ListManagedThingAccountAssociationsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listManagedThingSchemas(
+    input: ListManagedThingSchemasRequest,
+  ): Effect.Effect<
+    ListManagedThingSchemasResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listManagedThings(
+    input: ListManagedThingsRequest,
+  ): Effect.Effect<
+    ListManagedThingsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listNotificationConfigurations(
+    input: ListNotificationConfigurationsRequest,
+  ): Effect.Effect<
+    ListNotificationConfigurationsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listOtaTaskConfigurations(
+    input: ListOtaTaskConfigurationsRequest,
+  ): Effect.Effect<
+    ListOtaTaskConfigurationsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listOtaTaskExecutions(
+    input: ListOtaTaskExecutionsRequest,
+  ): Effect.Effect<
+    ListOtaTaskExecutionsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listOtaTasks(
+    input: ListOtaTasksRequest,
+  ): Effect.Effect<
+    ListOtaTasksResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listProvisioningProfiles(
+    input: ListProvisioningProfilesRequest,
+  ): Effect.Effect<
+    ListProvisioningProfilesResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listSchemaVersions(
+    input: ListSchemaVersionsRequest,
+  ): Effect.Effect<
+    ListSchemaVersionsResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  putDefaultEncryptionConfiguration(
+    input: PutDefaultEncryptionConfigurationRequest,
+  ): Effect.Effect<
+    PutDefaultEncryptionConfigurationResponse,
+    | AccessDeniedException
+    | InternalFailureException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  putHubConfiguration(
+    input: PutHubConfigurationRequest,
+  ): Effect.Effect<
+    PutHubConfigurationResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  putRuntimeLogConfiguration(
+    input: PutRuntimeLogConfigurationRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  registerAccountAssociation(
+    input: RegisterAccountAssociationRequest,
+  ): Effect.Effect<
+    RegisterAccountAssociationResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  resetRuntimeLogConfiguration(
+    input: ResetRuntimeLogConfigurationRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  sendManagedThingCommand(
+    input: SendManagedThingCommandRequest,
+  ): Effect.Effect<
+    SendManagedThingCommandResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  startAccountAssociationRefresh(
+    input: StartAccountAssociationRefreshRequest,
+  ): Effect.Effect<
+    StartAccountAssociationRefreshResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  startDeviceDiscovery(
+    input: StartDeviceDiscoveryRequest,
+  ): Effect.Effect<
+    StartDeviceDiscoveryResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateAccountAssociation(
+    input: UpdateAccountAssociationRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateCloudConnector(
+    input: UpdateCloudConnectorRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateConnectorDestination(
+    input: UpdateConnectorDestinationRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateDestination(
+    input: UpdateDestinationRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateEventLogConfiguration(
+    input: UpdateEventLogConfigurationRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateManagedThing(
+    input: UpdateManagedThingRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateNotificationConfiguration(
+    input: UpdateNotificationConfigurationRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateOtaTask(
+    input: UpdateOtaTaskRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
 }
 
 export interface AbortConfigCriteria {
@@ -1771,5 +2665,975 @@ export declare namespace UntagResource {
     | ResourceNotFoundException
     | ThrottlingException
     | UnauthorizedException
+    | CommonAwsError;
+}
+
+export declare namespace CreateAccountAssociation {
+  export type Input = CreateAccountAssociationRequest;
+  export type Output = CreateAccountAssociationResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateCloudConnector {
+  export type Input = CreateCloudConnectorRequest;
+  export type Output = CreateCloudConnectorResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateConnectorDestination {
+  export type Input = CreateConnectorDestinationRequest;
+  export type Output = CreateConnectorDestinationResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateCredentialLocker {
+  export type Input = CreateCredentialLockerRequest;
+  export type Output = CreateCredentialLockerResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateDestination {
+  export type Input = CreateDestinationRequest;
+  export type Output = CreateDestinationResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateEventLogConfiguration {
+  export type Input = CreateEventLogConfigurationRequest;
+  export type Output = CreateEventLogConfigurationResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateManagedThing {
+  export type Input = CreateManagedThingRequest;
+  export type Output = CreateManagedThingResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateNotificationConfiguration {
+  export type Input = CreateNotificationConfigurationRequest;
+  export type Output = CreateNotificationConfigurationResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateOtaTask {
+  export type Input = CreateOtaTaskRequest;
+  export type Output = CreateOtaTaskResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateOtaTaskConfiguration {
+  export type Input = CreateOtaTaskConfigurationRequest;
+  export type Output = CreateOtaTaskConfigurationResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateProvisioningProfile {
+  export type Input = CreateProvisioningProfileRequest;
+  export type Output = CreateProvisioningProfileResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteAccountAssociation {
+  export type Input = DeleteAccountAssociationRequest;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteCloudConnector {
+  export type Input = DeleteCloudConnectorRequest;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteConnectorDestination {
+  export type Input = DeleteConnectorDestinationRequest;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteCredentialLocker {
+  export type Input = DeleteCredentialLockerRequest;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteDestination {
+  export type Input = DeleteDestinationRequest;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteEventLogConfiguration {
+  export type Input = DeleteEventLogConfigurationRequest;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteManagedThing {
+  export type Input = DeleteManagedThingRequest;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteNotificationConfiguration {
+  export type Input = DeleteNotificationConfigurationRequest;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteOtaTask {
+  export type Input = DeleteOtaTaskRequest;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | LimitExceededException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteOtaTaskConfiguration {
+  export type Input = DeleteOtaTaskConfigurationRequest;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteProvisioningProfile {
+  export type Input = DeleteProvisioningProfileRequest;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeregisterAccountAssociation {
+  export type Input = DeregisterAccountAssociationRequest;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetAccountAssociation {
+  export type Input = GetAccountAssociationRequest;
+  export type Output = GetAccountAssociationResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetCloudConnector {
+  export type Input = GetCloudConnectorRequest;
+  export type Output = GetCloudConnectorResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetConnectorDestination {
+  export type Input = GetConnectorDestinationRequest;
+  export type Output = GetConnectorDestinationResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetCredentialLocker {
+  export type Input = GetCredentialLockerRequest;
+  export type Output = GetCredentialLockerResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetDefaultEncryptionConfiguration {
+  export type Input = GetDefaultEncryptionConfigurationRequest;
+  export type Output = GetDefaultEncryptionConfigurationResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalFailureException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetDestination {
+  export type Input = GetDestinationRequest;
+  export type Output = GetDestinationResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetDeviceDiscovery {
+  export type Input = GetDeviceDiscoveryRequest;
+  export type Output = GetDeviceDiscoveryResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetEventLogConfiguration {
+  export type Input = GetEventLogConfigurationRequest;
+  export type Output = GetEventLogConfigurationResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetHubConfiguration {
+  export type Input = GetHubConfigurationRequest;
+  export type Output = GetHubConfigurationResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetManagedThing {
+  export type Input = GetManagedThingRequest;
+  export type Output = GetManagedThingResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetManagedThingCapabilities {
+  export type Input = GetManagedThingCapabilitiesRequest;
+  export type Output = GetManagedThingCapabilitiesResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetManagedThingConnectivityData {
+  export type Input = GetManagedThingConnectivityDataRequest;
+  export type Output = GetManagedThingConnectivityDataResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetManagedThingMetaData {
+  export type Input = GetManagedThingMetaDataRequest;
+  export type Output = GetManagedThingMetaDataResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetManagedThingState {
+  export type Input = GetManagedThingStateRequest;
+  export type Output = GetManagedThingStateResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalFailureException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetNotificationConfiguration {
+  export type Input = GetNotificationConfigurationRequest;
+  export type Output = GetNotificationConfigurationResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetOtaTask {
+  export type Input = GetOtaTaskRequest;
+  export type Output = GetOtaTaskResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetOtaTaskConfiguration {
+  export type Input = GetOtaTaskConfigurationRequest;
+  export type Output = GetOtaTaskConfigurationResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetProvisioningProfile {
+  export type Input = GetProvisioningProfileRequest;
+  export type Output = GetProvisioningProfileResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetRuntimeLogConfiguration {
+  export type Input = GetRuntimeLogConfigurationRequest;
+  export type Output = GetRuntimeLogConfigurationResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetSchemaVersion {
+  export type Input = GetSchemaVersionRequest;
+  export type Output = GetSchemaVersionResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListAccountAssociations {
+  export type Input = ListAccountAssociationsRequest;
+  export type Output = ListAccountAssociationsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListCloudConnectors {
+  export type Input = ListCloudConnectorsRequest;
+  export type Output = ListCloudConnectorsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListConnectorDestinations {
+  export type Input = ListConnectorDestinationsRequest;
+  export type Output = ListConnectorDestinationsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListCredentialLockers {
+  export type Input = ListCredentialLockersRequest;
+  export type Output = ListCredentialLockersResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListDestinations {
+  export type Input = ListDestinationsRequest;
+  export type Output = ListDestinationsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListDeviceDiscoveries {
+  export type Input = ListDeviceDiscoveriesRequest;
+  export type Output = ListDeviceDiscoveriesResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListDiscoveredDevices {
+  export type Input = ListDiscoveredDevicesRequest;
+  export type Output = ListDiscoveredDevicesResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListEventLogConfigurations {
+  export type Input = ListEventLogConfigurationsRequest;
+  export type Output = ListEventLogConfigurationsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListManagedThingAccountAssociations {
+  export type Input = ListManagedThingAccountAssociationsRequest;
+  export type Output = ListManagedThingAccountAssociationsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListManagedThingSchemas {
+  export type Input = ListManagedThingSchemasRequest;
+  export type Output = ListManagedThingSchemasResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListManagedThings {
+  export type Input = ListManagedThingsRequest;
+  export type Output = ListManagedThingsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListNotificationConfigurations {
+  export type Input = ListNotificationConfigurationsRequest;
+  export type Output = ListNotificationConfigurationsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListOtaTaskConfigurations {
+  export type Input = ListOtaTaskConfigurationsRequest;
+  export type Output = ListOtaTaskConfigurationsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListOtaTaskExecutions {
+  export type Input = ListOtaTaskExecutionsRequest;
+  export type Output = ListOtaTaskExecutionsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListOtaTasks {
+  export type Input = ListOtaTasksRequest;
+  export type Output = ListOtaTasksResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListProvisioningProfiles {
+  export type Input = ListProvisioningProfilesRequest;
+  export type Output = ListProvisioningProfilesResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListSchemaVersions {
+  export type Input = ListSchemaVersionsRequest;
+  export type Output = ListSchemaVersionsResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace PutDefaultEncryptionConfiguration {
+  export type Input = PutDefaultEncryptionConfigurationRequest;
+  export type Output = PutDefaultEncryptionConfigurationResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalFailureException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace PutHubConfiguration {
+  export type Input = PutHubConfigurationRequest;
+  export type Output = PutHubConfigurationResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace PutRuntimeLogConfiguration {
+  export type Input = PutRuntimeLogConfigurationRequest;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace RegisterAccountAssociation {
+  export type Input = RegisterAccountAssociationRequest;
+  export type Output = RegisterAccountAssociationResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ResetRuntimeLogConfiguration {
+  export type Input = ResetRuntimeLogConfigurationRequest;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace SendManagedThingCommand {
+  export type Input = SendManagedThingCommandRequest;
+  export type Output = SendManagedThingCommandResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace StartAccountAssociationRefresh {
+  export type Input = StartAccountAssociationRefreshRequest;
+  export type Output = StartAccountAssociationRefreshResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace StartDeviceDiscovery {
+  export type Input = StartDeviceDiscoveryRequest;
+  export type Output = StartDeviceDiscoveryResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateAccountAssociation {
+  export type Input = UpdateAccountAssociationRequest;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateCloudConnector {
+  export type Input = UpdateCloudConnectorRequest;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateConnectorDestination {
+  export type Input = UpdateConnectorDestinationRequest;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateDestination {
+  export type Input = UpdateDestinationRequest;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateEventLogConfiguration {
+  export type Input = UpdateEventLogConfigurationRequest;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateManagedThing {
+  export type Input = UpdateManagedThingRequest;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateNotificationConfiguration {
+  export type Input = UpdateNotificationConfigurationRequest;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateOtaTask {
+  export type Input = UpdateOtaTaskRequest;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
     | CommonAwsError;
 }

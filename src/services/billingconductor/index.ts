@@ -69,6 +69,305 @@ export declare class billingconductor extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
+  associateAccounts(
+    input: AssociateAccountsInput,
+  ): Effect.Effect<
+    AssociateAccountsOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceLimitExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  associatePricingRules(
+    input: AssociatePricingRulesInput,
+  ): Effect.Effect<
+    AssociatePricingRulesOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceLimitExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  batchAssociateResourcesToCustomLineItem(
+    input: BatchAssociateResourcesToCustomLineItemInput,
+  ): Effect.Effect<
+    BatchAssociateResourcesToCustomLineItemOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceLimitExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  batchDisassociateResourcesFromCustomLineItem(
+    input: BatchDisassociateResourcesFromCustomLineItemInput,
+  ): Effect.Effect<
+    BatchDisassociateResourcesFromCustomLineItemOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createBillingGroup(
+    input: CreateBillingGroupInput,
+  ): Effect.Effect<
+    CreateBillingGroupOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceLimitExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createCustomLineItem(
+    input: CreateCustomLineItemInput,
+  ): Effect.Effect<
+    CreateCustomLineItemOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceLimitExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createPricingPlan(
+    input: CreatePricingPlanInput,
+  ): Effect.Effect<
+    CreatePricingPlanOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceLimitExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createPricingRule(
+    input: CreatePricingRuleInput,
+  ): Effect.Effect<
+    CreatePricingRuleOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceLimitExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteBillingGroup(
+    input: DeleteBillingGroupInput,
+  ): Effect.Effect<
+    DeleteBillingGroupOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteCustomLineItem(
+    input: DeleteCustomLineItemInput,
+  ): Effect.Effect<
+    DeleteCustomLineItemOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deletePricingPlan(
+    input: DeletePricingPlanInput,
+  ): Effect.Effect<
+    DeletePricingPlanOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deletePricingRule(
+    input: DeletePricingRuleInput,
+  ): Effect.Effect<
+    DeletePricingRuleOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  disassociateAccounts(
+    input: DisassociateAccountsInput,
+  ): Effect.Effect<
+    DisassociateAccountsOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  disassociatePricingRules(
+    input: DisassociatePricingRulesInput,
+  ): Effect.Effect<
+    DisassociatePricingRulesOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listBillingGroups(
+    input: ListBillingGroupsInput,
+  ): Effect.Effect<
+    ListBillingGroupsOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listCustomLineItemVersions(
+    input: ListCustomLineItemVersionsInput,
+  ): Effect.Effect<
+    ListCustomLineItemVersionsOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listCustomLineItems(
+    input: ListCustomLineItemsInput,
+  ): Effect.Effect<
+    ListCustomLineItemsOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listPricingPlans(
+    input: ListPricingPlansInput,
+  ): Effect.Effect<
+    ListPricingPlansOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listPricingPlansAssociatedWithPricingRule(
+    input: ListPricingPlansAssociatedWithPricingRuleInput,
+  ): Effect.Effect<
+    ListPricingPlansAssociatedWithPricingRuleOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listPricingRules(
+    input: ListPricingRulesInput,
+  ): Effect.Effect<
+    ListPricingRulesOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listPricingRulesAssociatedToPricingPlan(
+    input: ListPricingRulesAssociatedToPricingPlanInput,
+  ): Effect.Effect<
+    ListPricingRulesAssociatedToPricingPlanOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listResourcesAssociatedToCustomLineItem(
+    input: ListResourcesAssociatedToCustomLineItemInput,
+  ): Effect.Effect<
+    ListResourcesAssociatedToCustomLineItemOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateBillingGroup(
+    input: UpdateBillingGroupInput,
+  ): Effect.Effect<
+    UpdateBillingGroupOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateCustomLineItem(
+    input: UpdateCustomLineItemInput,
+  ): Effect.Effect<
+    UpdateCustomLineItemOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updatePricingPlan(
+    input: UpdatePricingPlanInput,
+  ): Effect.Effect<
+    UpdatePricingPlanOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updatePricingRule(
+    input: UpdatePricingRuleInput,
+  ): Effect.Effect<
+    UpdatePricingRuleOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
 }
 
 export declare class Billingconductor extends billingconductor {}
@@ -909,6 +1208,331 @@ export declare namespace UntagResource {
   export type Output = UntagResourceResponse;
   export type Error =
     | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace AssociateAccounts {
+  export type Input = AssociateAccountsInput;
+  export type Output = AssociateAccountsOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceLimitExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace AssociatePricingRules {
+  export type Input = AssociatePricingRulesInput;
+  export type Output = AssociatePricingRulesOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceLimitExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace BatchAssociateResourcesToCustomLineItem {
+  export type Input = BatchAssociateResourcesToCustomLineItemInput;
+  export type Output = BatchAssociateResourcesToCustomLineItemOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceLimitExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace BatchDisassociateResourcesFromCustomLineItem {
+  export type Input = BatchDisassociateResourcesFromCustomLineItemInput;
+  export type Output = BatchDisassociateResourcesFromCustomLineItemOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateBillingGroup {
+  export type Input = CreateBillingGroupInput;
+  export type Output = CreateBillingGroupOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceLimitExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateCustomLineItem {
+  export type Input = CreateCustomLineItemInput;
+  export type Output = CreateCustomLineItemOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceLimitExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreatePricingPlan {
+  export type Input = CreatePricingPlanInput;
+  export type Output = CreatePricingPlanOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceLimitExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreatePricingRule {
+  export type Input = CreatePricingRuleInput;
+  export type Output = CreatePricingRuleOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceLimitExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteBillingGroup {
+  export type Input = DeleteBillingGroupInput;
+  export type Output = DeleteBillingGroupOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteCustomLineItem {
+  export type Input = DeleteCustomLineItemInput;
+  export type Output = DeleteCustomLineItemOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeletePricingPlan {
+  export type Input = DeletePricingPlanInput;
+  export type Output = DeletePricingPlanOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeletePricingRule {
+  export type Input = DeletePricingRuleInput;
+  export type Output = DeletePricingRuleOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DisassociateAccounts {
+  export type Input = DisassociateAccountsInput;
+  export type Output = DisassociateAccountsOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DisassociatePricingRules {
+  export type Input = DisassociatePricingRulesInput;
+  export type Output = DisassociatePricingRulesOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListBillingGroups {
+  export type Input = ListBillingGroupsInput;
+  export type Output = ListBillingGroupsOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListCustomLineItemVersions {
+  export type Input = ListCustomLineItemVersionsInput;
+  export type Output = ListCustomLineItemVersionsOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListCustomLineItems {
+  export type Input = ListCustomLineItemsInput;
+  export type Output = ListCustomLineItemsOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListPricingPlans {
+  export type Input = ListPricingPlansInput;
+  export type Output = ListPricingPlansOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListPricingPlansAssociatedWithPricingRule {
+  export type Input = ListPricingPlansAssociatedWithPricingRuleInput;
+  export type Output = ListPricingPlansAssociatedWithPricingRuleOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListPricingRules {
+  export type Input = ListPricingRulesInput;
+  export type Output = ListPricingRulesOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListPricingRulesAssociatedToPricingPlan {
+  export type Input = ListPricingRulesAssociatedToPricingPlanInput;
+  export type Output = ListPricingRulesAssociatedToPricingPlanOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListResourcesAssociatedToCustomLineItem {
+  export type Input = ListResourcesAssociatedToCustomLineItemInput;
+  export type Output = ListResourcesAssociatedToCustomLineItemOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateBillingGroup {
+  export type Input = UpdateBillingGroupInput;
+  export type Output = UpdateBillingGroupOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateCustomLineItem {
+  export type Input = UpdateCustomLineItemInput;
+  export type Output = UpdateCustomLineItemOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdatePricingPlan {
+  export type Input = UpdatePricingPlanInput;
+  export type Output = UpdatePricingPlanOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdatePricingRule {
+  export type Input = UpdatePricingRuleInput;
+  export type Output = UpdatePricingRuleOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
     | InternalServerException
     | ResourceNotFoundException
     | ThrottlingException

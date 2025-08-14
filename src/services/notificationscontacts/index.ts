@@ -36,6 +36,75 @@ export declare class NotificationsContacts extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
+  activateEmailContact(
+    input: ActivateEmailContactRequest,
+  ): Effect.Effect<
+    ActivateEmailContactResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createEmailContact(
+    input: CreateEmailContactRequest,
+  ): Effect.Effect<
+    CreateEmailContactResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteEmailContact(
+    input: DeleteEmailContactRequest,
+  ): Effect.Effect<
+    DeleteEmailContactResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getEmailContact(
+    input: GetEmailContactRequest,
+  ): Effect.Effect<
+    GetEmailContactResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listEmailContacts(
+    input: ListEmailContactsRequest,
+  ): Effect.Effect<
+    ListEmailContactsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  sendActivationCode(
+    input: SendActivationCodeRequest,
+  ): Effect.Effect<
+    SendActivationCodeResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
 }
 
 export declare class Notificationscontacts extends NotificationsContacts {}
@@ -215,6 +284,81 @@ export declare namespace UntagResource {
   export type Output = UntagResourceResponse;
   export type Error =
     | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ActivateEmailContact {
+  export type Input = ActivateEmailContactRequest;
+  export type Output = ActivateEmailContactResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateEmailContact {
+  export type Input = CreateEmailContactRequest;
+  export type Output = CreateEmailContactResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteEmailContact {
+  export type Input = DeleteEmailContactRequest;
+  export type Output = DeleteEmailContactResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetEmailContact {
+  export type Input = GetEmailContactRequest;
+  export type Output = GetEmailContactResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListEmailContacts {
+  export type Input = ListEmailContactsRequest;
+  export type Output = ListEmailContactsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace SendActivationCode {
+  export type Input = SendActivationCodeRequest;
+  export type Output = SendActivationCodeResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
     | InternalServerException
     | ResourceNotFoundException
     | ThrottlingException
