@@ -31,10 +31,9 @@ export type ShapeKind =
   | "float";
 
 export interface MemberMeta {
-  target: string; // referenced shape id
-  locationName?: string; // xml/query field name override
-  queryName?: string; // for EC2 filter/list names when needed
-  flattened?: boolean; // smithy.api#xmlFlattened / aws.query#flattened
+  target?: string; // references shape id
+  xmlName?: string; // xml/query field name override
+  queryName?: string; // for EC2 list names when needed
   timestampFormat?: "iso8601" | "epoch-seconds" | "http-date";
 }
 
@@ -46,14 +45,11 @@ export interface ShapeMeta {
   key?: MemberMeta; // for map
   value?: MemberMeta; // for map
   enum?: string[]; // optional
-  flattened?: boolean; // for lists/maps
 }
 
 export interface OperationMeta {
-  name: string; // DescribeRegions
   input?: string; // shape id
   output?: string; // shape id
-  responseWrapper?: string; // xml wrapper (often `${name}Response`)
 }
 
 export interface Ec2ModelMeta {
@@ -81,15 +77,23 @@ function toShapeMeta(id: string, rawShapes: any): ShapeMeta {
   if (t === "structure") {
     meta.members = {};
     for (const [mName, m] of Object.entries<any>(s.members ?? {})) {
-      const mm: MemberMeta = { target: m.target };
+      const mm: MemberMeta = {};
+      // don't set target when it's string, not needed
+      const target = m.target.split("#").pop()!;
+      if (target && target !== "String") mm.target = target;
+
       const traits = m.traits ?? {};
 
       if (traits["smithy.api#xmlName"])
-        mm.locationName = traits["smithy.api#xmlName"];
-      if (traits["aws.query#queryName"])
-        mm.queryName = traits["aws.query#queryName"];
-      if (traits["smithy.api#xmlFlattened"] || traits["aws.query#flattened"])
-        mm.flattened = true;
+        mm.xmlName = traits["smithy.api#xmlName"];
+      // don't output queryName if it's:
+      //   equal to xmlName with first letter capitalized
+      //   or the same as the member name
+      // see the "Query key resolution" rules in the ec2query specification
+      const qName = traits["aws.query#queryName"];
+      if (qName && qName !== mName && qName !== traits["smithy.api#xmlName"]) {
+        mm.queryName = qName;
+      }
       if (traits["smithy.api#timestampFormat"])
         mm.timestampFormat = traits["smithy.api#timestampFormat"];
 
@@ -97,38 +101,23 @@ function toShapeMeta(id: string, rawShapes: any): ShapeMeta {
     }
   } else if (t === "list") {
     const mem = s.member;
-    const mm: MemberMeta = { target: mem.target };
+    const mm: MemberMeta = {};
+    // don't set target when it's string, not needed
+    const target = mem.target.split("#").pop()!;
+    if (target && target !== "String") mm.target = target;
+
     const traits = mem.traits ?? {};
 
-    if (traits["smithy.api#xmlName"])
-      mm.locationName = traits["smithy.api#xmlName"];
+    if (traits["smithy.api#xmlName"]) mm.xmlName = traits["smithy.api#xmlName"];
     if (traits["aws.query#queryName"])
       mm.queryName = traits["aws.query#queryName"];
-    if (traits["smithy.api#xmlFlattened"] || traits["aws.query#flattened"])
-      mm.flattened = true;
 
     meta.member = mm;
-
-    // Check if the list itself is flattened
-    if (
-      s.traits?.["smithy.api#xmlFlattened"] ||
-      s.traits?.["aws.query#flattened"]
-    ) {
-      meta.flattened = true;
-    }
   } else if (t === "map") {
     const k = s.key;
     const v = s.value;
-    meta.key = { target: k.target };
-    meta.value = { target: v.target };
-
-    // Check if the map itself is flattened
-    if (
-      s.traits?.["smithy.api#xmlFlattened"] ||
-      s.traits?.["aws.query#flattened"]
-    ) {
-      meta.flattened = true;
-    }
+    meta.key = { target: k.target.split("#").pop()! };
+    meta.value = { target: v.target.split("#").pop()! };
   } else if (t === "string" && Array.isArray(s.enum)) {
     meta.enum = s.enum.map((e: any) => e.value ?? e);
   }
@@ -162,17 +151,20 @@ function main(inPath?: string, outPath?: string) {
   // First pass: collect operations and find reachable shapes
   for (const [id, shape] of Object.entries<any>(shapes)) {
     if (shape.type === "operation") {
-      const name = id.split("#").pop()!;
-      const input = shape.input?.target;
-      const output = shape.output?.target;
-      const responseWrapper =
-        shape.traits?.["aws.query#resultWrapper"] ?? `${name}Response`;
+      // only set where it's not predictable
+      const input =
+        shape.input?.target === `${id}Request` ? undefined : shape.input.target;
+      const output =
+        shape.output?.target === `${id}Result`
+          ? undefined
+          : shape.output.target;
 
-      operations[name] = { name, input, output, responseWrapper };
+      const name = id.split("#").pop()!;
+      operations[name] = { input, output };
 
       // Add reachable shapes from input/output
-      if (input) reachableShapes.add(input);
-      if (output) reachableShapes.add(output);
+      if (shape.input?.target) reachableShapes.add(shape.input.target);
+      if (shape.output?.target) reachableShapes.add(shape.output.target);
     }
   }
 
@@ -199,18 +191,26 @@ function main(inPath?: string, outPath?: string) {
   }
 
   // Collect all dependencies
-  for (const op of Object.values(operations)) {
-    if (op.input) collectDependencies(op.input);
-    if (op.output) collectDependencies(op.output);
-  }
+  // for (const op of Object.values(operations)) {
+  //   if (op.input) collectDependencies(op.input);
+  //   if (op.output) collectDependencies(op.output);
+  // }
 
+  for (const [_id, shape] of Object.entries<any>(shapes)) {
+    if (shape.type === "operation") {
+      if (shape.input?.target) collectDependencies(shape.input.target);
+      if (shape.output?.target) collectDependencies(shape.output.target);
+    }
+  }
   const outShapes: Record<string, ShapeMeta> = {};
   for (const id of reachableShapes) {
     const shape = shapes[id];
     if (!shape?.type) continue;
 
     try {
-      outShapes[id] = toShapeMeta(id, shapes);
+      // string the prefix
+      const cleanShapeName = id.split("#").pop()!;
+      outShapes[cleanShapeName] = toShapeMeta(id, shapes);
     } catch (error) {
       console.warn(`Failed to process shape ${id}:`, error);
       // Continue processing other shapes
@@ -224,10 +224,9 @@ function main(inPath?: string, outPath?: string) {
 export type ShapeKind = "structure" | "list" | "map" | "string" | "integer" | "boolean" | "timestamp" | "blob" | "enum" | "double" | "long" | "float";
 
 export interface MemberMeta {
-  target: string;
-  locationName?: string;
+  target?: string;
+  xmlName?: string;
   queryName?: string;
-  flattened?: boolean;
   timestampFormat?: "iso8601" | "epoch-seconds" | "http-date";
 }
 
@@ -239,14 +238,11 @@ export interface ShapeMeta {
   key?: MemberMeta;
   value?: MemberMeta;
   enum?: string[];
-  flattened?: boolean;
 }
 
 export interface OperationMeta {
-  name: string;
   input?: string;
   output?: string;
-  responseWrapper?: string;
 }
 
 export interface Ec2ModelMeta {

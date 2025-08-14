@@ -1,5 +1,6 @@
 import { XMLParser } from "fast-xml-parser";
 import { ec2ModelMeta } from "../ec2-metadata.ts";
+import { capitalizeFirst } from "../utils.ts";
 import type { ProtocolHandler, ServiceMetadata } from "./interface.ts";
 
 const xmlParser = new XMLParser({
@@ -17,10 +18,6 @@ function safeParseXml(xmlText: string): any {
   }
 }
 
-function capitalizeFirst(str: string): string {
-  return str.charAt(0).toUpperCase() + str.slice(1);
-}
-
 function toParams(
   shapes: Record<string, any>,
   shapeId: string,
@@ -35,7 +32,7 @@ function toParams(
     case "structure": {
       if (value == null) return;
       for (const [memberName, member] of Object.entries(shape.members ?? {})) {
-        const rawFieldName = (member as any).locationName ?? memberName;
+        const rawFieldName = (member as any).xmlName ?? memberName;
         const fieldName = capitalizeFirst(rawFieldName);
         const nextPrefix = prefix ? `${prefix}.${fieldName}` : fieldName;
         toParams(
@@ -51,14 +48,8 @@ function toParams(
 
     case "list": {
       if (!Array.isArray(value)) return;
-      // FIXME: review why these are unused. "most" lists is not good enough.
-      // https://github.com/sam-goodwin/itty-aws/issues/56
-      const _memberName =
-        shape.member?.locationName ?? shape.member?.queryName ?? "member";
-      const _flattened = shape.member?.flattened || shape.flattened;
       value.forEach((item, i) => {
         const idx = i + 1;
-        // For EC2 Query, most lists are flattened and use the prefix directly
         const base = `${prefix}.${idx}`;
         toParams(shapes, shape.member!.target, item, base, out);
       });
@@ -69,8 +60,7 @@ function toParams(
       if (!value || typeof value !== "object") return;
       let i = 1;
       for (const [k, v] of Object.entries(value)) {
-        const entryBase =
-          `${prefix}.${shape.flattened ? "" : "entry."}${i}`.replace(/\.$/, "");
+        const entryBase = `${prefix}."entry."${i}`.replace(/\.$/, "");
         toParams(shapes, shape.key!.target, k, `${entryBase}.key`, out);
         toParams(shapes, shape.value!.target, v, `${entryBase}.value`, out);
         i++;
@@ -127,7 +117,7 @@ function fromXml(shapes: Record<string, any>, shapeId: string, node: any): any {
     case "structure": {
       const out: any = {};
       for (const [memberName, member] of Object.entries(shape.members ?? {})) {
-        const key = (member as any).locationName ?? memberName;
+        const key = (member as any).xmlName ?? memberName;
         const child = node?.[key];
         if (child !== undefined) {
           out[memberName] = fromXml(shapes, (member as any).target, child);
@@ -137,10 +127,8 @@ function fromXml(shapes: Record<string, any>, shapeId: string, node: any): any {
     }
 
     case "list": {
-      const memberName =
-        shape.member?.locationName ?? shape.member?.queryName ?? "member";
-      const flattened = shape.member?.flattened || shape.flattened;
-      const arrNode = flattened ? node : node?.[memberName];
+      const memberName = shape.member?.xmlName ?? "member";
+      const arrNode = node?.[memberName];
       const items = Array.isArray(arrNode)
         ? arrNode
         : arrNode != null
@@ -150,7 +138,7 @@ function fromXml(shapes: Record<string, any>, shapeId: string, node: any): any {
     }
 
     case "map": {
-      const entry = shape.flattened ? node : node?.entry;
+      const entry = node?.entry;
       const items = Array.isArray(entry) ? entry : entry != null ? [entry] : [];
       const out: any = {};
       for (const it of items) {
@@ -197,32 +185,26 @@ export class Ec2QueryHandler implements ProtocolHandler {
     action: string,
     _metadata: ServiceMetadata,
   ): string {
-    // For now, use fallback synchronous implementation
-    // The enhanced version with metadata will be used when available
-    const params = new URLSearchParams();
-    params.append("Action", action);
-    params.append("Version", "2016-11-15");
+    // if unknown operation, it's an error
+    const op = ec2ModelMeta.operations[action];
+    if (!op) throw new Error(`Unknown operation: ${action}`);
 
-    // Use enhanced flattening with metadata (lazy-loaded)
-    const modelMeta = ec2ModelMeta;
-    const op = modelMeta.operations[action];
-    if (op) {
-      const enhancedParams: Record<string, string> = {
-        Action: op.name,
-        Version: modelMeta.version,
-      };
+    const params: Record<string, string> = {
+      Action: action,
+      Version: ec2ModelMeta.version,
+    };
 
-      if (op.input && input) {
-        toParams(modelMeta.shapes, op.input, input, "", enhancedParams);
+    // if there is no exception for the operation input target,
+    // then we fall back to defaults
+    if (input) {
+      if (op.input) toParams(ec2ModelMeta.shapes, op.input, input, "", params);
+      else {
+        const inputTarget = `${action}Request`;
+        toParams(ec2ModelMeta.shapes, inputTarget, input, "", params);
       }
-
-      const usp = new URLSearchParams();
-      for (const [k, v] of Object.entries(enhancedParams)) usp.append(k, v);
-      return usp.toString();
     }
 
-    // Fallback for unknown operations
-    return params.toString();
+    return new URLSearchParams(params).toString();
   }
 
   getHeaders(
@@ -247,14 +229,15 @@ export class Ec2QueryHandler implements ProtocolHandler {
     const doc = safeParseXml(responseText);
     if (!doc) return {};
 
-    // Use enhanced parsing with metadata (lazy-loaded)
     const wrapperName = findResponseWrapperName(doc);
     const payloadNode = doc[wrapperName] ?? doc;
 
     if (wrapperName) {
       const opName = wrapperName.replace(/Response$/, "");
       const opMeta = ec2ModelMeta.operations[opName];
-      const outShape = opMeta?.output;
+      // if the operation exists, but there is not output
+      // that means it follows the pattern and we can rebuild the target without metadata
+      const outShape = opMeta?.output ?? `${opName}Result`;
 
       if (outShape) {
         return fromXml(ec2ModelMeta.shapes, outShape, payloadNode);
