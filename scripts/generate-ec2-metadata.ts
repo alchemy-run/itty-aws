@@ -153,9 +153,9 @@ function main(inPath?: string, outPath?: string) {
     if (shape.type === "operation") {
       // only set where it's not predictable
       const input =
-        shape.input?.target === id + "Request" ? undefined : shape.input.target;
+        shape.input?.target === `${id}Request` ? undefined : shape.input.target;
       const output =
-        shape.output?.target === id + "Result"
+        shape.output?.target === `${id}Result`
           ? undefined
           : shape.output.target;
 
@@ -196,7 +196,7 @@ function main(inPath?: string, outPath?: string) {
   //   if (op.output) collectDependencies(op.output);
   // }
 
-  for (const [id, shape] of Object.entries<any>(shapes)) {
+  for (const [_id, shape] of Object.entries<any>(shapes)) {
     if (shape.type === "operation") {
       if (shape.input?.target) collectDependencies(shape.input.target);
       if (shape.output?.target) collectDependencies(shape.output.target);

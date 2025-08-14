@@ -26,7 +26,6 @@ function toParams(
   out: Record<string, string>,
 ) {
   const shape = shapes?.[shapeId];
-  console.log("toParams: trying to find shape " + shapeId);
   if (!shape) return;
 
   switch (shape.type) {
