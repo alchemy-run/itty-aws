@@ -1068,6 +1068,20 @@ const generateServiceCode = (serviceName: string, manifest: Manifest) =>
       code += "}\n\n";
     }
 
+    // Extract operation HTTP mappings for restJson1 services
+    let operationMappings: Record<string, string> = {};
+
+    if (protocol === "restJson1") {
+      for (const operation of operations) {
+        const httpTrait = operation.shape.traits?.["smithy.api#http"];
+        if (httpTrait) {
+          const { method, uri } = httpTrait;
+          // Store all operations - restJson1 requires explicit HTTP mappings
+          operationMappings[operation.name] = `${method} ${uri}`;
+        }
+      }
+    }
+
     // Store metadata for the service
     const metadata = {
       sdkId,
@@ -1080,6 +1094,10 @@ const generateServiceCode = (serviceName: string, manifest: Manifest) =>
       targetPrefix,
       globalEndpoint,
       signingRegion,
+      // Include operations mapping if any exist
+      ...(Object.keys(operationMappings).length > 0 && {
+        operations: operationMappings,
+      }),
     };
 
     return { code, metadata };
@@ -1111,6 +1129,13 @@ export const serviceMetadata = {\n`;
       }
       if (meta.signingRegion) {
         code += `    signingRegion: "${meta.signingRegion}",\n`;
+      }
+      if (meta.operations) {
+        code += "    operations: {\n";
+        Object.entries(meta.operations).forEach(([opName, opSpec]) => {
+          code += `      "${opName}": "${opSpec}",\n`;
+        });
+        code += "    },\n";
       }
       code += "  },\n";
     });

@@ -10,20 +10,16 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ### Build and Test
 - `bun run build` - Compile TypeScript to dist/
-- `bun run test` - Run all tests with Vitest
 - `bun run test:run` - Run tests once (no watch mode)
-- `bun run test:watch` - Run tests in watch mode
-- `bun vitest run ./test/smoke.test.ts` - Run specific test file
+- `bun vitest run ./test/smoke/<service>.test.ts` - Run specific smoke test file
 
 ### Code Generation
 - `bun run generate` or `bun gen` - Generate all service clients from AWS models + lint + build
 - `bun scripts/generate-clients.ts` - Generate service clients only
-- `bun scripts/generate-ec2-parsers.ts` - Generate EC2 XML parsers
+- `bun scripts/generate-ec2-metadata.ts` - Generate EC2 metadata
 
 ### Code Quality
-- `bun biome check` - Run linter
 - `bun biome check --write` - Run linter with auto-fix
-- `bun biome format` - Format code
 
 ### Bundle Analysis
 - `bun scripts/bundle-size.ts` - Analyze bundle size
@@ -43,7 +39,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `src/aws.ts`: Type definitions and service interfaces  
 - `src/metadata.ts`: Service metadata (endpoints, protocols, target prefixes)
 - `src/error.ts`: Common AWS error types and tagged error implementations
-- `src/ec2-parsers.ts`: Auto-generated XML parsers for EC2 Query protocol
+- `src/ec2-metadata.ts`: Auto-generated metadata for the EC2 Query protocol
 
 ### Code Generation Process
 

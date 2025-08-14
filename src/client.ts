@@ -148,34 +148,90 @@ export function createServiceProxy<T>(
             // Get protocol handler for this service
             const protocolHandler = resolveProtocolHandler(metadata.protocol);
 
+            // Extract operation-specific metadata for restJson1
+            let httpMethod = "POST";
+            let uriPath = "/";
+            let finalInput = input;
+
+            if (metadata.protocol === "restJson1") {
+              const operationSpec = (metadata as any).operations?.[action];
+
+              if (operationSpec) {
+                // Parse "METHOD /path/with/{params}" format
+                const spaceIndex = operationSpec.indexOf(" ");
+                if (spaceIndex > 0) {
+                  httpMethod = operationSpec.substring(0, spaceIndex);
+                  uriPath = operationSpec.substring(spaceIndex + 1);
+                }
+              }
+
+              // Extract path parameters from URI template
+              const pathParams = [...uriPath.matchAll(/\{(\w+)\}/g)].map(
+                (m) => m[1],
+              );
+
+              if (pathParams.length > 0 && input && typeof input === "object") {
+                // Build URI with path substitution and separate body
+                let processedUri = uriPath;
+                const remainingInput = { ...input };
+
+                for (const param of pathParams) {
+                  if (param in (input as any)) {
+                    const value = (input as any)[param];
+                    processedUri = processedUri.replace(
+                      `{${param}}`,
+                      encodeURIComponent(String(value)),
+                    );
+                    delete (remainingInput as any)[param];
+                  }
+                }
+
+                uriPath = processedUri;
+                finalInput = remainingInput;
+              }
+            }
+
             // Serialize request body using protocol handler
-            const body = protocolHandler.buildRequest(input, action, metadata);
+            const body = protocolHandler.buildRequest(
+              finalInput,
+              action,
+              metadata,
+            );
 
             // Get headers from protocol handler (with body for Content-Length)
             const headers = protocolHandler.getHeaders(action, metadata, body);
 
             // Use custom endpoint, global endpoint, or construct regional AWS endpoint
-            const endpoint = resolvedConfig.endpoint
+            const baseEndpoint = resolvedConfig.endpoint
               ? resolvedConfig.endpoint
               : (metadata as any).globalEndpoint
                 ? (metadata as any).globalEndpoint
-                : `https://${metadata.endpointPrefix}.${resolvedConfig.region}.amazonaws.com/`;
+                : `https://${metadata.endpointPrefix}.${resolvedConfig.region}.amazonaws.com`;
+
+            // Build full URL with path
+            const fullUrl = baseEndpoint.replace(/\/$/, "") + uriPath;
 
             // Log the AWS request
             yield* Effect.logDebug("AWS Request", {
               service: normalizedServiceName,
               action,
-              endpoint,
+              method: httpMethod,
+              url: fullUrl,
               headers,
               input,
+              finalInput,
               body,
             });
 
             const response = yield* Effect.promise(() =>
-              client.fetch(endpoint, {
-                method: "POST",
+              client.fetch(fullUrl, {
+                method: httpMethod,
                 headers,
-                body,
+                // Don't send body for GET/DELETE requests
+                body:
+                  httpMethod === "GET" || httpMethod === "DELETE"
+                    ? undefined
+                    : body,
               }),
             ).pipe(Effect.timeout("30 seconds"));
 
