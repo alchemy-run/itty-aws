@@ -1,4 +1,5 @@
 import type { Effect, Stream, Data as EffectData } from "effect";
+import type { ResponseError } from "@effect/platform/HttpClientError";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
@@ -63,6 +64,787 @@ export declare class WorkSpacesWeb extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  associateBrowserSettings(
+    input: AssociateBrowserSettingsRequest,
+  ): Effect.Effect<
+    AssociateBrowserSettingsResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  associateDataProtectionSettings(
+    input: AssociateDataProtectionSettingsRequest,
+  ): Effect.Effect<
+    AssociateDataProtectionSettingsResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  associateIpAccessSettings(
+    input: AssociateIpAccessSettingsRequest,
+  ): Effect.Effect<
+    AssociateIpAccessSettingsResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  associateNetworkSettings(
+    input: AssociateNetworkSettingsRequest,
+  ): Effect.Effect<
+    AssociateNetworkSettingsResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  associateSessionLogger(
+    input: AssociateSessionLoggerRequest,
+  ): Effect.Effect<
+    AssociateSessionLoggerResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  associateTrustStore(
+    input: AssociateTrustStoreRequest,
+  ): Effect.Effect<
+    AssociateTrustStoreResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  associateUserAccessLoggingSettings(
+    input: AssociateUserAccessLoggingSettingsRequest,
+  ): Effect.Effect<
+    AssociateUserAccessLoggingSettingsResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  associateUserSettings(
+    input: AssociateUserSettingsRequest,
+  ): Effect.Effect<
+    AssociateUserSettingsResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createBrowserSettings(
+    input: CreateBrowserSettingsRequest,
+  ): Effect.Effect<
+    CreateBrowserSettingsResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createDataProtectionSettings(
+    input: CreateDataProtectionSettingsRequest,
+  ): Effect.Effect<
+    CreateDataProtectionSettingsResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createIdentityProvider(
+    input: CreateIdentityProviderRequest,
+  ): Effect.Effect<
+    CreateIdentityProviderResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createIpAccessSettings(
+    input: CreateIpAccessSettingsRequest,
+  ): Effect.Effect<
+    CreateIpAccessSettingsResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createNetworkSettings(
+    input: CreateNetworkSettingsRequest,
+  ): Effect.Effect<
+    CreateNetworkSettingsResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createPortal(
+    input: CreatePortalRequest,
+  ): Effect.Effect<
+    CreatePortalResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createSessionLogger(
+    input: CreateSessionLoggerRequest,
+  ): Effect.Effect<
+    CreateSessionLoggerResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createTrustStore(
+    input: CreateTrustStoreRequest,
+  ): Effect.Effect<
+    CreateTrustStoreResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createUserAccessLoggingSettings(
+    input: CreateUserAccessLoggingSettingsRequest,
+  ): Effect.Effect<
+    CreateUserAccessLoggingSettingsResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createUserSettings(
+    input: CreateUserSettingsRequest,
+  ): Effect.Effect<
+    CreateUserSettingsResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteBrowserSettings(
+    input: DeleteBrowserSettingsRequest,
+  ): Effect.Effect<
+    DeleteBrowserSettingsResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteDataProtectionSettings(
+    input: DeleteDataProtectionSettingsRequest,
+  ): Effect.Effect<
+    DeleteDataProtectionSettingsResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteIdentityProvider(
+    input: DeleteIdentityProviderRequest,
+  ): Effect.Effect<
+    DeleteIdentityProviderResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteIpAccessSettings(
+    input: DeleteIpAccessSettingsRequest,
+  ): Effect.Effect<
+    DeleteIpAccessSettingsResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteNetworkSettings(
+    input: DeleteNetworkSettingsRequest,
+  ): Effect.Effect<
+    DeleteNetworkSettingsResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deletePortal(
+    input: DeletePortalRequest,
+  ): Effect.Effect<
+    DeletePortalResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteSessionLogger(
+    input: DeleteSessionLoggerRequest,
+  ): Effect.Effect<
+    DeleteSessionLoggerResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteTrustStore(
+    input: DeleteTrustStoreRequest,
+  ): Effect.Effect<
+    DeleteTrustStoreResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteUserAccessLoggingSettings(
+    input: DeleteUserAccessLoggingSettingsRequest,
+  ): Effect.Effect<
+    DeleteUserAccessLoggingSettingsResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteUserSettings(
+    input: DeleteUserSettingsRequest,
+  ): Effect.Effect<
+    DeleteUserSettingsResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  disassociateBrowserSettings(
+    input: DisassociateBrowserSettingsRequest,
+  ): Effect.Effect<
+    DisassociateBrowserSettingsResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  disassociateDataProtectionSettings(
+    input: DisassociateDataProtectionSettingsRequest,
+  ): Effect.Effect<
+    DisassociateDataProtectionSettingsResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  disassociateIpAccessSettings(
+    input: DisassociateIpAccessSettingsRequest,
+  ): Effect.Effect<
+    DisassociateIpAccessSettingsResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  disassociateNetworkSettings(
+    input: DisassociateNetworkSettingsRequest,
+  ): Effect.Effect<
+    DisassociateNetworkSettingsResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  disassociateSessionLogger(
+    input: DisassociateSessionLoggerRequest,
+  ): Effect.Effect<
+    DisassociateSessionLoggerResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  disassociateTrustStore(
+    input: DisassociateTrustStoreRequest,
+  ): Effect.Effect<
+    DisassociateTrustStoreResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  disassociateUserAccessLoggingSettings(
+    input: DisassociateUserAccessLoggingSettingsRequest,
+  ): Effect.Effect<
+    DisassociateUserAccessLoggingSettingsResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  disassociateUserSettings(
+    input: DisassociateUserSettingsRequest,
+  ): Effect.Effect<
+    DisassociateUserSettingsResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getBrowserSettings(
+    input: GetBrowserSettingsRequest,
+  ): Effect.Effect<
+    GetBrowserSettingsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getDataProtectionSettings(
+    input: GetDataProtectionSettingsRequest,
+  ): Effect.Effect<
+    GetDataProtectionSettingsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getIdentityProvider(
+    input: GetIdentityProviderRequest,
+  ): Effect.Effect<
+    GetIdentityProviderResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getIpAccessSettings(
+    input: GetIpAccessSettingsRequest,
+  ): Effect.Effect<
+    GetIpAccessSettingsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getNetworkSettings(
+    input: GetNetworkSettingsRequest,
+  ): Effect.Effect<
+    GetNetworkSettingsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getPortal(
+    input: GetPortalRequest,
+  ): Effect.Effect<
+    GetPortalResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getPortalServiceProviderMetadata(
+    input: GetPortalServiceProviderMetadataRequest,
+  ): Effect.Effect<
+    GetPortalServiceProviderMetadataResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getSessionLogger(
+    input: GetSessionLoggerRequest,
+  ): Effect.Effect<
+    GetSessionLoggerResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getTrustStore(
+    input: GetTrustStoreRequest,
+  ): Effect.Effect<
+    GetTrustStoreResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getTrustStoreCertificate(
+    input: GetTrustStoreCertificateRequest,
+  ): Effect.Effect<
+    GetTrustStoreCertificateResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getUserAccessLoggingSettings(
+    input: GetUserAccessLoggingSettingsRequest,
+  ): Effect.Effect<
+    GetUserAccessLoggingSettingsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getUserSettings(
+    input: GetUserSettingsRequest,
+  ): Effect.Effect<
+    GetUserSettingsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listBrowserSettings(
+    input: ListBrowserSettingsRequest,
+  ): Effect.Effect<
+    ListBrowserSettingsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listDataProtectionSettings(
+    input: ListDataProtectionSettingsRequest,
+  ): Effect.Effect<
+    ListDataProtectionSettingsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listIdentityProviders(
+    input: ListIdentityProvidersRequest,
+  ): Effect.Effect<
+    ListIdentityProvidersResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listIpAccessSettings(
+    input: ListIpAccessSettingsRequest,
+  ): Effect.Effect<
+    ListIpAccessSettingsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listNetworkSettings(
+    input: ListNetworkSettingsRequest,
+  ): Effect.Effect<
+    ListNetworkSettingsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listPortals(
+    input: ListPortalsRequest,
+  ): Effect.Effect<
+    ListPortalsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listSessionLoggers(
+    input: ListSessionLoggersRequest,
+  ): Effect.Effect<
+    ListSessionLoggersResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listTrustStoreCertificates(
+    input: ListTrustStoreCertificatesRequest,
+  ): Effect.Effect<
+    ListTrustStoreCertificatesResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listTrustStores(
+    input: ListTrustStoresRequest,
+  ): Effect.Effect<
+    ListTrustStoresResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listUserAccessLoggingSettings(
+    input: ListUserAccessLoggingSettingsRequest,
+  ): Effect.Effect<
+    ListUserAccessLoggingSettingsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listUserSettings(
+    input: ListUserSettingsRequest,
+  ): Effect.Effect<
+    ListUserSettingsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateBrowserSettings(
+    input: UpdateBrowserSettingsRequest,
+  ): Effect.Effect<
+    UpdateBrowserSettingsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateDataProtectionSettings(
+    input: UpdateDataProtectionSettingsRequest,
+  ): Effect.Effect<
+    UpdateDataProtectionSettingsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateIdentityProvider(
+    input: UpdateIdentityProviderRequest,
+  ): Effect.Effect<
+    UpdateIdentityProviderResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateIpAccessSettings(
+    input: UpdateIpAccessSettingsRequest,
+  ): Effect.Effect<
+    UpdateIpAccessSettingsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateNetworkSettings(
+    input: UpdateNetworkSettingsRequest,
+  ): Effect.Effect<
+    UpdateNetworkSettingsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updatePortal(
+    input: UpdatePortalRequest,
+  ): Effect.Effect<
+    UpdatePortalResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateSessionLogger(
+    input: UpdateSessionLoggerRequest,
+  ): Effect.Effect<
+    UpdateSessionLoggerResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateTrustStore(
+    input: UpdateTrustStoreRequest,
+  ): Effect.Effect<
+    UpdateTrustStoreResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateUserAccessLoggingSettings(
+    input: UpdateUserAccessLoggingSettingsRequest,
+  ): Effect.Effect<
+    UpdateUserAccessLoggingSettingsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateUserSettings(
+    input: UpdateUserSettingsRequest,
+  ): Effect.Effect<
+    UpdateUserSettingsResponse,
     | AccessDeniedException
     | InternalServerException
     | ResourceNotFoundException
@@ -1209,6 +1991,856 @@ export declare namespace TagResource {
 export declare namespace UntagResource {
   export type Input = UntagResourceRequest;
   export type Output = UntagResourceResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace AssociateBrowserSettings {
+  export type Input = AssociateBrowserSettingsRequest;
+  export type Output = AssociateBrowserSettingsResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace AssociateDataProtectionSettings {
+  export type Input = AssociateDataProtectionSettingsRequest;
+  export type Output = AssociateDataProtectionSettingsResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace AssociateIpAccessSettings {
+  export type Input = AssociateIpAccessSettingsRequest;
+  export type Output = AssociateIpAccessSettingsResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace AssociateNetworkSettings {
+  export type Input = AssociateNetworkSettingsRequest;
+  export type Output = AssociateNetworkSettingsResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace AssociateSessionLogger {
+  export type Input = AssociateSessionLoggerRequest;
+  export type Output = AssociateSessionLoggerResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace AssociateTrustStore {
+  export type Input = AssociateTrustStoreRequest;
+  export type Output = AssociateTrustStoreResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace AssociateUserAccessLoggingSettings {
+  export type Input = AssociateUserAccessLoggingSettingsRequest;
+  export type Output = AssociateUserAccessLoggingSettingsResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace AssociateUserSettings {
+  export type Input = AssociateUserSettingsRequest;
+  export type Output = AssociateUserSettingsResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateBrowserSettings {
+  export type Input = CreateBrowserSettingsRequest;
+  export type Output = CreateBrowserSettingsResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateDataProtectionSettings {
+  export type Input = CreateDataProtectionSettingsRequest;
+  export type Output = CreateDataProtectionSettingsResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateIdentityProvider {
+  export type Input = CreateIdentityProviderRequest;
+  export type Output = CreateIdentityProviderResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateIpAccessSettings {
+  export type Input = CreateIpAccessSettingsRequest;
+  export type Output = CreateIpAccessSettingsResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateNetworkSettings {
+  export type Input = CreateNetworkSettingsRequest;
+  export type Output = CreateNetworkSettingsResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreatePortal {
+  export type Input = CreatePortalRequest;
+  export type Output = CreatePortalResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateSessionLogger {
+  export type Input = CreateSessionLoggerRequest;
+  export type Output = CreateSessionLoggerResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateTrustStore {
+  export type Input = CreateTrustStoreRequest;
+  export type Output = CreateTrustStoreResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateUserAccessLoggingSettings {
+  export type Input = CreateUserAccessLoggingSettingsRequest;
+  export type Output = CreateUserAccessLoggingSettingsResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateUserSettings {
+  export type Input = CreateUserSettingsRequest;
+  export type Output = CreateUserSettingsResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteBrowserSettings {
+  export type Input = DeleteBrowserSettingsRequest;
+  export type Output = DeleteBrowserSettingsResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteDataProtectionSettings {
+  export type Input = DeleteDataProtectionSettingsRequest;
+  export type Output = DeleteDataProtectionSettingsResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteIdentityProvider {
+  export type Input = DeleteIdentityProviderRequest;
+  export type Output = DeleteIdentityProviderResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteIpAccessSettings {
+  export type Input = DeleteIpAccessSettingsRequest;
+  export type Output = DeleteIpAccessSettingsResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteNetworkSettings {
+  export type Input = DeleteNetworkSettingsRequest;
+  export type Output = DeleteNetworkSettingsResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeletePortal {
+  export type Input = DeletePortalRequest;
+  export type Output = DeletePortalResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteSessionLogger {
+  export type Input = DeleteSessionLoggerRequest;
+  export type Output = DeleteSessionLoggerResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteTrustStore {
+  export type Input = DeleteTrustStoreRequest;
+  export type Output = DeleteTrustStoreResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteUserAccessLoggingSettings {
+  export type Input = DeleteUserAccessLoggingSettingsRequest;
+  export type Output = DeleteUserAccessLoggingSettingsResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteUserSettings {
+  export type Input = DeleteUserSettingsRequest;
+  export type Output = DeleteUserSettingsResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DisassociateBrowserSettings {
+  export type Input = DisassociateBrowserSettingsRequest;
+  export type Output = DisassociateBrowserSettingsResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DisassociateDataProtectionSettings {
+  export type Input = DisassociateDataProtectionSettingsRequest;
+  export type Output = DisassociateDataProtectionSettingsResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DisassociateIpAccessSettings {
+  export type Input = DisassociateIpAccessSettingsRequest;
+  export type Output = DisassociateIpAccessSettingsResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DisassociateNetworkSettings {
+  export type Input = DisassociateNetworkSettingsRequest;
+  export type Output = DisassociateNetworkSettingsResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DisassociateSessionLogger {
+  export type Input = DisassociateSessionLoggerRequest;
+  export type Output = DisassociateSessionLoggerResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DisassociateTrustStore {
+  export type Input = DisassociateTrustStoreRequest;
+  export type Output = DisassociateTrustStoreResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DisassociateUserAccessLoggingSettings {
+  export type Input = DisassociateUserAccessLoggingSettingsRequest;
+  export type Output = DisassociateUserAccessLoggingSettingsResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DisassociateUserSettings {
+  export type Input = DisassociateUserSettingsRequest;
+  export type Output = DisassociateUserSettingsResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetBrowserSettings {
+  export type Input = GetBrowserSettingsRequest;
+  export type Output = GetBrowserSettingsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetDataProtectionSettings {
+  export type Input = GetDataProtectionSettingsRequest;
+  export type Output = GetDataProtectionSettingsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetIdentityProvider {
+  export type Input = GetIdentityProviderRequest;
+  export type Output = GetIdentityProviderResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetIpAccessSettings {
+  export type Input = GetIpAccessSettingsRequest;
+  export type Output = GetIpAccessSettingsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetNetworkSettings {
+  export type Input = GetNetworkSettingsRequest;
+  export type Output = GetNetworkSettingsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetPortal {
+  export type Input = GetPortalRequest;
+  export type Output = GetPortalResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetPortalServiceProviderMetadata {
+  export type Input = GetPortalServiceProviderMetadataRequest;
+  export type Output = GetPortalServiceProviderMetadataResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetSessionLogger {
+  export type Input = GetSessionLoggerRequest;
+  export type Output = GetSessionLoggerResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetTrustStore {
+  export type Input = GetTrustStoreRequest;
+  export type Output = GetTrustStoreResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetTrustStoreCertificate {
+  export type Input = GetTrustStoreCertificateRequest;
+  export type Output = GetTrustStoreCertificateResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetUserAccessLoggingSettings {
+  export type Input = GetUserAccessLoggingSettingsRequest;
+  export type Output = GetUserAccessLoggingSettingsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetUserSettings {
+  export type Input = GetUserSettingsRequest;
+  export type Output = GetUserSettingsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListBrowserSettings {
+  export type Input = ListBrowserSettingsRequest;
+  export type Output = ListBrowserSettingsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListDataProtectionSettings {
+  export type Input = ListDataProtectionSettingsRequest;
+  export type Output = ListDataProtectionSettingsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListIdentityProviders {
+  export type Input = ListIdentityProvidersRequest;
+  export type Output = ListIdentityProvidersResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListIpAccessSettings {
+  export type Input = ListIpAccessSettingsRequest;
+  export type Output = ListIpAccessSettingsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListNetworkSettings {
+  export type Input = ListNetworkSettingsRequest;
+  export type Output = ListNetworkSettingsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListPortals {
+  export type Input = ListPortalsRequest;
+  export type Output = ListPortalsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListSessionLoggers {
+  export type Input = ListSessionLoggersRequest;
+  export type Output = ListSessionLoggersResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListTrustStoreCertificates {
+  export type Input = ListTrustStoreCertificatesRequest;
+  export type Output = ListTrustStoreCertificatesResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListTrustStores {
+  export type Input = ListTrustStoresRequest;
+  export type Output = ListTrustStoresResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListUserAccessLoggingSettings {
+  export type Input = ListUserAccessLoggingSettingsRequest;
+  export type Output = ListUserAccessLoggingSettingsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListUserSettings {
+  export type Input = ListUserSettingsRequest;
+  export type Output = ListUserSettingsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateBrowserSettings {
+  export type Input = UpdateBrowserSettingsRequest;
+  export type Output = UpdateBrowserSettingsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateDataProtectionSettings {
+  export type Input = UpdateDataProtectionSettingsRequest;
+  export type Output = UpdateDataProtectionSettingsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateIdentityProvider {
+  export type Input = UpdateIdentityProviderRequest;
+  export type Output = UpdateIdentityProviderResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateIpAccessSettings {
+  export type Input = UpdateIpAccessSettingsRequest;
+  export type Output = UpdateIpAccessSettingsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateNetworkSettings {
+  export type Input = UpdateNetworkSettingsRequest;
+  export type Output = UpdateNetworkSettingsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdatePortal {
+  export type Input = UpdatePortalRequest;
+  export type Output = UpdatePortalResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateSessionLogger {
+  export type Input = UpdateSessionLoggerRequest;
+  export type Output = UpdateSessionLoggerResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateTrustStore {
+  export type Input = UpdateTrustStoreRequest;
+  export type Output = UpdateTrustStoreResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateUserAccessLoggingSettings {
+  export type Input = UpdateUserAccessLoggingSettingsRequest;
+  export type Output = UpdateUserAccessLoggingSettingsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateUserSettings {
+  export type Input = UpdateUserSettingsRequest;
+  export type Output = UpdateUserSettingsResponse;
   export type Error =
     | AccessDeniedException
     | InternalServerException

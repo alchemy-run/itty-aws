@@ -28,6 +28,600 @@ export declare class BedrockAgentCoreControl extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
+  createAgentRuntime(
+    input: CreateAgentRuntimeRequest,
+  ): Effect.Effect<
+    CreateAgentRuntimeResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createAgentRuntimeEndpoint(
+    input: CreateAgentRuntimeEndpointRequest,
+  ): Effect.Effect<
+    CreateAgentRuntimeEndpointResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createApiKeyCredentialProvider(
+    input: CreateApiKeyCredentialProviderRequest,
+  ): Effect.Effect<
+    CreateApiKeyCredentialProviderResponse,
+    | AccessDeniedException
+    | ConflictException
+    | DecryptionFailure
+    | EncryptionFailure
+    | InternalServerException
+    | ResourceLimitExceededException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createBrowser(
+    input: CreateBrowserRequest,
+  ): Effect.Effect<
+    CreateBrowserResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createCodeInterpreter(
+    input: CreateCodeInterpreterRequest,
+  ): Effect.Effect<
+    CreateCodeInterpreterResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createGateway(
+    input: CreateGatewayRequest,
+  ): Effect.Effect<
+    CreateGatewayResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createGatewayTarget(
+    input: CreateGatewayTargetRequest,
+  ): Effect.Effect<
+    CreateGatewayTargetResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createMemory(
+    input: CreateMemoryInput,
+  ): Effect.Effect<
+    CreateMemoryOutput,
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | ServiceQuotaExceededException
+    | ThrottledException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createOauth2CredentialProvider(
+    input: CreateOauth2CredentialProviderRequest,
+  ): Effect.Effect<
+    CreateOauth2CredentialProviderResponse,
+    | AccessDeniedException
+    | ConflictException
+    | DecryptionFailure
+    | EncryptionFailure
+    | InternalServerException
+    | ResourceLimitExceededException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createWorkloadIdentity(
+    input: CreateWorkloadIdentityRequest,
+  ): Effect.Effect<
+    CreateWorkloadIdentityResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteAgentRuntime(
+    input: DeleteAgentRuntimeRequest,
+  ): Effect.Effect<
+    DeleteAgentRuntimeResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
+  >;
+  deleteAgentRuntimeEndpoint(
+    input: DeleteAgentRuntimeEndpointRequest,
+  ): Effect.Effect<
+    DeleteAgentRuntimeEndpointResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
+  >;
+  deleteApiKeyCredentialProvider(
+    input: DeleteApiKeyCredentialProviderRequest,
+  ): Effect.Effect<
+    DeleteApiKeyCredentialProviderResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteBrowser(
+    input: DeleteBrowserRequest,
+  ): Effect.Effect<
+    DeleteBrowserResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteCodeInterpreter(
+    input: DeleteCodeInterpreterRequest,
+  ): Effect.Effect<
+    DeleteCodeInterpreterResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteGateway(
+    input: DeleteGatewayRequest,
+  ): Effect.Effect<
+    DeleteGatewayResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteGatewayTarget(
+    input: DeleteGatewayTargetRequest,
+  ): Effect.Effect<
+    DeleteGatewayTargetResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteMemory(
+    input: DeleteMemoryInput,
+  ): Effect.Effect<
+    DeleteMemoryOutput,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ServiceException
+    | ThrottledException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteOauth2CredentialProvider(
+    input: DeleteOauth2CredentialProviderRequest,
+  ): Effect.Effect<
+    DeleteOauth2CredentialProviderResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteWorkloadIdentity(
+    input: DeleteWorkloadIdentityRequest,
+  ): Effect.Effect<
+    DeleteWorkloadIdentityResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getAgentRuntime(
+    input: GetAgentRuntimeRequest,
+  ): Effect.Effect<
+    GetAgentRuntimeResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getAgentRuntimeEndpoint(
+    input: GetAgentRuntimeEndpointRequest,
+  ): Effect.Effect<
+    GetAgentRuntimeEndpointResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getApiKeyCredentialProvider(
+    input: GetApiKeyCredentialProviderRequest,
+  ): Effect.Effect<
+    GetApiKeyCredentialProviderResponse,
+    | AccessDeniedException
+    | DecryptionFailure
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getBrowser(
+    input: GetBrowserRequest,
+  ): Effect.Effect<
+    GetBrowserResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | CommonAwsError
+  >;
+  getCodeInterpreter(
+    input: GetCodeInterpreterRequest,
+  ): Effect.Effect<
+    GetCodeInterpreterResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | CommonAwsError
+  >;
+  getGateway(
+    input: GetGatewayRequest,
+  ): Effect.Effect<
+    GetGatewayResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getGatewayTarget(
+    input: GetGatewayTargetRequest,
+  ): Effect.Effect<
+    GetGatewayTargetResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getMemory(
+    input: GetMemoryInput,
+  ): Effect.Effect<
+    GetMemoryOutput,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ServiceException
+    | ThrottledException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getOauth2CredentialProvider(
+    input: GetOauth2CredentialProviderRequest,
+  ): Effect.Effect<
+    GetOauth2CredentialProviderResponse,
+    | AccessDeniedException
+    | DecryptionFailure
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getWorkloadIdentity(
+    input: GetWorkloadIdentityRequest,
+  ): Effect.Effect<
+    GetWorkloadIdentityResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listAgentRuntimeEndpoints(
+    input: ListAgentRuntimeEndpointsRequest,
+  ): Effect.Effect<
+    ListAgentRuntimeEndpointsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listAgentRuntimeVersions(
+    input: ListAgentRuntimeVersionsRequest,
+  ): Effect.Effect<
+    ListAgentRuntimeVersionsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listAgentRuntimes(
+    input: ListAgentRuntimesRequest,
+  ): Effect.Effect<
+    ListAgentRuntimesResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listApiKeyCredentialProviders(
+    input: ListApiKeyCredentialProvidersRequest,
+  ): Effect.Effect<
+    ListApiKeyCredentialProvidersResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listBrowsers(
+    input: ListBrowsersRequest,
+  ): Effect.Effect<
+    ListBrowsersResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listCodeInterpreters(
+    input: ListCodeInterpretersRequest,
+  ): Effect.Effect<
+    ListCodeInterpretersResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listGatewayTargets(
+    input: ListGatewayTargetsRequest,
+  ): Effect.Effect<
+    ListGatewayTargetsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listGateways(
+    input: ListGatewaysRequest,
+  ): Effect.Effect<
+    ListGatewaysResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listMemories(
+    input: ListMemoriesInput,
+  ): Effect.Effect<
+    ListMemoriesOutput,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ServiceException
+    | ThrottledException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listOauth2CredentialProviders(
+    input: ListOauth2CredentialProvidersRequest,
+  ): Effect.Effect<
+    ListOauth2CredentialProvidersResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listWorkloadIdentities(
+    input: ListWorkloadIdentitiesRequest,
+  ): Effect.Effect<
+    ListWorkloadIdentitiesResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateAgentRuntime(
+    input: UpdateAgentRuntimeRequest,
+  ): Effect.Effect<
+    UpdateAgentRuntimeResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateAgentRuntimeEndpoint(
+    input: UpdateAgentRuntimeEndpointRequest,
+  ): Effect.Effect<
+    UpdateAgentRuntimeEndpointResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateApiKeyCredentialProvider(
+    input: UpdateApiKeyCredentialProviderRequest,
+  ): Effect.Effect<
+    UpdateApiKeyCredentialProviderResponse,
+    | AccessDeniedException
+    | ConflictException
+    | DecryptionFailure
+    | EncryptionFailure
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateGateway(
+    input: UpdateGatewayRequest,
+  ): Effect.Effect<
+    UpdateGatewayResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateGatewayTarget(
+    input: UpdateGatewayTargetRequest,
+  ): Effect.Effect<
+    UpdateGatewayTargetResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateMemory(
+    input: UpdateMemoryInput,
+  ): Effect.Effect<
+    UpdateMemoryOutput,
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | ServiceQuotaExceededException
+    | ThrottledException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateOauth2CredentialProvider(
+    input: UpdateOauth2CredentialProviderRequest,
+  ): Effect.Effect<
+    UpdateOauth2CredentialProviderResponse,
+    | AccessDeniedException
+    | ConflictException
+    | DecryptionFailure
+    | EncryptionFailure
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateWorkloadIdentity(
+    input: UpdateWorkloadIdentityRequest,
+  ): Effect.Effect<
+    UpdateWorkloadIdentityResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
 }
 
 export declare class BedrockAgentcoreControl extends BedrockAgentCoreControl {}
@@ -1592,6 +2186,649 @@ export declare namespace SetTokenVaultCMK {
   export type Error =
     | AccessDeniedException
     | ConcurrentModificationException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateAgentRuntime {
+  export type Input = CreateAgentRuntimeRequest;
+  export type Output = CreateAgentRuntimeResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateAgentRuntimeEndpoint {
+  export type Input = CreateAgentRuntimeEndpointRequest;
+  export type Output = CreateAgentRuntimeEndpointResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateApiKeyCredentialProvider {
+  export type Input = CreateApiKeyCredentialProviderRequest;
+  export type Output = CreateApiKeyCredentialProviderResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | DecryptionFailure
+    | EncryptionFailure
+    | InternalServerException
+    | ResourceLimitExceededException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateBrowser {
+  export type Input = CreateBrowserRequest;
+  export type Output = CreateBrowserResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateCodeInterpreter {
+  export type Input = CreateCodeInterpreterRequest;
+  export type Output = CreateCodeInterpreterResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateGateway {
+  export type Input = CreateGatewayRequest;
+  export type Output = CreateGatewayResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateGatewayTarget {
+  export type Input = CreateGatewayTargetRequest;
+  export type Output = CreateGatewayTargetResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateMemory {
+  export type Input = CreateMemoryInput;
+  export type Output = CreateMemoryOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | ServiceQuotaExceededException
+    | ThrottledException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateOauth2CredentialProvider {
+  export type Input = CreateOauth2CredentialProviderRequest;
+  export type Output = CreateOauth2CredentialProviderResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | DecryptionFailure
+    | EncryptionFailure
+    | InternalServerException
+    | ResourceLimitExceededException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateWorkloadIdentity {
+  export type Input = CreateWorkloadIdentityRequest;
+  export type Output = CreateWorkloadIdentityResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteAgentRuntime {
+  export type Input = DeleteAgentRuntimeRequest;
+  export type Output = DeleteAgentRuntimeResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteAgentRuntimeEndpoint {
+  export type Input = DeleteAgentRuntimeEndpointRequest;
+  export type Output = DeleteAgentRuntimeEndpointResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteApiKeyCredentialProvider {
+  export type Input = DeleteApiKeyCredentialProviderRequest;
+  export type Output = DeleteApiKeyCredentialProviderResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteBrowser {
+  export type Input = DeleteBrowserRequest;
+  export type Output = DeleteBrowserResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteCodeInterpreter {
+  export type Input = DeleteCodeInterpreterRequest;
+  export type Output = DeleteCodeInterpreterResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteGateway {
+  export type Input = DeleteGatewayRequest;
+  export type Output = DeleteGatewayResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteGatewayTarget {
+  export type Input = DeleteGatewayTargetRequest;
+  export type Output = DeleteGatewayTargetResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteMemory {
+  export type Input = DeleteMemoryInput;
+  export type Output = DeleteMemoryOutput;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ServiceException
+    | ThrottledException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteOauth2CredentialProvider {
+  export type Input = DeleteOauth2CredentialProviderRequest;
+  export type Output = DeleteOauth2CredentialProviderResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteWorkloadIdentity {
+  export type Input = DeleteWorkloadIdentityRequest;
+  export type Output = DeleteWorkloadIdentityResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetAgentRuntime {
+  export type Input = GetAgentRuntimeRequest;
+  export type Output = GetAgentRuntimeResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetAgentRuntimeEndpoint {
+  export type Input = GetAgentRuntimeEndpointRequest;
+  export type Output = GetAgentRuntimeEndpointResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetApiKeyCredentialProvider {
+  export type Input = GetApiKeyCredentialProviderRequest;
+  export type Output = GetApiKeyCredentialProviderResponse;
+  export type Error =
+    | AccessDeniedException
+    | DecryptionFailure
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetBrowser {
+  export type Input = GetBrowserRequest;
+  export type Output = GetBrowserResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | CommonAwsError;
+}
+
+export declare namespace GetCodeInterpreter {
+  export type Input = GetCodeInterpreterRequest;
+  export type Output = GetCodeInterpreterResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | CommonAwsError;
+}
+
+export declare namespace GetGateway {
+  export type Input = GetGatewayRequest;
+  export type Output = GetGatewayResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetGatewayTarget {
+  export type Input = GetGatewayTargetRequest;
+  export type Output = GetGatewayTargetResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetMemory {
+  export type Input = GetMemoryInput;
+  export type Output = GetMemoryOutput;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ServiceException
+    | ThrottledException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetOauth2CredentialProvider {
+  export type Input = GetOauth2CredentialProviderRequest;
+  export type Output = GetOauth2CredentialProviderResponse;
+  export type Error =
+    | AccessDeniedException
+    | DecryptionFailure
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetWorkloadIdentity {
+  export type Input = GetWorkloadIdentityRequest;
+  export type Output = GetWorkloadIdentityResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListAgentRuntimeEndpoints {
+  export type Input = ListAgentRuntimeEndpointsRequest;
+  export type Output = ListAgentRuntimeEndpointsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListAgentRuntimeVersions {
+  export type Input = ListAgentRuntimeVersionsRequest;
+  export type Output = ListAgentRuntimeVersionsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListAgentRuntimes {
+  export type Input = ListAgentRuntimesRequest;
+  export type Output = ListAgentRuntimesResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListApiKeyCredentialProviders {
+  export type Input = ListApiKeyCredentialProvidersRequest;
+  export type Output = ListApiKeyCredentialProvidersResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListBrowsers {
+  export type Input = ListBrowsersRequest;
+  export type Output = ListBrowsersResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListCodeInterpreters {
+  export type Input = ListCodeInterpretersRequest;
+  export type Output = ListCodeInterpretersResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListGatewayTargets {
+  export type Input = ListGatewayTargetsRequest;
+  export type Output = ListGatewayTargetsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListGateways {
+  export type Input = ListGatewaysRequest;
+  export type Output = ListGatewaysResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListMemories {
+  export type Input = ListMemoriesInput;
+  export type Output = ListMemoriesOutput;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ServiceException
+    | ThrottledException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListOauth2CredentialProviders {
+  export type Input = ListOauth2CredentialProvidersRequest;
+  export type Output = ListOauth2CredentialProvidersResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListWorkloadIdentities {
+  export type Input = ListWorkloadIdentitiesRequest;
+  export type Output = ListWorkloadIdentitiesResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateAgentRuntime {
+  export type Input = UpdateAgentRuntimeRequest;
+  export type Output = UpdateAgentRuntimeResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateAgentRuntimeEndpoint {
+  export type Input = UpdateAgentRuntimeEndpointRequest;
+  export type Output = UpdateAgentRuntimeEndpointResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateApiKeyCredentialProvider {
+  export type Input = UpdateApiKeyCredentialProviderRequest;
+  export type Output = UpdateApiKeyCredentialProviderResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | DecryptionFailure
+    | EncryptionFailure
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateGateway {
+  export type Input = UpdateGatewayRequest;
+  export type Output = UpdateGatewayResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateGatewayTarget {
+  export type Input = UpdateGatewayTargetRequest;
+  export type Output = UpdateGatewayTargetResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateMemory {
+  export type Input = UpdateMemoryInput;
+  export type Output = UpdateMemoryOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | ServiceQuotaExceededException
+    | ThrottledException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateOauth2CredentialProvider {
+  export type Input = UpdateOauth2CredentialProviderRequest;
+  export type Output = UpdateOauth2CredentialProviderResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | DecryptionFailure
+    | EncryptionFailure
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateWorkloadIdentity {
+  export type Input = UpdateWorkloadIdentityRequest;
+  export type Output = UpdateWorkloadIdentityResponse;
+  export type Error =
+    | AccessDeniedException
     | InternalServerException
     | ResourceNotFoundException
     | ThrottlingException

@@ -30,6 +30,115 @@ export declare class SnowDeviceManagement extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
+  cancelTask(
+    input: CancelTaskInput,
+  ): Effect.Effect<
+    CancelTaskOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createTask(
+    input: CreateTaskInput,
+  ): Effect.Effect<
+    CreateTaskOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  describeDevice(
+    input: DescribeDeviceInput,
+  ): Effect.Effect<
+    DescribeDeviceOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  describeDeviceEc2Instances(
+    input: DescribeDeviceEc2Input,
+  ): Effect.Effect<
+    DescribeDeviceEc2Output,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  describeExecution(
+    input: DescribeExecutionInput,
+  ): Effect.Effect<
+    DescribeExecutionOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  describeTask(
+    input: DescribeTaskInput,
+  ): Effect.Effect<
+    DescribeTaskOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listDeviceResources(
+    input: ListDeviceResourcesInput,
+  ): Effect.Effect<
+    ListDeviceResourcesOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listDevices(
+    input: ListDevicesInput,
+  ): Effect.Effect<
+    ListDevicesOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listExecutions(
+    input: ListExecutionsInput,
+  ): Effect.Effect<
+    ListExecutionsOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listTasks(
+    input: ListTasksInput,
+  ): Effect.Effect<
+    ListTasksOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
 }
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
@@ -344,6 +453,125 @@ export declare namespace UntagResource {
   export type Error =
     | InternalServerException
     | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CancelTask {
+  export type Input = CancelTaskInput;
+  export type Output = CancelTaskOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateTask {
+  export type Input = CreateTaskInput;
+  export type Output = CreateTaskOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DescribeDevice {
+  export type Input = DescribeDeviceInput;
+  export type Output = DescribeDeviceOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DescribeDeviceEc2Instances {
+  export type Input = DescribeDeviceEc2Input;
+  export type Output = DescribeDeviceEc2Output;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DescribeExecution {
+  export type Input = DescribeExecutionInput;
+  export type Output = DescribeExecutionOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DescribeTask {
+  export type Input = DescribeTaskInput;
+  export type Output = DescribeTaskOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListDeviceResources {
+  export type Input = ListDeviceResourcesInput;
+  export type Output = ListDeviceResourcesOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListDevices {
+  export type Input = ListDevicesInput;
+  export type Output = ListDevicesOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListExecutions {
+  export type Input = ListExecutionsInput;
+  export type Output = ListExecutionsOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListTasks {
+  export type Input = ListTasksInput;
+  export type Output = ListTasksOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
     | ValidationException
     | CommonAwsError;
 }

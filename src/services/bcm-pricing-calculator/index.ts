@@ -33,6 +33,241 @@ export declare class BCMPricingCalculator extends AWSServiceClient {
     UpdatePreferencesResponse,
     DataUnavailableException | ServiceQuotaExceededException | CommonAwsError
   >;
+  batchCreateBillScenarioCommitmentModification(
+    input: BatchCreateBillScenarioCommitmentModificationRequest,
+  ): Effect.Effect<
+    BatchCreateBillScenarioCommitmentModificationResponse,
+    | ConflictException
+    | DataUnavailableException
+    | ResourceNotFoundException
+    | CommonAwsError
+  >;
+  batchCreateBillScenarioUsageModification(
+    input: BatchCreateBillScenarioUsageModificationRequest,
+  ): Effect.Effect<
+    BatchCreateBillScenarioUsageModificationResponse,
+    | ConflictException
+    | DataUnavailableException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | CommonAwsError
+  >;
+  batchCreateWorkloadEstimateUsage(
+    input: BatchCreateWorkloadEstimateUsageRequest,
+  ): Effect.Effect<
+    BatchCreateWorkloadEstimateUsageResponse,
+    | ConflictException
+    | DataUnavailableException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | CommonAwsError
+  >;
+  batchDeleteBillScenarioCommitmentModification(
+    input: BatchDeleteBillScenarioCommitmentModificationRequest,
+  ): Effect.Effect<
+    BatchDeleteBillScenarioCommitmentModificationResponse,
+    | ConflictException
+    | DataUnavailableException
+    | ResourceNotFoundException
+    | CommonAwsError
+  >;
+  batchDeleteBillScenarioUsageModification(
+    input: BatchDeleteBillScenarioUsageModificationRequest,
+  ): Effect.Effect<
+    BatchDeleteBillScenarioUsageModificationResponse,
+    | ConflictException
+    | DataUnavailableException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | CommonAwsError
+  >;
+  batchDeleteWorkloadEstimateUsage(
+    input: BatchDeleteWorkloadEstimateUsageRequest,
+  ): Effect.Effect<
+    BatchDeleteWorkloadEstimateUsageResponse,
+    | DataUnavailableException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | CommonAwsError
+  >;
+  batchUpdateBillScenarioCommitmentModification(
+    input: BatchUpdateBillScenarioCommitmentModificationRequest,
+  ): Effect.Effect<
+    BatchUpdateBillScenarioCommitmentModificationResponse,
+    | ConflictException
+    | DataUnavailableException
+    | ResourceNotFoundException
+    | CommonAwsError
+  >;
+  batchUpdateBillScenarioUsageModification(
+    input: BatchUpdateBillScenarioUsageModificationRequest,
+  ): Effect.Effect<
+    BatchUpdateBillScenarioUsageModificationResponse,
+    | ConflictException
+    | DataUnavailableException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | CommonAwsError
+  >;
+  batchUpdateWorkloadEstimateUsage(
+    input: BatchUpdateWorkloadEstimateUsageRequest,
+  ): Effect.Effect<
+    BatchUpdateWorkloadEstimateUsageResponse,
+    | DataUnavailableException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | CommonAwsError
+  >;
+  createBillEstimate(
+    input: CreateBillEstimateRequest,
+  ): Effect.Effect<
+    CreateBillEstimateResponse,
+    | ConflictException
+    | DataUnavailableException
+    | ResourceNotFoundException
+    | CommonAwsError
+  >;
+  createBillScenario(
+    input: CreateBillScenarioRequest,
+  ): Effect.Effect<
+    CreateBillScenarioResponse,
+    | ConflictException
+    | DataUnavailableException
+    | ServiceQuotaExceededException
+    | CommonAwsError
+  >;
+  createWorkloadEstimate(
+    input: CreateWorkloadEstimateRequest,
+  ): Effect.Effect<
+    CreateWorkloadEstimateResponse,
+    | ConflictException
+    | DataUnavailableException
+    | ServiceQuotaExceededException
+    | CommonAwsError
+  >;
+  deleteBillEstimate(
+    input: DeleteBillEstimateRequest,
+  ): Effect.Effect<
+    DeleteBillEstimateResponse,
+    ConflictException | DataUnavailableException | CommonAwsError
+  >;
+  deleteBillScenario(
+    input: DeleteBillScenarioRequest,
+  ): Effect.Effect<
+    DeleteBillScenarioResponse,
+    ConflictException | DataUnavailableException | CommonAwsError
+  >;
+  deleteWorkloadEstimate(
+    input: DeleteWorkloadEstimateRequest,
+  ): Effect.Effect<
+    DeleteWorkloadEstimateResponse,
+    DataUnavailableException | CommonAwsError
+  >;
+  getBillEstimate(
+    input: GetBillEstimateRequest,
+  ): Effect.Effect<
+    GetBillEstimateResponse,
+    DataUnavailableException | ResourceNotFoundException | CommonAwsError
+  >;
+  getBillScenario(
+    input: GetBillScenarioRequest,
+  ): Effect.Effect<
+    GetBillScenarioResponse,
+    DataUnavailableException | ResourceNotFoundException | CommonAwsError
+  >;
+  getWorkloadEstimate(
+    input: GetWorkloadEstimateRequest,
+  ): Effect.Effect<
+    GetWorkloadEstimateResponse,
+    DataUnavailableException | ResourceNotFoundException | CommonAwsError
+  >;
+  listBillEstimateCommitments(
+    input: ListBillEstimateCommitmentsRequest,
+  ): Effect.Effect<
+    ListBillEstimateCommitmentsResponse,
+    DataUnavailableException | ResourceNotFoundException | CommonAwsError
+  >;
+  listBillEstimateInputCommitmentModifications(
+    input: ListBillEstimateInputCommitmentModificationsRequest,
+  ): Effect.Effect<
+    ListBillEstimateInputCommitmentModificationsResponse,
+    DataUnavailableException | ResourceNotFoundException | CommonAwsError
+  >;
+  listBillEstimateInputUsageModifications(
+    input: ListBillEstimateInputUsageModificationsRequest,
+  ): Effect.Effect<
+    ListBillEstimateInputUsageModificationsResponse,
+    DataUnavailableException | ResourceNotFoundException | CommonAwsError
+  >;
+  listBillEstimateLineItems(
+    input: ListBillEstimateLineItemsRequest,
+  ): Effect.Effect<
+    ListBillEstimateLineItemsResponse,
+    DataUnavailableException | ResourceNotFoundException | CommonAwsError
+  >;
+  listBillEstimates(
+    input: ListBillEstimatesRequest,
+  ): Effect.Effect<
+    ListBillEstimatesResponse,
+    DataUnavailableException | CommonAwsError
+  >;
+  listBillScenarioCommitmentModifications(
+    input: ListBillScenarioCommitmentModificationsRequest,
+  ): Effect.Effect<
+    ListBillScenarioCommitmentModificationsResponse,
+    DataUnavailableException | ResourceNotFoundException | CommonAwsError
+  >;
+  listBillScenarioUsageModifications(
+    input: ListBillScenarioUsageModificationsRequest,
+  ): Effect.Effect<
+    ListBillScenarioUsageModificationsResponse,
+    DataUnavailableException | ResourceNotFoundException | CommonAwsError
+  >;
+  listBillScenarios(
+    input: ListBillScenariosRequest,
+  ): Effect.Effect<
+    ListBillScenariosResponse,
+    DataUnavailableException | CommonAwsError
+  >;
+  listWorkloadEstimateUsage(
+    input: ListWorkloadEstimateUsageRequest,
+  ): Effect.Effect<
+    ListWorkloadEstimateUsageResponse,
+    DataUnavailableException | ResourceNotFoundException | CommonAwsError
+  >;
+  listWorkloadEstimates(
+    input: ListWorkloadEstimatesRequest,
+  ): Effect.Effect<
+    ListWorkloadEstimatesResponse,
+    DataUnavailableException | CommonAwsError
+  >;
+  updateBillEstimate(
+    input: UpdateBillEstimateRequest,
+  ): Effect.Effect<
+    UpdateBillEstimateResponse,
+    | ConflictException
+    | DataUnavailableException
+    | ResourceNotFoundException
+    | CommonAwsError
+  >;
+  updateBillScenario(
+    input: UpdateBillScenarioRequest,
+  ): Effect.Effect<
+    UpdateBillScenarioResponse,
+    | ConflictException
+    | DataUnavailableException
+    | ResourceNotFoundException
+    | CommonAwsError
+  >;
+  updateWorkloadEstimate(
+    input: UpdateWorkloadEstimateRequest,
+  ): Effect.Effect<
+    UpdateWorkloadEstimateResponse,
+    | ConflictException
+    | DataUnavailableException
+    | ResourceNotFoundException
+    | CommonAwsError
+  >;
 }
 
 export declare class BcmPricingCalculator extends BCMPricingCalculator {}
@@ -1027,5 +1262,291 @@ export declare namespace UpdatePreferences {
   export type Error =
     | DataUnavailableException
     | ServiceQuotaExceededException
+    | CommonAwsError;
+}
+
+export declare namespace BatchCreateBillScenarioCommitmentModification {
+  export type Input = BatchCreateBillScenarioCommitmentModificationRequest;
+  export type Output = BatchCreateBillScenarioCommitmentModificationResponse;
+  export type Error =
+    | ConflictException
+    | DataUnavailableException
+    | ResourceNotFoundException
+    | CommonAwsError;
+}
+
+export declare namespace BatchCreateBillScenarioUsageModification {
+  export type Input = BatchCreateBillScenarioUsageModificationRequest;
+  export type Output = BatchCreateBillScenarioUsageModificationResponse;
+  export type Error =
+    | ConflictException
+    | DataUnavailableException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | CommonAwsError;
+}
+
+export declare namespace BatchCreateWorkloadEstimateUsage {
+  export type Input = BatchCreateWorkloadEstimateUsageRequest;
+  export type Output = BatchCreateWorkloadEstimateUsageResponse;
+  export type Error =
+    | ConflictException
+    | DataUnavailableException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | CommonAwsError;
+}
+
+export declare namespace BatchDeleteBillScenarioCommitmentModification {
+  export type Input = BatchDeleteBillScenarioCommitmentModificationRequest;
+  export type Output = BatchDeleteBillScenarioCommitmentModificationResponse;
+  export type Error =
+    | ConflictException
+    | DataUnavailableException
+    | ResourceNotFoundException
+    | CommonAwsError;
+}
+
+export declare namespace BatchDeleteBillScenarioUsageModification {
+  export type Input = BatchDeleteBillScenarioUsageModificationRequest;
+  export type Output = BatchDeleteBillScenarioUsageModificationResponse;
+  export type Error =
+    | ConflictException
+    | DataUnavailableException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | CommonAwsError;
+}
+
+export declare namespace BatchDeleteWorkloadEstimateUsage {
+  export type Input = BatchDeleteWorkloadEstimateUsageRequest;
+  export type Output = BatchDeleteWorkloadEstimateUsageResponse;
+  export type Error =
+    | DataUnavailableException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | CommonAwsError;
+}
+
+export declare namespace BatchUpdateBillScenarioCommitmentModification {
+  export type Input = BatchUpdateBillScenarioCommitmentModificationRequest;
+  export type Output = BatchUpdateBillScenarioCommitmentModificationResponse;
+  export type Error =
+    | ConflictException
+    | DataUnavailableException
+    | ResourceNotFoundException
+    | CommonAwsError;
+}
+
+export declare namespace BatchUpdateBillScenarioUsageModification {
+  export type Input = BatchUpdateBillScenarioUsageModificationRequest;
+  export type Output = BatchUpdateBillScenarioUsageModificationResponse;
+  export type Error =
+    | ConflictException
+    | DataUnavailableException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | CommonAwsError;
+}
+
+export declare namespace BatchUpdateWorkloadEstimateUsage {
+  export type Input = BatchUpdateWorkloadEstimateUsageRequest;
+  export type Output = BatchUpdateWorkloadEstimateUsageResponse;
+  export type Error =
+    | DataUnavailableException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | CommonAwsError;
+}
+
+export declare namespace CreateBillEstimate {
+  export type Input = CreateBillEstimateRequest;
+  export type Output = CreateBillEstimateResponse;
+  export type Error =
+    | ConflictException
+    | DataUnavailableException
+    | ResourceNotFoundException
+    | CommonAwsError;
+}
+
+export declare namespace CreateBillScenario {
+  export type Input = CreateBillScenarioRequest;
+  export type Output = CreateBillScenarioResponse;
+  export type Error =
+    | ConflictException
+    | DataUnavailableException
+    | ServiceQuotaExceededException
+    | CommonAwsError;
+}
+
+export declare namespace CreateWorkloadEstimate {
+  export type Input = CreateWorkloadEstimateRequest;
+  export type Output = CreateWorkloadEstimateResponse;
+  export type Error =
+    | ConflictException
+    | DataUnavailableException
+    | ServiceQuotaExceededException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteBillEstimate {
+  export type Input = DeleteBillEstimateRequest;
+  export type Output = DeleteBillEstimateResponse;
+  export type Error =
+    | ConflictException
+    | DataUnavailableException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteBillScenario {
+  export type Input = DeleteBillScenarioRequest;
+  export type Output = DeleteBillScenarioResponse;
+  export type Error =
+    | ConflictException
+    | DataUnavailableException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteWorkloadEstimate {
+  export type Input = DeleteWorkloadEstimateRequest;
+  export type Output = DeleteWorkloadEstimateResponse;
+  export type Error = DataUnavailableException | CommonAwsError;
+}
+
+export declare namespace GetBillEstimate {
+  export type Input = GetBillEstimateRequest;
+  export type Output = GetBillEstimateResponse;
+  export type Error =
+    | DataUnavailableException
+    | ResourceNotFoundException
+    | CommonAwsError;
+}
+
+export declare namespace GetBillScenario {
+  export type Input = GetBillScenarioRequest;
+  export type Output = GetBillScenarioResponse;
+  export type Error =
+    | DataUnavailableException
+    | ResourceNotFoundException
+    | CommonAwsError;
+}
+
+export declare namespace GetWorkloadEstimate {
+  export type Input = GetWorkloadEstimateRequest;
+  export type Output = GetWorkloadEstimateResponse;
+  export type Error =
+    | DataUnavailableException
+    | ResourceNotFoundException
+    | CommonAwsError;
+}
+
+export declare namespace ListBillEstimateCommitments {
+  export type Input = ListBillEstimateCommitmentsRequest;
+  export type Output = ListBillEstimateCommitmentsResponse;
+  export type Error =
+    | DataUnavailableException
+    | ResourceNotFoundException
+    | CommonAwsError;
+}
+
+export declare namespace ListBillEstimateInputCommitmentModifications {
+  export type Input = ListBillEstimateInputCommitmentModificationsRequest;
+  export type Output = ListBillEstimateInputCommitmentModificationsResponse;
+  export type Error =
+    | DataUnavailableException
+    | ResourceNotFoundException
+    | CommonAwsError;
+}
+
+export declare namespace ListBillEstimateInputUsageModifications {
+  export type Input = ListBillEstimateInputUsageModificationsRequest;
+  export type Output = ListBillEstimateInputUsageModificationsResponse;
+  export type Error =
+    | DataUnavailableException
+    | ResourceNotFoundException
+    | CommonAwsError;
+}
+
+export declare namespace ListBillEstimateLineItems {
+  export type Input = ListBillEstimateLineItemsRequest;
+  export type Output = ListBillEstimateLineItemsResponse;
+  export type Error =
+    | DataUnavailableException
+    | ResourceNotFoundException
+    | CommonAwsError;
+}
+
+export declare namespace ListBillEstimates {
+  export type Input = ListBillEstimatesRequest;
+  export type Output = ListBillEstimatesResponse;
+  export type Error = DataUnavailableException | CommonAwsError;
+}
+
+export declare namespace ListBillScenarioCommitmentModifications {
+  export type Input = ListBillScenarioCommitmentModificationsRequest;
+  export type Output = ListBillScenarioCommitmentModificationsResponse;
+  export type Error =
+    | DataUnavailableException
+    | ResourceNotFoundException
+    | CommonAwsError;
+}
+
+export declare namespace ListBillScenarioUsageModifications {
+  export type Input = ListBillScenarioUsageModificationsRequest;
+  export type Output = ListBillScenarioUsageModificationsResponse;
+  export type Error =
+    | DataUnavailableException
+    | ResourceNotFoundException
+    | CommonAwsError;
+}
+
+export declare namespace ListBillScenarios {
+  export type Input = ListBillScenariosRequest;
+  export type Output = ListBillScenariosResponse;
+  export type Error = DataUnavailableException | CommonAwsError;
+}
+
+export declare namespace ListWorkloadEstimateUsage {
+  export type Input = ListWorkloadEstimateUsageRequest;
+  export type Output = ListWorkloadEstimateUsageResponse;
+  export type Error =
+    | DataUnavailableException
+    | ResourceNotFoundException
+    | CommonAwsError;
+}
+
+export declare namespace ListWorkloadEstimates {
+  export type Input = ListWorkloadEstimatesRequest;
+  export type Output = ListWorkloadEstimatesResponse;
+  export type Error = DataUnavailableException | CommonAwsError;
+}
+
+export declare namespace UpdateBillEstimate {
+  export type Input = UpdateBillEstimateRequest;
+  export type Output = UpdateBillEstimateResponse;
+  export type Error =
+    | ConflictException
+    | DataUnavailableException
+    | ResourceNotFoundException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateBillScenario {
+  export type Input = UpdateBillScenarioRequest;
+  export type Output = UpdateBillScenarioResponse;
+  export type Error =
+    | ConflictException
+    | DataUnavailableException
+    | ResourceNotFoundException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateWorkloadEstimate {
+  export type Input = UpdateWorkloadEstimateRequest;
+  export type Output = UpdateWorkloadEstimateResponse;
+  export type Error =
+    | ConflictException
+    | DataUnavailableException
+    | ResourceNotFoundException
     | CommonAwsError;
 }

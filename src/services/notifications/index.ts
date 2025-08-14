@@ -47,6 +47,360 @@ export declare class Notifications extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
+  associateChannel(
+    input: AssociateChannelRequest,
+  ): Effect.Effect<
+    AssociateChannelResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  associateManagedNotificationAccountContact(
+    input: AssociateManagedNotificationAccountContactRequest,
+  ): Effect.Effect<
+    AssociateManagedNotificationAccountContactResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  associateManagedNotificationAdditionalChannel(
+    input: AssociateManagedNotificationAdditionalChannelRequest,
+  ): Effect.Effect<
+    AssociateManagedNotificationAdditionalChannelResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createEventRule(
+    input: CreateEventRuleRequest,
+  ): Effect.Effect<
+    CreateEventRuleResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createNotificationConfiguration(
+    input: CreateNotificationConfigurationRequest,
+  ): Effect.Effect<
+    CreateNotificationConfigurationResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteEventRule(
+    input: DeleteEventRuleRequest,
+  ): Effect.Effect<
+    DeleteEventRuleResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteNotificationConfiguration(
+    input: DeleteNotificationConfigurationRequest,
+  ): Effect.Effect<
+    DeleteNotificationConfigurationResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deregisterNotificationHub(
+    input: DeregisterNotificationHubRequest,
+  ): Effect.Effect<
+    DeregisterNotificationHubResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  disableNotificationsAccessForOrganization(
+    input: DisableNotificationsAccessForOrganizationRequest,
+  ): Effect.Effect<
+    DisableNotificationsAccessForOrganizationResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  disassociateChannel(
+    input: DisassociateChannelRequest,
+  ): Effect.Effect<
+    DisassociateChannelResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  disassociateManagedNotificationAccountContact(
+    input: DisassociateManagedNotificationAccountContactRequest,
+  ): Effect.Effect<
+    DisassociateManagedNotificationAccountContactResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  disassociateManagedNotificationAdditionalChannel(
+    input: DisassociateManagedNotificationAdditionalChannelRequest,
+  ): Effect.Effect<
+    DisassociateManagedNotificationAdditionalChannelResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  enableNotificationsAccessForOrganization(
+    input: EnableNotificationsAccessForOrganizationRequest,
+  ): Effect.Effect<
+    EnableNotificationsAccessForOrganizationResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getEventRule(
+    input: GetEventRuleRequest,
+  ): Effect.Effect<
+    GetEventRuleResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getManagedNotificationChildEvent(
+    input: GetManagedNotificationChildEventRequest,
+  ): Effect.Effect<
+    GetManagedNotificationChildEventResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getManagedNotificationConfiguration(
+    input: GetManagedNotificationConfigurationRequest,
+  ): Effect.Effect<
+    GetManagedNotificationConfigurationResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getManagedNotificationEvent(
+    input: GetManagedNotificationEventRequest,
+  ): Effect.Effect<
+    GetManagedNotificationEventResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getNotificationConfiguration(
+    input: GetNotificationConfigurationRequest,
+  ): Effect.Effect<
+    GetNotificationConfigurationResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getNotificationEvent(
+    input: GetNotificationEventRequest,
+  ): Effect.Effect<
+    GetNotificationEventResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getNotificationsAccessForOrganization(
+    input: GetNotificationsAccessForOrganizationRequest,
+  ): Effect.Effect<
+    GetNotificationsAccessForOrganizationResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listChannels(
+    input: ListChannelsRequest,
+  ): Effect.Effect<
+    ListChannelsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listEventRules(
+    input: ListEventRulesRequest,
+  ): Effect.Effect<
+    ListEventRulesResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listManagedNotificationChildEvents(
+    input: ListManagedNotificationChildEventsRequest,
+  ): Effect.Effect<
+    ListManagedNotificationChildEventsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listManagedNotificationConfigurations(
+    input: ListManagedNotificationConfigurationsRequest,
+  ): Effect.Effect<
+    ListManagedNotificationConfigurationsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listManagedNotificationEvents(
+    input: ListManagedNotificationEventsRequest,
+  ): Effect.Effect<
+    ListManagedNotificationEventsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listNotificationConfigurations(
+    input: ListNotificationConfigurationsRequest,
+  ): Effect.Effect<
+    ListNotificationConfigurationsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listNotificationEvents(
+    input: ListNotificationEventsRequest,
+  ): Effect.Effect<
+    ListNotificationEventsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listNotificationHubs(
+    input: ListNotificationHubsRequest,
+  ): Effect.Effect<
+    ListNotificationHubsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  registerNotificationHub(
+    input: RegisterNotificationHubRequest,
+  ): Effect.Effect<
+    RegisterNotificationHubResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateEventRule(
+    input: UpdateEventRuleRequest,
+  ): Effect.Effect<
+    UpdateEventRuleResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateNotificationConfiguration(
+    input: UpdateNotificationConfigurationRequest,
+  ): Effect.Effect<
+    UpdateNotificationConfigurationResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
 }
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
@@ -777,6 +1131,391 @@ export declare namespace UntagResource {
   export type Output = UntagResourceResponse;
   export type Error =
     | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace AssociateChannel {
+  export type Input = AssociateChannelRequest;
+  export type Output = AssociateChannelResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace AssociateManagedNotificationAccountContact {
+  export type Input = AssociateManagedNotificationAccountContactRequest;
+  export type Output = AssociateManagedNotificationAccountContactResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace AssociateManagedNotificationAdditionalChannel {
+  export type Input = AssociateManagedNotificationAdditionalChannelRequest;
+  export type Output = AssociateManagedNotificationAdditionalChannelResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateEventRule {
+  export type Input = CreateEventRuleRequest;
+  export type Output = CreateEventRuleResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateNotificationConfiguration {
+  export type Input = CreateNotificationConfigurationRequest;
+  export type Output = CreateNotificationConfigurationResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteEventRule {
+  export type Input = DeleteEventRuleRequest;
+  export type Output = DeleteEventRuleResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteNotificationConfiguration {
+  export type Input = DeleteNotificationConfigurationRequest;
+  export type Output = DeleteNotificationConfigurationResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeregisterNotificationHub {
+  export type Input = DeregisterNotificationHubRequest;
+  export type Output = DeregisterNotificationHubResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DisableNotificationsAccessForOrganization {
+  export type Input = DisableNotificationsAccessForOrganizationRequest;
+  export type Output = DisableNotificationsAccessForOrganizationResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DisassociateChannel {
+  export type Input = DisassociateChannelRequest;
+  export type Output = DisassociateChannelResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DisassociateManagedNotificationAccountContact {
+  export type Input = DisassociateManagedNotificationAccountContactRequest;
+  export type Output = DisassociateManagedNotificationAccountContactResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DisassociateManagedNotificationAdditionalChannel {
+  export type Input = DisassociateManagedNotificationAdditionalChannelRequest;
+  export type Output = DisassociateManagedNotificationAdditionalChannelResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace EnableNotificationsAccessForOrganization {
+  export type Input = EnableNotificationsAccessForOrganizationRequest;
+  export type Output = EnableNotificationsAccessForOrganizationResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetEventRule {
+  export type Input = GetEventRuleRequest;
+  export type Output = GetEventRuleResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetManagedNotificationChildEvent {
+  export type Input = GetManagedNotificationChildEventRequest;
+  export type Output = GetManagedNotificationChildEventResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetManagedNotificationConfiguration {
+  export type Input = GetManagedNotificationConfigurationRequest;
+  export type Output = GetManagedNotificationConfigurationResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetManagedNotificationEvent {
+  export type Input = GetManagedNotificationEventRequest;
+  export type Output = GetManagedNotificationEventResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetNotificationConfiguration {
+  export type Input = GetNotificationConfigurationRequest;
+  export type Output = GetNotificationConfigurationResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetNotificationEvent {
+  export type Input = GetNotificationEventRequest;
+  export type Output = GetNotificationEventResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetNotificationsAccessForOrganization {
+  export type Input = GetNotificationsAccessForOrganizationRequest;
+  export type Output = GetNotificationsAccessForOrganizationResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListChannels {
+  export type Input = ListChannelsRequest;
+  export type Output = ListChannelsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListEventRules {
+  export type Input = ListEventRulesRequest;
+  export type Output = ListEventRulesResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListManagedNotificationChildEvents {
+  export type Input = ListManagedNotificationChildEventsRequest;
+  export type Output = ListManagedNotificationChildEventsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListManagedNotificationConfigurations {
+  export type Input = ListManagedNotificationConfigurationsRequest;
+  export type Output = ListManagedNotificationConfigurationsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListManagedNotificationEvents {
+  export type Input = ListManagedNotificationEventsRequest;
+  export type Output = ListManagedNotificationEventsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListNotificationConfigurations {
+  export type Input = ListNotificationConfigurationsRequest;
+  export type Output = ListNotificationConfigurationsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListNotificationEvents {
+  export type Input = ListNotificationEventsRequest;
+  export type Output = ListNotificationEventsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListNotificationHubs {
+  export type Input = ListNotificationHubsRequest;
+  export type Output = ListNotificationHubsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace RegisterNotificationHub {
+  export type Input = RegisterNotificationHubRequest;
+  export type Output = RegisterNotificationHubResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateEventRule {
+  export type Input = UpdateEventRuleRequest;
+  export type Output = UpdateEventRuleResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateNotificationConfiguration {
+  export type Input = UpdateNotificationConfigurationRequest;
+  export type Output = UpdateNotificationConfigurationResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
     | InternalServerException
     | ResourceNotFoundException
     | ThrottlingException

@@ -21,6 +21,301 @@ export declare class MigrationHubOrchestrator extends AWSServiceClient {
     UntagResourceResponse,
     ResourceNotFoundException | ValidationException | CommonAwsError
   >;
+  createTemplate(
+    input: CreateTemplateRequest,
+  ): Effect.Effect<
+    CreateTemplateResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createWorkflow(
+    input: CreateMigrationWorkflowRequest,
+  ): Effect.Effect<
+    CreateMigrationWorkflowResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createWorkflowStep(
+    input: CreateWorkflowStepRequest,
+  ): Effect.Effect<
+    CreateWorkflowStepResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createWorkflowStepGroup(
+    input: CreateWorkflowStepGroupRequest,
+  ): Effect.Effect<
+    CreateWorkflowStepGroupResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteTemplate(
+    input: DeleteTemplateRequest,
+  ): Effect.Effect<
+    DeleteTemplateResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteWorkflow(
+    input: DeleteMigrationWorkflowRequest,
+  ): Effect.Effect<
+    DeleteMigrationWorkflowResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteWorkflowStep(
+    input: DeleteWorkflowStepRequest,
+  ): Effect.Effect<
+    DeleteWorkflowStepResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteWorkflowStepGroup(
+    input: DeleteWorkflowStepGroupRequest,
+  ): Effect.Effect<
+    DeleteWorkflowStepGroupResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getTemplate(
+    input: GetMigrationWorkflowTemplateRequest,
+  ): Effect.Effect<
+    GetMigrationWorkflowTemplateResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
+  >;
+  getTemplateStep(
+    input: GetTemplateStepRequest,
+  ): Effect.Effect<
+    GetTemplateStepResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getTemplateStepGroup(
+    input: GetTemplateStepGroupRequest,
+  ): Effect.Effect<
+    GetTemplateStepGroupResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getWorkflow(
+    input: GetMigrationWorkflowRequest,
+  ): Effect.Effect<
+    GetMigrationWorkflowResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getWorkflowStep(
+    input: GetWorkflowStepRequest,
+  ): Effect.Effect<
+    GetWorkflowStepResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
+  >;
+  getWorkflowStepGroup(
+    input: GetWorkflowStepGroupRequest,
+  ): Effect.Effect<
+    GetWorkflowStepGroupResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listPlugins(
+    input: ListPluginsRequest,
+  ): Effect.Effect<
+    ListPluginsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listTemplateStepGroups(
+    input: ListTemplateStepGroupsRequest,
+  ): Effect.Effect<
+    ListTemplateStepGroupsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
+  >;
+  listTemplateSteps(
+    input: ListTemplateStepsRequest,
+  ): Effect.Effect<
+    ListTemplateStepsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listTemplates(
+    input: ListMigrationWorkflowTemplatesRequest,
+  ): Effect.Effect<
+    ListMigrationWorkflowTemplatesResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | CommonAwsError
+  >;
+  listWorkflowStepGroups(
+    input: ListWorkflowStepGroupsRequest,
+  ): Effect.Effect<
+    ListWorkflowStepGroupsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listWorkflowSteps(
+    input: ListWorkflowStepsRequest,
+  ): Effect.Effect<
+    ListWorkflowStepsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listWorkflows(
+    input: ListMigrationWorkflowsRequest,
+  ): Effect.Effect<
+    ListMigrationWorkflowsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  retryWorkflowStep(
+    input: RetryWorkflowStepRequest,
+  ): Effect.Effect<
+    RetryWorkflowStepResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
+  >;
+  startWorkflow(
+    input: StartMigrationWorkflowRequest,
+  ): Effect.Effect<
+    StartMigrationWorkflowResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  stopWorkflow(
+    input: StopMigrationWorkflowRequest,
+  ): Effect.Effect<
+    StopMigrationWorkflowResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateTemplate(
+    input: UpdateTemplateRequest,
+  ): Effect.Effect<
+    UpdateTemplateResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateWorkflow(
+    input: UpdateMigrationWorkflowRequest,
+  ): Effect.Effect<
+    UpdateMigrationWorkflowResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateWorkflowStep(
+    input: UpdateWorkflowStepRequest,
+  ): Effect.Effect<
+    UpdateWorkflowStepResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateWorkflowStepGroup(
+    input: UpdateWorkflowStepGroupRequest,
+  ): Effect.Effect<
+    UpdateWorkflowStepGroupResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
 }
 
 export declare class Migrationhuborchestrator extends MigrationHubOrchestrator {}
@@ -710,6 +1005,329 @@ export declare namespace UntagResource {
   export type Output = UntagResourceResponse;
   export type Error =
     | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateTemplate {
+  export type Input = CreateTemplateRequest;
+  export type Output = CreateTemplateResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateWorkflow {
+  export type Input = CreateMigrationWorkflowRequest;
+  export type Output = CreateMigrationWorkflowResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateWorkflowStep {
+  export type Input = CreateWorkflowStepRequest;
+  export type Output = CreateWorkflowStepResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateWorkflowStepGroup {
+  export type Input = CreateWorkflowStepGroupRequest;
+  export type Output = CreateWorkflowStepGroupResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteTemplate {
+  export type Input = DeleteTemplateRequest;
+  export type Output = DeleteTemplateResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteWorkflow {
+  export type Input = DeleteMigrationWorkflowRequest;
+  export type Output = DeleteMigrationWorkflowResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteWorkflowStep {
+  export type Input = DeleteWorkflowStepRequest;
+  export type Output = DeleteWorkflowStepResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteWorkflowStepGroup {
+  export type Input = DeleteWorkflowStepGroupRequest;
+  export type Output = DeleteWorkflowStepGroupResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetTemplate {
+  export type Input = GetMigrationWorkflowTemplateRequest;
+  export type Output = GetMigrationWorkflowTemplateResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError;
+}
+
+export declare namespace GetTemplateStep {
+  export type Input = GetTemplateStepRequest;
+  export type Output = GetTemplateStepResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetTemplateStepGroup {
+  export type Input = GetTemplateStepGroupRequest;
+  export type Output = GetTemplateStepGroupResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetWorkflow {
+  export type Input = GetMigrationWorkflowRequest;
+  export type Output = GetMigrationWorkflowResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetWorkflowStep {
+  export type Input = GetWorkflowStepRequest;
+  export type Output = GetWorkflowStepResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError;
+}
+
+export declare namespace GetWorkflowStepGroup {
+  export type Input = GetWorkflowStepGroupRequest;
+  export type Output = GetWorkflowStepGroupResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListPlugins {
+  export type Input = ListPluginsRequest;
+  export type Output = ListPluginsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListTemplateStepGroups {
+  export type Input = ListTemplateStepGroupsRequest;
+  export type Output = ListTemplateStepGroupsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError;
+}
+
+export declare namespace ListTemplateSteps {
+  export type Input = ListTemplateStepsRequest;
+  export type Output = ListTemplateStepsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListTemplates {
+  export type Input = ListMigrationWorkflowTemplatesRequest;
+  export type Output = ListMigrationWorkflowTemplatesResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | CommonAwsError;
+}
+
+export declare namespace ListWorkflowStepGroups {
+  export type Input = ListWorkflowStepGroupsRequest;
+  export type Output = ListWorkflowStepGroupsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListWorkflowSteps {
+  export type Input = ListWorkflowStepsRequest;
+  export type Output = ListWorkflowStepsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListWorkflows {
+  export type Input = ListMigrationWorkflowsRequest;
+  export type Output = ListMigrationWorkflowsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace RetryWorkflowStep {
+  export type Input = RetryWorkflowStepRequest;
+  export type Output = RetryWorkflowStepResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError;
+}
+
+export declare namespace StartWorkflow {
+  export type Input = StartMigrationWorkflowRequest;
+  export type Output = StartMigrationWorkflowResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace StopWorkflow {
+  export type Input = StopMigrationWorkflowRequest;
+  export type Output = StopMigrationWorkflowResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateTemplate {
+  export type Input = UpdateTemplateRequest;
+  export type Output = UpdateTemplateResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateWorkflow {
+  export type Input = UpdateMigrationWorkflowRequest;
+  export type Output = UpdateMigrationWorkflowResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateWorkflowStep {
+  export type Input = UpdateWorkflowStepRequest;
+  export type Output = UpdateWorkflowStepResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateWorkflowStepGroup {
+  export type Input = UpdateWorkflowStepGroupRequest;
+  export type Output = UpdateWorkflowStepGroupResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
     | ValidationException
     | CommonAwsError;
 }

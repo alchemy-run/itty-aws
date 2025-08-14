@@ -157,6 +157,121 @@ export declare class GameLiftStreams extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
+  createApplication(
+    input: CreateApplicationInput,
+  ): Effect.Effect<
+    CreateApplicationOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createStreamGroup(
+    input: CreateStreamGroupInput,
+  ): Effect.Effect<
+    CreateStreamGroupOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteApplication(
+    input: DeleteApplicationInput,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteStreamGroup(
+    input: DeleteStreamGroupInput,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getApplication(
+    input: GetApplicationInput,
+  ): Effect.Effect<
+    GetApplicationOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getStreamGroup(
+    input: GetStreamGroupInput,
+  ): Effect.Effect<
+    GetStreamGroupOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listApplications(
+    input: ListApplicationsInput,
+  ): Effect.Effect<
+    ListApplicationsOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listStreamGroups(
+    input: ListStreamGroupsInput,
+  ): Effect.Effect<
+    ListStreamGroupsOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateApplication(
+    input: UpdateApplicationInput,
+  ): Effect.Effect<
+    UpdateApplicationOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateStreamGroup(
+    input: UpdateStreamGroupInput,
+  ): Effect.Effect<
+    UpdateStreamGroupOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
 }
 
 export declare class Gameliftstreams extends GameLiftStreams {}
@@ -826,6 +941,131 @@ export declare namespace UntagResource {
   export type Error =
     | AccessDeniedException
     | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateApplication {
+  export type Input = CreateApplicationInput;
+  export type Output = CreateApplicationOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateStreamGroup {
+  export type Input = CreateStreamGroupInput;
+  export type Output = CreateStreamGroupOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteApplication {
+  export type Input = DeleteApplicationInput;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteStreamGroup {
+  export type Input = DeleteStreamGroupInput;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetApplication {
+  export type Input = GetApplicationInput;
+  export type Output = GetApplicationOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetStreamGroup {
+  export type Input = GetStreamGroupInput;
+  export type Output = GetStreamGroupOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListApplications {
+  export type Input = ListApplicationsInput;
+  export type Output = ListApplicationsOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListStreamGroups {
+  export type Input = ListStreamGroupsInput;
+  export type Output = ListStreamGroupsOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateApplication {
+  export type Input = UpdateApplicationInput;
+  export type Output = UpdateApplicationOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateStreamGroup {
+  export type Input = UpdateStreamGroupInput;
+  export type Output = UpdateStreamGroupOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
     | ThrottlingException
     | ValidationException
     | CommonAwsError;

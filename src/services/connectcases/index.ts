@@ -36,6 +36,446 @@ export declare class ConnectCases extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
+  batchGetCaseRule(
+    input: BatchGetCaseRuleRequest,
+  ): Effect.Effect<
+    BatchGetCaseRuleResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  batchGetField(
+    input: BatchGetFieldRequest,
+  ): Effect.Effect<
+    BatchGetFieldResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  batchPutFieldOptions(
+    input: BatchPutFieldOptionsRequest,
+  ): Effect.Effect<
+    BatchPutFieldOptionsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createCase(
+    input: CreateCaseRequest,
+  ): Effect.Effect<
+    CreateCaseResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createCaseRule(
+    input: CreateCaseRuleRequest,
+  ): Effect.Effect<
+    CreateCaseRuleResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createDomain(
+    input: CreateDomainRequest,
+  ): Effect.Effect<
+    CreateDomainResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createField(
+    input: CreateFieldRequest,
+  ): Effect.Effect<
+    CreateFieldResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createLayout(
+    input: CreateLayoutRequest,
+  ): Effect.Effect<
+    CreateLayoutResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createRelatedItem(
+    input: CreateRelatedItemRequest,
+  ): Effect.Effect<
+    CreateRelatedItemResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createTemplate(
+    input: CreateTemplateRequest,
+  ): Effect.Effect<
+    CreateTemplateResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteCase(
+    input: DeleteCaseRequest,
+  ): Effect.Effect<
+    DeleteCaseResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteCaseRule(
+    input: DeleteCaseRuleRequest,
+  ): Effect.Effect<
+    DeleteCaseRuleResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
+  >;
+  deleteDomain(
+    input: DeleteDomainRequest,
+  ): Effect.Effect<
+    DeleteDomainResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteField(
+    input: DeleteFieldRequest,
+  ): Effect.Effect<
+    DeleteFieldResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteLayout(
+    input: DeleteLayoutRequest,
+  ): Effect.Effect<
+    DeleteLayoutResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteRelatedItem(
+    input: DeleteRelatedItemRequest,
+  ): Effect.Effect<
+    DeleteRelatedItemResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteTemplate(
+    input: DeleteTemplateRequest,
+  ): Effect.Effect<
+    DeleteTemplateResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getCase(
+    input: GetCaseRequest,
+  ): Effect.Effect<
+    GetCaseResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getCaseAuditEvents(
+    input: GetCaseAuditEventsRequest,
+  ): Effect.Effect<
+    GetCaseAuditEventsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getCaseEventConfiguration(
+    input: GetCaseEventConfigurationRequest,
+  ): Effect.Effect<
+    GetCaseEventConfigurationResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getDomain(
+    input: GetDomainRequest,
+  ): Effect.Effect<
+    GetDomainResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getLayout(
+    input: GetLayoutRequest,
+  ): Effect.Effect<
+    GetLayoutResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getTemplate(
+    input: GetTemplateRequest,
+  ): Effect.Effect<
+    GetTemplateResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listCaseRules(
+    input: ListCaseRulesRequest,
+  ): Effect.Effect<
+    ListCaseRulesResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listCasesForContact(
+    input: ListCasesForContactRequest,
+  ): Effect.Effect<
+    ListCasesForContactResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listDomains(
+    input: ListDomainsRequest,
+  ): Effect.Effect<
+    ListDomainsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listFieldOptions(
+    input: ListFieldOptionsRequest,
+  ): Effect.Effect<
+    ListFieldOptionsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listFields(
+    input: ListFieldsRequest,
+  ): Effect.Effect<
+    ListFieldsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listLayouts(
+    input: ListLayoutsRequest,
+  ): Effect.Effect<
+    ListLayoutsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listTemplates(
+    input: ListTemplatesRequest,
+  ): Effect.Effect<
+    ListTemplatesResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  putCaseEventConfiguration(
+    input: PutCaseEventConfigurationRequest,
+  ): Effect.Effect<
+    PutCaseEventConfigurationResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  searchCases(
+    input: SearchCasesRequest,
+  ): Effect.Effect<
+    SearchCasesResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  searchRelatedItems(
+    input: SearchRelatedItemsRequest,
+  ): Effect.Effect<
+    SearchRelatedItemsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateCase(
+    input: UpdateCaseRequest,
+  ): Effect.Effect<
+    UpdateCaseResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateCaseRule(
+    input: UpdateCaseRuleRequest,
+  ): Effect.Effect<
+    UpdateCaseRuleResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateField(
+    input: UpdateFieldRequest,
+  ): Effect.Effect<
+    UpdateFieldResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateLayout(
+    input: UpdateLayoutRequest,
+  ): Effect.Effect<
+    UpdateLayoutResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateTemplate(
+    input: UpdateTemplateRequest,
+  ): Effect.Effect<
+    UpdateTemplateResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
 }
 
 export declare class Connectcases extends ConnectCases {}
@@ -975,6 +1415,484 @@ export declare namespace UntagResource {
   export type Output = {};
   export type Error =
     | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace BatchGetCaseRule {
+  export type Input = BatchGetCaseRuleRequest;
+  export type Output = BatchGetCaseRuleResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace BatchGetField {
+  export type Input = BatchGetFieldRequest;
+  export type Output = BatchGetFieldResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace BatchPutFieldOptions {
+  export type Input = BatchPutFieldOptionsRequest;
+  export type Output = BatchPutFieldOptionsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateCase {
+  export type Input = CreateCaseRequest;
+  export type Output = CreateCaseResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateCaseRule {
+  export type Input = CreateCaseRuleRequest;
+  export type Output = CreateCaseRuleResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateDomain {
+  export type Input = CreateDomainRequest;
+  export type Output = CreateDomainResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateField {
+  export type Input = CreateFieldRequest;
+  export type Output = CreateFieldResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateLayout {
+  export type Input = CreateLayoutRequest;
+  export type Output = CreateLayoutResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateRelatedItem {
+  export type Input = CreateRelatedItemRequest;
+  export type Output = CreateRelatedItemResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateTemplate {
+  export type Input = CreateTemplateRequest;
+  export type Output = CreateTemplateResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteCase {
+  export type Input = DeleteCaseRequest;
+  export type Output = DeleteCaseResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteCaseRule {
+  export type Input = DeleteCaseRuleRequest;
+  export type Output = DeleteCaseRuleResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteDomain {
+  export type Input = DeleteDomainRequest;
+  export type Output = DeleteDomainResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteField {
+  export type Input = DeleteFieldRequest;
+  export type Output = DeleteFieldResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteLayout {
+  export type Input = DeleteLayoutRequest;
+  export type Output = DeleteLayoutResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteRelatedItem {
+  export type Input = DeleteRelatedItemRequest;
+  export type Output = DeleteRelatedItemResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteTemplate {
+  export type Input = DeleteTemplateRequest;
+  export type Output = DeleteTemplateResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetCase {
+  export type Input = GetCaseRequest;
+  export type Output = GetCaseResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetCaseAuditEvents {
+  export type Input = GetCaseAuditEventsRequest;
+  export type Output = GetCaseAuditEventsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetCaseEventConfiguration {
+  export type Input = GetCaseEventConfigurationRequest;
+  export type Output = GetCaseEventConfigurationResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetDomain {
+  export type Input = GetDomainRequest;
+  export type Output = GetDomainResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetLayout {
+  export type Input = GetLayoutRequest;
+  export type Output = GetLayoutResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetTemplate {
+  export type Input = GetTemplateRequest;
+  export type Output = GetTemplateResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListCaseRules {
+  export type Input = ListCaseRulesRequest;
+  export type Output = ListCaseRulesResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListCasesForContact {
+  export type Input = ListCasesForContactRequest;
+  export type Output = ListCasesForContactResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListDomains {
+  export type Input = ListDomainsRequest;
+  export type Output = ListDomainsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListFieldOptions {
+  export type Input = ListFieldOptionsRequest;
+  export type Output = ListFieldOptionsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListFields {
+  export type Input = ListFieldsRequest;
+  export type Output = ListFieldsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListLayouts {
+  export type Input = ListLayoutsRequest;
+  export type Output = ListLayoutsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListTemplates {
+  export type Input = ListTemplatesRequest;
+  export type Output = ListTemplatesResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace PutCaseEventConfiguration {
+  export type Input = PutCaseEventConfigurationRequest;
+  export type Output = PutCaseEventConfigurationResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace SearchCases {
+  export type Input = SearchCasesRequest;
+  export type Output = SearchCasesResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace SearchRelatedItems {
+  export type Input = SearchRelatedItemsRequest;
+  export type Output = SearchRelatedItemsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateCase {
+  export type Input = UpdateCaseRequest;
+  export type Output = UpdateCaseResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateCaseRule {
+  export type Input = UpdateCaseRuleRequest;
+  export type Output = UpdateCaseRuleResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateField {
+  export type Input = UpdateFieldRequest;
+  export type Output = UpdateFieldResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateLayout {
+  export type Input = UpdateLayoutRequest;
+  export type Output = UpdateLayoutResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateTemplate {
+  export type Input = UpdateTemplateRequest;
+  export type Output = UpdateTemplateResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
     | InternalServerException
     | ResourceNotFoundException
     | ThrottlingException

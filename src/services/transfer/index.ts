@@ -314,6 +314,465 @@ export declare class Transfer extends AWSServiceClient {
     | ThrottlingException
     | CommonAwsError
   >;
+  createAgreement(
+    input: CreateAgreementRequest,
+  ): Effect.Effect<
+    CreateAgreementResponse,
+    | InternalServiceError
+    | InvalidRequestException
+    | ResourceExistsException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | CommonAwsError
+  >;
+  createConnector(
+    input: CreateConnectorRequest,
+  ): Effect.Effect<
+    CreateConnectorResponse,
+    | InternalServiceError
+    | InvalidRequestException
+    | ResourceExistsException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | CommonAwsError
+  >;
+  createProfile(
+    input: CreateProfileRequest,
+  ): Effect.Effect<
+    CreateProfileResponse,
+    | InternalServiceError
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | CommonAwsError
+  >;
+  createServer(
+    input: CreateServerRequest,
+  ): Effect.Effect<
+    CreateServerResponse,
+    | AccessDeniedException
+    | InternalServiceError
+    | InvalidRequestException
+    | ResourceExistsException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | CommonAwsError
+  >;
+  createUser(
+    input: CreateUserRequest,
+  ): Effect.Effect<
+    CreateUserResponse,
+    | InternalServiceError
+    | InvalidRequestException
+    | ResourceExistsException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | CommonAwsError
+  >;
+  createWebApp(
+    input: CreateWebAppRequest,
+  ): Effect.Effect<
+    CreateWebAppResponse,
+    | AccessDeniedException
+    | InternalServiceError
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
+  >;
+  createWorkflow(
+    input: CreateWorkflowRequest,
+  ): Effect.Effect<
+    CreateWorkflowResponse,
+    | AccessDeniedException
+    | InternalServiceError
+    | InvalidRequestException
+    | ResourceExistsException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | CommonAwsError
+  >;
+  deleteAgreement(
+    input: DeleteAgreementRequest,
+  ): Effect.Effect<
+    {},
+    | InternalServiceError
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | CommonAwsError
+  >;
+  deleteCertificate(
+    input: DeleteCertificateRequest,
+  ): Effect.Effect<
+    {},
+    | InternalServiceError
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | CommonAwsError
+  >;
+  deleteConnector(
+    input: DeleteConnectorRequest,
+  ): Effect.Effect<
+    {},
+    | InternalServiceError
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | CommonAwsError
+  >;
+  deleteProfile(
+    input: DeleteProfileRequest,
+  ): Effect.Effect<
+    {},
+    | InternalServiceError
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | CommonAwsError
+  >;
+  deleteServer(
+    input: DeleteServerRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | InternalServiceError
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | CommonAwsError
+  >;
+  deleteUser(
+    input: DeleteUserRequest,
+  ): Effect.Effect<
+    {},
+    | InternalServiceError
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | CommonAwsError
+  >;
+  deleteWebApp(
+    input: DeleteWebAppRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | InternalServiceError
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
+  >;
+  deleteWebAppCustomization(
+    input: DeleteWebAppCustomizationRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | ConflictException
+    | InternalServiceError
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
+  >;
+  deleteWorkflow(
+    input: DeleteWorkflowRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | InternalServiceError
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | CommonAwsError
+  >;
+  describeAgreement(
+    input: DescribeAgreementRequest,
+  ): Effect.Effect<
+    DescribeAgreementResponse,
+    | InternalServiceError
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | CommonAwsError
+  >;
+  describeCertificate(
+    input: DescribeCertificateRequest,
+  ): Effect.Effect<
+    DescribeCertificateResponse,
+    | InternalServiceError
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | CommonAwsError
+  >;
+  describeConnector(
+    input: DescribeConnectorRequest,
+  ): Effect.Effect<
+    DescribeConnectorResponse,
+    | InternalServiceError
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | CommonAwsError
+  >;
+  describeProfile(
+    input: DescribeProfileRequest,
+  ): Effect.Effect<
+    DescribeProfileResponse,
+    | InternalServiceError
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | CommonAwsError
+  >;
+  describeServer(
+    input: DescribeServerRequest,
+  ): Effect.Effect<
+    DescribeServerResponse,
+    | InternalServiceError
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | CommonAwsError
+  >;
+  describeUser(
+    input: DescribeUserRequest,
+  ): Effect.Effect<
+    DescribeUserResponse,
+    | InternalServiceError
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | CommonAwsError
+  >;
+  describeWebApp(
+    input: DescribeWebAppRequest,
+  ): Effect.Effect<
+    DescribeWebAppResponse,
+    | AccessDeniedException
+    | InternalServiceError
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
+  >;
+  describeWebAppCustomization(
+    input: DescribeWebAppCustomizationRequest,
+  ): Effect.Effect<
+    DescribeWebAppCustomizationResponse,
+    | AccessDeniedException
+    | InternalServiceError
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
+  >;
+  describeWorkflow(
+    input: DescribeWorkflowRequest,
+  ): Effect.Effect<
+    DescribeWorkflowResponse,
+    | InternalServiceError
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | CommonAwsError
+  >;
+  importCertificate(
+    input: ImportCertificateRequest,
+  ): Effect.Effect<
+    ImportCertificateResponse,
+    | InternalServiceError
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | CommonAwsError
+  >;
+  listAgreements(
+    input: ListAgreementsRequest,
+  ): Effect.Effect<
+    ListAgreementsResponse,
+    | InternalServiceError
+    | InvalidNextTokenException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | CommonAwsError
+  >;
+  listCertificates(
+    input: ListCertificatesRequest,
+  ): Effect.Effect<
+    ListCertificatesResponse,
+    | InternalServiceError
+    | InvalidNextTokenException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | CommonAwsError
+  >;
+  listConnectors(
+    input: ListConnectorsRequest,
+  ): Effect.Effect<
+    ListConnectorsResponse,
+    | InternalServiceError
+    | InvalidNextTokenException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | CommonAwsError
+  >;
+  listProfiles(
+    input: ListProfilesRequest,
+  ): Effect.Effect<
+    ListProfilesResponse,
+    | InternalServiceError
+    | InvalidNextTokenException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | CommonAwsError
+  >;
+  listServers(
+    input: ListServersRequest,
+  ): Effect.Effect<
+    ListServersResponse,
+    | InternalServiceError
+    | InvalidNextTokenException
+    | InvalidRequestException
+    | ServiceUnavailableException
+    | CommonAwsError
+  >;
+  listUsers(
+    input: ListUsersRequest,
+  ): Effect.Effect<
+    ListUsersResponse,
+    | InternalServiceError
+    | InvalidNextTokenException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | CommonAwsError
+  >;
+  listWebApps(
+    input: ListWebAppsRequest,
+  ): Effect.Effect<
+    ListWebAppsResponse,
+    | InternalServiceError
+    | InvalidNextTokenException
+    | InvalidRequestException
+    | ThrottlingException
+    | CommonAwsError
+  >;
+  listWorkflows(
+    input: ListWorkflowsRequest,
+  ): Effect.Effect<
+    ListWorkflowsResponse,
+    | InternalServiceError
+    | InvalidNextTokenException
+    | InvalidRequestException
+    | ServiceUnavailableException
+    | CommonAwsError
+  >;
+  updateAgreement(
+    input: UpdateAgreementRequest,
+  ): Effect.Effect<
+    UpdateAgreementResponse,
+    | InternalServiceError
+    | InvalidRequestException
+    | ResourceExistsException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | CommonAwsError
+  >;
+  updateCertificate(
+    input: UpdateCertificateRequest,
+  ): Effect.Effect<
+    UpdateCertificateResponse,
+    | InternalServiceError
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | CommonAwsError
+  >;
+  updateConnector(
+    input: UpdateConnectorRequest,
+  ): Effect.Effect<
+    UpdateConnectorResponse,
+    | InternalServiceError
+    | InvalidRequestException
+    | ResourceExistsException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | CommonAwsError
+  >;
+  updateProfile(
+    input: UpdateProfileRequest,
+  ): Effect.Effect<
+    UpdateProfileResponse,
+    | InternalServiceError
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | CommonAwsError
+  >;
+  updateServer(
+    input: UpdateServerRequest,
+  ): Effect.Effect<
+    UpdateServerResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServiceError
+    | InvalidRequestException
+    | ResourceExistsException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | CommonAwsError
+  >;
+  updateUser(
+    input: UpdateUserRequest,
+  ): Effect.Effect<
+    UpdateUserResponse,
+    | InternalServiceError
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | CommonAwsError
+  >;
+  updateWebApp(
+    input: UpdateWebAppRequest,
+  ): Effect.Effect<
+    UpdateWebAppResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServiceError
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
+  >;
+  updateWebAppCustomization(
+    input: UpdateWebAppCustomizationRequest,
+  ): Effect.Effect<
+    UpdateWebAppCustomizationResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServiceError
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
+  >;
 }
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
@@ -2064,6 +2523,507 @@ export declare namespace UpdateHostKey {
     | InvalidRequestException
     | ResourceNotFoundException
     | ServiceUnavailableException
+    | ThrottlingException
+    | CommonAwsError;
+}
+
+export declare namespace CreateAgreement {
+  export type Input = CreateAgreementRequest;
+  export type Output = CreateAgreementResponse;
+  export type Error =
+    | InternalServiceError
+    | InvalidRequestException
+    | ResourceExistsException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | CommonAwsError;
+}
+
+export declare namespace CreateConnector {
+  export type Input = CreateConnectorRequest;
+  export type Output = CreateConnectorResponse;
+  export type Error =
+    | InternalServiceError
+    | InvalidRequestException
+    | ResourceExistsException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | CommonAwsError;
+}
+
+export declare namespace CreateProfile {
+  export type Input = CreateProfileRequest;
+  export type Output = CreateProfileResponse;
+  export type Error =
+    | InternalServiceError
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | CommonAwsError;
+}
+
+export declare namespace CreateServer {
+  export type Input = CreateServerRequest;
+  export type Output = CreateServerResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServiceError
+    | InvalidRequestException
+    | ResourceExistsException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | CommonAwsError;
+}
+
+export declare namespace CreateUser {
+  export type Input = CreateUserRequest;
+  export type Output = CreateUserResponse;
+  export type Error =
+    | InternalServiceError
+    | InvalidRequestException
+    | ResourceExistsException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | CommonAwsError;
+}
+
+export declare namespace CreateWebApp {
+  export type Input = CreateWebAppRequest;
+  export type Output = CreateWebAppResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServiceError
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError;
+}
+
+export declare namespace CreateWorkflow {
+  export type Input = CreateWorkflowRequest;
+  export type Output = CreateWorkflowResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServiceError
+    | InvalidRequestException
+    | ResourceExistsException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteAgreement {
+  export type Input = DeleteAgreementRequest;
+  export type Output = {};
+  export type Error =
+    | InternalServiceError
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteCertificate {
+  export type Input = DeleteCertificateRequest;
+  export type Output = {};
+  export type Error =
+    | InternalServiceError
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteConnector {
+  export type Input = DeleteConnectorRequest;
+  export type Output = {};
+  export type Error =
+    | InternalServiceError
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteProfile {
+  export type Input = DeleteProfileRequest;
+  export type Output = {};
+  export type Error =
+    | InternalServiceError
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteServer {
+  export type Input = DeleteServerRequest;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | InternalServiceError
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteUser {
+  export type Input = DeleteUserRequest;
+  export type Output = {};
+  export type Error =
+    | InternalServiceError
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteWebApp {
+  export type Input = DeleteWebAppRequest;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | InternalServiceError
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteWebAppCustomization {
+  export type Input = DeleteWebAppCustomizationRequest;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServiceError
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteWorkflow {
+  export type Input = DeleteWorkflowRequest;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | InternalServiceError
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | CommonAwsError;
+}
+
+export declare namespace DescribeAgreement {
+  export type Input = DescribeAgreementRequest;
+  export type Output = DescribeAgreementResponse;
+  export type Error =
+    | InternalServiceError
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | CommonAwsError;
+}
+
+export declare namespace DescribeCertificate {
+  export type Input = DescribeCertificateRequest;
+  export type Output = DescribeCertificateResponse;
+  export type Error =
+    | InternalServiceError
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | CommonAwsError;
+}
+
+export declare namespace DescribeConnector {
+  export type Input = DescribeConnectorRequest;
+  export type Output = DescribeConnectorResponse;
+  export type Error =
+    | InternalServiceError
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | CommonAwsError;
+}
+
+export declare namespace DescribeProfile {
+  export type Input = DescribeProfileRequest;
+  export type Output = DescribeProfileResponse;
+  export type Error =
+    | InternalServiceError
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | CommonAwsError;
+}
+
+export declare namespace DescribeServer {
+  export type Input = DescribeServerRequest;
+  export type Output = DescribeServerResponse;
+  export type Error =
+    | InternalServiceError
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | CommonAwsError;
+}
+
+export declare namespace DescribeUser {
+  export type Input = DescribeUserRequest;
+  export type Output = DescribeUserResponse;
+  export type Error =
+    | InternalServiceError
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | CommonAwsError;
+}
+
+export declare namespace DescribeWebApp {
+  export type Input = DescribeWebAppRequest;
+  export type Output = DescribeWebAppResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServiceError
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError;
+}
+
+export declare namespace DescribeWebAppCustomization {
+  export type Input = DescribeWebAppCustomizationRequest;
+  export type Output = DescribeWebAppCustomizationResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServiceError
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError;
+}
+
+export declare namespace DescribeWorkflow {
+  export type Input = DescribeWorkflowRequest;
+  export type Output = DescribeWorkflowResponse;
+  export type Error =
+    | InternalServiceError
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | CommonAwsError;
+}
+
+export declare namespace ImportCertificate {
+  export type Input = ImportCertificateRequest;
+  export type Output = ImportCertificateResponse;
+  export type Error =
+    | InternalServiceError
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | CommonAwsError;
+}
+
+export declare namespace ListAgreements {
+  export type Input = ListAgreementsRequest;
+  export type Output = ListAgreementsResponse;
+  export type Error =
+    | InternalServiceError
+    | InvalidNextTokenException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | CommonAwsError;
+}
+
+export declare namespace ListCertificates {
+  export type Input = ListCertificatesRequest;
+  export type Output = ListCertificatesResponse;
+  export type Error =
+    | InternalServiceError
+    | InvalidNextTokenException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | CommonAwsError;
+}
+
+export declare namespace ListConnectors {
+  export type Input = ListConnectorsRequest;
+  export type Output = ListConnectorsResponse;
+  export type Error =
+    | InternalServiceError
+    | InvalidNextTokenException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | CommonAwsError;
+}
+
+export declare namespace ListProfiles {
+  export type Input = ListProfilesRequest;
+  export type Output = ListProfilesResponse;
+  export type Error =
+    | InternalServiceError
+    | InvalidNextTokenException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | CommonAwsError;
+}
+
+export declare namespace ListServers {
+  export type Input = ListServersRequest;
+  export type Output = ListServersResponse;
+  export type Error =
+    | InternalServiceError
+    | InvalidNextTokenException
+    | InvalidRequestException
+    | ServiceUnavailableException
+    | CommonAwsError;
+}
+
+export declare namespace ListUsers {
+  export type Input = ListUsersRequest;
+  export type Output = ListUsersResponse;
+  export type Error =
+    | InternalServiceError
+    | InvalidNextTokenException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | CommonAwsError;
+}
+
+export declare namespace ListWebApps {
+  export type Input = ListWebAppsRequest;
+  export type Output = ListWebAppsResponse;
+  export type Error =
+    | InternalServiceError
+    | InvalidNextTokenException
+    | InvalidRequestException
+    | ThrottlingException
+    | CommonAwsError;
+}
+
+export declare namespace ListWorkflows {
+  export type Input = ListWorkflowsRequest;
+  export type Output = ListWorkflowsResponse;
+  export type Error =
+    | InternalServiceError
+    | InvalidNextTokenException
+    | InvalidRequestException
+    | ServiceUnavailableException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateAgreement {
+  export type Input = UpdateAgreementRequest;
+  export type Output = UpdateAgreementResponse;
+  export type Error =
+    | InternalServiceError
+    | InvalidRequestException
+    | ResourceExistsException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateCertificate {
+  export type Input = UpdateCertificateRequest;
+  export type Output = UpdateCertificateResponse;
+  export type Error =
+    | InternalServiceError
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateConnector {
+  export type Input = UpdateConnectorRequest;
+  export type Output = UpdateConnectorResponse;
+  export type Error =
+    | InternalServiceError
+    | InvalidRequestException
+    | ResourceExistsException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateProfile {
+  export type Input = UpdateProfileRequest;
+  export type Output = UpdateProfileResponse;
+  export type Error =
+    | InternalServiceError
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateServer {
+  export type Input = UpdateServerRequest;
+  export type Output = UpdateServerResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServiceError
+    | InvalidRequestException
+    | ResourceExistsException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateUser {
+  export type Input = UpdateUserRequest;
+  export type Output = UpdateUserResponse;
+  export type Error =
+    | InternalServiceError
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateWebApp {
+  export type Input = UpdateWebAppRequest;
+  export type Output = UpdateWebAppResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServiceError
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateWebAppCustomization {
+  export type Input = UpdateWebAppCustomizationRequest;
+  export type Output = UpdateWebAppCustomizationResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServiceError
+    | InvalidRequestException
+    | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError;
 }

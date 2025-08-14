@@ -1,4 +1,6 @@
 import type { Effect, Stream, Data as EffectData } from "effect";
+import type { ResponseError } from "@effect/platform/HttpClientError";
+import type { Buffer } from "node:buffer";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
@@ -34,6 +36,735 @@ export declare class Lambda extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     {},
+    | InvalidParameterValueException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  addLayerVersionPermission(
+    input: AddLayerVersionPermissionRequest,
+  ): Effect.Effect<
+    AddLayerVersionPermissionResponse,
+    | InvalidParameterValueException
+    | PolicyLengthExceededException
+    | PreconditionFailedException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  addPermission(
+    input: AddPermissionRequest,
+  ): Effect.Effect<
+    AddPermissionResponse,
+    | InvalidParameterValueException
+    | PolicyLengthExceededException
+    | PreconditionFailedException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  createAlias(
+    input: CreateAliasRequest,
+  ): Effect.Effect<
+    AliasConfiguration,
+    | InvalidParameterValueException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  createCodeSigningConfig(
+    input: CreateCodeSigningConfigRequest,
+  ): Effect.Effect<
+    CreateCodeSigningConfigResponse,
+    InvalidParameterValueException | ServiceException | CommonAwsError
+  >;
+  createEventSourceMapping(
+    input: CreateEventSourceMappingRequest,
+  ): Effect.Effect<
+    EventSourceMappingConfiguration,
+    | InvalidParameterValueException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  createFunction(
+    input: CreateFunctionRequest,
+  ): Effect.Effect<
+    FunctionConfiguration,
+    | CodeSigningConfigNotFoundException
+    | CodeStorageExceededException
+    | CodeVerificationFailedException
+    | InvalidCodeSignatureException
+    | InvalidParameterValueException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  createFunctionUrlConfig(
+    input: CreateFunctionUrlConfigRequest,
+  ): Effect.Effect<
+    CreateFunctionUrlConfigResponse,
+    | InvalidParameterValueException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  deleteAlias(
+    input: DeleteAliasRequest,
+  ): Effect.Effect<
+    {},
+    | InvalidParameterValueException
+    | ResourceConflictException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  deleteCodeSigningConfig(
+    input: DeleteCodeSigningConfigRequest,
+  ): Effect.Effect<
+    DeleteCodeSigningConfigResponse,
+    | InvalidParameterValueException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | CommonAwsError
+  >;
+  deleteEventSourceMapping(
+    input: DeleteEventSourceMappingRequest,
+  ): Effect.Effect<
+    EventSourceMappingConfiguration,
+    | InvalidParameterValueException
+    | ResourceConflictException
+    | ResourceInUseException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  deleteFunction(
+    input: DeleteFunctionRequest,
+  ): Effect.Effect<
+    {},
+    | InvalidParameterValueException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  deleteFunctionCodeSigningConfig(
+    input: DeleteFunctionCodeSigningConfigRequest,
+  ): Effect.Effect<
+    {},
+    | CodeSigningConfigNotFoundException
+    | InvalidParameterValueException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  deleteFunctionConcurrency(
+    input: DeleteFunctionConcurrencyRequest,
+  ): Effect.Effect<
+    {},
+    | InvalidParameterValueException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  deleteFunctionEventInvokeConfig(
+    input: DeleteFunctionEventInvokeConfigRequest,
+  ): Effect.Effect<
+    {},
+    | InvalidParameterValueException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  deleteFunctionUrlConfig(
+    input: DeleteFunctionUrlConfigRequest,
+  ): Effect.Effect<
+    {},
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  deleteLayerVersion(
+    input: DeleteLayerVersionRequest,
+  ): Effect.Effect<
+    {},
+    ServiceException | TooManyRequestsException | CommonAwsError
+  >;
+  deleteProvisionedConcurrencyConfig(
+    input: DeleteProvisionedConcurrencyConfigRequest,
+  ): Effect.Effect<
+    {},
+    | InvalidParameterValueException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  getAlias(
+    input: GetAliasRequest,
+  ): Effect.Effect<
+    AliasConfiguration,
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  getCodeSigningConfig(
+    input: GetCodeSigningConfigRequest,
+  ): Effect.Effect<
+    GetCodeSigningConfigResponse,
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ServiceException
+    | CommonAwsError
+  >;
+  getEventSourceMapping(
+    input: GetEventSourceMappingRequest,
+  ): Effect.Effect<
+    EventSourceMappingConfiguration,
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  getFunction(
+    input: GetFunctionRequest,
+  ): Effect.Effect<
+    GetFunctionResponse,
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  getFunctionCodeSigningConfig(
+    input: GetFunctionCodeSigningConfigRequest,
+  ): Effect.Effect<
+    GetFunctionCodeSigningConfigResponse,
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  getFunctionConcurrency(
+    input: GetFunctionConcurrencyRequest,
+  ): Effect.Effect<
+    GetFunctionConcurrencyResponse,
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  getFunctionConfiguration(
+    input: GetFunctionConfigurationRequest,
+  ): Effect.Effect<
+    FunctionConfiguration,
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  getFunctionEventInvokeConfig(
+    input: GetFunctionEventInvokeConfigRequest,
+  ): Effect.Effect<
+    FunctionEventInvokeConfig,
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  getFunctionRecursionConfig(
+    input: GetFunctionRecursionConfigRequest,
+  ): Effect.Effect<
+    GetFunctionRecursionConfigResponse,
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  getFunctionUrlConfig(
+    input: GetFunctionUrlConfigRequest,
+  ): Effect.Effect<
+    GetFunctionUrlConfigResponse,
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  getLayerVersion(
+    input: GetLayerVersionRequest,
+  ): Effect.Effect<
+    GetLayerVersionResponse,
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  getLayerVersionByArn(
+    input: GetLayerVersionByArnRequest,
+  ): Effect.Effect<
+    GetLayerVersionResponse,
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  getLayerVersionPolicy(
+    input: GetLayerVersionPolicyRequest,
+  ): Effect.Effect<
+    GetLayerVersionPolicyResponse,
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  getPolicy(
+    input: GetPolicyRequest,
+  ): Effect.Effect<
+    GetPolicyResponse,
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  getProvisionedConcurrencyConfig(
+    input: GetProvisionedConcurrencyConfigRequest,
+  ): Effect.Effect<
+    GetProvisionedConcurrencyConfigResponse,
+    | InvalidParameterValueException
+    | ProvisionedConcurrencyConfigNotFoundException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  getRuntimeManagementConfig(
+    input: GetRuntimeManagementConfigRequest,
+  ): Effect.Effect<
+    GetRuntimeManagementConfigResponse,
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  invoke(
+    input: InvocationRequest,
+  ): Effect.Effect<
+    InvocationResponse,
+    | EC2AccessDeniedException
+    | EC2ThrottledException
+    | EC2UnexpectedException
+    | EFSIOException
+    | EFSMountConnectivityException
+    | EFSMountFailureException
+    | EFSMountTimeoutException
+    | ENILimitReachedException
+    | InvalidParameterValueException
+    | InvalidRequestContentException
+    | InvalidRuntimeException
+    | InvalidSecurityGroupIDException
+    | InvalidSubnetIDException
+    | InvalidZipFileException
+    | KMSAccessDeniedException
+    | KMSDisabledException
+    | KMSInvalidStateException
+    | KMSNotFoundException
+    | RecursiveInvocationException
+    | RequestTooLargeException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ResourceNotReadyException
+    | ServiceException
+    | SnapStartException
+    | SnapStartNotReadyException
+    | SnapStartTimeoutException
+    | SubnetIPAddressLimitReachedException
+    | TooManyRequestsException
+    | UnsupportedMediaTypeException
+    | CommonAwsError
+  >;
+  invokeAsync(
+    input: InvokeAsyncRequest,
+  ): Effect.Effect<
+    InvokeAsyncResponse,
+    | InvalidRequestContentException
+    | InvalidRuntimeException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | CommonAwsError
+  >;
+  invokeWithResponseStream(
+    input: InvokeWithResponseStreamRequest,
+  ): Effect.Effect<
+    InvokeWithResponseStreamResponse,
+    | EC2AccessDeniedException
+    | EC2ThrottledException
+    | EC2UnexpectedException
+    | EFSIOException
+    | EFSMountConnectivityException
+    | EFSMountFailureException
+    | EFSMountTimeoutException
+    | ENILimitReachedException
+    | InvalidParameterValueException
+    | InvalidRequestContentException
+    | InvalidRuntimeException
+    | InvalidSecurityGroupIDException
+    | InvalidSubnetIDException
+    | InvalidZipFileException
+    | KMSAccessDeniedException
+    | KMSDisabledException
+    | KMSInvalidStateException
+    | KMSNotFoundException
+    | RecursiveInvocationException
+    | RequestTooLargeException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ResourceNotReadyException
+    | ServiceException
+    | SnapStartException
+    | SnapStartNotReadyException
+    | SnapStartTimeoutException
+    | SubnetIPAddressLimitReachedException
+    | TooManyRequestsException
+    | UnsupportedMediaTypeException
+    | CommonAwsError
+  >;
+  listAliases(
+    input: ListAliasesRequest,
+  ): Effect.Effect<
+    ListAliasesResponse,
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  listCodeSigningConfigs(
+    input: ListCodeSigningConfigsRequest,
+  ): Effect.Effect<
+    ListCodeSigningConfigsResponse,
+    InvalidParameterValueException | ServiceException | CommonAwsError
+  >;
+  listEventSourceMappings(
+    input: ListEventSourceMappingsRequest,
+  ): Effect.Effect<
+    ListEventSourceMappingsResponse,
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  listFunctionEventInvokeConfigs(
+    input: ListFunctionEventInvokeConfigsRequest,
+  ): Effect.Effect<
+    ListFunctionEventInvokeConfigsResponse,
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  listFunctionUrlConfigs(
+    input: ListFunctionUrlConfigsRequest,
+  ): Effect.Effect<
+    ListFunctionUrlConfigsResponse,
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  listFunctions(
+    input: ListFunctionsRequest,
+  ): Effect.Effect<
+    ListFunctionsResponse,
+    | InvalidParameterValueException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  listFunctionsByCodeSigningConfig(
+    input: ListFunctionsByCodeSigningConfigRequest,
+  ): Effect.Effect<
+    ListFunctionsByCodeSigningConfigResponse,
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ServiceException
+    | CommonAwsError
+  >;
+  listLayerVersions(
+    input: ListLayerVersionsRequest,
+  ): Effect.Effect<
+    ListLayerVersionsResponse,
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  listLayers(
+    input: ListLayersRequest,
+  ): Effect.Effect<
+    ListLayersResponse,
+    | InvalidParameterValueException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  listProvisionedConcurrencyConfigs(
+    input: ListProvisionedConcurrencyConfigsRequest,
+  ): Effect.Effect<
+    ListProvisionedConcurrencyConfigsResponse,
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  listVersionsByFunction(
+    input: ListVersionsByFunctionRequest,
+  ): Effect.Effect<
+    ListVersionsByFunctionResponse,
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  publishLayerVersion(
+    input: PublishLayerVersionRequest,
+  ): Effect.Effect<
+    PublishLayerVersionResponse,
+    | CodeStorageExceededException
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  publishVersion(
+    input: PublishVersionRequest,
+  ): Effect.Effect<
+    FunctionConfiguration,
+    | CodeStorageExceededException
+    | InvalidParameterValueException
+    | PreconditionFailedException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  putFunctionCodeSigningConfig(
+    input: PutFunctionCodeSigningConfigRequest,
+  ): Effect.Effect<
+    PutFunctionCodeSigningConfigResponse,
+    | CodeSigningConfigNotFoundException
+    | InvalidParameterValueException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  putFunctionConcurrency(
+    input: PutFunctionConcurrencyRequest,
+  ): Effect.Effect<
+    Concurrency,
+    | InvalidParameterValueException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  putFunctionEventInvokeConfig(
+    input: PutFunctionEventInvokeConfigRequest,
+  ): Effect.Effect<
+    FunctionEventInvokeConfig,
+    | InvalidParameterValueException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  putFunctionRecursionConfig(
+    input: PutFunctionRecursionConfigRequest,
+  ): Effect.Effect<
+    PutFunctionRecursionConfigResponse,
+    | InvalidParameterValueException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  putProvisionedConcurrencyConfig(
+    input: PutProvisionedConcurrencyConfigRequest,
+  ): Effect.Effect<
+    PutProvisionedConcurrencyConfigResponse,
+    | InvalidParameterValueException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  putRuntimeManagementConfig(
+    input: PutRuntimeManagementConfigRequest,
+  ): Effect.Effect<
+    PutRuntimeManagementConfigResponse,
+    | InvalidParameterValueException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  removeLayerVersionPermission(
+    input: RemoveLayerVersionPermissionRequest,
+  ): Effect.Effect<
+    {},
+    | InvalidParameterValueException
+    | PreconditionFailedException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  removePermission(
+    input: RemovePermissionRequest,
+  ): Effect.Effect<
+    {},
+    | InvalidParameterValueException
+    | PreconditionFailedException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  updateAlias(
+    input: UpdateAliasRequest,
+  ): Effect.Effect<
+    AliasConfiguration,
+    | InvalidParameterValueException
+    | PreconditionFailedException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  updateCodeSigningConfig(
+    input: UpdateCodeSigningConfigRequest,
+  ): Effect.Effect<
+    UpdateCodeSigningConfigResponse,
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ServiceException
+    | CommonAwsError
+  >;
+  updateEventSourceMapping(
+    input: UpdateEventSourceMappingRequest,
+  ): Effect.Effect<
+    EventSourceMappingConfiguration,
+    | InvalidParameterValueException
+    | ResourceConflictException
+    | ResourceInUseException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  updateFunctionCode(
+    input: UpdateFunctionCodeRequest,
+  ): Effect.Effect<
+    FunctionConfiguration,
+    | CodeSigningConfigNotFoundException
+    | CodeStorageExceededException
+    | CodeVerificationFailedException
+    | InvalidCodeSignatureException
+    | InvalidParameterValueException
+    | PreconditionFailedException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  updateFunctionConfiguration(
+    input: UpdateFunctionConfigurationRequest,
+  ): Effect.Effect<
+    FunctionConfiguration,
+    | CodeSigningConfigNotFoundException
+    | CodeVerificationFailedException
+    | InvalidCodeSignatureException
+    | InvalidParameterValueException
+    | PreconditionFailedException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  updateFunctionEventInvokeConfig(
+    input: UpdateFunctionEventInvokeConfigRequest,
+  ): Effect.Effect<
+    FunctionEventInvokeConfig,
+    | InvalidParameterValueException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  updateFunctionUrlConfig(
+    input: UpdateFunctionUrlConfigRequest,
+  ): Effect.Effect<
+    UpdateFunctionUrlConfigResponse,
     | InvalidParameterValueException
     | ResourceConflictException
     | ResourceNotFoundException
@@ -763,7 +1494,7 @@ export interface InvocationResponse {
 export type InvocationType = "Event" | "RequestResponse" | "DryRun";
 export interface InvokeAsyncRequest {
   FunctionName: string;
-  InvokeArgs: Uint8Array | string | Stream.Stream<Uint8Array>;
+  InvokeArgs: Uint8Array | string | Buffer | Stream.Stream<Uint8Array>;
 }
 export interface InvokeAsyncResponse {
   Status?: number;
@@ -1677,6 +2408,805 @@ export declare namespace TagResource {
 export declare namespace UntagResource {
   export type Input = UntagResourceRequest;
   export type Output = {};
+  export type Error =
+    | InvalidParameterValueException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace AddLayerVersionPermission {
+  export type Input = AddLayerVersionPermissionRequest;
+  export type Output = AddLayerVersionPermissionResponse;
+  export type Error =
+    | InvalidParameterValueException
+    | PolicyLengthExceededException
+    | PreconditionFailedException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace AddPermission {
+  export type Input = AddPermissionRequest;
+  export type Output = AddPermissionResponse;
+  export type Error =
+    | InvalidParameterValueException
+    | PolicyLengthExceededException
+    | PreconditionFailedException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace CreateAlias {
+  export type Input = CreateAliasRequest;
+  export type Output = AliasConfiguration;
+  export type Error =
+    | InvalidParameterValueException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace CreateCodeSigningConfig {
+  export type Input = CreateCodeSigningConfigRequest;
+  export type Output = CreateCodeSigningConfigResponse;
+  export type Error =
+    | InvalidParameterValueException
+    | ServiceException
+    | CommonAwsError;
+}
+
+export declare namespace CreateEventSourceMapping {
+  export type Input = CreateEventSourceMappingRequest;
+  export type Output = EventSourceMappingConfiguration;
+  export type Error =
+    | InvalidParameterValueException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace CreateFunction {
+  export type Input = CreateFunctionRequest;
+  export type Output = FunctionConfiguration;
+  export type Error =
+    | CodeSigningConfigNotFoundException
+    | CodeStorageExceededException
+    | CodeVerificationFailedException
+    | InvalidCodeSignatureException
+    | InvalidParameterValueException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace CreateFunctionUrlConfig {
+  export type Input = CreateFunctionUrlConfigRequest;
+  export type Output = CreateFunctionUrlConfigResponse;
+  export type Error =
+    | InvalidParameterValueException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteAlias {
+  export type Input = DeleteAliasRequest;
+  export type Output = {};
+  export type Error =
+    | InvalidParameterValueException
+    | ResourceConflictException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteCodeSigningConfig {
+  export type Input = DeleteCodeSigningConfigRequest;
+  export type Output = DeleteCodeSigningConfigResponse;
+  export type Error =
+    | InvalidParameterValueException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteEventSourceMapping {
+  export type Input = DeleteEventSourceMappingRequest;
+  export type Output = EventSourceMappingConfiguration;
+  export type Error =
+    | InvalidParameterValueException
+    | ResourceConflictException
+    | ResourceInUseException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteFunction {
+  export type Input = DeleteFunctionRequest;
+  export type Output = {};
+  export type Error =
+    | InvalidParameterValueException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteFunctionCodeSigningConfig {
+  export type Input = DeleteFunctionCodeSigningConfigRequest;
+  export type Output = {};
+  export type Error =
+    | CodeSigningConfigNotFoundException
+    | InvalidParameterValueException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteFunctionConcurrency {
+  export type Input = DeleteFunctionConcurrencyRequest;
+  export type Output = {};
+  export type Error =
+    | InvalidParameterValueException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteFunctionEventInvokeConfig {
+  export type Input = DeleteFunctionEventInvokeConfigRequest;
+  export type Output = {};
+  export type Error =
+    | InvalidParameterValueException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteFunctionUrlConfig {
+  export type Input = DeleteFunctionUrlConfigRequest;
+  export type Output = {};
+  export type Error =
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteLayerVersion {
+  export type Input = DeleteLayerVersionRequest;
+  export type Output = {};
+  export type Error =
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteProvisionedConcurrencyConfig {
+  export type Input = DeleteProvisionedConcurrencyConfigRequest;
+  export type Output = {};
+  export type Error =
+    | InvalidParameterValueException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace GetAlias {
+  export type Input = GetAliasRequest;
+  export type Output = AliasConfiguration;
+  export type Error =
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace GetCodeSigningConfig {
+  export type Input = GetCodeSigningConfigRequest;
+  export type Output = GetCodeSigningConfigResponse;
+  export type Error =
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ServiceException
+    | CommonAwsError;
+}
+
+export declare namespace GetEventSourceMapping {
+  export type Input = GetEventSourceMappingRequest;
+  export type Output = EventSourceMappingConfiguration;
+  export type Error =
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace GetFunction {
+  export type Input = GetFunctionRequest;
+  export type Output = GetFunctionResponse;
+  export type Error =
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace GetFunctionCodeSigningConfig {
+  export type Input = GetFunctionCodeSigningConfigRequest;
+  export type Output = GetFunctionCodeSigningConfigResponse;
+  export type Error =
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace GetFunctionConcurrency {
+  export type Input = GetFunctionConcurrencyRequest;
+  export type Output = GetFunctionConcurrencyResponse;
+  export type Error =
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace GetFunctionConfiguration {
+  export type Input = GetFunctionConfigurationRequest;
+  export type Output = FunctionConfiguration;
+  export type Error =
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace GetFunctionEventInvokeConfig {
+  export type Input = GetFunctionEventInvokeConfigRequest;
+  export type Output = FunctionEventInvokeConfig;
+  export type Error =
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace GetFunctionRecursionConfig {
+  export type Input = GetFunctionRecursionConfigRequest;
+  export type Output = GetFunctionRecursionConfigResponse;
+  export type Error =
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace GetFunctionUrlConfig {
+  export type Input = GetFunctionUrlConfigRequest;
+  export type Output = GetFunctionUrlConfigResponse;
+  export type Error =
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace GetLayerVersion {
+  export type Input = GetLayerVersionRequest;
+  export type Output = GetLayerVersionResponse;
+  export type Error =
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace GetLayerVersionByArn {
+  export type Input = GetLayerVersionByArnRequest;
+  export type Output = GetLayerVersionResponse;
+  export type Error =
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace GetLayerVersionPolicy {
+  export type Input = GetLayerVersionPolicyRequest;
+  export type Output = GetLayerVersionPolicyResponse;
+  export type Error =
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace GetPolicy {
+  export type Input = GetPolicyRequest;
+  export type Output = GetPolicyResponse;
+  export type Error =
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace GetProvisionedConcurrencyConfig {
+  export type Input = GetProvisionedConcurrencyConfigRequest;
+  export type Output = GetProvisionedConcurrencyConfigResponse;
+  export type Error =
+    | InvalidParameterValueException
+    | ProvisionedConcurrencyConfigNotFoundException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace GetRuntimeManagementConfig {
+  export type Input = GetRuntimeManagementConfigRequest;
+  export type Output = GetRuntimeManagementConfigResponse;
+  export type Error =
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace Invoke {
+  export type Input = InvocationRequest;
+  export type Output = InvocationResponse;
+  export type Error =
+    | EC2AccessDeniedException
+    | EC2ThrottledException
+    | EC2UnexpectedException
+    | EFSIOException
+    | EFSMountConnectivityException
+    | EFSMountFailureException
+    | EFSMountTimeoutException
+    | ENILimitReachedException
+    | InvalidParameterValueException
+    | InvalidRequestContentException
+    | InvalidRuntimeException
+    | InvalidSecurityGroupIDException
+    | InvalidSubnetIDException
+    | InvalidZipFileException
+    | KMSAccessDeniedException
+    | KMSDisabledException
+    | KMSInvalidStateException
+    | KMSNotFoundException
+    | RecursiveInvocationException
+    | RequestTooLargeException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ResourceNotReadyException
+    | ServiceException
+    | SnapStartException
+    | SnapStartNotReadyException
+    | SnapStartTimeoutException
+    | SubnetIPAddressLimitReachedException
+    | TooManyRequestsException
+    | UnsupportedMediaTypeException
+    | CommonAwsError;
+}
+
+export declare namespace InvokeAsync {
+  export type Input = InvokeAsyncRequest;
+  export type Output = InvokeAsyncResponse;
+  export type Error =
+    | InvalidRequestContentException
+    | InvalidRuntimeException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | CommonAwsError;
+}
+
+export declare namespace InvokeWithResponseStream {
+  export type Input = InvokeWithResponseStreamRequest;
+  export type Output = InvokeWithResponseStreamResponse;
+  export type Error =
+    | EC2AccessDeniedException
+    | EC2ThrottledException
+    | EC2UnexpectedException
+    | EFSIOException
+    | EFSMountConnectivityException
+    | EFSMountFailureException
+    | EFSMountTimeoutException
+    | ENILimitReachedException
+    | InvalidParameterValueException
+    | InvalidRequestContentException
+    | InvalidRuntimeException
+    | InvalidSecurityGroupIDException
+    | InvalidSubnetIDException
+    | InvalidZipFileException
+    | KMSAccessDeniedException
+    | KMSDisabledException
+    | KMSInvalidStateException
+    | KMSNotFoundException
+    | RecursiveInvocationException
+    | RequestTooLargeException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ResourceNotReadyException
+    | ServiceException
+    | SnapStartException
+    | SnapStartNotReadyException
+    | SnapStartTimeoutException
+    | SubnetIPAddressLimitReachedException
+    | TooManyRequestsException
+    | UnsupportedMediaTypeException
+    | CommonAwsError;
+}
+
+export declare namespace ListAliases {
+  export type Input = ListAliasesRequest;
+  export type Output = ListAliasesResponse;
+  export type Error =
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace ListCodeSigningConfigs {
+  export type Input = ListCodeSigningConfigsRequest;
+  export type Output = ListCodeSigningConfigsResponse;
+  export type Error =
+    | InvalidParameterValueException
+    | ServiceException
+    | CommonAwsError;
+}
+
+export declare namespace ListEventSourceMappings {
+  export type Input = ListEventSourceMappingsRequest;
+  export type Output = ListEventSourceMappingsResponse;
+  export type Error =
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace ListFunctionEventInvokeConfigs {
+  export type Input = ListFunctionEventInvokeConfigsRequest;
+  export type Output = ListFunctionEventInvokeConfigsResponse;
+  export type Error =
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace ListFunctionUrlConfigs {
+  export type Input = ListFunctionUrlConfigsRequest;
+  export type Output = ListFunctionUrlConfigsResponse;
+  export type Error =
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace ListFunctions {
+  export type Input = ListFunctionsRequest;
+  export type Output = ListFunctionsResponse;
+  export type Error =
+    | InvalidParameterValueException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace ListFunctionsByCodeSigningConfig {
+  export type Input = ListFunctionsByCodeSigningConfigRequest;
+  export type Output = ListFunctionsByCodeSigningConfigResponse;
+  export type Error =
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ServiceException
+    | CommonAwsError;
+}
+
+export declare namespace ListLayerVersions {
+  export type Input = ListLayerVersionsRequest;
+  export type Output = ListLayerVersionsResponse;
+  export type Error =
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace ListLayers {
+  export type Input = ListLayersRequest;
+  export type Output = ListLayersResponse;
+  export type Error =
+    | InvalidParameterValueException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace ListProvisionedConcurrencyConfigs {
+  export type Input = ListProvisionedConcurrencyConfigsRequest;
+  export type Output = ListProvisionedConcurrencyConfigsResponse;
+  export type Error =
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace ListVersionsByFunction {
+  export type Input = ListVersionsByFunctionRequest;
+  export type Output = ListVersionsByFunctionResponse;
+  export type Error =
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace PublishLayerVersion {
+  export type Input = PublishLayerVersionRequest;
+  export type Output = PublishLayerVersionResponse;
+  export type Error =
+    | CodeStorageExceededException
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace PublishVersion {
+  export type Input = PublishVersionRequest;
+  export type Output = FunctionConfiguration;
+  export type Error =
+    | CodeStorageExceededException
+    | InvalidParameterValueException
+    | PreconditionFailedException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace PutFunctionCodeSigningConfig {
+  export type Input = PutFunctionCodeSigningConfigRequest;
+  export type Output = PutFunctionCodeSigningConfigResponse;
+  export type Error =
+    | CodeSigningConfigNotFoundException
+    | InvalidParameterValueException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace PutFunctionConcurrency {
+  export type Input = PutFunctionConcurrencyRequest;
+  export type Output = Concurrency;
+  export type Error =
+    | InvalidParameterValueException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace PutFunctionEventInvokeConfig {
+  export type Input = PutFunctionEventInvokeConfigRequest;
+  export type Output = FunctionEventInvokeConfig;
+  export type Error =
+    | InvalidParameterValueException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace PutFunctionRecursionConfig {
+  export type Input = PutFunctionRecursionConfigRequest;
+  export type Output = PutFunctionRecursionConfigResponse;
+  export type Error =
+    | InvalidParameterValueException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace PutProvisionedConcurrencyConfig {
+  export type Input = PutProvisionedConcurrencyConfigRequest;
+  export type Output = PutProvisionedConcurrencyConfigResponse;
+  export type Error =
+    | InvalidParameterValueException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace PutRuntimeManagementConfig {
+  export type Input = PutRuntimeManagementConfigRequest;
+  export type Output = PutRuntimeManagementConfigResponse;
+  export type Error =
+    | InvalidParameterValueException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace RemoveLayerVersionPermission {
+  export type Input = RemoveLayerVersionPermissionRequest;
+  export type Output = {};
+  export type Error =
+    | InvalidParameterValueException
+    | PreconditionFailedException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace RemovePermission {
+  export type Input = RemovePermissionRequest;
+  export type Output = {};
+  export type Error =
+    | InvalidParameterValueException
+    | PreconditionFailedException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateAlias {
+  export type Input = UpdateAliasRequest;
+  export type Output = AliasConfiguration;
+  export type Error =
+    | InvalidParameterValueException
+    | PreconditionFailedException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateCodeSigningConfig {
+  export type Input = UpdateCodeSigningConfigRequest;
+  export type Output = UpdateCodeSigningConfigResponse;
+  export type Error =
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ServiceException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateEventSourceMapping {
+  export type Input = UpdateEventSourceMappingRequest;
+  export type Output = EventSourceMappingConfiguration;
+  export type Error =
+    | InvalidParameterValueException
+    | ResourceConflictException
+    | ResourceInUseException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateFunctionCode {
+  export type Input = UpdateFunctionCodeRequest;
+  export type Output = FunctionConfiguration;
+  export type Error =
+    | CodeSigningConfigNotFoundException
+    | CodeStorageExceededException
+    | CodeVerificationFailedException
+    | InvalidCodeSignatureException
+    | InvalidParameterValueException
+    | PreconditionFailedException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateFunctionConfiguration {
+  export type Input = UpdateFunctionConfigurationRequest;
+  export type Output = FunctionConfiguration;
+  export type Error =
+    | CodeSigningConfigNotFoundException
+    | CodeVerificationFailedException
+    | InvalidCodeSignatureException
+    | InvalidParameterValueException
+    | PreconditionFailedException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateFunctionEventInvokeConfig {
+  export type Input = UpdateFunctionEventInvokeConfigRequest;
+  export type Output = FunctionEventInvokeConfig;
+  export type Error =
+    | InvalidParameterValueException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateFunctionUrlConfig {
+  export type Input = UpdateFunctionUrlConfigRequest;
+  export type Output = UpdateFunctionUrlConfigResponse;
   export type Error =
     | InvalidParameterValueException
     | ResourceConflictException

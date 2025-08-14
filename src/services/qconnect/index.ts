@@ -21,6 +21,946 @@ export declare class QConnect extends AWSServiceClient {
     UntagResourceResponse,
     ResourceNotFoundException | CommonAwsError
   >;
+  activateMessageTemplate(
+    input: ActivateMessageTemplateRequest,
+  ): Effect.Effect<
+    ActivateMessageTemplateResponse,
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createAIAgent(
+    input: CreateAIAgentRequest,
+  ): Effect.Effect<
+    CreateAIAgentResponse,
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createAIAgentVersion(
+    input: CreateAIAgentVersionRequest,
+  ): Effect.Effect<
+    CreateAIAgentVersionResponse,
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createAIGuardrail(
+    input: CreateAIGuardrailRequest,
+  ): Effect.Effect<
+    CreateAIGuardrailResponse,
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createAIGuardrailVersion(
+    input: CreateAIGuardrailVersionRequest,
+  ): Effect.Effect<
+    CreateAIGuardrailVersionResponse,
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createAIPrompt(
+    input: CreateAIPromptRequest,
+  ): Effect.Effect<
+    CreateAIPromptResponse,
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createAIPromptVersion(
+    input: CreateAIPromptVersionRequest,
+  ): Effect.Effect<
+    CreateAIPromptVersionResponse,
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createAssistant(
+    input: CreateAssistantRequest,
+  ): Effect.Effect<
+    CreateAssistantResponse,
+    | AccessDeniedException
+    | ConflictException
+    | ServiceQuotaExceededException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createAssistantAssociation(
+    input: CreateAssistantAssociationRequest,
+  ): Effect.Effect<
+    CreateAssistantAssociationResponse,
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createContent(
+    input: CreateContentRequest,
+  ): Effect.Effect<
+    CreateContentResponse,
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createContentAssociation(
+    input: CreateContentAssociationRequest,
+  ): Effect.Effect<
+    CreateContentAssociationResponse,
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createKnowledgeBase(
+    input: CreateKnowledgeBaseRequest,
+  ): Effect.Effect<
+    CreateKnowledgeBaseResponse,
+    | AccessDeniedException
+    | ConflictException
+    | ServiceQuotaExceededException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createMessageTemplate(
+    input: CreateMessageTemplateRequest,
+  ): Effect.Effect<
+    CreateMessageTemplateResponse,
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createMessageTemplateAttachment(
+    input: CreateMessageTemplateAttachmentRequest,
+  ): Effect.Effect<
+    CreateMessageTemplateAttachmentResponse,
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createMessageTemplateVersion(
+    input: CreateMessageTemplateVersionRequest,
+  ): Effect.Effect<
+    CreateMessageTemplateVersionResponse,
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createQuickResponse(
+    input: CreateQuickResponseRequest,
+  ): Effect.Effect<
+    CreateQuickResponseResponse,
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createSession(
+    input: CreateSessionRequest,
+  ): Effect.Effect<
+    CreateSessionResponse,
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deactivateMessageTemplate(
+    input: DeactivateMessageTemplateRequest,
+  ): Effect.Effect<
+    DeactivateMessageTemplateResponse,
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteAIAgent(
+    input: DeleteAIAgentRequest,
+  ): Effect.Effect<
+    DeleteAIAgentResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteAIAgentVersion(
+    input: DeleteAIAgentVersionRequest,
+  ): Effect.Effect<
+    DeleteAIAgentVersionResponse,
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteAIGuardrail(
+    input: DeleteAIGuardrailRequest,
+  ): Effect.Effect<
+    DeleteAIGuardrailResponse,
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteAIGuardrailVersion(
+    input: DeleteAIGuardrailVersionRequest,
+  ): Effect.Effect<
+    DeleteAIGuardrailVersionResponse,
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteAIPrompt(
+    input: DeleteAIPromptRequest,
+  ): Effect.Effect<
+    DeleteAIPromptResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteAIPromptVersion(
+    input: DeleteAIPromptVersionRequest,
+  ): Effect.Effect<
+    DeleteAIPromptVersionResponse,
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteAssistant(
+    input: DeleteAssistantRequest,
+  ): Effect.Effect<
+    DeleteAssistantResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteAssistantAssociation(
+    input: DeleteAssistantAssociationRequest,
+  ): Effect.Effect<
+    DeleteAssistantAssociationResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteContent(
+    input: DeleteContentRequest,
+  ): Effect.Effect<
+    DeleteContentResponse,
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteContentAssociation(
+    input: DeleteContentAssociationRequest,
+  ): Effect.Effect<
+    DeleteContentAssociationResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteImportJob(
+    input: DeleteImportJobRequest,
+  ): Effect.Effect<
+    DeleteImportJobResponse,
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteKnowledgeBase(
+    input: DeleteKnowledgeBaseRequest,
+  ): Effect.Effect<
+    DeleteKnowledgeBaseResponse,
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteMessageTemplate(
+    input: DeleteMessageTemplateRequest,
+  ): Effect.Effect<
+    DeleteMessageTemplateResponse,
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteMessageTemplateAttachment(
+    input: DeleteMessageTemplateAttachmentRequest,
+  ): Effect.Effect<
+    DeleteMessageTemplateAttachmentResponse,
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteQuickResponse(
+    input: DeleteQuickResponseRequest,
+  ): Effect.Effect<
+    DeleteQuickResponseResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getAIAgent(
+    input: GetAIAgentRequest,
+  ): Effect.Effect<
+    GetAIAgentResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getAIGuardrail(
+    input: GetAIGuardrailRequest,
+  ): Effect.Effect<
+    GetAIGuardrailResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getAIPrompt(
+    input: GetAIPromptRequest,
+  ): Effect.Effect<
+    GetAIPromptResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getAssistant(
+    input: GetAssistantRequest,
+  ): Effect.Effect<
+    GetAssistantResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getAssistantAssociation(
+    input: GetAssistantAssociationRequest,
+  ): Effect.Effect<
+    GetAssistantAssociationResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getContent(
+    input: GetContentRequest,
+  ): Effect.Effect<
+    GetContentResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getContentAssociation(
+    input: GetContentAssociationRequest,
+  ): Effect.Effect<
+    GetContentAssociationResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getContentSummary(
+    input: GetContentSummaryRequest,
+  ): Effect.Effect<
+    GetContentSummaryResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getImportJob(
+    input: GetImportJobRequest,
+  ): Effect.Effect<
+    GetImportJobResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getKnowledgeBase(
+    input: GetKnowledgeBaseRequest,
+  ): Effect.Effect<
+    GetKnowledgeBaseResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getMessageTemplate(
+    input: GetMessageTemplateRequest,
+  ): Effect.Effect<
+    GetMessageTemplateResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getNextMessage(
+    input: GetNextMessageRequest,
+  ): Effect.Effect<
+    GetNextMessageResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getQuickResponse(
+    input: GetQuickResponseRequest,
+  ): Effect.Effect<
+    GetQuickResponseResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getRecommendations(
+    input: GetRecommendationsRequest,
+  ): Effect.Effect<
+    GetRecommendationsResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getSession(
+    input: GetSessionRequest,
+  ): Effect.Effect<
+    GetSessionResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listAIAgentVersions(
+    input: ListAIAgentVersionsRequest,
+  ): Effect.Effect<
+    ListAIAgentVersionsResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listAIAgents(
+    input: ListAIAgentsRequest,
+  ): Effect.Effect<
+    ListAIAgentsResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listAIGuardrailVersions(
+    input: ListAIGuardrailVersionsRequest,
+  ): Effect.Effect<
+    ListAIGuardrailVersionsResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listAIGuardrails(
+    input: ListAIGuardrailsRequest,
+  ): Effect.Effect<
+    ListAIGuardrailsResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listAIPromptVersions(
+    input: ListAIPromptVersionsRequest,
+  ): Effect.Effect<
+    ListAIPromptVersionsResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listAIPrompts(
+    input: ListAIPromptsRequest,
+  ): Effect.Effect<
+    ListAIPromptsResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listAssistantAssociations(
+    input: ListAssistantAssociationsRequest,
+  ): Effect.Effect<
+    ListAssistantAssociationsResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listAssistants(
+    input: ListAssistantsRequest,
+  ): Effect.Effect<
+    ListAssistantsResponse,
+    | AccessDeniedException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listContentAssociations(
+    input: ListContentAssociationsRequest,
+  ): Effect.Effect<
+    ListContentAssociationsResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listContents(
+    input: ListContentsRequest,
+  ): Effect.Effect<
+    ListContentsResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listImportJobs(
+    input: ListImportJobsRequest,
+  ): Effect.Effect<
+    ListImportJobsResponse,
+    AccessDeniedException | ValidationException | CommonAwsError
+  >;
+  listKnowledgeBases(
+    input: ListKnowledgeBasesRequest,
+  ): Effect.Effect<
+    ListKnowledgeBasesResponse,
+    AccessDeniedException | ValidationException | CommonAwsError
+  >;
+  listMessageTemplateVersions(
+    input: ListMessageTemplateVersionsRequest,
+  ): Effect.Effect<
+    ListMessageTemplateVersionsResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listMessageTemplates(
+    input: ListMessageTemplatesRequest,
+  ): Effect.Effect<
+    ListMessageTemplatesResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listMessages(
+    input: ListMessagesRequest,
+  ): Effect.Effect<
+    ListMessagesResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listQuickResponses(
+    input: ListQuickResponsesRequest,
+  ): Effect.Effect<
+    ListQuickResponsesResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  notifyRecommendationsReceived(
+    input: NotifyRecommendationsReceivedRequest,
+  ): Effect.Effect<
+    NotifyRecommendationsReceivedResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  putFeedback(
+    input: PutFeedbackRequest,
+  ): Effect.Effect<
+    PutFeedbackResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  queryAssistant(
+    input: QueryAssistantRequest,
+  ): Effect.Effect<
+    QueryAssistantResponse,
+    | AccessDeniedException
+    | RequestTimeoutException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  removeAssistantAIAgent(
+    input: RemoveAssistantAIAgentRequest,
+  ): Effect.Effect<
+    RemoveAssistantAIAgentResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  removeKnowledgeBaseTemplateUri(
+    input: RemoveKnowledgeBaseTemplateUriRequest,
+  ): Effect.Effect<
+    RemoveKnowledgeBaseTemplateUriResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  renderMessageTemplate(
+    input: RenderMessageTemplateRequest,
+  ): Effect.Effect<
+    RenderMessageTemplateResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  searchContent(
+    input: SearchContentRequest,
+  ): Effect.Effect<
+    SearchContentResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  searchMessageTemplates(
+    input: SearchMessageTemplatesRequest,
+  ): Effect.Effect<
+    SearchMessageTemplatesResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  searchQuickResponses(
+    input: SearchQuickResponsesRequest,
+  ): Effect.Effect<
+    SearchQuickResponsesResponse,
+    | AccessDeniedException
+    | RequestTimeoutException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  searchSessions(
+    input: SearchSessionsRequest,
+  ): Effect.Effect<
+    SearchSessionsResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  sendMessage(
+    input: SendMessageRequest,
+  ): Effect.Effect<
+    SendMessageResponse,
+    | AccessDeniedException
+    | ConflictException
+    | RequestTimeoutException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  startContentUpload(
+    input: StartContentUploadRequest,
+  ): Effect.Effect<
+    StartContentUploadResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  startImportJob(
+    input: StartImportJobRequest,
+  ): Effect.Effect<
+    StartImportJobResponse,
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateAIAgent(
+    input: UpdateAIAgentRequest,
+  ): Effect.Effect<
+    UpdateAIAgentResponse,
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateAIGuardrail(
+    input: UpdateAIGuardrailRequest,
+  ): Effect.Effect<
+    UpdateAIGuardrailResponse,
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateAIPrompt(
+    input: UpdateAIPromptRequest,
+  ): Effect.Effect<
+    UpdateAIPromptResponse,
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateAssistantAIAgent(
+    input: UpdateAssistantAIAgentRequest,
+  ): Effect.Effect<
+    UpdateAssistantAIAgentResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateContent(
+    input: UpdateContentRequest,
+  ): Effect.Effect<
+    UpdateContentResponse,
+    | AccessDeniedException
+    | PreconditionFailedException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateKnowledgeBaseTemplateUri(
+    input: UpdateKnowledgeBaseTemplateUriRequest,
+  ): Effect.Effect<
+    UpdateKnowledgeBaseTemplateUriResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateMessageTemplate(
+    input: UpdateMessageTemplateRequest,
+  ): Effect.Effect<
+    UpdateMessageTemplateResponse,
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateMessageTemplateMetadata(
+    input: UpdateMessageTemplateMetadataRequest,
+  ): Effect.Effect<
+    UpdateMessageTemplateMetadataResponse,
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateQuickResponse(
+    input: UpdateQuickResponseRequest,
+  ): Effect.Effect<
+    UpdateQuickResponseResponse,
+    | AccessDeniedException
+    | ConflictException
+    | PreconditionFailedException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateSession(
+    input: UpdateSessionRequest,
+  ): Effect.Effect<
+    UpdateSessionResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateSessionData(
+    input: UpdateSessionDataRequest,
+  ): Effect.Effect<
+    UpdateSessionDataResponse,
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
 }
 
 export declare class Qconnect extends QConnect {}
@@ -2350,4 +3290,1036 @@ export declare namespace UntagResource {
   export type Input = UntagResourceRequest;
   export type Output = UntagResourceResponse;
   export type Error = ResourceNotFoundException | CommonAwsError;
+}
+
+export declare namespace ActivateMessageTemplate {
+  export type Input = ActivateMessageTemplateRequest;
+  export type Output = ActivateMessageTemplateResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateAIAgent {
+  export type Input = CreateAIAgentRequest;
+  export type Output = CreateAIAgentResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateAIAgentVersion {
+  export type Input = CreateAIAgentVersionRequest;
+  export type Output = CreateAIAgentVersionResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateAIGuardrail {
+  export type Input = CreateAIGuardrailRequest;
+  export type Output = CreateAIGuardrailResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateAIGuardrailVersion {
+  export type Input = CreateAIGuardrailVersionRequest;
+  export type Output = CreateAIGuardrailVersionResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateAIPrompt {
+  export type Input = CreateAIPromptRequest;
+  export type Output = CreateAIPromptResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateAIPromptVersion {
+  export type Input = CreateAIPromptVersionRequest;
+  export type Output = CreateAIPromptVersionResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateAssistant {
+  export type Input = CreateAssistantRequest;
+  export type Output = CreateAssistantResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ServiceQuotaExceededException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateAssistantAssociation {
+  export type Input = CreateAssistantAssociationRequest;
+  export type Output = CreateAssistantAssociationResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateContent {
+  export type Input = CreateContentRequest;
+  export type Output = CreateContentResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateContentAssociation {
+  export type Input = CreateContentAssociationRequest;
+  export type Output = CreateContentAssociationResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateKnowledgeBase {
+  export type Input = CreateKnowledgeBaseRequest;
+  export type Output = CreateKnowledgeBaseResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ServiceQuotaExceededException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateMessageTemplate {
+  export type Input = CreateMessageTemplateRequest;
+  export type Output = CreateMessageTemplateResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateMessageTemplateAttachment {
+  export type Input = CreateMessageTemplateAttachmentRequest;
+  export type Output = CreateMessageTemplateAttachmentResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateMessageTemplateVersion {
+  export type Input = CreateMessageTemplateVersionRequest;
+  export type Output = CreateMessageTemplateVersionResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateQuickResponse {
+  export type Input = CreateQuickResponseRequest;
+  export type Output = CreateQuickResponseResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateSession {
+  export type Input = CreateSessionRequest;
+  export type Output = CreateSessionResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeactivateMessageTemplate {
+  export type Input = DeactivateMessageTemplateRequest;
+  export type Output = DeactivateMessageTemplateResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteAIAgent {
+  export type Input = DeleteAIAgentRequest;
+  export type Output = DeleteAIAgentResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteAIAgentVersion {
+  export type Input = DeleteAIAgentVersionRequest;
+  export type Output = DeleteAIAgentVersionResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteAIGuardrail {
+  export type Input = DeleteAIGuardrailRequest;
+  export type Output = DeleteAIGuardrailResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteAIGuardrailVersion {
+  export type Input = DeleteAIGuardrailVersionRequest;
+  export type Output = DeleteAIGuardrailVersionResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteAIPrompt {
+  export type Input = DeleteAIPromptRequest;
+  export type Output = DeleteAIPromptResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteAIPromptVersion {
+  export type Input = DeleteAIPromptVersionRequest;
+  export type Output = DeleteAIPromptVersionResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteAssistant {
+  export type Input = DeleteAssistantRequest;
+  export type Output = DeleteAssistantResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteAssistantAssociation {
+  export type Input = DeleteAssistantAssociationRequest;
+  export type Output = DeleteAssistantAssociationResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteContent {
+  export type Input = DeleteContentRequest;
+  export type Output = DeleteContentResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteContentAssociation {
+  export type Input = DeleteContentAssociationRequest;
+  export type Output = DeleteContentAssociationResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteImportJob {
+  export type Input = DeleteImportJobRequest;
+  export type Output = DeleteImportJobResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteKnowledgeBase {
+  export type Input = DeleteKnowledgeBaseRequest;
+  export type Output = DeleteKnowledgeBaseResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteMessageTemplate {
+  export type Input = DeleteMessageTemplateRequest;
+  export type Output = DeleteMessageTemplateResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteMessageTemplateAttachment {
+  export type Input = DeleteMessageTemplateAttachmentRequest;
+  export type Output = DeleteMessageTemplateAttachmentResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteQuickResponse {
+  export type Input = DeleteQuickResponseRequest;
+  export type Output = DeleteQuickResponseResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetAIAgent {
+  export type Input = GetAIAgentRequest;
+  export type Output = GetAIAgentResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetAIGuardrail {
+  export type Input = GetAIGuardrailRequest;
+  export type Output = GetAIGuardrailResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetAIPrompt {
+  export type Input = GetAIPromptRequest;
+  export type Output = GetAIPromptResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetAssistant {
+  export type Input = GetAssistantRequest;
+  export type Output = GetAssistantResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetAssistantAssociation {
+  export type Input = GetAssistantAssociationRequest;
+  export type Output = GetAssistantAssociationResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetContent {
+  export type Input = GetContentRequest;
+  export type Output = GetContentResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetContentAssociation {
+  export type Input = GetContentAssociationRequest;
+  export type Output = GetContentAssociationResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetContentSummary {
+  export type Input = GetContentSummaryRequest;
+  export type Output = GetContentSummaryResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetImportJob {
+  export type Input = GetImportJobRequest;
+  export type Output = GetImportJobResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetKnowledgeBase {
+  export type Input = GetKnowledgeBaseRequest;
+  export type Output = GetKnowledgeBaseResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetMessageTemplate {
+  export type Input = GetMessageTemplateRequest;
+  export type Output = GetMessageTemplateResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetNextMessage {
+  export type Input = GetNextMessageRequest;
+  export type Output = GetNextMessageResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetQuickResponse {
+  export type Input = GetQuickResponseRequest;
+  export type Output = GetQuickResponseResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetRecommendations {
+  export type Input = GetRecommendationsRequest;
+  export type Output = GetRecommendationsResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetSession {
+  export type Input = GetSessionRequest;
+  export type Output = GetSessionResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListAIAgentVersions {
+  export type Input = ListAIAgentVersionsRequest;
+  export type Output = ListAIAgentVersionsResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListAIAgents {
+  export type Input = ListAIAgentsRequest;
+  export type Output = ListAIAgentsResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListAIGuardrailVersions {
+  export type Input = ListAIGuardrailVersionsRequest;
+  export type Output = ListAIGuardrailVersionsResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListAIGuardrails {
+  export type Input = ListAIGuardrailsRequest;
+  export type Output = ListAIGuardrailsResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListAIPromptVersions {
+  export type Input = ListAIPromptVersionsRequest;
+  export type Output = ListAIPromptVersionsResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListAIPrompts {
+  export type Input = ListAIPromptsRequest;
+  export type Output = ListAIPromptsResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListAssistantAssociations {
+  export type Input = ListAssistantAssociationsRequest;
+  export type Output = ListAssistantAssociationsResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListAssistants {
+  export type Input = ListAssistantsRequest;
+  export type Output = ListAssistantsResponse;
+  export type Error =
+    | AccessDeniedException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListContentAssociations {
+  export type Input = ListContentAssociationsRequest;
+  export type Output = ListContentAssociationsResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListContents {
+  export type Input = ListContentsRequest;
+  export type Output = ListContentsResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListImportJobs {
+  export type Input = ListImportJobsRequest;
+  export type Output = ListImportJobsResponse;
+  export type Error =
+    | AccessDeniedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListKnowledgeBases {
+  export type Input = ListKnowledgeBasesRequest;
+  export type Output = ListKnowledgeBasesResponse;
+  export type Error =
+    | AccessDeniedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListMessageTemplateVersions {
+  export type Input = ListMessageTemplateVersionsRequest;
+  export type Output = ListMessageTemplateVersionsResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListMessageTemplates {
+  export type Input = ListMessageTemplatesRequest;
+  export type Output = ListMessageTemplatesResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListMessages {
+  export type Input = ListMessagesRequest;
+  export type Output = ListMessagesResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListQuickResponses {
+  export type Input = ListQuickResponsesRequest;
+  export type Output = ListQuickResponsesResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace NotifyRecommendationsReceived {
+  export type Input = NotifyRecommendationsReceivedRequest;
+  export type Output = NotifyRecommendationsReceivedResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace PutFeedback {
+  export type Input = PutFeedbackRequest;
+  export type Output = PutFeedbackResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace QueryAssistant {
+  export type Input = QueryAssistantRequest;
+  export type Output = QueryAssistantResponse;
+  export type Error =
+    | AccessDeniedException
+    | RequestTimeoutException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace RemoveAssistantAIAgent {
+  export type Input = RemoveAssistantAIAgentRequest;
+  export type Output = RemoveAssistantAIAgentResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace RemoveKnowledgeBaseTemplateUri {
+  export type Input = RemoveKnowledgeBaseTemplateUriRequest;
+  export type Output = RemoveKnowledgeBaseTemplateUriResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace RenderMessageTemplate {
+  export type Input = RenderMessageTemplateRequest;
+  export type Output = RenderMessageTemplateResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace SearchContent {
+  export type Input = SearchContentRequest;
+  export type Output = SearchContentResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace SearchMessageTemplates {
+  export type Input = SearchMessageTemplatesRequest;
+  export type Output = SearchMessageTemplatesResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace SearchQuickResponses {
+  export type Input = SearchQuickResponsesRequest;
+  export type Output = SearchQuickResponsesResponse;
+  export type Error =
+    | AccessDeniedException
+    | RequestTimeoutException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace SearchSessions {
+  export type Input = SearchSessionsRequest;
+  export type Output = SearchSessionsResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace SendMessage {
+  export type Input = SendMessageRequest;
+  export type Output = SendMessageResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | RequestTimeoutException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace StartContentUpload {
+  export type Input = StartContentUploadRequest;
+  export type Output = StartContentUploadResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace StartImportJob {
+  export type Input = StartImportJobRequest;
+  export type Output = StartImportJobResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateAIAgent {
+  export type Input = UpdateAIAgentRequest;
+  export type Output = UpdateAIAgentResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateAIGuardrail {
+  export type Input = UpdateAIGuardrailRequest;
+  export type Output = UpdateAIGuardrailResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateAIPrompt {
+  export type Input = UpdateAIPromptRequest;
+  export type Output = UpdateAIPromptResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateAssistantAIAgent {
+  export type Input = UpdateAssistantAIAgentRequest;
+  export type Output = UpdateAssistantAIAgentResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateContent {
+  export type Input = UpdateContentRequest;
+  export type Output = UpdateContentResponse;
+  export type Error =
+    | AccessDeniedException
+    | PreconditionFailedException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateKnowledgeBaseTemplateUri {
+  export type Input = UpdateKnowledgeBaseTemplateUriRequest;
+  export type Output = UpdateKnowledgeBaseTemplateUriResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateMessageTemplate {
+  export type Input = UpdateMessageTemplateRequest;
+  export type Output = UpdateMessageTemplateResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateMessageTemplateMetadata {
+  export type Input = UpdateMessageTemplateMetadataRequest;
+  export type Output = UpdateMessageTemplateMetadataResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateQuickResponse {
+  export type Input = UpdateQuickResponseRequest;
+  export type Output = UpdateQuickResponseResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | PreconditionFailedException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateSession {
+  export type Input = UpdateSessionRequest;
+  export type Output = UpdateSessionResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateSessionData {
+  export type Input = UpdateSessionDataRequest;
+  export type Output = UpdateSessionDataResponse;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
 }

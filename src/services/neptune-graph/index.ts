@@ -89,6 +89,262 @@ export declare class NeptuneGraph extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
+  cancelExportTask(
+    input: CancelExportTaskInput,
+  ): Effect.Effect<
+    CancelExportTaskOutput,
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  cancelImportTask(
+    input: CancelImportTaskInput,
+  ): Effect.Effect<
+    CancelImportTaskOutput,
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createGraph(
+    input: CreateGraphInput,
+  ): Effect.Effect<
+    CreateGraphOutput,
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createGraphSnapshot(
+    input: CreateGraphSnapshotInput,
+  ): Effect.Effect<
+    CreateGraphSnapshotOutput,
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createGraphUsingImportTask(
+    input: CreateGraphUsingImportTaskInput,
+  ): Effect.Effect<
+    CreateGraphUsingImportTaskOutput,
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createPrivateGraphEndpoint(
+    input: CreatePrivateGraphEndpointInput,
+  ): Effect.Effect<
+    CreatePrivateGraphEndpointOutput,
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteGraph(
+    input: DeleteGraphInput,
+  ): Effect.Effect<
+    DeleteGraphOutput,
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteGraphSnapshot(
+    input: DeleteGraphSnapshotInput,
+  ): Effect.Effect<
+    DeleteGraphSnapshotOutput,
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deletePrivateGraphEndpoint(
+    input: DeletePrivateGraphEndpointInput,
+  ): Effect.Effect<
+    DeletePrivateGraphEndpointOutput,
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getExportTask(
+    input: GetExportTaskInput,
+  ): Effect.Effect<
+    GetExportTaskOutput,
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getGraph(
+    input: GetGraphInput,
+  ): Effect.Effect<
+    GetGraphOutput,
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getGraphSnapshot(
+    input: GetGraphSnapshotInput,
+  ): Effect.Effect<
+    GetGraphSnapshotOutput,
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getImportTask(
+    input: GetImportTaskInput,
+  ): Effect.Effect<
+    GetImportTaskOutput,
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getPrivateGraphEndpoint(
+    input: GetPrivateGraphEndpointInput,
+  ): Effect.Effect<
+    GetPrivateGraphEndpointOutput,
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listExportTasks(
+    input: ListExportTasksInput,
+  ): Effect.Effect<
+    ListExportTasksOutput,
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listGraphSnapshots(
+    input: ListGraphSnapshotsInput,
+  ): Effect.Effect<
+    ListGraphSnapshotsOutput,
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listGraphs(
+    input: ListGraphsInput,
+  ): Effect.Effect<
+    ListGraphsOutput,
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
+  >;
+  listImportTasks(
+    input: ListImportTasksInput,
+  ): Effect.Effect<
+    ListImportTasksOutput,
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listPrivateGraphEndpoints(
+    input: ListPrivateGraphEndpointsInput,
+  ): Effect.Effect<
+    ListPrivateGraphEndpointsOutput,
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  resetGraph(
+    input: ResetGraphInput,
+  ): Effect.Effect<
+    ResetGraphOutput,
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  restoreGraphFromSnapshot(
+    input: RestoreGraphFromSnapshotInput,
+  ): Effect.Effect<
+    RestoreGraphFromSnapshotOutput,
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  startExportTask(
+    input: StartExportTaskInput,
+  ): Effect.Effect<
+    StartExportTaskOutput,
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  startImportTask(
+    input: StartImportTaskInput,
+  ): Effect.Effect<
+    StartImportTaskOutput,
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateGraph(
+    input: UpdateGraphInput,
+  ): Effect.Effect<
+    UpdateGraphOutput,
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
 }
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
@@ -926,6 +1182,286 @@ export declare namespace UntagResource {
   export type Input = UntagResourceInput;
   export type Output = UntagResourceOutput;
   export type Error =
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CancelExportTask {
+  export type Input = CancelExportTaskInput;
+  export type Output = CancelExportTaskOutput;
+  export type Error =
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CancelImportTask {
+  export type Input = CancelImportTaskInput;
+  export type Output = CancelImportTaskOutput;
+  export type Error =
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateGraph {
+  export type Input = CreateGraphInput;
+  export type Output = CreateGraphOutput;
+  export type Error =
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateGraphSnapshot {
+  export type Input = CreateGraphSnapshotInput;
+  export type Output = CreateGraphSnapshotOutput;
+  export type Error =
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateGraphUsingImportTask {
+  export type Input = CreateGraphUsingImportTaskInput;
+  export type Output = CreateGraphUsingImportTaskOutput;
+  export type Error =
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreatePrivateGraphEndpoint {
+  export type Input = CreatePrivateGraphEndpointInput;
+  export type Output = CreatePrivateGraphEndpointOutput;
+  export type Error =
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteGraph {
+  export type Input = DeleteGraphInput;
+  export type Output = DeleteGraphOutput;
+  export type Error =
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteGraphSnapshot {
+  export type Input = DeleteGraphSnapshotInput;
+  export type Output = DeleteGraphSnapshotOutput;
+  export type Error =
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeletePrivateGraphEndpoint {
+  export type Input = DeletePrivateGraphEndpointInput;
+  export type Output = DeletePrivateGraphEndpointOutput;
+  export type Error =
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetExportTask {
+  export type Input = GetExportTaskInput;
+  export type Output = GetExportTaskOutput;
+  export type Error =
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetGraph {
+  export type Input = GetGraphInput;
+  export type Output = GetGraphOutput;
+  export type Error =
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetGraphSnapshot {
+  export type Input = GetGraphSnapshotInput;
+  export type Output = GetGraphSnapshotOutput;
+  export type Error =
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetImportTask {
+  export type Input = GetImportTaskInput;
+  export type Output = GetImportTaskOutput;
+  export type Error =
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetPrivateGraphEndpoint {
+  export type Input = GetPrivateGraphEndpointInput;
+  export type Output = GetPrivateGraphEndpointOutput;
+  export type Error =
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListExportTasks {
+  export type Input = ListExportTasksInput;
+  export type Output = ListExportTasksOutput;
+  export type Error =
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListGraphSnapshots {
+  export type Input = ListGraphSnapshotsInput;
+  export type Output = ListGraphSnapshotsOutput;
+  export type Error =
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListGraphs {
+  export type Input = ListGraphsInput;
+  export type Output = ListGraphsOutput;
+  export type Error =
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError;
+}
+
+export declare namespace ListImportTasks {
+  export type Input = ListImportTasksInput;
+  export type Output = ListImportTasksOutput;
+  export type Error =
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListPrivateGraphEndpoints {
+  export type Input = ListPrivateGraphEndpointsInput;
+  export type Output = ListPrivateGraphEndpointsOutput;
+  export type Error =
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ResetGraph {
+  export type Input = ResetGraphInput;
+  export type Output = ResetGraphOutput;
+  export type Error =
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace RestoreGraphFromSnapshot {
+  export type Input = RestoreGraphFromSnapshotInput;
+  export type Output = RestoreGraphFromSnapshotOutput;
+  export type Error =
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace StartExportTask {
+  export type Input = StartExportTaskInput;
+  export type Output = StartExportTaskOutput;
+  export type Error =
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace StartImportTask {
+  export type Input = StartImportTaskInput;
+  export type Output = StartImportTaskOutput;
+  export type Error =
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateGraph {
+  export type Input = UpdateGraphInput;
+  export type Output = UpdateGraphOutput;
+  export type Error =
+    | ConflictException
     | InternalServerException
     | ResourceNotFoundException
     | ThrottlingException

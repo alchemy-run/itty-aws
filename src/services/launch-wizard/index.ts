@@ -30,6 +30,83 @@ export declare class LaunchWizard extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
+  createDeployment(
+    input: CreateDeploymentInput,
+  ): Effect.Effect<
+    CreateDeploymentOutput,
+    | InternalServerException
+    | ResourceLimitException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteDeployment(
+    input: DeleteDeploymentInput,
+  ): Effect.Effect<
+    DeleteDeploymentOutput,
+    | InternalServerException
+    | ResourceLimitException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getDeployment(
+    input: GetDeploymentInput,
+  ): Effect.Effect<
+    GetDeploymentOutput,
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getWorkload(
+    input: GetWorkloadInput,
+  ): Effect.Effect<
+    GetWorkloadOutput,
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getWorkloadDeploymentPattern(
+    input: GetWorkloadDeploymentPatternInput,
+  ): Effect.Effect<
+    GetWorkloadDeploymentPatternOutput,
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listDeploymentEvents(
+    input: ListDeploymentEventsInput,
+  ): Effect.Effect<
+    ListDeploymentEventsOutput,
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listDeployments(
+    input: ListDeploymentsInput,
+  ): Effect.Effect<
+    ListDeploymentsOutput,
+    InternalServerException | ValidationException | CommonAwsError
+  >;
+  listWorkloadDeploymentPatterns(
+    input: ListWorkloadDeploymentPatternsInput,
+  ): Effect.Effect<
+    ListWorkloadDeploymentPatternsOutput,
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listWorkloads(
+    input: ListWorkloadsInput,
+  ): Effect.Effect<
+    ListWorkloadsOutput,
+    InternalServerException | ValidationException | CommonAwsError
+  >;
 }
 
 export type AllowedValues = Array<string>;
@@ -313,6 +390,96 @@ export declare namespace UntagResource {
   export type Error =
     | InternalServerException
     | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateDeployment {
+  export type Input = CreateDeploymentInput;
+  export type Output = CreateDeploymentOutput;
+  export type Error =
+    | InternalServerException
+    | ResourceLimitException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteDeployment {
+  export type Input = DeleteDeploymentInput;
+  export type Output = DeleteDeploymentOutput;
+  export type Error =
+    | InternalServerException
+    | ResourceLimitException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetDeployment {
+  export type Input = GetDeploymentInput;
+  export type Output = GetDeploymentOutput;
+  export type Error =
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetWorkload {
+  export type Input = GetWorkloadInput;
+  export type Output = GetWorkloadOutput;
+  export type Error =
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetWorkloadDeploymentPattern {
+  export type Input = GetWorkloadDeploymentPatternInput;
+  export type Output = GetWorkloadDeploymentPatternOutput;
+  export type Error =
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListDeploymentEvents {
+  export type Input = ListDeploymentEventsInput;
+  export type Output = ListDeploymentEventsOutput;
+  export type Error =
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListDeployments {
+  export type Input = ListDeploymentsInput;
+  export type Output = ListDeploymentsOutput;
+  export type Error =
+    | InternalServerException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListWorkloadDeploymentPatterns {
+  export type Input = ListWorkloadDeploymentPatternsInput;
+  export type Output = ListWorkloadDeploymentPatternsOutput;
+  export type Error =
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListWorkloads {
+  export type Input = ListWorkloadsInput;
+  export type Output = ListWorkloadsOutput;
+  export type Error =
+    | InternalServerException
     | ValidationException
     | CommonAwsError;
 }

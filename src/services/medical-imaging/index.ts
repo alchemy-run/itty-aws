@@ -171,6 +171,51 @@ export declare class MedicalImaging extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
+  createDatastore(
+    input: CreateDatastoreRequest,
+  ): Effect.Effect<
+    CreateDatastoreResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteDatastore(
+    input: DeleteDatastoreRequest,
+  ): Effect.Effect<
+    DeleteDatastoreResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getDatastore(
+    input: GetDatastoreRequest,
+  ): Effect.Effect<
+    GetDatastoreResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listDatastores(
+    input: ListDatastoresRequest,
+  ): Effect.Effect<
+    ListDatastoresResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
 }
 
 export declare class AccessDeniedException extends EffectData.TaggedError(
@@ -835,6 +880,55 @@ export declare namespace UpdateImageSetMetadata {
     | InternalServerException
     | ResourceNotFoundException
     | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateDatastore {
+  export type Input = CreateDatastoreRequest;
+  export type Output = CreateDatastoreResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteDatastore {
+  export type Input = DeleteDatastoreRequest;
+  export type Output = DeleteDatastoreResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetDatastore {
+  export type Input = GetDatastoreRequest;
+  export type Output = GetDatastoreResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListDatastores {
+  export type Input = ListDatastoresRequest;
+  export type Output = ListDatastoresResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
     | ThrottlingException
     | ValidationException
     | CommonAwsError;

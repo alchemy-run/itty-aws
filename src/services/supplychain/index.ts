@@ -92,6 +92,250 @@ export declare class SupplyChain extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
+  createBillOfMaterialsImportJob(
+    input: CreateBillOfMaterialsImportJobRequest,
+  ): Effect.Effect<
+    CreateBillOfMaterialsImportJobResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createDataIntegrationFlow(
+    input: CreateDataIntegrationFlowRequest,
+  ): Effect.Effect<
+    CreateDataIntegrationFlowResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createDataLakeDataset(
+    input: CreateDataLakeDatasetRequest,
+  ): Effect.Effect<
+    CreateDataLakeDatasetResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createDataLakeNamespace(
+    input: CreateDataLakeNamespaceRequest,
+  ): Effect.Effect<
+    CreateDataLakeNamespaceResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createInstance(
+    input: CreateInstanceRequest,
+  ): Effect.Effect<
+    CreateInstanceResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteDataIntegrationFlow(
+    input: DeleteDataIntegrationFlowRequest,
+  ): Effect.Effect<
+    DeleteDataIntegrationFlowResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
+  >;
+  deleteDataLakeDataset(
+    input: DeleteDataLakeDatasetRequest,
+  ): Effect.Effect<
+    DeleteDataLakeDatasetResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteDataLakeNamespace(
+    input: DeleteDataLakeNamespaceRequest,
+  ): Effect.Effect<
+    DeleteDataLakeNamespaceResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteInstance(
+    input: DeleteInstanceRequest,
+  ): Effect.Effect<
+    DeleteInstanceResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getBillOfMaterialsImportJob(
+    input: GetBillOfMaterialsImportJobRequest,
+  ): Effect.Effect<
+    GetBillOfMaterialsImportJobResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getDataIntegrationFlow(
+    input: GetDataIntegrationFlowRequest,
+  ): Effect.Effect<
+    GetDataIntegrationFlowResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getDataLakeDataset(
+    input: GetDataLakeDatasetRequest,
+  ): Effect.Effect<
+    GetDataLakeDatasetResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getDataLakeNamespace(
+    input: GetDataLakeNamespaceRequest,
+  ): Effect.Effect<
+    GetDataLakeNamespaceResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getInstance(
+    input: GetInstanceRequest,
+  ): Effect.Effect<
+    GetInstanceResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listDataIntegrationFlows(
+    input: ListDataIntegrationFlowsRequest,
+  ): Effect.Effect<
+    ListDataIntegrationFlowsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listDataLakeDatasets(
+    input: ListDataLakeDatasetsRequest,
+  ): Effect.Effect<
+    ListDataLakeDatasetsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listDataLakeNamespaces(
+    input: ListDataLakeNamespacesRequest,
+  ): Effect.Effect<
+    ListDataLakeNamespacesResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listInstances(
+    input: ListInstancesRequest,
+  ): Effect.Effect<
+    ListInstancesResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateDataIntegrationFlow(
+    input: UpdateDataIntegrationFlowRequest,
+  ): Effect.Effect<
+    UpdateDataIntegrationFlowResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateDataLakeDataset(
+    input: UpdateDataLakeDatasetRequest,
+  ): Effect.Effect<
+    UpdateDataLakeDatasetResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateDataLakeNamespace(
+    input: UpdateDataLakeNamespaceRequest,
+  ): Effect.Effect<
+    UpdateDataLakeNamespaceResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateInstance(
+    input: UpdateInstanceRequest,
+  ): Effect.Effect<
+    UpdateInstanceResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
 }
 
 export declare class Supplychain extends SupplyChain {}
@@ -809,6 +1053,272 @@ export declare namespace TagResource {
 export declare namespace UntagResource {
   export type Input = UntagResourceRequest;
   export type Output = UntagResourceResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateBillOfMaterialsImportJob {
+  export type Input = CreateBillOfMaterialsImportJobRequest;
+  export type Output = CreateBillOfMaterialsImportJobResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateDataIntegrationFlow {
+  export type Input = CreateDataIntegrationFlowRequest;
+  export type Output = CreateDataIntegrationFlowResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateDataLakeDataset {
+  export type Input = CreateDataLakeDatasetRequest;
+  export type Output = CreateDataLakeDatasetResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateDataLakeNamespace {
+  export type Input = CreateDataLakeNamespaceRequest;
+  export type Output = CreateDataLakeNamespaceResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateInstance {
+  export type Input = CreateInstanceRequest;
+  export type Output = CreateInstanceResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteDataIntegrationFlow {
+  export type Input = DeleteDataIntegrationFlowRequest;
+  export type Output = DeleteDataIntegrationFlowResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteDataLakeDataset {
+  export type Input = DeleteDataLakeDatasetRequest;
+  export type Output = DeleteDataLakeDatasetResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteDataLakeNamespace {
+  export type Input = DeleteDataLakeNamespaceRequest;
+  export type Output = DeleteDataLakeNamespaceResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteInstance {
+  export type Input = DeleteInstanceRequest;
+  export type Output = DeleteInstanceResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetBillOfMaterialsImportJob {
+  export type Input = GetBillOfMaterialsImportJobRequest;
+  export type Output = GetBillOfMaterialsImportJobResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetDataIntegrationFlow {
+  export type Input = GetDataIntegrationFlowRequest;
+  export type Output = GetDataIntegrationFlowResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetDataLakeDataset {
+  export type Input = GetDataLakeDatasetRequest;
+  export type Output = GetDataLakeDatasetResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetDataLakeNamespace {
+  export type Input = GetDataLakeNamespaceRequest;
+  export type Output = GetDataLakeNamespaceResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetInstance {
+  export type Input = GetInstanceRequest;
+  export type Output = GetInstanceResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListDataIntegrationFlows {
+  export type Input = ListDataIntegrationFlowsRequest;
+  export type Output = ListDataIntegrationFlowsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListDataLakeDatasets {
+  export type Input = ListDataLakeDatasetsRequest;
+  export type Output = ListDataLakeDatasetsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListDataLakeNamespaces {
+  export type Input = ListDataLakeNamespacesRequest;
+  export type Output = ListDataLakeNamespacesResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListInstances {
+  export type Input = ListInstancesRequest;
+  export type Output = ListInstancesResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateDataIntegrationFlow {
+  export type Input = UpdateDataIntegrationFlowRequest;
+  export type Output = UpdateDataIntegrationFlowResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateDataLakeDataset {
+  export type Input = UpdateDataLakeDatasetRequest;
+  export type Output = UpdateDataLakeDatasetResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateDataLakeNamespace {
+  export type Input = UpdateDataLakeNamespaceRequest;
+  export type Output = UpdateDataLakeNamespaceResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateInstance {
+  export type Input = UpdateInstanceRequest;
+  export type Output = UpdateInstanceResponse;
   export type Error =
     | AccessDeniedException
     | InternalServerException

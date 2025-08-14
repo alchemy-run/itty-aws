@@ -115,6 +115,456 @@ export declare class drs extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
+  associateSourceNetworkStack(
+    input: AssociateSourceNetworkStackRequest,
+  ): Effect.Effect<
+    AssociateSourceNetworkStackResponse,
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | UninitializedAccountException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createLaunchConfigurationTemplate(
+    input: CreateLaunchConfigurationTemplateRequest,
+  ): Effect.Effect<
+    CreateLaunchConfigurationTemplateResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | UninitializedAccountException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createReplicationConfigurationTemplate(
+    input: CreateReplicationConfigurationTemplateRequest,
+  ): Effect.Effect<
+    ReplicationConfigurationTemplate,
+    | AccessDeniedException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | UninitializedAccountException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createSourceNetwork(
+    input: CreateSourceNetworkRequest,
+  ): Effect.Effect<
+    CreateSourceNetworkResponse,
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | UninitializedAccountException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteJob(
+    input: DeleteJobRequest,
+  ): Effect.Effect<
+    DeleteJobResponse,
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UninitializedAccountException
+    | CommonAwsError
+  >;
+  deleteLaunchConfigurationTemplate(
+    input: DeleteLaunchConfigurationTemplateRequest,
+  ): Effect.Effect<
+    DeleteLaunchConfigurationTemplateResponse,
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UninitializedAccountException
+    | CommonAwsError
+  >;
+  deleteRecoveryInstance(
+    input: DeleteRecoveryInstanceRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | UninitializedAccountException
+    | CommonAwsError
+  >;
+  deleteReplicationConfigurationTemplate(
+    input: DeleteReplicationConfigurationTemplateRequest,
+  ): Effect.Effect<
+    DeleteReplicationConfigurationTemplateResponse,
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UninitializedAccountException
+    | CommonAwsError
+  >;
+  deleteSourceNetwork(
+    input: DeleteSourceNetworkRequest,
+  ): Effect.Effect<
+    DeleteSourceNetworkResponse,
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UninitializedAccountException
+    | CommonAwsError
+  >;
+  deleteSourceServer(
+    input: DeleteSourceServerRequest,
+  ): Effect.Effect<
+    DeleteSourceServerResponse,
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UninitializedAccountException
+    | CommonAwsError
+  >;
+  describeJobLogItems(
+    input: DescribeJobLogItemsRequest,
+  ): Effect.Effect<
+    DescribeJobLogItemsResponse,
+    | InternalServerException
+    | ThrottlingException
+    | UninitializedAccountException
+    | ValidationException
+    | CommonAwsError
+  >;
+  describeJobs(
+    input: DescribeJobsRequest,
+  ): Effect.Effect<
+    DescribeJobsResponse,
+    | InternalServerException
+    | ThrottlingException
+    | UninitializedAccountException
+    | ValidationException
+    | CommonAwsError
+  >;
+  describeLaunchConfigurationTemplates(
+    input: DescribeLaunchConfigurationTemplatesRequest,
+  ): Effect.Effect<
+    DescribeLaunchConfigurationTemplatesResponse,
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UninitializedAccountException
+    | ValidationException
+    | CommonAwsError
+  >;
+  describeRecoveryInstances(
+    input: DescribeRecoveryInstancesRequest,
+  ): Effect.Effect<
+    DescribeRecoveryInstancesResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | UninitializedAccountException
+    | CommonAwsError
+  >;
+  describeRecoverySnapshots(
+    input: DescribeRecoverySnapshotsRequest,
+  ): Effect.Effect<
+    DescribeRecoverySnapshotsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | UninitializedAccountException
+    | ValidationException
+    | CommonAwsError
+  >;
+  describeReplicationConfigurationTemplates(
+    input: DescribeReplicationConfigurationTemplatesRequest,
+  ): Effect.Effect<
+    DescribeReplicationConfigurationTemplatesResponse,
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UninitializedAccountException
+    | ValidationException
+    | CommonAwsError
+  >;
+  describeSourceNetworks(
+    input: DescribeSourceNetworksRequest,
+  ): Effect.Effect<
+    DescribeSourceNetworksResponse,
+    | InternalServerException
+    | ThrottlingException
+    | UninitializedAccountException
+    | ValidationException
+    | CommonAwsError
+  >;
+  describeSourceServers(
+    input: DescribeSourceServersRequest,
+  ): Effect.Effect<
+    DescribeSourceServersResponse,
+    | InternalServerException
+    | ThrottlingException
+    | UninitializedAccountException
+    | ValidationException
+    | CommonAwsError
+  >;
+  disconnectRecoveryInstance(
+    input: DisconnectRecoveryInstanceRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UninitializedAccountException
+    | CommonAwsError
+  >;
+  disconnectSourceServer(
+    input: DisconnectSourceServerRequest,
+  ): Effect.Effect<
+    SourceServer,
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UninitializedAccountException
+    | CommonAwsError
+  >;
+  exportSourceNetworkCfnTemplate(
+    input: ExportSourceNetworkCfnTemplateRequest,
+  ): Effect.Effect<
+    ExportSourceNetworkCfnTemplateResponse,
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UninitializedAccountException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getFailbackReplicationConfiguration(
+    input: GetFailbackReplicationConfigurationRequest,
+  ): Effect.Effect<
+    GetFailbackReplicationConfigurationResponse,
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UninitializedAccountException
+    | CommonAwsError
+  >;
+  getLaunchConfiguration(
+    input: GetLaunchConfigurationRequest,
+  ): Effect.Effect<
+    LaunchConfiguration,
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UninitializedAccountException
+    | CommonAwsError
+  >;
+  getReplicationConfiguration(
+    input: GetReplicationConfigurationRequest,
+  ): Effect.Effect<
+    ReplicationConfiguration,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UninitializedAccountException
+    | CommonAwsError
+  >;
+  retryDataReplication(
+    input: RetryDataReplicationRequest,
+  ): Effect.Effect<
+    SourceServer,
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UninitializedAccountException
+    | ValidationException
+    | CommonAwsError
+  >;
+  reverseReplication(
+    input: ReverseReplicationRequest,
+  ): Effect.Effect<
+    ReverseReplicationResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UninitializedAccountException
+    | ValidationException
+    | CommonAwsError
+  >;
+  startFailbackLaunch(
+    input: StartFailbackLaunchRequest,
+  ): Effect.Effect<
+    StartFailbackLaunchResponse,
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | UninitializedAccountException
+    | ValidationException
+    | CommonAwsError
+  >;
+  startRecovery(
+    input: StartRecoveryRequest,
+  ): Effect.Effect<
+    StartRecoveryResponse,
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | UninitializedAccountException
+    | CommonAwsError
+  >;
+  startReplication(
+    input: StartReplicationRequest,
+  ): Effect.Effect<
+    StartReplicationResponse,
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UninitializedAccountException
+    | CommonAwsError
+  >;
+  startSourceNetworkRecovery(
+    input: StartSourceNetworkRecoveryRequest,
+  ): Effect.Effect<
+    StartSourceNetworkRecoveryResponse,
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | UninitializedAccountException
+    | ValidationException
+    | CommonAwsError
+  >;
+  startSourceNetworkReplication(
+    input: StartSourceNetworkReplicationRequest,
+  ): Effect.Effect<
+    StartSourceNetworkReplicationResponse,
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UninitializedAccountException
+    | CommonAwsError
+  >;
+  stopFailback(
+    input: StopFailbackRequest,
+  ): Effect.Effect<
+    {},
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UninitializedAccountException
+    | CommonAwsError
+  >;
+  stopReplication(
+    input: StopReplicationRequest,
+  ): Effect.Effect<
+    StopReplicationResponse,
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UninitializedAccountException
+    | CommonAwsError
+  >;
+  stopSourceNetworkReplication(
+    input: StopSourceNetworkReplicationRequest,
+  ): Effect.Effect<
+    StopSourceNetworkReplicationResponse,
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UninitializedAccountException
+    | ValidationException
+    | CommonAwsError
+  >;
+  terminateRecoveryInstances(
+    input: TerminateRecoveryInstancesRequest,
+  ): Effect.Effect<
+    TerminateRecoveryInstancesResponse,
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | UninitializedAccountException
+    | CommonAwsError
+  >;
+  updateFailbackReplicationConfiguration(
+    input: UpdateFailbackReplicationConfigurationRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UninitializedAccountException
+    | CommonAwsError
+  >;
+  updateLaunchConfiguration(
+    input: UpdateLaunchConfigurationRequest,
+  ): Effect.Effect<
+    LaunchConfiguration,
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UninitializedAccountException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateLaunchConfigurationTemplate(
+    input: UpdateLaunchConfigurationTemplateRequest,
+  ): Effect.Effect<
+    UpdateLaunchConfigurationTemplateResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UninitializedAccountException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateReplicationConfiguration(
+    input: UpdateReplicationConfigurationRequest,
+  ): Effect.Effect<
+    ReplicationConfiguration,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UninitializedAccountException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateReplicationConfigurationTemplate(
+    input: UpdateReplicationConfigurationTemplateRequest,
+  ): Effect.Effect<
+    ReplicationConfigurationTemplate,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UninitializedAccountException
+    | ValidationException
+    | CommonAwsError
+  >;
 }
 
 export declare class Drs extends drs {}
@@ -1340,6 +1790,496 @@ export declare namespace UntagResource {
     | InternalServerException
     | ResourceNotFoundException
     | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace AssociateSourceNetworkStack {
+  export type Input = AssociateSourceNetworkStackRequest;
+  export type Output = AssociateSourceNetworkStackResponse;
+  export type Error =
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | UninitializedAccountException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateLaunchConfigurationTemplate {
+  export type Input = CreateLaunchConfigurationTemplateRequest;
+  export type Output = CreateLaunchConfigurationTemplateResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | UninitializedAccountException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateReplicationConfigurationTemplate {
+  export type Input = CreateReplicationConfigurationTemplateRequest;
+  export type Output = ReplicationConfigurationTemplate;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | UninitializedAccountException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateSourceNetwork {
+  export type Input = CreateSourceNetworkRequest;
+  export type Output = CreateSourceNetworkResponse;
+  export type Error =
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | UninitializedAccountException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteJob {
+  export type Input = DeleteJobRequest;
+  export type Output = DeleteJobResponse;
+  export type Error =
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UninitializedAccountException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteLaunchConfigurationTemplate {
+  export type Input = DeleteLaunchConfigurationTemplateRequest;
+  export type Output = DeleteLaunchConfigurationTemplateResponse;
+  export type Error =
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UninitializedAccountException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteRecoveryInstance {
+  export type Input = DeleteRecoveryInstanceRequest;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | UninitializedAccountException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteReplicationConfigurationTemplate {
+  export type Input = DeleteReplicationConfigurationTemplateRequest;
+  export type Output = DeleteReplicationConfigurationTemplateResponse;
+  export type Error =
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UninitializedAccountException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteSourceNetwork {
+  export type Input = DeleteSourceNetworkRequest;
+  export type Output = DeleteSourceNetworkResponse;
+  export type Error =
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UninitializedAccountException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteSourceServer {
+  export type Input = DeleteSourceServerRequest;
+  export type Output = DeleteSourceServerResponse;
+  export type Error =
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UninitializedAccountException
+    | CommonAwsError;
+}
+
+export declare namespace DescribeJobLogItems {
+  export type Input = DescribeJobLogItemsRequest;
+  export type Output = DescribeJobLogItemsResponse;
+  export type Error =
+    | InternalServerException
+    | ThrottlingException
+    | UninitializedAccountException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DescribeJobs {
+  export type Input = DescribeJobsRequest;
+  export type Output = DescribeJobsResponse;
+  export type Error =
+    | InternalServerException
+    | ThrottlingException
+    | UninitializedAccountException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DescribeLaunchConfigurationTemplates {
+  export type Input = DescribeLaunchConfigurationTemplatesRequest;
+  export type Output = DescribeLaunchConfigurationTemplatesResponse;
+  export type Error =
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UninitializedAccountException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DescribeRecoveryInstances {
+  export type Input = DescribeRecoveryInstancesRequest;
+  export type Output = DescribeRecoveryInstancesResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | UninitializedAccountException
+    | CommonAwsError;
+}
+
+export declare namespace DescribeRecoverySnapshots {
+  export type Input = DescribeRecoverySnapshotsRequest;
+  export type Output = DescribeRecoverySnapshotsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | UninitializedAccountException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DescribeReplicationConfigurationTemplates {
+  export type Input = DescribeReplicationConfigurationTemplatesRequest;
+  export type Output = DescribeReplicationConfigurationTemplatesResponse;
+  export type Error =
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UninitializedAccountException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DescribeSourceNetworks {
+  export type Input = DescribeSourceNetworksRequest;
+  export type Output = DescribeSourceNetworksResponse;
+  export type Error =
+    | InternalServerException
+    | ThrottlingException
+    | UninitializedAccountException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DescribeSourceServers {
+  export type Input = DescribeSourceServersRequest;
+  export type Output = DescribeSourceServersResponse;
+  export type Error =
+    | InternalServerException
+    | ThrottlingException
+    | UninitializedAccountException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DisconnectRecoveryInstance {
+  export type Input = DisconnectRecoveryInstanceRequest;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UninitializedAccountException
+    | CommonAwsError;
+}
+
+export declare namespace DisconnectSourceServer {
+  export type Input = DisconnectSourceServerRequest;
+  export type Output = SourceServer;
+  export type Error =
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UninitializedAccountException
+    | CommonAwsError;
+}
+
+export declare namespace ExportSourceNetworkCfnTemplate {
+  export type Input = ExportSourceNetworkCfnTemplateRequest;
+  export type Output = ExportSourceNetworkCfnTemplateResponse;
+  export type Error =
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UninitializedAccountException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetFailbackReplicationConfiguration {
+  export type Input = GetFailbackReplicationConfigurationRequest;
+  export type Output = GetFailbackReplicationConfigurationResponse;
+  export type Error =
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UninitializedAccountException
+    | CommonAwsError;
+}
+
+export declare namespace GetLaunchConfiguration {
+  export type Input = GetLaunchConfigurationRequest;
+  export type Output = LaunchConfiguration;
+  export type Error =
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UninitializedAccountException
+    | CommonAwsError;
+}
+
+export declare namespace GetReplicationConfiguration {
+  export type Input = GetReplicationConfigurationRequest;
+  export type Output = ReplicationConfiguration;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UninitializedAccountException
+    | CommonAwsError;
+}
+
+export declare namespace RetryDataReplication {
+  export type Input = RetryDataReplicationRequest;
+  export type Output = SourceServer;
+  export type Error =
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UninitializedAccountException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ReverseReplication {
+  export type Input = ReverseReplicationRequest;
+  export type Output = ReverseReplicationResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UninitializedAccountException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace StartFailbackLaunch {
+  export type Input = StartFailbackLaunchRequest;
+  export type Output = StartFailbackLaunchResponse;
+  export type Error =
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | UninitializedAccountException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace StartRecovery {
+  export type Input = StartRecoveryRequest;
+  export type Output = StartRecoveryResponse;
+  export type Error =
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | UninitializedAccountException
+    | CommonAwsError;
+}
+
+export declare namespace StartReplication {
+  export type Input = StartReplicationRequest;
+  export type Output = StartReplicationResponse;
+  export type Error =
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UninitializedAccountException
+    | CommonAwsError;
+}
+
+export declare namespace StartSourceNetworkRecovery {
+  export type Input = StartSourceNetworkRecoveryRequest;
+  export type Output = StartSourceNetworkRecoveryResponse;
+  export type Error =
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | UninitializedAccountException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace StartSourceNetworkReplication {
+  export type Input = StartSourceNetworkReplicationRequest;
+  export type Output = StartSourceNetworkReplicationResponse;
+  export type Error =
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UninitializedAccountException
+    | CommonAwsError;
+}
+
+export declare namespace StopFailback {
+  export type Input = StopFailbackRequest;
+  export type Output = {};
+  export type Error =
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UninitializedAccountException
+    | CommonAwsError;
+}
+
+export declare namespace StopReplication {
+  export type Input = StopReplicationRequest;
+  export type Output = StopReplicationResponse;
+  export type Error =
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UninitializedAccountException
+    | CommonAwsError;
+}
+
+export declare namespace StopSourceNetworkReplication {
+  export type Input = StopSourceNetworkReplicationRequest;
+  export type Output = StopSourceNetworkReplicationResponse;
+  export type Error =
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UninitializedAccountException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace TerminateRecoveryInstances {
+  export type Input = TerminateRecoveryInstancesRequest;
+  export type Output = TerminateRecoveryInstancesResponse;
+  export type Error =
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | UninitializedAccountException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateFailbackReplicationConfiguration {
+  export type Input = UpdateFailbackReplicationConfigurationRequest;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UninitializedAccountException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateLaunchConfiguration {
+  export type Input = UpdateLaunchConfigurationRequest;
+  export type Output = LaunchConfiguration;
+  export type Error =
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UninitializedAccountException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateLaunchConfigurationTemplate {
+  export type Input = UpdateLaunchConfigurationTemplateRequest;
+  export type Output = UpdateLaunchConfigurationTemplateResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UninitializedAccountException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateReplicationConfiguration {
+  export type Input = UpdateReplicationConfigurationRequest;
+  export type Output = ReplicationConfiguration;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UninitializedAccountException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateReplicationConfigurationTemplate {
+  export type Input = UpdateReplicationConfigurationTemplateRequest;
+  export type Output = ReplicationConfigurationTemplate;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UninitializedAccountException
     | ValidationException
     | CommonAwsError;
 }

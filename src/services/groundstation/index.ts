@@ -39,6 +39,268 @@ export declare class GroundStation extends AWSServiceClient {
     | ResourceNotFoundException
     | CommonAwsError
   >;
+  cancelContact(
+    input: CancelContactRequest,
+  ): Effect.Effect<
+    ContactIdResponse,
+    | DependencyException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | CommonAwsError
+  >;
+  createConfig(
+    input: CreateConfigRequest,
+  ): Effect.Effect<
+    ConfigIdResponse,
+    | DependencyException
+    | InvalidParameterException
+    | ResourceLimitExceededException
+    | ResourceNotFoundException
+    | CommonAwsError
+  >;
+  createDataflowEndpointGroup(
+    input: CreateDataflowEndpointGroupRequest,
+  ): Effect.Effect<
+    DataflowEndpointGroupIdResponse,
+    | DependencyException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | CommonAwsError
+  >;
+  createEphemeris(
+    input: CreateEphemerisRequest,
+  ): Effect.Effect<
+    EphemerisIdResponse,
+    | DependencyException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | CommonAwsError
+  >;
+  createMissionProfile(
+    input: CreateMissionProfileRequest,
+  ): Effect.Effect<
+    MissionProfileIdResponse,
+    | DependencyException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | CommonAwsError
+  >;
+  deleteConfig(
+    input: DeleteConfigRequest,
+  ): Effect.Effect<
+    ConfigIdResponse,
+    | DependencyException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | CommonAwsError
+  >;
+  deleteDataflowEndpointGroup(
+    input: DeleteDataflowEndpointGroupRequest,
+  ): Effect.Effect<
+    DataflowEndpointGroupIdResponse,
+    | DependencyException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | CommonAwsError
+  >;
+  deleteEphemeris(
+    input: DeleteEphemerisRequest,
+  ): Effect.Effect<
+    EphemerisIdResponse,
+    | DependencyException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | CommonAwsError
+  >;
+  deleteMissionProfile(
+    input: DeleteMissionProfileRequest,
+  ): Effect.Effect<
+    MissionProfileIdResponse,
+    | DependencyException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | CommonAwsError
+  >;
+  describeContact(
+    input: DescribeContactRequest,
+  ): Effect.Effect<
+    DescribeContactResponse,
+    | DependencyException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | CommonAwsError
+  >;
+  describeEphemeris(
+    input: DescribeEphemerisRequest,
+  ): Effect.Effect<
+    DescribeEphemerisResponse,
+    | DependencyException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | CommonAwsError
+  >;
+  getAgentConfiguration(
+    input: GetAgentConfigurationRequest,
+  ): Effect.Effect<
+    GetAgentConfigurationResponse,
+    | DependencyException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | CommonAwsError
+  >;
+  getConfig(
+    input: GetConfigRequest,
+  ): Effect.Effect<
+    GetConfigResponse,
+    | DependencyException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | CommonAwsError
+  >;
+  getDataflowEndpointGroup(
+    input: GetDataflowEndpointGroupRequest,
+  ): Effect.Effect<
+    GetDataflowEndpointGroupResponse,
+    | DependencyException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | CommonAwsError
+  >;
+  getMissionProfile(
+    input: GetMissionProfileRequest,
+  ): Effect.Effect<
+    GetMissionProfileResponse,
+    | DependencyException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | CommonAwsError
+  >;
+  getSatellite(
+    input: GetSatelliteRequest,
+  ): Effect.Effect<
+    GetSatelliteResponse,
+    | DependencyException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | CommonAwsError
+  >;
+  listConfigs(
+    input: ListConfigsRequest,
+  ): Effect.Effect<
+    ListConfigsResponse,
+    | DependencyException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | CommonAwsError
+  >;
+  listContacts(
+    input: ListContactsRequest,
+  ): Effect.Effect<
+    ListContactsResponse,
+    | DependencyException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | CommonAwsError
+  >;
+  listDataflowEndpointGroups(
+    input: ListDataflowEndpointGroupsRequest,
+  ): Effect.Effect<
+    ListDataflowEndpointGroupsResponse,
+    | DependencyException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | CommonAwsError
+  >;
+  listEphemerides(
+    input: ListEphemeridesRequest,
+  ): Effect.Effect<
+    ListEphemeridesResponse,
+    | DependencyException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | CommonAwsError
+  >;
+  listGroundStations(
+    input: ListGroundStationsRequest,
+  ): Effect.Effect<
+    ListGroundStationsResponse,
+    | DependencyException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | CommonAwsError
+  >;
+  listMissionProfiles(
+    input: ListMissionProfilesRequest,
+  ): Effect.Effect<
+    ListMissionProfilesResponse,
+    | DependencyException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | CommonAwsError
+  >;
+  listSatellites(
+    input: ListSatellitesRequest,
+  ): Effect.Effect<
+    ListSatellitesResponse,
+    | DependencyException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | CommonAwsError
+  >;
+  registerAgent(
+    input: RegisterAgentRequest,
+  ): Effect.Effect<
+    RegisterAgentResponse,
+    | DependencyException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | CommonAwsError
+  >;
+  reserveContact(
+    input: ReserveContactRequest,
+  ): Effect.Effect<
+    ContactIdResponse,
+    | DependencyException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | CommonAwsError
+  >;
+  updateAgentStatus(
+    input: UpdateAgentStatusRequest,
+  ): Effect.Effect<
+    UpdateAgentStatusResponse,
+    | DependencyException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | CommonAwsError
+  >;
+  updateConfig(
+    input: UpdateConfigRequest,
+  ): Effect.Effect<
+    ConfigIdResponse,
+    | DependencyException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | CommonAwsError
+  >;
+  updateEphemeris(
+    input: UpdateEphemerisRequest,
+  ): Effect.Effect<
+    EphemerisIdResponse,
+    | DependencyException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | CommonAwsError
+  >;
+  updateMissionProfile(
+    input: UpdateMissionProfileRequest,
+  ): Effect.Effect<
+    MissionProfileIdResponse,
+    | DependencyException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | CommonAwsError
+  >;
 }
 
 export declare class Groundstation extends GroundStation {}
@@ -862,6 +1124,297 @@ export declare namespace TagResource {
 export declare namespace UntagResource {
   export type Input = UntagResourceRequest;
   export type Output = UntagResourceResponse;
+  export type Error =
+    | DependencyException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | CommonAwsError;
+}
+
+export declare namespace CancelContact {
+  export type Input = CancelContactRequest;
+  export type Output = ContactIdResponse;
+  export type Error =
+    | DependencyException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | CommonAwsError;
+}
+
+export declare namespace CreateConfig {
+  export type Input = CreateConfigRequest;
+  export type Output = ConfigIdResponse;
+  export type Error =
+    | DependencyException
+    | InvalidParameterException
+    | ResourceLimitExceededException
+    | ResourceNotFoundException
+    | CommonAwsError;
+}
+
+export declare namespace CreateDataflowEndpointGroup {
+  export type Input = CreateDataflowEndpointGroupRequest;
+  export type Output = DataflowEndpointGroupIdResponse;
+  export type Error =
+    | DependencyException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | CommonAwsError;
+}
+
+export declare namespace CreateEphemeris {
+  export type Input = CreateEphemerisRequest;
+  export type Output = EphemerisIdResponse;
+  export type Error =
+    | DependencyException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | CommonAwsError;
+}
+
+export declare namespace CreateMissionProfile {
+  export type Input = CreateMissionProfileRequest;
+  export type Output = MissionProfileIdResponse;
+  export type Error =
+    | DependencyException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteConfig {
+  export type Input = DeleteConfigRequest;
+  export type Output = ConfigIdResponse;
+  export type Error =
+    | DependencyException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteDataflowEndpointGroup {
+  export type Input = DeleteDataflowEndpointGroupRequest;
+  export type Output = DataflowEndpointGroupIdResponse;
+  export type Error =
+    | DependencyException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteEphemeris {
+  export type Input = DeleteEphemerisRequest;
+  export type Output = EphemerisIdResponse;
+  export type Error =
+    | DependencyException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteMissionProfile {
+  export type Input = DeleteMissionProfileRequest;
+  export type Output = MissionProfileIdResponse;
+  export type Error =
+    | DependencyException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | CommonAwsError;
+}
+
+export declare namespace DescribeContact {
+  export type Input = DescribeContactRequest;
+  export type Output = DescribeContactResponse;
+  export type Error =
+    | DependencyException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | CommonAwsError;
+}
+
+export declare namespace DescribeEphemeris {
+  export type Input = DescribeEphemerisRequest;
+  export type Output = DescribeEphemerisResponse;
+  export type Error =
+    | DependencyException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | CommonAwsError;
+}
+
+export declare namespace GetAgentConfiguration {
+  export type Input = GetAgentConfigurationRequest;
+  export type Output = GetAgentConfigurationResponse;
+  export type Error =
+    | DependencyException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | CommonAwsError;
+}
+
+export declare namespace GetConfig {
+  export type Input = GetConfigRequest;
+  export type Output = GetConfigResponse;
+  export type Error =
+    | DependencyException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | CommonAwsError;
+}
+
+export declare namespace GetDataflowEndpointGroup {
+  export type Input = GetDataflowEndpointGroupRequest;
+  export type Output = GetDataflowEndpointGroupResponse;
+  export type Error =
+    | DependencyException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | CommonAwsError;
+}
+
+export declare namespace GetMissionProfile {
+  export type Input = GetMissionProfileRequest;
+  export type Output = GetMissionProfileResponse;
+  export type Error =
+    | DependencyException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | CommonAwsError;
+}
+
+export declare namespace GetSatellite {
+  export type Input = GetSatelliteRequest;
+  export type Output = GetSatelliteResponse;
+  export type Error =
+    | DependencyException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | CommonAwsError;
+}
+
+export declare namespace ListConfigs {
+  export type Input = ListConfigsRequest;
+  export type Output = ListConfigsResponse;
+  export type Error =
+    | DependencyException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | CommonAwsError;
+}
+
+export declare namespace ListContacts {
+  export type Input = ListContactsRequest;
+  export type Output = ListContactsResponse;
+  export type Error =
+    | DependencyException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | CommonAwsError;
+}
+
+export declare namespace ListDataflowEndpointGroups {
+  export type Input = ListDataflowEndpointGroupsRequest;
+  export type Output = ListDataflowEndpointGroupsResponse;
+  export type Error =
+    | DependencyException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | CommonAwsError;
+}
+
+export declare namespace ListEphemerides {
+  export type Input = ListEphemeridesRequest;
+  export type Output = ListEphemeridesResponse;
+  export type Error =
+    | DependencyException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | CommonAwsError;
+}
+
+export declare namespace ListGroundStations {
+  export type Input = ListGroundStationsRequest;
+  export type Output = ListGroundStationsResponse;
+  export type Error =
+    | DependencyException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | CommonAwsError;
+}
+
+export declare namespace ListMissionProfiles {
+  export type Input = ListMissionProfilesRequest;
+  export type Output = ListMissionProfilesResponse;
+  export type Error =
+    | DependencyException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | CommonAwsError;
+}
+
+export declare namespace ListSatellites {
+  export type Input = ListSatellitesRequest;
+  export type Output = ListSatellitesResponse;
+  export type Error =
+    | DependencyException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | CommonAwsError;
+}
+
+export declare namespace RegisterAgent {
+  export type Input = RegisterAgentRequest;
+  export type Output = RegisterAgentResponse;
+  export type Error =
+    | DependencyException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | CommonAwsError;
+}
+
+export declare namespace ReserveContact {
+  export type Input = ReserveContactRequest;
+  export type Output = ContactIdResponse;
+  export type Error =
+    | DependencyException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateAgentStatus {
+  export type Input = UpdateAgentStatusRequest;
+  export type Output = UpdateAgentStatusResponse;
+  export type Error =
+    | DependencyException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateConfig {
+  export type Input = UpdateConfigRequest;
+  export type Output = ConfigIdResponse;
+  export type Error =
+    | DependencyException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateEphemeris {
+  export type Input = UpdateEphemerisRequest;
+  export type Output = EphemerisIdResponse;
+  export type Error =
+    | DependencyException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateMissionProfile {
+  export type Input = UpdateMissionProfileRequest;
+  export type Output = MissionProfileIdResponse;
   export type Error =
     | DependencyException
     | InvalidParameterException

@@ -24,6 +24,123 @@ export declare class MediaTailor extends AWSServiceClient {
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<{}, BadRequestException | CommonAwsError>;
+  configureLogsForChannel(
+    input: ConfigureLogsForChannelRequest,
+  ): Effect.Effect<ConfigureLogsForChannelResponse, CommonAwsError>;
+  createChannel(
+    input: CreateChannelRequest,
+  ): Effect.Effect<CreateChannelResponse, CommonAwsError>;
+  createLiveSource(
+    input: CreateLiveSourceRequest,
+  ): Effect.Effect<CreateLiveSourceResponse, CommonAwsError>;
+  createPrefetchSchedule(
+    input: CreatePrefetchScheduleRequest,
+  ): Effect.Effect<CreatePrefetchScheduleResponse, CommonAwsError>;
+  createProgram(
+    input: CreateProgramRequest,
+  ): Effect.Effect<CreateProgramResponse, CommonAwsError>;
+  createSourceLocation(
+    input: CreateSourceLocationRequest,
+  ): Effect.Effect<CreateSourceLocationResponse, CommonAwsError>;
+  createVodSource(
+    input: CreateVodSourceRequest,
+  ): Effect.Effect<CreateVodSourceResponse, CommonAwsError>;
+  deleteChannel(
+    input: DeleteChannelRequest,
+  ): Effect.Effect<DeleteChannelResponse, CommonAwsError>;
+  deleteChannelPolicy(
+    input: DeleteChannelPolicyRequest,
+  ): Effect.Effect<DeleteChannelPolicyResponse, CommonAwsError>;
+  deleteLiveSource(
+    input: DeleteLiveSourceRequest,
+  ): Effect.Effect<DeleteLiveSourceResponse, CommonAwsError>;
+  deletePlaybackConfiguration(
+    input: DeletePlaybackConfigurationRequest,
+  ): Effect.Effect<DeletePlaybackConfigurationResponse, CommonAwsError>;
+  deletePrefetchSchedule(
+    input: DeletePrefetchScheduleRequest,
+  ): Effect.Effect<DeletePrefetchScheduleResponse, CommonAwsError>;
+  deleteProgram(
+    input: DeleteProgramRequest,
+  ): Effect.Effect<DeleteProgramResponse, CommonAwsError>;
+  deleteSourceLocation(
+    input: DeleteSourceLocationRequest,
+  ): Effect.Effect<DeleteSourceLocationResponse, CommonAwsError>;
+  deleteVodSource(
+    input: DeleteVodSourceRequest,
+  ): Effect.Effect<DeleteVodSourceResponse, CommonAwsError>;
+  describeChannel(
+    input: DescribeChannelRequest,
+  ): Effect.Effect<DescribeChannelResponse, CommonAwsError>;
+  describeLiveSource(
+    input: DescribeLiveSourceRequest,
+  ): Effect.Effect<DescribeLiveSourceResponse, CommonAwsError>;
+  describeProgram(
+    input: DescribeProgramRequest,
+  ): Effect.Effect<DescribeProgramResponse, CommonAwsError>;
+  describeSourceLocation(
+    input: DescribeSourceLocationRequest,
+  ): Effect.Effect<DescribeSourceLocationResponse, CommonAwsError>;
+  describeVodSource(
+    input: DescribeVodSourceRequest,
+  ): Effect.Effect<DescribeVodSourceResponse, CommonAwsError>;
+  getChannelPolicy(
+    input: GetChannelPolicyRequest,
+  ): Effect.Effect<GetChannelPolicyResponse, CommonAwsError>;
+  getChannelSchedule(
+    input: GetChannelScheduleRequest,
+  ): Effect.Effect<GetChannelScheduleResponse, CommonAwsError>;
+  getPlaybackConfiguration(
+    input: GetPlaybackConfigurationRequest,
+  ): Effect.Effect<GetPlaybackConfigurationResponse, CommonAwsError>;
+  getPrefetchSchedule(
+    input: GetPrefetchScheduleRequest,
+  ): Effect.Effect<GetPrefetchScheduleResponse, CommonAwsError>;
+  listChannels(
+    input: ListChannelsRequest,
+  ): Effect.Effect<ListChannelsResponse, CommonAwsError>;
+  listLiveSources(
+    input: ListLiveSourcesRequest,
+  ): Effect.Effect<ListLiveSourcesResponse, CommonAwsError>;
+  listPlaybackConfigurations(
+    input: ListPlaybackConfigurationsRequest,
+  ): Effect.Effect<ListPlaybackConfigurationsResponse, CommonAwsError>;
+  listPrefetchSchedules(
+    input: ListPrefetchSchedulesRequest,
+  ): Effect.Effect<ListPrefetchSchedulesResponse, CommonAwsError>;
+  listSourceLocations(
+    input: ListSourceLocationsRequest,
+  ): Effect.Effect<ListSourceLocationsResponse, CommonAwsError>;
+  listVodSources(
+    input: ListVodSourcesRequest,
+  ): Effect.Effect<ListVodSourcesResponse, CommonAwsError>;
+  putChannelPolicy(
+    input: PutChannelPolicyRequest,
+  ): Effect.Effect<PutChannelPolicyResponse, CommonAwsError>;
+  putPlaybackConfiguration(
+    input: PutPlaybackConfigurationRequest,
+  ): Effect.Effect<PutPlaybackConfigurationResponse, CommonAwsError>;
+  startChannel(
+    input: StartChannelRequest,
+  ): Effect.Effect<StartChannelResponse, CommonAwsError>;
+  stopChannel(
+    input: StopChannelRequest,
+  ): Effect.Effect<StopChannelResponse, CommonAwsError>;
+  updateChannel(
+    input: UpdateChannelRequest,
+  ): Effect.Effect<UpdateChannelResponse, CommonAwsError>;
+  updateLiveSource(
+    input: UpdateLiveSourceRequest,
+  ): Effect.Effect<UpdateLiveSourceResponse, CommonAwsError>;
+  updateProgram(
+    input: UpdateProgramRequest,
+  ): Effect.Effect<UpdateProgramResponse, CommonAwsError>;
+  updateSourceLocation(
+    input: UpdateSourceLocationRequest,
+  ): Effect.Effect<UpdateSourceLocationResponse, CommonAwsError>;
+  updateVodSource(
+    input: UpdateVodSourceRequest,
+  ): Effect.Effect<UpdateVodSourceResponse, CommonAwsError>;
 }
 
 export declare class Mediatailor extends MediaTailor {}
@@ -1060,4 +1177,238 @@ export declare namespace UntagResource {
   export type Input = UntagResourceRequest;
   export type Output = {};
   export type Error = BadRequestException | CommonAwsError;
+}
+
+export declare namespace ConfigureLogsForChannel {
+  export type Input = ConfigureLogsForChannelRequest;
+  export type Output = ConfigureLogsForChannelResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace CreateChannel {
+  export type Input = CreateChannelRequest;
+  export type Output = CreateChannelResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace CreateLiveSource {
+  export type Input = CreateLiveSourceRequest;
+  export type Output = CreateLiveSourceResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace CreatePrefetchSchedule {
+  export type Input = CreatePrefetchScheduleRequest;
+  export type Output = CreatePrefetchScheduleResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace CreateProgram {
+  export type Input = CreateProgramRequest;
+  export type Output = CreateProgramResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace CreateSourceLocation {
+  export type Input = CreateSourceLocationRequest;
+  export type Output = CreateSourceLocationResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace CreateVodSource {
+  export type Input = CreateVodSourceRequest;
+  export type Output = CreateVodSourceResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace DeleteChannel {
+  export type Input = DeleteChannelRequest;
+  export type Output = DeleteChannelResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace DeleteChannelPolicy {
+  export type Input = DeleteChannelPolicyRequest;
+  export type Output = DeleteChannelPolicyResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace DeleteLiveSource {
+  export type Input = DeleteLiveSourceRequest;
+  export type Output = DeleteLiveSourceResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace DeletePlaybackConfiguration {
+  export type Input = DeletePlaybackConfigurationRequest;
+  export type Output = DeletePlaybackConfigurationResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace DeletePrefetchSchedule {
+  export type Input = DeletePrefetchScheduleRequest;
+  export type Output = DeletePrefetchScheduleResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace DeleteProgram {
+  export type Input = DeleteProgramRequest;
+  export type Output = DeleteProgramResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace DeleteSourceLocation {
+  export type Input = DeleteSourceLocationRequest;
+  export type Output = DeleteSourceLocationResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace DeleteVodSource {
+  export type Input = DeleteVodSourceRequest;
+  export type Output = DeleteVodSourceResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace DescribeChannel {
+  export type Input = DescribeChannelRequest;
+  export type Output = DescribeChannelResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace DescribeLiveSource {
+  export type Input = DescribeLiveSourceRequest;
+  export type Output = DescribeLiveSourceResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace DescribeProgram {
+  export type Input = DescribeProgramRequest;
+  export type Output = DescribeProgramResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace DescribeSourceLocation {
+  export type Input = DescribeSourceLocationRequest;
+  export type Output = DescribeSourceLocationResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace DescribeVodSource {
+  export type Input = DescribeVodSourceRequest;
+  export type Output = DescribeVodSourceResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace GetChannelPolicy {
+  export type Input = GetChannelPolicyRequest;
+  export type Output = GetChannelPolicyResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace GetChannelSchedule {
+  export type Input = GetChannelScheduleRequest;
+  export type Output = GetChannelScheduleResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace GetPlaybackConfiguration {
+  export type Input = GetPlaybackConfigurationRequest;
+  export type Output = GetPlaybackConfigurationResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace GetPrefetchSchedule {
+  export type Input = GetPrefetchScheduleRequest;
+  export type Output = GetPrefetchScheduleResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace ListChannels {
+  export type Input = ListChannelsRequest;
+  export type Output = ListChannelsResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace ListLiveSources {
+  export type Input = ListLiveSourcesRequest;
+  export type Output = ListLiveSourcesResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace ListPlaybackConfigurations {
+  export type Input = ListPlaybackConfigurationsRequest;
+  export type Output = ListPlaybackConfigurationsResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace ListPrefetchSchedules {
+  export type Input = ListPrefetchSchedulesRequest;
+  export type Output = ListPrefetchSchedulesResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace ListSourceLocations {
+  export type Input = ListSourceLocationsRequest;
+  export type Output = ListSourceLocationsResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace ListVodSources {
+  export type Input = ListVodSourcesRequest;
+  export type Output = ListVodSourcesResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace PutChannelPolicy {
+  export type Input = PutChannelPolicyRequest;
+  export type Output = PutChannelPolicyResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace PutPlaybackConfiguration {
+  export type Input = PutPlaybackConfigurationRequest;
+  export type Output = PutPlaybackConfigurationResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace StartChannel {
+  export type Input = StartChannelRequest;
+  export type Output = StartChannelResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace StopChannel {
+  export type Input = StopChannelRequest;
+  export type Output = StopChannelResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace UpdateChannel {
+  export type Input = UpdateChannelRequest;
+  export type Output = UpdateChannelResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace UpdateLiveSource {
+  export type Input = UpdateLiveSourceRequest;
+  export type Output = UpdateLiveSourceResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace UpdateProgram {
+  export type Input = UpdateProgramRequest;
+  export type Output = UpdateProgramResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace UpdateSourceLocation {
+  export type Input = UpdateSourceLocationRequest;
+  export type Output = UpdateSourceLocationResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace UpdateVodSource {
+  export type Input = UpdateVodSourceRequest;
+  export type Output = UpdateVodSourceResponse;
+  export type Error = CommonAwsError;
 }

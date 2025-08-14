@@ -37,6 +37,248 @@ export declare class AppTest extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
+  createTestCase(
+    input: CreateTestCaseRequest,
+  ): Effect.Effect<
+    CreateTestCaseResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createTestConfiguration(
+    input: CreateTestConfigurationRequest,
+  ): Effect.Effect<
+    CreateTestConfigurationResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createTestSuite(
+    input: CreateTestSuiteRequest,
+  ): Effect.Effect<
+    CreateTestSuiteResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteTestCase(
+    input: DeleteTestCaseRequest,
+  ): Effect.Effect<
+    DeleteTestCaseResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteTestConfiguration(
+    input: DeleteTestConfigurationRequest,
+  ): Effect.Effect<
+    DeleteTestConfigurationResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteTestRun(
+    input: DeleteTestRunRequest,
+  ): Effect.Effect<
+    DeleteTestRunResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteTestSuite(
+    input: DeleteTestSuiteRequest,
+  ): Effect.Effect<
+    DeleteTestSuiteResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getTestCase(
+    input: GetTestCaseRequest,
+  ): Effect.Effect<
+    GetTestCaseResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getTestConfiguration(
+    input: GetTestConfigurationRequest,
+  ): Effect.Effect<
+    GetTestConfigurationResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getTestRunStep(
+    input: GetTestRunStepRequest,
+  ): Effect.Effect<
+    GetTestRunStepResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getTestSuite(
+    input: GetTestSuiteRequest,
+  ): Effect.Effect<
+    GetTestSuiteResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listTestCases(
+    input: ListTestCasesRequest,
+  ): Effect.Effect<
+    ListTestCasesResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listTestConfigurations(
+    input: ListTestConfigurationsRequest,
+  ): Effect.Effect<
+    ListTestConfigurationsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listTestRunSteps(
+    input: ListTestRunStepsRequest,
+  ): Effect.Effect<
+    ListTestRunStepsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listTestRunTestCases(
+    input: ListTestRunTestCasesRequest,
+  ): Effect.Effect<
+    ListTestRunTestCasesResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listTestRuns(
+    input: ListTestRunsRequest,
+  ): Effect.Effect<
+    ListTestRunsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listTestSuites(
+    input: ListTestSuitesRequest,
+  ): Effect.Effect<
+    ListTestSuitesResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  startTestRun(
+    input: StartTestRunRequest,
+  ): Effect.Effect<
+    StartTestRunResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateTestCase(
+    input: UpdateTestCaseRequest,
+  ): Effect.Effect<
+    UpdateTestCaseResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateTestConfiguration(
+    input: UpdateTestConfigurationRequest,
+  ): Effect.Effect<
+    UpdateTestConfigurationResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateTestSuite(
+    input: UpdateTestSuiteRequest,
+  ): Effect.Effect<
+    UpdateTestSuiteResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
 }
 
 export declare class Apptest extends AppTest {}
@@ -883,6 +1125,269 @@ export declare namespace UntagResource {
   export type Output = UntagResourceResponse;
   export type Error =
     | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateTestCase {
+  export type Input = CreateTestCaseRequest;
+  export type Output = CreateTestCaseResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateTestConfiguration {
+  export type Input = CreateTestConfigurationRequest;
+  export type Output = CreateTestConfigurationResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateTestSuite {
+  export type Input = CreateTestSuiteRequest;
+  export type Output = CreateTestSuiteResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteTestCase {
+  export type Input = DeleteTestCaseRequest;
+  export type Output = DeleteTestCaseResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteTestConfiguration {
+  export type Input = DeleteTestConfigurationRequest;
+  export type Output = DeleteTestConfigurationResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteTestRun {
+  export type Input = DeleteTestRunRequest;
+  export type Output = DeleteTestRunResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteTestSuite {
+  export type Input = DeleteTestSuiteRequest;
+  export type Output = DeleteTestSuiteResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetTestCase {
+  export type Input = GetTestCaseRequest;
+  export type Output = GetTestCaseResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetTestConfiguration {
+  export type Input = GetTestConfigurationRequest;
+  export type Output = GetTestConfigurationResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetTestRunStep {
+  export type Input = GetTestRunStepRequest;
+  export type Output = GetTestRunStepResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetTestSuite {
+  export type Input = GetTestSuiteRequest;
+  export type Output = GetTestSuiteResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListTestCases {
+  export type Input = ListTestCasesRequest;
+  export type Output = ListTestCasesResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListTestConfigurations {
+  export type Input = ListTestConfigurationsRequest;
+  export type Output = ListTestConfigurationsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListTestRunSteps {
+  export type Input = ListTestRunStepsRequest;
+  export type Output = ListTestRunStepsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListTestRunTestCases {
+  export type Input = ListTestRunTestCasesRequest;
+  export type Output = ListTestRunTestCasesResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListTestRuns {
+  export type Input = ListTestRunsRequest;
+  export type Output = ListTestRunsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListTestSuites {
+  export type Input = ListTestSuitesRequest;
+  export type Output = ListTestSuitesResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace StartTestRun {
+  export type Input = StartTestRunRequest;
+  export type Output = StartTestRunResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateTestCase {
+  export type Input = UpdateTestCaseRequest;
+  export type Output = UpdateTestCaseResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateTestConfiguration {
+  export type Input = UpdateTestConfigurationRequest;
+  export type Output = UpdateTestConfigurationResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateTestSuite {
+  export type Input = UpdateTestSuiteRequest;
+  export type Output = UpdateTestSuiteResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
     | InternalServerException
     | ResourceNotFoundException
     | ThrottlingException

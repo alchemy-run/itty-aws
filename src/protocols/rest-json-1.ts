@@ -9,38 +9,65 @@ export class RestJson1Handler implements ProtocolHandler {
     _action: string,
     _metadata: ServiceMetadata,
   ): string {
+    // Input has already been processed by the client to remove path/query params
+    // Just serialize the remaining fields as JSON
+    if (
+      !input ||
+      (typeof input === "object" && Object.keys(input).length === 0)
+    ) {
+      return "";
+    }
     return JSON.stringify(input);
   }
 
   getHeaders(
     _action: string,
     _metadata: ServiceMetadata,
-    _body?: string,
+    body?: string,
   ): Record<string, string> {
-    return {
-      "Content-Type": this.contentType,
+    const headers: Record<string, string> = {
       "User-Agent": "itty-aws",
     };
+
+    // Only set Content-Type if there's a body
+    if (body) {
+      headers["Content-Type"] = this.contentType;
+    }
+
+    return headers;
   }
 
   parseResponse(
     responseText: string,
     _statusCode: number,
-    _metadata?: import("./interface.ts").ServiceMetadata,
+    _metadata?: ServiceMetadata,
   ): unknown {
     if (!responseText) return {};
-    return JSON.parse(responseText);
+    try {
+      return JSON.parse(responseText);
+    } catch {
+      // If response isn't JSON, return as-is (could be binary data)
+      return responseText;
+    }
   }
 
   parseError(
     responseText: string,
     _statusCode: number,
-    _headers?: Headers,
+    headers?: Headers,
   ): unknown {
+    // RestJson1 errors are identified by X-Amzn-Errortype header
+    const errorType = headers?.get("x-amzn-errortype") || "UnknownError";
+
     try {
-      return JSON.parse(responseText);
+      const parsed = JSON.parse(responseText);
+      // Ensure __type is set for error handling
+      return { ...parsed, __type: errorType };
     } catch {
-      return { message: responseText };
+      return {
+        message: responseText || "Unknown error",
+        __type: errorType,
+      };
     }
   }
 }

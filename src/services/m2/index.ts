@@ -54,6 +54,379 @@ export declare class m2 extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
+  cancelBatchJobExecution(
+    input: CancelBatchJobExecutionRequest,
+  ): Effect.Effect<
+    CancelBatchJobExecutionResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createApplication(
+    input: CreateApplicationRequest,
+  ): Effect.Effect<
+    CreateApplicationResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createDataSetExportTask(
+    input: CreateDataSetExportTaskRequest,
+  ): Effect.Effect<
+    CreateDataSetExportTaskResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createDataSetImportTask(
+    input: CreateDataSetImportTaskRequest,
+  ): Effect.Effect<
+    CreateDataSetImportTaskResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createDeployment(
+    input: CreateDeploymentRequest,
+  ): Effect.Effect<
+    CreateDeploymentResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createEnvironment(
+    input: CreateEnvironmentRequest,
+  ): Effect.Effect<
+    CreateEnvironmentResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteApplication(
+    input: DeleteApplicationRequest,
+  ): Effect.Effect<
+    DeleteApplicationResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteApplicationFromEnvironment(
+    input: DeleteApplicationFromEnvironmentRequest,
+  ): Effect.Effect<
+    DeleteApplicationFromEnvironmentResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteEnvironment(
+    input: DeleteEnvironmentRequest,
+  ): Effect.Effect<
+    DeleteEnvironmentResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getApplication(
+    input: GetApplicationRequest,
+  ): Effect.Effect<
+    GetApplicationResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getApplicationVersion(
+    input: GetApplicationVersionRequest,
+  ): Effect.Effect<
+    GetApplicationVersionResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getBatchJobExecution(
+    input: GetBatchJobExecutionRequest,
+  ): Effect.Effect<
+    GetBatchJobExecutionResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getDataSetDetails(
+    input: GetDataSetDetailsRequest,
+  ): Effect.Effect<
+    GetDataSetDetailsResponse,
+    | AccessDeniedException
+    | ConflictException
+    | ExecutionTimeoutException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getDataSetExportTask(
+    input: GetDataSetExportTaskRequest,
+  ): Effect.Effect<
+    GetDataSetExportTaskResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getDataSetImportTask(
+    input: GetDataSetImportTaskRequest,
+  ): Effect.Effect<
+    GetDataSetImportTaskResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getDeployment(
+    input: GetDeploymentRequest,
+  ): Effect.Effect<
+    GetDeploymentResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getEnvironment(
+    input: GetEnvironmentRequest,
+  ): Effect.Effect<
+    GetEnvironmentResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listApplicationVersions(
+    input: ListApplicationVersionsRequest,
+  ): Effect.Effect<
+    ListApplicationVersionsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listApplications(
+    input: ListApplicationsRequest,
+  ): Effect.Effect<
+    ListApplicationsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listBatchJobDefinitions(
+    input: ListBatchJobDefinitionsRequest,
+  ): Effect.Effect<
+    ListBatchJobDefinitionsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listBatchJobExecutions(
+    input: ListBatchJobExecutionsRequest,
+  ): Effect.Effect<
+    ListBatchJobExecutionsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listBatchJobRestartPoints(
+    input: ListBatchJobRestartPointsRequest,
+  ): Effect.Effect<
+    ListBatchJobRestartPointsResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listDataSetExportHistory(
+    input: ListDataSetExportHistoryRequest,
+  ): Effect.Effect<
+    ListDataSetExportHistoryResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listDataSetImportHistory(
+    input: ListDataSetImportHistoryRequest,
+  ): Effect.Effect<
+    ListDataSetImportHistoryResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listDataSets(
+    input: ListDataSetsRequest,
+  ): Effect.Effect<
+    ListDataSetsResponse,
+    | AccessDeniedException
+    | ConflictException
+    | ExecutionTimeoutException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listDeployments(
+    input: ListDeploymentsRequest,
+  ): Effect.Effect<
+    ListDeploymentsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listEnvironments(
+    input: ListEnvironmentsRequest,
+  ): Effect.Effect<
+    ListEnvironmentsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  startApplication(
+    input: StartApplicationRequest,
+  ): Effect.Effect<
+    StartApplicationResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  startBatchJob(
+    input: StartBatchJobRequest,
+  ): Effect.Effect<
+    StartBatchJobResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  stopApplication(
+    input: StopApplicationRequest,
+  ): Effect.Effect<
+    StopApplicationResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateApplication(
+    input: UpdateApplicationRequest,
+  ): Effect.Effect<
+    UpdateApplicationResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateEnvironment(
+    input: UpdateEnvironmentRequest,
+  ): Effect.Effect<
+    UpdateEnvironmentResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
 }
 
 export declare class M2 extends m2 {}
@@ -979,6 +1352,411 @@ export declare namespace UntagResource {
     | AccessDeniedException
     | InternalServerException
     | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CancelBatchJobExecution {
+  export type Input = CancelBatchJobExecutionRequest;
+  export type Output = CancelBatchJobExecutionResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateApplication {
+  export type Input = CreateApplicationRequest;
+  export type Output = CreateApplicationResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateDataSetExportTask {
+  export type Input = CreateDataSetExportTaskRequest;
+  export type Output = CreateDataSetExportTaskResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateDataSetImportTask {
+  export type Input = CreateDataSetImportTaskRequest;
+  export type Output = CreateDataSetImportTaskResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateDeployment {
+  export type Input = CreateDeploymentRequest;
+  export type Output = CreateDeploymentResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateEnvironment {
+  export type Input = CreateEnvironmentRequest;
+  export type Output = CreateEnvironmentResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteApplication {
+  export type Input = DeleteApplicationRequest;
+  export type Output = DeleteApplicationResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteApplicationFromEnvironment {
+  export type Input = DeleteApplicationFromEnvironmentRequest;
+  export type Output = DeleteApplicationFromEnvironmentResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteEnvironment {
+  export type Input = DeleteEnvironmentRequest;
+  export type Output = DeleteEnvironmentResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetApplication {
+  export type Input = GetApplicationRequest;
+  export type Output = GetApplicationResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetApplicationVersion {
+  export type Input = GetApplicationVersionRequest;
+  export type Output = GetApplicationVersionResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetBatchJobExecution {
+  export type Input = GetBatchJobExecutionRequest;
+  export type Output = GetBatchJobExecutionResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetDataSetDetails {
+  export type Input = GetDataSetDetailsRequest;
+  export type Output = GetDataSetDetailsResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ExecutionTimeoutException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetDataSetExportTask {
+  export type Input = GetDataSetExportTaskRequest;
+  export type Output = GetDataSetExportTaskResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetDataSetImportTask {
+  export type Input = GetDataSetImportTaskRequest;
+  export type Output = GetDataSetImportTaskResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetDeployment {
+  export type Input = GetDeploymentRequest;
+  export type Output = GetDeploymentResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetEnvironment {
+  export type Input = GetEnvironmentRequest;
+  export type Output = GetEnvironmentResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListApplicationVersions {
+  export type Input = ListApplicationVersionsRequest;
+  export type Output = ListApplicationVersionsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListApplications {
+  export type Input = ListApplicationsRequest;
+  export type Output = ListApplicationsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListBatchJobDefinitions {
+  export type Input = ListBatchJobDefinitionsRequest;
+  export type Output = ListBatchJobDefinitionsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListBatchJobExecutions {
+  export type Input = ListBatchJobExecutionsRequest;
+  export type Output = ListBatchJobExecutionsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListBatchJobRestartPoints {
+  export type Input = ListBatchJobRestartPointsRequest;
+  export type Output = ListBatchJobRestartPointsResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListDataSetExportHistory {
+  export type Input = ListDataSetExportHistoryRequest;
+  export type Output = ListDataSetExportHistoryResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListDataSetImportHistory {
+  export type Input = ListDataSetImportHistoryRequest;
+  export type Output = ListDataSetImportHistoryResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListDataSets {
+  export type Input = ListDataSetsRequest;
+  export type Output = ListDataSetsResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | ExecutionTimeoutException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListDeployments {
+  export type Input = ListDeploymentsRequest;
+  export type Output = ListDeploymentsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListEnvironments {
+  export type Input = ListEnvironmentsRequest;
+  export type Output = ListEnvironmentsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace StartApplication {
+  export type Input = StartApplicationRequest;
+  export type Output = StartApplicationResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace StartBatchJob {
+  export type Input = StartBatchJobRequest;
+  export type Output = StartBatchJobResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace StopApplication {
+  export type Input = StopApplicationRequest;
+  export type Output = StopApplicationResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateApplication {
+  export type Input = UpdateApplicationRequest;
+  export type Output = UpdateApplicationResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateEnvironment {
+  export type Input = UpdateEnvironmentRequest;
+  export type Output = UpdateEnvironmentResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
     | ThrottlingException
     | ValidationException
     | CommonAwsError;

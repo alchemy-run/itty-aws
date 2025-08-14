@@ -40,6 +40,460 @@ export declare class AppMesh extends AWSServiceClient {
     | TooManyRequestsException
     | CommonAwsError
   >;
+  createGatewayRoute(
+    input: CreateGatewayRouteInput,
+  ): Effect.Effect<
+    CreateGatewayRouteOutput,
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | InternalServerErrorException
+    | LimitExceededException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  createMesh(
+    input: CreateMeshInput,
+  ): Effect.Effect<
+    CreateMeshOutput,
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | InternalServerErrorException
+    | LimitExceededException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  createRoute(
+    input: CreateRouteInput,
+  ): Effect.Effect<
+    CreateRouteOutput,
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | InternalServerErrorException
+    | LimitExceededException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  createVirtualGateway(
+    input: CreateVirtualGatewayInput,
+  ): Effect.Effect<
+    CreateVirtualGatewayOutput,
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | InternalServerErrorException
+    | LimitExceededException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  createVirtualNode(
+    input: CreateVirtualNodeInput,
+  ): Effect.Effect<
+    CreateVirtualNodeOutput,
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | InternalServerErrorException
+    | LimitExceededException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  createVirtualRouter(
+    input: CreateVirtualRouterInput,
+  ): Effect.Effect<
+    CreateVirtualRouterOutput,
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | InternalServerErrorException
+    | LimitExceededException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  createVirtualService(
+    input: CreateVirtualServiceInput,
+  ): Effect.Effect<
+    CreateVirtualServiceOutput,
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | InternalServerErrorException
+    | LimitExceededException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  deleteGatewayRoute(
+    input: DeleteGatewayRouteInput,
+  ): Effect.Effect<
+    DeleteGatewayRouteOutput,
+    | BadRequestException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ResourceInUseException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  deleteMesh(
+    input: DeleteMeshInput,
+  ): Effect.Effect<
+    DeleteMeshOutput,
+    | BadRequestException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ResourceInUseException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  deleteRoute(
+    input: DeleteRouteInput,
+  ): Effect.Effect<
+    DeleteRouteOutput,
+    | BadRequestException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ResourceInUseException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  deleteVirtualGateway(
+    input: DeleteVirtualGatewayInput,
+  ): Effect.Effect<
+    DeleteVirtualGatewayOutput,
+    | BadRequestException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ResourceInUseException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  deleteVirtualNode(
+    input: DeleteVirtualNodeInput,
+  ): Effect.Effect<
+    DeleteVirtualNodeOutput,
+    | BadRequestException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ResourceInUseException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  deleteVirtualRouter(
+    input: DeleteVirtualRouterInput,
+  ): Effect.Effect<
+    DeleteVirtualRouterOutput,
+    | BadRequestException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ResourceInUseException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  deleteVirtualService(
+    input: DeleteVirtualServiceInput,
+  ): Effect.Effect<
+    DeleteVirtualServiceOutput,
+    | BadRequestException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ResourceInUseException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  describeGatewayRoute(
+    input: DescribeGatewayRouteInput,
+  ): Effect.Effect<
+    DescribeGatewayRouteOutput,
+    | BadRequestException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  describeMesh(
+    input: DescribeMeshInput,
+  ): Effect.Effect<
+    DescribeMeshOutput,
+    | BadRequestException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  describeRoute(
+    input: DescribeRouteInput,
+  ): Effect.Effect<
+    DescribeRouteOutput,
+    | BadRequestException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  describeVirtualGateway(
+    input: DescribeVirtualGatewayInput,
+  ): Effect.Effect<
+    DescribeVirtualGatewayOutput,
+    | BadRequestException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  describeVirtualNode(
+    input: DescribeVirtualNodeInput,
+  ): Effect.Effect<
+    DescribeVirtualNodeOutput,
+    | BadRequestException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  describeVirtualRouter(
+    input: DescribeVirtualRouterInput,
+  ): Effect.Effect<
+    DescribeVirtualRouterOutput,
+    | BadRequestException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  describeVirtualService(
+    input: DescribeVirtualServiceInput,
+  ): Effect.Effect<
+    DescribeVirtualServiceOutput,
+    | BadRequestException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  listGatewayRoutes(
+    input: ListGatewayRoutesInput,
+  ): Effect.Effect<
+    ListGatewayRoutesOutput,
+    | BadRequestException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  listMeshes(
+    input: ListMeshesInput,
+  ): Effect.Effect<
+    ListMeshesOutput,
+    | BadRequestException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  listRoutes(
+    input: ListRoutesInput,
+  ): Effect.Effect<
+    ListRoutesOutput,
+    | BadRequestException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  listVirtualGateways(
+    input: ListVirtualGatewaysInput,
+  ): Effect.Effect<
+    ListVirtualGatewaysOutput,
+    | BadRequestException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  listVirtualNodes(
+    input: ListVirtualNodesInput,
+  ): Effect.Effect<
+    ListVirtualNodesOutput,
+    | BadRequestException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  listVirtualRouters(
+    input: ListVirtualRoutersInput,
+  ): Effect.Effect<
+    ListVirtualRoutersOutput,
+    | BadRequestException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  listVirtualServices(
+    input: ListVirtualServicesInput,
+  ): Effect.Effect<
+    ListVirtualServicesOutput,
+    | BadRequestException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  updateGatewayRoute(
+    input: UpdateGatewayRouteInput,
+  ): Effect.Effect<
+    UpdateGatewayRouteOutput,
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | InternalServerErrorException
+    | LimitExceededException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  updateMesh(
+    input: UpdateMeshInput,
+  ): Effect.Effect<
+    UpdateMeshOutput,
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  updateRoute(
+    input: UpdateRouteInput,
+  ): Effect.Effect<
+    UpdateRouteOutput,
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | InternalServerErrorException
+    | LimitExceededException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  updateVirtualGateway(
+    input: UpdateVirtualGatewayInput,
+  ): Effect.Effect<
+    UpdateVirtualGatewayOutput,
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | InternalServerErrorException
+    | LimitExceededException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  updateVirtualNode(
+    input: UpdateVirtualNodeInput,
+  ): Effect.Effect<
+    UpdateVirtualNodeOutput,
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | InternalServerErrorException
+    | LimitExceededException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  updateVirtualRouter(
+    input: UpdateVirtualRouterInput,
+  ): Effect.Effect<
+    UpdateVirtualRouterOutput,
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | InternalServerErrorException
+    | LimitExceededException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  updateVirtualService(
+    input: UpdateVirtualServiceInput,
+  ): Effect.Effect<
+    UpdateVirtualServiceOutput,
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | InternalServerErrorException
+    | LimitExceededException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
 }
 
 interface _AccessLog {
@@ -1443,6 +1897,495 @@ export declare namespace UntagResource {
     | BadRequestException
     | ForbiddenException
     | InternalServerErrorException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace CreateGatewayRoute {
+  export type Input = CreateGatewayRouteInput;
+  export type Output = CreateGatewayRouteOutput;
+  export type Error =
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | InternalServerErrorException
+    | LimitExceededException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace CreateMesh {
+  export type Input = CreateMeshInput;
+  export type Output = CreateMeshOutput;
+  export type Error =
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | InternalServerErrorException
+    | LimitExceededException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace CreateRoute {
+  export type Input = CreateRouteInput;
+  export type Output = CreateRouteOutput;
+  export type Error =
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | InternalServerErrorException
+    | LimitExceededException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace CreateVirtualGateway {
+  export type Input = CreateVirtualGatewayInput;
+  export type Output = CreateVirtualGatewayOutput;
+  export type Error =
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | InternalServerErrorException
+    | LimitExceededException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace CreateVirtualNode {
+  export type Input = CreateVirtualNodeInput;
+  export type Output = CreateVirtualNodeOutput;
+  export type Error =
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | InternalServerErrorException
+    | LimitExceededException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace CreateVirtualRouter {
+  export type Input = CreateVirtualRouterInput;
+  export type Output = CreateVirtualRouterOutput;
+  export type Error =
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | InternalServerErrorException
+    | LimitExceededException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace CreateVirtualService {
+  export type Input = CreateVirtualServiceInput;
+  export type Output = CreateVirtualServiceOutput;
+  export type Error =
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | InternalServerErrorException
+    | LimitExceededException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteGatewayRoute {
+  export type Input = DeleteGatewayRouteInput;
+  export type Output = DeleteGatewayRouteOutput;
+  export type Error =
+    | BadRequestException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ResourceInUseException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteMesh {
+  export type Input = DeleteMeshInput;
+  export type Output = DeleteMeshOutput;
+  export type Error =
+    | BadRequestException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ResourceInUseException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteRoute {
+  export type Input = DeleteRouteInput;
+  export type Output = DeleteRouteOutput;
+  export type Error =
+    | BadRequestException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ResourceInUseException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteVirtualGateway {
+  export type Input = DeleteVirtualGatewayInput;
+  export type Output = DeleteVirtualGatewayOutput;
+  export type Error =
+    | BadRequestException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ResourceInUseException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteVirtualNode {
+  export type Input = DeleteVirtualNodeInput;
+  export type Output = DeleteVirtualNodeOutput;
+  export type Error =
+    | BadRequestException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ResourceInUseException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteVirtualRouter {
+  export type Input = DeleteVirtualRouterInput;
+  export type Output = DeleteVirtualRouterOutput;
+  export type Error =
+    | BadRequestException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ResourceInUseException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteVirtualService {
+  export type Input = DeleteVirtualServiceInput;
+  export type Output = DeleteVirtualServiceOutput;
+  export type Error =
+    | BadRequestException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ResourceInUseException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace DescribeGatewayRoute {
+  export type Input = DescribeGatewayRouteInput;
+  export type Output = DescribeGatewayRouteOutput;
+  export type Error =
+    | BadRequestException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace DescribeMesh {
+  export type Input = DescribeMeshInput;
+  export type Output = DescribeMeshOutput;
+  export type Error =
+    | BadRequestException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace DescribeRoute {
+  export type Input = DescribeRouteInput;
+  export type Output = DescribeRouteOutput;
+  export type Error =
+    | BadRequestException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace DescribeVirtualGateway {
+  export type Input = DescribeVirtualGatewayInput;
+  export type Output = DescribeVirtualGatewayOutput;
+  export type Error =
+    | BadRequestException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace DescribeVirtualNode {
+  export type Input = DescribeVirtualNodeInput;
+  export type Output = DescribeVirtualNodeOutput;
+  export type Error =
+    | BadRequestException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace DescribeVirtualRouter {
+  export type Input = DescribeVirtualRouterInput;
+  export type Output = DescribeVirtualRouterOutput;
+  export type Error =
+    | BadRequestException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace DescribeVirtualService {
+  export type Input = DescribeVirtualServiceInput;
+  export type Output = DescribeVirtualServiceOutput;
+  export type Error =
+    | BadRequestException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace ListGatewayRoutes {
+  export type Input = ListGatewayRoutesInput;
+  export type Output = ListGatewayRoutesOutput;
+  export type Error =
+    | BadRequestException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace ListMeshes {
+  export type Input = ListMeshesInput;
+  export type Output = ListMeshesOutput;
+  export type Error =
+    | BadRequestException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace ListRoutes {
+  export type Input = ListRoutesInput;
+  export type Output = ListRoutesOutput;
+  export type Error =
+    | BadRequestException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace ListVirtualGateways {
+  export type Input = ListVirtualGatewaysInput;
+  export type Output = ListVirtualGatewaysOutput;
+  export type Error =
+    | BadRequestException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace ListVirtualNodes {
+  export type Input = ListVirtualNodesInput;
+  export type Output = ListVirtualNodesOutput;
+  export type Error =
+    | BadRequestException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace ListVirtualRouters {
+  export type Input = ListVirtualRoutersInput;
+  export type Output = ListVirtualRoutersOutput;
+  export type Error =
+    | BadRequestException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace ListVirtualServices {
+  export type Input = ListVirtualServicesInput;
+  export type Output = ListVirtualServicesOutput;
+  export type Error =
+    | BadRequestException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateGatewayRoute {
+  export type Input = UpdateGatewayRouteInput;
+  export type Output = UpdateGatewayRouteOutput;
+  export type Error =
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | InternalServerErrorException
+    | LimitExceededException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateMesh {
+  export type Input = UpdateMeshInput;
+  export type Output = UpdateMeshOutput;
+  export type Error =
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateRoute {
+  export type Input = UpdateRouteInput;
+  export type Output = UpdateRouteOutput;
+  export type Error =
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | InternalServerErrorException
+    | LimitExceededException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateVirtualGateway {
+  export type Input = UpdateVirtualGatewayInput;
+  export type Output = UpdateVirtualGatewayOutput;
+  export type Error =
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | InternalServerErrorException
+    | LimitExceededException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateVirtualNode {
+  export type Input = UpdateVirtualNodeInput;
+  export type Output = UpdateVirtualNodeOutput;
+  export type Error =
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | InternalServerErrorException
+    | LimitExceededException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateVirtualRouter {
+  export type Input = UpdateVirtualRouterInput;
+  export type Output = UpdateVirtualRouterOutput;
+  export type Error =
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | InternalServerErrorException
+    | LimitExceededException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateVirtualService {
+  export type Input = UpdateVirtualServiceInput;
+  export type Output = UpdateVirtualServiceOutput;
+  export type Error =
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | InternalServerErrorException
+    | LimitExceededException
     | NotFoundException
     | ServiceUnavailableException
     | TooManyRequestsException

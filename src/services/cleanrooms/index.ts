@@ -21,6 +21,928 @@ export declare class CleanRooms extends AWSServiceClient {
     UntagResourceOutput,
     ResourceNotFoundException | ValidationException | CommonAwsError
   >;
+  batchGetCollaborationAnalysisTemplate(
+    input: BatchGetCollaborationAnalysisTemplateInput,
+  ): Effect.Effect<
+    BatchGetCollaborationAnalysisTemplateOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  batchGetSchema(
+    input: BatchGetSchemaInput,
+  ): Effect.Effect<
+    BatchGetSchemaOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  batchGetSchemaAnalysisRule(
+    input: BatchGetSchemaAnalysisRuleInput,
+  ): Effect.Effect<
+    BatchGetSchemaAnalysisRuleOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createAnalysisTemplate(
+    input: CreateAnalysisTemplateInput,
+  ): Effect.Effect<
+    CreateAnalysisTemplateOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createCollaboration(
+    input: CreateCollaborationInput,
+  ): Effect.Effect<
+    CreateCollaborationOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createConfiguredAudienceModelAssociation(
+    input: CreateConfiguredAudienceModelAssociationInput,
+  ): Effect.Effect<
+    CreateConfiguredAudienceModelAssociationOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createConfiguredTable(
+    input: CreateConfiguredTableInput,
+  ): Effect.Effect<
+    CreateConfiguredTableOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createConfiguredTableAnalysisRule(
+    input: CreateConfiguredTableAnalysisRuleInput,
+  ): Effect.Effect<
+    CreateConfiguredTableAnalysisRuleOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createConfiguredTableAssociation(
+    input: CreateConfiguredTableAssociationInput,
+  ): Effect.Effect<
+    CreateConfiguredTableAssociationOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createConfiguredTableAssociationAnalysisRule(
+    input: CreateConfiguredTableAssociationAnalysisRuleInput,
+  ): Effect.Effect<
+    CreateConfiguredTableAssociationAnalysisRuleOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createIdMappingTable(
+    input: CreateIdMappingTableInput,
+  ): Effect.Effect<
+    CreateIdMappingTableOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createIdNamespaceAssociation(
+    input: CreateIdNamespaceAssociationInput,
+  ): Effect.Effect<
+    CreateIdNamespaceAssociationOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createMembership(
+    input: CreateMembershipInput,
+  ): Effect.Effect<
+    CreateMembershipOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createPrivacyBudgetTemplate(
+    input: CreatePrivacyBudgetTemplateInput,
+  ): Effect.Effect<
+    CreatePrivacyBudgetTemplateOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteAnalysisTemplate(
+    input: DeleteAnalysisTemplateInput,
+  ): Effect.Effect<
+    DeleteAnalysisTemplateOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteCollaboration(
+    input: DeleteCollaborationInput,
+  ): Effect.Effect<
+    DeleteCollaborationOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteConfiguredAudienceModelAssociation(
+    input: DeleteConfiguredAudienceModelAssociationInput,
+  ): Effect.Effect<
+    DeleteConfiguredAudienceModelAssociationOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteConfiguredTable(
+    input: DeleteConfiguredTableInput,
+  ): Effect.Effect<
+    DeleteConfiguredTableOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteConfiguredTableAnalysisRule(
+    input: DeleteConfiguredTableAnalysisRuleInput,
+  ): Effect.Effect<
+    DeleteConfiguredTableAnalysisRuleOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteConfiguredTableAssociation(
+    input: DeleteConfiguredTableAssociationInput,
+  ): Effect.Effect<
+    DeleteConfiguredTableAssociationOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteConfiguredTableAssociationAnalysisRule(
+    input: DeleteConfiguredTableAssociationAnalysisRuleInput,
+  ): Effect.Effect<
+    DeleteConfiguredTableAssociationAnalysisRuleOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteIdMappingTable(
+    input: DeleteIdMappingTableInput,
+  ): Effect.Effect<
+    DeleteIdMappingTableOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteIdNamespaceAssociation(
+    input: DeleteIdNamespaceAssociationInput,
+  ): Effect.Effect<
+    DeleteIdNamespaceAssociationOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteMember(
+    input: DeleteMemberInput,
+  ): Effect.Effect<
+    DeleteMemberOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteMembership(
+    input: DeleteMembershipInput,
+  ): Effect.Effect<
+    DeleteMembershipOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deletePrivacyBudgetTemplate(
+    input: DeletePrivacyBudgetTemplateInput,
+  ): Effect.Effect<
+    DeletePrivacyBudgetTemplateOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getAnalysisTemplate(
+    input: GetAnalysisTemplateInput,
+  ): Effect.Effect<
+    GetAnalysisTemplateOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getCollaboration(
+    input: GetCollaborationInput,
+  ): Effect.Effect<
+    GetCollaborationOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getCollaborationAnalysisTemplate(
+    input: GetCollaborationAnalysisTemplateInput,
+  ): Effect.Effect<
+    GetCollaborationAnalysisTemplateOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getCollaborationConfiguredAudienceModelAssociation(
+    input: GetCollaborationConfiguredAudienceModelAssociationInput,
+  ): Effect.Effect<
+    GetCollaborationConfiguredAudienceModelAssociationOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getCollaborationIdNamespaceAssociation(
+    input: GetCollaborationIdNamespaceAssociationInput,
+  ): Effect.Effect<
+    GetCollaborationIdNamespaceAssociationOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getCollaborationPrivacyBudgetTemplate(
+    input: GetCollaborationPrivacyBudgetTemplateInput,
+  ): Effect.Effect<
+    GetCollaborationPrivacyBudgetTemplateOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getConfiguredAudienceModelAssociation(
+    input: GetConfiguredAudienceModelAssociationInput,
+  ): Effect.Effect<
+    GetConfiguredAudienceModelAssociationOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getConfiguredTable(
+    input: GetConfiguredTableInput,
+  ): Effect.Effect<
+    GetConfiguredTableOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getConfiguredTableAnalysisRule(
+    input: GetConfiguredTableAnalysisRuleInput,
+  ): Effect.Effect<
+    GetConfiguredTableAnalysisRuleOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getConfiguredTableAssociation(
+    input: GetConfiguredTableAssociationInput,
+  ): Effect.Effect<
+    GetConfiguredTableAssociationOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getConfiguredTableAssociationAnalysisRule(
+    input: GetConfiguredTableAssociationAnalysisRuleInput,
+  ): Effect.Effect<
+    GetConfiguredTableAssociationAnalysisRuleOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getIdMappingTable(
+    input: GetIdMappingTableInput,
+  ): Effect.Effect<
+    GetIdMappingTableOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getIdNamespaceAssociation(
+    input: GetIdNamespaceAssociationInput,
+  ): Effect.Effect<
+    GetIdNamespaceAssociationOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getMembership(
+    input: GetMembershipInput,
+  ): Effect.Effect<
+    GetMembershipOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getPrivacyBudgetTemplate(
+    input: GetPrivacyBudgetTemplateInput,
+  ): Effect.Effect<
+    GetPrivacyBudgetTemplateOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getProtectedJob(
+    input: GetProtectedJobInput,
+  ): Effect.Effect<
+    GetProtectedJobOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getProtectedQuery(
+    input: GetProtectedQueryInput,
+  ): Effect.Effect<
+    GetProtectedQueryOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getSchema(
+    input: GetSchemaInput,
+  ): Effect.Effect<
+    GetSchemaOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getSchemaAnalysisRule(
+    input: GetSchemaAnalysisRuleInput,
+  ): Effect.Effect<
+    GetSchemaAnalysisRuleOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listAnalysisTemplates(
+    input: ListAnalysisTemplatesInput,
+  ): Effect.Effect<
+    ListAnalysisTemplatesOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listCollaborationAnalysisTemplates(
+    input: ListCollaborationAnalysisTemplatesInput,
+  ): Effect.Effect<
+    ListCollaborationAnalysisTemplatesOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listCollaborationConfiguredAudienceModelAssociations(
+    input: ListCollaborationConfiguredAudienceModelAssociationsInput,
+  ): Effect.Effect<
+    ListCollaborationConfiguredAudienceModelAssociationsOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listCollaborationIdNamespaceAssociations(
+    input: ListCollaborationIdNamespaceAssociationsInput,
+  ): Effect.Effect<
+    ListCollaborationIdNamespaceAssociationsOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listCollaborationPrivacyBudgetTemplates(
+    input: ListCollaborationPrivacyBudgetTemplatesInput,
+  ): Effect.Effect<
+    ListCollaborationPrivacyBudgetTemplatesOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listCollaborationPrivacyBudgets(
+    input: ListCollaborationPrivacyBudgetsInput,
+  ): Effect.Effect<
+    ListCollaborationPrivacyBudgetsOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listCollaborations(
+    input: ListCollaborationsInput,
+  ): Effect.Effect<
+    ListCollaborationsOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listConfiguredAudienceModelAssociations(
+    input: ListConfiguredAudienceModelAssociationsInput,
+  ): Effect.Effect<
+    ListConfiguredAudienceModelAssociationsOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listConfiguredTableAssociations(
+    input: ListConfiguredTableAssociationsInput,
+  ): Effect.Effect<
+    ListConfiguredTableAssociationsOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listConfiguredTables(
+    input: ListConfiguredTablesInput,
+  ): Effect.Effect<
+    ListConfiguredTablesOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listIdMappingTables(
+    input: ListIdMappingTablesInput,
+  ): Effect.Effect<
+    ListIdMappingTablesOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listIdNamespaceAssociations(
+    input: ListIdNamespaceAssociationsInput,
+  ): Effect.Effect<
+    ListIdNamespaceAssociationsOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listMembers(
+    input: ListMembersInput,
+  ): Effect.Effect<
+    ListMembersOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listMemberships(
+    input: ListMembershipsInput,
+  ): Effect.Effect<
+    ListMembershipsOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listPrivacyBudgetTemplates(
+    input: ListPrivacyBudgetTemplatesInput,
+  ): Effect.Effect<
+    ListPrivacyBudgetTemplatesOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listPrivacyBudgets(
+    input: ListPrivacyBudgetsInput,
+  ): Effect.Effect<
+    ListPrivacyBudgetsOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listProtectedJobs(
+    input: ListProtectedJobsInput,
+  ): Effect.Effect<
+    ListProtectedJobsOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listProtectedQueries(
+    input: ListProtectedQueriesInput,
+  ): Effect.Effect<
+    ListProtectedQueriesOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listSchemas(
+    input: ListSchemasInput,
+  ): Effect.Effect<
+    ListSchemasOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  populateIdMappingTable(
+    input: PopulateIdMappingTableInput,
+  ): Effect.Effect<
+    PopulateIdMappingTableOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  previewPrivacyImpact(
+    input: PreviewPrivacyImpactInput,
+  ): Effect.Effect<
+    PreviewPrivacyImpactOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  startProtectedJob(
+    input: StartProtectedJobInput,
+  ): Effect.Effect<
+    StartProtectedJobOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  startProtectedQuery(
+    input: StartProtectedQueryInput,
+  ): Effect.Effect<
+    StartProtectedQueryOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateAnalysisTemplate(
+    input: UpdateAnalysisTemplateInput,
+  ): Effect.Effect<
+    UpdateAnalysisTemplateOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateCollaboration(
+    input: UpdateCollaborationInput,
+  ): Effect.Effect<
+    UpdateCollaborationOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateConfiguredAudienceModelAssociation(
+    input: UpdateConfiguredAudienceModelAssociationInput,
+  ): Effect.Effect<
+    UpdateConfiguredAudienceModelAssociationOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateConfiguredTable(
+    input: UpdateConfiguredTableInput,
+  ): Effect.Effect<
+    UpdateConfiguredTableOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateConfiguredTableAnalysisRule(
+    input: UpdateConfiguredTableAnalysisRuleInput,
+  ): Effect.Effect<
+    UpdateConfiguredTableAnalysisRuleOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateConfiguredTableAssociation(
+    input: UpdateConfiguredTableAssociationInput,
+  ): Effect.Effect<
+    UpdateConfiguredTableAssociationOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateConfiguredTableAssociationAnalysisRule(
+    input: UpdateConfiguredTableAssociationAnalysisRuleInput,
+  ): Effect.Effect<
+    UpdateConfiguredTableAssociationAnalysisRuleOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateIdMappingTable(
+    input: UpdateIdMappingTableInput,
+  ): Effect.Effect<
+    UpdateIdMappingTableOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateIdNamespaceAssociation(
+    input: UpdateIdNamespaceAssociationInput,
+  ): Effect.Effect<
+    UpdateIdNamespaceAssociationOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateMembership(
+    input: UpdateMembershipInput,
+  ): Effect.Effect<
+    UpdateMembershipOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updatePrivacyBudgetTemplate(
+    input: UpdatePrivacyBudgetTemplateInput,
+  ): Effect.Effect<
+    UpdatePrivacyBudgetTemplateOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateProtectedJob(
+    input: UpdateProtectedJobInput,
+  ): Effect.Effect<
+    UpdateProtectedJobOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateProtectedQuery(
+    input: UpdateProtectedQueryInput,
+  ): Effect.Effect<
+    UpdateProtectedQueryOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
 }
 
 export declare class Cleanrooms extends CleanRooms {}
@@ -2312,6 +3234,1010 @@ export declare namespace UntagResource {
   export type Output = UntagResourceOutput;
   export type Error =
     | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace BatchGetCollaborationAnalysisTemplate {
+  export type Input = BatchGetCollaborationAnalysisTemplateInput;
+  export type Output = BatchGetCollaborationAnalysisTemplateOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace BatchGetSchema {
+  export type Input = BatchGetSchemaInput;
+  export type Output = BatchGetSchemaOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace BatchGetSchemaAnalysisRule {
+  export type Input = BatchGetSchemaAnalysisRuleInput;
+  export type Output = BatchGetSchemaAnalysisRuleOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateAnalysisTemplate {
+  export type Input = CreateAnalysisTemplateInput;
+  export type Output = CreateAnalysisTemplateOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateCollaboration {
+  export type Input = CreateCollaborationInput;
+  export type Output = CreateCollaborationOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateConfiguredAudienceModelAssociation {
+  export type Input = CreateConfiguredAudienceModelAssociationInput;
+  export type Output = CreateConfiguredAudienceModelAssociationOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateConfiguredTable {
+  export type Input = CreateConfiguredTableInput;
+  export type Output = CreateConfiguredTableOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateConfiguredTableAnalysisRule {
+  export type Input = CreateConfiguredTableAnalysisRuleInput;
+  export type Output = CreateConfiguredTableAnalysisRuleOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateConfiguredTableAssociation {
+  export type Input = CreateConfiguredTableAssociationInput;
+  export type Output = CreateConfiguredTableAssociationOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateConfiguredTableAssociationAnalysisRule {
+  export type Input = CreateConfiguredTableAssociationAnalysisRuleInput;
+  export type Output = CreateConfiguredTableAssociationAnalysisRuleOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateIdMappingTable {
+  export type Input = CreateIdMappingTableInput;
+  export type Output = CreateIdMappingTableOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateIdNamespaceAssociation {
+  export type Input = CreateIdNamespaceAssociationInput;
+  export type Output = CreateIdNamespaceAssociationOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateMembership {
+  export type Input = CreateMembershipInput;
+  export type Output = CreateMembershipOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreatePrivacyBudgetTemplate {
+  export type Input = CreatePrivacyBudgetTemplateInput;
+  export type Output = CreatePrivacyBudgetTemplateOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteAnalysisTemplate {
+  export type Input = DeleteAnalysisTemplateInput;
+  export type Output = DeleteAnalysisTemplateOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteCollaboration {
+  export type Input = DeleteCollaborationInput;
+  export type Output = DeleteCollaborationOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteConfiguredAudienceModelAssociation {
+  export type Input = DeleteConfiguredAudienceModelAssociationInput;
+  export type Output = DeleteConfiguredAudienceModelAssociationOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteConfiguredTable {
+  export type Input = DeleteConfiguredTableInput;
+  export type Output = DeleteConfiguredTableOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteConfiguredTableAnalysisRule {
+  export type Input = DeleteConfiguredTableAnalysisRuleInput;
+  export type Output = DeleteConfiguredTableAnalysisRuleOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteConfiguredTableAssociation {
+  export type Input = DeleteConfiguredTableAssociationInput;
+  export type Output = DeleteConfiguredTableAssociationOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteConfiguredTableAssociationAnalysisRule {
+  export type Input = DeleteConfiguredTableAssociationAnalysisRuleInput;
+  export type Output = DeleteConfiguredTableAssociationAnalysisRuleOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteIdMappingTable {
+  export type Input = DeleteIdMappingTableInput;
+  export type Output = DeleteIdMappingTableOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteIdNamespaceAssociation {
+  export type Input = DeleteIdNamespaceAssociationInput;
+  export type Output = DeleteIdNamespaceAssociationOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteMember {
+  export type Input = DeleteMemberInput;
+  export type Output = DeleteMemberOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteMembership {
+  export type Input = DeleteMembershipInput;
+  export type Output = DeleteMembershipOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeletePrivacyBudgetTemplate {
+  export type Input = DeletePrivacyBudgetTemplateInput;
+  export type Output = DeletePrivacyBudgetTemplateOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetAnalysisTemplate {
+  export type Input = GetAnalysisTemplateInput;
+  export type Output = GetAnalysisTemplateOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetCollaboration {
+  export type Input = GetCollaborationInput;
+  export type Output = GetCollaborationOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetCollaborationAnalysisTemplate {
+  export type Input = GetCollaborationAnalysisTemplateInput;
+  export type Output = GetCollaborationAnalysisTemplateOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetCollaborationConfiguredAudienceModelAssociation {
+  export type Input = GetCollaborationConfiguredAudienceModelAssociationInput;
+  export type Output = GetCollaborationConfiguredAudienceModelAssociationOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetCollaborationIdNamespaceAssociation {
+  export type Input = GetCollaborationIdNamespaceAssociationInput;
+  export type Output = GetCollaborationIdNamespaceAssociationOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetCollaborationPrivacyBudgetTemplate {
+  export type Input = GetCollaborationPrivacyBudgetTemplateInput;
+  export type Output = GetCollaborationPrivacyBudgetTemplateOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetConfiguredAudienceModelAssociation {
+  export type Input = GetConfiguredAudienceModelAssociationInput;
+  export type Output = GetConfiguredAudienceModelAssociationOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetConfiguredTable {
+  export type Input = GetConfiguredTableInput;
+  export type Output = GetConfiguredTableOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetConfiguredTableAnalysisRule {
+  export type Input = GetConfiguredTableAnalysisRuleInput;
+  export type Output = GetConfiguredTableAnalysisRuleOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetConfiguredTableAssociation {
+  export type Input = GetConfiguredTableAssociationInput;
+  export type Output = GetConfiguredTableAssociationOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetConfiguredTableAssociationAnalysisRule {
+  export type Input = GetConfiguredTableAssociationAnalysisRuleInput;
+  export type Output = GetConfiguredTableAssociationAnalysisRuleOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetIdMappingTable {
+  export type Input = GetIdMappingTableInput;
+  export type Output = GetIdMappingTableOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetIdNamespaceAssociation {
+  export type Input = GetIdNamespaceAssociationInput;
+  export type Output = GetIdNamespaceAssociationOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetMembership {
+  export type Input = GetMembershipInput;
+  export type Output = GetMembershipOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetPrivacyBudgetTemplate {
+  export type Input = GetPrivacyBudgetTemplateInput;
+  export type Output = GetPrivacyBudgetTemplateOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetProtectedJob {
+  export type Input = GetProtectedJobInput;
+  export type Output = GetProtectedJobOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetProtectedQuery {
+  export type Input = GetProtectedQueryInput;
+  export type Output = GetProtectedQueryOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetSchema {
+  export type Input = GetSchemaInput;
+  export type Output = GetSchemaOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetSchemaAnalysisRule {
+  export type Input = GetSchemaAnalysisRuleInput;
+  export type Output = GetSchemaAnalysisRuleOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListAnalysisTemplates {
+  export type Input = ListAnalysisTemplatesInput;
+  export type Output = ListAnalysisTemplatesOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListCollaborationAnalysisTemplates {
+  export type Input = ListCollaborationAnalysisTemplatesInput;
+  export type Output = ListCollaborationAnalysisTemplatesOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListCollaborationConfiguredAudienceModelAssociations {
+  export type Input = ListCollaborationConfiguredAudienceModelAssociationsInput;
+  export type Output =
+    ListCollaborationConfiguredAudienceModelAssociationsOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListCollaborationIdNamespaceAssociations {
+  export type Input = ListCollaborationIdNamespaceAssociationsInput;
+  export type Output = ListCollaborationIdNamespaceAssociationsOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListCollaborationPrivacyBudgetTemplates {
+  export type Input = ListCollaborationPrivacyBudgetTemplatesInput;
+  export type Output = ListCollaborationPrivacyBudgetTemplatesOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListCollaborationPrivacyBudgets {
+  export type Input = ListCollaborationPrivacyBudgetsInput;
+  export type Output = ListCollaborationPrivacyBudgetsOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListCollaborations {
+  export type Input = ListCollaborationsInput;
+  export type Output = ListCollaborationsOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListConfiguredAudienceModelAssociations {
+  export type Input = ListConfiguredAudienceModelAssociationsInput;
+  export type Output = ListConfiguredAudienceModelAssociationsOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListConfiguredTableAssociations {
+  export type Input = ListConfiguredTableAssociationsInput;
+  export type Output = ListConfiguredTableAssociationsOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListConfiguredTables {
+  export type Input = ListConfiguredTablesInput;
+  export type Output = ListConfiguredTablesOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListIdMappingTables {
+  export type Input = ListIdMappingTablesInput;
+  export type Output = ListIdMappingTablesOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListIdNamespaceAssociations {
+  export type Input = ListIdNamespaceAssociationsInput;
+  export type Output = ListIdNamespaceAssociationsOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListMembers {
+  export type Input = ListMembersInput;
+  export type Output = ListMembersOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListMemberships {
+  export type Input = ListMembershipsInput;
+  export type Output = ListMembershipsOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListPrivacyBudgetTemplates {
+  export type Input = ListPrivacyBudgetTemplatesInput;
+  export type Output = ListPrivacyBudgetTemplatesOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListPrivacyBudgets {
+  export type Input = ListPrivacyBudgetsInput;
+  export type Output = ListPrivacyBudgetsOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListProtectedJobs {
+  export type Input = ListProtectedJobsInput;
+  export type Output = ListProtectedJobsOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListProtectedQueries {
+  export type Input = ListProtectedQueriesInput;
+  export type Output = ListProtectedQueriesOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListSchemas {
+  export type Input = ListSchemasInput;
+  export type Output = ListSchemasOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace PopulateIdMappingTable {
+  export type Input = PopulateIdMappingTableInput;
+  export type Output = PopulateIdMappingTableOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace PreviewPrivacyImpact {
+  export type Input = PreviewPrivacyImpactInput;
+  export type Output = PreviewPrivacyImpactOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace StartProtectedJob {
+  export type Input = StartProtectedJobInput;
+  export type Output = StartProtectedJobOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace StartProtectedQuery {
+  export type Input = StartProtectedQueryInput;
+  export type Output = StartProtectedQueryOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateAnalysisTemplate {
+  export type Input = UpdateAnalysisTemplateInput;
+  export type Output = UpdateAnalysisTemplateOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateCollaboration {
+  export type Input = UpdateCollaborationInput;
+  export type Output = UpdateCollaborationOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateConfiguredAudienceModelAssociation {
+  export type Input = UpdateConfiguredAudienceModelAssociationInput;
+  export type Output = UpdateConfiguredAudienceModelAssociationOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateConfiguredTable {
+  export type Input = UpdateConfiguredTableInput;
+  export type Output = UpdateConfiguredTableOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateConfiguredTableAnalysisRule {
+  export type Input = UpdateConfiguredTableAnalysisRuleInput;
+  export type Output = UpdateConfiguredTableAnalysisRuleOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateConfiguredTableAssociation {
+  export type Input = UpdateConfiguredTableAssociationInput;
+  export type Output = UpdateConfiguredTableAssociationOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateConfiguredTableAssociationAnalysisRule {
+  export type Input = UpdateConfiguredTableAssociationAnalysisRuleInput;
+  export type Output = UpdateConfiguredTableAssociationAnalysisRuleOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateIdMappingTable {
+  export type Input = UpdateIdMappingTableInput;
+  export type Output = UpdateIdMappingTableOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateIdNamespaceAssociation {
+  export type Input = UpdateIdNamespaceAssociationInput;
+  export type Output = UpdateIdNamespaceAssociationOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateMembership {
+  export type Input = UpdateMembershipInput;
+  export type Output = UpdateMembershipOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdatePrivacyBudgetTemplate {
+  export type Input = UpdatePrivacyBudgetTemplateInput;
+  export type Output = UpdatePrivacyBudgetTemplateOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateProtectedJob {
+  export type Input = UpdateProtectedJobInput;
+  export type Output = UpdateProtectedJobOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateProtectedQuery {
+  export type Input = UpdateProtectedQueryInput;
+  export type Output = UpdateProtectedQueryOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
     | ValidationException
     | CommonAwsError;
 }

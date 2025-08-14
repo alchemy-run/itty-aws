@@ -285,6 +285,64 @@ export declare class VoiceID extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
+  createDomain(
+    input: CreateDomainRequest,
+  ): Effect.Effect<
+    CreateDomainResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteDomain(
+    input: DeleteDomainRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  describeDomain(
+    input: DescribeDomainRequest,
+  ): Effect.Effect<
+    DescribeDomainResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listDomains(
+    input: ListDomainsRequest,
+  ): Effect.Effect<
+    ListDomainsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateDomain(
+    input: UpdateDomainRequest,
+  ): Effect.Effect<
+    UpdateDomainResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
 }
 
 export declare class VoiceId extends VoiceID {}
@@ -1153,6 +1211,69 @@ export declare namespace UntagResource {
 export declare namespace UpdateWatchlist {
   export type Input = UpdateWatchlistRequest;
   export type Output = UpdateWatchlistResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateDomain {
+  export type Input = CreateDomainRequest;
+  export type Output = CreateDomainResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteDomain {
+  export type Input = DeleteDomainRequest;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DescribeDomain {
+  export type Input = DescribeDomainRequest;
+  export type Output = DescribeDomainResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListDomains {
+  export type Input = ListDomainsRequest;
+  export type Output = ListDomainsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateDomain {
+  export type Input = UpdateDomainRequest;
+  export type Output = UpdateDomainResponse;
   export type Error =
     | AccessDeniedException
     | ConflictException

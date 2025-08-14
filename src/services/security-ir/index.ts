@@ -30,6 +30,63 @@ export declare class SecurityIR extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
+  batchGetMemberAccountDetails(
+    input: BatchGetMemberAccountDetailsRequest,
+  ): Effect.Effect<BatchGetMemberAccountDetailsResponse, CommonAwsError>;
+  cancelMembership(
+    input: CancelMembershipRequest,
+  ): Effect.Effect<CancelMembershipResponse, CommonAwsError>;
+  closeCase(
+    input: CloseCaseRequest,
+  ): Effect.Effect<CloseCaseResponse, CommonAwsError>;
+  createCase(
+    input: CreateCaseRequest,
+  ): Effect.Effect<CreateCaseResponse, CommonAwsError>;
+  createCaseComment(
+    input: CreateCaseCommentRequest,
+  ): Effect.Effect<CreateCaseCommentResponse, CommonAwsError>;
+  createMembership(
+    input: CreateMembershipRequest,
+  ): Effect.Effect<CreateMembershipResponse, CommonAwsError>;
+  getCase(
+    input: GetCaseRequest,
+  ): Effect.Effect<GetCaseResponse, CommonAwsError>;
+  getCaseAttachmentDownloadUrl(
+    input: GetCaseAttachmentDownloadUrlRequest,
+  ): Effect.Effect<GetCaseAttachmentDownloadUrlResponse, CommonAwsError>;
+  getCaseAttachmentUploadUrl(
+    input: GetCaseAttachmentUploadUrlRequest,
+  ): Effect.Effect<GetCaseAttachmentUploadUrlResponse, CommonAwsError>;
+  getMembership(
+    input: GetMembershipRequest,
+  ): Effect.Effect<GetMembershipResponse, CommonAwsError>;
+  listCaseEdits(
+    input: ListCaseEditsRequest,
+  ): Effect.Effect<ListCaseEditsResponse, CommonAwsError>;
+  listCases(
+    input: ListCasesRequest,
+  ): Effect.Effect<ListCasesResponse, CommonAwsError>;
+  listComments(
+    input: ListCommentsRequest,
+  ): Effect.Effect<ListCommentsResponse, CommonAwsError>;
+  listMemberships(
+    input: ListMembershipsRequest,
+  ): Effect.Effect<ListMembershipsResponse, CommonAwsError>;
+  updateCase(
+    input: UpdateCaseRequest,
+  ): Effect.Effect<UpdateCaseResponse, CommonAwsError>;
+  updateCaseComment(
+    input: UpdateCaseCommentRequest,
+  ): Effect.Effect<UpdateCaseCommentResponse, CommonAwsError>;
+  updateCaseStatus(
+    input: UpdateCaseStatusRequest,
+  ): Effect.Effect<UpdateCaseStatusResponse, CommonAwsError>;
+  updateMembership(
+    input: UpdateMembershipRequest,
+  ): Effect.Effect<UpdateMembershipResponse, CommonAwsError>;
+  updateResolverType(
+    input: UpdateResolverTypeRequest,
+  ): Effect.Effect<UpdateResolverTypeResponse, CommonAwsError>;
 }
 
 export declare class SecurityIr extends SecurityIR {}
@@ -554,4 +611,118 @@ export declare namespace UntagResource {
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError;
+}
+
+export declare namespace BatchGetMemberAccountDetails {
+  export type Input = BatchGetMemberAccountDetailsRequest;
+  export type Output = BatchGetMemberAccountDetailsResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace CancelMembership {
+  export type Input = CancelMembershipRequest;
+  export type Output = CancelMembershipResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace CloseCase {
+  export type Input = CloseCaseRequest;
+  export type Output = CloseCaseResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace CreateCase {
+  export type Input = CreateCaseRequest;
+  export type Output = CreateCaseResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace CreateCaseComment {
+  export type Input = CreateCaseCommentRequest;
+  export type Output = CreateCaseCommentResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace CreateMembership {
+  export type Input = CreateMembershipRequest;
+  export type Output = CreateMembershipResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace GetCase {
+  export type Input = GetCaseRequest;
+  export type Output = GetCaseResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace GetCaseAttachmentDownloadUrl {
+  export type Input = GetCaseAttachmentDownloadUrlRequest;
+  export type Output = GetCaseAttachmentDownloadUrlResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace GetCaseAttachmentUploadUrl {
+  export type Input = GetCaseAttachmentUploadUrlRequest;
+  export type Output = GetCaseAttachmentUploadUrlResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace GetMembership {
+  export type Input = GetMembershipRequest;
+  export type Output = GetMembershipResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace ListCaseEdits {
+  export type Input = ListCaseEditsRequest;
+  export type Output = ListCaseEditsResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace ListCases {
+  export type Input = ListCasesRequest;
+  export type Output = ListCasesResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace ListComments {
+  export type Input = ListCommentsRequest;
+  export type Output = ListCommentsResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace ListMemberships {
+  export type Input = ListMembershipsRequest;
+  export type Output = ListMembershipsResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace UpdateCase {
+  export type Input = UpdateCaseRequest;
+  export type Output = UpdateCaseResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace UpdateCaseComment {
+  export type Input = UpdateCaseCommentRequest;
+  export type Output = UpdateCaseCommentResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace UpdateCaseStatus {
+  export type Input = UpdateCaseStatusRequest;
+  export type Output = UpdateCaseStatusResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace UpdateMembership {
+  export type Input = UpdateMembershipRequest;
+  export type Output = UpdateMembershipResponse;
+  export type Error = CommonAwsError;
+}
+
+export declare namespace UpdateResolverType {
+  export type Input = UpdateResolverTypeRequest;
+  export type Output = UpdateResolverTypeResponse;
+  export type Error = CommonAwsError;
 }

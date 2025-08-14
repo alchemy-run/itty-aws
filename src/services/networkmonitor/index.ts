@@ -39,6 +39,109 @@ export declare class NetworkMonitor extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
+  createMonitor(
+    input: CreateMonitorInput,
+  ): Effect.Effect<
+    CreateMonitorOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createProbe(
+    input: CreateProbeInput,
+  ): Effect.Effect<
+    CreateProbeOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteMonitor(
+    input: DeleteMonitorInput,
+  ): Effect.Effect<
+    DeleteMonitorOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteProbe(
+    input: DeleteProbeInput,
+  ): Effect.Effect<
+    DeleteProbeOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getMonitor(
+    input: GetMonitorInput,
+  ): Effect.Effect<
+    GetMonitorOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getProbe(
+    input: GetProbeInput,
+  ): Effect.Effect<
+    GetProbeOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listMonitors(
+    input: ListMonitorsInput,
+  ): Effect.Effect<
+    ListMonitorsOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateMonitor(
+    input: UpdateMonitorInput,
+  ): Effect.Effect<
+    UpdateMonitorOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateProbe(
+    input: UpdateProbeInput,
+  ): Effect.Effect<
+    UpdateProbeOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
 }
 
 export declare class Networkmonitor extends NetworkMonitor {}
@@ -334,6 +437,118 @@ export declare namespace UntagResource {
     | ConflictException
     | InternalServerException
     | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateMonitor {
+  export type Input = CreateMonitorInput;
+  export type Output = CreateMonitorOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateProbe {
+  export type Input = CreateProbeInput;
+  export type Output = CreateProbeOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteMonitor {
+  export type Input = DeleteMonitorInput;
+  export type Output = DeleteMonitorOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteProbe {
+  export type Input = DeleteProbeInput;
+  export type Output = DeleteProbeOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetMonitor {
+  export type Input = GetMonitorInput;
+  export type Output = GetMonitorOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetProbe {
+  export type Input = GetProbeInput;
+  export type Output = GetProbeOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListMonitors {
+  export type Input = ListMonitorsInput;
+  export type Output = ListMonitorsOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateMonitor {
+  export type Input = UpdateMonitorInput;
+  export type Output = UpdateMonitorOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateProbe {
+  export type Input = UpdateProbeInput;
+  export type Output = UpdateProbeOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
     | ThrottlingException
     | ValidationException
     | CommonAwsError;

@@ -30,6 +30,120 @@ export declare class EMRServerless extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
+  cancelJobRun(
+    input: CancelJobRunRequest,
+  ): Effect.Effect<
+    CancelJobRunResponse,
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createApplication(
+    input: CreateApplicationRequest,
+  ): Effect.Effect<
+    CreateApplicationResponse,
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteApplication(
+    input: DeleteApplicationRequest,
+  ): Effect.Effect<
+    DeleteApplicationResponse,
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getApplication(
+    input: GetApplicationRequest,
+  ): Effect.Effect<
+    GetApplicationResponse,
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getDashboardForJobRun(
+    input: GetDashboardForJobRunRequest,
+  ): Effect.Effect<
+    GetDashboardForJobRunResponse,
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getJobRun(
+    input: GetJobRunRequest,
+  ): Effect.Effect<
+    GetJobRunResponse,
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listApplications(
+    input: ListApplicationsRequest,
+  ): Effect.Effect<
+    ListApplicationsResponse,
+    InternalServerException | ValidationException | CommonAwsError
+  >;
+  listJobRunAttempts(
+    input: ListJobRunAttemptsRequest,
+  ): Effect.Effect<
+    ListJobRunAttemptsResponse,
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listJobRuns(
+    input: ListJobRunsRequest,
+  ): Effect.Effect<
+    ListJobRunsResponse,
+    InternalServerException | ValidationException | CommonAwsError
+  >;
+  startApplication(
+    input: StartApplicationRequest,
+  ): Effect.Effect<
+    StartApplicationResponse,
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ValidationException
+    | CommonAwsError
+  >;
+  startJobRun(
+    input: StartJobRunRequest,
+  ): Effect.Effect<
+    StartJobRunResponse,
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  stopApplication(
+    input: StopApplicationRequest,
+  ): Effect.Effect<
+    StopApplicationResponse,
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateApplication(
+    input: UpdateApplicationRequest,
+  ): Effect.Effect<
+    UpdateApplicationResponse,
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
 }
 
 export declare class EmrServerless extends EMRServerless {}
@@ -595,6 +709,137 @@ export declare namespace TagResource {
 export declare namespace UntagResource {
   export type Input = UntagResourceRequest;
   export type Output = UntagResourceResponse;
+  export type Error =
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CancelJobRun {
+  export type Input = CancelJobRunRequest;
+  export type Output = CancelJobRunResponse;
+  export type Error =
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateApplication {
+  export type Input = CreateApplicationRequest;
+  export type Output = CreateApplicationResponse;
+  export type Error =
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteApplication {
+  export type Input = DeleteApplicationRequest;
+  export type Output = DeleteApplicationResponse;
+  export type Error =
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetApplication {
+  export type Input = GetApplicationRequest;
+  export type Output = GetApplicationResponse;
+  export type Error =
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetDashboardForJobRun {
+  export type Input = GetDashboardForJobRunRequest;
+  export type Output = GetDashboardForJobRunResponse;
+  export type Error =
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetJobRun {
+  export type Input = GetJobRunRequest;
+  export type Output = GetJobRunResponse;
+  export type Error =
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListApplications {
+  export type Input = ListApplicationsRequest;
+  export type Output = ListApplicationsResponse;
+  export type Error =
+    | InternalServerException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListJobRunAttempts {
+  export type Input = ListJobRunAttemptsRequest;
+  export type Output = ListJobRunAttemptsResponse;
+  export type Error =
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListJobRuns {
+  export type Input = ListJobRunsRequest;
+  export type Output = ListJobRunsResponse;
+  export type Error =
+    | InternalServerException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace StartApplication {
+  export type Input = StartApplicationRequest;
+  export type Output = StartApplicationResponse;
+  export type Error =
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace StartJobRun {
+  export type Input = StartJobRunRequest;
+  export type Output = StartJobRunResponse;
+  export type Error =
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace StopApplication {
+  export type Input = StopApplicationRequest;
+  export type Output = StopApplicationResponse;
+  export type Error =
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateApplication {
+  export type Input = UpdateApplicationRequest;
+  export type Output = UpdateApplicationResponse;
   export type Error =
     | InternalServerException
     | ResourceNotFoundException

@@ -91,6 +91,153 @@ export declare class MPA extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
+  cancelSession(
+    input: CancelSessionRequest,
+  ): Effect.Effect<
+    CancelSessionResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createApprovalTeam(
+    input: CreateApprovalTeamRequest,
+  ): Effect.Effect<
+    CreateApprovalTeamResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createIdentitySource(
+    input: CreateIdentitySourceRequest,
+  ): Effect.Effect<
+    CreateIdentitySourceResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteIdentitySource(
+    input: DeleteIdentitySourceRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteInactiveApprovalTeamVersion(
+    input: DeleteInactiveApprovalTeamVersionRequest,
+  ): Effect.Effect<
+    DeleteInactiveApprovalTeamVersionResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getApprovalTeam(
+    input: GetApprovalTeamRequest,
+  ): Effect.Effect<
+    GetApprovalTeamResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getIdentitySource(
+    input: GetIdentitySourceRequest,
+  ): Effect.Effect<
+    GetIdentitySourceResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getSession(
+    input: GetSessionRequest,
+  ): Effect.Effect<
+    GetSessionResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listApprovalTeams(
+    input: ListApprovalTeamsRequest,
+  ): Effect.Effect<
+    ListApprovalTeamsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listIdentitySources(
+    input: ListIdentitySourcesRequest,
+  ): Effect.Effect<
+    ListIdentitySourcesResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listSessions(
+    input: ListSessionsRequest,
+  ): Effect.Effect<
+    ListSessionsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  startActiveApprovalTeamDeletion(
+    input: StartActiveApprovalTeamDeletionRequest,
+  ): Effect.Effect<
+    StartActiveApprovalTeamDeletionResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateApprovalTeam(
+    input: UpdateApprovalTeamRequest,
+  ): Effect.Effect<
+    UpdateApprovalTeamResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
 }
 
 export declare class Mpa extends MPA {}
@@ -715,6 +862,166 @@ export declare namespace UntagResource {
     | AccessDeniedException
     | InternalServerException
     | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CancelSession {
+  export type Input = CancelSessionRequest;
+  export type Output = CancelSessionResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateApprovalTeam {
+  export type Input = CreateApprovalTeamRequest;
+  export type Output = CreateApprovalTeamResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateIdentitySource {
+  export type Input = CreateIdentitySourceRequest;
+  export type Output = CreateIdentitySourceResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteIdentitySource {
+  export type Input = DeleteIdentitySourceRequest;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteInactiveApprovalTeamVersion {
+  export type Input = DeleteInactiveApprovalTeamVersionRequest;
+  export type Output = DeleteInactiveApprovalTeamVersionResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetApprovalTeam {
+  export type Input = GetApprovalTeamRequest;
+  export type Output = GetApprovalTeamResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetIdentitySource {
+  export type Input = GetIdentitySourceRequest;
+  export type Output = GetIdentitySourceResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetSession {
+  export type Input = GetSessionRequest;
+  export type Output = GetSessionResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListApprovalTeams {
+  export type Input = ListApprovalTeamsRequest;
+  export type Output = ListApprovalTeamsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListIdentitySources {
+  export type Input = ListIdentitySourcesRequest;
+  export type Output = ListIdentitySourcesResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListSessions {
+  export type Input = ListSessionsRequest;
+  export type Output = ListSessionsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace StartActiveApprovalTeamDeletion {
+  export type Input = StartActiveApprovalTeamDeletionRequest;
+  export type Output = StartActiveApprovalTeamDeletionResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateApprovalTeam {
+  export type Input = UpdateApprovalTeamRequest;
+  export type Output = UpdateApprovalTeamResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
     | ThrottlingException
     | ValidationException
     | CommonAwsError;

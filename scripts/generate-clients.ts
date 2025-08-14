@@ -678,32 +678,38 @@ const generateServiceCode = (serviceName: string, manifest: Manifest) =>
       // FIXME: add in the other services
     }
 
-    // Find operations using the new Smithy 2.0 format
-    let operations: Array<{ name: string; shape: any }> = [];
+    // Collect operations from both places and merge
+    const fromService = (
+      serviceShape.type === "service" && serviceShape.operations
+        ? serviceShape.operations
+            .map((opRef: { target: string }) => {
+              const op = manifest.shapes[opRef.target];
+              return op?.type === "operation"
+                ? { name: extractShapeName(opRef.target), shape: op }
+                : null;
+            })
+            .filter(Boolean)
+        : []
+    ) as Array<{ name: string; shape: any }>;
 
-    if (serviceShape.type === "service" && serviceShape.operations) {
-      // Smithy 2.0 format: operations are referenced in service.operations array
-      operations = serviceShape.operations
-        .map((opRef) => {
-          const operationShape = manifest.shapes[opRef.target];
-          if (operationShape && operationShape.type === "operation") {
-            return {
-              name: extractShapeName(opRef.target),
-              shape: operationShape,
-            };
-          }
-          return null;
-        })
-        .filter((op) => op !== null);
-    } else {
-      // Fallback: look for operations as separate shapes (old format)
-      operations = Object.entries(manifest.shapes)
-        .filter(([, shape]) => shape.type === "operation")
-        .map(([shapeId, shape]) => ({
-          name: extractShapeName(shapeId),
-          shape: shape as any,
-        }));
-    }
+    const fromShapes = Object.entries(manifest.shapes)
+      .filter(([, shape]: any) => shape.type === "operation")
+      .map(([shapeId, shape]) => ({
+        name: extractShapeName(shapeId),
+        shape: shape as any,
+      }));
+
+    // Merge with stable de-dupe by name
+    const seen = new Set<string>();
+    const operations: Array<{ name: string; shape: any }> = [
+      ...fromService,
+      ...fromShapes,
+    ].filter((op) => {
+      const key = op.name;
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    });
 
     // Build maps of input and output shapes from operations
     const inputShapes = new Set<string>();
@@ -1060,6 +1066,20 @@ const generateServiceCode = (serviceName: string, manifest: Manifest) =>
       code += "}\n\n";
     }
 
+    // Extract operation HTTP mappings for restJson1 services
+    let operationMappings: Record<string, string> = {};
+
+    if (protocol === "restJson1") {
+      for (const operation of operations) {
+        const httpTrait = operation.shape.traits?.["smithy.api#http"];
+        if (httpTrait) {
+          const { method, uri } = httpTrait;
+          // Store all operations - restJson1 requires explicit HTTP mappings
+          operationMappings[operation.name] = `${method} ${uri}`;
+        }
+      }
+    }
+
     // Store metadata for the service
     const metadata = {
       sdkId,
@@ -1072,6 +1092,10 @@ const generateServiceCode = (serviceName: string, manifest: Manifest) =>
       targetPrefix,
       globalEndpoint,
       signingRegion,
+      // Include operations mapping if any exist
+      ...(Object.keys(operationMappings).length > 0 && {
+        operations: operationMappings,
+      }),
     };
 
     return { code, metadata };
@@ -1103,6 +1127,13 @@ export const serviceMetadata = {\n`;
       }
       if (meta.signingRegion) {
         code += `    signingRegion: "${meta.signingRegion}",\n`;
+      }
+      if (meta.operations) {
+        code += "    operations: {\n";
+        Object.entries(meta.operations).forEach(([opName, opSpec]) => {
+          code += `      "${opName}": "${opSpec}",\n`;
+        });
+        code += "    },\n";
       }
       code += "  },\n";
     });
