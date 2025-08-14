@@ -6,13 +6,27 @@ describe("ECR Smoke Tests", () => {
   const testRepositoryName = "itty-aws-test-repo";
   const client = new AWS.ECR({ region: "us-east-1" });
 
-  it.effect(
+  const deleteRepositoryIfExists = (repositoryName: string) =>
+    client.deleteRepository({
+      repositoryName,
+      force: true,
+    }).pipe(
+      Effect.tap(() => Console.log(`Cleaned up existing repository: ${repositoryName}`)),
+      Effect.catchTag("RepositoryNotFoundException", () => Effect.void),
+      Effect.catchAll(() => Effect.void)
+    );
+
+  it.live(
     "should perform complete ECR lifecycle: create repository, describe repositories, set policy, and cleanup",
     () =>
       Effect.gen(function* () {
         yield* Console.log(
           `Starting ECR smoke test with repository: ${testRepositoryName}`,
         );
+
+        // Step 0: Clean up any existing repository
+        yield* Console.log("Step 0: Cleaning up any existing repository...");
+        yield* deleteRepositoryIfExists(testRepositoryName);
 
         // Step 1: Create a new repository
         yield* Console.log("Step 1: Creating ECR repository...");
@@ -211,7 +225,7 @@ describe("ECR Smoke Tests", () => {
 
         yield* Console.log("ECR smoke test completed successfully!");
       }),
-    { timeout: 60000 }, // 60 seconds timeout for ECR operations
+    { timeout: 120000 }, // 2 minutes timeout for ECR operations
   );
 
   it.effect(
@@ -227,10 +241,10 @@ describe("ECR Smoke Tests", () => {
 
         expect(paginatedResult.repositories).toBeDefined();
         expect(Array.isArray(paginatedResult.repositories)).toBe(true);
-        expect(paginatedResult.repositories.length).toBeLessThanOrEqual(5);
+        expect(paginatedResult.repositories?.length).toBeLessThanOrEqual(5);
 
         yield* Console.log(
-          `Paginated result returned ${paginatedResult.repositories.length} repositories (max 5)`,
+          `Paginated result returned ${paginatedResult.repositories?.length} repositories (max 5)`,
         );
       }),
     { timeout: 10000 },
