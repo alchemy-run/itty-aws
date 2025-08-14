@@ -7,14 +7,18 @@ describe("ECR Smoke Tests", () => {
   const client = new AWS.ECR({ region: "us-east-1" });
 
   const deleteRepositoryIfExists = (repositoryName: string) =>
-    client.deleteRepository({
-      repositoryName,
-      force: true,
-    }).pipe(
-      Effect.tap(() => Console.log(`Cleaned up existing repository: ${repositoryName}`)),
-      Effect.catchTag("RepositoryNotFoundException", () => Effect.void),
-      Effect.catchAll(() => Effect.void)
-    );
+    client
+      .deleteRepository({
+        repositoryName,
+        force: true,
+      })
+      .pipe(
+        Effect.tap(() =>
+          Console.log(`Cleaned up existing repository: ${repositoryName}`),
+        ),
+        Effect.catchTag("RepositoryNotFoundException", () => Effect.void),
+        Effect.catchAll(() => Effect.void),
+      );
 
   it.live(
     "should perform complete ECR lifecycle: create repository, describe repositories, set policy, and cleanup",

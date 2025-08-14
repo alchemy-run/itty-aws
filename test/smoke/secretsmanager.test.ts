@@ -9,14 +9,18 @@ describe("SecretsManager Smoke Tests", () => {
   const client = new AWS.SecretsManager({ region: "us-east-1" });
 
   const deleteSecretIfExists = (secretName: string) =>
-    client.deleteSecret({
-      SecretId: secretName,
-      ForceDeleteWithoutRecovery: true,
-    }).pipe(
-      Effect.tap(() => Console.log(`Cleaned up existing secret: ${secretName}`)),
-      Effect.catchTag("ResourceNotFoundException", () => Effect.void),
-      Effect.catchAll(() => Effect.void)
-    );
+    client
+      .deleteSecret({
+        SecretId: secretName,
+        ForceDeleteWithoutRecovery: true,
+      })
+      .pipe(
+        Effect.tap(() =>
+          Console.log(`Cleaned up existing secret: ${secretName}`),
+        ),
+        Effect.catchTag("ResourceNotFoundException", () => Effect.void),
+        Effect.catchAll(() => Effect.void),
+      );
 
   it.live(
     "should perform complete SecretsManager lifecycle: create secret, get secret, update secret, and cleanup",
@@ -211,7 +215,7 @@ describe("SecretsManager Smoke Tests", () => {
 
         // Clean up any existing binary secret
         yield* deleteSecretIfExists(binarySecretName);
-        
+
         const binaryData = Buffer.from("binary-test-data").toString("base64");
 
         const binaryCreateResult = yield* client.createSecret({
@@ -340,7 +344,9 @@ describe("SecretsManager Smoke Tests", () => {
         yield* Console.log("Testing secret rotation configuration...");
 
         // Step 0: Clean up any existing rotation test secret
-        yield* Console.log("Step 0: Cleaning up any existing rotation test secret...");
+        yield* Console.log(
+          "Step 0: Cleaning up any existing rotation test secret...",
+        );
         yield* deleteSecretIfExists(rotationSecretName);
 
         // Create a secret for rotation testing

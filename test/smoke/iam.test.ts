@@ -12,21 +12,21 @@ describe("IAM Smoke Tests", () => {
     client.deleteUser({ UserName: userName }).pipe(
       Effect.tap(() => Console.log(`Cleaned up existing user: ${userName}`)),
       Effect.catchTag("NoSuchEntityException", () => Effect.void),
-      Effect.catchAll(() => Effect.void)
+      Effect.catchAll(() => Effect.void),
     );
 
   const deleteRoleIfExists = (roleName: string) =>
     client.deleteRole({ RoleName: roleName }).pipe(
       Effect.tap(() => Console.log(`Cleaned up existing role: ${roleName}`)),
       Effect.catchTag("NoSuchEntityException", () => Effect.void),
-      Effect.catchAll(() => Effect.void)
+      Effect.catchAll(() => Effect.void),
     );
 
   const deletePolicyIfExists = (policyArn: string) =>
     client.deletePolicy({ PolicyArn: policyArn }).pipe(
       Effect.tap(() => Console.log(`Cleaned up existing policy: ${policyArn}`)),
       Effect.catchTag("NoSuchEntityException", () => Effect.void),
-      Effect.catchAll(() => Effect.void)
+      Effect.catchAll(() => Effect.void),
     );
 
   it.effect(
@@ -232,7 +232,9 @@ describe("IAM Smoke Tests", () => {
     "should create and delete IAM user",
     () =>
       Effect.gen(function* () {
-        yield* Console.log(`Testing IAM user creation and deletion: ${TEST_USER_NAME}`);
+        yield* Console.log(
+          `Testing IAM user creation and deletion: ${TEST_USER_NAME}`,
+        );
 
         // Step 0: Clean up any existing user
         yield* Console.log("Step 0: Cleaning up any existing user...");
@@ -297,7 +299,9 @@ describe("IAM Smoke Tests", () => {
           ],
         });
 
-        yield* Console.log(`Testing IAM role creation and deletion: ${TEST_ROLE_NAME}`);
+        yield* Console.log(
+          `Testing IAM role creation and deletion: ${TEST_ROLE_NAME}`,
+        );
 
         // Step 0: Clean up any existing role
         yield* Console.log("Step 0: Cleaning up any existing role...");
@@ -363,7 +367,9 @@ describe("IAM Smoke Tests", () => {
           ],
         });
 
-        yield* Console.log(`Testing IAM policy creation and deletion: ${TEST_POLICY_NAME}`);
+        yield* Console.log(
+          `Testing IAM policy creation and deletion: ${TEST_POLICY_NAME}`,
+        );
 
         // Step 0: Clean up any existing policy
         yield* Console.log("Step 0: Cleaning up any existing policy...");

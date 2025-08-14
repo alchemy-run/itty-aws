@@ -33,26 +33,30 @@ describe("EC2 Smoke Tests", () => {
     );
 
   const deleteVpcIfExists = (vpcName: string) =>
-    client.describeVpcs({
-      Filters: [
-        {
-          Name: "tag:Name",
-          Values: [vpcName],
-        },
-      ],
-    }).pipe(
-      Effect.flatMap((result) => {
-        if (result.Vpcs && result.Vpcs.length > 0) {
-          const vpcId = result.Vpcs[0].VpcId!;
-          return client.deleteVpc({ VpcId: vpcId }).pipe(
-            Effect.tap(() => Console.log(`Cleaned up existing VPC: ${vpcId}`)),
-            Effect.catchAll(() => Effect.void)
-          );
-        }
-        return Effect.void;
-      }),
-      Effect.catchAll(() => Effect.void)
-    );
+    client
+      .describeVpcs({
+        Filters: [
+          {
+            Name: "tag:Name",
+            Values: [vpcName],
+          },
+        ],
+      })
+      .pipe(
+        Effect.flatMap((result) => {
+          if (result.Vpcs && result.Vpcs.length > 0) {
+            const vpcId = result.Vpcs[0].VpcId!;
+            return client.deleteVpc({ VpcId: vpcId }).pipe(
+              Effect.tap(() =>
+                Console.log(`Cleaned up existing VPC: ${vpcId}`),
+              ),
+              Effect.catchAll(() => Effect.void),
+            );
+          }
+          return Effect.void;
+        }),
+        Effect.catchAll(() => Effect.void),
+      );
 
   it.live(
     "should perform complete VPC lifecycle: create VPC, wait for available, delete VPC, and verify deletion",

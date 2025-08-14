@@ -10,12 +10,14 @@ describe("SQS Smoke Tests", () => {
     client.getQueueUrl({ QueueName: queueName }).pipe(
       Effect.flatMap((result) =>
         client.deleteQueue({ QueueUrl: result.QueueUrl! }).pipe(
-          Effect.tap(() => Console.log(`Cleaned up existing queue: ${result.QueueUrl}`)),
-          Effect.catchAll(() => Effect.void)
-        )
+          Effect.tap(() =>
+            Console.log(`Cleaned up existing queue: ${result.QueueUrl}`),
+          ),
+          Effect.catchAll(() => Effect.void),
+        ),
       ),
       Effect.catchTag("QueueDoesNotExist", () => Effect.void),
-      Effect.catchAll(() => Effect.void)
+      Effect.catchAll(() => Effect.void),
     );
 
   it.live(

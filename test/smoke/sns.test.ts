@@ -9,18 +9,20 @@ describe("SNS Smoke Tests", () => {
   const deleteTopicIfExists = (topicName: string) =>
     client.listTopics({}).pipe(
       Effect.flatMap((result) => {
-        const topic = result.Topics?.find(t => 
-          t.TopicArn?.includes(topicName)
+        const topic = result.Topics?.find((t) =>
+          t.TopicArn?.includes(topicName),
         );
         if (topic?.TopicArn) {
           return client.deleteTopic({ TopicArn: topic.TopicArn }).pipe(
-            Effect.tap(() => Console.log(`Cleaned up existing topic: ${topic.TopicArn}`)),
-            Effect.catchAll(() => Effect.void)
+            Effect.tap(() =>
+              Console.log(`Cleaned up existing topic: ${topic.TopicArn}`),
+            ),
+            Effect.catchAll(() => Effect.void),
           );
         }
         return Effect.void;
       }),
-      Effect.catchAll(() => Effect.void)
+      Effect.catchAll(() => Effect.void),
     );
 
   it.live(
