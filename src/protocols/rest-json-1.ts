@@ -17,7 +17,9 @@ export class RestJson1Handler implements ProtocolHandler {
     ) {
       return "";
     }
-    return JSON.stringify(input);
+    return JSON.stringify(input, (_key, value) =>
+      value === null ? undefined : value,
+    );
   }
 
   getHeaders(
@@ -44,11 +46,37 @@ export class RestJson1Handler implements ProtocolHandler {
   ): unknown {
     if (!responseText) return {};
     try {
-      return JSON.parse(responseText);
+      const parsed = JSON.parse(responseText);
+      return this.removeNulls(parsed);
     } catch {
       // If response isn't JSON, return as-is (could be binary data)
       return responseText;
     }
+  }
+
+  private removeNulls(obj: unknown): unknown {
+    if (obj === null || obj === undefined) {
+      return undefined;
+    }
+
+    if (Array.isArray(obj)) {
+      return obj
+        .map((item) => this.removeNulls(item))
+        .filter((item) => item !== undefined);
+    }
+
+    if (typeof obj === "object") {
+      const result: Record<string, unknown> = {};
+      for (const [key, value] of Object.entries(obj)) {
+        const cleaned = this.removeNulls(value);
+        if (cleaned !== undefined) {
+          result[key] = cleaned;
+        }
+      }
+      return result;
+    }
+
+    return obj;
   }
 
   parseError(
