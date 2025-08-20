@@ -55,6 +55,10 @@ jobs:
         if: steps.version.outputs.version != ''
         run: bun install
 
+      - name: Build
+        if: steps.version.outputs.version != ''
+        run: bun run build
+
       - name: Create GitHub Release
         if: steps.version.outputs.version != ''
         run: |
