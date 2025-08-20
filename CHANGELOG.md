@@ -1,3 +1,14 @@
+## v0.2.1
+
+### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes
+
+- Ec2 metadata reduction &nbsp;-&nbsp; by **Kirk Mitchener** in https://github.com/sam-goodwin/itty-aws/issues/57 [<samp>(60710)</samp>](https://github.com/sam-goodwin/itty-aws/commit/60710f69)
+- Get ops from both locations in the spec &nbsp;-&nbsp; by **Kirk Mitchener** in https://github.com/sam-goodwin/itty-aws/issues/59 [<samp>(fe012)</samp>](https://github.com/sam-goodwin/itty-aws/commit/fe012729)
+
+##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/sam-goodwin/itty-aws/compare/v0.2.0...v0.2.1)
+
+---
+
 ## v0.2.0
 
 ### &nbsp;&nbsp;&nbsp;🚀 Features
