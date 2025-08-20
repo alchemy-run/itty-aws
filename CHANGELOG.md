@@ -1,3 +1,11 @@
+## v0.2.2
+
+*No significant changes*
+
+##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/sam-goodwin/itty-aws/compare/v0.2.1...v0.2.2)
+
+---
+
 ## v0.2.1
 
 ### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes
