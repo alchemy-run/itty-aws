@@ -2,6 +2,7 @@
   "name": "itty-aws",
   "version": "0.2.1",
   "files": [
+    "src",
     "dist"
   ],
   "homepage": "https://alchemy.run",
