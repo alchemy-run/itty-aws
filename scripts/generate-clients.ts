@@ -1075,27 +1075,26 @@ const generateServiceCode = (serviceName: string, manifest: Manifest) =>
     // Extract operation HTTP mappings and trait mappings
     let operationMappings: Record<string, any> = {};
 
-    // Helper to extract HTTP traits from shape members
-    const extractHttpTraits = (shapeId: string) => {
+    const extractHttpTraits = (shapeId: string): Record<string, string> => {
       const shape = manifest.shapes[shapeId];
-      if (!shape || shape.type !== "structure" || !shape.members) {
-        return {};
-      }
+      if (!shape || shape.type !== "structure" || !shape.members) return {};
 
-      const traits: Record<string, string> = {};
-      for (const [fieldName, member] of Object.entries(shape.members)) {
-        const memberTraits = (member as any).traits;
-        if (memberTraits) {
-          if (memberTraits["smithy.api#httpPayload"]) {
-            traits[fieldName] = "httpPayload";
-          } else if (memberTraits["smithy.api#httpResponseCode"]) {
-            traits[fieldName] = "httpResponseCode";
-          } else if (memberTraits["smithy.api#httpHeader"]) {
-            traits[fieldName] = memberTraits["smithy.api#httpHeader"];
-          }
-        }
-      }
-      return traits;
+      return Object.fromEntries(
+        Object.entries(shape.members).flatMap(
+          ([field, member]: [string, any]) => {
+            const t = member?.traits;
+            if (!t) return [];
+
+            if (t["smithy.api#httpPayload"]) return [[field, "httpPayload"]];
+            if (t["smithy.api#httpResponseCode"])
+              return [[field, "httpResponseCode"]];
+            if (t["smithy.api#httpHeader"])
+              return [[field, t["smithy.api#httpHeader"]]];
+
+            return [];
+          },
+        ),
+      ) as Record<string, string>;
     };
 
     if (protocol === "restJson1") {
