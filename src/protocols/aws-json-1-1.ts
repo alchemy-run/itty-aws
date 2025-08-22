@@ -3,17 +3,8 @@ import type {
   ProtocolHandler,
   ServiceMetadata,
 } from "./interface.ts";
+import { stringifyAwsJson } from "./json-serializer.ts";
 
-function customJsonStringify(value: unknown): string {
-  return JSON.stringify(value, (_key, val) => {
-    if (typeof val === "number") {
-      if (Number.isNaN(val)) return "NaN";
-      if (val === Number.POSITIVE_INFINITY) return "Infinity";
-      if (val === Number.NEGATIVE_INFINITY) return "-Infinity";
-    }
-    return val;
-  });
-}
 
 function extractErrorType(
   errorData: any,
@@ -62,7 +53,7 @@ export class AwsJson11Handler implements ProtocolHandler {
   ): string {
     // Ensure empty input becomes {}
     const payload = input === null || input === undefined ? {} : input;
-    return customJsonStringify(payload);
+    return stringifyAwsJson(payload);
   }
 
   getHeaders(

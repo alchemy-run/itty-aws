@@ -3,6 +3,7 @@ import type {
   ProtocolHandler,
   ServiceMetadata,
 } from "./interface.ts";
+import { stringifyAwsJson } from "./json-serializer.ts";
 
 export class AwsJson10Handler implements ProtocolHandler {
   readonly name = "awsJson1_0";
@@ -17,7 +18,7 @@ export class AwsJson10Handler implements ProtocolHandler {
     if (input === undefined || input === null) {
       return "{}";
     }
-    return JSON.stringify(input, this.jsonReplacer);
+    return stringifyAwsJson(input);
   }
 
   getHeaders(
@@ -77,15 +78,6 @@ export class AwsJson10Handler implements ProtocolHandler {
     };
   }
 
-  private jsonReplacer(_key: string, value: any): any {
-    // Handle special numeric values as per AWS JSON 1.0 spec
-    if (typeof value === "number") {
-      if (value === Number.POSITIVE_INFINITY) return "Infinity";
-      if (value === Number.NEGATIVE_INFINITY) return "-Infinity";
-      if (Number.isNaN(value)) return "NaN";
-    }
-    return value;
-  }
 
   private extractErrorType(
     errorBody: any,

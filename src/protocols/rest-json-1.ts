@@ -3,6 +3,7 @@ import type {
   ProtocolHandler,
   ServiceMetadata,
 } from "./interface.ts";
+import { stringifyRestJson } from "./json-serializer.ts";
 
 export class RestJson1Handler implements ProtocolHandler {
   readonly name = "restJson1";
@@ -21,9 +22,7 @@ export class RestJson1Handler implements ProtocolHandler {
     ) {
       return "";
     }
-    return JSON.stringify(input, (_key, value) =>
-      value === null ? undefined : value,
-    );
+    return stringifyRestJson(input);
   }
 
   getHeaders(
