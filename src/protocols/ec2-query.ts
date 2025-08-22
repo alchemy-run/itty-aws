@@ -39,13 +39,18 @@ function toParams(
         const rawFieldName = (member as any).xmlName ?? memberName;
         const fieldName = capitalizeFirst(rawFieldName);
         const nextPrefix = prefix ? `${prefix}.${fieldName}` : fieldName;
-        toParams(
-          shapes,
-          (member as any).target,
-          value[memberName],
-          nextPrefix,
-          out,
-        );
+        const memberValue = value[memberName];
+        
+        // If there's no target, it's a primitive type (string)
+        const target = (member as any).target;
+        if (!target) {
+          // Handle as primitive string
+          if (memberValue != null) {
+            out[nextPrefix] = String(memberValue);
+          }
+        } else {
+          toParams(shapes, target, memberValue, nextPrefix, out);
+        }
       }
       break;
     }
