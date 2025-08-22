@@ -1,4 +1,8 @@
-import type { ProtocolHandler, ServiceMetadata } from "./interface.ts";
+import type {
+  ParsedError,
+  ProtocolHandler,
+  ServiceMetadata,
+} from "./interface.ts";
 
 export class RestXmlHandler implements ProtocolHandler {
   readonly name = "restXml";
@@ -28,7 +32,7 @@ export class RestXmlHandler implements ProtocolHandler {
   parseResponse(
     responseText: string,
     _statusCode: number,
-    _metadata?: import("./interface.ts").ServiceMetadata,
+    _metadata?: ServiceMetadata,
   ): unknown {
     if (!responseText) return {};
     // TODO: Implement proper XML parsing for S3 responses
@@ -43,13 +47,17 @@ export class RestXmlHandler implements ProtocolHandler {
   parseError(
     responseText: string,
     _statusCode: number,
-    _headers?: Headers,
-  ): unknown {
-    try {
-      // TODO: Implement proper XML error parsing for S3
-      return JSON.parse(responseText);
-    } catch {
-      return { message: responseText };
-    }
+    headers?: Headers,
+  ): ParsedError {
+    // TODO: Implement proper XML error parsing for S3
+    // For now, return a basic error structure
+    return {
+      errorType: "UnknownError",
+      message: responseText || "Unknown error",
+      requestId:
+        headers?.get("x-amzn-requestid") ||
+        headers?.get("x-amz-request-id") ||
+        undefined,
+    };
   }
 }

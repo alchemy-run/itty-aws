@@ -1,6 +1,10 @@
 import { XMLParser } from "fast-xml-parser";
 import { getServiceMeta } from "../awsquery-metadata/index.js";
-import type { ProtocolHandler, ServiceMetadata } from "./interface.ts";
+import type {
+  ParsedError,
+  ProtocolHandler,
+  ServiceMetadata,
+} from "./interface.ts";
 
 const xmlParser = new XMLParser({
   ignoreAttributes: true,
@@ -288,25 +292,38 @@ export class AwsQueryHandler implements ProtocolHandler {
 
   parseError(
     responseText: string,
-    statusCode: number,
+    _statusCode: number,
     headers?: Headers,
-  ): unknown {
+  ): ParsedError {
     const doc = safeParseXml(responseText);
 
     if (!doc) {
-      return { message: responseText };
+      return {
+        errorType: "UnknownError",
+        message: responseText || "Unknown error",
+        requestId:
+          headers?.get("x-amzn-requestid") ||
+          headers?.get("x-amz-request-id") ||
+          undefined,
+      };
     }
 
     // AWS Query error format: ErrorResponse -> Error
     const errorNode = doc.ErrorResponse?.Error || doc.Error;
 
     if (!errorNode) {
-      return { message: responseText };
+      return {
+        errorType: "UnknownError",
+        message: responseText || "Unknown error",
+        requestId:
+          headers?.get("x-amzn-requestid") ||
+          headers?.get("x-amz-request-id") ||
+          undefined,
+      };
     }
 
-    const code = errorNode.Code || "UnknownError";
+    const errorType = errorNode.Code || "UnknownError";
     const message = errorNode.Message || "Unknown error";
-    const type = errorNode.Type || "Sender";
 
     // Extract request ID from response metadata or headers
     const requestId =
@@ -315,14 +332,10 @@ export class AwsQueryHandler implements ProtocolHandler {
       headers?.get("x-amz-request-id") ||
       undefined;
 
-    const error: any = new Error(message);
-    error.name = code;
-    error.Type = type;
-    error.$metadata = {
-      statusCode,
+    return {
+      errorType,
+      message,
       requestId,
     };
-
-    return error;
   }
 }

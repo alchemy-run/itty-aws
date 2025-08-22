@@ -10,6 +10,12 @@ export interface ServiceMetadata {
   readonly signingRegion?: string; // Override signing region for global services
 }
 
+export interface ParsedError {
+  readonly errorType: string;
+  readonly message: string;
+  readonly requestId?: string;
+}
+
 export interface ProtocolHandler {
   readonly name: string;
   readonly contentType: string;
@@ -37,5 +43,5 @@ export interface ProtocolHandler {
     responseText: string,
     statusCode: number,
     headers?: Headers,
-  ): unknown;
+  ): ParsedError;
 }

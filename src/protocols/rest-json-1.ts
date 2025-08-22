@@ -1,4 +1,8 @@
-import type { ProtocolHandler, ServiceMetadata } from "./interface.ts";
+import type {
+  ParsedError,
+  ProtocolHandler,
+  ServiceMetadata,
+} from "./interface.ts";
 
 export class RestJson1Handler implements ProtocolHandler {
   readonly name = "restJson1";
@@ -83,19 +87,75 @@ export class RestJson1Handler implements ProtocolHandler {
     responseText: string,
     _statusCode: number,
     headers?: Headers,
-  ): unknown {
-    // RestJson1 errors are identified by X-Amzn-Errortype header
-    const errorType = headers?.get("x-amzn-errortype") || "UnknownError";
+  ): ParsedError {
+    let errorData: any;
 
     try {
-      const parsed = JSON.parse(responseText);
-      // Ensure __type is set for error handling
-      return { ...parsed, __type: errorType };
+      errorData = JSON.parse(responseText);
     } catch {
       return {
+        errorType: "UnknownError",
         message: responseText || "Unknown error",
-        __type: errorType,
+        requestId:
+          headers?.get("x-amzn-requestid") ||
+          headers?.get("x-amz-request-id") ||
+          undefined,
       };
     }
+
+    // Extract error type according to restJson1 spec (priority order)
+    const errorType =
+      this.extractErrorType(errorData, headers) || "UnknownError";
+    const message = errorData.Message || errorData.message || "Unknown error";
+    const requestId =
+      headers?.get("x-amzn-requestid") ||
+      headers?.get("x-amz-request-id") ||
+      undefined;
+
+    return {
+      errorType,
+      message,
+      requestId,
+    };
+  }
+
+  private extractErrorType(
+    errorData: any,
+    headers?: Headers,
+  ): string | undefined {
+    // restJson1 spec: check X-Amzn-Errortype header, __type field, then code field
+    const errorTypeHeader = headers?.get("x-amzn-errortype");
+    if (errorTypeHeader) {
+      return this.sanitizeErrorType(errorTypeHeader);
+    }
+
+    if (errorData.__type) {
+      return this.sanitizeErrorType(errorData.__type);
+    }
+
+    if (errorData.code) {
+      return this.sanitizeErrorType(errorData.code);
+    }
+
+    return undefined;
+  }
+
+  private sanitizeErrorType(errorType: string): string {
+    // Remove namespace prefixes as per AWS restJson1 spec
+    let sanitized = errorType;
+
+    // Remove content before first `:` (legacy format)
+    const colonIndex = sanitized.indexOf(":");
+    if (colonIndex !== -1) {
+      sanitized = sanitized.substring(0, colonIndex);
+    }
+
+    // Remove content before first `#` (shape ID format)
+    const hashIndex = sanitized.indexOf("#");
+    if (hashIndex !== -1) {
+      sanitized = sanitized.substring(hashIndex + 1);
+    }
+
+    return sanitized;
   }
 }

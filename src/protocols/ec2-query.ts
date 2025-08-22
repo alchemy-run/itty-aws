@@ -1,7 +1,11 @@
 import { XMLParser } from "fast-xml-parser";
 import { ec2ModelMeta } from "../ec2-metadata.ts";
 import { capitalizeFirst } from "../utils.ts";
-import type { ProtocolHandler, ServiceMetadata } from "./interface.ts";
+import type {
+  ParsedError,
+  ProtocolHandler,
+  ServiceMetadata,
+} from "./interface.ts";
 
 const xmlParser = new XMLParser({
   ignoreAttributes: true,
@@ -221,7 +225,7 @@ export class Ec2QueryHandler implements ProtocolHandler {
   parseResponse(
     responseText: string,
     statusCode: number,
-    _metadata?: import("./interface.ts").ServiceMetadata,
+    _metadata?: ServiceMetadata,
   ): unknown {
     if (statusCode >= 400) return this.parseError(responseText, statusCode);
     if (!responseText) return {};
@@ -250,29 +254,43 @@ export class Ec2QueryHandler implements ProtocolHandler {
 
   parseError(
     responseText: string,
-    statusCode: number,
+    _statusCode: number,
     headers?: Headers,
-  ): unknown {
+  ): ParsedError {
     const doc = safeParseXml(responseText);
 
+    if (!doc) {
+      return {
+        errorType: "UnknownError",
+        message: responseText || "Unknown error",
+        requestId:
+          headers?.get("x-amzn-requestid") ||
+          headers?.get("x-amz-request-id") ||
+          undefined,
+      };
+    }
+
+    // EC2 Query error format: Response -> Errors -> Error
     const err =
       doc?.Response?.Errors?.Error ??
       doc?.ErrorResponse?.Error ??
       doc?.Response?.Error ??
       null;
 
-    const code = err?.Code ?? err?.code ?? "UnknownError";
+    const errorType = err?.Code ?? err?.code ?? "UnknownError";
     const message = err?.Message ?? err?.message ?? "Unknown error";
     const requestId =
       doc?.Response?.RequestID ??
       doc?.ErrorResponse?.RequestId ??
       doc?.Response?.RequestId ??
-      headers?.get("x-amzn-RequestId") ??
-      null;
+      headers?.get("x-amzn-requestid") ??
+      headers?.get("x-amz-request-id") ??
+      undefined;
 
-    const e: any = new Error(message);
-    e.name = String(code);
-    e.$metadata = { statusCode, requestId };
-    return e;
+    return {
+      errorType: String(errorType),
+      message: String(message),
+      requestId,
+    };
   }
 }

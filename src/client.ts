@@ -20,14 +20,6 @@ import type { ProtocolHandler } from "./protocols/interface.ts";
 import { RestJson1Handler } from "./protocols/rest-json-1.ts";
 import { RestXmlHandler } from "./protocols/rest-xml.ts";
 
-// Helper function to extract simple error name from AWS namespaced error type
-function extractErrorName(awsErrorType: string): string {
-  // AWS returns errors like "com.amazonaws.dynamodb.v20120810#ResourceNotFoundException"
-  // We need to extract "ResourceNotFoundException"
-  const parts = awsErrorType.split("#");
-  return parts.length > 1 ? parts[1] : awsErrorType;
-}
-
 function resolveProtocolHandler(protocol: string): ProtocolHandler {
   switch (protocol) {
     case "ec2Query":
@@ -258,56 +250,23 @@ export function createServiceProxy<T>(
               if (!responseText) return {};
               return protocolHandler.parseResponse(responseText, 200, metadata);
             } else {
-              // Error handling
-              const errorData = protocolHandler.parseError(
+              // Error handling - now standardized across all protocols
+              const parsedError = protocolHandler.parseError(
                 responseText,
                 statusCode,
                 response.headers,
               );
 
-              // Extract error info from protocol-specific error data
-              let errorType = "UnknownError";
-              let errorMessage = "Unknown error";
-              let requestId: string | undefined;
-
-              // Handle different protocol error formats
-              if (errorData && typeof errorData === "object") {
-                if ("name" in errorData && "$metadata" in errorData) {
-                  // EC2 Query protocol format (Error object)
-                  errorType = (errorData as any).name;
-                  errorMessage = (errorData as any).message || "Unknown error";
-                  requestId = (errorData as any).$metadata?.requestId;
-                } else {
-                  // AWS JSON protocol format (plain object)
-                  errorType =
-                    (errorData as any).__type ||
-                    (errorData as any).code ||
-                    "UnknownError";
-                  errorMessage =
-                    (errorData as any).Message ||
-                    (errorData as any).message ||
-                    "Unknown error";
-                }
-              }
-
-              // Fallback to headers for request ID if not found in error data
-              if (!requestId) {
-                requestId =
-                  response.headers.get("x-amzn-requestid") ||
-                  response.headers.get("x-amz-request-id") ||
-                  undefined;
-              }
-
               const errorMeta: AwsErrorMeta = {
                 statusCode,
-                requestId,
+                requestId: parsedError.requestId,
               };
 
-              // Extract simple error name from AWS namespaced error type
-              const simpleErrorName = extractErrorName(errorType);
+              // Use the sanitized error type directly from the protocol handler
+              const errorType = parsedError.errorType;
 
               // Map to specific error types
-              switch (simpleErrorName) {
+              switch (errorType) {
                 case "ThrottlingException":
                 case "TooManyRequestsException":
                   yield* Effect.fail(new ThrottlingException(errorMeta));
@@ -330,9 +289,9 @@ export function createServiceProxy<T>(
                 default:
                   // All service-specific errors - create dynamically with correct _tag
                   yield* Effect.fail(
-                    createServiceError(simpleErrorName, {
+                    createServiceError(errorType, {
                       ...errorMeta,
-                      message: errorMessage,
+                      message: parsedError.message,
                     }),
                   );
               }
