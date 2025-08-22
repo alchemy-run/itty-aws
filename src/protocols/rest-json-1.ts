@@ -44,13 +44,18 @@ export class RestJson1Handler implements ProtocolHandler {
 
   parseResponse(
     responseText: string,
-    _statusCode: number,
+    statusCode: number,
     _metadata?: ServiceMetadata,
   ): unknown {
-    if (!responseText) return {};
+    if (!responseText) return { StatusCode: statusCode };
     try {
       const parsed = JSON.parse(responseText);
-      return this.removeNulls(parsed);
+      const result = this.removeNulls(parsed);
+      // For responses that need status code (like Lambda invoke), include it
+      if (typeof result === 'object' && result !== null) {
+        (result as any).StatusCode = statusCode;
+      }
+      return result;
     } catch {
       // If response isn't JSON, return as-is (could be binary data)
       return responseText;

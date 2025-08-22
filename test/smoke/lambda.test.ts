@@ -1,5 +1,6 @@
 import { describe, expect, it } from "@effect/vitest";
 import { Console, Effect } from "effect";
+import AdmZip from "adm-zip";
 import { AWS } from "../../src/index.ts";
 
 describe("Lambda Smoke Tests", () => {
@@ -49,10 +50,9 @@ exports.handler = async (event) => {
     };
 };`;
 
-        const zipBuffer = Buffer.from(
-          `PK\x03\x04\x14\x00\x00\x00\x08\x00\x00\x00!\x00${Buffer.from(functionCode).toString("base64")}\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x09\x00\x00\x00index.js${functionCode}PK\x01\x02\x14\x00\x14\x00\x00\x00\x08\x00\x00\x00!\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x09\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x80\x01\x00\x00\x00\x00index.jsPK\x05\x06\x00\x00\x00\x00\x01\x00\x01\x007\x00\x00\x00\x00\x00\x00\x00\x00\x00`,
-          "binary",
-        );
+        const zip = new AdmZip();
+        zip.addFile("index.js", Buffer.from(functionCode));
+        const zipBuffer = zip.toBuffer();
 
         const createResult = yield* client.createFunction({
           FunctionName: testFunctionName,
@@ -194,10 +194,9 @@ exports.handler = async (event) => {
     };
 };`;
 
-        const updatedZipBuffer = Buffer.from(
-          `PK\x03\x04\x14\x00\x00\x00\x08\x00\x00\x00!\x00${Buffer.from(updatedCode).toString("base64")}\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x09\x00\x00\x00index.js${updatedCode}PK\x01\x02\x14\x00\x14\x00\x00\x00\x08\x00\x00\x00!\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x09\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x80\x01\x00\x00\x00\x00index.jsPK\x05\x06\x00\x00\x00\x00\x01\x00\x01\x007\x00\x00\x00\x00\x00\x00\x00\x00\x00`,
-          "binary",
-        );
+        const updatedZip = new AdmZip();
+        updatedZip.addFile("index.js", Buffer.from(updatedCode));
+        const updatedZipBuffer = updatedZip.toBuffer();
 
         const updateCodeResult = yield* client.updateFunctionCode({
           FunctionName: testFunctionName,
@@ -324,14 +323,16 @@ exports.handler = async (event) => {
 
         yield* Console.log("Testing Lambda layer operations...");
 
-        // Create a simple layer
-        const layerZip = Buffer.from("test layer content");
+        // Create a simple layer with valid ZIP format
+        const layerZip = new AdmZip();
+        layerZip.addFile("nodejs/node_modules/test-module/index.js", Buffer.from("module.exports = { test: true };"));
+        const layerZipBuffer = layerZip.toBuffer();
 
         const createLayerResult = yield* client.publishLayerVersion({
           LayerName: layerName,
           Description: "Test layer for smoke tests",
           Content: {
-            ZipFile: layerZip,
+            ZipFile: layerZipBuffer,
           },
           CompatibleRuntimes: ["nodejs18.x"],
         });
