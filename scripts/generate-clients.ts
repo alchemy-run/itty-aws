@@ -519,7 +519,7 @@ const generateEnumType = (
   if (shape.members) {
     const enumValues = Object.entries(shape.members).map(([key, member]) => {
       // Use smithy.api#enumValue trait if present, otherwise fallback to key
-      const enumValue = (member as any).traits?.["smithy.api#enumValue"] || key;
+      const enumValue = member.traits?.["smithy.api#enumValue"] || key;
       return `"${enumValue}"`;
     });
     code += `export type ${name} = ${enumValues.join(" | ")};`;
@@ -664,11 +664,11 @@ const generateServiceCode = (serviceName: string, manifest: Manifest) =>
     }
 
     // For AWS JSON protocols, the targetPrefix is the service name itself
-    // FIXME: this should be in the protocol handlers
+    // it's not needed for the other protocols
     const targetPrefix =
       protocol === "awsJson1_0" || protocol === "awsJson1_1"
         ? serviceShapeName
-        : "";
+        : undefined;
 
     // Extract global endpoint and signing region from endpoint rules for global services
     let globalEndpoint: string | undefined;
@@ -1177,7 +1177,9 @@ export const serviceMetadata = {\n`;
       code += `    cloudTrailEventSource: "${meta.cloudTrailEventSource}",\n`;
       code += `    endpointPrefix: "${meta.endpointPrefix}",\n`;
       code += `    protocol: "${meta.protocol}",\n`;
-      code += `    targetPrefix: "${meta.targetPrefix}",\n`;
+      if (meta.targetPrefix) {
+        code += `    targetPrefix: "${meta.targetPrefix}",\n`;
+      }
       // Only include optional fields if they are defined
       if (meta.globalEndpoint) {
         code += `    globalEndpoint: "${meta.globalEndpoint}",\n`;

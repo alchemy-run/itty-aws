@@ -7,7 +7,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "access-analyzer.amazonaws.com",
     endpointPrefix: "",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       ApplyArchiveRule: "PUT /archive-rule",
       CancelPolicyGeneration: "PUT /policy/generation/{jobId}",
@@ -56,7 +55,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "CLOUDTRAIL_EVENT_SOURCE",
     endpointPrefix: "",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       AcceptPrimaryEmailUpdate: "POST /acceptPrimaryEmailUpdate",
       DeleteAlternateContact: "POST /deleteAlternateContact",
@@ -99,7 +97,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "aiops.amazonaws.com",
     endpointPrefix: "",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       ListTagsForResource: "GET /tags/{resourceArn}",
       TagResource: "POST /tags/{resourceArn}",
@@ -124,7 +121,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "CLOUDTRAIL_PLACEHOLDER_REPLACED_BY_CDK",
     endpointPrefix: "",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       GetDefaultScraperConfiguration: "GET /scraperconfiguration",
       ListTagsForResource: "GET /tags/{resourceArn}",
@@ -183,7 +179,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "amplify.amazonaws.com",
     endpointPrefix: "amplify",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       CreateApp: "POST /apps",
       CreateBackendEnvironment: "POST /apps/{appId}/backendenvironments",
@@ -235,7 +230,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "amplifybackend.amazonaws.com",
     endpointPrefix: "amplifybackend",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       CloneBackend:
         "POST /backend/{AppId}/environments/{BackendEnvironmentName}/clone",
@@ -292,7 +286,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "amplifyuibuilder.amazonaws.com",
     endpointPrefix: "",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       ExchangeCodeForToken: "POST /tokens/{provider}",
       GetMetadata: "GET /app/{appId}/environment/{environmentName}/metadata",
@@ -395,7 +388,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "apigateway.amazonaws.com",
     endpointPrefix: "apigateway",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       CreateApiKey: "POST /apikeys",
       CreateAuthorizer: "POST /restapis/{restApiId}/authorizers",
@@ -591,7 +583,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "apigatewaymanagementapi.amazonaws.com",
     endpointPrefix: "execute-api",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       DeleteConnection: "DELETE /@connections/{ConnectionId}",
       GetConnection: "GET /@connections/{ConnectionId}",
@@ -605,7 +596,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "apigatewayv2.amazonaws.com",
     endpointPrefix: "apigateway",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       CreateApi: "POST /v2/apis",
       CreateApiMapping: "POST /v2/domainnames/{DomainName}/apimappings",
@@ -717,7 +707,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "appmesh.amazonaws.com",
     endpointPrefix: "",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       ListTagsForResource: "GET /v20190125/tags",
       TagResource: "PUT /v20190125/tag",
@@ -908,7 +897,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "appconfig.amazonaws.com",
     endpointPrefix: "appconfig",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       CreateApplication: "POST /applications",
       CreateConfigurationProfile:
@@ -1015,7 +1003,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "appconfigdata.amazonaws.com",
     endpointPrefix: "appconfigdata",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       GetLatestConfiguration: {
         http: "GET /configuration",
@@ -1037,7 +1024,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "appfabric.amazonaws.com",
     endpointPrefix: "",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       BatchGetUserAccessTasks: "POST /useraccess/batchget",
       ConnectAppAuthorization:
@@ -1089,7 +1075,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "appflow.amazonaws.com",
     endpointPrefix: "appflow",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       CancelFlowExecutions: "POST /cancel-flow-executions",
       CreateConnectorProfile: "POST /create-connector-profile",
@@ -1125,7 +1110,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "app-integrations.amazonaws.com",
     endpointPrefix: "app-integrations",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       CreateApplication: "POST /applications",
       CreateDataIntegration: "POST /dataIntegrations",
@@ -1192,7 +1176,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "application-signals.amazonaws.com",
     endpointPrefix: "application-signals",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       BatchGetServiceLevelObjectiveBudgetReport: "POST /budget-report",
       BatchUpdateExclusionWindows: "PATCH /exclusion-windows",
@@ -1221,7 +1204,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "applicationcostprofiler.amazonaws.com",
     endpointPrefix: "application-cost-profiler",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       DeleteReportDefinition: "DELETE /reportDefinition/{reportId}",
       GetReportDefinition: "GET /reportDefinition/{reportId}",
@@ -1256,7 +1238,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "appsync.amazonaws.com",
     endpointPrefix: "appsync",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       AssociateApi: "POST /v1/domainnames/{domainName}/apiassociation",
       AssociateMergedGraphqlApi:
@@ -1362,7 +1343,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "apptest.amazonaws.com",
     endpointPrefix: "apptest",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       ListTagsForResource: "GET /tags/{resourceArn}",
       TagResource: "POST /tags/{resourceArn}",
@@ -1408,7 +1388,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "",
     endpointPrefix: "arc-zonal-shift",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       CancelPracticeRun: "DELETE /practiceruns/{zonalShiftId}",
       CancelZonalShift: "DELETE /zonalshifts/{zonalShiftId}",
@@ -1439,7 +1418,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "artifact.amazonaws.com",
     endpointPrefix: "",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       GetAccountSettings: "GET /v1/account-settings/get",
       GetReport: "GET /v1/report/get",
@@ -1466,7 +1444,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "auditmanager.amazonaws.com",
     endpointPrefix: "auditmanager",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       AssociateAssessmentReportEvidenceFolder:
         "PUT /assessments/{assessmentId}/associateToAssessmentReport",
@@ -1563,7 +1540,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "autoscaling.amazonaws.com",
     endpointPrefix: "autoscaling",
     protocol: "awsQuery",
-    targetPrefix: "",
   },
   autoscalingplans: {
     sdkId: "Auto Scaling Plans",
@@ -1590,7 +1566,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "backup.amazonaws.com",
     endpointPrefix: "backup",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       AssociateBackupVaultMpaApprovalTeam:
         "PUT /backup-vaults/{BackupVaultName}/mpaApprovalTeam",
@@ -1748,7 +1723,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "backup.amazonaws.com",
     endpointPrefix: "backup-search",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       ListSearchJobBackups: "GET /search-jobs/{SearchJobIdentifier}/backups",
       ListSearchJobResults:
@@ -1772,7 +1746,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "batch.amazonaws.com",
     endpointPrefix: "batch",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       CancelJob: "POST /v1/canceljob",
       CreateComputeEnvironment: "POST /v1/createcomputeenvironment",
@@ -1840,7 +1813,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "",
     endpointPrefix: "bedrock",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       BatchDeleteEvaluationJob: "POST /evaluation-jobs/batch-delete",
       CreateCustomModel: "POST /custom-models/create-custom-model",
@@ -1939,7 +1911,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "bedrock.amazonaws.com",
     endpointPrefix: "bedrock-agent",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       ValidateFlowDefinition: "POST /flows/validate-definition",
       AssociateAgentCollaborator:
@@ -2051,7 +2022,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "bedrock.amazonaws.com",
     endpointPrefix: "bedrock-agent-runtime",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       CreateInvocation: "PUT /sessions/{sessionIdentifier}/invocations/",
       CreateSession: "PUT /sessions/",
@@ -2134,7 +2104,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "bedrock-agentcore.amazonaws.com",
     endpointPrefix: "bedrock-agentcore",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       GetResourceApiKey: "POST /identities/api-key",
       GetResourceOauth2Token: "POST /identities/oauth2/token",
@@ -2202,7 +2171,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "bedrock-agentcore.amazonaws.com",
     endpointPrefix: "bedrock-agentcore-control",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       GetTokenVault: "POST /identities/get-token-vault",
       SetTokenVaultCMK: "POST /identities/set-token-vault-cmk",
@@ -2281,7 +2249,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "bedrock.amazonaws.com",
     endpointPrefix: "bedrock-data-automation",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       CreateBlueprintVersion: "POST /blueprints/{blueprintArn}/versions/",
       ListTagsForResource: "POST /listTagsForResource",
@@ -2317,7 +2284,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "bedrock.amazonaws.com",
     endpointPrefix: "bedrock-runtime",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       ApplyGuardrail:
         "POST /guardrail/{guardrailIdentifier}/version/{guardrailVersion}/apply",
@@ -2371,7 +2337,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "billingconductor.amazonaws.com",
     endpointPrefix: "",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       GetBillingGroupCostReport: "POST /get-billing-group-cost-report",
       ListAccountAssociations: "POST /list-account-associations",
@@ -2419,7 +2384,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "braket.amazonaws.com",
     endpointPrefix: "",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       ListTagsForResource: "GET /tags/{resourceArn}",
       TagResource: "POST /tags/{resourceArn}",
@@ -2452,7 +2416,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "chatbot.amazonaws.com",
     endpointPrefix: "chatbot",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       AssociateToConfiguration: "POST /associate-to-configuration",
       CreateChimeWebhookConfiguration:
@@ -2512,7 +2475,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "chime.amazonaws.com",
     endpointPrefix: "chime",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       AssociatePhoneNumberWithUser:
         "POST /accounts/{AccountId}/users/{UserId}?operation=associate-phone-number",
@@ -2603,7 +2565,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "chimesdkidentity.amazonaws.com",
     endpointPrefix: "identity-chime",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       CreateAppInstance: "POST /app-instances",
       CreateAppInstanceAdmin: "POST /app-instances/{AppInstanceArn}/admins",
@@ -2654,7 +2615,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "chimesdkmediapipelines.amazonaws.com",
     endpointPrefix: "media-pipelines-chime",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       CreateMediaCapturePipeline: "POST /sdk-media-capture-pipelines",
       CreateMediaConcatenationPipeline:
@@ -2717,7 +2677,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "chimesdkmeetings.amazonaws.com",
     endpointPrefix: "meetings-chime",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       BatchCreateAttendee:
         "POST /meetings/{MeetingId}/attendees?operation=batch-create",
@@ -2749,7 +2708,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "chimesdkmessaging.amazonaws.com",
     endpointPrefix: "messaging-chime",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       AssociateChannelFlow: "PUT /channels/{ChannelArn}/channel-flow",
       BatchCreateChannelMembership:
@@ -2832,7 +2790,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "chimesdkvoice.amazonaws.com",
     endpointPrefix: "voice-chime",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       AssociatePhoneNumbersWithVoiceConnector:
         "POST /voice-connectors/{VoiceConnectorId}?operation=associate-phone-numbers",
@@ -2994,7 +2951,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "cleanrooms.amazonaws.com",
     endpointPrefix: "",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       ListTagsForResource: "GET /tags/{resourceArn}",
       TagResource: "POST /tags/{resourceArn}",
@@ -3154,7 +3110,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "cleanrooms-ml.amazonaws.com",
     endpointPrefix: "",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       ListCollaborationConfiguredModelAlgorithmAssociations:
         "GET /collaborations/{collaborationIdentifier}/configured-model-algorithm-associations",
@@ -3282,7 +3237,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "clouddirectory.amazonaws.com",
     endpointPrefix: "clouddirectory",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       AddFacetToObject: "PUT /amazonclouddirectory/2017-01-11/object/facets",
       ApplySchema: "PUT /amazonclouddirectory/2017-01-11/schema/apply",
@@ -3387,7 +3341,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "cloudformation.amazonaws.com",
     endpointPrefix: "cloudformation",
     protocol: "awsQuery",
-    targetPrefix: "",
   },
   cloudfront: {
     sdkId: "CloudFront",
@@ -3396,7 +3349,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "cloudfront.amazonaws.com",
     endpointPrefix: "cloudfront",
     protocol: "restXml",
-    targetPrefix: "",
     operations: {
       AssociateDistributionTenantWebACL: {
         traits: {
@@ -4086,7 +4038,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "key-value-store.amazonaws.com",
     endpointPrefix: "cloudfront-keyvaluestore",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       DeleteKey: {
         http: "DELETE /key-value-stores/{KvsARN}/keys/{Key}",
@@ -4141,7 +4092,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "cloudsearch.amazonaws.com",
     endpointPrefix: "cloudsearch",
     protocol: "awsQuery",
-    targetPrefix: "",
   },
   cloudsearchdomain: {
     sdkId: "CloudSearch Domain",
@@ -4150,7 +4100,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "cloudsearchdomain.amazonaws.com",
     endpointPrefix: "cloudsearchdomain",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       Search: "GET /2013-01-01/search?format=sdk&pretty=true",
       Suggest: "GET /2013-01-01/suggest?format=sdk&pretty=true",
@@ -4173,7 +4122,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "",
     endpointPrefix: "cloudtrail-data",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       PutAuditEvents: "POST /PutAuditEvents",
     },
@@ -4185,7 +4133,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "monitoring.amazonaws.com",
     endpointPrefix: "monitoring",
     protocol: "awsQuery",
-    targetPrefix: "",
   },
   cloudwatchevents: {
     sdkId: "CloudWatch Events",
@@ -4212,7 +4159,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "codeartifact.amazonaws.com",
     endpointPrefix: "codeartifact",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       AssociateExternalConnection: "POST /v1/repository/external-connection",
       CopyPackageVersions: "POST /v1/package/versions/copy",
@@ -4292,7 +4238,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "",
     endpointPrefix: "codecatalyst",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       GetUserDetails: "GET /userDetails",
       VerifySession: "GET /session",
@@ -4389,7 +4334,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "codeguru-reviewer.amazonaws.com",
     endpointPrefix: "codeguru-reviewer",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       AssociateRepository: "POST /associations",
       CreateCodeReview: "POST /codereviews",
@@ -4415,7 +4359,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "codeguru-security.amazonaws.com",
     endpointPrefix: "",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       BatchGetFindings: "POST /batchGetFindings",
       CreateScan: "POST /scans",
@@ -4439,7 +4382,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "codeguru-profiler.amazonaws.com",
     endpointPrefix: "codeguru-profiler",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       GetFindingsReportAccountSummary: "GET /internal/findingsReports",
       ListTagsForResource: "GET /tags/{resourceArn}",
@@ -4529,7 +4471,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "codestarnotifications.amazonaws.com",
     endpointPrefix: "codestar-notifications",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       CreateNotificationRule: "POST /createNotificationRule",
       DeleteNotificationRule: "POST /deleteNotificationRule",
@@ -4571,7 +4512,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "cognitosync.amazonaws.com",
     endpointPrefix: "cognito-sync",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       BulkPublish: "POST /identitypools/{IdentityPoolId}/bulkpublish",
       DeleteDataset:
@@ -4647,7 +4587,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "connect.amazonaws.com",
     endpointPrefix: "connect",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       ActivateEvaluationForm:
         "POST /evaluation-forms/{InstanceId}/{EvaluationFormId}/activate",
@@ -5058,7 +4997,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "connectcontactlens.amazonaws.com",
     endpointPrefix: "contact-lens",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       ListRealtimeContactAnalysisSegments:
         "POST /realtime-contact-analysis/analysis-segments",
@@ -5071,7 +5009,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "connect-campaigns.amazonaws.com",
     endpointPrefix: "",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       CreateCampaign: "PUT /campaigns",
       DeleteCampaign: "DELETE /campaigns/{id}",
@@ -5110,7 +5047,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "connect-campaigns.amazonaws.com",
     endpointPrefix: "",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       CreateCampaign: "PUT /v2/campaigns",
       DeleteCampaign: "DELETE /v2/campaigns/{id}",
@@ -5173,7 +5109,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "event-source-placeholder",
     endpointPrefix: "cases",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       ListTagsForResource: "GET /tags/{arn}",
       TagResource: "POST /tags/{arn}",
@@ -5232,7 +5167,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "connectparticipant.amazonaws.com",
     endpointPrefix: "participant.connect",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       CancelParticipantAuthentication:
         "POST /participant/cancel-authentication",
@@ -5255,7 +5189,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "controlcatalog.amazonaws.com",
     endpointPrefix: "",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       ListControlMappings: "POST /list-control-mappings",
       GetControl: "POST /get-control",
@@ -5272,7 +5205,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "controltower.amazonaws.com",
     endpointPrefix: "controltower",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       DisableControl: "POST /disable-control",
       CreateLandingZone: "POST /create-landingzone",
@@ -5338,7 +5270,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "profile.amazonaws.com",
     endpointPrefix: "profile",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       AddProfileKey: "POST /domains/{DomainName}/profiles/keys",
       BatchGetCalculatedAttributeForProfile:
@@ -5498,7 +5429,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "databrew.amazonaws.com",
     endpointPrefix: "databrew",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       BatchDeleteRecipeVersion: "POST /recipes/{Name}/batchDeleteRecipeVersion",
       CreateDataset: "POST /datasets",
@@ -5554,7 +5484,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "dataexchange.amazonaws.com",
     endpointPrefix: "dataexchange",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       AcceptDataGrant: "POST /v1/data-grants/{DataGrantArn}/accept",
       CancelJob: "DELETE /v1/jobs/{JobId}",
@@ -5621,7 +5550,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "datazone.amazonaws.com",
     endpointPrefix: "",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       AcceptPredictions:
         "PUT /v2/domains/{domainIdentifier}/assets/{identifier}/accept-predictions",
@@ -5925,7 +5853,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "deadline.amazonaws.com",
     endpointPrefix: "",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       CreateQueueFleetAssociation:
         "PUT /2023-10-12/farms/{farmId}/queue-fleet-associations",
@@ -6114,7 +6041,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "detective.amazonaws.com",
     endpointPrefix: "api.detective",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       AcceptInvitation: "PUT /invitation",
       BatchGetGraphMemberDatasources: "POST /graph/datasources/get",
@@ -6165,7 +6091,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "devopsguru.amazonaws.com",
     endpointPrefix: "devops-guru",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       AddNotificationChannel: "PUT /channels",
       DeleteInsight: "DELETE /insights/{Id}",
@@ -6228,7 +6153,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "ds.amazonaws.com",
     endpointPrefix: "ds-data",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       AddGroupMember: "POST /GroupMemberships/AddGroupMember",
       CreateGroup: "POST /Groups/CreateGroup",
@@ -6256,7 +6180,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "dlm.amazonaws.com",
     endpointPrefix: "dlm",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       CreateLifecyclePolicy: "POST /policies",
       DeleteLifecyclePolicy: "DELETE /policies/{PolicyId}",
@@ -6275,7 +6198,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "docdb.amazonaws.com",
     endpointPrefix: "rds",
     protocol: "awsQuery",
-    targetPrefix: "",
   },
   docdbelastic: {
     sdkId: "DocDB Elastic",
@@ -6284,7 +6206,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "CASCADES_EVENT_SOURCE",
     endpointPrefix: "",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       ApplyPendingMaintenanceAction: "POST /pending-action",
       CopyClusterSnapshot: "POST /cluster-snapshot/{snapshotArn}/copy",
@@ -6315,7 +6236,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "drs.amazonaws.com",
     endpointPrefix: "",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       CreateExtendedSourceServer: "POST /CreateExtendedSourceServer",
       DeleteLaunchAction: "POST /DeleteLaunchAction",
@@ -6386,7 +6306,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "dsql.amazonaws.com",
     endpointPrefix: "dsql",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       ListTagsForResource: "GET /tags/{resourceArn}",
       TagResource: "POST /tags/{resourceArn}",
@@ -6425,7 +6344,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "ebs.amazonaws.com",
     endpointPrefix: "ebs",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       CompleteSnapshot: "POST /snapshots/completion/{SnapshotId}",
       GetSnapshotBlock: {
@@ -6456,7 +6374,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "ec2.amazonaws.com",
     endpointPrefix: "ec2",
     protocol: "ec2Query",
-    targetPrefix: "",
   },
   ec2instanceconnect: {
     sdkId: "EC2 Instance Connect",
@@ -6501,7 +6418,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "elasticfilesystem.amazonaws.com",
     endpointPrefix: "elasticfilesystem",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       CreateAccessPoint: "POST /2015-02-01/access-points",
       CreateFileSystem: "POST /2015-02-01/file-systems",
@@ -6555,7 +6471,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "eks.amazonaws.com",
     endpointPrefix: "eks",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       AssociateAccessPolicy:
         "POST /clusters/{clusterName}/access-entries/{principalArn}/access-policies",
@@ -6645,7 +6560,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "eks-auth.amazonaws.com",
     endpointPrefix: "eks-auth",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       AssumeRoleForPodIdentity:
         "POST /clusters/{clusterName}/assume-role-for-pod-identity",
@@ -6658,7 +6572,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "elasticbeanstalk.amazonaws.com",
     endpointPrefix: "elasticbeanstalk",
     protocol: "awsQuery",
-    targetPrefix: "",
   },
   elasticloadbalancing: {
     sdkId: "Elastic Load Balancing",
@@ -6667,7 +6580,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "elasticloadbalancing.amazonaws.com",
     endpointPrefix: "elasticloadbalancing",
     protocol: "awsQuery",
-    targetPrefix: "",
   },
   elasticloadbalancingv2: {
     sdkId: "Elastic Load Balancing v2",
@@ -6676,7 +6588,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "elasticloadbalancing.amazonaws.com",
     endpointPrefix: "elasticloadbalancing",
     protocol: "awsQuery",
-    targetPrefix: "",
   },
   elastictranscoder: {
     sdkId: "Elastic Transcoder",
@@ -6685,7 +6596,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "elastictranscoder.amazonaws.com",
     endpointPrefix: "elastictranscoder",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       CancelJob: "DELETE /2012-09-25/jobs/{Id}",
       CreateJob: "POST /2012-09-25/jobs",
@@ -6714,7 +6624,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "elasticache.amazonaws.com",
     endpointPrefix: "elasticache",
     protocol: "awsQuery",
-    targetPrefix: "",
   },
   elasticsearchservice: {
     sdkId: "Elasticsearch Service",
@@ -6723,7 +6632,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "elasticsearchservice.amazonaws.com",
     endpointPrefix: "es",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       AcceptInboundCrossClusterSearchConnection:
         "PUT /2015-01-01/es/ccs/inboundConnection/{CrossClusterSearchConnectionId}/accept",
@@ -6821,7 +6729,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "emrcontainers.amazonaws.com",
     endpointPrefix: "emr-containers",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       CancelJobRun: "DELETE /virtualclusters/{virtualClusterId}/jobruns/{id}",
       CreateJobTemplate: "POST /jobtemplates",
@@ -6859,7 +6766,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "emr-serverless.amazonaws.com",
     endpointPrefix: "",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       ListTagsForResource: "GET /tags/{resourceArn}",
       TagResource: "POST /tags/{resourceArn}",
@@ -6888,7 +6794,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "entityresolution.amazonaws.com",
     endpointPrefix: "",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       AddPolicyStatement: "POST /policies/{arn}/{statementId}",
       BatchDeleteUniqueId: "DELETE /matchingworkflows/{workflowName}/uniqueids",
@@ -6947,7 +6852,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "evidently.amazonaws.com",
     endpointPrefix: "",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       ListTagsForResource: "GET /tags/{resourceArn}",
       TagResource: "POST /tags/{resourceArn}",
@@ -7008,7 +6912,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "finspace.amazonaws.com",
     endpointPrefix: "finspace",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       CreateEnvironment: "POST /environment",
       CreateKxChangeset:
@@ -7094,7 +6997,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "finspacedata.amazonaws.com",
     endpointPrefix: "finspace-api",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       AssociateUserToPermissionGroup: {
         http: "POST /permission-group/{permissionGroupId}/users/{userId}",
@@ -7157,7 +7059,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "fis.amazonaws.com",
     endpointPrefix: "fis",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       CreateExperimentTemplate: "POST /experimentTemplates",
       CreateTargetAccountConfiguration:
@@ -7265,7 +7166,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "gameliftstreams.amazonaws.com",
     endpointPrefix: "",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       AddStreamGroupLocations: "POST /streamgroups/{Identifier}/locations",
       AssociateApplications: "POST /streamgroups/{Identifier}/associations",
@@ -7305,7 +7205,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "geo-maps.amazonaws.com",
     endpointPrefix: "",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       GetGlyphs: {
         http: "GET /glyphs/{FontStack}/{FontUnicodeRange}",
@@ -7363,7 +7262,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "geo-places.amazonaws.com",
     endpointPrefix: "",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       Autocomplete: {
         http: "POST /autocomplete",
@@ -7416,7 +7314,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "geo-routes.amazonaws.com",
     endpointPrefix: "",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       CalculateIsolines: {
         http: "POST /isolines",
@@ -7457,7 +7354,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "glacier.amazonaws.com",
     endpointPrefix: "glacier",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       AbortMultipartUpload:
         "DELETE /{accountId}/vaults/{vaultName}/multipart-uploads/{uploadId}",
@@ -7596,7 +7492,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "EVENT_SOURCE_VALUE",
     endpointPrefix: "",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       ListTagsForResource: "GET /tags/{resourceArn}",
       ListVersions: "GET /versions",
@@ -7644,7 +7539,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "greengrass.amazonaws.com",
     endpointPrefix: "greengrass",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       AssociateRoleToGroup: "PUT /greengrass/groups/{GroupId}/role",
       AssociateServiceRoleToAccount: "PUT /greengrass/servicerole",
@@ -7802,7 +7696,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "greengrass.amazonaws.com",
     endpointPrefix: "greengrass",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       AssociateServiceRoleToAccount: "PUT /greengrass/servicerole",
       BatchAssociateClientDeviceWithCoreDevice:
@@ -7852,7 +7745,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "groundstation.amazonaws.com",
     endpointPrefix: "",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       GetMinuteUsage: "POST /minute-usage",
       ListTagsForResource: "GET /tags/{resourceArn}",
@@ -7898,7 +7790,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "guardduty.amazonaws.com",
     endpointPrefix: "guardduty",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       AcceptAdministratorInvitation:
         "POST /detector/{DetectorId}/administrator",
@@ -8019,7 +7910,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "iam.amazonaws.com",
     endpointPrefix: "iam",
     protocol: "awsQuery",
-    targetPrefix: "",
     globalEndpoint: "https://iam.amazonaws.com",
     signingRegion: "us-east-1",
   },
@@ -8039,7 +7929,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "imagebuilder.amazonaws.com",
     endpointPrefix: "imagebuilder",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       CancelImageCreation: "PUT /CancelImageCreation",
       CancelLifecycleExecution: "PUT /CancelLifecycleExecution",
@@ -8140,7 +8029,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "inspector-scan.amazonaws.com",
     endpointPrefix: "",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       ScanSbom: "POST /scan/sbom",
     },
@@ -8152,7 +8040,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "inspector2.amazon.aws",
     endpointPrefix: "",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       AssociateMember: "POST /members/associate",
       BatchAssociateCodeSecurityScanConfiguration:
@@ -8253,7 +8140,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "internetmonitor.amazonaws.com",
     endpointPrefix: "",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       ListTagsForResource: "GET /tags/{ResourceArn}",
       TagResource: "POST /tags/{ResourceArn}",
@@ -8292,7 +8178,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "iot.amazonaws.com",
     endpointPrefix: "iot",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       AcceptCertificateTransfer:
         "PATCH /accept-certificate-transfer/{certificateId}",
@@ -8627,7 +8512,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "iotdataplane.amazonaws.com",
     endpointPrefix: "data-ats.iot",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       DeleteThingShadow: {
         http: "DELETE /things/{thingName}/shadow",
@@ -8661,7 +8545,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "iotevents.amazonaws.com",
     endpointPrefix: "iotevents",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       CreateAlarmModel: "POST /alarm-models",
       CreateDetectorModel: "POST /detector-models",
@@ -8701,7 +8584,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "ioteventsdata.amazonaws.com",
     endpointPrefix: "data.iotevents",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       BatchAcknowledgeAlarm: "POST /alarms/acknowledge",
       BatchDeleteDetector: "POST /detectors/delete",
@@ -8724,7 +8606,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "iotjobsdataplane.amazonaws.com",
     endpointPrefix: "data.jobs.iot",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       DescribeJobExecution: "GET /things/{thingName}/jobs/{jobId}",
       GetPendingJobExecutions: "GET /things/{thingName}/jobs",
@@ -8740,7 +8621,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "iotmanagedintegrations.amazonaws.com",
     endpointPrefix: "api.iotmanagedintegrations",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       GetCustomEndpoint: "GET /custom-endpoint",
       ListTagsForResource: "GET /tags/{ResourceArn}",
@@ -8848,7 +8728,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "iotwireless.amazonaws.com",
     endpointPrefix: "api.iotwireless",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       AssociateAwsAccountWithPartnerAccount: "POST /partner-accounts",
       AssociateMulticastGroupWithFuotaTask:
@@ -9014,7 +8893,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "iotanalytics.amazonaws.com",
     endpointPrefix: "iotanalytics",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       BatchPutMessage: "POST /messages/batch",
       CancelPipelineReprocessing:
@@ -9060,7 +8938,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "iotdeviceadvisor.amazonaws.com",
     endpointPrefix: "api.iotdeviceadvisor",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       CreateSuiteDefinition: "POST /suiteDefinitions",
       DeleteSuiteDefinition: "DELETE /suiteDefinitions/{suiteDefinitionId}",
@@ -9088,7 +8965,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "iotfleethub.amazonaws.com",
     endpointPrefix: "api.fleethub.iot",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       CreateApplication: "POST /applications",
       DeleteApplication: "DELETE /applications/{applicationId}",
@@ -9125,7 +9001,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "iotsitewise.amazonaws.com",
     endpointPrefix: "iotsitewise",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       AssociateAssets: "POST /assets/{assetId}/associate",
       AssociateTimeSeriesToAssetProperty: "POST /timeseries/associate",
@@ -9272,7 +9147,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "",
     endpointPrefix: "iottwinmaker",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       BatchPutPropertyValues:
         "POST /workspaces/{workspaceId}/entity-properties",
@@ -9334,7 +9208,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "ivs.amazonaws.com",
     endpointPrefix: "",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       BatchGetChannel: "POST /BatchGetChannel",
       BatchGetStreamKey: "POST /BatchGetStreamKey",
@@ -9381,7 +9254,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "ivs.amazonaws.com",
     endpointPrefix: "ivsrealtime",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       CreateEncoderConfiguration: "POST /CreateEncoderConfiguration",
       CreateIngestConfiguration: "POST /CreateIngestConfiguration",
@@ -9453,7 +9325,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "ivschat.amazonaws.com",
     endpointPrefix: "",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       CreateChatToken: "POST /CreateChatToken",
       CreateLoggingConfiguration: "POST /CreateLoggingConfiguration",
@@ -9481,7 +9352,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "kafka.amazonaws.com",
     endpointPrefix: "kafka",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       BatchAssociateScramSecret: "POST /v1/clusters/{ClusterArn}/scram-secrets",
       BatchDisassociateScramSecret:
@@ -9550,7 +9420,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "kafkaconnect.amazonaws.com",
     endpointPrefix: "kafkaconnect",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       CreateConnector: "POST /v1/connectors",
       CreateCustomPlugin: "POST /v1/custom-plugins",
@@ -9645,7 +9514,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "kinesisvideo.amazonaws.com",
     endpointPrefix: "kinesisvideo",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       CreateSignalingChannel: "POST /createSignalingChannel",
       CreateStream: "POST /createStream",
@@ -9691,7 +9559,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "kinesisvideoarchivedmedia.amazonaws.com",
     endpointPrefix: "kinesisvideo",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       GetClip: {
         http: "POST /getClip",
@@ -9720,7 +9587,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "kinesisvideomedia.amazonaws.com",
     endpointPrefix: "kinesisvideo",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       GetMedia: {
         http: "POST /getMedia",
@@ -9738,7 +9604,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "kinesisvideosignaling.amazonaws.com",
     endpointPrefix: "kinesisvideo",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       GetIceServerConfig: "POST /v1/get-ice-server-config",
       SendAlexaOfferToMaster: "POST /v1/send-alexa-offer-to-master",
@@ -9751,7 +9616,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "kinesisvideo.amazonaws.com",
     endpointPrefix: "kinesisvideo",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       JoinStorageSession: "POST /joinStorageSession",
       JoinStorageSessionAsViewer: "POST /joinStorageSessionAsViewer",
@@ -9773,7 +9637,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "lakeformation.amazonaws.com",
     endpointPrefix: "lakeformation",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       AddLFTagsToResource: "POST /AddLFTagsToResource",
       AssumeDecoratedRoleWithSAML: "POST /AssumeDecoratedRoleWithSAML",
@@ -9855,7 +9718,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "lambda.amazonaws.com",
     endpointPrefix: "lambda",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       GetAccountSettings: "GET /2016-08-19/account-settings",
       ListTags: "GET /2017-03-31/tags/{Resource}",
@@ -9990,7 +9852,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "launchwizard.amazonaws.com",
     endpointPrefix: "launchwizard",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       ListTagsForResource: "GET /tags/{resourceArn}",
       TagResource: "POST /tags/{resourceArn}",
@@ -10013,7 +9874,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "lexmodelbuildingservice.amazonaws.com",
     endpointPrefix: "models.lex",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       CreateBotVersion: "POST /bots/{name}/versions",
       CreateIntentVersion: "POST /intents/{name}/versions",
@@ -10069,7 +9929,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "lexmodelsv2.amazonaws.com",
     endpointPrefix: "models-v2-lex",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       BatchCreateCustomVocabularyItem:
         "PUT /bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/customvocabulary/DEFAULT/batchcreate",
@@ -10226,7 +10085,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "lexruntimeservice.amazonaws.com",
     endpointPrefix: "runtime.lex",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       DeleteSession:
         "DELETE /bot/{botName}/alias/{botAlias}/user/{userId}/session",
@@ -10281,7 +10139,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "lexruntimev2.amazonaws.com",
     endpointPrefix: "runtime-v2-lex",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       DeleteSession:
         "DELETE /bots/{botId}/botAliases/{botAliasId}/botLocales/{localeId}/sessions/{sessionId}",
@@ -10339,7 +10196,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "license-manager-linux-subscriptions.amazonaws.com",
     endpointPrefix: "",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       DeregisterSubscriptionProvider:
         "POST /subscription/DeregisterSubscriptionProvider",
@@ -10366,7 +10222,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "license-manager-user-subscriptions.amazonaws.com",
     endpointPrefix: "",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       AssociateUser: "POST /user/AssociateUser",
       CreateLicenseServerEndpoint:
@@ -10409,7 +10264,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "geo.amazonaws.com",
     endpointPrefix: "",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       AssociateTrackerConsumer:
         "POST /tracking/v0/trackers/{TrackerName}/consumers",
@@ -10542,7 +10396,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "lookoutmetrics.amazonaws.com",
     endpointPrefix: "lookoutmetrics",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       ActivateAnomalyDetector: "POST /ActivateAnomalyDetector",
       BackTestAnomalyDetector: "POST /BackTestAnomalyDetector",
@@ -10584,7 +10437,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "lookoutvision.amazonaws.com",
     endpointPrefix: "lookoutvision",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       CreateDataset: "POST /2020-11-20/projects/{ProjectName}/datasets",
       CreateModel: "POST /2020-11-20/projects/{ProjectName}/models",
@@ -10629,7 +10481,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "m2.amazonaws.com",
     endpointPrefix: "m2",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       GetSignedBluinsightsUrl: "GET /signed-bi-url",
       ListEngineVersions: "GET /engine-versions",
@@ -10701,7 +10552,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "macie2.amazonaws.com",
     endpointPrefix: "macie2",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       AcceptInvitation: "POST /invitations/accept",
       BatchGetCustomDataIdentifiers: "POST /custom-data-identifiers/get",
@@ -10813,7 +10663,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "managedblockchain.amazonaws.com",
     endpointPrefix: "managedblockchain",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       CreateAccessor: "POST /accessors",
       CreateMember: "POST /networks/{NetworkId}/members",
@@ -10852,7 +10701,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "managedblockchain-query.amazonaws.com",
     endpointPrefix: "",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       BatchGetTokenBalance: "POST /batch-get-token-balance",
       GetAssetContract: "POST /get-asset-contract",
@@ -10881,7 +10729,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "marketplacecatalog.amazonaws.com",
     endpointPrefix: "catalog.marketplace",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       BatchDescribeEntities: "POST /BatchDescribeEntities",
       CancelChangeSet: "PATCH /CancelChangeSet",
@@ -10914,7 +10761,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "aws-marketplace.amazonaws.com",
     endpointPrefix: "deployment-marketplace",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       ListTagsForResource: "GET /tags/{resourceArn}",
       TagResource: "POST /tags/{resourceArn}",
@@ -10948,7 +10794,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "reporting-marketplace.amazonaws.com",
     endpointPrefix: "reporting-marketplace",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       GetBuyerDashboard: "POST /getBuyerDashboard",
     },
@@ -10960,7 +10805,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "mediaconnect.amazonaws.com",
     endpointPrefix: "",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       ListEntitlements: "GET /v1/entitlements",
       ListTagsForResource: "GET /tags/{ResourceArn}",
@@ -11029,7 +10873,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "mediaconvert.amazonaws.com",
     endpointPrefix: "mediaconvert",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       AssociateCertificate: "POST /2017-08-29/certificates",
       CancelJob: "DELETE /2017-08-29/jobs/{Id}",
@@ -11071,7 +10914,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "medialive.amazonaws.com",
     endpointPrefix: "medialive",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       AcceptInputDeviceTransfer:
         "POST /prod/inputDevices/{InputDeviceId}/accept",
@@ -11246,7 +11088,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "mediapackage.amazonaws.com",
     endpointPrefix: "mediapackage",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       ConfigureLogs: "PUT /channels/{Id}/configure_logs",
       CreateChannel: "POST /channels",
@@ -11277,7 +11118,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "mediapackagevod.amazonaws.com",
     endpointPrefix: "mediapackage-vod",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       ConfigureLogs: "PUT /packaging_groups/{Id}/configure_logs",
       CreateAsset: "POST /assets",
@@ -11305,7 +11145,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "mediapackagev2.amazonaws.com",
     endpointPrefix: "mediapackagev2",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       ListTagsForResource: "GET /tags/{ResourceArn}",
       TagResource: "POST /tags/{ResourceArn}",
@@ -11373,7 +11212,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "mediastoredata.amazonaws.com",
     endpointPrefix: "data.mediastore",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       DeleteObject: "DELETE /{Path+}",
       DescribeObject: {
@@ -11410,7 +11248,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "mediatailor.amazonaws.com",
     endpointPrefix: "api.mediatailor",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       ConfigureLogsForPlaybackConfiguration:
         "PUT /configureLogs/playbackConfiguration",
@@ -11478,7 +11315,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "medical-imaging.amazonaws.com",
     endpointPrefix: "medical-imaging",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       CopyImageSet:
         "POST /datastore/{datastoreId}/imageSet/{sourceImageSetId}/copyImageSet",
@@ -11535,7 +11371,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "mgn.amazonaws.com",
     endpointPrefix: "",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       InitializeService: "POST /InitializeService",
       ListManagedAccounts: "POST /ListManagedAccounts",
@@ -11634,7 +11469,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "refactor-spaces.amazonaws.com",
     endpointPrefix: "refactor-spaces",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       CreateApplication:
         "POST /environments/{EnvironmentIdentifier}/applications",
@@ -11691,7 +11525,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "migrationhub-orchestrator.amazonaws.com",
     endpointPrefix: "migrationhub-orchestrator",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       ListTagsForResource: "GET /tags/{resourceArn}",
       TagResource: "POST /tags/{resourceArn}",
@@ -11734,7 +11567,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "migrationhub-strategy.amazonaws.com",
     endpointPrefix: "migrationhub-strategy",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       GetApplicationComponentDetails:
         "GET /get-applicationcomponent-details/{applicationComponentId}",
@@ -11772,7 +11604,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "mpa.amazonaws.com",
     endpointPrefix: "",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       GetPolicyVersion: "GET /policy-versions/{PolicyVersionArn}",
       GetResourcePolicy: "POST /GetResourcePolicy",
@@ -11805,7 +11636,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "mq.amazonaws.com",
     endpointPrefix: "mq",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       CreateBroker: "POST /v1/brokers",
       CreateConfiguration: "POST /v1/configurations",
@@ -11851,7 +11681,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "airflow.amazonaws.com",
     endpointPrefix: "",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       CreateCliToken: "POST /clitoken/{Name}",
       CreateEnvironment: "PUT /environments/{Name}",
@@ -11874,7 +11703,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "neptune.amazonaws.com",
     endpointPrefix: "rds",
     protocol: "awsQuery",
-    targetPrefix: "",
   },
   neptunegraph: {
     sdkId: "Neptune Graph",
@@ -11883,7 +11711,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "neptune-graph.amazonaws.com",
     endpointPrefix: "",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       CancelQuery: "DELETE /queries/{queryId}",
       ExecuteQuery: {
@@ -11933,7 +11760,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "neptune-db.amazonaws.com",
     endpointPrefix: "",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       CancelGremlinQuery: "DELETE /gremlin/status/{queryId}",
       CancelLoaderJob: "DELETE /loader/{loadId}",
@@ -12031,7 +11857,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "networkflowmonitor.amazonaws.com",
     endpointPrefix: "",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       ListTagsForResource: "GET /tags/{resourceArn}",
       TagResource: "POST /tags/{resourceArn}",
@@ -12079,7 +11904,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "networkmanager.amazonaws.com",
     endpointPrefix: "networkmanager",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       AcceptAttachment: "POST /attachments/{AttachmentId}/accept",
       AssociateConnectPeer:
@@ -12220,7 +12044,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "networkmonitor.amazonaws.com",
     endpointPrefix: "",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       ListTagsForResource: "GET /tags/{resourceArn}",
       TagResource: "POST /tags/{resourceArn}",
@@ -12243,7 +12066,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "notifications.amazonaws.com",
     endpointPrefix: "notifications",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       ListManagedNotificationChannelAssociations:
         "GET /channels/list-managed-notification-channel-associations",
@@ -12300,7 +12122,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "notifications-contacts.amazonaws.com",
     endpointPrefix: "notifications-contacts",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       ListTagsForResource: "GET /tags/{arn}",
       TagResource: "POST /tags/{arn}",
@@ -12320,7 +12141,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "{{CLOUD_TRAIL_EVENT_SOURCE}}",
     endpointPrefix: "",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       CreateLink: "POST /CreateLink",
       CreateSink: "POST /CreateSink",
@@ -12346,7 +12166,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "observabilityadmin.amazonaws.com",
     endpointPrefix: "",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       CreateTelemetryRule: "POST /CreateTelemetryRule",
       CreateTelemetryRuleForOrganization:
@@ -12395,7 +12214,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "omics.amazonaws.com",
     endpointPrefix: "",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       DeleteS3AccessPolicy: "DELETE /s3accesspolicy/{s3AccessPointArn}",
       GetS3AccessPolicy: "GET /s3accesspolicy/{s3AccessPointArn}",
@@ -12535,7 +12353,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "opensearch.amazonaws.com",
     endpointPrefix: "es",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       AcceptInboundConnection:
         "PUT /2021-01-01/opensearch/cc/inboundConnection/{ConnectionId}/accept",
@@ -12703,7 +12520,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "osis.amazonaws.com",
     endpointPrefix: "osis",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       CreatePipeline: "POST /2022-01-01/osis/createPipeline",
       DeletePipeline: "DELETE /2022-01-01/osis/deletePipeline/{PipelineName}",
@@ -12730,7 +12546,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "outposts.amazonaws.com",
     endpointPrefix: "outposts",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       CancelCapacityTask:
         "POST /outposts/{OutpostIdentifier}/capacity/{CapacityTaskId}",
@@ -12781,7 +12596,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "panorama.amazonaws.com",
     endpointPrefix: "",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       CreateApplicationInstance: "POST /application-instances",
       CreateJobForDevices: "POST /jobs",
@@ -12853,7 +12667,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "",
     endpointPrefix: "dataplane.payment-cryptography",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       DecryptData: "POST /keys/{KeyIdentifier}/decrypt",
       EncryptData: "POST /keys/{KeyIdentifier}/encrypt",
@@ -12876,7 +12689,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "pca-connector-ad.amazonaws.com",
     endpointPrefix: "",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       ListTagsForResource: "GET /tags/{ResourceArn}",
       TagResource: "POST /tags/{ResourceArn}",
@@ -12923,7 +12735,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "pca-connector-scep.amazonaws.com",
     endpointPrefix: "",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       ListTagsForResource: "GET /tags/{ResourceArn}",
       TagResource: "POST /tags/{ResourceArn}",
@@ -12964,7 +12775,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "personalizeevents.amazonaws.com",
     endpointPrefix: "personalize-events",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       PutActionInteractions: "POST /action-interactions",
       PutActions: "POST /actions",
@@ -12980,7 +12790,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "personalizeruntime.amazonaws.com",
     endpointPrefix: "personalize-runtime",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       GetActionRecommendations: "POST /action-recommendations",
       GetPersonalizedRanking: "POST /personalize-ranking",
@@ -13003,7 +12812,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "pinpoint.amazonaws.com",
     endpointPrefix: "pinpoint",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       CreateApp: {
         http: "POST /v1/apps",
@@ -13736,7 +13544,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "pinpointemail.amazonaws.com",
     endpointPrefix: "email",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       CreateConfigurationSet: "POST /v1/email/configuration-sets",
       CreateConfigurationSetEventDestination:
@@ -13812,7 +13619,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "pinpointsmsvoice.amazonaws.com",
     endpointPrefix: "sms-voice.pinpoint",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       CreateConfigurationSet: "POST /v1/sms-voice/configuration-sets",
       CreateConfigurationSetEventDestination:
@@ -13845,7 +13651,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "pipes.amazonaws.com",
     endpointPrefix: "pipes",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       ListTagsForResource: "GET /tags/{resourceArn}",
       TagResource: "POST /tags/{resourceArn}",
@@ -13866,7 +13671,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "polly.amazonaws.com",
     endpointPrefix: "polly",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       DeleteLexicon: "DELETE /v1/lexicons/{Name}",
       DescribeVoices: "GET /v1/voices",
@@ -13902,7 +13706,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "private-networks.amazonaws.com",
     endpointPrefix: "",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       AcknowledgeOrderReceipt: "POST /v1/orders/acknowledge",
       ActivateDeviceIdentifier: "POST /v1/device-identifiers/activate",
@@ -13948,7 +13751,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "qapps.amazonaws.com",
     endpointPrefix: "data.qapps",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       AssociateLibraryItemReview: "POST /catalog.associateItemRating",
       AssociateQAppWithUser: "POST /apps.install",
@@ -13994,7 +13796,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "qbusiness.amazonaws.com",
     endpointPrefix: "",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       AssociatePermission: "POST /applications/{applicationId}/policy",
       BatchDeleteDocument:
@@ -14134,7 +13935,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "wisdom.amazonaws.com",
     endpointPrefix: "",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       ListTagsForResource: "GET /tags/{resourceArn}",
       TagResource: "POST /tags/{resourceArn}",
@@ -14289,7 +14089,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "qldb.amazonaws.com",
     endpointPrefix: "qldb",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       CancelJournalKinesisStream:
         "DELETE /ledgers/{LedgerName}/journal-kinesis-streams/{StreamId}",
@@ -14334,7 +14133,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "quicksight.amazonaws.com",
     endpointPrefix: "quicksight",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       BatchCreateTopicReviewedAnswer: {
         http: "POST /accounts/{AwsAccountId}/topics/{TopicId}/batch-create-reviewed-answers",
@@ -15488,7 +15286,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "ram.amazonaws.com",
     endpointPrefix: "ram",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       AcceptResourceShareInvitation: "POST /acceptresourceshareinvitation",
       AssociateResourceShare: "POST /associateresourceshare",
@@ -15539,7 +15336,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "rbin.amazonaws.com",
     endpointPrefix: "rbin",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       CreateRule: "POST /rules",
       DeleteRule: "DELETE /rules/{Identifier}",
@@ -15560,7 +15356,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "rds.amazonaws.com",
     endpointPrefix: "rds",
     protocol: "awsQuery",
-    targetPrefix: "",
   },
   rdsdata: {
     sdkId: "RDS Data",
@@ -15569,7 +15364,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "rds-data.amazonaws.com",
     endpointPrefix: "",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       BatchExecuteStatement: "POST /BatchExecute",
       BeginTransaction: "POST /BeginTransaction",
@@ -15586,7 +15380,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "redshift.amazonaws.com",
     endpointPrefix: "redshift",
     protocol: "awsQuery",
-    targetPrefix: "",
   },
   redshiftdata: {
     sdkId: "Redshift Data",
@@ -15622,7 +15415,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "repostspace.amazonaws.com",
     endpointPrefix: "",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       BatchAddChannelRoleToAccessors:
         "POST /spaces/{spaceId}/channels/{channelId}/roles",
@@ -15654,7 +15446,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "resiliencehub.amazonaws.com",
     endpointPrefix: "resiliencehub",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       AcceptResourceGroupingRecommendations:
         "POST /accept-resource-grouping-recommendations",
@@ -15746,7 +15537,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "resource-explorer-2.amazonaws.com",
     endpointPrefix: "resource-explorer-2",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       BatchGetView: "POST /BatchGetView",
       DisassociateDefaultView: "POST /DisassociateDefaultView",
@@ -15782,7 +15572,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "resourcegroups.amazonaws.com",
     endpointPrefix: "resource-groups",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       CancelTagSyncTask: "POST /cancel-tag-sync-task",
       CreateGroup: "POST /groups",
@@ -15825,7 +15614,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "robomaker.amazonaws.com",
     endpointPrefix: "robomaker",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       BatchDeleteWorlds: "POST /batchDeleteWorlds",
       BatchDescribeSimulationJob: "POST /batchDescribeSimulationJob",
@@ -15894,7 +15682,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "rolesanywhere.amazonaws.com",
     endpointPrefix: "",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       ListTagsForResource: "GET /ListTagsForResource",
       PutNotificationSettings: "PATCH /put-notifications-settings",
@@ -15935,7 +15722,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "route53.amazonaws.com",
     endpointPrefix: "route53",
     protocol: "restXml",
-    targetPrefix: "",
     operations: {
       CreateCidrCollection: {
         traits: {
@@ -16009,7 +15795,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "route53recoverycontrolconfig.amazonaws.com",
     endpointPrefix: "route53-recovery-control-config",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       CreateCluster: "POST /cluster",
       CreateControlPanel: "POST /controlpanel",
@@ -16047,7 +15832,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "route53-recovery-readiness.amazonaws.com",
     endpointPrefix: "route53-recovery-readiness",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       CreateCell: "POST /cells",
       CreateCrossAccountAuthorization: "POST /crossaccountauthorizations",
@@ -16095,7 +15879,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "route53profiles.amazonaws.com",
     endpointPrefix: "",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       AssociateProfile: "POST /profileassociation",
       AssociateResourceToProfile: "POST /profileresourceassociation",
@@ -16136,7 +15919,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "rum.amazonaws.com",
     endpointPrefix: "",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       ListTagsForResource: "GET /tags/{ResourceArn}",
       PutRumEvents: "POST /appmonitors/{Id}/",
@@ -16172,7 +15954,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "s3.amazonaws.com",
     endpointPrefix: "s3",
     protocol: "restXml",
-    targetPrefix: "",
     operations: {
       AbortMultipartUpload: {
         traits: {
@@ -16585,7 +16366,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "s3control.amazonaws.com",
     endpointPrefix: "s3-control",
     protocol: "restXml",
-    targetPrefix: "",
     operations: {
       CreateBucket: {
         traits: {
@@ -16616,7 +16396,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "s3outposts.amazonaws.com",
     endpointPrefix: "s3-outposts",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       CreateEndpoint: "POST /S3Outposts/CreateEndpoint",
       DeleteEndpoint: "DELETE /S3Outposts/DeleteEndpoint",
@@ -16632,7 +16411,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "s3tables.amazonaws.com",
     endpointPrefix: "",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       CreateNamespace: "PUT /namespaces/{tableBucketARN}",
       CreateTable: "PUT /tables/{tableBucketARN}/{namespace}",
@@ -16683,7 +16461,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "s3vectors.amazonaws.com",
     endpointPrefix: "s3vectors",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       CreateIndex: "POST /CreateIndex",
       CreateVectorBucket: "POST /CreateVectorBucket",
@@ -16719,7 +16496,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "sagemakera2iruntime.amazonaws.com",
     endpointPrefix: "a2i-runtime.sagemaker",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       DeleteHumanLoop: "DELETE /human-loops/{HumanLoopName}",
       DescribeHumanLoop: "GET /human-loops/{HumanLoopName}",
@@ -16735,7 +16511,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "sagemakeredge.amazonaws.com",
     endpointPrefix: "edge.sagemaker",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       GetDeployments: "POST /GetDeployments",
       GetDeviceRegistration: "POST /GetDeviceRegistration",
@@ -16749,7 +16524,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "sagemakerfeaturestoreruntime.amazonaws.com",
     endpointPrefix: "featurestore-runtime.sagemaker",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       BatchGetRecord: "POST /BatchGetRecord",
       DeleteRecord: "DELETE /FeatureGroup/{FeatureGroupName}",
@@ -16764,7 +16538,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "sagemaker-geospatial.amazonaws.com",
     endpointPrefix: "",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       ListTagsForResource: "GET /tags/{ResourceArn}",
       TagResource: "PUT /tags/{ResourceArn}",
@@ -16799,7 +16572,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "sagemakermetrics.amazonaws.com",
     endpointPrefix: "metrics.sagemaker",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       BatchGetMetrics: "POST /BatchGetMetrics",
       BatchPutMetrics: "PUT /BatchPutMetrics",
@@ -16812,7 +16584,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "sagemakerruntime.amazonaws.com",
     endpointPrefix: "runtime.sagemaker",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       InvokeEndpoint: {
         http: "POST /endpoints/{EndpointName}/invocations",
@@ -16850,7 +16621,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "savingsplans.amazonaws.com",
     endpointPrefix: "savingsplans",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       CreateSavingsPlan: "POST /CreateSavingsPlan",
       DeleteQueuedSavingsPlan: "POST /DeleteQueuedSavingsPlan",
@@ -16872,7 +16642,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "scheduler.amazonaws.com",
     endpointPrefix: "",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       ListTagsForResource: "GET /tags/{ResourceArn}",
       TagResource: "POST /tags/{ResourceArn}",
@@ -16895,7 +16664,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "schemas.amazonaws.com",
     endpointPrefix: "schemas",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       CreateDiscoverer: "POST /v1/discoverers",
       CreateRegistry: "POST /v1/registries/name/{RegistryName}",
@@ -16960,7 +16728,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "security-ir.amazonaws.com",
     endpointPrefix: "",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       ListTagsForResource: "GET /v1/tags/{resourceArn}",
       TagResource: "POST /v1/tags/{resourceArn}",
@@ -16996,7 +16763,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "securityhub.amazonaws.com",
     endpointPrefix: "securityhub",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       AcceptAdministratorInvitation: "POST /administrator",
       AcceptInvitation: "POST /master",
@@ -17121,7 +16887,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "securitylake.amazonaws.com",
     endpointPrefix: "",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       CreateDataLakeExceptionSubscription:
         "POST /v1/datalake/exceptions/subscription",
@@ -17174,7 +16939,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "serverlessapplicationrepository.amazonaws.com",
     endpointPrefix: "serverlessrepo",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       CreateApplication: "POST /applications",
       CreateApplicationVersion:
@@ -17213,7 +16977,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "servicecatalogappregistry.amazonaws.com",
     endpointPrefix: "servicecatalog-appregistry",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       AssociateAttributeGroup:
         "PUT /applications/{application}/attribute-groups/{attributeGroup}",
@@ -17273,7 +17036,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "ses.amazonaws.com",
     endpointPrefix: "email",
     protocol: "awsQuery",
-    targetPrefix: "",
   },
   sesv2: {
     sdkId: "SESv2",
@@ -17282,7 +17044,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "sesv2.amazonaws.com",
     endpointPrefix: "email",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       BatchGetMetricData: "POST /v2/email/metrics/batch",
       CancelExportJob: "PUT /v2/email/export-jobs/{JobId}/cancel",
@@ -17471,7 +17232,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "signer.amazonaws.com",
     endpointPrefix: "signer",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       AddProfilePermission: "POST /signing-profiles/{profileName}/permissions",
       CancelSigningProfile: "DELETE /signing-profiles/{profileName}",
@@ -17502,7 +17262,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "simspaceweaver.amazonaws.com",
     endpointPrefix: "simspaceweaver",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       ListTagsForResource: "GET /tags/{ResourceArn}",
       TagResource: "POST /tags/{ResourceArn}",
@@ -17538,7 +17297,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "snow-device-management.amazonaws.com",
     endpointPrefix: "",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       ListTagsForResource: "GET /tags/{resourceArn}",
       TagResource: "POST /tags/{resourceArn}",
@@ -17572,7 +17330,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "sns.amazonaws.com",
     endpointPrefix: "sns",
     protocol: "awsQuery",
-    targetPrefix: "",
   },
   socialmessaging: {
     sdkId: "SocialMessaging",
@@ -17581,7 +17338,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "social-messaging.amazonaws.com",
     endpointPrefix: "social-messaging",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       CreateWhatsAppMessageTemplate: "POST /v1/whatsapp/template/put",
       CreateWhatsAppMessageTemplateFromLibrary:
@@ -17644,7 +17400,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "ssm-guiconnect.amazonaws.com",
     endpointPrefix: "",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       DeleteConnectionRecordingPreferences:
         "POST /DeleteConnectionRecordingPreferences",
@@ -17661,7 +17416,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "ssm-incidents.amazonaws.com",
     endpointPrefix: "",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       BatchGetIncidentFindings: "POST /batchGetIncidentFindings",
       CreateReplicationSet: "POST /createReplicationSet",
@@ -17703,7 +17457,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "ssm-quicksetup.amazonaws.com",
     endpointPrefix: "",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       CreateConfigurationManager: "POST /configurationManager",
       DeleteConfigurationManager: "DELETE /configurationManager/{ManagerArn}",
@@ -17729,7 +17482,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "ssm-sap.amazonaws.com",
     endpointPrefix: "ssm-sap",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       DeleteResourcePermission: "POST /delete-resource-permission",
       DeregisterApplication: "POST /deregister-application",
@@ -17761,7 +17513,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "sso.amazonaws.com",
     endpointPrefix: "portal.sso",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       GetRoleCredentials: "GET /federation/credentials",
       ListAccountRoles: "GET /assignment/roles",
@@ -17785,7 +17536,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "ssooidc.amazonaws.com",
     endpointPrefix: "oidc",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       CreateToken: "POST /token",
       CreateTokenWithIAM: "POST /token?aws_iam=t",
@@ -17809,7 +17559,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "sts.amazonaws.com",
     endpointPrefix: "sts",
     protocol: "awsQuery",
-    targetPrefix: "",
   },
   supplychain: {
     sdkId: "SupplyChain",
@@ -17818,7 +17567,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "scn.amazonaws.com",
     endpointPrefix: "scn",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       GetDataIntegrationEvent:
         "GET /api-data/data-integration/instance/{instanceId}/data-integration-events/{eventId}",
@@ -17890,7 +17638,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "supportapp.amazonaws.com",
     endpointPrefix: "",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       CreateSlackChannelConfiguration:
         "POST /control/create-slack-channel-configuration",
@@ -17927,7 +17674,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "synthetics.amazonaws.com",
     endpointPrefix: "synthetics",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       AssociateResource: "PATCH /group/{GroupIdentifier}/associate",
       CreateCanary: "POST /canary",
@@ -17960,7 +17706,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "tax.amazonaws.com",
     endpointPrefix: "",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       BatchDeleteTaxRegistration: "POST /BatchDeleteTaxRegistration",
       BatchGetTaxExemptions: "POST /BatchGetTaxExemptions",
@@ -18025,7 +17770,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "tnb.amazonaws.com",
     endpointPrefix: "",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       CancelSolNetworkOperation:
         "POST /sol/nslcm/v1/ns_lcm_op_occs/{nsLcmOpOccId}/cancel",
@@ -18113,7 +17857,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "transcribestreaming.amazonaws.com",
     endpointPrefix: "transcribestreaming",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       GetMedicalScribeStream: "GET /medical-scribe-stream/{SessionId}",
       StartCallAnalyticsStreamTranscription: {
@@ -18231,7 +17974,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "trustedadvisor.amazonaws.com",
     endpointPrefix: "",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       BatchUpdateRecommendationResourceExclusion:
         "PUT /v1/batch-update-recommendation-resource-exclusion",
@@ -18278,7 +18020,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "vpc-lattice.amazonaws.com",
     endpointPrefix: "",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       BatchUpdateRule:
         "PATCH /services/{serviceIdentifier}/listeners/{listenerIdentifier}/rules",
@@ -18418,7 +18159,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "wellarchitected.amazonaws.com",
     endpointPrefix: "wellarchitected",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       AssociateLenses: "PATCH /workloads/{WorkloadId}/associateLenses",
       AssociateProfiles: "PATCH /workloads/{WorkloadId}/associateProfiles",
@@ -18515,7 +18255,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "wisdom.amazonaws.com",
     endpointPrefix: "",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       ListTagsForResource: "GET /tags/{resourceArn}",
       TagResource: "POST /tags/{resourceArn}",
@@ -18584,7 +18323,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "workdocs.amazonaws.com",
     endpointPrefix: "workdocs",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       AbortDocumentVersionUpload:
         "DELETE /api/v1/documents/{DocumentId}/versions/{VersionId}",
@@ -18663,7 +18401,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "workmailmessageflow.amazonaws.com",
     endpointPrefix: "workmailmessageflow",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       GetRawMessageContent: {
         http: "GET /messages/{messageId}",
@@ -18699,7 +18436,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "thinclient.amazonaws.com",
     endpointPrefix: "",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       CreateEnvironment: "POST /environments",
       DeleteDevice: "DELETE /devices/{id}",
@@ -18726,7 +18462,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "workspaces-web.amazonaws.com",
     endpointPrefix: "workspaces-web",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       ExpireSession: "DELETE /portals/{portalId}/sessions/{sessionId}",
       GetSession: "GET /portals/{portalId}/sessions/{sessionId}",
@@ -18827,7 +18562,6 @@ export const serviceMetadata = {
     cloudTrailEventSource: "xray.amazonaws.com",
     endpointPrefix: "xray",
     protocol: "restJson1",
-    targetPrefix: "",
     operations: {
       BatchGetTraces: "POST /Traces",
       CancelTraceRetrieval: "POST /CancelTraceRetrieval",
