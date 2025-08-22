@@ -1,6 +1,6 @@
 import { describe, expect, it } from "@effect/vitest";
-import { Console, Effect, Schedule } from "effect";
 import AdmZip from "adm-zip";
+import { Console, Effect, Schedule } from "effect";
 import { AWS } from "../../src/index.ts";
 
 describe("Lambda Smoke Tests", () => {
@@ -24,7 +24,6 @@ describe("Lambda Smoke Tests", () => {
     client.getFunction({ FunctionName: functionName }).pipe(
       Effect.flatMap(() => Effect.fail("FunctionStillExists" as const)),
       Effect.catchTag("ResourceNotFoundException", () => Effect.void),
-      Effect.catchAll(() => Effect.void),
       Effect.retry({ schedule: Schedule.spaced("2 seconds"), times: 30 }),
     );
 
@@ -36,11 +35,9 @@ describe("Lambda Smoke Tests", () => {
             Console.log(`Cleaned up existing function: ${functionName}`),
           ),
           Effect.flatMap(() => waitForFunctionDeleted(functionName)),
-          Effect.catchAll(() => Effect.void),
         ),
       ),
       Effect.catchTag("ResourceNotFoundException", () => Effect.void),
-      Effect.catchAll(() => Effect.void),
     );
 
   it.live(
