@@ -201,7 +201,9 @@ exports.handler = async (event) => {
         yield* Console.log("Function configuration updated successfully");
 
         // Wait for function to be active after configuration update
-        yield* Console.log("Waiting for function to be active after configuration update...");
+        yield* Console.log(
+          "Waiting for function to be active after configuration update...",
+        );
         yield* waitForFunctionActive(testFunctionName);
         yield* Console.log("Function is active after configuration update");
 
@@ -227,16 +229,18 @@ exports.handler = async (event) => {
         updatedZip.addFile("index.js", Buffer.from(updatedCode));
         const updatedZipBuffer = updatedZip.toBuffer();
 
-        const updateCodeResult = yield* client.updateFunctionCode({
-          FunctionName: testFunctionName,
-          ZipFile: updatedZipBuffer,
-        }).pipe(
-          Effect.retry({
-            schedule: Schedule.spaced("2 seconds"),
-            times: 30,
-            while: (error) => error._tag === "ResourceConflictException"
+        const updateCodeResult = yield* client
+          .updateFunctionCode({
+            FunctionName: testFunctionName,
+            ZipFile: updatedZipBuffer,
           })
-        );
+          .pipe(
+            Effect.retry({
+              schedule: Schedule.spaced("2 seconds"),
+              times: 30,
+              while: (error) => error._tag === "ResourceConflictException",
+            }),
+          );
 
         expect(updateCodeResult.FunctionName).toBe(testFunctionName);
         expect(updateCodeResult.CodeSha256).toBeDefined();
@@ -244,7 +248,9 @@ exports.handler = async (event) => {
         yield* Console.log("Function code updated successfully");
 
         // Wait for function to be active after code update
-        yield* Console.log("Waiting for function to be active after code update...");
+        yield* Console.log(
+          "Waiting for function to be active after code update...",
+        );
         yield* waitForFunctionActive(testFunctionName);
         yield* Console.log("Function is active after code update");
 
