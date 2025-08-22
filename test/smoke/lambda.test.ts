@@ -230,7 +230,13 @@ exports.handler = async (event) => {
         const updateCodeResult = yield* client.updateFunctionCode({
           FunctionName: testFunctionName,
           ZipFile: updatedZipBuffer,
-        });
+        }).pipe(
+          Effect.retry({
+            schedule: Schedule.spaced("2 seconds"),
+            times: 30,
+            while: (error) => error._tag === "ResourceConflictException"
+          })
+        );
 
         expect(updateCodeResult.FunctionName).toBe(testFunctionName);
         expect(updateCodeResult.CodeSha256).toBeDefined();
