@@ -517,7 +517,11 @@ const generateEnumType = (
   let code = doc ? `${doc}\n` : "";
 
   if (shape.members) {
-    const enumValues = Object.keys(shape.members).map((key) => `"${key}"`);
+    const enumValues = Object.entries(shape.members).map(([key, member]) => {
+      // Use smithy.api#enumValue trait if present, otherwise fallback to key
+      const enumValue = (member as any).traits?.["smithy.api#enumValue"] || key;
+      return `"${enumValue}"`;
+    });
     code += `export type ${name} = ${enumValues.join(" | ")};`;
   } else {
     code += `export type ${name} = never;`;
