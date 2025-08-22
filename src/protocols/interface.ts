@@ -38,6 +38,8 @@ export interface ProtocolHandler {
     responseText: string,
     statusCode: number,
     metadata?: ServiceMetadata,
+    headers?: Headers,
+    action?: string,
   ): unknown;
   parseError(
     responseText: string,

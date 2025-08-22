@@ -1072,16 +1072,67 @@ const generateServiceCode = (serviceName: string, manifest: Manifest) =>
       code += "}\n\n";
     }
 
-    // Extract operation HTTP mappings for restJson1 services
-    let operationMappings: Record<string, string> = {};
+    // Extract operation HTTP mappings and trait mappings
+    let operationMappings: Record<string, any> = {};
+
+    // Helper to extract HTTP traits from shape members
+    const extractHttpTraits = (shapeId: string) => {
+      const shape = manifest.shapes[shapeId];
+      if (!shape || shape.type !== "structure" || !shape.members) {
+        return {};
+      }
+
+      const traits: Record<string, string> = {};
+      for (const [fieldName, member] of Object.entries(shape.members)) {
+        const memberTraits = (member as any).traits;
+        if (memberTraits) {
+          if (memberTraits["smithy.api#httpPayload"]) {
+            traits[fieldName] = "httpPayload";
+          } else if (memberTraits["smithy.api#httpResponseCode"]) {
+            traits[fieldName] = "httpResponseCode";
+          } else if (memberTraits["smithy.api#httpHeader"]) {
+            traits[fieldName] = memberTraits["smithy.api#httpHeader"];
+          }
+        }
+      }
+      return traits;
+    };
 
     if (protocol === "restJson1") {
       for (const operation of operations) {
         const httpTrait = operation.shape.traits?.["smithy.api#http"];
         if (httpTrait) {
           const { method, uri } = httpTrait;
-          // Store all operations - restJson1 requires explicit HTTP mappings
-          operationMappings[operation.name] = `${method} ${uri}`;
+          const httpMapping = `${method} ${uri}`;
+
+          // Check if this operation's output has HTTP traits
+          const outputTraits = operation.shape.output
+            ? extractHttpTraits(operation.shape.output.target)
+            : {};
+
+          if (Object.keys(outputTraits).length > 0) {
+            // Store both HTTP mapping and trait mappings
+            operationMappings[operation.name] = {
+              http: httpMapping,
+              traits: outputTraits,
+            };
+          } else {
+            // Store just HTTP mapping (existing behavior)
+            operationMappings[operation.name] = httpMapping;
+          }
+        }
+      }
+    } else {
+      // For non-restJson1 protocols, only check for trait mappings
+      for (const operation of operations) {
+        const outputTraits = operation.shape.output
+          ? extractHttpTraits(operation.shape.output.target)
+          : {};
+
+        if (Object.keys(outputTraits).length > 0) {
+          operationMappings[operation.name] = {
+            traits: outputTraits,
+          };
         }
       }
     }
@@ -1137,7 +1188,24 @@ export const serviceMetadata = {\n`;
       if (meta.operations) {
         code += "    operations: {\n";
         Object.entries(meta.operations).forEach(([opName, opSpec]) => {
-          code += `      "${opName}": "${opSpec}",\n`;
+          if (typeof opSpec === "string") {
+            // Simple HTTP mapping (existing behavior)
+            code += `      "${opName}": "${opSpec}",\n`;
+          } else {
+            // Complex mapping with traits
+            code += `      "${opName}": {\n`;
+            if (opSpec.http) {
+              code += `        http: "${opSpec.http}",\n`;
+            }
+            if (opSpec.traits) {
+              code += "        traits: {\n";
+              Object.entries(opSpec.traits).forEach(([fieldName, trait]) => {
+                code += `          "${fieldName}": "${trait}",\n`;
+              });
+              code += "        },\n";
+            }
+            code += "      },\n";
+          }
         });
         code += "    },\n";
       }

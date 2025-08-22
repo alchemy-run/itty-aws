@@ -45,17 +45,40 @@ export class RestJson1Handler implements ProtocolHandler {
   parseResponse(
     responseText: string,
     statusCode: number,
-    _metadata?: ServiceMetadata,
+    metadata?: ServiceMetadata,
+    headers?: Headers,
+    action?: string,
   ): unknown {
-    if (!responseText) return { StatusCode: statusCode };
+    // Check if this operation has special HTTP trait mappings
+    const operationTraits =
+      metadata && action && (metadata as any).operations?.[action]?.traits;
+
+    if (operationTraits) {
+      // Handle operations with @httpPayload, @httpHeader, @httpResponseCode traits
+      const result: any = {};
+
+      // Process each field based on its trait
+      for (const [fieldName, trait] of Object.entries(operationTraits)) {
+        if (trait === "httpPayload") {
+          // Field gets the entire response body
+          result[fieldName] = responseText || "";
+        } else if (trait === "httpResponseCode") {
+          // Field gets the HTTP status code
+          result[fieldName] = statusCode;
+        } else if (typeof trait === "string" && trait.includes("-")) {
+          // Field gets value from HTTP header (trait is the header name)
+          result[fieldName] = headers?.get(trait);
+        }
+      }
+
+      return result;
+    }
+
+    // Standard JSON response handling for operations without special traits
+    if (!responseText) return {};
     try {
       const parsed = JSON.parse(responseText);
-      const result = this.removeNulls(parsed);
-      // For responses that need status code (like Lambda invoke), include it
-      if (typeof result === 'object' && result !== null) {
-        (result as any).StatusCode = statusCode;
-      }
-      return result;
+      return this.removeNulls(parsed);
     } catch {
       // If response isn't JSON, return as-is (could be binary data)
       return responseText;

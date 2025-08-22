@@ -149,11 +149,19 @@ export function createServiceProxy<T>(
               const operationSpec = (metadata as any).operations?.[action];
 
               if (operationSpec) {
-                // Parse "METHOD /path/with/{params}" format
-                const spaceIndex = operationSpec.indexOf(" ");
-                if (spaceIndex > 0) {
-                  httpMethod = operationSpec.substring(0, spaceIndex);
-                  uriPath = operationSpec.substring(spaceIndex + 1);
+                // Handle both string and object operation specs
+                const httpSpec =
+                  typeof operationSpec === "string"
+                    ? operationSpec
+                    : operationSpec.http;
+
+                if (httpSpec) {
+                  // Parse "METHOD /path/with/{params}" format
+                  const spaceIndex = httpSpec.indexOf(" ");
+                  if (spaceIndex > 0) {
+                    httpMethod = httpSpec.substring(0, spaceIndex);
+                    uriPath = httpSpec.substring(spaceIndex + 1);
+                  }
                 }
               }
 
@@ -248,7 +256,13 @@ export function createServiceProxy<T>(
             if (statusCode >= 200 && statusCode < 300) {
               // Success
               if (!responseText) return {};
-              return protocolHandler.parseResponse(responseText, statusCode, metadata);
+              return protocolHandler.parseResponse(
+                responseText,
+                statusCode,
+                metadata,
+                response.headers,
+                action,
+              );
             } else {
               // Error handling - now standardized across all protocols
               const parsedError = protocolHandler.parseError(

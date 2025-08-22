@@ -302,10 +302,24 @@ export const serviceMetadata = {
       RefreshToken: "POST /tokens/{provider}/refresh",
       TagResource: "POST /tags/{resourceArn}",
       UntagResource: "DELETE /tags/{resourceArn}",
-      CreateComponent:
-        "POST /app/{appId}/environment/{environmentName}/components",
-      CreateForm: "POST /app/{appId}/environment/{environmentName}/forms",
-      CreateTheme: "POST /app/{appId}/environment/{environmentName}/themes",
+      CreateComponent: {
+        http: "POST /app/{appId}/environment/{environmentName}/components",
+        traits: {
+          entity: "httpPayload",
+        },
+      },
+      CreateForm: {
+        http: "POST /app/{appId}/environment/{environmentName}/forms",
+        traits: {
+          entity: "httpPayload",
+        },
+      },
+      CreateTheme: {
+        http: "POST /app/{appId}/environment/{environmentName}/themes",
+        traits: {
+          entity: "httpPayload",
+        },
+      },
       DeleteComponent:
         "DELETE /app/{appId}/environment/{environmentName}/components/{id}",
       DeleteForm:
@@ -318,25 +332,60 @@ export const serviceMetadata = {
         "GET /export/app/{appId}/environment/{environmentName}/forms",
       ExportThemes:
         "GET /export/app/{appId}/environment/{environmentName}/themes",
-      GetCodegenJob:
-        "GET /app/{appId}/environment/{environmentName}/codegen-jobs/{id}",
-      GetComponent:
-        "GET /app/{appId}/environment/{environmentName}/components/{id}",
-      GetForm: "GET /app/{appId}/environment/{environmentName}/forms/{id}",
-      GetTheme: "GET /app/{appId}/environment/{environmentName}/themes/{id}",
+      GetCodegenJob: {
+        http: "GET /app/{appId}/environment/{environmentName}/codegen-jobs/{id}",
+        traits: {
+          job: "httpPayload",
+        },
+      },
+      GetComponent: {
+        http: "GET /app/{appId}/environment/{environmentName}/components/{id}",
+        traits: {
+          component: "httpPayload",
+        },
+      },
+      GetForm: {
+        http: "GET /app/{appId}/environment/{environmentName}/forms/{id}",
+        traits: {
+          form: "httpPayload",
+        },
+      },
+      GetTheme: {
+        http: "GET /app/{appId}/environment/{environmentName}/themes/{id}",
+        traits: {
+          theme: "httpPayload",
+        },
+      },
       ListCodegenJobs:
         "GET /app/{appId}/environment/{environmentName}/codegen-jobs",
       ListComponents:
         "GET /app/{appId}/environment/{environmentName}/components",
       ListForms: "GET /app/{appId}/environment/{environmentName}/forms",
       ListThemes: "GET /app/{appId}/environment/{environmentName}/themes",
-      StartCodegenJob:
-        "POST /app/{appId}/environment/{environmentName}/codegen-jobs",
-      UpdateComponent:
-        "PATCH /app/{appId}/environment/{environmentName}/components/{id}",
-      UpdateForm: "PATCH /app/{appId}/environment/{environmentName}/forms/{id}",
-      UpdateTheme:
-        "PATCH /app/{appId}/environment/{environmentName}/themes/{id}",
+      StartCodegenJob: {
+        http: "POST /app/{appId}/environment/{environmentName}/codegen-jobs",
+        traits: {
+          entity: "httpPayload",
+        },
+      },
+      UpdateComponent: {
+        http: "PATCH /app/{appId}/environment/{environmentName}/components/{id}",
+        traits: {
+          entity: "httpPayload",
+        },
+      },
+      UpdateForm: {
+        http: "PATCH /app/{appId}/environment/{environmentName}/forms/{id}",
+        traits: {
+          entity: "httpPayload",
+        },
+      },
+      UpdateTheme: {
+        http: "PATCH /app/{appId}/environment/{environmentName}/themes/{id}",
+        traits: {
+          entity: "httpPayload",
+        },
+      },
     },
   },
   apigateway: {
@@ -427,8 +476,14 @@ export const serviceMetadata = {
       GetDomainName: "GET /domainnames/{domainName}",
       GetDomainNameAccessAssociations: "GET /domainnameaccessassociations",
       GetDomainNames: "GET /domainnames",
-      GetExport:
-        "GET /restapis/{restApiId}/stages/{stageName}/exports/{exportType}",
+      GetExport: {
+        http: "GET /restapis/{restApiId}/stages/{stageName}/exports/{exportType}",
+        traits: {
+          contentType: "Content-Type",
+          contentDisposition: "Content-Disposition",
+          body: "httpPayload",
+        },
+      },
       GetGatewayResponse:
         "GET /restapis/{restApiId}/gatewayresponses/{responseType}",
       GetGatewayResponses: "GET /restapis/{restApiId}/gatewayresponses",
@@ -451,7 +506,14 @@ export const serviceMetadata = {
       GetResources: "GET /restapis/{restApiId}/resources",
       GetRestApi: "GET /restapis/{restApiId}",
       GetRestApis: "GET /restapis",
-      GetSdk: "GET /restapis/{restApiId}/stages/{stageName}/sdks/{sdkType}",
+      GetSdk: {
+        http: "GET /restapis/{restApiId}/stages/{stageName}/sdks/{sdkType}",
+        traits: {
+          contentType: "Content-Type",
+          contentDisposition: "Content-Disposition",
+          body: "httpPayload",
+        },
+      },
       GetSdkType: "GET /sdktypes/{id}",
       GetSdkTypes: "GET /sdktypes",
       GetStage: "GET /restapis/{restApiId}/stages/{stageName}",
@@ -584,7 +646,12 @@ export const serviceMetadata = {
         "DELETE /v2/domainnames/{DomainName}/routingrules/{RoutingRuleId}",
       DeleteStage: "DELETE /v2/apis/{ApiId}/stages/{StageName}",
       DeleteVpcLink: "DELETE /v2/vpclinks/{VpcLinkId}",
-      ExportApi: "GET /v2/apis/{ApiId}/exports/{Specification}",
+      ExportApi: {
+        http: "GET /v2/apis/{ApiId}/exports/{Specification}",
+        traits: {
+          body: "httpPayload",
+        },
+      },
       GetApi: "GET /v2/apis/{ApiId}",
       GetApiMapping:
         "GET /v2/domainnames/{DomainName}/apimappings/{ApiMappingId}",
@@ -655,41 +722,132 @@ export const serviceMetadata = {
       ListTagsForResource: "GET /v20190125/tags",
       TagResource: "PUT /v20190125/tag",
       UntagResource: "PUT /v20190125/untag",
-      CreateGatewayRoute:
-        "PUT /v20190125/meshes/{meshName}/virtualGateway/{virtualGatewayName}/gatewayRoutes",
-      CreateMesh: "PUT /v20190125/meshes",
-      CreateRoute:
-        "PUT /v20190125/meshes/{meshName}/virtualRouter/{virtualRouterName}/routes",
-      CreateVirtualGateway: "PUT /v20190125/meshes/{meshName}/virtualGateways",
-      CreateVirtualNode: "PUT /v20190125/meshes/{meshName}/virtualNodes",
-      CreateVirtualRouter: "PUT /v20190125/meshes/{meshName}/virtualRouters",
-      CreateVirtualService: "PUT /v20190125/meshes/{meshName}/virtualServices",
-      DeleteGatewayRoute:
-        "DELETE /v20190125/meshes/{meshName}/virtualGateway/{virtualGatewayName}/gatewayRoutes/{gatewayRouteName}",
-      DeleteMesh: "DELETE /v20190125/meshes/{meshName}",
-      DeleteRoute:
-        "DELETE /v20190125/meshes/{meshName}/virtualRouter/{virtualRouterName}/routes/{routeName}",
-      DeleteVirtualGateway:
-        "DELETE /v20190125/meshes/{meshName}/virtualGateways/{virtualGatewayName}",
-      DeleteVirtualNode:
-        "DELETE /v20190125/meshes/{meshName}/virtualNodes/{virtualNodeName}",
-      DeleteVirtualRouter:
-        "DELETE /v20190125/meshes/{meshName}/virtualRouters/{virtualRouterName}",
-      DeleteVirtualService:
-        "DELETE /v20190125/meshes/{meshName}/virtualServices/{virtualServiceName}",
-      DescribeGatewayRoute:
-        "GET /v20190125/meshes/{meshName}/virtualGateway/{virtualGatewayName}/gatewayRoutes/{gatewayRouteName}",
-      DescribeMesh: "GET /v20190125/meshes/{meshName}",
-      DescribeRoute:
-        "GET /v20190125/meshes/{meshName}/virtualRouter/{virtualRouterName}/routes/{routeName}",
-      DescribeVirtualGateway:
-        "GET /v20190125/meshes/{meshName}/virtualGateways/{virtualGatewayName}",
-      DescribeVirtualNode:
-        "GET /v20190125/meshes/{meshName}/virtualNodes/{virtualNodeName}",
-      DescribeVirtualRouter:
-        "GET /v20190125/meshes/{meshName}/virtualRouters/{virtualRouterName}",
-      DescribeVirtualService:
-        "GET /v20190125/meshes/{meshName}/virtualServices/{virtualServiceName}",
+      CreateGatewayRoute: {
+        http: "PUT /v20190125/meshes/{meshName}/virtualGateway/{virtualGatewayName}/gatewayRoutes",
+        traits: {
+          gatewayRoute: "httpPayload",
+        },
+      },
+      CreateMesh: {
+        http: "PUT /v20190125/meshes",
+        traits: {
+          mesh: "httpPayload",
+        },
+      },
+      CreateRoute: {
+        http: "PUT /v20190125/meshes/{meshName}/virtualRouter/{virtualRouterName}/routes",
+        traits: {
+          route: "httpPayload",
+        },
+      },
+      CreateVirtualGateway: {
+        http: "PUT /v20190125/meshes/{meshName}/virtualGateways",
+        traits: {
+          virtualGateway: "httpPayload",
+        },
+      },
+      CreateVirtualNode: {
+        http: "PUT /v20190125/meshes/{meshName}/virtualNodes",
+        traits: {
+          virtualNode: "httpPayload",
+        },
+      },
+      CreateVirtualRouter: {
+        http: "PUT /v20190125/meshes/{meshName}/virtualRouters",
+        traits: {
+          virtualRouter: "httpPayload",
+        },
+      },
+      CreateVirtualService: {
+        http: "PUT /v20190125/meshes/{meshName}/virtualServices",
+        traits: {
+          virtualService: "httpPayload",
+        },
+      },
+      DeleteGatewayRoute: {
+        http: "DELETE /v20190125/meshes/{meshName}/virtualGateway/{virtualGatewayName}/gatewayRoutes/{gatewayRouteName}",
+        traits: {
+          gatewayRoute: "httpPayload",
+        },
+      },
+      DeleteMesh: {
+        http: "DELETE /v20190125/meshes/{meshName}",
+        traits: {
+          mesh: "httpPayload",
+        },
+      },
+      DeleteRoute: {
+        http: "DELETE /v20190125/meshes/{meshName}/virtualRouter/{virtualRouterName}/routes/{routeName}",
+        traits: {
+          route: "httpPayload",
+        },
+      },
+      DeleteVirtualGateway: {
+        http: "DELETE /v20190125/meshes/{meshName}/virtualGateways/{virtualGatewayName}",
+        traits: {
+          virtualGateway: "httpPayload",
+        },
+      },
+      DeleteVirtualNode: {
+        http: "DELETE /v20190125/meshes/{meshName}/virtualNodes/{virtualNodeName}",
+        traits: {
+          virtualNode: "httpPayload",
+        },
+      },
+      DeleteVirtualRouter: {
+        http: "DELETE /v20190125/meshes/{meshName}/virtualRouters/{virtualRouterName}",
+        traits: {
+          virtualRouter: "httpPayload",
+        },
+      },
+      DeleteVirtualService: {
+        http: "DELETE /v20190125/meshes/{meshName}/virtualServices/{virtualServiceName}",
+        traits: {
+          virtualService: "httpPayload",
+        },
+      },
+      DescribeGatewayRoute: {
+        http: "GET /v20190125/meshes/{meshName}/virtualGateway/{virtualGatewayName}/gatewayRoutes/{gatewayRouteName}",
+        traits: {
+          gatewayRoute: "httpPayload",
+        },
+      },
+      DescribeMesh: {
+        http: "GET /v20190125/meshes/{meshName}",
+        traits: {
+          mesh: "httpPayload",
+        },
+      },
+      DescribeRoute: {
+        http: "GET /v20190125/meshes/{meshName}/virtualRouter/{virtualRouterName}/routes/{routeName}",
+        traits: {
+          route: "httpPayload",
+        },
+      },
+      DescribeVirtualGateway: {
+        http: "GET /v20190125/meshes/{meshName}/virtualGateways/{virtualGatewayName}",
+        traits: {
+          virtualGateway: "httpPayload",
+        },
+      },
+      DescribeVirtualNode: {
+        http: "GET /v20190125/meshes/{meshName}/virtualNodes/{virtualNodeName}",
+        traits: {
+          virtualNode: "httpPayload",
+        },
+      },
+      DescribeVirtualRouter: {
+        http: "GET /v20190125/meshes/{meshName}/virtualRouters/{virtualRouterName}",
+        traits: {
+          virtualRouter: "httpPayload",
+        },
+      },
+      DescribeVirtualService: {
+        http: "GET /v20190125/meshes/{meshName}/virtualServices/{virtualServiceName}",
+        traits: {
+          virtualService: "httpPayload",
+        },
+      },
       ListGatewayRoutes:
         "GET /v20190125/meshes/{meshName}/virtualGateway/{virtualGatewayName}/gatewayRoutes",
       ListMeshes: "GET /v20190125/meshes",
@@ -699,19 +857,48 @@ export const serviceMetadata = {
       ListVirtualNodes: "GET /v20190125/meshes/{meshName}/virtualNodes",
       ListVirtualRouters: "GET /v20190125/meshes/{meshName}/virtualRouters",
       ListVirtualServices: "GET /v20190125/meshes/{meshName}/virtualServices",
-      UpdateGatewayRoute:
-        "PUT /v20190125/meshes/{meshName}/virtualGateway/{virtualGatewayName}/gatewayRoutes/{gatewayRouteName}",
-      UpdateMesh: "PUT /v20190125/meshes/{meshName}",
-      UpdateRoute:
-        "PUT /v20190125/meshes/{meshName}/virtualRouter/{virtualRouterName}/routes/{routeName}",
-      UpdateVirtualGateway:
-        "PUT /v20190125/meshes/{meshName}/virtualGateways/{virtualGatewayName}",
-      UpdateVirtualNode:
-        "PUT /v20190125/meshes/{meshName}/virtualNodes/{virtualNodeName}",
-      UpdateVirtualRouter:
-        "PUT /v20190125/meshes/{meshName}/virtualRouters/{virtualRouterName}",
-      UpdateVirtualService:
-        "PUT /v20190125/meshes/{meshName}/virtualServices/{virtualServiceName}",
+      UpdateGatewayRoute: {
+        http: "PUT /v20190125/meshes/{meshName}/virtualGateway/{virtualGatewayName}/gatewayRoutes/{gatewayRouteName}",
+        traits: {
+          gatewayRoute: "httpPayload",
+        },
+      },
+      UpdateMesh: {
+        http: "PUT /v20190125/meshes/{meshName}",
+        traits: {
+          mesh: "httpPayload",
+        },
+      },
+      UpdateRoute: {
+        http: "PUT /v20190125/meshes/{meshName}/virtualRouter/{virtualRouterName}/routes/{routeName}",
+        traits: {
+          route: "httpPayload",
+        },
+      },
+      UpdateVirtualGateway: {
+        http: "PUT /v20190125/meshes/{meshName}/virtualGateways/{virtualGatewayName}",
+        traits: {
+          virtualGateway: "httpPayload",
+        },
+      },
+      UpdateVirtualNode: {
+        http: "PUT /v20190125/meshes/{meshName}/virtualNodes/{virtualNodeName}",
+        traits: {
+          virtualNode: "httpPayload",
+        },
+      },
+      UpdateVirtualRouter: {
+        http: "PUT /v20190125/meshes/{meshName}/virtualRouters/{virtualRouterName}",
+        traits: {
+          virtualRouter: "httpPayload",
+        },
+      },
+      UpdateVirtualService: {
+        http: "PUT /v20190125/meshes/{meshName}/virtualServices/{virtualServiceName}",
+        traits: {
+          virtualService: "httpPayload",
+        },
+      },
     },
   },
   appconfig: {
@@ -730,8 +917,19 @@ export const serviceMetadata = {
       CreateEnvironment: "POST /applications/{ApplicationId}/environments",
       CreateExtension: "POST /extensions",
       CreateExtensionAssociation: "POST /extensionassociations",
-      CreateHostedConfigurationVersion:
-        "POST /applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}/hostedconfigurationversions",
+      CreateHostedConfigurationVersion: {
+        http: "POST /applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}/hostedconfigurationversions",
+        traits: {
+          ApplicationId: "Application-Id",
+          ConfigurationProfileId: "Configuration-Profile-Id",
+          VersionNumber: "Version-Number",
+          Description: "Description",
+          Content: "httpPayload",
+          ContentType: "Content-Type",
+          VersionLabel: "VersionLabel",
+          KmsKeyArn: "KmsKeyArn",
+        },
+      },
       DeleteApplication: "DELETE /applications/{ApplicationId}",
       DeleteConfigurationProfile:
         "DELETE /applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}",
@@ -746,8 +944,14 @@ export const serviceMetadata = {
         "DELETE /applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}/hostedconfigurationversions/{VersionNumber}",
       GetAccountSettings: "GET /settings",
       GetApplication: "GET /applications/{ApplicationId}",
-      GetConfiguration:
-        "GET /applications/{Application}/environments/{Environment}/configurations/{Configuration}",
+      GetConfiguration: {
+        http: "GET /applications/{Application}/environments/{Environment}/configurations/{Configuration}",
+        traits: {
+          Content: "httpPayload",
+          ConfigurationVersion: "Configuration-Version",
+          ContentType: "Content-Type",
+        },
+      },
       GetConfigurationProfile:
         "GET /applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}",
       GetDeployment:
@@ -758,8 +962,19 @@ export const serviceMetadata = {
       GetExtension: "GET /extensions/{ExtensionIdentifier}",
       GetExtensionAssociation:
         "GET /extensionassociations/{ExtensionAssociationId}",
-      GetHostedConfigurationVersion:
-        "GET /applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}/hostedconfigurationversions/{VersionNumber}",
+      GetHostedConfigurationVersion: {
+        http: "GET /applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}/hostedconfigurationversions/{VersionNumber}",
+        traits: {
+          ApplicationId: "Application-Id",
+          ConfigurationProfileId: "Configuration-Profile-Id",
+          VersionNumber: "Version-Number",
+          Description: "Description",
+          Content: "httpPayload",
+          ContentType: "Content-Type",
+          VersionLabel: "VersionLabel",
+          KmsKeyArn: "KmsKeyArn",
+        },
+      },
       ListApplications: "GET /applications",
       ListConfigurationProfiles:
         "GET /applications/{ApplicationId}/configurationprofiles",
@@ -802,7 +1017,16 @@ export const serviceMetadata = {
     protocol: "restJson1",
     targetPrefix: "",
     operations: {
-      GetLatestConfiguration: "GET /configuration",
+      GetLatestConfiguration: {
+        http: "GET /configuration",
+        traits: {
+          NextPollConfigurationToken: "Next-Poll-Configuration-Token",
+          NextPollIntervalInSeconds: "Next-Poll-Interval-In-Seconds",
+          ContentType: "Content-Type",
+          Configuration: "httpPayload",
+          VersionLabel: "Version-Label",
+        },
+      },
       StartConfigurationSession: "POST /configurationsessions",
     },
   },
@@ -1081,7 +1305,12 @@ export const serviceMetadata = {
       GetGraphqlApi: "GET /v1/apis/{apiId}",
       GetGraphqlApiEnvironmentVariables:
         "GET /v1/apis/{apiId}/environmentVariables",
-      GetIntrospectionSchema: "GET /v1/apis/{apiId}/schema",
+      GetIntrospectionSchema: {
+        http: "GET /v1/apis/{apiId}/schema",
+        traits: {
+          schema: "httpPayload",
+        },
+      },
       GetResolver:
         "GET /v1/apis/{apiId}/types/{typeName}/resolvers/{fieldName}",
       GetSchemaCreationStatus: "GET /v1/apis/{apiId}/schemacreation",
@@ -1840,10 +2069,30 @@ export const serviceMetadata = {
       GetInvocationStep:
         "POST /sessions/{sessionIdentifier}/invocationSteps/{invocationStepId}",
       GetSession: "GET /sessions/{sessionIdentifier}/",
-      InvokeAgent:
-        "POST /agents/{agentId}/agentAliases/{agentAliasId}/sessions/{sessionId}/text",
-      InvokeFlow: "POST /flows/{flowIdentifier}/aliases/{flowAliasIdentifier}",
-      InvokeInlineAgent: "POST /agents/{sessionId}",
+      InvokeAgent: {
+        http: "POST /agents/{agentId}/agentAliases/{agentAliasId}/sessions/{sessionId}/text",
+        traits: {
+          completion: "httpPayload",
+          contentType: "x-amzn-bedrock-agent-content-type",
+          sessionId: "x-amz-bedrock-agent-session-id",
+          memoryId: "x-amz-bedrock-agent-memory-id",
+        },
+      },
+      InvokeFlow: {
+        http: "POST /flows/{flowIdentifier}/aliases/{flowAliasIdentifier}",
+        traits: {
+          responseStream: "httpPayload",
+          executionId: "x-amz-bedrock-flow-execution-id",
+        },
+      },
+      InvokeInlineAgent: {
+        http: "POST /agents/{sessionId}",
+        traits: {
+          completion: "httpPayload",
+          contentType: "x-amzn-bedrock-agent-content-type",
+          sessionId: "x-amz-bedrock-agent-session-id",
+        },
+      },
       ListFlowExecutionEvents:
         "GET /flows/{flowIdentifier}/aliases/{flowAliasIdentifier}/executions/{executionIdentifier}/events",
       ListFlowExecutions: "GET /flows/{flowIdentifier}/executions",
@@ -1852,12 +2101,23 @@ export const serviceMetadata = {
       ListInvocations: "POST /sessions/{sessionIdentifier}/invocations/",
       ListSessions: "POST /sessions/",
       ListTagsForResource: "GET /tags/{resourceArn}",
-      OptimizePrompt: "POST /optimize-prompt",
+      OptimizePrompt: {
+        http: "POST /optimize-prompt",
+        traits: {
+          optimizedPrompt: "httpPayload",
+        },
+      },
       PutInvocationStep: "PUT /sessions/{sessionIdentifier}/invocationSteps/",
       Rerank: "POST /rerank",
       Retrieve: "POST /knowledgebases/{knowledgeBaseId}/retrieve",
       RetrieveAndGenerate: "POST /retrieveAndGenerate",
-      RetrieveAndGenerateStream: "POST /retrieveAndGenerateStream",
+      RetrieveAndGenerateStream: {
+        http: "POST /retrieveAndGenerateStream",
+        traits: {
+          stream: "httpPayload",
+          sessionId: "x-amzn-bedrock-knowledge-base-session-id",
+        },
+      },
       StartFlowExecution:
         "POST /flows/{flowIdentifier}/aliases/{flowAliasIdentifier}/executions",
       StopFlowExecution:
@@ -1883,8 +2143,13 @@ export const serviceMetadata = {
         "POST /identities/GetWorkloadAccessTokenForJWT",
       GetWorkloadAccessTokenForUserId:
         "POST /identities/GetWorkloadAccessTokenForUserId",
-      InvokeCodeInterpreter:
-        "POST /code-interpreters/{codeInterpreterIdentifier}/tools/invoke",
+      InvokeCodeInterpreter: {
+        http: "POST /code-interpreters/{codeInterpreterIdentifier}/tools/invoke",
+        traits: {
+          sessionId: "x-amzn-code-interpreter-session-id",
+          stream: "httpPayload",
+        },
+      },
       CreateEvent: "POST /memories/{memoryId}/events",
       DeleteEvent:
         "DELETE /memories/{memoryId}/actor/{actorId}/sessions/{sessionId}/events/{eventId}",
@@ -1896,7 +2161,21 @@ export const serviceMetadata = {
       GetEvent:
         "GET /memories/{memoryId}/actor/{actorId}/sessions/{sessionId}/events/{eventId}",
       GetMemoryRecord: "GET /memories/{memoryId}/memoryRecord/{memoryRecordId}",
-      InvokeAgentRuntime: "POST /runtimes/{agentRuntimeArn}/invocations",
+      InvokeAgentRuntime: {
+        http: "POST /runtimes/{agentRuntimeArn}/invocations",
+        traits: {
+          runtimeSessionId: "X-Amzn-Bedrock-AgentCore-Runtime-Session-Id",
+          mcpSessionId: "Mcp-Session-Id",
+          mcpProtocolVersion: "Mcp-Protocol-Version",
+          traceId: "X-Amzn-Trace-Id",
+          traceParent: "traceparent",
+          traceState: "tracestate",
+          baggage: "baggage",
+          contentType: "Content-Type",
+          response: "httpPayload",
+          statusCode: "httpResponseCode",
+        },
+      },
       ListActors: "POST /memories/{memoryId}/actors",
       ListBrowserSessions: "POST /browsers/{browserIdentifier}/sessions/list",
       ListCodeInterpreterSessions:
@@ -2043,13 +2322,35 @@ export const serviceMetadata = {
       ApplyGuardrail:
         "POST /guardrail/{guardrailIdentifier}/version/{guardrailVersion}/apply",
       Converse: "POST /model/{modelId}/converse",
-      ConverseStream: "POST /model/{modelId}/converse-stream",
+      ConverseStream: {
+        http: "POST /model/{modelId}/converse-stream",
+        traits: {
+          stream: "httpPayload",
+        },
+      },
       GetAsyncInvoke: "GET /async-invoke/{invocationArn}",
-      InvokeModel: "POST /model/{modelId}/invoke",
-      InvokeModelWithBidirectionalStream:
-        "POST /model/{modelId}/invoke-with-bidirectional-stream",
-      InvokeModelWithResponseStream:
-        "POST /model/{modelId}/invoke-with-response-stream",
+      InvokeModel: {
+        http: "POST /model/{modelId}/invoke",
+        traits: {
+          body: "httpPayload",
+          contentType: "Content-Type",
+          performanceConfigLatency: "X-Amzn-Bedrock-PerformanceConfig-Latency",
+        },
+      },
+      InvokeModelWithBidirectionalStream: {
+        http: "POST /model/{modelId}/invoke-with-bidirectional-stream",
+        traits: {
+          body: "httpPayload",
+        },
+      },
+      InvokeModelWithResponseStream: {
+        http: "POST /model/{modelId}/invoke-with-response-stream",
+        traits: {
+          body: "httpPayload",
+          contentType: "X-Amzn-Bedrock-Content-Type",
+          performanceConfigLatency: "X-Amzn-Bedrock-PerformanceConfig-Latency",
+        },
+      },
       ListAsyncInvokes: "GET /async-invoke",
       StartAsyncInvoke: "POST /async-invoke",
     },
@@ -3096,6 +3397,687 @@ export const serviceMetadata = {
     endpointPrefix: "cloudfront",
     protocol: "restXml",
     targetPrefix: "",
+    operations: {
+      AssociateDistributionTenantWebACL: {
+        traits: {
+          ETag: "ETag",
+        },
+      },
+      AssociateDistributionWebACL: {
+        traits: {
+          ETag: "ETag",
+        },
+      },
+      CopyDistribution: {
+        traits: {
+          Distribution: "httpPayload",
+          Location: "Location",
+          ETag: "ETag",
+        },
+      },
+      CreateAnycastIpList: {
+        traits: {
+          AnycastIpList: "httpPayload",
+          ETag: "ETag",
+        },
+      },
+      CreateCachePolicy: {
+        traits: {
+          CachePolicy: "httpPayload",
+          Location: "Location",
+          ETag: "ETag",
+        },
+      },
+      CreateCloudFrontOriginAccessIdentity: {
+        traits: {
+          CloudFrontOriginAccessIdentity: "httpPayload",
+          Location: "Location",
+          ETag: "ETag",
+        },
+      },
+      CreateConnectionGroup: {
+        traits: {
+          ConnectionGroup: "httpPayload",
+          ETag: "ETag",
+        },
+      },
+      CreateContinuousDeploymentPolicy: {
+        traits: {
+          ContinuousDeploymentPolicy: "httpPayload",
+          Location: "Location",
+          ETag: "ETag",
+        },
+      },
+      CreateDistribution: {
+        traits: {
+          Distribution: "httpPayload",
+          Location: "Location",
+          ETag: "ETag",
+        },
+      },
+      CreateDistributionTenant: {
+        traits: {
+          DistributionTenant: "httpPayload",
+          ETag: "ETag",
+        },
+      },
+      CreateDistributionWithTags: {
+        traits: {
+          Distribution: "httpPayload",
+          Location: "Location",
+          ETag: "ETag",
+        },
+      },
+      CreateFieldLevelEncryptionConfig: {
+        traits: {
+          FieldLevelEncryption: "httpPayload",
+          Location: "Location",
+          ETag: "ETag",
+        },
+      },
+      CreateFieldLevelEncryptionProfile: {
+        traits: {
+          FieldLevelEncryptionProfile: "httpPayload",
+          Location: "Location",
+          ETag: "ETag",
+        },
+      },
+      CreateFunction: {
+        traits: {
+          FunctionSummary: "httpPayload",
+          Location: "Location",
+          ETag: "ETag",
+        },
+      },
+      CreateInvalidation: {
+        traits: {
+          Location: "Location",
+          Invalidation: "httpPayload",
+        },
+      },
+      CreateInvalidationForDistributionTenant: {
+        traits: {
+          Location: "Location",
+          Invalidation: "httpPayload",
+        },
+      },
+      CreateKeyGroup: {
+        traits: {
+          KeyGroup: "httpPayload",
+          Location: "Location",
+          ETag: "ETag",
+        },
+      },
+      CreateKeyValueStore: {
+        traits: {
+          KeyValueStore: "httpPayload",
+          ETag: "ETag",
+          Location: "Location",
+        },
+      },
+      CreateMonitoringSubscription: {
+        traits: {
+          MonitoringSubscription: "httpPayload",
+        },
+      },
+      CreateOriginAccessControl: {
+        traits: {
+          OriginAccessControl: "httpPayload",
+          Location: "Location",
+          ETag: "ETag",
+        },
+      },
+      CreateOriginRequestPolicy: {
+        traits: {
+          OriginRequestPolicy: "httpPayload",
+          Location: "Location",
+          ETag: "ETag",
+        },
+      },
+      CreatePublicKey: {
+        traits: {
+          PublicKey: "httpPayload",
+          Location: "Location",
+          ETag: "ETag",
+        },
+      },
+      CreateResponseHeadersPolicy: {
+        traits: {
+          ResponseHeadersPolicy: "httpPayload",
+          Location: "Location",
+          ETag: "ETag",
+        },
+      },
+      CreateStreamingDistribution: {
+        traits: {
+          StreamingDistribution: "httpPayload",
+          Location: "Location",
+          ETag: "ETag",
+        },
+      },
+      CreateStreamingDistributionWithTags: {
+        traits: {
+          StreamingDistribution: "httpPayload",
+          Location: "Location",
+          ETag: "ETag",
+        },
+      },
+      CreateVpcOrigin: {
+        traits: {
+          VpcOrigin: "httpPayload",
+          Location: "Location",
+          ETag: "ETag",
+        },
+      },
+      DeleteVpcOrigin: {
+        traits: {
+          VpcOrigin: "httpPayload",
+          ETag: "ETag",
+        },
+      },
+      DescribeFunction: {
+        traits: {
+          FunctionSummary: "httpPayload",
+          ETag: "ETag",
+        },
+      },
+      DescribeKeyValueStore: {
+        traits: {
+          KeyValueStore: "httpPayload",
+          ETag: "ETag",
+        },
+      },
+      DisassociateDistributionTenantWebACL: {
+        traits: {
+          ETag: "ETag",
+        },
+      },
+      DisassociateDistributionWebACL: {
+        traits: {
+          ETag: "ETag",
+        },
+      },
+      GetAnycastIpList: {
+        traits: {
+          AnycastIpList: "httpPayload",
+          ETag: "ETag",
+        },
+      },
+      GetCachePolicy: {
+        traits: {
+          CachePolicy: "httpPayload",
+          ETag: "ETag",
+        },
+      },
+      GetCachePolicyConfig: {
+        traits: {
+          CachePolicyConfig: "httpPayload",
+          ETag: "ETag",
+        },
+      },
+      GetCloudFrontOriginAccessIdentity: {
+        traits: {
+          CloudFrontOriginAccessIdentity: "httpPayload",
+          ETag: "ETag",
+        },
+      },
+      GetCloudFrontOriginAccessIdentityConfig: {
+        traits: {
+          CloudFrontOriginAccessIdentityConfig: "httpPayload",
+          ETag: "ETag",
+        },
+      },
+      GetConnectionGroup: {
+        traits: {
+          ConnectionGroup: "httpPayload",
+          ETag: "ETag",
+        },
+      },
+      GetConnectionGroupByRoutingEndpoint: {
+        traits: {
+          ConnectionGroup: "httpPayload",
+          ETag: "ETag",
+        },
+      },
+      GetContinuousDeploymentPolicy: {
+        traits: {
+          ContinuousDeploymentPolicy: "httpPayload",
+          ETag: "ETag",
+        },
+      },
+      GetContinuousDeploymentPolicyConfig: {
+        traits: {
+          ContinuousDeploymentPolicyConfig: "httpPayload",
+          ETag: "ETag",
+        },
+      },
+      GetDistribution: {
+        traits: {
+          Distribution: "httpPayload",
+          ETag: "ETag",
+        },
+      },
+      GetDistributionConfig: {
+        traits: {
+          DistributionConfig: "httpPayload",
+          ETag: "ETag",
+        },
+      },
+      GetDistributionTenant: {
+        traits: {
+          DistributionTenant: "httpPayload",
+          ETag: "ETag",
+        },
+      },
+      GetDistributionTenantByDomain: {
+        traits: {
+          DistributionTenant: "httpPayload",
+          ETag: "ETag",
+        },
+      },
+      GetFieldLevelEncryption: {
+        traits: {
+          FieldLevelEncryption: "httpPayload",
+          ETag: "ETag",
+        },
+      },
+      GetFieldLevelEncryptionConfig: {
+        traits: {
+          FieldLevelEncryptionConfig: "httpPayload",
+          ETag: "ETag",
+        },
+      },
+      GetFieldLevelEncryptionProfile: {
+        traits: {
+          FieldLevelEncryptionProfile: "httpPayload",
+          ETag: "ETag",
+        },
+      },
+      GetFieldLevelEncryptionProfileConfig: {
+        traits: {
+          FieldLevelEncryptionProfileConfig: "httpPayload",
+          ETag: "ETag",
+        },
+      },
+      GetFunction: {
+        traits: {
+          FunctionCode: "httpPayload",
+          ETag: "ETag",
+          ContentType: "Content-Type",
+        },
+      },
+      GetInvalidation: {
+        traits: {
+          Invalidation: "httpPayload",
+        },
+      },
+      GetInvalidationForDistributionTenant: {
+        traits: {
+          Invalidation: "httpPayload",
+        },
+      },
+      GetKeyGroup: {
+        traits: {
+          KeyGroup: "httpPayload",
+          ETag: "ETag",
+        },
+      },
+      GetKeyGroupConfig: {
+        traits: {
+          KeyGroupConfig: "httpPayload",
+          ETag: "ETag",
+        },
+      },
+      GetManagedCertificateDetails: {
+        traits: {
+          ManagedCertificateDetails: "httpPayload",
+        },
+      },
+      GetMonitoringSubscription: {
+        traits: {
+          MonitoringSubscription: "httpPayload",
+        },
+      },
+      GetOriginAccessControl: {
+        traits: {
+          OriginAccessControl: "httpPayload",
+          ETag: "ETag",
+        },
+      },
+      GetOriginAccessControlConfig: {
+        traits: {
+          OriginAccessControlConfig: "httpPayload",
+          ETag: "ETag",
+        },
+      },
+      GetOriginRequestPolicy: {
+        traits: {
+          OriginRequestPolicy: "httpPayload",
+          ETag: "ETag",
+        },
+      },
+      GetOriginRequestPolicyConfig: {
+        traits: {
+          OriginRequestPolicyConfig: "httpPayload",
+          ETag: "ETag",
+        },
+      },
+      GetPublicKey: {
+        traits: {
+          PublicKey: "httpPayload",
+          ETag: "ETag",
+        },
+      },
+      GetPublicKeyConfig: {
+        traits: {
+          PublicKeyConfig: "httpPayload",
+          ETag: "ETag",
+        },
+      },
+      GetResponseHeadersPolicy: {
+        traits: {
+          ResponseHeadersPolicy: "httpPayload",
+          ETag: "ETag",
+        },
+      },
+      GetResponseHeadersPolicyConfig: {
+        traits: {
+          ResponseHeadersPolicyConfig: "httpPayload",
+          ETag: "ETag",
+        },
+      },
+      GetStreamingDistribution: {
+        traits: {
+          StreamingDistribution: "httpPayload",
+          ETag: "ETag",
+        },
+      },
+      GetStreamingDistributionConfig: {
+        traits: {
+          StreamingDistributionConfig: "httpPayload",
+          ETag: "ETag",
+        },
+      },
+      GetVpcOrigin: {
+        traits: {
+          VpcOrigin: "httpPayload",
+          ETag: "ETag",
+        },
+      },
+      ListAnycastIpLists: {
+        traits: {
+          AnycastIpLists: "httpPayload",
+        },
+      },
+      ListCachePolicies: {
+        traits: {
+          CachePolicyList: "httpPayload",
+        },
+      },
+      ListCloudFrontOriginAccessIdentities: {
+        traits: {
+          CloudFrontOriginAccessIdentityList: "httpPayload",
+        },
+      },
+      ListConflictingAliases: {
+        traits: {
+          ConflictingAliasesList: "httpPayload",
+        },
+      },
+      ListContinuousDeploymentPolicies: {
+        traits: {
+          ContinuousDeploymentPolicyList: "httpPayload",
+        },
+      },
+      ListDistributions: {
+        traits: {
+          DistributionList: "httpPayload",
+        },
+      },
+      ListDistributionsByAnycastIpListId: {
+        traits: {
+          DistributionList: "httpPayload",
+        },
+      },
+      ListDistributionsByCachePolicyId: {
+        traits: {
+          DistributionIdList: "httpPayload",
+        },
+      },
+      ListDistributionsByConnectionMode: {
+        traits: {
+          DistributionList: "httpPayload",
+        },
+      },
+      ListDistributionsByKeyGroup: {
+        traits: {
+          DistributionIdList: "httpPayload",
+        },
+      },
+      ListDistributionsByOriginRequestPolicyId: {
+        traits: {
+          DistributionIdList: "httpPayload",
+        },
+      },
+      ListDistributionsByRealtimeLogConfig: {
+        traits: {
+          DistributionList: "httpPayload",
+        },
+      },
+      ListDistributionsByResponseHeadersPolicyId: {
+        traits: {
+          DistributionIdList: "httpPayload",
+        },
+      },
+      ListDistributionsByVpcOriginId: {
+        traits: {
+          DistributionIdList: "httpPayload",
+        },
+      },
+      ListDistributionsByWebACLId: {
+        traits: {
+          DistributionList: "httpPayload",
+        },
+      },
+      ListFieldLevelEncryptionConfigs: {
+        traits: {
+          FieldLevelEncryptionList: "httpPayload",
+        },
+      },
+      ListFieldLevelEncryptionProfiles: {
+        traits: {
+          FieldLevelEncryptionProfileList: "httpPayload",
+        },
+      },
+      ListFunctions: {
+        traits: {
+          FunctionList: "httpPayload",
+        },
+      },
+      ListInvalidations: {
+        traits: {
+          InvalidationList: "httpPayload",
+        },
+      },
+      ListInvalidationsForDistributionTenant: {
+        traits: {
+          InvalidationList: "httpPayload",
+        },
+      },
+      ListKeyGroups: {
+        traits: {
+          KeyGroupList: "httpPayload",
+        },
+      },
+      ListKeyValueStores: {
+        traits: {
+          KeyValueStoreList: "httpPayload",
+        },
+      },
+      ListOriginAccessControls: {
+        traits: {
+          OriginAccessControlList: "httpPayload",
+        },
+      },
+      ListOriginRequestPolicies: {
+        traits: {
+          OriginRequestPolicyList: "httpPayload",
+        },
+      },
+      ListPublicKeys: {
+        traits: {
+          PublicKeyList: "httpPayload",
+        },
+      },
+      ListRealtimeLogConfigs: {
+        traits: {
+          RealtimeLogConfigs: "httpPayload",
+        },
+      },
+      ListResponseHeadersPolicies: {
+        traits: {
+          ResponseHeadersPolicyList: "httpPayload",
+        },
+      },
+      ListStreamingDistributions: {
+        traits: {
+          StreamingDistributionList: "httpPayload",
+        },
+      },
+      ListTagsForResource: {
+        traits: {
+          Tags: "httpPayload",
+        },
+      },
+      ListVpcOrigins: {
+        traits: {
+          VpcOriginList: "httpPayload",
+        },
+      },
+      PublishFunction: {
+        traits: {
+          FunctionSummary: "httpPayload",
+        },
+      },
+      TestFunction: {
+        traits: {
+          TestResult: "httpPayload",
+        },
+      },
+      UpdateCachePolicy: {
+        traits: {
+          CachePolicy: "httpPayload",
+          ETag: "ETag",
+        },
+      },
+      UpdateCloudFrontOriginAccessIdentity: {
+        traits: {
+          CloudFrontOriginAccessIdentity: "httpPayload",
+          ETag: "ETag",
+        },
+      },
+      UpdateConnectionGroup: {
+        traits: {
+          ConnectionGroup: "httpPayload",
+          ETag: "ETag",
+        },
+      },
+      UpdateContinuousDeploymentPolicy: {
+        traits: {
+          ContinuousDeploymentPolicy: "httpPayload",
+          ETag: "ETag",
+        },
+      },
+      UpdateDistribution: {
+        traits: {
+          Distribution: "httpPayload",
+          ETag: "ETag",
+        },
+      },
+      UpdateDistributionTenant: {
+        traits: {
+          DistributionTenant: "httpPayload",
+          ETag: "ETag",
+        },
+      },
+      UpdateDistributionWithStagingConfig: {
+        traits: {
+          Distribution: "httpPayload",
+          ETag: "ETag",
+        },
+      },
+      UpdateDomainAssociation: {
+        traits: {
+          ETag: "ETag",
+        },
+      },
+      UpdateFieldLevelEncryptionConfig: {
+        traits: {
+          FieldLevelEncryption: "httpPayload",
+          ETag: "ETag",
+        },
+      },
+      UpdateFieldLevelEncryptionProfile: {
+        traits: {
+          FieldLevelEncryptionProfile: "httpPayload",
+          ETag: "ETag",
+        },
+      },
+      UpdateFunction: {
+        traits: {
+          FunctionSummary: "httpPayload",
+          ETag: "ETtag",
+        },
+      },
+      UpdateKeyGroup: {
+        traits: {
+          KeyGroup: "httpPayload",
+          ETag: "ETag",
+        },
+      },
+      UpdateKeyValueStore: {
+        traits: {
+          KeyValueStore: "httpPayload",
+          ETag: "ETag",
+        },
+      },
+      UpdateOriginAccessControl: {
+        traits: {
+          OriginAccessControl: "httpPayload",
+          ETag: "ETag",
+        },
+      },
+      UpdateOriginRequestPolicy: {
+        traits: {
+          OriginRequestPolicy: "httpPayload",
+          ETag: "ETag",
+        },
+      },
+      UpdatePublicKey: {
+        traits: {
+          PublicKey: "httpPayload",
+          ETag: "ETag",
+        },
+      },
+      UpdateResponseHeadersPolicy: {
+        traits: {
+          ResponseHeadersPolicy: "httpPayload",
+          ETag: "ETag",
+        },
+      },
+      UpdateStreamingDistribution: {
+        traits: {
+          StreamingDistribution: "httpPayload",
+          ETag: "ETag",
+        },
+      },
+      UpdateVpcOrigin: {
+        traits: {
+          VpcOrigin: "httpPayload",
+          ETag: "ETag",
+        },
+      },
+    },
   },
   cloudfrontkeyvaluestore: {
     sdkId: "CloudFront KeyValueStore",
@@ -3106,12 +4088,32 @@ export const serviceMetadata = {
     protocol: "restJson1",
     targetPrefix: "",
     operations: {
-      DeleteKey: "DELETE /key-value-stores/{KvsARN}/keys/{Key}",
-      DescribeKeyValueStore: "GET /key-value-stores/{KvsARN}",
+      DeleteKey: {
+        http: "DELETE /key-value-stores/{KvsARN}/keys/{Key}",
+        traits: {
+          ETag: "ETag",
+        },
+      },
+      DescribeKeyValueStore: {
+        http: "GET /key-value-stores/{KvsARN}",
+        traits: {
+          ETag: "ETag",
+        },
+      },
       GetKey: "GET /key-value-stores/{KvsARN}/keys/{Key}",
       ListKeys: "GET /key-value-stores/{KvsARN}/keys",
-      PutKey: "PUT /key-value-stores/{KvsARN}/keys/{Key}",
-      UpdateKeys: "POST /key-value-stores/{KvsARN}/keys",
+      PutKey: {
+        http: "PUT /key-value-stores/{KvsARN}/keys/{Key}",
+        traits: {
+          ETag: "ETag",
+        },
+      },
+      UpdateKeys: {
+        http: "POST /key-value-stores/{KvsARN}/keys",
+        traits: {
+          ETag: "ETag",
+        },
+      },
     },
   },
   cloudhsm: {
@@ -3236,7 +4238,15 @@ export const serviceMetadata = {
       GetAssociatedPackageGroup: "GET /v1/get-associated-package-group",
       GetAuthorizationToken: "POST /v1/authorization-token",
       GetDomainPermissionsPolicy: "GET /v1/domain/permissions/policy",
-      GetPackageVersionAsset: "GET /v1/package/version/asset",
+      GetPackageVersionAsset: {
+        http: "GET /v1/package/version/asset",
+        traits: {
+          asset: "httpPayload",
+          assetName: "X-AssetName",
+          packageVersion: "X-PackageVersion",
+          packageVersionRevision: "X-PackageVersionRevision",
+        },
+      },
       GetPackageVersionReadme: "GET /v1/package/version/readme",
       GetRepositoryEndpoint: "GET /v1/repository/endpoint",
       GetRepositoryPermissionsPolicy: "GET /v1/repository/permissions/policy",
@@ -3439,15 +4449,36 @@ export const serviceMetadata = {
         "POST /profilingGroups/{profilingGroupName}/notificationConfiguration",
       BatchGetFrameMetricData:
         "POST /profilingGroups/{profilingGroupName}/frames/-/metrics",
-      ConfigureAgent:
-        "POST /profilingGroups/{profilingGroupName}/configureAgent",
-      CreateProfilingGroup: "POST /profilingGroups",
+      ConfigureAgent: {
+        http: "POST /profilingGroups/{profilingGroupName}/configureAgent",
+        traits: {
+          configuration: "httpPayload",
+        },
+      },
+      CreateProfilingGroup: {
+        http: "POST /profilingGroups",
+        traits: {
+          profilingGroup: "httpPayload",
+        },
+      },
       DeleteProfilingGroup: "DELETE /profilingGroups/{profilingGroupName}",
-      DescribeProfilingGroup: "GET /profilingGroups/{profilingGroupName}",
+      DescribeProfilingGroup: {
+        http: "GET /profilingGroups/{profilingGroupName}",
+        traits: {
+          profilingGroup: "httpPayload",
+        },
+      },
       GetNotificationConfiguration:
         "GET /profilingGroups/{profilingGroupName}/notificationConfiguration",
       GetPolicy: "GET /profilingGroups/{profilingGroupName}/policy",
-      GetProfile: "GET /profilingGroups/{profilingGroupName}/profile",
+      GetProfile: {
+        http: "GET /profilingGroups/{profilingGroupName}/profile",
+        traits: {
+          profile: "httpPayload",
+          contentType: "Content-Type",
+          contentEncoding: "Content-Encoding",
+        },
+      },
       GetRecommendations:
         "GET /internal/profilingGroups/{profilingGroupName}/recommendations",
       ListFindingsReports:
@@ -3465,7 +4496,12 @@ export const serviceMetadata = {
         "DELETE /profilingGroups/{profilingGroupName}/policy/{actionGroup}",
       SubmitFeedback:
         "POST /internal/profilingGroups/{profilingGroupName}/anomalies/{anomalyInstanceId}/feedback",
-      UpdateProfilingGroup: "PUT /profilingGroups/{profilingGroupName}",
+      UpdateProfilingGroup: {
+        http: "PUT /profilingGroups/{profilingGroupName}",
+        traits: {
+          profilingGroup: "httpPayload",
+        },
+      },
     },
   },
   codepipeline: {
@@ -4322,7 +5358,12 @@ export const serviceMetadata = {
       CreateProfile: "POST /domains/{DomainName}/profiles",
       CreateSegmentDefinition:
         "POST /domains/{DomainName}/segment-definitions/{SegmentDefinitionName}",
-      CreateSegmentEstimate: "POST /domains/{DomainName}/segment-estimates",
+      CreateSegmentEstimate: {
+        http: "POST /domains/{DomainName}/segment-estimates",
+        traits: {
+          StatusCode: "httpResponseCode",
+        },
+      },
       CreateSegmentSnapshot:
         "POST /domains/{DomainName}/segments/{SegmentDefinitionName}/snapshots",
       CreateUploadJob: "POST /domains/{DomainName}/upload-jobs",
@@ -4367,8 +5408,12 @@ export const serviceMetadata = {
       GetProfileObjectTypeTemplate: "GET /templates/{TemplateId}",
       GetSegmentDefinition:
         "GET /domains/{DomainName}/segment-definitions/{SegmentDefinitionName}",
-      GetSegmentEstimate:
-        "GET /domains/{DomainName}/segment-estimates/{EstimateId}",
+      GetSegmentEstimate: {
+        http: "GET /domains/{DomainName}/segment-estimates/{EstimateId}",
+        traits: {
+          StatusCode: "httpResponseCode",
+        },
+      },
       GetSegmentMembership:
         "POST /domains/{DomainName}/segments/{SegmentDefinitionName}/membership",
       GetSegmentSnapshot:
@@ -4393,8 +5438,12 @@ export const serviceMetadata = {
       ListIntegrations: "GET /domains/{DomainName}/integrations",
       ListObjectTypeAttributes:
         "GET /domains/{DomainName}/object-types/{ObjectTypeName}/attributes",
-      ListProfileAttributeValues:
-        "GET /domains/{DomainName}/profile-attributes/{AttributeName}/values",
+      ListProfileAttributeValues: {
+        http: "GET /domains/{DomainName}/profile-attributes/{AttributeName}/values",
+        traits: {
+          StatusCode: "httpResponseCode",
+        },
+      },
       ListProfileObjects: "POST /domains/{DomainName}/profiles/objects",
       ListProfileObjectTypes: "GET /domains/{DomainName}/object-types",
       ListProfileObjectTypeTemplates: "GET /templates",
@@ -4539,7 +5588,12 @@ export const serviceMetadata = {
       ListTagsForResource: "GET /tags/{ResourceArn}",
       RevokeRevision:
         "POST /v1/data-sets/{DataSetId}/revisions/{RevisionId}/revoke",
-      SendApiAsset: "POST /v1",
+      SendApiAsset: {
+        http: "POST /v1",
+        traits: {
+          Body: "httpPayload",
+        },
+      },
       SendDataSetNotification: "POST /v1/data-sets/{DataSetId}/notification",
       StartJob: "PATCH /v1/jobs/{JobId}",
       TagResource: "POST /tags/{ResourceArn}",
@@ -4649,8 +5703,18 @@ export const serviceMetadata = {
       GetIamPortalLoginUrl:
         "POST /v2/domains/{domainIdentifier}/get-portal-login-url",
       GetJobRun: "GET /v2/domains/{domainIdentifier}/jobRuns/{identifier}",
-      GetLineageEvent:
-        "GET /v2/domains/{domainIdentifier}/lineage/events/{identifier}",
+      GetLineageEvent: {
+        http: "GET /v2/domains/{domainIdentifier}/lineage/events/{identifier}",
+        traits: {
+          domainId: "Domain-Id",
+          id: "Id",
+          event: "httpPayload",
+          createdBy: "Created-By",
+          processingStatus: "Processing-Status",
+          eventTime: "Event-Time",
+          createdAt: "Created-At",
+        },
+      },
       GetLineageNode:
         "GET /v2/domains/{domainIdentifier}/lineage/nodes/{identifier}",
       GetProject: "GET /v2/domains/{domainIdentifier}/projects/{identifier}",
@@ -5364,10 +6428,24 @@ export const serviceMetadata = {
     targetPrefix: "",
     operations: {
       CompleteSnapshot: "POST /snapshots/completion/{SnapshotId}",
-      GetSnapshotBlock: "GET /snapshots/{SnapshotId}/blocks/{BlockIndex}",
+      GetSnapshotBlock: {
+        http: "GET /snapshots/{SnapshotId}/blocks/{BlockIndex}",
+        traits: {
+          DataLength: "x-amz-Data-Length",
+          BlockData: "httpPayload",
+          Checksum: "x-amz-Checksum",
+          ChecksumAlgorithm: "x-amz-Checksum-Algorithm",
+        },
+      },
       ListChangedBlocks: "GET /snapshots/{SecondSnapshotId}/changedblocks",
       ListSnapshotBlocks: "GET /snapshots/{SnapshotId}/blocks",
-      PutSnapshotBlock: "PUT /snapshots/{SnapshotId}/blocks/{BlockIndex}",
+      PutSnapshotBlock: {
+        http: "PUT /snapshots/{SnapshotId}/blocks/{BlockIndex}",
+        traits: {
+          Checksum: "x-amz-Checksum",
+          ChecksumAlgorithm: "x-amz-Checksum-Algorithm",
+        },
+      },
       StartSnapshot: "POST /snapshots",
     },
   },
@@ -6018,8 +7096,12 @@ export const serviceMetadata = {
     protocol: "restJson1",
     targetPrefix: "",
     operations: {
-      AssociateUserToPermissionGroup:
-        "POST /permission-group/{permissionGroupId}/users/{userId}",
+      AssociateUserToPermissionGroup: {
+        http: "POST /permission-group/{permissionGroupId}/users/{userId}",
+        traits: {
+          statusCode: "httpResponseCode",
+        },
+      },
       CreateChangeset: "POST /datasets/{datasetId}/changesetsv2",
       CreateDataset: "POST /datasetsv2",
       CreateDataView: "POST /datasets/{datasetId}/dataviewsv2",
@@ -6028,8 +7110,12 @@ export const serviceMetadata = {
       DeleteDataset: "DELETE /datasetsv2/{datasetId}",
       DeletePermissionGroup: "DELETE /permission-group/{permissionGroupId}",
       DisableUser: "POST /user/{userId}/disable",
-      DisassociateUserFromPermissionGroup:
-        "DELETE /permission-group/{permissionGroupId}/users/{userId}",
+      DisassociateUserFromPermissionGroup: {
+        http: "DELETE /permission-group/{permissionGroupId}/users/{userId}",
+        traits: {
+          statusCode: "httpResponseCode",
+        },
+      },
       EnableUser: "POST /user/{userId}/enable",
       GetChangeset: "GET /datasets/{datasetId}/changesetsv2/{changesetId}",
       GetDataset: "GET /datasetsv2/{datasetId}",
@@ -6221,12 +7307,53 @@ export const serviceMetadata = {
     protocol: "restJson1",
     targetPrefix: "",
     operations: {
-      GetGlyphs: "GET /glyphs/{FontStack}/{FontUnicodeRange}",
-      GetSprites:
-        "GET /styles/{Style}/{ColorScheme}/{Variant}/sprites/{FileName}",
-      GetStaticMap: "GET /static/{FileName}",
-      GetStyleDescriptor: "GET /styles/{Style}/descriptor",
-      GetTile: "GET /tiles/{Tileset}/{Z}/{X}/{Y}",
+      GetGlyphs: {
+        http: "GET /glyphs/{FontStack}/{FontUnicodeRange}",
+        traits: {
+          Blob: "httpPayload",
+          ContentType: "Content-Type",
+          CacheControl: "Cache-Control",
+          ETag: "ETag",
+        },
+      },
+      GetSprites: {
+        http: "GET /styles/{Style}/{ColorScheme}/{Variant}/sprites/{FileName}",
+        traits: {
+          Blob: "httpPayload",
+          ContentType: "Content-Type",
+          CacheControl: "Cache-Control",
+          ETag: "ETag",
+        },
+      },
+      GetStaticMap: {
+        http: "GET /static/{FileName}",
+        traits: {
+          Blob: "httpPayload",
+          ContentType: "Content-Type",
+          CacheControl: "Cache-Control",
+          ETag: "ETag",
+          PricingBucket: "x-amz-geo-pricing-bucket",
+        },
+      },
+      GetStyleDescriptor: {
+        http: "GET /styles/{Style}/descriptor",
+        traits: {
+          Blob: "httpPayload",
+          ContentType: "Content-Type",
+          CacheControl: "Cache-Control",
+          ETag: "ETag",
+        },
+      },
+      GetTile: {
+        http: "GET /tiles/{Tileset}/{Z}/{X}/{Y}",
+        traits: {
+          Blob: "httpPayload",
+          ContentType: "Content-Type",
+          CacheControl: "Cache-Control",
+          ETag: "ETag",
+          PricingBucket: "x-amz-geo-pricing-bucket",
+        },
+      },
     },
   },
   geoplaces: {
@@ -6238,13 +7365,48 @@ export const serviceMetadata = {
     protocol: "restJson1",
     targetPrefix: "",
     operations: {
-      Autocomplete: "POST /autocomplete",
-      Geocode: "POST /geocode",
-      GetPlace: "GET /place/{PlaceId}",
-      ReverseGeocode: "POST /reverse-geocode",
-      SearchNearby: "POST /search-nearby",
-      SearchText: "POST /search-text",
-      Suggest: "POST /suggest",
+      Autocomplete: {
+        http: "POST /autocomplete",
+        traits: {
+          PricingBucket: "x-amz-geo-pricing-bucket",
+        },
+      },
+      Geocode: {
+        http: "POST /geocode",
+        traits: {
+          PricingBucket: "x-amz-geo-pricing-bucket",
+        },
+      },
+      GetPlace: {
+        http: "GET /place/{PlaceId}",
+        traits: {
+          PricingBucket: "x-amz-geo-pricing-bucket",
+        },
+      },
+      ReverseGeocode: {
+        http: "POST /reverse-geocode",
+        traits: {
+          PricingBucket: "x-amz-geo-pricing-bucket",
+        },
+      },
+      SearchNearby: {
+        http: "POST /search-nearby",
+        traits: {
+          PricingBucket: "x-amz-geo-pricing-bucket",
+        },
+      },
+      SearchText: {
+        http: "POST /search-text",
+        traits: {
+          PricingBucket: "x-amz-geo-pricing-bucket",
+        },
+      },
+      Suggest: {
+        http: "POST /suggest",
+        traits: {
+          PricingBucket: "x-amz-geo-pricing-bucket",
+        },
+      },
     },
   },
   georoutes: {
@@ -6256,11 +7418,36 @@ export const serviceMetadata = {
     protocol: "restJson1",
     targetPrefix: "",
     operations: {
-      CalculateIsolines: "POST /isolines",
-      CalculateRouteMatrix: "POST /route-matrix",
-      CalculateRoutes: "POST /routes",
-      OptimizeWaypoints: "POST /optimize-waypoints",
-      SnapToRoads: "POST /snap-to-roads",
+      CalculateIsolines: {
+        http: "POST /isolines",
+        traits: {
+          PricingBucket: "x-amz-geo-pricing-bucket",
+        },
+      },
+      CalculateRouteMatrix: {
+        http: "POST /route-matrix",
+        traits: {
+          PricingBucket: "x-amz-geo-pricing-bucket",
+        },
+      },
+      CalculateRoutes: {
+        http: "POST /routes",
+        traits: {
+          PricingBucket: "x-amz-geo-pricing-bucket",
+        },
+      },
+      OptimizeWaypoints: {
+        http: "POST /optimize-waypoints",
+        traits: {
+          PricingBucket: "x-amz-geo-pricing-bucket",
+        },
+      },
+      SnapToRoads: {
+        http: "POST /snap-to-roads",
+        traits: {
+          PricingBucket: "x-amz-geo-pricing-bucket",
+        },
+      },
     },
   },
   glacier: {
@@ -6276,11 +7463,22 @@ export const serviceMetadata = {
         "DELETE /{accountId}/vaults/{vaultName}/multipart-uploads/{uploadId}",
       AbortVaultLock: "DELETE /{accountId}/vaults/{vaultName}/lock-policy",
       AddTagsToVault: "POST /{accountId}/vaults/{vaultName}/tags?operation=add",
-      CompleteMultipartUpload:
-        "POST /{accountId}/vaults/{vaultName}/multipart-uploads/{uploadId}",
+      CompleteMultipartUpload: {
+        http: "POST /{accountId}/vaults/{vaultName}/multipart-uploads/{uploadId}",
+        traits: {
+          location: "Location",
+          checksum: "x-amz-sha256-tree-hash",
+          archiveId: "x-amz-archive-id",
+        },
+      },
       CompleteVaultLock:
         "POST /{accountId}/vaults/{vaultName}/lock-policy/{lockId}",
-      CreateVault: "PUT /{accountId}/vaults/{vaultName}",
+      CreateVault: {
+        http: "PUT /{accountId}/vaults/{vaultName}",
+        traits: {
+          location: "Location",
+        },
+      },
       DeleteArchive:
         "DELETE /{accountId}/vaults/{vaultName}/archives/{archiveId}",
       DeleteVault: "DELETE /{accountId}/vaults/{vaultName}",
@@ -6291,15 +7489,52 @@ export const serviceMetadata = {
       DescribeJob: "GET /{accountId}/vaults/{vaultName}/jobs/{jobId}",
       DescribeVault: "GET /{accountId}/vaults/{vaultName}",
       GetDataRetrievalPolicy: "GET /{accountId}/policies/data-retrieval",
-      GetJobOutput: "GET /{accountId}/vaults/{vaultName}/jobs/{jobId}/output",
-      GetVaultAccessPolicy: "GET /{accountId}/vaults/{vaultName}/access-policy",
+      GetJobOutput: {
+        http: "GET /{accountId}/vaults/{vaultName}/jobs/{jobId}/output",
+        traits: {
+          body: "httpPayload",
+          checksum: "x-amz-sha256-tree-hash",
+          status: "httpResponseCode",
+          contentRange: "Content-Range",
+          acceptRanges: "Accept-Ranges",
+          contentType: "Content-Type",
+          archiveDescription: "x-amz-archive-description",
+        },
+      },
+      GetVaultAccessPolicy: {
+        http: "GET /{accountId}/vaults/{vaultName}/access-policy",
+        traits: {
+          policy: "httpPayload",
+        },
+      },
       GetVaultLock: "GET /{accountId}/vaults/{vaultName}/lock-policy",
-      GetVaultNotifications:
-        "GET /{accountId}/vaults/{vaultName}/notification-configuration",
-      InitiateJob: "POST /{accountId}/vaults/{vaultName}/jobs",
-      InitiateMultipartUpload:
-        "POST /{accountId}/vaults/{vaultName}/multipart-uploads",
-      InitiateVaultLock: "POST /{accountId}/vaults/{vaultName}/lock-policy",
+      GetVaultNotifications: {
+        http: "GET /{accountId}/vaults/{vaultName}/notification-configuration",
+        traits: {
+          vaultNotificationConfig: "httpPayload",
+        },
+      },
+      InitiateJob: {
+        http: "POST /{accountId}/vaults/{vaultName}/jobs",
+        traits: {
+          location: "Location",
+          jobId: "x-amz-job-id",
+          jobOutputPath: "x-amz-job-output-path",
+        },
+      },
+      InitiateMultipartUpload: {
+        http: "POST /{accountId}/vaults/{vaultName}/multipart-uploads",
+        traits: {
+          location: "Location",
+          uploadId: "x-amz-multipart-upload-id",
+        },
+      },
+      InitiateVaultLock: {
+        http: "POST /{accountId}/vaults/{vaultName}/lock-policy",
+        traits: {
+          lockId: "x-amz-lock-id",
+        },
+      },
       ListJobs: "GET /{accountId}/vaults/{vaultName}/jobs",
       ListMultipartUploads:
         "GET /{accountId}/vaults/{vaultName}/multipart-uploads",
@@ -6308,16 +7543,32 @@ export const serviceMetadata = {
       ListProvisionedCapacity: "GET /{accountId}/provisioned-capacity",
       ListTagsForVault: "GET /{accountId}/vaults/{vaultName}/tags",
       ListVaults: "GET /{accountId}/vaults",
-      PurchaseProvisionedCapacity: "POST /{accountId}/provisioned-capacity",
+      PurchaseProvisionedCapacity: {
+        http: "POST /{accountId}/provisioned-capacity",
+        traits: {
+          capacityId: "x-amz-capacity-id",
+        },
+      },
       RemoveTagsFromVault:
         "POST /{accountId}/vaults/{vaultName}/tags?operation=remove",
       SetDataRetrievalPolicy: "PUT /{accountId}/policies/data-retrieval",
       SetVaultAccessPolicy: "PUT /{accountId}/vaults/{vaultName}/access-policy",
       SetVaultNotifications:
         "PUT /{accountId}/vaults/{vaultName}/notification-configuration",
-      UploadArchive: "POST /{accountId}/vaults/{vaultName}/archives",
-      UploadMultipartPart:
-        "PUT /{accountId}/vaults/{vaultName}/multipart-uploads/{uploadId}",
+      UploadArchive: {
+        http: "POST /{accountId}/vaults/{vaultName}/archives",
+        traits: {
+          location: "Location",
+          checksum: "x-amz-sha256-tree-hash",
+          archiveId: "x-amz-archive-id",
+        },
+      },
+      UploadMultipartPart: {
+        http: "PUT /{accountId}/vaults/{vaultName}/multipart-uploads/{uploadId}",
+        traits: {
+          checksum: "x-amz-sha256-tree-hash",
+        },
+      },
     },
   },
   globalaccelerator: {
@@ -7112,7 +8363,12 @@ export const serviceMetadata = {
       DeleteCertificate: "DELETE /certificates/{certificateId}",
       DeleteCertificateProvider:
         "DELETE /certificate-providers/{certificateProviderName}",
-      DeleteCommand: "DELETE /commands/{commandId}",
+      DeleteCommand: {
+        http: "DELETE /commands/{commandId}",
+        traits: {
+          statusCode: "httpResponseCode",
+        },
+      },
       DeleteCommandExecution: "DELETE /command-executions/{executionId}",
       DeleteCustomMetric: "DELETE /custom-metric/{metricName}",
       DeleteDimension: "DELETE /dimensions/{name}",
@@ -7373,14 +8629,29 @@ export const serviceMetadata = {
     protocol: "restJson1",
     targetPrefix: "",
     operations: {
-      DeleteThingShadow: "DELETE /things/{thingName}/shadow",
+      DeleteThingShadow: {
+        http: "DELETE /things/{thingName}/shadow",
+        traits: {
+          payload: "httpPayload",
+        },
+      },
       GetRetainedMessage: "GET /retainedMessage/{topic}",
-      GetThingShadow: "GET /things/{thingName}/shadow",
+      GetThingShadow: {
+        http: "GET /things/{thingName}/shadow",
+        traits: {
+          payload: "httpPayload",
+        },
+      },
       ListNamedShadowsForThing:
         "GET /api/things/shadow/ListNamedShadowsForThing/{thingName}",
       ListRetainedMessages: "GET /retainedMessage",
       Publish: "POST /topics/{topic}",
-      UpdateThingShadow: "POST /things/{thingName}/shadow",
+      UpdateThingShadow: {
+        http: "POST /things/{thingName}/shadow",
+        traits: {
+          payload: "httpPayload",
+        },
+      },
     },
   },
   iotevents: {
@@ -7650,10 +8921,20 @@ export const serviceMetadata = {
       GetPosition: "GET /positions/{ResourceIdentifier}",
       GetPositionConfiguration:
         "GET /position-configurations/{ResourceIdentifier}",
-      GetPositionEstimate: "POST /position-estimate",
+      GetPositionEstimate: {
+        http: "POST /position-estimate",
+        traits: {
+          GeoJsonPayload: "httpPayload",
+        },
+      },
       GetResourceEventConfiguration: "GET /event-configurations/{Identifier}",
       GetResourceLogLevel: "GET /log-levels/{ResourceIdentifier}",
-      GetResourcePosition: "GET /resource-positions/{ResourceIdentifier}",
+      GetResourcePosition: {
+        http: "GET /resource-positions/{ResourceIdentifier}",
+        traits: {
+          GeoJsonPayload: "httpPayload",
+        },
+      },
       GetServiceEndpoint: "GET /service-endpoint",
       GetServiceProfile: "GET /service-profiles/{Id}",
       GetWirelessDevice: "GET /wireless-devices/{Identifier}",
@@ -7885,7 +9166,12 @@ export const serviceMetadata = {
       DescribeAsset: "GET /assets/{assetId}",
       DescribeAssetCompositeModel:
         "GET /assets/{assetId}/composite-models/{assetCompositeModelId}",
-      DescribeAssetModel: "GET /asset-models/{assetModelId}",
+      DescribeAssetModel: {
+        http: "GET /asset-models/{assetModelId}",
+        traits: {
+          eTag: "ETag",
+        },
+      },
       DescribeAssetModelCompositeModel:
         "GET /asset-models/{assetModelId}/composite-models/{assetModelCompositeModelId}",
       DescribeAssetProperty: "GET /assets/{assetId}/properties/{propertyId}",
@@ -7914,7 +9200,13 @@ export const serviceMetadata = {
       GetAssetPropertyValue: "GET /properties/latest",
       GetAssetPropertyValueHistory: "GET /properties/history",
       GetInterpolatedAssetPropertyValues: "GET /properties/interpolated",
-      InvokeAssistant: "POST /assistant/invocation",
+      InvokeAssistant: {
+        http: "POST /assistant/invocation",
+        traits: {
+          body: "httpPayload",
+          conversationId: "x-amz-iotsitewise-assistant-conversation-id",
+        },
+      },
       ListAccessPolicies: "GET /access-policies",
       ListActions: "GET /actions",
       ListAssetModelCompositeModels:
@@ -8123,9 +9415,31 @@ export const serviceMetadata = {
       ListStorageConfigurations: "POST /ListStorageConfigurations",
       ListTagsForResource: "GET /tags/{resourceArn}",
       StartComposition: "POST /StartComposition",
-      StartParticipantReplication: "POST /StartParticipantReplication",
+      StartParticipantReplication: {
+        http: "POST /StartParticipantReplication",
+        traits: {
+          accessControlAllowOrigin: "Access-Control-Allow-Origin",
+          accessControlExposeHeaders: "Access-Control-Expose-Headers",
+          cacheControl: "Cache-Control",
+          contentSecurityPolicy: "Content-Security-Policy",
+          strictTransportSecurity: "Strict-Transport-Security",
+          xContentTypeOptions: "X-Content-Type-Options",
+          xFrameOptions: "X-Frame-Options",
+        },
+      },
       StopComposition: "POST /StopComposition",
-      StopParticipantReplication: "POST /StopParticipantReplication",
+      StopParticipantReplication: {
+        http: "POST /StopParticipantReplication",
+        traits: {
+          accessControlAllowOrigin: "Access-Control-Allow-Origin",
+          accessControlExposeHeaders: "Access-Control-Expose-Headers",
+          cacheControl: "Cache-Control",
+          contentSecurityPolicy: "Content-Security-Policy",
+          strictTransportSecurity: "Strict-Transport-Security",
+          xContentTypeOptions: "X-Content-Type-Options",
+          xFrameOptions: "X-Frame-Options",
+        },
+      },
       TagResource: "POST /tags/{resourceArn}",
       UntagResource: "DELETE /tags/{resourceArn}",
       UpdateIngestConfiguration: "POST /UpdateIngestConfiguration",
@@ -8379,11 +9693,23 @@ export const serviceMetadata = {
     protocol: "restJson1",
     targetPrefix: "",
     operations: {
-      GetClip: "POST /getClip",
+      GetClip: {
+        http: "POST /getClip",
+        traits: {
+          ContentType: "Content-Type",
+          Payload: "httpPayload",
+        },
+      },
       GetDASHStreamingSessionURL: "POST /getDASHStreamingSessionURL",
       GetHLSStreamingSessionURL: "POST /getHLSStreamingSessionURL",
       GetImages: "POST /getImages",
-      GetMediaForFragmentList: "POST /getMediaForFragmentList",
+      GetMediaForFragmentList: {
+        http: "POST /getMediaForFragmentList",
+        traits: {
+          ContentType: "Content-Type",
+          Payload: "httpPayload",
+        },
+      },
       ListFragments: "POST /listFragments",
     },
   },
@@ -8396,7 +9722,13 @@ export const serviceMetadata = {
     protocol: "restJson1",
     targetPrefix: "",
     operations: {
-      GetMedia: "POST /getMedia",
+      GetMedia: {
+        http: "POST /getMedia",
+        traits: {
+          ContentType: "Content-Type",
+          Payload: "httpPayload",
+        },
+      },
     },
   },
   kinesisvideosignaling: {
@@ -8482,7 +9814,12 @@ export const serviceMetadata = {
         "POST /GetTemporaryGluePartitionCredentials",
       GetTemporaryGlueTableCredentials:
         "POST /GetTemporaryGlueTableCredentials",
-      GetWorkUnitResults: "POST /GetWorkUnitResults",
+      GetWorkUnitResults: {
+        http: "POST /GetWorkUnitResults",
+        traits: {
+          ResultStream: "httpPayload",
+        },
+      },
       GetWorkUnits: "POST /GetWorkUnits",
       GrantPermissions: "POST /GrantPermissions",
       ListDataCellsFilter: "POST /ListDataCellsFilter",
@@ -8576,10 +9913,31 @@ export const serviceMetadata = {
         "GET /2019-09-30/functions/{FunctionName}/provisioned-concurrency",
       GetRuntimeManagementConfig:
         "GET /2021-07-20/functions/{FunctionName}/runtime-management-config",
-      Invoke: "POST /2015-03-31/functions/{FunctionName}/invocations",
-      InvokeAsync: "POST /2014-11-13/functions/{FunctionName}/invoke-async",
-      InvokeWithResponseStream:
-        "POST /2021-11-15/functions/{FunctionName}/response-streaming-invocations",
+      Invoke: {
+        http: "POST /2015-03-31/functions/{FunctionName}/invocations",
+        traits: {
+          StatusCode: "httpResponseCode",
+          FunctionError: "X-Amz-Function-Error",
+          LogResult: "X-Amz-Log-Result",
+          Payload: "httpPayload",
+          ExecutedVersion: "X-Amz-Executed-Version",
+        },
+      },
+      InvokeAsync: {
+        http: "POST /2014-11-13/functions/{FunctionName}/invoke-async",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      InvokeWithResponseStream: {
+        http: "POST /2021-11-15/functions/{FunctionName}/response-streaming-invocations",
+        traits: {
+          StatusCode: "httpResponseCode",
+          ExecutedVersion: "X-Amz-Executed-Version",
+          EventStream: "httpPayload",
+          ResponseStreamContentType: "Content-Type",
+        },
+      },
       ListAliases: "GET /2015-03-31/functions/{FunctionName}/aliases",
       ListCodeSigningConfigs: "GET /2020-04-22/code-signing-configs",
       ListEventSourceMappings: "GET /2015-03-31/event-source-mappings",
@@ -8873,9 +10231,47 @@ export const serviceMetadata = {
       DeleteSession:
         "DELETE /bot/{botName}/alias/{botAlias}/user/{userId}/session",
       GetSession: "GET /bot/{botName}/alias/{botAlias}/user/{userId}/session",
-      PostContent: "POST /bot/{botName}/alias/{botAlias}/user/{userId}/content",
+      PostContent: {
+        http: "POST /bot/{botName}/alias/{botAlias}/user/{userId}/content",
+        traits: {
+          contentType: "Content-Type",
+          intentName: "x-amz-lex-intent-name",
+          nluIntentConfidence: "x-amz-lex-nlu-intent-confidence",
+          alternativeIntents: "x-amz-lex-alternative-intents",
+          slots: "x-amz-lex-slots",
+          sessionAttributes: "x-amz-lex-session-attributes",
+          sentimentResponse: "x-amz-lex-sentiment",
+          message: "x-amz-lex-message",
+          encodedMessage: "x-amz-lex-encoded-message",
+          messageFormat: "x-amz-lex-message-format",
+          dialogState: "x-amz-lex-dialog-state",
+          slotToElicit: "x-amz-lex-slot-to-elicit",
+          inputTranscript: "x-amz-lex-input-transcript",
+          encodedInputTranscript: "x-amz-lex-encoded-input-transcript",
+          audioStream: "httpPayload",
+          botVersion: "x-amz-lex-bot-version",
+          sessionId: "x-amz-lex-session-id",
+          activeContexts: "x-amz-lex-active-contexts",
+        },
+      },
       PostText: "POST /bot/{botName}/alias/{botAlias}/user/{userId}/text",
-      PutSession: "POST /bot/{botName}/alias/{botAlias}/user/{userId}/session",
+      PutSession: {
+        http: "POST /bot/{botName}/alias/{botAlias}/user/{userId}/session",
+        traits: {
+          contentType: "Content-Type",
+          intentName: "x-amz-lex-intent-name",
+          slots: "x-amz-lex-slots",
+          sessionAttributes: "x-amz-lex-session-attributes",
+          message: "x-amz-lex-message",
+          encodedMessage: "x-amz-lex-encoded-message",
+          messageFormat: "x-amz-lex-message-format",
+          dialogState: "x-amz-lex-dialog-state",
+          slotToElicit: "x-amz-lex-slot-to-elicit",
+          audioStream: "httpPayload",
+          sessionId: "x-amz-lex-session-id",
+          activeContexts: "x-amz-lex-active-contexts",
+        },
+      },
     },
   },
   lexruntimev2: {
@@ -8891,14 +10287,40 @@ export const serviceMetadata = {
         "DELETE /bots/{botId}/botAliases/{botAliasId}/botLocales/{localeId}/sessions/{sessionId}",
       GetSession:
         "GET /bots/{botId}/botAliases/{botAliasId}/botLocales/{localeId}/sessions/{sessionId}",
-      PutSession:
-        "POST /bots/{botId}/botAliases/{botAliasId}/botLocales/{localeId}/sessions/{sessionId}",
+      PutSession: {
+        http: "POST /bots/{botId}/botAliases/{botAliasId}/botLocales/{localeId}/sessions/{sessionId}",
+        traits: {
+          contentType: "Content-Type",
+          messages: "x-amz-lex-messages",
+          sessionState: "x-amz-lex-session-state",
+          requestAttributes: "x-amz-lex-request-attributes",
+          sessionId: "x-amz-lex-session-id",
+          audioStream: "httpPayload",
+        },
+      },
       RecognizeText:
         "POST /bots/{botId}/botAliases/{botAliasId}/botLocales/{localeId}/sessions/{sessionId}/text",
-      RecognizeUtterance:
-        "POST /bots/{botId}/botAliases/{botAliasId}/botLocales/{localeId}/sessions/{sessionId}/utterance",
-      StartConversation:
-        "POST /bots/{botId}/botAliases/{botAliasId}/botLocales/{localeId}/sessions/{sessionId}/conversation",
+      RecognizeUtterance: {
+        http: "POST /bots/{botId}/botAliases/{botAliasId}/botLocales/{localeId}/sessions/{sessionId}/utterance",
+        traits: {
+          inputMode: "x-amz-lex-input-mode",
+          contentType: "Content-Type",
+          messages: "x-amz-lex-messages",
+          interpretations: "x-amz-lex-interpretations",
+          sessionState: "x-amz-lex-session-state",
+          requestAttributes: "x-amz-lex-request-attributes",
+          sessionId: "x-amz-lex-session-id",
+          inputTranscript: "x-amz-lex-input-transcript",
+          audioStream: "httpPayload",
+          recognizedBotMember: "x-amz-lex-recognized-bot-member",
+        },
+      },
+      StartConversation: {
+        http: "POST /bots/{botId}/botAliases/{botAliasId}/botLocales/{localeId}/sessions/{sessionId}/conversation",
+        traits: {
+          responseEventStream: "httpPayload",
+        },
+      },
     },
   },
   licensemanager: {
@@ -9037,11 +10459,38 @@ export const serviceMetadata = {
         "POST /tracking/v0/trackers/{TrackerName}/devices/{DeviceId}/list-positions",
       GetGeofence:
         "GET /geofencing/v0/collections/{CollectionName}/geofences/{GeofenceId}",
-      GetMapGlyphs:
-        "GET /maps/v0/maps/{MapName}/glyphs/{FontStack}/{FontUnicodeRange}",
-      GetMapSprites: "GET /maps/v0/maps/{MapName}/sprites/{FileName}",
-      GetMapStyleDescriptor: "GET /maps/v0/maps/{MapName}/style-descriptor",
-      GetMapTile: "GET /maps/v0/maps/{MapName}/tiles/{Z}/{X}/{Y}",
+      GetMapGlyphs: {
+        http: "GET /maps/v0/maps/{MapName}/glyphs/{FontStack}/{FontUnicodeRange}",
+        traits: {
+          Blob: "httpPayload",
+          ContentType: "Content-Type",
+          CacheControl: "Cache-Control",
+        },
+      },
+      GetMapSprites: {
+        http: "GET /maps/v0/maps/{MapName}/sprites/{FileName}",
+        traits: {
+          Blob: "httpPayload",
+          ContentType: "Content-Type",
+          CacheControl: "Cache-Control",
+        },
+      },
+      GetMapStyleDescriptor: {
+        http: "GET /maps/v0/maps/{MapName}/style-descriptor",
+        traits: {
+          Blob: "httpPayload",
+          ContentType: "Content-Type",
+          CacheControl: "Cache-Control",
+        },
+      },
+      GetMapTile: {
+        http: "GET /maps/v0/maps/{MapName}/tiles/{Z}/{X}/{Y}",
+        traits: {
+          Blob: "httpPayload",
+          ContentType: "Content-Type",
+          CacheControl: "Cache-Control",
+        },
+      },
       GetPlace: "GET /places/v0/indexes/{IndexName}/places/{PlaceId}",
       ListDevicePositions:
         "POST /tracking/v0/trackers/{TrackerName}/list-positions",
@@ -9687,8 +11136,16 @@ export const serviceMetadata = {
       DescribeCluster: "GET /prod/clusters/{ClusterId}",
       DescribeInput: "GET /prod/inputs/{InputId}",
       DescribeInputDevice: "GET /prod/inputDevices/{InputDeviceId}",
-      DescribeInputDeviceThumbnail:
-        "GET /prod/inputDevices/{InputDeviceId}/thumbnailData",
+      DescribeInputDeviceThumbnail: {
+        http: "GET /prod/inputDevices/{InputDeviceId}/thumbnailData",
+        traits: {
+          Body: "httpPayload",
+          ContentType: "Content-Type",
+          ContentLength: "Content-Length",
+          ETag: "ETag",
+          LastModified: "Last-Modified",
+        },
+      },
       DescribeInputSecurityGroup:
         "GET /prod/inputSecurityGroups/{InputSecurityGroupId}",
       DescribeMultiplex: "GET /prod/multiplexes/{MultiplexId}",
@@ -9919,8 +11376,29 @@ export const serviceMetadata = {
     targetPrefix: "",
     operations: {
       DeleteObject: "DELETE /{Path+}",
-      DescribeObject: "HEAD /{Path+}",
-      GetObject: "GET /{Path+}",
+      DescribeObject: {
+        http: "HEAD /{Path+}",
+        traits: {
+          ETag: "ETag",
+          ContentType: "Content-Type",
+          ContentLength: "Content-Length",
+          CacheControl: "Cache-Control",
+          LastModified: "Last-Modified",
+        },
+      },
+      GetObject: {
+        http: "GET /{Path+}",
+        traits: {
+          Body: "httpPayload",
+          CacheControl: "Cache-Control",
+          ContentRange: "Content-Range",
+          ContentLength: "Content-Length",
+          ContentType: "Content-Type",
+          ETag: "ETag",
+          LastModified: "Last-Modified",
+          StatusCode: "httpResponseCode",
+        },
+      },
       ListItems: "GET /",
       PutObject: "PUT /{Path+}",
     },
@@ -10008,12 +11486,23 @@ export const serviceMetadata = {
         "POST /datastore/{datastoreId}/imageSet/{imageSetId}/deleteImageSet",
       GetDICOMImportJob:
         "GET /getDICOMImportJob/datastore/{datastoreId}/job/{jobId}",
-      GetImageFrame:
-        "POST /datastore/{datastoreId}/imageSet/{imageSetId}/getImageFrame",
+      GetImageFrame: {
+        http: "POST /datastore/{datastoreId}/imageSet/{imageSetId}/getImageFrame",
+        traits: {
+          imageFrameBlob: "httpPayload",
+          contentType: "Content-Type",
+        },
+      },
       GetImageSet:
         "POST /datastore/{datastoreId}/imageSet/{imageSetId}/getImageSet",
-      GetImageSetMetadata:
-        "POST /datastore/{datastoreId}/imageSet/{imageSetId}/getImageSetMetadata",
+      GetImageSetMetadata: {
+        http: "POST /datastore/{datastoreId}/imageSet/{imageSetId}/getImageSetMetadata",
+        traits: {
+          imageSetMetadataBlob: "httpPayload",
+          contentType: "Content-Type",
+          contentEncoding: "Content-Encoding",
+        },
+      },
       ListDICOMImportJobs: "GET /listDICOMImportJobs/datastore/{datastoreId}",
       ListImageSetVersions:
         "POST /datastore/{datastoreId}/imageSet/{imageSetId}/listImageSetVersions",
@@ -10397,7 +11886,12 @@ export const serviceMetadata = {
     targetPrefix: "",
     operations: {
       CancelQuery: "DELETE /queries/{queryId}",
-      ExecuteQuery: "POST /queries",
+      ExecuteQuery: {
+        http: "POST /queries",
+        traits: {
+          payload: "httpPayload",
+        },
+      },
       GetGraphSummary: "GET /summary",
       GetQuery: "GET /queries/{queryId}",
       ListQueries: "GET /queries",
@@ -10449,13 +11943,38 @@ export const serviceMetadata = {
       CancelOpenCypherQuery: "DELETE /opencypher/status/{queryId}",
       CreateMLEndpoint: "POST /ml/endpoints",
       DeleteMLEndpoint: "DELETE /ml/endpoints/{id}",
-      DeletePropertygraphStatistics: "DELETE /propertygraph/statistics",
-      DeleteSparqlStatistics: "DELETE /sparql/statistics",
+      DeletePropertygraphStatistics: {
+        http: "DELETE /propertygraph/statistics",
+        traits: {
+          statusCode: "httpResponseCode",
+        },
+      },
+      DeleteSparqlStatistics: {
+        http: "DELETE /sparql/statistics",
+        traits: {
+          statusCode: "httpResponseCode",
+        },
+      },
       ExecuteFastReset: "POST /system",
-      ExecuteGremlinExplainQuery: "POST /gremlin/explain",
-      ExecuteGremlinProfileQuery: "POST /gremlin/profile",
+      ExecuteGremlinExplainQuery: {
+        http: "POST /gremlin/explain",
+        traits: {
+          output: "httpPayload",
+        },
+      },
+      ExecuteGremlinProfileQuery: {
+        http: "POST /gremlin/profile",
+        traits: {
+          output: "httpPayload",
+        },
+      },
       ExecuteGremlinQuery: "POST /gremlin",
-      ExecuteOpenCypherExplainQuery: "POST /opencypher/explain",
+      ExecuteOpenCypherExplainQuery: {
+        http: "POST /opencypher/explain",
+        traits: {
+          results: "httpPayload",
+        },
+      },
       ExecuteOpenCypherQuery: "POST /opencypher",
       GetEngineStatus: "GET /status",
       GetGremlinQueryStatus: "GET /gremlin/status/{queryId}",
@@ -10467,8 +11986,18 @@ export const serviceMetadata = {
       GetOpenCypherQueryStatus: "GET /opencypher/status/{queryId}",
       GetPropertygraphStatistics: "GET /propertygraph/statistics",
       GetPropertygraphStream: "GET /propertygraph/stream",
-      GetPropertygraphSummary: "GET /propertygraph/statistics/summary",
-      GetRDFGraphSummary: "GET /rdf/statistics/summary",
+      GetPropertygraphSummary: {
+        http: "GET /propertygraph/statistics/summary",
+        traits: {
+          statusCode: "httpResponseCode",
+        },
+      },
+      GetRDFGraphSummary: {
+        http: "GET /rdf/statistics/summary",
+        traits: {
+          statusCode: "httpResponseCode",
+        },
+      },
       GetSparqlStatistics: "GET /sparql/statistics",
       GetSparqlStream: "GET /sparql/stream",
       ListGremlinQueries: "GET /gremlin/status",
@@ -10912,7 +12441,12 @@ export const serviceMetadata = {
       GetAnnotationStore: "GET /annotationStore/{name}",
       GetAnnotationStoreVersion:
         "GET /annotationStore/{name}/version/{versionName}",
-      GetReadSet: "GET /sequencestore/{sequenceStoreId}/readset/{id}",
+      GetReadSet: {
+        http: "GET /sequencestore/{sequenceStoreId}/readset/{id}",
+        traits: {
+          payload: "httpPayload",
+        },
+      },
       GetReadSetActivationJob:
         "GET /sequencestore/{sequenceStoreId}/activationjob/{id}",
       GetReadSetExportJob:
@@ -10921,7 +12455,12 @@ export const serviceMetadata = {
         "GET /sequencestore/{sequenceStoreId}/importjob/{id}",
       GetReadSetMetadata:
         "GET /sequencestore/{sequenceStoreId}/readset/{id}/metadata",
-      GetReference: "GET /referencestore/{referenceStoreId}/reference/{id}",
+      GetReference: {
+        http: "GET /referencestore/{referenceStoreId}/reference/{id}",
+        traits: {
+          payload: "httpPayload",
+        },
+      },
       GetReferenceImportJob:
         "GET /referencestore/{referenceStoreId}/importjob/{id}",
       GetReferenceMetadata:
@@ -11466,154 +13005,728 @@ export const serviceMetadata = {
     protocol: "restJson1",
     targetPrefix: "",
     operations: {
-      CreateApp: "POST /v1/apps",
-      CreateCampaign: "POST /v1/apps/{ApplicationId}/campaigns",
-      CreateEmailTemplate: "POST /v1/templates/{TemplateName}/email",
-      CreateExportJob: "POST /v1/apps/{ApplicationId}/jobs/export",
-      CreateImportJob: "POST /v1/apps/{ApplicationId}/jobs/import",
-      CreateInAppTemplate: "POST /v1/templates/{TemplateName}/inapp",
-      CreateJourney: "POST /v1/apps/{ApplicationId}/journeys",
-      CreatePushTemplate: "POST /v1/templates/{TemplateName}/push",
-      CreateRecommenderConfiguration: "POST /v1/recommenders",
-      CreateSegment: "POST /v1/apps/{ApplicationId}/segments",
-      CreateSmsTemplate: "POST /v1/templates/{TemplateName}/sms",
-      CreateVoiceTemplate: "POST /v1/templates/{TemplateName}/voice",
-      DeleteAdmChannel: "DELETE /v1/apps/{ApplicationId}/channels/adm",
-      DeleteApnsChannel: "DELETE /v1/apps/{ApplicationId}/channels/apns",
-      DeleteApnsSandboxChannel:
-        "DELETE /v1/apps/{ApplicationId}/channels/apns_sandbox",
-      DeleteApnsVoipChannel:
-        "DELETE /v1/apps/{ApplicationId}/channels/apns_voip",
-      DeleteApnsVoipSandboxChannel:
-        "DELETE /v1/apps/{ApplicationId}/channels/apns_voip_sandbox",
-      DeleteApp: "DELETE /v1/apps/{ApplicationId}",
-      DeleteBaiduChannel: "DELETE /v1/apps/{ApplicationId}/channels/baidu",
-      DeleteCampaign: "DELETE /v1/apps/{ApplicationId}/campaigns/{CampaignId}",
-      DeleteEmailChannel: "DELETE /v1/apps/{ApplicationId}/channels/email",
-      DeleteEmailTemplate: "DELETE /v1/templates/{TemplateName}/email",
-      DeleteEndpoint: "DELETE /v1/apps/{ApplicationId}/endpoints/{EndpointId}",
-      DeleteEventStream: "DELETE /v1/apps/{ApplicationId}/eventstream",
-      DeleteGcmChannel: "DELETE /v1/apps/{ApplicationId}/channels/gcm",
-      DeleteInAppTemplate: "DELETE /v1/templates/{TemplateName}/inapp",
-      DeleteJourney: "DELETE /v1/apps/{ApplicationId}/journeys/{JourneyId}",
-      DeletePushTemplate: "DELETE /v1/templates/{TemplateName}/push",
-      DeleteRecommenderConfiguration: "DELETE /v1/recommenders/{RecommenderId}",
-      DeleteSegment: "DELETE /v1/apps/{ApplicationId}/segments/{SegmentId}",
-      DeleteSmsChannel: "DELETE /v1/apps/{ApplicationId}/channels/sms",
-      DeleteSmsTemplate: "DELETE /v1/templates/{TemplateName}/sms",
-      DeleteUserEndpoints: "DELETE /v1/apps/{ApplicationId}/users/{UserId}",
-      DeleteVoiceChannel: "DELETE /v1/apps/{ApplicationId}/channels/voice",
-      DeleteVoiceTemplate: "DELETE /v1/templates/{TemplateName}/voice",
-      GetAdmChannel: "GET /v1/apps/{ApplicationId}/channels/adm",
-      GetApnsChannel: "GET /v1/apps/{ApplicationId}/channels/apns",
-      GetApnsSandboxChannel:
-        "GET /v1/apps/{ApplicationId}/channels/apns_sandbox",
-      GetApnsVoipChannel: "GET /v1/apps/{ApplicationId}/channels/apns_voip",
-      GetApnsVoipSandboxChannel:
-        "GET /v1/apps/{ApplicationId}/channels/apns_voip_sandbox",
-      GetApp: "GET /v1/apps/{ApplicationId}",
-      GetApplicationDateRangeKpi:
-        "GET /v1/apps/{ApplicationId}/kpis/daterange/{KpiName}",
-      GetApplicationSettings: "GET /v1/apps/{ApplicationId}/settings",
-      GetApps: "GET /v1/apps",
-      GetBaiduChannel: "GET /v1/apps/{ApplicationId}/channels/baidu",
-      GetCampaign: "GET /v1/apps/{ApplicationId}/campaigns/{CampaignId}",
-      GetCampaignActivities:
-        "GET /v1/apps/{ApplicationId}/campaigns/{CampaignId}/activities",
-      GetCampaignDateRangeKpi:
-        "GET /v1/apps/{ApplicationId}/campaigns/{CampaignId}/kpis/daterange/{KpiName}",
-      GetCampaigns: "GET /v1/apps/{ApplicationId}/campaigns",
-      GetCampaignVersion:
-        "GET /v1/apps/{ApplicationId}/campaigns/{CampaignId}/versions/{Version}",
-      GetCampaignVersions:
-        "GET /v1/apps/{ApplicationId}/campaigns/{CampaignId}/versions",
-      GetChannels: "GET /v1/apps/{ApplicationId}/channels",
-      GetEmailChannel: "GET /v1/apps/{ApplicationId}/channels/email",
-      GetEmailTemplate: "GET /v1/templates/{TemplateName}/email",
-      GetEndpoint: "GET /v1/apps/{ApplicationId}/endpoints/{EndpointId}",
-      GetEventStream: "GET /v1/apps/{ApplicationId}/eventstream",
-      GetExportJob: "GET /v1/apps/{ApplicationId}/jobs/export/{JobId}",
-      GetExportJobs: "GET /v1/apps/{ApplicationId}/jobs/export",
-      GetGcmChannel: "GET /v1/apps/{ApplicationId}/channels/gcm",
-      GetImportJob: "GET /v1/apps/{ApplicationId}/jobs/import/{JobId}",
-      GetImportJobs: "GET /v1/apps/{ApplicationId}/jobs/import",
-      GetInAppMessages:
-        "GET /v1/apps/{ApplicationId}/endpoints/{EndpointId}/inappmessages",
-      GetInAppTemplate: "GET /v1/templates/{TemplateName}/inapp",
-      GetJourney: "GET /v1/apps/{ApplicationId}/journeys/{JourneyId}",
-      GetJourneyDateRangeKpi:
-        "GET /v1/apps/{ApplicationId}/journeys/{JourneyId}/kpis/daterange/{KpiName}",
-      GetJourneyExecutionActivityMetrics:
-        "GET /v1/apps/{ApplicationId}/journeys/{JourneyId}/activities/{JourneyActivityId}/execution-metrics",
-      GetJourneyExecutionMetrics:
-        "GET /v1/apps/{ApplicationId}/journeys/{JourneyId}/execution-metrics",
-      GetJourneyRunExecutionActivityMetrics:
-        "GET /v1/apps/{ApplicationId}/journeys/{JourneyId}/runs/{RunId}/activities/{JourneyActivityId}/execution-metrics",
-      GetJourneyRunExecutionMetrics:
-        "GET /v1/apps/{ApplicationId}/journeys/{JourneyId}/runs/{RunId}/execution-metrics",
-      GetJourneyRuns: "GET /v1/apps/{ApplicationId}/journeys/{JourneyId}/runs",
-      GetPushTemplate: "GET /v1/templates/{TemplateName}/push",
-      GetRecommenderConfiguration: "GET /v1/recommenders/{RecommenderId}",
-      GetRecommenderConfigurations: "GET /v1/recommenders",
-      GetSegment: "GET /v1/apps/{ApplicationId}/segments/{SegmentId}",
-      GetSegmentExportJobs:
-        "GET /v1/apps/{ApplicationId}/segments/{SegmentId}/jobs/export",
-      GetSegmentImportJobs:
-        "GET /v1/apps/{ApplicationId}/segments/{SegmentId}/jobs/import",
-      GetSegments: "GET /v1/apps/{ApplicationId}/segments",
-      GetSegmentVersion:
-        "GET /v1/apps/{ApplicationId}/segments/{SegmentId}/versions/{Version}",
-      GetSegmentVersions:
-        "GET /v1/apps/{ApplicationId}/segments/{SegmentId}/versions",
-      GetSmsChannel: "GET /v1/apps/{ApplicationId}/channels/sms",
-      GetSmsTemplate: "GET /v1/templates/{TemplateName}/sms",
-      GetUserEndpoints: "GET /v1/apps/{ApplicationId}/users/{UserId}",
-      GetVoiceChannel: "GET /v1/apps/{ApplicationId}/channels/voice",
-      GetVoiceTemplate: "GET /v1/templates/{TemplateName}/voice",
-      ListJourneys: "GET /v1/apps/{ApplicationId}/journeys",
-      ListTagsForResource: "GET /v1/tags/{ResourceArn}",
-      ListTemplates: "GET /v1/templates",
-      ListTemplateVersions:
-        "GET /v1/templates/{TemplateName}/{TemplateType}/versions",
-      PhoneNumberValidate: "POST /v1/phone/number/validate",
-      PutEvents: "POST /v1/apps/{ApplicationId}/events",
-      PutEventStream: "POST /v1/apps/{ApplicationId}/eventstream",
-      RemoveAttributes:
-        "PUT /v1/apps/{ApplicationId}/attributes/{AttributeType}",
-      SendMessages: "POST /v1/apps/{ApplicationId}/messages",
-      SendOTPMessage: "POST /v1/apps/{ApplicationId}/otp",
-      SendUsersMessages: "POST /v1/apps/{ApplicationId}/users-messages",
+      CreateApp: {
+        http: "POST /v1/apps",
+        traits: {
+          ApplicationResponse: "httpPayload",
+        },
+      },
+      CreateCampaign: {
+        http: "POST /v1/apps/{ApplicationId}/campaigns",
+        traits: {
+          CampaignResponse: "httpPayload",
+        },
+      },
+      CreateEmailTemplate: {
+        http: "POST /v1/templates/{TemplateName}/email",
+        traits: {
+          CreateTemplateMessageBody: "httpPayload",
+        },
+      },
+      CreateExportJob: {
+        http: "POST /v1/apps/{ApplicationId}/jobs/export",
+        traits: {
+          ExportJobResponse: "httpPayload",
+        },
+      },
+      CreateImportJob: {
+        http: "POST /v1/apps/{ApplicationId}/jobs/import",
+        traits: {
+          ImportJobResponse: "httpPayload",
+        },
+      },
+      CreateInAppTemplate: {
+        http: "POST /v1/templates/{TemplateName}/inapp",
+        traits: {
+          TemplateCreateMessageBody: "httpPayload",
+        },
+      },
+      CreateJourney: {
+        http: "POST /v1/apps/{ApplicationId}/journeys",
+        traits: {
+          JourneyResponse: "httpPayload",
+        },
+      },
+      CreatePushTemplate: {
+        http: "POST /v1/templates/{TemplateName}/push",
+        traits: {
+          CreateTemplateMessageBody: "httpPayload",
+        },
+      },
+      CreateRecommenderConfiguration: {
+        http: "POST /v1/recommenders",
+        traits: {
+          RecommenderConfigurationResponse: "httpPayload",
+        },
+      },
+      CreateSegment: {
+        http: "POST /v1/apps/{ApplicationId}/segments",
+        traits: {
+          SegmentResponse: "httpPayload",
+        },
+      },
+      CreateSmsTemplate: {
+        http: "POST /v1/templates/{TemplateName}/sms",
+        traits: {
+          CreateTemplateMessageBody: "httpPayload",
+        },
+      },
+      CreateVoiceTemplate: {
+        http: "POST /v1/templates/{TemplateName}/voice",
+        traits: {
+          CreateTemplateMessageBody: "httpPayload",
+        },
+      },
+      DeleteAdmChannel: {
+        http: "DELETE /v1/apps/{ApplicationId}/channels/adm",
+        traits: {
+          ADMChannelResponse: "httpPayload",
+        },
+      },
+      DeleteApnsChannel: {
+        http: "DELETE /v1/apps/{ApplicationId}/channels/apns",
+        traits: {
+          APNSChannelResponse: "httpPayload",
+        },
+      },
+      DeleteApnsSandboxChannel: {
+        http: "DELETE /v1/apps/{ApplicationId}/channels/apns_sandbox",
+        traits: {
+          APNSSandboxChannelResponse: "httpPayload",
+        },
+      },
+      DeleteApnsVoipChannel: {
+        http: "DELETE /v1/apps/{ApplicationId}/channels/apns_voip",
+        traits: {
+          APNSVoipChannelResponse: "httpPayload",
+        },
+      },
+      DeleteApnsVoipSandboxChannel: {
+        http: "DELETE /v1/apps/{ApplicationId}/channels/apns_voip_sandbox",
+        traits: {
+          APNSVoipSandboxChannelResponse: "httpPayload",
+        },
+      },
+      DeleteApp: {
+        http: "DELETE /v1/apps/{ApplicationId}",
+        traits: {
+          ApplicationResponse: "httpPayload",
+        },
+      },
+      DeleteBaiduChannel: {
+        http: "DELETE /v1/apps/{ApplicationId}/channels/baidu",
+        traits: {
+          BaiduChannelResponse: "httpPayload",
+        },
+      },
+      DeleteCampaign: {
+        http: "DELETE /v1/apps/{ApplicationId}/campaigns/{CampaignId}",
+        traits: {
+          CampaignResponse: "httpPayload",
+        },
+      },
+      DeleteEmailChannel: {
+        http: "DELETE /v1/apps/{ApplicationId}/channels/email",
+        traits: {
+          EmailChannelResponse: "httpPayload",
+        },
+      },
+      DeleteEmailTemplate: {
+        http: "DELETE /v1/templates/{TemplateName}/email",
+        traits: {
+          MessageBody: "httpPayload",
+        },
+      },
+      DeleteEndpoint: {
+        http: "DELETE /v1/apps/{ApplicationId}/endpoints/{EndpointId}",
+        traits: {
+          EndpointResponse: "httpPayload",
+        },
+      },
+      DeleteEventStream: {
+        http: "DELETE /v1/apps/{ApplicationId}/eventstream",
+        traits: {
+          EventStream: "httpPayload",
+        },
+      },
+      DeleteGcmChannel: {
+        http: "DELETE /v1/apps/{ApplicationId}/channels/gcm",
+        traits: {
+          GCMChannelResponse: "httpPayload",
+        },
+      },
+      DeleteInAppTemplate: {
+        http: "DELETE /v1/templates/{TemplateName}/inapp",
+        traits: {
+          MessageBody: "httpPayload",
+        },
+      },
+      DeleteJourney: {
+        http: "DELETE /v1/apps/{ApplicationId}/journeys/{JourneyId}",
+        traits: {
+          JourneyResponse: "httpPayload",
+        },
+      },
+      DeletePushTemplate: {
+        http: "DELETE /v1/templates/{TemplateName}/push",
+        traits: {
+          MessageBody: "httpPayload",
+        },
+      },
+      DeleteRecommenderConfiguration: {
+        http: "DELETE /v1/recommenders/{RecommenderId}",
+        traits: {
+          RecommenderConfigurationResponse: "httpPayload",
+        },
+      },
+      DeleteSegment: {
+        http: "DELETE /v1/apps/{ApplicationId}/segments/{SegmentId}",
+        traits: {
+          SegmentResponse: "httpPayload",
+        },
+      },
+      DeleteSmsChannel: {
+        http: "DELETE /v1/apps/{ApplicationId}/channels/sms",
+        traits: {
+          SMSChannelResponse: "httpPayload",
+        },
+      },
+      DeleteSmsTemplate: {
+        http: "DELETE /v1/templates/{TemplateName}/sms",
+        traits: {
+          MessageBody: "httpPayload",
+        },
+      },
+      DeleteUserEndpoints: {
+        http: "DELETE /v1/apps/{ApplicationId}/users/{UserId}",
+        traits: {
+          EndpointsResponse: "httpPayload",
+        },
+      },
+      DeleteVoiceChannel: {
+        http: "DELETE /v1/apps/{ApplicationId}/channels/voice",
+        traits: {
+          VoiceChannelResponse: "httpPayload",
+        },
+      },
+      DeleteVoiceTemplate: {
+        http: "DELETE /v1/templates/{TemplateName}/voice",
+        traits: {
+          MessageBody: "httpPayload",
+        },
+      },
+      GetAdmChannel: {
+        http: "GET /v1/apps/{ApplicationId}/channels/adm",
+        traits: {
+          ADMChannelResponse: "httpPayload",
+        },
+      },
+      GetApnsChannel: {
+        http: "GET /v1/apps/{ApplicationId}/channels/apns",
+        traits: {
+          APNSChannelResponse: "httpPayload",
+        },
+      },
+      GetApnsSandboxChannel: {
+        http: "GET /v1/apps/{ApplicationId}/channels/apns_sandbox",
+        traits: {
+          APNSSandboxChannelResponse: "httpPayload",
+        },
+      },
+      GetApnsVoipChannel: {
+        http: "GET /v1/apps/{ApplicationId}/channels/apns_voip",
+        traits: {
+          APNSVoipChannelResponse: "httpPayload",
+        },
+      },
+      GetApnsVoipSandboxChannel: {
+        http: "GET /v1/apps/{ApplicationId}/channels/apns_voip_sandbox",
+        traits: {
+          APNSVoipSandboxChannelResponse: "httpPayload",
+        },
+      },
+      GetApp: {
+        http: "GET /v1/apps/{ApplicationId}",
+        traits: {
+          ApplicationResponse: "httpPayload",
+        },
+      },
+      GetApplicationDateRangeKpi: {
+        http: "GET /v1/apps/{ApplicationId}/kpis/daterange/{KpiName}",
+        traits: {
+          ApplicationDateRangeKpiResponse: "httpPayload",
+        },
+      },
+      GetApplicationSettings: {
+        http: "GET /v1/apps/{ApplicationId}/settings",
+        traits: {
+          ApplicationSettingsResource: "httpPayload",
+        },
+      },
+      GetApps: {
+        http: "GET /v1/apps",
+        traits: {
+          ApplicationsResponse: "httpPayload",
+        },
+      },
+      GetBaiduChannel: {
+        http: "GET /v1/apps/{ApplicationId}/channels/baidu",
+        traits: {
+          BaiduChannelResponse: "httpPayload",
+        },
+      },
+      GetCampaign: {
+        http: "GET /v1/apps/{ApplicationId}/campaigns/{CampaignId}",
+        traits: {
+          CampaignResponse: "httpPayload",
+        },
+      },
+      GetCampaignActivities: {
+        http: "GET /v1/apps/{ApplicationId}/campaigns/{CampaignId}/activities",
+        traits: {
+          ActivitiesResponse: "httpPayload",
+        },
+      },
+      GetCampaignDateRangeKpi: {
+        http: "GET /v1/apps/{ApplicationId}/campaigns/{CampaignId}/kpis/daterange/{KpiName}",
+        traits: {
+          CampaignDateRangeKpiResponse: "httpPayload",
+        },
+      },
+      GetCampaigns: {
+        http: "GET /v1/apps/{ApplicationId}/campaigns",
+        traits: {
+          CampaignsResponse: "httpPayload",
+        },
+      },
+      GetCampaignVersion: {
+        http: "GET /v1/apps/{ApplicationId}/campaigns/{CampaignId}/versions/{Version}",
+        traits: {
+          CampaignResponse: "httpPayload",
+        },
+      },
+      GetCampaignVersions: {
+        http: "GET /v1/apps/{ApplicationId}/campaigns/{CampaignId}/versions",
+        traits: {
+          CampaignsResponse: "httpPayload",
+        },
+      },
+      GetChannels: {
+        http: "GET /v1/apps/{ApplicationId}/channels",
+        traits: {
+          ChannelsResponse: "httpPayload",
+        },
+      },
+      GetEmailChannel: {
+        http: "GET /v1/apps/{ApplicationId}/channels/email",
+        traits: {
+          EmailChannelResponse: "httpPayload",
+        },
+      },
+      GetEmailTemplate: {
+        http: "GET /v1/templates/{TemplateName}/email",
+        traits: {
+          EmailTemplateResponse: "httpPayload",
+        },
+      },
+      GetEndpoint: {
+        http: "GET /v1/apps/{ApplicationId}/endpoints/{EndpointId}",
+        traits: {
+          EndpointResponse: "httpPayload",
+        },
+      },
+      GetEventStream: {
+        http: "GET /v1/apps/{ApplicationId}/eventstream",
+        traits: {
+          EventStream: "httpPayload",
+        },
+      },
+      GetExportJob: {
+        http: "GET /v1/apps/{ApplicationId}/jobs/export/{JobId}",
+        traits: {
+          ExportJobResponse: "httpPayload",
+        },
+      },
+      GetExportJobs: {
+        http: "GET /v1/apps/{ApplicationId}/jobs/export",
+        traits: {
+          ExportJobsResponse: "httpPayload",
+        },
+      },
+      GetGcmChannel: {
+        http: "GET /v1/apps/{ApplicationId}/channels/gcm",
+        traits: {
+          GCMChannelResponse: "httpPayload",
+        },
+      },
+      GetImportJob: {
+        http: "GET /v1/apps/{ApplicationId}/jobs/import/{JobId}",
+        traits: {
+          ImportJobResponse: "httpPayload",
+        },
+      },
+      GetImportJobs: {
+        http: "GET /v1/apps/{ApplicationId}/jobs/import",
+        traits: {
+          ImportJobsResponse: "httpPayload",
+        },
+      },
+      GetInAppMessages: {
+        http: "GET /v1/apps/{ApplicationId}/endpoints/{EndpointId}/inappmessages",
+        traits: {
+          InAppMessagesResponse: "httpPayload",
+        },
+      },
+      GetInAppTemplate: {
+        http: "GET /v1/templates/{TemplateName}/inapp",
+        traits: {
+          InAppTemplateResponse: "httpPayload",
+        },
+      },
+      GetJourney: {
+        http: "GET /v1/apps/{ApplicationId}/journeys/{JourneyId}",
+        traits: {
+          JourneyResponse: "httpPayload",
+        },
+      },
+      GetJourneyDateRangeKpi: {
+        http: "GET /v1/apps/{ApplicationId}/journeys/{JourneyId}/kpis/daterange/{KpiName}",
+        traits: {
+          JourneyDateRangeKpiResponse: "httpPayload",
+        },
+      },
+      GetJourneyExecutionActivityMetrics: {
+        http: "GET /v1/apps/{ApplicationId}/journeys/{JourneyId}/activities/{JourneyActivityId}/execution-metrics",
+        traits: {
+          JourneyExecutionActivityMetricsResponse: "httpPayload",
+        },
+      },
+      GetJourneyExecutionMetrics: {
+        http: "GET /v1/apps/{ApplicationId}/journeys/{JourneyId}/execution-metrics",
+        traits: {
+          JourneyExecutionMetricsResponse: "httpPayload",
+        },
+      },
+      GetJourneyRunExecutionActivityMetrics: {
+        http: "GET /v1/apps/{ApplicationId}/journeys/{JourneyId}/runs/{RunId}/activities/{JourneyActivityId}/execution-metrics",
+        traits: {
+          JourneyRunExecutionActivityMetricsResponse: "httpPayload",
+        },
+      },
+      GetJourneyRunExecutionMetrics: {
+        http: "GET /v1/apps/{ApplicationId}/journeys/{JourneyId}/runs/{RunId}/execution-metrics",
+        traits: {
+          JourneyRunExecutionMetricsResponse: "httpPayload",
+        },
+      },
+      GetJourneyRuns: {
+        http: "GET /v1/apps/{ApplicationId}/journeys/{JourneyId}/runs",
+        traits: {
+          JourneyRunsResponse: "httpPayload",
+        },
+      },
+      GetPushTemplate: {
+        http: "GET /v1/templates/{TemplateName}/push",
+        traits: {
+          PushNotificationTemplateResponse: "httpPayload",
+        },
+      },
+      GetRecommenderConfiguration: {
+        http: "GET /v1/recommenders/{RecommenderId}",
+        traits: {
+          RecommenderConfigurationResponse: "httpPayload",
+        },
+      },
+      GetRecommenderConfigurations: {
+        http: "GET /v1/recommenders",
+        traits: {
+          ListRecommenderConfigurationsResponse: "httpPayload",
+        },
+      },
+      GetSegment: {
+        http: "GET /v1/apps/{ApplicationId}/segments/{SegmentId}",
+        traits: {
+          SegmentResponse: "httpPayload",
+        },
+      },
+      GetSegmentExportJobs: {
+        http: "GET /v1/apps/{ApplicationId}/segments/{SegmentId}/jobs/export",
+        traits: {
+          ExportJobsResponse: "httpPayload",
+        },
+      },
+      GetSegmentImportJobs: {
+        http: "GET /v1/apps/{ApplicationId}/segments/{SegmentId}/jobs/import",
+        traits: {
+          ImportJobsResponse: "httpPayload",
+        },
+      },
+      GetSegments: {
+        http: "GET /v1/apps/{ApplicationId}/segments",
+        traits: {
+          SegmentsResponse: "httpPayload",
+        },
+      },
+      GetSegmentVersion: {
+        http: "GET /v1/apps/{ApplicationId}/segments/{SegmentId}/versions/{Version}",
+        traits: {
+          SegmentResponse: "httpPayload",
+        },
+      },
+      GetSegmentVersions: {
+        http: "GET /v1/apps/{ApplicationId}/segments/{SegmentId}/versions",
+        traits: {
+          SegmentsResponse: "httpPayload",
+        },
+      },
+      GetSmsChannel: {
+        http: "GET /v1/apps/{ApplicationId}/channels/sms",
+        traits: {
+          SMSChannelResponse: "httpPayload",
+        },
+      },
+      GetSmsTemplate: {
+        http: "GET /v1/templates/{TemplateName}/sms",
+        traits: {
+          SMSTemplateResponse: "httpPayload",
+        },
+      },
+      GetUserEndpoints: {
+        http: "GET /v1/apps/{ApplicationId}/users/{UserId}",
+        traits: {
+          EndpointsResponse: "httpPayload",
+        },
+      },
+      GetVoiceChannel: {
+        http: "GET /v1/apps/{ApplicationId}/channels/voice",
+        traits: {
+          VoiceChannelResponse: "httpPayload",
+        },
+      },
+      GetVoiceTemplate: {
+        http: "GET /v1/templates/{TemplateName}/voice",
+        traits: {
+          VoiceTemplateResponse: "httpPayload",
+        },
+      },
+      ListJourneys: {
+        http: "GET /v1/apps/{ApplicationId}/journeys",
+        traits: {
+          JourneysResponse: "httpPayload",
+        },
+      },
+      ListTagsForResource: {
+        http: "GET /v1/tags/{ResourceArn}",
+        traits: {
+          TagsModel: "httpPayload",
+        },
+      },
+      ListTemplates: {
+        http: "GET /v1/templates",
+        traits: {
+          TemplatesResponse: "httpPayload",
+        },
+      },
+      ListTemplateVersions: {
+        http: "GET /v1/templates/{TemplateName}/{TemplateType}/versions",
+        traits: {
+          TemplateVersionsResponse: "httpPayload",
+        },
+      },
+      PhoneNumberValidate: {
+        http: "POST /v1/phone/number/validate",
+        traits: {
+          NumberValidateResponse: "httpPayload",
+        },
+      },
+      PutEvents: {
+        http: "POST /v1/apps/{ApplicationId}/events",
+        traits: {
+          EventsResponse: "httpPayload",
+        },
+      },
+      PutEventStream: {
+        http: "POST /v1/apps/{ApplicationId}/eventstream",
+        traits: {
+          EventStream: "httpPayload",
+        },
+      },
+      RemoveAttributes: {
+        http: "PUT /v1/apps/{ApplicationId}/attributes/{AttributeType}",
+        traits: {
+          AttributesResource: "httpPayload",
+        },
+      },
+      SendMessages: {
+        http: "POST /v1/apps/{ApplicationId}/messages",
+        traits: {
+          MessageResponse: "httpPayload",
+        },
+      },
+      SendOTPMessage: {
+        http: "POST /v1/apps/{ApplicationId}/otp",
+        traits: {
+          MessageResponse: "httpPayload",
+        },
+      },
+      SendUsersMessages: {
+        http: "POST /v1/apps/{ApplicationId}/users-messages",
+        traits: {
+          SendUsersMessageResponse: "httpPayload",
+        },
+      },
       TagResource: "POST /v1/tags/{ResourceArn}",
       UntagResource: "DELETE /v1/tags/{ResourceArn}",
-      UpdateAdmChannel: "PUT /v1/apps/{ApplicationId}/channels/adm",
-      UpdateApnsChannel: "PUT /v1/apps/{ApplicationId}/channels/apns",
-      UpdateApnsSandboxChannel:
-        "PUT /v1/apps/{ApplicationId}/channels/apns_sandbox",
-      UpdateApnsVoipChannel: "PUT /v1/apps/{ApplicationId}/channels/apns_voip",
-      UpdateApnsVoipSandboxChannel:
-        "PUT /v1/apps/{ApplicationId}/channels/apns_voip_sandbox",
-      UpdateApplicationSettings: "PUT /v1/apps/{ApplicationId}/settings",
-      UpdateBaiduChannel: "PUT /v1/apps/{ApplicationId}/channels/baidu",
-      UpdateCampaign: "PUT /v1/apps/{ApplicationId}/campaigns/{CampaignId}",
-      UpdateEmailChannel: "PUT /v1/apps/{ApplicationId}/channels/email",
-      UpdateEmailTemplate: "PUT /v1/templates/{TemplateName}/email",
-      UpdateEndpoint: "PUT /v1/apps/{ApplicationId}/endpoints/{EndpointId}",
-      UpdateEndpointsBatch: "PUT /v1/apps/{ApplicationId}/endpoints",
-      UpdateGcmChannel: "PUT /v1/apps/{ApplicationId}/channels/gcm",
-      UpdateInAppTemplate: "PUT /v1/templates/{TemplateName}/inapp",
-      UpdateJourney: "PUT /v1/apps/{ApplicationId}/journeys/{JourneyId}",
-      UpdateJourneyState:
-        "PUT /v1/apps/{ApplicationId}/journeys/{JourneyId}/state",
-      UpdatePushTemplate: "PUT /v1/templates/{TemplateName}/push",
-      UpdateRecommenderConfiguration: "PUT /v1/recommenders/{RecommenderId}",
-      UpdateSegment: "PUT /v1/apps/{ApplicationId}/segments/{SegmentId}",
-      UpdateSmsChannel: "PUT /v1/apps/{ApplicationId}/channels/sms",
-      UpdateSmsTemplate: "PUT /v1/templates/{TemplateName}/sms",
-      UpdateTemplateActiveVersion:
-        "PUT /v1/templates/{TemplateName}/{TemplateType}/active-version",
-      UpdateVoiceChannel: "PUT /v1/apps/{ApplicationId}/channels/voice",
-      UpdateVoiceTemplate: "PUT /v1/templates/{TemplateName}/voice",
-      VerifyOTPMessage: "POST /v1/apps/{ApplicationId}/verify-otp",
+      UpdateAdmChannel: {
+        http: "PUT /v1/apps/{ApplicationId}/channels/adm",
+        traits: {
+          ADMChannelResponse: "httpPayload",
+        },
+      },
+      UpdateApnsChannel: {
+        http: "PUT /v1/apps/{ApplicationId}/channels/apns",
+        traits: {
+          APNSChannelResponse: "httpPayload",
+        },
+      },
+      UpdateApnsSandboxChannel: {
+        http: "PUT /v1/apps/{ApplicationId}/channels/apns_sandbox",
+        traits: {
+          APNSSandboxChannelResponse: "httpPayload",
+        },
+      },
+      UpdateApnsVoipChannel: {
+        http: "PUT /v1/apps/{ApplicationId}/channels/apns_voip",
+        traits: {
+          APNSVoipChannelResponse: "httpPayload",
+        },
+      },
+      UpdateApnsVoipSandboxChannel: {
+        http: "PUT /v1/apps/{ApplicationId}/channels/apns_voip_sandbox",
+        traits: {
+          APNSVoipSandboxChannelResponse: "httpPayload",
+        },
+      },
+      UpdateApplicationSettings: {
+        http: "PUT /v1/apps/{ApplicationId}/settings",
+        traits: {
+          ApplicationSettingsResource: "httpPayload",
+        },
+      },
+      UpdateBaiduChannel: {
+        http: "PUT /v1/apps/{ApplicationId}/channels/baidu",
+        traits: {
+          BaiduChannelResponse: "httpPayload",
+        },
+      },
+      UpdateCampaign: {
+        http: "PUT /v1/apps/{ApplicationId}/campaigns/{CampaignId}",
+        traits: {
+          CampaignResponse: "httpPayload",
+        },
+      },
+      UpdateEmailChannel: {
+        http: "PUT /v1/apps/{ApplicationId}/channels/email",
+        traits: {
+          EmailChannelResponse: "httpPayload",
+        },
+      },
+      UpdateEmailTemplate: {
+        http: "PUT /v1/templates/{TemplateName}/email",
+        traits: {
+          MessageBody: "httpPayload",
+        },
+      },
+      UpdateEndpoint: {
+        http: "PUT /v1/apps/{ApplicationId}/endpoints/{EndpointId}",
+        traits: {
+          MessageBody: "httpPayload",
+        },
+      },
+      UpdateEndpointsBatch: {
+        http: "PUT /v1/apps/{ApplicationId}/endpoints",
+        traits: {
+          MessageBody: "httpPayload",
+        },
+      },
+      UpdateGcmChannel: {
+        http: "PUT /v1/apps/{ApplicationId}/channels/gcm",
+        traits: {
+          GCMChannelResponse: "httpPayload",
+        },
+      },
+      UpdateInAppTemplate: {
+        http: "PUT /v1/templates/{TemplateName}/inapp",
+        traits: {
+          MessageBody: "httpPayload",
+        },
+      },
+      UpdateJourney: {
+        http: "PUT /v1/apps/{ApplicationId}/journeys/{JourneyId}",
+        traits: {
+          JourneyResponse: "httpPayload",
+        },
+      },
+      UpdateJourneyState: {
+        http: "PUT /v1/apps/{ApplicationId}/journeys/{JourneyId}/state",
+        traits: {
+          JourneyResponse: "httpPayload",
+        },
+      },
+      UpdatePushTemplate: {
+        http: "PUT /v1/templates/{TemplateName}/push",
+        traits: {
+          MessageBody: "httpPayload",
+        },
+      },
+      UpdateRecommenderConfiguration: {
+        http: "PUT /v1/recommenders/{RecommenderId}",
+        traits: {
+          RecommenderConfigurationResponse: "httpPayload",
+        },
+      },
+      UpdateSegment: {
+        http: "PUT /v1/apps/{ApplicationId}/segments/{SegmentId}",
+        traits: {
+          SegmentResponse: "httpPayload",
+        },
+      },
+      UpdateSmsChannel: {
+        http: "PUT /v1/apps/{ApplicationId}/channels/sms",
+        traits: {
+          SMSChannelResponse: "httpPayload",
+        },
+      },
+      UpdateSmsTemplate: {
+        http: "PUT /v1/templates/{TemplateName}/sms",
+        traits: {
+          MessageBody: "httpPayload",
+        },
+      },
+      UpdateTemplateActiveVersion: {
+        http: "PUT /v1/templates/{TemplateName}/{TemplateType}/active-version",
+        traits: {
+          MessageBody: "httpPayload",
+        },
+      },
+      UpdateVoiceChannel: {
+        http: "PUT /v1/apps/{ApplicationId}/channels/voice",
+        traits: {
+          VoiceChannelResponse: "httpPayload",
+        },
+      },
+      UpdateVoiceTemplate: {
+        http: "PUT /v1/templates/{TemplateName}/voice",
+        traits: {
+          MessageBody: "httpPayload",
+        },
+      },
+      VerifyOTPMessage: {
+        http: "POST /v1/apps/{ApplicationId}/verify-otp",
+        traits: {
+          VerificationResponse: "httpPayload",
+        },
+      },
     },
   },
   pinpointemail: {
@@ -11763,7 +13876,14 @@ export const serviceMetadata = {
       ListSpeechSynthesisTasks: "GET /v1/synthesisTasks",
       PutLexicon: "PUT /v1/lexicons/{Name}",
       StartSpeechSynthesisTask: "POST /v1/synthesisTasks",
-      SynthesizeSpeech: "POST /v1/speech",
+      SynthesizeSpeech: {
+        http: "POST /v1/speech",
+        traits: {
+          AudioStream: "httpPayload",
+          ContentType: "Content-Type",
+          RequestCharacters: "x-amzn-RequestCharacters",
+        },
+      },
     },
   },
   pricing: {
@@ -11883,7 +14003,12 @@ export const serviceMetadata = {
         "POST /applications/{applicationId}/indices/{indexId}/documents",
       CancelSubscription:
         "DELETE /applications/{applicationId}/subscriptions/{subscriptionId}",
-      Chat: "POST /applications/{applicationId}/conversations",
+      Chat: {
+        http: "POST /applications/{applicationId}/conversations",
+        traits: {
+          outputStream: "httpPayload",
+        },
+      },
       ChatSync: "POST /applications/{applicationId}/conversations?sync",
       CheckDocumentAccess:
         "GET /applications/{applicationId}/index/{indexId}/users/{userId}/documents/{documentId}/check-document-access",
@@ -12211,282 +14336,951 @@ export const serviceMetadata = {
     protocol: "restJson1",
     targetPrefix: "",
     operations: {
-      BatchCreateTopicReviewedAnswer:
-        "POST /accounts/{AwsAccountId}/topics/{TopicId}/batch-create-reviewed-answers",
-      BatchDeleteTopicReviewedAnswer:
-        "POST /accounts/{AwsAccountId}/topics/{TopicId}/batch-delete-reviewed-answers",
-      CancelIngestion:
-        "DELETE /accounts/{AwsAccountId}/data-sets/{DataSetId}/ingestions/{IngestionId}",
-      CreateAccountCustomization:
-        "POST /accounts/{AwsAccountId}/customizations",
-      CreateAccountSubscription: "POST /account/{AwsAccountId}",
-      CreateAnalysis: "POST /accounts/{AwsAccountId}/analyses/{AnalysisId}",
+      BatchCreateTopicReviewedAnswer: {
+        http: "POST /accounts/{AwsAccountId}/topics/{TopicId}/batch-create-reviewed-answers",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      BatchDeleteTopicReviewedAnswer: {
+        http: "POST /accounts/{AwsAccountId}/topics/{TopicId}/batch-delete-reviewed-answers",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      CancelIngestion: {
+        http: "DELETE /accounts/{AwsAccountId}/data-sets/{DataSetId}/ingestions/{IngestionId}",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      CreateAccountCustomization: {
+        http: "POST /accounts/{AwsAccountId}/customizations",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      CreateAccountSubscription: {
+        http: "POST /account/{AwsAccountId}",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      CreateAnalysis: {
+        http: "POST /accounts/{AwsAccountId}/analyses/{AnalysisId}",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
       CreateBrand: "POST /accounts/{AwsAccountId}/brands/{BrandId}",
       CreateCustomPermissions:
         "POST /accounts/{AwsAccountId}/custom-permissions",
-      CreateDashboard: "POST /accounts/{AwsAccountId}/dashboards/{DashboardId}",
-      CreateDataSet: "POST /accounts/{AwsAccountId}/data-sets",
-      CreateDataSource: "POST /accounts/{AwsAccountId}/data-sources",
-      CreateFolder: "POST /accounts/{AwsAccountId}/folders/{FolderId}",
+      CreateDashboard: {
+        http: "POST /accounts/{AwsAccountId}/dashboards/{DashboardId}",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      CreateDataSet: {
+        http: "POST /accounts/{AwsAccountId}/data-sets",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      CreateDataSource: {
+        http: "POST /accounts/{AwsAccountId}/data-sources",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      CreateFolder: {
+        http: "POST /accounts/{AwsAccountId}/folders/{FolderId}",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
       CreateFolderMembership:
         "PUT /accounts/{AwsAccountId}/folders/{FolderId}/members/{MemberType}/{MemberId}",
-      CreateGroup:
-        "POST /accounts/{AwsAccountId}/namespaces/{Namespace}/groups",
-      CreateGroupMembership:
-        "PUT /accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}/members/{MemberName}",
-      CreateIAMPolicyAssignment:
-        "POST /accounts/{AwsAccountId}/namespaces/{Namespace}/iam-policy-assignments",
-      CreateIngestion:
-        "PUT /accounts/{AwsAccountId}/data-sets/{DataSetId}/ingestions/{IngestionId}",
-      CreateNamespace: "POST /accounts/{AwsAccountId}",
-      CreateRefreshSchedule:
-        "POST /accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-schedules",
-      CreateRoleMembership:
-        "POST /accounts/{AwsAccountId}/namespaces/{Namespace}/roles/{Role}/members/{MemberName}",
-      CreateTemplate: "POST /accounts/{AwsAccountId}/templates/{TemplateId}",
-      CreateTemplateAlias:
-        "POST /accounts/{AwsAccountId}/templates/{TemplateId}/aliases/{AliasName}",
-      CreateTheme: "POST /accounts/{AwsAccountId}/themes/{ThemeId}",
-      CreateThemeAlias:
-        "POST /accounts/{AwsAccountId}/themes/{ThemeId}/aliases/{AliasName}",
-      CreateTopic: "POST /accounts/{AwsAccountId}/topics",
-      CreateTopicRefreshSchedule:
-        "POST /accounts/{AwsAccountId}/topics/{TopicId}/schedules",
-      CreateVPCConnection: "POST /accounts/{AwsAccountId}/vpc-connections",
-      DeleteAccountCustomization:
-        "DELETE /accounts/{AwsAccountId}/customizations",
-      DeleteAccountSubscription: "DELETE /account/{AwsAccountId}",
-      DeleteAnalysis: "DELETE /accounts/{AwsAccountId}/analyses/{AnalysisId}",
+      CreateGroup: {
+        http: "POST /accounts/{AwsAccountId}/namespaces/{Namespace}/groups",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      CreateGroupMembership: {
+        http: "PUT /accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}/members/{MemberName}",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      CreateIAMPolicyAssignment: {
+        http: "POST /accounts/{AwsAccountId}/namespaces/{Namespace}/iam-policy-assignments",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      CreateIngestion: {
+        http: "PUT /accounts/{AwsAccountId}/data-sets/{DataSetId}/ingestions/{IngestionId}",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      CreateNamespace: {
+        http: "POST /accounts/{AwsAccountId}",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      CreateRefreshSchedule: {
+        http: "POST /accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-schedules",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      CreateRoleMembership: {
+        http: "POST /accounts/{AwsAccountId}/namespaces/{Namespace}/roles/{Role}/members/{MemberName}",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      CreateTemplate: {
+        http: "POST /accounts/{AwsAccountId}/templates/{TemplateId}",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      CreateTemplateAlias: {
+        http: "POST /accounts/{AwsAccountId}/templates/{TemplateId}/aliases/{AliasName}",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      CreateTheme: {
+        http: "POST /accounts/{AwsAccountId}/themes/{ThemeId}",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      CreateThemeAlias: {
+        http: "POST /accounts/{AwsAccountId}/themes/{ThemeId}/aliases/{AliasName}",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      CreateTopic: {
+        http: "POST /accounts/{AwsAccountId}/topics",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      CreateTopicRefreshSchedule: {
+        http: "POST /accounts/{AwsAccountId}/topics/{TopicId}/schedules",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      CreateVPCConnection: {
+        http: "POST /accounts/{AwsAccountId}/vpc-connections",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      DeleteAccountCustomization: {
+        http: "DELETE /accounts/{AwsAccountId}/customizations",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      DeleteAccountSubscription: {
+        http: "DELETE /account/{AwsAccountId}",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      DeleteAnalysis: {
+        http: "DELETE /accounts/{AwsAccountId}/analyses/{AnalysisId}",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
       DeleteBrand: "DELETE /accounts/{AwsAccountId}/brands/{BrandId}",
       DeleteBrandAssignment: "DELETE /accounts/{AwsAccountId}/brandassignments",
       DeleteCustomPermissions:
         "DELETE /accounts/{AwsAccountId}/custom-permissions/{CustomPermissionsName}",
-      DeleteDashboard:
-        "DELETE /accounts/{AwsAccountId}/dashboards/{DashboardId}",
-      DeleteDataSet: "DELETE /accounts/{AwsAccountId}/data-sets/{DataSetId}",
-      DeleteDataSetRefreshProperties:
-        "DELETE /accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-properties",
-      DeleteDataSource:
-        "DELETE /accounts/{AwsAccountId}/data-sources/{DataSourceId}",
-      DeleteDefaultQBusinessApplication:
-        "DELETE /accounts/{AwsAccountId}/default-qbusiness-application",
-      DeleteFolder: "DELETE /accounts/{AwsAccountId}/folders/{FolderId}",
+      DeleteDashboard: {
+        http: "DELETE /accounts/{AwsAccountId}/dashboards/{DashboardId}",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      DeleteDataSet: {
+        http: "DELETE /accounts/{AwsAccountId}/data-sets/{DataSetId}",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      DeleteDataSetRefreshProperties: {
+        http: "DELETE /accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-properties",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      DeleteDataSource: {
+        http: "DELETE /accounts/{AwsAccountId}/data-sources/{DataSourceId}",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      DeleteDefaultQBusinessApplication: {
+        http: "DELETE /accounts/{AwsAccountId}/default-qbusiness-application",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      DeleteFolder: {
+        http: "DELETE /accounts/{AwsAccountId}/folders/{FolderId}",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
       DeleteFolderMembership:
         "DELETE /accounts/{AwsAccountId}/folders/{FolderId}/members/{MemberType}/{MemberId}",
-      DeleteGroup:
-        "DELETE /accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}",
-      DeleteGroupMembership:
-        "DELETE /accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}/members/{MemberName}",
-      DeleteIAMPolicyAssignment:
-        "DELETE /accounts/{AwsAccountId}/namespace/{Namespace}/iam-policy-assignments/{AssignmentName}",
-      DeleteIdentityPropagationConfig:
-        "DELETE /accounts/{AwsAccountId}/identity-propagation-config/{Service}",
-      DeleteNamespace: "DELETE /accounts/{AwsAccountId}/namespaces/{Namespace}",
-      DeleteRefreshSchedule:
-        "DELETE /accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-schedules/{ScheduleId}",
+      DeleteGroup: {
+        http: "DELETE /accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      DeleteGroupMembership: {
+        http: "DELETE /accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}/members/{MemberName}",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      DeleteIAMPolicyAssignment: {
+        http: "DELETE /accounts/{AwsAccountId}/namespace/{Namespace}/iam-policy-assignments/{AssignmentName}",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      DeleteIdentityPropagationConfig: {
+        http: "DELETE /accounts/{AwsAccountId}/identity-propagation-config/{Service}",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      DeleteNamespace: {
+        http: "DELETE /accounts/{AwsAccountId}/namespaces/{Namespace}",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      DeleteRefreshSchedule: {
+        http: "DELETE /accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-schedules/{ScheduleId}",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
       DeleteRoleCustomPermission:
         "DELETE /accounts/{AwsAccountId}/namespaces/{Namespace}/roles/{Role}/custom-permission",
-      DeleteRoleMembership:
-        "DELETE /accounts/{AwsAccountId}/namespaces/{Namespace}/roles/{Role}/members/{MemberName}",
-      DeleteTemplate: "DELETE /accounts/{AwsAccountId}/templates/{TemplateId}",
-      DeleteTemplateAlias:
-        "DELETE /accounts/{AwsAccountId}/templates/{TemplateId}/aliases/{AliasName}",
-      DeleteTheme: "DELETE /accounts/{AwsAccountId}/themes/{ThemeId}",
-      DeleteThemeAlias:
-        "DELETE /accounts/{AwsAccountId}/themes/{ThemeId}/aliases/{AliasName}",
-      DeleteTopic: "DELETE /accounts/{AwsAccountId}/topics/{TopicId}",
-      DeleteTopicRefreshSchedule:
-        "DELETE /accounts/{AwsAccountId}/topics/{TopicId}/schedules/{DatasetId}",
-      DeleteUser:
-        "DELETE /accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}",
-      DeleteUserByPrincipalId:
-        "DELETE /accounts/{AwsAccountId}/namespaces/{Namespace}/user-principals/{PrincipalId}",
-      DeleteUserCustomPermission:
-        "DELETE /accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}/custom-permission",
-      DeleteVPCConnection:
-        "DELETE /accounts/{AwsAccountId}/vpc-connections/{VPCConnectionId}",
-      DescribeAccountCustomization:
-        "GET /accounts/{AwsAccountId}/customizations",
-      DescribeAccountSettings: "GET /accounts/{AwsAccountId}/settings",
-      DescribeAccountSubscription: "GET /account/{AwsAccountId}",
-      DescribeAnalysis: "GET /accounts/{AwsAccountId}/analyses/{AnalysisId}",
-      DescribeAnalysisDefinition:
-        "GET /accounts/{AwsAccountId}/analyses/{AnalysisId}/definition",
-      DescribeAnalysisPermissions:
-        "GET /accounts/{AwsAccountId}/analyses/{AnalysisId}/permissions",
-      DescribeAssetBundleExportJob:
-        "GET /accounts/{AwsAccountId}/asset-bundle-export-jobs/{AssetBundleExportJobId}",
-      DescribeAssetBundleImportJob:
-        "GET /accounts/{AwsAccountId}/asset-bundle-import-jobs/{AssetBundleImportJobId}",
+      DeleteRoleMembership: {
+        http: "DELETE /accounts/{AwsAccountId}/namespaces/{Namespace}/roles/{Role}/members/{MemberName}",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      DeleteTemplate: {
+        http: "DELETE /accounts/{AwsAccountId}/templates/{TemplateId}",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      DeleteTemplateAlias: {
+        http: "DELETE /accounts/{AwsAccountId}/templates/{TemplateId}/aliases/{AliasName}",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      DeleteTheme: {
+        http: "DELETE /accounts/{AwsAccountId}/themes/{ThemeId}",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      DeleteThemeAlias: {
+        http: "DELETE /accounts/{AwsAccountId}/themes/{ThemeId}/aliases/{AliasName}",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      DeleteTopic: {
+        http: "DELETE /accounts/{AwsAccountId}/topics/{TopicId}",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      DeleteTopicRefreshSchedule: {
+        http: "DELETE /accounts/{AwsAccountId}/topics/{TopicId}/schedules/{DatasetId}",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      DeleteUser: {
+        http: "DELETE /accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      DeleteUserByPrincipalId: {
+        http: "DELETE /accounts/{AwsAccountId}/namespaces/{Namespace}/user-principals/{PrincipalId}",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      DeleteUserCustomPermission: {
+        http: "DELETE /accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}/custom-permission",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      DeleteVPCConnection: {
+        http: "DELETE /accounts/{AwsAccountId}/vpc-connections/{VPCConnectionId}",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      DescribeAccountCustomization: {
+        http: "GET /accounts/{AwsAccountId}/customizations",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      DescribeAccountSettings: {
+        http: "GET /accounts/{AwsAccountId}/settings",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      DescribeAccountSubscription: {
+        http: "GET /account/{AwsAccountId}",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      DescribeAnalysis: {
+        http: "GET /accounts/{AwsAccountId}/analyses/{AnalysisId}",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      DescribeAnalysisDefinition: {
+        http: "GET /accounts/{AwsAccountId}/analyses/{AnalysisId}/definition",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      DescribeAnalysisPermissions: {
+        http: "GET /accounts/{AwsAccountId}/analyses/{AnalysisId}/permissions",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      DescribeAssetBundleExportJob: {
+        http: "GET /accounts/{AwsAccountId}/asset-bundle-export-jobs/{AssetBundleExportJobId}",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      DescribeAssetBundleImportJob: {
+        http: "GET /accounts/{AwsAccountId}/asset-bundle-import-jobs/{AssetBundleImportJobId}",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
       DescribeBrand: "GET /accounts/{AwsAccountId}/brands/{BrandId}",
       DescribeBrandAssignment: "GET /accounts/{AwsAccountId}/brandassignments",
       DescribeBrandPublishedVersion:
         "GET /accounts/{AwsAccountId}/brands/{BrandId}/publishedversion",
       DescribeCustomPermissions:
         "GET /accounts/{AwsAccountId}/custom-permissions/{CustomPermissionsName}",
-      DescribeDashboard:
-        "GET /accounts/{AwsAccountId}/dashboards/{DashboardId}",
-      DescribeDashboardDefinition:
-        "GET /accounts/{AwsAccountId}/dashboards/{DashboardId}/definition",
-      DescribeDashboardPermissions:
-        "GET /accounts/{AwsAccountId}/dashboards/{DashboardId}/permissions",
+      DescribeDashboard: {
+        http: "GET /accounts/{AwsAccountId}/dashboards/{DashboardId}",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      DescribeDashboardDefinition: {
+        http: "GET /accounts/{AwsAccountId}/dashboards/{DashboardId}/definition",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      DescribeDashboardPermissions: {
+        http: "GET /accounts/{AwsAccountId}/dashboards/{DashboardId}/permissions",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
       DescribeDashboardSnapshotJob:
         "GET /accounts/{AwsAccountId}/dashboards/{DashboardId}/snapshot-jobs/{SnapshotJobId}",
-      DescribeDashboardSnapshotJobResult:
-        "GET /accounts/{AwsAccountId}/dashboards/{DashboardId}/snapshot-jobs/{SnapshotJobId}/result",
-      DescribeDashboardsQAConfiguration:
-        "GET /accounts/{AwsAccountId}/dashboards-qa-configuration",
-      DescribeDataSet: "GET /accounts/{AwsAccountId}/data-sets/{DataSetId}",
-      DescribeDataSetPermissions:
-        "GET /accounts/{AwsAccountId}/data-sets/{DataSetId}/permissions",
-      DescribeDataSetRefreshProperties:
-        "GET /accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-properties",
-      DescribeDataSource:
-        "GET /accounts/{AwsAccountId}/data-sources/{DataSourceId}",
-      DescribeDataSourcePermissions:
-        "GET /accounts/{AwsAccountId}/data-sources/{DataSourceId}/permissions",
-      DescribeDefaultQBusinessApplication:
-        "GET /accounts/{AwsAccountId}/default-qbusiness-application",
-      DescribeFolder: "GET /accounts/{AwsAccountId}/folders/{FolderId}",
-      DescribeFolderPermissions:
-        "GET /accounts/{AwsAccountId}/folders/{FolderId}/permissions",
-      DescribeFolderResolvedPermissions:
-        "GET /accounts/{AwsAccountId}/folders/{FolderId}/resolved-permissions",
-      DescribeGroup:
-        "GET /accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}",
-      DescribeGroupMembership:
-        "GET /accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}/members/{MemberName}",
-      DescribeIAMPolicyAssignment:
-        "GET /accounts/{AwsAccountId}/namespaces/{Namespace}/iam-policy-assignments/{AssignmentName}",
-      DescribeIngestion:
-        "GET /accounts/{AwsAccountId}/data-sets/{DataSetId}/ingestions/{IngestionId}",
-      DescribeIpRestriction: "GET /accounts/{AwsAccountId}/ip-restriction",
+      DescribeDashboardSnapshotJobResult: {
+        http: "GET /accounts/{AwsAccountId}/dashboards/{DashboardId}/snapshot-jobs/{SnapshotJobId}/result",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      DescribeDashboardsQAConfiguration: {
+        http: "GET /accounts/{AwsAccountId}/dashboards-qa-configuration",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      DescribeDataSet: {
+        http: "GET /accounts/{AwsAccountId}/data-sets/{DataSetId}",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      DescribeDataSetPermissions: {
+        http: "GET /accounts/{AwsAccountId}/data-sets/{DataSetId}/permissions",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      DescribeDataSetRefreshProperties: {
+        http: "GET /accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-properties",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      DescribeDataSource: {
+        http: "GET /accounts/{AwsAccountId}/data-sources/{DataSourceId}",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      DescribeDataSourcePermissions: {
+        http: "GET /accounts/{AwsAccountId}/data-sources/{DataSourceId}/permissions",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      DescribeDefaultQBusinessApplication: {
+        http: "GET /accounts/{AwsAccountId}/default-qbusiness-application",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      DescribeFolder: {
+        http: "GET /accounts/{AwsAccountId}/folders/{FolderId}",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      DescribeFolderPermissions: {
+        http: "GET /accounts/{AwsAccountId}/folders/{FolderId}/permissions",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      DescribeFolderResolvedPermissions: {
+        http: "GET /accounts/{AwsAccountId}/folders/{FolderId}/resolved-permissions",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      DescribeGroup: {
+        http: "GET /accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      DescribeGroupMembership: {
+        http: "GET /accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}/members/{MemberName}",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      DescribeIAMPolicyAssignment: {
+        http: "GET /accounts/{AwsAccountId}/namespaces/{Namespace}/iam-policy-assignments/{AssignmentName}",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      DescribeIngestion: {
+        http: "GET /accounts/{AwsAccountId}/data-sets/{DataSetId}/ingestions/{IngestionId}",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      DescribeIpRestriction: {
+        http: "GET /accounts/{AwsAccountId}/ip-restriction",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
       DescribeKeyRegistration: "GET /accounts/{AwsAccountId}/key-registration",
-      DescribeNamespace: "GET /accounts/{AwsAccountId}/namespaces/{Namespace}",
-      DescribeQPersonalizationConfiguration:
-        "GET /accounts/{AwsAccountId}/q-personalization-configuration",
-      DescribeQuickSightQSearchConfiguration:
-        "GET /accounts/{AwsAccountId}/quicksight-q-search-configuration",
-      DescribeRefreshSchedule:
-        "GET /accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-schedules/{ScheduleId}",
+      DescribeNamespace: {
+        http: "GET /accounts/{AwsAccountId}/namespaces/{Namespace}",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      DescribeQPersonalizationConfiguration: {
+        http: "GET /accounts/{AwsAccountId}/q-personalization-configuration",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      DescribeQuickSightQSearchConfiguration: {
+        http: "GET /accounts/{AwsAccountId}/quicksight-q-search-configuration",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      DescribeRefreshSchedule: {
+        http: "GET /accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-schedules/{ScheduleId}",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
       DescribeRoleCustomPermission:
         "GET /accounts/{AwsAccountId}/namespaces/{Namespace}/roles/{Role}/custom-permission",
-      DescribeTemplate: "GET /accounts/{AwsAccountId}/templates/{TemplateId}",
-      DescribeTemplateAlias:
-        "GET /accounts/{AwsAccountId}/templates/{TemplateId}/aliases/{AliasName}",
-      DescribeTemplateDefinition:
-        "GET /accounts/{AwsAccountId}/templates/{TemplateId}/definition",
-      DescribeTemplatePermissions:
-        "GET /accounts/{AwsAccountId}/templates/{TemplateId}/permissions",
-      DescribeTheme: "GET /accounts/{AwsAccountId}/themes/{ThemeId}",
-      DescribeThemeAlias:
-        "GET /accounts/{AwsAccountId}/themes/{ThemeId}/aliases/{AliasName}",
-      DescribeThemePermissions:
-        "GET /accounts/{AwsAccountId}/themes/{ThemeId}/permissions",
-      DescribeTopic: "GET /accounts/{AwsAccountId}/topics/{TopicId}",
-      DescribeTopicPermissions:
-        "GET /accounts/{AwsAccountId}/topics/{TopicId}/permissions",
-      DescribeTopicRefresh:
-        "GET /accounts/{AwsAccountId}/topics/{TopicId}/refresh/{RefreshId}",
-      DescribeTopicRefreshSchedule:
-        "GET /accounts/{AwsAccountId}/topics/{TopicId}/schedules/{DatasetId}",
-      DescribeUser:
-        "GET /accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}",
+      DescribeTemplate: {
+        http: "GET /accounts/{AwsAccountId}/templates/{TemplateId}",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      DescribeTemplateAlias: {
+        http: "GET /accounts/{AwsAccountId}/templates/{TemplateId}/aliases/{AliasName}",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      DescribeTemplateDefinition: {
+        http: "GET /accounts/{AwsAccountId}/templates/{TemplateId}/definition",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      DescribeTemplatePermissions: {
+        http: "GET /accounts/{AwsAccountId}/templates/{TemplateId}/permissions",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      DescribeTheme: {
+        http: "GET /accounts/{AwsAccountId}/themes/{ThemeId}",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      DescribeThemeAlias: {
+        http: "GET /accounts/{AwsAccountId}/themes/{ThemeId}/aliases/{AliasName}",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      DescribeThemePermissions: {
+        http: "GET /accounts/{AwsAccountId}/themes/{ThemeId}/permissions",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      DescribeTopic: {
+        http: "GET /accounts/{AwsAccountId}/topics/{TopicId}",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      DescribeTopicPermissions: {
+        http: "GET /accounts/{AwsAccountId}/topics/{TopicId}/permissions",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      DescribeTopicRefresh: {
+        http: "GET /accounts/{AwsAccountId}/topics/{TopicId}/refresh/{RefreshId}",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      DescribeTopicRefreshSchedule: {
+        http: "GET /accounts/{AwsAccountId}/topics/{TopicId}/schedules/{DatasetId}",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      DescribeUser: {
+        http: "GET /accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
       DescribeVPCConnection:
         "GET /accounts/{AwsAccountId}/vpc-connections/{VPCConnectionId}",
-      GenerateEmbedUrlForAnonymousUser:
-        "POST /accounts/{AwsAccountId}/embed-url/anonymous-user",
-      GenerateEmbedUrlForRegisteredUser:
-        "POST /accounts/{AwsAccountId}/embed-url/registered-user",
-      GenerateEmbedUrlForRegisteredUserWithIdentity:
-        "POST /accounts/{AwsAccountId}/embed-url/registered-user-with-identity",
-      GetDashboardEmbedUrl:
-        "GET /accounts/{AwsAccountId}/dashboards/{DashboardId}/embed-url",
-      GetSessionEmbedUrl: "GET /accounts/{AwsAccountId}/session-embed-url",
-      ListAnalyses: "GET /accounts/{AwsAccountId}/analyses",
-      ListAssetBundleExportJobs:
-        "GET /accounts/{AwsAccountId}/asset-bundle-export-jobs",
-      ListAssetBundleImportJobs:
-        "GET /accounts/{AwsAccountId}/asset-bundle-import-jobs",
+      GenerateEmbedUrlForAnonymousUser: {
+        http: "POST /accounts/{AwsAccountId}/embed-url/anonymous-user",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      GenerateEmbedUrlForRegisteredUser: {
+        http: "POST /accounts/{AwsAccountId}/embed-url/registered-user",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      GenerateEmbedUrlForRegisteredUserWithIdentity: {
+        http: "POST /accounts/{AwsAccountId}/embed-url/registered-user-with-identity",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      GetDashboardEmbedUrl: {
+        http: "GET /accounts/{AwsAccountId}/dashboards/{DashboardId}/embed-url",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      GetSessionEmbedUrl: {
+        http: "GET /accounts/{AwsAccountId}/session-embed-url",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      ListAnalyses: {
+        http: "GET /accounts/{AwsAccountId}/analyses",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      ListAssetBundleExportJobs: {
+        http: "GET /accounts/{AwsAccountId}/asset-bundle-export-jobs",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      ListAssetBundleImportJobs: {
+        http: "GET /accounts/{AwsAccountId}/asset-bundle-import-jobs",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
       ListBrands: "GET /accounts/{AwsAccountId}/brands",
-      ListCustomPermissions: "GET /accounts/{AwsAccountId}/custom-permissions",
-      ListDashboards: "GET /accounts/{AwsAccountId}/dashboards",
-      ListDashboardVersions:
-        "GET /accounts/{AwsAccountId}/dashboards/{DashboardId}/versions",
-      ListDataSets: "GET /accounts/{AwsAccountId}/data-sets",
-      ListDataSources: "GET /accounts/{AwsAccountId}/data-sources",
-      ListFolderMembers:
-        "GET /accounts/{AwsAccountId}/folders/{FolderId}/members",
-      ListFolders: "GET /accounts/{AwsAccountId}/folders",
-      ListFoldersForResource:
-        "GET /accounts/{AwsAccountId}/resource/{ResourceArn}/folders",
-      ListGroupMemberships:
-        "GET /accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}/members",
-      ListGroups: "GET /accounts/{AwsAccountId}/namespaces/{Namespace}/groups",
-      ListIAMPolicyAssignments:
-        "GET /accounts/{AwsAccountId}/namespaces/{Namespace}/v2/iam-policy-assignments",
-      ListIAMPolicyAssignmentsForUser:
-        "GET /accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}/iam-policy-assignments",
-      ListIdentityPropagationConfigs:
-        "GET /accounts/{AwsAccountId}/identity-propagation-config",
-      ListIngestions:
-        "GET /accounts/{AwsAccountId}/data-sets/{DataSetId}/ingestions",
-      ListNamespaces: "GET /accounts/{AwsAccountId}/namespaces",
-      ListRefreshSchedules:
-        "GET /accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-schedules",
-      ListRoleMemberships:
-        "GET /accounts/{AwsAccountId}/namespaces/{Namespace}/roles/{Role}/members",
-      ListTagsForResource: "GET /resources/{ResourceArn}/tags",
-      ListTemplateAliases:
-        "GET /accounts/{AwsAccountId}/templates/{TemplateId}/aliases",
-      ListTemplates: "GET /accounts/{AwsAccountId}/templates",
-      ListTemplateVersions:
-        "GET /accounts/{AwsAccountId}/templates/{TemplateId}/versions",
-      ListThemeAliases: "GET /accounts/{AwsAccountId}/themes/{ThemeId}/aliases",
-      ListThemes: "GET /accounts/{AwsAccountId}/themes",
-      ListThemeVersions:
-        "GET /accounts/{AwsAccountId}/themes/{ThemeId}/versions",
-      ListTopicRefreshSchedules:
-        "GET /accounts/{AwsAccountId}/topics/{TopicId}/schedules",
-      ListTopicReviewedAnswers:
-        "GET /accounts/{AwsAccountId}/topics/{TopicId}/reviewed-answers",
-      ListTopics: "GET /accounts/{AwsAccountId}/topics",
-      ListUserGroups:
-        "GET /accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}/groups",
-      ListUsers: "GET /accounts/{AwsAccountId}/namespaces/{Namespace}/users",
-      ListVPCConnections: "GET /accounts/{AwsAccountId}/vpc-connections",
-      PredictQAResults: "POST /accounts/{AwsAccountId}/qa/predict",
-      PutDataSetRefreshProperties:
-        "PUT /accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-properties",
-      RegisterUser:
-        "POST /accounts/{AwsAccountId}/namespaces/{Namespace}/users",
-      RestoreAnalysis:
-        "POST /accounts/{AwsAccountId}/restore/analyses/{AnalysisId}",
-      SearchAnalyses: "POST /accounts/{AwsAccountId}/search/analyses",
-      SearchDashboards: "POST /accounts/{AwsAccountId}/search/dashboards",
-      SearchDataSets: "POST /accounts/{AwsAccountId}/search/data-sets",
-      SearchDataSources: "POST /accounts/{AwsAccountId}/search/data-sources",
-      SearchFolders: "POST /accounts/{AwsAccountId}/search/folders",
-      SearchGroups:
-        "POST /accounts/{AwsAccountId}/namespaces/{Namespace}/groups-search",
-      SearchTopics: "POST /accounts/{AwsAccountId}/search/topics",
-      StartAssetBundleExportJob:
-        "POST /accounts/{AwsAccountId}/asset-bundle-export-jobs/export",
-      StartAssetBundleImportJob:
-        "POST /accounts/{AwsAccountId}/asset-bundle-import-jobs/import",
-      StartDashboardSnapshotJob:
-        "POST /accounts/{AwsAccountId}/dashboards/{DashboardId}/snapshot-jobs",
-      StartDashboardSnapshotJobSchedule:
-        "POST /accounts/{AwsAccountId}/dashboards/{DashboardId}/schedules/{ScheduleId}",
-      TagResource: "POST /resources/{ResourceArn}/tags",
-      UntagResource: "DELETE /resources/{ResourceArn}/tags",
-      UpdateAccountCustomization: "PUT /accounts/{AwsAccountId}/customizations",
-      UpdateAccountSettings: "PUT /accounts/{AwsAccountId}/settings",
-      UpdateAnalysis: "PUT /accounts/{AwsAccountId}/analyses/{AnalysisId}",
-      UpdateAnalysisPermissions:
-        "PUT /accounts/{AwsAccountId}/analyses/{AnalysisId}/permissions",
-      UpdateApplicationWithTokenExchangeGrant:
-        "PUT /accounts/{AwsAccountId}/application-with-token-exchange-grant",
+      ListCustomPermissions: {
+        http: "GET /accounts/{AwsAccountId}/custom-permissions",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      ListDashboards: {
+        http: "GET /accounts/{AwsAccountId}/dashboards",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      ListDashboardVersions: {
+        http: "GET /accounts/{AwsAccountId}/dashboards/{DashboardId}/versions",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      ListDataSets: {
+        http: "GET /accounts/{AwsAccountId}/data-sets",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      ListDataSources: {
+        http: "GET /accounts/{AwsAccountId}/data-sources",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      ListFolderMembers: {
+        http: "GET /accounts/{AwsAccountId}/folders/{FolderId}/members",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      ListFolders: {
+        http: "GET /accounts/{AwsAccountId}/folders",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      ListFoldersForResource: {
+        http: "GET /accounts/{AwsAccountId}/resource/{ResourceArn}/folders",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      ListGroupMemberships: {
+        http: "GET /accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}/members",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      ListGroups: {
+        http: "GET /accounts/{AwsAccountId}/namespaces/{Namespace}/groups",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      ListIAMPolicyAssignments: {
+        http: "GET /accounts/{AwsAccountId}/namespaces/{Namespace}/v2/iam-policy-assignments",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      ListIAMPolicyAssignmentsForUser: {
+        http: "GET /accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}/iam-policy-assignments",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      ListIdentityPropagationConfigs: {
+        http: "GET /accounts/{AwsAccountId}/identity-propagation-config",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      ListIngestions: {
+        http: "GET /accounts/{AwsAccountId}/data-sets/{DataSetId}/ingestions",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      ListNamespaces: {
+        http: "GET /accounts/{AwsAccountId}/namespaces",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      ListRefreshSchedules: {
+        http: "GET /accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-schedules",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      ListRoleMemberships: {
+        http: "GET /accounts/{AwsAccountId}/namespaces/{Namespace}/roles/{Role}/members",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      ListTagsForResource: {
+        http: "GET /resources/{ResourceArn}/tags",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      ListTemplateAliases: {
+        http: "GET /accounts/{AwsAccountId}/templates/{TemplateId}/aliases",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      ListTemplates: {
+        http: "GET /accounts/{AwsAccountId}/templates",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      ListTemplateVersions: {
+        http: "GET /accounts/{AwsAccountId}/templates/{TemplateId}/versions",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      ListThemeAliases: {
+        http: "GET /accounts/{AwsAccountId}/themes/{ThemeId}/aliases",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      ListThemes: {
+        http: "GET /accounts/{AwsAccountId}/themes",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      ListThemeVersions: {
+        http: "GET /accounts/{AwsAccountId}/themes/{ThemeId}/versions",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      ListTopicRefreshSchedules: {
+        http: "GET /accounts/{AwsAccountId}/topics/{TopicId}/schedules",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      ListTopicReviewedAnswers: {
+        http: "GET /accounts/{AwsAccountId}/topics/{TopicId}/reviewed-answers",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      ListTopics: {
+        http: "GET /accounts/{AwsAccountId}/topics",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      ListUserGroups: {
+        http: "GET /accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}/groups",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      ListUsers: {
+        http: "GET /accounts/{AwsAccountId}/namespaces/{Namespace}/users",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      ListVPCConnections: {
+        http: "GET /accounts/{AwsAccountId}/vpc-connections",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      PredictQAResults: {
+        http: "POST /accounts/{AwsAccountId}/qa/predict",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      PutDataSetRefreshProperties: {
+        http: "PUT /accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-properties",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      RegisterUser: {
+        http: "POST /accounts/{AwsAccountId}/namespaces/{Namespace}/users",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      RestoreAnalysis: {
+        http: "POST /accounts/{AwsAccountId}/restore/analyses/{AnalysisId}",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      SearchAnalyses: {
+        http: "POST /accounts/{AwsAccountId}/search/analyses",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      SearchDashboards: {
+        http: "POST /accounts/{AwsAccountId}/search/dashboards",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      SearchDataSets: {
+        http: "POST /accounts/{AwsAccountId}/search/data-sets",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      SearchDataSources: {
+        http: "POST /accounts/{AwsAccountId}/search/data-sources",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      SearchFolders: {
+        http: "POST /accounts/{AwsAccountId}/search/folders",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      SearchGroups: {
+        http: "POST /accounts/{AwsAccountId}/namespaces/{Namespace}/groups-search",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      SearchTopics: {
+        http: "POST /accounts/{AwsAccountId}/search/topics",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      StartAssetBundleExportJob: {
+        http: "POST /accounts/{AwsAccountId}/asset-bundle-export-jobs/export",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      StartAssetBundleImportJob: {
+        http: "POST /accounts/{AwsAccountId}/asset-bundle-import-jobs/import",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      StartDashboardSnapshotJob: {
+        http: "POST /accounts/{AwsAccountId}/dashboards/{DashboardId}/snapshot-jobs",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      StartDashboardSnapshotJobSchedule: {
+        http: "POST /accounts/{AwsAccountId}/dashboards/{DashboardId}/schedules/{ScheduleId}",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      TagResource: {
+        http: "POST /resources/{ResourceArn}/tags",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      UntagResource: {
+        http: "DELETE /resources/{ResourceArn}/tags",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      UpdateAccountCustomization: {
+        http: "PUT /accounts/{AwsAccountId}/customizations",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      UpdateAccountSettings: {
+        http: "PUT /accounts/{AwsAccountId}/settings",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      UpdateAnalysis: {
+        http: "PUT /accounts/{AwsAccountId}/analyses/{AnalysisId}",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      UpdateAnalysisPermissions: {
+        http: "PUT /accounts/{AwsAccountId}/analyses/{AnalysisId}/permissions",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      UpdateApplicationWithTokenExchangeGrant: {
+        http: "PUT /accounts/{AwsAccountId}/application-with-token-exchange-grant",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
       UpdateBrand: "PUT /accounts/{AwsAccountId}/brands/{BrandId}",
       UpdateBrandAssignment: "PUT /accounts/{AwsAccountId}/brandassignments",
       UpdateBrandPublishedVersion:
@@ -12494,67 +15288,197 @@ export const serviceMetadata = {
       UpdateCustomPermissions:
         "PUT /accounts/{AwsAccountId}/custom-permissions/{CustomPermissionsName}",
       UpdateDashboard: "PUT /accounts/{AwsAccountId}/dashboards/{DashboardId}",
-      UpdateDashboardLinks:
-        "PUT /accounts/{AwsAccountId}/dashboards/{DashboardId}/linked-entities",
-      UpdateDashboardPermissions:
-        "PUT /accounts/{AwsAccountId}/dashboards/{DashboardId}/permissions",
-      UpdateDashboardPublishedVersion:
-        "PUT /accounts/{AwsAccountId}/dashboards/{DashboardId}/versions/{VersionNumber}",
-      UpdateDashboardsQAConfiguration:
-        "PUT /accounts/{AwsAccountId}/dashboards-qa-configuration",
-      UpdateDataSet: "PUT /accounts/{AwsAccountId}/data-sets/{DataSetId}",
-      UpdateDataSetPermissions:
-        "POST /accounts/{AwsAccountId}/data-sets/{DataSetId}/permissions",
-      UpdateDataSource:
-        "PUT /accounts/{AwsAccountId}/data-sources/{DataSourceId}",
-      UpdateDataSourcePermissions:
-        "POST /accounts/{AwsAccountId}/data-sources/{DataSourceId}/permissions",
-      UpdateDefaultQBusinessApplication:
-        "PUT /accounts/{AwsAccountId}/default-qbusiness-application",
-      UpdateFolder: "PUT /accounts/{AwsAccountId}/folders/{FolderId}",
+      UpdateDashboardLinks: {
+        http: "PUT /accounts/{AwsAccountId}/dashboards/{DashboardId}/linked-entities",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      UpdateDashboardPermissions: {
+        http: "PUT /accounts/{AwsAccountId}/dashboards/{DashboardId}/permissions",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      UpdateDashboardPublishedVersion: {
+        http: "PUT /accounts/{AwsAccountId}/dashboards/{DashboardId}/versions/{VersionNumber}",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      UpdateDashboardsQAConfiguration: {
+        http: "PUT /accounts/{AwsAccountId}/dashboards-qa-configuration",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      UpdateDataSet: {
+        http: "PUT /accounts/{AwsAccountId}/data-sets/{DataSetId}",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      UpdateDataSetPermissions: {
+        http: "POST /accounts/{AwsAccountId}/data-sets/{DataSetId}/permissions",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      UpdateDataSource: {
+        http: "PUT /accounts/{AwsAccountId}/data-sources/{DataSourceId}",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      UpdateDataSourcePermissions: {
+        http: "POST /accounts/{AwsAccountId}/data-sources/{DataSourceId}/permissions",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      UpdateDefaultQBusinessApplication: {
+        http: "PUT /accounts/{AwsAccountId}/default-qbusiness-application",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      UpdateFolder: {
+        http: "PUT /accounts/{AwsAccountId}/folders/{FolderId}",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
       UpdateFolderPermissions:
         "PUT /accounts/{AwsAccountId}/folders/{FolderId}/permissions",
-      UpdateGroup:
-        "PUT /accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}",
-      UpdateIAMPolicyAssignment:
-        "PUT /accounts/{AwsAccountId}/namespaces/{Namespace}/iam-policy-assignments/{AssignmentName}",
-      UpdateIdentityPropagationConfig:
-        "POST /accounts/{AwsAccountId}/identity-propagation-config/{Service}",
-      UpdateIpRestriction: "POST /accounts/{AwsAccountId}/ip-restriction",
+      UpdateGroup: {
+        http: "PUT /accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      UpdateIAMPolicyAssignment: {
+        http: "PUT /accounts/{AwsAccountId}/namespaces/{Namespace}/iam-policy-assignments/{AssignmentName}",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      UpdateIdentityPropagationConfig: {
+        http: "POST /accounts/{AwsAccountId}/identity-propagation-config/{Service}",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      UpdateIpRestriction: {
+        http: "POST /accounts/{AwsAccountId}/ip-restriction",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
       UpdateKeyRegistration: "POST /accounts/{AwsAccountId}/key-registration",
-      UpdatePublicSharingSettings:
-        "PUT /accounts/{AwsAccountId}/public-sharing-settings",
-      UpdateQPersonalizationConfiguration:
-        "PUT /accounts/{AwsAccountId}/q-personalization-configuration",
-      UpdateQuickSightQSearchConfiguration:
-        "PUT /accounts/{AwsAccountId}/quicksight-q-search-configuration",
-      UpdateRefreshSchedule:
-        "PUT /accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-schedules",
+      UpdatePublicSharingSettings: {
+        http: "PUT /accounts/{AwsAccountId}/public-sharing-settings",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      UpdateQPersonalizationConfiguration: {
+        http: "PUT /accounts/{AwsAccountId}/q-personalization-configuration",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      UpdateQuickSightQSearchConfiguration: {
+        http: "PUT /accounts/{AwsAccountId}/quicksight-q-search-configuration",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      UpdateRefreshSchedule: {
+        http: "PUT /accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-schedules",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
       UpdateRoleCustomPermission:
         "PUT /accounts/{AwsAccountId}/namespaces/{Namespace}/roles/{Role}/custom-permission",
-      UpdateSPICECapacityConfiguration:
-        "POST /accounts/{AwsAccountId}/spice-capacity-configuration",
-      UpdateTemplate: "PUT /accounts/{AwsAccountId}/templates/{TemplateId}",
-      UpdateTemplateAlias:
-        "PUT /accounts/{AwsAccountId}/templates/{TemplateId}/aliases/{AliasName}",
-      UpdateTemplatePermissions:
-        "PUT /accounts/{AwsAccountId}/templates/{TemplateId}/permissions",
-      UpdateTheme: "PUT /accounts/{AwsAccountId}/themes/{ThemeId}",
-      UpdateThemeAlias:
-        "PUT /accounts/{AwsAccountId}/themes/{ThemeId}/aliases/{AliasName}",
-      UpdateThemePermissions:
-        "PUT /accounts/{AwsAccountId}/themes/{ThemeId}/permissions",
-      UpdateTopic: "PUT /accounts/{AwsAccountId}/topics/{TopicId}",
-      UpdateTopicPermissions:
-        "PUT /accounts/{AwsAccountId}/topics/{TopicId}/permissions",
-      UpdateTopicRefreshSchedule:
-        "PUT /accounts/{AwsAccountId}/topics/{TopicId}/schedules/{DatasetId}",
-      UpdateUser:
-        "PUT /accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}",
-      UpdateUserCustomPermission:
-        "PUT /accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}/custom-permission",
-      UpdateVPCConnection:
-        "PUT /accounts/{AwsAccountId}/vpc-connections/{VPCConnectionId}",
+      UpdateSPICECapacityConfiguration: {
+        http: "POST /accounts/{AwsAccountId}/spice-capacity-configuration",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      UpdateTemplate: {
+        http: "PUT /accounts/{AwsAccountId}/templates/{TemplateId}",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      UpdateTemplateAlias: {
+        http: "PUT /accounts/{AwsAccountId}/templates/{TemplateId}/aliases/{AliasName}",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      UpdateTemplatePermissions: {
+        http: "PUT /accounts/{AwsAccountId}/templates/{TemplateId}/permissions",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      UpdateTheme: {
+        http: "PUT /accounts/{AwsAccountId}/themes/{ThemeId}",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      UpdateThemeAlias: {
+        http: "PUT /accounts/{AwsAccountId}/themes/{ThemeId}/aliases/{AliasName}",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      UpdateThemePermissions: {
+        http: "PUT /accounts/{AwsAccountId}/themes/{ThemeId}/permissions",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      UpdateTopic: {
+        http: "PUT /accounts/{AwsAccountId}/topics/{TopicId}",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      UpdateTopicPermissions: {
+        http: "PUT /accounts/{AwsAccountId}/topics/{TopicId}/permissions",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      UpdateTopicRefreshSchedule: {
+        http: "PUT /accounts/{AwsAccountId}/topics/{TopicId}/schedules/{DatasetId}",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      UpdateUser: {
+        http: "PUT /accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      UpdateUserCustomPermission: {
+        http: "PUT /accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}/custom-permission",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
+      UpdateVPCConnection: {
+        http: "PUT /accounts/{AwsAccountId}/vpc-connections/{VPCConnectionId}",
+        traits: {
+          Status: "httpResponseCode",
+        },
+      },
     },
   },
   ram: {
@@ -13012,6 +15936,53 @@ export const serviceMetadata = {
     endpointPrefix: "route53",
     protocol: "restXml",
     targetPrefix: "",
+    operations: {
+      CreateCidrCollection: {
+        traits: {
+          Location: "Location",
+        },
+      },
+      CreateHealthCheck: {
+        traits: {
+          Location: "Location",
+        },
+      },
+      CreateHostedZone: {
+        traits: {
+          Location: "Location",
+        },
+      },
+      CreateKeySigningKey: {
+        traits: {
+          Location: "Location",
+        },
+      },
+      CreateQueryLoggingConfig: {
+        traits: {
+          Location: "Location",
+        },
+      },
+      CreateReusableDelegationSet: {
+        traits: {
+          Location: "Location",
+        },
+      },
+      CreateTrafficPolicy: {
+        traits: {
+          Location: "Location",
+        },
+      },
+      CreateTrafficPolicyInstance: {
+        traits: {
+          Location: "Location",
+        },
+      },
+      CreateTrafficPolicyVersion: {
+        traits: {
+          Location: "Location",
+        },
+      },
+    },
   },
   route53domains: {
     sdkId: "Route 53 Domains",
@@ -13202,6 +16173,410 @@ export const serviceMetadata = {
     endpointPrefix: "s3",
     protocol: "restXml",
     targetPrefix: "",
+    operations: {
+      AbortMultipartUpload: {
+        traits: {
+          RequestCharged: "x-amz-request-charged",
+        },
+      },
+      CompleteMultipartUpload: {
+        traits: {
+          Expiration: "x-amz-expiration",
+          ServerSideEncryption: "x-amz-server-side-encryption",
+          VersionId: "x-amz-version-id",
+          SSEKMSKeyId: "x-amz-server-side-encryption-aws-kms-key-id",
+          BucketKeyEnabled: "x-amz-server-side-encryption-bucket-key-enabled",
+          RequestCharged: "x-amz-request-charged",
+        },
+      },
+      CopyObject: {
+        traits: {
+          CopyObjectResult: "httpPayload",
+          Expiration: "x-amz-expiration",
+          CopySourceVersionId: "x-amz-copy-source-version-id",
+          VersionId: "x-amz-version-id",
+          ServerSideEncryption: "x-amz-server-side-encryption",
+          SSECustomerAlgorithm:
+            "x-amz-server-side-encryption-customer-algorithm",
+          SSECustomerKeyMD5: "x-amz-server-side-encryption-customer-key-MD5",
+          SSEKMSKeyId: "x-amz-server-side-encryption-aws-kms-key-id",
+          SSEKMSEncryptionContext: "x-amz-server-side-encryption-context",
+          BucketKeyEnabled: "x-amz-server-side-encryption-bucket-key-enabled",
+          RequestCharged: "x-amz-request-charged",
+        },
+      },
+      CreateBucket: {
+        traits: {
+          Location: "Location",
+          BucketArn: "x-amz-bucket-arn",
+        },
+      },
+      CreateMultipartUpload: {
+        traits: {
+          AbortDate: "x-amz-abort-date",
+          AbortRuleId: "x-amz-abort-rule-id",
+          ServerSideEncryption: "x-amz-server-side-encryption",
+          SSECustomerAlgorithm:
+            "x-amz-server-side-encryption-customer-algorithm",
+          SSECustomerKeyMD5: "x-amz-server-side-encryption-customer-key-MD5",
+          SSEKMSKeyId: "x-amz-server-side-encryption-aws-kms-key-id",
+          SSEKMSEncryptionContext: "x-amz-server-side-encryption-context",
+          BucketKeyEnabled: "x-amz-server-side-encryption-bucket-key-enabled",
+          RequestCharged: "x-amz-request-charged",
+          ChecksumAlgorithm: "x-amz-checksum-algorithm",
+          ChecksumType: "x-amz-checksum-type",
+        },
+      },
+      CreateSession: {
+        traits: {
+          ServerSideEncryption: "x-amz-server-side-encryption",
+          SSEKMSKeyId: "x-amz-server-side-encryption-aws-kms-key-id",
+          SSEKMSEncryptionContext: "x-amz-server-side-encryption-context",
+          BucketKeyEnabled: "x-amz-server-side-encryption-bucket-key-enabled",
+        },
+      },
+      DeleteObject: {
+        traits: {
+          DeleteMarker: "x-amz-delete-marker",
+          VersionId: "x-amz-version-id",
+          RequestCharged: "x-amz-request-charged",
+        },
+      },
+      DeleteObjects: {
+        traits: {
+          RequestCharged: "x-amz-request-charged",
+        },
+      },
+      DeleteObjectTagging: {
+        traits: {
+          VersionId: "x-amz-version-id",
+        },
+      },
+      GetBucketAccelerateConfiguration: {
+        traits: {
+          RequestCharged: "x-amz-request-charged",
+        },
+      },
+      GetBucketAnalyticsConfiguration: {
+        traits: {
+          AnalyticsConfiguration: "httpPayload",
+        },
+      },
+      GetBucketEncryption: {
+        traits: {
+          ServerSideEncryptionConfiguration: "httpPayload",
+        },
+      },
+      GetBucketIntelligentTieringConfiguration: {
+        traits: {
+          IntelligentTieringConfiguration: "httpPayload",
+        },
+      },
+      GetBucketInventoryConfiguration: {
+        traits: {
+          InventoryConfiguration: "httpPayload",
+        },
+      },
+      GetBucketLifecycleConfiguration: {
+        traits: {
+          TransitionDefaultMinimumObjectSize:
+            "x-amz-transition-default-minimum-object-size",
+        },
+      },
+      GetBucketMetadataConfiguration: {
+        traits: {
+          GetBucketMetadataConfigurationResult: "httpPayload",
+        },
+      },
+      GetBucketMetadataTableConfiguration: {
+        traits: {
+          GetBucketMetadataTableConfigurationResult: "httpPayload",
+        },
+      },
+      GetBucketMetricsConfiguration: {
+        traits: {
+          MetricsConfiguration: "httpPayload",
+        },
+      },
+      GetBucketOwnershipControls: {
+        traits: {
+          OwnershipControls: "httpPayload",
+        },
+      },
+      GetBucketPolicy: {
+        traits: {
+          Policy: "httpPayload",
+        },
+      },
+      GetBucketPolicyStatus: {
+        traits: {
+          PolicyStatus: "httpPayload",
+        },
+      },
+      GetBucketReplication: {
+        traits: {
+          ReplicationConfiguration: "httpPayload",
+        },
+      },
+      GetObject: {
+        traits: {
+          Body: "httpPayload",
+          DeleteMarker: "x-amz-delete-marker",
+          AcceptRanges: "accept-ranges",
+          Expiration: "x-amz-expiration",
+          Restore: "x-amz-restore",
+          LastModified: "Last-Modified",
+          ContentLength: "Content-Length",
+          ETag: "ETag",
+          ChecksumCRC32: "x-amz-checksum-crc32",
+          ChecksumCRC32C: "x-amz-checksum-crc32c",
+          ChecksumCRC64NVME: "x-amz-checksum-crc64nvme",
+          ChecksumSHA1: "x-amz-checksum-sha1",
+          ChecksumSHA256: "x-amz-checksum-sha256",
+          ChecksumType: "x-amz-checksum-type",
+          MissingMeta: "x-amz-missing-meta",
+          VersionId: "x-amz-version-id",
+          CacheControl: "Cache-Control",
+          ContentDisposition: "Content-Disposition",
+          ContentEncoding: "Content-Encoding",
+          ContentLanguage: "Content-Language",
+          ContentRange: "Content-Range",
+          ContentType: "Content-Type",
+          Expires: "Expires",
+          WebsiteRedirectLocation: "x-amz-website-redirect-location",
+          ServerSideEncryption: "x-amz-server-side-encryption",
+          SSECustomerAlgorithm:
+            "x-amz-server-side-encryption-customer-algorithm",
+          SSECustomerKeyMD5: "x-amz-server-side-encryption-customer-key-MD5",
+          SSEKMSKeyId: "x-amz-server-side-encryption-aws-kms-key-id",
+          BucketKeyEnabled: "x-amz-server-side-encryption-bucket-key-enabled",
+          StorageClass: "x-amz-storage-class",
+          RequestCharged: "x-amz-request-charged",
+          ReplicationStatus: "x-amz-replication-status",
+          PartsCount: "x-amz-mp-parts-count",
+          TagCount: "x-amz-tagging-count",
+          ObjectLockMode: "x-amz-object-lock-mode",
+          ObjectLockRetainUntilDate: "x-amz-object-lock-retain-until-date",
+          ObjectLockLegalHoldStatus: "x-amz-object-lock-legal-hold",
+        },
+      },
+      GetObjectAcl: {
+        traits: {
+          RequestCharged: "x-amz-request-charged",
+        },
+      },
+      GetObjectAttributes: {
+        traits: {
+          DeleteMarker: "x-amz-delete-marker",
+          LastModified: "Last-Modified",
+          VersionId: "x-amz-version-id",
+          RequestCharged: "x-amz-request-charged",
+        },
+      },
+      GetObjectLegalHold: {
+        traits: {
+          LegalHold: "httpPayload",
+        },
+      },
+      GetObjectLockConfiguration: {
+        traits: {
+          ObjectLockConfiguration: "httpPayload",
+        },
+      },
+      GetObjectRetention: {
+        traits: {
+          Retention: "httpPayload",
+        },
+      },
+      GetObjectTagging: {
+        traits: {
+          VersionId: "x-amz-version-id",
+        },
+      },
+      GetObjectTorrent: {
+        traits: {
+          Body: "httpPayload",
+          RequestCharged: "x-amz-request-charged",
+        },
+      },
+      GetPublicAccessBlock: {
+        traits: {
+          PublicAccessBlockConfiguration: "httpPayload",
+        },
+      },
+      HeadBucket: {
+        traits: {
+          BucketArn: "x-amz-bucket-arn",
+          BucketLocationType: "x-amz-bucket-location-type",
+          BucketLocationName: "x-amz-bucket-location-name",
+          BucketRegion: "x-amz-bucket-region",
+          AccessPointAlias: "x-amz-access-point-alias",
+        },
+      },
+      HeadObject: {
+        traits: {
+          DeleteMarker: "x-amz-delete-marker",
+          AcceptRanges: "accept-ranges",
+          Expiration: "x-amz-expiration",
+          Restore: "x-amz-restore",
+          ArchiveStatus: "x-amz-archive-status",
+          LastModified: "Last-Modified",
+          ContentLength: "Content-Length",
+          ChecksumCRC32: "x-amz-checksum-crc32",
+          ChecksumCRC32C: "x-amz-checksum-crc32c",
+          ChecksumCRC64NVME: "x-amz-checksum-crc64nvme",
+          ChecksumSHA1: "x-amz-checksum-sha1",
+          ChecksumSHA256: "x-amz-checksum-sha256",
+          ChecksumType: "x-amz-checksum-type",
+          ETag: "ETag",
+          MissingMeta: "x-amz-missing-meta",
+          VersionId: "x-amz-version-id",
+          CacheControl: "Cache-Control",
+          ContentDisposition: "Content-Disposition",
+          ContentEncoding: "Content-Encoding",
+          ContentLanguage: "Content-Language",
+          ContentType: "Content-Type",
+          ContentRange: "Content-Range",
+          Expires: "Expires",
+          WebsiteRedirectLocation: "x-amz-website-redirect-location",
+          ServerSideEncryption: "x-amz-server-side-encryption",
+          SSECustomerAlgorithm:
+            "x-amz-server-side-encryption-customer-algorithm",
+          SSECustomerKeyMD5: "x-amz-server-side-encryption-customer-key-MD5",
+          SSEKMSKeyId: "x-amz-server-side-encryption-aws-kms-key-id",
+          BucketKeyEnabled: "x-amz-server-side-encryption-bucket-key-enabled",
+          StorageClass: "x-amz-storage-class",
+          RequestCharged: "x-amz-request-charged",
+          ReplicationStatus: "x-amz-replication-status",
+          PartsCount: "x-amz-mp-parts-count",
+          TagCount: "x-amz-tagging-count",
+          ObjectLockMode: "x-amz-object-lock-mode",
+          ObjectLockRetainUntilDate: "x-amz-object-lock-retain-until-date",
+          ObjectLockLegalHoldStatus: "x-amz-object-lock-legal-hold",
+        },
+      },
+      ListMultipartUploads: {
+        traits: {
+          RequestCharged: "x-amz-request-charged",
+        },
+      },
+      ListObjects: {
+        traits: {
+          RequestCharged: "x-amz-request-charged",
+        },
+      },
+      ListObjectsV2: {
+        traits: {
+          RequestCharged: "x-amz-request-charged",
+        },
+      },
+      ListObjectVersions: {
+        traits: {
+          RequestCharged: "x-amz-request-charged",
+        },
+      },
+      ListParts: {
+        traits: {
+          AbortDate: "x-amz-abort-date",
+          AbortRuleId: "x-amz-abort-rule-id",
+          RequestCharged: "x-amz-request-charged",
+        },
+      },
+      PutBucketLifecycleConfiguration: {
+        traits: {
+          TransitionDefaultMinimumObjectSize:
+            "x-amz-transition-default-minimum-object-size",
+        },
+      },
+      PutObject: {
+        traits: {
+          Expiration: "x-amz-expiration",
+          ETag: "ETag",
+          ChecksumCRC32: "x-amz-checksum-crc32",
+          ChecksumCRC32C: "x-amz-checksum-crc32c",
+          ChecksumCRC64NVME: "x-amz-checksum-crc64nvme",
+          ChecksumSHA1: "x-amz-checksum-sha1",
+          ChecksumSHA256: "x-amz-checksum-sha256",
+          ChecksumType: "x-amz-checksum-type",
+          ServerSideEncryption: "x-amz-server-side-encryption",
+          VersionId: "x-amz-version-id",
+          SSECustomerAlgorithm:
+            "x-amz-server-side-encryption-customer-algorithm",
+          SSECustomerKeyMD5: "x-amz-server-side-encryption-customer-key-MD5",
+          SSEKMSKeyId: "x-amz-server-side-encryption-aws-kms-key-id",
+          SSEKMSEncryptionContext: "x-amz-server-side-encryption-context",
+          BucketKeyEnabled: "x-amz-server-side-encryption-bucket-key-enabled",
+          Size: "x-amz-object-size",
+          RequestCharged: "x-amz-request-charged",
+        },
+      },
+      PutObjectAcl: {
+        traits: {
+          RequestCharged: "x-amz-request-charged",
+        },
+      },
+      PutObjectLegalHold: {
+        traits: {
+          RequestCharged: "x-amz-request-charged",
+        },
+      },
+      PutObjectLockConfiguration: {
+        traits: {
+          RequestCharged: "x-amz-request-charged",
+        },
+      },
+      PutObjectRetention: {
+        traits: {
+          RequestCharged: "x-amz-request-charged",
+        },
+      },
+      PutObjectTagging: {
+        traits: {
+          VersionId: "x-amz-version-id",
+        },
+      },
+      RestoreObject: {
+        traits: {
+          RequestCharged: "x-amz-request-charged",
+          RestoreOutputPath: "x-amz-restore-output-path",
+        },
+      },
+      SelectObjectContent: {
+        traits: {
+          Payload: "httpPayload",
+        },
+      },
+      UploadPart: {
+        traits: {
+          ServerSideEncryption: "x-amz-server-side-encryption",
+          ETag: "ETag",
+          ChecksumCRC32: "x-amz-checksum-crc32",
+          ChecksumCRC32C: "x-amz-checksum-crc32c",
+          ChecksumCRC64NVME: "x-amz-checksum-crc64nvme",
+          ChecksumSHA1: "x-amz-checksum-sha1",
+          ChecksumSHA256: "x-amz-checksum-sha256",
+          SSECustomerAlgorithm:
+            "x-amz-server-side-encryption-customer-algorithm",
+          SSECustomerKeyMD5: "x-amz-server-side-encryption-customer-key-MD5",
+          SSEKMSKeyId: "x-amz-server-side-encryption-aws-kms-key-id",
+          BucketKeyEnabled: "x-amz-server-side-encryption-bucket-key-enabled",
+          RequestCharged: "x-amz-request-charged",
+        },
+      },
+      UploadPartCopy: {
+        traits: {
+          CopySourceVersionId: "x-amz-copy-source-version-id",
+          CopyPartResult: "httpPayload",
+          ServerSideEncryption: "x-amz-server-side-encryption",
+          SSECustomerAlgorithm:
+            "x-amz-server-side-encryption-customer-algorithm",
+          SSECustomerKeyMD5: "x-amz-server-side-encryption-customer-key-MD5",
+          SSEKMSKeyId: "x-amz-server-side-encryption-aws-kms-key-id",
+          BucketKeyEnabled: "x-amz-server-side-encryption-bucket-key-enabled",
+          RequestCharged: "x-amz-request-charged",
+        },
+      },
+    },
   },
   s3control: {
     sdkId: "S3 Control",
@@ -13211,6 +16586,28 @@ export const serviceMetadata = {
     endpointPrefix: "s3-control",
     protocol: "restXml",
     targetPrefix: "",
+    operations: {
+      CreateBucket: {
+        traits: {
+          Location: "Location",
+        },
+      },
+      GetPublicAccessBlock: {
+        traits: {
+          PublicAccessBlockConfiguration: "httpPayload",
+        },
+      },
+      GetStorageLensConfiguration: {
+        traits: {
+          StorageLensConfiguration: "httpPayload",
+        },
+      },
+      GetStorageLensGroup: {
+        traits: {
+          StorageLensGroup: "httpPayload",
+        },
+      },
+    },
   },
   s3outposts: {
     sdkId: "S3Outposts",
@@ -13378,7 +16775,12 @@ export const serviceMetadata = {
       ExportVectorEnrichmentJob: "POST /export-vector-enrichment-jobs",
       GetEarthObservationJob: "GET /earth-observation-jobs/{Arn}",
       GetRasterDataCollection: "GET /raster-data-collection/{Arn}",
-      GetTile: "GET /tile/{z}/{x}/{y}",
+      GetTile: {
+        http: "GET /tile/{z}/{x}/{y}",
+        traits: {
+          BinaryFile: "httpPayload",
+        },
+      },
       GetVectorEnrichmentJob: "GET /vector-enrichment-jobs/{Arn}",
       ListEarthObservationJobs: "POST /list-earth-observation-jobs",
       ListRasterDataCollections: "GET /raster-data-collections",
@@ -13412,10 +16814,33 @@ export const serviceMetadata = {
     protocol: "restJson1",
     targetPrefix: "",
     operations: {
-      InvokeEndpoint: "POST /endpoints/{EndpointName}/invocations",
-      InvokeEndpointAsync: "POST /endpoints/{EndpointName}/async-invocations",
-      InvokeEndpointWithResponseStream:
-        "POST /endpoints/{EndpointName}/invocations-response-stream",
+      InvokeEndpoint: {
+        http: "POST /endpoints/{EndpointName}/invocations",
+        traits: {
+          Body: "httpPayload",
+          ContentType: "Content-Type",
+          InvokedProductionVariant: "x-Amzn-Invoked-Production-Variant",
+          CustomAttributes: "X-Amzn-SageMaker-Custom-Attributes",
+          NewSessionId: "X-Amzn-SageMaker-New-Session-Id",
+          ClosedSessionId: "X-Amzn-SageMaker-Closed-Session-Id",
+        },
+      },
+      InvokeEndpointAsync: {
+        http: "POST /endpoints/{EndpointName}/async-invocations",
+        traits: {
+          OutputLocation: "X-Amzn-SageMaker-OutputLocation",
+          FailureLocation: "X-Amzn-SageMaker-FailureLocation",
+        },
+      },
+      InvokeEndpointWithResponseStream: {
+        http: "POST /endpoints/{EndpointName}/invocations-response-stream",
+        traits: {
+          Body: "httpPayload",
+          ContentType: "X-Amzn-SageMaker-Content-Type",
+          InvokedProductionVariant: "x-Amzn-Invoked-Production-Variant",
+          CustomAttributes: "X-Amzn-SageMaker-Custom-Attributes",
+        },
+      },
     },
   },
   savingsplans: {
@@ -13491,8 +16916,12 @@ export const serviceMetadata = {
         "GET /v1/registries/name/{RegistryName}/schemas/name/{SchemaName}",
       ExportSchema:
         "GET /v1/registries/name/{RegistryName}/schemas/name/{SchemaName}/export",
-      GetCodeBindingSource:
-        "GET /v1/registries/name/{RegistryName}/schemas/name/{SchemaName}/language/{Language}/source",
+      GetCodeBindingSource: {
+        http: "GET /v1/registries/name/{RegistryName}/schemas/name/{SchemaName}/language/{Language}/source",
+        traits: {
+          Body: "httpPayload",
+        },
+      },
       GetDiscoveredSchema: "POST /v1/discover",
       GetResourcePolicy: "GET /v1/policy",
       ListDiscoverers: "GET /v1/discoverers",
@@ -14611,17 +18040,37 @@ export const serviceMetadata = {
       GetSolFunctionInstance:
         "GET /sol/vnflcm/v1/vnf_instances/{vnfInstanceId}",
       GetSolFunctionPackage: "GET /sol/vnfpkgm/v1/vnf_packages/{vnfPkgId}",
-      GetSolFunctionPackageContent:
-        "GET /sol/vnfpkgm/v1/vnf_packages/{vnfPkgId}/package_content",
-      GetSolFunctionPackageDescriptor:
-        "GET /sol/vnfpkgm/v1/vnf_packages/{vnfPkgId}/vnfd",
+      GetSolFunctionPackageContent: {
+        http: "GET /sol/vnfpkgm/v1/vnf_packages/{vnfPkgId}/package_content",
+        traits: {
+          contentType: "Content-Type",
+          packageContent: "httpPayload",
+        },
+      },
+      GetSolFunctionPackageDescriptor: {
+        http: "GET /sol/vnfpkgm/v1/vnf_packages/{vnfPkgId}/vnfd",
+        traits: {
+          contentType: "Content-Type",
+          vnfd: "httpPayload",
+        },
+      },
       GetSolNetworkInstance: "GET /sol/nslcm/v1/ns_instances/{nsInstanceId}",
       GetSolNetworkOperation: "GET /sol/nslcm/v1/ns_lcm_op_occs/{nsLcmOpOccId}",
       GetSolNetworkPackage: "GET /sol/nsd/v1/ns_descriptors/{nsdInfoId}",
-      GetSolNetworkPackageContent:
-        "GET /sol/nsd/v1/ns_descriptors/{nsdInfoId}/nsd_content",
-      GetSolNetworkPackageDescriptor:
-        "GET /sol/nsd/v1/ns_descriptors/{nsdInfoId}/nsd",
+      GetSolNetworkPackageContent: {
+        http: "GET /sol/nsd/v1/ns_descriptors/{nsdInfoId}/nsd_content",
+        traits: {
+          contentType: "Content-Type",
+          nsdContent: "httpPayload",
+        },
+      },
+      GetSolNetworkPackageDescriptor: {
+        http: "GET /sol/nsd/v1/ns_descriptors/{nsdInfoId}/nsd",
+        traits: {
+          contentType: "Content-Type",
+          nsd: "httpPayload",
+        },
+      },
       InstantiateSolNetworkInstance:
         "POST /sol/nslcm/v1/ns_instances/{nsInstanceId}/instantiate",
       ListSolFunctionInstances: "GET /sol/vnflcm/v1/vnf_instances",
@@ -14667,11 +18116,94 @@ export const serviceMetadata = {
     targetPrefix: "",
     operations: {
       GetMedicalScribeStream: "GET /medical-scribe-stream/{SessionId}",
-      StartCallAnalyticsStreamTranscription:
-        "POST /call-analytics-stream-transcription",
-      StartMedicalScribeStream: "POST /medical-scribe-stream",
-      StartMedicalStreamTranscription: "POST /medical-stream-transcription",
-      StartStreamTranscription: "POST /stream-transcription",
+      StartCallAnalyticsStreamTranscription: {
+        http: "POST /call-analytics-stream-transcription",
+        traits: {
+          RequestId: "x-amzn-request-id",
+          LanguageCode: "x-amzn-transcribe-language-code",
+          MediaSampleRateHertz: "x-amzn-transcribe-sample-rate",
+          MediaEncoding: "x-amzn-transcribe-media-encoding",
+          VocabularyName: "x-amzn-transcribe-vocabulary-name",
+          SessionId: "x-amzn-transcribe-session-id",
+          CallAnalyticsTranscriptResultStream: "httpPayload",
+          VocabularyFilterName: "x-amzn-transcribe-vocabulary-filter-name",
+          VocabularyFilterMethod: "x-amzn-transcribe-vocabulary-filter-method",
+          LanguageModelName: "x-amzn-transcribe-language-model-name",
+          EnablePartialResultsStabilization:
+            "x-amzn-transcribe-enable-partial-results-stabilization",
+          PartialResultsStability:
+            "x-amzn-transcribe-partial-results-stability",
+          ContentIdentificationType:
+            "x-amzn-transcribe-content-identification-type",
+          ContentRedactionType: "x-amzn-transcribe-content-redaction-type",
+          PiiEntityTypes: "x-amzn-transcribe-pii-entity-types",
+        },
+      },
+      StartMedicalScribeStream: {
+        http: "POST /medical-scribe-stream",
+        traits: {
+          SessionId: "x-amzn-transcribe-session-id",
+          RequestId: "x-amzn-request-id",
+          LanguageCode: "x-amzn-transcribe-language-code",
+          MediaSampleRateHertz: "x-amzn-transcribe-sample-rate",
+          MediaEncoding: "x-amzn-transcribe-media-encoding",
+          ResultStream: "httpPayload",
+        },
+      },
+      StartMedicalStreamTranscription: {
+        http: "POST /medical-stream-transcription",
+        traits: {
+          RequestId: "x-amzn-request-id",
+          LanguageCode: "x-amzn-transcribe-language-code",
+          MediaSampleRateHertz: "x-amzn-transcribe-sample-rate",
+          MediaEncoding: "x-amzn-transcribe-media-encoding",
+          VocabularyName: "x-amzn-transcribe-vocabulary-name",
+          Specialty: "x-amzn-transcribe-specialty",
+          Type: "x-amzn-transcribe-type",
+          ShowSpeakerLabel: "x-amzn-transcribe-show-speaker-label",
+          SessionId: "x-amzn-transcribe-session-id",
+          TranscriptResultStream: "httpPayload",
+          EnableChannelIdentification:
+            "x-amzn-transcribe-enable-channel-identification",
+          NumberOfChannels: "x-amzn-transcribe-number-of-channels",
+          ContentIdentificationType:
+            "x-amzn-transcribe-content-identification-type",
+        },
+      },
+      StartStreamTranscription: {
+        http: "POST /stream-transcription",
+        traits: {
+          RequestId: "x-amzn-request-id",
+          LanguageCode: "x-amzn-transcribe-language-code",
+          MediaSampleRateHertz: "x-amzn-transcribe-sample-rate",
+          MediaEncoding: "x-amzn-transcribe-media-encoding",
+          VocabularyName: "x-amzn-transcribe-vocabulary-name",
+          SessionId: "x-amzn-transcribe-session-id",
+          TranscriptResultStream: "httpPayload",
+          VocabularyFilterName: "x-amzn-transcribe-vocabulary-filter-name",
+          VocabularyFilterMethod: "x-amzn-transcribe-vocabulary-filter-method",
+          ShowSpeakerLabel: "x-amzn-transcribe-show-speaker-label",
+          EnableChannelIdentification:
+            "x-amzn-transcribe-enable-channel-identification",
+          NumberOfChannels: "x-amzn-transcribe-number-of-channels",
+          EnablePartialResultsStabilization:
+            "x-amzn-transcribe-enable-partial-results-stabilization",
+          PartialResultsStability:
+            "x-amzn-transcribe-partial-results-stability",
+          ContentIdentificationType:
+            "x-amzn-transcribe-content-identification-type",
+          ContentRedactionType: "x-amzn-transcribe-content-redaction-type",
+          PiiEntityTypes: "x-amzn-transcribe-pii-entity-types",
+          LanguageModelName: "x-amzn-transcribe-language-model-name",
+          IdentifyLanguage: "x-amzn-transcribe-identify-language",
+          LanguageOptions: "x-amzn-transcribe-language-options",
+          PreferredLanguage: "x-amzn-transcribe-preferred-language",
+          IdentifyMultipleLanguages:
+            "x-amzn-transcribe-identify-multiple-languages",
+          VocabularyNames: "x-amzn-transcribe-vocabulary-names",
+          VocabularyFilterNames: "x-amzn-transcribe-vocabulary-filter-names",
+        },
+      },
     },
   },
   transfer: {
@@ -15133,7 +18665,12 @@ export const serviceMetadata = {
     protocol: "restJson1",
     targetPrefix: "",
     operations: {
-      GetRawMessageContent: "GET /messages/{messageId}",
+      GetRawMessageContent: {
+        http: "GET /messages/{messageId}",
+        traits: {
+          messageContent: "httpPayload",
+        },
+      },
       PutRawMessageContent: "POST /messages/{messageId}",
     },
   },

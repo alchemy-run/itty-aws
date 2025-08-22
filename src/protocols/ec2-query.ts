@@ -231,6 +231,8 @@ export class Ec2QueryHandler implements ProtocolHandler {
     responseText: string,
     statusCode: number,
     _metadata?: ServiceMetadata,
+    _headers?: Headers,
+    _action?: string,
   ): unknown {
     if (statusCode >= 400) return this.parseError(responseText, statusCode);
     if (!responseText) return {};

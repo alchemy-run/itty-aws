@@ -37,6 +37,8 @@ export class AwsJson10Handler implements ProtocolHandler {
     responseText: string,
     _statusCode: number,
     _metadata?: ServiceMetadata,
+    _headers?: Headers,
+    _action?: string,
   ): unknown {
     // Empty response body should return empty object
     if (!responseText || responseText.trim() === "") return {};

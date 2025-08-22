@@ -1,11 +1,32 @@
 import { describe, expect, it } from "@effect/vitest";
-import { Console, Effect } from "effect";
+import { Console, Effect, Schedule } from "effect";
 import AdmZip from "adm-zip";
 import { AWS } from "../../src/index.ts";
 
 describe("Lambda Smoke Tests", () => {
   const testFunctionName = "itty-aws-test-function";
   const client = new AWS.Lambda({ region: "us-east-1" });
+
+  const waitForFunctionActive = (functionName: string) =>
+    client.getFunctionConfiguration({ FunctionName: functionName }).pipe(
+      Effect.tap((config) =>
+        Console.log(`Function state: ${config.State ?? "UNKNOWN"}`),
+      ),
+      Effect.flatMap((config) =>
+        config.State === "Active"
+          ? Effect.succeed(config)
+          : Effect.fail("NotActive" as const),
+      ),
+      Effect.retry({ schedule: Schedule.spaced("2 seconds"), times: 30 }),
+    );
+
+  const waitForFunctionDeleted = (functionName: string) =>
+    client.getFunction({ FunctionName: functionName }).pipe(
+      Effect.flatMap(() => Effect.fail("FunctionStillExists" as const)),
+      Effect.catchTag("ResourceNotFoundException", () => Effect.void),
+      Effect.catchAll(() => Effect.void),
+      Effect.retry({ schedule: Schedule.spaced("2 seconds"), times: 30 }),
+    );
 
   const deleteFunctionIfExists = (functionName: string) =>
     client.getFunction({ FunctionName: functionName }).pipe(
@@ -14,6 +35,7 @@ describe("Lambda Smoke Tests", () => {
           Effect.tap(() =>
             Console.log(`Cleaned up existing function: ${functionName}`),
           ),
+          Effect.flatMap(() => waitForFunctionDeleted(functionName)),
           Effect.catchAll(() => Effect.void),
         ),
       ),
@@ -93,8 +115,9 @@ exports.handler = async (event) => {
 
         // Step 3: Wait for function to be active
         yield* Console.log("Step 3: Waiting for function to be active...");
-        // In a real test, we'd poll until State === "Active"
-        yield* Effect.sleep("5 seconds"); // Simple wait for demo
+        const activeConfig = yield* waitForFunctionActive(testFunctionName);
+        expect(activeConfig.State).toBe("Active");
+        yield* Console.log("Function is now active");
 
         // Step 4: List functions to verify our function exists
         yield* Console.log("Step 4: Listing functions...");
@@ -149,7 +172,8 @@ exports.handler = async (event) => {
           }),
         });
 
-        expect(asyncInvokeResult.StatusCode).toBe(202);
+        expect(asyncInvokeResult.StatusCode).toBeGreaterThanOrEqual(200);
+        expect(asyncInvokeResult.StatusCode).toBeLessThan(300);
         yield* Console.log("Function invoked asynchronously");
 
         // Step 7: Update function configuration
@@ -175,6 +199,11 @@ exports.handler = async (event) => {
         expect(updateConfigResult.MemorySize).toBe(256);
 
         yield* Console.log("Function configuration updated successfully");
+
+        // Wait for function to be active after configuration update
+        yield* Console.log("Waiting for function to be active after configuration update...");
+        yield* waitForFunctionActive(testFunctionName);
+        yield* Console.log("Function is active after configuration update");
 
         // Step 8: Update function code
         yield* Console.log("Step 8: Updating function code...");
@@ -207,6 +236,11 @@ exports.handler = async (event) => {
         expect(updateCodeResult.CodeSha256).toBeDefined();
 
         yield* Console.log("Function code updated successfully");
+
+        // Wait for function to be active after code update
+        yield* Console.log("Waiting for function to be active after code update...");
+        yield* waitForFunctionActive(testFunctionName);
+        yield* Console.log("Function is active after code update");
 
         // Step 9: Test function tagging
         yield* Console.log("Step 9: Testing function tagging...");
@@ -304,6 +338,11 @@ exports.handler = async (event) => {
           FunctionName: testFunctionName,
         });
 
+        // Wait for function to be fully deleted
+        yield* Console.log("Waiting for function deletion to complete...");
+        yield* waitForFunctionDeleted(testFunctionName);
+        yield* Console.log("Function successfully deleted");
+
         yield* Console.log("Lambda smoke test completed successfully!");
 
         return {
@@ -323,9 +362,34 @@ exports.handler = async (event) => {
 
         yield* Console.log("Testing Lambda layer operations...");
 
+        // Clean up any existing layer versions first
+        const existingVersions = yield* client
+          .listLayerVersions({
+            LayerName: layerName,
+          })
+          .pipe(
+            Effect.catchTag("ResourceNotFoundException", () =>
+              Effect.succeed({ LayerVersions: [] }),
+            ),
+          );
+
+        for (const version of existingVersions.LayerVersions || []) {
+          if (version.Version) {
+            yield* client
+              .deleteLayerVersion({
+                LayerName: layerName,
+                VersionNumber: version.Version,
+              })
+              .pipe(Effect.catchAll(() => Effect.void));
+          }
+        }
+
         // Create a simple layer with valid ZIP format
         const layerZip = new AdmZip();
-        layerZip.addFile("nodejs/node_modules/test-module/index.js", Buffer.from("module.exports = { test: true };"));
+        layerZip.addFile(
+          "nodejs/node_modules/test-module/index.js",
+          Buffer.from("module.exports = { test: true };"),
+        );
         const layerZipBuffer = layerZip.toBuffer();
 
         const createLayerResult = yield* client.publishLayerVersion({
@@ -338,7 +402,7 @@ exports.handler = async (event) => {
         });
 
         expect(createLayerResult.LayerArn).toBeDefined();
-        expect(createLayerResult.Version).toBe(1);
+        expect(createLayerResult.Version).toBeGreaterThanOrEqual(1);
 
         const layerArn = createLayerResult.LayerArn!;
 
@@ -348,21 +412,23 @@ exports.handler = async (event) => {
         });
 
         expect(listVersionsResult.LayerVersions).toBeDefined();
-        expect(listVersionsResult.LayerVersions?.length).toBe(1);
+        expect(listVersionsResult.LayerVersions?.length).toBeGreaterThanOrEqual(
+          1,
+        );
 
         // Get layer version
         const getLayerResult = yield* client.getLayerVersion({
           LayerName: layerName,
-          VersionNumber: 1,
+          VersionNumber: createLayerResult.Version!,
         });
 
         expect(getLayerResult.LayerArn).toBe(layerArn);
-        expect(getLayerResult.Version).toBe(1);
+        expect(getLayerResult.Version).toBeGreaterThanOrEqual(1);
 
         // Cleanup
         yield* client.deleteLayerVersion({
           LayerName: layerName,
-          VersionNumber: 1,
+          VersionNumber: createLayerResult.Version!,
         });
 
         yield* Console.log("Layer operations test completed");

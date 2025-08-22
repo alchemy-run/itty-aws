@@ -33,6 +33,8 @@ export class RestXmlHandler implements ProtocolHandler {
     responseText: string,
     _statusCode: number,
     _metadata?: ServiceMetadata,
+    _headers?: Headers,
+    _action?: string,
   ): unknown {
     if (!responseText) return {};
     // TODO: Implement proper XML parsing for S3 responses

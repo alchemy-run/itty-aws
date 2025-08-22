@@ -80,6 +80,8 @@ export class AwsJson11Handler implements ProtocolHandler {
     responseText: string,
     _statusCode: number,
     _metadata?: ServiceMetadata,
+    _headers?: Headers,
+    _action?: string,
   ): unknown {
     if (!responseText || responseText.trim() === "") return {};
 
