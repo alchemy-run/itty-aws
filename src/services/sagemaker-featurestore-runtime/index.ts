@@ -89,8 +89,8 @@ export interface DeleteRecordRequest {
   TargetStores?: Array<TargetStore>;
   DeletionMode?: DeletionMode;
 }
-export type DeletionMode = "SOFT_DELETE" | "HARD_DELETE";
-export type ExpirationTimeResponse = "ENABLED" | "DISABLED";
+export type DeletionMode = "SoftDelete" | "HardDelete";
+export type ExpirationTimeResponse = "Enabled" | "Disabled";
 export type ExpiresAt = string;
 
 export type FeatureGroupNameOrArn = string;
@@ -138,18 +138,18 @@ export declare class ServiceUnavailable extends EffectData.TaggedError(
 )<{
   readonly Message?: string;
 }> {}
-export type TargetStore = "ONLINE_STORE" | "OFFLINE_STORE";
+export type TargetStore = "OnlineStore" | "OfflineStore";
 export type TargetStores = Array<TargetStore>;
 export interface TtlDuration {
   Unit: TtlDurationUnit;
   Value: number;
 }
 export type TtlDurationUnit =
-  | "SECONDS"
-  | "MINUTES"
-  | "HOURS"
-  | "DAYS"
-  | "WEEKS";
+  | "Seconds"
+  | "Minutes"
+  | "Hours"
+  | "Days"
+  | "Weeks";
 export type TtlDurationValue = number;
 
 export type UnprocessedIdentifiers = Array<BatchGetRecordIdentifier>;

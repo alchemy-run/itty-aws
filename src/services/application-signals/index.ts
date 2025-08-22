@@ -228,7 +228,7 @@ export type Dimensions = Array<Dimension>;
 export type DimensionValue = string;
 
 export type DurationUnit = "MINUTE" | "HOUR" | "DAY" | "MONTH";
-export type EvaluationType = "PERIOD_BASED" | "REQUEST_BASED";
+export type EvaluationType = "PeriodBased" | "RequestBased";
 export type ExclusionDuration = number;
 
 export type ExclusionReason = string;
@@ -409,9 +409,9 @@ export interface MetricReference {
 }
 export type MetricReferences = Array<MetricReference>;
 export type MetricSourceType =
-  | "SERVICE_OPERATION"
-  | "CLOUDWATCH_METRIC"
-  | "SERVICE_DEPENDENCY";
+  | "ServiceOperation"
+  | "CloudWatchMetric"
+  | "ServiceDependency";
 export type MetricSourceTypes = Array<MetricSourceType>;
 export interface MetricStat {
   Metric: Metric;
@@ -517,10 +517,10 @@ export interface ServiceLevelIndicator {
   ComparisonOperator: ServiceLevelIndicatorComparisonOperator;
 }
 export type ServiceLevelIndicatorComparisonOperator =
-  | "GREATER_THAN_OR_EQUAL_TO"
-  | "GREATER_THAN"
-  | "LESS_THAN"
-  | "LESS_THAN_OR_EQUAL_TO";
+  | "GreaterThanOrEqualTo"
+  | "GreaterThan"
+  | "LessThan"
+  | "LessThanOrEqualTo";
 export interface ServiceLevelIndicatorConfig {
   SliMetricConfig: ServiceLevelIndicatorMetricConfig;
   MetricThreshold: number;
@@ -633,33 +633,33 @@ export interface ServiceSummary {
 export type SLIPeriodSeconds = number;
 
 export type StandardUnit =
-  | "MICROSECONDS"
-  | "MILLISECONDS"
-  | "SECONDS"
-  | "BYTES"
-  | "KILOBYTES"
-  | "MEGABYTES"
-  | "GIGABYTES"
-  | "TERABYTES"
-  | "BITS"
-  | "KILOBITS"
-  | "MEGABITS"
-  | "GIGABITS"
-  | "TERABITS"
-  | "PERCENT"
-  | "COUNT"
-  | "BYTES_SECOND"
-  | "KILOBYTES_SECOND"
-  | "MEGABYTES_SECOND"
-  | "GIGABYTES_SECOND"
-  | "TERABYTES_SECOND"
-  | "BITS_SECOND"
-  | "KILOBITS_SECOND"
-  | "MEGABITS_SECOND"
-  | "GIGABITS_SECOND"
-  | "TERABITS_SECOND"
-  | "COUNT_SECOND"
-  | "NONE";
+  | "Microseconds"
+  | "Milliseconds"
+  | "Seconds"
+  | "Bytes"
+  | "Kilobytes"
+  | "Megabytes"
+  | "Gigabytes"
+  | "Terabytes"
+  | "Bits"
+  | "Kilobits"
+  | "Megabits"
+  | "Gigabits"
+  | "Terabits"
+  | "Percent"
+  | "Count"
+  | "Bytes/Second"
+  | "Kilobytes/Second"
+  | "Megabytes/Second"
+  | "Gigabytes/Second"
+  | "Terabytes/Second"
+  | "Bits/Second"
+  | "Kilobits/Second"
+  | "Megabits/Second"
+  | "Gigabits/Second"
+  | "Terabits/Second"
+  | "Count/Second"
+  | "None";
 export interface StartDiscoveryInput {}
 export interface StartDiscoveryOutput {}
 export type Stat = string;

@@ -78,7 +78,6 @@ export class AwsJson10Handler implements ProtocolHandler {
     };
   }
 
-
   private extractErrorType(
     errorBody: any,
     headers?: Headers,

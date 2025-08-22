@@ -486,9 +486,9 @@ export declare class BucketAlreadyOwnedByYou extends EffectData.TaggedError(
 )<{}> {}
 export type BucketCannedACL =
   | "private"
-  | "public_read"
-  | "public_read_write"
-  | "authenticated_read";
+  | "public-read"
+  | "public-read-write"
+  | "authenticated-read";
 export type BucketIdentifierString = string;
 
 export interface BucketLevel {
@@ -500,16 +500,16 @@ export interface BucketLevel {
 }
 export type BucketLocationConstraint =
   | "EU"
-  | "eu_west_1"
-  | "us_west_1"
-  | "us_west_2"
-  | "ap_south_1"
-  | "ap_southeast_1"
-  | "ap_southeast_2"
-  | "ap_northeast_1"
-  | "sa_east_1"
-  | "cn_north_1"
-  | "eu_central_1";
+  | "eu-west-1"
+  | "us-west-1"
+  | "us-west-2"
+  | "ap-south-1"
+  | "ap-southeast-1"
+  | "ap-southeast-2"
+  | "ap-northeast-1"
+  | "sa-east-1"
+  | "cn-north-1"
+  | "eu-central-1";
 export type BucketName = string;
 
 export type Buckets = Array<string>;
@@ -1606,10 +1606,10 @@ export type ObjectLambdaAccessPointList = Array<ObjectLambdaAccessPoint>;
 export type ObjectLambdaAccessPointName = string;
 
 export type ObjectLambdaAllowedFeature =
-  | "GetObjectRange"
-  | "GetObjectPartNumber"
-  | "HeadObjectRange"
-  | "HeadObjectPartNumber";
+  | "GetObject-Range"
+  | "GetObject-PartNumber"
+  | "HeadObject-Range"
+  | "HeadObject-PartNumber";
 export type ObjectLambdaAllowedFeaturesList = Array<ObjectLambdaAllowedFeature>;
 export interface ObjectLambdaConfiguration {
   SupportingAccessPoint: string;
@@ -1889,13 +1889,13 @@ export interface S3BucketDestination {
   Encryption?: StorageLensDataExportEncryption;
 }
 export type S3CannedAccessControlList =
-  | "PRIVATE"
-  | "PUBLIC_READ"
-  | "PUBLIC_READ_WRITE"
-  | "AWS_EXEC_READ"
-  | "AUTHENTICATED_READ"
-  | "BUCKET_OWNER_READ"
-  | "BUCKET_OWNER_FULL_CONTROL";
+  | "private"
+  | "public-read"
+  | "public-read-write"
+  | "aws-exec-read"
+  | "authenticated-read"
+  | "bucket-owner-read"
+  | "bucket-owner-full-control";
 export type S3ChecksumAlgorithm =
   | "CRC32"
   | "CRC32C"
@@ -1941,7 +1941,7 @@ export interface S3Grantee {
   Identifier?: string;
   DisplayName?: string;
 }
-export type S3GranteeTypeIdentifier = "CANONICAL" | "EMAIL_ADDRESS" | "GROUP";
+export type S3GranteeTypeIdentifier = "id" | "emailAddress" | "uri";
 export type S3GrantList = Array<S3Grant>;
 export interface S3InitiateRestoreObjectOperation {
   ExpirationInDays?: number;

@@ -1299,7 +1299,7 @@ export interface ApplicationConfig {
   Type?: ApplicationConfigType;
   DestinationName?: string;
 }
-export type ApplicationConfigType = "SemtechGeoLocation";
+export type ApplicationConfigType = "SemtechGeolocation";
 export type Applications = Array<ApplicationConfig>;
 export type ApplicationServerPublicKey = string;
 
@@ -1359,7 +1359,7 @@ export type BaseLng = number;
 
 export type BaseStationId = number;
 
-export type BatteryLevel = "NORMAL" | "LOW" | "CRITICAL";
+export type BatteryLevel = "normal" | "low" | "critical";
 export type BCCH = number;
 
 export interface Beaconing {
@@ -1436,7 +1436,7 @@ export declare class ConflictException extends EffectData.TaggedError(
   readonly ResourceId?: string;
   readonly ResourceType?: string;
 }> {}
-export type ConnectionStatus = "CONNECTED" | "DISCONNECTED";
+export type ConnectionStatus = "Connected" | "Disconnected";
 export interface ConnectionStatusEventConfiguration {
   LoRaWAN?: LoRaWANConnectionStatusEventNotificationConfigurations;
   WirelessGatewayIdEventTopic?: EventNotificationTopicStatus;
@@ -1686,10 +1686,10 @@ export interface DeviceRegistrationStateResourceTypeEventConfiguration {
   Sidewalk?: SidewalkResourceTypeEventConfiguration;
 }
 export type DeviceState =
-  | "PROVISIONED"
-  | "REGISTEREDNOTSEEN"
-  | "REGISTEREDREACHABLE"
-  | "REGISTEREDUNREACHABLE";
+  | "Provisioned"
+  | "RegisteredNotSeen"
+  | "RegisteredReachable"
+  | "RegisteredUnreachable";
 export type DeviceTypeId = string;
 
 export type DevStatusReqFreq = number;
@@ -1773,7 +1773,7 @@ export type EndPoint = string;
 
 export type EutranCid = number;
 
-export type Event = "DISCOVERED" | "LOST" | "ACK" | "NACK" | "PASSTHROUGH";
+export type Event = "discovered" | "lost" | "ack" | "nack" | "passthrough";
 export interface EventConfigurationItem {
   Identifier?: string;
   IdentifierType?: IdentifierType;
@@ -2853,7 +2853,7 @@ export interface PositionSolverConfigurations {
 export interface PositionSolverDetails {
   SemtechGnss?: SemtechGnssDetail;
 }
-export type PositionSolverProvider = "SEMTECH";
+export type PositionSolverProvider = "Semtech";
 export type PositionSolverType = "GNSS";
 export type PositionSolverVersion = string;
 
@@ -3168,10 +3168,10 @@ export type SupportedRfRegion =
   | "EU868"
   | "US915"
   | "AU915"
-  | "AS923_1"
-  | "AS923_2"
-  | "AS923_3"
-  | "AS923_4"
+  | "AS923-1"
+  | "AS923-2"
+  | "AS923-3"
+  | "AS923-4"
   | "EU433"
   | "CN470"
   | "CN779"

@@ -652,13 +652,13 @@ export type ActivationOverrideBehavior =
   | "DISTRIBUTED_GRANTS_ONLY"
   | "ALL_GRANTS_PERMITTED_BY_ISSUER";
 export type AllowedOperation =
-  | "CREATE_GRANT"
-  | "CHECKOUT_LICENSE"
-  | "CHECKOUT_BORROW_LICENSE"
-  | "CHECK_IN_LICENSE"
-  | "EXTEND_CONSUMPTION_LICENSE"
-  | "LIST_PURCHASED_LICENSES"
-  | "CREATE_TOKEN";
+  | "CreateGrant"
+  | "CheckoutLicense"
+  | "CheckoutBorrowLicense"
+  | "CheckInLicense"
+  | "ExtendConsumptionLicense"
+  | "ListPurchasedLicenses"
+  | "CreateToken";
 export type AllowedOperationList = Array<AllowedOperation>;
 export type Arn = string;
 
@@ -910,33 +910,33 @@ export interface EntitlementData {
 }
 export type EntitlementDataList = Array<EntitlementData>;
 export type EntitlementDataUnit =
-  | "COUNT"
-  | "NONE"
-  | "SECONDS"
-  | "MICROSECONDS"
-  | "MILLISECONDS"
-  | "BYTES"
-  | "KILOBYTES"
-  | "MEGABYTES"
-  | "GIGABYTES"
-  | "TERABYTES"
-  | "BITS"
-  | "KILOBITS"
-  | "MEGABITS"
-  | "GIGABITS"
-  | "TERABITS"
-  | "PERCENT"
-  | "BYTES_PER_SECOND"
-  | "KILOBYTES_PER_SECOND"
-  | "MEGABYTES_PER_SECOND"
-  | "GIGABYTES_PER_SECOND"
-  | "TERABYTES_PER_SECOND"
-  | "BITS_PER_SECOND"
-  | "KILOBITS_PER_SECOND"
-  | "MEGABITS_PER_SECOND"
-  | "GIGABITS_PER_SECOND"
-  | "TERABITS_PER_SECOND"
-  | "COUNT_PER_SECOND";
+  | "Count"
+  | "None"
+  | "Seconds"
+  | "Microseconds"
+  | "Milliseconds"
+  | "Bytes"
+  | "Kilobytes"
+  | "Megabytes"
+  | "Gigabytes"
+  | "Terabytes"
+  | "Bits"
+  | "Kilobits"
+  | "Megabits"
+  | "Gigabits"
+  | "Terabits"
+  | "Percent"
+  | "Bytes/Second"
+  | "Kilobytes/Second"
+  | "Megabytes/Second"
+  | "Gigabytes/Second"
+  | "Terabytes/Second"
+  | "Bits/Second"
+  | "Kilobits/Second"
+  | "Megabits/Second"
+  | "Gigabits/Second"
+  | "Terabits/Second"
+  | "Count/Second";
 export type EntitlementList = Array<Entitlement>;
 export declare class EntitlementNotAllowedException extends EffectData.TaggedError(
   "EntitlementNotAllowedException",
@@ -944,33 +944,33 @@ export declare class EntitlementNotAllowedException extends EffectData.TaggedErr
   readonly Message?: string;
 }> {}
 export type EntitlementUnit =
-  | "COUNT"
-  | "NONE"
-  | "SECONDS"
-  | "MICROSECONDS"
-  | "MILLISECONDS"
-  | "BYTES"
-  | "KILOBYTES"
-  | "MEGABYTES"
-  | "GIGABYTES"
-  | "TERABYTES"
-  | "BITS"
-  | "KILOBITS"
-  | "MEGABITS"
-  | "GIGABITS"
-  | "TERABITS"
-  | "PERCENT"
-  | "BYTES_PER_SECOND"
-  | "KILOBYTES_PER_SECOND"
-  | "MEGABYTES_PER_SECOND"
-  | "GIGABYTES_PER_SECOND"
-  | "TERABYTES_PER_SECOND"
-  | "BITS_PER_SECOND"
-  | "KILOBITS_PER_SECOND"
-  | "MEGABITS_PER_SECOND"
-  | "GIGABITS_PER_SECOND"
-  | "TERABITS_PER_SECOND"
-  | "COUNT_PER_SECOND";
+  | "Count"
+  | "None"
+  | "Seconds"
+  | "Microseconds"
+  | "Milliseconds"
+  | "Bytes"
+  | "Kilobytes"
+  | "Megabytes"
+  | "Gigabytes"
+  | "Terabytes"
+  | "Bits"
+  | "Kilobits"
+  | "Megabits"
+  | "Gigabits"
+  | "Terabits"
+  | "Percent"
+  | "Bytes/Second"
+  | "Kilobytes/Second"
+  | "Megabytes/Second"
+  | "Gigabytes/Second"
+  | "Terabytes/Second"
+  | "Bits/Second"
+  | "Kilobits/Second"
+  | "Megabits/Second"
+  | "Gigabits/Second"
+  | "Terabits/Second"
+  | "Count/Second";
 export interface EntitlementUsage {
   Name: string;
   ConsumedValue: string;
@@ -1237,7 +1237,7 @@ export type LicenseConversionTaskStatus =
   | "IN_PROGRESS"
   | "SUCCEEDED"
   | "FAILED";
-export type LicenseCountingType = "VCPU" | "INSTANCE" | "CORE" | "SOCKET";
+export type LicenseCountingType = "vCPU" | "Instance" | "Core" | "Socket";
 export type LicenseDeletionStatus = "PENDING_DELETE" | "DELETED";
 export type LicenseList = Array<License>;
 export interface LicenseOperationFailure {
@@ -1468,7 +1468,7 @@ export interface ProductCodeListItem {
   ProductCodeId: string;
   ProductCodeType: ProductCodeType;
 }
-export type ProductCodeType = "MARKETPLACE";
+export type ProductCodeType = "marketplace";
 export interface ProductInformation {
   ResourceType: string;
   ProductInformationFilterList: Array<ProductInformationFilter>;
@@ -1516,7 +1516,7 @@ export interface RejectGrantResponse {
   Status?: GrantStatus;
   Version?: string;
 }
-export type RenewType = "NONE" | "WEEKLY" | "MONTHLY";
+export type RenewType = "None" | "Weekly" | "Monthly";
 export interface ReportContext {
   licenseConfigurationArns: Array<string>;
 }
@@ -1544,8 +1544,8 @@ export type ReportGeneratorList = Array<ReportGenerator>;
 export type ReportGeneratorName = string;
 
 export type ReportType =
-  | "LICENSE_CONFIGURATION_SUMMARY_REPORT"
-  | "LICENSE_CONFIGURATION_USAGE_REPORT";
+  | "LicenseConfigurationSummaryReport"
+  | "LicenseConfigurationUsageReport";
 export type ReportTypeList = Array<ReportType>;
 export interface ResourceInventory {
   ResourceId?: string;

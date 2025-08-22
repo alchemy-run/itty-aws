@@ -991,9 +991,9 @@ export type MetricStreamName = string;
 
 export type MetricStreamNames = Array<string>;
 export type MetricStreamOutputFormat =
-  | "JSON"
-  | "OPEN_TELEMETRY_0_7"
-  | "OPEN_TELEMETRY_1_0";
+  | "json"
+  | "opentelemetry0.7"
+  | "opentelemetry1.0";
 export type MetricStreamState = string;
 
 export type MetricStreamStatistic = string;
@@ -1152,7 +1152,7 @@ export type ResourceType = string;
 
 export type ReturnData = boolean;
 
-export type ScanBy = "TIMESTAMP_DESCENDING" | "TIMESTAMP_ASCENDING";
+export type ScanBy = "TimestampDescending" | "TimestampAscending";
 export interface SetAlarmStateInput {
   AlarmName: string;
   StateValue: StateValue;
@@ -1184,17 +1184,17 @@ export type StandardUnit =
   | "Terabits"
   | "Percent"
   | "Count"
-  | "Bytes_Second"
-  | "Kilobytes_Second"
-  | "Megabytes_Second"
-  | "Gigabytes_Second"
-  | "Terabytes_Second"
-  | "Bits_Second"
-  | "Kilobits_Second"
-  | "Megabits_Second"
-  | "Gigabits_Second"
-  | "Terabits_Second"
-  | "Count_Second"
+  | "Bytes/Second"
+  | "Kilobytes/Second"
+  | "Megabytes/Second"
+  | "Gigabytes/Second"
+  | "Terabytes/Second"
+  | "Bits/Second"
+  | "Kilobits/Second"
+  | "Megabits/Second"
+  | "Gigabits/Second"
+  | "Terabits/Second"
+  | "Count/Second"
   | "None";
 export interface StartMetricStreamsInput {
   Names: Array<string>;
@@ -1221,10 +1221,10 @@ export interface StatisticSet {
   Maximum: number;
 }
 export type StatusCode =
-  | "COMPLETE"
-  | "INTERNAL_ERROR"
-  | "PARTIAL_DATA"
-  | "FORBIDDEN";
+  | "Complete"
+  | "InternalError"
+  | "PartialData"
+  | "Forbidden";
 export interface StopMetricStreamsInput {
   Names: Array<string>;
 }

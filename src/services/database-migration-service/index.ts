@@ -971,10 +971,10 @@ export interface ApplyPendingMaintenanceActionResponse {
   ResourcePendingMaintenanceActions?: ResourcePendingMaintenanceActions;
 }
 export type ArnList = Array<string>;
-export type AssessmentReportType = "PDF" | "CSV";
+export type AssessmentReportType = "pdf" | "csv";
 export type AssessmentReportTypesList = Array<AssessmentReportType>;
-export type AuthMechanismValue = "DEFAULT" | "MONGODB_CR" | "SCRAM_SHA_1";
-export type AuthTypeValue = "NO" | "PASSWORD";
+export type AuthMechanismValue = "default" | "mongodb_cr" | "scram_sha_1";
+export type AuthTypeValue = "no" | "password";
 export interface AvailabilityZone {
   Name?: string;
 }
@@ -1004,14 +1004,14 @@ export interface CancelReplicationTaskAssessmentRunResponse {
   ReplicationTaskAssessmentRun?: ReplicationTaskAssessmentRun;
 }
 export type CannedAclForObjectsValue =
-  | "NONE"
-  | "PRIVATE"
-  | "PUBLIC_READ"
-  | "PUBLIC_READ_WRITE"
-  | "AUTHENTICATED_READ"
-  | "AWS_EXEC_READ"
-  | "BUCKET_OWNER_READ"
-  | "BUCKET_OWNER_FULL_CONTROL";
+  | "none"
+  | "private"
+  | "public-read"
+  | "public-read-write"
+  | "authenticated-read"
+  | "aws-exec-read"
+  | "bucket-owner-read"
+  | "bucket-owner-full-control";
 export interface Certificate {
   CertificateIdentifier?: string;
   CertificateCreationDate?: Date | string;
@@ -1027,7 +1027,7 @@ export interface Certificate {
 export type CertificateList = Array<Certificate>;
 export type CertificateWallet = Uint8Array | string;
 
-export type CharLengthSemantics = "DEFAULT" | "CHAR" | "BYTE";
+export type CharLengthSemantics = "default" | "char" | "byte";
 export interface CollectorHealthCheck {
   CollectorStatus?: CollectorStatus;
   LocalCollectorS3Access?: boolean;
@@ -1061,7 +1061,7 @@ export interface CollectorShortInfoResponse {
 }
 export type CollectorsList = Array<CollectorShortInfoResponse>;
 export type CollectorStatus = "UNREGISTERED" | "ACTIVE";
-export type CompressionTypeValue = "NONE" | "GZIP";
+export type CompressionTypeValue = "none" | "gzip";
 export interface ComputeConfig {
   AvailabilityZone?: string;
   DnsNameServers?: string;
@@ -1274,7 +1274,7 @@ export interface DatabaseInstanceSoftwareDetailsResponse {
   Tooltip?: string;
 }
 export type DatabaseList = Array<DatabaseResponse>;
-export type DatabaseMode = "DEFAULT" | "BABELFISH";
+export type DatabaseMode = "default" | "babelfish";
 export interface DatabaseResponse {
   DatabaseId?: string;
   DatabaseName?: string;
@@ -1290,7 +1290,7 @@ export interface DatabaseShortInfoResponse {
   DatabaseIpAddress?: string;
   DatabaseEngine?: string;
 }
-export type DataFormatValue = "CSV" | "PARQUET";
+export type DataFormatValue = "csv" | "parquet";
 export interface DataMigration {
   DataMigrationName?: string;
   DataMigrationArn?: string;
@@ -1894,7 +1894,7 @@ export interface DescribeTableStatisticsResponse {
   TableStatistics?: Array<TableStatistics>;
   Marker?: string;
 }
-export type DmsSslModeValue = "NONE" | "REQUIRE" | "VERIFY_CA" | "VERIFY_FULL";
+export type DmsSslModeValue = "none" | "require" | "verify-ca" | "verify-full";
 export interface DmsTransferSettings {
   ServiceAccessRoleArn?: string;
   BucketName?: string;
@@ -1933,8 +1933,8 @@ export interface ElasticsearchSettings {
   ErrorRetryDuration?: number;
   UseNewMappingType?: boolean;
 }
-export type EncodingTypeValue = "PLAIN" | "PLAIN_DICTIONARY" | "RLE_DICTIONARY";
-export type EncryptionModeValue = "SSE_S3" | "SSE_KMS";
+export type EncodingTypeValue = "plain" | "plain-dictionary" | "rle-dictionary";
+export type EncryptionModeValue = "sse-s3" | "sse-kms";
 export interface Endpoint {
   EndpointIdentifier?: string;
   EndpointType?: ReplicationEndpointTypeValue;
@@ -1988,10 +1988,10 @@ export interface EndpointSetting {
 export type EndpointSettingEnumValues = Array<string>;
 export type EndpointSettingsList = Array<EndpointSetting>;
 export type EndpointSettingTypeValue =
-  | "STRING"
-  | "BOOLEAN"
-  | "INTEGER"
-  | "ENUM";
+  | "string"
+  | "boolean"
+  | "integer"
+  | "enum";
 export interface EngineVersion {
   Version?: string;
   Lifecycle?: string;
@@ -2194,12 +2194,12 @@ export interface InventoryData {
 }
 export type Iso8601DateTime = Date | string;
 
-export type KafkaSaslMechanism = "SCRAM_SHA_512" | "PLAIN";
+export type KafkaSaslMechanism = "scram-sha-512" | "plain";
 export type KafkaSecurityProtocol =
-  | "PLAINTEXT"
-  | "SSL_AUTHENTICATION"
-  | "SSL_ENCRYPTION"
-  | "SASL_SSL";
+  | "plaintext"
+  | "ssl-authentication"
+  | "ssl-encryption"
+  | "sasl-ssl";
 export interface KafkaSettings {
   Broker?: string;
   Topic?: string;
@@ -2223,7 +2223,7 @@ export interface KafkaSettings {
   SslEndpointIdentificationAlgorithm?: KafkaSslEndpointIdentificationAlgorithm;
   UseLargeIntegerValue?: boolean;
 }
-export type KafkaSslEndpointIdentificationAlgorithm = "NONE" | "HTTPS";
+export type KafkaSslEndpointIdentificationAlgorithm = "none" | "https";
 export interface KerberosAuthenticationSettings {
   KeyCacheSecretId?: string;
   KeyCacheSecretIamArn?: string;
@@ -2296,7 +2296,7 @@ export type Long = number;
 
 export type LongOptional = number;
 
-export type LongVarcharMappingType = "WSTRING" | "CLOB" | "NCLOB";
+export type LongVarcharMappingType = "wstring" | "clob" | "nclob";
 export interface MariaDbDataProviderSettings {
   ServerName?: string;
   Port?: number;
@@ -2307,7 +2307,7 @@ export interface MariaDbDataProviderSettings {
 }
 export type Marker = string;
 
-export type MessageFormatValue = "JSON" | "JSON_UNFORMATTED";
+export type MessageFormatValue = "json" | "json-unformatted";
 export interface MicrosoftSqlServerDataProviderSettings {
   ServerName?: string;
   Port?: number;
@@ -2352,7 +2352,7 @@ export interface MigrationProject {
 export type MigrationProjectIdentifier = string;
 
 export type MigrationProjectList = Array<MigrationProject>;
-export type MigrationTypeValue = "FULL_LOAD" | "CDC" | "FULL_LOAD_AND_CDC";
+export type MigrationTypeValue = "full-load" | "cdc" | "full-load-and-cdc";
 export interface ModifyConversionConfigurationMessage {
   MigrationProjectIdentifier: string;
   ConversionConfiguration: string;
@@ -2551,7 +2551,7 @@ export interface MoveReplicationTaskMessage {
 export interface MoveReplicationTaskResponse {
   ReplicationTask?: ReplicationTask;
 }
-export type MySQLAuthenticationMethod = "Password" | "IAM";
+export type MySQLAuthenticationMethod = "password" | "iam";
 export interface MySqlDataProviderSettings {
   ServerName?: string;
   Port?: number;
@@ -2588,8 +2588,8 @@ export interface NeptuneSettings {
   MaxRetryCount?: number;
   IamAuthEnabled?: boolean;
 }
-export type NestingLevelValue = "NONE" | "ONE";
-export type OracleAuthenticationMethod = "Password" | "Kerberos";
+export type NestingLevelValue = "none" | "one";
+export type OracleAuthenticationMethod = "password" | "kerberos";
 export interface OracleDataProviderSettings {
   ServerName?: string;
   Port?: number;
@@ -2664,7 +2664,7 @@ export interface OrderableReplicationInstance {
 export type OrderableReplicationInstanceList =
   Array<OrderableReplicationInstance>;
 export type OriginTypeValue = "SOURCE" | "TARGET";
-export type ParquetVersionValue = "PARQUET_1_0" | "PARQUET_2_0";
+export type ParquetVersionValue = "parquet-1-0" | "parquet-2-0";
 export interface PendingMaintenanceAction {
   Action?: string;
   AutoAppliedAfterDate?: Date | string;
@@ -2676,8 +2676,8 @@ export interface PendingMaintenanceAction {
 export type PendingMaintenanceActionDetails = Array<PendingMaintenanceAction>;
 export type PendingMaintenanceActions =
   Array<ResourcePendingMaintenanceActions>;
-export type PluginNameValue = "NO_PREFERENCE" | "TEST_DECODING" | "PGLOGICAL";
-export type PostgreSQLAuthenticationMethod = "Password" | "IAM";
+export type PluginNameValue = "no-preference" | "test-decoding" | "pglogical";
+export type PostgreSQLAuthenticationMethod = "password" | "iam";
 export interface PostgreSqlDataProviderSettings {
   ServerName?: string;
   Port?: number;
@@ -2789,7 +2789,7 @@ export interface RecommendationSettings {
   InstanceSizingType: string;
   WorkloadType: string;
 }
-export type RedisAuthTypeValue = "NONE" | "AUTH_ROLE" | "AUTH_TOKEN";
+export type RedisAuthTypeValue = "none" | "auth-role" | "auth-token";
 export interface RedisSettings {
   ServerName: string;
   Port: number;
@@ -2854,11 +2854,11 @@ export interface RefreshSchemasStatus {
   LastFailureMessage?: string;
 }
 export type RefreshSchemasStatusTypeValue =
-  | "SUCCESSFUL"
-  | "FAILED"
-  | "REFRESHING";
-export type ReleaseStatusValues = "BETA" | "PROD";
-export type ReloadOptionValue = "DATA_RELOAD" | "VALIDATE_ONLY";
+  | "successful"
+  | "failed"
+  | "refreshing";
+export type ReleaseStatusValues = "beta" | "prod";
+export type ReloadOptionValue = "data-reload" | "validate-only";
 export interface ReloadReplicationTablesMessage {
   ReplicationConfigArn: string;
   TablesToReload: Array<TableToReload>;
@@ -2916,7 +2916,7 @@ export interface ReplicationConfig {
   ReplicationConfigUpdateTime?: Date | string;
 }
 export type ReplicationConfigList = Array<ReplicationConfig>;
-export type ReplicationEndpointTypeValue = "SOURCE" | "TARGET";
+export type ReplicationEndpointTypeValue = "source" | "target";
 export interface ReplicationInstance {
   ReplicationInstanceIdentifier?: string;
   ReplicationInstanceClass?: string;
@@ -3158,9 +3158,9 @@ export interface S3Settings {
   GlueCatalogGeneration?: boolean;
 }
 export type SafeguardPolicy =
-  | "RELY_ON_SQL_SERVER_REPLICATION_AGENT"
-  | "EXCLUSIVE_AUTOMATIC_TRUNCATION"
-  | "SHARED_AUTOMATIC_TRUNCATION";
+  | "rely-on-sql-server-replication-agent"
+  | "exclusive-automatic-truncation"
+  | "shared-automatic-truncation";
 export interface SCApplicationAttributes {
   S3BucketPath?: string;
   S3BucketRoleArn?: string;
@@ -3217,9 +3217,9 @@ export interface SourceDataSetting {
 }
 export type SourceDataSettings = Array<SourceDataSetting>;
 export type SourceIdsList = Array<string>;
-export type SourceType = "replication_instance";
-export type SqlServerAuthenticationMethod = "Password" | "Kerberos";
-export type SslSecurityProtocolValue = "PLAINTEXT" | "SSL_ENCRYPTION";
+export type SourceType = "replication-instance";
+export type SqlServerAuthenticationMethod = "password" | "kerberos";
+export type SslSecurityProtocolValue = "plaintext" | "ssl-encryption";
 export interface StartDataMigrationMessage {
   DataMigrationIdentifier: string;
   StartType: StartReplicationMigrationTypeValue;
@@ -3292,9 +3292,9 @@ export interface StartReplicationMessage {
   CdcStopPosition?: string;
 }
 export type StartReplicationMigrationTypeValue =
-  | "RELOAD_TARGET"
-  | "RESUME_PROCESSING"
-  | "START_REPLICATION";
+  | "reload-target"
+  | "resume-processing"
+  | "start-replication";
 export interface StartReplicationResponse {
   Replication?: Replication;
 }
@@ -3330,9 +3330,9 @@ export interface StartReplicationTaskResponse {
   ReplicationTask?: ReplicationTask;
 }
 export type StartReplicationTaskTypeValue =
-  | "START_REPLICATION"
-  | "RESUME_PROCESSING"
-  | "RELOAD_TARGET";
+  | "start-replication"
+  | "resume-processing"
+  | "reload-target";
 export interface StopDataMigrationMessage {
   DataMigrationIdentifier: string;
 }
@@ -3390,9 +3390,9 @@ export interface SybaseSettings {
 }
 export type TableListToReload = Array<TableToReload>;
 export type TablePreparationMode =
-  | "DO_NOTHING"
-  | "TRUNCATE"
-  | "DROP_TABLES_ON_TARGET";
+  | "do-nothing"
+  | "truncate"
+  | "drop-tables-on-target";
 export interface TableStatistics {
   SchemaName?: string;
   TableName?: string;
@@ -3438,7 +3438,7 @@ export interface TargetDataSetting {
   TablePreparationMode?: TablePreparationMode;
 }
 export type TargetDataSettings = Array<TargetDataSetting>;
-export type TargetDbType = "SPECIFIC_DATABASE" | "MULTIPLE_DATABASES";
+export type TargetDbType = "specific-database" | "multiple-databases";
 export interface TestConnectionMessage {
   ReplicationInstanceArn: string;
   EndpointArn: string;

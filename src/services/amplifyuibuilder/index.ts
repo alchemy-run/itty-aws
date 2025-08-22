@@ -289,22 +289,22 @@ export interface CodegenGenericDataField {
 }
 export type CodegenGenericDataFieldDataType =
   | "ID"
-  | "STRING"
-  | "INT"
-  | "FLOAT"
-  | "AWS_DATE"
-  | "AWS_TIME"
-  | "AWS_DATE_TIME"
-  | "AWS_TIMESTAMP"
-  | "AWS_EMAIL"
-  | "AWS_URL"
-  | "AWS_IP_ADDRESS"
-  | "BOOLEAN"
-  | "AWS_JSON"
-  | "AWS_PHONE"
-  | "ENUM"
-  | "MODEL"
-  | "NON_MODEL";
+  | "String"
+  | "Int"
+  | "Float"
+  | "AWSDate"
+  | "AWSTime"
+  | "AWSDateTime"
+  | "AWSTimestamp"
+  | "AWSEmail"
+  | "AWSURL"
+  | "AWSIPAddress"
+  | "Boolean"
+  | "AWSJSON"
+  | "AWSPhone"
+  | "Enum"
+  | "Model"
+  | "NonModel";
 export type CodegenGenericDataFields = Record<string, CodegenGenericDataField>;
 export interface CodegenGenericDataModel {
   fields: Record<string, CodegenGenericDataField>;
@@ -359,7 +359,7 @@ export interface CodegenJobGenericDataSchema {
   enums: Record<string, CodegenGenericDataEnum>;
   nonModels: Record<string, CodegenGenericDataNonModel>;
 }
-export type CodegenJobGenericDataSourceType = "DATA_STORE";
+export type CodegenJobGenericDataSourceType = "DataStore";
 interface _CodegenJobRenderConfig {
   react?: ReactStartCodegenJobData;
 }
@@ -367,7 +367,7 @@ interface _CodegenJobRenderConfig {
 export type CodegenJobRenderConfig = _CodegenJobRenderConfig & {
   react: ReactStartCodegenJobData;
 };
-export type CodegenJobStatus = "IN_PROGRESS" | "FAILED" | "SUCCEEDED";
+export type CodegenJobStatus = "in_progress" | "failed" | "succeeded";
 export interface CodegenJobSummary {
   appId: string;
   environmentName: string;
@@ -660,7 +660,7 @@ export interface FileUploaderFieldConfig {
   maxFileCount?: number;
   maxSize?: number;
 }
-export type FixedPosition = "FIRST";
+export type FixedPosition = "first";
 export interface Form {
   appId: string;
   environmentName: string;
@@ -676,7 +676,7 @@ export interface Form {
   cta?: FormCTA;
   labelDecorator?: string;
 }
-export type FormActionType = "CREATE" | "UPDATE";
+export type FormActionType = "create" | "update";
 export interface FormBindingElement {
   element: string;
   property: string;
@@ -687,7 +687,7 @@ export interface FormButton {
   children?: string;
   position?: FieldPosition;
 }
-export type FormButtonsPosition = "TOP" | "BOTTOM" | "TOP_AND_BOTTOM";
+export type FormButtonsPosition = "top" | "bottom" | "top_and_bottom";
 export interface FormCTA {
   position?: FormButtonsPosition;
   clear?: FormButton;
@@ -804,9 +804,9 @@ export declare class InvalidParameterException extends EffectData.TaggedError(
 )<{
   readonly message?: string;
 }> {}
-export type JSModule = "ES2020" | "ESNEXT";
-export type JSScript = "JSX" | "TSX" | "JS";
-export type JSTarget = "ES2015" | "ES2020";
+export type JSModule = "es2020" | "esnext";
+export type JSScript = "jsx" | "tsx" | "js";
+export type JSTarget = "es2015" | "es2020";
 export type LabelDecorator = string;
 
 export type ListCodegenJobsLimit = number;
@@ -957,7 +957,7 @@ export interface StartCodegenJobRequest {
 export interface StartCodegenJobResponse {
   entity?: CodegenJob;
 }
-export type StorageAccessLevel = "PUBLIC" | "PROTECTED" | "PRIVATE";
+export type StorageAccessLevel = "public" | "protected" | "private";
 export type StrValues = Array<string>;
 export type TagKey = string;
 

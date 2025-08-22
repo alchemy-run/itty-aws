@@ -1309,19 +1309,19 @@ export interface IpAddressResponse {
   ModificationTime?: string;
 }
 export type IpAddressStatus =
-  | "Creating"
-  | "FailedCreation"
-  | "Attaching"
-  | "Attached"
-  | "RemapDetaching"
-  | "RemapAttaching"
-  | "Detaching"
-  | "FailedResourceGone"
-  | "Deleting"
-  | "DeleteFailedFasExpired"
-  | "Updating"
-  | "UpdateFailed"
-  | "Isolated";
+  | "CREATING"
+  | "FAILED_CREATION"
+  | "ATTACHING"
+  | "ATTACHED"
+  | "REMAP_DETACHING"
+  | "REMAP_ATTACHING"
+  | "DETACHING"
+  | "FAILED_RESOURCE_GONE"
+  | "DELETING"
+  | "DELETE_FAILED_FAS_EXPIRED"
+  | "UPDATING"
+  | "UPDATE_FAILED"
+  | "ISOLATED";
 export interface IpAddressUpdate {
   IpId?: string;
   SubnetId?: string;
@@ -1540,7 +1540,7 @@ export type Port = number;
 
 export type Priority = number;
 
-export type Protocol = "DOH" | "DO53" | "DOHFIPS";
+export type Protocol = "DoH" | "Do53" | "DoH-FIPS";
 export type ProtocolList = Array<Protocol>;
 export interface PutFirewallRuleGroupPolicyRequest {
   Arn: string;
@@ -1566,12 +1566,12 @@ export interface PutResolverRulePolicyResponse {
 export type Qtype = string;
 
 export type ResolverAutodefinedReverseStatus =
-  | "Enabling"
-  | "Enabled"
-  | "Disabling"
-  | "Disabled"
-  | "UpdatingToUseLocalResourceSetting"
-  | "UseLocalResourceSetting";
+  | "ENABLING"
+  | "ENABLED"
+  | "DISABLING"
+  | "DISABLED"
+  | "UPDATING_TO_USE_LOCAL_RESOURCE_SETTING"
+  | "USE_LOCAL_RESOURCE_SETTING";
 export interface ResolverConfig {
   Id?: string;
   ResourceId?: string;
@@ -1587,12 +1587,12 @@ export interface ResolverDnssecConfig {
 }
 export type ResolverDnssecConfigList = Array<ResolverDnssecConfig>;
 export type ResolverDNSSECValidationStatus =
-  | "Enabling"
-  | "Enabled"
-  | "Disabling"
-  | "Disabled"
-  | "UpdateToUseLocalResourceSetting"
-  | "UseLocalResourceSetting";
+  | "ENABLING"
+  | "ENABLED"
+  | "DISABLING"
+  | "DISABLED"
+  | "UPDATING_TO_USE_LOCAL_RESOURCE_SETTING"
+  | "USE_LOCAL_RESOURCE_SETTING";
 export interface ResolverEndpoint {
   Id?: string;
   CreatorRequestId?: string;
@@ -1612,17 +1612,17 @@ export interface ResolverEndpoint {
   Protocols?: Array<Protocol>;
 }
 export type ResolverEndpointDirection =
-  | "Inbound"
-  | "Outbound"
-  | "InboundDelegation";
+  | "INBOUND"
+  | "OUTBOUND"
+  | "INBOUND_DELEGATION";
 export type ResolverEndpoints = Array<ResolverEndpoint>;
 export type ResolverEndpointStatus =
-  | "Creating"
-  | "Operational"
-  | "Updating"
-  | "AutoRecovering"
-  | "ActionNeeded"
-  | "Deleting";
+  | "CREATING"
+  | "OPERATIONAL"
+  | "UPDATING"
+  | "AUTO_RECOVERING"
+  | "ACTION_NEEDED"
+  | "DELETING";
 export type ResolverEndpointType = "IPV6" | "IPV4" | "DUALSTACK";
 export interface ResolverQueryLogConfig {
   Id?: string;
@@ -1646,30 +1646,30 @@ export interface ResolverQueryLogConfigAssociation {
   CreationTime?: string;
 }
 export type ResolverQueryLogConfigAssociationError =
-  | "None"
-  | "DestinationNotFound"
-  | "AccessDenied"
-  | "InternalServiceError";
+  | "NONE"
+  | "DESTINATION_NOT_FOUND"
+  | "ACCESS_DENIED"
+  | "INTERNAL_SERVICE_ERROR";
 export type ResolverQueryLogConfigAssociationErrorMessage = string;
 
 export type ResolverQueryLogConfigAssociationList =
   Array<ResolverQueryLogConfigAssociation>;
 export type ResolverQueryLogConfigAssociationStatus =
-  | "Creating"
-  | "Active"
-  | "ActionNeeded"
-  | "Deleting"
-  | "Failed";
+  | "CREATING"
+  | "ACTIVE"
+  | "ACTION_NEEDED"
+  | "DELETING"
+  | "FAILED";
 export type ResolverQueryLogConfigList = Array<ResolverQueryLogConfig>;
 export type ResolverQueryLogConfigName = string;
 
 export type ResolverQueryLogConfigPolicy = string;
 
 export type ResolverQueryLogConfigStatus =
-  | "Creating"
-  | "Created"
-  | "Deleting"
-  | "Failed";
+  | "CREATING"
+  | "CREATED"
+  | "DELETING"
+  | "FAILED";
 export interface ResolverRule {
   Id?: string;
   CreatorRequestId?: string;
@@ -1697,11 +1697,11 @@ export interface ResolverRuleAssociation {
 }
 export type ResolverRuleAssociations = Array<ResolverRuleAssociation>;
 export type ResolverRuleAssociationStatus =
-  | "Creating"
-  | "Complete"
-  | "Deleting"
-  | "Failed"
-  | "Overridden";
+  | "CREATING"
+  | "COMPLETE"
+  | "DELETING"
+  | "FAILED"
+  | "OVERRIDDEN";
 export interface ResolverRuleConfig {
   Name?: string;
   TargetIps?: Array<TargetAddress>;
@@ -1711,10 +1711,10 @@ export type ResolverRulePolicy = string;
 
 export type ResolverRules = Array<ResolverRule>;
 export type ResolverRuleStatus =
-  | "Complete"
-  | "Deleting"
-  | "Updating"
-  | "Failed";
+  | "COMPLETE"
+  | "DELETING"
+  | "UPDATING"
+  | "FAILED";
 export declare class ResourceExistsException extends EffectData.TaggedError(
   "ResourceExistsException",
 )<{
@@ -1743,7 +1743,7 @@ export declare class ResourceUnavailableException extends EffectData.TaggedError
 }> {}
 export type Rfc3339TimeString = string;
 
-export type RuleTypeOption = "Forward" | "System" | "Recursive" | "Delegate";
+export type RuleTypeOption = "FORWARD" | "SYSTEM" | "RECURSIVE" | "DELEGATE";
 export type SecurityGroupIds = Array<string>;
 export type ServerNameIndication = string;
 
@@ -1754,10 +1754,10 @@ export declare class ServiceQuotaExceededException extends EffectData.TaggedErro
 )<{
   readonly Message?: string;
 }> {}
-export type ShareStatus = "NotShared" | "SharedWithMe" | "SharedByMe";
+export type ShareStatus = "NOT_SHARED" | "SHARED_WITH_ME" | "SHARED_BY_ME";
 export type SortByKey = string;
 
-export type SortOrder = "Ascending" | "Descending";
+export type SortOrder = "ASCENDING" | "DESCENDING";
 export type StatusMessage = string;
 
 export type Route53resolverString = string;

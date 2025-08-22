@@ -493,11 +493,11 @@ export type ActionOrder = number;
 
 export type Actions = Array<Action>;
 export type ActionTypeEnum =
-  | "FORWARD"
-  | "AUTHENTICATE_OIDC"
-  | "AUTHENTICATE_COGNITO"
-  | "REDIRECT"
-  | "FIXED_RESPONSE";
+  | "forward"
+  | "authenticate-oidc"
+  | "authenticate-cognito"
+  | "redirect"
+  | "fixed-response";
 export interface AddListenerCertificatesInput {
   ListenerArn: string;
   Certificates: Array<Certificate>;
@@ -542,7 +542,7 @@ export interface AnomalyDetection {
   Result?: AnomalyResultEnum;
   MitigationInEffect?: MitigationInEffectEnum;
 }
-export type AnomalyResultEnum = "ANOMALOUS" | "NORMAL";
+export type AnomalyResultEnum = "anomalous" | "normal";
 export type AuthenticateCognitoActionAuthenticationRequestExtraParams = Record<
   string,
   string
@@ -552,9 +552,9 @@ export type AuthenticateCognitoActionAuthenticationRequestParamName = string;
 export type AuthenticateCognitoActionAuthenticationRequestParamValue = string;
 
 export type AuthenticateCognitoActionConditionalBehaviorEnum =
-  | "DENY"
-  | "ALLOW"
-  | "AUTHENTICATE";
+  | "deny"
+  | "allow"
+  | "authenticate";
 export interface AuthenticateCognitoActionConfig {
   UserPoolArn: string;
   UserPoolClientId: string;
@@ -592,9 +592,9 @@ export type AuthenticateOidcActionClientId = string;
 export type AuthenticateOidcActionClientSecret = string;
 
 export type AuthenticateOidcActionConditionalBehaviorEnum =
-  | "DENY"
-  | "ALLOW"
-  | "AUTHENTICATE";
+  | "deny"
+  | "allow"
+  | "authenticate";
 export interface AuthenticateOidcActionConfig {
   Issuer: string;
   AuthorizationEndpoint: string;
@@ -654,10 +654,10 @@ export declare class CapacityReservationPendingException extends EffectData.Tagg
   readonly Message?: string;
 }> {}
 export type CapacityReservationStateEnum =
-  | "PROVISIONED"
-  | "PENDING"
-  | "REBALANCING"
-  | "FAILED";
+  | "provisioned"
+  | "pending"
+  | "rebalancing"
+  | "failed";
 export interface CapacityReservationStatus {
   Code?: CapacityReservationStateEnum;
   Reason?: string;
@@ -915,7 +915,7 @@ export interface DescribeTargetHealthInput {
   Targets?: Array<TargetDescription>;
   Include?: Array<DescribeTargetHealthInputIncludeEnum>;
 }
-export type DescribeTargetHealthInputIncludeEnum = "ANOMALY" | "ALL";
+export type DescribeTargetHealthInputIncludeEnum = "AnomalyDetection" | "All";
 export interface DescribeTargetHealthOutput {
   TargetHealthDescriptions?: Array<TargetHealthDescription>;
 }
@@ -985,7 +985,7 @@ export declare class DuplicateTrustStoreNameException extends EffectData.TaggedE
 )<{
   readonly Message?: string;
 }> {}
-export type EnablePrefixForIpv6SourceNatEnum = "ON" | "OFF";
+export type EnablePrefixForIpv6SourceNatEnum = "on" | "off";
 export type EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic = string;
 
 export type EnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnum =
@@ -1113,9 +1113,9 @@ export declare class InvalidTargetException extends EffectData.TaggedError(
 export type IpAddress = string;
 
 export type IpAddressType =
-  | "IPV4"
-  | "DUALSTACK"
-  | "DUALSTACK_WITHOUT_PUBLIC_IPV4";
+  | "ipv4"
+  | "dualstack"
+  | "dualstack-without-public-ipv4";
 export type IpamPoolId = string;
 
 export interface IpamPools {
@@ -1210,17 +1210,17 @@ export declare class LoadBalancerNotFoundException extends EffectData.TaggedErro
   readonly Message?: string;
 }> {}
 export type LoadBalancers = Array<LoadBalancer>;
-export type LoadBalancerSchemeEnum = "INTERNET_FACING" | "INTERNAL";
+export type LoadBalancerSchemeEnum = "internet-facing" | "internal";
 export interface LoadBalancerState {
   Code?: LoadBalancerStateEnum;
   Reason?: string;
 }
 export type LoadBalancerStateEnum =
-  | "ACTIVE"
-  | "PROVISIONING"
-  | "ACTIVE_IMPAIRED"
-  | "FAILED";
-export type LoadBalancerTypeEnum = "APPLICATION" | "NETWORK" | "GATEWAY";
+  | "active"
+  | "provisioning"
+  | "active_impaired"
+  | "failed";
+export type LoadBalancerTypeEnum = "application" | "network" | "gateway";
 export type Location = string;
 
 export type Marker = string;
@@ -1234,7 +1234,7 @@ export type Max = string;
 export interface MinimumLoadBalancerCapacity {
   CapacityUnits?: number;
 }
-export type MitigationInEffectEnum = "YES" | "NO";
+export type MitigationInEffectEnum = "yes" | "no";
 export type Mode = string;
 
 export interface ModifyCapacityReservationInput {
@@ -1599,15 +1599,15 @@ export type TagList = Array<Tag>;
 export type TagValue = string;
 
 export type TargetAdministrativeOverrideReasonEnum =
-  | "INTERNAL_ERROR"
-  | "NO_OVERRIDE_ENGAGED"
-  | "ZONAL_SHIFT_ENGAGED"
-  | "ZONAL_SHIFT_DELEGATED_TO_DNS";
+  | "AdministrativeOverride.Unknown"
+  | "AdministrativeOverride.NoOverride"
+  | "AdministrativeOverride.ZonalShiftActive"
+  | "AdministrativeOverride.ZonalShiftDelegatedToDns";
 export type TargetAdministrativeOverrideStateEnum =
-  | "UNKNOWN"
-  | "NO_OVERRIDE"
-  | "ZONAL_SHIFT_ACTIVE"
-  | "ZONAL_SHIFT_DELEGATED_TO_DNS";
+  | "unknown"
+  | "no_override"
+  | "zonal_shift_active"
+  | "zonal_shift_delegated_to_dns";
 export interface TargetDescription {
   Id: string;
   Port?: number;
@@ -1651,7 +1651,7 @@ export type TargetGroupAttributeKey = string;
 export type TargetGroupAttributes = Array<TargetGroupAttribute>;
 export type TargetGroupAttributeValue = string;
 
-export type TargetGroupIpAddressTypeEnum = "IPV4" | "IPV6";
+export type TargetGroupIpAddressTypeEnum = "ipv4" | "ipv6";
 export type TargetGroupList = Array<TargetGroupTuple>;
 export type TargetGroupName = string;
 
@@ -1690,29 +1690,29 @@ export interface TargetHealthDescription {
 }
 export type TargetHealthDescriptions = Array<TargetHealthDescription>;
 export type TargetHealthReasonEnum =
-  | "REGISTRATION_IN_PROGRESS"
-  | "INITIAL_HEALTH_CHECKING"
-  | "RESPONSE_CODE_MISMATCH"
-  | "TIMEOUT"
-  | "FAILED_HEALTH_CHECKS"
-  | "NOT_REGISTERED"
-  | "NOT_IN_USE"
-  | "DEREGISTRATION_IN_PROGRESS"
-  | "INVALID_STATE"
-  | "IP_UNUSABLE"
-  | "HEALTH_CHECK_DISABLED"
-  | "INTERNAL_ERROR";
+  | "Elb.RegistrationInProgress"
+  | "Elb.InitialHealthChecking"
+  | "Target.ResponseCodeMismatch"
+  | "Target.Timeout"
+  | "Target.FailedHealthChecks"
+  | "Target.NotRegistered"
+  | "Target.NotInUse"
+  | "Target.DeregistrationInProgress"
+  | "Target.InvalidState"
+  | "Target.IpUnusable"
+  | "Target.HealthCheckDisabled"
+  | "Elb.InternalError";
 export type TargetHealthStateEnum =
-  | "INITIAL"
-  | "HEALTHY"
-  | "UNHEALTHY"
-  | "UNHEALTHY_DRAINING"
-  | "UNUSED"
-  | "DRAINING"
-  | "UNAVAILABLE";
+  | "initial"
+  | "healthy"
+  | "unhealthy"
+  | "unhealthy.draining"
+  | "unused"
+  | "draining"
+  | "unavailable";
 export type TargetId = string;
 
-export type TargetTypeEnum = "INSTANCE" | "IP" | "LAMBDA" | "ALB";
+export type TargetTypeEnum = "instance" | "ip" | "lambda" | "alb";
 export declare class TooManyActionsException extends EffectData.TaggedError(
   "TooManyActionsException",
 )<{
@@ -1796,7 +1796,7 @@ export declare class TrustStoreAssociationNotFoundException extends EffectData.T
 export type TrustStoreAssociationResourceArn = string;
 
 export type TrustStoreAssociations = Array<TrustStoreAssociation>;
-export type TrustStoreAssociationStatusEnum = "ACTIVE" | "REMOVED";
+export type TrustStoreAssociationStatusEnum = "active" | "removed";
 export declare class TrustStoreInUseException extends EffectData.TaggedError(
   "TrustStoreInUseException",
 )<{

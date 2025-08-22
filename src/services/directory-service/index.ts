@@ -1098,15 +1098,15 @@ export type CertificateRegisteredDateTime = Date | string;
 
 export type CertificatesInfo = Array<CertificateInfo>;
 export type CertificateState =
-  | "REGISTERING"
-  | "REGISTERED"
-  | "REGISTER_FAILED"
-  | "DEREGISTERING"
-  | "DEREGISTERED"
-  | "DEREGISTER_FAILED";
+  | "Registering"
+  | "Registered"
+  | "RegisterFailed"
+  | "Deregistering"
+  | "Deregistered"
+  | "DeregisterFailed";
 export type CertificateStateReason = string;
 
-export type CertificateType = "CLIENT_CERT_AUTH" | "CLIENT_LDAPS";
+export type CertificateType = "ClientCertAuth" | "ClientLDAPS";
 export type CidrIp = string;
 
 export type CidrIps = Array<string>;
@@ -1117,8 +1117,8 @@ export interface ClientAuthenticationSettingInfo {
 }
 export type ClientAuthenticationSettingsInfo =
   Array<ClientAuthenticationSettingInfo>;
-export type ClientAuthenticationStatus = "ENABLED" | "DISABLED";
-export type ClientAuthenticationType = "SMART_CARD" | "SMART_CARD_OR_PASSWORD";
+export type ClientAuthenticationStatus = "Enabled" | "Disabled";
+export type ClientAuthenticationType = "SmartCard" | "SmartCardOrPassword";
 export interface ClientCertAuthSettings {
   OCSPUrl?: string;
 }
@@ -1253,11 +1253,11 @@ export type CustomerId = string;
 export type CustomerUserName = string;
 
 export type DataAccessStatus =
-  | "DISABLED"
-  | "DISABLING"
-  | "ENABLED"
-  | "ENABLING"
-  | "FAILED";
+  | "Disabled"
+  | "Disabling"
+  | "Enabled"
+  | "Enabling"
+  | "Failed";
 export interface DeleteADAssessmentRequest {
   AssessmentId: string;
 }
@@ -1482,11 +1482,11 @@ export type DirectoryConfigurationSettingType = string;
 export type DirectoryConfigurationSettingValue = string;
 
 export type DirectoryConfigurationStatus =
-  | "REQUESTED"
-  | "UPDATING"
-  | "UPDATED"
-  | "FAILED"
-  | "DEFAULT";
+  | "Requested"
+  | "Updating"
+  | "Updated"
+  | "Failed"
+  | "Default";
 export interface DirectoryConnectSettings {
   VpcId: string;
   SubnetIds: Array<string>;
@@ -1537,7 +1537,7 @@ export declare class DirectoryDoesNotExistException extends EffectData.TaggedErr
   readonly Message?: string;
   readonly RequestId?: string;
 }> {}
-export type DirectoryEdition = "ENTERPRISE" | "STANDARD";
+export type DirectoryEdition = "Enterprise" | "Standard";
 export type DirectoryId = string;
 
 export type DirectoryIds = Array<string>;
@@ -1574,25 +1574,25 @@ export declare class DirectoryNotSharedException extends EffectData.TaggedError(
 }> {}
 export type DirectoryShortName = string;
 
-export type DirectorySize = "SMALL" | "LARGE";
+export type DirectorySize = "Small" | "Large";
 export type DirectoryStage =
-  | "REQUESTED"
-  | "CREATING"
-  | "CREATED"
-  | "ACTIVE"
-  | "INOPERABLE"
-  | "IMPAIRED"
-  | "RESTORING"
-  | "RESTOREFAILED"
-  | "DELETING"
-  | "DELETED"
-  | "FAILED"
-  | "UPDATING";
+  | "Requested"
+  | "Creating"
+  | "Created"
+  | "Active"
+  | "Inoperable"
+  | "Impaired"
+  | "Restoring"
+  | "RestoreFailed"
+  | "Deleting"
+  | "Deleted"
+  | "Failed"
+  | "Updating";
 export type DirectoryType =
-  | "SIMPLE_AD"
-  | "AD_CONNECTOR"
-  | "MICROSOFT_AD"
-  | "SHARED_MICROSOFT_AD";
+  | "SimpleAD"
+  | "ADConnector"
+  | "MicrosoftAD"
+  | "SharedMicrosoftAD";
 export declare class DirectoryUnavailableException extends EffectData.TaggedError(
   "DirectoryUnavailableException",
 )<{
@@ -1657,14 +1657,14 @@ export declare class DomainControllerLimitExceededException extends EffectData.T
 }> {}
 export type DomainControllers = Array<DomainController>;
 export type DomainControllerStatus =
-  | "CREATING"
-  | "ACTIVE"
-  | "IMPAIRED"
-  | "RESTORING"
-  | "DELETING"
-  | "DELETED"
-  | "FAILED"
-  | "UPDATING";
+  | "Creating"
+  | "Active"
+  | "Impaired"
+  | "Restoring"
+  | "Deleting"
+  | "Deleted"
+  | "Failed"
+  | "Updating";
 export type DomainControllerStatusReason = string;
 
 export interface EnableClientAuthenticationRequest {
@@ -1753,8 +1753,8 @@ export interface HybridUpdateInfoEntry {
   AssessmentId?: string;
 }
 export type HybridUpdateType =
-  | "SELF_MANAGED_INSTANCES"
-  | "HYBRID_ADMINISTRATOR_ACCOUNT";
+  | "SelfManagedInstances"
+  | "HybridAdministratorAccount";
 export interface HybridUpdateValue {
   InstanceIds?: Array<string>;
   DnsIps?: Array<string>;
@@ -1839,12 +1839,12 @@ export declare class IpRouteLimitExceededException extends EffectData.TaggedErro
 export type IpRoutes = Array<IpRoute>;
 export type IpRoutesInfo = Array<IpRouteInfo>;
 export type IpRouteStatusMsg =
-  | "ADDING"
-  | "ADDED"
-  | "REMOVING"
-  | "REMOVED"
-  | "ADD_FAILED"
-  | "REMOVE_FAILED";
+  | "Adding"
+  | "Added"
+  | "Removing"
+  | "Removed"
+  | "AddFailed"
+  | "RemoveFailed";
 export type IpRouteStatusReason = string;
 
 export type LastUpdateDateTime = Date | string;
@@ -1859,10 +1859,10 @@ export interface LDAPSSettingInfo {
   LastUpdatedDateTime?: Date | string;
 }
 export type LDAPSSettingsInfo = Array<LDAPSSettingInfo>;
-export type LDAPSStatus = "ENABLING" | "ENABLED" | "ENABLE_FAILED" | "DISABLED";
+export type LDAPSStatus = "Enabling" | "Enabled" | "EnableFailed" | "Disabled";
 export type LDAPSStatusReason = string;
 
-export type LDAPSType = "CLIENT";
+export type LDAPSType = "Client";
 export type LdifContent = string;
 
 export type Limit = number;
@@ -1954,7 +1954,7 @@ export declare class OrganizationsException extends EffectData.TaggedError(
 export interface OSUpdateSettings {
   OSVersion?: OSVersion;
 }
-export type OSVersion = "VERSION_2012" | "VERSION_2019";
+export type OSVersion = "SERVER_2012" | "SERVER_2019";
 export interface OwnerDirectoryDescription {
   DirectoryId?: string;
   AccountId?: string;
@@ -1972,8 +1972,8 @@ export type PortNumber = number;
 export type RadiusAuthenticationProtocol =
   | "PAP"
   | "CHAP"
-  | "MSCHAPV1"
-  | "MSCHAPV2";
+  | "MS-CHAPv1"
+  | "MS-CHAPv2";
 export type RadiusDisplayLabel = string;
 
 export type RadiusRetries = number;
@@ -1990,7 +1990,7 @@ export interface RadiusSettings {
 }
 export type RadiusSharedSecret = string;
 
-export type RadiusStatus = "CREATING" | "COMPLETED" | "FAILED";
+export type RadiusStatus = "Creating" | "Completed" | "Failed";
 export type RadiusTimeout = number;
 
 export interface RegionDescription {
@@ -2017,7 +2017,7 @@ export interface RegionsInfo {
   PrimaryRegion?: string;
   AdditionalRegions?: Array<string>;
 }
-export type RegionType = "PRIMARY" | "ADDITIONAL";
+export type RegionType = "Primary" | "Additional";
 export interface RegisterCertificateRequest {
   DirectoryId: string;
   CertificateData: string;
@@ -2083,15 +2083,15 @@ export interface SchemaExtensionInfo {
 }
 export type SchemaExtensionsInfo = Array<SchemaExtensionInfo>;
 export type SchemaExtensionStatus =
-  | "INITIALIZING"
-  | "CREATING_SNAPSHOT"
-  | "UPDATING_SCHEMA"
-  | "REPLICATING"
-  | "CANCEL_IN_PROGRESS"
-  | "ROLLBACK_IN_PROGRESS"
-  | "CANCELLED"
-  | "FAILED"
-  | "COMPLETED";
+  | "Initializing"
+  | "CreatingSnapshot"
+  | "UpdatingSchema"
+  | "Replicating"
+  | "CancelInProgress"
+  | "RollbackInProgress"
+  | "Cancelled"
+  | "Failed"
+  | "Completed";
 export type SchemaExtensionStatusReason = string;
 
 export type SecretArn = string;
@@ -2099,7 +2099,7 @@ export type SecretArn = string;
 export type SecurityGroupId = string;
 
 export type SecurityGroupIds = Array<string>;
-export type SelectiveAuth = "ENABLED" | "DISABLED";
+export type SelectiveAuth = "Enabled" | "Disabled";
 export type Server = string;
 
 export type Servers = Array<string>;
@@ -2157,15 +2157,15 @@ export declare class ShareLimitExceededException extends EffectData.TaggedError(
 }> {}
 export type ShareMethod = "ORGANIZATIONS" | "HANDSHAKE";
 export type ShareStatus =
-  | "SHARED"
-  | "PENDING_ACCEPTANCE"
-  | "REJECTED"
-  | "REJECTING"
-  | "REJECT_FAILED"
-  | "SHARING"
-  | "SHARE_FAILED"
-  | "DELETED"
-  | "DELETING";
+  | "Shared"
+  | "PendingAcceptance"
+  | "Rejected"
+  | "Rejecting"
+  | "RejectFailed"
+  | "Sharing"
+  | "ShareFailed"
+  | "Deleted"
+  | "Deleting";
 export interface ShareTarget {
   Id: string;
   Type: TargetType;
@@ -2197,8 +2197,8 @@ export interface SnapshotLimits {
 export type SnapshotName = string;
 
 export type Snapshots = Array<Snapshot>;
-export type SnapshotStatus = "CREATING" | "COMPLETED" | "FAILED";
-export type SnapshotType = "AUTO" | "MANUAL";
+export type SnapshotStatus = "Creating" | "Completed" | "Failed";
+export type SnapshotType = "Auto" | "Manual";
 export type SsoEnabled = boolean;
 
 export type StageReason = string;
@@ -2255,10 +2255,10 @@ export type TopicName = string;
 
 export type TopicNames = Array<string>;
 export type TopicStatus =
-  | "REGISTERED"
-  | "TOPIC_NOT_FOUND"
-  | "FAILED"
-  | "DELETED";
+  | "Registered"
+  | "Topic not found"
+  | "Failed"
+  | "Deleted";
 export interface Trust {
   DirectoryId?: string;
   TrustId?: string;
@@ -2273,9 +2273,9 @@ export interface Trust {
   SelectiveAuth?: SelectiveAuth;
 }
 export type TrustDirection =
-  | "ONE_WAY_OUTGOING"
-  | "ONE_WAY_INCOMING"
-  | "TWO_WAY";
+  | "One-Way: Outgoing"
+  | "One-Way: Incoming"
+  | "Two-Way";
 export type TrustId = string;
 
 export type TrustIds = Array<string>;
@@ -2283,20 +2283,20 @@ export type TrustPassword = string;
 
 export type Trusts = Array<Trust>;
 export type TrustState =
-  | "CREATING"
-  | "CREATED"
-  | "VERIFYING"
-  | "VERIFY_FAILED"
-  | "VERIFIED"
-  | "UPDATING"
-  | "UPDATE_FAILED"
-  | "UPDATED"
-  | "DELETING"
-  | "DELETED"
-  | "FAILED";
+  | "Creating"
+  | "Created"
+  | "Verifying"
+  | "VerifyFailed"
+  | "Verified"
+  | "Updating"
+  | "UpdateFailed"
+  | "Updated"
+  | "Deleting"
+  | "Deleted"
+  | "Failed";
 export type TrustStateReason = string;
 
-export type TrustType = "FOREST" | "EXTERNAL";
+export type TrustType = "Forest" | "External";
 export interface UnshareDirectoryRequest {
   DirectoryId: string;
   UnshareTarget: UnshareTarget;
@@ -2372,7 +2372,7 @@ export interface UpdateSettingsRequest {
 export interface UpdateSettingsResult {
   DirectoryId?: string;
 }
-export type UpdateStatus = "UPDATED" | "UPDATING" | "UPDATE_FAILED";
+export type UpdateStatus = "Updated" | "Updating" | "UpdateFailed";
 export type UpdateStatusReason = string;
 
 export interface UpdateTrustRequest {

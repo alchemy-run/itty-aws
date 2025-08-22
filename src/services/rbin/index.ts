@@ -196,7 +196,7 @@ export interface LockRuleResponse {
   RuleArn?: string;
   ExcludeResourceTags?: Array<ResourceTag>;
 }
-export type LockState = "LOCKED" | "PENDING_UNLOCK" | "UNLOCKED";
+export type LockState = "locked" | "pending_unlock" | "unlocked";
 export type MaxResults = number;
 
 export type NextToken = string;
@@ -229,7 +229,7 @@ export type RuleArn = string;
 
 export type RuleIdentifier = string;
 
-export type RuleStatus = "PENDING" | "AVAILABLE";
+export type RuleStatus = "pending" | "available";
 export interface RuleSummary {
   Identifier?: string;
   Description?: string;

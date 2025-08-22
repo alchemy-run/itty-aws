@@ -1342,12 +1342,12 @@ export type AccessKeySecretType = string;
 export type AccessRequestId = string;
 
 export type AccessRequestStatus =
-  | "APPROVED"
-  | "REJECTED"
-  | "REVOKED"
-  | "EXPIRED"
-  | "PENDING";
-export type AccessType = "STANDARD" | "JUSTINTIME";
+  | "Approved"
+  | "Rejected"
+  | "Revoked"
+  | "Expired"
+  | "Pending";
+export type AccessType = "Standard" | "JustInTime";
 export type Account = string;
 
 export type AccountId = string;
@@ -1451,11 +1451,11 @@ export declare class AssociationAlreadyExists extends EffectData.TaggedError(
   "AssociationAlreadyExists",
 )<{}> {}
 export type AssociationComplianceSeverity =
-  | "Critical"
-  | "High"
-  | "Medium"
-  | "Low"
-  | "Unspecified";
+  | "CRITICAL"
+  | "HIGH"
+  | "MEDIUM"
+  | "LOW"
+  | "UNSPECIFIED";
 export interface AssociationDescription {
   Name?: string;
   InstanceId?: string;
@@ -1557,16 +1557,16 @@ export type AssociationFilterKey =
   | "InstanceId"
   | "Name"
   | "AssociationId"
-  | "Status"
+  | "AssociationStatusName"
   | "LastExecutedBefore"
   | "LastExecutedAfter"
   | "AssociationName"
   | "ResourceGroupName";
 export type AssociationFilterList = Array<AssociationFilter>;
 export type AssociationFilterOperatorType =
-  | "Equal"
-  | "LessThan"
-  | "GreaterThan";
+  | "EQUAL"
+  | "LESS_THAN"
+  | "GREATER_THAN";
 export type AssociationFilterValue = string;
 
 export type AssociationId = string;
@@ -1595,7 +1595,7 @@ export interface AssociationStatus {
 }
 export type AssociationStatusAggregatedCount = Record<string, number>;
 export type AssociationStatusName = "Pending" | "Success" | "Failed";
-export type AssociationSyncCompliance = "Auto" | "Manual";
+export type AssociationSyncCompliance = "AUTO" | "MANUAL";
 export type AssociationVersion = string;
 
 export interface AssociationVersionInfo {
@@ -1636,7 +1636,7 @@ export interface AttachmentContent {
 export type AttachmentContentList = Array<AttachmentContent>;
 export type AttachmentHash = string;
 
-export type AttachmentHashType = "SHA256";
+export type AttachmentHashType = "Sha256";
 export type AttachmentIdentifier = string;
 
 export interface AttachmentInformation {
@@ -1723,18 +1723,18 @@ export interface AutomationExecutionFilter {
   Values: Array<string>;
 }
 export type AutomationExecutionFilterKey =
-  | "DOCUMENT_NAME_PREFIX"
-  | "EXECUTION_STATUS"
-  | "EXECUTION_ID"
-  | "PARENT_EXECUTION_ID"
-  | "CURRENT_ACTION"
-  | "START_TIME_BEFORE"
-  | "START_TIME_AFTER"
-  | "AUTOMATION_TYPE"
-  | "TAG_KEY"
-  | "TARGET_RESOURCE_GROUP"
-  | "AUTOMATION_SUBTYPE"
-  | "OPS_ITEM_ID";
+  | "DocumentNamePrefix"
+  | "ExecutionStatus"
+  | "ExecutionId"
+  | "ParentExecutionId"
+  | "CurrentAction"
+  | "StartTimeBefore"
+  | "StartTimeAfter"
+  | "AutomationType"
+  | "TagKey"
+  | "TargetResourceGroup"
+  | "AutomationSubtype"
+  | "OpsItemId";
 export type AutomationExecutionFilterList = Array<AutomationExecutionFilter>;
 export type AutomationExecutionFilterValue = string;
 
@@ -1801,25 +1801,25 @@ export interface AutomationExecutionPreview {
   TotalAccounts?: number;
 }
 export type AutomationExecutionStatus =
-  | "PENDING"
-  | "INPROGRESS"
-  | "WAITING"
-  | "SUCCESS"
-  | "TIMEDOUT"
-  | "CANCELLING"
-  | "CANCELLED"
-  | "FAILED"
-  | "PENDING_APPROVAL"
-  | "APPROVED"
-  | "REJECTED"
-  | "SCHEDULED"
-  | "RUNBOOK_INPROGRESS"
-  | "PENDING_CHANGE_CALENDAR_OVERRIDE"
-  | "CHANGE_CALENDAR_OVERRIDE_APPROVED"
-  | "CHANGE_CALENDAR_OVERRIDE_REJECTED"
-  | "COMPLETED_WITH_SUCCESS"
-  | "COMPLETED_WITH_FAILURE"
-  | "EXITED";
+  | "Pending"
+  | "InProgress"
+  | "Waiting"
+  | "Success"
+  | "TimedOut"
+  | "Cancelling"
+  | "Cancelled"
+  | "Failed"
+  | "PendingApproval"
+  | "Approved"
+  | "Rejected"
+  | "Scheduled"
+  | "RunbookInProgress"
+  | "PendingChangeCalendarOverride"
+  | "ChangeCalendarOverrideApproved"
+  | "ChangeCalendarOverrideRejected"
+  | "CompletedWithSuccess"
+  | "CompletedWithFailure"
+  | "Exited";
 export type AutomationParameterKey = string;
 
 export type AutomationParameterMap = Record<string, Array<string>>;
@@ -1923,11 +1923,11 @@ export interface CommandFilter {
   value: string;
 }
 export type CommandFilterKey =
-  | "INVOKED_AFTER"
-  | "INVOKED_BEFORE"
-  | "STATUS"
-  | "EXECUTION_STAGE"
-  | "DOCUMENT_NAME";
+  | "InvokedAfter"
+  | "InvokedBefore"
+  | "Status"
+  | "ExecutionStage"
+  | "DocumentName";
 export type CommandFilterList = Array<CommandFilter>;
 export type CommandFilterValue = string;
 
@@ -1953,14 +1953,14 @@ export interface CommandInvocation {
 }
 export type CommandInvocationList = Array<CommandInvocation>;
 export type CommandInvocationStatus =
-  | "PENDING"
-  | "IN_PROGRESS"
-  | "DELAYED"
-  | "SUCCESS"
-  | "CANCELLED"
-  | "TIMED_OUT"
-  | "FAILED"
-  | "CANCELLING";
+  | "Pending"
+  | "InProgress"
+  | "Delayed"
+  | "Success"
+  | "Cancelled"
+  | "TimedOut"
+  | "Failed"
+  | "Cancelling";
 export type CommandList = Array<Command>;
 export type CommandMaxResults = number;
 
@@ -1984,20 +1984,20 @@ export type CommandPluginName = string;
 export type CommandPluginOutput = string;
 
 export type CommandPluginStatus =
-  | "PENDING"
-  | "IN_PROGRESS"
-  | "SUCCESS"
-  | "TIMED_OUT"
-  | "CANCELLED"
-  | "FAILED";
+  | "Pending"
+  | "InProgress"
+  | "Success"
+  | "TimedOut"
+  | "Cancelled"
+  | "Failed";
 export type CommandStatus =
-  | "PENDING"
-  | "IN_PROGRESS"
-  | "SUCCESS"
-  | "CANCELLED"
-  | "FAILED"
-  | "TIMED_OUT"
-  | "CANCELLING";
+  | "Pending"
+  | "InProgress"
+  | "Success"
+  | "Cancelled"
+  | "Failed"
+  | "TimedOut"
+  | "Cancelling";
 export type Comment = string;
 
 export type CompletedCount = number;
@@ -2041,11 +2041,11 @@ export type ComplianceItemList = Array<ComplianceItem>;
 export type ComplianceItemTitle = string;
 
 export type ComplianceQueryOperatorType =
-  | "Equal"
-  | "NotEqual"
-  | "BeginWith"
-  | "LessThan"
-  | "GreaterThan";
+  | "EQUAL"
+  | "NOT_EQUAL"
+  | "BEGIN_WITH"
+  | "LESS_THAN"
+  | "GREATER_THAN";
 export type ComplianceResourceId = string;
 
 export type ComplianceResourceIdList = Array<string>;
@@ -2053,13 +2053,13 @@ export type ComplianceResourceType = string;
 
 export type ComplianceResourceTypeList = Array<string>;
 export type ComplianceSeverity =
-  | "Critical"
-  | "High"
-  | "Medium"
-  | "Low"
-  | "Informational"
-  | "Unspecified";
-export type ComplianceStatus = "Compliant" | "NonCompliant";
+  | "CRITICAL"
+  | "HIGH"
+  | "MEDIUM"
+  | "LOW"
+  | "INFORMATIONAL"
+  | "UNSPECIFIED";
+export type ComplianceStatus = "COMPLIANT" | "NON_COMPLIANT";
 export interface ComplianceStringFilter {
   Key?: string;
   Values?: Array<string>;
@@ -2084,14 +2084,14 @@ export declare class ComplianceTypeCountLimitExceededException extends EffectDat
 }> {}
 export type ComplianceTypeName = string;
 
-export type ComplianceUploadType = "Complete" | "Partial";
+export type ComplianceUploadType = "COMPLETE" | "PARTIAL";
 export interface CompliantSummary {
   CompliantCount?: number;
   SeveritySummary?: SeveritySummary;
 }
 export type ComputerName = string;
 
-export type ConnectionStatus = "CONNECTED" | "NOT_CONNECTED";
+export type ConnectionStatus = "connected" | "notconnected";
 export type ContentLength = number;
 
 export interface CreateActivationRequest {
@@ -2377,9 +2377,9 @@ export interface DescribeActivationsFilter {
   FilterValues?: Array<string>;
 }
 export type DescribeActivationsFilterKeys =
-  | "ACTIVATION_IDS"
-  | "DEFAULT_INSTANCE_NAME"
-  | "IAM_ROLE";
+  | "ActivationIds"
+  | "DefaultInstanceName"
+  | "IamRole";
 export type DescribeActivationsFilterList = Array<DescribeActivationsFilter>;
 export interface DescribeActivationsRequest {
   Filters?: Array<DescribeActivationsFilter>;
@@ -2786,7 +2786,7 @@ export type DocumentFilterValue = string;
 export type DocumentFormat = "YAML" | "JSON" | "TEXT";
 export type DocumentHash = string;
 
-export type DocumentHashType = "SHA256" | "SHA1";
+export type DocumentHashType = "Sha256" | "Sha1";
 export interface DocumentIdentifier {
   Name?: string;
   CreatedDate?: Date | string;
@@ -2849,7 +2849,7 @@ export declare class DocumentPermissionLimit extends EffectData.TaggedError(
 }> {}
 export type DocumentPermissionMaxResults = number;
 
-export type DocumentPermissionType = "SHARE";
+export type DocumentPermissionType = "Share";
 export interface DocumentRequires {
   Name: string;
   Version?: string;
@@ -2905,7 +2905,7 @@ export type DocumentType =
   | "ApplicationConfigurationSchema"
   | "DeploymentStrategy"
   | "ChangeCalendar"
-  | "ChangeTemplate"
+  | "Automation.ChangeTemplate"
   | "ProblemAnalysis"
   | "ProblemAnalysisTemplate"
   | "CloudFormation"
@@ -2989,10 +2989,10 @@ export type ExecutionPreview = _ExecutionPreview & {
 export type ExecutionPreviewId = string;
 
 export type ExecutionPreviewStatus =
-  | "PENDING"
-  | "IN_PROGRESS"
-  | "SUCCESS"
-  | "FAILED";
+  | "Pending"
+  | "InProgress"
+  | "Success"
+  | "Failed";
 export type ExecutionRoleName = string;
 
 export type ExpirationDate = Date | string;
@@ -3380,7 +3380,7 @@ export declare class IdempotentParameterMismatch extends EffectData.TaggedError(
 )<{
   readonly Message?: string;
 }> {}
-export type ImpactType = "MUTATING" | "NON_MUTATING" | "UNDETERMINED";
+export type ImpactType = "Mutating" | "NonMutating" | "Undetermined";
 export declare class IncompatiblePolicyException extends EffectData.TaggedError(
   "IncompatiblePolicyException",
 )<{
@@ -3469,14 +3469,14 @@ export interface InstanceInformationFilter {
   valueSet: Array<string>;
 }
 export type InstanceInformationFilterKey =
-  | "INSTANCE_IDS"
-  | "AGENT_VERSION"
-  | "PING_STATUS"
-  | "PLATFORM_TYPES"
-  | "ACTIVATION_IDS"
-  | "IAM_ROLE"
-  | "RESOURCE_TYPE"
-  | "ASSOCIATION_STATUS";
+  | "InstanceIds"
+  | "AgentVersion"
+  | "PingStatus"
+  | "PlatformTypes"
+  | "ActivationIds"
+  | "IamRole"
+  | "ResourceType"
+  | "AssociationStatus";
 export type InstanceInformationFilterList = Array<InstanceInformationFilter>;
 export type InstanceInformationFilterValue = string;
 
@@ -3530,10 +3530,10 @@ export type InstancePatchStateFilterValue = string;
 export type InstancePatchStateFilterValues = Array<string>;
 export type InstancePatchStateList = Array<InstancePatchState>;
 export type InstancePatchStateOperatorType =
-  | "EQUAL"
-  | "NOT_EQUAL"
-  | "LESS_THAN"
-  | "GREATER_THAN";
+  | "Equal"
+  | "NotEqual"
+  | "LessThan"
+  | "GreaterThan";
 export type InstancePatchStatesList = Array<InstancePatchState>;
 export type InstanceProperties = Array<InstanceProperty>;
 export interface InstanceProperty {
@@ -3569,22 +3569,22 @@ export interface InstancePropertyFilter {
   valueSet: Array<string>;
 }
 export type InstancePropertyFilterKey =
-  | "INSTANCE_IDS"
-  | "AGENT_VERSION"
-  | "PING_STATUS"
-  | "PLATFORM_TYPES"
-  | "DOCUMENT_NAME"
-  | "ACTIVATION_IDS"
-  | "IAM_ROLE"
-  | "RESOURCE_TYPE"
-  | "ASSOCIATION_STATUS";
+  | "InstanceIds"
+  | "AgentVersion"
+  | "PingStatus"
+  | "PlatformTypes"
+  | "DocumentName"
+  | "ActivationIds"
+  | "IamRole"
+  | "ResourceType"
+  | "AssociationStatus";
 export type InstancePropertyFilterList = Array<InstancePropertyFilter>;
 export type InstancePropertyFilterOperator =
-  | "EQUAL"
-  | "NOT_EQUAL"
-  | "BEGIN_WITH"
-  | "LESS_THAN"
-  | "GREATER_THAN";
+  | "Equal"
+  | "NotEqual"
+  | "BeginWith"
+  | "LessThan"
+  | "GreaterThan";
 export type InstancePropertyFilterValue = string;
 
 export type InstancePropertyFilterValueSet = Array<string>;
@@ -3857,7 +3857,7 @@ export interface InventoryAggregator {
 export type InventoryAggregatorExpression = string;
 
 export type InventoryAggregatorList = Array<InventoryAggregator>;
-export type InventoryAttributeDataType = "STRING" | "NUMBER";
+export type InventoryAttributeDataType = "string" | "number";
 export type InventoryDeletionLastStatusMessage = string;
 
 export type InventoryDeletionLastStatusUpdateTime = Date | string;
@@ -3865,7 +3865,7 @@ export type InventoryDeletionLastStatusUpdateTime = Date | string;
 export type InventoryDeletionsList = Array<InventoryDeletionStatusItem>;
 export type InventoryDeletionStartTime = Date | string;
 
-export type InventoryDeletionStatus = "IN_PROGRESS" | "COMPLETE";
+export type InventoryDeletionStatus = "InProgress" | "Complete";
 export interface InventoryDeletionStatusItem {
   DeletionId?: string;
   TypeName?: string;
@@ -3941,12 +3941,12 @@ export type InventoryItemTypeName = string;
 export type InventoryItemTypeNameFilter = string;
 
 export type InventoryQueryOperatorType =
-  | "EQUAL"
-  | "NOT_EQUAL"
-  | "BEGIN_WITH"
-  | "LESS_THAN"
-  | "GREATER_THAN"
-  | "EXISTS";
+  | "Equal"
+  | "NotEqual"
+  | "BeginWith"
+  | "LessThan"
+  | "GreaterThan"
+  | "Exists";
 export interface InventoryResultEntity {
   Id?: string;
   Data?: Record<string, InventoryResultItem>;
@@ -3964,7 +3964,7 @@ export interface InventoryResultItem {
 export type InventoryResultItemKey = string;
 
 export type InventoryResultItemMap = Record<string, InventoryResultItem>;
-export type InventorySchemaDeleteOption = "DISABLE_SCHEMA" | "DELETE_SCHEMA";
+export type InventorySchemaDeleteOption = "DisableSchema" | "DeleteSchema";
 export type InventoryTypeDisplayName = string;
 
 export declare class InvocationDoesNotExist extends EffectData.TaggedError(
@@ -4004,7 +4004,7 @@ export interface LabelParameterVersionResult {
 }
 export type LastResourceDataSyncMessage = string;
 
-export type LastResourceDataSyncStatus = "SUCCESSFUL" | "FAILED" | "INPROGRESS";
+export type LastResourceDataSyncStatus = "Successful" | "Failed" | "InProgress";
 export type LastResourceDataSyncTime = Date | string;
 
 export type LastSuccessfulResourceDataSyncTime = Date | string;
@@ -4227,14 +4227,14 @@ export type MaintenanceWindowExecutionId = string;
 
 export type MaintenanceWindowExecutionList = Array<MaintenanceWindowExecution>;
 export type MaintenanceWindowExecutionStatus =
-  | "Pending"
-  | "InProgress"
-  | "Success"
-  | "Failed"
-  | "TimedOut"
-  | "Cancelling"
-  | "Cancelled"
-  | "SkippedOverlapping";
+  | "PENDING"
+  | "IN_PROGRESS"
+  | "SUCCESS"
+  | "FAILED"
+  | "TIMED_OUT"
+  | "CANCELLING"
+  | "CANCELLED"
+  | "SKIPPED_OVERLAPPING";
 export type MaintenanceWindowExecutionStatusDetails = string;
 
 export type MaintenanceWindowExecutionTaskExecutionId = string;
@@ -4324,7 +4324,7 @@ export type MaintenanceWindowName = string;
 
 export type MaintenanceWindowOffset = number;
 
-export type MaintenanceWindowResourceType = "Instance" | "ResourceGroup";
+export type MaintenanceWindowResourceType = "INSTANCE" | "RESOURCE_GROUP";
 export interface MaintenanceWindowRunCommandParameters {
   Comment?: string;
   CloudWatchOutputConfig?: CloudWatchOutputConfig;
@@ -4388,7 +4388,9 @@ export interface MaintenanceWindowTask {
 }
 export type MaintenanceWindowTaskArn = string;
 
-export type MaintenanceWindowTaskCutoffBehavior = "ContinueTask" | "CancelTask";
+export type MaintenanceWindowTaskCutoffBehavior =
+  | "CONTINUE_TASK"
+  | "CANCEL_TASK";
 export type MaintenanceWindowTaskId = string;
 
 export interface MaintenanceWindowTaskInvocationParameters {
@@ -4418,10 +4420,10 @@ export type MaintenanceWindowTaskPriority = number;
 export type MaintenanceWindowTaskTargetId = string;
 
 export type MaintenanceWindowTaskType =
-  | "RunCommand"
-  | "Automation"
-  | "StepFunctions"
-  | "Lambda";
+  | "RUN_COMMAND"
+  | "AUTOMATION"
+  | "STEP_FUNCTIONS"
+  | "LAMBDA";
 export type MaintenanceWindowTimezone = string;
 
 export declare class MalformedResourcePolicyDocumentException extends EffectData.TaggedError(
@@ -4431,7 +4433,7 @@ export declare class MalformedResourcePolicyDocumentException extends EffectData
 }> {}
 export type ManagedInstanceId = string;
 
-export type ManagedStatus = "ALL" | "MANAGED" | "UNMANAGED";
+export type ManagedStatus = "All" | "Managed" | "Unmanaged";
 export type MaxConcurrency = string;
 
 export declare class MaxDocumentSizeExceeded extends EffectData.TaggedError(
@@ -4482,14 +4484,14 @@ export interface NodeAggregator {
   Aggregators?: Array<NodeAggregator>;
 }
 export type NodeAggregatorList = Array<NodeAggregator>;
-export type NodeAggregatorType = "COUNT";
+export type NodeAggregatorType = "Count";
 export type NodeAttributeName =
-  | "AGENT_VERSION"
-  | "PLATFORM_NAME"
-  | "PLATFORM_TYPE"
-  | "PLATFORM_VERSION"
-  | "REGION"
-  | "RESOURCE_TYPE";
+  | "AgentVersion"
+  | "PlatformName"
+  | "PlatformType"
+  | "PlatformVersion"
+  | "Region"
+  | "ResourceType";
 export type NodeCaptureTime = Date | string;
 
 export interface NodeFilter {
@@ -4498,23 +4500,23 @@ export interface NodeFilter {
   Type?: NodeFilterOperatorType;
 }
 export type NodeFilterKey =
-  | "AGENT_TYPE"
-  | "AGENT_VERSION"
-  | "COMPUTER_NAME"
-  | "INSTANCE_ID"
-  | "INSTANCE_STATUS"
-  | "IP_ADDRESS"
-  | "MANAGED_STATUS"
-  | "PLATFORM_NAME"
-  | "PLATFORM_TYPE"
-  | "PLATFORM_VERSION"
-  | "RESOURCE_TYPE"
-  | "ORGANIZATIONAL_UNIT_ID"
-  | "ORGANIZATIONAL_UNIT_PATH"
-  | "REGION"
-  | "ACCOUNT_ID";
+  | "AgentType"
+  | "AgentVersion"
+  | "ComputerName"
+  | "InstanceId"
+  | "InstanceStatus"
+  | "IpAddress"
+  | "ManagedStatus"
+  | "PlatformName"
+  | "PlatformType"
+  | "PlatformVersion"
+  | "ResourceType"
+  | "OrganizationalUnitId"
+  | "OrganizationalUnitPath"
+  | "Region"
+  | "AccountId";
 export type NodeFilterList = Array<NodeFilter>;
-export type NodeFilterOperatorType = "EQUAL" | "NOT_EQUAL" | "BEGIN_WITH";
+export type NodeFilterOperatorType = "Equal" | "NotEqual" | "BeginWith";
 export type NodeFilterValue = string;
 
 export type NodeFilterValueList = Array<string>;
@@ -4539,7 +4541,7 @@ interface _NodeType {
 }
 
 export type NodeType = _NodeType & { Instance: InstanceInfo };
-export type NodeTypeName = "INSTANCE";
+export type NodeTypeName = "Instance";
 export interface NonCompliantSummary {
   NonCompliantCount?: number;
   SeveritySummary?: SeveritySummary;
@@ -4553,30 +4555,30 @@ export interface NotificationConfig {
   NotificationType?: NotificationType;
 }
 export type NotificationEvent =
-  | "ALL"
-  | "IN_PROGRESS"
-  | "SUCCESS"
-  | "TIMED_OUT"
-  | "CANCELLED"
-  | "FAILED";
+  | "All"
+  | "InProgress"
+  | "Success"
+  | "TimedOut"
+  | "Cancelled"
+  | "Failed";
 export type NotificationEventList = Array<NotificationEvent>;
 export type NotificationType = "Command" | "Invocation";
 export type OperatingSystem =
-  | "Windows"
-  | "AmazonLinux"
-  | "AmazonLinux2"
-  | "AmazonLinux2022"
-  | "Ubuntu"
-  | "RedhatEnterpriseLinux"
-  | "Suse"
-  | "CentOS"
-  | "OracleLinux"
-  | "Debian"
-  | "MacOS"
-  | "Raspbian"
-  | "Rocky_Linux"
-  | "AlmaLinux"
-  | "AmazonLinux2023";
+  | "WINDOWS"
+  | "AMAZON_LINUX"
+  | "AMAZON_LINUX_2"
+  | "AMAZON_LINUX_2022"
+  | "UBUNTU"
+  | "REDHAT_ENTERPRISE_LINUX"
+  | "SUSE"
+  | "CENTOS"
+  | "ORACLE_LINUX"
+  | "DEBIAN"
+  | "MACOS"
+  | "RASPBIAN"
+  | "ROCKY_LINUX"
+  | "ALMA_LINUX"
+  | "AMAZON_LINUX_2023";
 export interface OpsAggregator {
   AggregatorType?: string;
   TypeName?: string;
@@ -4624,12 +4626,12 @@ export type OpsFilterKey = string;
 
 export type OpsFilterList = Array<OpsFilter>;
 export type OpsFilterOperatorType =
-  | "EQUAL"
-  | "NOT_EQUAL"
-  | "BEGIN_WITH"
-  | "LESS_THAN"
-  | "GREATER_THAN"
-  | "EXISTS";
+  | "Equal"
+  | "NotEqual"
+  | "BeginWith"
+  | "LessThan"
+  | "GreaterThan"
+  | "Exists";
 export type OpsFilterValue = string;
 
 export type OpsFilterValueList = Array<string>;
@@ -4681,7 +4683,7 @@ export declare class OpsItemConflictException extends EffectData.TaggedError(
 }> {}
 export type OpsItemDataKey = string;
 
-export type OpsItemDataType = "SEARCHABLE_STRING" | "STRING";
+export type OpsItemDataType = "SearchableString" | "String";
 export interface OpsItemDataValue {
   Value?: string;
   Type?: OpsItemDataType;
@@ -4695,8 +4697,8 @@ export interface OpsItemEventFilter {
   Values: Array<string>;
   Operator: OpsItemEventFilterOperator;
 }
-export type OpsItemEventFilterKey = "OPSITEM_ID";
-export type OpsItemEventFilterOperator = "EQUAL";
+export type OpsItemEventFilterKey = "OpsItemId";
+export type OpsItemEventFilterOperator = "Equal";
 export type OpsItemEventFilters = Array<OpsItemEventFilter>;
 export type OpsItemEventFilterValue = string;
 
@@ -4719,48 +4721,48 @@ export interface OpsItemFilter {
   Operator: OpsItemFilterOperator;
 }
 export type OpsItemFilterKey =
-  | "STATUS"
-  | "CREATED_BY"
-  | "SOURCE"
-  | "PRIORITY"
-  | "TITLE"
-  | "OPSITEM_ID"
-  | "CREATED_TIME"
-  | "LAST_MODIFIED_TIME"
-  | "ACTUAL_START_TIME"
-  | "ACTUAL_END_TIME"
-  | "PLANNED_START_TIME"
-  | "PLANNED_END_TIME"
-  | "OPERATIONAL_DATA"
-  | "OPERATIONAL_DATA_KEY"
-  | "OPERATIONAL_DATA_VALUE"
-  | "RESOURCE_ID"
-  | "AUTOMATION_ID"
-  | "CATEGORY"
-  | "SEVERITY"
-  | "OPSITEM_TYPE"
-  | "ACCESS_REQUEST_REQUESTER_ARN"
-  | "ACCESS_REQUEST_REQUESTER_ID"
-  | "ACCESS_REQUEST_APPROVER_ARN"
-  | "ACCESS_REQUEST_APPROVER_ID"
-  | "ACCESS_REQUEST_SOURCE_ACCOUNT_ID"
-  | "ACCESS_REQUEST_SOURCE_OPS_ITEM_ID"
-  | "ACCESS_REQUEST_SOURCE_REGION"
-  | "ACCESS_REQUEST_IS_REPLICA"
-  | "ACCESS_REQUEST_TARGET_RESOURCE_ID"
-  | "CHANGE_REQUEST_REQUESTER_ARN"
-  | "CHANGE_REQUEST_REQUESTER_NAME"
-  | "CHANGE_REQUEST_APPROVER_ARN"
-  | "CHANGE_REQUEST_APPROVER_NAME"
-  | "CHANGE_REQUEST_TEMPLATE"
-  | "CHANGE_REQUEST_TARGETS_RESOURCE_GROUP"
-  | "INSIGHT_TYPE"
-  | "ACCOUNT_ID";
+  | "Status"
+  | "CreatedBy"
+  | "Source"
+  | "Priority"
+  | "Title"
+  | "OpsItemId"
+  | "CreatedTime"
+  | "LastModifiedTime"
+  | "ActualStartTime"
+  | "ActualEndTime"
+  | "PlannedStartTime"
+  | "PlannedEndTime"
+  | "OperationalData"
+  | "OperationalDataKey"
+  | "OperationalDataValue"
+  | "ResourceId"
+  | "AutomationId"
+  | "Category"
+  | "Severity"
+  | "OpsItemType"
+  | "AccessRequestByRequesterArn"
+  | "AccessRequestByRequesterId"
+  | "AccessRequestByApproverArn"
+  | "AccessRequestByApproverId"
+  | "AccessRequestBySourceAccountId"
+  | "AccessRequestBySourceOpsItemId"
+  | "AccessRequestBySourceRegion"
+  | "AccessRequestByIsReplica"
+  | "AccessRequestByTargetResourceId"
+  | "ChangeRequestByRequesterArn"
+  | "ChangeRequestByRequesterName"
+  | "ChangeRequestByApproverArn"
+  | "ChangeRequestByApproverName"
+  | "ChangeRequestByTemplate"
+  | "ChangeRequestByTargetsResourceGroup"
+  | "InsightByType"
+  | "AccountId";
 export type OpsItemFilterOperator =
-  | "EQUAL"
-  | "CONTAINS"
-  | "GREATER_THAN"
-  | "LESS_THAN";
+  | "Equal"
+  | "Contains"
+  | "GreaterThan"
+  | "LessThan";
 export type OpsItemFilters = Array<OpsItemFilter>;
 export type OpsItemFilterValue = string;
 
@@ -4826,10 +4828,10 @@ export interface OpsItemRelatedItemsFilter {
   Operator: OpsItemRelatedItemsFilterOperator;
 }
 export type OpsItemRelatedItemsFilterKey =
-  | "RESOURCE_TYPE"
-  | "ASSOCIATION_ID"
-  | "RESOURCE_URI";
-export type OpsItemRelatedItemsFilterOperator = "EQUAL";
+  | "ResourceType"
+  | "AssociationId"
+  | "ResourceUri";
+export type OpsItemRelatedItemsFilterOperator = "Equal";
 export type OpsItemRelatedItemsFilters = Array<OpsItemRelatedItemsFilter>;
 export type OpsItemRelatedItemsFilterValue = string;
 
@@ -4853,26 +4855,26 @@ export type OpsItemSeverity = string;
 export type OpsItemSource = string;
 
 export type OpsItemStatus =
-  | "OPEN"
-  | "IN_PROGRESS"
-  | "RESOLVED"
-  | "PENDING"
-  | "TIMED_OUT"
-  | "CANCELLING"
-  | "CANCELLED"
-  | "FAILED"
-  | "COMPLETED_WITH_SUCCESS"
-  | "COMPLETED_WITH_FAILURE"
-  | "SCHEDULED"
-  | "RUNBOOK_IN_PROGRESS"
-  | "PENDING_CHANGE_CALENDAR_OVERRIDE"
-  | "CHANGE_CALENDAR_OVERRIDE_APPROVED"
-  | "CHANGE_CALENDAR_OVERRIDE_REJECTED"
-  | "PENDING_APPROVAL"
-  | "APPROVED"
-  | "REVOKED"
-  | "REJECTED"
-  | "CLOSED";
+  | "Open"
+  | "InProgress"
+  | "Resolved"
+  | "Pending"
+  | "TimedOut"
+  | "Cancelling"
+  | "Cancelled"
+  | "Failed"
+  | "CompletedWithSuccess"
+  | "CompletedWithFailure"
+  | "Scheduled"
+  | "RunbookInProgress"
+  | "PendingChangeCalendarOverride"
+  | "ChangeCalendarOverrideApproved"
+  | "ChangeCalendarOverrideRejected"
+  | "PendingApproval"
+  | "Approved"
+  | "Revoked"
+  | "Rejected"
+  | "Closed";
 export type OpsItemSummaries = Array<OpsItemSummary>;
 export interface OpsItemSummary {
   CreatedBy?: string;
@@ -5056,7 +5058,7 @@ export interface ParametersFilter {
   Key: ParametersFilterKey;
   Values: Array<string>;
 }
-export type ParametersFilterKey = "NAME" | "TYPE" | "KEY_ID";
+export type ParametersFilterKey = "Name" | "Type" | "KeyId";
 export type ParametersFilterList = Array<ParametersFilter>;
 export type ParametersFilterValue = string;
 
@@ -5074,8 +5076,8 @@ export type ParameterStringFilterValue = string;
 export type ParameterStringFilterValueList = Array<string>;
 export type ParameterStringQueryOption = string;
 
-export type ParameterTier = "STANDARD" | "ADVANCED" | "INTELLIGENT_TIERING";
-export type ParameterType = "STRING" | "STRING_LIST" | "SECURE_STRING";
+export type ParameterTier = "Standard" | "Advanced" | "Intelligent-Tiering";
+export type ParameterType = "String" | "StringList" | "SecureString";
 export type ParameterValue = string;
 
 export type ParameterValueList = Array<string>;
@@ -5121,7 +5123,7 @@ export interface Patch {
   Severity?: string;
   Repository?: string;
 }
-export type PatchAction = "AllowAsDependency" | "Block";
+export type PatchAction = "ALLOW_AS_DEPENDENCY" | "BLOCK";
 export type PatchAdvisoryId = string;
 
 export type PatchAdvisoryIdList = Array<string>;
@@ -5155,24 +5157,24 @@ export interface PatchComplianceData {
 }
 export type PatchComplianceDataList = Array<PatchComplianceData>;
 export type PatchComplianceDataState =
-  | "Installed"
-  | "InstalledOther"
-  | "InstalledPendingReboot"
-  | "InstalledRejected"
-  | "Missing"
-  | "NotApplicable"
-  | "Failed"
-  | "AvailableSecurityUpdate";
+  | "INSTALLED"
+  | "INSTALLED_OTHER"
+  | "INSTALLED_PENDING_REBOOT"
+  | "INSTALLED_REJECTED"
+  | "MISSING"
+  | "NOT_APPLICABLE"
+  | "FAILED"
+  | "AVAILABLE_SECURITY_UPDATE";
 export type PatchComplianceLevel =
-  | "Critical"
-  | "High"
-  | "Medium"
-  | "Low"
-  | "Informational"
-  | "Unspecified";
+  | "CRITICAL"
+  | "HIGH"
+  | "MEDIUM"
+  | "LOW"
+  | "INFORMATIONAL"
+  | "UNSPECIFIED";
 export type PatchComplianceMaxResults = number;
 
-export type PatchComplianceStatus = "Compliant" | "NonCompliant";
+export type PatchComplianceStatus = "COMPLIANT" | "NON_COMPLIANT";
 export type PatchContentUrl = string;
 
 export type PatchCriticalNonCompliantCount = number;
@@ -5183,10 +5185,10 @@ export type PatchCVEIdList = Array<string>;
 export type PatchCVEIds = string;
 
 export type PatchDeploymentStatus =
-  | "Approved"
-  | "PendingApproval"
-  | "ExplicitApproved"
-  | "ExplicitRejected";
+  | "APPROVED"
+  | "PENDING_APPROVAL"
+  | "EXPLICIT_APPROVED"
+  | "EXPLICIT_REJECTED";
 export type PatchDescription = string;
 
 export type PatchEpoch = number;
@@ -5201,25 +5203,25 @@ export interface PatchFilterGroup {
   PatchFilters: Array<PatchFilter>;
 }
 export type PatchFilterKey =
-  | "Arch"
-  | "AdvisoryId"
-  | "BugzillaId"
-  | "PatchSet"
-  | "Product"
-  | "ProductFamily"
-  | "Classification"
-  | "CVEId"
-  | "Epoch"
-  | "MsrcSeverity"
-  | "Name"
-  | "PatchId"
-  | "Section"
-  | "Priority"
-  | "Repository"
-  | "Release"
-  | "Severity"
-  | "Security"
-  | "Version";
+  | "ARCH"
+  | "ADVISORY_ID"
+  | "BUGZILLA_ID"
+  | "PATCH_SET"
+  | "PRODUCT"
+  | "PRODUCT_FAMILY"
+  | "CLASSIFICATION"
+  | "CVE_ID"
+  | "EPOCH"
+  | "MSRC_SEVERITY"
+  | "NAME"
+  | "PATCH_ID"
+  | "SECTION"
+  | "PRIORITY"
+  | "REPOSITORY"
+  | "RELEASE"
+  | "SEVERITY"
+  | "SECURITY"
+  | "VERSION";
 export type PatchFilterList = Array<PatchFilter>;
 export type PatchFilterValue = string;
 
@@ -5259,7 +5261,7 @@ export type PatchName = string;
 
 export type PatchNotApplicableCount = number;
 
-export type PatchOperationType = "SCAN" | "INSTALL";
+export type PatchOperationType = "Scan" | "Install";
 export interface PatchOrchestratorFilter {
   Key?: string;
   Values?: Array<string>;
@@ -5278,12 +5280,12 @@ export type PatchProductFamily = string;
 
 export type PatchPropertiesList = Array<Record<string, string>>;
 export type PatchProperty =
-  | "Product"
-  | "PatchProductFamily"
-  | "PatchClassification"
-  | "PatchMsrcSeverity"
-  | "PatchPriority"
-  | "PatchSeverity";
+  | "PRODUCT"
+  | "PRODUCT_FAMILY"
+  | "CLASSIFICATION"
+  | "MSRC_SEVERITY"
+  | "PRIORITY"
+  | "SEVERITY";
 export type PatchPropertyEntry = Record<string, string>;
 export type PatchRelease = string;
 
@@ -5302,7 +5304,7 @@ export interface PatchRuleGroup {
 export type PatchRuleList = Array<PatchRule>;
 export type PatchSecurityNonCompliantCount = number;
 
-export type PatchSet = "Os" | "Application";
+export type PatchSet = "OS" | "APPLICATION";
 export type PatchSeverity = string;
 
 export interface PatchSource {
@@ -5333,10 +5335,10 @@ export type PatchVendor = string;
 
 export type PatchVersion = string;
 
-export type PingStatus = "ONLINE" | "CONNECTION_LOST" | "INACTIVE";
+export type PingStatus = "Online" | "ConnectionLost" | "Inactive";
 export type PlatformName = string;
 
-export type PlatformType = "WINDOWS" | "LINUX" | "MACOS";
+export type PlatformType = "Windows" | "Linux" | "MacOS";
 export type PlatformTypeList = Array<PlatformType>;
 export type PlatformVersion = string;
 
@@ -5414,7 +5416,7 @@ export interface PutResourcePolicyResponse {
   PolicyId?: string;
   PolicyHash?: string;
 }
-export type RebootOption = "REBOOT_IF_NEEDED" | "NO_REBOOT";
+export type RebootOption = "RebootIfNeeded" | "NoReboot";
 export type Region = string;
 
 export type RegionList = Array<string>;
@@ -5604,7 +5606,7 @@ export interface ResourceDataSyncS3Destination {
   AWSKMSKeyARN?: string;
   DestinationDataSharing?: ResourceDataSyncDestinationDataSharing;
 }
-export type ResourceDataSyncS3Format = "JSON_SERDE";
+export type ResourceDataSyncS3Format = "JsonSerDe";
 export type ResourceDataSyncS3Prefix = string;
 
 export type ResourceDataSyncS3Region = string;
@@ -5676,17 +5678,17 @@ export declare class ResourcePolicyNotFoundException extends EffectData.TaggedEr
   readonly Message?: string;
 }> {}
 export type ResourcePolicyParameterNamesList = Array<string>;
-export type ResourceType = "MANAGED_INSTANCE" | "EC2_INSTANCE";
+export type ResourceType = "ManagedInstance" | "EC2Instance";
 export type ResourceTypeForTagging =
-  | "DOCUMENT"
-  | "MANAGED_INSTANCE"
-  | "MAINTENANCE_WINDOW"
-  | "PARAMETER"
-  | "PATCH_BASELINE"
-  | "OPS_ITEM"
-  | "OPSMETADATA"
-  | "AUTOMATION"
-  | "ASSOCIATION";
+  | "Document"
+  | "ManagedInstance"
+  | "MaintenanceWindow"
+  | "Parameter"
+  | "PatchBaseline"
+  | "OpsItem"
+  | "OpsMetadata"
+  | "Automation"
+  | "Association";
 export type ResponseCode = number;
 
 export interface ResultAttribute {
@@ -5824,13 +5826,13 @@ export interface SessionFilter {
   value: string;
 }
 export type SessionFilterKey =
-  | "INVOKED_AFTER"
-  | "INVOKED_BEFORE"
-  | "TARGET_ID"
-  | "OWNER"
-  | "STATUS"
-  | "SESSION_ID"
-  | "ACCESS_TYPE";
+  | "InvokedAfter"
+  | "InvokedBefore"
+  | "Target"
+  | "Owner"
+  | "Status"
+  | "SessionId"
+  | "AccessType";
 export type SessionFilterList = Array<SessionFilter>;
 export type SessionFilterValue = string;
 
@@ -5857,14 +5859,14 @@ export type SessionOwner = string;
 
 export type SessionReason = string;
 
-export type SessionState = "ACTIVE" | "HISTORY";
+export type SessionState = "Active" | "History";
 export type SessionStatus =
-  | "CONNECTED"
-  | "CONNECTING"
-  | "DISCONNECTED"
-  | "TERMINATED"
-  | "TERMINATING"
-  | "FAILED";
+  | "Connected"
+  | "Connecting"
+  | "Disconnected"
+  | "Terminated"
+  | "Terminating"
+  | "Failed";
 export type SessionTarget = string;
 
 export type SessionTokenType = string;
@@ -5880,12 +5882,12 @@ export interface SeveritySummary {
 export type SharedDocumentVersion = string;
 
 export type SignalType =
-  | "APPROVE"
-  | "REJECT"
-  | "START_STEP"
-  | "STOP_STEP"
-  | "RESUME"
-  | "REVOKE";
+  | "Approve"
+  | "Reject"
+  | "StartStep"
+  | "StopStep"
+  | "Resume"
+  | "Revoke";
 export type SnapshotDownloadUrl = string;
 
 export type SnapshotId = string;
@@ -5893,9 +5895,9 @@ export type SnapshotId = string;
 export type SourceId = string;
 
 export type SourceType =
-  | "AWS_EC2_INSTANCE"
-  | "AWS_IOT_THING"
-  | "AWS_SSM_MANAGEDINSTANCE";
+  | "AWS::EC2::Instance"
+  | "AWS::IoT::Thing"
+  | "AWS::SSM::ManagedInstance";
 export type StandardErrorContent = string;
 
 export type StandardOutputContent = string;
@@ -6008,15 +6010,15 @@ export interface StepExecutionFilter {
   Values: Array<string>;
 }
 export type StepExecutionFilterKey =
-  | "START_TIME_BEFORE"
-  | "START_TIME_AFTER"
-  | "STEP_EXECUTION_STATUS"
-  | "STEP_EXECUTION_ID"
-  | "STEP_NAME"
-  | "ACTION"
-  | "PARENT_STEP_EXECUTION_ID"
-  | "PARENT_STEP_ITERATION"
-  | "PARENT_STEP_ITERATOR_VALUE";
+  | "StartTimeBefore"
+  | "StartTimeAfter"
+  | "StepExecutionStatus"
+  | "StepExecutionId"
+  | "StepName"
+  | "Action"
+  | "ParentStepExecutionId"
+  | "ParentStepIteration"
+  | "ParentStepIteratorValue";
 export type StepExecutionFilterList = Array<StepExecutionFilter>;
 export type StepExecutionFilterValue = string;
 
@@ -6028,7 +6030,7 @@ export interface StopAutomationExecutionRequest {
   Type?: StopType;
 }
 export interface StopAutomationExecutionResult {}
-export type StopType = "COMPLETE" | "CANCEL";
+export type StopType = "Complete" | "Cancel";
 export type StreamUrl = string;
 
 export type SsmString = string;

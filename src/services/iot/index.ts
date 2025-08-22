@@ -3111,7 +3111,7 @@ export interface AggregationType {
   name: AggregationTypeName;
   values?: Array<string>;
 }
-export type AggregationTypeName = "STATISTICS" | "PERCENTILES" | "CARDINALITY";
+export type AggregationTypeName = "Statistics" | "Percentiles" | "Cardinality";
 export type AggregationTypeValue = string;
 
 export type AggregationTypeValues = Array<string>;
@@ -3610,14 +3610,14 @@ export interface CancelJobResponse {
   description?: string;
 }
 export type CannedAccessControlList =
-  | "Private"
-  | "PublicRead"
-  | "PublicReadWrite"
-  | "AwsExecRead"
-  | "AuthenticatedRead"
-  | "BucketOwnerRead"
-  | "BucketOwnerFullControl"
-  | "LogDeliveryWrite";
+  | "private"
+  | "public-read"
+  | "public-read-write"
+  | "aws-exec-read"
+  | "authenticated-read"
+  | "bucket-owner-read"
+  | "bucket-owner-full-control"
+  | "log-delivery-write";
 export interface Certificate {
   certificateArn?: string;
   certificateId?: string;
@@ -3793,7 +3793,7 @@ export type CommandId = string;
 
 export type CommandMaxResults = number;
 
-export type CommandNamespace = "AWSIoT" | "AWSIoTFleetWise";
+export type CommandNamespace = "AWS-IoT" | "AWS-IoT-FleetWise";
 export interface CommandParameter {
   name: string;
   value?: CommandParameterValue;
@@ -3833,16 +3833,16 @@ export type CommandSummaryList = Array<CommandSummary>;
 export type Comment = string;
 
 export type ComparisonOperator =
-  | "LESS_THAN"
-  | "LESS_THAN_EQUALS"
-  | "GREATER_THAN"
-  | "GREATER_THAN_EQUALS"
-  | "IN_CIDR_SET"
-  | "NOT_IN_CIDR_SET"
-  | "IN_PORT_SET"
-  | "NOT_IN_PORT_SET"
-  | "IN_SET"
-  | "NOT_IN_SET";
+  | "less-than"
+  | "less-than-equals"
+  | "greater-than"
+  | "greater-than-equals"
+  | "in-cidr-set"
+  | "not-in-cidr-set"
+  | "in-port-set"
+  | "not-in-port-set"
+  | "in-set"
+  | "not-in-set";
 export type CompliantChecksCount = number;
 
 export type ConfidenceLevel = "LOW" | "MEDIUM" | "HIGH";
@@ -4315,10 +4315,10 @@ export type CustomMetricArn = string;
 export type CustomMetricDisplayName = string;
 
 export type CustomMetricType =
-  | "STRING_LIST"
-  | "IP_ADDRESS_LIST"
-  | "NUMBER_LIST"
-  | "NUMBER";
+  | "string-list"
+  | "ip-address-list"
+  | "number-list"
+  | "number";
 export type DataCollectionPercentage = number;
 
 export type DateType = Date | string;
@@ -5160,7 +5160,7 @@ export interface Field {
 export type FieldName = string;
 
 export type Fields = Array<Field>;
-export type FieldType = "NUMBER" | "STRING" | "BOOLEAN";
+export type FieldType = "Number" | "String" | "Boolean";
 export type FileId = number;
 
 export interface FileLocation {
@@ -5213,17 +5213,17 @@ export type FleetMetricUnit =
   | "Terabits"
   | "Percent"
   | "Count"
-  | "BytesSecond"
-  | "KilobytesSecond"
-  | "MegabytesSecond"
-  | "GigabytesSecond"
-  | "TerabytesSecond"
-  | "BitsSecond"
-  | "KilobitsSecond"
-  | "MegabitsSecond"
-  | "GigabitsSecond"
-  | "TerabitsSecond"
-  | "CountSecond"
+  | "Bytes/Second"
+  | "Kilobytes/Second"
+  | "Megabytes/Second"
+  | "Gigabytes/Second"
+  | "Terabytes/Second"
+  | "Bits/Second"
+  | "Kilobits/Second"
+  | "Megabits/Second"
+  | "Gigabits/Second"
+  | "Terabits/Second"
+  | "Count/Second"
   | "None";
 export type Forced = boolean;
 
@@ -7339,7 +7339,7 @@ export interface SnsAction {
 }
 export type SnsTopicArn = string;
 
-export type SortOrder = "Ascending" | "Descending";
+export type SortOrder = "ASCENDING" | "DESCENDING";
 export type SQL = string;
 
 export declare class SqlParseException extends EffectData.TaggedError(
@@ -8259,9 +8259,9 @@ export interface ViolationEventOccurrenceRange {
 }
 export type ViolationEvents = Array<ViolationEvent>;
 export type ViolationEventType =
-  | "IN_ALARM"
-  | "ALARM_CLEARED"
-  | "ALARM_INVALIDATED";
+  | "in-alarm"
+  | "alarm-cleared"
+  | "alarm-invalidated";
 export type ViolationId = string;
 
 export interface VpcDestinationConfiguration {

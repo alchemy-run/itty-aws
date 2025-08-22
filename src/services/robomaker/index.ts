@@ -1479,13 +1479,13 @@ export interface RobotDeployment {
   failureCode?: DeploymentJobErrorCode;
 }
 export type RobotDeploymentStep =
-  | "ValidatingStep"
-  | "DownloadingExtractingStep"
+  | "Validating"
+  | "DownloadingExtracting"
   | "ExecutingDownloadCondition"
-  | "PreLaunchStep"
-  | "LaunchingStep"
-  | "PostLaunchStep"
-  | "FinishedStep";
+  | "ExecutingPreLaunch"
+  | "Launching"
+  | "ExecutingPostLaunch"
+  | "Finished";
 export type RobotDeploymentSummary = Array<RobotDeployment>;
 export type Robots = Array<Robot>;
 export interface RobotSoftwareSuite {

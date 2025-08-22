@@ -528,11 +528,11 @@ export type OwnerId = string;
 export type Parent = string;
 
 export type ProviderType =
-  | "BITBUCKET"
-  | "GITHUB"
-  | "GITHUB_ENTERPRISE_SERVER"
-  | "GITLAB"
-  | "GITLAB_SELF_MANAGED";
+  | "Bitbucket"
+  | "GitHub"
+  | "GitHubEnterpriseServer"
+  | "GitLab"
+  | "GitLabSelfManaged";
 export type PublishDeploymentStatus = "ENABLED" | "DISABLED";
 export type RepositoryLinkArn = string;
 

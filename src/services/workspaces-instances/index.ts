@@ -156,7 +156,7 @@ export declare class AccessDeniedException extends EffectData.TaggedError(
 )<{
   readonly Message: string;
 }> {}
-export type AmdSevSnpEnum = "ENABLED" | "DISABLED";
+export type AmdSevSnpEnum = "enabled" | "disabled";
 export type ARN = string;
 
 export interface AssociateVolumeRequest {
@@ -165,10 +165,10 @@ export interface AssociateVolumeRequest {
   Device: string;
 }
 export interface AssociateVolumeResponse {}
-export type AutoRecoveryEnum = "DISABLED" | "DEFAULT";
+export type AutoRecoveryEnum = "disabled" | "default";
 export type AvailabilityZone = string;
 
-export type BandwidthWeightingEnum = "DEFAULT" | "VPC_1" | "EBS_1";
+export type BandwidthWeightingEnum = "default" | "vpc-1" | "ebs-1";
 export interface BlockDeviceMappingRequest {
   DeviceName?: string;
   Ebs?: EbsBlockDevice;
@@ -177,9 +177,9 @@ export interface BlockDeviceMappingRequest {
 }
 export type BlockDeviceMappings = Array<BlockDeviceMappingRequest>;
 export type CapacityReservationPreferenceEnum =
-  | "CAPACITY_RESERVATIONS_ONLY"
-  | "OPEN"
-  | "NONE";
+  | "capacity-reservations-only"
+  | "open"
+  | "none";
 export interface CapacityReservationSpecification {
   CapacityReservationPreference?: CapacityReservationPreferenceEnum;
   CapacityReservationTarget?: CapacityReservationTarget;
@@ -202,7 +202,7 @@ export interface ConnectionTrackingSpecificationRequest {
   UdpStreamTimeout?: number;
   UdpTimeout?: number;
 }
-export type CpuCreditsEnum = "STANDARD" | "UNLIMITED";
+export type CpuCreditsEnum = "standard" | "unlimited";
 export interface CpuOptionsRequest {
   AmdSevSnp?: AmdSevSnpEnum;
   CoreCount?: number;
@@ -296,19 +296,19 @@ export interface HibernationOptionsRequest {
 }
 export type HostId = string;
 
-export type HostnameTypeEnum = "IP_NAME" | "RESOURCE_NAME";
-export type HttpEndpointEnum = "ENABLED" | "DISABLED";
-export type HttpProtocolIpv6Enum = "ENABLED" | "DISABLED";
+export type HostnameTypeEnum = "ip-name" | "resource-name";
+export type HttpEndpointEnum = "enabled" | "disabled";
+export type HttpProtocolIpv6Enum = "enabled" | "disabled";
 export type HttpPutResponseHopLimit = number;
 
-export type HttpTokensEnum = "OPTIONAL" | "REQUIRED";
+export type HttpTokensEnum = "optional" | "required";
 export interface IamInstanceProfileSpecification {
   Arn?: string;
   Name?: string;
 }
 export type ImageId = string;
 
-export type InstanceInterruptionBehaviorEnum = "HIBERNATE" | "STOP";
+export type InstanceInterruptionBehaviorEnum = "hibernate" | "stop";
 export interface InstanceIpv6Address {
   Ipv6Address?: string;
   IsPrimaryIpv6?: boolean;
@@ -327,7 +327,7 @@ export interface InstanceMetadataOptionsRequest {
   HttpTokens?: HttpTokensEnum;
   InstanceMetadataTags?: InstanceMetadataTagsEnum;
 }
-export type InstanceMetadataTagsEnum = "ENABLED" | "DISABLED";
+export type InstanceMetadataTagsEnum = "enabled" | "disabled";
 export interface InstanceNetworkInterfaceSpecification {
   AssociateCarrierIpAddress?: boolean;
   AssociatePublicIpAddress?: boolean;
@@ -360,7 +360,7 @@ export interface InstanceTypeInfo {
   InstanceType?: string;
 }
 export type InstanceTypes = Array<InstanceTypeInfo>;
-export type InterfaceTypeEnum = "INTERFACE" | "EFA" | "EFA_ONLY";
+export type InterfaceTypeEnum = "interface" | "efa" | "efa-only";
 export declare class InternalServerException extends EffectData.TaggedError(
   "InternalServerException",
 )<{
@@ -455,7 +455,7 @@ export interface ManagedInstanceRequest {
   TagSpecifications?: Array<TagSpecification>;
   UserData?: string;
 }
-export type MarketTypeEnum = "SPOT" | "CAPACITY_BLOCK";
+export type MarketTypeEnum = "spot" | "capacity-block";
 export type MaxResults = number;
 
 export type NetworkInterfaceId = string;
@@ -509,10 +509,10 @@ export declare class ResourceNotFoundException extends EffectData.TaggedError(
   readonly ResourceType: string;
 }> {}
 export type ResourceTypeEnum =
-  | "INSTANCE"
-  | "VOLUME"
-  | "SPOT_INSTANCES_REQUEST"
-  | "NETWORK_INTERFACE";
+  | "instance"
+  | "volume"
+  | "spot-instances-request"
+  | "network-interface";
 export interface RunInstancesMonitoringEnabled {
   Enabled?: boolean;
 }
@@ -533,7 +533,7 @@ export declare class ServiceQuotaExceededException extends EffectData.TaggedErro
 }> {}
 export type SnapshotId = string;
 
-export type SpotInstanceTypeEnum = "ONE_TIME" | "PERSISTENT";
+export type SpotInstanceTypeEnum = "one-time" | "persistent";
 export interface SpotMarketOptions {
   BlockDurationMinutes?: number;
   InstanceInterruptionBehavior?: InstanceInterruptionBehaviorEnum;
@@ -567,7 +567,7 @@ export interface TagSpecification {
 export type TagSpecifications = Array<TagSpecification>;
 export type TagValue = string;
 
-export type TenancyEnum = "DEFAULT" | "DEDICATED" | "HOST";
+export type TenancyEnum = "default" | "dedicated" | "host";
 export declare class ThrottlingException extends EffectData.TaggedError(
   "ThrottlingException",
 )<{
@@ -608,13 +608,13 @@ export type VirtualName = string;
 export type VolumeId = string;
 
 export type VolumeTypeEnum =
-  | "STANDARD"
-  | "IO1"
-  | "IO2"
-  | "GP2"
-  | "SC1"
-  | "ST1"
-  | "GP3";
+  | "standard"
+  | "io1"
+  | "io2"
+  | "gp2"
+  | "sc1"
+  | "st1"
+  | "gp3";
 export interface WorkspaceInstance {
   ProvisionState?: ProvisionStateEnum;
   WorkspaceInstanceId?: string;

@@ -687,13 +687,13 @@ export interface MergeShardsInput {
   StreamARN?: string;
 }
 export type MetricsName =
-  | "INCOMING_BYTES"
-  | "INCOMING_RECORDS"
-  | "OUTGOING_BYTES"
-  | "OUTGOING_RECORDS"
-  | "WRITE_PROVISIONED_THROUGHPUT_EXCEEDED"
-  | "READ_PROVISIONED_THROUGHPUT_EXCEEDED"
-  | "ITERATOR_AGE_MILLISECONDS"
+  | "IncomingBytes"
+  | "IncomingRecords"
+  | "OutgoingBytes"
+  | "OutgoingRecords"
+  | "WriteProvisionedThroughputExceeded"
+  | "ReadProvisionedThroughputExceeded"
+  | "IteratorAgeMilliseconds"
   | "ALL";
 export type MetricsNameList = Array<MetricsName>;
 export type MillisBehindLatest = number;

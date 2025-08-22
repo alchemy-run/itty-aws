@@ -464,22 +464,22 @@ export type DataIntegrationEventMaxResults = number;
 export type DataIntegrationEventNextToken = string;
 
 export type DataIntegrationEventType =
-  | "FORECAST"
-  | "INVENTORY_LEVEL"
-  | "INBOUND_ORDER"
-  | "INBOUND_ORDER_LINE"
-  | "INBOUND_ORDER_LINE_SCHEDULE"
-  | "OUTBOUND_ORDER_LINE"
-  | "OUTBOUND_SHIPMENT"
-  | "PROCESS_HEADER"
-  | "PROCESS_OPERATION"
-  | "PROCESS_PRODUCT"
-  | "RESERVATION"
-  | "SHIPMENT"
-  | "SHIPMENT_STOP"
-  | "SHIPMENT_STOP_ORDER"
-  | "SUPPLY_PLAN"
-  | "DATASET";
+  | "scn.data.forecast"
+  | "scn.data.inventorylevel"
+  | "scn.data.inboundorder"
+  | "scn.data.inboundorderline"
+  | "scn.data.inboundorderlineschedule"
+  | "scn.data.outboundorderline"
+  | "scn.data.outboundshipment"
+  | "scn.data.processheader"
+  | "scn.data.processoperation"
+  | "scn.data.processproduct"
+  | "scn.data.reservation"
+  | "scn.data.shipment"
+  | "scn.data.shipmentstop"
+  | "scn.data.shipmentstoporder"
+  | "scn.data.supplyplan"
+  | "scn.data.dataset";
 export interface DataIntegrationFlow {
   instanceId: string;
   name: string;
@@ -798,12 +798,12 @@ export type InstanceNameList = Array<string>;
 export type InstanceNextToken = string;
 
 export type InstanceState =
-  | "INITIALIZING"
-  | "ACTIVE"
-  | "CREATE_FAILED"
-  | "DELETE_FAILED"
-  | "DELETING"
-  | "DELETED";
+  | "Initializing"
+  | "Active"
+  | "CreateFailed"
+  | "DeleteFailed"
+  | "Deleting"
+  | "Deleted";
 export type InstanceStateList = Array<InstanceState>;
 export type InstanceWebAppDnsDomain = string;
 

@@ -1554,18 +1554,18 @@ export type ContextKeyNamesResultListType = Array<string>;
 export type ContextKeyNameType = string;
 
 export type ContextKeyTypeEnum =
-  | "STRING"
-  | "STRING_LIST"
-  | "NUMERIC"
-  | "NUMERIC_LIST"
-  | "BOOLEAN"
-  | "BOOLEAN_LIST"
-  | "IP"
-  | "IP_LIST"
-  | "BINARY"
-  | "BINARY_LIST"
-  | "DATE"
-  | "DATE_LIST";
+  | "string"
+  | "stringList"
+  | "numeric"
+  | "numericList"
+  | "boolean"
+  | "booleanList"
+  | "ip"
+  | "ipList"
+  | "binary"
+  | "binaryList"
+  | "date"
+  | "dateList";
 export type ContextKeyValueListType = Array<string>;
 export type ContextKeyValueType = string;
 
@@ -1926,7 +1926,7 @@ export type ExceptionMessage = string;
 export type existingUserNameType = string;
 
 export type FeaturesListType = Array<FeatureType>;
-export type FeatureType = "ROOT_CREDENTIALS_MANAGEMENT" | "ROOT_SESSIONS";
+export type FeatureType = "RootCredentialsManagement" | "RootSessions";
 export interface GenerateCredentialReportResponse {
   State?: ReportStateType;
   Description?: string;
@@ -2719,7 +2719,7 @@ export type pathPrefixType = string;
 
 export type pathType = string;
 
-export type PermissionsBoundaryAttachmentType = "Policy";
+export type PermissionsBoundaryAttachmentType = "PermissionsBoundaryPolicy";
 export interface PermissionsBoundaryDecisionDetail {
   AllowedByPermissionsBoundary?: boolean;
 }
@@ -2748,9 +2748,9 @@ export type policyDocumentType = string;
 
 export type policyDocumentVersionListType = Array<PolicyVersion>;
 export type PolicyEvaluationDecisionType =
-  | "ALLOWED"
-  | "EXPLICIT_DENY"
-  | "IMPLICIT_DENY";
+  | "allowed"
+  | "explicitDeny"
+  | "implicitDeny";
 export type policyEvaluationErrorMessage = string;
 
 export declare class PolicyEvaluationException extends EffectData.TaggedError(
@@ -2795,13 +2795,13 @@ export interface PolicyRole {
 export type PolicyRoleListType = Array<PolicyRole>;
 export type policyScopeType = "All" | "AWS" | "Local";
 export type PolicySourceType =
-  | "USER"
-  | "GROUP"
-  | "ROLE"
-  | "AWS_MANAGED"
-  | "USER_MANAGED"
-  | "RESOURCE"
-  | "NONE";
+  | "user"
+  | "group"
+  | "role"
+  | "aws-managed"
+  | "user-managed"
+  | "resource"
+  | "none";
 export type policyType = "INLINE" | "MANAGED";
 export type PolicyUsageType = "PermissionsPolicy" | "PermissionsBoundary";
 export interface PolicyUser {
@@ -2873,7 +2873,7 @@ export interface RemoveUserFromGroupRequest {
 }
 export type ReportContentType = Uint8Array | string;
 
-export type ReportFormatType = "text_csv";
+export type ReportFormatType = "text/csv";
 export declare class ReportGenerationLimitExceededException extends EffectData.TaggedError(
   "ReportGenerationLimitExceededException",
 )<{

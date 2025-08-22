@@ -5,7 +5,6 @@ import type {
 } from "./interface.ts";
 import { stringifyAwsJson } from "./json-serializer.ts";
 
-
 function extractErrorType(
   errorData: any,
   headers?: Headers,

@@ -340,7 +340,7 @@ export interface StatusSummary {
   LastUpdatedAt: Date | string;
   StatusDetails?: Record<string, string>;
 }
-export type StatusType = "DEPLOYMENT" | "ASYNC_EXECUTIONS";
+export type StatusType = "Deployment" | "AsyncExecutions";
 export interface TagEntry {
   Key?: string;
   Value?: string;

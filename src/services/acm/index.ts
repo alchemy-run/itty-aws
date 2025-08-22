@@ -414,13 +414,13 @@ export type KeyUsageFilterList = Array<KeyUsageName>;
 export type KeyUsageList = Array<KeyUsage>;
 export type KeyUsageName =
   | "DIGITAL_SIGNATURE"
-  | "NON_REPUDATION"
+  | "NON_REPUDIATION"
   | "KEY_ENCIPHERMENT"
   | "DATA_ENCIPHERMENT"
   | "KEY_AGREEMENT"
   | "CERTIFICATE_SIGNING"
   | "CRL_SIGNING"
-  | "ENCHIPER_ONLY"
+  | "ENCIPHER_ONLY"
   | "DECIPHER_ONLY"
   | "ANY"
   | "CUSTOM";

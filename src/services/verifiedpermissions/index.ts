@@ -841,7 +841,7 @@ export type PolicyDefinitionItem =
   | (_PolicyDefinitionItem & {
       templateLinked: TemplateLinkedPolicyDefinitionItem;
     });
-export type PolicyEffect = "PERMIT" | "FORBID";
+export type PolicyEffect = "Permit" | "Forbid";
 export interface PolicyFilter {
   principal?: EntityReference;
   resource?: EntityReference;

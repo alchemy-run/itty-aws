@@ -722,19 +722,19 @@ export declare class KMSThrottlingException extends EffectData.TaggedError(
 export type label = string;
 
 export type LanguageCodeString =
-  | "en_US"
-  | "en_GB"
-  | "es_419"
-  | "es_ES"
-  | "de_DE"
-  | "fr_CA"
-  | "fr_FR"
-  | "it_IT"
-  | "jp_JP"
-  | "pt_BR"
-  | "kr_KR"
-  | "zh_CN"
-  | "zh_TW";
+  | "en-US"
+  | "en-GB"
+  | "es-419"
+  | "es-ES"
+  | "de-DE"
+  | "fr-CA"
+  | "fr-FR"
+  | "it-IT"
+  | "ja-JP"
+  | "pt-BR"
+  | "kr-KR"
+  | "zh-CN"
+  | "zh-TW";
 export interface ListEndpointsByPlatformApplicationInput {
   PlatformApplicationArn: string;
   NextToken?: string;

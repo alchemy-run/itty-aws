@@ -242,7 +242,7 @@ export interface InitialVlans {
   expansionVlan1: InitialVlanInfo;
   expansionVlan2: InitialVlanInfo;
 }
-export type InstanceType = "I4I_METAL";
+export type InstanceType = "i4i.metal";
 export type IpAddress = string;
 
 export type KeyName = string;
@@ -369,10 +369,10 @@ export interface ValidationExceptionField {
 }
 export type ValidationExceptionFieldList = Array<ValidationExceptionField>;
 export type ValidationExceptionReason =
-  | "UNKNOWN_OPERATION"
-  | "CANNOT_PARSE"
-  | "FIELD_VALIDATION_FAILED"
-  | "OTHER";
+  | "unknownOperation"
+  | "cannotParse"
+  | "fieldValidationFailed"
+  | "other";
 export interface VcfHostnames {
   vCenter: string;
   nsx: string;
@@ -384,7 +384,7 @@ export interface VcfHostnames {
   sddcManager: string;
   cloudBuilder: string;
 }
-export type VcfVersion = "VCF_5_2_1";
+export type VcfVersion = "VCF-5.2.1";
 export interface Vlan {
   vlanId?: number;
   cidr?: string;

@@ -7257,7 +7257,7 @@ export type PhoneNumberType =
 export type PhoneNumberTypes = Array<PhoneNumberType>;
 export type PhoneNumberWorkflowMessage = string;
 
-export type PhoneNumberWorkflowStatus = "Claimed" | "InProgress" | "Failed";
+export type PhoneNumberWorkflowStatus = "CLAIMED" | "IN_PROGRESS" | "FAILED";
 export type PhoneType = "SOFT_PHONE" | "DESK_PHONE";
 export type PlatformName = string;
 
@@ -8392,7 +8392,7 @@ export type SlaAssignmentType = "CASES";
 export type SlaFieldValueUnionList = Array<FieldValueUnion>;
 export type SlaName = string;
 
-export type SlaType = "CASE_FIELD";
+export type SlaType = "CaseField";
 export type SnapshotVersion = string;
 
 export interface Sort {
@@ -9547,39 +9547,39 @@ export type VocabularyFailureReason = string;
 export type VocabularyId = string;
 
 export type VocabularyLanguageCode =
-  | "AR_AE"
-  | "DE_CH"
-  | "DE_DE"
-  | "EN_AB"
-  | "EN_AU"
-  | "EN_GB"
-  | "EN_IE"
-  | "EN_IN"
-  | "EN_US"
-  | "EN_WL"
-  | "ES_ES"
-  | "ES_US"
-  | "FR_CA"
-  | "FR_FR"
-  | "HI_IN"
-  | "IT_IT"
-  | "JA_JP"
-  | "KO_KR"
-  | "PT_BR"
-  | "PT_PT"
-  | "ZH_CN"
-  | "EN_NZ"
-  | "EN_ZA"
-  | "CA_ES"
-  | "DA_DK"
-  | "FI_FI"
-  | "ID_ID"
-  | "MS_MY"
-  | "NL_NL"
-  | "NO_NO"
-  | "PL_PL"
-  | "SV_SE"
-  | "TL_PH";
+  | "ar-AE"
+  | "de-CH"
+  | "de-DE"
+  | "en-AB"
+  | "en-AU"
+  | "en-GB"
+  | "en-IE"
+  | "en-IN"
+  | "en-US"
+  | "en-WL"
+  | "es-ES"
+  | "es-US"
+  | "fr-CA"
+  | "fr-FR"
+  | "hi-IN"
+  | "it-IT"
+  | "ja-JP"
+  | "ko-KR"
+  | "pt-BR"
+  | "pt-PT"
+  | "zh-CN"
+  | "en-NZ"
+  | "en-ZA"
+  | "ca-ES"
+  | "da-DK"
+  | "fi-FI"
+  | "id-ID"
+  | "ms-MY"
+  | "nl-NL"
+  | "no-NO"
+  | "pl-PL"
+  | "sv-SE"
+  | "tl-PH";
 export type VocabularyLastModifiedTime = Date | string;
 
 export type VocabularyName = string;

@@ -1786,12 +1786,12 @@ export interface BatchGetRepositoriesError {
   errorMessage?: string;
 }
 export type BatchGetRepositoriesErrorCodeEnum =
-  | "ENCRYPTION_INTEGRITY_CHECKS_FAILED_EXCEPTION"
-  | "ENCRYPTION_KEY_ACCESS_DENIED_EXCEPTION"
-  | "ENCRYPTION_KEY_DISABLED_EXCEPTION"
-  | "ENCRYPTION_KEY_NOT_FOUND_EXCEPTION"
-  | "ENCRYPTION_KEY_UNAVAILABLE_EXCEPTION"
-  | "REPOSITORY_DOES_NOT_EXIST_EXCEPTION";
+  | "EncryptionIntegrityChecksFailedException"
+  | "EncryptionKeyAccessDeniedException"
+  | "EncryptionKeyDisabledException"
+  | "EncryptionKeyNotFoundException"
+  | "EncryptionKeyUnavailableException"
+  | "RepositoryDoesNotExistException";
 export type BatchGetRepositoriesErrorsList = Array<BatchGetRepositoriesError>;
 export interface BatchGetRepositoriesInput {
   repositoryNames: Array<string>;
@@ -1863,7 +1863,7 @@ export declare class CannotModifyApprovalRuleFromTemplateException extends Effec
 }> {}
 export type CapitalBoolean = boolean;
 
-export type ChangeTypeEnum = "ADDED" | "MODIFIED" | "DELETED";
+export type ChangeTypeEnum = "A" | "M" | "D";
 export type ClientRequestToken = string;
 
 export declare class ClientRequestTokenRequiredException extends EffectData.TaggedError(
@@ -3216,7 +3216,7 @@ export declare class OperationNotAllowedException extends EffectData.TaggedError
 )<{
   readonly message?: string;
 }> {}
-export type OrderEnum = "ASCENDING" | "DESCENDING";
+export type OrderEnum = "ascending" | "descending";
 export interface OriginApprovalRuleTemplate {
   approvalRuleTemplateId?: string;
   approvalRuleTemplateName?: string;
@@ -3601,10 +3601,10 @@ export declare class RepositoryTriggerDestinationArnRequiredException extends Ef
   readonly message?: string;
 }> {}
 export type RepositoryTriggerEventEnum =
-  | "ALL"
-  | "UPDATE_REFERENCE"
-  | "CREATE_REFERENCE"
-  | "DELETE_REFERENCE";
+  | "all"
+  | "updateReference"
+  | "createReference"
+  | "deleteReference";
 export type RepositoryTriggerEventList = Array<RepositoryTriggerEventEnum>;
 export declare class RepositoryTriggerEventsListRequiredException extends EffectData.TaggedError(
   "RepositoryTriggerEventsListRequiredException",
@@ -3678,7 +3678,7 @@ export interface SetFileModeEntry {
   filePath: string;
   fileMode: FileModeTypeEnum;
 }
-export type SortByEnum = "REPOSITORY_NAME" | "MODIFIED_DATE";
+export type SortByEnum = "repositoryName" | "lastModifiedDate";
 export declare class SourceAndDestinationAreSameException extends EffectData.TaggedError(
   "SourceAndDestinationAreSameException",
 )<{

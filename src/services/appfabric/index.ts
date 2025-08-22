@@ -322,10 +322,10 @@ export interface AppAuthorization {
   authUrl?: string;
 }
 export type AppAuthorizationStatus =
-  | "PENDING_CONNECT"
-  | "CONNECTED"
-  | "CONNECTION_VALIDATION_FAILED"
-  | "TOKEN_AUTO_ROTATION_FAILED";
+  | "PendingConnect"
+  | "Connected"
+  | "ConnectionValidationFailed"
+  | "TokenAutoRotationFailed";
 export interface AppAuthorizationSummary {
   appAuthorizationArn: string;
   appBundleArn: string;
@@ -356,7 +356,7 @@ export interface AuthRequest {
   redirectUri: string;
   code: string;
 }
-export type AuthType = "OAUTH2" | "API_KEY";
+export type AuthType = "oauth2" | "apiKey";
 export interface BatchGetUserAccessTasksRequest {
   appBundleIdentifier: string;
   taskIdList: Array<string>;
@@ -471,7 +471,7 @@ export type Email = string;
 export interface FirehoseStream {
   streamName: string;
 }
-export type Format = "JSON" | "PARQUET";
+export type Format = "json" | "parquet";
 export interface GetAppAuthorizationRequest {
   appBundleIdentifier: string;
   appAuthorizationIdentifier: string;
@@ -523,19 +523,19 @@ export interface IngestionDestination {
   updatedAt?: Date | string;
 }
 export type IngestionDestinationList = Array<IngestionDestinationSummary>;
-export type IngestionDestinationStatus = "ACTIVE" | "FAILED";
+export type IngestionDestinationStatus = "Active" | "Failed";
 export interface IngestionDestinationSummary {
   arn: string;
 }
 export type IngestionList = Array<IngestionSummary>;
-export type IngestionState = "ENABLED" | "DISABLED";
+export type IngestionState = "enabled" | "disabled";
 export interface IngestionSummary {
   arn: string;
   app: string;
   tenantId: string;
   state: IngestionState;
 }
-export type IngestionType = "AUDIT_LOG";
+export type IngestionType = "auditLog";
 export type Integer = number;
 
 export declare class InternalServerException extends EffectData.TaggedError(
@@ -592,7 +592,7 @@ export interface Oauth2Credential {
   clientId: string;
   clientSecret: string;
 }
-export type Persona = "ADMIN" | "ENDUSER";
+export type Persona = "admin" | "endUser";
 interface _ProcessingConfiguration {
   auditLog?: AuditLogProcessingConfiguration;
 }
@@ -614,7 +614,7 @@ export interface S3Bucket {
   bucketName: string;
   prefix?: string;
 }
-export type Schema = "OCSF" | "RAW";
+export type Schema = "ocsf" | "raw";
 export type SensitiveString2048 = string;
 
 export declare class ServiceQuotaExceededException extends EffectData.TaggedError(
@@ -747,10 +747,10 @@ export interface ValidationExceptionField {
 }
 export type ValidationExceptionFieldList = Array<ValidationExceptionField>;
 export type ValidationExceptionReason =
-  | "UNKNOWN_OPERATION"
-  | "CANNOT_PARSE"
-  | "FIELD_VALIDATION_FAILED"
-  | "OTHER";
+  | "unknownOperation"
+  | "cannotParse"
+  | "fieldValidationFailed"
+  | "other";
 export declare namespace BatchGetUserAccessTasks {
   export type Input = BatchGetUserAccessTasksRequest;
   export type Output = BatchGetUserAccessTasksResponse;

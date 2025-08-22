@@ -524,7 +524,7 @@ export type BuiltinSlotTypeSignature = string;
 
 export type ChannelConfigurationMap = Record<string, string>;
 export type ChannelStatus = "IN_PROGRESS" | "CREATED" | "FAILED";
-export type ChannelType = "FACEBOOK" | "SLACK" | "TWILIO_SMS" | "KIK";
+export type ChannelType = "Facebook" | "Slack" | "Twilio-Sms" | "Kik";
 export interface CodeHook {
   uri: string;
   messageVersion: string;
@@ -538,7 +538,7 @@ export declare class ConflictException extends EffectData.TaggedError(
 }> {}
 export type ContentString = string;
 
-export type ContentType = "PLAIN_TEXT" | "SSML" | "CUSTOM_PAYLOAD";
+export type ContentType = "PlainText" | "SSML" | "CustomPayload";
 export type ContextTimeToLiveInSeconds = number;
 
 export type ContextTurnsToLive = number;
@@ -670,7 +670,7 @@ export interface FulfillmentActivity {
   type: FulfillmentActivityType;
   codeHook?: CodeHook;
 }
-export type FulfillmentActivityType = "RETURN_INTENT" | "CODE_HOOK";
+export type FulfillmentActivityType = "ReturnIntent" | "CodeHook";
 export interface GetBotAliasesRequest {
   botName: string;
   nextToken?: string;
@@ -989,19 +989,19 @@ export interface ListTagsForResourceResponse {
   tags?: Array<Tag>;
 }
 export type Locale =
-  | "DE_DE"
-  | "EN_AU"
-  | "EN_GB"
-  | "EN_IN"
-  | "EN_US"
-  | "ES_419"
-  | "ES_ES"
-  | "ES_US"
-  | "FR_FR"
-  | "FR_CA"
-  | "IT_IT"
-  | "JA_JP"
-  | "KO_KR";
+  | "de-DE"
+  | "en-AU"
+  | "en-GB"
+  | "en-IN"
+  | "en-US"
+  | "es-419"
+  | "es-ES"
+  | "es-US"
+  | "fr-FR"
+  | "fr-CA"
+  | "it-IT"
+  | "ja-JP"
+  | "ko-KR";
 export type LocaleList = Array<Locale>;
 export interface LogSettingsRequest {
   logType: LogType;
@@ -1222,7 +1222,7 @@ export interface PutSlotTypeResponse {
 }
 export type QueryFilterString = string;
 
-export type ReferenceType = "INTENT" | "BOT" | "BOTALIAS" | "BOTCHANNEL";
+export type ReferenceType = "Intent" | "Bot" | "BotAlias" | "BotChannel";
 export type RegexPattern = string;
 
 export type ResourceArn = string;
@@ -1259,7 +1259,7 @@ export interface Slot {
   obfuscationSetting?: ObfuscationSetting;
   defaultValueSpec?: SlotDefaultValueSpec;
 }
-export type SlotConstraint = "REQUIRED" | "OPTIONAL";
+export type SlotConstraint = "Required" | "Optional";
 export interface SlotDefaultValue {
   defaultValue: string;
 }
@@ -1334,7 +1334,7 @@ export type Status =
   | "READY_BASIC_TESTING"
   | "FAILED"
   | "NOT_BUILT";
-export type StatusType = "DETECTED" | "MISSED";
+export type StatusType = "Detected" | "Missed";
 export type LexModelBuildingServiceString = string;
 
 export type StringList = Array<string>;

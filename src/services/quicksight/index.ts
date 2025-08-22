@@ -2933,7 +2933,7 @@ export interface AssetBundleExportJobAnalysisOverrideProperties {
 }
 export type AssetBundleExportJobAnalysisOverridePropertiesList =
   Array<AssetBundleExportJobAnalysisOverrideProperties>;
-export type AssetBundleExportJobAnalysisPropertyToOverride = "NAME";
+export type AssetBundleExportJobAnalysisPropertyToOverride = "Name";
 export type AssetBundleExportJobAnalysisPropertyToOverrideList =
   Array<AssetBundleExportJobAnalysisPropertyToOverride>;
 export interface AssetBundleExportJobDashboardOverrideProperties {
@@ -2942,7 +2942,7 @@ export interface AssetBundleExportJobDashboardOverrideProperties {
 }
 export type AssetBundleExportJobDashboardOverridePropertiesList =
   Array<AssetBundleExportJobDashboardOverrideProperties>;
-export type AssetBundleExportJobDashboardPropertyToOverride = "NAME";
+export type AssetBundleExportJobDashboardPropertyToOverride = "Name";
 export type AssetBundleExportJobDashboardPropertyToOverrideList =
   Array<AssetBundleExportJobDashboardPropertyToOverride>;
 export interface AssetBundleExportJobDataSetOverrideProperties {
@@ -2952,8 +2952,8 @@ export interface AssetBundleExportJobDataSetOverrideProperties {
 export type AssetBundleExportJobDataSetOverridePropertiesList =
   Array<AssetBundleExportJobDataSetOverrideProperties>;
 export type AssetBundleExportJobDataSetPropertyToOverride =
-  | "NAME"
-  | "REFRESH_FAILURE_EMAIL_ALERT_STATUS";
+  | "Name"
+  | "RefreshFailureEmailAlertStatus";
 export type AssetBundleExportJobDataSetPropertyToOverrideList =
   Array<AssetBundleExportJobDataSetPropertyToOverride>;
 export interface AssetBundleExportJobDataSourceOverrideProperties {
@@ -2963,24 +2963,24 @@ export interface AssetBundleExportJobDataSourceOverrideProperties {
 export type AssetBundleExportJobDataSourceOverridePropertiesList =
   Array<AssetBundleExportJobDataSourceOverrideProperties>;
 export type AssetBundleExportJobDataSourcePropertyToOverride =
-  | "NAME"
-  | "DISABLE_SSL"
-  | "SECRET_ARN"
-  | "USERNAME"
-  | "PASSWORD"
-  | "DOMAIN"
-  | "WORK_GROUP"
-  | "HOST"
-  | "PORT"
-  | "DATABASE"
-  | "DATA_SET_NAME"
-  | "CATALOG"
-  | "INSTANCE_ID"
-  | "CLUSTER_ID"
-  | "MANIFEST_FILE_LOCATION"
-  | "WAREHOUSE"
-  | "ROLE_ARN"
-  | "PRODUCT_TYPE";
+  | "Name"
+  | "DisableSsl"
+  | "SecretArn"
+  | "Username"
+  | "Password"
+  | "Domain"
+  | "WorkGroup"
+  | "Host"
+  | "Port"
+  | "Database"
+  | "DataSetName"
+  | "Catalog"
+  | "InstanceId"
+  | "ClusterId"
+  | "ManifestFileLocation"
+  | "Warehouse"
+  | "RoleArn"
+  | "ProductType";
 export type AssetBundleExportJobDataSourcePropertyToOverrideList =
   Array<AssetBundleExportJobDataSourcePropertyToOverride>;
 export interface AssetBundleExportJobError {
@@ -2996,8 +2996,8 @@ export interface AssetBundleExportJobFolderOverrideProperties {
 export type AssetBundleExportJobFolderOverridePropertiesList =
   Array<AssetBundleExportJobFolderOverrideProperties>;
 export type AssetBundleExportJobFolderPropertyToOverride =
-  | "NAME"
-  | "PARENT_FOLDER_ARN";
+  | "Name"
+  | "ParentFolderArn";
 export type AssetBundleExportJobFolderPropertyToOverrideList =
   Array<AssetBundleExportJobFolderPropertyToOverride>;
 export interface AssetBundleExportJobRefreshScheduleOverrideProperties {
@@ -3007,7 +3007,7 @@ export interface AssetBundleExportJobRefreshScheduleOverrideProperties {
 export type AssetBundleExportJobRefreshScheduleOverridePropertiesList =
   Array<AssetBundleExportJobRefreshScheduleOverrideProperties>;
 export type AssetBundleExportJobRefreshSchedulePropertyToOverride =
-  "START_AFTER_DATE_TIME";
+  "StartAfterDateTime";
 export type AssetBundleExportJobRefreshSchedulePropertyToOverrideList =
   Array<AssetBundleExportJobRefreshSchedulePropertyToOverride>;
 export interface AssetBundleExportJobResourceIdOverrideConfiguration {
@@ -3036,7 +3036,7 @@ export interface AssetBundleExportJobThemeOverrideProperties {
 }
 export type AssetBundleExportJobThemeOverridePropertiesList =
   Array<AssetBundleExportJobThemeOverrideProperties>;
-export type AssetBundleExportJobThemePropertyToOverride = "NAME";
+export type AssetBundleExportJobThemePropertyToOverride = "Name";
 export type AssetBundleExportJobThemePropertyToOverrideList =
   Array<AssetBundleExportJobThemePropertyToOverride>;
 export interface AssetBundleExportJobValidationStrategy {
@@ -3049,9 +3049,9 @@ export interface AssetBundleExportJobVPCConnectionOverrideProperties {
 export type AssetBundleExportJobVPCConnectionOverridePropertiesList =
   Array<AssetBundleExportJobVPCConnectionOverrideProperties>;
 export type AssetBundleExportJobVPCConnectionPropertyToOverride =
-  | "NAME"
-  | "DNS_RESOLVERS"
-  | "ROLE_ARN";
+  | "Name"
+  | "DnsResolvers"
+  | "RoleArn";
 export type AssetBundleExportJobVPCConnectionPropertyToOverrideList =
   Array<AssetBundleExportJobVPCConnectionPropertyToOverride>;
 export interface AssetBundleExportJobWarning {

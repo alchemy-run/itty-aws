@@ -1279,7 +1279,7 @@ export interface Event {
   Resources?: Array<Resource>;
   CloudTrailEvent?: string;
 }
-export type EventCategory = "Insight";
+export type EventCategory = "insight";
 export interface EventDataStore {
   EventDataStoreArn?: string;
   Name?: string;
@@ -1577,7 +1577,7 @@ export interface InsightSelector {
   InsightType?: InsightType;
 }
 export type InsightSelectors = Array<InsightSelector>;
-export type InsightsMetricDataType = "FILL_WITH_ZEROS" | "NON_ZERO_DATA";
+export type InsightsMetricDataType = "FillWithZeros" | "NonZeroData";
 export type InsightsMetricMaxResults = number;
 
 export type InsightsMetricNextToken = string;
@@ -1881,14 +1881,14 @@ export interface LookupAttribute {
   AttributeValue: string;
 }
 export type LookupAttributeKey =
-  | "EVENT_ID"
-  | "EVENT_NAME"
-  | "READ_ONLY"
-  | "USERNAME"
-  | "RESOURCE_TYPE"
-  | "RESOURCE_NAME"
-  | "EVENT_SOURCE"
-  | "ACCESS_KEY_ID";
+  | "EventId"
+  | "EventName"
+  | "ReadOnly"
+  | "Username"
+  | "ResourceType"
+  | "ResourceName"
+  | "EventSource"
+  | "AccessKeyId";
 export type LookupAttributesList = Array<LookupAttribute>;
 export type LookupAttributeValue = string;
 

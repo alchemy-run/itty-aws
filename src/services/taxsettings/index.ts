@@ -240,9 +240,9 @@ export type AddressLine3 = string;
 
 export type AddressRoleMap = Record<AddressRoleType, Jurisdiction>;
 export type AddressRoleType =
-  | "TAX_ADDRESS"
-  | "BILLING_ADDRESS"
-  | "CONTACT_ADDRESS";
+  | "TaxAddress"
+  | "BillingAddress"
+  | "ContactAddress";
 export declare class AttachmentUploadException extends EffectData.TaggedError(
   "AttachmentUploadException",
 )<{
@@ -433,16 +433,16 @@ export interface IndonesiaAdditionalInfo {
 }
 export type IndonesiaTaxRegistrationNumberType =
   | "NIK"
-  | "PASSPORT_NUMBER"
+  | "PassportNumber"
   | "NPWP"
   | "NITKU";
 export type Industries =
-  | "CIRCULATING_ORG"
-  | "PROFESSIONAL_ORG"
-  | "BANKS"
-  | "INSURANCE"
-  | "PENSION_AND_BENEFIT_FUNDS"
-  | "DEVELOPMENT_AGENCIES";
+  | "CirculatingOrg"
+  | "ProfessionalOrg"
+  | "Banks"
+  | "Insurance"
+  | "PensionAndBenefitFunds"
+  | "DevelopmentAgencies";
 export type InheritanceObtainedReason = string;
 
 export declare class InternalServerException extends EffectData.TaggedError(
@@ -455,8 +455,8 @@ export interface IsraelAdditionalInfo {
   dealerType: IsraelDealerType;
   customerType: IsraelCustomerType;
 }
-export type IsraelCustomerType = "BUSINESS" | "INDIVIDUAL";
-export type IsraelDealerType = "AUTHORIZED" | "NON_AUTHORIZED";
+export type IsraelCustomerType = "Business" | "Individual";
+export type IsraelDealerType = "Authorized" | "Non-authorized";
 export interface ItalyAdditionalInfo {
   sdiAccountId?: string;
   cigNumber?: string;
@@ -510,10 +510,10 @@ export interface MalaysiaAdditionalInfo {
   businessRegistrationNumber?: string;
 }
 export type MalaysiaServiceTaxCode =
-  | "CONSULTANCY"
-  | "DIGITAL_SVC_ELECTRONIC_MEDIUM"
-  | "IT_SERVICES"
-  | "TRAINING_OR_COACHING";
+  | "Consultancy"
+  | "Digital Service And Electronic Medium"
+  | "IT Services"
+  | "Training Or Coaching";
 export type MalaysiaServiceTaxCodesList = Array<MalaysiaServiceTaxCode>;
 export type MaxResults = number;
 
@@ -523,7 +523,7 @@ export type Pan = string;
 
 export type PaymentVoucherNumber = string;
 
-export type PersonType = "LEGAL_PERSON" | "PHYSICAL_PERSON" | "BUSINESS";
+export type PersonType = "Legal Person" | "Physical Person" | "Business";
 export interface PolandAdditionalInfo {
   individualRegistrationNumber?: string;
   isGroupVatEnabled?: boolean;
@@ -561,7 +561,7 @@ export interface PutTaxRegistrationResponse {
 }
 export type RegistrationId = string;
 
-export type RegistrationType = "INTRA_EU" | "LOCAL";
+export type RegistrationType = "Intra-EU" | "Local";
 export type RegistryCommercialCode = string;
 
 export declare class ResourceNotFoundException extends EffectData.TaggedError(
@@ -583,14 +583,14 @@ export interface SaudiArabiaAdditionalInfo {
   taxRegistrationNumberType?: SaudiArabiaTaxRegistrationNumberType;
 }
 export type SaudiArabiaTaxRegistrationNumberType =
-  | "TAX_REGISTRATION_NUMBER"
-  | "TAX_IDENTIFICATION_NUMBER"
-  | "COMMERCIAL_REGISTRATION_NUMBER";
+  | "TaxRegistrationNumber"
+  | "TaxIdentificationNumber"
+  | "CommercialRegistrationNumber";
 export type SdiAccountId = string;
 
 export type SecondaryTaxId = string;
 
-export type Sector = "BUSINESS" | "INDIVIDUAL" | "PUBLIC_INSTITUTIONS";
+export type Sector = "Business" | "Individual" | "Government";
 export type Seller = string;
 
 export interface SourceS3Location {
@@ -696,13 +696,13 @@ export interface TaxRegistrationEntry {
   certifiedEmailId?: string;
 }
 export type TaxRegistrationNumberType =
-  | "TAX_REGISTRATION_NUMBER"
-  | "LOCAL_REGISTRATION_NUMBER";
+  | "TaxRegistrationNumber"
+  | "LocalRegistrationNumber";
 export type TaxRegistrationStatus =
-  | "VERIFIED"
-  | "PENDING"
-  | "DELETED"
-  | "REJECTED";
+  | "Verified"
+  | "Pending"
+  | "Deleted"
+  | "Rejected";
 export type TaxRegistrationType =
   | "VAT"
   | "GST"
@@ -731,7 +731,7 @@ export interface TurkeyAdditionalInfo {
 export interface UkraineAdditionalInfo {
   ukraineTrnType: UkraineTrnType;
 }
-export type UkraineTrnType = "BUSINESS" | "INDIVIDUAL";
+export type UkraineTrnType = "Business" | "Individual";
 export type UniqueIdentificationNumber = string;
 
 export type Url = string;
@@ -740,7 +740,7 @@ export interface UzbekistanAdditionalInfo {
   taxRegistrationNumberType?: UzbekistanTaxRegistrationNumberType;
   vatRegistrationNumber?: string;
 }
-export type UzbekistanTaxRegistrationNumberType = "BUSINESS" | "INDIVIDUAL";
+export type UzbekistanTaxRegistrationNumberType = "Business" | "Individual";
 export declare class ValidationException extends EffectData.TaggedError(
   "ValidationException",
 )<{
@@ -749,11 +749,11 @@ export declare class ValidationException extends EffectData.TaggedError(
   readonly fieldList?: Array<ValidationExceptionField>;
 }> {}
 export type ValidationExceptionErrorCode =
-  | "MALFORMED_TOKEN"
-  | "EXPIRED_TOKEN"
-  | "INVALID_TOKEN"
-  | "FIELD_VALIDATION_FAILED"
-  | "MISSING_INPUT";
+  | "MalformedToken"
+  | "ExpiredToken"
+  | "InvalidToken"
+  | "FieldValidationFailed"
+  | "MissingInput";
 export interface ValidationExceptionField {
   name: string;
 }

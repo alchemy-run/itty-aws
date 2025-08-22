@@ -3633,7 +3633,7 @@ export interface AwsIamAccessKeySessionContextSessionIssuer {
   AccountId?: string;
   UserName?: string;
 }
-export type AwsIamAccessKeyStatus = "ACTIVE" | "INACTIVE";
+export type AwsIamAccessKeyStatus = "Active" | "Inactive";
 export interface AwsIamAttachedManagedPolicy {
   PolicyName?: string;
   PolicyArn?: string;
@@ -4551,8 +4551,8 @@ export interface AwsS3BucketNotificationConfigurationS3KeyFilterRule {
   Value?: string;
 }
 export type AwsS3BucketNotificationConfigurationS3KeyFilterRuleName =
-  | "PREFIX"
-  | "SUFFIX";
+  | "Prefix"
+  | "Suffix";
 export type AwsS3BucketNotificationConfigurationS3KeyFilterRules =
   Array<AwsS3BucketNotificationConfigurationS3KeyFilterRule>;
 export interface AwsS3BucketObjectLockConfiguration {
@@ -5989,23 +5989,23 @@ export interface GetSecurityControlDefinitionResponse {
   SecurityControlDefinition: SecurityControlDefinition;
 }
 export type GroupByField =
-  | "ACTIVITY_NAME"
-  | "CLOUD_ACCOUNT_UID"
-  | "CLOUD_PROVIDER"
-  | "CLOUD_REGION"
-  | "COMPLIANCE_ASSESSMENTS_NAME"
-  | "COMPLIANCE_STATUS"
-  | "COMPLIANCE_CONTROL"
-  | "FINDING_INFO_TITLE"
-  | "FINDING_INFO_TYPES"
-  | "METADATA_PRODUCT_NAME"
-  | "METADATA_PRODUCT_UID"
-  | "RESOURCES_TYPE"
-  | "RESOURCES_UID"
-  | "SEVERITY"
-  | "STATUS"
-  | "VULNERABILITIES_FIX_COVERAGE"
-  | "CLASS_NAME";
+  | "activity_name"
+  | "cloud.account.uid"
+  | "cloud.provider"
+  | "cloud.region"
+  | "compliance.assessments.name"
+  | "compliance.status"
+  | "compliance.control"
+  | "finding_info.title"
+  | "finding_info.types"
+  | "metadata.product.name"
+  | "metadata.product.uid"
+  | "resources.type"
+  | "resources.uid"
+  | "severity"
+  | "status"
+  | "vulnerabilities.fix_coverage"
+  | "class_name";
 export interface GroupByResult {
   GroupByField?: string;
   GroupByValues?: Array<GroupByValue>;
@@ -6426,19 +6426,19 @@ export interface Occurrences {
   Cells?: Array<Cell>;
 }
 export type OcsfBooleanField =
-  | "COMPLIANCE_ASSESSMENTS_MEETS_CRITERIA"
-  | "VULNERABILITIES_IS_EXPLOIT_AVAILABLE"
-  | "VULNERABILITIES_IS_FIX_AVAILABLE";
+  | "compliance.assessments.meets_criteria"
+  | "vulnerabilities.is_exploit_available"
+  | "vulnerabilities.is_fix_available";
 export interface OcsfBooleanFilter {
   FieldName?: OcsfBooleanField;
   Filter?: BooleanFilter;
 }
 export type OcsfBooleanFilterList = Array<OcsfBooleanFilter>;
 export type OcsfDateField =
-  | "FINDING_INFO_CREATED_TIME_DT"
-  | "FINDING_INFO_FIRST_SEEN_TIME_DT"
-  | "FINDING_INFO_LAST_SEEN_TIME_DT"
-  | "FINDING_INFO_MODIFIED_TIME_DT";
+  | "finding_info.created_time_dt"
+  | "finding_info.first_seen_time_dt"
+  | "finding_info.last_seen_time_dt"
+  | "finding_info.modified_time_dt";
 export interface OcsfDateFilter {
   FieldName?: OcsfDateField;
   Filter?: DateFilter;
@@ -6457,57 +6457,57 @@ export interface OcsfFindingIdentifier {
 }
 export type OcsfFindingIdentifierList = Array<OcsfFindingIdentifier>;
 export type OcsfFindingsList = Array<unknown>;
-export type OcsfMapField = "RESOURCES_TAGS";
+export type OcsfMapField = "resources.tags";
 export interface OcsfMapFilter {
   FieldName?: OcsfMapField;
   Filter?: MapFilter;
 }
 export type OcsfMapFilterList = Array<OcsfMapFilter>;
 export type OcsfNumberField =
-  | "ACTIVITY_ID"
-  | "COMPLIANCE_STATUS_ID"
-  | "CONFIDENCE_SCORE"
-  | "SEVERITY_ID"
-  | "STATUS_ID"
-  | "FINDING_INFO_RELATED_EVENTS_COUNT";
+  | "activity_id"
+  | "compliance.status_id"
+  | "confidence_score"
+  | "severity_id"
+  | "status_id"
+  | "finding_info.related_events_count";
 export interface OcsfNumberFilter {
   FieldName?: OcsfNumberField;
   Filter?: NumberFilter;
 }
 export type OcsfNumberFilterList = Array<OcsfNumberFilter>;
 export type OcsfStringField =
-  | "METADATA_UID"
-  | "ACTIVITY_NAME"
-  | "CLOUD_ACCOUNT_UID"
-  | "CLOUD_PROVIDER"
-  | "CLOUD_REGION"
-  | "COMPLIANCE_ASSESSMENTS_CATEGORY"
-  | "COMPLIANCE_ASSESSMENTS_NAME"
-  | "COMPLIANCE_CONTROL"
-  | "COMPLIANCE_STATUS"
-  | "COMPLIANCE_STANDARDS"
-  | "FINDING_INFO_DESC"
-  | "FINDING_INFO_SRC_URL"
-  | "FINDING_INFO_TITLE"
-  | "FINDING_INFO_TYPES"
-  | "FINDING_INFO_UID"
-  | "FINDING_INFO_RELATED_EVENTS_UID"
-  | "FINDING_INFO_RELATED_EVENTS_PRODUCT_UID"
-  | "FINDING_INFO_RELATED_EVENTS_TITLE"
-  | "METADATA_PRODUCT_NAME"
-  | "METADATA_PRODUCT_UID"
-  | "METADATA_PRODUCT_VENDOR_NAME"
-  | "REMEDIATION_DESC"
-  | "REMEDIATION_REFERENCES"
-  | "RESOURCES_CLOUD_PARTITION"
-  | "RESOURCES_REGION"
-  | "RESOURCES_TYPE"
-  | "RESOURCES_UID"
-  | "SEVERITY"
-  | "STATUS"
-  | "COMMENT"
-  | "VULNERABILITIES_FIX_COVERAGE"
-  | "CLASS_NAME";
+  | "metadata.uid"
+  | "activity_name"
+  | "cloud.account.uid"
+  | "cloud.provider"
+  | "cloud.region"
+  | "compliance.assessments.category"
+  | "compliance.assessments.name"
+  | "compliance.control"
+  | "compliance.status"
+  | "compliance.standards"
+  | "finding_info.desc"
+  | "finding_info.src_url"
+  | "finding_info.title"
+  | "finding_info.types"
+  | "finding_info.uid"
+  | "finding_info.related_events.uid"
+  | "finding_info.related_events.product.uid"
+  | "finding_info.related_events.title"
+  | "metadata.product.name"
+  | "metadata.product.uid"
+  | "metadata.product.vendor_name"
+  | "remediation.desc"
+  | "remediation.references"
+  | "resources.cloud_partition"
+  | "resources.region"
+  | "resources.type"
+  | "resources.uid"
+  | "severity"
+  | "status"
+  | "comment"
+  | "vulnerabilities.fix_coverage"
+  | "class_name";
 export interface OcsfStringFilter {
   FieldName?: OcsfStringField;
   Filter?: StringFilter;
@@ -6557,7 +6557,7 @@ export type ParameterValue =
   | (_ParameterValue & { Enum: string })
   | (_ParameterValue & { EnumList: Array<string> });
 export type ParameterValueType = "DEFAULT" | "CUSTOM";
-export type Partition = "AWS" | "AWS_CN" | "AWS_US_GOV";
+export type Partition = "aws" | "aws-cn" | "aws-us-gov";
 export interface PatchSummary {
   Id: string;
   InstalledCount?: number;
@@ -6700,14 +6700,14 @@ export interface Resource {
 export type ResourceArn = string;
 
 export type ResourceCategory =
-  | "COMPUTE"
-  | "DATABASE"
-  | "STORAGE"
-  | "CODE"
-  | "AI_ML"
-  | "IDENTITY"
-  | "NETWORK"
-  | "OTHER";
+  | "Compute"
+  | "Database"
+  | "Storage"
+  | "Code"
+  | "AI/ML"
+  | "Identity"
+  | "Network"
+  | "Other";
 export type ResourceConfig = unknown;
 
 export declare class ResourceConflictException extends EffectData.TaggedError(
@@ -6826,12 +6826,12 @@ export interface ResourceFindingsSummary {
 }
 export type ResourceFindingsSummaryList = Array<ResourceFindingsSummary>;
 export type ResourceGroupByField =
-  | "ACCOUNT_ID"
-  | "REGION"
-  | "RESOURCE_CATEGORY"
-  | "RESOURCE_TYPE"
-  | "RESOURCE_NAME"
-  | "FINDING_TYPE";
+  | "account_id"
+  | "region"
+  | "resource_category"
+  | "resource_type"
+  | "resource_name"
+  | "findings_summary.finding_type";
 export interface ResourceGroupByRule {
   GroupByField: ResourceGroupByField;
   Filters?: ResourcesFilters;
@@ -6874,8 +6874,8 @@ export interface ResourcesCompositeFilter {
 }
 export type ResourcesCompositeFilterList = Array<ResourcesCompositeFilter>;
 export type ResourcesDateField =
-  | "RESOURCE_DETAIL_CAPTURE_TIME_DT"
-  | "RESOURCE_CREATION_TIME_DT";
+  | "resource_detail_capture_time_dt"
+  | "resource_creation_time_dt";
 export interface ResourcesDateFilter {
   FieldName?: ResourcesDateField;
   Filter?: DateFilter;
@@ -6895,37 +6895,37 @@ export interface ResourcesFilters {
   CompositeFilters?: Array<ResourcesCompositeFilter>;
   CompositeOperator?: AllowedOperators;
 }
-export type ResourcesMapField = "TAG";
+export type ResourcesMapField = "tags";
 export interface ResourcesMapFilter {
   FieldName?: ResourcesMapField;
   Filter?: MapFilter;
 }
 export type ResourcesMapFilterList = Array<ResourcesMapFilter>;
 export type ResourcesNumberField =
-  | "TOTAL_FINDINGS"
-  | "SEVERITY_OTHER"
-  | "SEVERITY_FATAL"
-  | "SEVERITY_CRITICAL"
-  | "SEVERITY_HIGH"
-  | "SEVERITY_MEDIUM"
-  | "SEVERITY_LOW"
-  | "SEVERITY_INFORMATIONAL"
-  | "SEVERITY_UNKNOWN";
+  | "findings_summary.total_findings"
+  | "findings_summary.severities.other"
+  | "findings_summary.severities.fatal"
+  | "findings_summary.severities.critical"
+  | "findings_summary.severities.high"
+  | "findings_summary.severities.medium"
+  | "findings_summary.severities.low"
+  | "findings_summary.severities.informational"
+  | "findings_summary.severities.unknown";
 export interface ResourcesNumberFilter {
   FieldName?: ResourcesNumberField;
   Filter?: NumberFilter;
 }
 export type ResourcesNumberFilterList = Array<ResourcesNumberFilter>;
 export type ResourcesStringField =
-  | "RESOURCE_ARN"
-  | "RESOURCE_ID"
-  | "ACCOUNT_ID"
-  | "REGION"
-  | "RESOURCE_CATEGORY"
-  | "RESOURCE_TYPE"
-  | "RESOURCE_NAME"
-  | "FINDING_TYPE"
-  | "PRODUCT_NAME";
+  | "resource_arn"
+  | "resource_id"
+  | "account_id"
+  | "region"
+  | "resource_category"
+  | "resource_type"
+  | "resource_name"
+  | "findings_summary.finding_type"
+  | "findings_summary.product_name";
 export interface ResourcesStringFilter {
   FieldName?: ResourcesStringField;
   Filter?: StringFilter;
@@ -7113,7 +7113,7 @@ export interface SecurityControlsConfiguration {
   SecurityControlCustomParameters?: Array<SecurityControlCustomParameter>;
 }
 export type SecurityGroups = Array<string>;
-export type SecurityHubFeature = "SECURITY_HUB" | "SECURITY_HUB_V2";
+export type SecurityHubFeature = "SecurityHub" | "SecurityHubV2";
 export interface SecurityHubPolicy {
   ServiceEnabled?: boolean;
   EnabledStandardIdentifiers?: Array<string>;
@@ -7207,7 +7207,7 @@ export interface SortCriterion {
   Field?: string;
   SortOrder?: SortOrder;
 }
-export type SortOrder = "ASCENDING" | "DESCENDING";
+export type SortOrder = "asc" | "desc";
 export interface Standard {
   StandardsArn?: string;
   Name?: string;

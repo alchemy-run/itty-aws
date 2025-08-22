@@ -1286,18 +1286,18 @@ export interface RunConfigurationUpdate {
   ApplicationRestoreConfiguration?: ApplicationRestoreConfiguration;
 }
 export type RuntimeEnvironment =
-  | "SQL_1_0"
-  | "FLINK_1_6"
-  | "FLINK_1_8"
-  | "ZEPPELIN_FLINK_1_0"
-  | "FLINK_1_11"
-  | "FLINK_1_13"
-  | "ZEPPELIN_FLINK_2_0"
-  | "FLINK_1_15"
-  | "ZEPPELIN_FLINK_3_0"
-  | "FLINK_1_18"
-  | "FLINK_1_19"
-  | "FLINK_1_20";
+  | "SQL-1_0"
+  | "FLINK-1_6"
+  | "FLINK-1_8"
+  | "ZEPPELIN-FLINK-1_0"
+  | "FLINK-1_11"
+  | "FLINK-1_13"
+  | "ZEPPELIN-FLINK-2_0"
+  | "FLINK-1_15"
+  | "ZEPPELIN-FLINK-3_0"
+  | "FLINK-1_18"
+  | "FLINK-1_19"
+  | "FLINK-1_20";
 export interface S3ApplicationCodeLocationDescription {
   BucketARN: string;
   FileKey: string;

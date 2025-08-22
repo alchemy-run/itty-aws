@@ -1147,8 +1147,8 @@ export interface ChallengePreference {
 }
 export type ChallengePreferences = Array<ChallengePreference>;
 export type ChallengeType =
-  | "FACE_MOVEMENT_AND_LIGHT_CHALLENGE"
-  | "FACE_MOVEMENT_CHALLENGE";
+  | "FaceMovementAndLightChallenge"
+  | "FaceMovementChallenge";
 export type ClientRequestToken = string;
 
 export type CollectionId = string;
@@ -1206,8 +1206,8 @@ export interface ConnectedHomeSettingsForUpdate {
   MinConfidence?: number;
 }
 export type ContentClassifier =
-  | "FREE_OF_PERSONALLY_IDENTIFIABLE_INFORMATION"
-  | "FREE_OF_ADULT_CONTENT";
+  | "FreeOfPersonallyIdentifiableInformation"
+  | "FreeOfAdultContent";
 export type ContentClassifiers = Array<ContentClassifier>;
 export type ContentModerationAggregateBy = "TIMESTAMPS" | "SEGMENTS";
 export interface ContentModerationDetection {
@@ -2948,13 +2948,13 @@ export interface TechnicalCueSegment {
   Confidence?: number;
 }
 export type TechnicalCueType =
-  | "COLOR_BARS"
-  | "END_CREDITS"
-  | "BLACK_FRAMES"
-  | "OPENING_CREDITS"
-  | "STUDIO_LOGO"
-  | "SLATE"
-  | "CONTENT";
+  | "ColorBars"
+  | "EndCredits"
+  | "BlackFrames"
+  | "OpeningCredits"
+  | "StudioLogo"
+  | "Slate"
+  | "Content";
 export interface TestingData {
   Assets?: Array<Asset>;
   AutoCreate?: boolean;

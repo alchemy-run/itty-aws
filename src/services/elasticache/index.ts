@@ -901,7 +901,7 @@ export interface AuthenticationMode {
   Type?: InputAuthenticationType;
   Passwords?: Array<string>;
 }
-export type AuthenticationType = "PASSWORD" | "NO_PASSWORD" | "IAM";
+export type AuthenticationType = "password" | "no-password" | "iam";
 export declare class AuthorizationAlreadyExistsFault extends EffectData.TaggedError(
   "AuthorizationAlreadyExistsFault",
 )<{
@@ -923,17 +923,17 @@ export interface AuthorizeCacheSecurityGroupIngressResult {
 export type AuthTokenUpdateStatus = "SETTING" | "ROTATING";
 export type AuthTokenUpdateStrategyType = "SET" | "ROTATE" | "DELETE";
 export type AutomaticFailoverStatus =
-  | "ENABLED"
-  | "DISABLED"
-  | "ENABLING"
-  | "DISABLING";
+  | "enabled"
+  | "disabled"
+  | "enabling"
+  | "disabling";
 export interface AvailabilityZone {
   Name?: string;
 }
 export type AvailabilityZonesList = Array<string>;
 export type AwsQueryErrorMessage = string;
 
-export type AZMode = "SINGLE_AZ" | "CROSS_AZ";
+export type AZMode = "single-az" | "cross-az";
 export interface BatchApplyUpdateActionMessage {
   ReplicationGroupIds?: Array<string>;
   CacheClusterIds?: Array<string>;
@@ -1168,12 +1168,12 @@ export interface CacheUsageLimits {
   DataStorage?: DataStorage;
   ECPUPerSecond?: ECPUPerSecond;
 }
-export type ChangeType = "immediate" | "requires_reboot";
+export type ChangeType = "immediate" | "requires-reboot";
 export interface CloudWatchLogsDestinationDetails {
   LogGroup?: string;
 }
 export type ClusterIdList = Array<string>;
-export type ClusterMode = "ENABLED" | "DISABLED" | "COMPATIBLE";
+export type ClusterMode = "enabled" | "disabled" | "compatible";
 export declare class ClusterQuotaForCustomerExceededFault extends EffectData.TaggedError(
   "ClusterQuotaForCustomerExceededFault",
 )<{
@@ -1388,7 +1388,7 @@ export interface DataStorage {
   Unit: DataStorageUnit;
 }
 export type DataStorageUnit = "GB";
-export type DataTieringStatus = "ENABLED" | "DISABLED";
+export type DataTieringStatus = "enabled" | "disabled";
 export interface DecreaseNodeGroupsInGlobalReplicationGroupMessage {
   GlobalReplicationGroupId: string;
   NodeGroupCount: number;
@@ -1637,7 +1637,7 @@ export interface DestinationDetails {
   CloudWatchLogsDetails?: CloudWatchLogsDestinationDetails;
   KinesisFirehoseDetails?: KinesisFirehoseDestinationDetails;
 }
-export type DestinationType = "CloudWatchLogs" | "KinesisFirehose";
+export type DestinationType = "cloudwatch-logs" | "kinesis-firehose";
 export interface DisassociateGlobalReplicationGroupMessage {
   GlobalReplicationGroupId: string;
   ReplicationGroupId: string;
@@ -1776,7 +1776,10 @@ export interface IncreaseReplicaCountMessage {
 export interface IncreaseReplicaCountResult {
   ReplicationGroup?: ReplicationGroup;
 }
-export type InputAuthenticationType = "PASSWORD" | "NO_PASSWORD" | "IAM";
+export type InputAuthenticationType =
+  | "password"
+  | "no-password-required"
+  | "iam";
 export declare class InsufficientCacheClusterCapacityFault extends EffectData.TaggedError(
   "InsufficientCacheClusterCapacityFault",
 )<{
@@ -1871,7 +1874,7 @@ export declare class InvalidVPCNetworkStateFault extends EffectData.TaggedError(
 )<{
   readonly message?: string;
 }> {}
-export type IpDiscovery = "IPV4" | "IPV6";
+export type IpDiscovery = "ipv4" | "ipv6";
 export type KeyList = Array<string>;
 export interface KinesisFirehoseDestinationDetails {
   DeliveryStream?: string;
@@ -1902,13 +1905,13 @@ export interface LogDeliveryConfigurationRequest {
 export type LogDeliveryConfigurationRequestList =
   Array<LogDeliveryConfigurationRequest>;
 export type LogDeliveryConfigurationStatus =
-  | "ACTIVE"
-  | "ENABLING"
-  | "MODIFYING"
-  | "DISABLING"
-  | "ERROR";
-export type LogFormat = "TEXT" | "JSON";
-export type LogType = "SLOW_LOG" | "ENGINE_LOG";
+  | "active"
+  | "enabling"
+  | "modifying"
+  | "disabling"
+  | "error";
+export type LogFormat = "text" | "json";
+export type LogType = "slow-log" | "engine-log";
 export interface ModifyCacheClusterMessage {
   CacheClusterId: string;
   NumCacheNodes?: number;
@@ -2038,8 +2041,8 @@ export interface ModifyUserMessage {
   AuthenticationMode?: AuthenticationMode;
   Engine?: string;
 }
-export type MultiAZStatus = "ENABLED" | "DISABLED";
-export type NetworkType = "IPV4" | "IPV6" | "DUAL_STACK";
+export type MultiAZStatus = "enabled" | "disabled";
+export type NetworkType = "ipv4" | "ipv6" | "dual_stack";
 export type NetworkTypeList = Array<NetworkType>;
 export interface NodeGroup {
   NodeGroupId?: string;
@@ -2120,14 +2123,14 @@ export interface NodeSnapshot {
 }
 export type NodeSnapshotList = Array<NodeSnapshot>;
 export type NodeTypeList = Array<string>;
-export type NodeUpdateInitiatedBy = "SYSTEM" | "CUSTOMER";
+export type NodeUpdateInitiatedBy = "system" | "customer";
 export type NodeUpdateStatus =
-  | "NOT_APPLIED"
-  | "WAITING_TO_START"
-  | "IN_PROGRESS"
-  | "STOPPING"
-  | "STOPPED"
-  | "COMPLETE";
+  | "not-applied"
+  | "waiting-to-start"
+  | "in-progress"
+  | "stopping"
+  | "stopped"
+  | "complete";
 export declare class NoOperationFault extends EffectData.TaggedError(
   "NoOperationFault",
 )<{
@@ -2138,7 +2141,7 @@ export interface NotificationConfiguration {
   TopicStatus?: string;
 }
 export type OutpostArnsList = Array<string>;
-export type OutpostMode = "SINGLE_OUTPOST" | "CROSS_OUTPOST";
+export type OutpostMode = "single-outpost" | "cross-outpost";
 export interface Parameter {
   ParameterName?: string;
   ParameterValue?: string;
@@ -2157,7 +2160,7 @@ export interface ParameterNameValue {
 export type ParameterNameValueList = Array<ParameterNameValue>;
 export type ParametersList = Array<Parameter>;
 export type PasswordListInput = Array<string>;
-export type PendingAutomaticFailoverStatus = "ENABLED" | "DISABLED";
+export type PendingAutomaticFailoverStatus = "enabled" | "disabled";
 export interface PendingLogDeliveryConfiguration {
   LogType?: LogType;
   DestinationType?: DestinationType;
@@ -2476,15 +2479,15 @@ export declare class ServiceUpdateNotFoundFault extends EffectData.TaggedError(
 )<{
   readonly message?: string;
 }> {}
-export type ServiceUpdateSeverity = "CRITICAL" | "IMPORTANT" | "MEDIUM" | "LOW";
+export type ServiceUpdateSeverity = "critical" | "important" | "medium" | "low";
 export interface ServiceUpdatesMessage {
   Marker?: string;
   ServiceUpdates?: Array<ServiceUpdate>;
 }
-export type ServiceUpdateStatus = "AVAILABLE" | "CANCELLED" | "EXPIRED";
+export type ServiceUpdateStatus = "available" | "cancelled" | "expired";
 export type ServiceUpdateStatusList = Array<ServiceUpdateStatus>;
-export type ServiceUpdateType = "SECURITY_UPDATE";
-export type SlaMet = "YES" | "NO" | "NA";
+export type ServiceUpdateType = "security-update";
+export type SlaMet = "yes" | "no" | "n/a";
 export interface SlotMigration {
   ProgressPercentage?: number;
 }
@@ -2541,15 +2544,15 @@ export declare class SnapshotQuotaExceededFault extends EffectData.TaggedError(
   readonly message?: string;
 }> {}
 export type SourceType =
-  | "cache_cluster"
-  | "cache_parameter_group"
-  | "cache_security_group"
-  | "cache_subnet_group"
-  | "replication_group"
-  | "serverless_cache"
-  | "serverless_cache_snapshot"
+  | "cache-cluster"
+  | "cache-parameter-group"
+  | "cache-security-group"
+  | "cache-subnet-group"
+  | "replication-group"
+  | "serverless-cache"
+  | "serverless-cache-snapshot"
   | "user"
-  | "user_group";
+  | "user-group";
 export interface StartMigrationMessage {
   ReplicationGroupId: string;
   CustomerNodeEndpointList: Array<CustomerNodeEndpoint>;
@@ -2620,7 +2623,7 @@ export interface TimeRangeFilter {
   StartTime?: Date | string;
   EndTime?: Date | string;
 }
-export type TransitEncryptionMode = "PREFERRED" | "REQUIRED";
+export type TransitEncryptionMode = "preferred" | "required";
 export type TStamp = Date | string;
 
 export type UGReplicationGroupIdList = Array<string>;
@@ -2662,15 +2665,15 @@ export interface UpdateActionsMessage {
   UpdateActions?: Array<UpdateAction>;
 }
 export type UpdateActionStatus =
-  | "NOT_APPLIED"
-  | "WAITING_TO_START"
-  | "IN_PROGRESS"
-  | "STOPPING"
-  | "STOPPED"
-  | "COMPLETE"
-  | "SCHEDULING"
-  | "SCHEDULED"
-  | "NOT_APPLICABLE";
+  | "not-applied"
+  | "waiting-to-start"
+  | "in-progress"
+  | "stopping"
+  | "stopped"
+  | "complete"
+  | "scheduling"
+  | "scheduled"
+  | "not-applicable";
 export type UpdateActionStatusList = Array<UpdateActionStatus>;
 export interface User {
   UserId?: string;

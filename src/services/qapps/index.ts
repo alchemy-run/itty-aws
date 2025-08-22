@@ -453,7 +453,7 @@ export declare class AccessDeniedException extends EffectData.TaggedError(
 )<{
   readonly message: string;
 }> {}
-export type Action = "READ" | "WRITE";
+export type Action = "read" | "write";
 export type ActionIdentifier = string;
 
 export type AmazonResourceName = string;
@@ -471,10 +471,10 @@ export interface AppDefinitionInput {
 }
 export type AppRequiredCapabilities = Array<AppRequiredCapability>;
 export type AppRequiredCapability =
-  | "FILE_UPLOAD"
-  | "CREATOR_MODE"
-  | "RETRIEVAL_MODE"
-  | "PLUGIN_MODE";
+  | "FileUpload"
+  | "CreatorMode"
+  | "RetrievalMode"
+  | "PluginMode";
 export type AppStatus = "PUBLISHED" | "DRAFT" | "DELETED";
 export type AppVersion = number;
 
@@ -548,7 +548,7 @@ export type CardInput =
   | (_CardInput & { formInput: FormInputCardInput });
 export type CardList = Array<CardInput>;
 export type CardModelList = Array<Card>;
-export type CardOutputSource = "APPROVED_SOURCES" | "LLM";
+export type CardOutputSource = "approved-sources" | "llm";
 export interface CardStatus {
   currentState: ExecutionStatus;
   currentValue: string;
@@ -556,11 +556,11 @@ export interface CardStatus {
 }
 export type CardStatusMap = Record<string, CardStatus>;
 export type CardType =
-  | "TEXT_INPUT"
-  | "Q_QUERY"
-  | "FILE_UPLOAD"
-  | "Q_PLUGIN"
-  | "FORM_INPUT";
+  | "text-input"
+  | "q-query"
+  | "file-upload"
+  | "q-plugin"
+  | "form-input";
 export interface CardValue {
   cardId: string;
   value: string;
@@ -833,7 +833,7 @@ export interface ImportDocumentOutput {
 }
 export type InitialPrompt = string;
 
-export type InputCardComputeMode = "APPEND" | "REPLACE";
+export type InputCardComputeMode = "append" | "replace";
 export type InstanceId = string;
 
 export declare class InternalServerException extends EffectData.TaggedError(
@@ -1217,7 +1217,7 @@ export interface UserAppItem {
 export type UserAppsList = Array<UserAppItem>;
 export type UserId = string;
 
-export type UserType = "OWNER" | "USER";
+export type UserType = "owner" | "user";
 export type UUID = string;
 
 export declare class ValidationException extends EffectData.TaggedError(

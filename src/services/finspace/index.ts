@@ -974,14 +974,14 @@ export type EnvironmentStatus =
   | "FAILED_UPDATING_NETWORK"
   | "SUSPENDED";
 export type ErrorDetails =
-  | "VALIDATION"
-  | "SERVICE_QUOTA_EXCEEDED"
-  | "ACCESS_DENIED"
-  | "RESOURCE_NOT_FOUND"
-  | "THROTTLING"
-  | "INTERNAL_SERVICE_EXCEPTION"
-  | "CANCELLED"
-  | "USER_RECOVERABLE";
+  | "The inputs to this request are invalid."
+  | "Service limits have been exceeded."
+  | "Missing required permission to perform this request."
+  | "One or more inputs to this request were not found."
+  | "The system temporarily lacks sufficient resources to process the request."
+  | "An internal error has occurred."
+  | "Cancelled"
+  | "A user recoverable error has occurred";
 export interface ErrorInfo {
   errorMessage?: string;
   errorType?: ErrorDetails;
@@ -1617,7 +1617,7 @@ export type ResultLimit = number;
 
 export type RoleArn = string;
 
-export type RuleAction = "ALLOW" | "DENY";
+export type RuleAction = "allow" | "deny";
 export type RuleNumber = number;
 
 export type S3Bucket = string;

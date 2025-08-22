@@ -433,11 +433,11 @@ export interface GroupFilter {
 }
 export type GroupFilterList = Array<GroupFilter>;
 export type GroupFilterName =
-  | "ResourceType"
-  | "ConfigurationType"
-  | "Owner"
-  | "DisplayName"
-  | "Criticality";
+  | "resource-type"
+  | "configuration-type"
+  | "owner"
+  | "display-name"
+  | "criticality";
 export type GroupFilterValue = string;
 
 export type GroupFilterValues = Array<string>;
@@ -500,7 +500,7 @@ export interface ListGroupingStatusesFilter {
   Values: Array<string>;
 }
 export type ListGroupingStatusesFilterList = Array<ListGroupingStatusesFilter>;
-export type ListGroupingStatusesFilterName = "Status" | "ResourceArn";
+export type ListGroupingStatusesFilterName = "status" | "resource-arn";
 export type ListGroupingStatusesFilterValue = string;
 
 export type ListGroupingStatusesFilterValues = Array<string>;
@@ -605,7 +605,7 @@ export interface ResourceFilter {
   Values: Array<string>;
 }
 export type ResourceFilterList = Array<ResourceFilter>;
-export type ResourceFilterName = "ResourceType";
+export type ResourceFilterName = "resource-type";
 export type ResourceFilterValue = string;
 
 export type ResourceFilterValues = Array<string>;
@@ -621,7 +621,7 @@ export interface ResourceQuery {
 export interface ResourceStatus {
   Name?: ResourceStatusValue;
 }
-export type ResourceStatusValue = "Pending";
+export type ResourceStatusValue = "PENDING";
 export type ResourceType = string;
 
 export type RoleArn = string;

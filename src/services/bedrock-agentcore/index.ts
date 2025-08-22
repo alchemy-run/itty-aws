@@ -465,11 +465,7 @@ export interface ContentBlock {
   resource?: ResourceContent;
 }
 export type ContentBlockList = Array<ContentBlock>;
-export type ContentBlockType =
-  | "TEXT"
-  | "IMAGE"
-  | "EMBEDDED_RESOURCE"
-  | "RESOURCE_LINK";
+export type ContentBlockType = "text" | "image" | "resource" | "resource_link";
 export interface Conversational {
   content: Content;
   role: Role;
@@ -788,7 +784,7 @@ export type PayloadType =
   | (_PayloadType & { conversational: Conversational })
   | (_PayloadType & { blob: unknown });
 export type PayloadTypeList = Array<PayloadType>;
-export type ProgrammingLanguage = "PYTHON" | "JAVASCRIPT" | "TYPESCRIPT";
+export type ProgrammingLanguage = "python" | "javascript" | "typescript";
 export interface ResourceContent {
   type: ResourceContentType;
   uri?: string;
@@ -796,7 +792,7 @@ export interface ResourceContent {
   text?: string;
   blob?: Uint8Array | string;
 }
-export type ResourceContentType = "TEXT" | "BLOB";
+export type ResourceContentType = "text" | "blob";
 export declare class ResourceNotFoundException extends EffectData.TaggedError(
   "ResourceNotFoundException",
 )<{
@@ -908,11 +904,11 @@ export type StringList = Array<string>;
 export type StringType = string;
 
 export type TaskStatus =
-  | "SUBMITTED"
-  | "WORKING"
-  | "COMPLETED"
-  | "CANCELED"
-  | "FAILED";
+  | "submitted"
+  | "working"
+  | "completed"
+  | "canceled"
+  | "failed";
 export declare class ThrottledException extends EffectData.TaggedError(
   "ThrottledException",
 )<{
@@ -935,15 +931,15 @@ export interface ToolArguments {
   taskId?: string;
 }
 export type ToolName =
-  | "EXECUTE_CODE"
-  | "EXECUTE_COMMAND"
-  | "READ_FILES"
-  | "LIST_FILES"
-  | "REMOVE_FILES"
-  | "WRITE_FILES"
-  | "START_COMMAND_EXECUTION"
-  | "GET_TASK"
-  | "STOP_TASK";
+  | "executeCode"
+  | "executeCommand"
+  | "readFiles"
+  | "listFiles"
+  | "removeFiles"
+  | "writeFiles"
+  | "startCommandExecution"
+  | "getTask"
+  | "stopTask";
 export interface ToolResultStructuredContent {
   taskId?: string;
   taskStatus?: TaskStatus;
@@ -986,11 +982,11 @@ export interface ValidationExceptionField {
 }
 export type ValidationExceptionFieldList = Array<ValidationExceptionField>;
 export type ValidationExceptionReason =
-  | "CANNOT_PARSE"
-  | "FIELD_VALIDATION_FAILED"
-  | "IDEMPOTENT_PARAMETER_MISMATCH_EXCEPTION"
-  | "ROOT_EVENT_IN_OTHER_SESSION"
-  | "RESOURCE_CONFLICT";
+  | "CannotParse"
+  | "FieldValidationFailed"
+  | "IdempotentParameterMismatchException"
+  | "EventInOtherSession"
+  | "ResourceConflict";
 export interface ViewPort {
   width: number;
   height: number;

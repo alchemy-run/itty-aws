@@ -259,7 +259,7 @@ export interface AddTagsOutput {
   ResourceId?: string;
   ResourceType?: TaggableResourceType;
 }
-export type Algorithm = "SGD";
+export type Algorithm = "sgd";
 export type AwsUserArn = string;
 
 export interface BatchPrediction {
@@ -281,14 +281,14 @@ export interface BatchPrediction {
   InvalidRecordCount?: number;
 }
 export type BatchPredictionFilterVariable =
-  | "CREATED_AT"
-  | "LAST_UPDATED_AT"
-  | "STATUS"
-  | "NAME"
-  | "IAM_USER"
-  | "ML_MODEL_ID"
-  | "DATASOURCE_ID"
-  | "DATA_URI";
+  | "CreatedAt"
+  | "LastUpdatedAt"
+  | "Status"
+  | "Name"
+  | "IAMUser"
+  | "MLModelId"
+  | "DataSourceId"
+  | "DataURI";
 export type BatchPredictions = Array<BatchPrediction>;
 export type ComparatorValue = string;
 
@@ -386,12 +386,12 @@ export interface DataSource {
   StartedAt?: Date | string;
 }
 export type DataSourceFilterVariable =
-  | "CREATED_AT"
-  | "LAST_UPDATED_AT"
-  | "STATUS"
-  | "NAME"
-  | "DATA_URI"
-  | "IAM_USER";
+  | "CreatedAt"
+  | "LastUpdatedAt"
+  | "Status"
+  | "Name"
+  | "DataLocationS3"
+  | "IAMUser";
 export type DataSources = Array<DataSource>;
 export interface DeleteBatchPredictionInput {
   BatchPredictionId: string;
@@ -510,7 +510,7 @@ export interface DescribeTagsOutput {
   ResourceType?: TaggableResourceType;
   Tags?: Array<Tag>;
 }
-export type DetailsAttributes = "PREDICTIVE_MODEL_TYPE" | "ALGORITHM";
+export type DetailsAttributes = "PredictiveModelType" | "Algorithm";
 export type DetailsMap = Record<DetailsAttributes, string>;
 export type DetailsValue = string;
 
@@ -558,14 +558,14 @@ export interface Evaluation {
   StartedAt?: Date | string;
 }
 export type EvaluationFilterVariable =
-  | "CREATED_AT"
-  | "LAST_UPDATED_AT"
-  | "STATUS"
-  | "NAME"
-  | "IAM_USER"
-  | "ML_MODEL_ID"
-  | "DATASOURCE_ID"
-  | "DATA_URI";
+  | "CreatedAt"
+  | "LastUpdatedAt"
+  | "Status"
+  | "Name"
+  | "IAMUser"
+  | "MLModelId"
+  | "DataSourceId"
+  | "DataURI";
 export type Evaluations = Array<Evaluation>;
 export type floatLabel = number;
 
@@ -723,16 +723,16 @@ export interface MLModel {
   StartedAt?: Date | string;
 }
 export type MLModelFilterVariable =
-  | "CREATED_AT"
-  | "LAST_UPDATED_AT"
-  | "STATUS"
-  | "NAME"
-  | "IAM_USER"
-  | "TRAINING_DATASOURCE_ID"
-  | "REAL_TIME_ENDPOINT_STATUS"
-  | "ML_MODEL_TYPE"
-  | "ALGORITHM"
-  | "TRAINING_DATA_URI";
+  | "CreatedAt"
+  | "LastUpdatedAt"
+  | "Status"
+  | "Name"
+  | "IAMUser"
+  | "TrainingDataSourceId"
+  | "RealtimeEndpointStatus"
+  | "MLModelType"
+  | "Algorithm"
+  | "TrainingDataURI";
 export type MLModelName = string;
 
 export type MLModels = Array<MLModel>;
@@ -870,7 +870,7 @@ export type ScoreThreshold = number;
 export type ScoreValue = number;
 
 export type ScoreValuePerLabelMap = Record<string, number>;
-export type SortOrder = "ASC" | "DSC";
+export type SortOrder = "asc" | "dsc";
 export type StringType = string;
 
 export interface Tag {
@@ -878,10 +878,10 @@ export interface Tag {
   Value?: string;
 }
 export type TaggableResourceType =
-  | "BATCH_PREDICTION"
-  | "DATASOURCE"
-  | "EVALUATION"
-  | "ML_MODEL";
+  | "BatchPrediction"
+  | "DataSource"
+  | "Evaluation"
+  | "MLModel";
 export type TagKey = string;
 
 export type TagKeyList = Array<string>;

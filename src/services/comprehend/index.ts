@@ -1971,18 +1971,18 @@ export type LabelListItem = string;
 
 export type LabelsList = Array<string>;
 export type LanguageCode =
-  | "EN"
-  | "ES"
-  | "FR"
-  | "DE"
-  | "IT"
-  | "PT"
-  | "AR"
-  | "HI"
-  | "JA"
-  | "KO"
-  | "ZH"
-  | "ZH_TW";
+  | "en"
+  | "es"
+  | "fr"
+  | "de"
+  | "it"
+  | "pt"
+  | "ar"
+  | "hi"
+  | "ja"
+  | "ko"
+  | "zh"
+  | "zh-TW";
 export interface ListDatasetsRequest {
   FlywheelArn?: string;
   Filter?: DatasetFilter;
@@ -2612,7 +2612,7 @@ export type StringList = Array<string>;
 export type SubnetId = string;
 
 export type Subnets = Array<string>;
-export type SyntaxLanguageCode = "EN" | "ES" | "FR" | "DE" | "IT" | "PT";
+export type SyntaxLanguageCode = "en" | "es" | "fr" | "de" | "it" | "pt";
 export interface SyntaxToken {
   TokenId?: number;
   Text?: string;

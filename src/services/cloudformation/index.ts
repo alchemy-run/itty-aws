@@ -1275,7 +1275,7 @@ export type HandlerErrorCode =
   | "ResourceConflict"
   | "Throttling"
   | "ServiceLimitExceeded"
-  | "ServiceTimeout"
+  | "NotStabilized"
   | "GeneralServiceException"
   | "ServiceInternalError"
   | "NetworkFailure"

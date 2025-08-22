@@ -1508,13 +1508,13 @@ export type EbsVolumeSizeInteger = number;
 export type EbsVolumeThroughput = number;
 
 export type EbsVolumeType =
-  | "STANDARD"
-  | "IO1"
-  | "IO2"
-  | "GP2"
-  | "GP3"
-  | "SC1"
-  | "ST1";
+  | "standard"
+  | "io1"
+  | "io2"
+  | "gp2"
+  | "gp3"
+  | "sc1"
+  | "st1";
 export interface EcrConfiguration {
   repositoryName?: string;
   containerTags?: Array<string>;
@@ -2491,11 +2491,11 @@ export interface OutputResources {
   containers?: Array<Container>;
 }
 export type Ownership =
-  | "SELF"
-  | "SHARED"
-  | "AMAZON"
-  | "THIRDPARTY"
-  | "AWS_MARKETPLACE";
+  | "Self"
+  | "Shared"
+  | "Amazon"
+  | "ThirdParty"
+  | "AWSMarketplace";
 export type PackageArchitecture = string;
 
 export type PackageEpoch = number;
@@ -2526,7 +2526,7 @@ export interface Placement {
   hostId?: string;
   hostResourceGroupArn?: string;
 }
-export type Platform = "WINDOWS" | "LINUX" | "MACOS";
+export type Platform = "Windows" | "Linux" | "macOS";
 export type ProductCodeId = string;
 
 export type ProductCodeList = Array<ProductCodeListItem>;
@@ -2534,7 +2534,7 @@ export interface ProductCodeListItem {
   productCodeId: string;
   productCodeType: ProductCodeType;
 }
-export type ProductCodeType = "MARKETPLACE";
+export type ProductCodeType = "marketplace";
 export interface PutComponentPolicyRequest {
   componentArn: string;
   policy: string;
@@ -2681,7 +2681,7 @@ export interface SsmParameterConfiguration {
   dataType?: SsmParameterDataType;
 }
 export type SsmParameterConfigurationList = Array<SsmParameterConfiguration>;
-export type SsmParameterDataType = "TEXT" | "AWS_EC2_IMAGE";
+export type SsmParameterDataType = "text" | "aws:ec2:image";
 export type SsmParameterName = string;
 
 export interface StartImagePipelineExecutionRequest {
@@ -2727,7 +2727,7 @@ export interface TargetContainerRepository {
 }
 export type TargetResourceCount = number;
 
-export type TenancyType = "DEFAULT" | "DEDICATED" | "HOST";
+export type TenancyType = "default" | "dedicated" | "host";
 export type Timezone = string;
 
 export interface UntagResourceRequest {

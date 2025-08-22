@@ -366,10 +366,10 @@ export type GroupList = Array<Group>;
 export type GroupName = string;
 
 export type GroupScope =
-  | "DOMAIN_LOCAL"
-  | "GLOBAL"
-  | "UNIVERSAL"
-  | "BUILTIN_LOCAL";
+  | "DomainLocal"
+  | "Global"
+  | "Universal"
+  | "BuiltinLocal";
 export interface GroupSummary {
   SID: string;
   SAMAccountName: string;
@@ -377,7 +377,7 @@ export interface GroupSummary {
   GroupScope: GroupScope;
 }
 export type GroupSummaryList = Array<GroupSummary>;
-export type GroupType = "DISTRIBUTION" | "SECURITY";
+export type GroupType = "Distribution" | "Security";
 export declare class InternalServerException extends EffectData.TaggedError(
   "InternalServerException",
 )<{

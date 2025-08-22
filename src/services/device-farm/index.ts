@@ -1139,7 +1139,7 @@ export type ExecutionResultCode =
   | "VPC_ENDPOINT_SETUP_FAILED";
 export type ExecutionStatus =
   | "PENDING"
-  | "PENDING_CONCURRNECY"
+  | "PENDING_CONCURRENCY"
   | "PENDING_DEVICE"
   | "PROCESSING"
   | "SCHEDULING"

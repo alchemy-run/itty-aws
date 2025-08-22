@@ -570,10 +570,10 @@ export interface ValidationExceptionField {
 }
 export type ValidationExceptionFieldList = Array<ValidationExceptionField>;
 export type ValidationExceptionReason =
-  | "UNKNOWN_OPERATION"
-  | "CANNOT_PARSE"
-  | "FIELD_VALIDATION_FAILED"
-  | "OTHER";
+  | "unknownOperation"
+  | "cannotParse"
+  | "fieldValidationFailed"
+  | "other";
 export type VanityDomainStatus = "PENDING" | "APPROVED" | "UNAPPROVED";
 export declare namespace BatchAddChannelRoleToAccessors {
   export type Input = BatchAddChannelRoleToAccessorsInput;

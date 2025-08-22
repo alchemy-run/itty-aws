@@ -16,7 +16,9 @@ function isBinaryData(value: unknown): value is Buffer | Uint8Array {
   );
 }
 
-function isBufferJsonObject(value: unknown): value is { type: "Buffer"; data: number[] } {
+function isBufferJsonObject(
+  value: unknown,
+): value is { type: "Buffer"; data: number[] } {
   return (
     typeof value === "object" &&
     value !== null &&

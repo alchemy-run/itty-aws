@@ -595,7 +595,7 @@ export declare class ResourceNotFoundException extends EffectData.TaggedError(
 )<{
   readonly Message?: string;
 }> {}
-export type ResourceToTag = "LAMBDA_FUNCTION";
+export type ResourceToTag = "lambda-function";
 export type RetryAttempt = number;
 
 export interface RetryConfigInput {

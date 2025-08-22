@@ -268,7 +268,7 @@ export declare class ResourceNotFoundException extends EffectData.TaggedError(
   readonly resourceType?: ResourceType;
 }> {}
 export type Resources = Array<Resource>;
-export type ResourceType = "AGREEMENT";
+export type ResourceType = "Agreement";
 export interface ScheduleItem {
   chargeDate?: Date | string;
   chargeAmount?: string;

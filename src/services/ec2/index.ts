@@ -2303,25 +2303,25 @@ export interface AcceleratorCountRequest {
   Max?: number;
 }
 export type AcceleratorManufacturer =
-  | "AMAZON_WEB_SERVICES"
-  | "AMD"
-  | "NVIDIA"
-  | "XILINX"
-  | "HABANA";
+  | "amazon-web-services"
+  | "amd"
+  | "nvidia"
+  | "xilinx"
+  | "habana";
 export type AcceleratorManufacturerSet = Array<AcceleratorManufacturer>;
 export type AcceleratorName =
-  | "A100"
-  | "INFERENTIA"
-  | "K520"
-  | "K80"
-  | "M60"
-  | "RADEON_PRO_V520"
-  | "T4"
-  | "VU9P"
-  | "V100"
-  | "A10G"
-  | "H100"
-  | "T4G";
+  | "a100"
+  | "inferentia"
+  | "k520"
+  | "k80"
+  | "m60"
+  | "radeon-pro-v520"
+  | "t4"
+  | "vu9p"
+  | "v100"
+  | "a10g"
+  | "h100"
+  | "t4g";
 export type AcceleratorNameSet = Array<AcceleratorName>;
 export interface AcceleratorTotalMemoryMiB {
   Min?: number;
@@ -2331,7 +2331,7 @@ export interface AcceleratorTotalMemoryMiBRequest {
   Min?: number;
   Max?: number;
 }
-export type AcceleratorType = "GPU" | "FPGA" | "INFERENCE";
+export type AcceleratorType = "gpu" | "fpga" | "inference";
 export type AcceleratorTypeSet = Array<AcceleratorType>;
 export interface AcceptAddressTransferRequest {
   Address: string;
@@ -2418,7 +2418,7 @@ export interface AccountAttribute {
   AttributeValues?: Array<AccountAttributeValue>;
 }
 export type AccountAttributeList = Array<AccountAttribute>;
-export type AccountAttributeName = "supported_platforms" | "default_vpc";
+export type AccountAttributeName = "supported-platforms" | "default-vpc";
 export type AccountAttributeNameStringList = Array<AccountAttributeName>;
 export interface AccountAttributeValue {
   AttributeValue?: string;
@@ -2445,10 +2445,10 @@ export interface ActiveVpnTunnelStatus {
   ProvisioningStatusReason?: string;
 }
 export type ActivityStatus =
-  | "ERROR"
-  | "PENDING_FULFILLMENT"
-  | "PENDING_TERMINATION"
-  | "FULFILLED";
+  | "error"
+  | "pending_fulfillment"
+  | "pending_termination"
+  | "fulfilled";
 export interface AddedPrincipal {
   PrincipalType?: PrincipalType;
   Principal?: string;
@@ -2505,7 +2505,7 @@ export interface AddressAttribute {
   PtrRecord?: string;
   PtrRecordUpdate?: PtrUpdateStatus;
 }
-export type AddressAttributeName = "domain_name";
+export type AddressAttributeName = "domain-name";
 export type AddressFamily = "ipv4" | "ipv6";
 export type AddressList = Array<Address>;
 export type AddressMaxResults = number;
@@ -2588,20 +2588,20 @@ export type AllocationIdList = Array<string>;
 export type AllocationIds = Array<string>;
 export type AllocationState =
   | "available"
-  | "under_assessment"
-  | "permanent_failure"
+  | "under-assessment"
+  | "permanent-failure"
   | "released"
-  | "released_permanent_failure"
+  | "released-permanent-failure"
   | "pending";
 export type AllocationStrategy =
-  | "LOWEST_PRICE"
-  | "DIVERSIFIED"
-  | "CAPACITY_OPTIMIZED"
-  | "CAPACITY_OPTIMIZED_PRIORITIZED"
-  | "PRICE_CAPACITY_OPTIMIZED";
+  | "lowestPrice"
+  | "diversified"
+  | "capacityOptimized"
+  | "capacityOptimizedPrioritized"
+  | "priceCapacityOptimized";
 export type AllocationType = "used" | "future";
 export type AllowedImagesSettingsDisabledState = "disabled";
-export type AllowedImagesSettingsEnabledState = "enabled" | "audit_mode";
+export type AllowedImagesSettingsEnabledState = "enabled" | "audit-mode";
 export type AllowedInstanceType = string;
 
 export type AllowedInstanceTypeSet = Array<string>;
@@ -2711,10 +2711,10 @@ export interface AsnAssociation {
 export type AsnAssociationSet = Array<AsnAssociation>;
 export type AsnAssociationState =
   | "disassociated"
-  | "failed_disassociation"
-  | "failed_association"
-  | "pending_disassociation"
-  | "pending_association"
+  | "failed-disassociation"
+  | "failed-association"
+  | "pending-disassociation"
+  | "pending-association"
   | "associated";
 export interface AsnAuthorizationContext {
   Message: string;
@@ -2722,10 +2722,10 @@ export interface AsnAuthorizationContext {
 }
 export type AsnState =
   | "deprovisioned"
-  | "failed_deprovision"
-  | "failed_provision"
-  | "pending_deprovision"
-  | "pending_provision"
+  | "failed-deprovision"
+  | "failed-provision"
+  | "pending-deprovision"
+  | "pending-provision"
   | "provisioned";
 export type AsPath = Array<string>;
 export type AssetId = string;
@@ -2970,7 +2970,7 @@ export interface AssociationStatus {
 export type AssociationStatusCode =
   | "associating"
   | "associated"
-  | "association_failed"
+  | "association-failed"
   | "disassociating"
   | "disassociated";
 export interface AthenaIntegration {
@@ -3140,9 +3140,9 @@ export type AvailabilityZoneMessageList = Array<AvailabilityZoneMessage>;
 export type AvailabilityZoneName = string;
 
 export type AvailabilityZoneOptInStatus =
-  | "opt_in_not_required"
-  | "opted_in"
-  | "not_opted_in";
+  | "opt-in-not-required"
+  | "opted-in"
+  | "not-opted-in";
 export type AvailabilityZoneState =
   | "available"
   | "information"
@@ -3155,9 +3155,9 @@ export interface AvailableCapacity {
   AvailableVCpus?: number;
 }
 export type AvailableInstanceCapacityList = Array<InstanceCapacity>;
-export type BandwidthWeightingType = "DEFAULT" | "VPC_1" | "EBS_1";
+export type BandwidthWeightingType = "default" | "vpc-1" | "ebs-1";
 export type BandwidthWeightingTypeList = Array<BandwidthWeightingType>;
-export type BareMetal = "INCLUDED" | "REQUIRED" | "EXCLUDED";
+export type BareMetal = "included" | "required" | "excluded";
 export type BareMetalFlag = boolean;
 
 export type BaselineBandwidthInGbps = number;
@@ -3183,13 +3183,13 @@ export interface BaselinePerformanceFactorsRequest {
 export type BaselineThroughputInMBps = number;
 
 export type BatchState =
-  | "SUBMITTED"
-  | "ACTIVE"
-  | "CANCELLED"
-  | "FAILED"
-  | "CANCELLED_RUNNING"
-  | "CANCELLED_TERMINATING_INSTANCES"
-  | "MODIFYING";
+  | "submitted"
+  | "active"
+  | "cancelled"
+  | "failed"
+  | "cancelled_running"
+  | "cancelled_terminating"
+  | "modifying";
 export type BgpStatus = "up" | "down";
 export type BillingProductList = Array<string>;
 export type Blob = Uint8Array | string;
@@ -3214,16 +3214,16 @@ export interface BlockDeviceMappingResponse {
 export type BlockDeviceMappingResponseList = Array<BlockDeviceMappingResponse>;
 export type BlockPublicAccessMode =
   | "off"
-  | "block_bidirectional"
-  | "block_ingress";
+  | "block-bidirectional"
+  | "block-ingress";
 export interface BlockPublicAccessStates {
   InternetGatewayBlockMode?: BlockPublicAccessMode;
 }
 export type Ec2Boolean = boolean;
 
-export type BootModeType = "legacy_bios" | "uefi";
+export type BootModeType = "legacy-bios" | "uefi";
 export type BootModeTypeList = Array<BootModeType>;
-export type BootModeValues = "legacy_bios" | "uefi" | "uefi_preferred";
+export type BootModeValues = "legacy-bios" | "uefi" | "uefi-preferred";
 export type BoxedDouble = number;
 
 export type BoxedInteger = number;
@@ -3258,13 +3258,13 @@ export interface BundleTaskError {
 export type BundleTaskList = Array<BundleTask>;
 export type BundleTaskState =
   | "pending"
-  | "waiting_for_shutdown"
+  | "waiting-for-shutdown"
   | "bundling"
   | "storing"
   | "cancelling"
   | "complete"
   | "failed";
-export type BurstablePerformance = "INCLUDED" | "REQUIRED" | "EXCLUDED";
+export type BurstablePerformance = "included" | "required" | "excluded";
 export type BurstablePerformanceFlag = boolean;
 
 export interface Byoasn {
@@ -3286,18 +3286,18 @@ export type ByoipCidrSet = Array<ByoipCidr>;
 export type ByoipCidrState =
   | "advertised"
   | "deprovisioned"
-  | "failed_deprovision"
-  | "failed_provision"
-  | "pending_deprovision"
-  | "pending_provision"
+  | "failed-deprovision"
+  | "failed-provision"
+  | "pending-deprovision"
+  | "pending-provision"
   | "provisioned"
-  | "provisioned_not_publicly_advertisable";
-export type CallerRole = "odcr_owner" | "unused_reservation_billing_owner";
+  | "provisioned-not-publicly-advertisable";
+export type CallerRole = "odcr-owner" | "unused-reservation-billing-owner";
 export type CancelBatchErrorCode =
-  | "FLEET_REQUEST_ID_DOES_NOT_EXIST"
-  | "FLEET_REQUEST_ID_MALFORMED"
-  | "FLEET_REQUEST_NOT_IN_CANCELLABLE_STATE"
-  | "UNEXPECTED_ERROR";
+  | "fleetRequestIdDoesNotExist"
+  | "fleetRequestIdMalformed"
+  | "fleetRequestNotInCancellableState"
+  | "unexpectedError";
 export interface CancelBundleTaskRequest {
   BundleId: string;
   DryRun?: boolean;
@@ -3461,16 +3461,16 @@ export type CapacityBlockExtensionOfferingSet =
   Array<CapacityBlockExtensionOffering>;
 export type CapacityBlockExtensionSet = Array<CapacityBlockExtension>;
 export type CapacityBlockExtensionStatus =
-  | "PAYMENT_PENDING"
-  | "PAYMENT_FAILED"
-  | "PAYMENT_SUCCEEDED";
+  | "payment-pending"
+  | "payment-failed"
+  | "payment-succeeded";
 export type CapacityBlockId = string;
 
 export type CapacityBlockIds = Array<string>;
 export type CapacityBlockInterconnectStatus =
   | "ok"
   | "impaired"
-  | "insufficient_data";
+  | "insufficient-data";
 export interface CapacityBlockOffering {
   CapacityBlockOfferingId?: string;
   InstanceType?: string;
@@ -3494,8 +3494,8 @@ export type CapacityBlockResourceState =
   | "cancelled"
   | "failed"
   | "scheduled"
-  | "payment_pending"
-  | "payment_failed";
+  | "payment-pending"
+  | "payment-failed";
 export type CapacityBlockSet = Array<CapacityBlock>;
 export interface CapacityBlockStatus {
   CapacityBlockId?: string;
@@ -3560,7 +3560,7 @@ export interface CapacityReservationCommitmentInfo {
   CommittedInstanceCount?: number;
   CommitmentEndDate?: Date | string;
 }
-export type CapacityReservationDeliveryPreference = "FIXED" | "INCREMENTAL";
+export type CapacityReservationDeliveryPreference = "fixed" | "incremental";
 export interface CapacityReservationFleet {
   CapacityReservationFleetId?: string;
   CapacityReservationFleetArn?: string;
@@ -3587,15 +3587,15 @@ export type CapacityReservationFleetId = string;
 export type CapacityReservationFleetIdSet = Array<string>;
 export type CapacityReservationFleetSet = Array<CapacityReservationFleet>;
 export type CapacityReservationFleetState =
-  | "SUBMITTED"
-  | "MODIFYING"
-  | "ACTIVE"
-  | "PARTIALLY_FULFILLED"
-  | "EXPIRING"
-  | "EXPIRED"
-  | "CANCELLING"
-  | "CANCELLED"
-  | "FAILED";
+  | "submitted"
+  | "modifying"
+  | "active"
+  | "partially_fulfilled"
+  | "expiring"
+  | "expired"
+  | "cancelling"
+  | "cancelled"
+  | "failed";
 export interface CapacityReservationGroup {
   GroupArn?: string;
   OwnerId?: string;
@@ -3611,24 +3611,24 @@ export interface CapacityReservationInfo {
   AvailabilityZoneId?: string;
 }
 export type CapacityReservationInstancePlatform =
-  | "LINUX_UNIX"
-  | "RED_HAT_ENTERPRISE_LINUX"
-  | "SUSE_LINUX"
-  | "WINDOWS"
-  | "WINDOWS_WITH_SQL_SERVER"
-  | "WINDOWS_WITH_SQL_SERVER_ENTERPRISE"
-  | "WINDOWS_WITH_SQL_SERVER_STANDARD"
-  | "WINDOWS_WITH_SQL_SERVER_WEB"
-  | "LINUX_WITH_SQL_SERVER_STANDARD"
-  | "LINUX_WITH_SQL_SERVER_WEB"
-  | "LINUX_WITH_SQL_SERVER_ENTERPRISE"
-  | "RHEL_WITH_SQL_SERVER_STANDARD"
-  | "RHEL_WITH_SQL_SERVER_ENTERPRISE"
-  | "RHEL_WITH_SQL_SERVER_WEB"
-  | "RHEL_WITH_HA"
-  | "RHEL_WITH_HA_AND_SQL_SERVER_STANDARD"
-  | "RHEL_WITH_HA_AND_SQL_SERVER_ENTERPRISE"
-  | "UBUNTU_PRO_LINUX";
+  | "Linux/UNIX"
+  | "Red Hat Enterprise Linux"
+  | "SUSE Linux"
+  | "Windows"
+  | "Windows with SQL Server"
+  | "Windows with SQL Server Enterprise"
+  | "Windows with SQL Server Standard"
+  | "Windows with SQL Server Web"
+  | "Linux with SQL Server Standard"
+  | "Linux with SQL Server Web"
+  | "Linux with SQL Server Enterprise"
+  | "RHEL with SQL Server Standard"
+  | "RHEL with SQL Server Enterprise"
+  | "RHEL with SQL Server Web"
+  | "RHEL with HA"
+  | "RHEL with HA and SQL Server Standard"
+  | "RHEL with HA and SQL Server Enterprise"
+  | "Ubuntu Pro";
 export interface CapacityReservationOptions {
   UsageStrategy?: FleetCapacityReservationUsageStrategy;
 }
@@ -3636,7 +3636,7 @@ export interface CapacityReservationOptionsRequest {
   UsageStrategy?: FleetCapacityReservationUsageStrategy;
 }
 export type CapacityReservationPreference =
-  | "capacity_reservations_only"
+  | "capacity-reservations-only"
   | "open"
   | "none";
 export type CapacityReservationSet = Array<CapacityReservation>;
@@ -3655,8 +3655,8 @@ export type CapacityReservationState =
   | "pending"
   | "failed"
   | "scheduled"
-  | "payment_pending"
-  | "payment_failed"
+  | "payment-pending"
+  | "payment-failed"
   | "assessing"
   | "delayed"
   | "unsupported"
@@ -3677,7 +3677,7 @@ export interface CapacityReservationTargetResponse {
   CapacityReservationResourceGroupArn?: string;
 }
 export type CapacityReservationTenancy = "default" | "dedicated";
-export type CapacityReservationType = "DEFAULT" | "CAPACITY_BLOCK";
+export type CapacityReservationType = "default" | "capacity-block";
 export interface CarrierGateway {
   CarrierGatewayId?: string;
   VpcId?: string;
@@ -3785,9 +3785,9 @@ export interface ClientVpnAuthenticationRequest {
 export type ClientVpnAuthenticationRequestList =
   Array<ClientVpnAuthenticationRequest>;
 export type ClientVpnAuthenticationType =
-  | "certificate_authentication"
-  | "directory_service_authentication"
-  | "federated_authentication";
+  | "certificate-authentication"
+  | "directory-service-authentication"
+  | "federated-authentication";
 export interface ClientVpnAuthorizationRuleStatus {
   Code?: ClientVpnAuthorizationRuleStatusCode;
   Message?: string;
@@ -3820,7 +3820,7 @@ export interface ClientVpnConnectionStatus {
 }
 export type ClientVpnConnectionStatusCode =
   | "active"
-  | "failed_to_terminate"
+  | "failed-to-terminate"
   | "terminating"
   | "terminated";
 export interface ClientVpnEndpoint {
@@ -3863,7 +3863,7 @@ export interface ClientVpnEndpointStatus {
   Message?: string;
 }
 export type ClientVpnEndpointStatusCode =
-  | "pending_associate"
+  | "pending-associate"
   | "available"
   | "deleting"
   | "deleted";
@@ -3983,7 +3983,7 @@ export interface ConnectionTrackingSpecificationResponse {
   UdpStreamTimeout?: number;
   UdpTimeout?: number;
 }
-export type ConnectivityType = "PRIVATE" | "PUBLIC";
+export type ConnectivityType = "private" | "public";
 export type ContainerFormat = "ova";
 export type ConversionIdStringList = Array<string>;
 export interface ConversionTask {
@@ -4059,7 +4059,7 @@ export type CoreCount = number;
 export type CoreCountList = Array<number>;
 export type CoreNetworkArn = string;
 
-export type CpuManufacturer = "INTEL" | "AMD" | "AMAZON_WEB_SERVICES" | "APPLE";
+export type CpuManufacturer = "intel" | "amd" | "amazon-web-services" | "apple";
 export type CpuManufacturerName = string;
 
 export type CpuManufacturerSet = Array<CpuManufacturer>;
@@ -5381,16 +5381,16 @@ export type DefaultingDhcpOptionsId = string;
 export type DefaultInstanceMetadataEndpointState =
   | "disabled"
   | "enabled"
-  | "no_preference";
+  | "no-preference";
 export type DefaultInstanceMetadataTagsState =
   | "disabled"
   | "enabled"
-  | "no_preference";
+  | "no-preference";
 export type DefaultNetworkCardIndex = number;
 
 export type DefaultRouteTableAssociationValue = "enable" | "disable";
 export type DefaultRouteTablePropagationValue = "enable" | "disable";
-export type DefaultTargetCapacityType = "SPOT" | "ON_DEMAND" | "CAPACITY_BLOCK";
+export type DefaultTargetCapacityType = "spot" | "on-demand" | "capacity-block";
 export interface DeleteCarrierGatewayRequest {
   CarrierGatewayId: string;
   DryRun?: boolean;
@@ -5449,10 +5449,10 @@ export interface DeleteFleetError {
   Message?: string;
 }
 export type DeleteFleetErrorCode =
-  | "FLEET_ID_DOES_NOT_EXIST"
-  | "FLEET_ID_MALFORMED"
-  | "FLEET_NOT_IN_DELETABLE_STATE"
-  | "UNEXPECTED_ERROR";
+  | "fleetIdDoesNotExist"
+  | "fleetIdMalformed"
+  | "fleetNotInDeletableState"
+  | "unexpectedError";
 export interface DeleteFleetErrorItem {
   Error?: DeleteFleetError;
   FleetId?: string;
@@ -5710,9 +5710,9 @@ export interface DeleteQueuedReservedInstancesError {
   Message?: string;
 }
 export type DeleteQueuedReservedInstancesErrorCode =
-  | "RESERVED_INSTANCES_ID_INVALID"
-  | "RESERVED_INSTANCES_NOT_IN_QUEUED_STATE"
-  | "UNEXPECTED_ERROR";
+  | "reserved-instances-id-invalid"
+  | "reserved-instances-not-in-queued-state"
+  | "unexpected-error";
 export type DeleteQueuedReservedInstancesIdList = Array<string>;
 export interface DeleteQueuedReservedInstancesRequest {
   DryRun?: boolean;
@@ -8045,7 +8045,7 @@ export interface DescribeVpnGatewaysRequest {
 export interface DescribeVpnGatewaysResult {
   VpnGateways?: Array<VpnGateway>;
 }
-export type DestinationFileFormat = "plain_text" | "parquet";
+export type DestinationFileFormat = "plain-text" | "parquet";
 export interface DestinationOptionsRequest {
   FileFormat?: DestinationFileFormat;
   HiveCompatiblePartitions?: boolean;
@@ -8102,7 +8102,7 @@ export interface DeviceOptions {
 }
 export type DeviceTrustProviderType = "jamf" | "crowdstrike" | "jumpcloud";
 export type DeviceTrustProviderTypeList = Array<DeviceTrustProviderType>;
-export type DeviceType = "ebs" | "instance_store";
+export type DeviceType = "ebs" | "instance-store";
 export interface DhcpConfiguration {
   Key?: string;
   Values?: Array<AttributeValue>;
@@ -8473,7 +8473,7 @@ export interface DnsEntry {
   HostedZoneId?: string;
 }
 export type DnsEntrySet = Array<DnsEntry>;
-export type DnsNameState = "PendingVerification" | "Verified" | "Failed";
+export type DnsNameState = "pendingVerification" | "verified" | "failed";
 export interface DnsOptions {
   DnsRecordIpType?: DnsRecordIpType;
   PrivateDnsOnlyForInboundResolverEndpoint?: boolean;
@@ -8482,7 +8482,7 @@ export interface DnsOptionsSpecification {
   DnsRecordIpType?: DnsRecordIpType;
   PrivateDnsOnlyForInboundResolverEndpoint?: boolean;
 }
-export type DnsRecordIpType = "ipv4" | "dualstack" | "ipv6" | "service_defined";
+export type DnsRecordIpType = "ipv4" | "dualstack" | "ipv6" | "service-defined";
 export interface DnsServersOptionsModifyStructure {
   CustomDnsServers?: Array<string>;
   Enabled?: boolean;
@@ -8540,7 +8540,7 @@ export interface EbsInstanceBlockDeviceSpecification {
   VolumeId?: string;
   DeleteOnTermination?: boolean;
 }
-export type EbsNvmeSupport = "UNSUPPORTED" | "SUPPORTED" | "REQUIRED";
+export type EbsNvmeSupport = "unsupported" | "supported" | "required";
 export interface EbsOptimizedInfo {
   BaselineBandwidthInMbps?: number;
   BaselineThroughputInMBps?: number;
@@ -8579,12 +8579,12 @@ export interface Ec2InstanceConnectEndpoint {
   IpAddressType?: IpAddressType;
 }
 export type Ec2InstanceConnectEndpointState =
-  | "create_in_progress"
-  | "create_complete"
-  | "create_failed"
-  | "delete_in_progress"
-  | "delete_complete"
-  | "delete_failed";
+  | "create-in-progress"
+  | "create-complete"
+  | "create-failed"
+  | "delete-in-progress"
+  | "delete-complete"
+  | "delete-failed";
 export interface EfaInfo {
   MaximumEfaInterfaces?: number;
 }
@@ -8603,7 +8603,7 @@ export type EipAllocationPublicIp = string;
 
 export type EipAssociationIdList = Array<string>;
 export type EkPubKeyFormat = "der" | "tpmt";
-export type EkPubKeyType = "RSA_2048" | "ECC_SEC_P384";
+export type EkPubKeyType = "rsa-2048" | "ecc-sec-p384";
 export type EkPubKeyValue = string;
 
 export interface ElasticGpuAssociation {
@@ -8639,8 +8639,8 @@ export interface ElasticGpuSpecificationResponse {
 export type ElasticGpuSpecificationResponseList =
   Array<ElasticGpuSpecificationResponse>;
 export type ElasticGpuSpecifications = Array<ElasticGpuSpecification>;
-export type ElasticGpuState = "Attached";
-export type ElasticGpuStatus = "Ok" | "Impaired";
+export type ElasticGpuState = "ATTACHED";
+export type ElasticGpuStatus = "OK" | "IMPAIRED";
 export interface ElasticInferenceAccelerator {
   Type: string;
   Count?: number;
@@ -8870,25 +8870,25 @@ export type EncryptionInTransitSupported = boolean;
 
 export type EndDateType = "unlimited" | "limited";
 export type EndpointSet = Array<ClientVpnEndpoint>;
-export type EphemeralNvmeSupport = "UNSUPPORTED" | "SUPPORTED" | "REQUIRED";
+export type EphemeralNvmeSupport = "unsupported" | "supported" | "required";
 export type ErrorSet = Array<ValidationError>;
 export type EventCode =
-  | "instance_reboot"
-  | "system_reboot"
-  | "system_maintenance"
-  | "instance_retirement"
-  | "instance_stop";
+  | "instance-reboot"
+  | "system-reboot"
+  | "system-maintenance"
+  | "instance-retirement"
+  | "instance-stop";
 export interface EventInformation {
   EventDescription?: string;
   EventSubType?: string;
   InstanceId?: string;
 }
 export type EventType =
-  | "INSTANCE_CHANGE"
-  | "BATCH_CHANGE"
-  | "ERROR"
-  | "INFORMATION";
-export type ExcessCapacityTerminationPolicy = "NO_TERMINATION" | "DEFAULT";
+  | "instanceChange"
+  | "fleetRequestChange"
+  | "error"
+  | "information";
+export type ExcessCapacityTerminationPolicy = "noTermination" | "default";
 export type ExcludedInstanceType = string;
 
 export type ExcludedInstanceTypeSet = Array<string>;
@@ -9086,7 +9086,7 @@ export interface FastLaunchLaunchTemplateSpecificationResponse {
   LaunchTemplateName?: string;
   Version?: string;
 }
-export type FastLaunchResourceType = "SNAPSHOT";
+export type FastLaunchResourceType = "snapshot";
 export interface FastLaunchSnapshotConfigurationRequest {
   TargetResourceCount?: number;
 }
@@ -9095,11 +9095,11 @@ export interface FastLaunchSnapshotConfigurationResponse {
 }
 export type FastLaunchStateCode =
   | "enabling"
-  | "enabling_failed"
+  | "enabling-failed"
   | "enabled"
-  | "enabled_failed"
+  | "enabled-failed"
   | "disabling"
-  | "disabling_failed";
+  | "disabling-failed";
 export type FastSnapshotRestoreStateCode =
   | "enabling"
   | "optimizing"
@@ -9145,10 +9145,10 @@ export interface FirewallStatelessRule {
   Priority?: number;
 }
 export type FleetActivityStatus =
-  | "ERROR"
-  | "PENDING_FULFILLMENT"
-  | "PENDING_TERMINATION"
-  | "FULFILLED";
+  | "error"
+  | "pending_fulfillment"
+  | "pending_termination"
+  | "fulfilled";
 export interface FleetBlockDeviceMappingRequest {
   DeviceName?: string;
   VirtualName?: string;
@@ -9173,7 +9173,7 @@ export interface FleetCapacityReservation {
 export type FleetCapacityReservationSet = Array<FleetCapacityReservation>;
 export type FleetCapacityReservationTenancy = "default";
 export type FleetCapacityReservationUsageStrategy =
-  "USE_CAPACITY_RESERVATIONS_FIRST";
+  "use-capacity-reservations-first";
 export interface FleetData {
   ActivityStatus?: FleetActivityStatus;
   CreateTime?: Date | string;
@@ -9208,12 +9208,12 @@ export interface FleetEbsBlockDeviceRequest {
   VolumeType?: VolumeType;
 }
 export type FleetEventType =
-  | "INSTANCE_CHANGE"
-  | "FLEET_CHANGE"
-  | "SERVICE_ERROR";
+  | "instance-change"
+  | "fleet-change"
+  | "service-error";
 export type FleetExcessCapacityTerminationPolicy =
-  | "NO_TERMINATION"
-  | "TERMINATION";
+  | "no-termination"
+  | "termination";
 export type FleetId = string;
 
 export type FleetIdSet = Array<string>;
@@ -9267,8 +9267,8 @@ export interface FleetLaunchTemplateSpecificationRequest {
   LaunchTemplateName?: string;
   Version?: string;
 }
-export type FleetOnDemandAllocationStrategy = "LOWEST_PRICE" | "PRIORITIZED";
-export type FleetReplacementStrategy = "LAUNCH" | "LAUNCH_BEFORE_TERMINATE";
+export type FleetOnDemandAllocationStrategy = "lowest-price" | "prioritized";
+export type FleetReplacementStrategy = "launch" | "launch-before-terminate";
 export type FleetSet = Array<FleetData>;
 export interface FleetSpotCapacityRebalance {
   ReplacementStrategy?: FleetReplacementStrategy;
@@ -9285,15 +9285,15 @@ export interface FleetSpotMaintenanceStrategiesRequest {
   CapacityRebalance?: FleetSpotCapacityRebalanceRequest;
 }
 export type FleetStateCode =
-  | "SUBMITTED"
-  | "ACTIVE"
-  | "DELETED"
-  | "FAILED"
-  | "DELETED_RUNNING"
-  | "DELETED_TERMINATING_INSTANCES"
-  | "MODIFYING";
-export type FleetType = "REQUEST" | "MAINTAIN" | "INSTANT";
-export type FlexibleEnaQueuesSupport = "UNSUPPORTED" | "SUPPORTED";
+  | "submitted"
+  | "active"
+  | "deleted"
+  | "failed"
+  | "deleted_running"
+  | "deleted_terminating"
+  | "modifying";
+export type FleetType = "request" | "maintain" | "instant";
+export type FlexibleEnaQueuesSupport = "unsupported" | "supported";
 export type Float = number;
 
 export interface FlowLog {
@@ -9394,10 +9394,10 @@ export type FreeTierEligibleFlag = boolean;
 
 export type GatewayAssociationState =
   | "associated"
-  | "not_associated"
+  | "not-associated"
   | "associating"
   | "disassociating";
-export type GatewayType = "ipsec_1";
+export type GatewayType = "ipsec.1";
 export interface GetActiveVpnTunnelStatusRequest {
   VpnConnectionId: string;
   VpnTunnelOutsideIpAddress: string;
@@ -10074,7 +10074,7 @@ export interface HostInstance {
 export type HostInstanceList = Array<HostInstance>;
 export type HostList = Array<Host>;
 export type HostMaintenance = "on" | "off";
-export type HostnameType = "ip_name" | "resource_name";
+export type HostnameType = "ip-name" | "resource-name";
 export interface HostOffering {
   CurrencyCode?: CurrencyCodeValues;
   Duration?: number;
@@ -10134,10 +10134,10 @@ export type IamInstanceProfileAssociationId = string;
 export type IamInstanceProfileAssociationSet =
   Array<IamInstanceProfileAssociation>;
 export type IamInstanceProfileAssociationState =
-  | "ASSOCIATING"
-  | "ASSOCIATED"
-  | "DISASSOCIATING"
-  | "DISASSOCIATED";
+  | "associating"
+  | "associated"
+  | "disassociating"
+  | "disassociated";
 export interface IamInstanceProfileSpecification {
   Arn?: string;
   Name?: string;
@@ -10231,7 +10231,7 @@ export type ImageAttributeName =
   | "imdsSupport"
   | "deregistrationProtection";
 export type ImageBlockPublicAccessDisabledState = "unblocked";
-export type ImageBlockPublicAccessEnabledState = "block_new_sharing";
+export type ImageBlockPublicAccessEnabledState = "block-new-sharing";
 export interface ImageCriterion {
   ImageProviders?: Array<string>;
 }
@@ -10289,7 +10289,7 @@ export type ImageState =
   | "error"
   | "disabled";
 export type ImageTypeValues = "machine" | "kernel" | "ramdisk";
-export type ImdsSupportValues = "v2_0";
+export type ImdsSupportValues = "v2.0";
 export interface ImportClientVpnClientCertificateRevocationListRequest {
   ClientVpnEndpointId: string;
   CertificateRevocationList: string;
@@ -10494,7 +10494,7 @@ export interface InitializationStatusDetails {
   Progress?: number;
   EstimatedTimeToCompleteInSeconds?: number;
 }
-export type InitializationType = "default" | "provisioned_rate";
+export type InitializationType = "default" | "provisioned-rate";
 export type InsideCidrBlocksStringList = Array<string>;
 export interface Instance {
   Architecture?: ArchitectureValues;
@@ -10602,7 +10602,7 @@ export type InstanceAttributeName =
   | "enclaveOptions"
   | "disableApiStop";
 export type InstanceAutoRecoveryState = "disabled" | "default";
-export type InstanceBandwidthWeighting = "DEFAULT" | "VPC_1" | "EBS_1";
+export type InstanceBandwidthWeighting = "default" | "vpc-1" | "ebs-1";
 export interface InstanceBlockDeviceMapping {
   DeviceName?: string;
   Ebs?: EbsInstanceBlockDevice;
@@ -10616,7 +10616,7 @@ export interface InstanceBlockDeviceMappingSpecification {
 }
 export type InstanceBlockDeviceMappingSpecificationList =
   Array<InstanceBlockDeviceMappingSpecification>;
-export type InstanceBootModeValues = "legacy_bios" | "uefi";
+export type InstanceBootModeValues = "legacy-bios" | "uefi";
 export interface InstanceCapacity {
   AvailableCapacity?: number;
   InstanceType?: string;
@@ -10709,9 +10709,9 @@ export interface InstanceFamilyCreditSpecification {
   InstanceFamily?: UnlimitedSupportedInstanceFamily;
   CpuCredits?: string;
 }
-export type InstanceGeneration = "CURRENT" | "PREVIOUS";
+export type InstanceGeneration = "current" | "previous";
 export type InstanceGenerationSet = Array<InstanceGeneration>;
-export type InstanceHealthStatus = "HEALTHY_STATUS" | "UNHEALTHY_STATUS";
+export type InstanceHealthStatus = "healthy" | "unhealthy";
 export type InstanceId = string;
 
 export type InstanceIdForResolver = string;
@@ -10753,8 +10753,8 @@ export interface InstanceIpv6Prefix {
   Ipv6Prefix?: string;
 }
 export type InstanceIpv6PrefixList = Array<InstanceIpv6Prefix>;
-export type InstanceLifecycle = "SPOT" | "ON_DEMAND";
-export type InstanceLifecycleType = "spot" | "scheduled" | "capacity_block";
+export type InstanceLifecycle = "spot" | "on-demand";
+export type InstanceLifecycleType = "spot" | "scheduled" | "capacity-block";
 export type InstanceList = Array<Instance>;
 export interface InstanceMaintenanceOptions {
   AutoRecovery?: InstanceAutoRecoveryState;
@@ -10959,7 +10959,7 @@ export type InstanceStateChangeList = Array<InstanceStateChange>;
 export type InstanceStateName =
   | "pending"
   | "running"
-  | "shutting_down"
+  | "shutting-down"
   | "terminated"
   | "stopping"
   | "stopped";
@@ -11018,966 +11018,966 @@ export interface InstanceTopology {
   CapacityBlockId?: string;
 }
 export type InstanceType =
-  | "a1_medium"
-  | "a1_large"
-  | "a1_xlarge"
-  | "a1_2xlarge"
-  | "a1_4xlarge"
-  | "a1_metal"
-  | "c1_medium"
-  | "c1_xlarge"
-  | "c3_large"
-  | "c3_xlarge"
-  | "c3_2xlarge"
-  | "c3_4xlarge"
-  | "c3_8xlarge"
-  | "c4_large"
-  | "c4_xlarge"
-  | "c4_2xlarge"
-  | "c4_4xlarge"
-  | "c4_8xlarge"
-  | "c5_large"
-  | "c5_xlarge"
-  | "c5_2xlarge"
-  | "c5_4xlarge"
-  | "c5_9xlarge"
-  | "c5_12xlarge"
-  | "c5_18xlarge"
-  | "c5_24xlarge"
-  | "c5_metal"
-  | "c5a_large"
-  | "c5a_xlarge"
-  | "c5a_2xlarge"
-  | "c5a_4xlarge"
-  | "c5a_8xlarge"
-  | "c5a_12xlarge"
-  | "c5a_16xlarge"
-  | "c5a_24xlarge"
-  | "c5ad_large"
-  | "c5ad_xlarge"
-  | "c5ad_2xlarge"
-  | "c5ad_4xlarge"
-  | "c5ad_8xlarge"
-  | "c5ad_12xlarge"
-  | "c5ad_16xlarge"
-  | "c5ad_24xlarge"
-  | "c5d_large"
-  | "c5d_xlarge"
-  | "c5d_2xlarge"
-  | "c5d_4xlarge"
-  | "c5d_9xlarge"
-  | "c5d_12xlarge"
-  | "c5d_18xlarge"
-  | "c5d_24xlarge"
-  | "c5d_metal"
-  | "c5n_large"
-  | "c5n_xlarge"
-  | "c5n_2xlarge"
-  | "c5n_4xlarge"
-  | "c5n_9xlarge"
-  | "c5n_18xlarge"
-  | "c5n_metal"
-  | "c6g_medium"
-  | "c6g_large"
-  | "c6g_xlarge"
-  | "c6g_2xlarge"
-  | "c6g_4xlarge"
-  | "c6g_8xlarge"
-  | "c6g_12xlarge"
-  | "c6g_16xlarge"
-  | "c6g_metal"
-  | "c6gd_medium"
-  | "c6gd_large"
-  | "c6gd_xlarge"
-  | "c6gd_2xlarge"
-  | "c6gd_4xlarge"
-  | "c6gd_8xlarge"
-  | "c6gd_12xlarge"
-  | "c6gd_16xlarge"
-  | "c6gd_metal"
-  | "c6gn_medium"
-  | "c6gn_large"
-  | "c6gn_xlarge"
-  | "c6gn_2xlarge"
-  | "c6gn_4xlarge"
-  | "c6gn_8xlarge"
-  | "c6gn_12xlarge"
-  | "c6gn_16xlarge"
-  | "c6i_large"
-  | "c6i_xlarge"
-  | "c6i_2xlarge"
-  | "c6i_4xlarge"
-  | "c6i_8xlarge"
-  | "c6i_12xlarge"
-  | "c6i_16xlarge"
-  | "c6i_24xlarge"
-  | "c6i_32xlarge"
-  | "c6i_metal"
-  | "cc1_4xlarge"
-  | "cc2_8xlarge"
-  | "cg1_4xlarge"
-  | "cr1_8xlarge"
-  | "d2_xlarge"
-  | "d2_2xlarge"
-  | "d2_4xlarge"
-  | "d2_8xlarge"
-  | "d3_xlarge"
-  | "d3_2xlarge"
-  | "d3_4xlarge"
-  | "d3_8xlarge"
-  | "d3en_xlarge"
-  | "d3en_2xlarge"
-  | "d3en_4xlarge"
-  | "d3en_6xlarge"
-  | "d3en_8xlarge"
-  | "d3en_12xlarge"
-  | "dl1_24xlarge"
-  | "f1_2xlarge"
-  | "f1_4xlarge"
-  | "f1_16xlarge"
-  | "g2_2xlarge"
-  | "g2_8xlarge"
-  | "g3_4xlarge"
-  | "g3_8xlarge"
-  | "g3_16xlarge"
-  | "g3s_xlarge"
-  | "g4ad_xlarge"
-  | "g4ad_2xlarge"
-  | "g4ad_4xlarge"
-  | "g4ad_8xlarge"
-  | "g4ad_16xlarge"
-  | "g4dn_xlarge"
-  | "g4dn_2xlarge"
-  | "g4dn_4xlarge"
-  | "g4dn_8xlarge"
-  | "g4dn_12xlarge"
-  | "g4dn_16xlarge"
-  | "g4dn_metal"
-  | "g5_xlarge"
-  | "g5_2xlarge"
-  | "g5_4xlarge"
-  | "g5_8xlarge"
-  | "g5_12xlarge"
-  | "g5_16xlarge"
-  | "g5_24xlarge"
-  | "g5_48xlarge"
-  | "g5g_xlarge"
-  | "g5g_2xlarge"
-  | "g5g_4xlarge"
-  | "g5g_8xlarge"
-  | "g5g_16xlarge"
-  | "g5g_metal"
-  | "hi1_4xlarge"
-  | "hpc6a_48xlarge"
-  | "hs1_8xlarge"
-  | "h1_2xlarge"
-  | "h1_4xlarge"
-  | "h1_8xlarge"
-  | "h1_16xlarge"
-  | "i2_xlarge"
-  | "i2_2xlarge"
-  | "i2_4xlarge"
-  | "i2_8xlarge"
-  | "i3_large"
-  | "i3_xlarge"
-  | "i3_2xlarge"
-  | "i3_4xlarge"
-  | "i3_8xlarge"
-  | "i3_16xlarge"
-  | "i3_metal"
-  | "i3en_large"
-  | "i3en_xlarge"
-  | "i3en_2xlarge"
-  | "i3en_3xlarge"
-  | "i3en_6xlarge"
-  | "i3en_12xlarge"
-  | "i3en_24xlarge"
-  | "i3en_metal"
-  | "im4gn_large"
-  | "im4gn_xlarge"
-  | "im4gn_2xlarge"
-  | "im4gn_4xlarge"
-  | "im4gn_8xlarge"
-  | "im4gn_16xlarge"
-  | "inf1_xlarge"
-  | "inf1_2xlarge"
-  | "inf1_6xlarge"
-  | "inf1_24xlarge"
-  | "is4gen_medium"
-  | "is4gen_large"
-  | "is4gen_xlarge"
-  | "is4gen_2xlarge"
-  | "is4gen_4xlarge"
-  | "is4gen_8xlarge"
-  | "m1_small"
-  | "m1_medium"
-  | "m1_large"
-  | "m1_xlarge"
-  | "m2_xlarge"
-  | "m2_2xlarge"
-  | "m2_4xlarge"
-  | "m3_medium"
-  | "m3_large"
-  | "m3_xlarge"
-  | "m3_2xlarge"
-  | "m4_large"
-  | "m4_xlarge"
-  | "m4_2xlarge"
-  | "m4_4xlarge"
-  | "m4_10xlarge"
-  | "m4_16xlarge"
-  | "m5_large"
-  | "m5_xlarge"
-  | "m5_2xlarge"
-  | "m5_4xlarge"
-  | "m5_8xlarge"
-  | "m5_12xlarge"
-  | "m5_16xlarge"
-  | "m5_24xlarge"
-  | "m5_metal"
-  | "m5a_large"
-  | "m5a_xlarge"
-  | "m5a_2xlarge"
-  | "m5a_4xlarge"
-  | "m5a_8xlarge"
-  | "m5a_12xlarge"
-  | "m5a_16xlarge"
-  | "m5a_24xlarge"
-  | "m5ad_large"
-  | "m5ad_xlarge"
-  | "m5ad_2xlarge"
-  | "m5ad_4xlarge"
-  | "m5ad_8xlarge"
-  | "m5ad_12xlarge"
-  | "m5ad_16xlarge"
-  | "m5ad_24xlarge"
-  | "m5d_large"
-  | "m5d_xlarge"
-  | "m5d_2xlarge"
-  | "m5d_4xlarge"
-  | "m5d_8xlarge"
-  | "m5d_12xlarge"
-  | "m5d_16xlarge"
-  | "m5d_24xlarge"
-  | "m5d_metal"
-  | "m5dn_large"
-  | "m5dn_xlarge"
-  | "m5dn_2xlarge"
-  | "m5dn_4xlarge"
-  | "m5dn_8xlarge"
-  | "m5dn_12xlarge"
-  | "m5dn_16xlarge"
-  | "m5dn_24xlarge"
-  | "m5dn_metal"
-  | "m5n_large"
-  | "m5n_xlarge"
-  | "m5n_2xlarge"
-  | "m5n_4xlarge"
-  | "m5n_8xlarge"
-  | "m5n_12xlarge"
-  | "m5n_16xlarge"
-  | "m5n_24xlarge"
-  | "m5n_metal"
-  | "m5zn_large"
-  | "m5zn_xlarge"
-  | "m5zn_2xlarge"
-  | "m5zn_3xlarge"
-  | "m5zn_6xlarge"
-  | "m5zn_12xlarge"
-  | "m5zn_metal"
-  | "m6a_large"
-  | "m6a_xlarge"
-  | "m6a_2xlarge"
-  | "m6a_4xlarge"
-  | "m6a_8xlarge"
-  | "m6a_12xlarge"
-  | "m6a_16xlarge"
-  | "m6a_24xlarge"
-  | "m6a_32xlarge"
-  | "m6a_48xlarge"
-  | "m6g_metal"
-  | "m6g_medium"
-  | "m6g_large"
-  | "m6g_xlarge"
-  | "m6g_2xlarge"
-  | "m6g_4xlarge"
-  | "m6g_8xlarge"
-  | "m6g_12xlarge"
-  | "m6g_16xlarge"
-  | "m6gd_metal"
-  | "m6gd_medium"
-  | "m6gd_large"
-  | "m6gd_xlarge"
-  | "m6gd_2xlarge"
-  | "m6gd_4xlarge"
-  | "m6gd_8xlarge"
-  | "m6gd_12xlarge"
-  | "m6gd_16xlarge"
-  | "m6i_large"
-  | "m6i_xlarge"
-  | "m6i_2xlarge"
-  | "m6i_4xlarge"
-  | "m6i_8xlarge"
-  | "m6i_12xlarge"
-  | "m6i_16xlarge"
-  | "m6i_24xlarge"
-  | "m6i_32xlarge"
-  | "m6i_metal"
-  | "mac1_metal"
-  | "p2_xlarge"
-  | "p2_8xlarge"
-  | "p2_16xlarge"
-  | "p3_2xlarge"
-  | "p3_8xlarge"
-  | "p3_16xlarge"
-  | "p3dn_24xlarge"
-  | "p4d_24xlarge"
-  | "r3_large"
-  | "r3_xlarge"
-  | "r3_2xlarge"
-  | "r3_4xlarge"
-  | "r3_8xlarge"
-  | "r4_large"
-  | "r4_xlarge"
-  | "r4_2xlarge"
-  | "r4_4xlarge"
-  | "r4_8xlarge"
-  | "r4_16xlarge"
-  | "r5_large"
-  | "r5_xlarge"
-  | "r5_2xlarge"
-  | "r5_4xlarge"
-  | "r5_8xlarge"
-  | "r5_12xlarge"
-  | "r5_16xlarge"
-  | "r5_24xlarge"
-  | "r5_metal"
-  | "r5a_large"
-  | "r5a_xlarge"
-  | "r5a_2xlarge"
-  | "r5a_4xlarge"
-  | "r5a_8xlarge"
-  | "r5a_12xlarge"
-  | "r5a_16xlarge"
-  | "r5a_24xlarge"
-  | "r5ad_large"
-  | "r5ad_xlarge"
-  | "r5ad_2xlarge"
-  | "r5ad_4xlarge"
-  | "r5ad_8xlarge"
-  | "r5ad_12xlarge"
-  | "r5ad_16xlarge"
-  | "r5ad_24xlarge"
-  | "r5b_large"
-  | "r5b_xlarge"
-  | "r5b_2xlarge"
-  | "r5b_4xlarge"
-  | "r5b_8xlarge"
-  | "r5b_12xlarge"
-  | "r5b_16xlarge"
-  | "r5b_24xlarge"
-  | "r5b_metal"
-  | "r5d_large"
-  | "r5d_xlarge"
-  | "r5d_2xlarge"
-  | "r5d_4xlarge"
-  | "r5d_8xlarge"
-  | "r5d_12xlarge"
-  | "r5d_16xlarge"
-  | "r5d_24xlarge"
-  | "r5d_metal"
-  | "r5dn_large"
-  | "r5dn_xlarge"
-  | "r5dn_2xlarge"
-  | "r5dn_4xlarge"
-  | "r5dn_8xlarge"
-  | "r5dn_12xlarge"
-  | "r5dn_16xlarge"
-  | "r5dn_24xlarge"
-  | "r5dn_metal"
-  | "r5n_large"
-  | "r5n_xlarge"
-  | "r5n_2xlarge"
-  | "r5n_4xlarge"
-  | "r5n_8xlarge"
-  | "r5n_12xlarge"
-  | "r5n_16xlarge"
-  | "r5n_24xlarge"
-  | "r5n_metal"
-  | "r6g_medium"
-  | "r6g_large"
-  | "r6g_xlarge"
-  | "r6g_2xlarge"
-  | "r6g_4xlarge"
-  | "r6g_8xlarge"
-  | "r6g_12xlarge"
-  | "r6g_16xlarge"
-  | "r6g_metal"
-  | "r6gd_medium"
-  | "r6gd_large"
-  | "r6gd_xlarge"
-  | "r6gd_2xlarge"
-  | "r6gd_4xlarge"
-  | "r6gd_8xlarge"
-  | "r6gd_12xlarge"
-  | "r6gd_16xlarge"
-  | "r6gd_metal"
-  | "r6i_large"
-  | "r6i_xlarge"
-  | "r6i_2xlarge"
-  | "r6i_4xlarge"
-  | "r6i_8xlarge"
-  | "r6i_12xlarge"
-  | "r6i_16xlarge"
-  | "r6i_24xlarge"
-  | "r6i_32xlarge"
-  | "r6i_metal"
-  | "t1_micro"
-  | "t2_nano"
-  | "t2_micro"
-  | "t2_small"
-  | "t2_medium"
-  | "t2_large"
-  | "t2_xlarge"
-  | "t2_2xlarge"
-  | "t3_nano"
-  | "t3_micro"
-  | "t3_small"
-  | "t3_medium"
-  | "t3_large"
-  | "t3_xlarge"
-  | "t3_2xlarge"
-  | "t3a_nano"
-  | "t3a_micro"
-  | "t3a_small"
-  | "t3a_medium"
-  | "t3a_large"
-  | "t3a_xlarge"
-  | "t3a_2xlarge"
-  | "t4g_nano"
-  | "t4g_micro"
-  | "t4g_small"
-  | "t4g_medium"
-  | "t4g_large"
-  | "t4g_xlarge"
-  | "t4g_2xlarge"
-  | "u_6tb1_56xlarge"
-  | "u_6tb1_112xlarge"
-  | "u_9tb1_112xlarge"
-  | "u_12tb1_112xlarge"
-  | "u_6tb1_metal"
-  | "u_9tb1_metal"
-  | "u_12tb1_metal"
-  | "u_18tb1_metal"
-  | "u_24tb1_metal"
-  | "vt1_3xlarge"
-  | "vt1_6xlarge"
-  | "vt1_24xlarge"
-  | "x1_16xlarge"
-  | "x1_32xlarge"
-  | "x1e_xlarge"
-  | "x1e_2xlarge"
-  | "x1e_4xlarge"
-  | "x1e_8xlarge"
-  | "x1e_16xlarge"
-  | "x1e_32xlarge"
-  | "x2iezn_2xlarge"
-  | "x2iezn_4xlarge"
-  | "x2iezn_6xlarge"
-  | "x2iezn_8xlarge"
-  | "x2iezn_12xlarge"
-  | "x2iezn_metal"
-  | "x2gd_medium"
-  | "x2gd_large"
-  | "x2gd_xlarge"
-  | "x2gd_2xlarge"
-  | "x2gd_4xlarge"
-  | "x2gd_8xlarge"
-  | "x2gd_12xlarge"
-  | "x2gd_16xlarge"
-  | "x2gd_metal"
-  | "z1d_large"
-  | "z1d_xlarge"
-  | "z1d_2xlarge"
-  | "z1d_3xlarge"
-  | "z1d_6xlarge"
-  | "z1d_12xlarge"
-  | "z1d_metal"
-  | "x2idn_16xlarge"
-  | "x2idn_24xlarge"
-  | "x2idn_32xlarge"
-  | "x2iedn_xlarge"
-  | "x2iedn_2xlarge"
-  | "x2iedn_4xlarge"
-  | "x2iedn_8xlarge"
-  | "x2iedn_16xlarge"
-  | "x2iedn_24xlarge"
-  | "x2iedn_32xlarge"
-  | "c6a_large"
-  | "c6a_xlarge"
-  | "c6a_2xlarge"
-  | "c6a_4xlarge"
-  | "c6a_8xlarge"
-  | "c6a_12xlarge"
-  | "c6a_16xlarge"
-  | "c6a_24xlarge"
-  | "c6a_32xlarge"
-  | "c6a_48xlarge"
-  | "c6a_metal"
-  | "m6a_metal"
-  | "i4i_large"
-  | "i4i_xlarge"
-  | "i4i_2xlarge"
-  | "i4i_4xlarge"
-  | "i4i_8xlarge"
-  | "i4i_16xlarge"
-  | "i4i_32xlarge"
-  | "i4i_metal"
-  | "x2idn_metal"
-  | "x2iedn_metal"
-  | "c7g_medium"
-  | "c7g_large"
-  | "c7g_xlarge"
-  | "c7g_2xlarge"
-  | "c7g_4xlarge"
-  | "c7g_8xlarge"
-  | "c7g_12xlarge"
-  | "c7g_16xlarge"
-  | "mac2_metal"
-  | "c6id_large"
-  | "c6id_xlarge"
-  | "c6id_2xlarge"
-  | "c6id_4xlarge"
-  | "c6id_8xlarge"
-  | "c6id_12xlarge"
-  | "c6id_16xlarge"
-  | "c6id_24xlarge"
-  | "c6id_32xlarge"
-  | "c6id_metal"
-  | "m6id_large"
-  | "m6id_xlarge"
-  | "m6id_2xlarge"
-  | "m6id_4xlarge"
-  | "m6id_8xlarge"
-  | "m6id_12xlarge"
-  | "m6id_16xlarge"
-  | "m6id_24xlarge"
-  | "m6id_32xlarge"
-  | "m6id_metal"
-  | "r6id_large"
-  | "r6id_xlarge"
-  | "r6id_2xlarge"
-  | "r6id_4xlarge"
-  | "r6id_8xlarge"
-  | "r6id_12xlarge"
-  | "r6id_16xlarge"
-  | "r6id_24xlarge"
-  | "r6id_32xlarge"
-  | "r6id_metal"
-  | "r6a_large"
-  | "r6a_xlarge"
-  | "r6a_2xlarge"
-  | "r6a_4xlarge"
-  | "r6a_8xlarge"
-  | "r6a_12xlarge"
-  | "r6a_16xlarge"
-  | "r6a_24xlarge"
-  | "r6a_32xlarge"
-  | "r6a_48xlarge"
-  | "r6a_metal"
-  | "p4de_24xlarge"
-  | "u_3tb1_56xlarge"
-  | "u_18tb1_112xlarge"
-  | "u_24tb1_112xlarge"
-  | "trn1_2xlarge"
-  | "trn1_32xlarge"
-  | "hpc6id_32xlarge"
-  | "c6in_large"
-  | "c6in_xlarge"
-  | "c6in_2xlarge"
-  | "c6in_4xlarge"
-  | "c6in_8xlarge"
-  | "c6in_12xlarge"
-  | "c6in_16xlarge"
-  | "c6in_24xlarge"
-  | "c6in_32xlarge"
-  | "m6in_large"
-  | "m6in_xlarge"
-  | "m6in_2xlarge"
-  | "m6in_4xlarge"
-  | "m6in_8xlarge"
-  | "m6in_12xlarge"
-  | "m6in_16xlarge"
-  | "m6in_24xlarge"
-  | "m6in_32xlarge"
-  | "m6idn_large"
-  | "m6idn_xlarge"
-  | "m6idn_2xlarge"
-  | "m6idn_4xlarge"
-  | "m6idn_8xlarge"
-  | "m6idn_12xlarge"
-  | "m6idn_16xlarge"
-  | "m6idn_24xlarge"
-  | "m6idn_32xlarge"
-  | "r6in_large"
-  | "r6in_xlarge"
-  | "r6in_2xlarge"
-  | "r6in_4xlarge"
-  | "r6in_8xlarge"
-  | "r6in_12xlarge"
-  | "r6in_16xlarge"
-  | "r6in_24xlarge"
-  | "r6in_32xlarge"
-  | "r6idn_large"
-  | "r6idn_xlarge"
-  | "r6idn_2xlarge"
-  | "r6idn_4xlarge"
-  | "r6idn_8xlarge"
-  | "r6idn_12xlarge"
-  | "r6idn_16xlarge"
-  | "r6idn_24xlarge"
-  | "r6idn_32xlarge"
-  | "c7g_metal"
-  | "m7g_medium"
-  | "m7g_large"
-  | "m7g_xlarge"
-  | "m7g_2xlarge"
-  | "m7g_4xlarge"
-  | "m7g_8xlarge"
-  | "m7g_12xlarge"
-  | "m7g_16xlarge"
-  | "m7g_metal"
-  | "r7g_medium"
-  | "r7g_large"
-  | "r7g_xlarge"
-  | "r7g_2xlarge"
-  | "r7g_4xlarge"
-  | "r7g_8xlarge"
-  | "r7g_12xlarge"
-  | "r7g_16xlarge"
-  | "r7g_metal"
-  | "c6in_metal"
-  | "m6in_metal"
-  | "m6idn_metal"
-  | "r6in_metal"
-  | "r6idn_metal"
-  | "inf2_xlarge"
-  | "inf2_8xlarge"
-  | "inf2_24xlarge"
-  | "inf2_48xlarge"
-  | "trn1n_32xlarge"
-  | "i4g_large"
-  | "i4g_xlarge"
-  | "i4g_2xlarge"
-  | "i4g_4xlarge"
-  | "i4g_8xlarge"
-  | "i4g_16xlarge"
-  | "hpc7g_4xlarge"
-  | "hpc7g_8xlarge"
-  | "hpc7g_16xlarge"
-  | "c7gn_medium"
-  | "c7gn_large"
-  | "c7gn_xlarge"
-  | "c7gn_2xlarge"
-  | "c7gn_4xlarge"
-  | "c7gn_8xlarge"
-  | "c7gn_12xlarge"
-  | "c7gn_16xlarge"
-  | "p5_48xlarge"
-  | "m7i_large"
-  | "m7i_xlarge"
-  | "m7i_2xlarge"
-  | "m7i_4xlarge"
-  | "m7i_8xlarge"
-  | "m7i_12xlarge"
-  | "m7i_16xlarge"
-  | "m7i_24xlarge"
-  | "m7i_48xlarge"
-  | "m7i_flex_large"
-  | "m7i_flex_xlarge"
-  | "m7i_flex_2xlarge"
-  | "m7i_flex_4xlarge"
-  | "m7i_flex_8xlarge"
-  | "m7a_medium"
-  | "m7a_large"
-  | "m7a_xlarge"
-  | "m7a_2xlarge"
-  | "m7a_4xlarge"
-  | "m7a_8xlarge"
-  | "m7a_12xlarge"
-  | "m7a_16xlarge"
-  | "m7a_24xlarge"
-  | "m7a_32xlarge"
-  | "m7a_48xlarge"
-  | "m7a_metal_48xl"
-  | "hpc7a_12xlarge"
-  | "hpc7a_24xlarge"
-  | "hpc7a_48xlarge"
-  | "hpc7a_96xlarge"
-  | "c7gd_medium"
-  | "c7gd_large"
-  | "c7gd_xlarge"
-  | "c7gd_2xlarge"
-  | "c7gd_4xlarge"
-  | "c7gd_8xlarge"
-  | "c7gd_12xlarge"
-  | "c7gd_16xlarge"
-  | "m7gd_medium"
-  | "m7gd_large"
-  | "m7gd_xlarge"
-  | "m7gd_2xlarge"
-  | "m7gd_4xlarge"
-  | "m7gd_8xlarge"
-  | "m7gd_12xlarge"
-  | "m7gd_16xlarge"
-  | "r7gd_medium"
-  | "r7gd_large"
-  | "r7gd_xlarge"
-  | "r7gd_2xlarge"
-  | "r7gd_4xlarge"
-  | "r7gd_8xlarge"
-  | "r7gd_12xlarge"
-  | "r7gd_16xlarge"
-  | "r7a_medium"
-  | "r7a_large"
-  | "r7a_xlarge"
-  | "r7a_2xlarge"
-  | "r7a_4xlarge"
-  | "r7a_8xlarge"
-  | "r7a_12xlarge"
-  | "r7a_16xlarge"
-  | "r7a_24xlarge"
-  | "r7a_32xlarge"
-  | "r7a_48xlarge"
-  | "c7i_large"
-  | "c7i_xlarge"
-  | "c7i_2xlarge"
-  | "c7i_4xlarge"
-  | "c7i_8xlarge"
-  | "c7i_12xlarge"
-  | "c7i_16xlarge"
-  | "c7i_24xlarge"
-  | "c7i_48xlarge"
-  | "mac2_m2pro_metal"
-  | "r7iz_large"
-  | "r7iz_xlarge"
-  | "r7iz_2xlarge"
-  | "r7iz_4xlarge"
-  | "r7iz_8xlarge"
-  | "r7iz_12xlarge"
-  | "r7iz_16xlarge"
-  | "r7iz_32xlarge"
-  | "c7a_medium"
-  | "c7a_large"
-  | "c7a_xlarge"
-  | "c7a_2xlarge"
-  | "c7a_4xlarge"
-  | "c7a_8xlarge"
-  | "c7a_12xlarge"
-  | "c7a_16xlarge"
-  | "c7a_24xlarge"
-  | "c7a_32xlarge"
-  | "c7a_48xlarge"
-  | "c7a_metal_48xl"
-  | "r7a_metal_48xl"
-  | "r7i_large"
-  | "r7i_xlarge"
-  | "r7i_2xlarge"
-  | "r7i_4xlarge"
-  | "r7i_8xlarge"
-  | "r7i_12xlarge"
-  | "r7i_16xlarge"
-  | "r7i_24xlarge"
-  | "r7i_48xlarge"
-  | "dl2q_24xlarge"
-  | "mac2_m2_metal"
-  | "i4i_12xlarge"
-  | "i4i_24xlarge"
-  | "c7i_metal_24xl"
-  | "c7i_metal_48xl"
-  | "m7i_metal_24xl"
-  | "m7i_metal_48xl"
-  | "r7i_metal_24xl"
-  | "r7i_metal_48xl"
-  | "r7iz_metal_16xl"
-  | "r7iz_metal_32xl"
-  | "c7gd_metal"
-  | "m7gd_metal"
-  | "r7gd_metal"
-  | "g6_xlarge"
-  | "g6_2xlarge"
-  | "g6_4xlarge"
-  | "g6_8xlarge"
-  | "g6_12xlarge"
-  | "g6_16xlarge"
-  | "g6_24xlarge"
-  | "g6_48xlarge"
-  | "gr6_4xlarge"
-  | "gr6_8xlarge"
-  | "c7i_flex_large"
-  | "c7i_flex_xlarge"
-  | "c7i_flex_2xlarge"
-  | "c7i_flex_4xlarge"
-  | "c7i_flex_8xlarge"
-  | "u7i_12tb_224xlarge"
-  | "u7in_16tb_224xlarge"
-  | "u7in_24tb_224xlarge"
-  | "u7in_32tb_224xlarge"
-  | "u7ib_12tb_224xlarge"
-  | "c7gn_metal"
-  | "r8g_medium"
-  | "r8g_large"
-  | "r8g_xlarge"
-  | "r8g_2xlarge"
-  | "r8g_4xlarge"
-  | "r8g_8xlarge"
-  | "r8g_12xlarge"
-  | "r8g_16xlarge"
-  | "r8g_24xlarge"
-  | "r8g_48xlarge"
-  | "r8g_metal_24xl"
-  | "r8g_metal_48xl"
-  | "mac2_m1ultra_metal"
-  | "g6e_xlarge"
-  | "g6e_2xlarge"
-  | "g6e_4xlarge"
-  | "g6e_8xlarge"
-  | "g6e_12xlarge"
-  | "g6e_16xlarge"
-  | "g6e_24xlarge"
-  | "g6e_48xlarge"
-  | "c8g_medium"
-  | "c8g_large"
-  | "c8g_xlarge"
-  | "c8g_2xlarge"
-  | "c8g_4xlarge"
-  | "c8g_8xlarge"
-  | "c8g_12xlarge"
-  | "c8g_16xlarge"
-  | "c8g_24xlarge"
-  | "c8g_48xlarge"
-  | "c8g_metal_24xl"
-  | "c8g_metal_48xl"
-  | "m8g_medium"
-  | "m8g_large"
-  | "m8g_xlarge"
-  | "m8g_2xlarge"
-  | "m8g_4xlarge"
-  | "m8g_8xlarge"
-  | "m8g_12xlarge"
-  | "m8g_16xlarge"
-  | "m8g_24xlarge"
-  | "m8g_48xlarge"
-  | "m8g_metal_24xl"
-  | "m8g_metal_48xl"
-  | "x8g_medium"
-  | "x8g_large"
-  | "x8g_xlarge"
-  | "x8g_2xlarge"
-  | "x8g_4xlarge"
-  | "x8g_8xlarge"
-  | "x8g_12xlarge"
-  | "x8g_16xlarge"
-  | "x8g_24xlarge"
-  | "x8g_48xlarge"
-  | "x8g_metal_24xl"
-  | "x8g_metal_48xl"
-  | "i7ie_large"
-  | "i7ie_xlarge"
-  | "i7ie_2xlarge"
-  | "i7ie_3xlarge"
-  | "i7ie_6xlarge"
-  | "i7ie_12xlarge"
-  | "i7ie_18xlarge"
-  | "i7ie_24xlarge"
-  | "i7ie_48xlarge"
-  | "i8g_large"
-  | "i8g_xlarge"
-  | "i8g_2xlarge"
-  | "i8g_4xlarge"
-  | "i8g_8xlarge"
-  | "i8g_12xlarge"
-  | "i8g_16xlarge"
-  | "i8g_24xlarge"
-  | "i8g_metal_24xl"
-  | "u7i_6tb_112xlarge"
-  | "u7i_8tb_112xlarge"
-  | "u7inh_32tb_480xlarge"
-  | "p5e_48xlarge"
-  | "p5en_48xlarge"
-  | "f2_12xlarge"
-  | "f2_48xlarge"
-  | "trn2_48xlarge"
-  | "c7i_flex_12xlarge"
-  | "c7i_flex_16xlarge"
-  | "m7i_flex_12xlarge"
-  | "m7i_flex_16xlarge"
-  | "i7ie_metal_24xl"
-  | "i7ie_metal_48xl"
-  | "i8g_48xlarge"
-  | "c8gd_medium"
-  | "c8gd_large"
-  | "c8gd_xlarge"
-  | "c8gd_2xlarge"
-  | "c8gd_4xlarge"
-  | "c8gd_8xlarge"
-  | "c8gd_12xlarge"
-  | "c8gd_16xlarge"
-  | "c8gd_24xlarge"
-  | "c8gd_48xlarge"
-  | "c8gd_metal_24xl"
-  | "c8gd_metal_48xl"
-  | "i7i_large"
-  | "i7i_xlarge"
-  | "i7i_2xlarge"
-  | "i7i_4xlarge"
-  | "i7i_8xlarge"
-  | "i7i_12xlarge"
-  | "i7i_16xlarge"
-  | "i7i_24xlarge"
-  | "i7i_48xlarge"
-  | "i7i_metal_24xl"
-  | "i7i_metal_48xl"
-  | "p6_b200_48xlarge"
-  | "m8gd_medium"
-  | "m8gd_large"
-  | "m8gd_xlarge"
-  | "m8gd_2xlarge"
-  | "m8gd_4xlarge"
-  | "m8gd_8xlarge"
-  | "m8gd_12xlarge"
-  | "m8gd_16xlarge"
-  | "m8gd_24xlarge"
-  | "m8gd_48xlarge"
-  | "m8gd_metal_24xl"
-  | "m8gd_metal_48xl"
-  | "r8gd_medium"
-  | "r8gd_large"
-  | "r8gd_xlarge"
-  | "r8gd_2xlarge"
-  | "r8gd_4xlarge"
-  | "r8gd_8xlarge"
-  | "r8gd_12xlarge"
-  | "r8gd_16xlarge"
-  | "r8gd_24xlarge"
-  | "r8gd_48xlarge"
-  | "r8gd_metal_24xl"
-  | "r8gd_metal_48xl"
-  | "c8gn_medium"
-  | "c8gn_large"
-  | "c8gn_xlarge"
-  | "c8gn_2xlarge"
-  | "c8gn_4xlarge"
-  | "c8gn_8xlarge"
-  | "c8gn_12xlarge"
-  | "c8gn_16xlarge"
-  | "c8gn_24xlarge"
-  | "c8gn_48xlarge"
-  | "c8gn_metal_24xl"
-  | "c8gn_metal_48xl"
-  | "f2_6xlarge"
-  | "p6e_gb200_36xlarge";
-export type InstanceTypeHypervisor = "NITRO" | "XEN";
+  | "a1.medium"
+  | "a1.large"
+  | "a1.xlarge"
+  | "a1.2xlarge"
+  | "a1.4xlarge"
+  | "a1.metal"
+  | "c1.medium"
+  | "c1.xlarge"
+  | "c3.large"
+  | "c3.xlarge"
+  | "c3.2xlarge"
+  | "c3.4xlarge"
+  | "c3.8xlarge"
+  | "c4.large"
+  | "c4.xlarge"
+  | "c4.2xlarge"
+  | "c4.4xlarge"
+  | "c4.8xlarge"
+  | "c5.large"
+  | "c5.xlarge"
+  | "c5.2xlarge"
+  | "c5.4xlarge"
+  | "c5.9xlarge"
+  | "c5.12xlarge"
+  | "c5.18xlarge"
+  | "c5.24xlarge"
+  | "c5.metal"
+  | "c5a.large"
+  | "c5a.xlarge"
+  | "c5a.2xlarge"
+  | "c5a.4xlarge"
+  | "c5a.8xlarge"
+  | "c5a.12xlarge"
+  | "c5a.16xlarge"
+  | "c5a.24xlarge"
+  | "c5ad.large"
+  | "c5ad.xlarge"
+  | "c5ad.2xlarge"
+  | "c5ad.4xlarge"
+  | "c5ad.8xlarge"
+  | "c5ad.12xlarge"
+  | "c5ad.16xlarge"
+  | "c5ad.24xlarge"
+  | "c5d.large"
+  | "c5d.xlarge"
+  | "c5d.2xlarge"
+  | "c5d.4xlarge"
+  | "c5d.9xlarge"
+  | "c5d.12xlarge"
+  | "c5d.18xlarge"
+  | "c5d.24xlarge"
+  | "c5d.metal"
+  | "c5n.large"
+  | "c5n.xlarge"
+  | "c5n.2xlarge"
+  | "c5n.4xlarge"
+  | "c5n.9xlarge"
+  | "c5n.18xlarge"
+  | "c5n.metal"
+  | "c6g.medium"
+  | "c6g.large"
+  | "c6g.xlarge"
+  | "c6g.2xlarge"
+  | "c6g.4xlarge"
+  | "c6g.8xlarge"
+  | "c6g.12xlarge"
+  | "c6g.16xlarge"
+  | "c6g.metal"
+  | "c6gd.medium"
+  | "c6gd.large"
+  | "c6gd.xlarge"
+  | "c6gd.2xlarge"
+  | "c6gd.4xlarge"
+  | "c6gd.8xlarge"
+  | "c6gd.12xlarge"
+  | "c6gd.16xlarge"
+  | "c6gd.metal"
+  | "c6gn.medium"
+  | "c6gn.large"
+  | "c6gn.xlarge"
+  | "c6gn.2xlarge"
+  | "c6gn.4xlarge"
+  | "c6gn.8xlarge"
+  | "c6gn.12xlarge"
+  | "c6gn.16xlarge"
+  | "c6i.large"
+  | "c6i.xlarge"
+  | "c6i.2xlarge"
+  | "c6i.4xlarge"
+  | "c6i.8xlarge"
+  | "c6i.12xlarge"
+  | "c6i.16xlarge"
+  | "c6i.24xlarge"
+  | "c6i.32xlarge"
+  | "c6i.metal"
+  | "cc1.4xlarge"
+  | "cc2.8xlarge"
+  | "cg1.4xlarge"
+  | "cr1.8xlarge"
+  | "d2.xlarge"
+  | "d2.2xlarge"
+  | "d2.4xlarge"
+  | "d2.8xlarge"
+  | "d3.xlarge"
+  | "d3.2xlarge"
+  | "d3.4xlarge"
+  | "d3.8xlarge"
+  | "d3en.xlarge"
+  | "d3en.2xlarge"
+  | "d3en.4xlarge"
+  | "d3en.6xlarge"
+  | "d3en.8xlarge"
+  | "d3en.12xlarge"
+  | "dl1.24xlarge"
+  | "f1.2xlarge"
+  | "f1.4xlarge"
+  | "f1.16xlarge"
+  | "g2.2xlarge"
+  | "g2.8xlarge"
+  | "g3.4xlarge"
+  | "g3.8xlarge"
+  | "g3.16xlarge"
+  | "g3s.xlarge"
+  | "g4ad.xlarge"
+  | "g4ad.2xlarge"
+  | "g4ad.4xlarge"
+  | "g4ad.8xlarge"
+  | "g4ad.16xlarge"
+  | "g4dn.xlarge"
+  | "g4dn.2xlarge"
+  | "g4dn.4xlarge"
+  | "g4dn.8xlarge"
+  | "g4dn.12xlarge"
+  | "g4dn.16xlarge"
+  | "g4dn.metal"
+  | "g5.xlarge"
+  | "g5.2xlarge"
+  | "g5.4xlarge"
+  | "g5.8xlarge"
+  | "g5.12xlarge"
+  | "g5.16xlarge"
+  | "g5.24xlarge"
+  | "g5.48xlarge"
+  | "g5g.xlarge"
+  | "g5g.2xlarge"
+  | "g5g.4xlarge"
+  | "g5g.8xlarge"
+  | "g5g.16xlarge"
+  | "g5g.metal"
+  | "hi1.4xlarge"
+  | "hpc6a.48xlarge"
+  | "hs1.8xlarge"
+  | "h1.2xlarge"
+  | "h1.4xlarge"
+  | "h1.8xlarge"
+  | "h1.16xlarge"
+  | "i2.xlarge"
+  | "i2.2xlarge"
+  | "i2.4xlarge"
+  | "i2.8xlarge"
+  | "i3.large"
+  | "i3.xlarge"
+  | "i3.2xlarge"
+  | "i3.4xlarge"
+  | "i3.8xlarge"
+  | "i3.16xlarge"
+  | "i3.metal"
+  | "i3en.large"
+  | "i3en.xlarge"
+  | "i3en.2xlarge"
+  | "i3en.3xlarge"
+  | "i3en.6xlarge"
+  | "i3en.12xlarge"
+  | "i3en.24xlarge"
+  | "i3en.metal"
+  | "im4gn.large"
+  | "im4gn.xlarge"
+  | "im4gn.2xlarge"
+  | "im4gn.4xlarge"
+  | "im4gn.8xlarge"
+  | "im4gn.16xlarge"
+  | "inf1.xlarge"
+  | "inf1.2xlarge"
+  | "inf1.6xlarge"
+  | "inf1.24xlarge"
+  | "is4gen.medium"
+  | "is4gen.large"
+  | "is4gen.xlarge"
+  | "is4gen.2xlarge"
+  | "is4gen.4xlarge"
+  | "is4gen.8xlarge"
+  | "m1.small"
+  | "m1.medium"
+  | "m1.large"
+  | "m1.xlarge"
+  | "m2.xlarge"
+  | "m2.2xlarge"
+  | "m2.4xlarge"
+  | "m3.medium"
+  | "m3.large"
+  | "m3.xlarge"
+  | "m3.2xlarge"
+  | "m4.large"
+  | "m4.xlarge"
+  | "m4.2xlarge"
+  | "m4.4xlarge"
+  | "m4.10xlarge"
+  | "m4.16xlarge"
+  | "m5.large"
+  | "m5.xlarge"
+  | "m5.2xlarge"
+  | "m5.4xlarge"
+  | "m5.8xlarge"
+  | "m5.12xlarge"
+  | "m5.16xlarge"
+  | "m5.24xlarge"
+  | "m5.metal"
+  | "m5a.large"
+  | "m5a.xlarge"
+  | "m5a.2xlarge"
+  | "m5a.4xlarge"
+  | "m5a.8xlarge"
+  | "m5a.12xlarge"
+  | "m5a.16xlarge"
+  | "m5a.24xlarge"
+  | "m5ad.large"
+  | "m5ad.xlarge"
+  | "m5ad.2xlarge"
+  | "m5ad.4xlarge"
+  | "m5ad.8xlarge"
+  | "m5ad.12xlarge"
+  | "m5ad.16xlarge"
+  | "m5ad.24xlarge"
+  | "m5d.large"
+  | "m5d.xlarge"
+  | "m5d.2xlarge"
+  | "m5d.4xlarge"
+  | "m5d.8xlarge"
+  | "m5d.12xlarge"
+  | "m5d.16xlarge"
+  | "m5d.24xlarge"
+  | "m5d.metal"
+  | "m5dn.large"
+  | "m5dn.xlarge"
+  | "m5dn.2xlarge"
+  | "m5dn.4xlarge"
+  | "m5dn.8xlarge"
+  | "m5dn.12xlarge"
+  | "m5dn.16xlarge"
+  | "m5dn.24xlarge"
+  | "m5dn.metal"
+  | "m5n.large"
+  | "m5n.xlarge"
+  | "m5n.2xlarge"
+  | "m5n.4xlarge"
+  | "m5n.8xlarge"
+  | "m5n.12xlarge"
+  | "m5n.16xlarge"
+  | "m5n.24xlarge"
+  | "m5n.metal"
+  | "m5zn.large"
+  | "m5zn.xlarge"
+  | "m5zn.2xlarge"
+  | "m5zn.3xlarge"
+  | "m5zn.6xlarge"
+  | "m5zn.12xlarge"
+  | "m5zn.metal"
+  | "m6a.large"
+  | "m6a.xlarge"
+  | "m6a.2xlarge"
+  | "m6a.4xlarge"
+  | "m6a.8xlarge"
+  | "m6a.12xlarge"
+  | "m6a.16xlarge"
+  | "m6a.24xlarge"
+  | "m6a.32xlarge"
+  | "m6a.48xlarge"
+  | "m6g.metal"
+  | "m6g.medium"
+  | "m6g.large"
+  | "m6g.xlarge"
+  | "m6g.2xlarge"
+  | "m6g.4xlarge"
+  | "m6g.8xlarge"
+  | "m6g.12xlarge"
+  | "m6g.16xlarge"
+  | "m6gd.metal"
+  | "m6gd.medium"
+  | "m6gd.large"
+  | "m6gd.xlarge"
+  | "m6gd.2xlarge"
+  | "m6gd.4xlarge"
+  | "m6gd.8xlarge"
+  | "m6gd.12xlarge"
+  | "m6gd.16xlarge"
+  | "m6i.large"
+  | "m6i.xlarge"
+  | "m6i.2xlarge"
+  | "m6i.4xlarge"
+  | "m6i.8xlarge"
+  | "m6i.12xlarge"
+  | "m6i.16xlarge"
+  | "m6i.24xlarge"
+  | "m6i.32xlarge"
+  | "m6i.metal"
+  | "mac1.metal"
+  | "p2.xlarge"
+  | "p2.8xlarge"
+  | "p2.16xlarge"
+  | "p3.2xlarge"
+  | "p3.8xlarge"
+  | "p3.16xlarge"
+  | "p3dn.24xlarge"
+  | "p4d.24xlarge"
+  | "r3.large"
+  | "r3.xlarge"
+  | "r3.2xlarge"
+  | "r3.4xlarge"
+  | "r3.8xlarge"
+  | "r4.large"
+  | "r4.xlarge"
+  | "r4.2xlarge"
+  | "r4.4xlarge"
+  | "r4.8xlarge"
+  | "r4.16xlarge"
+  | "r5.large"
+  | "r5.xlarge"
+  | "r5.2xlarge"
+  | "r5.4xlarge"
+  | "r5.8xlarge"
+  | "r5.12xlarge"
+  | "r5.16xlarge"
+  | "r5.24xlarge"
+  | "r5.metal"
+  | "r5a.large"
+  | "r5a.xlarge"
+  | "r5a.2xlarge"
+  | "r5a.4xlarge"
+  | "r5a.8xlarge"
+  | "r5a.12xlarge"
+  | "r5a.16xlarge"
+  | "r5a.24xlarge"
+  | "r5ad.large"
+  | "r5ad.xlarge"
+  | "r5ad.2xlarge"
+  | "r5ad.4xlarge"
+  | "r5ad.8xlarge"
+  | "r5ad.12xlarge"
+  | "r5ad.16xlarge"
+  | "r5ad.24xlarge"
+  | "r5b.large"
+  | "r5b.xlarge"
+  | "r5b.2xlarge"
+  | "r5b.4xlarge"
+  | "r5b.8xlarge"
+  | "r5b.12xlarge"
+  | "r5b.16xlarge"
+  | "r5b.24xlarge"
+  | "r5b.metal"
+  | "r5d.large"
+  | "r5d.xlarge"
+  | "r5d.2xlarge"
+  | "r5d.4xlarge"
+  | "r5d.8xlarge"
+  | "r5d.12xlarge"
+  | "r5d.16xlarge"
+  | "r5d.24xlarge"
+  | "r5d.metal"
+  | "r5dn.large"
+  | "r5dn.xlarge"
+  | "r5dn.2xlarge"
+  | "r5dn.4xlarge"
+  | "r5dn.8xlarge"
+  | "r5dn.12xlarge"
+  | "r5dn.16xlarge"
+  | "r5dn.24xlarge"
+  | "r5dn.metal"
+  | "r5n.large"
+  | "r5n.xlarge"
+  | "r5n.2xlarge"
+  | "r5n.4xlarge"
+  | "r5n.8xlarge"
+  | "r5n.12xlarge"
+  | "r5n.16xlarge"
+  | "r5n.24xlarge"
+  | "r5n.metal"
+  | "r6g.medium"
+  | "r6g.large"
+  | "r6g.xlarge"
+  | "r6g.2xlarge"
+  | "r6g.4xlarge"
+  | "r6g.8xlarge"
+  | "r6g.12xlarge"
+  | "r6g.16xlarge"
+  | "r6g.metal"
+  | "r6gd.medium"
+  | "r6gd.large"
+  | "r6gd.xlarge"
+  | "r6gd.2xlarge"
+  | "r6gd.4xlarge"
+  | "r6gd.8xlarge"
+  | "r6gd.12xlarge"
+  | "r6gd.16xlarge"
+  | "r6gd.metal"
+  | "r6i.large"
+  | "r6i.xlarge"
+  | "r6i.2xlarge"
+  | "r6i.4xlarge"
+  | "r6i.8xlarge"
+  | "r6i.12xlarge"
+  | "r6i.16xlarge"
+  | "r6i.24xlarge"
+  | "r6i.32xlarge"
+  | "r6i.metal"
+  | "t1.micro"
+  | "t2.nano"
+  | "t2.micro"
+  | "t2.small"
+  | "t2.medium"
+  | "t2.large"
+  | "t2.xlarge"
+  | "t2.2xlarge"
+  | "t3.nano"
+  | "t3.micro"
+  | "t3.small"
+  | "t3.medium"
+  | "t3.large"
+  | "t3.xlarge"
+  | "t3.2xlarge"
+  | "t3a.nano"
+  | "t3a.micro"
+  | "t3a.small"
+  | "t3a.medium"
+  | "t3a.large"
+  | "t3a.xlarge"
+  | "t3a.2xlarge"
+  | "t4g.nano"
+  | "t4g.micro"
+  | "t4g.small"
+  | "t4g.medium"
+  | "t4g.large"
+  | "t4g.xlarge"
+  | "t4g.2xlarge"
+  | "u-6tb1.56xlarge"
+  | "u-6tb1.112xlarge"
+  | "u-9tb1.112xlarge"
+  | "u-12tb1.112xlarge"
+  | "u-6tb1.metal"
+  | "u-9tb1.metal"
+  | "u-12tb1.metal"
+  | "u-18tb1.metal"
+  | "u-24tb1.metal"
+  | "vt1.3xlarge"
+  | "vt1.6xlarge"
+  | "vt1.24xlarge"
+  | "x1.16xlarge"
+  | "x1.32xlarge"
+  | "x1e.xlarge"
+  | "x1e.2xlarge"
+  | "x1e.4xlarge"
+  | "x1e.8xlarge"
+  | "x1e.16xlarge"
+  | "x1e.32xlarge"
+  | "x2iezn.2xlarge"
+  | "x2iezn.4xlarge"
+  | "x2iezn.6xlarge"
+  | "x2iezn.8xlarge"
+  | "x2iezn.12xlarge"
+  | "x2iezn.metal"
+  | "x2gd.medium"
+  | "x2gd.large"
+  | "x2gd.xlarge"
+  | "x2gd.2xlarge"
+  | "x2gd.4xlarge"
+  | "x2gd.8xlarge"
+  | "x2gd.12xlarge"
+  | "x2gd.16xlarge"
+  | "x2gd.metal"
+  | "z1d.large"
+  | "z1d.xlarge"
+  | "z1d.2xlarge"
+  | "z1d.3xlarge"
+  | "z1d.6xlarge"
+  | "z1d.12xlarge"
+  | "z1d.metal"
+  | "x2idn.16xlarge"
+  | "x2idn.24xlarge"
+  | "x2idn.32xlarge"
+  | "x2iedn.xlarge"
+  | "x2iedn.2xlarge"
+  | "x2iedn.4xlarge"
+  | "x2iedn.8xlarge"
+  | "x2iedn.16xlarge"
+  | "x2iedn.24xlarge"
+  | "x2iedn.32xlarge"
+  | "c6a.large"
+  | "c6a.xlarge"
+  | "c6a.2xlarge"
+  | "c6a.4xlarge"
+  | "c6a.8xlarge"
+  | "c6a.12xlarge"
+  | "c6a.16xlarge"
+  | "c6a.24xlarge"
+  | "c6a.32xlarge"
+  | "c6a.48xlarge"
+  | "c6a.metal"
+  | "m6a.metal"
+  | "i4i.large"
+  | "i4i.xlarge"
+  | "i4i.2xlarge"
+  | "i4i.4xlarge"
+  | "i4i.8xlarge"
+  | "i4i.16xlarge"
+  | "i4i.32xlarge"
+  | "i4i.metal"
+  | "x2idn.metal"
+  | "x2iedn.metal"
+  | "c7g.medium"
+  | "c7g.large"
+  | "c7g.xlarge"
+  | "c7g.2xlarge"
+  | "c7g.4xlarge"
+  | "c7g.8xlarge"
+  | "c7g.12xlarge"
+  | "c7g.16xlarge"
+  | "mac2.metal"
+  | "c6id.large"
+  | "c6id.xlarge"
+  | "c6id.2xlarge"
+  | "c6id.4xlarge"
+  | "c6id.8xlarge"
+  | "c6id.12xlarge"
+  | "c6id.16xlarge"
+  | "c6id.24xlarge"
+  | "c6id.32xlarge"
+  | "c6id.metal"
+  | "m6id.large"
+  | "m6id.xlarge"
+  | "m6id.2xlarge"
+  | "m6id.4xlarge"
+  | "m6id.8xlarge"
+  | "m6id.12xlarge"
+  | "m6id.16xlarge"
+  | "m6id.24xlarge"
+  | "m6id.32xlarge"
+  | "m6id.metal"
+  | "r6id.large"
+  | "r6id.xlarge"
+  | "r6id.2xlarge"
+  | "r6id.4xlarge"
+  | "r6id.8xlarge"
+  | "r6id.12xlarge"
+  | "r6id.16xlarge"
+  | "r6id.24xlarge"
+  | "r6id.32xlarge"
+  | "r6id.metal"
+  | "r6a.large"
+  | "r6a.xlarge"
+  | "r6a.2xlarge"
+  | "r6a.4xlarge"
+  | "r6a.8xlarge"
+  | "r6a.12xlarge"
+  | "r6a.16xlarge"
+  | "r6a.24xlarge"
+  | "r6a.32xlarge"
+  | "r6a.48xlarge"
+  | "r6a.metal"
+  | "p4de.24xlarge"
+  | "u-3tb1.56xlarge"
+  | "u-18tb1.112xlarge"
+  | "u-24tb1.112xlarge"
+  | "trn1.2xlarge"
+  | "trn1.32xlarge"
+  | "hpc6id.32xlarge"
+  | "c6in.large"
+  | "c6in.xlarge"
+  | "c6in.2xlarge"
+  | "c6in.4xlarge"
+  | "c6in.8xlarge"
+  | "c6in.12xlarge"
+  | "c6in.16xlarge"
+  | "c6in.24xlarge"
+  | "c6in.32xlarge"
+  | "m6in.large"
+  | "m6in.xlarge"
+  | "m6in.2xlarge"
+  | "m6in.4xlarge"
+  | "m6in.8xlarge"
+  | "m6in.12xlarge"
+  | "m6in.16xlarge"
+  | "m6in.24xlarge"
+  | "m6in.32xlarge"
+  | "m6idn.large"
+  | "m6idn.xlarge"
+  | "m6idn.2xlarge"
+  | "m6idn.4xlarge"
+  | "m6idn.8xlarge"
+  | "m6idn.12xlarge"
+  | "m6idn.16xlarge"
+  | "m6idn.24xlarge"
+  | "m6idn.32xlarge"
+  | "r6in.large"
+  | "r6in.xlarge"
+  | "r6in.2xlarge"
+  | "r6in.4xlarge"
+  | "r6in.8xlarge"
+  | "r6in.12xlarge"
+  | "r6in.16xlarge"
+  | "r6in.24xlarge"
+  | "r6in.32xlarge"
+  | "r6idn.large"
+  | "r6idn.xlarge"
+  | "r6idn.2xlarge"
+  | "r6idn.4xlarge"
+  | "r6idn.8xlarge"
+  | "r6idn.12xlarge"
+  | "r6idn.16xlarge"
+  | "r6idn.24xlarge"
+  | "r6idn.32xlarge"
+  | "c7g.metal"
+  | "m7g.medium"
+  | "m7g.large"
+  | "m7g.xlarge"
+  | "m7g.2xlarge"
+  | "m7g.4xlarge"
+  | "m7g.8xlarge"
+  | "m7g.12xlarge"
+  | "m7g.16xlarge"
+  | "m7g.metal"
+  | "r7g.medium"
+  | "r7g.large"
+  | "r7g.xlarge"
+  | "r7g.2xlarge"
+  | "r7g.4xlarge"
+  | "r7g.8xlarge"
+  | "r7g.12xlarge"
+  | "r7g.16xlarge"
+  | "r7g.metal"
+  | "c6in.metal"
+  | "m6in.metal"
+  | "m6idn.metal"
+  | "r6in.metal"
+  | "r6idn.metal"
+  | "inf2.xlarge"
+  | "inf2.8xlarge"
+  | "inf2.24xlarge"
+  | "inf2.48xlarge"
+  | "trn1n.32xlarge"
+  | "i4g.large"
+  | "i4g.xlarge"
+  | "i4g.2xlarge"
+  | "i4g.4xlarge"
+  | "i4g.8xlarge"
+  | "i4g.16xlarge"
+  | "hpc7g.4xlarge"
+  | "hpc7g.8xlarge"
+  | "hpc7g.16xlarge"
+  | "c7gn.medium"
+  | "c7gn.large"
+  | "c7gn.xlarge"
+  | "c7gn.2xlarge"
+  | "c7gn.4xlarge"
+  | "c7gn.8xlarge"
+  | "c7gn.12xlarge"
+  | "c7gn.16xlarge"
+  | "p5.48xlarge"
+  | "m7i.large"
+  | "m7i.xlarge"
+  | "m7i.2xlarge"
+  | "m7i.4xlarge"
+  | "m7i.8xlarge"
+  | "m7i.12xlarge"
+  | "m7i.16xlarge"
+  | "m7i.24xlarge"
+  | "m7i.48xlarge"
+  | "m7i-flex.large"
+  | "m7i-flex.xlarge"
+  | "m7i-flex.2xlarge"
+  | "m7i-flex.4xlarge"
+  | "m7i-flex.8xlarge"
+  | "m7a.medium"
+  | "m7a.large"
+  | "m7a.xlarge"
+  | "m7a.2xlarge"
+  | "m7a.4xlarge"
+  | "m7a.8xlarge"
+  | "m7a.12xlarge"
+  | "m7a.16xlarge"
+  | "m7a.24xlarge"
+  | "m7a.32xlarge"
+  | "m7a.48xlarge"
+  | "m7a.metal-48xl"
+  | "hpc7a.12xlarge"
+  | "hpc7a.24xlarge"
+  | "hpc7a.48xlarge"
+  | "hpc7a.96xlarge"
+  | "c7gd.medium"
+  | "c7gd.large"
+  | "c7gd.xlarge"
+  | "c7gd.2xlarge"
+  | "c7gd.4xlarge"
+  | "c7gd.8xlarge"
+  | "c7gd.12xlarge"
+  | "c7gd.16xlarge"
+  | "m7gd.medium"
+  | "m7gd.large"
+  | "m7gd.xlarge"
+  | "m7gd.2xlarge"
+  | "m7gd.4xlarge"
+  | "m7gd.8xlarge"
+  | "m7gd.12xlarge"
+  | "m7gd.16xlarge"
+  | "r7gd.medium"
+  | "r7gd.large"
+  | "r7gd.xlarge"
+  | "r7gd.2xlarge"
+  | "r7gd.4xlarge"
+  | "r7gd.8xlarge"
+  | "r7gd.12xlarge"
+  | "r7gd.16xlarge"
+  | "r7a.medium"
+  | "r7a.large"
+  | "r7a.xlarge"
+  | "r7a.2xlarge"
+  | "r7a.4xlarge"
+  | "r7a.8xlarge"
+  | "r7a.12xlarge"
+  | "r7a.16xlarge"
+  | "r7a.24xlarge"
+  | "r7a.32xlarge"
+  | "r7a.48xlarge"
+  | "c7i.large"
+  | "c7i.xlarge"
+  | "c7i.2xlarge"
+  | "c7i.4xlarge"
+  | "c7i.8xlarge"
+  | "c7i.12xlarge"
+  | "c7i.16xlarge"
+  | "c7i.24xlarge"
+  | "c7i.48xlarge"
+  | "mac2-m2pro.metal"
+  | "r7iz.large"
+  | "r7iz.xlarge"
+  | "r7iz.2xlarge"
+  | "r7iz.4xlarge"
+  | "r7iz.8xlarge"
+  | "r7iz.12xlarge"
+  | "r7iz.16xlarge"
+  | "r7iz.32xlarge"
+  | "c7a.medium"
+  | "c7a.large"
+  | "c7a.xlarge"
+  | "c7a.2xlarge"
+  | "c7a.4xlarge"
+  | "c7a.8xlarge"
+  | "c7a.12xlarge"
+  | "c7a.16xlarge"
+  | "c7a.24xlarge"
+  | "c7a.32xlarge"
+  | "c7a.48xlarge"
+  | "c7a.metal-48xl"
+  | "r7a.metal-48xl"
+  | "r7i.large"
+  | "r7i.xlarge"
+  | "r7i.2xlarge"
+  | "r7i.4xlarge"
+  | "r7i.8xlarge"
+  | "r7i.12xlarge"
+  | "r7i.16xlarge"
+  | "r7i.24xlarge"
+  | "r7i.48xlarge"
+  | "dl2q.24xlarge"
+  | "mac2-m2.metal"
+  | "i4i.12xlarge"
+  | "i4i.24xlarge"
+  | "c7i.metal-24xl"
+  | "c7i.metal-48xl"
+  | "m7i.metal-24xl"
+  | "m7i.metal-48xl"
+  | "r7i.metal-24xl"
+  | "r7i.metal-48xl"
+  | "r7iz.metal-16xl"
+  | "r7iz.metal-32xl"
+  | "c7gd.metal"
+  | "m7gd.metal"
+  | "r7gd.metal"
+  | "g6.xlarge"
+  | "g6.2xlarge"
+  | "g6.4xlarge"
+  | "g6.8xlarge"
+  | "g6.12xlarge"
+  | "g6.16xlarge"
+  | "g6.24xlarge"
+  | "g6.48xlarge"
+  | "gr6.4xlarge"
+  | "gr6.8xlarge"
+  | "c7i-flex.large"
+  | "c7i-flex.xlarge"
+  | "c7i-flex.2xlarge"
+  | "c7i-flex.4xlarge"
+  | "c7i-flex.8xlarge"
+  | "u7i-12tb.224xlarge"
+  | "u7in-16tb.224xlarge"
+  | "u7in-24tb.224xlarge"
+  | "u7in-32tb.224xlarge"
+  | "u7ib-12tb.224xlarge"
+  | "c7gn.metal"
+  | "r8g.medium"
+  | "r8g.large"
+  | "r8g.xlarge"
+  | "r8g.2xlarge"
+  | "r8g.4xlarge"
+  | "r8g.8xlarge"
+  | "r8g.12xlarge"
+  | "r8g.16xlarge"
+  | "r8g.24xlarge"
+  | "r8g.48xlarge"
+  | "r8g.metal-24xl"
+  | "r8g.metal-48xl"
+  | "mac2-m1ultra.metal"
+  | "g6e.xlarge"
+  | "g6e.2xlarge"
+  | "g6e.4xlarge"
+  | "g6e.8xlarge"
+  | "g6e.12xlarge"
+  | "g6e.16xlarge"
+  | "g6e.24xlarge"
+  | "g6e.48xlarge"
+  | "c8g.medium"
+  | "c8g.large"
+  | "c8g.xlarge"
+  | "c8g.2xlarge"
+  | "c8g.4xlarge"
+  | "c8g.8xlarge"
+  | "c8g.12xlarge"
+  | "c8g.16xlarge"
+  | "c8g.24xlarge"
+  | "c8g.48xlarge"
+  | "c8g.metal-24xl"
+  | "c8g.metal-48xl"
+  | "m8g.medium"
+  | "m8g.large"
+  | "m8g.xlarge"
+  | "m8g.2xlarge"
+  | "m8g.4xlarge"
+  | "m8g.8xlarge"
+  | "m8g.12xlarge"
+  | "m8g.16xlarge"
+  | "m8g.24xlarge"
+  | "m8g.48xlarge"
+  | "m8g.metal-24xl"
+  | "m8g.metal-48xl"
+  | "x8g.medium"
+  | "x8g.large"
+  | "x8g.xlarge"
+  | "x8g.2xlarge"
+  | "x8g.4xlarge"
+  | "x8g.8xlarge"
+  | "x8g.12xlarge"
+  | "x8g.16xlarge"
+  | "x8g.24xlarge"
+  | "x8g.48xlarge"
+  | "x8g.metal-24xl"
+  | "x8g.metal-48xl"
+  | "i7ie.large"
+  | "i7ie.xlarge"
+  | "i7ie.2xlarge"
+  | "i7ie.3xlarge"
+  | "i7ie.6xlarge"
+  | "i7ie.12xlarge"
+  | "i7ie.18xlarge"
+  | "i7ie.24xlarge"
+  | "i7ie.48xlarge"
+  | "i8g.large"
+  | "i8g.xlarge"
+  | "i8g.2xlarge"
+  | "i8g.4xlarge"
+  | "i8g.8xlarge"
+  | "i8g.12xlarge"
+  | "i8g.16xlarge"
+  | "i8g.24xlarge"
+  | "i8g.metal-24xl"
+  | "u7i-6tb.112xlarge"
+  | "u7i-8tb.112xlarge"
+  | "u7inh-32tb.480xlarge"
+  | "p5e.48xlarge"
+  | "p5en.48xlarge"
+  | "f2.12xlarge"
+  | "f2.48xlarge"
+  | "trn2.48xlarge"
+  | "c7i-flex.12xlarge"
+  | "c7i-flex.16xlarge"
+  | "m7i-flex.12xlarge"
+  | "m7i-flex.16xlarge"
+  | "i7ie.metal-24xl"
+  | "i7ie.metal-48xl"
+  | "i8g.48xlarge"
+  | "c8gd.medium"
+  | "c8gd.large"
+  | "c8gd.xlarge"
+  | "c8gd.2xlarge"
+  | "c8gd.4xlarge"
+  | "c8gd.8xlarge"
+  | "c8gd.12xlarge"
+  | "c8gd.16xlarge"
+  | "c8gd.24xlarge"
+  | "c8gd.48xlarge"
+  | "c8gd.metal-24xl"
+  | "c8gd.metal-48xl"
+  | "i7i.large"
+  | "i7i.xlarge"
+  | "i7i.2xlarge"
+  | "i7i.4xlarge"
+  | "i7i.8xlarge"
+  | "i7i.12xlarge"
+  | "i7i.16xlarge"
+  | "i7i.24xlarge"
+  | "i7i.48xlarge"
+  | "i7i.metal-24xl"
+  | "i7i.metal-48xl"
+  | "p6-b200.48xlarge"
+  | "m8gd.medium"
+  | "m8gd.large"
+  | "m8gd.xlarge"
+  | "m8gd.2xlarge"
+  | "m8gd.4xlarge"
+  | "m8gd.8xlarge"
+  | "m8gd.12xlarge"
+  | "m8gd.16xlarge"
+  | "m8gd.24xlarge"
+  | "m8gd.48xlarge"
+  | "m8gd.metal-24xl"
+  | "m8gd.metal-48xl"
+  | "r8gd.medium"
+  | "r8gd.large"
+  | "r8gd.xlarge"
+  | "r8gd.2xlarge"
+  | "r8gd.4xlarge"
+  | "r8gd.8xlarge"
+  | "r8gd.12xlarge"
+  | "r8gd.16xlarge"
+  | "r8gd.24xlarge"
+  | "r8gd.48xlarge"
+  | "r8gd.metal-24xl"
+  | "r8gd.metal-48xl"
+  | "c8gn.medium"
+  | "c8gn.large"
+  | "c8gn.xlarge"
+  | "c8gn.2xlarge"
+  | "c8gn.4xlarge"
+  | "c8gn.8xlarge"
+  | "c8gn.12xlarge"
+  | "c8gn.16xlarge"
+  | "c8gn.24xlarge"
+  | "c8gn.48xlarge"
+  | "c8gn.metal-24xl"
+  | "c8gn.metal-48xl"
+  | "f2.6xlarge"
+  | "p6e-gb200.36xlarge";
+export type InstanceTypeHypervisor = "nitro" | "xen";
 export interface InstanceTypeInfo {
   InstanceType?: InstanceType;
   CurrentGeneration?: boolean;
@@ -12038,7 +12038,7 @@ export type IntegerWithConstraints = number;
 export interface IntegrateServices {
   AthenaIntegrations?: Array<AthenaIntegration>;
 }
-export type InterfacePermissionType = "INSTANCE_ATTACH" | "EIP_ASSOCIATE";
+export type InterfacePermissionType = "INSTANCE-ATTACH" | "EIP-ASSOCIATE";
 export type InterfaceProtocolType = "VLAN" | "GRE";
 export interface InternetGateway {
   Attachments?: Array<InternetGatewayAttachment>;
@@ -12053,11 +12053,11 @@ export interface InternetGatewayAttachment {
 export type InternetGatewayAttachmentList = Array<InternetGatewayAttachment>;
 export type InternetGatewayBlockMode =
   | "off"
-  | "block_bidirectional"
-  | "block_ingress";
+  | "block-bidirectional"
+  | "block-ingress";
 export type InternetGatewayExclusionMode =
-  | "allow_bidirectional"
-  | "allow_egress";
+  | "allow-bidirectional"
+  | "allow-egress";
 export type InternetGatewayId = string;
 
 export type InternetGatewayIdList = Array<string>;
@@ -12106,9 +12106,9 @@ export type IpamAddressHistoryResourceType =
   | "eip"
   | "vpc"
   | "subnet"
-  | "network_interface"
+  | "network-interface"
   | "instance";
-export type IpamAssociatedResourceDiscoveryStatus = "ACTIVE" | "NOT_FOUND";
+export type IpamAssociatedResourceDiscoveryStatus = "active" | "not-found";
 export interface IpamCidrAuthorizationContext {
   Message?: string;
   Signature?: string;
@@ -12167,9 +12167,9 @@ export interface IpamDiscoveredResourceCidr {
 }
 export type IpamDiscoveredResourceCidrSet = Array<IpamDiscoveredResourceCidr>;
 export type IpamDiscoveryFailureCode =
-  | "assume_role_failure"
-  | "throttling_failure"
-  | "unauthorized_failure";
+  | "assume-role-failure"
+  | "throttling-failure"
+  | "unauthorized-failure";
 export interface IpamDiscoveryFailureReason {
   Code?: IpamDiscoveryFailureCode;
   Message?: string;
@@ -12192,21 +12192,21 @@ export type IpamExternalResourceVerificationTokenId = string;
 export type IpamExternalResourceVerificationTokenSet =
   Array<IpamExternalResourceVerificationToken>;
 export type IpamExternalResourceVerificationTokenState =
-  | "CREATE_IN_PROGRESS"
-  | "CREATE_COMPLETE"
-  | "CREATE_FAILED"
-  | "DELETE_IN_PROGRESS"
-  | "DELETE_COMPLETE"
-  | "DELETE_FAILED";
+  | "create-in-progress"
+  | "create-complete"
+  | "create-failed"
+  | "delete-in-progress"
+  | "delete-complete"
+  | "delete-failed";
 export type IpamId = string;
 
 export type IpamManagementState = "managed" | "unmanaged" | "ignored";
 export type IpamMaxResults = number;
 
-export type IpamMeteredAccount = "ipam_owner" | "resource_owner";
+export type IpamMeteredAccount = "ipam-owner" | "resource-owner";
 export type IpamNetmaskLength = number;
 
-export type IpamNetworkInterfaceAttachmentStatus = "available" | "in_use";
+export type IpamNetworkInterfaceAttachmentStatus = "available" | "in-use";
 export interface IpamOperatingRegion {
   RegionName?: string;
 }
@@ -12257,9 +12257,9 @@ export type IpamPoolAllocationDisallowedCidrs = Array<string>;
 export type IpamPoolAllocationId = string;
 
 export type IpamPoolAllocationResourceType =
-  | "ipam_pool"
+  | "ipam-pool"
   | "vpc"
-  | "ec2_public_ipv4_pool"
+  | "ec2-public-ipv4-pool"
   | "custom"
   | "subnet"
   | "eip";
@@ -12272,7 +12272,7 @@ export interface IpamPoolCidr {
   IpamPoolCidrId?: string;
   NetmaskLength?: number;
 }
-export type IpamPoolCidrFailureCode = "cidr_not_available" | "limit_exceeded";
+export type IpamPoolCidrFailureCode = "cidr-not-available" | "limit-exceeded";
 export interface IpamPoolCidrFailureReason {
   Code?: IpamPoolCidrFailureCode;
   Message?: string;
@@ -12281,14 +12281,14 @@ export type IpamPoolCidrId = string;
 
 export type IpamPoolCidrSet = Array<IpamPoolCidr>;
 export type IpamPoolCidrState =
-  | "pending_provision"
+  | "pending-provision"
   | "provisioned"
-  | "failed_provision"
-  | "pending_deprovision"
+  | "failed-provision"
+  | "pending-deprovision"
   | "deprovisioned"
-  | "failed_deprovision"
-  | "pending_import"
-  | "failed_import";
+  | "failed-deprovision"
+  | "pending-import"
+  | "failed-import";
 export type IpamPoolId = string;
 
 export type IpamPoolPublicIpSource = "amazon" | "byoip";
@@ -12307,29 +12307,29 @@ export interface IpamPoolSourceResourceRequest {
 }
 export type IpamPoolSourceResourceType = "vpc";
 export type IpamPoolState =
-  | "create_in_progress"
-  | "create_complete"
-  | "create_failed"
-  | "modify_in_progress"
-  | "modify_complete"
-  | "modify_failed"
-  | "delete_in_progress"
-  | "delete_complete"
-  | "delete_failed"
-  | "isolate_in_progress"
-  | "isolate_complete"
-  | "restore_in_progress";
-export type IpamPublicAddressAssociationStatus = "ASSOCIATED" | "DISASSOCIATED";
+  | "create-in-progress"
+  | "create-complete"
+  | "create-failed"
+  | "modify-in-progress"
+  | "modify-complete"
+  | "modify-failed"
+  | "delete-in-progress"
+  | "delete-complete"
+  | "delete-failed"
+  | "isolate-in-progress"
+  | "isolate-complete"
+  | "restore-in-progress";
+export type IpamPublicAddressAssociationStatus = "associated" | "disassociated";
 export type IpamPublicAddressAwsService =
-  | "NAT_GATEWAY"
-  | "DMS"
-  | "REDSHIFT"
-  | "ECS"
-  | "RDS"
-  | "S2S_VPN"
-  | "EC2_LB"
-  | "AGA"
-  | "OTHER";
+  | "nat-gateway"
+  | "database-migration-service"
+  | "redshift"
+  | "elastic-container-service"
+  | "relational-database-service"
+  | "site-to-site-vpn"
+  | "load-balancer"
+  | "global-accelerator"
+  | "other";
 export interface IpamPublicAddressSecurityGroup {
   GroupName?: string;
   GroupId?: string;
@@ -12345,12 +12345,12 @@ export interface IpamPublicAddressTags {
   EipTags?: Array<IpamPublicAddressTag>;
 }
 export type IpamPublicAddressType =
-  | "SERVICE_MANAGED_IP"
-  | "SERVICE_MANAGED_BYOIP"
-  | "AMAZON_OWNED_EIP"
-  | "AMAZON_OWNED_CONTIG"
-  | "BYOIP"
-  | "EC2_PUBLIC_IP";
+  | "service-managed-ip"
+  | "service-managed-byoip"
+  | "amazon-owned-eip"
+  | "amazon-owned-contig"
+  | "byoip"
+  | "ec2-public-ip";
 export interface IpamResourceCidr {
   IpamId?: string;
   IpamScopeId?: string;
@@ -12401,31 +12401,31 @@ export type IpamResourceDiscoveryAssociationId = string;
 export type IpamResourceDiscoveryAssociationSet =
   Array<IpamResourceDiscoveryAssociation>;
 export type IpamResourceDiscoveryAssociationState =
-  | "ASSOCIATE_IN_PROGRESS"
-  | "ASSOCIATE_COMPLETE"
-  | "ASSOCIATE_FAILED"
-  | "DISASSOCIATE_IN_PROGRESS"
-  | "DISASSOCIATE_COMPLETE"
-  | "DISASSOCIATE_FAILED"
-  | "ISOLATE_IN_PROGRESS"
-  | "ISOLATE_COMPLETE"
-  | "RESTORE_IN_PROGRESS";
+  | "associate-in-progress"
+  | "associate-complete"
+  | "associate-failed"
+  | "disassociate-in-progress"
+  | "disassociate-complete"
+  | "disassociate-failed"
+  | "isolate-in-progress"
+  | "isolate-complete"
+  | "restore-in-progress";
 export type IpamResourceDiscoveryId = string;
 
 export type IpamResourceDiscoverySet = Array<IpamResourceDiscovery>;
 export type IpamResourceDiscoveryState =
-  | "CREATE_IN_PROGRESS"
-  | "CREATE_COMPLETE"
-  | "CREATE_FAILED"
-  | "MODIFY_IN_PROGRESS"
-  | "MODIFY_COMPLETE"
-  | "MODIFY_FAILED"
-  | "DELETE_IN_PROGRESS"
-  | "DELETE_COMPLETE"
-  | "DELETE_FAILED"
-  | "ISOLATE_IN_PROGRESS"
-  | "ISOLATE_COMPLETE"
-  | "RESTORE_IN_PROGRESS";
+  | "create-in-progress"
+  | "create-complete"
+  | "create-failed"
+  | "modify-in-progress"
+  | "modify-complete"
+  | "modify-failed"
+  | "delete-in-progress"
+  | "delete-complete"
+  | "delete-failed"
+  | "isolate-in-progress"
+  | "isolate-complete"
+  | "restore-in-progress";
 export interface IpamResourceTag {
   Key?: string;
   Value?: string;
@@ -12435,8 +12435,8 @@ export type IpamResourceType =
   | "vpc"
   | "subnet"
   | "eip"
-  | "public_ipv4_pool"
-  | "ipv6_pool"
+  | "public-ipv4-pool"
+  | "ipv6-pool"
   | "eni";
 export interface IpamScope {
   OwnerId?: string;
@@ -12455,33 +12455,33 @@ export type IpamScopeId = string;
 
 export type IpamScopeSet = Array<IpamScope>;
 export type IpamScopeState =
-  | "create_in_progress"
-  | "create_complete"
-  | "create_failed"
-  | "modify_in_progress"
-  | "modify_complete"
-  | "modify_failed"
-  | "delete_in_progress"
-  | "delete_complete"
-  | "delete_failed"
-  | "isolate_in_progress"
-  | "isolate_complete"
-  | "restore_in_progress";
+  | "create-in-progress"
+  | "create-complete"
+  | "create-failed"
+  | "modify-in-progress"
+  | "modify-complete"
+  | "modify-failed"
+  | "delete-in-progress"
+  | "delete-complete"
+  | "delete-failed"
+  | "isolate-in-progress"
+  | "isolate-complete"
+  | "restore-in-progress";
 export type IpamScopeType = "public" | "private";
 export type IpamSet = Array<Ipam>;
 export type IpamState =
-  | "create_in_progress"
-  | "create_complete"
-  | "create_failed"
-  | "modify_in_progress"
-  | "modify_complete"
-  | "modify_failed"
-  | "delete_in_progress"
-  | "delete_complete"
-  | "delete_failed"
-  | "isolate_in_progress"
-  | "isolate_complete"
-  | "restore_in_progress";
+  | "create-in-progress"
+  | "create-complete"
+  | "create-failed"
+  | "modify-in-progress"
+  | "modify-complete"
+  | "modify-failed"
+  | "delete-in-progress"
+  | "delete-complete"
+  | "delete-failed"
+  | "isolate-in-progress"
+  | "isolate-complete"
+  | "restore-in-progress";
 export type IpamTier = "free" | "advanced";
 export type IpList = Array<string>;
 export interface IpPermission {
@@ -12733,12 +12733,12 @@ export interface LaunchTemplateEnclaveOptionsRequest {
   Enabled?: boolean;
 }
 export type LaunchTemplateErrorCode =
-  | "LAUNCH_TEMPLATE_ID_DOES_NOT_EXIST"
-  | "LAUNCH_TEMPLATE_ID_MALFORMED"
-  | "LAUNCH_TEMPLATE_NAME_DOES_NOT_EXIST"
-  | "LAUNCH_TEMPLATE_NAME_MALFORMED"
-  | "LAUNCH_TEMPLATE_VERSION_DOES_NOT_EXIST"
-  | "UNEXPECTED_ERROR";
+  | "launchTemplateIdDoesNotExist"
+  | "launchTemplateIdMalformed"
+  | "launchTemplateNameDoesNotExist"
+  | "launchTemplateNameMalformed"
+  | "launchTemplateVersionDoesNotExist"
+  | "unexpectedError";
 export interface LaunchTemplateHibernationOptions {
   Configured?: boolean;
 }
@@ -13058,7 +13058,7 @@ export interface LocalGatewayRouteTable {
 export type LocalGatewayRoutetableId = string;
 
 export type LocalGatewayRouteTableIdSet = Array<string>;
-export type LocalGatewayRouteTableMode = "direct_vpc_routing" | "coip";
+export type LocalGatewayRouteTableMode = "direct-vpc-routing" | "coip";
 export type LocalGatewayRouteTableSet = Array<LocalGatewayRouteTable>;
 export interface LocalGatewayRouteTableVirtualInterfaceGroupAssociation {
   LocalGatewayRouteTableVirtualInterfaceGroupAssociationId?: string;
@@ -13141,15 +13141,15 @@ export type LocalGatewayVirtualInterfaceId = string;
 export type LocalGatewayVirtualInterfaceIdSet = Array<string>;
 export type LocalGatewayVirtualInterfaceSet =
   Array<LocalGatewayVirtualInterface>;
-export type LocalStorage = "INCLUDED" | "REQUIRED" | "EXCLUDED";
-export type LocalStorageType = "HDD" | "SSD";
+export type LocalStorage = "included" | "required" | "excluded";
+export type LocalStorageType = "hdd" | "ssd";
 export type LocalStorageTypeSet = Array<LocalStorageType>;
 export type Location = string;
 
 export type LocationType =
   | "region"
-  | "availability_zone"
-  | "availability_zone_id"
+  | "availability-zone"
+  | "availability-zone-id"
   | "outpost";
 export interface LockedSnapshotsInfo {
   OwnerId?: string;
@@ -13185,12 +13185,12 @@ export interface LockSnapshotResult {
 export type LockState =
   | "compliance"
   | "governance"
-  | "compliance_cooloff"
+  | "compliance-cooloff"
   | "expired";
 export type LogDestinationType =
-  | "cloud_watch_logs"
+  | "cloud-watch-logs"
   | "s3"
-  | "kinesis_data_firehose";
+  | "kinesis-data-firehose";
 export type Long = number;
 
 export interface MacHost {
@@ -13214,11 +13214,11 @@ export type MacModificationTaskList = Array<MacModificationTask>;
 export type MacModificationTaskState =
   | "successful"
   | "failed"
-  | "inprogress"
+  | "in-progress"
   | "pending";
 export type MacModificationTaskType =
-  | "SIPModification"
-  | "VolumeOwnershipDelegation";
+  | "sip-modification"
+  | "volume-ownership-delegation";
 export type MacOSVersionStringList = Array<string>;
 export interface MacSystemIntegrityProtectionConfiguration {
   AppleInternal?: MacSystemIntegrityProtectionSettingStatus;
@@ -13245,7 +13245,7 @@ export interface MaintenanceDetails {
   MaintenanceAutoAppliedAfter?: Date | string;
   LastMaintenanceApplied?: Date | string;
 }
-export type ManagedBy = "account" | "declarative_policy";
+export type ManagedBy = "account" | "declarative-policy";
 export interface ManagedPrefixList {
   PrefixListId?: string;
   AddressFamily?: string;
@@ -13259,7 +13259,7 @@ export interface ManagedPrefixList {
   OwnerId?: string;
 }
 export type ManagedPrefixListSet = Array<ManagedPrefixList>;
-export type MarketType = "spot" | "capacity_block";
+export type MarketType = "spot" | "capacity-block";
 export type MaximumBandwidthInMbps = number;
 
 export type MaximumEfaInterfaces = number;
@@ -13333,7 +13333,7 @@ export type MemorySize = number;
 export type MetadataDefaultHttpTokensState =
   | "optional"
   | "required"
-  | "no_preference";
+  | "no-preference";
 export interface MetricPoint {
   StartDate?: Date | string;
   EndDate?: Date | string;
@@ -13341,7 +13341,7 @@ export interface MetricPoint {
   Status?: string;
 }
 export type MetricPoints = Array<MetricPoint>;
-export type MetricType = "aggregate_latency";
+export type MetricType = "aggregate-latency";
 export type MillisecondDateTime = Date | string;
 
 export interface ModifyAddressAttributeRequest {
@@ -13360,7 +13360,7 @@ export interface ModifyAvailabilityZoneGroupRequest {
 export interface ModifyAvailabilityZoneGroupResult {
   Return?: boolean;
 }
-export type ModifyAvailabilityZoneOptInStatus = "opted_in" | "not_opted_in";
+export type ModifyAvailabilityZoneOptInStatus = "opted-in" | "not-opted-in";
 export interface ModifyCapacityReservationFleetRequest {
   CapacityReservationFleetId: string;
   TotalTargetCapacity?: number;
@@ -14269,22 +14269,22 @@ export interface NatGatewayAddress {
 }
 export type NatGatewayAddressList = Array<NatGatewayAddress>;
 export type NatGatewayAddressStatus =
-  | "ASSIGNING"
-  | "UNASSIGNING"
-  | "ASSOCIATING"
-  | "DISASSOCIATING"
-  | "SUCCEEDED"
-  | "FAILED";
+  | "assigning"
+  | "unassigning"
+  | "associating"
+  | "disassociating"
+  | "succeeded"
+  | "failed";
 export type NatGatewayId = string;
 
 export type NatGatewayIdStringList = Array<string>;
 export type NatGatewayList = Array<NatGateway>;
 export type NatGatewayState =
-  | "PENDING"
-  | "FAILED"
-  | "AVAILABLE"
-  | "DELETING"
-  | "DELETED";
+  | "pending"
+  | "failed"
+  | "available"
+  | "deleting"
+  | "deleted";
 export interface NativeApplicationOidcOptions {
   PublicSigningKeyEndpoint?: string;
   Issuer?: string;
@@ -14525,7 +14525,7 @@ export interface NetworkInterfaceCountRequest {
 }
 export type NetworkInterfaceCreationType =
   | "efa"
-  | "efa_only"
+  | "efa-only"
   | "branch"
   | "trunk";
 export type NetworkInterfaceId = string;
@@ -14573,13 +14573,13 @@ export type NetworkInterfaceStatus =
   | "available"
   | "associated"
   | "attaching"
-  | "in_use"
+  | "in-use"
   | "detaching";
 export type NetworkInterfaceType =
   | "interface"
   | "natGateway"
   | "efa"
-  | "efa_only"
+  | "efa-only"
   | "trunk"
   | "load_balancer"
   | "network_load_balancer"
@@ -14632,11 +14632,11 @@ export interface NewDhcpConfiguration {
 export type NewDhcpConfigurationList = Array<NewDhcpConfiguration>;
 export type NextToken = string;
 
-export type NitroEnclavesSupport = "UNSUPPORTED" | "SUPPORTED";
+export type NitroEnclavesSupport = "unsupported" | "supported";
 export interface NitroTpmInfo {
   SupportedVersions?: Array<string>;
 }
-export type NitroTpmSupport = "UNSUPPORTED" | "SUPPORTED";
+export type NitroTpmSupport = "unsupported" | "supported";
 export type NitroTpmSupportedVersionsList = Array<string>;
 export type NitroTpmSupportedVersionType = string;
 
@@ -14644,16 +14644,16 @@ export type OccurrenceDayRequestSet = Array<number>;
 export type OccurrenceDaySet = Array<number>;
 export type OdbNetworkArn = string;
 
-export type OfferingClassType = "STANDARD" | "CONVERTIBLE";
+export type OfferingClassType = "standard" | "convertible";
 export type OfferingId = string;
 
 export type OfferingTypeValues =
-  | "Heavy_Utilization"
-  | "Medium_Utilization"
-  | "Light_Utilization"
-  | "No_Upfront"
-  | "Partial_Upfront"
-  | "All_Upfront";
+  | "Heavy Utilization"
+  | "Medium Utilization"
+  | "Light Utilization"
+  | "No Upfront"
+  | "Partial Upfront"
+  | "All Upfront";
 export interface OidcOptions {
   Issuer?: string;
   AuthorizationEndpoint?: string;
@@ -14663,7 +14663,7 @@ export interface OidcOptions {
   ClientSecret?: string;
   Scope?: string;
 }
-export type OnDemandAllocationStrategy = "LOWEST_PRICE" | "PRIORITIZED";
+export type OnDemandAllocationStrategy = "lowestPrice" | "prioritized";
 export interface OnDemandOptions {
   AllocationStrategy?: FleetOnDemandAllocationStrategy;
   CapacityReservationOptions?: CapacityReservationOptions;
@@ -14726,7 +14726,7 @@ export interface PacketHeaderStatementRequest {
   DestinationPrefixLists?: Array<string>;
   Protocols?: Array<Protocol>;
 }
-export type PartitionLoadFrequency = "NONE" | "DAILY" | "WEEKLY" | "MONTHLY";
+export type PartitionLoadFrequency = "none" | "daily" | "weekly" | "monthly";
 export type PasswordData = string;
 
 export interface PathComponent {
@@ -14773,7 +14773,7 @@ export interface PathStatementRequest {
   ResourceStatement?: ResourceStatementRequest;
 }
 export type PayerResponsibility = "ServiceOwner";
-export type PaymentOption = "ALL_UPFRONT" | "PARTIAL_UPFRONT" | "NO_UPFRONT";
+export type PaymentOption = "AllUpfront" | "PartialUpfront" | "NoUpfront";
 export interface PciId {
   DeviceId?: string;
   VendorId?: string;
@@ -14812,12 +14812,12 @@ export type PerformanceFactorReferenceSet = Array<PerformanceFactorReference>;
 export type PerformanceFactorReferenceSetRequest =
   Array<PerformanceFactorReferenceRequest>;
 export type PeriodType =
-  | "five_minutes"
-  | "fifteen_minutes"
-  | "one_hour"
-  | "three_hours"
-  | "one_day"
-  | "one_week";
+  | "five-minutes"
+  | "fifteen-minutes"
+  | "one-hour"
+  | "three-hours"
+  | "one-day"
+  | "one-week";
 export type PermissionGroup = "all";
 export type Phase1DHGroupNumbersList = Array<Phase1DHGroupNumbersListValue>;
 export interface Phase1DHGroupNumbersListValue {
@@ -14877,7 +14877,7 @@ export type Phase2IntegrityAlgorithmsRequestList =
 export interface Phase2IntegrityAlgorithmsRequestListValue {
   Value?: string;
 }
-export type PhcSupport = "UNSUPPORTED" | "SUPPORTED";
+export type PhcSupport = "unsupported" | "supported";
 export interface Placement {
   Affinity?: string;
   GroupName?: string;
@@ -14964,18 +14964,18 @@ export type PrefixListResourceId = string;
 export type PrefixListResourceIdStringList = Array<string>;
 export type PrefixListSet = Array<PrefixList>;
 export type PrefixListState =
-  | "create_in_progress"
-  | "create_complete"
-  | "create_failed"
-  | "modify_in_progress"
-  | "modify_complete"
-  | "modify_failed"
-  | "restore_in_progress"
-  | "restore_complete"
-  | "restore_failed"
-  | "delete_in_progress"
-  | "delete_complete"
-  | "delete_failed";
+  | "create-in-progress"
+  | "create-complete"
+  | "create-failed"
+  | "modify-in-progress"
+  | "modify-complete"
+  | "modify-failed"
+  | "restore-in-progress"
+  | "restore-complete"
+  | "restore-failed"
+  | "delete-in-progress"
+  | "delete-complete"
+  | "delete-failed";
 export type preSharedKey = string;
 
 export interface PriceSchedule {
@@ -15139,9 +15139,9 @@ export interface PublicIpDnsNameOptions {
   PublicDualStackDnsName?: string;
 }
 export type PublicIpDnsOption =
-  | "public_dual_stack_dns_name"
-  | "public_ipv4_dns_name"
-  | "public_ipv6_dns_name";
+  | "public-dual-stack-dns-name"
+  | "public-ipv4-dns-name"
+  | "public-ipv6-dns-name";
 export type PublicIpStringList = Array<string>;
 export interface PublicIpv4Pool {
   PoolId?: string;
@@ -15242,7 +15242,7 @@ export interface RebootInstancesRequest {
   InstanceIds: Array<string>;
   DryRun?: boolean;
 }
-export type RebootMigrationSupport = "UNSUPPORTED" | "SUPPORTED";
+export type RebootMigrationSupport = "unsupported" | "supported";
 export interface RecurringCharge {
   Amount?: number;
   Frequency?: RecurringChargeFrequency;
@@ -15416,7 +15416,7 @@ export interface ReplaceImageCriteriaInAllowedImagesSettingsRequest {
 export interface ReplaceImageCriteriaInAllowedImagesSettingsResult {
   ReturnValue?: boolean;
 }
-export type ReplacementStrategy = "LAUNCH" | "LAUNCH_BEFORE_TERMINATE";
+export type ReplacementStrategy = "launch" | "launch-before-terminate";
 export interface ReplaceNetworkAclAssociationRequest {
   DryRun?: boolean;
   AssociationId: string;
@@ -15454,11 +15454,11 @@ export type ReplaceRootVolumeTaskIds = Array<string>;
 export type ReplaceRootVolumeTasks = Array<ReplaceRootVolumeTask>;
 export type ReplaceRootVolumeTaskState =
   | "pending"
-  | "in_progress"
+  | "in-progress"
   | "failing"
   | "succeeded"
   | "failed"
-  | "failed_detached";
+  | "failed-detached";
 export interface ReplaceRouteRequest {
   DestinationPrefixListId?: string;
   VpcEndpointId?: string;
@@ -15508,14 +15508,14 @@ export interface ReplaceVpnTunnelResult {
   Return?: boolean;
 }
 export type ReportInstanceReasonCodes =
-  | "instance_stuck_in_state"
+  | "instance-stuck-in-state"
   | "unresponsive"
-  | "not_accepting_credentials"
-  | "password_not_available"
-  | "performance_network"
-  | "performance_instance_store"
-  | "performance_ebs_volume"
-  | "performance_other"
+  | "not-accepting-credentials"
+  | "password-not-available"
+  | "performance-network"
+  | "performance-instance-store"
+  | "performance-ebs-volume"
+  | "performance-other"
   | "other";
 export interface ReportInstanceStatusRequest {
   DryRun?: boolean;
@@ -15644,10 +15644,10 @@ export type ReservationId = string;
 
 export type ReservationList = Array<Reservation>;
 export type ReservationState =
-  | "PAYMENT_PENDING"
-  | "PAYMENT_FAILED"
-  | "ACTIVE"
-  | "RETIRED";
+  | "payment-pending"
+  | "payment-failed"
+  | "active"
+  | "retired";
 export interface ReservationValue {
   HourlyPrice?: string;
   RemainingTotalValue?: string;
@@ -15760,12 +15760,12 @@ export type ReservedInstancesOfferingId = string;
 export type ReservedInstancesOfferingIdStringList = Array<string>;
 export type ReservedInstancesOfferingList = Array<ReservedInstancesOffering>;
 export type ReservedInstanceState =
-  | "payment_pending"
+  | "payment-pending"
   | "active"
-  | "payment_failed"
+  | "payment-failed"
   | "retired"
   | "queued"
-  | "queued_deleted";
+  | "queued-deleted";
 export type ReservedIntancesIds = Array<ReservedInstancesId>;
 export interface ResetAddressAttributeRequest {
   AllocationId: string;
@@ -15826,102 +15826,102 @@ export interface ResourceStatementRequest {
   ResourceTypes?: Array<string>;
 }
 export type ResourceType =
-  | "capacity_reservation"
-  | "client_vpn_endpoint"
-  | "customer_gateway"
-  | "carrier_gateway"
-  | "coip_pool"
-  | "declarative_policies_report"
-  | "dedicated_host"
-  | "dhcp_options"
-  | "egress_only_internet_gateway"
-  | "elastic_ip"
-  | "elastic_gpu"
-  | "export_image_task"
-  | "export_instance_task"
+  | "capacity-reservation"
+  | "client-vpn-endpoint"
+  | "customer-gateway"
+  | "carrier-gateway"
+  | "coip-pool"
+  | "declarative-policies-report"
+  | "dedicated-host"
+  | "dhcp-options"
+  | "egress-only-internet-gateway"
+  | "elastic-ip"
+  | "elastic-gpu"
+  | "export-image-task"
+  | "export-instance-task"
   | "fleet"
-  | "fpga_image"
-  | "host_reservation"
+  | "fpga-image"
+  | "host-reservation"
   | "image"
-  | "import_image_task"
-  | "import_snapshot_task"
+  | "import-image-task"
+  | "import-snapshot-task"
   | "instance"
-  | "instance_event_window"
-  | "internet_gateway"
+  | "instance-event-window"
+  | "internet-gateway"
   | "ipam"
-  | "ipam_pool"
-  | "ipam_scope"
-  | "ipv4pool_ec2"
-  | "ipv6pool_ec2"
-  | "key_pair"
-  | "launch_template"
-  | "local_gateway"
-  | "local_gateway_route_table"
-  | "local_gateway_virtual_interface"
-  | "local_gateway_virtual_interface_group"
-  | "local_gateway_route_table_vpc_association"
-  | "local_gateway_route_table_virtual_interface_group_association"
+  | "ipam-pool"
+  | "ipam-scope"
+  | "ipv4pool-ec2"
+  | "ipv6pool-ec2"
+  | "key-pair"
+  | "launch-template"
+  | "local-gateway"
+  | "local-gateway-route-table"
+  | "local-gateway-virtual-interface"
+  | "local-gateway-virtual-interface-group"
+  | "local-gateway-route-table-vpc-association"
+  | "local-gateway-route-table-virtual-interface-group-association"
   | "natgateway"
-  | "network_acl"
-  | "network_interface"
-  | "network_insights_analysis"
-  | "network_insights_path"
-  | "network_insights_access_scope"
-  | "network_insights_access_scope_analysis"
-  | "outpost_lag"
-  | "placement_group"
-  | "prefix_list"
-  | "replace_root_volume_task"
-  | "reserved_instances"
-  | "route_table"
-  | "security_group"
-  | "security_group_rule"
-  | "service_link_virtual_interface"
+  | "network-acl"
+  | "network-interface"
+  | "network-insights-analysis"
+  | "network-insights-path"
+  | "network-insights-access-scope"
+  | "network-insights-access-scope-analysis"
+  | "outpost-lag"
+  | "placement-group"
+  | "prefix-list"
+  | "replace-root-volume-task"
+  | "reserved-instances"
+  | "route-table"
+  | "security-group"
+  | "security-group-rule"
+  | "service-link-virtual-interface"
   | "snapshot"
-  | "spot_fleet_request"
-  | "spot_instances_request"
+  | "spot-fleet-request"
+  | "spot-instances-request"
   | "subnet"
-  | "subnet_cidr_reservation"
-  | "traffic_mirror_filter"
-  | "traffic_mirror_session"
-  | "traffic_mirror_target"
-  | "transit_gateway"
-  | "transit_gateway_attachment"
-  | "transit_gateway_connect_peer"
-  | "transit_gateway_multicast_domain"
-  | "transit_gateway_policy_table"
-  | "transit_gateway_route_table"
-  | "transit_gateway_route_table_announcement"
+  | "subnet-cidr-reservation"
+  | "traffic-mirror-filter"
+  | "traffic-mirror-session"
+  | "traffic-mirror-target"
+  | "transit-gateway"
+  | "transit-gateway-attachment"
+  | "transit-gateway-connect-peer"
+  | "transit-gateway-multicast-domain"
+  | "transit-gateway-policy-table"
+  | "transit-gateway-route-table"
+  | "transit-gateway-route-table-announcement"
   | "volume"
   | "vpc"
-  | "vpc_endpoint"
-  | "vpc_endpoint_connection"
-  | "vpc_endpoint_service"
-  | "vpc_endpoint_service_permission"
-  | "vpc_peering_connection"
-  | "vpn_connection"
-  | "vpn_gateway"
-  | "vpc_flow_log"
-  | "capacity_reservation_fleet"
-  | "traffic_mirror_filter_rule"
-  | "vpc_endpoint_connection_device_type"
-  | "verified_access_instance"
-  | "verified_access_group"
-  | "verified_access_endpoint"
-  | "verified_access_policy"
-  | "verified_access_trust_provider"
-  | "vpn_connection_device_type"
-  | "vpc_block_public_access_exclusion"
-  | "route_server"
-  | "route_server_endpoint"
-  | "route_server_peer"
-  | "ipam_resource_discovery"
-  | "ipam_resource_discovery_association"
-  | "instance_connect_endpoint"
-  | "verified_access_endpoint_target"
-  | "ipam_external_resource_verification_token"
-  | "capacity_block"
-  | "mac_modification_task";
+  | "vpc-endpoint"
+  | "vpc-endpoint-connection"
+  | "vpc-endpoint-service"
+  | "vpc-endpoint-service-permission"
+  | "vpc-peering-connection"
+  | "vpn-connection"
+  | "vpn-gateway"
+  | "vpc-flow-log"
+  | "capacity-reservation-fleet"
+  | "traffic-mirror-filter-rule"
+  | "vpc-endpoint-connection-device-type"
+  | "verified-access-instance"
+  | "verified-access-group"
+  | "verified-access-endpoint"
+  | "verified-access-policy"
+  | "verified-access-trust-provider"
+  | "vpn-connection-device-type"
+  | "vpc-block-public-access-exclusion"
+  | "route-server"
+  | "route-server-endpoint"
+  | "route-server-peer"
+  | "ipam-resource-discovery"
+  | "ipam-resource-discovery-association"
+  | "instance-connect-endpoint"
+  | "verified-access-endpoint-target"
+  | "ipam-external-resource-verification-token"
+  | "capacity-block"
+  | "mac-modification-task";
 export interface ResponseError {
   Code?: LaunchTemplateErrorCode;
   Message?: string;
@@ -16085,13 +16085,13 @@ export interface RevokeSecurityGroupIngressResult {
   RevokedSecurityGroupRules?: Array<RevokedSecurityGroupRule>;
 }
 export type RIProductDescription =
-  | "Linux_UNIX"
-  | "Linux_UNIX_Amazon_VPC_"
+  | "Linux/UNIX"
+  | "Linux/UNIX (Amazon VPC)"
   | "Windows"
-  | "Windows_Amazon_VPC_";
+  | "Windows (Amazon VPC)";
 export type RoleId = string;
 
-export type RootDeviceType = "ebs" | "instance_store";
+export type RootDeviceType = "ebs" | "instance-store";
 export type RootDeviceTypeList = Array<RootDeviceType>;
 export interface Route {
   DestinationCidrBlock?: string;
@@ -16137,10 +16137,10 @@ export interface RouteServerAssociation {
 }
 export type RouteServerAssociationsList = Array<RouteServerAssociation>;
 export type RouteServerAssociationState =
-  | "ASSOCIATING"
-  | "ASSOCIATED"
-  | "DISASSOCIATING";
-export type RouteServerBfdState = "UP" | "DOWN";
+  | "associating"
+  | "associated"
+  | "disassociating";
+export type RouteServerBfdState = "up" | "down";
 export interface RouteServerBfdStatus {
   Status?: RouteServerBfdState;
 }
@@ -16152,7 +16152,7 @@ export interface RouteServerBgpOptionsRequest {
   PeerAsn: number;
   PeerLivenessDetection?: RouteServerPeerLivenessMode;
 }
-export type RouteServerBgpState = "UP" | "DOWN";
+export type RouteServerBgpState = "up" | "down";
 export interface RouteServerBgpStatus {
   Status?: RouteServerBgpState;
 }
@@ -16172,13 +16172,13 @@ export type RouteServerEndpointId = string;
 export type RouteServerEndpointIdsList = Array<string>;
 export type RouteServerEndpointsList = Array<RouteServerEndpoint>;
 export type RouteServerEndpointState =
-  | "PENDING"
-  | "AVAILABLE"
-  | "DELETING"
-  | "DELETED"
-  | "FAILING"
-  | "FAILED"
-  | "DELETE_FAILED";
+  | "pending"
+  | "available"
+  | "deleting"
+  | "deleted"
+  | "failing"
+  | "failed"
+  | "delete-failed";
 export type RouteServerId = string;
 
 export type RouteServerIdsList = Array<string>;
@@ -16203,30 +16203,30 @@ export interface RouteServerPeer {
 export type RouteServerPeerId = string;
 
 export type RouteServerPeerIdsList = Array<string>;
-export type RouteServerPeerLivenessMode = "BFD" | "BGP_KEEPALIVE";
+export type RouteServerPeerLivenessMode = "bfd" | "bgp-keepalive";
 export type RouteServerPeersList = Array<RouteServerPeer>;
 export type RouteServerPeerState =
-  | "PENDING"
-  | "AVAILABLE"
-  | "DELETING"
-  | "DELETED"
-  | "FAILING"
-  | "FAILED";
-export type RouteServerPersistRoutesAction = "ENABLE" | "DISABLE" | "RESET";
+  | "pending"
+  | "available"
+  | "deleting"
+  | "deleted"
+  | "failing"
+  | "failed";
+export type RouteServerPersistRoutesAction = "enable" | "disable" | "reset";
 export type RouteServerPersistRoutesState =
-  | "ENABLING"
-  | "ENABLED"
-  | "RESETTING"
-  | "DISABLING"
-  | "DISABLED"
-  | "MODIFYING";
+  | "enabling"
+  | "enabled"
+  | "resetting"
+  | "disabling"
+  | "disabled"
+  | "modifying";
 export interface RouteServerPropagation {
   RouteServerId?: string;
   RouteTableId?: string;
   State?: RouteServerPropagationState;
 }
 export type RouteServerPropagationsList = Array<RouteServerPropagation>;
-export type RouteServerPropagationState = "PENDING" | "AVAILABLE" | "DELETING";
+export type RouteServerPropagationState = "pending" | "available" | "deleting";
 export interface RouteServerRoute {
   RouteServerEndpointId?: string;
   RouteServerPeerId?: string;
@@ -16244,16 +16244,16 @@ export interface RouteServerRouteInstallationDetail {
 }
 export type RouteServerRouteInstallationDetails =
   Array<RouteServerRouteInstallationDetail>;
-export type RouteServerRouteInstallationStatus = "INSTALLED" | "REJECTED";
+export type RouteServerRouteInstallationStatus = "installed" | "rejected";
 export type RouteServerRouteList = Array<RouteServerRoute>;
-export type RouteServerRouteStatus = "IN_RIB" | "IN_FIB";
+export type RouteServerRouteStatus = "in-rib" | "in-fib";
 export type RouteServersList = Array<RouteServer>;
 export type RouteServerState =
-  | "PENDING"
-  | "AVAILABLE"
-  | "MODIFYING"
-  | "DELETING"
-  | "DELETED";
+  | "pending"
+  | "available"
+  | "modifying"
+  | "deleting"
+  | "deleted";
 export type RouteState = "active" | "blackhole";
 export interface RouteTable {
   Associations?: Array<RouteTableAssociation>;
@@ -16500,7 +16500,7 @@ export interface ScheduledInstancesPrivateIpAddressConfig {
   PrivateIpAddress?: string;
 }
 export type ScheduledInstancesSecurityGroupIdSet = Array<string>;
-export type scope = "AVAILABILITY_ZONE" | "REGIONAL";
+export type scope = "Availability Zone" | "Region";
 export interface SearchLocalGatewayRoutesRequest {
   LocalGatewayRouteTableId: string;
   Filters?: Array<Filter>;
@@ -16629,10 +16629,10 @@ export type SecurityGroupVpcAssociationList =
 export type SecurityGroupVpcAssociationState =
   | "associating"
   | "associated"
-  | "association_failed"
+  | "association-failed"
   | "disassociating"
   | "disassociated"
-  | "disassociation_failed";
+  | "disassociation-failed";
 export type SelfServicePortal = "enabled" | "disabled";
 export interface SendDiagnosticInterruptRequest {
   InstanceId: string;
@@ -16759,8 +16759,8 @@ export interface Snapshot {
 }
 export type SnapshotAttributeName = "productCodes" | "createVolumePermission";
 export type SnapshotBlockPublicAccessState =
-  | "block_all_sharing"
-  | "block_new_sharing"
+  | "block-all-sharing"
+  | "block-new-sharing"
   | "unblocked";
 export type SnapshotCompletionDurationMinutesRequest = number;
 
@@ -16804,7 +16804,7 @@ export interface SnapshotInfo {
   AvailabilityZone?: string;
 }
 export type SnapshotList = Array<Snapshot>;
-export type SnapshotLocationEnum = "REGIONAL" | "LOCAL";
+export type SnapshotLocationEnum = "regional" | "local";
 export interface SnapshotRecycleBinInfo {
   SnapshotId?: string;
   RecycleBinEnterTime?: Date | string;
@@ -16814,11 +16814,11 @@ export interface SnapshotRecycleBinInfo {
 }
 export type SnapshotRecycleBinInfoList = Array<SnapshotRecycleBinInfo>;
 export type SnapshotReturnCodes =
-  | "SUCCESS"
-  | "WARN_SKIPPED"
-  | "ERROR_MISSING_PERMISSIONS"
-  | "ERROR_CODE_INTERNAL_ERROR"
-  | "ERROR_CODE_CLIENT_ERROR";
+  | "success"
+  | "skipped"
+  | "missing-permissions"
+  | "internal-error"
+  | "client-error";
 export type SnapshotSet = Array<SnapshotInfo>;
 export type SnapshotState =
   | "pending"
@@ -16855,11 +16855,11 @@ export interface SnapshotTierStatus {
 }
 export type snapshotTierStatusSet = Array<SnapshotTierStatus>;
 export type SpotAllocationStrategy =
-  | "LOWEST_PRICE"
-  | "DIVERSIFIED"
-  | "CAPACITY_OPTIMIZED"
-  | "CAPACITY_OPTIMIZED_PRIORITIZED"
-  | "PRICE_CAPACITY_OPTIMIZED";
+  | "lowest-price"
+  | "diversified"
+  | "capacity-optimized"
+  | "capacity-optimized-prioritized"
+  | "price-capacity-optimized";
 export interface SpotCapacityRebalance {
   ReplacementStrategy?: ReplacementStrategy;
   TerminationDelay?: number;
@@ -16985,7 +16985,7 @@ export interface SpotInstanceStatus {
   Message?: string;
   UpdateTime?: Date | string;
 }
-export type SpotInstanceType = "one_time" | "persistent";
+export type SpotInstanceType = "one-time" | "persistent";
 export interface SpotMaintenanceStrategies {
   CapacityRebalance?: SpotCapacityRebalance;
 }
@@ -17040,7 +17040,7 @@ export interface SpotPrice {
 }
 export type SpotPriceHistoryList = Array<SpotPrice>;
 export type SpreadLevel = "host" | "rack";
-export type SSEType = "sse_ebs" | "sse_kms" | "none";
+export type SSEType = "sse-ebs" | "sse-kms" | "none";
 export interface StaleIpPermission {
   FromPort?: number;
   IpProtocol?: string;
@@ -17121,12 +17121,12 @@ export interface StateReason {
 }
 export type StaticSourcesSupportValue = "enable" | "disable";
 export type StatisticType = "p50";
-export type Status = "moveInProgress" | "inVpc" | "inClassic";
+export type Status = "MoveInProgress" | "InVpc" | "InClassic";
 export type StatusName = "reachability";
 export type StatusType =
   | "passed"
   | "failed"
-  | "insufficient_data"
+  | "insufficient-data"
   | "initializing";
 export interface StopInstancesRequest {
   InstanceIds: Array<string>;
@@ -17247,7 +17247,7 @@ export type SubnetState =
   | "available"
   | "unavailable"
   | "failed"
-  | "failed_insufficient_capacity";
+  | "failed-insufficient-capacity";
 export interface Subscription {
   Source?: string;
   Destination?: string;
@@ -17269,10 +17269,10 @@ export type SuccessfulQueuedPurchaseDeletionSet =
 export type SummaryStatus =
   | "ok"
   | "impaired"
-  | "insufficient_data"
-  | "not_applicable"
+  | "insufficient-data"
+  | "not-applicable"
   | "initializing";
-export type SupportedAdditionalProcessorFeature = "AMD_SEV_SNP";
+export type SupportedAdditionalProcessorFeature = "amd-sev-snp";
 export type SupportedAdditionalProcessorFeatureList =
   Array<SupportedAdditionalProcessorFeature>;
 export type SupportedIpAddressTypes = Array<ServiceConnectivityType>;
@@ -17314,7 +17314,7 @@ export interface TargetCapacitySpecificationRequest {
   DefaultTargetCapacityType?: DefaultTargetCapacityType;
   TargetCapacityUnitType?: TargetCapacityUnitType;
 }
-export type TargetCapacityUnitType = "VCPU" | "MEMORY_MIB" | "UNITS";
+export type TargetCapacityUnitType = "vcpu" | "memory-mib" | "units";
 export interface TargetConfiguration {
   InstanceCount?: number;
   OfferingId?: string;
@@ -17387,15 +17387,15 @@ export interface ThroughResourcesStatementRequest {
 export type ThroughResourcesStatementRequestList =
   Array<ThroughResourcesStatementRequest>;
 export type TieringOperationStatus =
-  | "archival_in_progress"
-  | "archival_completed"
-  | "archival_failed"
-  | "temporary_restore_in_progress"
-  | "temporary_restore_completed"
-  | "temporary_restore_failed"
-  | "permanent_restore_in_progress"
-  | "permanent_restore_completed"
-  | "permanent_restore_failed";
+  | "archival-in-progress"
+  | "archival-completed"
+  | "archival-failed"
+  | "temporary-restore-in-progress"
+  | "temporary-restore-completed"
+  | "temporary-restore-failed"
+  | "permanent-restore-in-progress"
+  | "permanent-restore-completed"
+  | "permanent-restore-failed";
 export type TokenState = "valid" | "expired";
 export type totalFpgaMemory = number;
 
@@ -17415,7 +17415,7 @@ export type TotalMediaMemory = number;
 
 export type TotalNeuronMemory = number;
 
-export type TpmSupportValues = "v2_0";
+export type TpmSupportValues = "v2.0";
 export type TrafficDirection = "ingress" | "egress";
 export interface TrafficMirrorFilter {
   TrafficMirrorFilterId?: string;
@@ -17443,8 +17443,8 @@ export interface TrafficMirrorFilterRule {
   Tags?: Array<Tag>;
 }
 export type TrafficMirrorFilterRuleField =
-  | "destination_port_range"
-  | "source_port_range"
+  | "destination-port-range"
+  | "source-port-range"
   | "protocol"
   | "description";
 export type TrafficMirrorFilterRuleFieldList =
@@ -17457,7 +17457,7 @@ export type TrafficMirrorFilterRuleSet = Array<TrafficMirrorFilterRule>;
 export type TrafficMirrorFilterSet = Array<TrafficMirrorFilter>;
 export type TrafficMirroringMaxResults = number;
 
-export type TrafficMirrorNetworkService = "amazon_dns";
+export type TrafficMirrorNetworkService = "amazon-dns";
 export type TrafficMirrorNetworkServiceList =
   Array<TrafficMirrorNetworkService>;
 export interface TrafficMirrorPortRange {
@@ -17482,9 +17482,9 @@ export interface TrafficMirrorSession {
   Tags?: Array<Tag>;
 }
 export type TrafficMirrorSessionField =
-  | "packet_length"
+  | "packet-length"
   | "description"
-  | "virtual_network_id";
+  | "virtual-network-id";
 export type TrafficMirrorSessionFieldList = Array<TrafficMirrorSessionField>;
 export type TrafficMirrorSessionId = string;
 
@@ -17505,11 +17505,11 @@ export type TrafficMirrorTargetId = string;
 export type TrafficMirrorTargetIdList = Array<string>;
 export type TrafficMirrorTargetSet = Array<TrafficMirrorTarget>;
 export type TrafficMirrorTargetType =
-  | "network_interface"
-  | "network_load_balancer"
-  | "gateway_load_balancer_endpoint";
+  | "network-interface"
+  | "network-load-balancer"
+  | "gateway-load-balancer-endpoint";
 export type TrafficType = "ACCEPT" | "REJECT" | "ALL";
-export type TransferType = "time_based" | "standard";
+export type TransferType = "time-based" | "standard";
 export type TransitAssociationGatewayId = string;
 
 export interface TransitGateway {
@@ -17572,11 +17572,11 @@ export type TransitGatewayAttachmentPropagationList =
 export type TransitGatewayAttachmentResourceType =
   | "vpc"
   | "vpn"
-  | "direct_connect_gateway"
+  | "direct-connect-gateway"
   | "connect"
   | "peering"
-  | "tgw_peering"
-  | "network_function";
+  | "tgw-peering"
+  | "network-function";
 export type TransitGatewayAttachmentState =
   | "initiating"
   | "initiatingRequest"
@@ -18043,10 +18043,10 @@ export interface UnmonitorInstancesResult {
   InstanceMonitorings?: Array<InstanceMonitoring>;
 }
 export type UnsuccessfulInstanceCreditSpecificationErrorCode =
-  | "INVALID_INSTANCE_ID"
-  | "INSTANCE_NOT_FOUND"
-  | "INCORRECT_INSTANCE_STATE"
-  | "INSTANCE_CREDIT_SPECIFICATION_NOT_SUPPORTED";
+  | "InvalidInstanceID.Malformed"
+  | "InvalidInstanceID.NotFound"
+  | "IncorrectInstanceState"
+  | "InstanceCreditSpecification.NotSupported";
 export interface UnsuccessfulInstanceCreditSpecificationItem {
   InstanceId?: string;
   Error?: UnsuccessfulInstanceCreditSpecificationItemError;
@@ -18087,7 +18087,7 @@ export interface UpdateSecurityGroupRuleDescriptionsIngressRequest {
 export interface UpdateSecurityGroupRuleDescriptionsIngressResult {
   Return?: boolean;
 }
-export type UsageClassType = "spot" | "on_demand" | "capacity_block";
+export type UsageClassType = "spot" | "on-demand" | "capacity-block";
 export type UsageClassTypeList = Array<UsageClassType>;
 export interface UserBucket {
   S3Bucket?: string;
@@ -18113,7 +18113,7 @@ export interface UserIdGroupPair {
 export type UserIdGroupPairList = Array<UserIdGroupPair>;
 export type UserIdGroupPairSet = Array<UserIdGroupPair>;
 export type UserIdStringList = Array<string>;
-export type UserTrustProviderType = "iam_identity_center" | "oidc";
+export type UserTrustProviderType = "iam-identity-center" | "oidc";
 export interface ValidationError {
   Code?: string;
   Message?: string;
@@ -18139,7 +18139,7 @@ export interface VCpuInfo {
   ValidCores?: Array<number>;
   ValidThreadsPerCore?: Array<number>;
 }
-export type VerificationMethod = "remarks_x509" | "dns_token";
+export type VerificationMethod = "remarks-x509" | "dns-token";
 export interface VerifiedAccessEndpoint {
   VerifiedAccessInstanceId?: string;
   VerifiedAccessGroupId?: string;
@@ -18224,8 +18224,8 @@ export interface VerifiedAccessEndpointTarget {
 export type VerifiedAccessEndpointTargetList =
   Array<VerifiedAccessEndpointTarget>;
 export type VerifiedAccessEndpointType =
-  | "load_balancer"
-  | "network_interface"
+  | "load-balancer"
+  | "network-interface"
   | "rds"
   | "cidr";
 export interface VerifiedAccessGroup {
@@ -18304,7 +18304,7 @@ export interface VerifiedAccessLogDeliveryStatus {
   Code?: VerifiedAccessLogDeliveryStatusCode;
   Message?: string;
 }
-export type VerifiedAccessLogDeliveryStatusCode = "SUCCESS" | "FAILED";
+export type VerifiedAccessLogDeliveryStatusCode = "success" | "failed";
 export interface VerifiedAccessLogKinesisDataFirehoseDestination {
   Enabled?: boolean;
   DeliveryStatus?: VerifiedAccessLogDeliveryStatus;
@@ -18468,7 +18468,7 @@ export type VolumeModificationState =
 export type VolumeState =
   | "creating"
   | "available"
-  | "in_use"
+  | "in-use"
   | "deleting"
   | "deleted"
   | "error";
@@ -18503,7 +18503,7 @@ export interface VolumeStatusInfo {
   Details?: Array<VolumeStatusDetails>;
   Status?: VolumeStatusInfoStatus;
 }
-export type VolumeStatusInfoStatus = "ok" | "impaired" | "insufficient_data";
+export type VolumeStatusInfoStatus = "ok" | "impaired" | "insufficient-data";
 export interface VolumeStatusItem {
   Actions?: Array<VolumeStatusAction>;
   AvailabilityZone?: string;
@@ -18517,9 +18517,9 @@ export interface VolumeStatusItem {
 }
 export type VolumeStatusList = Array<VolumeStatusItem>;
 export type VolumeStatusName =
-  | "io_enabled"
-  | "io_performance"
-  | "initialization_state";
+  | "io-enabled"
+  | "io-performance"
+  | "initialization-state";
 export type VolumeType =
   | "standard"
   | "io1"
@@ -18567,18 +18567,18 @@ export type VpcBlockPublicAccessExclusionId = string;
 export type VpcBlockPublicAccessExclusionIdList = Array<string>;
 export type VpcBlockPublicAccessExclusionList =
   Array<VpcBlockPublicAccessExclusion>;
-export type VpcBlockPublicAccessExclusionsAllowed = "allowed" | "not_allowed";
+export type VpcBlockPublicAccessExclusionsAllowed = "allowed" | "not-allowed";
 export type VpcBlockPublicAccessExclusionState =
-  | "create_in_progress"
-  | "create_complete"
-  | "create_failed"
-  | "update_in_progress"
-  | "update_complete"
-  | "update_failed"
-  | "delete_in_progress"
-  | "delete_complete"
-  | "disable_in_progress"
-  | "disable_complete";
+  | "create-in-progress"
+  | "create-complete"
+  | "create-failed"
+  | "update-in-progress"
+  | "update-complete"
+  | "update-failed"
+  | "delete-in-progress"
+  | "delete-complete"
+  | "disable-in-progress"
+  | "disable-complete";
 export interface VpcBlockPublicAccessOptions {
   AwsAccountId?: string;
   AwsRegion?: string;
@@ -18590,9 +18590,9 @@ export interface VpcBlockPublicAccessOptions {
   ExclusionsAllowed?: VpcBlockPublicAccessExclusionsAllowed;
 }
 export type VpcBlockPublicAccessState =
-  | "default_state"
-  | "update_in_progress"
-  | "update_complete";
+  | "default-state"
+  | "update-in-progress"
+  | "update-complete";
 export type VpcCidrAssociationId = string;
 
 export interface VpcCidrBlockAssociation {
@@ -18648,15 +18648,15 @@ export type VpcEncryptionControlId = string;
 
 export type VpcEncryptionControlMode = "monitor" | "enforce";
 export type VpcEncryptionControlState =
-  | "enforce_in_progress"
-  | "monitor_in_progress"
-  | "enforce_failed"
-  | "monitor_failed"
+  | "enforce-in-progress"
+  | "monitor-in-progress"
+  | "enforce-failed"
+  | "monitor-failed"
   | "deleting"
   | "deleted"
   | "available"
   | "creating"
-  | "delete_failed";
+  | "delete-failed";
 export interface VpcEndpoint {
   VpcEndpointId?: string;
   VpcEndpointType?: VpcEndpointType;
@@ -18770,8 +18770,8 @@ export interface VpcPeeringConnectionStateReason {
   Message?: string;
 }
 export type VpcPeeringConnectionStateReasonCode =
-  | "initiating_request"
-  | "pending_acceptance"
+  | "initiating-request"
+  | "pending-acceptance"
   | "active"
   | "deleted"
   | "rejected"

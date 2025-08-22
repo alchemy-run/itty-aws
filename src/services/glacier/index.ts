@@ -363,13 +363,13 @@ export interface ArchiveCreationOutput {
 export type Glacierboolean = boolean;
 
 export type CannedACL =
-  | "Private"
-  | "PublicRead"
-  | "PublicReadWrite"
-  | "AwsExecRead"
-  | "AuthenticatedRead"
-  | "BucketOwnerRead"
-  | "BucketOwnerFullControl";
+  | "private"
+  | "public-read"
+  | "public-read-write"
+  | "aws-exec-read"
+  | "authenticated-read"
+  | "bucket-owner-read"
+  | "bucket-owner-full-control";
 export interface CompleteMultipartUploadInput {
   accountId: string;
   vaultName: string;
@@ -453,9 +453,9 @@ export interface Encryption {
   KMSKeyId?: string;
   KMSContext?: string;
 }
-export type EncryptionType = "KMS" | "S3";
+export type EncryptionType = "aws:kms" | "AES256";
 export type ExpressionType = "SQL";
-export type FileHeaderInfo = "Use" | "Ignore" | "None";
+export type FileHeaderInfo = "USE" | "IGNORE" | "NONE";
 export interface GetDataRetrievalPolicyInput {
   accountId: string;
 }
@@ -724,7 +724,7 @@ export interface PurchaseProvisionedCapacityInput {
 export interface PurchaseProvisionedCapacityOutput {
   capacityId?: string;
 }
-export type QuoteFields = "Always" | "AsNeeded";
+export type QuoteFields = "ALWAYS" | "ASNEEDED";
 export interface RemoveTagsFromVaultInput {
   accountId: string;
   vaultName: string;
@@ -784,10 +784,7 @@ export interface SetVaultNotificationsInput {
 export type Size = number;
 
 export type StatusCode = "InProgress" | "Succeeded" | "Failed";
-export type StorageClass =
-  | "Standard"
-  | "ReducedRedundancy"
-  | "StandardInfrequentAccess";
+export type StorageClass = "STANDARD" | "REDUCED_REDUNDANCY" | "STANDARD_IA";
 export type Stream = Uint8Array | string;
 
 export type Glacierstring = string;

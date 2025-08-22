@@ -270,16 +270,16 @@ export declare class DetectedLanguageLowConfidenceException extends EffectData.T
 }> {}
 export type Directionality = "UNI" | "MULTI";
 export type DisplayLanguageCode =
-  | "DE"
-  | "EN"
-  | "ES"
-  | "FR"
-  | "IT"
-  | "JA"
-  | "KO"
-  | "PT"
-  | "ZH"
-  | "ZH_TW";
+  | "de"
+  | "en"
+  | "es"
+  | "fr"
+  | "it"
+  | "ja"
+  | "ko"
+  | "pt"
+  | "zh"
+  | "zh-TW";
 export interface Document {
   Content: Uint8Array | string;
   ContentType: string;

@@ -1551,9 +1551,9 @@ export interface EnableOrganizationAdminAccountResponse {}
 export type EncryptionType =
   | "NONE"
   | "AES256"
-  | "aws_kms"
+  | "aws:kms"
   | "UNKNOWN"
-  | "aws_kms_dsse";
+  | "aws:kms:dsse";
 export type ErrorCode = "ClientError" | "InternalError";
 export interface FederatedUser {
   accessKeyId?: string;
@@ -1614,17 +1614,17 @@ export interface FindingStatisticsSortCriteria {
   orderBy?: OrderBy;
 }
 export type FindingType =
-  | "SensitiveData_S3Object_Multiple"
-  | "SensitiveData_S3Object_Financial"
-  | "SensitiveData_S3Object_Personal"
-  | "SensitiveData_S3Object_Credentials"
-  | "SensitiveData_S3Object_CustomIdentifier"
-  | "Policy_IAMUser_S3BucketPublic"
-  | "Policy_IAMUser_S3BucketSharedExternally"
-  | "Policy_IAMUser_S3BucketReplicatedExternally"
-  | "Policy_IAMUser_S3BucketEncryptionDisabled"
-  | "Policy_IAMUser_S3BlockPublicAccessDisabled"
-  | "Policy_IAMUser_S3BucketSharedWithCloudFront";
+  | "SensitiveData:S3Object/Multiple"
+  | "SensitiveData:S3Object/Financial"
+  | "SensitiveData:S3Object/Personal"
+  | "SensitiveData:S3Object/Credentials"
+  | "SensitiveData:S3Object/CustomIdentifier"
+  | "Policy:IAMUser/S3BucketPublic"
+  | "Policy:IAMUser/S3BucketSharedExternally"
+  | "Policy:IAMUser/S3BucketReplicatedExternally"
+  | "Policy:IAMUser/S3BucketEncryptionDisabled"
+  | "Policy:IAMUser/S3BlockPublicAccessDisabled"
+  | "Policy:IAMUser/S3BucketSharedWithCloudFront";
 export interface GetAdministratorAccountRequest {}
 export interface GetAdministratorAccountResponse {
   administrator?: Invitation;
@@ -1823,10 +1823,10 @@ export interface GetUsageTotalsResponse {
   usageTotals?: Array<UsageTotal>;
 }
 export type GroupBy =
-  | "resourcesAffected_s3Bucket_name"
+  | "resourcesAffected.s3Bucket.name"
   | "type"
-  | "classificationDetails_jobId"
-  | "severity_description";
+  | "classificationDetails.jobId"
+  | "severity.description";
 export interface GroupCount {
   count?: number;
   groupKey?: string;
@@ -2513,7 +2513,7 @@ export declare class ThrottlingException extends EffectData.TaggedError(
 export type TimeRange = "MONTH_TO_DATE" | "PAST_30_DAYS";
 export type Timestamp = Date | string;
 
-export type Type = "NONE" | "AES256" | "aws_kms" | "aws_kms_dsse";
+export type Type = "NONE" | "AES256" | "aws:kms" | "aws:kms:dsse";
 export type UnavailabilityReasonCode =
   | "OBJECT_EXCEEDS_SIZE_QUOTA"
   | "UNSUPPORTED_OBJECT_TYPE"

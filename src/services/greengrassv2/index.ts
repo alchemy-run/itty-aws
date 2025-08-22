@@ -814,7 +814,7 @@ export interface LambdaExecutionParameters {
   environmentVariables?: Record<string, string>;
   linuxProcessParams?: LambdaLinuxProcessParams;
 }
-export type LambdaFilesystemPermission = "RO" | "RW";
+export type LambdaFilesystemPermission = "ro" | "rw";
 export interface LambdaFunctionRecipeSource {
   lambdaArn: string;
   componentName?: string;
@@ -823,8 +823,8 @@ export interface LambdaFunctionRecipeSource {
   componentDependencies?: Record<string, ComponentDependencyRequirement>;
   componentLambdaParameters?: LambdaExecutionParameters;
 }
-export type LambdaInputPayloadEncodingType = "JSON" | "BINARY";
-export type LambdaIsolationMode = "GREENGRASS_CONTAINER" | "NO_CONTAINER";
+export type LambdaInputPayloadEncodingType = "json" | "binary";
+export type LambdaIsolationMode = "GreengrassContainer" | "NoContainer";
 export interface LambdaLinuxProcessParams {
   isolationMode?: LambdaIsolationMode;
   containerParams?: LambdaContainerParams;

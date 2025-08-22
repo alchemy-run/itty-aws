@@ -169,7 +169,7 @@ export declare class fis extends AWSServiceClient {
 
 export declare class Fis extends fis {}
 
-export type AccountTargeting = "SINGLE_ACCOUNT" | "MULTI_ACCOUNT";
+export type AccountTargeting = "single-account" | "multi-account";
 export interface Action {
   id?: string;
   arn?: string;
@@ -193,7 +193,7 @@ export type ActionParameterName = string;
 
 export type ActionParameterRequired = boolean;
 
-export type ActionsMode = "SKIP_ALL" | "RUN_ALL";
+export type ActionsMode = "skip-all" | "run-all";
 export interface ActionSummary {
   id?: string;
   arn?: string;
@@ -301,7 +301,7 @@ export interface DeleteTargetAccountConfigurationRequest {
 export interface DeleteTargetAccountConfigurationResponse {
   targetAccountConfiguration?: TargetAccountConfiguration;
 }
-export type EmptyTargetResolutionMode = "FAIL" | "SKIP";
+export type EmptyTargetResolutionMode = "fail" | "skip";
 export type ExceptionMessage = string;
 
 export interface Experiment {
@@ -849,8 +849,8 @@ export interface SafetyLeverState {
   status?: SafetyLeverStatus;
   reason?: string;
 }
-export type SafetyLeverStatus = "DISENGAGED" | "ENGAGED" | "ENGAGING";
-export type SafetyLeverStatusInput = "DISENGAGED" | "ENGAGED";
+export type SafetyLeverStatus = "disengaged" | "engaged" | "engaging";
+export type SafetyLeverStatusInput = "disengaged" | "engaged";
 export type SafetyLeverStatusReason = string;
 
 export declare class ServiceQuotaExceededException extends EffectData.TaggedError(

@@ -924,7 +924,7 @@ export declare class ResourceArnNotFoundException extends EffectData.TaggedError
   readonly message: string;
 }> {}
 export type ResourceList = Array<Resource>;
-export type ResourceOwner = "SELF" | "OTHER_ACCOUNTS";
+export type ResourceOwner = "SELF" | "OTHER-ACCOUNTS";
 export type ResourceRegionScope = "REGIONAL" | "GLOBAL";
 export type ResourceRegionScopeFilter = "ALL" | "REGIONAL" | "GLOBAL";
 export interface ResourceShare {

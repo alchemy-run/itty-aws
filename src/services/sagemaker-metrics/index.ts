@@ -61,23 +61,19 @@ export interface MetricQueryResult {
 }
 export type MetricQueryResultList = Array<MetricQueryResult>;
 export type MetricQueryResultStatus =
-  | "COMPLETE"
-  | "TRUNCATED"
-  | "INTERNAL_ERROR"
-  | "VALIDATION_ERROR";
+  | "Complete"
+  | "Truncated"
+  | "InternalError"
+  | "ValidationError";
 export type MetricStatistic =
-  | "MIN"
-  | "MAX"
-  | "AVG"
-  | "COUNT"
-  | "STD_DEV"
-  | "LAST";
+  | "Min"
+  | "Max"
+  | "Avg"
+  | "Count"
+  | "StdDev"
+  | "Last";
 export type MetricValues = Array<number>;
-export type Period =
-  | "ONE_MINUTE"
-  | "FIVE_MINUTE"
-  | "ONE_HOUR"
-  | "ITERATION_NUMBER";
+export type Period = "OneMinute" | "FiveMinute" | "OneHour" | "IterationNumber";
 export type PutMetricsErrorCode =
   | "METRIC_LIMIT_EXCEEDED"
   | "INTERNAL_ERROR"
@@ -96,7 +92,7 @@ export type Step = number;
 
 export type Timestamp = Date | string;
 
-export type XAxisType = "ITERATION_NUMBER" | "TIMESTAMP";
+export type XAxisType = "IterationNumber" | "Timestamp";
 export type XAxisValues = Array<number>;
 export declare namespace BatchGetMetrics {
   export type Input = BatchGetMetricsRequest;

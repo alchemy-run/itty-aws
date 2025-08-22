@@ -70,11 +70,11 @@ export interface AssetProcessingConfiguration {
   video?: VideoAssetProcessingConfiguration;
 }
 export type AutomationJobStatus =
-  | "CREATED"
-  | "IN_PROGRESS"
-  | "SUCCESS"
-  | "SERVICE_ERROR"
-  | "CLIENT_ERROR";
+  | "Created"
+  | "InProgress"
+  | "Success"
+  | "ServiceError"
+  | "ClientError";
 export interface Blueprint {
   blueprintArn: string;
   version?: string;

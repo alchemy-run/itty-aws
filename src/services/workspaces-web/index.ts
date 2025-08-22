@@ -1222,22 +1222,22 @@ export type EnabledType = string;
 
 export type EncryptionContextMap = Record<string, string>;
 export type Event =
-  | "WEBSITE_INTERACT"
-  | "FILE_DOWNLOAD_FROM_SECURE_BROWSER_TO_REMOTE_DISK"
-  | "FILE_TRANSFER_FROM_REMOTE_TO_LOCAL_DISK"
-  | "FILE_TRANSFER_FROM_LOCAL_TO_REMOTE_DISK"
-  | "FILE_UPLOAD_FROM_REMOTE_DISK_TO_SECURE_BROWSER"
-  | "CONTENT_PASTE_TO_WEBSITE"
-  | "CONTENT_TRANSFER_FROM_LOCAL_TO_REMOTE_CLIPBOARD"
-  | "CONTENT_COPY_FROM_WEBSITE"
-  | "URL_LOAD"
-  | "TAB_OPEN"
-  | "TAB_CLOSE"
-  | "PRINT_JOB_SUBMIT"
-  | "SESSION_CONNECT"
-  | "SESSION_START"
-  | "SESSION_DISCONNECT"
-  | "SESSION_END";
+  | "WebsiteInteract"
+  | "FileDownloadFromSecureBrowserToRemoteDisk"
+  | "FileTransferFromRemoteToLocalDisk"
+  | "FileTransferFromLocalToRemoteDisk"
+  | "FileUploadFromRemoteDiskToSecureBrowser"
+  | "ContentPasteToWebsite"
+  | "ContentTransferFromLocalToRemoteClipboard"
+  | "ContentCopyFromWebsite"
+  | "UrlLoad"
+  | "TabOpen"
+  | "TabClose"
+  | "PrintJobSubmit"
+  | "SessionConnect"
+  | "SessionStart"
+  | "SessionDisconnect"
+  | "SessionEnd";
 interface _EventFilter {
   all?: {};
   include?: Array<Event>;
@@ -1256,7 +1256,7 @@ export interface ExpireSessionRequest {
 export interface ExpireSessionResponse {}
 export type FieldName = string;
 
-export type FolderStructure = "FLAT" | "NESTED_BY_DATE";
+export type FolderStructure = "Flat" | "NestedByDate";
 export interface GetBrowserSettingsRequest {
   browserSettingsArn: string;
 }
@@ -1530,7 +1530,7 @@ export interface ListUserSettingsResponse {
 export interface LogConfiguration {
   s3?: S3LogConfiguration;
 }
-export type LogFileFormat = "JSON_LINES" | "JSON";
+export type LogFileFormat = "JSONLines" | "Json";
 export type MaxConcurrentSessions = number;
 
 export type MaxDisplayResolution = string;
@@ -1687,8 +1687,8 @@ export interface SessionLoggerSummary {
   displayName?: string;
   creationDate?: Date | string;
 }
-export type SessionSortBy = "START_TIME_ASCENDING" | "START_TIME_DESCENDING";
-export type SessionStatus = "ACTIVE" | "TERMINATED";
+export type SessionSortBy = "StartTimeAscending" | "StartTimeDescending";
+export type SessionStatus = "Active" | "Terminated";
 export interface SessionSummary {
   portalArn?: string;
   sessionId?: string;

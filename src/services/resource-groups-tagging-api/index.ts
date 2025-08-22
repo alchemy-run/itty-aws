@@ -113,8 +113,8 @@ export interface DescribeReportCreationOutput {
   ErrorMessage?: string;
 }
 export type ErrorCode =
-  | "INTERNAL_SERVICE_EXCEPTION"
-  | "INVALID_PARAMETER_EXCEPTION";
+  | "InternalServiceException"
+  | "InvalidParameterException";
 export type ErrorMessage = string;
 
 export type ExceptionMessage = string;

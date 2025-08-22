@@ -437,7 +437,7 @@ export declare class BadRequestException extends EffectData.TaggedError(
 )<{
   readonly Message?: string;
 }> {}
-export type BaseModelName = "NARROW_BAND" | "WIDE_BAND";
+export type BaseModelName = "NarrowBand" | "WideBand";
 export type TranscribeBoolean = boolean;
 
 export type CallAnalyticsFeature = "GENERATIVE_SUMMARIZATION";
@@ -523,13 +523,13 @@ export interface ClinicalNoteGenerationSettings {
   NoteTemplate?: MedicalScribeNoteTemplate;
 }
 export type CLMLanguageCode =
-  | "EN_US"
-  | "HI_IN"
-  | "ES_US"
-  | "EN_GB"
-  | "EN_AU"
-  | "DE_DE"
-  | "JA_JP";
+  | "en-US"
+  | "hi-IN"
+  | "es-US"
+  | "en-GB"
+  | "en-AU"
+  | "de-DE"
+  | "ja-JP";
 export declare class ConflictException extends EffectData.TaggedError(
   "ConflictException",
 )<{
@@ -736,111 +736,111 @@ export type KMSEncryptionContextMap = Record<string, string>;
 export type KMSKeyId = string;
 
 export type LanguageCode =
-  | "AF_ZA"
-  | "AR_AE"
-  | "AR_SA"
-  | "DA_DK"
-  | "DE_CH"
-  | "DE_DE"
-  | "EN_AB"
-  | "EN_AU"
-  | "EN_GB"
-  | "EN_IE"
-  | "EN_IN"
-  | "EN_US"
-  | "EN_WL"
-  | "ES_ES"
-  | "ES_US"
-  | "FA_IR"
-  | "FR_CA"
-  | "FR_FR"
-  | "HE_IL"
-  | "HI_IN"
-  | "ID_ID"
-  | "IT_IT"
-  | "JA_JP"
-  | "KO_KR"
-  | "MS_MY"
-  | "NL_NL"
-  | "PT_BR"
-  | "PT_PT"
-  | "RU_RU"
-  | "TA_IN"
-  | "TE_IN"
-  | "TR_TR"
-  | "ZH_CN"
-  | "ZH_TW"
-  | "TH_TH"
-  | "EN_ZA"
-  | "EN_NZ"
-  | "VI_VN"
-  | "SV_SE"
-  | "AB_GE"
-  | "AST_ES"
-  | "AZ_AZ"
-  | "BA_RU"
-  | "BE_BY"
-  | "BG_BG"
-  | "BN_IN"
-  | "BS_BA"
-  | "CA_ES"
-  | "CKB_IQ"
-  | "CKB_IR"
-  | "CS_CZ"
-  | "CY_WL"
-  | "EL_GR"
-  | "ET_EE"
-  | "ET_ET"
-  | "EU_ES"
-  | "FI_FI"
-  | "GL_ES"
-  | "GU_IN"
-  | "HA_NG"
-  | "HR_HR"
-  | "HU_HU"
-  | "HY_AM"
-  | "IS_IS"
-  | "KA_GE"
-  | "KAB_DZ"
-  | "KK_KZ"
-  | "KN_IN"
-  | "KY_KG"
-  | "LG_IN"
-  | "LT_LT"
-  | "LV_LV"
-  | "MHR_RU"
-  | "MI_NZ"
-  | "MK_MK"
-  | "ML_IN"
-  | "MN_MN"
-  | "MR_IN"
-  | "MT_MT"
-  | "NO_NO"
-  | "OR_IN"
-  | "PA_IN"
-  | "PL_PL"
-  | "PS_AF"
-  | "RO_RO"
-  | "RW_RW"
-  | "SI_LK"
-  | "SK_SK"
-  | "SL_SI"
-  | "SO_SO"
-  | "SR_RS"
-  | "SU_ID"
-  | "SW_BI"
-  | "SW_KE"
-  | "SW_RW"
-  | "SW_TZ"
-  | "SW_UG"
-  | "TL_PH"
-  | "TT_RU"
-  | "UG_CN"
-  | "UK_UA"
-  | "UZ_UZ"
-  | "WO_SN"
-  | "ZH_HK"
-  | "ZU_ZA";
+  | "af-ZA"
+  | "ar-AE"
+  | "ar-SA"
+  | "da-DK"
+  | "de-CH"
+  | "de-DE"
+  | "en-AB"
+  | "en-AU"
+  | "en-GB"
+  | "en-IE"
+  | "en-IN"
+  | "en-US"
+  | "en-WL"
+  | "es-ES"
+  | "es-US"
+  | "fa-IR"
+  | "fr-CA"
+  | "fr-FR"
+  | "he-IL"
+  | "hi-IN"
+  | "id-ID"
+  | "it-IT"
+  | "ja-JP"
+  | "ko-KR"
+  | "ms-MY"
+  | "nl-NL"
+  | "pt-BR"
+  | "pt-PT"
+  | "ru-RU"
+  | "ta-IN"
+  | "te-IN"
+  | "tr-TR"
+  | "zh-CN"
+  | "zh-TW"
+  | "th-TH"
+  | "en-ZA"
+  | "en-NZ"
+  | "vi-VN"
+  | "sv-SE"
+  | "ab-GE"
+  | "ast-ES"
+  | "az-AZ"
+  | "ba-RU"
+  | "be-BY"
+  | "bg-BG"
+  | "bn-IN"
+  | "bs-BA"
+  | "ca-ES"
+  | "ckb-IQ"
+  | "ckb-IR"
+  | "cs-CZ"
+  | "cy-WL"
+  | "el-GR"
+  | "et-EE"
+  | "et-ET"
+  | "eu-ES"
+  | "fi-FI"
+  | "gl-ES"
+  | "gu-IN"
+  | "ha-NG"
+  | "hr-HR"
+  | "hu-HU"
+  | "hy-AM"
+  | "is-IS"
+  | "ka-GE"
+  | "kab-DZ"
+  | "kk-KZ"
+  | "kn-IN"
+  | "ky-KG"
+  | "lg-IN"
+  | "lt-LT"
+  | "lv-LV"
+  | "mhr-RU"
+  | "mi-NZ"
+  | "mk-MK"
+  | "ml-IN"
+  | "mn-MN"
+  | "mr-IN"
+  | "mt-MT"
+  | "no-NO"
+  | "or-IN"
+  | "pa-IN"
+  | "pl-PL"
+  | "ps-AF"
+  | "ro-RO"
+  | "rw-RW"
+  | "si-LK"
+  | "sk-SK"
+  | "sl-SI"
+  | "so-SO"
+  | "sr-RS"
+  | "su-ID"
+  | "sw-BI"
+  | "sw-KE"
+  | "sw-RW"
+  | "sw-TZ"
+  | "sw-UG"
+  | "tl-PH"
+  | "tt-RU"
+  | "ug-CN"
+  | "uk-UA"
+  | "uz-UZ"
+  | "wo-SN"
+  | "zh-HK"
+  | "zu-ZA";
 export interface LanguageCodeItem {
   LanguageCode?: LanguageCode;
   DurationInSeconds?: number;
@@ -980,14 +980,14 @@ export interface Media {
   RedactedMediaFileUri?: string;
 }
 export type MediaFormat =
-  | "MP3"
-  | "MP4"
-  | "WAV"
-  | "FLAC"
-  | "OGG"
-  | "AMR"
-  | "WEBM"
-  | "M4A";
+  | "mp3"
+  | "mp4"
+  | "wav"
+  | "flac"
+  | "ogg"
+  | "amr"
+  | "webm"
+  | "m4a";
 export type MediaSampleRateHertz = number;
 
 export type MedicalContentIdentificationType = "PHI";
@@ -1031,7 +1031,7 @@ export interface MedicalScribeJobSummary {
   MedicalScribeJobStatus?: MedicalScribeJobStatus;
   FailureReason?: string;
 }
-export type MedicalScribeLanguageCode = "EN_US";
+export type MedicalScribeLanguageCode = "en-US";
 export type MedicalScribeNoteTemplate =
   | "HISTORY_AND_PHYSICAL"
   | "GIRPP"
@@ -1145,7 +1145,7 @@ export type PiiEntityType =
   | "SSN"
   | "ALL";
 export type PiiEntityTypes = Array<PiiEntityType>;
-export type RedactionOutput = "REDACTED" | "REDACTED_AND_UNREDACTED";
+export type RedactionOutput = "redacted" | "redacted_and_unredacted";
 export type RedactionType = "PII";
 export interface RelativeTimeRange {
   StartPercentage?: number;
@@ -1261,7 +1261,7 @@ export type TranscribeString = string;
 
 export type StringTargetList = Array<string>;
 export type SubtitleFileUris = Array<string>;
-export type SubtitleFormat = "VTT" | "SRT";
+export type SubtitleFormat = "vtt" | "srt";
 export type SubtitleFormats = Array<SubtitleFormat>;
 export type SubtitleOutputStartIndex = number;
 
@@ -1423,7 +1423,7 @@ export interface VocabularyFilterInfo {
   LanguageCode?: LanguageCode;
   LastModifiedTime?: Date | string;
 }
-export type VocabularyFilterMethod = "REMOVE" | "MASK" | "TAG";
+export type VocabularyFilterMethod = "remove" | "mask" | "tag";
 export type VocabularyFilterName = string;
 
 export type VocabularyFilters = Array<VocabularyFilterInfo>;

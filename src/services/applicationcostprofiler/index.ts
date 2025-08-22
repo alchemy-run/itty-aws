@@ -145,10 +145,10 @@ export type ReportId = string;
 export type S3Bucket = string;
 
 export type S3BucketRegion =
-  | "AP_EAST_1"
-  | "ME_SOUTH_1"
-  | "EU_SOUTH_1"
-  | "AF_SOUTH_1";
+  | "ap-east-1"
+  | "me-south-1"
+  | "eu-south-1"
+  | "af-south-1";
 export type S3Key = string;
 
 export interface S3Location {

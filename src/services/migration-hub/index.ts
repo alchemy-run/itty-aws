@@ -631,7 +631,7 @@ export declare class UnauthorizedOperation extends EffectData.TaggedError(
 }> {}
 export type UpdateDateTime = Date | string;
 
-export type UpdateType = "MigrationTaskStateUpdated";
+export type UpdateType = "MIGRATION_TASK_STATE_UPDATED";
 export declare namespace AssociateCreatedArtifact {
   export type Input = AssociateCreatedArtifactRequest;
   export type Output = AssociateCreatedArtifactResult;

@@ -681,12 +681,12 @@ export interface LifecyclePolicy {
   TransitionToArchive?: TransitionToArchiveRules;
 }
 export type LifeCycleState =
-  | "CREATING"
-  | "AVAILABLE"
-  | "UPDATING"
-  | "DELETING"
-  | "DELETED"
-  | "ERROR";
+  | "creating"
+  | "available"
+  | "updating"
+  | "deleting"
+  | "deleted"
+  | "error";
 export interface ListTagsForResourceRequest {
   ResourceId: string;
   MaxResults?: number;
@@ -758,7 +758,7 @@ export type OwnerUid = number;
 
 export type Path = string;
 
-export type PerformanceMode = "GENERAL_PURPOSE" | "MAX_IO";
+export type PerformanceMode = "generalPurpose" | "maxIO";
 export type Permissions = string;
 
 export type Policy = string;
@@ -831,14 +831,14 @@ export type ReplicationStatus =
   | "ERROR"
   | "PAUSED"
   | "PAUSING";
-export type Resource = "FileSystem" | "MountTarget";
+export type Resource = "FILE_SYSTEM" | "MOUNT_TARGET";
 export type ResourceId = string;
 
 export interface ResourceIdPreference {
   ResourceIdType?: ResourceIdType;
   Resources?: Array<Resource>;
 }
-export type ResourceIdType = "LongId" | "ShortId";
+export type ResourceIdType = "LONG_ID" | "SHORT_ID";
 export type Resources = Array<Resource>;
 export type RoleArn = string;
 
@@ -899,7 +899,7 @@ export declare class ThroughputLimitExceeded extends EffectData.TaggedError(
   readonly ErrorCode: string;
   readonly Message?: string;
 }> {}
-export type ThroughputMode = "BURSTING" | "PROVISIONED" | "ELASTIC";
+export type ThroughputMode = "bursting" | "provisioned" | "elastic";
 export type Timestamp = Date | string;
 
 export type Token = string;

@@ -524,15 +524,15 @@ export type BorderColor =
 export type BorderThickness = number;
 
 export type CallAnalyticsLanguageCode =
-  | "EN_US"
-  | "EN_GB"
-  | "ES_US"
-  | "FR_CA"
-  | "FR_FR"
-  | "EN_AU"
-  | "IT_IT"
-  | "DE_DE"
-  | "PT_BR";
+  | "en-US"
+  | "en-GB"
+  | "es-US"
+  | "fr-CA"
+  | "fr-FR"
+  | "en-AU"
+  | "it-IT"
+  | "de-DE"
+  | "pt-BR";
 export type CanvasOrientation = "Landscape" | "Portrait";
 export type CategoryName = string;
 
@@ -594,7 +594,7 @@ export interface ContentConcatenationConfiguration {
   State: ArtifactsConcatenationState;
 }
 export type ContentMuxType = "ContentOnly";
-export type ContentRedactionOutput = "REDACTED" | "REDACTED_AND_UNREDACTED";
+export type ContentRedactionOutput = "redacted" | "redacted_and_unredacted";
 export type ContentShareLayoutOption =
   | "PresenterOnly"
   | "Horizontal"
@@ -948,7 +948,7 @@ export interface MediaConcatenationPipeline {
   CreatedTimestamp?: Date | string;
   UpdatedTimestamp?: Date | string;
 }
-export type MediaEncoding = "PCM";
+export type MediaEncoding = "pcm";
 export interface MediaInsightsPipeline {
   MediaPipelineId?: string;
   MediaPipelineArn?: string;
@@ -986,15 +986,15 @@ export interface MediaInsightsPipelineConfigurationElement {
 export type MediaInsightsPipelineConfigurationElements =
   Array<MediaInsightsPipelineConfigurationElement>;
 export type MediaInsightsPipelineConfigurationElementType =
-  | "AMAZON_TRANSCRIBE_CALL_ANALYTICS_PROCESSOR"
-  | "VOICE_ANALYTICS_PROCESSOR"
-  | "AMAZON_TRANSCRIBE_PROCESSOR"
-  | "KINESIS_DATA_STREAM_SINK"
-  | "LAMBDA_FUNCTION_SINK"
-  | "SQS_QUEUE_SINK"
-  | "SNS_TOPIC_SINK"
-  | "S3_RECORDING_SINK"
-  | "VOICE_ENHANCEMENT_SINK";
+  | "AmazonTranscribeCallAnalyticsProcessor"
+  | "VoiceAnalyticsProcessor"
+  | "AmazonTranscribeProcessor"
+  | "KinesisDataStreamSink"
+  | "LambdaFunctionSink"
+  | "SqsQueueSink"
+  | "SnsTopicSink"
+  | "S3RecordingSink"
+  | "VoiceEnhancementSink";
 export type MediaInsightsPipelineConfigurationNameString = string;
 
 export interface MediaInsightsPipelineConfigurationSummary {
@@ -1100,7 +1100,7 @@ export declare class NotFoundException extends EffectData.TaggedError(
 }> {}
 export type NumberOfChannels = number;
 
-export type PartialResultsStability = "HIGH" | "MEDIUM" | "LOW";
+export type PartialResultsStability = "high" | "medium" | "low";
 export type ParticipantRole = "AGENT" | "CUSTOMER";
 export type PiiEntityTypes = string;
 
@@ -1337,7 +1337,7 @@ export interface VideoConcatenationConfiguration {
   State: ArtifactsConcatenationState;
 }
 export type VideoMuxType = "VideoOnly";
-export type VocabularyFilterMethod = "REMOVE" | "MASK" | "TAG";
+export type VocabularyFilterMethod = "remove" | "mask" | "tag";
 export type VocabularyFilterName = string;
 
 export type VocabularyFilterNames = string;
@@ -1346,8 +1346,8 @@ export type VocabularyName = string;
 
 export type VocabularyNames = string;
 
-export type VoiceAnalyticsConfigurationStatus = "ENABLED" | "DISABLED";
-export type VoiceAnalyticsLanguageCode = "EN_US";
+export type VoiceAnalyticsConfigurationStatus = "Enabled" | "Disabled";
+export type VoiceAnalyticsLanguageCode = "en-US";
 export interface VoiceAnalyticsProcessorConfiguration {
   SpeakerSearchStatus?: VoiceAnalyticsConfigurationStatus;
   VoiceToneAnalysisStatus?: VoiceAnalyticsConfigurationStatus;

@@ -312,7 +312,7 @@ export interface BatchSummary {
   stepInput: BatchStepInput;
   stepOutput?: BatchStepOutput;
 }
-export type CaptureTool = "PRECISELY" | "AWS_DMS";
+export type CaptureTool = "Precisely" | "AWS DMS";
 export interface CloudFormation {
   templateLocation: string;
   parameters?: Record<string, string>;
@@ -321,7 +321,7 @@ export interface CloudFormationAction {
   resource: string;
   actionType?: CloudFormationActionType;
 }
-export type CloudFormationActionType = "CREATE" | "DELETE";
+export type CloudFormationActionType = "Create" | "Delete";
 interface _CloudFormationStepSummary {
   createCloudformation?: CreateCloudFormationSummary;
   deleteCloudformation?: DeleteCloudFormationSummary;
@@ -378,7 +378,7 @@ interface _CompareFileType {
 export type CompareFileType =
   | (_CompareFileType & { datasets: CompareDataSetsSummary })
   | (_CompareFileType & { databaseCDC: CompareDatabaseCDCSummary });
-export type ComparisonStatusEnum = "DIFFERENT" | "EQUIVALENT" | "EQUAL";
+export type ComparisonStatusEnum = "Different" | "Equivalent" | "Equal";
 export declare class ConflictException extends EffectData.TaggedError(
   "ConflictException",
 )<{
@@ -653,7 +653,7 @@ export interface M2ManagedActionProperties {
   forceStop?: boolean;
   importDataSetLocation?: string;
 }
-export type M2ManagedActionType = "CONFIGURE" | "DECONFIGURE";
+export type M2ManagedActionType = "Configure" | "Deconfigure";
 export interface M2ManagedApplication {
   applicationId: string;
   runtime: M2ManagedRuntime;
@@ -685,8 +685,8 @@ export interface M2ManagedApplicationSummary {
   runtime: M2ManagedRuntime;
   listenerPort?: number;
 }
-export type M2ManagedRuntime = "MICROFOCUS";
-export type M2NonManagedActionType = "CONFIGURE" | "DECONFIGURE";
+export type M2ManagedRuntime = "MicroFocus";
+export type M2NonManagedActionType = "Configure" | "Deconfigure";
 export interface M2NonManagedApplication {
   vpcEndpointServiceName: string;
   listenerPort: string;
@@ -715,7 +715,7 @@ export interface M2NonManagedApplicationSummary {
   runtime: M2NonManagedRuntime;
   webAppName?: string;
 }
-export type M2NonManagedRuntime = "BLUAGE";
+export type M2NonManagedRuntime = "BluAge";
 export interface MainframeAction {
   resource: string;
   actionType: MainframeActionType;
@@ -829,7 +829,7 @@ export interface ScriptSummary {
   scriptLocation: string;
   type: ScriptType;
 }
-export type ScriptType = "SELENIUM";
+export type ScriptType = "Selenium";
 export declare class ServiceQuotaExceededException extends EffectData.TaggedError(
   "ServiceQuotaExceededException",
 )<{
@@ -842,7 +842,7 @@ export declare class ServiceQuotaExceededException extends EffectData.TaggedErro
 export interface ServiceSettings {
   kmsKeyId?: string;
 }
-export type SourceDatabase = "Z_OS_DB2";
+export type SourceDatabase = "z/OS-DB2";
 export interface SourceDatabaseMetadata {
   type: SourceDatabase;
   captureTool: CaptureTool;
@@ -873,7 +873,7 @@ export type StepAction =
   | (_StepAction & { mainframeAction: MainframeAction })
   | (_StepAction & { compareAction: CompareAction });
 export type StepList = Array<Step>;
-export type StepRunStatus = "SUCCESS" | "FAILED" | "RUNNING";
+export type StepRunStatus = "Success" | "Failed" | "Running";
 interface _StepRunSummary {
   mainframeAction?: MainframeActionSummary;
   compareAction?: CompareActionSummary;
@@ -899,7 +899,7 @@ export interface TagResourceRequest {
 export interface TagResourceResponse {}
 export type TagValue = string;
 
-export type TargetDatabase = "POSTGRESQL";
+export type TargetDatabase = "PostgreSQL";
 export interface TargetDatabaseMetadata {
   type: TargetDatabase;
   captureTool: CaptureTool;
@@ -910,9 +910,9 @@ export interface TestCaseLatestVersion {
   status: TestCaseLifecycle;
   statusReason?: string;
 }
-export type TestCaseLifecycle = "ACTIVE" | "DELETING";
+export type TestCaseLifecycle = "Active" | "Deleting";
 export type TestCaseList = Array<string>;
-export type TestCaseRunStatus = "SUCCESS" | "RUNNING" | "FAILED";
+export type TestCaseRunStatus = "Success" | "Running" | "Failed";
 export interface TestCaseRunSummary {
   testCaseId: string;
   testCaseVersion: number;
@@ -945,7 +945,7 @@ export interface TestConfigurationLatestVersion {
   status: TestConfigurationLifecycle;
   statusReason?: string;
 }
-export type TestConfigurationLifecycle = "ACTIVE" | "DELETING";
+export type TestConfigurationLifecycle = "Active" | "Deleting";
 export type TestConfigurationList = Array<TestConfigurationSummary>;
 export interface TestConfigurationSummary {
   testConfigurationId: string;
@@ -958,7 +958,7 @@ export interface TestConfigurationSummary {
   lastUpdateTime: Date | string;
 }
 export type TestRunIdList = Array<string>;
-export type TestRunStatus = "SUCCESS" | "RUNNING" | "FAILED" | "DELETING";
+export type TestRunStatus = "Success" | "Running" | "Failed" | "Deleting";
 export interface TestRunStepSummary {
   stepName: string;
   testRunId: string;
@@ -994,11 +994,11 @@ export interface TestSuiteLatestVersion {
   statusReason?: string;
 }
 export type TestSuiteLifecycle =
-  | "CREATING"
-  | "UPDATING"
-  | "ACTIVE"
-  | "FAILED"
-  | "DELETING";
+  | "Creating"
+  | "Updating"
+  | "Active"
+  | "Failed"
+  | "Deleting";
 export type TestSuiteList = Array<TestSuiteSummary>;
 export interface TestSuiteSummary {
   testSuiteId: string;
@@ -1087,10 +1087,10 @@ export interface ValidationExceptionField {
 }
 export type ValidationExceptionFieldList = Array<ValidationExceptionField>;
 export type ValidationExceptionReason =
-  | "UNKNOWN_OPERATION"
-  | "CANNOT_PARSE"
-  | "FIELD_VALIDATION_FAILED"
-  | "OTHER";
+  | "unknownOperation"
+  | "cannotParse"
+  | "fieldValidationFailed"
+  | "other";
 export type Variable = string;
 
 export type Version = number;

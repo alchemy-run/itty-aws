@@ -112,7 +112,7 @@ export interface DescribeVoicesOutput {
   Voices?: Array<Voice>;
   NextToken?: string;
 }
-export type Engine = "STANDARD" | "NEURAL" | "LONG_FORM" | "GENERATIVE";
+export type Engine = "standard" | "neural" | "long-form" | "generative";
 export type EngineList = Array<Engine>;
 export declare class EngineNotSupportedException extends EffectData.TaggedError(
   "EngineNotSupportedException",
@@ -179,47 +179,47 @@ export declare class InvalidTaskIdException extends EffectData.TaggedError(
 }> {}
 export type LanguageCode =
   | "arb"
-  | "cmn_CN"
-  | "cy_GB"
-  | "da_DK"
-  | "de_DE"
-  | "en_AU"
-  | "en_GB"
-  | "en_GB_WLS"
-  | "en_IN"
-  | "en_US"
-  | "es_ES"
-  | "es_MX"
-  | "es_US"
-  | "fr_CA"
-  | "fr_FR"
-  | "is_IS"
-  | "it_IT"
-  | "ja_JP"
-  | "hi_IN"
-  | "ko_KR"
-  | "nb_NO"
-  | "nl_NL"
-  | "pl_PL"
-  | "pt_BR"
-  | "pt_PT"
-  | "ro_RO"
-  | "ru_RU"
-  | "sv_SE"
-  | "tr_TR"
-  | "en_NZ"
-  | "en_ZA"
-  | "ca_ES"
-  | "de_AT"
-  | "yue_CN"
-  | "ar_AE"
-  | "fi_FI"
-  | "en_IE"
-  | "nl_BE"
-  | "fr_BE"
-  | "cs_CZ"
-  | "de_CH"
-  | "en_SG";
+  | "cmn-CN"
+  | "cy-GB"
+  | "da-DK"
+  | "de-DE"
+  | "en-AU"
+  | "en-GB"
+  | "en-GB-WLS"
+  | "en-IN"
+  | "en-US"
+  | "es-ES"
+  | "es-MX"
+  | "es-US"
+  | "fr-CA"
+  | "fr-FR"
+  | "is-IS"
+  | "it-IT"
+  | "ja-JP"
+  | "hi-IN"
+  | "ko-KR"
+  | "nb-NO"
+  | "nl-NL"
+  | "pl-PL"
+  | "pt-BR"
+  | "pt-PT"
+  | "ro-RO"
+  | "ru-RU"
+  | "sv-SE"
+  | "tr-TR"
+  | "en-NZ"
+  | "en-ZA"
+  | "ca-ES"
+  | "de-AT"
+  | "yue-CN"
+  | "ar-AE"
+  | "fi-FI"
+  | "en-IE"
+  | "nl-BE"
+  | "fr-BE"
+  | "cs-CZ"
+  | "de-CH"
+  | "en-SG";
 export type LanguageCodeList = Array<LanguageCode>;
 export type LanguageName = string;
 
@@ -301,7 +301,7 @@ export type MaxResults = number;
 
 export type NextToken = string;
 
-export type OutputFormat = "JSON" | "MP3" | "OGG_VORBIS" | "PCM";
+export type OutputFormat = "json" | "mp3" | "ogg_vorbis" | "pcm";
 export type OutputS3BucketName = string;
 
 export type OutputS3KeyPrefix = string;
@@ -326,7 +326,7 @@ export type Size = number;
 
 export type SnsTopicArn = string;
 
-export type SpeechMarkType = "SENTENCE" | "SSML" | "VISEME" | "WORD";
+export type SpeechMarkType = "sentence" | "ssml" | "viseme" | "word";
 export type SpeechMarkTypeList = Array<SpeechMarkType>;
 export declare class SsmlMarksNotSupportedForTextTypeException extends EffectData.TaggedError(
   "SsmlMarksNotSupportedForTextTypeException",
@@ -391,7 +391,7 @@ export interface SynthesizeSpeechOutput {
 }
 export type TaskId = string;
 
-export type TaskStatus = "SCHEDULED" | "IN_PROGRESS" | "COMPLETED" | "FAILED";
+export type TaskStatus = "scheduled" | "inProgress" | "completed" | "failed";
 export type TaskStatusReason = string;
 
 export type Text = string;
@@ -401,7 +401,7 @@ export declare class TextLengthExceededException extends EffectData.TaggedError(
 )<{
   readonly message?: string;
 }> {}
-export type TextType = "SSML" | "TEXT";
+export type TextType = "ssml" | "text";
 export declare class UnsupportedPlsAlphabetException extends EffectData.TaggedError(
   "UnsupportedPlsAlphabetException",
 )<{

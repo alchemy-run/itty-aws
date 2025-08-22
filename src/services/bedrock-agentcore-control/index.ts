@@ -1821,12 +1821,12 @@ export interface SchemaDefinition {
 }
 export type SchemaProperties = Record<string, SchemaDefinition>;
 export type SchemaType =
-  | "STRING"
-  | "NUMBER"
-  | "OBJECT"
-  | "ARRAY"
-  | "BOOLEAN"
-  | "INTEGER";
+  | "string"
+  | "number"
+  | "object"
+  | "array"
+  | "boolean"
+  | "integer";
 export type SearchType = "SEMANTIC";
 export interface Secret {
   secretArn: string;
@@ -2148,11 +2148,11 @@ export interface ValidationExceptionField {
 }
 export type ValidationExceptionFieldList = Array<ValidationExceptionField>;
 export type ValidationExceptionReason =
-  | "CANNOT_PARSE"
-  | "FIELD_VALIDATION_FAILED"
-  | "IDEMPOTENT_PARAMETER_MISMATCH_EXCEPTION"
-  | "ROOT_EVENT_IN_OTHER_SESSION"
-  | "RESOURCE_CONFLICT";
+  | "CannotParse"
+  | "FieldValidationFailed"
+  | "IdempotentParameterMismatchException"
+  | "EventInOtherSession"
+  | "ResourceConflict";
 export type WorkloadIdentityArn = string;
 
 export type WorkloadIdentityArnType = string;

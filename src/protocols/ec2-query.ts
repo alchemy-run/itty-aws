@@ -40,7 +40,7 @@ function toParams(
         const fieldName = capitalizeFirst(rawFieldName);
         const nextPrefix = prefix ? `${prefix}.${fieldName}` : fieldName;
         const memberValue = value[memberName];
-        
+
         // If there's no target, it's a primitive type (string)
         const target = (member as any).target;
         if (!target) {

@@ -999,11 +999,11 @@ export interface AssociateWorkspaceApplicationResult {
   Association?: WorkspaceResourceAssociation;
 }
 export type AssociationErrorCode =
-  | "INSUFFICIENT_DISKSPACE"
-  | "INSUFFICIENT_MEMORY"
-  | "UNSUPPORTED_OPERATING_SYSTEM"
-  | "INTERNAL_SERVER_ERROR"
-  | "WORKSPACE_UNREACHABLE";
+  | "ValidationError.InsufficientDiskSpace"
+  | "ValidationError.InsufficientMemory"
+  | "ValidationError.UnsupportedOperatingSystem"
+  | "DeploymentError.InternalServerError"
+  | "DeploymentError.WorkspaceUnreachable";
 export type AssociationState =
   | "PENDING_INSTALL"
   | "PENDING_INSTALL_DEPLOYMENT"
@@ -1073,12 +1073,12 @@ export interface CertificateBasedAuthProperties {
 }
 export type CertificateBasedAuthStatusEnum = "DISABLED" | "ENABLED";
 export type ClientDeviceType =
-  | "DEVICE_TYPE_WINDOWS"
-  | "DEVICE_TYPE_OSX"
-  | "DEVICE_TYPE_ANDROID"
-  | "DEVICE_TYPE_IOS"
-  | "DEVICE_TYPE_LINUX"
-  | "DEVICE_TYPE_WEB";
+  | "DeviceTypeWindows"
+  | "DeviceTypeOsx"
+  | "DeviceTypeAndroid"
+  | "DeviceTypeIos"
+  | "DeviceTypeLinux"
+  | "DeviceTypeWeb";
 export type ClientDeviceTypeList = Array<ClientDeviceType>;
 export type ClientEmail = string;
 
@@ -1571,7 +1571,7 @@ export interface DescribeWorkspacesPoolsFilter {
   Values: Array<string>;
   Operator: DescribeWorkspacesPoolsFilterOperator;
 }
-export type DescribeWorkspacesPoolsFilterName = "POOLNAME";
+export type DescribeWorkspacesPoolsFilterName = "PoolName";
 export type DescribeWorkspacesPoolsFilterOperator =
   | "EQUALS"
   | "NOTEQUALS"
@@ -2480,54 +2480,54 @@ export type WorkspaceImageDescription = string;
 export type WorkspaceImageErrorCode = string;
 
 export type WorkspaceImageErrorDetailCode =
-  | "OUTDATED_POWERSHELL_VERSION"
-  | "OFFICE_INSTALLED"
-  | "PCOIP_AGENT_INSTALLED"
-  | "WINDOWS_UPDATES_ENABLED"
-  | "AUTO_MOUNT_DISABLED"
-  | "WORKSPACES_BYOL_ACCOUNT_NOT_FOUND"
-  | "WORKSPACES_BYOL_ACCOUNT_DISABLED"
-  | "DHCP_DISABLED"
-  | "DISK_FREE_SPACE"
-  | "ADDITIONAL_DRIVES_ATTACHED"
-  | "OS_NOT_SUPPORTED"
-  | "DOMAIN_JOINED"
-  | "AZURE_DOMAIN_JOINED"
-  | "FIREWALL_ENABLED"
-  | "VMWARE_TOOLS_INSTALLED"
-  | "DISK_SIZE_EXCEEDED"
-  | "INCOMPATIBLE_PARTITIONING"
-  | "PENDING_REBOOT"
-  | "AUTO_LOGON_ENABLED"
-  | "REALTIME_UNIVERSAL_DISABLED"
-  | "MULTIPLE_BOOT_PARTITION"
-  | "SIXTY_FOUR_BIT_OS"
-  | "ZERO_REARM_COUNT"
-  | "IN_PLACE_UPGRADE"
-  | "ANTI_VIRUS_INSTALLED"
-  | "UEFI_NOT_SUPPORTED"
-  | "UNKNOWN_ERROR"
-  | "APPX_PACKAGES_INSTALLED"
-  | "RESERVED_STORAGE_IN_USE"
-  | "ADDITIONAL_DRIVES_PRESENT"
-  | "WINDOWS_UPDATES_REQUIRED"
-  | "SYSPREP_FILE_MISSING"
-  | "USER_PROFILE_MISSING"
-  | "INSUFFICIENT_DISK_SPACE"
-  | "ENVIRONMENT_VARIABLES_PATH_MISSING_ENTRIES"
-  | "DOMAIN_ACCOUNT_SERVICES_FOUND"
-  | "INVALID_IP"
-  | "REMOTE_DESKTOP_SERVICES_DISABLED"
-  | "WINDOWS_MODULES_INSTALLER_DISABLED"
-  | "AMAZON_SSM_AGENT_ENABLED"
-  | "UNSUPPORTED_SECURITY_PROTOCOL"
-  | "MULTIPLE_USER_PROFILES"
-  | "STAGED_APPX_PACKAGE"
-  | "UNSUPPORTED_OS_UPGRADE"
-  | "INSUFFICIENT_REARM_COUNT"
-  | "INCOMPATIBLE_PROTOCOL"
-  | "INCOMPATIBLE_MEMORY_INTEGRITY"
-  | "RESTRICTED_DRIVE_LETTER";
+  | "OutdatedPowershellVersion"
+  | "OfficeInstalled"
+  | "PCoIPAgentInstalled"
+  | "WindowsUpdatesEnabled"
+  | "AutoMountDisabled"
+  | "WorkspacesBYOLAccountNotFound"
+  | "WorkspacesBYOLAccountDisabled"
+  | "DHCPDisabled"
+  | "DiskFreeSpace"
+  | "AdditionalDrivesAttached"
+  | "OSNotSupported"
+  | "DomainJoined"
+  | "AzureDomainJoined"
+  | "FirewallEnabled"
+  | "VMWareToolsInstalled"
+  | "DiskSizeExceeded"
+  | "IncompatiblePartitioning"
+  | "PendingReboot"
+  | "AutoLogonEnabled"
+  | "RealTimeUniversalDisabled"
+  | "MultipleBootPartition"
+  | "Requires64BitOS"
+  | "ZeroRearmCount"
+  | "InPlaceUpgrade"
+  | "AntiVirusInstalled"
+  | "UEFINotSupported"
+  | "UnknownError"
+  | "AppXPackagesInstalled"
+  | "ReservedStorageInUse"
+  | "AdditionalDrivesPresent"
+  | "WindowsUpdatesRequired"
+  | "SysPrepFileMissing"
+  | "UserProfileMissing"
+  | "InsufficientDiskSpace"
+  | "EnvironmentVariablesPathMissingEntries"
+  | "DomainAccountServicesFound"
+  | "InvalidIp"
+  | "RemoteDesktopServicesDisabled"
+  | "WindowsModulesInstallerDisabled"
+  | "AmazonSsmAgentEnabled"
+  | "UnsupportedSecurityProtocol"
+  | "MultipleUserProfiles"
+  | "StagedAppxPackage"
+  | "UnsupportedOsUpgrade"
+  | "InsufficientRearmCount"
+  | "ProtocolOSIncompatibility"
+  | "MemoryIntegrityIncompatibility"
+  | "RestrictedDriveLetterInUse";
 export type WorkspaceImageId = string;
 
 export type WorkspaceImageIdList = Array<string>;

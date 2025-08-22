@@ -2762,9 +2762,9 @@ export interface Action {
 export type ActionList = Array<Action>;
 export type AdditionalContextMap = Record<string, string>;
 export type AdditionalOptionKeys =
-  | "CacheOption"
-  | "ObservationsOption"
-  | "CompositeOption";
+  | "performanceTuning.caching"
+  | "observations.scope"
+  | "compositeRuleEvaluation.method";
 export type AdditionalOptions = Record<string, string>;
 export type AdditionalPlanOptionsMap = Record<string, string>;
 export type AggFunction =
@@ -3272,8 +3272,8 @@ export interface CatalogDeltaSource {
 }
 export type CatalogEncryptionMode =
   | "DISABLED"
-  | "SSEKMS"
-  | "SSEKMSWITHSERVICEROLE";
+  | "SSE-KMS"
+  | "SSE-KMS-WITH-SERVICE-ROLE";
 export type CatalogEntries = Array<CatalogEntry>;
 export interface CatalogEntry {
   DatabaseName: string;
@@ -3385,7 +3385,7 @@ export interface CloudWatchEncryption {
   CloudWatchEncryptionMode?: CloudWatchEncryptionMode;
   KmsKeyArn?: string;
 }
-export type CloudWatchEncryptionMode = "DISABLED" | "SSEKMS";
+export type CloudWatchEncryptionMode = "DISABLED" | "SSE-KMS";
 export type CodeGenArgName = string;
 
 export type CodeGenArgValue = string;
@@ -3623,7 +3623,7 @@ export interface CompactionConfiguration {
 export interface CompactionMetrics {
   IcebergMetrics?: IcebergCompactionMetrics;
 }
-export type CompactionStrategy = "BINPACK" | "SORT" | "ZORDER";
+export type CompactionStrategy = "binpack" | "sort" | "z-order";
 export type Comparator =
   | "EQUALS"
   | "GREATER_THAN"
@@ -3639,7 +3639,7 @@ export type Compatibility =
   | "FORWARD_ALL"
   | "FULL"
   | "FULL_ALL";
-export type CompressionType = "GZIP" | "BZIP2";
+export type CompressionType = "gzip" | "bzip2";
 export type ComputationType = "FULL" | "INCREMENTAL";
 export type ComputeEnvironment = "SPARK" | "ATHENA" | "PYTHON";
 export interface ComputeEnvironmentConfiguration {
@@ -3758,7 +3758,7 @@ export type ConnectionProperties = Record<ConnectionPropertyKey, string>;
 export type ConnectionPropertyKey =
   | "HOST"
   | "PORT"
-  | "USER_NAME"
+  | "USERNAME"
   | "PASSWORD"
   | "ENCRYPTED_PASSWORD"
   | "JDBC_DRIVER_JAR_URI"
@@ -4525,7 +4525,7 @@ export interface DataQualityEncryption {
   DataQualityEncryptionMode?: DataQualityEncryptionMode;
   KmsKeyArn?: string;
 }
-export type DataQualityEncryptionMode = "DISABLED" | "SSEKMS";
+export type DataQualityEncryptionMode = "DISABLED" | "SSE-KMS";
 export interface DataQualityEvaluationRunAdditionalRunOptions {
   CloudWatchMetricsEnabled?: boolean;
   ResultsS3Prefix?: string;
@@ -4887,7 +4887,7 @@ export interface DeltaTarget {
   WriteManifest?: boolean;
   CreateNativeDeltaTable?: boolean;
 }
-export type DeltaTargetCompressionType = "UNCOMPRESSED" | "SNAPPY";
+export type DeltaTargetCompressionType = "uncompressed" | "snappy";
 export type DeltaTargetList = Array<DeltaTarget>;
 export interface DescribeConnectionTypeRequest {
   ConnectionType: string;
@@ -6254,12 +6254,12 @@ export interface HudiTarget {
   MaximumTraversalDepth?: number;
 }
 export type HudiTargetCompressionType =
-  | "GZIP"
-  | "LZO"
-  | "UNCOMPRESSED"
-  | "SNAPPY";
+  | "gzip"
+  | "lzo"
+  | "uncompressed"
+  | "snappy";
 export type HudiTargetList = Array<HudiTarget>;
-export type HyperTargetCompressionType = "UNCOMPRESSED";
+export type HyperTargetCompressionType = "uncompressed";
 export type IAMRoleArn = string;
 
 export interface IcebergCompactionConfiguration {
@@ -6279,7 +6279,7 @@ export interface IcebergInput {
   Version?: string;
   CreateIcebergTableInput?: CreateIcebergTableInput;
 }
-export type IcebergNullOrder = "NULLS_FIRST" | "NULLS_LAST";
+export type IcebergNullOrder = "nulls-first" | "nulls-last";
 export interface IcebergOrphanFileDeletionConfiguration {
   orphanFileRetentionPeriodInDays?: number;
   location?: string;
@@ -6320,7 +6320,7 @@ export interface IcebergSchema {
   Type?: IcebergStructTypeEnum;
   Fields: Array<IcebergStructField>;
 }
-export type IcebergSortDirection = "ASC" | "DESC";
+export type IcebergSortDirection = "asc" | "desc";
 export interface IcebergSortField {
   SourceId: number;
   Transform: string;
@@ -6340,7 +6340,7 @@ export interface IcebergStructField {
   Doc?: string;
 }
 export type IcebergStructFieldList = Array<IcebergStructField>;
-export type IcebergStructTypeEnum = "STRUCT";
+export type IcebergStructTypeEnum = "struct";
 export interface IcebergTableUpdate {
   Schema: IcebergSchema;
   PartitionSpec?: IcebergPartitionSpec;
@@ -6356,10 +6356,10 @@ export interface IcebergTarget {
   MaximumTraversalDepth?: number;
 }
 export type IcebergTargetCompressionType =
-  | "GZIP"
-  | "LZO"
-  | "UNCOMPRESSED"
-  | "SNAPPY";
+  | "gzip"
+  | "lzo"
+  | "uncompressed"
+  | "snappy";
 export type IcebergTargetList = Array<IcebergTarget>;
 export type IcebergTransformString = string;
 
@@ -6646,7 +6646,7 @@ export interface JobBookmarksEncryption {
   JobBookmarksEncryptionMode?: JobBookmarksEncryptionMode;
   KmsKeyArn?: string;
 }
-export type JobBookmarksEncryptionMode = "DISABLED" | "CSEKMS";
+export type JobBookmarksEncryptionMode = "DISABLED" | "CSE-KMS";
 export interface JobCommand {
   Name?: string;
   ScriptLocation?: string;
@@ -6742,12 +6742,12 @@ export interface JoinColumn {
 }
 export type JoinColumns = Array<JoinColumn>;
 export type JoinType =
-  | "EQUIJOIN"
-  | "LEFT"
-  | "RIGHT"
-  | "OUTER"
-  | "LEFT_SEMI"
-  | "LEFT_ANTI";
+  | "equijoin"
+  | "left"
+  | "right"
+  | "outer"
+  | "leftsemi"
+  | "leftanti";
 export interface JsonClassifier {
   Name: string;
   CreationTime?: Date | string;
@@ -7237,7 +7237,7 @@ export interface MLUserDataEncryption {
   MlUserDataEncryptionMode: MLUserDataEncryptionModeString;
   KmsKeyId?: string;
 }
-export type MLUserDataEncryptionModeString = "DISABLED" | "SSEKMS";
+export type MLUserDataEncryptionModeString = "DISABLED" | "SSE-KMS";
 export interface ModifyIntegrationRequest {
   IntegrationIdentifier: string;
   Description?: string;
@@ -7452,21 +7452,21 @@ export type ParametersMapValue = string;
 export type ParameterValue = string;
 
 export type ParamType =
-  | "STR"
-  | "INT"
-  | "FLOAT"
-  | "COMPLEX"
-  | "BOOL"
-  | "LIST"
-  | "NULL";
+  | "str"
+  | "int"
+  | "float"
+  | "complex"
+  | "bool"
+  | "list"
+  | "null";
 export type ParquetCompressionType =
-  | "SNAPPY"
-  | "LZO"
-  | "GZIP"
-  | "BROTLI"
-  | "LZ4"
-  | "UNCOMPRESSED"
-  | "NONE";
+  | "snappy"
+  | "lzo"
+  | "gzip"
+  | "brotli"
+  | "lz4"
+  | "uncompressed"
+  | "none";
 export interface Partition {
   Values?: Array<string>;
   DatabaseName?: string;
@@ -7713,7 +7713,7 @@ export interface QuerySessionContext {
   QueryAuthorizationId?: string;
   AdditionalContext?: Record<string, string>;
 }
-export type QuoteChar = "QUOTE" | "QUILLEMET" | "SINGLE_QUOTE" | "DISABLED";
+export type QuoteChar = "quote" | "quillemet" | "single_quote" | "disabled";
 export interface Recipe {
   Name: string;
   Inputs: Array<string>;
@@ -8021,7 +8021,7 @@ export interface S3Encryption {
   KmsKeyArn?: string;
 }
 export type S3EncryptionList = Array<S3Encryption>;
-export type S3EncryptionMode = "DISABLED" | "SSEKMS" | "SSES3";
+export type S3EncryptionMode = "DISABLED" | "SSE-KMS" | "SSE-S3";
 export interface S3ExcelSource {
   Name: string;
   Paths: Array<string>;
@@ -8286,7 +8286,7 @@ export interface SelectFromCollection {
   Inputs: Array<string>;
   Index: number;
 }
-export type Separator = "COMMA" | "CTRLA" | "PIPE" | "SEMICOLON" | "TAB";
+export type Separator = "comma" | "ctrla" | "pipe" | "semicolon" | "tab";
 export interface SerDeInfo {
   Name?: string;
   SerializationLibrary?: string;
@@ -8366,7 +8366,7 @@ export interface SnowflakeTarget {
   Data: SnowflakeNodeData;
   Inputs?: Array<string>;
 }
-export type Sort = "ASCENDING" | "DESCENDING";
+export type Sort = "ASC" | "DESC";
 export type SortCriteria = Array<SortCriterion>;
 export interface SortCriterion {
   FieldName?: string;
@@ -8522,10 +8522,10 @@ export interface StartingEventBatchCondition {
   BatchWindow?: number;
 }
 export type StartingPosition =
-  | "LATEST"
-  | "TRIM_HORIZON"
-  | "EARLIEST"
-  | "TIMESTAMP";
+  | "latest"
+  | "trim_horizon"
+  | "earliest"
+  | "timestamp";
 export interface StartJobRunRequest {
   JobName: string;
   JobRunQueuingEnabled?: boolean;
@@ -8604,7 +8604,7 @@ export interface StatisticAnnotation {
   StatisticRecordedOn?: Date | string;
   InclusionAnnotation?: TimestampedInclusionAnnotation;
 }
-export type StatisticEvaluationLevel = "DATASET" | "COLUMN" | "MULTICOLUMN";
+export type StatisticEvaluationLevel = "Dataset" | "Column" | "Multicolumn";
 export interface StatisticModelResult {
   LowerBound?: number;
   UpperBound?: number;
@@ -8781,10 +8781,10 @@ export interface TableOptimizerConfiguration {
   orphanFileDeletionConfiguration?: OrphanFileDeletionConfiguration;
 }
 export type TableOptimizerEventType =
-  | "STARTING"
-  | "COMPLETED"
-  | "FAILED"
-  | "IN_PROGRESS";
+  | "starting"
+  | "completed"
+  | "failed"
+  | "in_progress";
 export interface TableOptimizerRun {
   eventType?: TableOptimizerEventType;
   startTimestamp?: Date | string;
@@ -8800,9 +8800,9 @@ export type TableOptimizerRuns = Array<TableOptimizerRun>;
 export type TableOptimizerRunTimestamp = Date | string;
 
 export type TableOptimizerType =
-  | "COMPACTION"
-  | "RETENTION"
-  | "ORPHAN_FILE_DELETION";
+  | "compaction"
+  | "retention"
+  | "orphan_file_deletion";
 interface _TableOptimizerVpcConfiguration {
   glueConnectionName?: string;
 }
@@ -8852,16 +8852,16 @@ export type TagValue = string;
 export type TargetColumn = string;
 
 export type TargetFormat =
-  | "JSON"
-  | "CSV"
-  | "AVRO"
-  | "ORC"
-  | "PARQUET"
-  | "HUDI"
-  | "DELTA"
-  | "ICEBERG"
-  | "HYPER"
-  | "XML";
+  | "json"
+  | "csv"
+  | "avro"
+  | "orc"
+  | "parquet"
+  | "hudi"
+  | "delta"
+  | "iceberg"
+  | "hyper"
+  | "xml";
 export interface TargetProcessingProperties {
   RoleArn?: string;
   KmsArn?: string;
@@ -9476,12 +9476,12 @@ export interface ViewValidation {
 export type ViewValidationList = Array<ViewValidation>;
 export type WorkerType =
   | "Standard"
-  | "G_1X"
-  | "G_2X"
-  | "G_025X"
-  | "G_4X"
-  | "G_8X"
-  | "Z_2X";
+  | "G.1X"
+  | "G.2X"
+  | "G.025X"
+  | "G.4X"
+  | "G.8X"
+  | "Z.2X";
 export interface Workflow {
   Name?: string;
   Description?: string;

@@ -2541,7 +2541,7 @@ export type ReputationEntityFilter = Record<ReputationEntityFilterKey, string>;
 export type ReputationEntityFilterKey =
   | "ENTITY_TYPE"
   | "REPUTATION_IMPACT"
-  | "STATUS"
+  | "SENDING_STATUS"
   | "ENTITY_REFERENCE_PREFIX";
 export type ReputationEntityFilterValue = string;
 

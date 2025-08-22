@@ -163,19 +163,19 @@ export declare class InternalServerException extends EffectData.TaggedError(
   readonly message: string;
 }> {}
 export type LanguageCode =
-  | "EN_US"
-  | "EN_GB"
-  | "ID_ID"
-  | "DE_DE"
-  | "ES_ES"
-  | "FR_FR"
-  | "JA_JP"
-  | "IT_IT"
-  | "PT_PT"
-  | "KO_KR"
-  | "ZH_CN"
-  | "ZH_TW"
-  | "TR_TR";
+  | "en-US"
+  | "en-GB"
+  | "id-ID"
+  | "de-DE"
+  | "es-ES"
+  | "fr-FR"
+  | "ja-JP"
+  | "it-IT"
+  | "pt-PT"
+  | "ko-KR"
+  | "zh-CN"
+  | "zh-TW"
+  | "tr-TR";
 export interface ListAccountActivitiesRequest {
   filterActivityStatuses?: Array<ActivityStatus>;
   nextToken?: string;

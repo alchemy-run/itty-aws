@@ -1758,7 +1758,7 @@ export interface EntityPersonaConfiguration {
 }
 export type EntityPersonaConfigurationList = Array<EntityPersonaConfiguration>;
 export type EntityType = "USER" | "GROUP";
-export type ErrorCode = "INTERNAL_ERROR" | "INVALID_REQUEST";
+export type ErrorCode = "InternalError" | "InvalidRequest";
 export type ErrorMessage = string;
 
 export type ExcludeMimeTypesList = Array<string>;

@@ -1090,10 +1090,10 @@ export interface DataRepositoryTaskFilter {
   Values?: Array<string>;
 }
 export type DataRepositoryTaskFilterName =
-  | "FILE_SYSTEM_ID"
-  | "TASK_LIFECYCLE"
-  | "DATA_REPO_ASSOCIATION_ID"
-  | "FILE_CACHE_ID";
+  | "file-system-id"
+  | "task-lifecycle"
+  | "data-repository-association-id"
+  | "file-cache-id";
 export type DataRepositoryTaskFilters = Array<DataRepositoryTaskFilter>;
 export type DataRepositoryTaskFilterValue = string;
 
@@ -1122,10 +1122,10 @@ export interface DataRepositoryTaskStatus {
   ReleasedCapacity?: number;
 }
 export type DataRepositoryTaskType =
-  | "EXPORT"
-  | "IMPORT"
-  | "EVICTION"
-  | "AUTO_TRIGGERED_EVICTION";
+  | "EXPORT_TO_REPOSITORY"
+  | "IMPORT_METADATA_FROM_REPOSITORY"
+  | "RELEASE_DATA_FROM_FILESYSTEM"
+  | "AUTO_RELEASE_DATA";
 export interface DeleteBackupRequest {
   BackupId: string;
   ClientRequestToken?: string;
@@ -1538,13 +1538,13 @@ export interface Filter {
   Values?: Array<string>;
 }
 export type FilterName =
-  | "FILE_SYSTEM_ID"
-  | "BACKUP_TYPE"
-  | "FILE_SYSTEM_TYPE"
-  | "VOLUME_ID"
-  | "DATA_REPOSITORY_TYPE"
-  | "FILE_CACHE_ID"
-  | "FILE_CACHE_TYPE";
+  | "file-system-id"
+  | "backup-type"
+  | "file-system-type"
+  | "volume-id"
+  | "data-repository-type"
+  | "file-cache-id"
+  | "file-cache-type";
 export type Filters = Array<Filter>;
 export type FilterValue = string;
 
@@ -2015,9 +2015,9 @@ export interface S3AccessPointAttachmentsFilter {
   Values?: Array<string>;
 }
 export type S3AccessPointAttachmentsFilterName =
-  | "FILE_SYSTEM_ID"
-  | "VOLUME_ID"
-  | "TYPE";
+  | "file-system-id"
+  | "volume-id"
+  | "type";
 export type S3AccessPointAttachmentsFilters =
   Array<S3AccessPointAttachmentsFilter>;
 export type S3AccessPointAttachmentsFilterValue = string;
@@ -2110,7 +2110,7 @@ export interface SnapshotFilter {
   Name?: SnapshotFilterName;
   Values?: Array<string>;
 }
-export type SnapshotFilterName = "FILE_SYSTEM_ID" | "VOLUME_ID";
+export type SnapshotFilterName = "file-system-id" | "volume-id";
 export type SnapshotFilters = Array<SnapshotFilter>;
 export type SnapshotFilterValue = string;
 
@@ -2179,7 +2179,7 @@ export interface StorageVirtualMachineFilter {
   Name?: StorageVirtualMachineFilterName;
   Values?: Array<string>;
 }
-export type StorageVirtualMachineFilterName = "FILE_SYSTEM_ID";
+export type StorageVirtualMachineFilterName = "file-system-id";
 export type StorageVirtualMachineFilters = Array<StorageVirtualMachineFilter>;
 export type StorageVirtualMachineFilterValue = string;
 
@@ -2463,7 +2463,7 @@ export interface VolumeFilter {
   Name?: VolumeFilterName;
   Values?: Array<string>;
 }
-export type VolumeFilterName = "FILE_SYSTEM_ID" | "STORAGE_VIRTUAL_MACHINE_ID";
+export type VolumeFilterName = "file-system-id" | "storage-virtual-machine-id";
 export type VolumeFilters = Array<VolumeFilter>;
 export type VolumeFilterValue = string;
 

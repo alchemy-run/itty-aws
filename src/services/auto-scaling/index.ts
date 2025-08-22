@@ -417,25 +417,25 @@ export interface AcceleratorCountRequest {
   Max?: number;
 }
 export type AcceleratorManufacturer =
-  | "NVIDIA"
-  | "AMD"
-  | "AMAZON_WEB_SERVICES"
-  | "XILINX";
+  | "nvidia"
+  | "amd"
+  | "amazon-web-services"
+  | "xilinx";
 export type AcceleratorManufacturers = Array<AcceleratorManufacturer>;
 export type AcceleratorName =
-  | "A100"
-  | "V100"
-  | "K80"
-  | "T4"
-  | "M60"
-  | "RADEON_PRO_V520"
-  | "VU9P";
+  | "a100"
+  | "v100"
+  | "k80"
+  | "t4"
+  | "m60"
+  | "radeon-pro-v520"
+  | "vu9p";
 export type AcceleratorNames = Array<AcceleratorName>;
 export interface AcceleratorTotalMemoryMiBRequest {
   Min?: number;
   Max?: number;
 }
-export type AcceleratorType = "GPU" | "FPGA" | "INFERENCE";
+export type AcceleratorType = "gpu" | "fpga" | "inference";
 export type AcceleratorTypes = Array<AcceleratorType>;
 export declare class ActiveInstanceRefreshNotFoundFault extends EffectData.TaggedError(
   "ActiveInstanceRefreshNotFoundFault",
@@ -605,7 +605,7 @@ export interface AvailabilityZoneImpairmentPolicy {
 export type AvailabilityZones = Array<string>;
 export type BakeTime = number;
 
-export type BareMetal = "INCLUDED" | "EXCLUDED" | "REQUIRED";
+export type BareMetal = "included" | "excluded" | "required";
 export interface BaselineEbsBandwidthMbpsRequest {
   Min?: number;
   Max?: number;
@@ -646,7 +646,7 @@ export interface BlockDeviceMapping {
   NoDevice?: boolean;
 }
 export type BlockDeviceMappings = Array<BlockDeviceMapping>;
-export type BurstablePerformance = "INCLUDED" | "EXCLUDED" | "REQUIRED";
+export type BurstablePerformance = "included" | "excluded" | "required";
 export interface CancelInstanceRefreshAnswer {
   InstanceRefreshId?: string;
 }
@@ -654,8 +654,8 @@ export interface CancelInstanceRefreshType {
   AutoScalingGroupName: string;
 }
 export type CapacityDistributionStrategy =
-  | "BALANCED_ONLY"
-  | "BALANCED_BEST_EFFORT";
+  | "balanced-only"
+  | "balanced-best-effort";
 export interface CapacityForecast {
   Timestamps: Array<Date | string>;
   Values: Array<number>;
@@ -664,10 +664,10 @@ export type CapacityRebalanceEnabled = boolean;
 
 export type CapacityReservationIds = Array<string>;
 export type CapacityReservationPreference =
-  | "CapacityReservationsOnly"
-  | "CapacityReservationsFirst"
-  | "None"
-  | "Default";
+  | "capacity-reservations-only"
+  | "capacity-reservations-first"
+  | "none"
+  | "default";
 export type CapacityReservationResourceGroupArns = Array<string>;
 export interface CapacityReservationSpecification {
   CapacityReservationPreference?: CapacityReservationPreference;
@@ -693,7 +693,7 @@ export type Context = string;
 
 export type Cooldown = number;
 
-export type CpuManufacturer = "INTEL" | "AMD" | "AMAZON_WEB_SERVICES" | "APPLE";
+export type CpuManufacturer = "intel" | "amd" | "amazon-web-services" | "apple";
 export type CpuManufacturers = Array<CpuManufacturer>;
 export interface CpuPerformanceFactorRequest {
   References?: Array<PerformanceFactorReferenceRequest>;
@@ -1046,17 +1046,17 @@ export interface Instance {
   ProtectedFromScaleIn: boolean;
   WeightedCapacity?: string;
 }
-export type InstanceGeneration = "CURRENT" | "PREVIOUS";
+export type InstanceGeneration = "current" | "previous";
 export type InstanceGenerations = Array<InstanceGeneration>;
 export type InstanceIds = Array<string>;
 export interface InstanceMaintenancePolicy {
   MinHealthyPercentage?: number;
   MaxHealthyPercentage?: number;
 }
-export type InstanceMetadataEndpointState = "Disabled" | "Enabled";
+export type InstanceMetadataEndpointState = "disabled" | "enabled";
 export type InstanceMetadataHttpPutResponseHopLimit = number;
 
-export type InstanceMetadataHttpTokensState = "Optional" | "Required";
+export type InstanceMetadataHttpTokensState = "optional" | "required";
 export interface InstanceMetadataOptions {
   HttpTokens?: InstanceMetadataHttpTokensState;
   HttpPutResponseHopLimit?: number;
@@ -1251,29 +1251,29 @@ export interface LifecycleHookSpecification {
 }
 export type LifecycleHookSpecifications = Array<LifecycleHookSpecification>;
 export type LifecycleState =
-  | "PENDING"
-  | "PENDING_WAIT"
-  | "PENDING_PROCEED"
-  | "QUARANTINED"
-  | "IN_SERVICE"
-  | "TERMINATING"
-  | "TERMINATING_WAIT"
-  | "TERMINATING_PROCEED"
-  | "TERMINATED"
-  | "DETACHING"
-  | "DETACHED"
-  | "ENTERING_STANDBY"
-  | "STANDBY"
-  | "WARMED_PENDING"
-  | "WARMED_PENDING_WAIT"
-  | "WARMED_PENDING_PROCEED"
-  | "WARMED_TERMINATING"
-  | "WARMED_TERMINATING_WAIT"
-  | "WARMED_TERMINATING_PROCEED"
-  | "WARMED_TERMINATED"
-  | "WARMED_STOPPED"
-  | "WARMED_RUNNING"
-  | "WARMED_HIBERNATED";
+  | "Pending"
+  | "Pending:Wait"
+  | "Pending:Proceed"
+  | "Quarantined"
+  | "InService"
+  | "Terminating"
+  | "Terminating:Wait"
+  | "Terminating:Proceed"
+  | "Terminated"
+  | "Detaching"
+  | "Detached"
+  | "EnteringStandby"
+  | "Standby"
+  | "Warmed:Pending"
+  | "Warmed:Pending:Wait"
+  | "Warmed:Pending:Proceed"
+  | "Warmed:Terminating"
+  | "Warmed:Terminating:Wait"
+  | "Warmed:Terminating:Proceed"
+  | "Warmed:Terminated"
+  | "Warmed:Stopped"
+  | "Warmed:Running"
+  | "Warmed:Hibernated";
 export type LifecycleTransition = string;
 
 export declare class LimitExceededFault extends EffectData.TaggedError(
@@ -1298,8 +1298,8 @@ export interface LoadForecast {
   MetricSpecification: PredictiveScalingMetricSpecification;
 }
 export type LoadForecasts = Array<LoadForecast>;
-export type LocalStorage = "INCLUDED" | "EXCLUDED" | "REQUIRED";
-export type LocalStorageType = "HDD" | "SSD";
+export type LocalStorage = "included" | "excluded" | "required";
+export type LocalStorageType = "hdd" | "ssd";
 export type LocalStorageTypes = Array<LocalStorageType>;
 export type MaxGroupPreparedCapacity = number;
 

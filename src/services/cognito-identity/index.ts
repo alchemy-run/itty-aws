@@ -282,7 +282,7 @@ export type AccessKeyString = string;
 
 export type AccountId = string;
 
-export type AmbiguousRoleResolutionType = "AUTHENTICATED_ROLE" | "DENY";
+export type AmbiguousRoleResolutionType = "AuthenticatedRole" | "Deny";
 export type ARNString = string;
 
 export type ClaimName = string;
@@ -352,7 +352,7 @@ export declare class DeveloperUserAlreadyRegisteredException extends EffectData.
 export type DeveloperUserIdentifier = string;
 
 export type DeveloperUserIdentifierList = Array<string>;
-export type ErrorCode = "ACCESS_DENIED" | "INTERNAL_SERVER_ERROR";
+export type ErrorCode = "AccessDenied" | "InternalServerError";
 export declare class ExternalServiceException extends EffectData.TaggedError(
   "ExternalServiceException",
 )<{
@@ -522,10 +522,10 @@ export interface MappingRule {
   RoleARN: string;
 }
 export type MappingRuleMatchType =
-  | "EQUALS"
-  | "CONTAINS"
-  | "STARTS_WITH"
-  | "NOT_EQUAL";
+  | "Equals"
+  | "Contains"
+  | "StartsWith"
+  | "NotEqual";
 export type MappingRulesList = Array<MappingRule>;
 export interface MergeDeveloperIdentitiesInput {
   SourceUserIdentifier: string;
@@ -569,7 +569,7 @@ export interface RoleMapping {
   RulesConfiguration?: RulesConfigurationType;
 }
 export type RoleMappingMap = Record<string, RoleMapping>;
-export type RoleMappingType = "TOKEN" | "RULES";
+export type RoleMappingType = "Token" | "Rules";
 export type RolesMap = Record<string, string>;
 export type RoleType = string;
 

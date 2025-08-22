@@ -407,11 +407,11 @@ export type AccountId = string;
 export type AccountIds = Array<string>;
 export type AllocatedStorage = number;
 
-export type AllocationStrategy = "PRIORITIZED" | "LOWEST_PRICE";
-export type AsgType = "SINGLE_INSTANCE_TYPE" | "MIXED_INSTANCE_TYPE";
+export type AllocationStrategy = "Prioritized" | "LowestPrice";
+export type AsgType = "SingleInstanceType" | "MixedInstanceTypes";
 export type AutoScalingConfiguration =
-  | "TARGET_TRACKING_SCALING_CPU"
-  | "TARGET_TRACKING_SCALING_MEMORY";
+  | "TargetTrackingScalingCpu"
+  | "TargetTrackingScalingMemory";
 export type AutoScalingGroupArn = string;
 
 export type AutoScalingGroupArns = Array<string>;
@@ -491,7 +491,7 @@ export type CurrentDBInstanceClass = string;
 
 export type CurrentInstanceType = string;
 
-export type CurrentPerformanceRisk = "VERY_LOW" | "LOW" | "MEDIUM" | "HIGH";
+export type CurrentPerformanceRisk = "VeryLow" | "Low" | "Medium" | "High";
 export interface CurrentPerformanceRiskRatings {
   high?: number;
   medium?: number;
@@ -503,7 +503,7 @@ export type CustomizableMetricHeadroom =
   | "PERCENT_20"
   | "PERCENT_10"
   | "PERCENT_0";
-export type CustomizableMetricName = "CPU_UTILIZATION" | "MEMORY_UTILIZATION";
+export type CustomizableMetricName = "CpuUtilization" | "MemoryUtilization";
 export interface CustomizableMetricParameters {
   threshold?: CustomizableMetricThreshold;
   headroom?: CustomizableMetricHeadroom;
@@ -544,7 +544,7 @@ export type DestinationKey = string;
 
 export type DestinationKeyPrefix = string;
 
-export type Dimension = "SAVINGS_VALUE" | "SAVINGS_VALUE_AFTER_DISCOUNT";
+export type Dimension = "SavingsValue" | "SavingsValueAfterDiscount";
 export interface EBSEffectiveRecommendationPreferences {
   savingsEstimationMode?: EBSSavingsEstimationMode;
 }
@@ -556,21 +556,21 @@ export interface EBSFilter {
   name?: EBSFilterName;
   values?: Array<string>;
 }
-export type EBSFilterName = "FINDING";
+export type EBSFilterName = "Finding";
 export type EBSFilters = Array<EBSFilter>;
-export type EBSFinding = "OPTIMIZED" | "NOT_OPTIMIZED";
+export type EBSFinding = "Optimized" | "NotOptimized";
 export type EBSMetricName =
-  | "VOLUME_READ_OPS_PER_SECOND"
-  | "VOLUME_WRITE_OPS_PER_SECOND"
-  | "VOLUME_READ_BYTES_PER_SECOND"
-  | "VOLUME_WRITE_BYTES_PER_SECOND";
+  | "VolumeReadOpsPerSecond"
+  | "VolumeWriteOpsPerSecond"
+  | "VolumeReadBytesPerSecond"
+  | "VolumeWriteBytesPerSecond";
 export interface EBSSavingsEstimationMode {
   source?: EBSSavingsEstimationModeSource;
 }
 export type EBSSavingsEstimationModeSource =
-  | "PUBLIC_PRICING"
-  | "COST_EXPLORER_RIGHTSIZING"
-  | "COST_OPTIMIZATION_HUB";
+  | "PublicPricing"
+  | "CostExplorerRightsizing"
+  | "CostOptimizationHub";
 export interface EBSSavingsOpportunityAfterDiscounts {
   savingsOpportunityPercentage?: number;
   estimatedMonthlySavings?: EBSEstimatedMonthlySavings;
@@ -592,16 +592,16 @@ export interface ECSSavingsEstimationMode {
   source?: ECSSavingsEstimationModeSource;
 }
 export type ECSSavingsEstimationModeSource =
-  | "PUBLIC_PRICING"
-  | "COST_EXPLORER_RIGHTSIZING"
-  | "COST_OPTIMIZATION_HUB";
+  | "PublicPricing"
+  | "CostExplorerRightsizing"
+  | "CostOptimizationHub";
 export interface ECSSavingsOpportunityAfterDiscounts {
   savingsOpportunityPercentage?: number;
   estimatedMonthlySavings?: ECSEstimatedMonthlySavings;
 }
-export type ECSServiceLaunchType = "EC2" | "FARGATE";
-export type ECSServiceMetricName = "CPU" | "MEMORY";
-export type ECSServiceMetricStatistic = "MAXIMUM" | "AVERAGE";
+export type ECSServiceLaunchType = "EC2" | "Fargate";
+export type ECSServiceMetricName = "Cpu" | "Memory";
+export type ECSServiceMetricStatistic = "Maximum" | "Average";
 export interface ECSServiceProjectedMetric {
   name?: ECSServiceMetricName;
   timestamps?: Array<Date | string>;
@@ -637,19 +637,19 @@ export interface ECSServiceRecommendationFilter {
   values?: Array<string>;
 }
 export type ECSServiceRecommendationFilterName =
-  | "FINDING"
-  | "FINDING_REASON_CODE";
+  | "Finding"
+  | "FindingReasonCode";
 export type ECSServiceRecommendationFilters =
   Array<ECSServiceRecommendationFilter>;
 export type ECSServiceRecommendationFinding =
-  | "OPTIMIZED"
-  | "UNDER_PROVISIONED"
-  | "OVER_PROVISIONED";
+  | "Optimized"
+  | "Underprovisioned"
+  | "Overprovisioned";
 export type ECSServiceRecommendationFindingReasonCode =
-  | "MEMORY_OVER_PROVISIONED"
-  | "MEMORY_UNDER_PROVISIONED"
-  | "CPU_OVER_PROVISIONED"
-  | "CPU_UNDER_PROVISIONED";
+  | "MemoryOverprovisioned"
+  | "MemoryUnderprovisioned"
+  | "CPUOverprovisioned"
+  | "CPUUnderprovisioned";
 export type ECSServiceRecommendationFindingReasonCodes =
   Array<ECSServiceRecommendationFindingReasonCode>;
 export interface ECSServiceRecommendationOption {
@@ -697,12 +697,12 @@ export type Engine = string;
 
 export type EngineVersion = string;
 
-export type EnhancedInfrastructureMetrics = "ACTIVE" | "INACTIVE";
+export type EnhancedInfrastructureMetrics = "Active" | "Inactive";
 export interface EnrollmentFilter {
   name?: EnrollmentFilterName;
   values?: Array<string>;
 }
-export type EnrollmentFilterName = "STATUS";
+export type EnrollmentFilterName = "Status";
 export type EnrollmentFilters = Array<EnrollmentFilter>;
 export type ErrorMessage = string;
 
@@ -711,383 +711,383 @@ export interface EstimatedMonthlySavings {
   value?: number;
 }
 export type ExportableAutoScalingGroupField =
-  | "ACCOUNT_ID"
-  | "AUTO_SCALING_GROUP_ARN"
-  | "AUTO_SCALING_GROUP_NAME"
-  | "FINDING"
-  | "UTILIZATION_METRICS_CPU_MAXIMUM"
-  | "UTILIZATION_METRICS_MEMORY_MAXIMUM"
-  | "UTILIZATION_METRICS_EBS_READ_OPS_PER_SECOND_MAXIMUM"
-  | "UTILIZATION_METRICS_EBS_WRITE_OPS_PER_SECOND_MAXIMUM"
-  | "UTILIZATION_METRICS_EBS_READ_BYTES_PER_SECOND_MAXIMUM"
-  | "UTILIZATION_METRICS_EBS_WRITE_BYTES_PER_SECOND_MAXIMUM"
-  | "UTILIZATION_METRICS_DISK_READ_OPS_PER_SECOND_MAXIMUM"
-  | "UTILIZATION_METRICS_DISK_WRITE_OPS_PER_SECOND_MAXIMUM"
-  | "UTILIZATION_METRICS_DISK_READ_BYTES_PER_SECOND_MAXIMUM"
-  | "UTILIZATION_METRICS_DISK_WRITE_BYTES_PER_SECOND_MAXIMUM"
-  | "UTILIZATION_METRICS_NETWORK_IN_BYTES_PER_SECOND_MAXIMUM"
-  | "UTILIZATION_METRICS_NETWORK_OUT_BYTES_PER_SECOND_MAXIMUM"
-  | "UTILIZATION_METRICS_NETWORK_PACKETS_IN_PER_SECOND_MAXIMUM"
-  | "UTILIZATION_METRICS_NETWORK_PACKETS_OUT_PER_SECOND_MAXIMUM"
-  | "LOOKBACK_PERIOD_IN_DAYS"
-  | "CURRENT_CONFIGURATION_INSTANCE_TYPE"
-  | "CURRENT_CONFIGURATION_DESIRED_CAPACITY"
-  | "CURRENT_CONFIGURATION_MIN_SIZE"
-  | "CURRENT_CONFIGURATION_MAX_SIZE"
-  | "CURRENT_CONFIGURATION_ALLOCATION_STRATEGY"
-  | "CURRENT_CONFIGURATION_MIXED_INSTANCE_TYPES"
-  | "CURRENT_CONFIGURATION_TYPE"
-  | "CURRENT_ON_DEMAND_PRICE"
-  | "CURRENT_STANDARD_ONE_YEAR_NO_UPFRONT_RESERVED_PRICE"
-  | "CURRENT_STANDARD_THREE_YEAR_NO_UPFRONT_RESERVED_PRICE"
-  | "CURRENT_VCPUS"
-  | "CURRENT_MEMORY"
-  | "CURRENT_STORAGE"
-  | "CURRENT_NETWORK"
-  | "RECOMMENDATION_OPTIONS_CONFIGURATION_INSTANCE_TYPE"
-  | "RECOMMENDATION_OPTIONS_CONFIGURATION_DESIRED_CAPACITY"
-  | "RECOMMENDATION_OPTIONS_CONFIGURATION_MIN_SIZE"
-  | "RECOMMENDATION_OPTIONS_CONFIGURATION_MAX_SIZE"
-  | "RECOMMENDATION_OPTIONS_CONFIGURATION_ESTIMATED_INSTANCE_HOUR_REDUCTION_PERCENTAGE"
-  | "RECOMMENDATION_OPTIONS_CONFIGURATION_ALLOCATION_STRATEGY"
-  | "RECOMMENDATION_OPTIONS_CONFIGURATION_MIXED_INSTANCE_TYPES"
-  | "RECOMMENDATION_OPTIONS_CONFIGURATION_TYPE"
-  | "RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_CPU_MAXIMUM"
-  | "RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_MEMORY_MAXIMUM"
-  | "RECOMMENDATION_OPTIONS_PERFORMANCE_RISK"
-  | "RECOMMENDATION_OPTIONS_ON_DEMAND_PRICE"
-  | "RECOMMENDATION_OPTIONS_STANDARD_ONE_YEAR_NO_UPFRONT_RESERVED_PRICE"
-  | "RECOMMENDATION_OPTIONS_STANDARD_THREE_YEAR_NO_UPFRONT_RESERVED_PRICE"
-  | "RECOMMENDATION_OPTIONS_VCPUS"
-  | "RECOMMENDATION_OPTIONS_MEMORY"
-  | "RECOMMENDATION_OPTIONS_STORAGE"
-  | "RECOMMENDATION_OPTIONS_NETWORK"
-  | "LAST_REFRESH_TIMESTAMP"
-  | "CURRENT_PERFORMANCE_RISK"
-  | "RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_PERCENTAGE"
-  | "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY"
-  | "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE"
-  | "EFFECTIVE_RECOMMENDATION_PREFERENCES_CPU_VENDOR_ARCHITECTURES"
-  | "EFFECTIVE_RECOMMENDATION_PREFERENCES_ENHANCED_INFRASTRUCTURE_METRICS"
-  | "EFFECTIVE_RECOMMENDATION_PREFERENCES_INFERRED_WORKLOAD_TYPES"
-  | "EFFECTIVE_RECOMMENDATION_PREFERENCES_PREFERRED_RESOURCES"
-  | "EFFECTIVE_RECOMMENDATION_PREFERENCES_LOOKBACK_PERIOD"
-  | "INFERRED_WORKLOAD_TYPES"
-  | "RECOMMENDATION_OPTIONS_MIGRATION_EFFORT"
-  | "CURRENT_INSTANCE_GPU_INFO"
-  | "RECOMMENDATION_OPTIONS_INSTANCE_GPU_INFO"
-  | "UTILIZATION_METRICS_GPU_PERCENTAGE_MAXIMUM"
-  | "UTILIZATION_METRICS_GPU_MEMORY_PERCENTAGE_MAXIMUM"
-  | "RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_GPU_MAXIMUM"
-  | "RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_GPU_MEMORY_MAXIMUM"
-  | "EFFECTIVE_RECOMMENDATION_PREFERENCES_SAVINGS_ESTIMATION_MODE"
-  | "RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_AFTER_DISCOUNTS_PERCENTAGE"
-  | "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY_AFTER_DISCOUNTS"
-  | "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE_AFTER_DISCOUNTS";
+  | "AccountId"
+  | "AutoScalingGroupArn"
+  | "AutoScalingGroupName"
+  | "Finding"
+  | "UtilizationMetricsCpuMaximum"
+  | "UtilizationMetricsMemoryMaximum"
+  | "UtilizationMetricsEbsReadOpsPerSecondMaximum"
+  | "UtilizationMetricsEbsWriteOpsPerSecondMaximum"
+  | "UtilizationMetricsEbsReadBytesPerSecondMaximum"
+  | "UtilizationMetricsEbsWriteBytesPerSecondMaximum"
+  | "UtilizationMetricsDiskReadOpsPerSecondMaximum"
+  | "UtilizationMetricsDiskWriteOpsPerSecondMaximum"
+  | "UtilizationMetricsDiskReadBytesPerSecondMaximum"
+  | "UtilizationMetricsDiskWriteBytesPerSecondMaximum"
+  | "UtilizationMetricsNetworkInBytesPerSecondMaximum"
+  | "UtilizationMetricsNetworkOutBytesPerSecondMaximum"
+  | "UtilizationMetricsNetworkPacketsInPerSecondMaximum"
+  | "UtilizationMetricsNetworkPacketsOutPerSecondMaximum"
+  | "LookbackPeriodInDays"
+  | "CurrentConfigurationInstanceType"
+  | "CurrentConfigurationDesiredCapacity"
+  | "CurrentConfigurationMinSize"
+  | "CurrentConfigurationMaxSize"
+  | "CurrentConfigurationAllocationStrategy"
+  | "CurrentConfigurationMixedInstanceTypes"
+  | "CurrentConfigurationType"
+  | "CurrentOnDemandPrice"
+  | "CurrentStandardOneYearNoUpfrontReservedPrice"
+  | "CurrentStandardThreeYearNoUpfrontReservedPrice"
+  | "CurrentVCpus"
+  | "CurrentMemory"
+  | "CurrentStorage"
+  | "CurrentNetwork"
+  | "RecommendationOptionsConfigurationInstanceType"
+  | "RecommendationOptionsConfigurationDesiredCapacity"
+  | "RecommendationOptionsConfigurationMinSize"
+  | "RecommendationOptionsConfigurationMaxSize"
+  | "RecommendationOptionsConfigurationEstimatedInstanceHourReductionPercentage"
+  | "RecommendationOptionsConfigurationAllocationStrategy"
+  | "RecommendationOptionsConfigurationMixedInstanceTypes"
+  | "RecommendationOptionsConfigurationType"
+  | "RecommendationOptionsProjectedUtilizationMetricsCpuMaximum"
+  | "RecommendationOptionsProjectedUtilizationMetricsMemoryMaximum"
+  | "RecommendationOptionsPerformanceRisk"
+  | "RecommendationOptionsOnDemandPrice"
+  | "RecommendationOptionsStandardOneYearNoUpfrontReservedPrice"
+  | "RecommendationOptionsStandardThreeYearNoUpfrontReservedPrice"
+  | "RecommendationOptionsVcpus"
+  | "RecommendationOptionsMemory"
+  | "RecommendationOptionsStorage"
+  | "RecommendationOptionsNetwork"
+  | "LastRefreshTimestamp"
+  | "CurrentPerformanceRisk"
+  | "RecommendationOptionsSavingsOpportunityPercentage"
+  | "RecommendationOptionsEstimatedMonthlySavingsCurrency"
+  | "RecommendationOptionsEstimatedMonthlySavingsValue"
+  | "EffectiveRecommendationPreferencesCpuVendorArchitectures"
+  | "EffectiveRecommendationPreferencesEnhancedInfrastructureMetrics"
+  | "EffectiveRecommendationPreferencesInferredWorkloadTypes"
+  | "EffectiveRecommendationPreferencesPreferredResources"
+  | "EffectiveRecommendationPreferencesLookBackPeriod"
+  | "InferredWorkloadTypes"
+  | "RecommendationOptionsMigrationEffort"
+  | "CurrentInstanceGpuInfo"
+  | "RecommendationOptionsInstanceGpuInfo"
+  | "UtilizationMetricsGpuPercentageMaximum"
+  | "UtilizationMetricsGpuMemoryPercentageMaximum"
+  | "RecommendationOptionsProjectedUtilizationMetricsGpuPercentageMaximum"
+  | "RecommendationOptionsProjectedUtilizationMetricsGpuMemoryPercentageMaximum"
+  | "EffectiveRecommendationPreferencesSavingsEstimationMode"
+  | "RecommendationOptionsSavingsOpportunityAfterDiscountsPercentage"
+  | "RecommendationOptionsEstimatedMonthlySavingsCurrencyAfterDiscounts"
+  | "RecommendationOptionsEstimatedMonthlySavingsValueAfterDiscounts";
 export type ExportableAutoScalingGroupFields =
   Array<ExportableAutoScalingGroupField>;
 export type ExportableECSServiceField =
-  | "ACCOUNT_ID"
-  | "SERVICE_ARN"
-  | "LOOKBACK_PERIOD_IN_DAYS"
-  | "LAST_REFRESH_TIMESTAMP"
-  | "LAUNCH_TYPE"
-  | "CURRENT_PERFORMANCE_RISK"
-  | "CURRENT_SERVICE_CONFIGURATION_MEMORY"
-  | "CURRENT_SERVICE_CONFIGURATION_CPU"
-  | "CURRENT_SERVICE_CONFIGURATION_TASK_DEFINITION_ARN"
-  | "CURRENT_SERVICE_CONFIGURATION_AUTO_SCALING_CONFIGURATION"
-  | "CURRENT_SERVICE_CONTAINER_CONFIGURATIONS"
-  | "UTILIZATION_METRICS_CPU_MAXIMUM"
-  | "UTILIZATION_METRICS_MEMORY_MAXIMUM"
-  | "FINDING"
-  | "FINDING_REASON_CODES"
-  | "RECOMMENDATION_OPTIONS_MEMORY"
-  | "RECOMMENDATION_OPTIONS_CPU"
-  | "RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_PERCENTAGE"
-  | "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY"
-  | "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE"
-  | "RECOMMENDATION_OPTIONS_CONTAINER_RECOMMENDATIONS"
-  | "RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_CPU_MAXIMUM"
-  | "RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_MEMORY_MAXIMUM"
-  | "TAGS"
-  | "EFFECTIVE_RECOMMENDATION_PREFERENCES_SAVINGS_ESTIMATION_MODE"
-  | "RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_AFTER_DISCOUNTS_PERCENTAGE"
-  | "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY_AFTER_DISCOUNTS"
-  | "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE_AFTER_DISCOUNTS";
+  | "AccountId"
+  | "ServiceArn"
+  | "LookbackPeriodInDays"
+  | "LastRefreshTimestamp"
+  | "LaunchType"
+  | "CurrentPerformanceRisk"
+  | "CurrentServiceConfigurationMemory"
+  | "CurrentServiceConfigurationCpu"
+  | "CurrentServiceConfigurationTaskDefinitionArn"
+  | "CurrentServiceConfigurationAutoScalingConfiguration"
+  | "CurrentServiceContainerConfigurations"
+  | "UtilizationMetricsCpuMaximum"
+  | "UtilizationMetricsMemoryMaximum"
+  | "Finding"
+  | "FindingReasonCodes"
+  | "RecommendationOptionsMemory"
+  | "RecommendationOptionsCpu"
+  | "RecommendationOptionsSavingsOpportunityPercentage"
+  | "RecommendationOptionsEstimatedMonthlySavingsCurrency"
+  | "RecommendationOptionsEstimatedMonthlySavingsValue"
+  | "RecommendationOptionsContainerRecommendations"
+  | "RecommendationOptionsProjectedUtilizationMetricsCpuMaximum"
+  | "RecommendationOptionsProjectedUtilizationMetricsMemoryMaximum"
+  | "Tags"
+  | "EffectiveRecommendationPreferencesSavingsEstimationMode"
+  | "RecommendationOptionsSavingsOpportunityAfterDiscountsPercentage"
+  | "RecommendationOptionsEstimatedMonthlySavingsCurrencyAfterDiscounts"
+  | "RecommendationOptionsEstimatedMonthlySavingsValueAfterDiscounts";
 export type ExportableECSServiceFields = Array<ExportableECSServiceField>;
 export type ExportableIdleField =
-  | "ACCOUNT_ID"
-  | "RESOURCE_ARN"
-  | "RESOURCE_ID"
-  | "RESOURCE_TYPE"
-  | "LAST_REFRESH_TIMESTAMP"
-  | "LOOKBACK_PERIOD_IN_DAYS"
-  | "SAVINGS_OPPORTUNITY"
-  | "SAVINGS_OPPORTUNITY_AFTER_DISCOUNT"
-  | "UTILIZATION_METRICS_CPU_MAXIMUM"
-  | "UTILIZATION_METRICS_MEMORY_MAXIMUM"
-  | "UTILIZATION_METRICS_NETWORK_OUT_BYTES_PER_SECOND_MAXIMUM"
-  | "UTILIZATION_METRICS_NETWORK_IN_BYTES_PER_SECOND_MAXIMUM"
-  | "UTILIZATION_METRICS_DATABASE_CONNECTIONS_MAXIMUM"
-  | "UTILIZATION_METRICS_EBS_VOLUME_READ_IOPS_MAXIMUM"
-  | "UTILIZATION_METRICS_EBS_VOLUME_WRITE_IOPS_MAXIMUM"
-  | "UTILIZATION_METRICS_VOLUME_READ_OPS_PER_SECOND_MAXIMUM"
-  | "UTILIZATION_METRICS_VOLUME_WRITE_OPS_PER_SECOND_MAXIMUM"
-  | "FINDING"
-  | "FINDING_DESCRIPTION"
-  | "TAGS";
+  | "AccountId"
+  | "ResourceArn"
+  | "ResourceId"
+  | "ResourceType"
+  | "LastRefreshTimestamp"
+  | "LookbackPeriodInDays"
+  | "SavingsOpportunity"
+  | "SavingsOpportunityAfterDiscount"
+  | "UtilizationMetricsCpuMaximum"
+  | "UtilizationMetricsMemoryMaximum"
+  | "UtilizationMetricsNetworkOutBytesPerSecondMaximum"
+  | "UtilizationMetricsNetworkInBytesPerSecondMaximum"
+  | "UtilizationMetricsDatabaseConnectionsMaximum"
+  | "UtilizationMetricsEBSVolumeReadIOPSMaximum"
+  | "UtilizationMetricsEBSVolumeWriteIOPSMaximum"
+  | "UtilizationMetricsVolumeReadOpsPerSecondMaximum"
+  | "UtilizationMetricsVolumeWriteOpsPerSecondMaximum"
+  | "Finding"
+  | "FindingDescription"
+  | "Tags";
 export type ExportableIdleFields = Array<ExportableIdleField>;
 export type ExportableInstanceField =
-  | "ACCOUNT_ID"
-  | "INSTANCE_ARN"
-  | "INSTANCE_NAME"
-  | "FINDING"
-  | "Finding_Reason_Codes"
-  | "LOOKBACK_PERIOD_IN_DAYS"
-  | "CURRENT_INSTANCE_TYPE"
-  | "UTILIZATION_METRICS_CPU_MAXIMUM"
-  | "UTILIZATION_METRICS_MEMORY_MAXIMUM"
-  | "UTILIZATION_METRICS_EBS_READ_OPS_PER_SECOND_MAXIMUM"
-  | "UTILIZATION_METRICS_EBS_WRITE_OPS_PER_SECOND_MAXIMUM"
-  | "UTILIZATION_METRICS_EBS_READ_BYTES_PER_SECOND_MAXIMUM"
-  | "UTILIZATION_METRICS_EBS_WRITE_BYTES_PER_SECOND_MAXIMUM"
-  | "UTILIZATION_METRICS_DISK_READ_OPS_PER_SECOND_MAXIMUM"
-  | "UTILIZATION_METRICS_DISK_WRITE_OPS_PER_SECOND_MAXIMUM"
-  | "UTILIZATION_METRICS_DISK_READ_BYTES_PER_SECOND_MAXIMUM"
-  | "UTILIZATION_METRICS_DISK_WRITE_BYTES_PER_SECOND_MAXIMUM"
-  | "UTILIZATION_METRICS_NETWORK_IN_BYTES_PER_SECOND_MAXIMUM"
-  | "UTILIZATION_METRICS_NETWORK_OUT_BYTES_PER_SECOND_MAXIMUM"
-  | "UTILIZATION_METRICS_NETWORK_PACKETS_IN_PER_SECOND_MAXIMUM"
-  | "UTILIZATION_METRICS_NETWORK_PACKETS_OUT_PER_SECOND_MAXIMUM"
-  | "CURRENT_ON_DEMAND_PRICE"
-  | "CURRENT_STANDARD_ONE_YEAR_NO_UPFRONT_RESERVED_PRICE"
-  | "CURRENT_STANDARD_THREE_YEAR_NO_UPFRONT_RESERVED_PRICE"
-  | "CURRENT_VCPUS"
-  | "CURRENT_MEMORY"
-  | "CURRENT_STORAGE"
-  | "CURRENT_NETWORK"
-  | "RECOMMENDATION_OPTIONS_INSTANCE_TYPE"
-  | "RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_CPU_MAXIMUM"
-  | "RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_MEMORY_MAXIMUM"
-  | "RECOMMENDATION_OPTIONS_PLATFORM_DIFFERENCES"
-  | "RECOMMENDATION_OPTIONS_PERFORMANCE_RISK"
-  | "RECOMMENDATION_OPTIONS_VCPUS"
-  | "RECOMMENDATION_OPTIONS_MEMORY"
-  | "RECOMMENDATION_OPTIONS_STORAGE"
-  | "RECOMMENDATION_OPTIONS_NETWORK"
-  | "RECOMMENDATION_OPTIONS_ON_DEMAND_PRICE"
-  | "RECOMMENDATION_OPTIONS_STANDARD_ONE_YEAR_NO_UPFRONT_RESERVED_PRICE"
-  | "RECOMMENDATION_OPTIONS_STANDARD_THREE_YEAR_NO_UPFRONT_RESERVED_PRICE"
-  | "RECOMMENDATIONS_SOURCES_RECOMMENDATION_SOURCE_ARN"
-  | "RECOMMENDATIONS_SOURCES_RECOMMENDATION_SOURCE_TYPE"
-  | "LAST_REFRESH_TIMESTAMP"
-  | "CURRENT_PERFORMANCE_RISK"
-  | "RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_PERCENTAGE"
-  | "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY"
-  | "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE"
-  | "EFFECTIVE_RECOMMENDATION_PREFERENCES_CPU_VENDOR_ARCHITECTURES"
-  | "EFFECTIVE_RECOMMENDATION_PREFERENCES_ENHANCED_INFRASTRUCTURE_METRICS"
-  | "EFFECTIVE_RECOMMENDATION_PREFERENCES_INFERRED_WORKLOAD_TYPES"
-  | "INFERRED_WORKLOAD_TYPES"
-  | "RECOMMENDATION_OPTIONS_MIGRATION_EFFORT"
-  | "EFFECTIVE_RECOMMENDATION_PREFERENCES_EXTERNAL_METRICS_SOURCE"
-  | "TAGS"
-  | "INSTANCE_STATE"
-  | "EXTERNAL_METRIC_STATUS_CODE"
-  | "EXTERNAL_METRIC_STATUS_REASON"
-  | "CURRENT_INSTANCE_GPU_INFO"
-  | "RECOMMENDATION_OPTIONS_INSTANCE_GPU_INFO"
-  | "UTILIZATION_METRICS_GPU_PERCENTAGE_MAXIMUM"
-  | "UTILIZATION_METRICS_GPU_MEMORY_PERCENTAGE_MAXIMUM"
-  | "RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_GPU_PERCENTAGE_MAXIMUM"
-  | "RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_GPU_MEMORY_PERCENTAGE_MAXIMUM"
-  | "IDLE"
-  | "EFFECTIVE_RECOMMENDATION_PREFERENCES_PREFERRED_RESOURCES"
-  | "EFFECTIVE_RECOMMENDATION_PREFERENCES_LOOKBACK_PERIOD"
-  | "EFFECTIVE_RECOMMENDATION_PREFERENCES_UTILIZATION_PREFERENCES"
-  | "EFFECTIVE_RECOMMENDATION_PREFERENCES_SAVINGS_ESTIMATION_MODE"
-  | "RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_AFTER_DISCOUNTS_PERCENTAGE"
-  | "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY_AFTER_DISCOUNTS"
-  | "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE_AFTER_DISCOUNTS";
+  | "AccountId"
+  | "InstanceArn"
+  | "InstanceName"
+  | "Finding"
+  | "FindingReasonCodes"
+  | "LookbackPeriodInDays"
+  | "CurrentInstanceType"
+  | "UtilizationMetricsCpuMaximum"
+  | "UtilizationMetricsMemoryMaximum"
+  | "UtilizationMetricsEbsReadOpsPerSecondMaximum"
+  | "UtilizationMetricsEbsWriteOpsPerSecondMaximum"
+  | "UtilizationMetricsEbsReadBytesPerSecondMaximum"
+  | "UtilizationMetricsEbsWriteBytesPerSecondMaximum"
+  | "UtilizationMetricsDiskReadOpsPerSecondMaximum"
+  | "UtilizationMetricsDiskWriteOpsPerSecondMaximum"
+  | "UtilizationMetricsDiskReadBytesPerSecondMaximum"
+  | "UtilizationMetricsDiskWriteBytesPerSecondMaximum"
+  | "UtilizationMetricsNetworkInBytesPerSecondMaximum"
+  | "UtilizationMetricsNetworkOutBytesPerSecondMaximum"
+  | "UtilizationMetricsNetworkPacketsInPerSecondMaximum"
+  | "UtilizationMetricsNetworkPacketsOutPerSecondMaximum"
+  | "CurrentOnDemandPrice"
+  | "CurrentStandardOneYearNoUpfrontReservedPrice"
+  | "CurrentStandardThreeYearNoUpfrontReservedPrice"
+  | "CurrentVCpus"
+  | "CurrentMemory"
+  | "CurrentStorage"
+  | "CurrentNetwork"
+  | "RecommendationOptionsInstanceType"
+  | "RecommendationOptionsProjectedUtilizationMetricsCpuMaximum"
+  | "RecommendationOptionsProjectedUtilizationMetricsMemoryMaximum"
+  | "RecommendationOptionsPlatformDifferences"
+  | "RecommendationOptionsPerformanceRisk"
+  | "RecommendationOptionsVcpus"
+  | "RecommendationOptionsMemory"
+  | "RecommendationOptionsStorage"
+  | "RecommendationOptionsNetwork"
+  | "RecommendationOptionsOnDemandPrice"
+  | "RecommendationOptionsStandardOneYearNoUpfrontReservedPrice"
+  | "RecommendationOptionsStandardThreeYearNoUpfrontReservedPrice"
+  | "RecommendationsSourcesRecommendationSourceArn"
+  | "RecommendationsSourcesRecommendationSourceType"
+  | "LastRefreshTimestamp"
+  | "CurrentPerformanceRisk"
+  | "RecommendationOptionsSavingsOpportunityPercentage"
+  | "RecommendationOptionsEstimatedMonthlySavingsCurrency"
+  | "RecommendationOptionsEstimatedMonthlySavingsValue"
+  | "EffectiveRecommendationPreferencesCpuVendorArchitectures"
+  | "EffectiveRecommendationPreferencesEnhancedInfrastructureMetrics"
+  | "EffectiveRecommendationPreferencesInferredWorkloadTypes"
+  | "InferredWorkloadTypes"
+  | "RecommendationOptionsMigrationEffort"
+  | "EffectiveRecommendationPreferencesExternalMetricsSource"
+  | "Tags"
+  | "InstanceState"
+  | "ExternalMetricStatusCode"
+  | "ExternalMetricStatusReason"
+  | "CurrentInstanceGpuInfo"
+  | "RecommendationOptionsInstanceGpuInfo"
+  | "UtilizationMetricsGpuPercentageMaximum"
+  | "UtilizationMetricsGpuMemoryPercentageMaximum"
+  | "RecommendationOptionsProjectedUtilizationMetricsGpuPercentageMaximum"
+  | "RecommendationOptionsProjectedUtilizationMetricsGpuMemoryPercentageMaximum"
+  | "Idle"
+  | "EffectiveRecommendationPreferencesPreferredResources"
+  | "EffectiveRecommendationPreferencesLookBackPeriod"
+  | "EffectiveRecommendationPreferencesUtilizationPreferences"
+  | "EffectiveRecommendationPreferencesSavingsEstimationMode"
+  | "RecommendationOptionsSavingsOpportunityAfterDiscountsPercentage"
+  | "RecommendationOptionsEstimatedMonthlySavingsCurrencyAfterDiscounts"
+  | "RecommendationOptionsEstimatedMonthlySavingsValueAfterDiscounts";
 export type ExportableInstanceFields = Array<ExportableInstanceField>;
 export type ExportableLambdaFunctionField =
-  | "ACCOUNT_ID"
-  | "FUNCTION_ARN"
-  | "FUNCTION_VERSION"
-  | "FINDING"
-  | "FINDING_REASON_CODES"
-  | "NUMBER_OF_INVOCATIONS"
-  | "UTILIZATION_METRICS_DURATION_MAXIMUM"
-  | "UTILIZATION_METRICS_DURATION_AVERAGE"
-  | "UTILIZATION_METRICS_MEMORY_MAXIMUM"
-  | "UTILIZATION_METRICS_MEMORY_AVERAGE"
-  | "LOOKBACK_PERIOD_IN_DAYS"
-  | "CURRENT_CONFIGURATION_MEMORY_SIZE"
-  | "CURRENT_CONFIGURATION_TIMEOUT"
-  | "CURRENT_COST_TOTAL"
-  | "CURRENT_COST_AVERAGE"
-  | "RECOMMENDATION_OPTIONS_CONFIGURATION_MEMORY_SIZE"
-  | "RECOMMENDATION_OPTIONS_COST_LOW"
-  | "RECOMMENDATION_OPTIONS_COST_HIGH"
-  | "RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_DURATION_LOWER_BOUND"
-  | "RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_DURATION_UPPER_BOUND"
-  | "RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_DURATION_EXPECTED"
-  | "LAST_REFRESH_TIMESTAMP"
-  | "CURRENT_PERFORMANCE_RISK"
-  | "RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_PERCENTAGE"
-  | "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY"
-  | "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE"
-  | "TAGS"
-  | "EFFECTIVE_RECOMMENDATION_PREFERENCES_SAVINGS_ESTIMATION_MODE"
-  | "RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_AFTER_DISCOUNTS_PERCENTAGE"
-  | "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY_AFTER_DISCOUNTS"
-  | "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE_AFTER_DISCOUNTS";
+  | "AccountId"
+  | "FunctionArn"
+  | "FunctionVersion"
+  | "Finding"
+  | "FindingReasonCodes"
+  | "NumberOfInvocations"
+  | "UtilizationMetricsDurationMaximum"
+  | "UtilizationMetricsDurationAverage"
+  | "UtilizationMetricsMemoryMaximum"
+  | "UtilizationMetricsMemoryAverage"
+  | "LookbackPeriodInDays"
+  | "CurrentConfigurationMemorySize"
+  | "CurrentConfigurationTimeout"
+  | "CurrentCostTotal"
+  | "CurrentCostAverage"
+  | "RecommendationOptionsConfigurationMemorySize"
+  | "RecommendationOptionsCostLow"
+  | "RecommendationOptionsCostHigh"
+  | "RecommendationOptionsProjectedUtilizationMetricsDurationLowerBound"
+  | "RecommendationOptionsProjectedUtilizationMetricsDurationUpperBound"
+  | "RecommendationOptionsProjectedUtilizationMetricsDurationExpected"
+  | "LastRefreshTimestamp"
+  | "CurrentPerformanceRisk"
+  | "RecommendationOptionsSavingsOpportunityPercentage"
+  | "RecommendationOptionsEstimatedMonthlySavingsCurrency"
+  | "RecommendationOptionsEstimatedMonthlySavingsValue"
+  | "Tags"
+  | "EffectiveRecommendationPreferencesSavingsEstimationMode"
+  | "RecommendationOptionsSavingsOpportunityAfterDiscountsPercentage"
+  | "RecommendationOptionsEstimatedMonthlySavingsCurrencyAfterDiscounts"
+  | "RecommendationOptionsEstimatedMonthlySavingsValueAfterDiscounts";
 export type ExportableLambdaFunctionFields =
   Array<ExportableLambdaFunctionField>;
 export type ExportableLicenseField =
-  | "ACCOUNT_ID"
-  | "RESOURCE_ARN"
-  | "LOOKBACK_PERIOD_IN_DAYS"
-  | "LAST_REFRESH_TIMESTAMP"
-  | "LICENSE_FINDING"
-  | "LICENSE_FINDING_REASON_CODES"
-  | "CURRENT_LICENSE_CONFIGURATION_NUMBER_OF_CORES"
-  | "CURRENT_LICENSE_CONFIGURATION_INSTANCE_TYPE"
-  | "CURRENT_LICENSE_CONFIGURATION_OPERATING_SYSTEM"
-  | "CURRENT_LICENSE_CONFIGURATION_LICENSE_NAME"
-  | "CURRENT_LICENSE_CONFIGURATION_LICENSE_EDITION"
-  | "CURRENT_LICENSE_CONFIGURATION_LICENSE_MODEL"
-  | "CURRENT_LICENSE_CONFIGURATION_LICENSE_VERSION"
-  | "CURRENT_LICENSE_CONFIGURATION_METRICS_SOURCE"
-  | "RECOMMENDATION_OPTIONS_OPERATING_SYSTEM"
-  | "RECOMMENDATION_OPTIONS_LICENSE_EDITION"
-  | "RECOMMENDATION_OPTIONS_LICENSE_MODEL"
-  | "RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_PERCENTAGE"
-  | "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY"
-  | "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE"
-  | "TAGS";
+  | "AccountId"
+  | "ResourceArn"
+  | "LookbackPeriodInDays"
+  | "LastRefreshTimestamp"
+  | "Finding"
+  | "FindingReasonCodes"
+  | "CurrentLicenseConfigurationNumberOfCores"
+  | "CurrentLicenseConfigurationInstanceType"
+  | "CurrentLicenseConfigurationOperatingSystem"
+  | "CurrentLicenseConfigurationLicenseName"
+  | "CurrentLicenseConfigurationLicenseEdition"
+  | "CurrentLicenseConfigurationLicenseModel"
+  | "CurrentLicenseConfigurationLicenseVersion"
+  | "CurrentLicenseConfigurationMetricsSource"
+  | "RecommendationOptionsOperatingSystem"
+  | "RecommendationOptionsLicenseEdition"
+  | "RecommendationOptionsLicenseModel"
+  | "RecommendationOptionsSavingsOpportunityPercentage"
+  | "RecommendationOptionsEstimatedMonthlySavingsCurrency"
+  | "RecommendationOptionsEstimatedMonthlySavingsValue"
+  | "Tags";
 export type ExportableLicenseFields = Array<ExportableLicenseField>;
 export type ExportableRDSDBField =
-  | "RESOURCE_ARN"
-  | "ACCOUNT_ID"
-  | "ENGINE"
-  | "ENGINE_VERSION"
-  | "IDLE"
-  | "MULTI_AZ_DB_INSTANCE"
-  | "CLUSTER_WRITER"
-  | "CURRENT_DB_INSTANCE_CLASS"
-  | "CURRENT_STORAGE_CONFIGURATION_STORAGE_TYPE"
-  | "CURRENT_STORAGE_CONFIGURATION_ALLOCATED_STORAGE"
-  | "CURRENT_STORAGE_CONFIGURATION_MAX_ALLOCATED_STORAGE"
-  | "CURRENT_STORAGE_CONFIGURATION_IOPS"
-  | "CURRENT_STORAGE_CONFIGURATION_STORAGE_THROUGHPUT"
-  | "CURRENT_STORAGE_ESTIMATED_MONTHLY_VOLUME_IOPS_COST_VARIATION"
-  | "CURRENT_INSTANCE_ON_DEMAND_HOURLY_PRICE"
-  | "CURRENT_STORAGE_ON_DEMAND_MONTHLY_PRICE"
-  | "LOOKBACK_PERIOD_IN_DAYS"
-  | "CURRENT_STORAGE_ESTIMATED_CLUSTER_INSTANCE_ON_DEMAND_MONTHLY_COST"
-  | "CURRENT_STORAGE_ESTIMATED_CLUSTER_STORAGE_ON_DEMAND_MONTHLY_COST"
-  | "CURRENT_STORAGE_ESTIMATED_CLUSTER_STORAGE_IO_ON_DEMAND_MONTHLY_COST"
-  | "CURRENT_INSTANCE_PERFORMANCE_RISK"
-  | "UTILIZATION_METRICS_CPU_MAXIMUM"
-  | "UTILIZATION_METRICS_MEMORY_MAXIMUM"
-  | "UTILIZATION_METRICS_EBS_VOLUME_STORAGE_SPACE_UTILIZATION_MAXIMUM"
-  | "UTILIZATION_METRICS_NETWORK_RECEIVE_THROUGHPUT_MAXIMUM"
-  | "UTILIZATION_METRICS_NETWORK_TRANSMIT_THROUGHPUT_MAXIMUM"
-  | "UTILIZATION_METRICS_EBS_VOLUME_READ_IOPS_MAXIMUM"
-  | "UTILIZATION_METRICS_EBS_VOLUME_WRITE_IOPS_MAXIMUM"
-  | "UTILIZATION_METRICS_EBS_VOLUME_READ_THROUGHPUT_MAXIMUM"
-  | "UTILIZATION_METRICS_EBS_VOLUME_WRITE_THROUGHPUT_MAXIMUM"
-  | "UTILIZATION_METRICS_DATABASE_CONNECTIONS_MAXIMUM"
-  | "UTILIZATION_METRICS_STORAGE_NETWORK_RECEIVE_THROUGHPUT_MAXIMUM"
-  | "UTILIZATION_METRICS_STORAGE_NETWORK_TRANSMIT_THROUGHPUT_MAXIMUM"
-  | "UTILIZATION_METRICS_AURORA_MEMORY_HEALTH_STATE_MAXIMUM"
-  | "UTILIZATION_METRICS_AURORA_MEMORY_NUM_DECLINED_SQL_TOTAL_MAXIMUM"
-  | "UTILIZATION_METRICS_AURORA_MEMORY_NUM_KILL_CONN_TOTAL_MAXIMUM"
-  | "UTILIZATION_METRICS_AURORA_MEMORY_NUM_KILL_QUERY_TOTAL_MAXIMUM"
-  | "UTILIZATION_METRICS_READ_IOPS_EPHEMERAL_STORAGE_MAXIMUM"
-  | "UTILIZATION_METRICS_WRITE_IOPS_EPHEMERAL_STORAGE_MAXIMUM"
-  | "UTILIZATION_METRICS_VOLUME_BYTES_USED_AVERAGE"
-  | "UTILIZATION_METRICS_VOLUME_READ_IOPS_AVERAGE"
-  | "UTILIZATION_METRICS_VOLUME_WRITE_IOPS_AVERAGE"
-  | "INSTANCE_FINDING"
-  | "INSTANCE_FINDING_REASON_CODES"
-  | "STORAGE_FINDING"
-  | "STORAGE_FINDING_REASON_CODES"
-  | "INSTANCE_RECOMMENDATION_OPTIONS_DB_INSTANCE_CLASS"
-  | "INSTANCE_RECOMMENDATION_OPTIONS_RANK"
-  | "INSTANCE_RECOMMENDATION_OPTIONS_PERFORMANCE_RISK"
-  | "INSTANCE_RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_CPU_MAXIMUM"
-  | "STORAGE_RECOMMENDATION_OPTIONS_STORAGE_TYPE"
-  | "STORAGE_RECOMMENDATION_OPTIONS_ALLOCATED_STORAGE"
-  | "STORAGE_RECOMMENDATION_OPTIONS_MAX_ALLOCATED_STORAGE"
-  | "STORAGE_RECOMMENDATION_OPTIONS_IOPS"
-  | "STORAGE_RECOMMENDATION_OPTIONS_STORAGE_THROUGHPUT"
-  | "STORAGE_RECOMMENDATION_OPTIONS_RANK"
-  | "STORAGE_RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_VOLUME_IOPS_COST_VARIATION"
-  | "INSTANCE_RECOMMENDATION_OPTIONS_INSTANCE_ON_DEMAND_HOURLY_PRICE"
-  | "INSTANCE_RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_PERCENTAGE"
-  | "INSTANCE_RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY"
-  | "INSTANCE_RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE"
-  | "INSTANCE_RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_AFTER_DISCOUNTS_PERCENTAGE"
-  | "INSTANCE_RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY_AFTER_DISCOUNTS"
-  | "INSTANCE_RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE_AFTER_DISCOUNTS"
-  | "STORAGE_RECOMMENDATION_OPTIONS_ON_DEMAND_MONTHLY_PRICE"
-  | "STORAGE_RECOMMENDATION_OPTIONS_ESTIMATED_CLUSTER_INSTANCE_ON_DEMAND_MONTHLY_COST"
-  | "STORAGE_RECOMMENDATION_OPTIONS_ESTIMATED_CLUSTER_STORAGE_ON_DEMAND_MONTHLY_COST"
-  | "STORAGE_RECOMMENDATION_OPTIONS_ESTIMATED_CLUSTER_STORAGE_IO_ON_DEMAND_MONTHLY_COST"
-  | "STORAGE_RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_PERCENTAGE"
-  | "STORAGE_RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY"
-  | "STORAGE_RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE"
-  | "STORAGE_RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_AFTER_DISCOUNTS_PERCENTAGE"
-  | "STORAGE_RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY_AFTER_DISCOUNTS"
-  | "STORAGE_RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE_AFTER_DISCOUNTS"
-  | "EFFECTIVE_RECOMMENDATION_PREFERENCES_CPU_VENDOR_ARCHITECTURES"
-  | "EFFECTIVE_RECOMMENDATION_PREFERENCES_ENHANCED_INFRASTRUCTURE_METRICS"
-  | "EFFECTIVE_RECOMMENDATION_PREFERENCES_LOOKBACK_PERIOD"
-  | "EFFECTIVE_RECOMMENDATION_PREFERENCES_SAVINGS_ESTIMATION_MODE"
-  | "LAST_REFRESH_TIMESTAMP"
-  | "TAGS"
-  | "DB_CLUSTER_IDENTIFIER"
-  | "PROMOTION_TIER";
+  | "ResourceArn"
+  | "AccountId"
+  | "Engine"
+  | "EngineVersion"
+  | "Idle"
+  | "MultiAZDBInstance"
+  | "ClusterWriter"
+  | "CurrentDBInstanceClass"
+  | "CurrentStorageConfigurationStorageType"
+  | "CurrentStorageConfigurationAllocatedStorage"
+  | "CurrentStorageConfigurationMaxAllocatedStorage"
+  | "CurrentStorageConfigurationIOPS"
+  | "CurrentStorageConfigurationStorageThroughput"
+  | "CurrentStorageEstimatedMonthlyVolumeIOPsCostVariation"
+  | "CurrentInstanceOnDemandHourlyPrice"
+  | "CurrentStorageOnDemandMonthlyPrice"
+  | "LookbackPeriodInDays"
+  | "CurrentStorageEstimatedClusterInstanceOnDemandMonthlyCost"
+  | "CurrentStorageEstimatedClusterStorageOnDemandMonthlyCost"
+  | "CurrentStorageEstimatedClusterStorageIOOnDemandMonthlyCost"
+  | "CurrentInstancePerformanceRisk"
+  | "UtilizationMetricsCpuMaximum"
+  | "UtilizationMetricsMemoryMaximum"
+  | "UtilizationMetricsEBSVolumeStorageSpaceUtilizationMaximum"
+  | "UtilizationMetricsNetworkReceiveThroughputMaximum"
+  | "UtilizationMetricsNetworkTransmitThroughputMaximum"
+  | "UtilizationMetricsEBSVolumeReadIOPSMaximum"
+  | "UtilizationMetricsEBSVolumeWriteIOPSMaximum"
+  | "UtilizationMetricsEBSVolumeReadThroughputMaximum"
+  | "UtilizationMetricsEBSVolumeWriteThroughputMaximum"
+  | "UtilizationMetricsDatabaseConnectionsMaximum"
+  | "UtilizationMetricsStorageNetworkReceiveThroughputMaximum"
+  | "UtilizationMetricsStorageNetworkTransmitThroughputMaximum"
+  | "UtilizationMetricsAuroraMemoryHealthStateMaximum"
+  | "UtilizationMetricsAuroraMemoryNumDeclinedSqlTotalMaximum"
+  | "UtilizationMetricsAuroraMemoryNumKillConnTotalMaximum"
+  | "UtilizationMetricsAuroraMemoryNumKillQueryTotalMaximum"
+  | "UtilizationMetricsReadIOPSEphemeralStorageMaximum"
+  | "UtilizationMetricsWriteIOPSEphemeralStorageMaximum"
+  | "UtilizationMetricsVolumeBytesUsedAverage"
+  | "UtilizationMetricsVolumeReadIOPsAverage"
+  | "UtilizationMetricsVolumeWriteIOPsAverage"
+  | "InstanceFinding"
+  | "InstanceFindingReasonCodes"
+  | "StorageFinding"
+  | "StorageFindingReasonCodes"
+  | "InstanceRecommendationOptionsDBInstanceClass"
+  | "InstanceRecommendationOptionsRank"
+  | "InstanceRecommendationOptionsPerformanceRisk"
+  | "InstanceRecommendationOptionsProjectedUtilizationMetricsCpuMaximum"
+  | "StorageRecommendationOptionsStorageType"
+  | "StorageRecommendationOptionsAllocatedStorage"
+  | "StorageRecommendationOptionsMaxAllocatedStorage"
+  | "StorageRecommendationOptionsIOPS"
+  | "StorageRecommendationOptionsStorageThroughput"
+  | "StorageRecommendationOptionsRank"
+  | "StorageRecommendationOptionsEstimatedMonthlyVolumeIOPsCostVariation"
+  | "InstanceRecommendationOptionsInstanceOnDemandHourlyPrice"
+  | "InstanceRecommendationOptionsSavingsOpportunityPercentage"
+  | "InstanceRecommendationOptionsEstimatedMonthlySavingsCurrency"
+  | "InstanceRecommendationOptionsEstimatedMonthlySavingsValue"
+  | "InstanceRecommendationOptionsSavingsOpportunityAfterDiscountsPercentage"
+  | "InstanceRecommendationOptionsEstimatedMonthlySavingsCurrencyAfterDiscounts"
+  | "InstanceRecommendationOptionsEstimatedMonthlySavingsValueAfterDiscounts"
+  | "StorageRecommendationOptionsOnDemandMonthlyPrice"
+  | "StorageRecommendationOptionsEstimatedClusterInstanceOnDemandMonthlyCost"
+  | "StorageRecommendationOptionsEstimatedClusterStorageOnDemandMonthlyCost"
+  | "StorageRecommendationOptionsEstimatedClusterStorageIOOnDemandMonthlyCost"
+  | "StorageRecommendationOptionsSavingsOpportunityPercentage"
+  | "StorageRecommendationOptionsEstimatedMonthlySavingsCurrency"
+  | "StorageRecommendationOptionsEstimatedMonthlySavingsValue"
+  | "StorageRecommendationOptionsSavingsOpportunityAfterDiscountsPercentage"
+  | "StorageRecommendationOptionsEstimatedMonthlySavingsCurrencyAfterDiscounts"
+  | "StorageRecommendationOptionsEstimatedMonthlySavingsValueAfterDiscounts"
+  | "EffectiveRecommendationPreferencesCpuVendorArchitectures"
+  | "EffectiveRecommendationPreferencesEnhancedInfrastructureMetrics"
+  | "EffectiveRecommendationPreferencesLookBackPeriod"
+  | "EffectiveRecommendationPreferencesSavingsEstimationMode"
+  | "LastRefreshTimestamp"
+  | "Tags"
+  | "DBClusterIdentifier"
+  | "PromotionTier";
 export type ExportableRDSDBFields = Array<ExportableRDSDBField>;
 export type ExportableVolumeField =
-  | "ACCOUNT_ID"
-  | "VOLUME_ARN"
-  | "FINDING"
-  | "UTILIZATION_METRICS_VOLUME_READ_OPS_PER_SECOND_MAXIMUM"
-  | "UTILIZATION_METRICS_VOLUME_WRITE_OPS_PER_SECOND_MAXIMUM"
-  | "UTILIZATION_METRICS_VOLUME_READ_BYTES_PER_SECOND_MAXIMUM"
-  | "UTILIZATION_METRICS_VOLUME_WRITE_BYTES_PER_SECOND_MAXIMUM"
-  | "LOOKBACK_PERIOD_IN_DAYS"
-  | "CURRENT_CONFIGURATION_VOLUME_TYPE"
-  | "CURRENT_CONFIGURATION_VOLUME_BASELINE_IOPS"
-  | "CURRENT_CONFIGURATION_VOLUME_BASELINE_THROUGHPUT"
-  | "CURRENT_CONFIGURATION_VOLUME_BURST_IOPS"
-  | "CURRENT_CONFIGURATION_VOLUME_BURST_THROUGHPUT"
-  | "CURRENT_CONFIGURATION_VOLUME_SIZE"
-  | "CURRENT_MONTHLY_PRICE"
-  | "RECOMMENDATION_OPTIONS_CONFIGURATION_VOLUME_TYPE"
-  | "RECOMMENDATION_OPTIONS_CONFIGURATION_VOLUME_BASELINE_IOPS"
-  | "RECOMMENDATION_OPTIONS_CONFIGURATION_VOLUME_BASELINE_THROUGHPUT"
-  | "RECOMMENDATION_OPTIONS_CONFIGURATION_VOLUME_BURST_IOPS"
-  | "RECOMMENDATION_OPTIONS_CONFIGURATION_VOLUME_BURST_THROUGHPUT"
-  | "RECOMMENDATION_OPTIONS_CONFIGURATION_VOLUME_SIZE"
-  | "RECOMMENDATION_OPTIONS_MONTHLY_PRICE"
-  | "RECOMMENDATION_OPTIONS_PERFORMANCE_RISK"
-  | "LAST_REFRESH_TIMESTAMP"
-  | "CURRENT_PERFORMANCE_RISK"
-  | "RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_PERCENTAGE"
-  | "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY"
-  | "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE"
-  | "TAGS"
-  | "ROOT_VOLUME"
-  | "CURRENT_CONFIGURATION_ROOT_VOLUME"
-  | "EFFECTIVE_RECOMMENDATION_PREFERENCES_SAVINGS_ESTIMATION_MODE"
-  | "RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_AFTER_DISCOUNTS_PERCENTAGE"
-  | "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY_AFTER_DISCOUNTS"
-  | "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE_AFTER_DISCOUNTS";
+  | "AccountId"
+  | "VolumeArn"
+  | "Finding"
+  | "UtilizationMetricsVolumeReadOpsPerSecondMaximum"
+  | "UtilizationMetricsVolumeWriteOpsPerSecondMaximum"
+  | "UtilizationMetricsVolumeReadBytesPerSecondMaximum"
+  | "UtilizationMetricsVolumeWriteBytesPerSecondMaximum"
+  | "LookbackPeriodInDays"
+  | "CurrentConfigurationVolumeType"
+  | "CurrentConfigurationVolumeBaselineIOPS"
+  | "CurrentConfigurationVolumeBaselineThroughput"
+  | "CurrentConfigurationVolumeBurstIOPS"
+  | "CurrentConfigurationVolumeBurstThroughput"
+  | "CurrentConfigurationVolumeSize"
+  | "CurrentMonthlyPrice"
+  | "RecommendationOptionsConfigurationVolumeType"
+  | "RecommendationOptionsConfigurationVolumeBaselineIOPS"
+  | "RecommendationOptionsConfigurationVolumeBaselineThroughput"
+  | "RecommendationOptionsConfigurationVolumeBurstIOPS"
+  | "RecommendationOptionsConfigurationVolumeBurstThroughput"
+  | "RecommendationOptionsConfigurationVolumeSize"
+  | "RecommendationOptionsMonthlyPrice"
+  | "RecommendationOptionsPerformanceRisk"
+  | "LastRefreshTimestamp"
+  | "CurrentPerformanceRisk"
+  | "RecommendationOptionsSavingsOpportunityPercentage"
+  | "RecommendationOptionsEstimatedMonthlySavingsCurrency"
+  | "RecommendationOptionsEstimatedMonthlySavingsValue"
+  | "Tags"
+  | "RootVolume"
+  | "CurrentConfigurationRootVolume"
+  | "EffectiveRecommendationPreferencesSavingsEstimationMode"
+  | "RecommendationOptionsSavingsOpportunityAfterDiscountsPercentage"
+  | "RecommendationOptionsEstimatedMonthlySavingsCurrencyAfterDiscounts"
+  | "RecommendationOptionsEstimatedMonthlySavingsValueAfterDiscounts";
 export type ExportableVolumeFields = Array<ExportableVolumeField>;
 export interface ExportAutoScalingGroupRecommendationsRequest {
   accountIds?: Array<string>;
@@ -1195,10 +1195,10 @@ export interface ExternalMetricsPreference {
   source?: ExternalMetricsSource;
 }
 export type ExternalMetricsSource =
-  | "DATADOG"
-  | "DYNATRACE"
-  | "NEWRELIC"
-  | "INSTANA";
+  | "Datadog"
+  | "Dynatrace"
+  | "NewRelic"
+  | "Instana";
 export interface ExternalMetricStatus {
   statusCode?: ExternalMetricStatusCode;
   statusReason?: string;
@@ -1218,28 +1218,28 @@ export type ExternalMetricStatusReason = string;
 
 export type FailureReason = string;
 
-export type FileFormat = "CSV";
+export type FileFormat = "Csv";
 export interface Filter {
   name?: FilterName;
   values?: Array<string>;
 }
 export type FilterName =
-  | "FINDING"
-  | "FINDING_REASON_CODES"
-  | "RECOMMENDATION_SOURCE_TYPE"
-  | "INFERRED_WORKLOAD_TYPES";
+  | "Finding"
+  | "FindingReasonCodes"
+  | "RecommendationSourceType"
+  | "InferredWorkloadTypes";
 export type Filters = Array<Filter>;
 export type FilterValue = string;
 
 export type FilterValues = Array<string>;
 export type Finding =
-  | "UNDER_PROVISIONED"
-  | "OVER_PROVISIONED"
-  | "OPTIMIZED"
-  | "NOT_OPTIMIZED";
+  | "Underprovisioned"
+  | "Overprovisioned"
+  | "Optimized"
+  | "NotOptimized";
 export type FindingReasonCode =
-  | "MEMORY_OVER_PROVISIONED"
-  | "MEMORY_UNDER_PROVISIONED";
+  | "MemoryOverprovisioned"
+  | "MemoryUnderprovisioned";
 export type FunctionArn = string;
 
 export type FunctionArns = Array<string>;
@@ -1444,26 +1444,26 @@ export type High = number;
 
 export type Identifier = string;
 
-export type Idle = "TRUE" | "FALSE";
+export type Idle = "True" | "False";
 export interface IdleEstimatedMonthlySavings {
   currency?: Currency;
   value?: number;
 }
-export type IdleFinding = "IDLE" | "UNATTACHED";
+export type IdleFinding = "Idle" | "Unattached";
 export type IdleFindingDescription = string;
 
 export type IdleMaxResults = number;
 
 export type IdleMetricName =
   | "CPU"
-  | "MEMORY"
-  | "NETWORK_OUT_BYTES_PER_SECOND"
-  | "NETWORK_IN_BYTES_PER_SECOND"
-  | "DATABASE_CONNECTIONS"
-  | "EBS_VOLUME_READ_IOPS"
-  | "EBS_VOLUME_WRITE_IOPS"
-  | "VOLUME_READ_OPS_PER_SECOND"
-  | "VOLUME_WRITE_OPS_PER_SECOND";
+  | "Memory"
+  | "NetworkOutBytesPerSecond"
+  | "NetworkInBytesPerSecond"
+  | "DatabaseConnections"
+  | "EBSVolumeReadIOPS"
+  | "EBSVolumeWriteIOPS"
+  | "VolumeReadOpsPerSecond"
+  | "VolumeWriteOpsPerSecond";
 export interface IdleRecommendation {
   resourceArn?: string;
   resourceId?: string;
@@ -1489,14 +1489,14 @@ export interface IdleRecommendationFilter {
   name?: IdleRecommendationFilterName;
   values?: Array<string>;
 }
-export type IdleRecommendationFilterName = "FINDING" | "RESOURCE_TYPE";
+export type IdleRecommendationFilterName = "Finding" | "ResourceType";
 export type IdleRecommendationFilters = Array<IdleRecommendationFilter>;
 export type IdleRecommendationResourceType =
-  | "EC2_INSTANCE"
-  | "AUTO_SCALING_GROUP"
-  | "EBS_VOLUME"
-  | "ECS_SERVICE"
-  | "RDS_DB_INSTANCE";
+  | "EC2Instance"
+  | "AutoScalingGroup"
+  | "EBSVolume"
+  | "ECSService"
+  | "RDSDBInstance";
 export type IdleRecommendations = Array<IdleRecommendation>;
 export interface IdleSavingsOpportunity {
   savingsOpportunityPercentage?: number;
@@ -1525,17 +1525,17 @@ export interface InferredWorkloadSaving {
 }
 export type InferredWorkloadSavings = Array<InferredWorkloadSaving>;
 export type InferredWorkloadType =
-  | "AMAZON_EMR"
-  | "APACHE_CASSANDRA"
-  | "APACHE_HADOOP"
-  | "MEMCACHED"
-  | "NGINX"
-  | "POSTGRE_SQL"
-  | "REDIS"
-  | "KAFKA"
-  | "SQLSERVER";
+  | "AmazonEmr"
+  | "ApacheCassandra"
+  | "ApacheHadoop"
+  | "Memcached"
+  | "Nginx"
+  | "PostgreSql"
+  | "Redis"
+  | "Kafka"
+  | "SQLServer";
 export type InferredWorkloadTypes = Array<InferredWorkloadType>;
-export type InferredWorkloadTypesPreference = "ACTIVE" | "INACTIVE";
+export type InferredWorkloadTypesPreference = "Active" | "Inactive";
 export type InstanceArn = string;
 
 export type InstanceArns = Array<string>;
@@ -1543,7 +1543,7 @@ export interface InstanceEstimatedMonthlySavings {
   currency?: Currency;
   value?: number;
 }
-export type InstanceIdle = "TRUE" | "FALSE";
+export type InstanceIdle = "True" | "False";
 export type InstanceName = string;
 
 export interface InstanceRecommendation {
@@ -1568,26 +1568,26 @@ export interface InstanceRecommendation {
   idle?: InstanceIdle;
 }
 export type InstanceRecommendationFindingReasonCode =
-  | "CPU_OVER_PROVISIONED"
-  | "CPU_UNDER_PROVISIONED"
-  | "MEMORY_OVER_PROVISIONED"
-  | "MEMORY_UNDER_PROVISIONED"
-  | "EBS_THROUGHPUT_OVER_PROVISIONED"
-  | "EBS_THROUGHPUT_UNDER_PROVISIONED"
-  | "EBS_IOPS_OVER_PROVISIONED"
-  | "EBS_IOPS_UNDER_PROVISIONED"
-  | "NETWORK_BANDWIDTH_OVER_PROVISIONED"
-  | "NETWORK_BANDWIDTH_UNDER_PROVISIONED"
-  | "NETWORK_PPS_OVER_PROVISIONED"
-  | "NETWORK_PPS_UNDER_PROVISIONED"
-  | "DISK_IOPS_OVER_PROVISIONED"
-  | "DISK_IOPS_UNDER_PROVISIONED"
-  | "DISK_THROUGHPUT_OVER_PROVISIONED"
-  | "DISK_THROUGHPUT_UNDER_PROVISIONED"
-  | "GPU_UNDER_PROVISIONED"
-  | "GPU_OVER_PROVISIONED"
-  | "GPU_MEMORY_UNDER_PROVISIONED"
-  | "GPU_MEMORY_OVER_PROVISIONED";
+  | "CPUOverprovisioned"
+  | "CPUUnderprovisioned"
+  | "MemoryOverprovisioned"
+  | "MemoryUnderprovisioned"
+  | "EBSThroughputOverprovisioned"
+  | "EBSThroughputUnderprovisioned"
+  | "EBSIOPSOverprovisioned"
+  | "EBSIOPSUnderprovisioned"
+  | "NetworkBandwidthOverprovisioned"
+  | "NetworkBandwidthUnderprovisioned"
+  | "NetworkPPSOverprovisioned"
+  | "NetworkPPSUnderprovisioned"
+  | "DiskIOPSOverprovisioned"
+  | "DiskIOPSUnderprovisioned"
+  | "DiskThroughputOverprovisioned"
+  | "DiskThroughputUnderprovisioned"
+  | "GPUUnderprovisioned"
+  | "GPUOverprovisioned"
+  | "GPUMemoryUnderprovisioned"
+  | "GPUMemoryOverprovisioned";
 export type InstanceRecommendationFindingReasonCodes =
   Array<InstanceRecommendationFindingReasonCode>;
 export interface InstanceRecommendationOption {
@@ -1606,20 +1606,20 @@ export interface InstanceSavingsEstimationMode {
   source?: InstanceSavingsEstimationModeSource;
 }
 export type InstanceSavingsEstimationModeSource =
-  | "PUBLIC_PRICING"
-  | "COST_EXPLORER_RIGHTSIZING"
-  | "COST_OPTIMIZATION_HUB";
+  | "PublicPricing"
+  | "CostExplorerRightsizing"
+  | "CostOptimizationHub";
 export interface InstanceSavingsOpportunityAfterDiscounts {
   savingsOpportunityPercentage?: number;
   estimatedMonthlySavings?: InstanceEstimatedMonthlySavings;
 }
 export type InstanceState =
-  | "PENDING"
-  | "RUNNING"
-  | "SHUTTING_DOWN"
-  | "TERMINATED"
-  | "STOPPING"
-  | "STOPPED";
+  | "pending"
+  | "running"
+  | "shutting-down"
+  | "terminated"
+  | "stopping"
+  | "stopped";
 export type InstanceType = string;
 
 export declare class InternalServerException extends EffectData.TaggedError(
@@ -1636,12 +1636,12 @@ export interface JobFilter {
   name?: JobFilterName;
   values?: Array<string>;
 }
-export type JobFilterName = "RESOURCE_TYPE" | "JOB_STATUS";
+export type JobFilterName = "ResourceType" | "JobStatus";
 export type JobFilters = Array<JobFilter>;
 export type JobId = string;
 
 export type JobIds = Array<string>;
-export type JobStatus = "QUEUED" | "IN_PROGRESS" | "COMPLETE" | "FAILED";
+export type JobStatus = "Queued" | "InProgress" | "Complete" | "Failed";
 export interface LambdaEffectiveRecommendationPreferences {
   savingsEstimationMode?: LambdaSavingsEstimationMode;
 }
@@ -1649,11 +1649,11 @@ export interface LambdaEstimatedMonthlySavings {
   currency?: Currency;
   value?: number;
 }
-export type LambdaFunctionMemoryMetricName = "DURATION";
+export type LambdaFunctionMemoryMetricName = "Duration";
 export type LambdaFunctionMemoryMetricStatistic =
-  | "LOWER_BOUND"
-  | "UPPER_BOUND"
-  | "EXPECTED";
+  | "LowerBound"
+  | "UpperBound"
+  | "Expected";
 export interface LambdaFunctionMemoryProjectedMetric {
   name?: LambdaFunctionMemoryMetricName;
   statistic?: LambdaFunctionMemoryMetricStatistic;
@@ -1670,8 +1670,8 @@ export interface LambdaFunctionMemoryRecommendationOption {
 }
 export type LambdaFunctionMemoryRecommendationOptions =
   Array<LambdaFunctionMemoryRecommendationOption>;
-export type LambdaFunctionMetricName = "DURATION" | "MEMORY";
-export type LambdaFunctionMetricStatistic = "MAXIMUM" | "AVERAGE";
+export type LambdaFunctionMetricName = "Duration" | "Memory";
+export type LambdaFunctionMetricStatistic = "Maximum" | "Average";
 export interface LambdaFunctionRecommendation {
   functionArn?: string;
   functionVersion?: string;
@@ -1693,19 +1693,19 @@ export interface LambdaFunctionRecommendationFilter {
   values?: Array<string>;
 }
 export type LambdaFunctionRecommendationFilterName =
-  | "FINDING"
-  | "FINDING_REASON_CODE";
+  | "Finding"
+  | "FindingReasonCode";
 export type LambdaFunctionRecommendationFilters =
   Array<LambdaFunctionRecommendationFilter>;
 export type LambdaFunctionRecommendationFinding =
-  | "OPTIMIZED"
-  | "NOT_OPTIMIZED"
-  | "UNAVAILABLE";
+  | "Optimized"
+  | "NotOptimized"
+  | "Unavailable";
 export type LambdaFunctionRecommendationFindingReasonCode =
-  | "MEMORY_OVER_PROVISIONED"
-  | "MEMORY_UNDER_PROVISIONED"
-  | "INSUFFICIENT_DATA"
-  | "INCONCLUSIVE";
+  | "MemoryOverprovisioned"
+  | "MemoryUnderprovisioned"
+  | "InsufficientData"
+  | "Inconclusive";
 export type LambdaFunctionRecommendationFindingReasonCodes =
   Array<LambdaFunctionRecommendationFindingReasonCode>;
 export type LambdaFunctionRecommendations = Array<LambdaFunctionRecommendation>;
@@ -1720,9 +1720,9 @@ export interface LambdaSavingsEstimationMode {
   source?: LambdaSavingsEstimationModeSource;
 }
 export type LambdaSavingsEstimationModeSource =
-  | "PUBLIC_PRICING"
-  | "COST_EXPLORER_RIGHTSIZING"
-  | "COST_OPTIMIZATION_HUB";
+  | "PublicPricing"
+  | "CostExplorerRightsizing"
+  | "CostOptimizationHub";
 export interface LambdaSavingsOpportunityAfterDiscounts {
   savingsOpportunityPercentage?: number;
   estimatedMonthlySavings?: LambdaEstimatedMonthlySavings;
@@ -1742,22 +1742,22 @@ export interface LicenseConfiguration {
   metricsSource?: Array<MetricSource>;
 }
 export type LicenseEdition =
-  | "ENTERPRISE"
-  | "STANDARD"
-  | "FREE"
-  | "NO_LICENSE_EDITION_FOUND";
+  | "Enterprise"
+  | "Standard"
+  | "Free"
+  | "NoLicenseEditionFound";
 export type LicenseFinding =
-  | "INSUFFICIENT_METRICS"
-  | "OPTIMIZED"
-  | "NOT_OPTIMIZED";
+  | "InsufficientMetrics"
+  | "Optimized"
+  | "NotOptimized";
 export type LicenseFindingReasonCode =
-  | "CW_APP_INSIGHTS_DISABLED"
-  | "CW_APP_INSIGHTS_ERROR"
-  | "LICENSE_OVER_PROVISIONED"
-  | "OPTIMIZED";
+  | "InvalidCloudWatchApplicationInsightsSetup"
+  | "CloudWatchApplicationInsightsError"
+  | "LicenseOverprovisioned"
+  | "Optimized";
 export type LicenseFindingReasonCodes = Array<LicenseFindingReasonCode>;
-export type LicenseModel = "LICENSE_INCLUDED" | "BRING_YOUR_OWN_LICENSE";
-export type LicenseName = "SQLSERVER";
+export type LicenseModel = "LicenseIncluded" | "BringYourOwnLicense";
+export type LicenseName = "SQLServer";
 export interface LicenseRecommendation {
   resourceArn?: string;
   accountId?: string;
@@ -1774,9 +1774,9 @@ export interface LicenseRecommendationFilter {
   values?: Array<string>;
 }
 export type LicenseRecommendationFilterName =
-  | "LICENSE_FINDING"
-  | "LICENSE_FINDING_REASON_CODE"
-  | "LICENSE_NAME";
+  | "Finding"
+  | "FindingReasonCode"
+  | "LicenseName";
 export type LicenseRecommendationFilters = Array<LicenseRecommendationFilter>;
 export interface LicenseRecommendationOption {
   rank?: number;
@@ -1820,8 +1820,8 @@ export type Message = string;
 export type MetadataKey = string;
 
 export type MetricName =
-  | "CPU"
-  | "MEMORY"
+  | "Cpu"
+  | "Memory"
   | "EBS_READ_OPS_PER_SECOND"
   | "EBS_WRITE_OPS_PER_SECOND"
   | "EBS_READ_BYTES_PER_SECOND"
@@ -1842,13 +1842,13 @@ export interface MetricSource {
   provider?: MetricSourceProvider;
   providerArn?: string;
 }
-export type MetricSourceProvider = "CloudWatchAppInsights";
+export type MetricSourceProvider = "CloudWatchApplicationInsights";
 export type MetricsSource = Array<MetricSource>;
-export type MetricStatistic = "MAXIMUM" | "AVERAGE";
+export type MetricStatistic = "Maximum" | "Average";
 export type MetricValue = number;
 
 export type MetricValues = Array<number>;
-export type MigrationEffort = "VERY_LOW" | "LOW" | "MEDIUM" | "HIGH";
+export type MigrationEffort = "VeryLow" | "Low" | "Medium" | "High";
 export type MinSize = number;
 
 export declare class MissingAuthenticationToken extends EffectData.TaggedError(
@@ -1890,7 +1890,7 @@ export declare class OptInRequiredException extends EffectData.TaggedError(
 )<{
   readonly message?: string;
 }> {}
-export type Order = "ASC" | "DESC";
+export type Order = "Asc" | "Desc";
 export interface OrderBy {
   dimension?: Dimension;
   order?: Order;
@@ -1900,19 +1900,19 @@ export type PerformanceRisk = number;
 export type Period = number;
 
 export type PlatformDifference =
-  | "HYPERVISOR"
-  | "NETWORK_INTERFACE"
-  | "STORAGE_INTERFACE"
-  | "INSTANCE_STORE_AVAILABILITY"
-  | "VIRTUALIZATION_TYPE"
-  | "ARCHITECTURE";
+  | "Hypervisor"
+  | "NetworkInterface"
+  | "StorageInterface"
+  | "InstanceStoreAvailability"
+  | "VirtualizationType"
+  | "Architecture";
 export type PlatformDifferences = Array<PlatformDifference>;
 export interface PreferredResource {
   name?: PreferredResourceName;
   includeList?: Array<string>;
   excludeList?: Array<string>;
 }
-export type PreferredResourceName = "EC2_INSTANCE_TYPES";
+export type PreferredResourceName = "Ec2InstanceTypes";
 export type PreferredResources = Array<PreferredResource>;
 export type PreferredResourceValue = string;
 
@@ -1941,10 +1941,10 @@ export interface PutRecommendationPreferencesResponse {}
 export type Rank = number;
 
 export type RDSCurrentInstancePerformanceRisk =
-  | "VERY_LOW"
-  | "LOW"
-  | "MEDIUM"
-  | "HIGH";
+  | "VeryLow"
+  | "Low"
+  | "Medium"
+  | "High";
 export interface RDSDatabaseProjectedMetric {
   name?: RDSDBMetricName;
   timestamps?: Array<Date | string>;
@@ -1970,27 +1970,27 @@ export type RDSDBInstanceRecommendationOptions =
   Array<RDSDBInstanceRecommendationOption>;
 export type RDSDBMetricName =
   | "CPU"
-  | "MEMORY"
-  | "EBS_VOLUME_STORAGE_SPACE_UTILIZATION"
-  | "NETWORK_RECEIVE_THROUGHPUT"
-  | "NETWORK_TRANSMIT_THROUGHPUT"
-  | "EBS_VOLUME_READ_IOPS"
-  | "EBS_VOLUME_WRITE_IOPS"
-  | "EBS_VOLUME_READ_THROUGHPUT"
-  | "EBS_VOLUME_WRITE_THROUGHPUT"
-  | "DATABASE_CONNECTIONS"
-  | "STORAGE_NETWORK_RECEIVE_THROUGHPUT"
-  | "STORAGE_NETWORK_TRANSMIT_THROUGHPUT"
-  | "AURORA_MEMORY_HEALTH_STATE"
-  | "AURORA_MEMORY_NUM_DECLINED_SQL"
-  | "AURORA_MEMORY_NUM_KILL_CONN_TOTAL"
-  | "AURORA_MEMORY_NUM_KILL_QUERY_TOTAL"
-  | "READ_IOPS_EPHEMERAL_STORAGE"
-  | "WRITE_IOPS_EPHEMERAL_STORAGE"
-  | "VOLUME_READ_IOPS"
-  | "VOLUME_BYTES_USED"
-  | "VOLUME_WRITE_IOPS";
-export type RDSDBMetricStatistic = "MAXIMUM" | "MINIMUM" | "AVERAGE";
+  | "Memory"
+  | "EBSVolumeStorageSpaceUtilization"
+  | "NetworkReceiveThroughput"
+  | "NetworkTransmitThroughput"
+  | "EBSVolumeReadIOPS"
+  | "EBSVolumeWriteIOPS"
+  | "EBSVolumeReadThroughput"
+  | "EBSVolumeWriteThroughput"
+  | "DatabaseConnections"
+  | "StorageNetworkReceiveThroughput"
+  | "StorageNetworkTransmitThroughput"
+  | "AuroraMemoryHealthState"
+  | "AuroraMemoryNumDeclinedSql"
+  | "AuroraMemoryNumKillConnTotal"
+  | "AuroraMemoryNumKillQueryTotal"
+  | "ReadIOPSEphemeralStorage"
+  | "WriteIOPSEphemeralStorage"
+  | "VolumeReadIOPs"
+  | "VolumeBytesUsed"
+  | "VolumeWriteIOPs";
+export type RDSDBMetricStatistic = "Maximum" | "Minimum" | "Average";
 export type RDSDBProjectedUtilizationMetrics = Array<RDSDBUtilizationMetric>;
 export interface RDSDBRecommendation {
   resourceArn?: string;
@@ -2021,11 +2021,11 @@ export interface RDSDBRecommendationFilter {
   values?: Array<string>;
 }
 export type RDSDBRecommendationFilterName =
-  | "INSTANCE_FINDING"
-  | "INSTANCE_FINDING_REASON_CODE"
-  | "STORAGE_FINDING"
-  | "STORAGE_FINDING_REASON_CODE"
-  | "IDLE";
+  | "InstanceFinding"
+  | "InstanceFindingReasonCode"
+  | "StorageFinding"
+  | "StorageFindingReasonCode"
+  | "Idle";
 export type RDSDBRecommendationFilters = Array<RDSDBRecommendationFilter>;
 export type RDSDBRecommendations = Array<RDSDBRecommendation>;
 export interface RDSDBStorageRecommendationOption {
@@ -2050,33 +2050,33 @@ export interface RDSEffectiveRecommendationPreferences {
   savingsEstimationMode?: RDSSavingsEstimationMode;
 }
 export type RDSEstimatedMonthlyVolumeIOPsCostVariation =
-  | "NONE"
-  | "LOW"
-  | "MEDIUM"
-  | "HIGH";
+  | "None"
+  | "Low"
+  | "Medium"
+  | "High";
 export interface RDSInstanceEstimatedMonthlySavings {
   currency?: Currency;
   value?: number;
 }
 export type RDSInstanceFinding =
-  | "OPTIMIZED"
-  | "UNDER_PROVISIONED"
-  | "OVER_PROVISIONED";
+  | "Optimized"
+  | "Underprovisioned"
+  | "Overprovisioned";
 export type RDSInstanceFindingReasonCode =
-  | "CPU_OVER_PROVISIONED"
-  | "NETWORK_BANDWIDTH_OVER_PROVISIONED"
-  | "EBS_IOPS_OVER_PROVISIONED"
-  | "EBS_IOPS_UNDER_PROVISIONED"
-  | "EBS_THROUGHPUT_OVER_PROVISIONED"
-  | "CPU_UNDER_PROVISIONED"
-  | "NETWORK_BANDWIDTH_UNDER_PROVISIONED"
-  | "EBS_THROUGHPUT_UNDER_PROVISIONED"
-  | "NEW_GENERATION_DB_INSTANCE_CLASS_AVAILABLE"
-  | "NEW_ENGINE_VERSION_AVAILABLE"
-  | "DB_CLUSTER_WRITER_UNDER_PROVISIONED"
-  | "MEMORY_UNDER_PROVISIONED"
-  | "INSTANCE_STORAGE_READ_IOPS_UNDER_PROVISIONED"
-  | "INSTANCE_STORAGE_WRITE_IOPS_UNDER_PROVISIONED";
+  | "CPUOverprovisioned"
+  | "NetworkBandwidthOverprovisioned"
+  | "EBSIOPSOverprovisioned"
+  | "EBSIOPSUnderprovisioned"
+  | "EBSThroughputOverprovisioned"
+  | "CPUUnderprovisioned"
+  | "NetworkBandwidthUnderprovisioned"
+  | "EBSThroughputUnderprovisioned"
+  | "NewGenerationDBInstanceClassAvailable"
+  | "NewEngineVersionAvailable"
+  | "DBClusterWriterUnderprovisioned"
+  | "MemoryUnderprovisioned"
+  | "InstanceStorageReadIOPSUnderprovisioned"
+  | "InstanceStorageWriteIOPSUnderprovisioned";
 export type RDSInstanceFindingReasonCodes = Array<RDSInstanceFindingReasonCode>;
 export interface RDSInstanceSavingsOpportunityAfterDiscounts {
   savingsOpportunityPercentage?: number;
@@ -2086,26 +2086,26 @@ export interface RDSSavingsEstimationMode {
   source?: RDSSavingsEstimationModeSource;
 }
 export type RDSSavingsEstimationModeSource =
-  | "PUBLIC_PRICING"
-  | "COST_EXPLORER_RIGHTSIZING"
-  | "COST_OPTIMIZATION_HUB";
+  | "PublicPricing"
+  | "CostExplorerRightsizing"
+  | "CostOptimizationHub";
 export interface RDSStorageEstimatedMonthlySavings {
   currency?: Currency;
   value?: number;
 }
 export type RDSStorageFinding =
-  | "OPTIMIZED"
-  | "UNDER_PROVISIONED"
-  | "OVER_PROVISIONED"
-  | "NOT_OPTIMIZED";
+  | "Optimized"
+  | "Underprovisioned"
+  | "Overprovisioned"
+  | "NotOptimized";
 export type RDSStorageFindingReasonCode =
-  | "EBS_VOLUME_ALLOCATED_STORAGE_UNDER_PROVISIONED"
-  | "EBS_VOLUME_THROUGHPUT_UNDER_PROVISIONED"
-  | "EBS_VOLUME_IOPS_OVER_PROVISIONED"
-  | "EBS_VOLUME_THROUGHPUT_OVER_PROVISIONED"
-  | "NEW_GENERATION_STORAGE_TYPE_AVAILABLE"
-  | "DB_CLUSTER_STORAGE_OPTION_AVAILABLE"
-  | "DB_CLUSTER_STORAGE_SAVINGS_AVAILABLE";
+  | "EBSVolumeAllocatedStorageUnderprovisioned"
+  | "EBSVolumeThroughputUnderprovisioned"
+  | "EBSVolumeIOPSOverprovisioned"
+  | "EBSVolumeThroughputOverprovisioned"
+  | "NewGenerationStorageTypeAvailable"
+  | "DBClusterStorageOptionAvailable"
+  | "DBClusterStorageSavingsAvailable";
 export type RDSStorageFindingReasonCodes = Array<RDSStorageFindingReasonCode>;
 export interface RDSStorageSavingsOpportunityAfterDiscounts {
   savingsOpportunityPercentage?: number;
@@ -2128,12 +2128,12 @@ export interface RecommendationExportJob {
 export type RecommendationExportJobs = Array<RecommendationExportJob>;
 export type RecommendationOptions = Array<InstanceRecommendationOption>;
 export type RecommendationPreferenceName =
-  | "ENHANCED_INFRASTRUCTURE_METRICS"
-  | "INFERRED_WORKLOAD_TYPES"
-  | "EXTERNAL_METRICS_PREFERENCE"
-  | "LOOKBACK_PERIOD_PREFERENCE"
-  | "PREFERRED_RESOURCES"
-  | "UTILIZATION_PREFERENCES";
+  | "EnhancedInfrastructureMetrics"
+  | "InferredWorkloadTypes"
+  | "ExternalMetricsPreference"
+  | "LookBackPeriodPreference"
+  | "PreferredResources"
+  | "UtilizationPreferences";
 export type RecommendationPreferenceNames = Array<RecommendationPreferenceName>;
 export interface RecommendationPreferences {
   cpuVendorArchitectures?: Array<CpuVendorArchitecture>;
@@ -2159,15 +2159,15 @@ export type RecommendationSourceArn = string;
 
 export type RecommendationSources = Array<RecommendationSource>;
 export type RecommendationSourceType =
-  | "EC2_INSTANCE"
-  | "AUTO_SCALING_GROUP"
-  | "EBS_VOLUME"
-  | "LAMBDA_FUNCTION"
-  | "ECS_SERVICE"
-  | "LICENSE"
-  | "RDS_DB_INSTANCE"
-  | "RDS_DB_INSTANCE_STORAGE"
-  | "AURORA_DB_CLUSTER_STORAGE";
+  | "Ec2Instance"
+  | "AutoScalingGroup"
+  | "EbsVolume"
+  | "LambdaFunction"
+  | "EcsService"
+  | "License"
+  | "RdsDBInstance"
+  | "RdsDBInstanceStorage"
+  | "AuroraDBClusterStorage";
 export type RecommendationSummaries = Array<RecommendationSummary>;
 export interface RecommendationSummary {
   summaries?: Array<Summary>;
@@ -2202,16 +2202,16 @@ export declare class ResourceNotFoundException extends EffectData.TaggedError(
   readonly message?: string;
 }> {}
 export type ResourceType =
-  | "EC2_INSTANCE"
-  | "AUTO_SCALING_GROUP"
-  | "EBS_VOLUME"
-  | "LAMBDA_FUNCTION"
-  | "NOT_APPLICABLE"
-  | "ECS_SERVICE"
-  | "LICENSE"
-  | "RDS_DB_INSTANCE"
-  | "AURORA_DB_CLUSTER_STORAGE"
-  | "IDLE";
+  | "Ec2Instance"
+  | "AutoScalingGroup"
+  | "EbsVolume"
+  | "LambdaFunction"
+  | "NotApplicable"
+  | "EcsService"
+  | "License"
+  | "RdsDBInstance"
+  | "AuroraDBClusterStorage"
+  | "Idle";
 export type RootVolume = boolean;
 
 export interface S3Destination {
@@ -2223,7 +2223,7 @@ export interface S3DestinationConfig {
   bucket?: string;
   keyPrefix?: string;
 }
-export type SavingsEstimationMode = "AFTER_DISCOUNTS" | "BEFORE_DISCOUNTS";
+export type SavingsEstimationMode = "AfterDiscounts" | "BeforeDiscounts";
 export interface SavingsOpportunity {
   savingsOpportunityPercentage?: number;
   estimatedMonthlySavings?: EstimatedMonthlySavings;
@@ -2234,7 +2234,7 @@ export interface Scope {
   name?: ScopeName;
   value?: string;
 }
-export type ScopeName = "ORGANIZATION" | "ACCOUNT_ID" | "RESOURCE_ARN";
+export type ScopeName = "Organization" | "AccountId" | "ResourceArn";
 export type ScopeValue = string;
 
 export type ServiceArn = string;
@@ -2252,7 +2252,7 @@ export declare class ServiceUnavailableException extends EffectData.TaggedError(
 )<{
   readonly message?: string;
 }> {}
-export type Status = "ACTIVE" | "INACTIVE" | "PENDING" | "FAILED";
+export type Status = "Active" | "Inactive" | "Pending" | "Failed";
 export type StatusReason = string;
 
 export type StorageType = string;

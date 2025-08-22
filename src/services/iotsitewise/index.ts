@@ -3145,12 +3145,7 @@ export declare class QueryTimeoutException extends EffectData.TaggedError(
 )<{
   readonly message?: string;
 }> {}
-export type RawValueType =
-  | "DOUBLE"
-  | "BOOLEAN"
-  | "STRING"
-  | "INTEGER"
-  | "UNKNOWN";
+export type RawValueType = "D" | "B" | "S" | "I" | "U";
 export interface Reference {
   dataset?: DataSetReference;
 }

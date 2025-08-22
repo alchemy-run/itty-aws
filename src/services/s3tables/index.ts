@@ -571,7 +571,7 @@ export interface IcebergCompactionSettings {
   targetFileSizeMB?: number;
   strategy?: IcebergCompactionStrategy;
 }
-export type IcebergCompactionStrategy = "AUTO" | "BINPACK" | "SORT" | "ZORDER";
+export type IcebergCompactionStrategy = "auto" | "binpack" | "sort" | "z-order";
 export interface IcebergMetadata {
   schema: IcebergSchema;
 }
@@ -591,7 +591,7 @@ export declare class InternalServerErrorException extends EffectData.TaggedError
 )<{
   readonly message?: string;
 }> {}
-export type JobStatus = "NOT_YET_RUN" | "SUCCESSFUL" | "FAILED" | "DISABLED";
+export type JobStatus = "Not_Yet_Run" | "Successful" | "Failed" | "Disabled";
 export type ListNamespacesLimit = number;
 
 export interface ListNamespacesRequest {
@@ -629,7 +629,7 @@ export interface ListTablesResponse {
   tables: Array<TableSummary>;
   continuationToken?: string;
 }
-export type MaintenanceStatus = "ENABLED" | "DISABLED";
+export type MaintenanceStatus = "enabled" | "disabled";
 export type MetadataLocation = string;
 
 export type NamespaceId = string;
@@ -698,7 +698,7 @@ export interface SchemaField {
   required?: boolean;
 }
 export type SchemaFieldList = Array<SchemaField>;
-export type SSEAlgorithm = "AES256" | "AWS_KMS";
+export type SSEAlgorithm = "AES256" | "aws:kms";
 export type TableARN = string;
 
 export type TableBucketARN = string;
@@ -720,7 +720,7 @@ interface _TableBucketMaintenanceSettings {
 export type TableBucketMaintenanceSettings = _TableBucketMaintenanceSettings & {
   icebergUnreferencedFileRemoval: IcebergUnreferencedFileRemovalSettings;
 };
-export type TableBucketMaintenanceType = "ICEBERG_UNREFERENCED_FILE_REMOVAL";
+export type TableBucketMaintenanceType = "icebergUnreferencedFileRemoval";
 export type TableBucketName = string;
 
 export interface TableBucketSummary {
@@ -732,7 +732,7 @@ export interface TableBucketSummary {
   type?: TableBucketType;
 }
 export type TableBucketSummaryList = Array<TableBucketSummary>;
-export type TableBucketType = "CUSTOMER" | "AWS";
+export type TableBucketType = "customer" | "aws";
 export type TableMaintenanceConfiguration = Record<
   TableMaintenanceType,
   TableMaintenanceConfigurationValue
@@ -751,9 +751,9 @@ export interface TableMaintenanceJobStatusValue {
   failureMessage?: string;
 }
 export type TableMaintenanceJobType =
-  | "ICEBERG_COMPACTION"
-  | "ICEBERG_SNAPSHOT_MANAGEMENT"
-  | "ICEBERG_UNREFERENCED_FILE_REMOVAL";
+  | "icebergCompaction"
+  | "icebergSnapshotManagement"
+  | "icebergUnreferencedFileRemoval";
 interface _TableMaintenanceSettings {
   icebergCompaction?: IcebergCompactionSettings;
   icebergSnapshotManagement?: IcebergSnapshotManagementSettings;
@@ -767,8 +767,8 @@ export type TableMaintenanceSettings =
       icebergSnapshotManagement: IcebergSnapshotManagementSettings;
     });
 export type TableMaintenanceType =
-  | "ICEBERG_COMPACTION"
-  | "ICEBERG_SNAPSHOT_MANAGEMENT";
+  | "icebergCompaction"
+  | "icebergSnapshotManagement";
 interface _TableMetadata {
   iceberg?: IcebergMetadata;
 }
@@ -787,7 +787,7 @@ export interface TableSummary {
   tableBucketId?: string;
 }
 export type TableSummaryList = Array<TableSummary>;
-export type TableType = "CUSTOMER" | "AWS";
+export type TableType = "customer" | "aws";
 export declare class TooManyRequestsException extends EffectData.TaggedError(
   "TooManyRequestsException",
 )<{

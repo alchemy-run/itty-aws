@@ -299,12 +299,7 @@ export interface Operator {
   type?: OperatorType;
   values?: Array<string>;
 }
-export type OperatorType =
-  | "Equal"
-  | "ReferenceEqual"
-  | "LessThanOrEqual"
-  | "GreaterThanOrEqual"
-  | "Between";
+export type OperatorType = "EQ" | "REF_EQ" | "LE" | "GE" | "BETWEEN";
 export interface ParameterAttribute {
   key: string;
   stringValue: string;

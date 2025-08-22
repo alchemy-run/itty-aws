@@ -2178,7 +2178,7 @@ export interface AccessRules {
   getObject?: AccessType;
   allowPublicOverrides?: boolean;
 }
-export type AccessType = "Public" | "Private";
+export type AccessType = "public" | "private";
 export interface AccountLevelBpaSync {
   status?: AccountLevelBpaSyncStatus;
   lastSyncedAt?: Date | string;
@@ -2303,10 +2303,10 @@ export interface AutoSnapshotDetails {
 }
 export type AutoSnapshotDetailsList = Array<AutoSnapshotDetails>;
 export type AutoSnapshotStatus =
-  | "SUCCESS"
-  | "FAILED"
-  | "IN_PROGRESS"
-  | "NOT_FOUND";
+  | "Success"
+  | "Failed"
+  | "InProgress"
+  | "NotFound";
 export interface AvailabilityZone {
   zoneName?: string;
   state?: string;
@@ -2314,7 +2314,7 @@ export interface AvailabilityZone {
 export type AvailabilityZoneList = Array<AvailabilityZone>;
 export type Base64 = string;
 
-export type BehaviorEnum = "DontCacheSetting" | "CacheSetting";
+export type BehaviorEnum = "dont-cache" | "cache";
 export interface Blueprint {
   blueprintId?: string;
   name?: string;
@@ -2439,20 +2439,20 @@ export interface Certificate {
   supportCode?: string;
 }
 export type CertificateDomainValidationStatus =
-  | "PendingValidation"
-  | "Failed"
-  | "Success";
+  | "PENDING_VALIDATION"
+  | "FAILED"
+  | "SUCCESS";
 export type CertificateName = string;
 
 export type CertificateProvider = "LetsEncrypt";
 export type CertificateStatus =
-  | "PendingValidation"
-  | "Issued"
-  | "Inactive"
-  | "Expired"
-  | "ValidationTimedOut"
-  | "Revoked"
-  | "Failed";
+  | "PENDING_VALIDATION"
+  | "ISSUED"
+  | "INACTIVE"
+  | "EXPIRED"
+  | "VALIDATION_TIMED_OUT"
+  | "REVOKED"
+  | "FAILED";
 export type CertificateStatusList = Array<CertificateStatus>;
 export interface CertificateSummary {
   certificateArn?: string;
@@ -3142,8 +3142,13 @@ export interface DiskSnapshotInfo {
   sizeInGb?: number;
 }
 export type DiskSnapshotList = Array<DiskSnapshot>;
-export type DiskSnapshotState = "Pending" | "Completed" | "Error" | "Unknown";
-export type DiskState = "Pending" | "Error" | "Available" | "InUse" | "Unknown";
+export type DiskSnapshotState = "pending" | "completed" | "error" | "unknown";
+export type DiskState =
+  | "pending"
+  | "error"
+  | "available"
+  | "in-use"
+  | "unknown";
 export interface DistributionBundle {
   bundleId?: string;
   name?: string;
@@ -3164,7 +3169,7 @@ export interface DnsRecordCreationState {
   code?: DnsRecordCreationStateCode;
   message?: string;
 }
-export type DnsRecordCreationStateCode = "Succeeded" | "Started" | "Failed";
+export type DnsRecordCreationStateCode = "SUCCEEDED" | "STARTED" | "FAILED";
 export interface Domain {
   name?: string;
   arn?: string;
@@ -3266,7 +3271,7 @@ export interface ExportSnapshotResult {
 }
 export type float = number;
 
-export type ForwardValues = "none" | "allowList" | "all";
+export type ForwardValues = "none" | "allow-list" | "all";
 export interface GetActiveNamesRequest {
   pageToken?: string;
 }
@@ -3760,21 +3765,21 @@ export interface GetStaticIpsResult {
   nextPageToken?: string;
 }
 export type HeaderEnum =
-  | "accept"
-  | "acceptCharset"
-  | "acceptDatetime"
-  | "acceptEncoding"
-  | "acceptLanguage"
-  | "authorization"
-  | "cloudFrontForwardedProto"
-  | "cloudFrontIsDesktopViewer"
-  | "cloudFrontIsMobileViewer"
-  | "cloudFrontIsSmartTVViewer"
-  | "cloudFrontIsTabletViewer"
-  | "cloudFrontViewerCountry"
-  | "host"
-  | "origin"
-  | "referer";
+  | "Accept"
+  | "Accept-Charset"
+  | "Accept-Datetime"
+  | "Accept-Encoding"
+  | "Accept-Language"
+  | "Authorization"
+  | "CloudFront-Forwarded-Proto"
+  | "CloudFront-Is-Desktop-Viewer"
+  | "CloudFront-Is-Mobile-Viewer"
+  | "CloudFront-Is-SmartTV-Viewer"
+  | "CloudFront-Is-Tablet-Viewer"
+  | "CloudFront-Viewer-Country"
+  | "Host"
+  | "Origin"
+  | "Referer";
 export type HeaderForwardList = Array<HeaderEnum>;
 export interface HeaderObject {
   option?: ForwardValues;
@@ -3862,24 +3867,24 @@ export interface InstanceHardware {
   ramSizeInGb?: number;
 }
 export type InstanceHealthReason =
-  | "LbRegistrationInProgress"
-  | "LbInitialHealthChecking"
-  | "LbInternalError"
-  | "InstanceResponseCodeMismatch"
-  | "InstanceTimeout"
-  | "InstanceFailedHealthChecks"
-  | "InstanceNotRegistered"
-  | "InstanceNotInUse"
-  | "InstanceDeregistrationInProgress"
-  | "InstanceInvalidState"
-  | "InstanceIpUnusable";
+  | "Lb.RegistrationInProgress"
+  | "Lb.InitialHealthChecking"
+  | "Lb.InternalError"
+  | "Instance.ResponseCodeMismatch"
+  | "Instance.Timeout"
+  | "Instance.FailedHealthChecks"
+  | "Instance.NotRegistered"
+  | "Instance.NotInUse"
+  | "Instance.DeregistrationInProgress"
+  | "Instance.InvalidState"
+  | "Instance.IpUnusable";
 export type InstanceHealthState =
-  | "Initial"
-  | "Healthy"
-  | "Unhealthy"
-  | "Unused"
-  | "Draining"
-  | "Unavailable";
+  | "initial"
+  | "healthy"
+  | "unhealthy"
+  | "unused"
+  | "draining"
+  | "unavailable";
 export interface InstanceHealthSummary {
   instanceName?: string;
   instanceHealth?: InstanceHealthState;
@@ -3909,7 +3914,7 @@ export interface InstanceNetworking {
   monthlyTransfer?: MonthlyTransfer;
   ports?: Array<InstancePortInfo>;
 }
-export type InstancePlatform = "LinuxUnix" | "Windows";
+export type InstancePlatform = "LINUX_UNIX" | "WINDOWS";
 export type InstancePlatformList = Array<InstancePlatform>;
 export interface InstancePortInfo {
   fromPort?: number;
@@ -3958,7 +3963,7 @@ export interface InstanceSnapshotInfo {
   fromDiskInfo?: Array<DiskInfo>;
 }
 export type InstanceSnapshotList = Array<InstanceSnapshot>;
-export type InstanceSnapshotState = "Pending" | "Error" | "Available";
+export type InstanceSnapshotState = "pending" | "error" | "available";
 export interface InstanceState {
   code?: number;
   name?: string;
@@ -3977,7 +3982,7 @@ export declare class InvalidInputException extends EffectData.TaggedError(
 }> {}
 export type IpAddress = string;
 
-export type IpAddressType = "DUALSTACK" | "IPV4" | "IPV6";
+export type IpAddressType = "dualstack" | "ipv4" | "ipv6";
 export type Ipv6Address = string;
 
 export type Ipv6AddressList = Array<string>;
@@ -4072,11 +4077,11 @@ export type LoadBalancerMetricName =
   | "RequestCount";
 export type LoadBalancerProtocol = "HTTP_HTTPS" | "HTTP";
 export type LoadBalancerState =
-  | "Active"
-  | "Provisioning"
-  | "ActiveImpaired"
-  | "Failed"
-  | "Unknown";
+  | "active"
+  | "provisioning"
+  | "active_impaired"
+  | "failed"
+  | "unknown";
 export interface LoadBalancerTlsCertificate {
   name?: string;
   arn?: string;
@@ -4109,13 +4114,13 @@ export interface LoadBalancerTlsCertificateDnsRecordCreationState {
   message?: string;
 }
 export type LoadBalancerTlsCertificateDnsRecordCreationStateCode =
-  | "Succeeded"
-  | "Started"
-  | "Failed";
+  | "SUCCEEDED"
+  | "STARTED"
+  | "FAILED";
 export type LoadBalancerTlsCertificateDomainStatus =
-  | "PendingValidation"
-  | "Failed"
-  | "Success";
+  | "PENDING_VALIDATION"
+  | "FAILED"
+  | "SUCCESS";
 export interface LoadBalancerTlsCertificateDomainValidationOption {
   domainName?: string;
   validationStatus?: LoadBalancerTlsCertificateDomainStatus;
@@ -4133,41 +4138,41 @@ export interface LoadBalancerTlsCertificateDomainValidationRecord {
 export type LoadBalancerTlsCertificateDomainValidationRecordList =
   Array<LoadBalancerTlsCertificateDomainValidationRecord>;
 export type LoadBalancerTlsCertificateFailureReason =
-  | "NoAvailableContacts"
-  | "AdditionalVerificationRequired"
-  | "DomainNotAllowed"
-  | "InvalidPublicDomain"
-  | "Other";
+  | "NO_AVAILABLE_CONTACTS"
+  | "ADDITIONAL_VERIFICATION_REQUIRED"
+  | "DOMAIN_NOT_ALLOWED"
+  | "INVALID_PUBLIC_DOMAIN"
+  | "OTHER";
 export type LoadBalancerTlsCertificateList = Array<LoadBalancerTlsCertificate>;
 export type LoadBalancerTlsCertificateRenewalStatus =
-  | "PendingAutoRenewal"
-  | "PendingValidation"
-  | "Success"
-  | "Failed";
+  | "PENDING_AUTO_RENEWAL"
+  | "PENDING_VALIDATION"
+  | "SUCCESS"
+  | "FAILED";
 export interface LoadBalancerTlsCertificateRenewalSummary {
   renewalStatus?: LoadBalancerTlsCertificateRenewalStatus;
   domainValidationOptions?: Array<LoadBalancerTlsCertificateDomainValidationOption>;
 }
 export type LoadBalancerTlsCertificateRevocationReason =
-  | "Unspecified"
-  | "KeyCompromise"
-  | "CaCompromise"
-  | "AffiliationChanged"
-  | "Superceded"
-  | "CessationOfOperation"
-  | "CertificateHold"
-  | "RemoveFromCrl"
-  | "PrivilegeWithdrawn"
-  | "AACompromise";
+  | "UNSPECIFIED"
+  | "KEY_COMPROMISE"
+  | "CA_COMPROMISE"
+  | "AFFILIATION_CHANGED"
+  | "SUPERCEDED"
+  | "CESSATION_OF_OPERATION"
+  | "CERTIFICATE_HOLD"
+  | "REMOVE_FROM_CRL"
+  | "PRIVILEGE_WITHDRAWN"
+  | "A_A_COMPROMISE";
 export type LoadBalancerTlsCertificateStatus =
-  | "PendingValidation"
-  | "Issued"
-  | "Inactive"
-  | "Expired"
-  | "ValidationTimedOut"
-  | "Revoked"
-  | "Failed"
-  | "Unknown";
+  | "PENDING_VALIDATION"
+  | "ISSUED"
+  | "INACTIVE"
+  | "EXPIRED"
+  | "VALIDATION_TIMED_OUT"
+  | "REVOKED"
+  | "FAILED"
+  | "UNKNOWN";
 export interface LoadBalancerTlsCertificateSummary {
   name?: string;
   isAttached?: boolean;
@@ -4250,17 +4255,17 @@ export type MetricUnit =
   | "Terabits"
   | "Percent"
   | "Count"
-  | "BytesSecond"
-  | "KilobytesSecond"
-  | "MegabytesSecond"
-  | "GigabytesSecond"
-  | "TerabytesSecond"
-  | "BitsSecond"
-  | "KilobitsSecond"
-  | "MegabitsSecond"
-  | "GigabitsSecond"
-  | "TerabitsSecond"
-  | "CountSecond"
+  | "Bytes/Second"
+  | "Kilobytes/Second"
+  | "Megabytes/Second"
+  | "Gigabytes/Second"
+  | "Terabytes/Second"
+  | "Bits/Second"
+  | "Kilobits/Second"
+  | "Megabits/Second"
+  | "Gigabits/Second"
+  | "Terabits/Second"
+  | "Count/Second"
   | "None";
 export interface MonitoredResourceInfo {
   arn?: string;
@@ -4275,11 +4280,11 @@ export interface NameServersUpdateState {
   message?: string;
 }
 export type NameServersUpdateStateCode =
-  | "Succeeded"
-  | "Pending"
-  | "Failed"
-  | "Started";
-export type NetworkProtocol = "TCP" | "ALL" | "UDP" | "ICMP" | "ICMPV6";
+  | "SUCCEEDED"
+  | "PENDING"
+  | "FAILED"
+  | "STARTED";
+export type NetworkProtocol = "tcp" | "all" | "udp" | "icmp" | "icmpv6";
 export type NonEmptyString = string;
 
 export declare class NotFoundException extends EffectData.TaggedError(
@@ -4418,7 +4423,7 @@ export interface Origin {
   protocolPolicy?: OriginProtocolPolicyEnum;
   responseTimeout?: number;
 }
-export type OriginProtocolPolicyEnum = "HTTPOnly" | "HTTPSOnly";
+export type OriginProtocolPolicyEnum = "http-only" | "https-only";
 export type PartnerIdList = Array<string>;
 export interface PasswordData {
   ciphertext?: string;
@@ -4451,11 +4456,11 @@ export interface PortInfo {
   cidrListAliases?: Array<string>;
 }
 export type PortInfoList = Array<PortInfo>;
-export type PortInfoSourceType = "Default" | "Instance" | "None" | "Closed";
+export type PortInfoSourceType = "DEFAULT" | "INSTANCE" | "NONE" | "CLOSED";
 export type PortList = Array<number>;
 export type PortMap = Record<string, ContainerServiceProtocol>;
-export type PortState = "Open" | "Closed";
-export type PricingUnit = "GB" | "Hrs" | "GBMo" | "Bundles" | "Queries";
+export type PortState = "open" | "closed";
+export type PricingUnit = "GB" | "Hrs" | "GB-Mo" | "Bundles" | "Queries";
 export interface PrivateRegistryAccess {
   ecrImagePullerRole?: ContainerServiceECRImagePullerRole;
 }
@@ -4494,10 +4499,10 @@ export interface R53HostedZoneDeletionState {
   message?: string;
 }
 export type R53HostedZoneDeletionStateCode =
-  | "Succeeded"
-  | "Pending"
-  | "Failed"
-  | "Started";
+  | "SUCCEEDED"
+  | "PENDING"
+  | "FAILED"
+  | "STARTED";
 export interface RebootInstanceRequest {
   instanceName: string;
 }
@@ -4521,22 +4526,22 @@ export interface Region {
 }
 export type RegionList = Array<Region>;
 export type RegionName =
-  | "US_EAST_1"
-  | "US_EAST_2"
-  | "US_WEST_1"
-  | "US_WEST_2"
-  | "EU_WEST_1"
-  | "EU_WEST_2"
-  | "EU_WEST_3"
-  | "EU_CENTRAL_1"
-  | "CA_CENTRAL_1"
-  | "AP_SOUTH_1"
-  | "AP_SOUTHEAST_1"
-  | "AP_SOUTHEAST_2"
-  | "AP_NORTHEAST_1"
-  | "AP_NORTHEAST_2"
-  | "EU_NORTH_1"
-  | "AP_SOUTHEAST_3";
+  | "us-east-1"
+  | "us-east-2"
+  | "us-west-1"
+  | "us-west-2"
+  | "eu-west-1"
+  | "eu-west-2"
+  | "eu-west-3"
+  | "eu-central-1"
+  | "ca-central-1"
+  | "ap-south-1"
+  | "ap-southeast-1"
+  | "ap-southeast-2"
+  | "ap-northeast-1"
+  | "ap-northeast-2"
+  | "eu-north-1"
+  | "ap-southeast-3";
 export declare class RegionSetupInProgressException extends EffectData.TaggedError(
   "RegionSetupInProgressException",
 )<{
@@ -4611,7 +4616,7 @@ export interface RelationalDatabaseEndpoint {
   port?: number;
   address?: string;
 }
-export type RelationalDatabaseEngine = "MYSQL";
+export type RelationalDatabaseEngine = "mysql";
 export interface RelationalDatabaseEvent {
   resource?: string;
   createdAt?: Date | string;
@@ -4697,7 +4702,7 @@ export interface ResetDistributionCacheResult {
 }
 export type ResourceArn = string;
 
-export type ResourceBucketAccess = "Allow" | "Deny";
+export type ResourceBucketAccess = "allow" | "deny";
 export interface ResourceBudgetEstimate {
   resourceName?: string;
   resourceType?: ResourceType;
@@ -4832,7 +4837,7 @@ export interface SetupRequest {
   domainNames?: Array<string>;
   certificateProvider?: CertificateProvider;
 }
-export type SetupStatus = "Succeeded" | "Failed" | "InProgress";
+export type SetupStatus = "succeeded" | "failed" | "inProgress";
 export interface StartGUISessionRequest {
   resourceName: string;
 }
@@ -4864,16 +4869,16 @@ export interface StaticIp {
 }
 export type StaticIpList = Array<StaticIp>;
 export type Status =
-  | "StartExpired"
-  | "NotStarted"
-  | "Started"
-  | "Starting"
-  | "Stopped"
-  | "Stopping"
-  | "SettingUpInstance"
-  | "FailedInstanceCreation"
-  | "FailedStartingGUISession"
-  | "FailedStoppingGUISession";
+  | "startExpired"
+  | "notStarted"
+  | "started"
+  | "starting"
+  | "stopped"
+  | "stopping"
+  | "settingUpInstance"
+  | "failedInstanceCreation"
+  | "failedStartingGUISession"
+  | "failedStoppingGUISession";
 export type StatusType = "Active" | "Inactive";
 export interface StopGUISessionRequest {
   resourceName: string;
@@ -4939,10 +4944,10 @@ export interface TimePeriod {
 export type timestamp = Date | string;
 
 export type TreatMissingData =
-  | "Breaching"
-  | "NotBreaching"
-  | "Ignore"
-  | "Missing";
+  | "breaching"
+  | "notBreaching"
+  | "ignore"
+  | "missing";
 export declare class UnauthenticatedException extends EffectData.TaggedError(
   "UnauthenticatedException",
 )<{
@@ -5062,10 +5067,10 @@ export interface UpdateRelationalDatabaseResult {
   operations?: Array<Operation>;
 }
 export type ViewerMinimumTlsProtocolVersionEnum =
-  | "TLSv11_2016"
-  | "TLSv12_2018"
-  | "TLSv12_2019"
-  | "TLSv12_2021";
+  | "TLSv1.1_2016"
+  | "TLSv1.2_2018"
+  | "TLSv1.2_2019"
+  | "TLSv1.2_2021";
 export declare namespace AllocateStaticIp {
   export type Input = AllocateStaticIpRequest;
   export type Output = AllocateStaticIpResult;

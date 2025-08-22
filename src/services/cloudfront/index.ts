@@ -1904,7 +1904,7 @@ export interface Certificate {
   Arn: string;
 }
 export type CertificateSource = "cloudfront" | "iam" | "acm";
-export type CertificateTransparencyLoggingPreference = "Enabled" | "Disabled";
+export type CertificateTransparencyLoggingPreference = "enabled" | "disabled";
 export interface CloudFrontOriginAccessIdentity {
   Id: string;
   S3CanonicalUserId: string;
@@ -1989,7 +1989,7 @@ export interface ConnectionGroupSummary {
   IsDefault?: boolean;
 }
 export type ConnectionGroupSummaryList = Array<ConnectionGroupSummary>;
-export type ConnectionMode = "Direct" | "TenantOnly";
+export type ConnectionMode = "direct" | "tenant-only";
 export interface ContentTypeProfile {
   Format: Format;
   ProfileId?: string;
@@ -2511,7 +2511,7 @@ export interface DistributionResourceId {
   DistributionId?: string;
   DistributionTenantId?: string;
 }
-export type DistributionResourceType = "Distribution" | "DistributionTenant";
+export type DistributionResourceType = "distribution" | "distribution-tenant";
 export interface DistributionSummary {
   Id: string;
   ARN: string;
@@ -2579,7 +2579,10 @@ export interface DnsConfiguration {
   Reason?: string;
 }
 export type DnsConfigurationList = Array<DnsConfiguration>;
-export type DnsConfigurationStatus = "Valid" | "Invalid" | "Unknown";
+export type DnsConfigurationStatus =
+  | "valid-configuration"
+  | "invalid-configuration"
+  | "unknown-configuration";
 export interface DomainConflict {
   Domain: string;
   ResourceType: DistributionResourceType;
@@ -2596,7 +2599,7 @@ export interface DomainResult {
   Status?: DomainStatus;
 }
 export type DomainResultList = Array<DomainResult>;
-export type DomainStatus = "Active" | "Inactive";
+export type DomainStatus = "active" | "inactive";
 export interface EncryptionEntities {
   Quantity: number;
   Items?: Array<EncryptionEntity>;
@@ -2633,10 +2636,10 @@ export declare class EntitySizeLimitExceeded extends EffectData.TaggedError(
   readonly Message?: string;
 }> {}
 export type EventType =
-  | "viewer_request"
-  | "viewer_response"
-  | "origin_request"
-  | "origin_response";
+  | "viewer-request"
+  | "viewer-response"
+  | "origin-request"
+  | "origin-response";
 export interface FieldLevelEncryption {
   Id: string;
   LastModifiedTime: Date | string;
@@ -2775,7 +2778,7 @@ export interface FunctionMetadata {
 }
 export type FunctionName = string;
 
-export type FunctionRuntime = "cloudfront_js_1_0" | "cloudfront_js_2_0";
+export type FunctionRuntime = "cloudfront-js-1.0" | "cloudfront-js-2.0";
 export declare class FunctionSizeLimitExceeded extends EffectData.TaggedError(
   "FunctionSizeLimitExceeded",
 )<{
@@ -3059,7 +3062,7 @@ export interface Headers {
   Quantity: number;
   Items?: Array<string>;
 }
-export type HttpVersion = "http1_1" | "http2" | "http3" | "http2and3";
+export type HttpVersion = "http1.1" | "http2" | "http3" | "http2and3";
 export type ICPRecordalStatus = "APPROVED" | "SUSPENDED" | "PENDING";
 export declare class IllegalDelete extends EffectData.TaggedError(
   "IllegalDelete",
@@ -3622,13 +3625,13 @@ export interface ManagedCertificateRequest {
   CertificateTransparencyLoggingPreference?: CertificateTransparencyLoggingPreference;
 }
 export type ManagedCertificateStatus =
-  | "PendingValidation"
-  | "Issued"
-  | "Inactive"
-  | "Expired"
-  | "ValidationTimedOut"
-  | "Revoked"
-  | "Failed";
+  | "pending-validation"
+  | "issued"
+  | "inactive"
+  | "expired"
+  | "validation-timed-out"
+  | "revoked"
+  | "failed";
 export type Method =
   | "GET"
   | "HEAD"
@@ -3642,10 +3645,10 @@ export type MinimumProtocolVersion =
   | "SSLv3"
   | "TLSv1"
   | "TLSv1_2016"
-  | "TLSv1_1_2016"
-  | "TLSv1_2_2018"
-  | "TLSv1_2_2019"
-  | "TLSv1_2_2021";
+  | "TLSv1.1_2016"
+  | "TLSv1.2_2018"
+  | "TLSv1.2_2019"
+  | "TLSv1.2_2021";
 export declare class MissingBody extends EffectData.TaggedError("MissingBody")<{
   readonly Message?: string;
 }> {}
@@ -3793,7 +3796,7 @@ export type OriginAccessControlOriginTypes =
 export type OriginAccessControlSigningBehaviors =
   | "never"
   | "always"
-  | "no_override";
+  | "no-override";
 export type OriginAccessControlSigningProtocols = "sigv4";
 export interface OriginAccessControlSummary {
   Id: string;
@@ -3831,9 +3834,9 @@ export interface OriginGroups {
   Quantity: number;
   Items?: Array<OriginGroup>;
 }
-export type OriginGroupSelectionCriteria = "Default" | "MediaQualityBased";
+export type OriginGroupSelectionCriteria = "default" | "media-quality-based";
 export type OriginList = Array<Origin>;
-export type OriginProtocolPolicy = "http_only" | "match_viewer" | "https_only";
+export type OriginProtocolPolicy = "http-only" | "match-viewer" | "https-only";
 export interface OriginRequestPolicy {
   Id: string;
   LastModifiedTime: Date | string;
@@ -4055,14 +4058,14 @@ export interface RealtimeMetricsSubscriptionConfig {
 }
 export type RealtimeMetricsSubscriptionStatus = "Enabled" | "Disabled";
 export type ReferrerPolicyList =
-  | "no_referrer"
-  | "no_referrer_when_downgrade"
+  | "no-referrer"
+  | "no-referrer-when-downgrade"
   | "origin"
-  | "origin_when_cross_origin"
-  | "same_origin"
-  | "strict_origin"
-  | "strict_origin_when_cross_origin"
-  | "unsafe_url";
+  | "origin-when-cross-origin"
+  | "same-origin"
+  | "strict-origin"
+  | "strict-origin-when-cross-origin"
+  | "unsafe-url";
 export type ResourceARN = string;
 
 export declare class ResourceInUse extends EffectData.TaggedError(
@@ -4231,9 +4234,9 @@ export interface Signer {
   KeyPairIds?: KeyPairIds;
 }
 export type SignerList = Array<Signer>;
-export type SslProtocol = "SSLv3" | "TLSv1" | "TLSv1_1" | "TLSv1_2";
+export type SslProtocol = "SSLv3" | "TLSv1" | "TLSv1.1" | "TLSv1.2";
 export type SslProtocolsList = Array<SslProtocol>;
-export type SSLSupportMethod = "sni_only" | "vip" | "static_ip";
+export type SSLSupportMethod = "sni-only" | "vip" | "static-ip";
 export type StagingDistributionDnsNameList = Array<string>;
 export interface StagingDistributionDnsNames {
   Quantity: number;
@@ -4855,7 +4858,7 @@ export interface ValidationTokenDetail {
   RedirectFrom?: string;
 }
 export type ValidationTokenDetailList = Array<ValidationTokenDetail>;
-export type ValidationTokenHost = "CloudFront" | "SelfHosted";
+export type ValidationTokenHost = "cloudfront" | "self-hosted";
 export interface VerifyDnsConfigurationRequest {
   Domain?: string;
   Identifier: string;
@@ -4873,9 +4876,9 @@ export interface ViewerCertificate {
   CertificateSource?: CertificateSource;
 }
 export type ViewerProtocolPolicy =
-  | "allow_all"
-  | "https_only"
-  | "redirect_to_https";
+  | "allow-all"
+  | "https-only"
+  | "redirect-to-https";
 export interface VpcOrigin {
   Id: string;
   Arn: string;

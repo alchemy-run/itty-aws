@@ -766,7 +766,7 @@ export interface TagResourceRequest {
 export interface TagResourceResponse {}
 export type TagValue = string;
 
-export type TargetDevice = "JETSON_XAVIER";
+export type TargetDevice = "jetson_xavier";
 export interface TargetPlatform {
   Os: TargetPlatformOs;
   Arch: TargetPlatformArch;

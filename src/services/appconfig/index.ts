@@ -466,7 +466,7 @@ export declare class BadRequestException extends EffectData.TaggedError(
   readonly Reason?: BadRequestReason;
   readonly Details?: BadRequestDetails;
 }> {}
-export type BadRequestReason = "INVALID_CONFIGURATION";
+export type BadRequestReason = "InvalidConfiguration";
 export type Blob = Uint8Array | string;
 
 export type AppconfigBoolean = boolean;

@@ -554,13 +554,13 @@ export interface AuthenticationMode {
   Type?: InputAuthenticationType;
   Passwords?: Array<string>;
 }
-export type AuthenticationType = "PASSWORD" | "NO_PASSWORD" | "IAM";
+export type AuthenticationType = "password" | "no-password" | "iam";
 export interface AvailabilityZone {
   Name?: string;
 }
 export type AwsQueryErrorMessage = string;
 
-export type AZStatus = "SingleAZ" | "MultiAZ";
+export type AZStatus = "singleaz" | "multiaz";
 export interface BatchUpdateClusterRequest {
   ClusterNames: Array<string>;
   ServiceUpdate?: ServiceUpdateRequest;
@@ -745,7 +745,7 @@ export interface CreateUserRequest {
 export interface CreateUserResponse {
   User?: User;
 }
-export type DataTieringStatus = "TRUE" | "FALSE";
+export type DataTieringStatus = "true" | "false";
 export declare class DefaultUserRequired extends EffectData.TaggedError(
   "DefaultUserRequired",
 )<{
@@ -978,7 +978,7 @@ export type FilterName = string;
 export type FilterValue = string;
 
 export type FilterValueList = Array<string>;
-export type InputAuthenticationType = "PASSWORD" | "IAM";
+export type InputAuthenticationType = "password" | "iam";
 export declare class InsufficientClusterCapacityFault extends EffectData.TaggedError(
   "InsufficientClusterCapacityFault",
 )<{
@@ -1058,7 +1058,7 @@ export declare class InvalidVPCNetworkStateFault extends EffectData.TaggedError(
 )<{
   readonly message?: string;
 }> {}
-export type IpDiscovery = "IPV4" | "IPV6";
+export type IpDiscovery = "ipv4" | "ipv6";
 export type KeyList = Array<string>;
 export type KmsKeyId = string;
 
@@ -1111,7 +1111,7 @@ export declare class MultiRegionParameterGroupNotFoundFault extends EffectData.T
 )<{
   readonly message?: string;
 }> {}
-export type NetworkType = "IPV4" | "IPV6" | "DUAL_STACK";
+export type NetworkType = "ipv4" | "ipv6" | "dual_stack";
 export type NetworkTypeList = Array<NetworkType>;
 export interface Node {
   Name?: string;
@@ -1291,12 +1291,12 @@ export interface ServiceUpdateRequest {
   ServiceUpdateNameToApply?: string;
 }
 export type ServiceUpdateStatus =
-  | "NOT_APPLIED"
-  | "IN_PROGRESS"
-  | "COMPLETE"
-  | "SCHEDULED";
+  | "available"
+  | "in-progress"
+  | "complete"
+  | "scheduled";
 export type ServiceUpdateStatusList = Array<ServiceUpdateStatus>;
-export type ServiceUpdateType = "SECURITY_UPDATE";
+export type ServiceUpdateType = "security-update";
 export interface Shard {
   Name?: string;
   Status?: string;
@@ -1360,8 +1360,8 @@ export declare class SnapshotQuotaExceededFault extends EffectData.TaggedError(
 }> {}
 export type SourceType =
   | "node"
-  | "parameter_group"
-  | "subnet_group"
+  | "parameter-group"
+  | "subnet-group"
   | "cluster"
   | "user"
   | "acl";
@@ -1508,7 +1508,7 @@ export interface UpdateParameterGroupRequest {
 export interface UpdateParameterGroupResponse {
   ParameterGroup?: ParameterGroup;
 }
-export type UpdateStrategy = "COORDINATED" | "UNCOORDINATED";
+export type UpdateStrategy = "coordinated" | "uncoordinated";
 export interface UpdateSubnetGroupRequest {
   SubnetGroupName: string;
   Description?: string;

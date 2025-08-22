@@ -440,9 +440,9 @@ export declare class BucketAlreadyOwnedByYou extends EffectData.TaggedError(
 )<{}> {}
 export type BucketCannedACL =
   | "private"
-  | "public_read"
-  | "public_read_write"
-  | "authenticated_read";
+  | "public-read"
+  | "public-read-write"
+  | "authenticated-read";
 export interface BucketInfo {
   DataRedundancy?: DataRedundancy;
   Type?: BucketType;
@@ -453,39 +453,39 @@ export interface BucketLifecycleConfiguration {
   Rules: Array<LifecycleRule>;
 }
 export type BucketLocationConstraint =
-  | "af_south_1"
-  | "ap_east_1"
-  | "ap_northeast_1"
-  | "ap_northeast_2"
-  | "ap_northeast_3"
-  | "ap_south_1"
-  | "ap_south_2"
-  | "ap_southeast_1"
-  | "ap_southeast_2"
-  | "ap_southeast_3"
-  | "ap_southeast_4"
-  | "ap_southeast_5"
-  | "ca_central_1"
-  | "cn_north_1"
-  | "cn_northwest_1"
+  | "af-south-1"
+  | "ap-east-1"
+  | "ap-northeast-1"
+  | "ap-northeast-2"
+  | "ap-northeast-3"
+  | "ap-south-1"
+  | "ap-south-2"
+  | "ap-southeast-1"
+  | "ap-southeast-2"
+  | "ap-southeast-3"
+  | "ap-southeast-4"
+  | "ap-southeast-5"
+  | "ca-central-1"
+  | "cn-north-1"
+  | "cn-northwest-1"
   | "EU"
-  | "eu_central_1"
-  | "eu_central_2"
-  | "eu_north_1"
-  | "eu_south_1"
-  | "eu_south_2"
-  | "eu_west_1"
-  | "eu_west_2"
-  | "eu_west_3"
-  | "il_central_1"
-  | "me_central_1"
-  | "me_south_1"
-  | "sa_east_1"
-  | "us_east_2"
-  | "us_gov_east_1"
-  | "us_gov_west_1"
-  | "us_west_1"
-  | "us_west_2";
+  | "eu-central-1"
+  | "eu-central-2"
+  | "eu-north-1"
+  | "eu-south-1"
+  | "eu-south-2"
+  | "eu-west-1"
+  | "eu-west-2"
+  | "eu-west-3"
+  | "il-central-1"
+  | "me-central-1"
+  | "me-south-1"
+  | "sa-east-1"
+  | "us-east-2"
+  | "us-gov-east-1"
+  | "us-gov-west-1"
+  | "us-west-1"
+  | "us-west-2";
 export type BucketLocationName = string;
 
 export interface BucketLoggingStatus {
@@ -1053,33 +1053,33 @@ export type Errors = Array<S3Error>;
 export type ETag = string;
 
 export type Event =
-  | "s3_ReducedRedundancyLostObject"
-  | "s3_ObjectCreated_"
-  | "s3_ObjectCreated_Put"
-  | "s3_ObjectCreated_Post"
-  | "s3_ObjectCreated_Copy"
-  | "s3_ObjectCreated_CompleteMultipartUpload"
-  | "s3_ObjectRemoved_"
-  | "s3_ObjectRemoved_Delete"
-  | "s3_ObjectRemoved_DeleteMarkerCreated"
-  | "s3_ObjectRestore_"
-  | "s3_ObjectRestore_Post"
-  | "s3_ObjectRestore_Completed"
-  | "s3_Replication_"
-  | "s3_Replication_OperationFailedReplication"
-  | "s3_Replication_OperationNotTracked"
-  | "s3_Replication_OperationMissedThreshold"
-  | "s3_Replication_OperationReplicatedAfterThreshold"
-  | "s3_ObjectRestore_Delete"
-  | "s3_LifecycleTransition"
-  | "s3_IntelligentTiering"
-  | "s3_ObjectAcl_Put"
-  | "s3_LifecycleExpiration_"
-  | "s3_LifecycleExpiration_Delete"
-  | "s3_LifecycleExpiration_DeleteMarkerCreated"
-  | "s3_ObjectTagging_"
-  | "s3_ObjectTagging_Put"
-  | "s3_ObjectTagging_Delete";
+  | "s3:ReducedRedundancyLostObject"
+  | "s3:ObjectCreated:*"
+  | "s3:ObjectCreated:Put"
+  | "s3:ObjectCreated:Post"
+  | "s3:ObjectCreated:Copy"
+  | "s3:ObjectCreated:CompleteMultipartUpload"
+  | "s3:ObjectRemoved:*"
+  | "s3:ObjectRemoved:Delete"
+  | "s3:ObjectRemoved:DeleteMarkerCreated"
+  | "s3:ObjectRestore:*"
+  | "s3:ObjectRestore:Post"
+  | "s3:ObjectRestore:Completed"
+  | "s3:Replication:*"
+  | "s3:Replication:OperationFailedReplication"
+  | "s3:Replication:OperationNotTracked"
+  | "s3:Replication:OperationMissedThreshold"
+  | "s3:Replication:OperationReplicatedAfterThreshold"
+  | "s3:ObjectRestore:Delete"
+  | "s3:LifecycleTransition"
+  | "s3:IntelligentTiering"
+  | "s3:ObjectAcl:Put"
+  | "s3:LifecycleExpiration:*"
+  | "s3:LifecycleExpiration:Delete"
+  | "s3:LifecycleExpiration:DeleteMarkerCreated"
+  | "s3:ObjectTagging:*"
+  | "s3:ObjectTagging:Put"
+  | "s3:ObjectTagging:Delete";
 export interface EventBridgeConfiguration {}
 export type EventList = Array<Event>;
 export interface ExistingObjectReplication {
@@ -2152,20 +2152,20 @@ export declare class ObjectAlreadyInActiveTierError extends EffectData.TaggedErr
   "ObjectAlreadyInActiveTierError",
 )<{}> {}
 export type ObjectAttributes =
-  | "ETAG"
-  | "CHECKSUM"
-  | "OBJECT_PARTS"
-  | "STORAGE_CLASS"
-  | "OBJECT_SIZE";
+  | "ETag"
+  | "Checksum"
+  | "ObjectParts"
+  | "StorageClass"
+  | "ObjectSize";
 export type ObjectAttributesList = Array<ObjectAttributes>;
 export type ObjectCannedACL =
   | "private"
-  | "public_read"
-  | "public_read_write"
-  | "authenticated_read"
-  | "aws_exec_read"
-  | "bucket_owner_read"
-  | "bucket_owner_full_control";
+  | "public-read"
+  | "public-read-write"
+  | "authenticated-read"
+  | "aws-exec-read"
+  | "bucket-owner-read"
+  | "bucket-owner-full-control";
 export interface ObjectIdentifier {
   Key: string;
   VersionId?: string;
@@ -2253,7 +2253,7 @@ export type ObjectVersionId = string;
 
 export type ObjectVersionList = Array<ObjectVersion>;
 export type ObjectVersionStorageClass = "STANDARD";
-export type OptionalObjectAttributes = "RESTORE_STATUS";
+export type OptionalObjectAttributes = "RestoreStatus";
 export type OptionalObjectAttributesList = Array<OptionalObjectAttributes>;
 export interface OutputLocation {
   S3?: S3Location;
@@ -2859,9 +2859,9 @@ export interface SelectParameters {
 }
 export type ServerSideEncryption =
   | "AES256"
-  | "aws_fsx"
-  | "aws_kms"
-  | "aws_kms_dsse";
+  | "aws:fsx"
+  | "aws:kms"
+  | "aws:kms:dsse";
 export interface ServerSideEncryptionByDefault {
   SSEAlgorithm: ServerSideEncryption;
   KMSMasterKeyID?: string;
@@ -2951,7 +2951,7 @@ export type StreamingBlob = Uint8Array | string;
 
 export type Suffix = string;
 
-export type TableSseAlgorithm = "aws_kms" | "AES256";
+export type TableSseAlgorithm = "aws:kms" | "AES256";
 export interface Tag {
   Key: string;
   Value: string;

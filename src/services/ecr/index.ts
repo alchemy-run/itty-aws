@@ -1743,14 +1743,14 @@ export declare class UploadNotFoundException extends EffectData.TaggedError(
   readonly message?: string;
 }> {}
 export type UpstreamRegistry =
-  | "Ecr"
-  | "EcrPublic"
-  | "Quay"
-  | "K8s"
-  | "DockerHub"
-  | "GitHubContainerRegistry"
-  | "AzureContainerRegistry"
-  | "GitLabContainerRegistry";
+  | "ecr"
+  | "ecr-public"
+  | "quay"
+  | "k8s"
+  | "docker-hub"
+  | "github-container-registry"
+  | "azure-container-registry"
+  | "gitlab-container-registry";
 export type Url = string;
 
 export interface ValidatePullThroughCacheRuleRequest {

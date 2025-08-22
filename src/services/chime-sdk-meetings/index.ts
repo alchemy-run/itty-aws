@@ -293,7 +293,7 @@ export declare class ConflictException extends EffectData.TaggedError(
 export interface ContentFeatures {
   MaxResolution?: ContentResolution;
 }
-export type ContentResolution = "NONE" | "FHD" | "UHD";
+export type ContentResolution = "None" | "FHD" | "UHD";
 export interface CreateAttendeeError {
   ExternalUserId?: string;
   ErrorCode?: string;
@@ -428,7 +428,7 @@ export interface ListTagsForResourceRequest {
 export interface ListTagsForResourceResponse {
   Tags?: Array<Tag>;
 }
-export type MediaCapabilities = "SEND_RECEIVE" | "SEND" | "RECEIVE" | "NONE";
+export type MediaCapabilities = "SendReceive" | "Send" | "Receive" | "None";
 export interface MediaPlacement {
   AudioHostUrl?: string;
   AudioFallbackUrl?: string;
@@ -545,34 +545,34 @@ export declare class TooManyTagsException extends EffectData.TaggedError(
 export type TranscribeContentIdentificationType = "PII";
 export type TranscribeContentRedactionType = "PII";
 export type TranscribeLanguageCode =
-  | "EN_US"
-  | "EN_GB"
-  | "ES_US"
-  | "FR_CA"
-  | "FR_FR"
-  | "EN_AU"
-  | "IT_IT"
-  | "DE_DE"
-  | "PT_BR"
-  | "JA_JP"
-  | "KO_KR"
-  | "ZH_CN"
-  | "TH_TH"
-  | "HI_IN";
+  | "en-US"
+  | "en-GB"
+  | "es-US"
+  | "fr-CA"
+  | "fr-FR"
+  | "en-AU"
+  | "it-IT"
+  | "de-DE"
+  | "pt-BR"
+  | "ja-JP"
+  | "ko-KR"
+  | "zh-CN"
+  | "th-TH"
+  | "hi-IN";
 export type TranscribeLanguageModelName = string;
 
 export type TranscribeLanguageOptions = string;
 
 export type TranscribeMedicalContentIdentificationType = "PHI";
-export type TranscribeMedicalLanguageCode = "EN_US";
+export type TranscribeMedicalLanguageCode = "en-US";
 export type TranscribeMedicalRegion =
-  | "US_EAST_1"
-  | "US_EAST_2"
-  | "US_WEST_2"
-  | "AP_SOUTHEAST_2"
-  | "CA_CENTRAL_1"
-  | "EU_WEST_1"
-  | "AUTO";
+  | "us-east-1"
+  | "us-east-2"
+  | "us-west-2"
+  | "ap-southeast-2"
+  | "ca-central-1"
+  | "eu-west-1"
+  | "auto";
 export type TranscribeMedicalSpecialty =
   | "PRIMARYCARE"
   | "CARDIOLOGY"
@@ -581,24 +581,24 @@ export type TranscribeMedicalSpecialty =
   | "RADIOLOGY"
   | "UROLOGY";
 export type TranscribeMedicalType = "CONVERSATION" | "DICTATION";
-export type TranscribePartialResultsStability = "LOW" | "MEDIUM" | "HIGH";
+export type TranscribePartialResultsStability = "low" | "medium" | "high";
 export type TranscribePiiEntityTypes = string;
 
 export type TranscribeRegion =
-  | "US_EAST_2"
-  | "US_EAST_1"
-  | "US_WEST_2"
-  | "AP_NORTHEAST_2"
-  | "AP_SOUTHEAST_2"
-  | "AP_NORTHEAST_1"
-  | "CA_CENTRAL_1"
-  | "EU_CENTRAL_1"
-  | "EU_WEST_1"
-  | "EU_WEST_2"
-  | "SA_EAST_1"
-  | "AUTO"
-  | "US_GOV_WEST_1";
-export type TranscribeVocabularyFilterMethod = "REMOVE" | "MASK" | "TAG";
+  | "us-east-2"
+  | "us-east-1"
+  | "us-west-2"
+  | "ap-northeast-2"
+  | "ap-southeast-2"
+  | "ap-northeast-1"
+  | "ca-central-1"
+  | "eu-central-1"
+  | "eu-west-1"
+  | "eu-west-2"
+  | "sa-east-1"
+  | "auto"
+  | "us-gov-west-1";
+export type TranscribeVocabularyFilterMethod = "remove" | "mask" | "tag";
 export type TranscribeVocabularyNamesOrFilterNamesString = string;
 
 export interface TranscriptionConfiguration {
@@ -635,7 +635,7 @@ export interface UpdateAttendeeCapabilitiesResponse {
 export interface VideoFeatures {
   MaxResolution?: VideoResolution;
 }
-export type VideoResolution = "NONE" | "HD" | "FHD";
+export type VideoResolution = "None" | "HD" | "FHD";
 export declare namespace BatchCreateAttendee {
   export type Input = BatchCreateAttendeeRequest;
   export type Output = BatchCreateAttendeeResponse;

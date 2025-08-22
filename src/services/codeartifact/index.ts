@@ -813,7 +813,7 @@ export interface DomainEntryPoint {
 }
 export type DomainName = string;
 
-export type DomainStatus = "ACTIVE" | "DELETED";
+export type DomainStatus = "Active" | "Deleted";
 export interface DomainSummary {
   name?: string;
   owner?: string;
@@ -823,12 +823,12 @@ export interface DomainSummary {
   encryptionKey?: string;
 }
 export type DomainSummaryList = Array<DomainSummary>;
-export type EndpointType = "DUALSTACK" | "IPV4";
+export type EndpointType = "dualstack" | "ipv4";
 export type ErrorMessage = string;
 
 export type ExternalConnectionName = string;
 
-export type ExternalConnectionStatus = "AVAILABLE";
+export type ExternalConnectionStatus = "Available";
 export interface GetAssociatedPackageGroupRequest {
   domain: string;
   domainOwner?: string;
@@ -908,7 +908,7 @@ export interface GetRepositoryPermissionsPolicyRequest {
 export interface GetRepositoryPermissionsPolicyResult {
   policy?: ResourcePolicy;
 }
-export type HashAlgorithm = "MD5" | "SHA1" | "SHA256" | "SHA512";
+export type HashAlgorithm = "MD5" | "SHA-1" | "SHA-256" | "SHA-512";
 export type HashValue = string;
 
 export type Integer = number;
@@ -1118,14 +1118,14 @@ export interface PackageDescription {
   originConfiguration?: PackageOriginConfiguration;
 }
 export type PackageFormat =
-  | "NPM"
-  | "PYPI"
-  | "MAVEN"
-  | "NUGET"
-  | "GENERIC"
-  | "RUBY"
-  | "SWIFT"
-  | "CARGO";
+  | "npm"
+  | "pypi"
+  | "maven"
+  | "nuget"
+  | "generic"
+  | "ruby"
+  | "swift"
+  | "cargo";
 export interface PackageGroupAllowedRepository {
   repositoryName?: string;
   originRestrictionType?: PackageGroupOriginRestrictionType;
@@ -1258,12 +1258,12 @@ export type PackageVersionRevision = string;
 export type PackageVersionRevisionMap = Record<string, string>;
 export type PackageVersionSortType = "PUBLISHED_TIME";
 export type PackageVersionStatus =
-  | "PUBLISHED"
-  | "UNFINISHED"
-  | "UNLISTED"
-  | "ARCHIVED"
-  | "DISPOSED"
-  | "DELETED";
+  | "Published"
+  | "Unfinished"
+  | "Unlisted"
+  | "Archived"
+  | "Disposed"
+  | "Deleted";
 export interface PackageVersionSummary {
   version: string;
   revision?: string;
@@ -1374,11 +1374,11 @@ export interface ResourcePolicy {
   document?: string;
 }
 export type ResourceType =
-  | "DOMAIN"
-  | "REPOSITORY"
-  | "PACKAGE"
-  | "PACKAGE_VERSION"
-  | "ASSET";
+  | "domain"
+  | "repository"
+  | "package"
+  | "package-version"
+  | "asset";
 export type RetryAfterSeconds = number;
 
 export declare class ServiceQuotaExceededException extends EffectData.TaggedError(

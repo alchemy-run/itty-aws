@@ -678,16 +678,16 @@ export interface AddonIssue {
   resourceIds?: Array<string>;
 }
 export type AddonIssueCode =
-  | "ACCESS_DENIED"
-  | "INTERNAL_FAILURE"
-  | "CLUSTER_UNREACHABLE"
-  | "INSUFFICIENT_NUMBER_OF_REPLICAS"
-  | "CONFIGURATION_CONFLICT"
-  | "ADMISSION_REQUEST_DENIED"
-  | "UNSUPPORTED_ADDON_MODIFICATION"
-  | "K8S_RESOURCE_NOT_FOUND"
-  | "ADDON_SUBSCRIPTION_NEEDED"
-  | "ADDON_PERMISSION_FAILURE";
+  | "AccessDenied"
+  | "InternalFailure"
+  | "ClusterUnreachable"
+  | "InsufficientNumberOfReplicas"
+  | "ConfigurationConflict"
+  | "AdmissionRequestDenied"
+  | "UnsupportedAddonModification"
+  | "K8sResourceNotFound"
+  | "AddonSubscriptionNeeded"
+  | "AddonPermissionFailure";
 export type AddonIssueList = Array<AddonIssue>;
 export interface AddonPodIdentityAssociations {
   serviceAccount: string;
@@ -855,25 +855,25 @@ export interface ClusterIssue {
   resourceIds?: Array<string>;
 }
 export type ClusterIssueCode =
-  | "ACCESS_DENIED"
-  | "CLUSTER_UNREACHABLE"
-  | "CONFIGURATION_CONFLICT"
-  | "INTERNAL_FAILURE"
-  | "RESOURCE_LIMIT_EXCEEDED"
-  | "RESOURCE_NOT_FOUND"
-  | "IAM_ROLE_NOT_FOUND"
-  | "VPC_NOT_FOUND"
-  | "INSUFFICIENT_FREE_ADDRESSES"
-  | "EC2_SERVICE_NOT_SUBSCRIBED"
-  | "EC2_SUBNET_NOT_FOUND"
-  | "EC2_SECURITY_GROUP_NOT_FOUND"
-  | "KMS_GRANT_REVOKED"
-  | "KMS_KEY_NOT_FOUND"
-  | "KMS_KEY_MARKED_FOR_DELETION"
-  | "KMS_KEY_DISABLED"
-  | "STS_REGIONAL_ENDPOINT_DISABLED"
-  | "UNSUPPORTED_VERSION"
-  | "OTHER";
+  | "AccessDenied"
+  | "ClusterUnreachable"
+  | "ConfigurationConflict"
+  | "InternalFailure"
+  | "ResourceLimitExceeded"
+  | "ResourceNotFound"
+  | "IamRoleNotFound"
+  | "VpcNotFound"
+  | "InsufficientFreeAddresses"
+  | "Ec2ServiceNotSubscribed"
+  | "Ec2SubnetNotFound"
+  | "Ec2SecurityGroupNotFound"
+  | "KmsGrantRevoked"
+  | "KmsKeyNotFound"
+  | "KmsKeyMarkedForDeletion"
+  | "KmsKeyDisabled"
+  | "StsRegionalEndpointDisabled"
+  | "UnsupportedVersion"
+  | "Other";
 export type ClusterIssueList = Array<ClusterIssue>;
 export type ClusterName = string;
 
@@ -899,8 +899,8 @@ export interface ClusterVersionInformation {
 export type ClusterVersionList = Array<ClusterVersionInformation>;
 export type ClusterVersionStatus =
   | "unsupported"
-  | "standard_support"
-  | "extended_support";
+  | "standard-support"
+  | "extended-support";
 export type Compatibilities = Array<Compatibility>;
 export interface Compatibility {
   clusterVersion?: string;
@@ -1285,23 +1285,23 @@ export interface EncryptionConfig {
 }
 export type EncryptionConfigList = Array<EncryptionConfig>;
 export type ErrorCode =
-  | "SUBNET_NOT_FOUND"
-  | "SECURITY_GROUP_NOT_FOUND"
-  | "ENI_LIMIT_REACHED"
-  | "IP_NOT_AVAILABLE"
-  | "ACCESS_DENIED"
-  | "OPERATION_NOT_PERMITTED"
-  | "VPC_ID_NOT_FOUND"
-  | "UNKNOWN"
-  | "NODE_CREATION_FAILURE"
-  | "POD_EVICTION_FAILURE"
-  | "INSUFFICIENT_FREE_ADDRESSES"
-  | "CLUSTER_UNREACHABLE"
-  | "INSUFFICIENT_NUMBER_OF_REPLICAS"
-  | "CONFIGURATION_CONFLICT"
-  | "ADMISSION_REQUEST_DENIED"
-  | "UNSUPPORTED_ADDON_MODIFICATION"
-  | "K8S_RESOURCE_NOT_FOUND";
+  | "SubnetNotFound"
+  | "SecurityGroupNotFound"
+  | "EniLimitReached"
+  | "IpNotAvailable"
+  | "AccessDenied"
+  | "OperationNotPermitted"
+  | "VpcIdNotFound"
+  | "Unknown"
+  | "NodeCreationFailure"
+  | "PodEvictionFailure"
+  | "InsufficientFreeAddresses"
+  | "ClusterUnreachable"
+  | "InsufficientNumberOfReplicas"
+  | "ConfigurationConflict"
+  | "AdmissionRequestDenied"
+  | "UnsupportedAddonModification"
+  | "K8sResourceNotFound";
 export interface ErrorDetail {
   errorCode?: ErrorCode;
   errorMessage?: string;
@@ -1329,10 +1329,10 @@ export interface FargateProfileIssue {
   resourceIds?: Array<string>;
 }
 export type FargateProfileIssueCode =
-  | "POD_EXECUTION_ROLE_ALREADY_IN_USE"
-  | "ACCESS_DENIED"
-  | "CLUSTER_UNREACHABLE"
-  | "INTERNAL_FAILURE";
+  | "PodExecutionRoleAlreadyInUse"
+  | "AccessDenied"
+  | "ClusterUnreachable"
+  | "InternalFailure";
 export type FargateProfileIssueList = Array<FargateProfileIssue>;
 export type FargateProfileLabel = Record<string, string>;
 export interface FargateProfileSelector {
@@ -1433,7 +1433,7 @@ export declare class InvalidStateException extends EffectData.TaggedError(
   readonly clusterName?: string;
   readonly message?: string;
 }> {}
-export type IpFamily = "IPV4" | "IPV6";
+export type IpFamily = "ipv4" | "ipv6";
 export interface Issue {
   code?: NodegroupIssueCode;
   message?: string;
@@ -1620,11 +1620,11 @@ export interface LogSetup {
 }
 export type LogSetups = Array<LogSetup>;
 export type LogType =
-  | "API"
-  | "AUDIT"
-  | "AUTHENTICATOR"
-  | "CONTROLLER_MANAGER"
-  | "SCHEDULER";
+  | "api"
+  | "audit"
+  | "authenticator"
+  | "controllerManager"
+  | "scheduler";
 export type LogTypes = Array<LogType>;
 export interface MarketplaceInformation {
   productId?: string;
@@ -1660,42 +1660,42 @@ export interface NodegroupHealth {
   issues?: Array<Issue>;
 }
 export type NodegroupIssueCode =
-  | "AUTO_SCALING_GROUP_NOT_FOUND"
-  | "AUTO_SCALING_GROUP_INVALID_CONFIGURATION"
-  | "EC2_SECURITY_GROUP_NOT_FOUND"
-  | "EC2_SECURITY_GROUP_DELETION_FAILURE"
-  | "EC2_LAUNCH_TEMPLATE_NOT_FOUND"
-  | "EC2_LAUNCH_TEMPLATE_VERSION_MISMATCH"
-  | "EC2_SUBNET_NOT_FOUND"
-  | "EC2_SUBNET_INVALID_CONFIGURATION"
-  | "IAM_INSTANCE_PROFILE_NOT_FOUND"
-  | "EC2_SUBNET_MISSING_IPV6_ASSIGNMENT"
-  | "IAM_LIMIT_EXCEEDED"
-  | "IAM_NODE_ROLE_NOT_FOUND"
-  | "NODE_CREATION_FAILURE"
-  | "ASG_INSTANCE_LAUNCH_FAILURES"
-  | "INSTANCE_LIMIT_EXCEEDED"
-  | "INSUFFICIENT_FREE_ADDRESSES"
-  | "ACCESS_DENIED"
-  | "INTERNAL_FAILURE"
-  | "CLUSTER_UNREACHABLE"
-  | "AMI_ID_NOT_FOUND"
-  | "AUTO_SCALING_GROUP_OPT_IN_REQUIRED"
-  | "AUTO_SCALING_GROUP_RATE_LIMIT_EXCEEDED"
-  | "EC2_LAUNCH_TEMPLATE_DELETION_FAILURE"
-  | "EC2_LAUNCH_TEMPLATE_INVALID_CONFIGURATION"
-  | "EC2_LAUNCH_TEMPLATE_MAX_LIMIT_EXCEEDED"
-  | "EC2_SUBNET_LIST_TOO_LONG"
-  | "IAM_THROTTLING"
-  | "NODE_TERMINATION_FAILURE"
-  | "POD_EVICTION_FAILURE"
-  | "SOURCE_EC2_LAUNCH_TEMPLATE_NOT_FOUND"
-  | "LIMIT_EXCEEDED"
-  | "UNKNOWN"
-  | "AUTO_SCALING_GROUP_INSTANCE_REFRESH_ACTIVE"
-  | "KUBERNETES_LABEL_INVALID"
-  | "EC2_LAUNCH_TEMPLATE_VERSION_MAX_LIMIT_EXCEEDED"
-  | "EC2_INSTANCE_TYPE_DOES_NOT_EXIST";
+  | "AutoScalingGroupNotFound"
+  | "AutoScalingGroupInvalidConfiguration"
+  | "Ec2SecurityGroupNotFound"
+  | "Ec2SecurityGroupDeletionFailure"
+  | "Ec2LaunchTemplateNotFound"
+  | "Ec2LaunchTemplateVersionMismatch"
+  | "Ec2SubnetNotFound"
+  | "Ec2SubnetInvalidConfiguration"
+  | "IamInstanceProfileNotFound"
+  | "Ec2SubnetMissingIpv6Assignment"
+  | "IamLimitExceeded"
+  | "IamNodeRoleNotFound"
+  | "NodeCreationFailure"
+  | "AsgInstanceLaunchFailures"
+  | "InstanceLimitExceeded"
+  | "InsufficientFreeAddresses"
+  | "AccessDenied"
+  | "InternalFailure"
+  | "ClusterUnreachable"
+  | "AmiIdNotFound"
+  | "AutoScalingGroupOptInRequired"
+  | "AutoScalingGroupRateLimitExceeded"
+  | "Ec2LaunchTemplateDeletionFailure"
+  | "Ec2LaunchTemplateInvalidConfiguration"
+  | "Ec2LaunchTemplateMaxLimitExceeded"
+  | "Ec2SubnetListTooLong"
+  | "IamThrottling"
+  | "NodeTerminationFailure"
+  | "PodEvictionFailure"
+  | "SourceEc2LaunchTemplateNotFound"
+  | "LimitExceeded"
+  | "Unknown"
+  | "AutoScalingGroupInstanceRefreshActive"
+  | "KubernetesLabelInvalid"
+  | "Ec2LaunchTemplateVersionMaxLimitExceeded"
+  | "Ec2InstanceTypeDoesNotExist";
 export interface NodegroupResources {
   autoScalingGroups?: Array<AutoScalingGroup>;
   remoteAccessSecurityGroup?: string;
@@ -2033,42 +2033,42 @@ export interface UpdateParam {
 }
 export type UpdateParams = Array<UpdateParam>;
 export type UpdateParamType =
-  | "VERSION"
-  | "PLATFORM_VERSION"
-  | "ENDPOINT_PRIVATE_ACCESS"
-  | "ENDPOINT_PUBLIC_ACCESS"
-  | "CLUSTER_LOGGING"
-  | "DESIRED_SIZE"
-  | "LABELS_TO_ADD"
-  | "LABELS_TO_REMOVE"
-  | "TAINTS_TO_ADD"
-  | "TAINTS_TO_REMOVE"
-  | "MAX_SIZE"
-  | "MIN_SIZE"
-  | "RELEASE_VERSION"
-  | "PUBLIC_ACCESS_CIDRS"
-  | "LAUNCH_TEMPLATE_NAME"
-  | "LAUNCH_TEMPLATE_VERSION"
-  | "IDENTITY_PROVIDER_CONFIG"
-  | "ENCRYPTION_CONFIG"
-  | "ADDON_VERSION"
-  | "SERVICE_ACCOUNT_ROLE_ARN"
-  | "RESOLVE_CONFLICTS"
-  | "MAX_UNAVAILABLE"
-  | "MAX_UNAVAILABLE_PERCENTAGE"
-  | "NODE_REPAIR_ENABLED"
-  | "UPDATE_STRATEGY"
-  | "CONFIGURATION_VALUES"
-  | "SECURITY_GROUPS"
-  | "SUBNETS"
-  | "AUTHENTICATION_MODE"
-  | "POD_IDENTITY_ASSOCIATIONS"
-  | "UPGRADE_POLICY"
-  | "ZONAL_SHIFT_CONFIG"
-  | "COMPUTE_CONFIG"
-  | "STORAGE_CONFIG"
-  | "KUBERNETES_NETWORK_CONFIG"
-  | "REMOTE_NETWORK_CONFIG";
+  | "Version"
+  | "PlatformVersion"
+  | "EndpointPrivateAccess"
+  | "EndpointPublicAccess"
+  | "ClusterLogging"
+  | "DesiredSize"
+  | "LabelsToAdd"
+  | "LabelsToRemove"
+  | "TaintsToAdd"
+  | "TaintsToRemove"
+  | "MaxSize"
+  | "MinSize"
+  | "ReleaseVersion"
+  | "PublicAccessCidrs"
+  | "LaunchTemplateName"
+  | "LaunchTemplateVersion"
+  | "IdentityProviderConfig"
+  | "EncryptionConfig"
+  | "AddonVersion"
+  | "ServiceAccountRoleArn"
+  | "ResolveConflicts"
+  | "MaxUnavailable"
+  | "MaxUnavailablePercentage"
+  | "NodeRepairEnabled"
+  | "UpdateStrategy"
+  | "ConfigurationValues"
+  | "SecurityGroups"
+  | "Subnets"
+  | "AuthenticationMode"
+  | "PodIdentityAssociations"
+  | "UpgradePolicy"
+  | "ZonalShiftConfig"
+  | "ComputeConfig"
+  | "StorageConfig"
+  | "KubernetesNetworkConfig"
+  | "RemoteNetworkConfig";
 export interface UpdatePodIdentityAssociationRequest {
   clusterName: string;
   associationId: string;
@@ -2080,30 +2080,26 @@ export interface UpdatePodIdentityAssociationRequest {
 export interface UpdatePodIdentityAssociationResponse {
   association?: PodIdentityAssociation;
 }
-export type UpdateStatus =
-  | "IN_PROGRESS"
-  | "FAILED"
-  | "CANCELLED"
-  | "SUCCESSFUL";
+export type UpdateStatus = "InProgress" | "Failed" | "Cancelled" | "Successful";
 export interface UpdateTaintsPayload {
   addOrUpdateTaints?: Array<Taint>;
   removeTaints?: Array<Taint>;
 }
 export type UpdateType =
-  | "VERSION_UPDATE"
-  | "ENDPOINT_ACCESS_UPDATE"
-  | "LOGGING_UPDATE"
-  | "CONFIG_UPDATE"
-  | "ASSOCIATE_IDENTITY_PROVIDER_CONFIG"
-  | "DISASSOCIATE_IDENTITY_PROVIDER_CONFIG"
-  | "ASSOCIATE_ENCRYPTION_CONFIG"
-  | "ADDON_UPDATE"
-  | "VPC_CONFIG_UPDATE"
-  | "ACCESS_CONFIG_UPDATE"
-  | "UPGRADE_POLICY_UPDATE"
-  | "ZONAL_SHIFT_CONFIG_UPDATE"
-  | "AUTO_MODE_UPDATE"
-  | "REMOTE_NETWORK_CONFIG_UPDATE";
+  | "VersionUpdate"
+  | "EndpointAccessUpdate"
+  | "LoggingUpdate"
+  | "ConfigUpdate"
+  | "AssociateIdentityProviderConfig"
+  | "DisassociateIdentityProviderConfig"
+  | "AssociateEncryptionConfig"
+  | "AddonUpdate"
+  | "VpcConfigUpdate"
+  | "AccessConfigUpdate"
+  | "UpgradePolicyUpdate"
+  | "ZonalShiftConfigUpdate"
+  | "AutoModeUpdate"
+  | "RemoteNetworkConfigUpdate";
 export interface UpgradePolicyRequest {
   supportType?: SupportType;
 }

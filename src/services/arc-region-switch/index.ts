@@ -162,9 +162,9 @@ export declare class AccessDeniedException extends EffectData.TaggedError(
 }> {}
 export type AccountId = string;
 
-export type AlarmCondition = "RED" | "GREEN";
-export type AlarmType = "APPLICATION_HEALTH" | "TRIGGER";
-export type Approval = "APPROVE" | "DECLINE";
+export type AlarmCondition = "red" | "green";
+export type AlarmType = "applicationHealth" | "trigger";
+export type Approval = "approve" | "decline";
 export interface ApprovePlanExecutionStepRequest {
   planArn: string;
   executionId: string;
@@ -245,8 +245,8 @@ export interface Ec2AsgCapacityIncreaseConfiguration {
   capacityMonitoringApproach?: Ec2AsgCapacityMonitoringApproach;
 }
 export type Ec2AsgCapacityMonitoringApproach =
-  | "SAMPLED_MAX_IN_LAST_24_HOURS"
-  | "AUTOSCALING_MAX_IN_LAST_24_HOURS";
+  | "sampledMaxInLast24Hours"
+  | "autoscalingMaxInLast24Hours";
 export interface Ec2Ungraceful {
   minimumSuccessPercentage: number;
 }
@@ -258,8 +258,8 @@ export interface EcsCapacityIncreaseConfiguration {
   capacityMonitoringApproach?: EcsCapacityMonitoringApproach;
 }
 export type EcsCapacityMonitoringApproach =
-  | "SAMPLED_MAX_IN_LAST_24_HOURS"
-  | "CONTAINER_INSIGHTS_MAX_IN_LAST_24_HOURS";
+  | "sampledMaxInLast24Hours"
+  | "containerInsightsMaxInLast24Hours";
 export type EcsClusterArn = string;
 
 export type EcsServiceArn = string;
@@ -267,7 +267,7 @@ export type EcsServiceArn = string;
 export interface EcsUngraceful {
   minimumSuccessPercentage: number;
 }
-export type EksCapacityMonitoringApproach = "SAMPLED_MAX_IN_LAST_24_HOURS";
+export type EksCapacityMonitoringApproach = "sampledMaxInLast24Hours";
 export interface EksCluster {
   crossAccountRole?: string;
   externalId?: string;
@@ -291,11 +291,11 @@ export interface EksResourceScalingUngraceful {
   minimumSuccessPercentage: number;
 }
 export type EvaluationStatus =
-  | "PASSED"
-  | "ACTION_REQUIRED"
-  | "PENDING_EVALUATION"
-  | "UNKNOWN";
-export type ExecutionAction = "ACTIVATE" | "DEACTIVATE";
+  | "passed"
+  | "actionRequired"
+  | "pendingEvaluation"
+  | "unknown";
+export type ExecutionAction = "activate" | "deactivate";
 export interface ExecutionApprovalConfiguration {
   timeoutMinutes?: number;
   approvalRole: string;
@@ -345,16 +345,16 @@ export type ExecutionBlockConfiguration =
       route53HealthCheckConfig: Route53HealthCheckConfiguration;
     });
 export type ExecutionBlockType =
-  | "CUSTOM_ACTION_LAMBDA"
-  | "EXECUTION_APPROVAL"
-  | "AURORA"
-  | "EC2_ASG"
-  | "ROUTING_CONTROL"
-  | "REGION_SWITCH"
-  | "PARALLEL"
-  | "ECS"
-  | "EKS_RESOURCE_SCALING"
-  | "ROUTE53_HEALTH_CHECK";
+  | "CustomActionLambda"
+  | "ManualApproval"
+  | "AuroraGlobalDatabase"
+  | "EC2AutoScaling"
+  | "ARCRoutingControl"
+  | "ARCRegionSwitchPlan"
+  | "Parallel"
+  | "ECSServiceScaling"
+  | "EKSResourceScaling"
+  | "Route53HealthCheck";
 export type ExecutionComment = string;
 
 export interface ExecutionEvent {
@@ -370,46 +370,46 @@ export interface ExecutionEvent {
 }
 export type ExecutionEventList = Array<ExecutionEvent>;
 export type ExecutionEventType =
-  | "UNKNOWN"
-  | "EXECUTION_PENDING"
-  | "EXECUTION_STARTED"
-  | "EXECUTION_SUCCEEDED"
-  | "EXECUTION_FAILED"
-  | "EXECUTION_PAUSING"
-  | "EXECUTION_PAUSED"
-  | "EXECUTION_CANCELING"
-  | "EXECUTION_CANCELED"
-  | "EXECUTION_PENDING_APPROVAL"
-  | "EXECUTION_BEHAVIOR_CHANGED_TO_UNGRACEFUL"
-  | "EXECUTION_BEHAVIOR_CHANGED_TO_GRACEFUL"
-  | "EXECUTION_PENDING_CHILD_PLAN_MANUAL_APPROVAL"
-  | "EXECUTION_SUCCESS_MONITORING_APPLICATION_HEALTH"
-  | "STEP_STARTED"
-  | "STEP_UPDATE"
-  | "STEP_SUCCEEDED"
-  | "STEP_FAILED"
-  | "STEP_SKIPPED"
-  | "STEP_PAUSED_BY_ERROR"
-  | "STEP_PAUSED_BY_OPERATOR"
-  | "STEP_CANCELED"
-  | "STEP_PENDING_APPROVAL"
-  | "STEP_EXECUTION_BEHAVIOR_CHANGED_TO_UNGRACEFUL"
-  | "STEP_PENDING_APPLICATION_HEALTH_MONITOR";
+  | "unknown"
+  | "executionPending"
+  | "executionStarted"
+  | "executionSucceeded"
+  | "executionFailed"
+  | "executionPausing"
+  | "executionPaused"
+  | "executionCanceling"
+  | "executionCanceled"
+  | "executionPendingApproval"
+  | "executionBehaviorChangedToUngraceful"
+  | "executionBehaviorChangedToGraceful"
+  | "executionPendingChildPlanManualApproval"
+  | "executionSuccessMonitoringApplicationHealth"
+  | "stepStarted"
+  | "stepUpdate"
+  | "stepSucceeded"
+  | "stepFailed"
+  | "stepSkipped"
+  | "stepPausedByError"
+  | "stepPausedByOperator"
+  | "stepCanceled"
+  | "stepPendingApproval"
+  | "stepExecutionBehaviorChangedToUngraceful"
+  | "stepPendingApplicationHealthMonitor";
 export type ExecutionId = string;
 
-export type ExecutionMode = "GRACEFUL" | "UNGRACEFUL";
+export type ExecutionMode = "graceful" | "ungraceful";
 export type ExecutionState =
-  | "IN_PROGRESS"
-  | "PAUSED_BY_FAILED_STEP"
-  | "PAUSED_BY_OPERATOR"
-  | "COMPLETED"
-  | "COMPLETED_WITH_EXCEPTIONS"
-  | "CANCELLED"
-  | "PLAN_EXECUTION_TIMED_OUT"
-  | "PENDING_MANUAL_APPROVAL"
-  | "FAILED"
-  | "PENDING"
-  | "COMPLETED_MONITORING_APPLICATION_HEALTH";
+  | "inProgress"
+  | "pausedByFailedStep"
+  | "pausedByOperator"
+  | "completed"
+  | "completedWithExceptions"
+  | "canceled"
+  | "planExecutionTimedOut"
+  | "pendingManualApproval"
+  | "failed"
+  | "pending"
+  | "completedMonitoringApplicationHealth";
 export interface GetPlanEvaluationStatusRequest {
   planArn: string;
   maxResults?: number;
@@ -470,11 +470,11 @@ export interface GlobalAuroraConfiguration {
   globalClusterIdentifier: string;
   databaseClusterArns: Array<string>;
 }
-export type GlobalAuroraDefaultBehavior = "SWITCHOVER_ONLY" | "FAILOVER";
+export type GlobalAuroraDefaultBehavior = "switchoverOnly" | "failover";
 export interface GlobalAuroraUngraceful {
   ungraceful?: GlobalAuroraUngracefulBehavior;
 }
-export type GlobalAuroraUngracefulBehavior = "FAILOVER";
+export type GlobalAuroraUngracefulBehavior = "failover";
 export type GlobalClusterIdentifier = string;
 
 export type IamRoleArn = string;
@@ -523,7 +523,7 @@ export interface Lambdas {
 export interface LambdaUngraceful {
   behavior?: LambdaUngracefulBehavior;
 }
-export type LambdaUngracefulBehavior = "SKIP";
+export type LambdaUngracefulBehavior = "skip";
 export type ListExecutionEventsMaxResults = number;
 
 export type ListExecutionsMaxResults = number;
@@ -615,7 +615,7 @@ export type PlanList = Array<AbbreviatedPlan>;
 export type PlanName = string;
 
 export type PlanWarnings = Array<ResourceWarning>;
-export type RecoveryApproach = "ACTIVE_ACTIVE" | "ACTIVE_PASSIVE";
+export type RecoveryApproach = "activeActive" | "activePassive";
 export type Region = string;
 
 export type RegionalScalingResource = Record<string, KubernetesScalingResource>;
@@ -629,7 +629,7 @@ export interface RegionSwitchPlanConfiguration {
   externalId?: string;
   arn: string;
 }
-export type RegionToRunIn = "ACTIVATING_REGION" | "DEACTIVATING_REGION";
+export type RegionToRunIn = "activatingRegion" | "deactivatingRegion";
 export type ResourceArn = string;
 
 export declare class ResourceNotFoundException extends EffectData.TaggedError(
@@ -647,7 +647,7 @@ export interface ResourceWarning {
   warningUpdatedTime: Date | string;
   warningMessage: string;
 }
-export type ResourceWarningStatus = "ACTIVE" | "RESOLVED";
+export type ResourceWarningStatus = "active" | "resolved";
 export type RoleArn = string;
 
 export interface Route53HealthCheck {
@@ -680,7 +680,7 @@ export type Route53ResourceRecordSetIdentifier = string;
 export type Route53ResourceRecordSetList = Array<Route53ResourceRecordSet>;
 export type RoutingControlArn = string;
 
-export type RoutingControlStateChange = "ON" | "OFF";
+export type RoutingControlStateChange = "On" | "Off";
 export interface Service {
   crossAccountRole?: string;
   externalId?: string;
@@ -721,13 +721,13 @@ export interface StepState {
 }
 export type StepStates = Array<StepState>;
 export type StepStatus =
-  | "NOT_STARTED"
-  | "RUNNING"
-  | "FAILED"
-  | "COMPLETED"
-  | "CANCELLED"
-  | "SKIPPED"
-  | "PENDING_APPROVAL";
+  | "notStarted"
+  | "running"
+  | "failed"
+  | "completed"
+  | "canceled"
+  | "skipped"
+  | "pendingApproval";
 export type TagKey = string;
 
 export type TagKeys = Array<string>;
@@ -758,10 +758,10 @@ export interface UntagResourceRequest {
 }
 export interface UntagResourceResponse {}
 export type UpdatePlanExecutionAction =
-  | "SWITCH_TO_GRACEFUL"
-  | "SWITCH_TO_UNGRACEFUL"
-  | "PAUSE"
-  | "RESUME";
+  | "switchToGraceful"
+  | "switchToUngraceful"
+  | "pause"
+  | "resume";
 export interface UpdatePlanExecutionRequest {
   planArn: string;
   executionId: string;
@@ -769,7 +769,7 @@ export interface UpdatePlanExecutionRequest {
   comment?: string;
 }
 export interface UpdatePlanExecutionResponse {}
-export type UpdatePlanExecutionStepAction = "SWITCH_TO_UNGRACEFUL" | "SKIP";
+export type UpdatePlanExecutionStepAction = "switchToUngraceful" | "skip";
 export interface UpdatePlanExecutionStepRequest {
   planArn: string;
   executionId: string;
@@ -797,7 +797,7 @@ export interface Workflow {
   workflowDescription?: string;
 }
 export type WorkflowList = Array<Workflow>;
-export type WorkflowTargetAction = "ACTIVATE" | "DEACTIVATE";
+export type WorkflowTargetAction = "activate" | "deactivate";
 export declare namespace ApprovePlanExecutionStep {
   export type Input = ApprovePlanExecutionStepRequest;
   export type Output = ApprovePlanExecutionStepResponse;

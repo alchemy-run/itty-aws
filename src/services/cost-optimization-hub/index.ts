@@ -92,16 +92,16 @@ export type AccountId = string;
 
 export type AccountIdList = Array<string>;
 export type ActionType =
-  | "RIGHTSIZE"
-  | "STOP"
-  | "UPGRADE"
-  | "PURCHASE_SAVINGS_PLANS"
-  | "PURCHASE_RESERVED_INSTANCES"
-  | "MIGRATE_TO_GRAVITON"
-  | "DELETE"
-  | "SCALE_IN";
+  | "Rightsize"
+  | "Stop"
+  | "Upgrade"
+  | "PurchaseSavingsPlans"
+  | "PurchaseReservedInstances"
+  | "MigrateToGraviton"
+  | "Delete"
+  | "ScaleIn";
 export type ActionTypeList = Array<ActionType>;
-export type AllocationStrategy = "PRIORITIZED" | "LOWEST_PRICE";
+export type AllocationStrategy = "Prioritized" | "LowestPrice";
 export interface AuroraDbClusterStorage {
   configuration?: AuroraDbClusterStorageConfiguration;
   costCalculation?: ResourceCostCalculation;
@@ -169,8 +169,8 @@ export interface Ec2AutoScalingGroupConfiguration {
   allocationStrategy?: AllocationStrategy;
 }
 export type Ec2AutoScalingGroupType =
-  | "SINGLE_INSTANCE_TYPE"
-  | "MIXED_INSTANCE_TYPES";
+  | "SingleInstanceType"
+  | "MixedInstanceTypes";
 export interface Ec2Instance {
   configuration?: Ec2InstanceConfiguration;
   costCalculation?: ResourceCostCalculation;
@@ -238,7 +238,7 @@ export interface ElastiCacheReservedInstancesConfiguration {
   currentGeneration?: string;
   sizeFlexEligible?: boolean;
 }
-export type EnrollmentStatus = "ACTIVE" | "INACTIVE";
+export type EnrollmentStatus = "Active" | "Inactive";
 export interface EstimatedDiscounts {
   savingsPlansDiscount?: number;
   reservedInstancesDiscount?: number;
@@ -292,11 +292,11 @@ export interface GetRecommendationResponse {
   tags?: Array<Tag>;
 }
 export type ImplementationEffort =
-  | "VERY_LOW"
-  | "LOW"
-  | "MEDIUM"
-  | "HIGH"
-  | "VERY_HIGH";
+  | "VeryLow"
+  | "Low"
+  | "Medium"
+  | "High"
+  | "VeryHigh";
 export type ImplementationEffortList = Array<ImplementationEffort>;
 export interface InstanceConfiguration {
   type?: string;
@@ -352,7 +352,7 @@ export interface ListRecommendationSummariesResponse {
 }
 export type MaxResults = number;
 
-export type MemberAccountDiscountVisibility = "ALL" | "NONE";
+export type MemberAccountDiscountVisibility = "All" | "None";
 export interface MemoryDbReservedInstances {
   configuration?: MemoryDbReservedInstancesConfiguration;
   costCalculation?: ReservedInstancesCostCalculation;
@@ -394,12 +394,12 @@ export interface OpenSearchReservedInstancesConfiguration {
   currentGeneration?: string;
   sizeFlexEligible?: boolean;
 }
-export type Order = "ASC" | "DESC";
+export type Order = "Asc" | "Desc";
 export interface OrderBy {
   dimension?: string;
   order?: Order;
 }
-export type PaymentOption = "ALL_UPFRONT" | "PARTIAL_UPFRONT" | "NO_UPFRONT";
+export type PaymentOption = "AllUpfront" | "PartialUpfront" | "NoUpfront";
 export interface PreferredCommitment {
   term?: Term;
   paymentOption?: PaymentOption;
@@ -571,24 +571,24 @@ export interface ResourcePricing {
   estimatedCostAfterDiscounts?: number;
 }
 export type ResourceType =
-  | "EC2_INSTANCE"
-  | "LAMBDA_FUNCTION"
-  | "EBS_VOLUME"
-  | "ECS_SERVICE"
-  | "EC2_AUTO_SCALING_GROUP"
-  | "EC2_INSTANCE_SAVINGS_PLANS"
-  | "COMPUTE_SAVINGS_PLANS"
-  | "SAGE_MAKER_SAVINGS_PLANS"
-  | "EC2_RESERVED_INSTANCES"
-  | "RDS_RESERVED_INSTANCES"
-  | "OPEN_SEARCH_RESERVED_INSTANCES"
-  | "REDSHIFT_RESERVED_INSTANCES"
-  | "ELASTI_CACHE_RESERVED_INSTANCES"
-  | "RDS_DB_INSTANCE_STORAGE"
-  | "RDS_DB_INSTANCE"
-  | "AURORA_DB_CLUSTER_STORAGE"
-  | "DYNAMO_DB_RESERVED_CAPACITY"
-  | "MEMORY_DB_RESERVED_INSTANCES";
+  | "Ec2Instance"
+  | "LambdaFunction"
+  | "EbsVolume"
+  | "EcsService"
+  | "Ec2AutoScalingGroup"
+  | "Ec2InstanceSavingsPlans"
+  | "ComputeSavingsPlans"
+  | "SageMakerSavingsPlans"
+  | "Ec2ReservedInstances"
+  | "RdsReservedInstances"
+  | "OpenSearchReservedInstances"
+  | "RedshiftReservedInstances"
+  | "ElastiCacheReservedInstances"
+  | "RdsDbInstanceStorage"
+  | "RdsDbInstance"
+  | "AuroraDbClusterStorage"
+  | "DynamoDbReservedCapacity"
+  | "MemoryDbReservedInstances";
 export type ResourceTypeList = Array<ResourceType>;
 export interface SageMakerSavingsPlans {
   configuration?: SageMakerSavingsPlansConfiguration;
@@ -600,7 +600,7 @@ export interface SageMakerSavingsPlansConfiguration {
   paymentOption?: string;
   hourlyCommitment?: string;
 }
-export type SavingsEstimationMode = "BEFORE_DISCOUNTS" | "AFTER_DISCOUNTS";
+export type SavingsEstimationMode = "BeforeDiscounts" | "AfterDiscounts";
 export interface SavingsPlansCostCalculation {
   pricing?: SavingsPlansPricing;
 }
@@ -610,12 +610,12 @@ export interface SavingsPlansPricing {
   savingsPercentage?: number;
   estimatedOnDemandCost?: number;
 }
-export type Source = "COMPUTE_OPTIMIZER" | "COST_EXPLORER";
+export type Source = "ComputeOptimizer" | "CostExplorer";
 export interface StorageConfiguration {
   type?: string;
   sizeInGb?: number;
 }
-export type SummaryMetrics = "SAVINGS_PERCENTAGE";
+export type SummaryMetrics = "SavingsPercentage";
 export type SummaryMetricsList = Array<SummaryMetrics>;
 export interface SummaryMetricsResult {
   savingsPercentage?: string;
@@ -625,7 +625,7 @@ export interface Tag {
   value?: string;
 }
 export type TagList = Array<Tag>;
-export type Term = "ONE_YEAR" | "THREE_YEARS";
+export type Term = "OneYear" | "ThreeYears";
 export declare class ThrottlingException extends EffectData.TaggedError(
   "ThrottlingException",
 )<{
@@ -668,7 +668,7 @@ export interface ValidationExceptionDetail {
   message: string;
 }
 export type ValidationExceptionDetails = Array<ValidationExceptionDetail>;
-export type ValidationExceptionReason = "FIELD_VALIDATION_FAILED" | "OTHER";
+export type ValidationExceptionReason = "FieldValidationFailed" | "Other";
 export declare namespace GetPreferences {
   export type Input = GetPreferencesRequest;
   export type Output = GetPreferencesResponse;

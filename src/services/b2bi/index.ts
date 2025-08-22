@@ -386,7 +386,7 @@ export interface CapabilitySummary {
   createdAt: Date | string;
   modifiedAt?: Date | string;
 }
-export type CapabilityType = "EDI";
+export type CapabilityType = "edi";
 export declare class ConflictException extends EffectData.TaggedError(
   "ConflictException",
 )<{
@@ -864,11 +864,11 @@ export type TransformerId = string;
 
 export type TransformerJobId = string;
 
-export type TransformerJobStatus = "RUNNING" | "SUCCEEDED" | "FAILED";
+export type TransformerJobStatus = "running" | "succeeded" | "failed";
 export type TransformerList = Array<TransformerSummary>;
 export type TransformerName = string;
 
-export type TransformerStatus = "ACTIVE" | "INACTIVE";
+export type TransformerStatus = "active" | "inactive";
 export interface TransformerSummary {
   transformerId: string;
   name: string;

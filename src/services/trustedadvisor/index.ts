@@ -176,7 +176,7 @@ export declare class ConflictException extends EffectData.TaggedError(
 )<{
   readonly message: string;
 }> {}
-export type ExclusionStatus = "EXCLUDED" | "INCLUDED";
+export type ExclusionStatus = "excluded" | "included";
 export interface GetOrganizationRecommendationRequest {
   organizationRecommendationIdentifier: string;
 }
@@ -363,29 +363,29 @@ export interface RecommendationCostOptimizingAggregates {
   estimatedPercentMonthlySavings: number;
 }
 export type RecommendationLanguage =
-  | "ENGLISH"
-  | "JAPANESE"
-  | "CHINESE"
-  | "FRENCH"
-  | "GERMAN"
-  | "KOREAN"
-  | "TRADITIONAL_CHINESE"
-  | "ITALIAN"
-  | "SPANISH"
-  | "BRAZILIAN_PORTUGUESE"
-  | "BAHASA_INDONESIA";
+  | "en"
+  | "ja"
+  | "zh"
+  | "fr"
+  | "de"
+  | "ko"
+  | "zh_TW"
+  | "it"
+  | "es"
+  | "pt_BR"
+  | "id";
 export type RecommendationLifecycleStage =
-  | "IN_PROGRESS"
-  | "PENDING_RESPONSE"
-  | "DISMISSED"
-  | "RESOLVED";
+  | "in_progress"
+  | "pending_response"
+  | "dismissed"
+  | "resolved";
 export type RecommendationPillar =
-  | "COST_OPTIMIZING"
-  | "PERFORMANCE"
-  | "SECURITY"
-  | "SERVICE_LIMITS"
-  | "FAULT_TOLERANCE"
-  | "OPERATIONAL_EXCELLENCE";
+  | "cost_optimizing"
+  | "performance"
+  | "security"
+  | "service_limits"
+  | "fault_tolerance"
+  | "operational_excellence";
 export type RecommendationPillarList = Array<RecommendationPillar>;
 export interface RecommendationPillarSpecificAggregates {
   costOptimizing?: RecommendationCostOptimizingAggregates;
@@ -419,20 +419,20 @@ export interface RecommendationResourceSummary {
 export type RecommendationResourceSummaryList =
   Array<RecommendationResourceSummary>;
 export type RecommendationSource =
-  | "AWS_CONFIG"
-  | "COMPUTE_OPTIMIZER"
-  | "COST_EXPLORER"
-  | "LSE"
-  | "MANUAL"
-  | "PSE"
-  | "RDS"
-  | "RESILIENCE"
-  | "RESILIENCE_HUB"
-  | "SECURITY_HUB"
-  | "STIR"
-  | "TA_CHECK"
-  | "WELL_ARCHITECTED";
-export type RecommendationStatus = "OK" | "WARNING" | "ERROR";
+  | "aws_config"
+  | "compute_optimizer"
+  | "cost_explorer"
+  | "lse"
+  | "manual"
+  | "pse"
+  | "rds"
+  | "resilience"
+  | "resilience_hub"
+  | "security_hub"
+  | "stir"
+  | "ta_check"
+  | "well_architected";
+export type RecommendationStatus = "ok" | "warning" | "error";
 export interface RecommendationSummary {
   id: string;
   type: RecommendationType;
@@ -450,7 +450,7 @@ export interface RecommendationSummary {
   arn: string;
 }
 export type RecommendationSummaryList = Array<RecommendationSummary>;
-export type RecommendationType = "STANDARD" | "PRIORITY";
+export type RecommendationType = "standard" | "priority";
 export type RecommendationUpdateReason = string;
 
 export declare class ResourceNotFoundException extends EffectData.TaggedError(
@@ -458,7 +458,7 @@ export declare class ResourceNotFoundException extends EffectData.TaggedError(
 )<{
   readonly message: string;
 }> {}
-export type ResourceStatus = "OK" | "WARNING" | "ERROR";
+export type ResourceStatus = "ok" | "warning" | "error";
 export type StringMap = Record<string, string>;
 export declare class ThrottlingException extends EffectData.TaggedError(
   "ThrottlingException",
@@ -478,18 +478,18 @@ export interface UpdateRecommendationLifecycleRequest {
   recommendationIdentifier: string;
 }
 export type UpdateRecommendationLifecycleStage =
-  | "PENDING_RESPONSE"
-  | "IN_PROGRESS"
-  | "DISMISSED"
-  | "RESOLVED";
+  | "pending_response"
+  | "in_progress"
+  | "dismissed"
+  | "resolved";
 export type UpdateRecommendationLifecycleStageReasonCode =
-  | "NON_CRITICAL_ACCOUNT"
-  | "TEMPORARY_ACCOUNT"
-  | "VALID_BUSINESS_CASE"
-  | "OTHER_METHODS_AVAILABLE"
-  | "LOW_PRIORITY"
-  | "NOT_APPLICABLE"
-  | "OTHER";
+  | "non_critical_account"
+  | "temporary_account"
+  | "valid_business_case"
+  | "other_methods_available"
+  | "low_priority"
+  | "not_applicable"
+  | "other";
 export interface UpdateRecommendationResourceExclusionError {
   arn?: string;
   errorCode?: string;

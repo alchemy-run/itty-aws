@@ -595,20 +595,20 @@ export interface OriginEndpoint {
 }
 export type PlaylistType = "NONE" | "EVENT" | "VOD";
 export type PresetSpeke20Audio =
-  | "PRESET_AUDIO_1"
-  | "PRESET_AUDIO_2"
-  | "PRESET_AUDIO_3"
+  | "PRESET-AUDIO-1"
+  | "PRESET-AUDIO-2"
+  | "PRESET-AUDIO-3"
   | "SHARED"
   | "UNENCRYPTED";
 export type PresetSpeke20Video =
-  | "PRESET_VIDEO_1"
-  | "PRESET_VIDEO_2"
-  | "PRESET_VIDEO_3"
-  | "PRESET_VIDEO_4"
-  | "PRESET_VIDEO_5"
-  | "PRESET_VIDEO_6"
-  | "PRESET_VIDEO_7"
-  | "PRESET_VIDEO_8"
+  | "PRESET-VIDEO-1"
+  | "PRESET-VIDEO-2"
+  | "PRESET-VIDEO-3"
+  | "PRESET-VIDEO-4"
+  | "PRESET-VIDEO-5"
+  | "PRESET-VIDEO-6"
+  | "PRESET-VIDEO-7"
+  | "PRESET-VIDEO-8"
   | "SHARED"
   | "UNENCRYPTED";
 export type Profile = "NONE" | "HBBTV_1_5" | "HYBRIDCAST" | "DVB_DASH_2014";
@@ -739,7 +739,7 @@ export interface UpdateOriginEndpointResponse {
   Url?: string;
   Whitelist?: Array<string>;
 }
-export type UtcTiming = "NONE" | "HTTP_HEAD" | "HTTP_ISO" | "HTTP_XSDATE";
+export type UtcTiming = "NONE" | "HTTP-HEAD" | "HTTP-ISO" | "HTTP-XSDATE";
 export declare namespace ConfigureLogs {
   export type Input = ConfigureLogsRequest;
   export type Output = ConfigureLogsResponse;

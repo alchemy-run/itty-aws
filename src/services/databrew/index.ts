@@ -767,7 +767,7 @@ export type Disabled = boolean;
 
 export type EncryptionKeyArn = string;
 
-export type EncryptionMode = "SSEKMS" | "SSES3";
+export type EncryptionMode = "SSE-KMS" | "SSE-S3";
 export interface EntityDetectorConfiguration {
   EntityTypes: Array<string>;
   AllowedStatistics?: Array<AllowedStatistics>;
@@ -1227,7 +1227,7 @@ export type SheetIndexList = Array<number>;
 export type SheetName = string;
 
 export type SheetNameList = Array<string>;
-export type Source = "S3" | "DATACATALOG" | "DATABASE";
+export type Source = "S3" | "DATA-CATALOG" | "DATABASE";
 export type StartColumnIndex = number;
 
 export type StartedBy = string;

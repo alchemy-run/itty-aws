@@ -674,7 +674,7 @@ export interface AccessLevelFilter {
   Key?: AccessLevelFilterKey;
   Value?: string;
 }
-export type AccessLevelFilterKey = "ACCOUNT" | "ROLE" | "USER";
+export type AccessLevelFilterKey = "Account" | "Role" | "User";
 export type AccessLevelFilterValue = string;
 
 export type AccessStatus = "ENABLED" | "UNDER_CHANGE" | "DISABLED";
@@ -1683,7 +1683,7 @@ export interface ProductViewSummary {
   SupportDescription?: string;
   SupportUrl?: string;
 }
-export type PropertyKey = "Owner" | "LaunchRole";
+export type PropertyKey = "OWNER" | "LAUNCH_ROLE";
 export type PropertyName = string;
 
 export type PropertyValue = string;
@@ -2096,12 +2096,12 @@ export interface ServiceActionAssociation {
   ProvisioningArtifactId: string;
 }
 export type ServiceActionAssociationErrorCode =
-  | "DuplicateResourceException"
-  | "InternalFailure"
-  | "LimitExceededException"
-  | "ResourceNotFoundException"
-  | "ThrottlingException"
-  | "InvalidParameterException";
+  | "DUPLICATE_RESOURCE"
+  | "INTERNAL_FAILURE"
+  | "LIMIT_EXCEEDED"
+  | "RESOURCE_NOT_FOUND"
+  | "THROTTLING"
+  | "INVALID_PARAMETER";
 export type ServiceActionAssociationErrorMessage = string;
 
 export type ServiceActionAssociations = Array<ServiceActionAssociation>;
@@ -2114,7 +2114,7 @@ export type ServiceActionDefinitionMap = Record<
   ServiceActionDefinitionKey,
   string
 >;
-export type ServiceActionDefinitionType = "SsmAutomation";
+export type ServiceActionDefinitionType = "SSM_AUTOMATION";
 export type ServiceActionDefinitionValue = string;
 
 export type ServiceActionDescription = string;

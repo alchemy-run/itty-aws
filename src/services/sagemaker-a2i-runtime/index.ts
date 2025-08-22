@@ -64,8 +64,8 @@ export declare class ConflictException extends EffectData.TaggedError(
   readonly Message?: string;
 }> {}
 export type ContentClassifier =
-  | "FREE_OF_PERSONALLY_IDENTIFIABLE_INFORMATION"
-  | "FREE_OF_ADULT_CONTENT";
+  | "FreeOfPersonallyIdentifiableInformation"
+  | "FreeOfAdultContent";
 export type ContentClassifiers = Array<ContentClassifier>;
 export interface DeleteHumanLoopRequest {
   HumanLoopName: string;
@@ -102,11 +102,11 @@ export interface HumanLoopOutput {
   OutputS3Uri: string;
 }
 export type HumanLoopStatus =
-  | "IN_PROGRESS"
-  | "FAILED"
-  | "COMPLETED"
-  | "STOPPED"
-  | "STOPPING";
+  | "InProgress"
+  | "Failed"
+  | "Completed"
+  | "Stopped"
+  | "Stopping";
 export type HumanLoopSummaries = Array<HumanLoopSummary>;
 export interface HumanLoopSummary {
   HumanLoopName?: string;
@@ -148,7 +148,7 @@ export declare class ServiceQuotaExceededException extends EffectData.TaggedErro
 )<{
   readonly Message?: string;
 }> {}
-export type SortOrder = "ASCENDING" | "DESCENDING";
+export type SortOrder = "Ascending" | "Descending";
 export interface StartHumanLoopRequest {
   HumanLoopName: string;
   FlowDefinitionArn: string;

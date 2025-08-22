@@ -443,7 +443,7 @@ export type ConfigurationIdList = Array<string>;
 export type ConfigurationItemType =
   | "SERVER"
   | "PROCESS"
-  | "CONNECTIONS"
+  | "CONNECTION"
   | "APPLICATION";
 export type Configurations = Array<Record<string, string>>;
 export type ConfigurationsDownloadUrl = string;

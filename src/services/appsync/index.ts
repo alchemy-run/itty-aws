@@ -926,7 +926,7 @@ export interface AssociateSourceGraphqlApiRequest {
 export interface AssociateSourceGraphqlApiResponse {
   sourceApiAssociation?: SourceApiAssociation;
 }
-export type AssociationStatus = "Processing" | "Failed" | "Success";
+export type AssociationStatus = "PROCESSING" | "FAILED" | "SUCCESS";
 export type AuthenticationType =
   | "API_KEY"
   | "AWS_IAM"
@@ -1822,12 +1822,12 @@ export type ResourceName = string;
 
 export type RuntimeName = "APPSYNC_JS";
 export type SchemaStatus =
-  | "Processing"
-  | "Active"
-  | "Deleting"
-  | "Failed"
-  | "Success"
-  | "NotApplicable";
+  | "PROCESSING"
+  | "ACTIVE"
+  | "DELETING"
+  | "FAILED"
+  | "SUCCESS"
+  | "NOT_APPLICABLE";
 export declare class ServiceQuotaExceededException extends EffectData.TaggedError(
   "ServiceQuotaExceededException",
 )<{

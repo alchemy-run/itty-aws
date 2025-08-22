@@ -274,7 +274,7 @@ export type CompressionFormat =
   | "UNCOMPRESSED"
   | "GZIP"
   | "ZIP"
-  | "SNAPPY"
+  | "Snappy"
   | "HADOOP_SNAPPY";
 export declare class ConcurrentModificationException extends EffectData.TaggedError(
   "ConcurrentModificationException",
@@ -955,17 +955,17 @@ export interface ProcessorParameter {
 }
 export type ProcessorParameterList = Array<ProcessorParameter>;
 export type ProcessorParameterName =
-  | "LAMBDA_ARN"
-  | "LAMBDA_NUMBER_OF_RETRIES"
-  | "METADATA_EXTRACTION_QUERY"
-  | "JSON_PARSING_ENGINE"
-  | "ROLE_ARN"
-  | "BUFFER_SIZE_IN_MB"
-  | "BUFFER_INTERVAL_IN_SECONDS"
-  | "SUB_RECORD_TYPE"
+  | "LambdaArn"
+  | "NumberOfRetries"
+  | "MetadataExtractionQuery"
+  | "JsonParsingEngine"
+  | "RoleArn"
+  | "BufferSizeInMBs"
+  | "BufferIntervalInSeconds"
+  | "SubRecordType"
   | "Delimiter"
-  | "COMPRESSION_FORMAT"
-  | "DATA_MESSAGE_EXTRACTION";
+  | "CompressionFormat"
+  | "DataMessageExtraction";
 export type ProcessorParameterValue = string;
 
 export type ProcessorType =
