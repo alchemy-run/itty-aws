@@ -256,7 +256,7 @@ export interface DeleteTelemetryRuleForOrganizationInput {
 export interface DeleteTelemetryRuleInput {
   RuleIdentifier: string;
 }
-export type DestinationType = "CLOUDWATCH_LOGS";
+export type DestinationType = "cloud-watch-logs";
 export type FailureReason = string;
 
 export interface GetTelemetryEvaluationStatusForOrganizationOutput {
@@ -369,9 +369,9 @@ export declare class ResourceNotFoundException extends EffectData.TaggedError(
   readonly Message?: string;
 }> {}
 export type ResourceType =
-  | "AWS_EC2_INSTANCE"
-  | "AWS_EC2_VPC"
-  | "AWS_LAMDBA_FUNCTION";
+  | "AWS::EC2::Instance"
+  | "AWS::EC2::VPC"
+  | "AWS::Lambda::Function";
 export type ResourceTypes = Array<ResourceType>;
 export type RetentionPeriodInDays = number;
 
@@ -436,8 +436,8 @@ export interface TelemetryRuleSummary {
   ResourceType?: ResourceType;
   TelemetryType?: TelemetryType;
 }
-export type TelemetryState = "ENABLED" | "DISABLED" | "NOT_APPLICABLE";
-export type TelemetryType = "LOGS" | "METRICS" | "TRACES";
+export type TelemetryState = "Enabled" | "Disabled" | "NotApplicable";
+export type TelemetryType = "Logs" | "Metrics" | "Traces";
 export declare class TooManyRequestsException extends EffectData.TaggedError(
   "TooManyRequestsException",
 )<{

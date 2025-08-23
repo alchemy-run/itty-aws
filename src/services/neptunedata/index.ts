@@ -836,7 +836,7 @@ export declare class AccessDeniedException extends EffectData.TaggedError(
   readonly requestId: string;
   readonly code: string;
 }> {}
-export type Action = "INITIALIZE_RESET" | "PERFORM_RESET";
+export type Action = "initiateDatabaseReset" | "performDatabaseReset";
 export declare class BadRequestException extends EffectData.TaggedError(
   "BadRequestException",
 )<{
@@ -979,7 +979,7 @@ export interface EdgeStructure {
   edgeProperties?: Array<string>;
 }
 export type EdgeStructures = Array<EdgeStructure>;
-export type Encoding = "GZIP";
+export type Encoding = "gzip";
 export interface ExecuteFastResetInput {
   action: Action;
   token?: string;
@@ -1047,12 +1047,12 @@ export interface FastResetToken {
   token?: string;
 }
 export type Format =
-  | "CSV"
-  | "OPENCYPHER"
-  | "NTRIPLES"
-  | "NQUADS"
-  | "RDFXML"
-  | "TURTLE";
+  | "csv"
+  | "opencypher"
+  | "ntriples"
+  | "nquads"
+  | "rdfxml"
+  | "turtle";
 export interface GetEngineStatusOutput {
   status?: string;
   startTime?: string;
@@ -1187,7 +1187,7 @@ export interface GetSparqlStreamOutput {
   records: Array<SparqlRecord>;
   totalRecords: number;
 }
-export type GraphSummaryType = "BASIC" | "DETAILED";
+export type GraphSummaryType = "basic" | "detailed";
 export type GremlinQueries = Array<GremlinQueryStatus>;
 export interface GremlinQueryStatus {
   queryId?: string;
@@ -1375,7 +1375,7 @@ export interface NodeStructure {
   distinctOutgoingEdgeLabels?: Array<string>;
 }
 export type NodeStructures = Array<NodeStructure>;
-export type OpenCypherExplainMode = "STATIC" | "DYNAMIC" | "DETAILS";
+export type OpenCypherExplainMode = "static" | "dynamic" | "details";
 export type OpenCypherQueries = Array<GremlinQueryStatus>;
 export type OutgoingEdgeLabels = Array<string>;
 export type Parallelism = "LOW" | "MEDIUM" | "HIGH" | "OVERSUBSCRIBE";
@@ -1490,42 +1490,42 @@ export interface RefreshStatisticsIdMap {
 export type ReportAsText = Uint8Array | string;
 
 export type S3BucketRegion =
-  | "US_EAST_1"
-  | "US_EAST_2"
-  | "US_WEST_1"
-  | "US_WEST_2"
-  | "CA_CENTRAL_1"
-  | "SA_EAST_1"
-  | "EU_NORTH_1"
-  | "EU_WEST_1"
-  | "EU_WEST_2"
-  | "EU_WEST_3"
-  | "EU_CENTRAL_1"
-  | "ME_SOUTH_1"
-  | "AF_SOUTH_1"
-  | "AP_EAST_1"
-  | "AP_NORTHEAST_1"
-  | "AP_NORTHEAST_2"
-  | "AP_SOUTHEAST_1"
-  | "AP_SOUTHEAST_2"
-  | "AP_SOUTH_1"
-  | "CN_NORTH_1"
-  | "CN_NORTHWEST_1"
-  | "US_GOV_WEST_1"
-  | "US_GOV_EAST_1"
-  | "CA_WEST_1"
-  | "EU_SOUTH_2"
-  | "IL_CENTRAL_1"
-  | "ME_CENTRAL_1"
-  | "AP_NORTHEAST_3"
-  | "AP_SOUTHEAST_3"
-  | "AP_SOUTHEAST_4"
-  | "AP_SOUTHEAST_5"
-  | "AP_SOUTHEAST_7"
-  | "MX_CENTRAL_1"
-  | "AP_EAST_2"
-  | "AP_SOUTH_2"
-  | "EU_CENTRAL_2";
+  | "us-east-1"
+  | "us-east-2"
+  | "us-west-1"
+  | "us-west-2"
+  | "ca-central-1"
+  | "sa-east-1"
+  | "eu-north-1"
+  | "eu-west-1"
+  | "eu-west-2"
+  | "eu-west-3"
+  | "eu-central-1"
+  | "me-south-1"
+  | "af-south-1"
+  | "ap-east-1"
+  | "ap-northeast-1"
+  | "ap-northeast-2"
+  | "ap-southeast-1"
+  | "ap-southeast-2"
+  | "ap-south-1"
+  | "cn-north-1"
+  | "cn-northwest-1"
+  | "us-gov-west-1"
+  | "us-gov-east-1"
+  | "ca-west-1"
+  | "eu-south-2"
+  | "il-central-1"
+  | "me-central-1"
+  | "ap-northeast-3"
+  | "ap-southeast-3"
+  | "ap-southeast-4"
+  | "ap-southeast-5"
+  | "ap-southeast-7"
+  | "mx-central-1"
+  | "ap-east-2"
+  | "ap-south-2"
+  | "eu-central-2";
 export declare class S3Exception extends EffectData.TaggedError("S3Exception")<{
   readonly detailedMessage: string;
   readonly requestId: string;
@@ -1644,9 +1644,9 @@ export interface Statistics {
   signatureInfo?: StatisticsSummary;
 }
 export type StatisticsAutoGenerationMode =
-  | "DISABLE_AUTOCOMPUTE"
-  | "ENABLE_AUTOCOMPUTE"
-  | "REFRESH";
+  | "disableAutoCompute"
+  | "enableAutoCompute"
+  | "refresh";
 export declare class StatisticsNotAvailableException extends EffectData.TaggedError(
   "StatisticsNotAvailableException",
 )<{

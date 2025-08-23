@@ -880,7 +880,7 @@ export interface FirelensConfiguration {
   options?: Record<string, string>;
 }
 export type FirelensConfigurationOptionsMap = Record<string, string>;
-export type FirelensConfigurationType = "FLUENTD" | "FLUENTBIT";
+export type FirelensConfigurationType = "fluentd" | "fluentbit";
 export type Float = number;
 
 export interface FrontOfQueueDetail {
@@ -932,7 +932,7 @@ export interface JobDefinition {
   consumableResourceProperties?: ConsumableResourceProperties;
 }
 export type JobDefinitionList = Array<JobDefinition>;
-export type JobDefinitionType = "Container" | "Multinode";
+export type JobDefinitionType = "container" | "multinode";
 export interface JobDependency {
   jobId?: string;
   type?: ArrayJobDependency;
@@ -1160,14 +1160,14 @@ export interface LogConfiguration {
 }
 export type LogConfigurationOptionsMap = Record<string, string>;
 export type LogDriver =
-  | "JSON_FILE"
-  | "SYSLOG"
-  | "JOURNALD"
-  | "GELF"
-  | "FLUENTD"
-  | "AWSLOGS"
-  | "SPLUNK"
-  | "AWSFIRELENS";
+  | "json-file"
+  | "syslog"
+  | "journald"
+  | "gelf"
+  | "fluentd"
+  | "awslogs"
+  | "splunk"
+  | "awsfirelens";
 export type Long = number;
 
 export interface MountPoint {
@@ -1360,7 +1360,7 @@ export interface ServiceResourceId {
   name: ServiceResourceIdName;
   value: string;
 }
-export type ServiceResourceIdName = "SAGEMAKER_TRAINING_JOB_ARN";
+export type ServiceResourceIdName = "TrainingJobArn";
 export interface ShareAttributes {
   shareIdentifier: string;
   weightFactor?: number;

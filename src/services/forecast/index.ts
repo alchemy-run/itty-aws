@@ -533,11 +533,11 @@ export interface AttributeConfig {
 }
 export type AttributeConfigs = Array<AttributeConfig>;
 export type AttributeType =
-  | "STRING"
-  | "INTEGER"
-  | "FLOAT"
-  | "TIMESTAMP"
-  | "GEOLOCATION";
+  | "string"
+  | "integer"
+  | "float"
+  | "timestamp"
+  | "geolocation";
 export type AttributeValue = string;
 
 export type AutoMLOverrideStrategy = "LatencyOptimized" | "AccuracyOptimized";

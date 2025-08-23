@@ -1,4 +1,9 @@
-import type { ProtocolHandler, ServiceMetadata } from "./interface.ts";
+import type {
+  ParsedError,
+  ProtocolHandler,
+  ServiceMetadata,
+} from "./interface.ts";
+import { stringifyAwsJson } from "./json-serializer.ts";
 
 export class AwsJson10Handler implements ProtocolHandler {
   readonly name = "awsJson1_0";
@@ -13,7 +18,7 @@ export class AwsJson10Handler implements ProtocolHandler {
     if (input === undefined || input === null) {
       return "{}";
     }
-    return JSON.stringify(input, this.jsonReplacer);
+    return stringifyAwsJson(input);
   }
 
   getHeaders(
@@ -31,7 +36,9 @@ export class AwsJson10Handler implements ProtocolHandler {
   parseResponse(
     responseText: string,
     _statusCode: number,
-    _metadata?: import("./interface.ts").ServiceMetadata,
+    _metadata?: ServiceMetadata,
+    _headers?: Headers,
+    _action?: string,
   ): unknown {
     // Empty response body should return empty object
     if (!responseText || responseText.trim() === "") return {};
@@ -42,49 +49,53 @@ export class AwsJson10Handler implements ProtocolHandler {
     responseText: string,
     _statusCode: number,
     headers?: Headers,
-  ): unknown {
+  ): ParsedError {
     let errorBody: any;
     try {
       errorBody = JSON.parse(responseText);
     } catch {
-      return { message: responseText };
+      return {
+        errorType: "UnknownError",
+        message: responseText || "Unknown error",
+        requestId:
+          headers?.get("x-amzn-requestid") ||
+          headers?.get("x-amz-request-id") ||
+          undefined,
+      };
     }
 
-    // Extract error type according to AWS JSON 1.0 spec
-    let errorType = this.extractErrorType(errorBody, headers);
+    // Extract error type according to AWS JSON 1.0 spec (priority order)
+    const errorType =
+      this.extractErrorType(errorBody, headers) || "UnknownError";
+    const message = errorBody.Message || errorBody.message || "Unknown error";
+    const requestId =
+      headers?.get("x-amzn-requestid") ||
+      headers?.get("x-amz-request-id") ||
+      undefined;
 
     return {
-      ...errorBody,
-      __type: errorType,
+      errorType,
+      message,
+      requestId,
     };
-  }
-
-  private jsonReplacer(_key: string, value: any): any {
-    // Handle special numeric values as per AWS JSON 1.0 spec
-    if (typeof value === "number") {
-      if (value === Number.POSITIVE_INFINITY) return "Infinity";
-      if (value === Number.NEGATIVE_INFINITY) return "-Infinity";
-      if (Number.isNaN(value)) return "NaN";
-    }
-    return value;
   }
 
   private extractErrorType(
     errorBody: any,
     headers?: Headers,
   ): string | undefined {
-    // AWS JSON 1.0 spec: check __type, X-Amzn-Errortype header, or code field
-    if (errorBody.__type) {
-      return this.sanitizeErrorType(errorBody.__type);
-    }
-
-    const errorTypeHeader = headers?.get("X-Amzn-Errortype");
+    // AWS JSON 1.0 spec: check X-Amzn-Errortype header, code field, then __type
+    const errorTypeHeader = headers?.get("x-amzn-errortype");
     if (errorTypeHeader) {
       return this.sanitizeErrorType(errorTypeHeader);
     }
 
     if (errorBody.code) {
       return this.sanitizeErrorType(errorBody.code);
+    }
+
+    if (errorBody.__type) {
+      return this.sanitizeErrorType(errorBody.__type);
     }
 
     return undefined;

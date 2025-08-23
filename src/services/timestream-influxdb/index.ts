@@ -347,15 +347,15 @@ export interface DbInstanceSummary {
 }
 export type DbInstanceSummaryList = Array<DbInstanceSummary>;
 export type DbInstanceType =
-  | "DB_INFLUX_MEDIUM"
-  | "DB_INFLUX_LARGE"
-  | "DB_INFLUX_XLARGE"
-  | "DB_INFLUX_2XLARGE"
-  | "DB_INFLUX_4XLARGE"
-  | "DB_INFLUX_8XLARGE"
-  | "DB_INFLUX_12XLARGE"
-  | "DB_INFLUX_16XLARGE"
-  | "DB_INFLUX_24XLARGE";
+  | "db.influx.medium"
+  | "db.influx.large"
+  | "db.influx.xlarge"
+  | "db.influx.2xlarge"
+  | "db.influx.4xlarge"
+  | "db.influx.8xlarge"
+  | "db.influx.12xlarge"
+  | "db.influx.16xlarge"
+  | "db.influx.24xlarge";
 export type DbParameterGroupId = string;
 
 export type DbParameterGroupIdentifier = string;
@@ -370,9 +370,9 @@ export interface DbParameterGroupSummary {
 }
 export type DbParameterGroupSummaryList = Array<DbParameterGroupSummary>;
 export type DbStorageType =
-  | "INFLUX_IO_INCLUDED_T1"
-  | "INFLUX_IO_INCLUDED_T2"
-  | "INFLUX_IO_INCLUDED_T3";
+  | "InfluxIOIncludedT1"
+  | "InfluxIOIncludedT2"
+  | "InfluxIOIncludedT3";
 export interface DeleteDbClusterInput {
   dbClusterId: string;
 }
@@ -410,7 +410,7 @@ export interface Duration {
   durationType: DurationType;
   value: number;
 }
-export type DurationType = "HOURS" | "MINUTES" | "SECONDS" | "MILLISECONDS";
+export type DurationType = "hours" | "minutes" | "seconds" | "milliseconds";
 export type FailoverMode = "AUTOMATIC" | "NO_FAILOVER";
 export interface GetDbClusterInput {
   dbClusterId: string;
@@ -556,7 +556,7 @@ export interface ListTagsForResourceResponse {
 export interface LogDeliveryConfiguration {
   s3Configuration: S3Configuration;
 }
-export type LogLevel = "DEBUG" | "INFO" | "ERROR";
+export type LogLevel = "debug" | "info" | "error";
 export type MaxResults = number;
 
 export type NetworkType = "IPV4" | "DUAL";
@@ -616,7 +616,7 @@ export declare class ThrottlingException extends EffectData.TaggedError(
   readonly message: string;
   readonly retryAfterSeconds?: number;
 }> {}
-export type TracingType = "LOG" | "JAEGER";
+export type TracingType = "log" | "jaeger";
 export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;

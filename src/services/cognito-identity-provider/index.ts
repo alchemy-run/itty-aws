@@ -1863,9 +1863,9 @@ export type AdvancedSecurityEnabledModeType = "AUDIT" | "ENFORCED";
 export type AdvancedSecurityModeType = "OFF" | "AUDIT" | "ENFORCED";
 export type AliasAttributesListType = Array<AliasAttributeType>;
 export type AliasAttributeType =
-  | "PHONE_NUMBER"
-  | "EMAIL"
-  | "PREFERRED_USERNAME";
+  | "phone_number"
+  | "email"
+  | "preferred_username";
 export declare class AliasExistsException extends EffectData.TaggedError(
   "AliasExistsException",
 )<{
@@ -1919,7 +1919,7 @@ export interface AssociateSoftwareTokenResponse {
   SecretCode?: string;
   Session?: string;
 }
-export type AttributeDataType = "STRING" | "NUMBER" | "DATETIME" | "BOOLEAN";
+export type AttributeDataType = "String" | "Number" | "DateTime" | "Boolean";
 export type AttributeListType = Array<AttributeType>;
 export type AttributeMappingKeyType = string;
 
@@ -2361,7 +2361,7 @@ export type DeviceKeyType = string;
 export type DeviceListType = Array<DeviceType>;
 export type DeviceNameType = string;
 
-export type DeviceRememberedStatusType = "REMEMBERED" | "NOT_REMEMBERED";
+export type DeviceRememberedStatusType = "remembered" | "not_remembered";
 export interface DeviceSecretVerifierConfigType {
   PasswordVerifier?: string;
   Salt?: string;
@@ -2464,7 +2464,7 @@ export interface EventRiskType {
   RiskLevel?: RiskLevelType;
   CompromisedCredentialsDetected?: boolean;
 }
-export type EventSourceName = "USER_NOTIFICATION" | "USER_AUTH_EVENTS";
+export type EventSourceName = "userNotification" | "userAuthEvents";
 export type EventType =
   | "SignIn"
   | "SignUp"
@@ -2493,7 +2493,7 @@ export declare class FeatureUnavailableInTierException extends EffectData.Tagged
 )<{
   readonly message?: string;
 }> {}
-export type FeedbackValueType = "VALID" | "INVALID";
+export type FeedbackValueType = "Valid" | "Invalid";
 export interface FirehoseConfigurationType {
   StreamArn?: string;
 }
@@ -3008,9 +3008,9 @@ export type QueryLimitType = number;
 
 export type RecoveryMechanismsType = Array<RecoveryOptionType>;
 export type RecoveryOptionNameType =
-  | "VERIFIED_EMAIL"
-  | "VERIFIED_PHONE_NUMBER"
-  | "ADMIN_ONLY";
+  | "verified_email"
+  | "verified_phone_number"
+  | "admin_only";
 export interface RecoveryOptionType {
   Priority: number;
   Name: RecoveryOptionNameType;
@@ -3292,7 +3292,7 @@ export declare class TierChangeNotAllowedException extends EffectData.TaggedErro
 )<{
   readonly message?: string;
 }> {}
-export type TimeUnitsType = "SECONDS" | "MINUTES" | "HOURS" | "DAYS";
+export type TimeUnitsType = "seconds" | "minutes" | "hours" | "days";
 export type TokenModelType = string;
 
 export interface TokenValidityUnitsType {
@@ -3527,7 +3527,7 @@ export declare class UserLambdaValidationException extends EffectData.TaggedErro
 }> {}
 export type UserMFASettingListType = Array<string>;
 export type UsernameAttributesListType = Array<UsernameAttributeType>;
-export type UsernameAttributeType = "PHONE_NUMBER" | "EMAIL";
+export type UsernameAttributeType = "phone_number" | "email";
 export interface UsernameConfigurationType {
   CaseSensitive: boolean;
 }
@@ -3672,7 +3672,7 @@ export interface UserType {
   UserStatus?: UserStatusType;
   MFAOptions?: Array<MFAOptionType>;
 }
-export type UserVerificationType = "REQUIRED" | "PREFERRED";
+export type UserVerificationType = "required" | "preferred";
 export interface VerificationMessageTemplateType {
   SmsMessage?: string;
   EmailMessage?: string;
@@ -3682,7 +3682,7 @@ export interface VerificationMessageTemplateType {
   DefaultEmailOption?: DefaultEmailOptionType;
 }
 export type VerifiedAttributesListType = Array<VerifiedAttributeType>;
-export type VerifiedAttributeType = "PHONE_NUMBER" | "EMAIL";
+export type VerifiedAttributeType = "phone_number" | "email";
 export interface VerifySoftwareTokenRequest {
   AccessToken?: string;
   Session?: string;

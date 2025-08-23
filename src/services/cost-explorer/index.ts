@@ -504,13 +504,13 @@ export type CostAllocationTagKeyList = Array<string>;
 export type CostAllocationTagList = Array<CostAllocationTag>;
 export type CostAllocationTagsMaxResults = number;
 
-export type CostAllocationTagStatus = "ACTIVE" | "INACTIVE";
+export type CostAllocationTagStatus = "Active" | "Inactive";
 export interface CostAllocationTagStatusEntry {
   TagKey: string;
   Status: CostAllocationTagStatus;
 }
 export type CostAllocationTagStatusList = Array<CostAllocationTagStatusEntry>;
-export type CostAllocationTagType = "AWS_GENERATED" | "USER_DEFINED";
+export type CostAllocationTagType = "AWSGenerated" | "UserDefined";
 export interface CostAndUsageComparison {
   CostAndUsageSelector?: Expression;
   Metrics?: Record<string, ComparisonMetricValue>;
@@ -566,7 +566,7 @@ export interface CostCategoryRule {
 }
 export type CostCategoryRulesList = Array<CostCategoryRule>;
 export type CostCategoryRuleType = "REGULAR" | "INHERITED_VALUE";
-export type CostCategoryRuleVersion = "CostCategoryExpressionV1";
+export type CostCategoryRuleVersion = "CostCategoryExpression.v1";
 export type CostCategorySplitChargeMethod = "FIXED" | "PROPORTIONAL" | "EVEN";
 export interface CostCategorySplitChargeRule {
   Source: string;

@@ -352,27 +352,30 @@ export type ActionId = string;
 
 export type Actions = Array<Action>;
 export type ActionStatus =
-  | "Standby"
-  | "Pending"
-  | "Execution_In_Progress"
-  | "Execution_Success"
-  | "Execution_Failure"
-  | "Reverse_In_Progress"
-  | "Reverse_Success"
-  | "Reverse_Failure"
-  | "Reset_In_Progress"
-  | "Reset_Failure";
-export type ActionSubType = "STOP_EC2" | "STOP_RDS";
+  | "STANDBY"
+  | "PENDING"
+  | "EXECUTION_IN_PROGRESS"
+  | "EXECUTION_SUCCESS"
+  | "EXECUTION_FAILURE"
+  | "REVERSE_IN_PROGRESS"
+  | "REVERSE_SUCCESS"
+  | "REVERSE_FAILURE"
+  | "RESET_IN_PROGRESS"
+  | "RESET_FAILURE";
+export type ActionSubType = "STOP_EC2_INSTANCES" | "STOP_RDS_INSTANCES";
 export interface ActionThreshold {
   ActionThresholdValue: number;
   ActionThresholdType: ThresholdType;
 }
-export type ActionType = "IAM" | "SCP" | "SSM";
+export type ActionType =
+  | "APPLY_IAM_POLICY"
+  | "APPLY_SCP_POLICY"
+  | "RUN_SSM_DOCUMENTS";
 export type AdjustmentPeriod = number;
 
 export type AmazonResourceName = string;
 
-export type ApprovalModel = "AUTO" | "MANUAL";
+export type ApprovalModel = "AUTOMATIC" | "MANUAL";
 export interface AutoAdjustData {
   AutoAdjustType: AutoAdjustType;
   HistoricalOptions?: HistoricalOptions;
@@ -418,12 +421,12 @@ export interface BudgetPerformanceHistory {
 }
 export type Budgets = Array<Budget>;
 export type BudgetType =
-  | "Usage"
-  | "Cost"
-  | "RIUtilization"
-  | "RICoverage"
-  | "SPUtilization"
-  | "SPCoverage";
+  | "USAGE"
+  | "COST"
+  | "RI_UTILIZATION"
+  | "RI_COVERAGE"
+  | "SAVINGS_PLANS_UTILIZATION"
+  | "SAVINGS_PLANS_COVERAGE";
 export interface CalculatedSpend {
   ActualSpend: Spend;
   ForecastedSpend?: Spend;
@@ -671,11 +674,11 @@ export declare class DuplicateRecordException extends EffectData.TaggedError(
 export type errorMessage = string;
 
 export type EventType =
-  | "System"
-  | "CreateAction"
-  | "DeleteAction"
-  | "UpdateAction"
-  | "ExecuteAction";
+  | "SYSTEM"
+  | "CREATE_ACTION"
+  | "DELETE_ACTION"
+  | "UPDATE_ACTION"
+  | "EXECUTE_ACTION";
 export interface ExecuteBudgetActionRequest {
   AccountId: string;
   BudgetName: string;
@@ -689,10 +692,10 @@ export interface ExecuteBudgetActionResponse {
   ExecutionType: ExecutionType;
 }
 export type ExecutionType =
-  | "ApproveBudgetAction"
-  | "RetryBudgetAction"
-  | "ReverseBudgetAction"
-  | "ResetBudgetAction";
+  | "APPROVE_BUDGET_ACTION"
+  | "RETRY_BUDGET_ACTION"
+  | "REVERSE_BUDGET_ACTION"
+  | "RESET_BUDGET_ACTION";
 export declare class ExpiredNextTokenException extends EffectData.TaggedError(
   "ExpiredNextTokenException",
 )<{
@@ -770,14 +773,14 @@ export type MaxResultsBudgetNotifications = number;
 export type MaxResultsDescribeBudgets = number;
 
 export type Metric =
-  | "BLENDED_COST"
-  | "UNBLENDED_COST"
-  | "AMORTIZED_COST"
-  | "NET_UNBLENDED_COST"
-  | "NET_AMORTIZED_COST"
-  | "USAGE_QUANTITY"
-  | "NORMALIZED_USAGE_AMOUNT"
-  | "HOURS";
+  | "BlendedCost"
+  | "UnblendedCost"
+  | "AmortizedCost"
+  | "NetUnblendedCost"
+  | "NetAmortizedCost"
+  | "UsageQuantity"
+  | "NormalizedUsageAmount"
+  | "Hours";
 export type Metrics = Array<Metric>;
 export declare class NotFoundException extends EffectData.TaggedError(
   "NotFoundException",

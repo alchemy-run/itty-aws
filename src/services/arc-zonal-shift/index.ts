@@ -230,17 +230,17 @@ export declare class ConflictException extends EffectData.TaggedError(
   readonly zonalShiftId?: string;
 }> {}
 export type ConflictExceptionReason =
-  | "ZONAL_SHIFT_ALREADY_EXISTS"
-  | "ZONAL_SHIFT_STATUS_NOT_ACTIVE"
-  | "SIMULTANEOUS_ZONAL_SHIFTS_CONFLICT"
-  | "PRACTICE_CONFIGURATION_ALREADY_EXISTS"
-  | "AUTOSHIFT_ENABLED"
-  | "PRACTICE_CONFIGURATION_DOES_NOT_EXIST"
-  | "ZONAL_AUTOSHIFT_ACTIVE"
-  | "PRACTICE_OUTCOME_ALARMS_RED"
-  | "PRACTICE_BLOCKING_ALARMS_RED"
-  | "PRACTICE_IN_BLOCKED_DATES"
-  | "PRACTICE_IN_BLOCKED_WINDOWS";
+  | "ZonalShiftAlreadyExists"
+  | "ZonalShiftStatusNotActive"
+  | "SimultaneousZonalShiftsConflict"
+  | "PracticeConfigurationAlreadyExists"
+  | "AutoShiftEnabled"
+  | "PracticeConfigurationDoesNotExist"
+  | "ZonalAutoshiftActive"
+  | "PracticeOutcomeAlarmsRed"
+  | "PracticeBlockingAlarmsRed"
+  | "PracticeInBlockedDates"
+  | "PracticeInBlockedWindows";
 export interface ControlCondition {
   type: ControlConditionType;
   alarmIdentifier: string;
@@ -429,19 +429,19 @@ export declare class ValidationException extends EffectData.TaggedError(
   readonly reason: ValidationExceptionReason;
 }> {}
 export type ValidationExceptionReason =
-  | "INVALID_EXPIRES_IN"
-  | "INVALID_STATUS"
-  | "MISSING_VALUE"
-  | "INVALID_TOKEN"
-  | "INVALID_RESOURCE_IDENTIFIER"
-  | "INVALID_AZ"
-  | "UNSUPPORTED_AZ"
-  | "INVALID_ALARM_CONDITION"
-  | "INVALID_CONDITION_TYPE"
-  | "INVALID_PRACTICE_BLOCKER"
-  | "FIS_EXPERIMENT_UPDATE_NOT_ALLOWED"
-  | "AUTOSHIFT_UPDATE_NOT_ALLOWED"
-  | "UNSUPPORTED_PRACTICE_CANCEL_SHIFT_TYPE";
+  | "InvalidExpiresIn"
+  | "InvalidStatus"
+  | "MissingValue"
+  | "InvalidToken"
+  | "InvalidResourceIdentifier"
+  | "InvalidAz"
+  | "UnsupportedAz"
+  | "InvalidAlarmCondition"
+  | "InvalidConditionType"
+  | "InvalidPracticeBlocker"
+  | "FISExperimentUpdateNotAllowed"
+  | "AutoshiftUpdateNotAllowed"
+  | "UnsupportedPracticeCancelShiftType";
 export type Weight = number;
 
 export type ZonalAutoshiftStatus = "ENABLED" | "DISABLED";

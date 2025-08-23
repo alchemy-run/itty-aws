@@ -867,11 +867,11 @@ export type ActionGroupExecutor =
   | (_ActionGroupExecutor & { lambda: string })
   | (_ActionGroupExecutor & { customControl: CustomControlMethod });
 export type ActionGroupSignature =
-  | "AMAZON_USERINPUT"
-  | "AMAZON_CODEINTERPRETER"
-  | "ANTHROPIC_COMPUTER"
-  | "ANTHROPIC_BASH"
-  | "ANTHROPIC_TEXTEDITOR";
+  | "AMAZON.UserInput"
+  | "AMAZON.CodeInterpreter"
+  | "ANTHROPIC.Computer"
+  | "ANTHROPIC.Bash"
+  | "ANTHROPIC.TextEditor";
 export type ActionGroupSignatureParams = Record<string, string>;
 export type ActionGroupState = "ENABLED" | "DISABLED";
 export type ActionGroupSummaries = Array<ActionGroupSummary>;
@@ -1152,7 +1152,7 @@ export interface ByteContentDoc {
 export interface CachePointBlock {
   type: CachePointType;
 }
-export type CachePointType = "DEFAULT";
+export type CachePointType = "default";
 export interface ChatPromptTemplateConfiguration {
   messages: Array<Message>;
   system?: Array<SystemContentBlock>;
@@ -1177,7 +1177,7 @@ export type CollaborationInstruction = string;
 export interface CollectorFlowNodeConfiguration {}
 export type ColumnName = string;
 
-export type ConcurrencyType = "AUTOMATIC" | "MANUAL";
+export type ConcurrencyType = "Automatic" | "Manual";
 export interface ConditionFlowNodeConfiguration {
   conditions: Array<FlowCondition>;
 }
@@ -1216,7 +1216,7 @@ export interface ContextEnrichmentConfiguration {
   bedrockFoundationModelConfiguration?: BedrockFoundationModelContextEnrichmentConfiguration;
 }
 export type ContextEnrichmentType = "BEDROCK_FOUNDATION_MODEL";
-export type ConversationRole = "USER" | "ASSISTANT";
+export type ConversationRole = "user" | "assistant";
 export interface CrawlFilterConfiguration {
   type: CrawlFilterConfigurationType;
   patternObjectFilter?: PatternObjectFilterConfiguration;
@@ -1706,7 +1706,7 @@ export type FlowConnectionConfiguration =
 export type FlowConnectionName = string;
 
 export type FlowConnections = Array<FlowConnection>;
-export type FlowConnectionType = "DATA" | "CONDITIONAL";
+export type FlowConnectionType = "Data" | "Conditional";
 export interface FlowDataConnectionConfiguration {
   sourceOutput: string;
   targetInput: string;
@@ -1781,20 +1781,20 @@ export interface FlowNodeInput {
   category?: FlowNodeInputCategory;
 }
 export type FlowNodeInputCategory =
-  | "LOOP_CONDITION"
-  | "RETURN_VALUE_TO_LOOP_START"
-  | "EXIT_LOOP";
+  | "LoopCondition"
+  | "ReturnValueToLoopStart"
+  | "ExitLoop";
 export type FlowNodeInputExpression = string;
 
 export type FlowNodeInputName = string;
 
 export type FlowNodeInputs = Array<FlowNodeInput>;
 export type FlowNodeIODataType =
-  | "STRING"
-  | "NUMBER"
-  | "BOOLEAN"
-  | "OBJECT"
-  | "ARRAY";
+  | "String"
+  | "Number"
+  | "Boolean"
+  | "Object"
+  | "Array";
 export type FlowNodeName = string;
 
 export interface FlowNodeOutput {
@@ -1806,23 +1806,23 @@ export type FlowNodeOutputName = string;
 export type FlowNodeOutputs = Array<FlowNodeOutput>;
 export type FlowNodes = Array<FlowNode>;
 export type FlowNodeType =
-  | "INPUT"
-  | "OUTPUT"
-  | "KNOWLEDGE_BASE"
-  | "CONDITION"
-  | "LEX"
-  | "PROMPT"
-  | "LAMBDA_FUNCTION"
-  | "STORAGE"
-  | "AGENT"
-  | "RETRIEVAL"
-  | "ITERATOR"
-  | "COLLECTOR"
-  | "INLINE_CODE"
-  | "LOOP"
-  | "LOOP_INPUT"
-  | "LOOP_CONTROLLER";
-export type FlowStatus = "FAILED" | "PREPARED" | "PREPARING" | "NOT_PREPARED";
+  | "Input"
+  | "Output"
+  | "KnowledgeBase"
+  | "Condition"
+  | "Lex"
+  | "Prompt"
+  | "LambdaFunction"
+  | "Storage"
+  | "Agent"
+  | "Retrieval"
+  | "Iterator"
+  | "Collector"
+  | "InlineCode"
+  | "Loop"
+  | "LoopInput"
+  | "LoopController";
+export type FlowStatus = "Failed" | "Prepared" | "Preparing" | "NotPrepared";
 export type FlowSummaries = Array<FlowSummary>;
 export interface FlowSummary {
   name: string;
@@ -1975,41 +1975,41 @@ export type FlowValidationDetails =
       invalidLoopBoundary: InvalidLoopBoundaryFlowValidationDetails;
     });
 export type FlowValidations = Array<FlowValidation>;
-export type FlowValidationSeverity = "WARNING" | "ERROR";
+export type FlowValidationSeverity = "Warning" | "Error";
 export type FlowValidationType =
-  | "CYCLIC_CONNECTION"
-  | "DUPLICATE_CONNECTIONS"
-  | "DUPLICATE_CONDITION_EXPRESSION"
-  | "UNREACHABLE_NODE"
-  | "UNKNOWN_CONNECTION_SOURCE"
-  | "UNKNOWN_CONNECTION_SOURCE_OUTPUT"
-  | "UNKNOWN_CONNECTION_TARGET"
-  | "UNKNOWN_CONNECTION_TARGET_INPUT"
-  | "UNKNOWN_CONNECTION_CONDITION"
-  | "MALFORMED_CONDITION_EXPRESSION"
-  | "MALFORMED_NODE_INPUT_EXPRESSION"
-  | "MISMATCHED_NODE_INPUT_TYPE"
-  | "MISMATCHED_NODE_OUTPUT_TYPE"
-  | "INCOMPATIBLE_CONNECTION_DATA_TYPE"
-  | "MISSING_CONNECTION_CONFIGURATION"
-  | "MISSING_DEFAULT_CONDITION"
-  | "MISSING_ENDING_NODES"
-  | "MISSING_NODE_CONFIGURATION"
-  | "MISSING_NODE_INPUT"
-  | "MISSING_NODE_OUTPUT"
-  | "MISSING_STARTING_NODES"
-  | "MULTIPLE_NODE_INPUT_CONNECTIONS"
-  | "UNFULFILLED_NODE_INPUT"
-  | "UNSATISFIED_CONNECTION_CONDITIONS"
-  | "UNSPECIFIED"
-  | "UNKNOWN_NODE_INPUT"
-  | "UNKNOWN_NODE_OUTPUT"
-  | "MISSING_LOOP_INPUT_NODE"
-  | "MISSING_LOOP_CONTROLLER_NODE"
-  | "MULTIPLE_LOOP_INPUT_NODES"
-  | "MULTIPLE_LOOP_CONTROLLER_NODES"
-  | "LOOP_INCOMPATIBLE_NODE_TYPE"
-  | "INVALID_LOOP_BOUNDARY";
+  | "CyclicConnection"
+  | "DuplicateConnections"
+  | "DuplicateConditionExpression"
+  | "UnreachableNode"
+  | "UnknownConnectionSource"
+  | "UnknownConnectionSourceOutput"
+  | "UnknownConnectionTarget"
+  | "UnknownConnectionTargetInput"
+  | "UnknownConnectionCondition"
+  | "MalformedConditionExpression"
+  | "MalformedNodeInputExpression"
+  | "MismatchedNodeInputType"
+  | "MismatchedNodeOutputType"
+  | "IncompatibleConnectionDataType"
+  | "MissingConnectionConfiguration"
+  | "MissingDefaultCondition"
+  | "MissingEndingNodes"
+  | "MissingNodeConfiguration"
+  | "MissingNodeInput"
+  | "MissingNodeOutput"
+  | "MissingStartingNodes"
+  | "MultipleNodeInputConnections"
+  | "UnfulfilledNodeInput"
+  | "UnsatisfiedConnectionConditions"
+  | "Unspecified"
+  | "UnknownNodeInput"
+  | "UnknownNodeOutput"
+  | "MissingLoopInputNode"
+  | "MissingLoopControllerNode"
+  | "MultipleLoopInputNodes"
+  | "MultipleLoopControllerNodes"
+  | "LoopIncompatibleNodeType"
+  | "InvalidLoopBoundary";
 export type FlowVersionSummaries = Array<FlowVersionSummary>;
 export interface FlowVersionSummary {
   id: string;
@@ -2199,10 +2199,10 @@ export interface IncompatibleConnectionDataTypeFlowValidationDetails {
   connection: string;
 }
 export type IncompatibleLoopNodeType =
-  | "INPUT"
-  | "CONDITION"
-  | "ITERATOR"
-  | "COLLECTOR";
+  | "Input"
+  | "Condition"
+  | "Iterator"
+  | "Collector";
 export type IndexArn = string;
 
 export type IndexName = string;
@@ -2777,7 +2777,7 @@ export interface PatternObjectFilterConfiguration {
 export type PatternObjectFilterList = Array<PatternObjectFilter>;
 export type Payload = string;
 
-export type PerformanceConfigLatency = "STANDARD" | "OPTIMIZED";
+export type PerformanceConfigLatency = "standard" | "optimized";
 export interface PerformanceConfiguration {
   latency?: PerformanceConfigLatency;
 }
@@ -3253,7 +3253,7 @@ export interface SupplementalDataStorageLocation {
 export type SupplementalDataStorageLocations =
   Array<SupplementalDataStorageLocation>;
 export type SupplementalDataStorageLocationType = "S3";
-export type SupportedLanguages = "PYTHON_3";
+export type SupportedLanguages = "Python_3";
 interface _SystemContentBlock {
   text?: string;
   cachePoint?: CachePointBlock;
@@ -3343,7 +3343,7 @@ export interface TransformationLambdaConfiguration {
   lambdaArn: string;
 }
 export type Transformations = Array<Transformation>;
-export type Type = "STRING" | "NUMBER" | "INTEGER" | "BOOLEAN" | "ARRAY";
+export type Type = "string" | "number" | "integer" | "boolean" | "array";
 export interface UnfulfilledNodeInputFlowValidationDetails {
   node: string;
   input: string;

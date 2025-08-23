@@ -278,7 +278,7 @@ export interface SavingsPlanOfferingProperty {
   name?: SavingsPlanOfferingPropertyKey;
   value?: string;
 }
-export type SavingsPlanOfferingPropertyKey = "REGION" | "INSTANCE_FAMILY";
+export type SavingsPlanOfferingPropertyKey = "region" | "instanceFamily";
 export type SavingsPlanOfferingPropertyList =
   Array<SavingsPlanOfferingProperty>;
 export interface SavingsPlanOfferingRate {
@@ -309,11 +309,11 @@ export type SavingsPlanOperation = string;
 
 export type SavingsPlanOperationList = Array<string>;
 export type SavingsPlanPaymentOption =
-  | "ALL_UPFRONT"
-  | "PARTIAL_UPFRONT"
-  | "NO_UPFRONT";
+  | "All Upfront"
+  | "Partial Upfront"
+  | "No Upfront";
 export type SavingsPlanPaymentOptionList = Array<SavingsPlanPaymentOption>;
-export type SavingsPlanProductType = "EC2" | "FARGATE" | "LAMBDA" | "SAGEMAKER";
+export type SavingsPlanProductType = "EC2" | "Fargate" | "Lambda" | "SageMaker";
 export type SavingsPlanProductTypeList = Array<SavingsPlanProductType>;
 export interface SavingsPlanRate {
   rate?: string;
@@ -330,22 +330,22 @@ export interface SavingsPlanRateFilter {
   values?: Array<string>;
 }
 export type SavingsPlanRateFilterAttribute =
-  | "REGION"
-  | "INSTANCE_FAMILY"
-  | "INSTANCE_TYPE"
-  | "PRODUCT_DESCRIPTION"
-  | "TENANCY"
-  | "PRODUCT_ID";
+  | "region"
+  | "instanceFamily"
+  | "instanceType"
+  | "productDescription"
+  | "tenancy"
+  | "productId";
 export type SavingsPlanRateFilterList = Array<SavingsPlanRateFilter>;
 export type SavingsPlanRateFilterName =
-  | "REGION"
-  | "INSTANCE_TYPE"
-  | "PRODUCT_DESCRIPTION"
-  | "TENANCY"
-  | "PRODUCT_TYPE"
-  | "SERVICE_CODE"
-  | "USAGE_TYPE"
-  | "OPERATION";
+  | "region"
+  | "instanceType"
+  | "productDescription"
+  | "tenancy"
+  | "productType"
+  | "serviceCode"
+  | "usageType"
+  | "operation";
 export type SavingsPlanRateList = Array<SavingsPlanRate>;
 export type SavingsPlanRateOperation = string;
 
@@ -357,20 +357,20 @@ export interface SavingsPlanRateProperty {
   value?: string;
 }
 export type SavingsPlanRatePropertyKey =
-  | "REGION"
-  | "INSTANCE_TYPE"
-  | "INSTANCE_FAMILY"
-  | "PRODUCT_DESCRIPTION"
-  | "TENANCY";
+  | "region"
+  | "instanceType"
+  | "instanceFamily"
+  | "productDescription"
+  | "tenancy";
 export type SavingsPlanRatePropertyList = Array<SavingsPlanRateProperty>;
 export type SavingsPlanRateServiceCode =
-  | "EC2"
-  | "FARGATE"
-  | "FARGATE_EKS"
-  | "LAMBDA"
-  | "SAGEMAKER";
+  | "AmazonEC2"
+  | "AmazonECS"
+  | "AmazonEKS"
+  | "AWSLambda"
+  | "AmazonSageMaker";
 export type SavingsPlanRateServiceCodeList = Array<SavingsPlanRateServiceCode>;
-export type SavingsPlanRateUnit = "HOURS" | "LAMBDA_GB_SECOND" | "REQUEST";
+export type SavingsPlanRateUnit = "Hrs" | "Lambda-GB-Second" | "Request";
 export type SavingsPlanRateUsageType = string;
 
 export type SavingsPlanRateUsageTypeList = Array<string>;
@@ -380,26 +380,26 @@ export type SavingsPlanServiceCode = string;
 
 export type SavingsPlanServiceCodeList = Array<string>;
 export type SavingsPlansFilterName =
-  | "REGION"
-  | "EC2_INSTANCE_FAMILY"
-  | "COMMITMENT"
-  | "UPFRONT"
-  | "TERM"
-  | "SAVINGS_PLAN_TYPE"
-  | "PAYMENT_OPTION"
-  | "START"
-  | "END";
+  | "region"
+  | "ec2-instance-family"
+  | "commitment"
+  | "upfront"
+  | "term"
+  | "savings-plan-type"
+  | "payment-option"
+  | "start"
+  | "end";
 export type SavingsPlanState =
-  | "PAYMENT_PENDING"
-  | "PAYMENT_FAILED"
-  | "ACTIVE"
-  | "RETIRED"
-  | "QUEUED"
-  | "QUEUED_DELETED"
-  | "PENDING_RETURN"
-  | "RETURNED";
+  | "payment-pending"
+  | "payment-failed"
+  | "active"
+  | "retired"
+  | "queued"
+  | "queued-deleted"
+  | "pending-return"
+  | "returned";
 export type SavingsPlanStateList = Array<SavingsPlanState>;
-export type SavingsPlanType = "COMPUTE" | "EC2_INSTANCE" | "SAGEMAKER";
+export type SavingsPlanType = "Compute" | "EC2Instance" | "SageMaker";
 export type SavingsPlanTypeList = Array<SavingsPlanType>;
 export type SavingsPlanUsageType = string;
 

@@ -573,7 +573,7 @@ export interface AssetAttributes {
   tags?: Array<Tag>;
   networkInterfaces?: Array<NetworkInterface>;
 }
-export type AssetType = "EC2_INSTANCE";
+export type AssetType = "ec2-instance";
 export interface Attribute {
   key: string;
   value?: string;
@@ -1120,11 +1120,11 @@ export interface SetTagsForResourceRequest {
   tags?: Array<Tag>;
 }
 export type Severity =
-  | "LOW"
-  | "MEDIUM"
-  | "HIGH"
-  | "INFORMATIONAL"
-  | "UNDEFINED";
+  | "Low"
+  | "Medium"
+  | "High"
+  | "Informational"
+  | "Undefined";
 export type SeverityList = Array<Severity>;
 export interface StartAssessmentRunRequest {
   assessmentTemplateArn: string;

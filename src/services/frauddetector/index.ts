@@ -1639,7 +1639,7 @@ export interface ModelInputConfiguration {
   jsonInputTemplate?: string;
   csvInputTemplate?: string;
 }
-export type ModelInputDataFormat = "CSV" | "JSON";
+export type ModelInputDataFormat = "TEXT_CSV" | "APPLICATION_JSON";
 export type modelInputTemplate = string;
 
 export type modelList = Array<Model>;
@@ -1648,7 +1648,7 @@ export interface ModelOutputConfiguration {
   jsonKeyToVariableMap?: Record<string, string>;
   csvIndexToVariableMap?: Record<string, string>;
 }
-export type ModelOutputDataFormat = "CSV" | "JSONLINES";
+export type ModelOutputDataFormat = "TEXT_CSV" | "APPLICATION_JSONLINES";
 export type ModelPredictionMap = Record<string, number>;
 export interface ModelScores {
   modelVersion?: ModelVersion;

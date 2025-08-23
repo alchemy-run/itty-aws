@@ -674,9 +674,9 @@ export declare class ApplicationNameRequiredException extends EffectData.TaggedE
   readonly message?: string;
 }> {}
 export type ApplicationRevisionSortBy =
-  | "RegisterTime"
-  | "FirstUsedTime"
-  | "LastUsedTime";
+  | "registerTime"
+  | "firstUsedTime"
+  | "lastUsedTime";
 export type ApplicationsInfoList = Array<ApplicationInfo>;
 export type ApplicationsList = Array<string>;
 export interface AppSpecContent {
@@ -781,7 +781,7 @@ export declare class BucketNameFilterRequiredException extends EffectData.Tagged
 )<{
   readonly message?: string;
 }> {}
-export type BundleType = "Tar" | "TarGZip" | "Zip" | "YAML" | "JSON";
+export type BundleType = "tar" | "tgz" | "zip" | "YAML" | "JSON";
 export type CloudFormationResourceType = string;
 
 export interface CloudFormationTarget {
@@ -795,7 +795,7 @@ export interface CloudFormationTarget {
 }
 export type CommitId = string;
 
-export type ComputePlatform = "SERVER" | "LAMBDA" | "ECS";
+export type ComputePlatform = "Server" | "Lambda" | "ECS";
 export interface ContinueDeploymentInput {
   deploymentId?: string;
   deploymentWaitType?: DeploymentWaitType;
@@ -926,14 +926,14 @@ export declare class DeploymentConfigNameRequiredException extends EffectData.Ta
 }> {}
 export type DeploymentConfigsList = Array<string>;
 export type DeploymentCreator =
-  | "User"
-  | "Autoscaling"
-  | "CodeDeployRollback"
+  | "user"
+  | "autoscaling"
+  | "codeDeployRollback"
   | "CodeDeploy"
   | "CodeDeployAutoUpdate"
   | "CloudFormation"
   | "CloudFormationRollback"
-  | "AutoscalingTermination";
+  | "autoscalingTermination";
 export declare class DeploymentDoesNotExistException extends EffectData.TaggedError(
   "DeploymentDoesNotExistException",
 )<{
@@ -1063,14 +1063,14 @@ export interface DeploymentReadyOption {
 export type DeploymentsInfoList = Array<DeploymentInfo>;
 export type DeploymentsList = Array<string>;
 export type DeploymentStatus =
-  | "CREATED"
-  | "QUEUED"
-  | "IN_PROGRESS"
-  | "BAKING"
-  | "SUCCEEDED"
-  | "FAILED"
-  | "STOPPED"
-  | "READY";
+  | "Created"
+  | "Queued"
+  | "InProgress"
+  | "Baking"
+  | "Succeeded"
+  | "Failed"
+  | "Stopped"
+  | "Ready";
 export type DeploymentStatusList = Array<DeploymentStatus>;
 export type DeploymentStatusMessageList = Array<string>;
 export interface DeploymentStyle {
@@ -1101,10 +1101,10 @@ export declare class DeploymentTargetListSizeExceededException extends EffectDat
   readonly message?: string;
 }> {}
 export type DeploymentTargetType =
-  | "INSTANCE_TARGET"
-  | "LAMBDA_TARGET"
-  | "ECS_TARGET"
-  | "CLOUDFORMATION_TARGET";
+  | "InstanceTarget"
+  | "LambdaTarget"
+  | "ECSTarget"
+  | "CloudFormationTarget";
 export type DeploymentType = "IN_PLACE" | "BLUE_GREEN";
 export type DeploymentWaitType = "READY_WAIT" | "TERMINATION_WAIT";
 export interface DeregisterOnPremisesInstanceInput {
@@ -1391,13 +1391,13 @@ export declare class InstanceNotRegisteredException extends EffectData.TaggedErr
 }> {}
 export type InstancesList = Array<string>;
 export type InstanceStatus =
-  | "PENDING"
-  | "IN_PROGRESS"
-  | "SUCCEEDED"
-  | "FAILED"
-  | "SKIPPED"
-  | "UNKNOWN"
-  | "READY";
+  | "Pending"
+  | "InProgress"
+  | "Succeeded"
+  | "Failed"
+  | "Skipped"
+  | "Unknown"
+  | "Ready";
 export type InstanceStatusList = Array<InstanceStatus>;
 export interface InstanceSummary {
   deploymentId?: string;
@@ -1417,7 +1417,7 @@ export interface InstanceTarget {
   lifecycleEvents?: Array<LifecycleEvent>;
   instanceLabel?: TargetLabel;
 }
-export type InstanceType = "BLUE" | "GREEN";
+export type InstanceType = "Blue" | "Green";
 export type InstanceTypeList = Array<InstanceType>;
 export declare class InvalidAlarmConfigException extends EffectData.TaggedError(
   "InvalidAlarmConfigException",
@@ -1723,12 +1723,12 @@ export interface LastDeploymentInfo {
   createTime?: Date | string;
 }
 export type LifecycleErrorCode =
-  | "SUCCESS"
-  | "SCRIPT_MISSING"
-  | "SCRIPT_NOT_EXECUTABLE"
-  | "SCRIPT_TIMED_OUT"
-  | "SCRIPT_FAILED"
-  | "UNKNOWN_ERROR";
+  | "Success"
+  | "ScriptMissing"
+  | "ScriptNotExecutable"
+  | "ScriptTimedOut"
+  | "ScriptFailed"
+  | "UnknownError";
 export interface LifecycleEvent {
   lifecycleEventName?: string;
   diagnostics?: Diagnostics;
@@ -1747,12 +1747,12 @@ export type LifecycleEventList = Array<LifecycleEvent>;
 export type LifecycleEventName = string;
 
 export type LifecycleEventStatus =
-  | "PENDING"
-  | "IN_PROGRESS"
-  | "SUCCEEDED"
-  | "FAILED"
-  | "SKIPPED"
-  | "UNKNOWN";
+  | "Pending"
+  | "InProgress"
+  | "Succeeded"
+  | "Failed"
+  | "Skipped"
+  | "Unknown";
 export declare class LifecycleHookLimitExceededException extends EffectData.TaggedError(
   "LifecycleHookLimitExceededException",
 )<{
@@ -1846,7 +1846,7 @@ export interface ListOnPremisesInstancesOutput {
   instanceNames?: Array<string>;
   nextToken?: string;
 }
-export type ListStateFilterAction = "Include" | "Exclude" | "Ignore";
+export type ListStateFilterAction = "include" | "exclude" | "ignore";
 export interface ListTagsForResourceInput {
   ResourceArn: string;
   NextToken?: string;
@@ -1896,7 +1896,7 @@ export declare class OperationNotSupportedException extends EffectData.TaggedErr
 )<{
   readonly message?: string;
 }> {}
-export type OutdatedInstancesStrategy = "Update" | "Ignore";
+export type OutdatedInstancesStrategy = "UPDATE" | "IGNORE";
 export type Percentage = number;
 
 export interface PutLifecycleEventHookExecutionStatusInput {
@@ -2002,7 +2002,7 @@ export type ScriptName = string;
 export interface SkipWaitTimeForInstanceTerminationInput {
   deploymentId?: string;
 }
-export type SortOrder = "Ascending" | "Descending";
+export type SortOrder = "ascending" | "descending";
 export interface StopDeploymentInput {
   deploymentId: string;
   autoRollbackEnabled?: boolean;
@@ -2011,7 +2011,7 @@ export interface StopDeploymentOutput {
   status?: StopStatus;
   statusMessage?: string;
 }
-export type StopStatus = "PENDING" | "SUCCEEDED";
+export type StopStatus = "Pending" | "Succeeded";
 export interface Tag {
   Key?: string;
   Value?: string;
@@ -2047,7 +2047,7 @@ export declare class TagSetListLimitExceededException extends EffectData.TaggedE
 }> {}
 export type TargetArn = string;
 
-export type TargetFilterName = "TARGET_STATUS" | "SERVER_INSTANCE_LABEL";
+export type TargetFilterName = "TargetStatus" | "ServerInstanceLabel";
 export type TargetFilters = Record<TargetFilterName, Array<string>>;
 export interface TargetGroupInfo {
   name?: string;
@@ -2069,15 +2069,15 @@ export interface TargetInstances {
   autoScalingGroups?: Array<string>;
   ec2TagSet?: EC2TagSet;
 }
-export type TargetLabel = "BLUE" | "GREEN";
+export type TargetLabel = "Blue" | "Green";
 export type TargetStatus =
-  | "PENDING"
-  | "IN_PROGRESS"
-  | "SUCCEEDED"
-  | "FAILED"
-  | "SKIPPED"
-  | "UNKNOWN"
-  | "READY";
+  | "Pending"
+  | "InProgress"
+  | "Succeeded"
+  | "Failed"
+  | "Skipped"
+  | "Unknown"
+  | "Ready";
 export declare class ThrottlingException extends EffectData.TaggedError(
   "ThrottlingException",
 )<{
@@ -2120,16 +2120,16 @@ export interface TriggerConfig {
 }
 export type TriggerConfigList = Array<TriggerConfig>;
 export type TriggerEventType =
-  | "DEPLOYMENT_START"
-  | "DEPLOYMENT_SUCCESS"
-  | "DEPLOYMENT_FAILURE"
-  | "DEPLOYMENT_STOP"
-  | "DEPLOYMENT_ROLLBACK"
-  | "DEPLOYMENT_READY"
-  | "INSTANCE_START"
-  | "INSTANCE_SUCCESS"
-  | "INSTANCE_FAILURE"
-  | "INSTANCE_READY";
+  | "DeploymentStart"
+  | "DeploymentSuccess"
+  | "DeploymentFailure"
+  | "DeploymentStop"
+  | "DeploymentRollback"
+  | "DeploymentReady"
+  | "InstanceStart"
+  | "InstanceSuccess"
+  | "InstanceFailure"
+  | "InstanceReady";
 export type TriggerEventTypeList = Array<TriggerEventType>;
 export type TriggerName = string;
 

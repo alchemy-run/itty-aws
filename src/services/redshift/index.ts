@@ -1326,15 +1326,15 @@ export interface AccountWithRestoreAccess {
   AccountAlias?: string;
 }
 export type ActionType =
-  | "RESTORE_CLUSTER"
-  | "RECOMMEND_NODE_CONFIG"
-  | "RESIZE_CLUSTER";
+  | "restore-cluster"
+  | "recommend-node-config"
+  | "resize-cluster";
 export interface AquaConfiguration {
   AquaStatus?: AquaStatus;
   AquaConfigurationStatus?: AquaConfigurationStatus;
 }
-export type AquaConfigurationStatus = "ENABLED" | "DISABLED" | "AUTO";
-export type AquaStatus = "ENABLED" | "DISABLED" | "APPLYING";
+export type AquaConfigurationStatus = "enabled" | "disabled" | "auto";
+export type AquaStatus = "enabled" | "disabled" | "applying";
 export interface AssociateDataShareConsumerMessage {
   DataShareArn: string;
   AssociateEntireAccount?: boolean;
@@ -1392,7 +1392,7 @@ export declare class AuthorizationQuotaExceededFault extends EffectData.TaggedEr
 )<{
   readonly message?: string;
 }> {}
-export type AuthorizationStatus = "AUTHORIZED" | "REVOKING";
+export type AuthorizationStatus = "Authorized" | "Revoking";
 export interface AuthorizeClusterSecurityGroupIngressMessage {
   ClusterSecurityGroupName: string;
   CIDRIP?: string;
@@ -2316,10 +2316,10 @@ export interface DescribeIntegrationsFilter {
 }
 export type DescribeIntegrationsFilterList = Array<DescribeIntegrationsFilter>;
 export type DescribeIntegrationsFilterName =
-  | "INTEGRATION_ARN"
-  | "SOURCE_ARN"
-  | "SOURCE_TYPES"
-  | "STATUS";
+  | "integration-arn"
+  | "source-arn"
+  | "source-types"
+  | "status";
 export type DescribeIntegrationsFilterValueList = Array<string>;
 export interface DescribeIntegrationsMessage {
   IntegrationArn?: string;
@@ -3026,7 +3026,7 @@ export interface ListRecommendationsResult {
   Recommendations?: Array<Recommendation>;
   Marker?: string;
 }
-export type LogDestinationType = "S3" | "CLOUDWATCH";
+export type LogDestinationType = "s3" | "cloudwatch";
 export interface LoggingStatus {
   LoggingEnabled?: boolean;
   BucketName?: string;
@@ -3047,7 +3047,7 @@ export interface MaintenanceTrack {
   DatabaseVersion?: string;
   UpdateTargets?: Array<UpdateTarget>;
 }
-export type Mode = "STANDARD" | "HIGH_PERFORMANCE";
+export type Mode = "standard" | "high-performance";
 export interface ModifyAquaInputMessage {
   ClusterIdentifier: string;
   AquaConfigurationStatus?: AquaConfigurationStatus;
@@ -3229,7 +3229,7 @@ export type NamespaceIdentifierUnion =
   | (_NamespaceIdentifierUnion & {
       ProvisionedIdentifier: ProvisionedIdentifier;
     });
-export type NamespaceRegistrationStatus = "REGISTERING" | "DEREGISTERING";
+export type NamespaceRegistrationStatus = "Registering" | "Deregistering";
 export interface NetworkInterface {
   NetworkInterfaceId?: string;
   SubnetId?: string;
@@ -3253,10 +3253,10 @@ export interface NodeConfigurationOptionsFilter {
 export type NodeConfigurationOptionsFilterList =
   Array<NodeConfigurationOptionsFilter>;
 export type NodeConfigurationOptionsFilterName =
-  | "NODE_TYPE"
-  | "NUM_NODES"
-  | "ESTIMATED_DISK_UTILIZATION_PERCENT"
-  | "MODE";
+  | "NodeType"
+  | "NumberOfNodes"
+  | "EstimatedDiskUtilizationPercent"
+  | "Mode";
 export interface NodeConfigurationOptionsMessage {
   NodeConfigurationOptionList?: Array<NodeConfigurationOption>;
   Marker?: string;
@@ -3271,7 +3271,7 @@ export declare class NumberOfNodesQuotaExceededFault extends EffectData.TaggedEr
 )<{
   readonly message?: string;
 }> {}
-export type OperatorType = "EQ" | "LT" | "GT" | "LE" | "GE" | "IN" | "BETWEEN";
+export type OperatorType = "eq" | "lt" | "gt" | "le" | "ge" | "in" | "between";
 export interface OrderableClusterOption {
   ClusterVersion?: string;
   ClusterType?: string;
@@ -3488,8 +3488,8 @@ export interface ReservedNodeConfigurationOption {
 export type ReservedNodeConfigurationOptionList =
   Array<ReservedNodeConfigurationOption>;
 export type ReservedNodeExchangeActionType =
-  | "RESTORE_CLUSTER"
-  | "RESIZE_CLUSTER";
+  | "restore-cluster"
+  | "resize-cluster";
 export declare class ReservedNodeExchangeNotFoundFault extends EffectData.TaggedError(
   "ReservedNodeExchangeNotFoundFault",
 )<{
@@ -3742,7 +3742,7 @@ export interface ScheduledActionFilter {
   Values: Array<string>;
 }
 export type ScheduledActionFilterList = Array<ScheduledActionFilter>;
-export type ScheduledActionFilterName = "CLUSTER_IDENTIFIER" | "IAM_ROLE";
+export type ScheduledActionFilterName = "cluster-identifier" | "iam-role";
 export type ScheduledActionList = Array<ScheduledAction>;
 export declare class ScheduledActionNotFoundFault extends EffectData.TaggedError(
   "ScheduledActionNotFoundFault",
@@ -3771,9 +3771,9 @@ export declare class ScheduledActionTypeUnsupportedFault extends EffectData.Tagg
   readonly message?: string;
 }> {}
 export type ScheduledActionTypeValues =
-  | "RESIZE_CLUSTER"
-  | "PAUSE_CLUSTER"
-  | "RESUME_CLUSTER";
+  | "ResizeCluster"
+  | "PauseCluster"
+  | "ResumeCluster";
 export type ScheduleDefinitionList = Array<string>;
 export declare class ScheduleDefinitionTypeUnsupportedFault extends EffectData.TaggedError(
   "ScheduleDefinitionTypeUnsupportedFault",
@@ -3792,7 +3792,7 @@ export interface ServerlessIdentifier {
   NamespaceIdentifier: string;
   WorkgroupIdentifier: string;
 }
-export type ServiceAuthorization = "ENABLED" | "DISABLED";
+export type ServiceAuthorization = "Enabled" | "Disabled";
 export type ServiceIntegrationList = Array<ServiceIntegrationsUnion>;
 interface _ServiceIntegrationsUnion {
   LakeFormation?: Array<LakeFormationScopeUnion>;
@@ -3951,7 +3951,7 @@ export declare class SNSTopicArnNotFoundFault extends EffectData.TaggedError(
 )<{
   readonly message?: string;
 }> {}
-export type SortByOrder = "ASCENDING" | "DESCENDING";
+export type SortByOrder = "ASC" | "DESC";
 export type SourceArn = string;
 
 export type SourceIdsList = Array<string>;
@@ -3962,10 +3962,10 @@ export declare class SourceNotFoundFault extends EffectData.TaggedError(
 }> {}
 export type SourceType =
   | "cluster"
-  | "cluster_parameter_group"
-  | "cluster_security_group"
-  | "cluster_snapshot"
-  | "scheduled_action";
+  | "cluster-parameter-group"
+  | "cluster-security-group"
+  | "cluster-snapshot"
+  | "scheduled-action";
 export type RedshiftString = string;
 
 export interface Subnet {
@@ -4134,12 +4134,12 @@ export declare class UsageLimitAlreadyExistsFault extends EffectData.TaggedError
 )<{
   readonly message?: string;
 }> {}
-export type UsageLimitBreachAction = "LOG" | "EMIT_METRIC" | "DISABLE";
+export type UsageLimitBreachAction = "log" | "emit-metric" | "disable";
 export type UsageLimitFeatureType =
-  | "SPECTRUM"
-  | "CONCURRENCY_SCALING"
-  | "CROSS_REGION_DATASHARING";
-export type UsageLimitLimitType = "TIME" | "DATA_SCANNED";
+  | "spectrum"
+  | "concurrency-scaling"
+  | "cross-region-datasharing";
+export type UsageLimitLimitType = "time" | "data-scanned";
 export interface UsageLimitList {
   UsageLimits?: Array<UsageLimit>;
   Marker?: string;
@@ -4149,7 +4149,7 @@ export declare class UsageLimitNotFoundFault extends EffectData.TaggedError(
 )<{
   readonly message?: string;
 }> {}
-export type UsageLimitPeriod = "DAILY" | "WEEKLY" | "MONTHLY";
+export type UsageLimitPeriod = "daily" | "weekly" | "monthly";
 export type UsageLimits = Array<UsageLimit>;
 export type ValueStringList = Array<string>;
 export interface VpcEndpoint {
@@ -4166,13 +4166,13 @@ export interface VpcSecurityGroupMembership {
 }
 export type VpcSecurityGroupMembershipList = Array<VpcSecurityGroupMembership>;
 export type ZeroETLIntegrationStatus =
-  | "CREATING"
-  | "ACTIVE"
-  | "MODIFYING"
-  | "FAILED"
-  | "DELETING"
-  | "SYNCING"
-  | "NEEDS_ATTENTION";
+  | "creating"
+  | "active"
+  | "modifying"
+  | "failed"
+  | "deleting"
+  | "syncing"
+  | "needs_attention";
 export declare namespace AcceptReservedNodeExchange {
   export type Input = AcceptReservedNodeExchangeInputMessage;
   export type Output = AcceptReservedNodeExchangeOutputMessage;

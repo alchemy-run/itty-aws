@@ -386,10 +386,10 @@ export interface Filter {
 export type FilterNameStringType =
   | "description"
   | "name"
-  | "tag_key"
-  | "tag_value"
-  | "primary_region"
-  | "owning_service"
+  | "tag-key"
+  | "tag-value"
+  | "primary-region"
+  | "owning-service"
   | "all";
 export type FiltersListType = Array<Filter>;
 export type FilterValuesStringList = Array<string>;

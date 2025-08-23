@@ -265,7 +265,7 @@ export interface AggregationConfig {
   aggregationType?: AggregationType;
   targetFileSize?: number;
 }
-export type AggregationType = "NONE" | "SINGLE_FILE";
+export type AggregationType = "None" | "SingleFile";
 export type AmplitudeConnectorOperator = "BETWEEN";
 export interface AmplitudeConnectorProfileCredentials {
   apiKey: string;
@@ -358,7 +358,7 @@ export declare class ConflictException extends EffectData.TaggedError(
 )<{
   readonly message?: string;
 }> {}
-export type ConnectionMode = "PUBLIC" | "PRIVATE";
+export type ConnectionMode = "Public" | "Private";
 export declare class ConnectorAuthenticationException extends EffectData.TaggedError(
   "ConnectorAuthenticationException",
 )<{
@@ -584,30 +584,30 @@ export type ConnectorSuppliedValue = string;
 export type ConnectorSuppliedValueList = Array<string>;
 export type ConnectorSuppliedValueOptionList = Array<string>;
 export type ConnectorType =
-  | "SALESFORCE"
-  | "SINGULAR"
-  | "SLACK"
-  | "REDSHIFT"
+  | "Salesforce"
+  | "Singular"
+  | "Slack"
+  | "Redshift"
   | "S3"
-  | "MARKETO"
-  | "GOOGLEANALYTICS"
-  | "ZENDESK"
-  | "SERVICENOW"
-  | "DATADOG"
-  | "TRENDMICRO"
-  | "SNOWFLAKE"
-  | "DYNATRACE"
-  | "INFORNEXUS"
-  | "AMPLITUDE"
-  | "VEEVA"
-  | "EVENTBRIDGE"
-  | "LOOKOUTMETRICS"
-  | "UPSOLVER"
-  | "HONEYCODE"
-  | "CUSTOMERPROFILES"
-  | "SAPODATA"
-  | "CUSTOMCONNECTOR"
-  | "PARDOT";
+  | "Marketo"
+  | "Googleanalytics"
+  | "Zendesk"
+  | "Servicenow"
+  | "Datadog"
+  | "Trendmicro"
+  | "Snowflake"
+  | "Dynatrace"
+  | "Infornexus"
+  | "Amplitude"
+  | "Veeva"
+  | "EventBridge"
+  | "LookoutMetrics"
+  | "Upsolver"
+  | "Honeycode"
+  | "CustomerProfiles"
+  | "SAPOData"
+  | "CustomConnector"
+  | "Pardot";
 export type ConnectorTypeList = Array<ConnectorType>;
 export type ConnectorVersion = string;
 
@@ -723,7 +723,7 @@ export interface DatadogMetadata {}
 export interface DatadogSourceProperties {
   object: string;
 }
-export type DataPullMode = "INCREMENTAL" | "COMPLETE";
+export type DataPullMode = "Incremental" | "Complete";
 export interface DataTransferApi {
   Name?: string;
   Type?: DataTransferApiType;
@@ -930,11 +930,11 @@ export interface ExecutionResult {
   maxPageSize?: number;
 }
 export type ExecutionStatus =
-  | "INPROGRESS"
-  | "SUCCESSFUL"
-  | "ERROR"
-  | "CANCELSTARTED"
-  | "CANCELED";
+  | "InProgress"
+  | "Successful"
+  | "Error"
+  | "CancelStarted"
+  | "Canceled";
 export type FieldType = string;
 
 export interface FieldTypeDetails {
@@ -976,12 +976,12 @@ export type FlowList = Array<FlowDefinition>;
 export type FlowName = string;
 
 export type FlowStatus =
-  | "ACTIVE"
-  | "DEPRECATED"
-  | "DELETED"
-  | "DRAFT"
-  | "ERRORED"
-  | "SUSPENDED";
+  | "Active"
+  | "Deprecated"
+  | "Deleted"
+  | "Draft"
+  | "Errored"
+  | "Suspended";
 export type FlowStatusMessage = string;
 
 export interface GlueDataCatalogConfig {
@@ -1813,16 +1813,16 @@ export interface Task {
 export type TaskPropertiesMap = Record<OperatorPropertiesKeys, string>;
 export type Tasks = Array<Task>;
 export type TaskType =
-  | "ARITHMETIC"
-  | "FILTER"
-  | "MAP"
-  | "MAP_ALL"
-  | "MASK"
-  | "MERGE"
-  | "PASSTHROUGH"
-  | "TRUNCATE"
-  | "VALIDATE"
-  | "PARTITION";
+  | "Arithmetic"
+  | "Filter"
+  | "Map"
+  | "Map_all"
+  | "Mask"
+  | "Merge"
+  | "Passthrough"
+  | "Truncate"
+  | "Validate"
+  | "Partition";
 export declare class ThrottlingException extends EffectData.TaggedError(
   "ThrottlingException",
 )<{
@@ -1864,7 +1864,7 @@ export interface TriggerConfig {
 export interface TriggerProperties {
   Scheduled?: ScheduledTriggerProperties;
 }
-export type TriggerType = "SCHEDULED" | "EVENT" | "ONDEMAND";
+export type TriggerType = "Scheduled" | "Event" | "OnDemand";
 export type TriggerTypeList = Array<TriggerType>;
 export interface UnregisterConnectorRequest {
   connectorLabel: string;

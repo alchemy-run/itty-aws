@@ -164,7 +164,7 @@ export interface AccountFindingsMetric {
   openFindings?: FindingMetricsValuePerSeverity;
   meanTimeToClose?: FindingMetricsValuePerSeverity;
 }
-export type AnalysisType = "SECURITY" | "ALL";
+export type AnalysisType = "Security" | "All";
 export interface BatchGetFindingsError {
   scanName: string;
   findingId: string;
@@ -391,7 +391,7 @@ export interface ScanNameWithFindingNum {
   scanName?: string;
   findingNumber?: number;
 }
-export type ScanState = "IN_PROGRESS" | "SUCCESSFUL" | "FAILED";
+export type ScanState = "InProgress" | "Successful" | "Failed";
 export type ScanSummaries = Array<ScanSummary>;
 export interface ScanSummary {
   scanState: ScanState;
@@ -403,9 +403,9 @@ export interface ScanSummary {
 }
 export type ScansWithMostOpenCriticalFindings = Array<ScanNameWithFindingNum>;
 export type ScansWithMostOpenFindings = Array<ScanNameWithFindingNum>;
-export type ScanType = "STANDARD" | "EXPRESS";
-export type Severity = "CRITICAL" | "HIGH" | "MEDIUM" | "LOW" | "INFO";
-export type Status = "CLOSED" | "OPEN" | "ALL";
+export type ScanType = "Standard" | "Express";
+export type Severity = "Critical" | "High" | "Medium" | "Low" | "Info";
+export type Status = "Closed" | "Open" | "All";
 export interface SuggestedFix {
   description?: string;
   code?: string;
@@ -457,11 +457,11 @@ export interface ValidationExceptionField {
 }
 export type ValidationExceptionFieldList = Array<ValidationExceptionField>;
 export type ValidationExceptionReason =
-  | "UNKNOWN_OPERATION"
-  | "CANNOT_PARSE"
-  | "FIELD_VALIDATION_FAILED"
-  | "OTHER"
-  | "LAMBDA_CODE_SHA_MISMATCH";
+  | "unknownOperation"
+  | "cannotParse"
+  | "fieldValidationFailed"
+  | "other"
+  | "lambdaCodeShaMisMatch";
 export interface Vulnerability {
   referenceUrls?: Array<string>;
   relatedVulnerabilities?: Array<string>;

@@ -1332,7 +1332,7 @@ export declare class OperationTimeoutException extends EffectData.TaggedError(
 )<{
   readonly Message?: string;
 }> {}
-export type OptimizerType = "COMPACTION" | "GARBAGE_COLLECTION" | "GENERIC";
+export type OptimizerType = "COMPACTION" | "GARBAGE_COLLECTION" | "ALL";
 export type PageSize = number;
 
 export type ParametersMap = Record<string, string>;

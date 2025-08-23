@@ -1377,7 +1377,7 @@ export type CallingNameStatus =
 export type CallingRegion = string;
 
 export type CallingRegionList = Array<string>;
-export type CallLegType = "CALLER" | "CALLEE";
+export type CallLegType = "Caller" | "Callee";
 export interface CandidateAddress {
   streetInfo?: string;
   streetNumber?: string;
@@ -1758,7 +1758,7 @@ export type Integer = number;
 
 export type Iso8601Timestamp = Date | string;
 
-export type LanguageCode = "EN_US";
+export type LanguageCode = "en-US";
 export interface ListAvailableVoiceConnectorRegionsResponse {
   VoiceConnectorRegions?: Array<VoiceConnectorAwsRegion>;
 }
@@ -2444,16 +2444,16 @@ export interface VoiceConnector {
   IntegrationType?: VoiceConnectorIntegrationType;
 }
 export type VoiceConnectorAwsRegion =
-  | "US_EAST_1"
-  | "US_WEST_2"
-  | "CA_CENTRAL_1"
-  | "EU_CENTRAL_1"
-  | "EU_WEST_1"
-  | "EU_WEST_2"
-  | "AP_NORTHEAST_2"
-  | "AP_NORTHEAST_1"
-  | "AP_SOUTHEAST_1"
-  | "AP_SOUTHEAST_2";
+  | "us-east-1"
+  | "us-west-2"
+  | "ca-central-1"
+  | "eu-central-1"
+  | "eu-west-1"
+  | "eu-west-2"
+  | "ap-northeast-2"
+  | "ap-northeast-1"
+  | "ap-southeast-1"
+  | "ap-southeast-2";
 export type VoiceConnectorAwsRegionList = Array<VoiceConnectorAwsRegion>;
 export interface VoiceConnectorGroup {
   VoiceConnectorGroupId?: string;

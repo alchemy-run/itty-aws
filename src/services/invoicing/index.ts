@@ -406,20 +406,20 @@ export interface ValidationExceptionField {
 }
 export type ValidationExceptionFieldList = Array<ValidationExceptionField>;
 export type ValidationExceptionReason =
-  | "NON_MEMBERS_PRESENT"
-  | "MAX_ACCOUNTS_EXCEEDED"
-  | "MAX_INVOICE_UNITS_EXCEEDED"
-  | "DUPLICATE_INVOICE_UNIT"
-  | "MUTUAL_EXCLUSION_ERROR"
-  | "ACCOUNT_MEMBERSHIP_ERROR"
-  | "TAX_SETTINGS_ERROR"
-  | "EXPIRED_NEXT_TOKEN"
-  | "INVALID_NEXT_TOKEN"
-  | "INVALID_INPUT"
-  | "FIELD_VALIDATION_FAILED"
-  | "CANNOT_PARSE"
-  | "UNKNOWN_OPERATION"
-  | "OTHER";
+  | "nonMemberPresent"
+  | "maxAccountsExceeded"
+  | "maxInvoiceUnitsExceeded"
+  | "duplicateInvoiceUnit"
+  | "mutualExclusionError"
+  | "accountMembershipError"
+  | "taxSettingsError"
+  | "expiredNextToken"
+  | "invalidNextToken"
+  | "invalidInput"
+  | "fieldValidationFailed"
+  | "cannotParse"
+  | "unknownOperation"
+  | "other";
 export type Year = number;
 
 export declare namespace BatchGetInvoiceProfile {

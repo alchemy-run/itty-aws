@@ -348,7 +348,7 @@ export interface AwsGroundStationAgentEndpoint {
 }
 export type AWSRegion = string;
 
-export type BandwidthUnits = "GHZ" | "MHZ" | "KHZ";
+export type BandwidthUnits = "GHz" | "MHz" | "kHz";
 export type BucketArn = string;
 
 export interface CancelContactRequest {
@@ -387,13 +387,13 @@ export type ComponentVersionList = Array<ComponentVersion>;
 export type ConfigArn = string;
 
 export type ConfigCapabilityType =
-  | "ANTENNA_DOWNLINK"
-  | "ANTENNA_DOWNLINK_DEMOD_DECODE"
-  | "TRACKING"
-  | "DATAFLOW_ENDPOINT"
-  | "ANTENNA_UPLINK"
-  | "UPLINK_ECHO"
-  | "S3_RECORDING";
+  | "antenna-downlink"
+  | "antenna-downlink-demod-decode"
+  | "tracking"
+  | "dataflow-endpoint"
+  | "antenna-uplink"
+  | "uplink-echo"
+  | "s3-recording";
 interface _ConfigDetails {
   endpointDetails?: EndpointDetails;
   antennaDemodDecodeDetails?: AntennaDemodDecodeDetails;
@@ -618,7 +618,7 @@ export interface Eirp {
   value: number;
   units: EirpUnits;
 }
-export type EirpUnits = "DBW";
+export type EirpUnits = "dBW";
 export interface Elevation {
   value: number;
   unit: AngleUnits;
@@ -701,7 +701,7 @@ export interface FrequencyBandwidth {
   value: number;
   units: BandwidthUnits;
 }
-export type FrequencyUnits = "GHZ" | "MHZ" | "KHZ";
+export type FrequencyUnits = "GHz" | "MHz" | "kHz";
 export interface GetAgentConfigurationRequest {
   agentId: string;
 }

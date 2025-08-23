@@ -442,11 +442,7 @@ export interface ChannelSummary {
   preset?: TranscodePreset;
   playbackRestrictionPolicyArn?: string;
 }
-export type ChannelType =
-  | "BasicChannelType"
-  | "StandardChannelType"
-  | "AdvancedSDChannelType"
-  | "AdvancedHDChannelType";
+export type ChannelType = "BASIC" | "STANDARD" | "ADVANCED_SD" | "ADVANCED_HD";
 export declare class ConflictException extends EffectData.TaggedError(
   "ConflictException",
 )<{
@@ -939,8 +935,8 @@ export type ThumbnailConfigurationStorageList = Array<string>;
 export type Time = Date | string;
 
 export type TranscodePreset =
-  | "HigherBandwidthTranscodePreset"
-  | "ConstrainedBandwidthTranscodePreset";
+  | "HIGHER_BANDWIDTH_DELIVERY"
+  | "CONSTRAINED_BANDWIDTH_DELIVERY";
 export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;

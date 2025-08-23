@@ -177,7 +177,7 @@ export interface AsyncInvokeS3OutputDataConfig {
   kmsKeyId?: string;
   bucketOwner?: string;
 }
-export type AsyncInvokeStatus = "IN_PROGRESS" | "COMPLETED" | "FAILED";
+export type AsyncInvokeStatus = "InProgress" | "Completed" | "Failed";
 export type AsyncInvokeSummaries = Array<AsyncInvokeSummary>;
 export interface AsyncInvokeSummary {
   invocationArn: string;
@@ -202,7 +202,7 @@ export type Body = Uint8Array | string;
 export interface CachePointBlock {
   type: CachePointType;
 }
-export type CachePointType = "DEFAULT";
+export type CachePointType = "default";
 export interface Citation {
   title?: string;
   sourceContent?: Array<CitationSourceContent>;
@@ -311,7 +311,7 @@ export interface ContentBlockStopEvent {
 }
 export type ConversationalModelId = string;
 
-export type ConversationRole = "USER" | "ASSISTANT";
+export type ConversationRole = "user" | "assistant";
 export interface ConverseMetrics {
   latencyMs: number;
 }
@@ -431,15 +431,15 @@ interface _DocumentContentBlock {
 export type DocumentContentBlock = _DocumentContentBlock & { text: string };
 export type DocumentContentBlocks = Array<DocumentContentBlock>;
 export type DocumentFormat =
-  | "PDF"
-  | "CSV"
-  | "DOC"
-  | "DOCX"
-  | "XLS"
-  | "XLSX"
-  | "HTML"
-  | "TXT"
-  | "MD";
+  | "pdf"
+  | "csv"
+  | "doc"
+  | "docx"
+  | "xls"
+  | "xlsx"
+  | "html"
+  | "txt"
+  | "md";
 export interface DocumentPageLocation {
   documentIndex?: number;
   start?: number;
@@ -530,9 +530,9 @@ export type GuardrailContentPolicyImageUnitsProcessed = number;
 export type GuardrailContentPolicyUnitsProcessed = number;
 
 export type GuardrailContentQualifier =
-  | "GROUNDING_SOURCE"
-  | "QUERY"
-  | "GUARD_CONTENT";
+  | "grounding_source"
+  | "query"
+  | "guard_content";
 export type GuardrailContentQualifierList = Array<GuardrailContentQualifier>;
 export type GuardrailContentSource = "INPUT" | "OUTPUT";
 export interface GuardrailContextualGroundingFilter {
@@ -560,16 +560,16 @@ export type GuardrailConverseContentBlock =
   | (_GuardrailConverseContentBlock & { text: GuardrailConverseTextBlock })
   | (_GuardrailConverseContentBlock & { image: GuardrailConverseImageBlock });
 export type GuardrailConverseContentQualifier =
-  | "GROUNDING_SOURCE"
-  | "QUERY"
-  | "GUARD_CONTENT";
+  | "grounding_source"
+  | "query"
+  | "guard_content";
 export type GuardrailConverseContentQualifierList =
   Array<GuardrailConverseContentQualifier>;
 export interface GuardrailConverseImageBlock {
   format: GuardrailConverseImageFormat;
   source: GuardrailConverseImageSource;
 }
-export type GuardrailConverseImageFormat = "PNG" | "JPEG";
+export type GuardrailConverseImageFormat = "png" | "jpeg";
 interface _GuardrailConverseImageSource {
   bytes?: Uint8Array | string;
 }
@@ -601,7 +601,7 @@ export interface GuardrailImageCoverage {
   guarded?: number;
   total?: number;
 }
-export type GuardrailImageFormat = "PNG" | "JPEG";
+export type GuardrailImageFormat = "png" | "jpeg";
 interface _GuardrailImageSource {
   bytes?: Uint8Array | string;
 }
@@ -696,7 +696,7 @@ export interface GuardrailStreamConfiguration {
   trace?: GuardrailTrace;
   streamProcessingMode?: GuardrailStreamProcessingMode;
 }
-export type GuardrailStreamProcessingMode = "SYNC" | "ASYNC";
+export type GuardrailStreamProcessingMode = "sync" | "async";
 export interface GuardrailTextBlock {
   text: string;
   qualifiers?: Array<GuardrailContentQualifier>;
@@ -719,7 +719,7 @@ export interface GuardrailTopicPolicyAssessment {
 export type GuardrailTopicPolicyUnitsProcessed = number;
 
 export type GuardrailTopicType = "DENY";
-export type GuardrailTrace = "ENABLED" | "DISABLED" | "ENABLED_FULL";
+export type GuardrailTrace = "enabled" | "disabled" | "enabled_full";
 export interface GuardrailTraceAssessment {
   modelOutput?: Array<string>;
   inputAssessment?: Record<string, GuardrailAssessment>;
@@ -748,7 +748,7 @@ export interface ImageBlock {
   format: ImageFormat;
   source: ImageSource;
 }
-export type ImageFormat = "PNG" | "JPEG" | "GIF" | "WEBP";
+export type ImageFormat = "png" | "jpeg" | "gif" | "webp";
 export type ImagesGuarded = number;
 
 interface _ImageSource {
@@ -927,7 +927,7 @@ export type PartBody = Uint8Array | string;
 export interface PayloadPart {
   bytes?: Uint8Array | string;
 }
-export type PerformanceConfigLatency = "STANDARD" | "OPTIMIZED";
+export type PerformanceConfigLatency = "standard" | "optimized";
 export interface PerformanceConfiguration {
   latency?: PerformanceConfigLatency;
 }
@@ -1004,8 +1004,8 @@ export declare class ServiceUnavailableException extends EffectData.TaggedError(
 )<{
   readonly message?: string;
 }> {}
-export type SortAsyncInvocationBy = "SUBMISSION_TIME";
-export type SortOrder = "ASCENDING" | "DESCENDING";
+export type SortAsyncInvocationBy = "SubmissionTime";
+export type SortOrder = "Ascending" | "Descending";
 export interface SpecificToolChoice {
   name: string;
 }
@@ -1022,12 +1022,12 @@ export interface StartAsyncInvokeResponse {
 export type StatusCode = number;
 
 export type StopReason =
-  | "END_TURN"
-  | "TOOL_USE"
-  | "MAX_TOKENS"
-  | "STOP_SEQUENCE"
-  | "GUARDRAIL_INTERVENED"
-  | "CONTENT_FILTERED";
+  | "end_turn"
+  | "tool_use"
+  | "max_tokens"
+  | "stop_sequence"
+  | "guardrail_intervened"
+  | "content_filtered";
 interface _SystemContentBlock {
   text?: string;
   guardContent?: GuardrailConverseContentBlock;
@@ -1115,7 +1115,7 @@ export type ToolResultContentBlock =
   | (_ToolResultContentBlock & { document: DocumentBlock })
   | (_ToolResultContentBlock & { video: VideoBlock });
 export type ToolResultContentBlocks = Array<ToolResultContentBlock>;
-export type ToolResultStatus = "SUCCESS" | "ERROR";
+export type ToolResultStatus = "success" | "error";
 export type Tools = Array<Tool>;
 export interface ToolSpecification {
   name: string;
@@ -1147,15 +1147,15 @@ export interface VideoBlock {
   source: VideoSource;
 }
 export type VideoFormat =
-  | "MKV"
-  | "MOV"
-  | "MP4"
-  | "WEBM"
-  | "FLV"
-  | "MPEG"
-  | "MPG"
-  | "WMV"
-  | "THREE_GP";
+  | "mkv"
+  | "mov"
+  | "mp4"
+  | "webm"
+  | "flv"
+  | "mpeg"
+  | "mpg"
+  | "wmv"
+  | "three_gp";
 interface _VideoSource {
   bytes?: Uint8Array | string;
   s3Location?: S3Location;

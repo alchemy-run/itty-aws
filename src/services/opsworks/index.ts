@@ -467,7 +467,7 @@ export type AppAttributesKeys =
   | "AwsFlowRubySettings";
 export type Apps = Array<App>;
 export type AppType =
-  | "aws_flow_ruby"
+  | "aws-flow-ruby"
   | "java"
   | "rails"
   | "php"
@@ -1192,17 +1192,17 @@ export type LayerAttributesKeys =
   | "JavaAppServerVersion";
 export type Layers = Array<Layer>;
 export type LayerType =
-  | "aws_flow_ruby"
-  | "ecs_cluster"
-  | "java_app"
+  | "aws-flow-ruby"
+  | "ecs-cluster"
+  | "java-app"
   | "lb"
   | "web"
-  | "php_app"
-  | "rails_app"
-  | "nodejs_app"
+  | "php-app"
+  | "rails-app"
+  | "nodejs-app"
   | "memcached"
-  | "db_master"
-  | "monitoring_master"
+  | "db-master"
+  | "monitoring-master"
   | "custom";
 export interface LifecycleEventConfiguration {
   Shutdown?: ShutdownEventConfiguration;
@@ -1344,7 +1344,7 @@ export declare class ResourceNotFoundException extends EffectData.TaggedError(
 )<{
   readonly message?: string;
 }> {}
-export type RootDeviceType = "ebs" | "instance_store";
+export type RootDeviceType = "ebs" | "instance-store";
 export interface SelfUserProfile {
   IamUserArn?: string;
   Name?: string;

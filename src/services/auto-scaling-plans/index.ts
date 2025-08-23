@@ -225,14 +225,14 @@ export type ResourceIdMaxLen1600 = string;
 export type ResourceLabel = string;
 
 export type ScalableDimension =
-  | "AutoScalingGroupDesiredCapacity"
-  | "ECSServiceDesiredCount"
-  | "EC2SpotFleetRequestTargetCapacity"
-  | "RDSClusterReadReplicaCount"
-  | "DynamoDBTableReadCapacityUnits"
-  | "DynamoDBTableWriteCapacityUnits"
-  | "DynamoDBIndexReadCapacityUnits"
-  | "DynamoDBIndexWriteCapacityUnits";
+  | "autoscaling:autoScalingGroup:DesiredCapacity"
+  | "ecs:service:DesiredCount"
+  | "ec2:spot-fleet-request:TargetCapacity"
+  | "rds:cluster:ReadReplicaCount"
+  | "dynamodb:table:ReadCapacityUnits"
+  | "dynamodb:table:WriteCapacityUnits"
+  | "dynamodb:index:ReadCapacityUnits"
+  | "dynamodb:index:WriteCapacityUnits";
 export interface ScalingInstruction {
   ServiceNamespace: ServiceNamespace;
   ResourceId: string;
@@ -313,11 +313,11 @@ export type ScalingStatusCode = "Inactive" | "PartiallyActive" | "Active";
 export type ScheduledActionBufferTime = number;
 
 export type ServiceNamespace =
-  | "AUTOSCALING"
-  | "ECS"
-  | "EC2"
-  | "RDS"
-  | "DYNAMODB";
+  | "autoscaling"
+  | "ecs"
+  | "ec2"
+  | "rds"
+  | "dynamodb";
 export interface TagFilter {
   Key?: string;
   Values?: Array<string>;

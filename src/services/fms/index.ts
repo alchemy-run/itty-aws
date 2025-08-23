@@ -415,11 +415,11 @@ export declare class Fms extends FMS {}
 
 export type AccountIdList = Array<string>;
 export type AccountRoleStatus =
-  | "Ready"
-  | "Creating"
-  | "PendingDeletion"
-  | "Deleting"
-  | "Deleted";
+  | "READY"
+  | "CREATING"
+  | "PENDING_DELETION"
+  | "DELETING"
+  | "DELETED";
 export interface AccountScope {
   Accounts?: Array<string>;
   AllAccountsEnabled?: boolean;
@@ -569,13 +569,13 @@ export interface DeleteResourceSetRequest {
   Identifier: string;
 }
 export type DependentServiceName =
-  | "AWSConfig"
+  | "AWSCONFIG"
   | "AWSWAF"
-  | "AWSShieldAdvanced"
-  | "AWSVirtualPrivateCloud";
+  | "AWSSHIELD_ADVANCED"
+  | "AWSVPC";
 export type Description = string;
 
-export type DestinationType = "IPV4" | "IPV6" | "PrefixList";
+export type DestinationType = "IPV4" | "IPV6" | "PREFIX_LIST";
 export type DetailedInfo = string;
 
 export interface DisassociateAdminAccountRequest {}
@@ -663,9 +663,9 @@ export interface EntryDescription {
   EntryType?: EntryType;
 }
 export type EntryType =
-  | "FMSManagedFirstEntry"
-  | "FMSManagedLastEntry"
-  | "CustomEntry";
+  | "FMS_MANAGED_FIRST_ENTRY"
+  | "FMS_MANAGED_LAST_ENTRY"
+  | "CUSTOM_ENTRY";
 export interface EntryViolation {
   ExpectedEntry?: EntryDescription;
   ExpectedEvaluationOrder?: string;
@@ -675,9 +675,9 @@ export interface EntryViolation {
   EntryViolationReasons?: Array<EntryViolationReason>;
 }
 export type EntryViolationReason =
-  | "MissingExpectedEntry"
-  | "IncorrectEntryOrder"
-  | "EntryConflict";
+  | "MISSING_EXPECTED_ENTRY"
+  | "INCORRECT_ENTRY_ORDER"
+  | "ENTRY_CONFLICT";
 export type EntryViolationReasons = Array<EntryViolationReason>;
 export type EntryViolations = Array<EntryViolation>;
 export type ErrorMessage = string;
@@ -703,12 +703,12 @@ export interface FailedItem {
 }
 export type FailedItemList = Array<FailedItem>;
 export type FailedItemReason =
-  | "NotValidArn"
-  | "NotValidPartition"
-  | "NotValidRegion"
-  | "NotValidService"
-  | "NotValidResourceType"
-  | "NotValidAccountId";
+  | "NOT_VALID_ARN"
+  | "NOT_VALID_PARTITION"
+  | "NOT_VALID_REGION"
+  | "NOT_VALID_SERVICE"
+  | "NOT_VALID_RESOURCE_TYPE"
+  | "NOT_VALID_ACCOUNT_ID";
 export type FirewallDeploymentModel = "CENTRALIZED" | "DISTRIBUTED";
 export type FirewallPolicyId = string;
 
@@ -1003,7 +1003,7 @@ export interface NetworkAclPortRange {
   From?: number;
   To?: number;
 }
-export type NetworkAclRuleAction = "ALLOW" | "DENY";
+export type NetworkAclRuleAction = "allow" | "deny";
 export type NetworkFirewallAction = string;
 
 export type NetworkFirewallActionList = Array<string>;
@@ -1118,10 +1118,10 @@ export interface OrganizationalUnitScope {
   ExcludeSpecifiedOrganizationalUnits?: boolean;
 }
 export type OrganizationStatus =
-  | "Onboarding"
-  | "OnboardingComplete"
-  | "Offboarding"
-  | "OffboardingComplete";
+  | "ONBOARDING"
+  | "ONBOARDING_COMPLETE"
+  | "OFFBOARDING"
+  | "OFFBOARDING_COMPLETE";
 export type PaginationMaxResults = number;
 
 export type PaginationToken = string;
@@ -1168,7 +1168,7 @@ export interface PolicyComplianceStatus {
   IssueInfoMap?: Record<DependentServiceName, string>;
 }
 export type PolicyComplianceStatusList = Array<PolicyComplianceStatus>;
-export type PolicyComplianceStatusType = "Compliant" | "NonCompliant";
+export type PolicyComplianceStatusType = "COMPLIANT" | "NON_COMPLIANT";
 export type PolicyId = string;
 
 export interface PolicyOption {
@@ -1293,7 +1293,7 @@ export interface RemediationAction {
 }
 export type RemediationActionDescription = string;
 
-export type RemediationActionType = "Remove" | "Modify";
+export type RemediationActionType = "REMOVE" | "MODIFY";
 export interface RemediationActionWithOrder {
   RemediationAction?: RemediationAction;
   Order?: number;
@@ -1483,16 +1483,16 @@ export interface TagResourceResponse {}
 export type TagValue = string;
 
 export type TargetType =
-  | "Gateway"
-  | "CarrierGateway"
-  | "Instance"
-  | "LocalGateway"
-  | "NatGateway"
-  | "NetworkInterface"
-  | "VPCEndpoint"
-  | "VPCPeeringConnection"
-  | "EgressOnlyInternetGateway"
-  | "TransitGateway";
+  | "GATEWAY"
+  | "CARRIER_GATEWAY"
+  | "INSTANCE"
+  | "LOCAL_GATEWAY"
+  | "NAT_GATEWAY"
+  | "NETWORK_INTERFACE"
+  | "VPC_ENDPOINT"
+  | "VPC_PEERING_CONNECTION"
+  | "EGRESS_ONLY_INTERNET_GATEWAY"
+  | "TRANSIT_GATEWAY";
 export type TargetViolationReason = string;
 
 export type TargetViolationReasons = Array<string>;
@@ -1552,36 +1552,36 @@ export interface ViolationDetail {
   ResourceDescription?: string;
 }
 export type ViolationReason =
-  | "WebAclMissingRuleGroup"
-  | "ResourceMissingWebAcl"
-  | "ResourceIncorrectWebAcl"
-  | "ResourceMissingShieldProtection"
-  | "ResourceMissingWebaclOrShieldProtection"
-  | "ResourceMissingSecurityGroup"
-  | "ResourceViolatesAuditSecurityGroup"
-  | "SecurityGroupUnused"
-  | "SecurityGroupRedundant"
-  | "FMSCreatedSecurityGroupEdited"
-  | "MissingFirewall"
-  | "MissingFirewallSubnetInAZ"
-  | "MissingExpectedRouteTable"
-  | "NetworkFirewallPolicyModified"
-  | "FirewallSubnetIsOutOfScope"
-  | "InternetGatewayMissingExpectedRoute"
-  | "FirewallSubnetMissingExpectedRoute"
-  | "UnexpectedFirewallRoutes"
-  | "UnexpectedTargetGatewayRoutes"
-  | "TrafficInspectionCrossesAZBoundary"
-  | "InvalidRouteConfiguration"
-  | "MissingTargetGateway"
-  | "InternetTrafficNotInspected"
-  | "BlackHoleRouteDetected"
-  | "BlackHoleRouteDetectedInFirewallSubnet"
-  | "ResourceMissingDnsFirewall"
-  | "RouteHasOutOfScopeEndpoint"
-  | "FirewallSubnetMissingVPCEndpoint"
-  | "InvalidNetworkAclEntry"
-  | "WebACLConfigurationOrScopeOfUse";
+  | "WEB_ACL_MISSING_RULE_GROUP"
+  | "RESOURCE_MISSING_WEB_ACL"
+  | "RESOURCE_INCORRECT_WEB_ACL"
+  | "RESOURCE_MISSING_SHIELD_PROTECTION"
+  | "RESOURCE_MISSING_WEB_ACL_OR_SHIELD_PROTECTION"
+  | "RESOURCE_MISSING_SECURITY_GROUP"
+  | "RESOURCE_VIOLATES_AUDIT_SECURITY_GROUP"
+  | "SECURITY_GROUP_UNUSED"
+  | "SECURITY_GROUP_REDUNDANT"
+  | "FMS_CREATED_SECURITY_GROUP_EDITED"
+  | "MISSING_FIREWALL"
+  | "MISSING_FIREWALL_SUBNET_IN_AZ"
+  | "MISSING_EXPECTED_ROUTE_TABLE"
+  | "NETWORK_FIREWALL_POLICY_MODIFIED"
+  | "FIREWALL_SUBNET_IS_OUT_OF_SCOPE"
+  | "INTERNET_GATEWAY_MISSING_EXPECTED_ROUTE"
+  | "FIREWALL_SUBNET_MISSING_EXPECTED_ROUTE"
+  | "UNEXPECTED_FIREWALL_ROUTES"
+  | "UNEXPECTED_TARGET_GATEWAY_ROUTES"
+  | "TRAFFIC_INSPECTION_CROSSES_AZ_BOUNDARY"
+  | "INVALID_ROUTE_CONFIGURATION"
+  | "MISSING_TARGET_GATEWAY"
+  | "INTERNET_TRAFFIC_NOT_INSPECTED"
+  | "BLACK_HOLE_ROUTE_DETECTED"
+  | "BLACK_HOLE_ROUTE_DETECTED_IN_FIREWALL_SUBNET"
+  | "RESOURCE_MISSING_DNS_FIREWALL"
+  | "ROUTE_HAS_OUT_OF_SCOPE_ENDPOINT"
+  | "FIREWALL_SUBNET_MISSING_VPCE_ENDPOINT"
+  | "INVALID_NETWORK_ACL_ENTRY"
+  | "WEB_ACL_CONFIGURATION_OR_SCOPE_OF_USE";
 export type ViolationTarget = string;
 
 export interface WebACLHasIncompatibleConfigurationViolation {

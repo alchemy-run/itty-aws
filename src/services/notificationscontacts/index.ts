@@ -254,7 +254,7 @@ export interface ValidationExceptionField {
   message: string;
 }
 export type ValidationExceptionFieldList = Array<ValidationExceptionField>;
-export type ValidationExceptionReason = "FIELD_VALIDATION_FAILED" | "OTHER";
+export type ValidationExceptionReason = "fieldValidationFailed" | "other";
 export declare namespace ListTagsForResource {
   export type Input = ListTagsForResourceRequest;
   export type Output = ListTagsForResourceResponse;

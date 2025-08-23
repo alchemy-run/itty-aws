@@ -199,7 +199,7 @@ export interface EventSource {
   Parameters?: EventParameters;
 }
 export type EventSourceValues = "MANAGED_CWE";
-export type EventTypeValues = "SHARE_SNAPSHOT";
+export type EventTypeValues = "shareSnapshot";
 export type ExcludeBootVolume = boolean;
 
 export type ExcludeBootVolumes = boolean;

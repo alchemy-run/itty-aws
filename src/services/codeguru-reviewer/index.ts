@@ -159,7 +159,7 @@ export declare class AccessDeniedException extends EffectData.TaggedError(
 )<{
   readonly Message?: string;
 }> {}
-export type AnalysisType = "SECURITY" | "CODE_QUALITY";
+export type AnalysisType = "Security" | "CodeQuality";
 export type AnalysisTypes = Array<AnalysisType>;
 export type Arn = string;
 
@@ -240,7 +240,7 @@ export interface CommitDiffSourceCodeType {
 }
 export type CommitId = string;
 
-export type ConfigFileState = "PRESENT" | "ABSENT" | "PRESENT_WITH_ERRORS";
+export type ConfigFileState = "Present" | "Absent" | "PresentWithErrors";
 export declare class ConflictException extends EffectData.TaggedError(
   "ConflictException",
 )<{
@@ -285,7 +285,7 @@ export interface DisassociateRepositoryResponse {
   RepositoryAssociation?: RepositoryAssociation;
   Tags?: Record<string, string>;
 }
-export type EncryptionOption = "AoCmk" | "CmCmk";
+export type EncryptionOption = "AWS_OWNED_CMK" | "CUSTOMER_MANAGED_CMK";
 export type ErrorMessage = string;
 
 export interface EventInfo {
@@ -305,7 +305,7 @@ export declare class InternalServerException extends EffectData.TaggedError(
 )<{
   readonly Message?: string;
 }> {}
-export type JobState = "COMPLETED" | "PENDING" | "FAILED" | "DELETING";
+export type JobState = "Completed" | "Pending" | "Failed" | "Deleting";
 export type JobStates = Array<JobState>;
 export interface KMSKeyDetails {
   KMSKeyId?: string;
@@ -399,11 +399,11 @@ export type Owner = string;
 
 export type Owners = Array<string>;
 export type ProviderType =
-  | "CODE_COMMIT"
-  | "GIT_HUB"
-  | "BITBUCKET"
-  | "GIT_HUB_ENTERPRISE_SERVER"
-  | "S3_BUCKET";
+  | "CodeCommit"
+  | "GitHub"
+  | "Bitbucket"
+  | "GitHubEnterpriseServer"
+  | "S3Bucket";
 export type ProviderTypes = Array<ProviderType>;
 export type PullRequestId = string;
 
@@ -413,20 +413,20 @@ export interface PutRecommendationFeedbackRequest {
   Reactions: Array<Reaction>;
 }
 export interface PutRecommendationFeedbackResponse {}
-export type Reaction = "THUMBS_UP" | "THUMBS_DOWN";
+export type Reaction = "ThumbsUp" | "ThumbsDown";
 export type Reactions = Array<Reaction>;
 export type RecommendationCategory =
-  | "AWS_BEST_PRACTICES"
-  | "AWS_CLOUDFORMATION_ISSUES"
-  | "DUPLICATE_CODE"
-  | "CODE_MAINTENANCE_ISSUES"
-  | "CONCURRENCY_ISSUES"
-  | "INPUT_VALIDATIONS"
-  | "PYTHON_BEST_PRACTICES"
-  | "JAVA_BEST_PRACTICES"
-  | "RESOURCE_LEAKS"
-  | "SECURITY_ISSUES"
-  | "CODE_INCONSISTENCIES";
+  | "AWSBestPractices"
+  | "AWSCloudFormationIssues"
+  | "DuplicateCode"
+  | "CodeMaintenanceIssues"
+  | "ConcurrencyIssues"
+  | "InputValidations"
+  | "PythonBestPractices"
+  | "JavaBestPractices"
+  | "ResourceLeaks"
+  | "SecurityIssues"
+  | "CodeInconsistencies";
 export interface RecommendationFeedback {
   CodeReviewArn?: string;
   RecommendationId?: string;
@@ -481,11 +481,11 @@ export interface RepositoryAssociation {
   S3RepositoryDetails?: S3RepositoryDetails;
 }
 export type RepositoryAssociationState =
-  | "ASSOCIATED"
-  | "ASSOCIATING"
-  | "FAILED"
-  | "DISASSOCIATING"
-  | "DISASSOCIATED";
+  | "Associated"
+  | "Associating"
+  | "Failed"
+  | "Disassociating"
+  | "Disassociated";
 export type RepositoryAssociationStates = Array<RepositoryAssociationState>;
 export type RepositoryAssociationSummaries =
   Array<RepositoryAssociationSummary>;
@@ -546,7 +546,7 @@ export interface S3RepositoryDetails {
   BucketName?: string;
   CodeArtifacts?: CodeArtifacts;
 }
-export type Severity = "INFO" | "LOW" | "MEDIUM" | "HIGH" | "CRITICAL";
+export type Severity = "Info" | "Low" | "Medium" | "High" | "Critical";
 export type ShortDescription = string;
 
 export type SourceCodeArtifactsObjectKey = string;
@@ -585,7 +585,7 @@ export declare class ThrottlingException extends EffectData.TaggedError(
 }> {}
 export type TimeStamp = Date | string;
 
-export type Type = "PULL_REQUEST" | "REPOSITORY_ANALYSIS";
+export type Type = "PullRequest" | "RepositoryAnalysis";
 export interface UntagResourceRequest {
   resourceArn: string;
   TagKeys: Array<string>;
@@ -599,7 +599,7 @@ export declare class ValidationException extends EffectData.TaggedError(
 )<{
   readonly Message?: string;
 }> {}
-export type VendorName = "GITHUB" | "GITLAB" | "NATIVE_S3";
+export type VendorName = "GitHub" | "GitLab" | "NativeS3";
 export declare namespace AssociateRepository {
   export type Input = AssociateRepositoryRequest;
   export type Output = AssociateRepositoryResponse;

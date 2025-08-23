@@ -3210,7 +3210,7 @@ export interface WorkerComputeConfiguration {
   type?: WorkerComputeType;
   number?: number;
 }
-export type WorkerComputeType = "CR1X" | "CR4X";
+export type WorkerComputeType = "CR.1X" | "CR.4X";
 export declare namespace ListTagsForResource {
   export type Input = ListTagsForResourceInput;
   export type Output = ListTagsForResourceOutput;

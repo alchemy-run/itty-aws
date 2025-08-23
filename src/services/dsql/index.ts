@@ -265,11 +265,11 @@ export interface ValidationExceptionField {
 }
 export type ValidationExceptionFieldList = Array<ValidationExceptionField>;
 export type ValidationExceptionReason =
-  | "UNKNOWN_OPERATION"
-  | "CANNOT_PARSE"
-  | "FIELD_VALIDATION_FAILED"
-  | "DELETION_PROTECTION_ENABLED"
-  | "OTHER";
+  | "unknownOperation"
+  | "cannotParse"
+  | "fieldValidationFailed"
+  | "deletionProtectionEnabled"
+  | "other";
 export declare namespace ListTagsForResource {
   export type Input = ListTagsForResourceInput;
   export type Output = ListTagsForResourceOutput;

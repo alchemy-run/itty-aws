@@ -493,61 +493,61 @@ export type AwsAccount = string;
 export type AwsAccountIdOrAliasList = Array<string>;
 export type AwsAccountList = Array<string>;
 export type AwsClosedLostReason =
-  | "ADMINISTRATIVE"
-  | "BUSINESS_ASSOCIATE_AGREEMENT"
-  | "COMPANY_ACQUIRED_DISSOLVED"
-  | "COMPETITIVE_OFFERING"
-  | "CUSTOMER_DATA_REQUIREMENT"
-  | "CUSTOMER_DEFICIENCY"
-  | "CUSTOMER_EXPERIENCE"
-  | "DELAY_CANCELLATION_OF_PROJECT"
-  | "DUPLICATE"
-  | "DUPLICATE_OPPORTUNITY"
-  | "EXECUTIVE_BLOCKER"
-  | "FAILED_VETTING"
-  | "FEATURE_LIMITATION"
-  | "FINANCIAL_COMMERCIAL"
-  | "INSUFFICIENT_AMAZON_VALUE"
-  | "INSUFFICIENT_AWS_VALUE"
-  | "INTERNATIONAL_CONSTRAINTS"
-  | "LEGAL_TAX_REGULATORY"
-  | "LEGAL_TERMS_AND_CONDITIONS"
-  | "LOST_TO_COMPETITOR"
-  | "LOST_TO_COMPETITOR_GOOGLE"
-  | "LOST_TO_COMPETITOR_MICROSOFT"
-  | "LOST_TO_COMPETITOR_OTHER"
-  | "LOST_TO_COMPETITOR_RACKSPACE"
-  | "LOST_TO_COMPETITOR_SOFTLAYER"
-  | "LOST_TO_COMPETITOR_VMWARE"
-  | "NO_CUSTOMER_REFERENCE"
-  | "NO_INTEGRATION_RESOURCES"
-  | "NO_OPPORTUNITY"
-  | "NO_PERCEIVED_VALUE_OF_MP"
-  | "NO_RESPONSE"
-  | "NOT_COMMITTED_TO_AWS"
-  | "NO_UPDATE"
-  | "ON_PREMISES_DEPLOYMENT"
-  | "OTHER"
-  | "OTHER_DETAILS_IN_DESCRIPTION"
-  | "PARTNER_GAP"
-  | "PAST_DUE"
-  | "PEOPLE_RELATIONSHIP_GOVERNANCE"
-  | "PLATFORM_TECHNOLOGY_LIMITATION"
-  | "PREFERENCE_FOR_COMPETITOR"
-  | "PRICE"
-  | "PRODUCT_TECHNOLOGY"
-  | "PRODUCT_NOT_ON_AWS"
-  | "SECURITY_COMPLIANCE"
-  | "SELF_SERVICE"
-  | "TECHNICAL_LIMITATIONS"
-  | "TERM_SHEET_IMPASSE";
-export type AwsFundingUsed = "YES" | "NO";
+  | "Administrative"
+  | "Business Associate Agreement"
+  | "Company Acquired/Dissolved"
+  | "Competitive Offering"
+  | "Customer Data Requirement"
+  | "Customer Deficiency"
+  | "Customer Experience"
+  | "Delay / Cancellation of Project"
+  | "Duplicate"
+  | "Duplicate Opportunity"
+  | "Executive Blocker"
+  | "Failed Vetting"
+  | "Feature Limitation"
+  | "Financial/Commercial"
+  | "Insufficient Amazon Value"
+  | "Insufficient AWS Value"
+  | "International Constraints"
+  | "Legal / Tax / Regulatory"
+  | "Legal Terms and Conditions"
+  | "Lost to Competitor"
+  | "Lost to Competitor - Google"
+  | "Lost to Competitor - Microsoft"
+  | "Lost to Competitor - Other"
+  | "Lost to Competitor - Rackspace"
+  | "Lost to Competitor - SoftLayer"
+  | "Lost to Competitor - VMWare"
+  | "No Customer Reference"
+  | "No Integration Resources"
+  | "No Opportunity"
+  | "No Perceived Value of MP"
+  | "No Response"
+  | "Not Committed to AWS"
+  | "No Update"
+  | "On Premises Deployment"
+  | "Other"
+  | "Other (Details in Description)"
+  | "Partner Gap"
+  | "Past Due"
+  | "People/Relationship/Governance"
+  | "Platform Technology Limitation"
+  | "Preference for Competitor"
+  | "Price"
+  | "Product/Technology"
+  | "Product Not on AWS"
+  | "Security / Compliance"
+  | "Self-Service"
+  | "Technical Limitations"
+  | "Term Sheet Impasse";
+export type AwsFundingUsed = "Yes" | "No";
 export type AwsMarketplaceOfferIdentifier = string;
 
 export type AwsMarketplaceOfferIdentifiers = Array<string>;
 export type AwsMemberBusinessTitle =
-  | "AWS_SALES_REP"
-  | "AWS_ACCOUNT_OWNER"
+  | "AWSSalesRep"
+  | "AWSAccountOwner"
   | "WWPSPDM"
   | "PDM"
   | "PSM"
@@ -574,30 +574,30 @@ export interface AwsOpportunityRelatedEntities {
   Solutions?: Array<string>;
 }
 export type AwsOpportunityStage =
-  | "NOT_STARTED"
-  | "IN_PROGRESS"
-  | "PROSPECT"
-  | "ENGAGED"
-  | "IDENTIFIED"
-  | "QUALIFY"
-  | "RESEARCH"
-  | "SELLER_ENGAGED"
-  | "EVALUATING"
-  | "SELLER_REGISTERED"
-  | "TERM_SHEET_NEGOTIATION"
-  | "CONTRACT_NEGOTIATION"
-  | "ONBOARDING"
-  | "BUILDING_INTEGRATION"
-  | "QUALIFIED"
-  | "ON_HOLD"
-  | "TECHNICAL_VALIDATION"
-  | "BUSINESS_VALIDATION"
-  | "COMMITTED"
-  | "LAUNCHED"
-  | "DEFERRED_TO_PARTNER"
-  | "CLOSED_LOST"
-  | "COMPLETED"
-  | "CLOSED_INCOMPLETE";
+  | "Not Started"
+  | "In Progress"
+  | "Prospect"
+  | "Engaged"
+  | "Identified"
+  | "Qualify"
+  | "Research"
+  | "Seller Engaged"
+  | "Evaluating"
+  | "Seller Registered"
+  | "Term Sheet Negotiation"
+  | "Contract Negotiation"
+  | "Onboarding"
+  | "Building Integration"
+  | "Qualified"
+  | "On-hold"
+  | "Technical Validation"
+  | "Business Validation"
+  | "Committed"
+  | "Launched"
+  | "Deferred to Partner"
+  | "Closed Lost"
+  | "Completed"
+  | "Closed Incomplete";
 export type AwsOpportunityTeamMembersList = Array<AwsTeamMember>;
 export type AwsProductIdentifier = string;
 
@@ -615,58 +615,58 @@ export interface AwsTeamMember {
 export type CatalogIdentifier = string;
 
 export type Channel =
-  | "AWS_MARKETING_CENTRAL"
-  | "CONTENT_SYNDICATION"
-  | "DISPLAY"
-  | "EMAIL"
-  | "LIVE_EVENT"
-  | "OUT_OF_HOME"
-  | "PRINT"
-  | "SEARCH"
-  | "SOCIAL"
-  | "TELEMARKETING"
+  | "AWS Marketing Central"
+  | "Content Syndication"
+  | "Display"
+  | "Email"
+  | "Live Event"
+  | "Out Of Home (OOH)"
+  | "Print"
+  | "Search"
+  | "Social"
+  | "Telemarketing"
   | "TV"
-  | "VIDEO"
-  | "VIRTUAL_EVENT";
+  | "Video"
+  | "Virtual Event";
 export type Channels = Array<Channel>;
 export type ClientToken = string;
 
 export type ClosedLostReason =
-  | "CUSTOMER_DEFICIENCY"
-  | "DELAY_CANCELLATION_OF_PROJECT"
-  | "LEGAL_TAX_REGULATORY"
-  | "LOST_TO_COMPETITOR_GOOGLE"
-  | "LOST_TO_COMPETITOR_MICROSOFT"
-  | "LOST_TO_COMPETITOR_SOFTLAYER"
-  | "LOST_TO_COMPETITOR_VMWARE"
-  | "LOST_TO_COMPETITOR_OTHER"
-  | "NO_OPPORTUNITY"
-  | "ON_PREMISES_DEPLOYMENT"
-  | "PARTNER_GAP"
-  | "PRICE"
-  | "SECURITY_COMPLIANCE"
-  | "TECHNICAL_LIMITATIONS"
-  | "CUSTOMER_EXPERIENCE"
-  | "OTHER"
-  | "PEOPLERELATIONSHIPGOVERNANCE"
-  | "PRODUCTTECHNOLOGY"
-  | "FINANCIALCOMMERCIAL";
+  | "Customer Deficiency"
+  | "Delay / Cancellation of Project"
+  | "Legal / Tax / Regulatory"
+  | "Lost to Competitor - Google"
+  | "Lost to Competitor - Microsoft"
+  | "Lost to Competitor - SoftLayer"
+  | "Lost to Competitor - VMWare"
+  | "Lost to Competitor - Other"
+  | "No Opportunity"
+  | "On Premises Deployment"
+  | "Partner Gap"
+  | "Price"
+  | "Security / Compliance"
+  | "Technical Limitations"
+  | "Customer Experience"
+  | "Other"
+  | "People/Relationship/Governance"
+  | "Product/Technology"
+  | "Financial/Commercial";
 export type CompanyName = string;
 
 export type CompanyWebsiteUrl = string;
 
 export type CompetitorName =
-  | "ORACLE_CLOUD"
-  | "ON_PREM"
-  | "CO_LOCATION"
-  | "AKAMAI"
-  | "ALICLOUD"
-  | "GOOGLE_CLOUD_PLATFORM"
-  | "IBM_SOFTLAYER"
-  | "MICROSOFT_AZURE"
-  | "OTHER_COST_OPTIMIZATION"
-  | "NO_COMPETITION"
-  | "OTHER";
+  | "Oracle Cloud"
+  | "On-Prem"
+  | "Co-location"
+  | "Akamai"
+  | "AliCloud"
+  | "Google Cloud Platform"
+  | "IBM Softlayer"
+  | "Microsoft Azure"
+  | "Other- Cost Optimization"
+  | "No Competition"
+  | "*Other";
 export declare class ConflictException extends EffectData.TaggedError(
   "ConflictException",
 )<{
@@ -1185,12 +1185,12 @@ export interface DeleteResourceSnapshotJobRequest {
   ResourceSnapshotJobIdentifier: string;
 }
 export type DeliveryModel =
-  | "SAAS_OR_PAAS"
-  | "BYOL_OR_AMI"
-  | "MANAGED_SERVICES"
-  | "PROFESSIONAL_SERVICES"
-  | "RESELL"
-  | "OTHER";
+  | "SaaS or PaaS"
+  | "BYOL or AMI"
+  | "Managed Services"
+  | "Professional Services"
+  | "Resell"
+  | "Other";
 export type DeliveryModels = Array<DeliveryModel>;
 export interface DisassociateOpportunityRequest {
   Catalog: string;
@@ -1218,7 +1218,7 @@ export type EngagementContextPayload = _EngagementContextPayload & {
   CustomerProject: CustomerProjectsContext;
 };
 export type EngagementContexts = Array<EngagementContextDetails>;
-export type EngagementContextType = "CUSTOMER_PROJECT";
+export type EngagementContextType = "CustomerProject";
 export interface EngagementCustomer {
   Industry: Industry;
   CompanyName: string;
@@ -1246,7 +1246,7 @@ export type EngagementInvitationArnOrIdentifier = string;
 export type EngagementInvitationIdentifier = string;
 
 export type EngagementInvitationIdentifiers = Array<string>;
-export type EngagementInvitationPayloadType = "OPPORTUNITY_INVITATION";
+export type EngagementInvitationPayloadType = "OpportunityInvitation";
 export type EngagementInvitationsPayloadType =
   Array<EngagementInvitationPayloadType>;
 export type EngagementInvitationSummaries = Array<EngagementInvitationSummary>;
@@ -1287,7 +1287,7 @@ export interface EngagementResourceAssociationSummary {
 }
 export type EngagementResourceAssociationSummaryList =
   Array<EngagementResourceAssociationSummary>;
-export type EngagementScore = "HIGH" | "MEDIUM" | "LOW";
+export type EngagementScore = "High" | "Medium" | "Low";
 export interface EngagementSort {
   SortOrder: SortOrder;
   SortBy: EngagementSortName;
@@ -1439,34 +1439,34 @@ export interface GetSellingSystemSettingsResponse {
   ResourceSnapshotJobRoleArn?: string;
 }
 export type Industry =
-  | "AEROSPACE_SATELLITE"
-  | "AGRICULTURE"
-  | "AUTOMOTIVE"
-  | "COMPUTERS_ELECTRONICS"
-  | "CONSUMER_GOODS"
-  | "EDUCATION"
-  | "ENERGY_OIL_GAS"
-  | "ENERGY_POWER_UTILITIES"
-  | "FINANCIAL_SERVICES"
-  | "GAMING"
-  | "GOVERNMENT"
-  | "HEALTHCARE"
-  | "HOSPITALITY"
-  | "LIFE_SCIENCES"
-  | "MANUFACTURING"
-  | "MARKETING_ADVERTISING"
-  | "MEDIA_ENTERTAINMENT"
-  | "MINING"
-  | "NON_PROFIT_ORGANIZATION"
-  | "PROFESSIONAL_SERVICES"
-  | "REALESTATE_CONSTRUCTION"
-  | "RETAIL"
-  | "SOFTWARE_INTERNET"
-  | "TELECOMMUNICATIONS"
-  | "TRANSPORTATION_LOGISTICS"
-  | "TRAVEL"
-  | "WHOLESALE_DISTRIBUTION"
-  | "OTHER";
+  | "Aerospace"
+  | "Agriculture"
+  | "Automotive"
+  | "Computers and Electronics"
+  | "Consumer Goods"
+  | "Education"
+  | "Energy - Oil and Gas"
+  | "Energy - Power and Utilities"
+  | "Financial Services"
+  | "Gaming"
+  | "Government"
+  | "Healthcare"
+  | "Hospitality"
+  | "Life Sciences"
+  | "Manufacturing"
+  | "Marketing and Advertising"
+  | "Media and Entertainment"
+  | "Mining"
+  | "Non-Profit Organization"
+  | "Professional Services"
+  | "Real Estate and Construction"
+  | "Retail"
+  | "Software and Internet"
+  | "Telecommunications"
+  | "Transportation and Logistics"
+  | "Travel"
+  | "Wholesale and Distribution"
+  | "Other";
 export declare class InternalServerException extends EffectData.TaggedError(
   "InternalServerException",
 )<{
@@ -1482,11 +1482,11 @@ export type InvitationMessage = string;
 export type InvitationStatus = "ACCEPTED" | "PENDING" | "REJECTED" | "EXPIRED";
 export type InvitationStatusList = Array<InvitationStatus>;
 export type InvolvementTypeChangeReason =
-  | "EXPANSION_OPPORTUNITY"
-  | "CHANGE_IN_DEAL_INFORMATION"
-  | "CUSTOMER_REQUESTED"
-  | "TECHNICAL_COMPLEXITY"
-  | "RISK_MITIGATION";
+  | "Expansion Opportunity"
+  | "Change in Deal Information"
+  | "Customer Requested"
+  | "Technical Complexity"
+  | "Risk Mitigation";
 export type JobTitle = string;
 
 export interface LastModifiedDate {
@@ -1688,7 +1688,7 @@ export interface ListTasksSortBase {
   SortOrder: SortOrder;
   SortBy: ListTasksSortName;
 }
-export type ListTasksSortName = "START_TIME";
+export type ListTasksSortName = "StartTime";
 export interface Marketing {
   CampaignName?: string;
   Source?: MarketingSource;
@@ -1696,7 +1696,7 @@ export interface Marketing {
   Channels?: Array<Channel>;
   AwsFundingUsed?: AwsFundingUsed;
 }
-export type MarketingSource = "MARKETING_ACTIVITY" | "NONE";
+export type MarketingSource = "Marketing Activity" | "None";
 export type MemberCompanyName = string;
 
 export type MemberPageSize = number;
@@ -1707,7 +1707,7 @@ export interface MonetaryValue {
 }
 export type Name = string;
 
-export type NationalSecurity = "YES" | "NO";
+export type NationalSecurity = "Yes" | "No";
 export type NextStepsHistories = Array<NextStepsHistory>;
 export interface NextStepsHistory {
   Value: string;
@@ -1719,7 +1719,7 @@ export interface OpportunityEngagementInvitationSort {
   SortOrder: SortOrder;
   SortBy: OpportunityEngagementInvitationSortName;
 }
-export type OpportunityEngagementInvitationSortName = "INVITATION_DATE";
+export type OpportunityEngagementInvitationSortName = "InvitationDate";
 export type OpportunityIdentifier = string;
 
 export type OpportunityIdentifiers = Array<string>;
@@ -1729,15 +1729,15 @@ export interface OpportunityInvitationPayload {
   Customer: EngagementCustomer;
   Project: ProjectDetails;
 }
-export type OpportunityOrigin = "AWS_REFERRAL" | "PARTNER_REFERRAL";
+export type OpportunityOrigin = "AWS Referral" | "Partner Referral";
 export interface OpportunitySort {
   SortOrder: SortOrder;
   SortBy: OpportunitySortName;
 }
 export type OpportunitySortName =
-  | "LAST_MODIFIEDDATE"
-  | "IDENTIFIER"
-  | "CUSTOMER_COMPANY_NAME";
+  | "LastModifiedDate"
+  | "Identifier"
+  | "CustomerCompanyName";
 export type OpportunitySummaries = Array<OpportunitySummary>;
 export interface OpportunitySummary {
   Catalog: string;
@@ -1760,7 +1760,7 @@ export interface OpportunitySummaryView {
   Project?: ProjectView;
   RelatedEntityIdentifiers?: RelatedEntityIdentifiers;
 }
-export type OpportunityType = "NET_NEW_BUSINESS" | "FLAT_RENEWAL" | "EXPANSION";
+export type OpportunityType = "Net New Business" | "Flat Renewal" | "Expansion";
 export type PageSize = number;
 
 export type ParticipantType = "SENDER" | "RECEIVER";
@@ -1772,20 +1772,20 @@ interface _Payload {
 export type Payload = _Payload & {
   OpportunityInvitation: OpportunityInvitationPayload;
 };
-export type PaymentFrequency = "MONTHLY";
+export type PaymentFrequency = "Monthly";
 export type PhoneNumber = string;
 
 export type PiiString = string;
 
 export type PrimaryNeedFromAws =
-  | "CO_SELL_ARCHITECTURAL_VALIDATION"
-  | "CO_SELL_BUSINESS_PRESENTATION"
-  | "CO_SELL_COMPETITIVE_INFORMATION"
-  | "CO_SELL_PRICING_ASSISTANCE"
-  | "CO_SELL_TECHNICAL_CONSULTATION"
-  | "CO_SELL_TOTAL_COST_OF_OWNERSHIP_EVALUATION"
-  | "CO_SELL_DEAL_SUPPORT"
-  | "CO_SELL_SUPPORT_FOR_PUBLIC_TENDER_RFX";
+  | "Co-Sell - Architectural Validation"
+  | "Co-Sell - Business Presentation"
+  | "Co-Sell - Competitive Information"
+  | "Co-Sell - Pricing Assistance"
+  | "Co-Sell - Technical Consultation"
+  | "Co-Sell - Total Cost of Ownership Evaluation"
+  | "Co-Sell - Deal Support"
+  | "Co-Sell - Support for Public Tender / RFx";
 export type PrimaryNeedsFromAws = Array<PrimaryNeedFromAws>;
 export type ProfileNextStepsHistories = Array<ProfileNextStepsHistory>;
 export interface ProfileNextStepsHistory {
@@ -1832,40 +1832,40 @@ export interface PutSellingSystemSettingsResponse {
   ResourceSnapshotJobRoleArn?: string;
 }
 export type ReasonCode =
-  | "INVITATION_ACCESS_DENIED"
-  | "INVITATION_VALIDATION_FAILED"
-  | "ENGAGEMENT_ACCESS_DENIED"
-  | "OPPORTUNITY_ACCESS_DENIED"
-  | "RESOURCE_SNAPSHOT_JOB_ACCESS_DENIED"
-  | "RESOURCE_SNAPSHOT_JOB_VALIDATION_FAILED"
-  | "RESOURCE_SNAPSHOT_JOB_CONFLICT"
-  | "ENGAGEMENT_VALIDATION_FAILED"
-  | "ENGAGEMENT_CONFLICT"
-  | "OPPORTUNITY_SUBMISSION_FAILED"
-  | "ENGAGEMENT_INVITATION_CONFLICT"
-  | "INTERNAL_ERROR"
-  | "OPPORTUNITY_VALIDATION_FAILED"
-  | "OPPORTUNITY_CONFLICT"
-  | "RESOURCE_SNAPSHOT_ACCESS_DENIED"
-  | "RESOURCE_SNAPSHOT_VALIDATION_FAILED"
-  | "RESOURCE_SNAPSHOT_CONFLICT"
-  | "SERVICE_QUOTA_EXCEEDED"
-  | "REQUEST_THROTTLED";
+  | "InvitationAccessDenied"
+  | "InvitationValidationFailed"
+  | "EngagementAccessDenied"
+  | "OpportunityAccessDenied"
+  | "ResourceSnapshotJobAccessDenied"
+  | "ResourceSnapshotJobValidationFailed"
+  | "ResourceSnapshotJobConflict"
+  | "EngagementValidationFailed"
+  | "EngagementConflict"
+  | "OpportunitySubmissionFailed"
+  | "EngagementInvitationConflict"
+  | "InternalError"
+  | "OpportunityValidationFailed"
+  | "OpportunityConflict"
+  | "ResourceSnapshotAccessDenied"
+  | "ResourceSnapshotValidationFailed"
+  | "ResourceSnapshotConflict"
+  | "ServiceQuotaExceeded"
+  | "RequestThrottled";
 interface _Receiver {
   Account?: AccountReceiver;
 }
 
 export type Receiver = _Receiver & { Account: AccountReceiver };
 export type ReceiverResponsibility =
-  | "DISTRIBUTOR"
-  | "RESELLER"
-  | "HARDWARE_PARTNER"
-  | "MANAGED_SERVICE_PROVIDER"
-  | "SOFTWARE_PARTNER"
-  | "SERVICES_PARTNER"
-  | "TRAINING_PARTNER"
-  | "CO_SELL_FACILITATOR"
-  | "FACILITATOR";
+  | "Distributor"
+  | "Reseller"
+  | "Hardware Partner"
+  | "Managed Service Provider"
+  | "Software Partner"
+  | "Services Partner"
+  | "Training Partner"
+  | "Co-Sell Facilitator"
+  | "Facilitator";
 export type ReceiverResponsibilityList = Array<ReceiverResponsibility>;
 export interface RejectEngagementInvitationRequest {
   Catalog: string;
@@ -1880,9 +1880,9 @@ export interface RelatedEntityIdentifiers {
   AwsProducts?: Array<string>;
 }
 export type RelatedEntityType =
-  | "SOLUTIONS"
-  | "AWS_PRODUCTS"
-  | "AWS_MARKETPLACE_OFFERS";
+  | "Solutions"
+  | "AwsProducts"
+  | "AwsMarketplaceOffers";
 export type ResourceArn = string;
 
 export type ResourceIdentifier = string;
@@ -1902,7 +1902,7 @@ export type ResourceSnapshotJobRoleArn = string;
 
 export type ResourceSnapshotJobRoleIdentifier = string;
 
-export type ResourceSnapshotJobStatus = "RUNNING" | "STOPPED";
+export type ResourceSnapshotJobStatus = "Running" | "Stopped";
 export interface ResourceSnapshotJobSummary {
   Id?: string;
   Arn?: string;
@@ -1930,26 +1930,26 @@ export interface ResourceSnapshotSummary {
 export type ResourceSnapshotSummaryList = Array<ResourceSnapshotSummary>;
 export type ResourceTemplateName = string;
 
-export type ResourceType = "OPPORTUNITY";
-export type RevenueModel = "CONTRACT" | "PAY_AS_YOU_GO" | "SUBSCRIPTION";
+export type ResourceType = "Opportunity";
+export type RevenueModel = "Contract" | "Pay-as-you-go" | "Subscription";
 export type ReviewStatus =
-  | "PENDING_SUBMISSION"
-  | "SUBMITTED"
-  | "IN_REVIEW"
-  | "APPROVED"
-  | "REJECTED"
-  | "ACTION_REQUIRED";
+  | "Pending Submission"
+  | "Submitted"
+  | "In review"
+  | "Approved"
+  | "Rejected"
+  | "Action Required";
 export type SalesActivities = Array<SalesActivity>;
 export type SalesActivity =
-  | "INITIALIZED_DISCUSSIONS_WITH_CUSTOMER"
-  | "CUSTOMER_HAS_SHOWN_INTEREST"
-  | "CONDUCTED_POC_DEMO"
-  | "IN_EVALUATION_PLANNING_STAGE"
-  | "AGREED_ON_SOLUTION_TO_BUSINESS_PROBLEM"
-  | "COMPLETED_ACTION_PLAN"
-  | "FINALIZED_DEPLOYMENT_NEEDS"
-  | "SOW_SIGNED";
-export type SalesInvolvementType = "FOR_VISIBILITY_ONLY" | "CO_SELL";
+  | "Initialized discussions with customer"
+  | "Customer has shown interest in solution"
+  | "Conducted POC / Demo"
+  | "In evaluation / planning stage"
+  | "Agreed on solution to Business Problem"
+  | "Completed Action Plan"
+  | "Finalized Deployment Need"
+  | "SOW Signed";
+export type SalesInvolvementType = "For Visibility Only" | "Co-Sell";
 export interface SenderContact {
   Email: string;
   FirstName?: string;
@@ -1991,26 +1991,26 @@ export interface SolutionSort {
   SortBy: SolutionSortName;
 }
 export type SolutionSortName =
-  | "IDENTIFIER"
-  | "NAME"
-  | "STATUS"
-  | "CATEGORY"
-  | "CREATEDDATE";
-export type SolutionStatus = "ACTIVE" | "INACTIVE" | "DRAFT";
-export type SortBy = "CREATED_DATE";
+  | "Identifier"
+  | "Name"
+  | "Status"
+  | "Category"
+  | "CreatedDate";
+export type SolutionStatus = "Active" | "Inactive" | "Draft";
+export type SortBy = "CreatedDate";
 export interface SortObject {
   SortBy?: SortBy;
   SortOrder?: SortOrder;
 }
 export type SortOrder = "ASCENDING" | "DESCENDING";
 export type Stage =
-  | "PROSPECT"
-  | "QUALIFIED"
-  | "TECHNICAL_VALIDATION"
-  | "BUSINESS_VALIDATION"
-  | "COMMITTED"
-  | "LAUNCHED"
-  | "CLOSED_LOST";
+  | "Prospect"
+  | "Qualified"
+  | "Technical Validation"
+  | "Business Validation"
+  | "Committed"
+  | "Launched"
+  | "Closed Lost";
 export interface StartEngagementByAcceptingInvitationTaskRequest {
   Catalog: string;
   ClientToken: string;
@@ -2143,7 +2143,7 @@ export type ValidationExceptionErrorList = Array<ValidationExceptionError>;
 export type ValidationExceptionReason =
   | "REQUEST_VALIDATION_FAILED"
   | "BUSINESS_VALIDATION_FAILED";
-export type Visibility = "FULL" | "LIMITED";
+export type Visibility = "Full" | "Limited";
 export type WebsiteUrl = string;
 
 export declare namespace GetSellingSystemSettings {

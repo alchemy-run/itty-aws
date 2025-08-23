@@ -1329,7 +1329,7 @@ export type ErrorCode =
   | "InvalidParameters"
   | "InvalidSchedule"
   | "LocalStorageLimitExceeded"
-  | "LunAlreadyAllocated_"
+  | "LunAlreadyAllocated "
   | "LunInvalid"
   | "JoinDomainInProgress"
   | "MaximumContentLengthExceeded"
@@ -1462,7 +1462,7 @@ export type Host = string;
 
 export type HostEnvironment =
   | "VMWARE"
-  | "HYPER_V"
+  | "HYPER-V"
   | "EC2"
   | "KVM"
   | "OTHER"
@@ -1684,12 +1684,12 @@ export type NumTapesToCreate = number;
 
 export type ObjectACL =
   | "private"
-  | "public_read"
-  | "public_read_write"
-  | "authenticated_read"
-  | "bucket_owner_read"
-  | "bucket_owner_full_control"
-  | "aws_exec_read";
+  | "public-read"
+  | "public-read-write"
+  | "authenticated-read"
+  | "bucket-owner-read"
+  | "bucket-owner-full-control"
+  | "aws-exec-read";
 export type OrganizationalUnit = string;
 
 export type Path = string;

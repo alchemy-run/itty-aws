@@ -517,7 +517,11 @@ const generateEnumType = (
   let code = doc ? `${doc}\n` : "";
 
   if (shape.members) {
-    const enumValues = Object.keys(shape.members).map((key) => `"${key}"`);
+    const enumValues = Object.entries(shape.members).map(([key, member]) => {
+      // Use smithy.api#enumValue trait if present, otherwise fallback to key
+      const enumValue = member.traits?.["smithy.api#enumValue"] || key;
+      return `"${enumValue}"`;
+    });
     code += `export type ${name} = ${enumValues.join(" | ")};`;
   } else {
     code += `export type ${name} = never;`;
@@ -660,11 +664,11 @@ const generateServiceCode = (serviceName: string, manifest: Manifest) =>
     }
 
     // For AWS JSON protocols, the targetPrefix is the service name itself
-    // FIXME: this should be in the protocol handlers
+    // it's not needed for the other protocols
     const targetPrefix =
       protocol === "awsJson1_0" || protocol === "awsJson1_1"
         ? serviceShapeName
-        : "";
+        : undefined;
 
     // Extract global endpoint and signing region from endpoint rules for global services
     let globalEndpoint: string | undefined;
@@ -1068,6 +1072,70 @@ const generateServiceCode = (serviceName: string, manifest: Manifest) =>
       code += "}\n\n";
     }
 
+    // Extract operation HTTP mappings and trait mappings
+    let operationMappings: Record<string, any> = {};
+
+    const extractHttpTraits = (shapeId: string): Record<string, string> => {
+      const shape = manifest.shapes[shapeId];
+      if (!shape || shape.type !== "structure" || !shape.members) return {};
+
+      return Object.fromEntries(
+        Object.entries(shape.members).flatMap(
+          ([field, member]: [string, any]) => {
+            const t = member?.traits;
+            if (!t) return [];
+
+            if (t["smithy.api#httpPayload"]) return [[field, "httpPayload"]];
+            if (t["smithy.api#httpResponseCode"])
+              return [[field, "httpResponseCode"]];
+            if (t["smithy.api#httpHeader"])
+              return [[field, t["smithy.api#httpHeader"]]];
+
+            return [];
+          },
+        ),
+      ) as Record<string, string>;
+    };
+
+    if (protocol === "restJson1") {
+      for (const operation of operations) {
+        const httpTrait = operation.shape.traits?.["smithy.api#http"];
+        if (httpTrait) {
+          const { method, uri } = httpTrait;
+          const httpMapping = `${method} ${uri}`;
+
+          // Check if this operation's output has HTTP traits
+          const outputTraits = operation.shape.output
+            ? extractHttpTraits(operation.shape.output.target)
+            : {};
+
+          if (Object.keys(outputTraits).length > 0) {
+            // Store both HTTP mapping and trait mappings
+            operationMappings[operation.name] = {
+              http: httpMapping,
+              traits: outputTraits,
+            };
+          } else {
+            // Store just HTTP mapping (existing behavior)
+            operationMappings[operation.name] = httpMapping;
+          }
+        }
+      }
+    } else {
+      // For non-restJson1 protocols, only check for trait mappings
+      for (const operation of operations) {
+        const outputTraits = operation.shape.output
+          ? extractHttpTraits(operation.shape.output.target)
+          : {};
+
+        if (Object.keys(outputTraits).length > 0) {
+          operationMappings[operation.name] = {
+            traits: outputTraits,
+          };
+        }
+      }
+    }
+
     // Store metadata for the service
     const metadata = {
       sdkId,
@@ -1080,6 +1148,10 @@ const generateServiceCode = (serviceName: string, manifest: Manifest) =>
       targetPrefix,
       globalEndpoint,
       signingRegion,
+      // Include operations mapping if any exist
+      ...(Object.keys(operationMappings).length > 0 && {
+        operations: operationMappings,
+      }),
     };
 
     return { code, metadata };
@@ -1104,13 +1176,39 @@ export const serviceMetadata = {\n`;
       code += `    cloudTrailEventSource: "${meta.cloudTrailEventSource}",\n`;
       code += `    endpointPrefix: "${meta.endpointPrefix}",\n`;
       code += `    protocol: "${meta.protocol}",\n`;
-      code += `    targetPrefix: "${meta.targetPrefix}",\n`;
+      if (meta.targetPrefix) {
+        code += `    targetPrefix: "${meta.targetPrefix}",\n`;
+      }
       // Only include optional fields if they are defined
       if (meta.globalEndpoint) {
         code += `    globalEndpoint: "${meta.globalEndpoint}",\n`;
       }
       if (meta.signingRegion) {
         code += `    signingRegion: "${meta.signingRegion}",\n`;
+      }
+      if (meta.operations) {
+        code += "    operations: {\n";
+        Object.entries(meta.operations).forEach(([opName, opSpec]) => {
+          if (typeof opSpec === "string") {
+            // Simple HTTP mapping (existing behavior)
+            code += `      "${opName}": "${opSpec}",\n`;
+          } else {
+            // Complex mapping with traits
+            code += `      "${opName}": {\n`;
+            if (opSpec.http) {
+              code += `        http: "${opSpec.http}",\n`;
+            }
+            if (opSpec.traits) {
+              code += "        traits: {\n";
+              Object.entries(opSpec.traits).forEach(([fieldName, trait]) => {
+                code += `          "${fieldName}": "${trait}",\n`;
+              });
+              code += "        },\n";
+            }
+            code += "      },\n";
+          }
+        });
+        code += "    },\n";
       }
       code += "  },\n";
     });

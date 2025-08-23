@@ -160,7 +160,7 @@ export interface CreateVectorBucketInput {
   encryptionConfiguration?: EncryptionConfiguration;
 }
 export interface CreateVectorBucketOutput {}
-export type DataType = "FLOAT32";
+export type DataType = "float32";
 export interface DeleteIndexInput {
   vectorBucketName?: string;
   indexName?: string;
@@ -187,7 +187,7 @@ export type DeleteVectorsInputList = Array<string>;
 export interface DeleteVectorsOutput {}
 export type Dimension = number;
 
-export type DistanceMetric = "EUCLIDEAN" | "COSINE";
+export type DistanceMetric = "euclidean" | "cosine";
 export interface EncryptionConfiguration {
   sseType?: SseType;
   kmsKeyArn?: string;
@@ -405,7 +405,7 @@ export declare class ServiceUnavailableException extends EffectData.TaggedError(
 )<{
   readonly message: string;
 }> {}
-export type SseType = "AES256" | "AWS_KMS";
+export type SseType = "AES256" | "aws:kms";
 export declare class TooManyRequestsException extends EffectData.TaggedError(
   "TooManyRequestsException",
 )<{

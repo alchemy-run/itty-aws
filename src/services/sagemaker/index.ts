@@ -1686,12 +1686,12 @@ export interface ActionSource {
   SourceId?: string;
 }
 export type ActionStatus =
-  | "UNKNOWN"
-  | "IN_PROGRESS"
-  | "COMPLETED"
-  | "FAILED"
-  | "STOPPING"
-  | "STOPPED";
+  | "Unknown"
+  | "InProgress"
+  | "Completed"
+  | "Failed"
+  | "Stopping"
+  | "Stopped";
 export type ActionSummaries = Array<ActionSummary>;
 export interface ActionSummary {
   ActionArn?: string;
@@ -1702,7 +1702,7 @@ export interface ActionSummary {
   CreationTime?: Date | string;
   LastModifiedTime?: Date | string;
 }
-export type ActivationState = "ENABLED" | "DISABLED";
+export type ActivationState = "Enabled" | "Disabled";
 export interface AddAssociationRequest {
   SourceArn: string;
   DestinationArn: string;
@@ -1737,7 +1737,7 @@ export interface AdditionalS3DataSource {
   CompressionType?: CompressionType;
   ETag?: string;
 }
-export type AdditionalS3DataSourceDataType = "S3OBJECT" | "S3PREFIX";
+export type AdditionalS3DataSourceDataType = "S3Object" | "S3Prefix";
 export interface AddTagsInput {
   ResourceArn: string;
   Tags: Array<Tag>;
@@ -1755,11 +1755,11 @@ export type AggregationTransformations = Record<
   AggregationTransformationValue
 >;
 export type AggregationTransformationValue =
-  | "Sum"
-  | "Avg"
-  | "First"
-  | "Min"
-  | "Max";
+  | "sum"
+  | "avg"
+  | "first"
+  | "min"
+  | "max";
 export interface Alarm {
   AlarmName?: string;
 }
@@ -1773,7 +1773,7 @@ export type AlgorithmArn = string;
 
 export type AlgorithmImage = string;
 
-export type AlgorithmSortBy = "NAME" | "CREATION_TIME";
+export type AlgorithmSortBy = "Name" | "CreationTime";
 export interface AlgorithmSpecification {
   TrainingImage?: string;
   AlgorithmName?: string;
@@ -1785,11 +1785,11 @@ export interface AlgorithmSpecification {
   TrainingImageConfig?: TrainingImageConfig;
 }
 export type AlgorithmStatus =
-  | "PENDING"
-  | "IN_PROGRESS"
-  | "COMPLETED"
-  | "FAILED"
-  | "DELETING";
+  | "Pending"
+  | "InProgress"
+  | "Completed"
+  | "Failed"
+  | "Deleting";
 export interface AlgorithmStatusDetails {
   ValidationStatuses?: Array<AlgorithmStatusItem>;
   ImageScanStatuses?: Array<AlgorithmStatusItem>;
@@ -1856,168 +1856,168 @@ export type AppImageConfigSortKey =
   | "LastModifiedTime"
   | "Name";
 export type AppInstanceType =
-  | "SYSTEM"
-  | "ML_T3_MICRO"
-  | "ML_T3_SMALL"
-  | "ML_T3_MEDIUM"
-  | "ML_T3_LARGE"
-  | "ML_T3_XLARGE"
-  | "ML_T3_2XLARGE"
-  | "ML_M5_LARGE"
-  | "ML_M5_XLARGE"
-  | "ML_M5_2XLARGE"
-  | "ML_M5_4XLARGE"
-  | "ML_M5_8XLARGE"
-  | "ML_M5_12XLARGE"
-  | "ML_M5_16XLARGE"
-  | "ML_M5_24XLARGE"
-  | "ML_M5D_LARGE"
-  | "ML_M5D_XLARGE"
-  | "ML_M5D_2XLARGE"
-  | "ML_M5D_4XLARGE"
-  | "ML_M5D_8XLARGE"
-  | "ML_M5D_12XLARGE"
-  | "ML_M5D_16XLARGE"
-  | "ML_M5D_24XLARGE"
-  | "ML_C5_LARGE"
-  | "ML_C5_XLARGE"
-  | "ML_C5_2XLARGE"
-  | "ML_C5_4XLARGE"
-  | "ML_C5_9XLARGE"
-  | "ML_C5_12XLARGE"
-  | "ML_C5_18XLARGE"
-  | "ML_C5_24XLARGE"
-  | "ML_P3_2XLARGE"
-  | "ML_P3_8XLARGE"
-  | "ML_P3_16XLARGE"
-  | "ML_P3DN_24XLARGE"
-  | "ML_G4DN_XLARGE"
-  | "ML_G4DN_2XLARGE"
-  | "ML_G4DN_4XLARGE"
-  | "ML_G4DN_8XLARGE"
-  | "ML_G4DN_12XLARGE"
-  | "ML_G4DN_16XLARGE"
-  | "ML_R5_LARGE"
-  | "ML_R5_XLARGE"
-  | "ML_R5_2XLARGE"
-  | "ML_R5_4XLARGE"
-  | "ML_R5_8XLARGE"
-  | "ML_R5_12XLARGE"
-  | "ML_R5_16XLARGE"
-  | "ML_R5_24XLARGE"
-  | "ML_G5_XLARGE"
-  | "ML_G5_2XLARGE"
-  | "ML_G5_4XLARGE"
-  | "ML_G5_8XLARGE"
-  | "ML_G5_16XLARGE"
-  | "ML_G5_12XLARGE"
-  | "ML_G5_24XLARGE"
-  | "ML_G5_48XLARGE"
-  | "ML_G6_XLARGE"
-  | "ML_G6_2XLARGE"
-  | "ML_G6_4XLARGE"
-  | "ML_G6_8XLARGE"
-  | "ML_G6_12XLARGE"
-  | "ML_G6_16XLARGE"
-  | "ML_G6_24XLARGE"
-  | "ML_G6_48XLARGE"
-  | "ML_G6E_XLARGE"
-  | "ML_G6E_2XLARGE"
-  | "ML_G6E_4XLARGE"
-  | "ML_G6E_8XLARGE"
-  | "ML_G6E_12XLARGE"
-  | "ML_G6E_16XLARGE"
-  | "ML_G6E_24XLARGE"
-  | "ML_G6E_48XLARGE"
-  | "ML_GEOSPATIAL_INTERACTIVE"
-  | "ML_P4D_24XLARGE"
-  | "ML_P4DE_24XLARGE"
-  | "ML_TRN1_2XLARGE"
-  | "ML_TRN1_32XLARGE"
-  | "ML_TRN1N_32XLARGE"
-  | "ML_P5_48XLARGE"
-  | "ML_P5EN_48XLARGE"
-  | "ML_M6I_LARGE"
-  | "ML_M6I_XLARGE"
-  | "ML_M6I_2XLARGE"
-  | "ML_M6I_4XLARGE"
-  | "ML_M6I_8XLARGE"
-  | "ML_M6I_12XLARGE"
-  | "ML_M6I_16XLARGE"
-  | "ML_M6I_24XLARGE"
-  | "ML_M6I_32XLARGE"
-  | "ML_M7I_LARGE"
-  | "ML_M7I_XLARGE"
-  | "ML_M7I_2XLARGE"
-  | "ML_M7I_4XLARGE"
-  | "ML_M7I_8XLARGE"
-  | "ML_M7I_12XLARGE"
-  | "ML_M7I_16XLARGE"
-  | "ML_M7I_24XLARGE"
-  | "ML_M7I_48XLARGE"
-  | "ML_C6I_LARGE"
-  | "ML_C6I_XLARGE"
-  | "ML_C6I_2XLARGE"
-  | "ML_C6I_4XLARGE"
-  | "ML_C6I_8XLARGE"
-  | "ML_C6I_12XLARGE"
-  | "ML_C6I_16XLARGE"
-  | "ML_C6I_24XLARGE"
-  | "ML_C6I_32XLARGE"
-  | "ML_C7I_LARGE"
-  | "ML_C7I_XLARGE"
-  | "ML_C7I_2XLARGE"
-  | "ML_C7I_4XLARGE"
-  | "ML_C7I_8XLARGE"
-  | "ML_C7I_12XLARGE"
-  | "ML_C7I_16XLARGE"
-  | "ML_C7I_24XLARGE"
-  | "ML_C7I_48XLARGE"
-  | "ML_R6I_LARGE"
-  | "ML_R6I_XLARGE"
-  | "ML_R6I_2XLARGE"
-  | "ML_R6I_4XLARGE"
-  | "ML_R6I_8XLARGE"
-  | "ML_R6I_12XLARGE"
-  | "ML_R6I_16XLARGE"
-  | "ML_R6I_24XLARGE"
-  | "ML_R6I_32XLARGE"
-  | "ML_R7I_LARGE"
-  | "ML_R7I_XLARGE"
-  | "ML_R7I_2XLARGE"
-  | "ML_R7I_4XLARGE"
-  | "ML_R7I_8XLARGE"
-  | "ML_R7I_12XLARGE"
-  | "ML_R7I_16XLARGE"
-  | "ML_R7I_24XLARGE"
-  | "ML_R7I_48XLARGE"
-  | "ML_M6ID_LARGE"
-  | "ML_M6ID_XLARGE"
-  | "ML_M6ID_2XLARGE"
-  | "ML_M6ID_4XLARGE"
-  | "ML_M6ID_8XLARGE"
-  | "ML_M6ID_12XLARGE"
-  | "ML_M6ID_16XLARGE"
-  | "ML_M6ID_24XLARGE"
-  | "ML_M6ID_32XLARGE"
-  | "ML_C6ID_LARGE"
-  | "ML_C6ID_XLARGE"
-  | "ML_C6ID_2XLARGE"
-  | "ML_C6ID_4XLARGE"
-  | "ML_C6ID_8XLARGE"
-  | "ML_C6ID_12XLARGE"
-  | "ML_C6ID_16XLARGE"
-  | "ML_C6ID_24XLARGE"
-  | "ML_C6ID_32XLARGE"
-  | "ML_R6ID_LARGE"
-  | "ML_R6ID_XLARGE"
-  | "ML_R6ID_2XLARGE"
-  | "ML_R6ID_4XLARGE"
-  | "ML_R6ID_8XLARGE"
-  | "ML_R6ID_12XLARGE"
-  | "ML_R6ID_16XLARGE"
-  | "ML_R6ID_24XLARGE"
-  | "ML_R6ID_32XLARGE";
+  | "system"
+  | "ml.t3.micro"
+  | "ml.t3.small"
+  | "ml.t3.medium"
+  | "ml.t3.large"
+  | "ml.t3.xlarge"
+  | "ml.t3.2xlarge"
+  | "ml.m5.large"
+  | "ml.m5.xlarge"
+  | "ml.m5.2xlarge"
+  | "ml.m5.4xlarge"
+  | "ml.m5.8xlarge"
+  | "ml.m5.12xlarge"
+  | "ml.m5.16xlarge"
+  | "ml.m5.24xlarge"
+  | "ml.m5d.large"
+  | "ml.m5d.xlarge"
+  | "ml.m5d.2xlarge"
+  | "ml.m5d.4xlarge"
+  | "ml.m5d.8xlarge"
+  | "ml.m5d.12xlarge"
+  | "ml.m5d.16xlarge"
+  | "ml.m5d.24xlarge"
+  | "ml.c5.large"
+  | "ml.c5.xlarge"
+  | "ml.c5.2xlarge"
+  | "ml.c5.4xlarge"
+  | "ml.c5.9xlarge"
+  | "ml.c5.12xlarge"
+  | "ml.c5.18xlarge"
+  | "ml.c5.24xlarge"
+  | "ml.p3.2xlarge"
+  | "ml.p3.8xlarge"
+  | "ml.p3.16xlarge"
+  | "ml.p3dn.24xlarge"
+  | "ml.g4dn.xlarge"
+  | "ml.g4dn.2xlarge"
+  | "ml.g4dn.4xlarge"
+  | "ml.g4dn.8xlarge"
+  | "ml.g4dn.12xlarge"
+  | "ml.g4dn.16xlarge"
+  | "ml.r5.large"
+  | "ml.r5.xlarge"
+  | "ml.r5.2xlarge"
+  | "ml.r5.4xlarge"
+  | "ml.r5.8xlarge"
+  | "ml.r5.12xlarge"
+  | "ml.r5.16xlarge"
+  | "ml.r5.24xlarge"
+  | "ml.g5.xlarge"
+  | "ml.g5.2xlarge"
+  | "ml.g5.4xlarge"
+  | "ml.g5.8xlarge"
+  | "ml.g5.16xlarge"
+  | "ml.g5.12xlarge"
+  | "ml.g5.24xlarge"
+  | "ml.g5.48xlarge"
+  | "ml.g6.xlarge"
+  | "ml.g6.2xlarge"
+  | "ml.g6.4xlarge"
+  | "ml.g6.8xlarge"
+  | "ml.g6.12xlarge"
+  | "ml.g6.16xlarge"
+  | "ml.g6.24xlarge"
+  | "ml.g6.48xlarge"
+  | "ml.g6e.xlarge"
+  | "ml.g6e.2xlarge"
+  | "ml.g6e.4xlarge"
+  | "ml.g6e.8xlarge"
+  | "ml.g6e.12xlarge"
+  | "ml.g6e.16xlarge"
+  | "ml.g6e.24xlarge"
+  | "ml.g6e.48xlarge"
+  | "ml.geospatial.interactive"
+  | "ml.p4d.24xlarge"
+  | "ml.p4de.24xlarge"
+  | "ml.trn1.2xlarge"
+  | "ml.trn1.32xlarge"
+  | "ml.trn1n.32xlarge"
+  | "ml.p5.48xlarge"
+  | "ml.p5en.48xlarge"
+  | "ml.m6i.large"
+  | "ml.m6i.xlarge"
+  | "ml.m6i.2xlarge"
+  | "ml.m6i.4xlarge"
+  | "ml.m6i.8xlarge"
+  | "ml.m6i.12xlarge"
+  | "ml.m6i.16xlarge"
+  | "ml.m6i.24xlarge"
+  | "ml.m6i.32xlarge"
+  | "ml.m7i.large"
+  | "ml.m7i.xlarge"
+  | "ml.m7i.2xlarge"
+  | "ml.m7i.4xlarge"
+  | "ml.m7i.8xlarge"
+  | "ml.m7i.12xlarge"
+  | "ml.m7i.16xlarge"
+  | "ml.m7i.24xlarge"
+  | "ml.m7i.48xlarge"
+  | "ml.c6i.large"
+  | "ml.c6i.xlarge"
+  | "ml.c6i.2xlarge"
+  | "ml.c6i.4xlarge"
+  | "ml.c6i.8xlarge"
+  | "ml.c6i.12xlarge"
+  | "ml.c6i.16xlarge"
+  | "ml.c6i.24xlarge"
+  | "ml.c6i.32xlarge"
+  | "ml.c7i.large"
+  | "ml.c7i.xlarge"
+  | "ml.c7i.2xlarge"
+  | "ml.c7i.4xlarge"
+  | "ml.c7i.8xlarge"
+  | "ml.c7i.12xlarge"
+  | "ml.c7i.16xlarge"
+  | "ml.c7i.24xlarge"
+  | "ml.c7i.48xlarge"
+  | "ml.r6i.large"
+  | "ml.r6i.xlarge"
+  | "ml.r6i.2xlarge"
+  | "ml.r6i.4xlarge"
+  | "ml.r6i.8xlarge"
+  | "ml.r6i.12xlarge"
+  | "ml.r6i.16xlarge"
+  | "ml.r6i.24xlarge"
+  | "ml.r6i.32xlarge"
+  | "ml.r7i.large"
+  | "ml.r7i.xlarge"
+  | "ml.r7i.2xlarge"
+  | "ml.r7i.4xlarge"
+  | "ml.r7i.8xlarge"
+  | "ml.r7i.12xlarge"
+  | "ml.r7i.16xlarge"
+  | "ml.r7i.24xlarge"
+  | "ml.r7i.48xlarge"
+  | "ml.m6id.large"
+  | "ml.m6id.xlarge"
+  | "ml.m6id.2xlarge"
+  | "ml.m6id.4xlarge"
+  | "ml.m6id.8xlarge"
+  | "ml.m6id.12xlarge"
+  | "ml.m6id.16xlarge"
+  | "ml.m6id.24xlarge"
+  | "ml.m6id.32xlarge"
+  | "ml.c6id.large"
+  | "ml.c6id.xlarge"
+  | "ml.c6id.2xlarge"
+  | "ml.c6id.4xlarge"
+  | "ml.c6id.8xlarge"
+  | "ml.c6id.12xlarge"
+  | "ml.c6id.16xlarge"
+  | "ml.c6id.24xlarge"
+  | "ml.c6id.32xlarge"
+  | "ml.r6id.large"
+  | "ml.r6id.xlarge"
+  | "ml.r6id.2xlarge"
+  | "ml.r6id.4xlarge"
+  | "ml.r6id.8xlarge"
+  | "ml.r6id.12xlarge"
+  | "ml.r6id.16xlarge"
+  | "ml.r6id.24xlarge"
+  | "ml.r6id.32xlarge";
 export interface AppLifecycleManagement {
   IdleSettings?: IdleSettings;
 }
@@ -2066,10 +2066,10 @@ export interface ArtifactSource {
   SourceTypes?: Array<ArtifactSourceType>;
 }
 export type ArtifactSourceIdType =
-  | "MD5_HASH"
-  | "S3_ETAG"
-  | "S3_VERSION"
-  | "CUSTOM";
+  | "MD5Hash"
+  | "S3ETag"
+  | "S3Version"
+  | "Custom";
 export interface ArtifactSourceType {
   SourceIdType: ArtifactSourceIdType;
   Value: string;
@@ -2084,7 +2084,7 @@ export interface ArtifactSummary {
   CreationTime?: Date | string;
   LastModifiedTime?: Date | string;
 }
-export type AssemblyType = "NONE" | "LINE";
+export type AssemblyType = "None" | "Line";
 export interface AssociateTrialComponentRequest {
   TrialComponentName: string;
   TrialName: string;
@@ -2094,11 +2094,11 @@ export interface AssociateTrialComponentResponse {
   TrialArn?: string;
 }
 export type AssociationEdgeType =
-  | "CONTRIBUTED_TO"
-  | "ASSOCIATED_WITH"
-  | "DERIVED_FROM"
-  | "PRODUCED"
-  | "SAME_AS";
+  | "ContributedTo"
+  | "AssociatedWith"
+  | "DerivedFrom"
+  | "Produced"
+  | "SameAs";
 export type AssociationEntityArn = string;
 
 export type AssociationSummaries = Array<AssociationSummary>;
@@ -2178,21 +2178,21 @@ export type AuthorizedUrlConfigs = Array<AuthorizedUrl>;
 export type AutoGenerateEndpointName = boolean;
 
 export type AutoMLAlgorithm =
-  | "XGBOOST"
-  | "LINEAR_LEARNER"
-  | "MLP"
-  | "LIGHTGBM"
-  | "CATBOOST"
-  | "RANDOMFOREST"
-  | "EXTRA_TREES"
-  | "NN_TORCH"
-  | "FASTAI"
-  | "CNN_QR"
-  | "DEEPAR"
-  | "PROPHET"
-  | "NPTS"
-  | "ARIMA"
-  | "ETS";
+  | "xgboost"
+  | "linear-learner"
+  | "mlp"
+  | "lightgbm"
+  | "catboost"
+  | "randomforest"
+  | "extra-trees"
+  | "nn-torch"
+  | "fastai"
+  | "cnn-qr"
+  | "deepar"
+  | "prophet"
+  | "npts"
+  | "arima"
+  | "ets";
 export interface AutoMLAlgorithmConfig {
   AutoMLAlgorithms: Array<AutoMLAlgorithm>;
 }
@@ -2233,7 +2233,7 @@ export interface AutoMLChannel {
   ChannelType?: AutoMLChannelType;
   SampleWeightAttributeName?: string;
 }
-export type AutoMLChannelType = "TRAINING" | "VALIDATION";
+export type AutoMLChannelType = "training" | "validation";
 export interface AutoMLComputeConfig {
   EmrServerlessComputeConfig?: EmrServerlessComputeConfig;
 }
@@ -2286,33 +2286,33 @@ export type AutoMLJobName = string;
 export interface AutoMLJobObjective {
   MetricName: AutoMLMetricEnum;
 }
-export type AutoMLJobObjectiveType = "MAXIMIZE" | "MINIMIZE";
+export type AutoMLJobObjectiveType = "Maximize" | "Minimize";
 export type AutoMLJobSecondaryStatus =
-  | "STARTING"
-  | "MAX_CANDIDATES_REACHED"
-  | "FAILED"
-  | "STOPPED"
-  | "MAX_AUTO_ML_JOB_RUNTIME_REACHED"
-  | "STOPPING"
-  | "CANDIDATE_DEFINITIONS_GENERATED"
-  | "COMPLETED"
-  | "EXPLAINABILITY_ERROR"
-  | "DEPLOYING_MODEL"
-  | "MODEL_DEPLOYMENT_ERROR"
-  | "GENERATING_MODEL_INSIGHTS_REPORT"
-  | "MODEL_INSIGHTS_ERROR"
-  | "ANALYZING_DATA"
-  | "FEATURE_ENGINEERING"
-  | "MODEL_TUNING"
-  | "GENERATING_EXPLAINABILITY_REPORT"
-  | "TRAINING_MODELS"
-  | "PRE_TRAINING";
+  | "Starting"
+  | "MaxCandidatesReached"
+  | "Failed"
+  | "Stopped"
+  | "MaxAutoMLJobRuntimeReached"
+  | "Stopping"
+  | "CandidateDefinitionsGenerated"
+  | "Completed"
+  | "ExplainabilityError"
+  | "DeployingModel"
+  | "ModelDeploymentError"
+  | "GeneratingModelInsightsReport"
+  | "ModelInsightsError"
+  | "AnalyzingData"
+  | "FeatureEngineering"
+  | "ModelTuning"
+  | "GeneratingExplainabilityReport"
+  | "TrainingModels"
+  | "PreTraining";
 export type AutoMLJobStatus =
-  | "COMPLETED"
-  | "IN_PROGRESS"
-  | "FAILED"
-  | "STOPPED"
-  | "STOPPING";
+  | "Completed"
+  | "InProgress"
+  | "Failed"
+  | "Stopped"
+  | "Stopping";
 export interface AutoMLJobStepMetadata {
   Arn?: string;
 }
@@ -2333,50 +2333,50 @@ export type AutoMLMaxResults = number;
 export type AutoMLMaxResultsForTrials = number;
 
 export type AutoMLMetricEnum =
-  | "ACCURACY"
+  | "Accuracy"
   | "MSE"
   | "F1"
-  | "F1_MACRO"
+  | "F1macro"
   | "AUC"
   | "RMSE"
-  | "BALANCED_ACCURACY"
+  | "BalancedAccuracy"
   | "R2"
-  | "RECALL"
-  | "RECALL_MACRO"
-  | "PRECISION"
-  | "PRECISION_MACRO"
+  | "Recall"
+  | "RecallMacro"
+  | "Precision"
+  | "PrecisionMacro"
   | "MAE"
   | "MAPE"
   | "MASE"
   | "WAPE"
-  | "AVERAGE_WEIGHTED_QUANTILE_LOSS";
+  | "AverageWeightedQuantileLoss";
 export type AutoMLMetricExtendedEnum =
-  | "ACCURACY"
+  | "Accuracy"
   | "MSE"
   | "F1"
-  | "F1_MACRO"
+  | "F1macro"
   | "AUC"
   | "RMSE"
   | "MAE"
   | "R2"
-  | "BALANCED_ACCURACY"
-  | "PRECISION"
-  | "PRECISION_MACRO"
-  | "RECALL"
-  | "RECALL_MACRO"
+  | "BalancedAccuracy"
+  | "Precision"
+  | "PrecisionMacro"
+  | "Recall"
+  | "RecallMacro"
   | "LogLoss"
-  | "INFERENCE_LATENCY"
+  | "InferenceLatency"
   | "MAPE"
   | "MASE"
   | "WAPE"
-  | "AVERAGE_WEIGHTED_QUANTILE_LOSS"
-  | "ROUGE1"
-  | "ROUGE2"
-  | "ROUGEL"
-  | "ROUGEL_SUM"
-  | "PERPLEXITY"
-  | "VALIDATION_LOSS"
-  | "TRAINING_LOSS";
+  | "AverageWeightedQuantileLoss"
+  | "Rouge1"
+  | "Rouge2"
+  | "RougeL"
+  | "RougeLSum"
+  | "Perplexity"
+  | "ValidationLoss"
+  | "TrainingLoss";
 export type AutoMLMode = "AUTO" | "ENSEMBLING" | "HYPERPARAMETER_TUNING";
 export type AutoMLNameContains = string;
 
@@ -2411,11 +2411,11 @@ export type AutoMLProblemTypeConfig =
       TextGenerationJobConfig: TextGenerationJobConfig;
     });
 export type AutoMLProblemTypeConfigName =
-  | "IMAGE_CLASSIFICATION"
-  | "TEXT_CLASSIFICATION"
-  | "TIMESERIES_FORECASTING"
-  | "TABULAR"
-  | "TEXT_GENERATION";
+  | "ImageClassification"
+  | "TextClassification"
+  | "TimeSeriesForecasting"
+  | "Tabular"
+  | "TextGeneration";
 interface _AutoMLProblemTypeResolvedAttributes {
   TabularResolvedAttributes?: TabularResolvedAttributes;
   TextGenerationResolvedAttributes?: TextGenerationResolvedAttributes;
@@ -2439,17 +2439,17 @@ export interface AutoMLS3DataSource {
   S3Uri: string;
 }
 export type AutoMLS3DataType =
-  | "MANIFEST_FILE"
-  | "S3_PREFIX"
-  | "AUGMENTED_MANIFEST_FILE";
+  | "ManifestFile"
+  | "S3Prefix"
+  | "AugmentedManifestFile";
 export interface AutoMLSecurityConfig {
   VolumeKmsKeyId?: string;
   EnableInterContainerTrafficEncryption?: boolean;
   VpcConfig?: VpcConfig;
 }
-export type AutoMLSortBy = "NAME" | "CREATION_TIME" | "STATUS";
-export type AutoMLSortOrder = "ASCENDING" | "DESCENDING";
-export type AutoMountHomeEFS = "ENABLED" | "DISABLED" | "DEFAULT_AS_DOMAIN";
+export type AutoMLSortBy = "Name" | "CreationTime" | "Status";
+export type AutoMLSortOrder = "Ascending" | "Descending";
+export type AutoMountHomeEFS = "Enabled" | "Disabled" | "DefaultAsDomain";
 export interface AutoParameter {
   Name: string;
   ValueHint: string;
@@ -2462,14 +2462,14 @@ export interface AutoRollbackConfig {
 export interface Autotune {
   Mode: AutotuneMode;
 }
-export type AutotuneMode = "ENABLED";
+export type AutotuneMode = "Enabled";
 export type AvailabilityZone = string;
 
 export type AvailableInstanceCount = number;
 
 export type AwsManagedHumanLoopRequestSource =
-  | "REKOGNITION_DETECT_MODERATION_LABELS_IMAGE_V3"
-  | "TEXTRACT_ANALYZE_DOCUMENT_FORMS_V1";
+  | "AWS/Rekognition/DetectModerationLabels/Image/V3"
+  | "AWS/Textract/AnalyzeDocument/Forms/V1";
 export type BacktestResultsLocation = string;
 
 export type BaseModelName = string;
@@ -2485,9 +2485,9 @@ export interface BatchDeleteClusterNodesError {
   NodeId: string;
 }
 export type BatchDeleteClusterNodesErrorCode =
-  | "NODE_ID_NOT_FOUND"
-  | "INVALID_NODE_STATUS"
-  | "NODE_ID_IN_USE";
+  | "NodeIdNotFound"
+  | "InvalidNodeStatus"
+  | "NodeIdInUse";
 export type BatchDeleteClusterNodesErrorList =
   Array<BatchDeleteClusterNodesError>;
 export interface BatchDeleteClusterNodesRequest {
@@ -2526,7 +2526,7 @@ export interface BatchDescribeModelPackageSummary {
   ModelPackageStatus: ModelPackageStatus;
   ModelApprovalStatus?: ModelApprovalStatus;
 }
-export type BatchStrategy = "MULTI_RECORD" | "SINGLE_RECORD";
+export type BatchStrategy = "MultiRecord" | "SingleRecord";
 export interface BatchTransformInput {
   DataCapturedDestinationS3Uri: string;
   DatasetFormat: MonitoringDatasetFormat;
@@ -2560,7 +2560,7 @@ export interface BlueGreenUpdatePolicy {
 }
 export type SagemakerBoolean = boolean;
 
-export type BooleanOperator = "AND" | "OR";
+export type BooleanOperator = "And" | "Or";
 export type BorrowLimit = number;
 
 export type Branch = string;
@@ -2598,17 +2598,20 @@ export type CandidateSortBy =
   | "Status"
   | "FinalObjectiveMetricValue";
 export type CandidateStatus =
-  | "COMPLETED"
-  | "IN_PROGRESS"
-  | "FAILED"
-  | "STOPPED"
-  | "STOPPING";
+  | "Completed"
+  | "InProgress"
+  | "Failed"
+  | "Stopped"
+  | "Stopping";
 export type CandidateStepArn = string;
 
 export type CandidateStepName = string;
 
 export type CandidateSteps = Array<AutoMLCandidateStep>;
-export type CandidateStepType = "TRAINING" | "TRANSFORM" | "PROCESSING";
+export type CandidateStepType =
+  | "AWS::SageMaker::TrainingJob"
+  | "AWS::SageMaker::TransformJob"
+  | "AWS::SageMaker::ProcessingJob";
 export interface CanvasAppSettings {
   TimeSeriesForecastingSettings?: TimeSeriesForecastingSettings;
   ModelRegisterSettings?: ModelRegisterSettings;
@@ -2619,7 +2622,7 @@ export interface CanvasAppSettings {
   GenerativeAiSettings?: GenerativeAiSettings;
   EmrServerlessSettings?: EmrServerlessSettings;
 }
-export type CapacityReservationPreference = "CAPACITY_RESERVATIONS_ONLY";
+export type CapacityReservationPreference = "capacity-reservations-only";
 export interface CapacitySize {
   Type: CapacitySizeType;
   Value: number;
@@ -2637,12 +2640,12 @@ export interface CaptureContentTypeHeader {
   CsvContentTypes?: Array<string>;
   JsonContentTypes?: Array<string>;
 }
-export type CaptureMode = "INPUT" | "OUTPUT" | "INPUT_AND_OUTPUT";
+export type CaptureMode = "Input" | "Output" | "InputAndOutput";
 export interface CaptureOption {
   CaptureMode: CaptureMode;
 }
 export type CaptureOptionList = Array<CaptureOption>;
-export type CaptureStatus = "STARTED" | "STOPPED";
+export type CaptureStatus = "Started" | "Stopped";
 export type Catalog = string;
 
 export interface CategoricalParameter {
@@ -2764,7 +2767,7 @@ export interface ClarifyExplainerConfig {
 export type ClarifyFeatureHeaders = Array<string>;
 export type ClarifyFeaturesAttribute = string;
 
-export type ClarifyFeatureType = "NUMERICAL" | "CATEGORICAL" | "TEXT";
+export type ClarifyFeatureType = "numerical" | "categorical" | "text";
 export type ClarifyFeatureTypes = Array<ClarifyFeatureType>;
 export type ClarifyHeader = string;
 
@@ -2820,68 +2823,68 @@ export interface ClarifyTextConfig {
   Language: ClarifyTextLanguage;
   Granularity: ClarifyTextGranularity;
 }
-export type ClarifyTextGranularity = "TOKEN" | "SENTENCE" | "PARAGRAPH";
+export type ClarifyTextGranularity = "token" | "sentence" | "paragraph";
 export type ClarifyTextLanguage =
-  | "AFRIKAANS"
-  | "ALBANIAN"
-  | "ARABIC"
-  | "ARMENIAN"
-  | "BASQUE"
-  | "BENGALI"
-  | "BULGARIAN"
-  | "CATALAN"
-  | "CHINESE"
-  | "CROATIAN"
-  | "CZECH"
-  | "DANISH"
-  | "DUTCH"
-  | "ENGLISH"
-  | "ESTONIAN"
-  | "FINNISH"
-  | "FRENCH"
-  | "GERMAN"
-  | "GREEK"
-  | "GUJARATI"
-  | "HEBREW"
-  | "HINDI"
-  | "HUNGARIAN"
-  | "ICELANDIC"
-  | "INDONESIAN"
-  | "IRISH"
-  | "ITALIAN"
-  | "KANNADA"
-  | "KYRGYZ"
-  | "LATVIAN"
-  | "LITHUANIAN"
-  | "LUXEMBOURGISH"
-  | "MACEDONIAN"
-  | "MALAYALAM"
-  | "MARATHI"
-  | "NEPALI"
-  | "NORWEGIAN_BOKMAL"
-  | "PERSIAN"
-  | "POLISH"
-  | "PORTUGUESE"
-  | "ROMANIAN"
-  | "RUSSIAN"
-  | "SANSKRIT"
-  | "SERBIAN"
-  | "SETSWANA"
-  | "SINHALA"
-  | "SLOVAK"
-  | "SLOVENIAN"
-  | "SPANISH"
-  | "SWEDISH"
-  | "TAGALOG"
-  | "TAMIL"
-  | "TATAR"
-  | "TELUGU"
-  | "TURKISH"
-  | "UKRAINIAN"
-  | "URDU"
-  | "YORUBA"
-  | "LIGURIAN"
-  | "MULTI_LANGUAGE";
+  | "af"
+  | "sq"
+  | "ar"
+  | "hy"
+  | "eu"
+  | "bn"
+  | "bg"
+  | "ca"
+  | "zh"
+  | "hr"
+  | "cs"
+  | "da"
+  | "nl"
+  | "en"
+  | "et"
+  | "fi"
+  | "fr"
+  | "de"
+  | "el"
+  | "gu"
+  | "he"
+  | "hi"
+  | "hu"
+  | "is"
+  | "id"
+  | "ga"
+  | "it"
+  | "kn"
+  | "ky"
+  | "lv"
+  | "lt"
+  | "lb"
+  | "mk"
+  | "ml"
+  | "mr"
+  | "ne"
+  | "nb"
+  | "fa"
+  | "pl"
+  | "pt"
+  | "ro"
+  | "ru"
+  | "sa"
+  | "sr"
+  | "tn"
+  | "si"
+  | "sk"
+  | "sl"
+  | "es"
+  | "sv"
+  | "tl"
+  | "ta"
+  | "tt"
+  | "te"
+  | "tr"
+  | "uk"
+  | "ur"
+  | "yo"
+  | "lij"
+  | "xx";
 export type ClientId = string;
 
 export type ClientSecret = string;
@@ -2942,12 +2945,12 @@ export interface ClusterInstancePlacement {
   AvailabilityZoneId?: string;
 }
 export type ClusterInstanceStatus =
-  | "RUNNING"
-  | "FAILURE"
-  | "PENDING"
-  | "SHUTTING_DOWN"
-  | "SYSTEM_UPDATING"
-  | "DEEP_HEALTH_CHECK_IN_PROGRESS";
+  | "Running"
+  | "Failure"
+  | "Pending"
+  | "ShuttingDown"
+  | "SystemUpdating"
+  | "DeepHealthCheckInProgress";
 export interface ClusterInstanceStatusDetails {
   Status: ClusterInstanceStatus;
   Message?: string;
@@ -2961,118 +2964,118 @@ export type ClusterInstanceStorageConfig = _ClusterInstanceStorageConfig & {
 };
 export type ClusterInstanceStorageConfigs = Array<ClusterInstanceStorageConfig>;
 export type ClusterInstanceType =
-  | "ML_P4D_24XLARGE"
-  | "ML_P4DE_24XLARGE"
-  | "ML_P5_48XLARGE"
-  | "ML_TRN1_32XLARGE"
-  | "ML_TRN1N_32XLARGE"
-  | "ML_G5_XLARGE"
-  | "ML_G5_2XLARGE"
-  | "ML_G5_4XLARGE"
-  | "ML_G5_8XLARGE"
-  | "ML_G5_12XLARGE"
-  | "ML_G5_16XLARGE"
-  | "ML_G5_24XLARGE"
-  | "ML_G5_48XLARGE"
-  | "ML_C5_LARGE"
-  | "ML_C5_XLARGE"
-  | "ML_C5_2XLARGE"
-  | "ML_C5_4XLARGE"
-  | "ML_C5_9XLARGE"
-  | "ML_C5_12XLARGE"
-  | "ML_C5_18XLARGE"
-  | "ML_C5_24XLARGE"
-  | "ML_C5N_LARGE"
-  | "ML_C5N_2XLARGE"
-  | "ML_C5N_4XLARGE"
-  | "ML_C5N_9XLARGE"
-  | "ML_C5N_18XLARGE"
-  | "ML_M5_LARGE"
-  | "ML_M5_XLARGE"
-  | "ML_M5_2XLARGE"
-  | "ML_M5_4XLARGE"
-  | "ML_M5_8XLARGE"
-  | "ML_M5_12XLARGE"
-  | "ML_M5_16XLARGE"
-  | "ML_M5_24XLARGE"
-  | "ML_T3_MEDIUM"
-  | "ML_T3_LARGE"
-  | "ML_T3_XLARGE"
-  | "ML_T3_2XLARGE"
-  | "ML_G6_XLARGE"
-  | "ML_G6_2XLARGE"
-  | "ML_G6_4XLARGE"
-  | "ML_G6_8XLARGE"
-  | "ML_G6_16XLARGE"
-  | "ML_G6_12XLARGE"
-  | "ML_G6_24XLARGE"
-  | "ML_G6_48XLARGE"
-  | "ML_GR6_4XLARGE"
-  | "ML_GR6_8XLARGE"
-  | "ML_G6E_XLARGE"
-  | "ML_G6E_2XLARGE"
-  | "ML_G6E_4XLARGE"
-  | "ML_G6E_8XLARGE"
-  | "ML_G6E_16XLARGE"
-  | "ML_G6E_12XLARGE"
-  | "ML_G6E_24XLARGE"
-  | "ML_G6E_48XLARGE"
-  | "ML_P5E_48XLARGE"
-  | "ML_P5EN_48XLARGE"
-  | "ML_P6_B200_48XLARGE"
-  | "ML_TRN2_48XLARGE"
-  | "ML_C6I_LARGE"
-  | "ML_C6I_XLARGE"
-  | "ML_C6I_2XLARGE"
-  | "ML_C6I_4XLARGE"
-  | "ML_C6I_8XLARGE"
-  | "ML_C6I_12XLARGE"
-  | "ML_C6I_16XLARGE"
-  | "ML_C6I_24XLARGE"
-  | "ML_C6I_32XLARGE"
-  | "ML_M6I_LARGE"
-  | "ML_M6I_XLARGE"
-  | "ML_M6I_2XLARGE"
-  | "ML_M6I_4XLARGE"
-  | "ML_M6I_8XLARGE"
-  | "ML_M6I_12XLARGE"
-  | "ML_M6I_16XLARGE"
-  | "ML_M6I_24XLARGE"
-  | "ML_M6I_32XLARGE"
-  | "ML_R6I_LARGE"
-  | "ML_R6I_XLARGE"
-  | "ML_R6I_2XLARGE"
-  | "ML_R6I_4XLARGE"
-  | "ML_R6I_8XLARGE"
-  | "ML_R6I_12XLARGE"
-  | "ML_R6I_16XLARGE"
-  | "ML_R6I_24XLARGE"
-  | "ML_R6I_32XLARGE"
-  | "ML_I3EN_LARGE"
-  | "ML_I3EN_XLARGE"
-  | "ML_I3EN_2XLARGE"
-  | "ML_I3EN_3XLARGE"
-  | "ML_I3EN_6XLARGE"
-  | "ML_I3EN_12XLARGE"
-  | "ML_I3EN_24XLARGE"
-  | "ML_M7I_LARGE"
-  | "ML_M7I_XLARGE"
-  | "ML_M7I_2XLARGE"
-  | "ML_M7I_4XLARGE"
-  | "ML_M7I_8XLARGE"
-  | "ML_M7I_12XLARGE"
-  | "ML_M7I_16XLARGE"
-  | "ML_M7I_24XLARGE"
-  | "ML_M7I_48XLARGE"
-  | "ML_R7I_LARGE"
-  | "ML_R7I_XLARGE"
-  | "ML_R7I_2XLARGE"
-  | "ML_R7I_4XLARGE"
-  | "ML_R7I_8XLARGE"
-  | "ML_R7I_12XLARGE"
-  | "ML_R7I_16XLARGE"
-  | "ML_R7I_24XLARGE"
-  | "ML_R7I_48XLARGE";
+  | "ml.p4d.24xlarge"
+  | "ml.p4de.24xlarge"
+  | "ml.p5.48xlarge"
+  | "ml.trn1.32xlarge"
+  | "ml.trn1n.32xlarge"
+  | "ml.g5.xlarge"
+  | "ml.g5.2xlarge"
+  | "ml.g5.4xlarge"
+  | "ml.g5.8xlarge"
+  | "ml.g5.12xlarge"
+  | "ml.g5.16xlarge"
+  | "ml.g5.24xlarge"
+  | "ml.g5.48xlarge"
+  | "ml.c5.large"
+  | "ml.c5.xlarge"
+  | "ml.c5.2xlarge"
+  | "ml.c5.4xlarge"
+  | "ml.c5.9xlarge"
+  | "ml.c5.12xlarge"
+  | "ml.c5.18xlarge"
+  | "ml.c5.24xlarge"
+  | "ml.c5n.large"
+  | "ml.c5n.2xlarge"
+  | "ml.c5n.4xlarge"
+  | "ml.c5n.9xlarge"
+  | "ml.c5n.18xlarge"
+  | "ml.m5.large"
+  | "ml.m5.xlarge"
+  | "ml.m5.2xlarge"
+  | "ml.m5.4xlarge"
+  | "ml.m5.8xlarge"
+  | "ml.m5.12xlarge"
+  | "ml.m5.16xlarge"
+  | "ml.m5.24xlarge"
+  | "ml.t3.medium"
+  | "ml.t3.large"
+  | "ml.t3.xlarge"
+  | "ml.t3.2xlarge"
+  | "ml.g6.xlarge"
+  | "ml.g6.2xlarge"
+  | "ml.g6.4xlarge"
+  | "ml.g6.8xlarge"
+  | "ml.g6.16xlarge"
+  | "ml.g6.12xlarge"
+  | "ml.g6.24xlarge"
+  | "ml.g6.48xlarge"
+  | "ml.gr6.4xlarge"
+  | "ml.gr6.8xlarge"
+  | "ml.g6e.xlarge"
+  | "ml.g6e.2xlarge"
+  | "ml.g6e.4xlarge"
+  | "ml.g6e.8xlarge"
+  | "ml.g6e.16xlarge"
+  | "ml.g6e.12xlarge"
+  | "ml.g6e.24xlarge"
+  | "ml.g6e.48xlarge"
+  | "ml.p5e.48xlarge"
+  | "ml.p5en.48xlarge"
+  | "ml.p6-b200.48xlarge"
+  | "ml.trn2.48xlarge"
+  | "ml.c6i.large"
+  | "ml.c6i.xlarge"
+  | "ml.c6i.2xlarge"
+  | "ml.c6i.4xlarge"
+  | "ml.c6i.8xlarge"
+  | "ml.c6i.12xlarge"
+  | "ml.c6i.16xlarge"
+  | "ml.c6i.24xlarge"
+  | "ml.c6i.32xlarge"
+  | "ml.m6i.large"
+  | "ml.m6i.xlarge"
+  | "ml.m6i.2xlarge"
+  | "ml.m6i.4xlarge"
+  | "ml.m6i.8xlarge"
+  | "ml.m6i.12xlarge"
+  | "ml.m6i.16xlarge"
+  | "ml.m6i.24xlarge"
+  | "ml.m6i.32xlarge"
+  | "ml.r6i.large"
+  | "ml.r6i.xlarge"
+  | "ml.r6i.2xlarge"
+  | "ml.r6i.4xlarge"
+  | "ml.r6i.8xlarge"
+  | "ml.r6i.12xlarge"
+  | "ml.r6i.16xlarge"
+  | "ml.r6i.24xlarge"
+  | "ml.r6i.32xlarge"
+  | "ml.i3en.large"
+  | "ml.i3en.xlarge"
+  | "ml.i3en.2xlarge"
+  | "ml.i3en.3xlarge"
+  | "ml.i3en.6xlarge"
+  | "ml.i3en.12xlarge"
+  | "ml.i3en.24xlarge"
+  | "ml.m7i.large"
+  | "ml.m7i.xlarge"
+  | "ml.m7i.2xlarge"
+  | "ml.m7i.4xlarge"
+  | "ml.m7i.8xlarge"
+  | "ml.m7i.12xlarge"
+  | "ml.m7i.16xlarge"
+  | "ml.m7i.24xlarge"
+  | "ml.m7i.48xlarge"
+  | "ml.r7i.large"
+  | "ml.r7i.xlarge"
+  | "ml.r7i.2xlarge"
+  | "ml.r7i.4xlarge"
+  | "ml.r7i.8xlarge"
+  | "ml.r7i.12xlarge"
+  | "ml.r7i.16xlarge"
+  | "ml.r7i.24xlarge"
+  | "ml.r7i.48xlarge";
 export interface ClusterLifeCycleConfig {
   SourceS3Uri: string;
   OnCreate: string;
@@ -3102,7 +3105,7 @@ export interface ClusterNodeDetails {
 export type ClusterNodeId = string;
 
 export type ClusterNodeIds = Array<string>;
-export type ClusterNodeRecovery = "AUTOMATIC" | "NONE";
+export type ClusterNodeRecovery = "Automatic" | "None";
 export type ClusterNodeSummaries = Array<ClusterNodeSummary>;
 export interface ClusterNodeSummary {
   InstanceGroupName: string;
@@ -3179,13 +3182,13 @@ export type ClusterSchedulerPriorityClassName = string;
 
 export type ClusterSortBy = "CREATION_TIME" | "NAME";
 export type ClusterStatus =
-  | "CREATING"
-  | "DELETING"
-  | "FAILED"
-  | "INSERVICE"
-  | "ROLLINGBACK"
-  | "SYSTEMUPDATING"
-  | "UPDATING";
+  | "Creating"
+  | "Deleting"
+  | "Failed"
+  | "InService"
+  | "RollingBack"
+  | "SystemUpdating"
+  | "Updating";
 export type ClusterSummaries = Array<ClusterSummary>;
 export interface ClusterSummary {
   ClusterArn: string;
@@ -3219,11 +3222,8 @@ export type CodeRepositoryNameContains = string;
 
 export type CodeRepositoryNameOrUrl = string;
 
-export type CodeRepositorySortBy =
-  | "NAME"
-  | "CREATION_TIME"
-  | "LAST_MODIFIED_TIME";
-export type CodeRepositorySortOrder = "ASCENDING" | "DESCENDING";
+export type CodeRepositorySortBy = "Name" | "CreationTime" | "LastModifiedTime";
+export type CodeRepositorySortOrder = "Ascending" | "Descending";
 export interface CodeRepositorySummary {
   CodeRepositoryName: string;
   CodeRepositoryArn: string;
@@ -3260,7 +3260,7 @@ export type CollectionConfigurations = Array<CollectionConfiguration>;
 export type CollectionName = string;
 
 export type CollectionParameters = Record<string, string>;
-export type CollectionType = "LIST" | "SET" | "VECTOR";
+export type CollectionType = "List" | "Set" | "Vector";
 export type CompilationJobArn = string;
 
 export type CompilationJobStatus =
@@ -3286,8 +3286,8 @@ export interface CompilationJobSummary {
 }
 export type CompilerOptions = string;
 
-export type CompleteOnConvergence = "DISABLED" | "ENABLED";
-export type CompressionType = "NONE" | "GZIP";
+export type CompleteOnConvergence = "Disabled" | "Enabled";
+export type CompressionType = "None" | "Gzip";
 export type CompressionTypes = Array<CompressionType>;
 export type ComputeQuotaArn = string;
 
@@ -3323,7 +3323,7 @@ export interface ComputeQuotaTarget {
 }
 export type ComputeQuotaTargetTeamName = string;
 
-export type ConditionOutcome = "TRUE" | "FALSE";
+export type ConditionOutcome = "True" | "False";
 export interface ConditionStepMetadata {
   Outcome?: ConditionOutcome;
 }
@@ -3365,10 +3365,10 @@ export type ContainerHostname = string;
 
 export type ContainerImage = string;
 
-export type ContainerMode = "SINGLE_MODEL" | "MULTI_MODEL";
+export type ContainerMode = "SingleModel" | "MultiModel";
 export type ContentClassifier =
-  | "FREE_OF_PERSONALLY_IDENTIFIABLE_INFORMATION"
-  | "FREE_OF_ADULT_CONTENT";
+  | "FreeOfPersonallyIdentifiableInformation"
+  | "FreeOfAdultContent";
 export type ContentClassifiers = Array<ContentClassifier>;
 export type ContentColumn = string;
 
@@ -4251,7 +4251,7 @@ export type CreationTime = Date | string;
 
 export type CronScheduleExpression = string;
 
-export type CrossAccountFilterOption = "SAME_ACCOUNT" | "CROSS_ACCOUNT";
+export type CrossAccountFilterOption = "SameAccount" | "CrossAccount";
 export type CsvContentType = string;
 
 export type CsvContentTypes = Array<string>;
@@ -4327,7 +4327,7 @@ export interface DataCatalogConfig {
   Catalog: string;
   Database: string;
 }
-export type DataDistributionType = "FULLYREPLICATED" | "SHARDEDBYS3KEY";
+export type DataDistributionType = "FullyReplicated" | "ShardedByS3Key";
 export type DataExplorationNotebookLocation = string;
 
 export type DataInputConfig = string;
@@ -4390,7 +4390,7 @@ export interface DebugRuleEvaluationStatus {
   LastModifiedTime?: Date | string;
 }
 export type DebugRuleEvaluationStatuses = Array<DebugRuleEvaluationStatus>;
-export type DeepHealthCheckType = "INSTANCE_STRESS" | "INSTANCE_CONNECTIVITY";
+export type DeepHealthCheckType = "InstanceStress" | "InstanceConnectivity";
 export interface DefaultEbsStorageSettings {
   DefaultEbsVolumeSizeInGb: number;
   MaximumEbsVolumeSizeInGb: number;
@@ -5919,15 +5919,15 @@ export type DesiredWeightAndCapacityList = Array<DesiredWeightAndCapacity>;
 export type DestinationS3Uri = string;
 
 export type DetailedAlgorithmStatus =
-  | "NOT_STARTED"
-  | "IN_PROGRESS"
-  | "COMPLETED"
-  | "FAILED";
+  | "NotStarted"
+  | "InProgress"
+  | "Completed"
+  | "Failed";
 export type DetailedModelPackageStatus =
-  | "NOT_STARTED"
-  | "IN_PROGRESS"
-  | "COMPLETED"
-  | "FAILED";
+  | "NotStarted"
+  | "InProgress"
+  | "Completed"
+  | "Failed";
 export interface Device {
   DeviceName: string;
   Description?: string;
@@ -5936,12 +5936,12 @@ export interface Device {
 export type DeviceArn = string;
 
 export type DeviceDeploymentStatus =
-  | "ReadyToDeploy"
-  | "InProgress"
-  | "Deployed"
-  | "Failed"
-  | "Stopping"
-  | "Stopped";
+  | "READYTODEPLOY"
+  | "INPROGRESS"
+  | "DEPLOYED"
+  | "FAILED"
+  | "STOPPING"
+  | "STOPPED";
 export type DeviceDeploymentSummaries = Array<DeviceDeploymentSummary>;
 export interface DeviceDeploymentSummary {
   EdgeDeploymentPlanArn: string;
@@ -5983,7 +5983,7 @@ export interface DeviceStats {
   ConnectedDeviceCount: number;
   RegisteredDeviceCount: number;
 }
-export type DeviceSubsetType = "Percentage" | "Selection" | "NameContains";
+export type DeviceSubsetType = "PERCENTAGE" | "SELECTION" | "NAMECONTAINS";
 export type DeviceSummaries = Array<DeviceSummary>;
 export interface DeviceSummary {
   DeviceName: string;
@@ -6001,8 +6001,8 @@ export type Dimension = number;
 export interface DirectDeploySettings {
   Status?: FeatureStatus;
 }
-export type DirectInternetAccess = "ENABLED" | "DISABLED";
-export type Direction = "BOTH" | "ASCENDANTS" | "DESCENDANTS";
+export type DirectInternetAccess = "Enabled" | "Disabled";
+export type Direction = "Both" | "Ascendants" | "Descendants";
 export type DirectoryPath = string;
 
 export type DisableProfiler = boolean;
@@ -6184,12 +6184,12 @@ export interface EdgeOutputConfig {
 export type EdgePackagingJobArn = string;
 
 export type EdgePackagingJobStatus =
-  | "Starting"
-  | "InProgress"
-  | "Completed"
-  | "Failed"
-  | "Stopping"
-  | "Stopped";
+  | "STARTING"
+  | "INPROGRESS"
+  | "COMPLETED"
+  | "FAILED"
+  | "STOPPING"
+  | "STOPPED";
 export type EdgePackagingJobSummaries = Array<EdgePackagingJobSummary>;
 export interface EdgePackagingJobSummary {
   EdgePackagingJobArn: string;
@@ -6209,7 +6209,7 @@ export interface EdgePresetDeploymentOutput {
   Status?: EdgePresetDeploymentStatus;
   StatusMessage?: string;
 }
-export type EdgePresetDeploymentStatus = "Completed" | "Failed";
+export type EdgePresetDeploymentStatus = "COMPLETED" | "FAILED";
 export type EdgePresetDeploymentType = "GreengrassV2Component";
 export type Edges = Array<Edge>;
 export type EdgeVersion = string;
@@ -6335,15 +6335,15 @@ export type EndpointPerformances = Array<EndpointPerformance>;
 export type Endpoints = Array<EndpointInfo>;
 export type EndpointSortKey = "Name" | "CreationTime" | "Status";
 export type EndpointStatus =
-  | "OUT_OF_SERVICE"
-  | "CREATING"
-  | "UPDATING"
-  | "SYSTEM_UPDATING"
-  | "ROLLING_BACK"
-  | "IN_SERVICE"
-  | "DELETING"
-  | "FAILED"
-  | "UPDATE_ROLLBACK_FAILED";
+  | "OutOfService"
+  | "Creating"
+  | "Updating"
+  | "SystemUpdating"
+  | "RollingBack"
+  | "InService"
+  | "Deleting"
+  | "Failed"
+  | "UpdateRollbackFailed";
 export interface EndpointStepMetadata {
   Arn?: string;
 }
@@ -6389,13 +6389,13 @@ export type ExcludeFeaturesAttribute = string;
 export type ExecutionRoleArns = Array<string>;
 export type ExecutionRoleIdentityConfig = "USER_PROFILE_NAME" | "DISABLED";
 export type ExecutionStatus =
-  | "PENDING"
-  | "COMPLETED"
-  | "COMPLETED_WITH_VIOLATIONS"
-  | "IN_PROGRESS"
-  | "FAILED"
-  | "STOPPING"
-  | "STOPPED";
+  | "Pending"
+  | "Completed"
+  | "CompletedWithViolations"
+  | "InProgress"
+  | "Failed"
+  | "Stopping"
+  | "Stopped";
 export type ExitMessage = string;
 
 export interface Experiment {
@@ -6452,10 +6452,10 @@ export interface ExplainerConfig {
 export interface FailStepMetadata {
   ErrorMessage?: string;
 }
-export type FailureHandlingPolicy = "RollbackOnFailure" | "DoNothing";
+export type FailureHandlingPolicy = "ROLLBACK_ON_FAILURE" | "DO_NOTHING";
 export type FailureReason = string;
 
-export type FairShare = "ENABLED" | "DISABLED";
+export type FairShare = "Enabled" | "Disabled";
 export type FairShareWeight = number;
 
 export type FeatureAdditions = Array<FeatureDefinition>;
@@ -6497,17 +6497,17 @@ export type FeatureGroupNameContains = string;
 export type FeatureGroupNameOrArn = string;
 
 export type FeatureGroupSortBy =
-  | "NAME"
-  | "FEATURE_GROUP_STATUS"
-  | "OFFLINE_STORE_STATUS"
-  | "CREATION_TIME";
-export type FeatureGroupSortOrder = "ASCENDING" | "DESCENDING";
+  | "Name"
+  | "FeatureGroupStatus"
+  | "OfflineStoreStatus"
+  | "CreationTime";
+export type FeatureGroupSortOrder = "Ascending" | "Descending";
 export type FeatureGroupStatus =
-  | "CREATING"
-  | "CREATED"
-  | "CREATE_FAILED"
-  | "DELETING"
-  | "DELETE_FAILED";
+  | "Creating"
+  | "Created"
+  | "CreateFailed"
+  | "Deleting"
+  | "DeleteFailed";
 export type FeatureGroupSummaries = Array<FeatureGroupSummary>;
 export interface FeatureGroupSummary {
   FeatureGroupName: string;
@@ -6539,14 +6539,14 @@ export type FeatureParameterRemovals = Array<string>;
 export type FeatureParameters = Array<FeatureParameter>;
 export type FeatureParameterValue = string;
 
-export type FeatureStatus = "Enabled" | "Disabled";
-export type FeatureType = "INTEGRAL" | "FRACTIONAL" | "STRING";
+export type FeatureStatus = "ENABLED" | "DISABLED";
+export type FeatureType = "Integral" | "Fractional" | "String";
 export interface FileSource {
   ContentType?: string;
   ContentDigest?: string;
   S3Uri: string;
 }
-export type FileSystemAccessMode = "RW" | "RO";
+export type FileSystemAccessMode = "rw" | "ro";
 export interface FileSystemConfig {
   MountPath?: string;
   DefaultUid?: number;
@@ -6562,7 +6562,7 @@ export type FileSystemId = string;
 
 export type FileSystemPath = string;
 
-export type FileSystemType = "EFS" | "FSXLUSTRE";
+export type FileSystemType = "EFS" | "FSxLustre";
 export type FillingTransformationMap = Record<FillingType, string>;
 export type FillingTransformations = Record<
   string,
@@ -6571,14 +6571,14 @@ export type FillingTransformations = Record<
 export type FillingTransformationValue = string;
 
 export type FillingType =
-  | "Frontfill"
-  | "Middlefill"
-  | "Backfill"
-  | "Futurefill"
-  | "FrontfillValue"
-  | "MiddlefillValue"
-  | "BackfillValue"
-  | "FuturefillValue";
+  | "frontfill"
+  | "middlefill"
+  | "backfill"
+  | "futurefill"
+  | "frontfill_value"
+  | "middlefill_value"
+  | "backfill_value"
+  | "futurefill_value";
 export interface Filter {
   Name: string;
   Operator?: Operator;
@@ -6599,7 +6599,7 @@ export interface FinalHyperParameterTuningJobObjectiveMetric {
   Value: number;
 }
 export type FinalMetricDataList = Array<MetricData>;
-export type FlatInvocations = "CONTINUE" | "STOP";
+export type FlatInvocations = "Continue" | "Stop";
 export type Float = number;
 
 export type FlowDefinitionArn = string;
@@ -6611,10 +6611,10 @@ export interface FlowDefinitionOutputConfig {
   KmsKeyId?: string;
 }
 export type FlowDefinitionStatus =
-  | "INITIALIZING"
-  | "ACTIVE"
-  | "FAILED"
-  | "DELETING";
+  | "Initializing"
+  | "Active"
+  | "Failed"
+  | "Deleting";
 export type FlowDefinitionSummaries = Array<FlowDefinitionSummary>;
 export interface FlowDefinitionSummary {
   FlowDefinitionName: string;
@@ -6802,17 +6802,17 @@ export type HubContentName = string;
 
 export type HubContentSearchKeywordList = Array<string>;
 export type HubContentSortBy =
-  | "HUB_CONTENT_NAME"
-  | "CREATION_TIME"
-  | "HUB_CONTENT_STATUS";
+  | "HubContentName"
+  | "CreationTime"
+  | "HubContentStatus";
 export type HubContentStatus =
-  | "AVAILABLE"
-  | "IMPORTING"
-  | "DELETING"
-  | "IMPORT_FAILED"
-  | "DELETE_FAILED";
-export type HubContentSupportStatus = "SUPPORTED" | "DEPRECATED" | "RESTRICTED";
-export type HubContentType = "MODEL" | "NOTEBOOK" | "MODEL_REFERENCE";
+  | "Available"
+  | "Importing"
+  | "Deleting"
+  | "ImportFailed"
+  | "DeleteFailed";
+export type HubContentSupportStatus = "Supported" | "Deprecated" | "Restricted";
+export type HubContentType = "Model" | "Notebook" | "ModelReference";
 export type HubContentVersion = string;
 
 export type HubDescription = string;
@@ -6841,18 +6841,18 @@ export type HubSearchKeyword = string;
 
 export type HubSearchKeywordList = Array<string>;
 export type HubSortBy =
-  | "HUB_NAME"
-  | "CREATION_TIME"
-  | "HUB_STATUS"
-  | "ACCOUNT_ID_OWNER";
+  | "HubName"
+  | "CreationTime"
+  | "HubStatus"
+  | "AccountIdOwner";
 export type HubStatus =
-  | "IN_SERVICE"
-  | "CREATING"
-  | "UPDATING"
-  | "DELETING"
-  | "CREATE_FAILED"
-  | "UPDATE_FAILED"
-  | "DELETE_FAILED";
+  | "InService"
+  | "Creating"
+  | "Updating"
+  | "Deleting"
+  | "CreateFailed"
+  | "UpdateFailed"
+  | "DeleteFailed";
 export type HumanLoopActivationConditions = string;
 
 export interface HumanLoopActivationConditionsConfig {
@@ -6893,7 +6893,7 @@ export type HumanTaskUiArn = string;
 
 export type HumanTaskUiName = string;
 
-export type HumanTaskUiStatus = "ACTIVE" | "DELETING";
+export type HumanTaskUiStatus = "Active" | "Deleting";
 export type HumanTaskUiSummaries = Array<HumanTaskUiSummary>;
 export interface HumanTaskUiSummary {
   HumanTaskUiName: string;
@@ -6918,10 +6918,10 @@ export type HyperParameterKey = string;
 
 export type HyperParameters = Record<string, string>;
 export type HyperParameterScalingType =
-  | "AUTO"
-  | "LINEAR"
-  | "LOGARITHMIC"
-  | "REVERSE_LOGARITHMIC";
+  | "Auto"
+  | "Linear"
+  | "Logarithmic"
+  | "ReverseLogarithmic";
 export interface HyperParameterSpecification {
   Name: string;
   Description?: string;
@@ -6977,7 +6977,7 @@ export interface HyperParameterTrainingJobSummary {
   FinalHyperParameterTuningJobObjectiveMetric?: FinalHyperParameterTuningJobObjectiveMetric;
   ObjectiveStatus?: ObjectiveStatus;
 }
-export type HyperParameterTuningAllocationStrategy = "PRIORITIZED";
+export type HyperParameterTuningAllocationStrategy = "Prioritized";
 export interface HyperParameterTuningInstanceConfig {
   InstanceType: TrainingInstanceType;
   InstanceCount: number;
@@ -7012,7 +7012,7 @@ export interface HyperParameterTuningJobObjective {
 }
 export type HyperParameterTuningJobObjectives =
   Array<HyperParameterTuningJobObjective>;
-export type HyperParameterTuningJobObjectiveType = "MAXIMIZE" | "MINIMIZE";
+export type HyperParameterTuningJobObjectiveType = "Maximize" | "Minimize";
 export interface HyperParameterTuningJobSearchEntity {
   HyperParameterTuningJobName?: string;
   HyperParameterTuningJobArn?: string;
@@ -7038,21 +7038,21 @@ export type HyperParameterTuningJobSortByOptions =
   | "Status"
   | "CreationTime";
 export type HyperParameterTuningJobStatus =
-  | "COMPLETED"
-  | "IN_PROGRESS"
-  | "FAILED"
-  | "STOPPED"
-  | "STOPPING"
-  | "DELETING"
-  | "DELETE_FAILED";
+  | "Completed"
+  | "InProgress"
+  | "Failed"
+  | "Stopped"
+  | "Stopping"
+  | "Deleting"
+  | "DeleteFailed";
 export interface HyperParameterTuningJobStrategyConfig {
   HyperbandStrategyConfig?: HyperbandStrategyConfig;
 }
 export type HyperParameterTuningJobStrategyType =
-  | "BAYESIAN"
-  | "RANDOM"
-  | "HYPERBAND"
-  | "GRID";
+  | "Bayesian"
+  | "Random"
+  | "Hyperband"
+  | "Grid";
 export type HyperParameterTuningJobSummaries =
   Array<HyperParameterTuningJobSummary>;
 export interface HyperParameterTuningJobSummary {
@@ -7072,8 +7072,8 @@ export interface HyperParameterTuningJobWarmStartConfig {
   WarmStartType: HyperParameterTuningJobWarmStartType;
 }
 export type HyperParameterTuningJobWarmStartType =
-  | "IDENTICAL_DATA_AND_ALGORITHM"
-  | "TRANSFER_LEARNING";
+  | "IdenticalDataAndAlgorithm"
+  | "TransferLearning";
 export type HyperParameterTuningMaxRuntimeInSeconds = number;
 
 export interface HyperParameterTuningResourceConfig {
@@ -7275,11 +7275,11 @@ export interface InferenceComponentStartupParameters {
   ContainerStartupHealthCheckTimeoutInSeconds?: number;
 }
 export type InferenceComponentStatus =
-  | "IN_SERVICE"
-  | "CREATING"
-  | "UPDATING"
-  | "FAILED"
-  | "DELETING";
+  | "InService"
+  | "Creating"
+  | "Updating"
+  | "Failed"
+  | "Deleting";
 export interface InferenceComponentSummary {
   CreationTime: Date | string;
   InferenceComponentArn: string;
@@ -7294,7 +7294,7 @@ export type InferenceComponentSummaryList = Array<InferenceComponentSummary>;
 export interface InferenceExecutionConfig {
   Mode: InferenceExecutionMode;
 }
-export type InferenceExecutionMode = "SERIAL" | "DIRECT";
+export type InferenceExecutionMode = "Serial" | "Direct";
 export type InferenceExperimentArn = string;
 
 export interface InferenceExperimentDataStorageConfig {
@@ -7312,17 +7312,17 @@ export interface InferenceExperimentSchedule {
   EndTime?: Date | string;
 }
 export type InferenceExperimentStatus =
-  | "CREATING"
-  | "CREATED"
-  | "UPDATING"
-  | "RUNNING"
-  | "STARTING"
-  | "STOPPING"
-  | "COMPLETED"
-  | "CANCELLED";
+  | "Creating"
+  | "Created"
+  | "Updating"
+  | "Running"
+  | "Starting"
+  | "Stopping"
+  | "Completed"
+  | "Cancelled";
 export type InferenceExperimentStatusReason = string;
 
-export type InferenceExperimentStopDesiredState = "COMPLETED" | "CANCELLED";
+export type InferenceExperimentStopDesiredState = "Completed" | "Cancelled";
 export interface InferenceExperimentSummary {
   Name: string;
   Type: InferenceExperimentType;
@@ -7335,7 +7335,7 @@ export interface InferenceExperimentSummary {
   LastModifiedTime: Date | string;
   RoleArn?: string;
 }
-export type InferenceExperimentType = "SHADOW_MODE";
+export type InferenceExperimentType = "ShadowMode";
 export interface InferenceHubAccessConfig {
   HubContentArn: string;
 }
@@ -7403,7 +7403,7 @@ export interface InputConfig {
   FrameworkVersion?: string;
 }
 export type InputDataConfig = Array<Channel>;
-export type InputMode = "PIPE" | "FILE";
+export type InputMode = "Pipe" | "File";
 export type InputModes = Array<TrainingInputMode>;
 export type InstanceCount = number;
 
@@ -7417,191 +7417,191 @@ export type InstanceGroupName = string;
 export type InstanceGroupNames = Array<string>;
 export type InstanceGroups = Array<InstanceGroup>;
 export type InstanceGroupStatus =
-  | "INSERVICE"
-  | "CREATING"
-  | "UPDATING"
-  | "FAILED"
-  | "DEGRADED"
-  | "SYSTEMUPDATING"
-  | "DELETING";
+  | "InService"
+  | "Creating"
+  | "Updating"
+  | "Failed"
+  | "Degraded"
+  | "SystemUpdating"
+  | "Deleting";
 export type InstanceGroupTrainingPlanStatus = string;
 
 export interface InstanceMetadataServiceConfiguration {
   MinimumInstanceMetadataServiceVersion: string;
 }
 export type InstanceType =
-  | "ML_T2_MEDIUM"
-  | "ML_T2_LARGE"
-  | "ML_T2_XLARGE"
-  | "ML_T2_2XLARGE"
-  | "ML_T3_MEDIUM"
-  | "ML_T3_LARGE"
-  | "ML_T3_XLARGE"
-  | "ML_T3_2XLARGE"
-  | "ML_M4_XLARGE"
-  | "ML_M4_2XLARGE"
-  | "ML_M4_4XLARGE"
-  | "ML_M4_10XLARGE"
-  | "ML_M4_16XLARGE"
-  | "ML_M5_XLARGE"
-  | "ML_M5_2XLARGE"
-  | "ML_M5_4XLARGE"
-  | "ML_M5_12XLARGE"
-  | "ML_M5_24XLARGE"
-  | "ML_M5D_LARGE"
-  | "ML_M5D_XLARGE"
-  | "ML_M5D_2XLARGE"
-  | "ML_M5D_4XLARGE"
-  | "ML_M5D_8XLARGE"
-  | "ML_M5D_12XLARGE"
-  | "ML_M5D_16XLARGE"
-  | "ML_M5D_24XLARGE"
-  | "ML_C4_XLARGE"
-  | "ML_C4_2XLARGE"
-  | "ML_C4_4XLARGE"
-  | "ML_C4_8XLARGE"
-  | "ML_C5_XLARGE"
-  | "ML_C5_2XLARGE"
-  | "ML_C5_4XLARGE"
-  | "ML_C5_9XLARGE"
-  | "ML_C5_18XLARGE"
-  | "ML_C5D_XLARGE"
-  | "ML_C5D_2XLARGE"
-  | "ML_C5D_4XLARGE"
-  | "ML_C5D_9XLARGE"
-  | "ML_C5D_18XLARGE"
-  | "ML_P2_XLARGE"
-  | "ML_P2_8XLARGE"
-  | "ML_P2_16XLARGE"
-  | "ML_P3_2XLARGE"
-  | "ML_P3_8XLARGE"
-  | "ML_P3_16XLARGE"
-  | "ML_P3DN_24XLARGE"
-  | "ML_G4DN_XLARGE"
-  | "ML_G4DN_2XLARGE"
-  | "ML_G4DN_4XLARGE"
-  | "ML_G4DN_8XLARGE"
-  | "ML_G4DN_12XLARGE"
-  | "ML_G4DN_16XLARGE"
-  | "ML_R5_LARGE"
-  | "ML_R5_XLARGE"
-  | "ML_R5_2XLARGE"
-  | "ML_R5_4XLARGE"
-  | "ML_R5_8XLARGE"
-  | "ML_R5_12XLARGE"
-  | "ML_R5_16XLARGE"
-  | "ML_R5_24XLARGE"
-  | "ML_G5_XLARGE"
-  | "ML_G5_2XLARGE"
-  | "ML_G5_4XLARGE"
-  | "ML_G5_8XLARGE"
-  | "ML_G5_16XLARGE"
-  | "ML_G5_12XLARGE"
-  | "ML_G5_24XLARGE"
-  | "ML_G5_48XLARGE"
-  | "ML_INF1_XLARGE"
-  | "ML_INF1_2XLARGE"
-  | "ML_INF1_6XLARGE"
-  | "ML_INF1_24XLARGE"
-  | "ML_TRN1_2XLARGE"
-  | "ML_TRN1_32XLARGE"
-  | "ML_TRN1N_32XLARGE"
-  | "ML_INF2_XLARGE"
-  | "ML_INF2_8XLARGE"
-  | "ML_INF2_24XLARGE"
-  | "ML_INF2_48XLARGE"
-  | "ML_P4D_24XLARGE"
-  | "ML_P4DE_24XLARGE"
-  | "ML_P5_48XLARGE"
-  | "ML_M6I_LARGE"
-  | "ML_M6I_XLARGE"
-  | "ML_M6I_2XLARGE"
-  | "ML_M6I_4XLARGE"
-  | "ML_M6I_8XLARGE"
-  | "ML_M6I_12XLARGE"
-  | "ML_M6I_16XLARGE"
-  | "ML_M6I_24XLARGE"
-  | "ML_M6I_32XLARGE"
-  | "ML_M7I_LARGE"
-  | "ML_M7I_XLARGE"
-  | "ML_M7I_2XLARGE"
-  | "ML_M7I_4XLARGE"
-  | "ML_M7I_8XLARGE"
-  | "ML_M7I_12XLARGE"
-  | "ML_M7I_16XLARGE"
-  | "ML_M7I_24XLARGE"
-  | "ML_M7I_48XLARGE"
-  | "ML_C6I_LARGE"
-  | "ML_C6I_XLARGE"
-  | "ML_C6I_2XLARGE"
-  | "ML_C6I_4XLARGE"
-  | "ML_C6I_8XLARGE"
-  | "ML_C6I_12XLARGE"
-  | "ML_C6I_16XLARGE"
-  | "ML_C6I_24XLARGE"
-  | "ML_C6I_32XLARGE"
-  | "ML_C7I_LARGE"
-  | "ML_C7I_XLARGE"
-  | "ML_C7I_2XLARGE"
-  | "ML_C7I_4XLARGE"
-  | "ML_C7I_8XLARGE"
-  | "ML_C7I_12XLARGE"
-  | "ML_C7I_16XLARGE"
-  | "ML_C7I_24XLARGE"
-  | "ML_C7I_48XLARGE"
-  | "ML_R6I_LARGE"
-  | "ML_R6I_XLARGE"
-  | "ML_R6I_2XLARGE"
-  | "ML_R6I_4XLARGE"
-  | "ML_R6I_8XLARGE"
-  | "ML_R6I_12XLARGE"
-  | "ML_R6I_16XLARGE"
-  | "ML_R6I_24XLARGE"
-  | "ML_R6I_32XLARGE"
-  | "ML_R7I_LARGE"
-  | "ML_R7I_XLARGE"
-  | "ML_R7I_2XLARGE"
-  | "ML_R7I_4XLARGE"
-  | "ML_R7I_8XLARGE"
-  | "ML_R7I_12XLARGE"
-  | "ML_R7I_16XLARGE"
-  | "ML_R7I_24XLARGE"
-  | "ML_R7I_48XLARGE"
-  | "ML_M6ID_LARGE"
-  | "ML_M6ID_XLARGE"
-  | "ML_M6ID_2XLARGE"
-  | "ML_M6ID_4XLARGE"
-  | "ML_M6ID_8XLARGE"
-  | "ML_M6ID_12XLARGE"
-  | "ML_M6ID_16XLARGE"
-  | "ML_M6ID_24XLARGE"
-  | "ML_M6ID_32XLARGE"
-  | "ML_C6ID_LARGE"
-  | "ML_C6ID_XLARGE"
-  | "ML_C6ID_2XLARGE"
-  | "ML_C6ID_4XLARGE"
-  | "ML_C6ID_8XLARGE"
-  | "ML_C6ID_12XLARGE"
-  | "ML_C6ID_16XLARGE"
-  | "ML_C6ID_24XLARGE"
-  | "ML_C6ID_32XLARGE"
-  | "ML_R6ID_LARGE"
-  | "ML_R6ID_XLARGE"
-  | "ML_R6ID_2XLARGE"
-  | "ML_R6ID_4XLARGE"
-  | "ML_R6ID_8XLARGE"
-  | "ML_R6ID_12XLARGE"
-  | "ML_R6ID_16XLARGE"
-  | "ML_R6ID_24XLARGE"
-  | "ML_R6ID_32XLARGE"
-  | "ML_G6_XLARGE"
-  | "ML_G6_2XLARGE"
-  | "ML_G6_4XLARGE"
-  | "ML_G6_8XLARGE"
-  | "ML_G6_12XLARGE"
-  | "ML_G6_16XLARGE"
-  | "ML_G6_24XLARGE"
-  | "ML_G6_48XLARGE";
+  | "ml.t2.medium"
+  | "ml.t2.large"
+  | "ml.t2.xlarge"
+  | "ml.t2.2xlarge"
+  | "ml.t3.medium"
+  | "ml.t3.large"
+  | "ml.t3.xlarge"
+  | "ml.t3.2xlarge"
+  | "ml.m4.xlarge"
+  | "ml.m4.2xlarge"
+  | "ml.m4.4xlarge"
+  | "ml.m4.10xlarge"
+  | "ml.m4.16xlarge"
+  | "ml.m5.xlarge"
+  | "ml.m5.2xlarge"
+  | "ml.m5.4xlarge"
+  | "ml.m5.12xlarge"
+  | "ml.m5.24xlarge"
+  | "ml.m5d.large"
+  | "ml.m5d.xlarge"
+  | "ml.m5d.2xlarge"
+  | "ml.m5d.4xlarge"
+  | "ml.m5d.8xlarge"
+  | "ml.m5d.12xlarge"
+  | "ml.m5d.16xlarge"
+  | "ml.m5d.24xlarge"
+  | "ml.c4.xlarge"
+  | "ml.c4.2xlarge"
+  | "ml.c4.4xlarge"
+  | "ml.c4.8xlarge"
+  | "ml.c5.xlarge"
+  | "ml.c5.2xlarge"
+  | "ml.c5.4xlarge"
+  | "ml.c5.9xlarge"
+  | "ml.c5.18xlarge"
+  | "ml.c5d.xlarge"
+  | "ml.c5d.2xlarge"
+  | "ml.c5d.4xlarge"
+  | "ml.c5d.9xlarge"
+  | "ml.c5d.18xlarge"
+  | "ml.p2.xlarge"
+  | "ml.p2.8xlarge"
+  | "ml.p2.16xlarge"
+  | "ml.p3.2xlarge"
+  | "ml.p3.8xlarge"
+  | "ml.p3.16xlarge"
+  | "ml.p3dn.24xlarge"
+  | "ml.g4dn.xlarge"
+  | "ml.g4dn.2xlarge"
+  | "ml.g4dn.4xlarge"
+  | "ml.g4dn.8xlarge"
+  | "ml.g4dn.12xlarge"
+  | "ml.g4dn.16xlarge"
+  | "ml.r5.large"
+  | "ml.r5.xlarge"
+  | "ml.r5.2xlarge"
+  | "ml.r5.4xlarge"
+  | "ml.r5.8xlarge"
+  | "ml.r5.12xlarge"
+  | "ml.r5.16xlarge"
+  | "ml.r5.24xlarge"
+  | "ml.g5.xlarge"
+  | "ml.g5.2xlarge"
+  | "ml.g5.4xlarge"
+  | "ml.g5.8xlarge"
+  | "ml.g5.16xlarge"
+  | "ml.g5.12xlarge"
+  | "ml.g5.24xlarge"
+  | "ml.g5.48xlarge"
+  | "ml.inf1.xlarge"
+  | "ml.inf1.2xlarge"
+  | "ml.inf1.6xlarge"
+  | "ml.inf1.24xlarge"
+  | "ml.trn1.2xlarge"
+  | "ml.trn1.32xlarge"
+  | "ml.trn1n.32xlarge"
+  | "ml.inf2.xlarge"
+  | "ml.inf2.8xlarge"
+  | "ml.inf2.24xlarge"
+  | "ml.inf2.48xlarge"
+  | "ml.p4d.24xlarge"
+  | "ml.p4de.24xlarge"
+  | "ml.p5.48xlarge"
+  | "ml.m6i.large"
+  | "ml.m6i.xlarge"
+  | "ml.m6i.2xlarge"
+  | "ml.m6i.4xlarge"
+  | "ml.m6i.8xlarge"
+  | "ml.m6i.12xlarge"
+  | "ml.m6i.16xlarge"
+  | "ml.m6i.24xlarge"
+  | "ml.m6i.32xlarge"
+  | "ml.m7i.large"
+  | "ml.m7i.xlarge"
+  | "ml.m7i.2xlarge"
+  | "ml.m7i.4xlarge"
+  | "ml.m7i.8xlarge"
+  | "ml.m7i.12xlarge"
+  | "ml.m7i.16xlarge"
+  | "ml.m7i.24xlarge"
+  | "ml.m7i.48xlarge"
+  | "ml.c6i.large"
+  | "ml.c6i.xlarge"
+  | "ml.c6i.2xlarge"
+  | "ml.c6i.4xlarge"
+  | "ml.c6i.8xlarge"
+  | "ml.c6i.12xlarge"
+  | "ml.c6i.16xlarge"
+  | "ml.c6i.24xlarge"
+  | "ml.c6i.32xlarge"
+  | "ml.c7i.large"
+  | "ml.c7i.xlarge"
+  | "ml.c7i.2xlarge"
+  | "ml.c7i.4xlarge"
+  | "ml.c7i.8xlarge"
+  | "ml.c7i.12xlarge"
+  | "ml.c7i.16xlarge"
+  | "ml.c7i.24xlarge"
+  | "ml.c7i.48xlarge"
+  | "ml.r6i.large"
+  | "ml.r6i.xlarge"
+  | "ml.r6i.2xlarge"
+  | "ml.r6i.4xlarge"
+  | "ml.r6i.8xlarge"
+  | "ml.r6i.12xlarge"
+  | "ml.r6i.16xlarge"
+  | "ml.r6i.24xlarge"
+  | "ml.r6i.32xlarge"
+  | "ml.r7i.large"
+  | "ml.r7i.xlarge"
+  | "ml.r7i.2xlarge"
+  | "ml.r7i.4xlarge"
+  | "ml.r7i.8xlarge"
+  | "ml.r7i.12xlarge"
+  | "ml.r7i.16xlarge"
+  | "ml.r7i.24xlarge"
+  | "ml.r7i.48xlarge"
+  | "ml.m6id.large"
+  | "ml.m6id.xlarge"
+  | "ml.m6id.2xlarge"
+  | "ml.m6id.4xlarge"
+  | "ml.m6id.8xlarge"
+  | "ml.m6id.12xlarge"
+  | "ml.m6id.16xlarge"
+  | "ml.m6id.24xlarge"
+  | "ml.m6id.32xlarge"
+  | "ml.c6id.large"
+  | "ml.c6id.xlarge"
+  | "ml.c6id.2xlarge"
+  | "ml.c6id.4xlarge"
+  | "ml.c6id.8xlarge"
+  | "ml.c6id.12xlarge"
+  | "ml.c6id.16xlarge"
+  | "ml.c6id.24xlarge"
+  | "ml.c6id.32xlarge"
+  | "ml.r6id.large"
+  | "ml.r6id.xlarge"
+  | "ml.r6id.2xlarge"
+  | "ml.r6id.4xlarge"
+  | "ml.r6id.8xlarge"
+  | "ml.r6id.12xlarge"
+  | "ml.r6id.16xlarge"
+  | "ml.r6id.24xlarge"
+  | "ml.r6id.32xlarge"
+  | "ml.g6.xlarge"
+  | "ml.g6.2xlarge"
+  | "ml.g6.4xlarge"
+  | "ml.g6.8xlarge"
+  | "ml.g6.12xlarge"
+  | "ml.g6.16xlarge"
+  | "ml.g6.24xlarge"
+  | "ml.g6.48xlarge";
 export type Integer = number;
 
 export interface IntegerParameterRange {
@@ -7627,7 +7627,7 @@ export type InvocationsTimeoutInSeconds = number;
 
 export type IotRoleAlias = string;
 
-export type IsTrackingServerActive = "ACTIVE" | "INACTIVE";
+export type IsTrackingServerActive = "Active" | "Inactive";
 export type ItemIdentifierAttributeName = string;
 
 export type JobDurationInSeconds = number;
@@ -7637,7 +7637,7 @@ export type JobReferenceCode = string;
 export type JobReferenceCodeContains = string;
 
 export type JobType = "TRAINING" | "INFERENCE" | "NOTEBOOK_KERNEL";
-export type JoinSource = "INPUT" | "NONE";
+export type JoinSource = "Input" | "None";
 export type JsonContentType = string;
 
 export type JsonContentTypes = Array<string>;
@@ -7756,12 +7756,12 @@ export interface LabelingJobSnsDataSource {
   SnsTopicArn: string;
 }
 export type LabelingJobStatus =
-  | "INITIALIZING"
-  | "IN_PROGRESS"
-  | "COMPLETED"
-  | "FAILED"
-  | "STOPPING"
-  | "STOPPED";
+  | "Initializing"
+  | "InProgress"
+  | "Completed"
+  | "Failed"
+  | "Stopping"
+  | "Stopped";
 export interface LabelingJobStoppingConditions {
   MaxHumanLabeledObjectCount?: number;
   MaxPercentageOfInputDatasetLabeled?: number;
@@ -7795,9 +7795,9 @@ export interface LastUpdateStatus {
   Status: LastUpdateStatusValue;
   FailureReason?: string;
 }
-export type LastUpdateStatusValue = "SUCCESSFUL" | "FAILED" | "IN_PROGRESS";
+export type LastUpdateStatusValue = "Successful" | "Failed" | "InProgress";
 export type LifecycleConfigArns = Array<string>;
-export type LifecycleManagement = "Enabled" | "Disabled";
+export type LifecycleManagement = "ENABLED" | "DISABLED";
 export type LineageEntityParameters = Record<string, string>;
 export type LineageGroupArn = string;
 
@@ -7811,7 +7811,7 @@ export interface LineageGroupSummary {
   CreationTime?: Date | string;
   LastModifiedTime?: Date | string;
 }
-export type LineageType = "TRIAL_COMPONENT" | "ARTIFACT" | "CONTEXT" | "ACTION";
+export type LineageType = "TrialComponent" | "Artifact" | "Context" | "Action";
 export interface ListActionsRequest {
   SourceUri?: string;
   ActionType?: string;
@@ -8012,7 +8012,7 @@ export interface ListCompilationJobsResponse {
   CompilationJobSummaries: Array<CompilationJobSummary>;
   NextToken?: string;
 }
-export type ListCompilationJobsSortBy = "NAME" | "CREATION_TIME" | "STATUS";
+export type ListCompilationJobsSortBy = "Name" | "CreationTime" | "Status";
 export interface ListComputeQuotasRequest {
   CreatedAfter?: Date | string;
   CreatedBefore?: Date | string;
@@ -8072,9 +8072,9 @@ export interface ListDeviceFleetsResponse {
   NextToken?: string;
 }
 export type ListDeviceFleetsSortBy =
-  | "Name"
-  | "CreationTime"
-  | "LastModifiedTime";
+  | "NAME"
+  | "CREATION_TIME"
+  | "LAST_MODIFIED_TIME";
 export interface ListDevicesRequest {
   NextToken?: string;
   MaxResults?: number;
@@ -8111,10 +8111,10 @@ export interface ListEdgeDeploymentPlansResponse {
   NextToken?: string;
 }
 export type ListEdgeDeploymentPlansSortBy =
-  | "Name"
-  | "DeviceFleetName"
-  | "CreationTime"
-  | "LastModifiedTime";
+  | "NAME"
+  | "DEVICE_FLEET_NAME"
+  | "CREATION_TIME"
+  | "LAST_MODIFIED_TIME";
 export interface ListEdgePackagingJobsRequest {
   NextToken?: string;
   MaxResults?: number;
@@ -8133,11 +8133,11 @@ export interface ListEdgePackagingJobsResponse {
   NextToken?: string;
 }
 export type ListEdgePackagingJobsSortBy =
-  | "Name"
-  | "ModelName"
-  | "CreationTime"
-  | "LastModifiedTime"
-  | "EdgePackagingJobStatus";
+  | "NAME"
+  | "MODEL_NAME"
+  | "CREATION_TIME"
+  | "LAST_MODIFIED_TIME"
+  | "STATUS";
 export interface ListEndpointConfigsInput {
   SortBy?: EndpointConfigSortKey;
   SortOrder?: OrderKey;
@@ -8364,9 +8364,9 @@ export interface ListInferenceRecommendationsJobsResponse {
   NextToken?: string;
 }
 export type ListInferenceRecommendationsJobsSortBy =
-  | "NAME"
-  | "CREATION_TIME"
-  | "STATUS";
+  | "Name"
+  | "CreationTime"
+  | "Status";
 export interface ListInferenceRecommendationsJobStepsRequest {
   JobName: string;
   Status?: RecommendationJobStatus;
@@ -8392,7 +8392,7 @@ export interface ListLabelingJobsForWorkteamResponse {
   LabelingJobSummaryList: Array<LabelingJobForWorkteamSummary>;
   NextToken?: string;
 }
-export type ListLabelingJobsForWorkteamSortByOptions = "CREATION_TIME";
+export type ListLabelingJobsForWorkteamSortByOptions = "CreationTime";
 export interface ListLabelingJobsRequest {
   CreationTimeAfter?: Date | string;
   CreationTimeBefore?: Date | string;
@@ -8691,7 +8691,7 @@ export interface ListOptimizationJobsResponse {
   OptimizationJobSummaries: Array<OptimizationJobSummary>;
   NextToken?: string;
 }
-export type ListOptimizationJobsSortBy = "NAME" | "CREATION_TIME" | "STATUS";
+export type ListOptimizationJobsSortBy = "Name" | "CreationTime" | "Status";
 export interface ListPartnerAppsRequest {
   MaxResults?: number;
   NextToken?: string;
@@ -9074,7 +9074,7 @@ export type MetricName = string;
 
 export type MetricRegex = string;
 
-export type MetricSetSource = "TRAIN" | "VALIDATION" | "TEST";
+export type MetricSetSource = "Train" | "Validation" | "Test";
 interface _MetricSpecification {
   Predefined?: PredefinedMetricSpecification;
   Customized?: CustomizedMetricSpecification;
@@ -9099,26 +9099,26 @@ export type MLFramework = string;
 export type MlReservationArn = string;
 
 export type MlTools =
-  | "DATA_WRANGLER"
-  | "FEATURE_STORE"
-  | "EMR_CLUSTERS"
-  | "AUTO_ML"
-  | "EXPERIMENTS"
-  | "TRAINING"
-  | "MODEL_EVALUATION"
-  | "PIPELINES"
-  | "MODELS"
-  | "JUMP_START"
-  | "INFERENCE_RECOMMENDER"
-  | "ENDPOINTS"
-  | "PROJECTS"
-  | "INFERENCE_OPTIMIZATION"
-  | "PERFORMANCE_EVALUATION"
-  | "LAKERA_GUARD"
-  | "COMET"
-  | "DEEPCHECKS_LLM_EVALUATION"
-  | "FIDDLER"
-  | "HYPER_POD_CLUSTERS";
+  | "DataWrangler"
+  | "FeatureStore"
+  | "EmrClusters"
+  | "AutoMl"
+  | "Experiments"
+  | "Training"
+  | "ModelEvaluation"
+  | "Pipelines"
+  | "Models"
+  | "JumpStart"
+  | "InferenceRecommender"
+  | "Endpoints"
+  | "Projects"
+  | "InferenceOptimization"
+  | "PerformanceEvaluation"
+  | "LakeraGuard"
+  | "Comet"
+  | "DeepchecksLLMEvaluation"
+  | "Fiddler"
+  | "HyperPodClusters";
 export interface Model {
   ModelName?: string;
   PrimaryContainer?: ContainerDefinition;
@@ -9136,9 +9136,9 @@ export interface ModelAccessConfig {
   AcceptEula: boolean;
 }
 export type ModelApprovalStatus =
-  | "APPROVED"
-  | "REJECTED"
-  | "PENDING_MANUAL_APPROVAL";
+  | "Approved"
+  | "Rejected"
+  | "PendingManualApproval";
 export type ModelArn = string;
 
 export interface ModelArtifacts {
@@ -9158,7 +9158,7 @@ export interface ModelBiasJobInput {
   BatchTransformInput?: BatchTransformInput;
   GroundTruthS3Input: MonitoringGroundTruthS3Input;
 }
-export type ModelCacheSetting = "ENABLED" | "DISABLED";
+export type ModelCacheSetting = "Enabled" | "Disabled";
 export interface ModelCard {
   ModelCardArn?: string;
   ModelCardName?: string;
@@ -9184,9 +9184,9 @@ export interface ModelCardExportArtifacts {
 }
 export type ModelCardExportJobArn = string;
 
-export type ModelCardExportJobSortBy = "NAME" | "CREATION_TIME" | "STATUS";
-export type ModelCardExportJobSortOrder = "ASCENDING" | "DESCENDING";
-export type ModelCardExportJobStatus = "IN_PROGRESS" | "COMPLETED" | "FAILED";
+export type ModelCardExportJobSortBy = "Name" | "CreationTime" | "Status";
+export type ModelCardExportJobSortOrder = "Ascending" | "Descending";
+export type ModelCardExportJobStatus = "InProgress" | "Completed" | "Failed";
 export interface ModelCardExportJobSummary {
   ModelCardExportJobName: string;
   ModelCardExportJobArn: string;
@@ -9203,22 +9203,22 @@ export interface ModelCardExportOutputConfig {
 export type ModelCardNameOrArn = string;
 
 export type ModelCardProcessingStatus =
-  | "DELETE_INPROGRESS"
-  | "DELETE_PENDING"
-  | "CONTENT_DELETED"
-  | "EXPORTJOBS_DELETED"
-  | "DELETE_COMPLETED"
-  | "DELETE_FAILED";
+  | "DeleteInProgress"
+  | "DeletePending"
+  | "ContentDeleted"
+  | "ExportJobsDeleted"
+  | "DeleteCompleted"
+  | "DeleteFailed";
 export interface ModelCardSecurityConfig {
   KmsKeyId?: string;
 }
-export type ModelCardSortBy = "NAME" | "CREATION_TIME";
-export type ModelCardSortOrder = "ASCENDING" | "DESCENDING";
+export type ModelCardSortBy = "Name" | "CreationTime";
+export type ModelCardSortOrder = "Ascending" | "Descending";
 export type ModelCardStatus =
-  | "DRAFT"
-  | "PENDINGREVIEW"
-  | "APPROVED"
-  | "ARCHIVED";
+  | "Draft"
+  | "PendingReview"
+  | "Approved"
+  | "Archived";
 export interface ModelCardSummary {
   ModelCardName: string;
   ModelCardArn: string;
@@ -9227,7 +9227,7 @@ export interface ModelCardSummary {
   LastModifiedTime?: Date | string;
 }
 export type ModelCardSummaryList = Array<ModelCardSummary>;
-export type ModelCardVersionSortBy = "VERSION";
+export type ModelCardVersionSortBy = "Version";
 export interface ModelCardVersionSummary {
   ModelCardName: string;
   ModelCardArn: string;
@@ -9333,7 +9333,7 @@ export interface ModelInfrastructureConfig {
   InfrastructureType: ModelInfrastructureType;
   RealTimeInferenceConfig: RealTimeInferenceConfig;
 }
-export type ModelInfrastructureType = "REAL_TIME_INFERENCE";
+export type ModelInfrastructureType = "RealTimeInference";
 export interface ModelInput {
   DataInputConfig: string;
 }
@@ -9355,10 +9355,10 @@ export interface ModelMetadataFilter {
 }
 export type ModelMetadataFilters = Array<ModelMetadataFilter>;
 export type ModelMetadataFilterType =
-  | "DOMAIN"
-  | "FRAMEWORK"
-  | "TASK"
-  | "FRAMEWORKVERSION";
+  | "Domain"
+  | "Framework"
+  | "Task"
+  | "FrameworkVersion";
 export interface ModelMetadataSearchExpression {
   Filters?: Array<ModelMetadataFilter>;
 }
@@ -9446,14 +9446,14 @@ export interface ModelPackageGroup {
 }
 export type ModelPackageGroupArn = string;
 
-export type ModelPackageGroupSortBy = "NAME" | "CREATION_TIME";
+export type ModelPackageGroupSortBy = "Name" | "CreationTime";
 export type ModelPackageGroupStatus =
-  | "PENDING"
-  | "IN_PROGRESS"
-  | "COMPLETED"
-  | "FAILED"
-  | "DELETING"
-  | "DELETE_FAILED";
+  | "Pending"
+  | "InProgress"
+  | "Completed"
+  | "Failed"
+  | "Deleting"
+  | "DeleteFailed";
 export interface ModelPackageGroupSummary {
   ModelPackageGroupName: string;
   ModelPackageGroupArn: string;
@@ -9469,15 +9469,15 @@ export interface ModelPackageModelCard {
 export interface ModelPackageSecurityConfig {
   KmsKeyId: string;
 }
-export type ModelPackageSortBy = "NAME" | "CREATION_TIME";
+export type ModelPackageSortBy = "Name" | "CreationTime";
 export type ModelPackageSourceUri = string;
 
 export type ModelPackageStatus =
-  | "PENDING"
-  | "IN_PROGRESS"
-  | "COMPLETED"
-  | "FAILED"
-  | "DELETING";
+  | "Pending"
+  | "InProgress"
+  | "Completed"
+  | "Failed"
+  | "Deleting";
 export interface ModelPackageStatusDetails {
   ValidationStatuses: Array<ModelPackageStatusItem>;
   ImageScanStatuses?: Array<ModelPackageStatusItem>;
@@ -9504,7 +9504,7 @@ export interface ModelPackageSummary {
   ModelLifeCycle?: ModelLifeCycle;
 }
 export type ModelPackageSummaryList = Array<ModelPackageSummary>;
-export type ModelPackageType = "VERSIONED" | "UNVERSIONED" | "BOTH";
+export type ModelPackageType = "Versioned" | "Unversioned" | "Both";
 export interface ModelPackageValidationProfile {
   ProfileName: string;
   TransformJobDefinition: TransformJobDefinition;
@@ -9563,7 +9563,7 @@ export interface ModelSummary {
   CreationTime: Date | string;
 }
 export type ModelSummaryList = Array<ModelSummary>;
-export type ModelVariantAction = "RETAIN" | "REMOVE" | "PROMOTE";
+export type ModelVariantAction = "Retain" | "Remove" | "Promote";
 export type ModelVariantActionMap = Record<string, ModelVariantAction>;
 export interface ModelVariantConfig {
   ModelName: string;
@@ -9581,11 +9581,11 @@ export type ModelVariantConfigSummaryList = Array<ModelVariantConfigSummary>;
 export type ModelVariantName = string;
 
 export type ModelVariantStatus =
-  | "CREATING"
-  | "UPDATING"
-  | "IN_SERVICE"
-  | "DELETING"
-  | "DELETED";
+  | "Creating"
+  | "Updating"
+  | "InService"
+  | "Deleting"
+  | "Deleted";
 export interface MonitoringAlertActions {
   ModelDashboardIndicator?: ModelDashboardIndicatorAction;
 }
@@ -9599,7 +9599,7 @@ export interface MonitoringAlertHistorySummary {
 }
 export type MonitoringAlertName = string;
 
-export type MonitoringAlertStatus = "IN_ALERT" | "OK";
+export type MonitoringAlertStatus = "InAlert" | "OK";
 export interface MonitoringAlertSummary {
   MonitoringAlertName: string;
   CreationTime: Date | string;
@@ -9646,9 +9646,9 @@ export type MonitoringEnvironmentMap = Record<string, string>;
 export type MonitoringEvaluationPeriod = number;
 
 export type MonitoringExecutionSortKey =
-  | "CREATION_TIME"
-  | "SCHEDULED_TIME"
-  | "STATUS";
+  | "CreationTime"
+  | "ScheduledTime"
+  | "Status";
 export interface MonitoringExecutionSummary {
   MonitoringScheduleName: string;
   ScheduledTime: Date | string;
@@ -9685,7 +9685,7 @@ export type MonitoringJobDefinitionArn = string;
 
 export type MonitoringJobDefinitionName = string;
 
-export type MonitoringJobDefinitionSortKey = "NAME" | "CREATION_TIME";
+export type MonitoringJobDefinitionSortKey = "Name" | "CreationTime";
 export interface MonitoringJobDefinitionSummary {
   MonitoringJobDefinitionName: string;
   MonitoringJobDefinitionArn: string;
@@ -9714,9 +9714,9 @@ export interface MonitoringOutputConfig {
 export type MonitoringOutputs = Array<MonitoringOutput>;
 export interface MonitoringParquetDatasetFormat {}
 export type MonitoringProblemType =
-  | "BINARY_CLASSIFICATION"
-  | "MULTICLASS_CLASSIFICATION"
-  | "REGRESSION";
+  | "BinaryClassification"
+  | "MulticlassClassification"
+  | "Regression";
 export interface MonitoringResources {
   ClusterConfig: MonitoringClusterConfig;
 }
@@ -9751,7 +9751,7 @@ export interface MonitoringScheduleConfig {
 export type MonitoringScheduleList = Array<MonitoringSchedule>;
 export type MonitoringScheduleName = string;
 
-export type MonitoringScheduleSortKey = "NAME" | "CREATION_TIME" | "STATUS";
+export type MonitoringScheduleSortKey = "Name" | "CreationTime" | "Status";
 export interface MonitoringScheduleSummary {
   MonitoringScheduleName: string;
   MonitoringScheduleArn: string;
@@ -9772,10 +9772,10 @@ export interface MonitoringStoppingCondition {
 export type MonitoringTimeOffsetString = string;
 
 export type MonitoringType =
-  | "DATA_QUALITY"
-  | "MODEL_QUALITY"
-  | "MODEL_BIAS"
-  | "MODEL_EXPLAINABILITY";
+  | "DataQuality"
+  | "ModelQuality"
+  | "ModelBias"
+  | "ModelExplainability";
 export type MountPath = string;
 
 export interface MultiModelConfig {
@@ -9815,12 +9815,12 @@ export type NonEmptyString256 = string;
 export type NonEmptyString64 = string;
 
 export type NotebookInstanceAcceleratorType =
-  | "ML_EIA1_MEDIUM"
-  | "ML_EIA1_LARGE"
-  | "ML_EIA1_XLARGE"
-  | "ML_EIA2_MEDIUM"
-  | "ML_EIA2_LARGE"
-  | "ML_EIA2_XLARGE";
+  | "ml.eia1.medium"
+  | "ml.eia1.large"
+  | "ml.eia1.xlarge"
+  | "ml.eia2.medium"
+  | "ml.eia2.large"
+  | "ml.eia2.xlarge";
 export type NotebookInstanceAcceleratorTypes =
   Array<NotebookInstanceAcceleratorType>;
 export type NotebookInstanceArn = string;
@@ -9836,12 +9836,12 @@ export type NotebookInstanceLifecycleConfigName = string;
 export type NotebookInstanceLifecycleConfigNameContains = string;
 
 export type NotebookInstanceLifecycleConfigSortKey =
-  | "NAME"
-  | "CREATION_TIME"
-  | "LAST_MODIFIED_TIME";
+  | "Name"
+  | "CreationTime"
+  | "LastModifiedTime";
 export type NotebookInstanceLifecycleConfigSortOrder =
-  | "ASCENDING"
-  | "DESCENDING";
+  | "Ascending"
+  | "Descending";
 export interface NotebookInstanceLifecycleConfigSummary {
   NotebookInstanceLifecycleConfigName: string;
   NotebookInstanceLifecycleConfigArn: string;
@@ -9857,8 +9857,8 @@ export type NotebookInstanceName = string;
 
 export type NotebookInstanceNameContains = string;
 
-export type NotebookInstanceSortKey = "NAME" | "CREATION_TIME" | "STATUS";
-export type NotebookInstanceSortOrder = "ASCENDING" | "DESCENDING";
+export type NotebookInstanceSortKey = "Name" | "CreationTime" | "Status";
+export type NotebookInstanceSortOrder = "Ascending" | "Descending";
 export type NotebookInstanceStatus =
   | "Pending"
   | "InService"
@@ -9916,7 +9916,7 @@ export interface OfflineStoreStatus {
   Status: OfflineStoreStatusValue;
   BlockedReason?: string;
 }
-export type OfflineStoreStatusValue = "ACTIVE" | "BLOCKED" | "DISABLED";
+export type OfflineStoreStatusValue = "Active" | "Blocked" | "Disabled";
 export interface OidcConfig {
   ClientId: string;
   ClientSecret: string;
@@ -9961,16 +9961,16 @@ export type OnlineStoreTotalSizeBytes = number;
 
 export type OnStartDeepHealthChecks = Array<DeepHealthCheckType>;
 export type Operator =
-  | "EQUALS"
-  | "NOT_EQUALS"
-  | "GREATER_THAN"
-  | "GREATER_THAN_OR_EQUAL_TO"
-  | "LESS_THAN"
-  | "LESS_THAN_OR_EQUAL_TO"
-  | "CONTAINS"
-  | "EXISTS"
-  | "NOT_EXISTS"
-  | "IN";
+  | "Equals"
+  | "NotEquals"
+  | "GreaterThan"
+  | "GreaterThanOrEqualTo"
+  | "LessThan"
+  | "LessThanOrEqualTo"
+  | "Contains"
+  | "Exists"
+  | "NotExists"
+  | "In";
 interface _OptimizationConfig {
   ModelQuantizationConfig?: ModelQuantizationConfig;
   ModelCompilationConfig?: ModelCompilationConfig;
@@ -9987,40 +9987,40 @@ export type OptimizationContainerImage = string;
 export type OptimizationJobArn = string;
 
 export type OptimizationJobDeploymentInstanceType =
-  | "ML_P4D_24XLARGE"
-  | "ML_P4DE_24XLARGE"
-  | "ML_P5_48XLARGE"
-  | "ML_G5_XLARGE"
-  | "ML_G5_2XLARGE"
-  | "ML_G5_4XLARGE"
-  | "ML_G5_8XLARGE"
-  | "ML_G5_12XLARGE"
-  | "ML_G5_16XLARGE"
-  | "ML_G5_24XLARGE"
-  | "ML_G5_48XLARGE"
-  | "ML_G6_XLARGE"
-  | "ML_G6_2XLARGE"
-  | "ML_G6_4XLARGE"
-  | "ML_G6_8XLARGE"
-  | "ML_G6_12XLARGE"
-  | "ML_G6_16XLARGE"
-  | "ML_G6_24XLARGE"
-  | "ML_G6_48XLARGE"
-  | "ML_G6E_XLARGE"
-  | "ML_G6E_2XLARGE"
-  | "ML_G6E_4XLARGE"
-  | "ML_G6E_8XLARGE"
-  | "ML_G6E_12XLARGE"
-  | "ML_G6E_16XLARGE"
-  | "ML_G6E_24XLARGE"
-  | "ML_G6E_48XLARGE"
-  | "ML_INF2_XLARGE"
-  | "ML_INF2_8XLARGE"
-  | "ML_INF2_24XLARGE"
-  | "ML_INF2_48XLARGE"
-  | "ML_TRN1_2XLARGE"
-  | "ML_TRN1_32XLARGE"
-  | "ML_TRN1N_32XLARGE";
+  | "ml.p4d.24xlarge"
+  | "ml.p4de.24xlarge"
+  | "ml.p5.48xlarge"
+  | "ml.g5.xlarge"
+  | "ml.g5.2xlarge"
+  | "ml.g5.4xlarge"
+  | "ml.g5.8xlarge"
+  | "ml.g5.12xlarge"
+  | "ml.g5.16xlarge"
+  | "ml.g5.24xlarge"
+  | "ml.g5.48xlarge"
+  | "ml.g6.xlarge"
+  | "ml.g6.2xlarge"
+  | "ml.g6.4xlarge"
+  | "ml.g6.8xlarge"
+  | "ml.g6.12xlarge"
+  | "ml.g6.16xlarge"
+  | "ml.g6.24xlarge"
+  | "ml.g6.48xlarge"
+  | "ml.g6e.xlarge"
+  | "ml.g6e.2xlarge"
+  | "ml.g6e.4xlarge"
+  | "ml.g6e.8xlarge"
+  | "ml.g6e.12xlarge"
+  | "ml.g6e.16xlarge"
+  | "ml.g6e.24xlarge"
+  | "ml.g6e.48xlarge"
+  | "ml.inf2.xlarge"
+  | "ml.inf2.8xlarge"
+  | "ml.inf2.24xlarge"
+  | "ml.inf2.48xlarge"
+  | "ml.trn1.2xlarge"
+  | "ml.trn1.32xlarge"
+  | "ml.trn1n.32xlarge";
 export type OptimizationJobEnvironmentVariables = Record<string, string>;
 export interface OptimizationJobModelSource {
   S3?: OptimizationJobModelSourceS3;
@@ -10130,10 +10130,10 @@ export interface ParameterRanges {
   AutoParameters?: Array<AutoParameter>;
 }
 export type ParameterType =
-  | "INTEGER"
-  | "CONTINUOUS"
-  | "CATEGORICAL"
-  | "FREE_TEXT";
+  | "Integer"
+  | "Continuous"
+  | "Categorical"
+  | "FreeText";
 export type ParameterValue = string;
 
 export type ParameterValues = Array<string>;
@@ -10162,13 +10162,13 @@ export interface PartnerAppMaintenanceConfig {
 export type PartnerAppName = string;
 
 export type PartnerAppStatus =
-  | "CREATING"
-  | "UPDATING"
-  | "DELETING"
-  | "AVAILABLE"
-  | "FAILED"
-  | "UPDATE_FAILED"
-  | "DELETED";
+  | "Creating"
+  | "Updating"
+  | "Deleting"
+  | "Available"
+  | "Failed"
+  | "UpdateFailed"
+  | "Deleted";
 export type PartnerAppSummaries = Array<PartnerAppSummary>;
 export interface PartnerAppSummary {
   Arn?: string;
@@ -10178,10 +10178,10 @@ export interface PartnerAppSummary {
   CreationTime?: Date | string;
 }
 export type PartnerAppType =
-  | "LAKERA_GUARD"
-  | "COMET"
-  | "DEEPCHECKS_LLM_EVALUATION"
-  | "FIDDLER";
+  | "lakera-guard"
+  | "comet"
+  | "deepchecks-llm-evaluation"
+  | "fiddler";
 export interface PendingDeploymentSummary {
   EndpointConfigName: string;
   ProductionVariants?: Array<PendingProductionVariantSummary>;
@@ -10266,11 +10266,11 @@ export type PipelineExecutionFailureReason = string;
 export type PipelineExecutionName = string;
 
 export type PipelineExecutionStatus =
-  | "EXECUTING"
-  | "STOPPING"
-  | "STOPPED"
-  | "FAILED"
-  | "SUCCEEDED";
+  | "Executing"
+  | "Stopping"
+  | "Stopped"
+  | "Failed"
+  | "Succeeded";
 export interface PipelineExecutionStep {
   StepName?: string;
   StepDisplayName?: string;
@@ -10322,7 +10322,7 @@ export type PipelineNameOrArn = string;
 
 export type PipelineParameterName = string;
 
-export type PipelineStatus = "ACTIVE" | "DELETING";
+export type PipelineStatus = "Active" | "Deleting";
 export interface PipelineSummary {
   PipelineArn?: string;
   PipelineName?: string;
@@ -10369,7 +10369,7 @@ export type PolicyString = string;
 export interface PredefinedMetricSpecification {
   PredefinedMetricType?: string;
 }
-export type PreemptTeamTasks = "NEVER" | "LOWERPRIORITY";
+export type PreemptTeamTasks = "Never" | "LowerPriority";
 export type PresignedDomainUrl = string;
 
 export interface PresignedUrlAccessConfig {
@@ -10386,9 +10386,9 @@ export type PriorityWeight = number;
 export type ProbabilityThresholdAttribute = number;
 
 export type ProblemType =
-  | "BINARY_CLASSIFICATION"
-  | "MULTICLASS_CLASSIFICATION"
-  | "REGRESSION";
+  | "BinaryClassification"
+  | "MulticlassClassification"
+  | "Regression";
 export interface ProcessingClusterConfig {
   InstanceCount: number;
   InstanceType: ProcessingInstanceType;
@@ -10413,126 +10413,126 @@ export type ProcessingInputs = Array<ProcessingInput>;
 export type ProcessingInstanceCount = number;
 
 export type ProcessingInstanceType =
-  | "ML_T3_MEDIUM"
-  | "ML_T3_LARGE"
-  | "ML_T3_XLARGE"
-  | "ML_T3_2XLARGE"
-  | "ML_M4_XLARGE"
-  | "ML_M4_2XLARGE"
-  | "ML_M4_4XLARGE"
-  | "ML_M4_10XLARGE"
-  | "ML_M4_16XLARGE"
-  | "ML_C4_XLARGE"
-  | "ML_C4_2XLARGE"
-  | "ML_C4_4XLARGE"
-  | "ML_C4_8XLARGE"
-  | "ML_P2_XLARGE"
-  | "ML_P2_8XLARGE"
-  | "ML_P2_16XLARGE"
-  | "ML_P3_2XLARGE"
-  | "ML_P3_8XLARGE"
-  | "ML_P3_16XLARGE"
-  | "ML_C5_XLARGE"
-  | "ML_C5_2XLARGE"
-  | "ML_C5_4XLARGE"
-  | "ML_C5_9XLARGE"
-  | "ML_C5_18XLARGE"
-  | "ML_M5_LARGE"
-  | "ML_M5_XLARGE"
-  | "ML_M5_2XLARGE"
-  | "ML_M5_4XLARGE"
-  | "ML_M5_12XLARGE"
-  | "ML_M5_24XLARGE"
-  | "ML_R5_LARGE"
-  | "ML_R5_XLARGE"
-  | "ML_R5_2XLARGE"
-  | "ML_R5_4XLARGE"
-  | "ML_R5_8XLARGE"
-  | "ML_R5_12XLARGE"
-  | "ML_R5_16XLARGE"
-  | "ML_R5_24XLARGE"
-  | "ML_G4DN_XLARGE"
-  | "ML_G4DN_2XLARGE"
-  | "ML_G4DN_4XLARGE"
-  | "ML_G4DN_8XLARGE"
-  | "ML_G4DN_12XLARGE"
-  | "ML_G4DN_16XLARGE"
-  | "ML_G5_XLARGE"
-  | "ML_G5_2XLARGE"
-  | "ML_G5_4XLARGE"
-  | "ML_G5_8XLARGE"
-  | "ML_G5_16XLARGE"
-  | "ML_G5_12XLARGE"
-  | "ML_G5_24XLARGE"
-  | "ML_G5_48XLARGE"
-  | "ML_R5D_LARGE"
-  | "ML_R5D_XLARGE"
-  | "ML_R5D_2XLARGE"
-  | "ML_R5D_4XLARGE"
-  | "ML_R5D_8XLARGE"
-  | "ML_R5D_12XLARGE"
-  | "ML_R5D_16XLARGE"
-  | "ML_R5D_24XLARGE"
-  | "ML_G6_XLARGE"
-  | "ML_G6_2XLARGE"
-  | "ML_G6_4XLARGE"
-  | "ML_G6_8XLARGE"
-  | "ML_G6_12XLARGE"
-  | "ML_G6_16XLARGE"
-  | "ML_G6_24XLARGE"
-  | "ML_G6_48XLARGE"
-  | "ML_G6E_XLARGE"
-  | "ML_G6E_2XLARGE"
-  | "ML_G6E_4XLARGE"
-  | "ML_G6E_8XLARGE"
-  | "ML_G6E_12XLARGE"
-  | "ML_G6E_16XLARGE"
-  | "ML_G6E_24XLARGE"
-  | "ML_G6E_48XLARGE"
-  | "ML_M6I_LARGE"
-  | "ML_M6I_XLARGE"
-  | "ML_M6I_2XLARGE"
-  | "ML_M6I_4XLARGE"
-  | "ML_M6I_8XLARGE"
-  | "ML_M6I_12XLARGE"
-  | "ML_M6I_16XLARGE"
-  | "ML_M6I_24XLARGE"
-  | "ML_M6I_32XLARGE"
-  | "ML_C6I_XLARGE"
-  | "ML_C6I_2XLARGE"
-  | "ML_C6I_4XLARGE"
-  | "ML_C6I_8XLARGE"
-  | "ML_C6I_12XLARGE"
-  | "ML_C6I_16XLARGE"
-  | "ML_C6I_24XLARGE"
-  | "ML_C6I_32XLARGE"
-  | "ML_M7I_LARGE"
-  | "ML_M7I_XLARGE"
-  | "ML_M7I_2XLARGE"
-  | "ML_M7I_4XLARGE"
-  | "ML_M7I_8XLARGE"
-  | "ML_M7I_12XLARGE"
-  | "ML_M7I_16XLARGE"
-  | "ML_M7I_24XLARGE"
-  | "ML_M7I_48XLARGE"
-  | "ML_C7I_LARGE"
-  | "ML_C7I_XLARGE"
-  | "ML_C7I_2XLARGE"
-  | "ML_C7I_4XLARGE"
-  | "ML_C7I_8XLARGE"
-  | "ML_C7I_12XLARGE"
-  | "ML_C7I_16XLARGE"
-  | "ML_C7I_24XLARGE"
-  | "ML_C7I_48XLARGE"
-  | "ML_R7I_LARGE"
-  | "ML_R7I_XLARGE"
-  | "ML_R7I_2XLARGE"
-  | "ML_R7I_4XLARGE"
-  | "ML_R7I_8XLARGE"
-  | "ML_R7I_12XLARGE"
-  | "ML_R7I_16XLARGE"
-  | "ML_R7I_24XLARGE"
-  | "ML_R7I_48XLARGE";
+  | "ml.t3.medium"
+  | "ml.t3.large"
+  | "ml.t3.xlarge"
+  | "ml.t3.2xlarge"
+  | "ml.m4.xlarge"
+  | "ml.m4.2xlarge"
+  | "ml.m4.4xlarge"
+  | "ml.m4.10xlarge"
+  | "ml.m4.16xlarge"
+  | "ml.c4.xlarge"
+  | "ml.c4.2xlarge"
+  | "ml.c4.4xlarge"
+  | "ml.c4.8xlarge"
+  | "ml.p2.xlarge"
+  | "ml.p2.8xlarge"
+  | "ml.p2.16xlarge"
+  | "ml.p3.2xlarge"
+  | "ml.p3.8xlarge"
+  | "ml.p3.16xlarge"
+  | "ml.c5.xlarge"
+  | "ml.c5.2xlarge"
+  | "ml.c5.4xlarge"
+  | "ml.c5.9xlarge"
+  | "ml.c5.18xlarge"
+  | "ml.m5.large"
+  | "ml.m5.xlarge"
+  | "ml.m5.2xlarge"
+  | "ml.m5.4xlarge"
+  | "ml.m5.12xlarge"
+  | "ml.m5.24xlarge"
+  | "ml.r5.large"
+  | "ml.r5.xlarge"
+  | "ml.r5.2xlarge"
+  | "ml.r5.4xlarge"
+  | "ml.r5.8xlarge"
+  | "ml.r5.12xlarge"
+  | "ml.r5.16xlarge"
+  | "ml.r5.24xlarge"
+  | "ml.g4dn.xlarge"
+  | "ml.g4dn.2xlarge"
+  | "ml.g4dn.4xlarge"
+  | "ml.g4dn.8xlarge"
+  | "ml.g4dn.12xlarge"
+  | "ml.g4dn.16xlarge"
+  | "ml.g5.xlarge"
+  | "ml.g5.2xlarge"
+  | "ml.g5.4xlarge"
+  | "ml.g5.8xlarge"
+  | "ml.g5.16xlarge"
+  | "ml.g5.12xlarge"
+  | "ml.g5.24xlarge"
+  | "ml.g5.48xlarge"
+  | "ml.r5d.large"
+  | "ml.r5d.xlarge"
+  | "ml.r5d.2xlarge"
+  | "ml.r5d.4xlarge"
+  | "ml.r5d.8xlarge"
+  | "ml.r5d.12xlarge"
+  | "ml.r5d.16xlarge"
+  | "ml.r5d.24xlarge"
+  | "ml.g6.xlarge"
+  | "ml.g6.2xlarge"
+  | "ml.g6.4xlarge"
+  | "ml.g6.8xlarge"
+  | "ml.g6.12xlarge"
+  | "ml.g6.16xlarge"
+  | "ml.g6.24xlarge"
+  | "ml.g6.48xlarge"
+  | "ml.g6e.xlarge"
+  | "ml.g6e.2xlarge"
+  | "ml.g6e.4xlarge"
+  | "ml.g6e.8xlarge"
+  | "ml.g6e.12xlarge"
+  | "ml.g6e.16xlarge"
+  | "ml.g6e.24xlarge"
+  | "ml.g6e.48xlarge"
+  | "ml.m6i.large"
+  | "ml.m6i.xlarge"
+  | "ml.m6i.2xlarge"
+  | "ml.m6i.4xlarge"
+  | "ml.m6i.8xlarge"
+  | "ml.m6i.12xlarge"
+  | "ml.m6i.16xlarge"
+  | "ml.m6i.24xlarge"
+  | "ml.m6i.32xlarge"
+  | "ml.c6i.xlarge"
+  | "ml.c6i.2xlarge"
+  | "ml.c6i.4xlarge"
+  | "ml.c6i.8xlarge"
+  | "ml.c6i.12xlarge"
+  | "ml.c6i.16xlarge"
+  | "ml.c6i.24xlarge"
+  | "ml.c6i.32xlarge"
+  | "ml.m7i.large"
+  | "ml.m7i.xlarge"
+  | "ml.m7i.2xlarge"
+  | "ml.m7i.4xlarge"
+  | "ml.m7i.8xlarge"
+  | "ml.m7i.12xlarge"
+  | "ml.m7i.16xlarge"
+  | "ml.m7i.24xlarge"
+  | "ml.m7i.48xlarge"
+  | "ml.c7i.large"
+  | "ml.c7i.xlarge"
+  | "ml.c7i.2xlarge"
+  | "ml.c7i.4xlarge"
+  | "ml.c7i.8xlarge"
+  | "ml.c7i.12xlarge"
+  | "ml.c7i.16xlarge"
+  | "ml.c7i.24xlarge"
+  | "ml.c7i.48xlarge"
+  | "ml.r7i.large"
+  | "ml.r7i.xlarge"
+  | "ml.r7i.2xlarge"
+  | "ml.r7i.4xlarge"
+  | "ml.r7i.8xlarge"
+  | "ml.r7i.12xlarge"
+  | "ml.r7i.16xlarge"
+  | "ml.r7i.24xlarge"
+  | "ml.r7i.48xlarge";
 export interface ProcessingJob {
   ProcessingInputs?: Array<ProcessingInput>;
   ProcessingOutputConfig?: ProcessingOutputConfig;
@@ -10562,11 +10562,11 @@ export type ProcessingJobArn = string;
 export type ProcessingJobName = string;
 
 export type ProcessingJobStatus =
-  | "IN_PROGRESS"
-  | "COMPLETED"
-  | "FAILED"
-  | "STOPPING"
-  | "STOPPED";
+  | "InProgress"
+  | "Completed"
+  | "Failed"
+  | "Stopping"
+  | "Stopped";
 export interface ProcessingJobStepMetadata {
   Arn?: string;
 }
@@ -10599,11 +10599,11 @@ export type ProcessingOutputs = Array<ProcessingOutput>;
 export interface ProcessingResources {
   ClusterConfig: ProcessingClusterConfig;
 }
-export type ProcessingS3CompressionType = "NONE" | "GZIP";
+export type ProcessingS3CompressionType = "None" | "Gzip";
 export type ProcessingS3DataDistributionType =
-  | "FULLYREPLICATED"
-  | "SHARDEDBYS3KEY";
-export type ProcessingS3DataType = "MANIFEST_FILE" | "S3_PREFIX";
+  | "FullyReplicated"
+  | "ShardedByS3Key";
+export type ProcessingS3DataType = "ManifestFile" | "S3Prefix";
 export interface ProcessingS3Input {
   S3Uri: string;
   LocalPath?: string;
@@ -10612,13 +10612,13 @@ export interface ProcessingS3Input {
   S3DataDistributionType?: ProcessingS3DataDistributionType;
   S3CompressionType?: ProcessingS3CompressionType;
 }
-export type ProcessingS3InputMode = "PIPE" | "FILE";
+export type ProcessingS3InputMode = "Pipe" | "File";
 export interface ProcessingS3Output {
   S3Uri: string;
   LocalPath?: string;
   S3UploadMode: ProcessingS3UploadMode;
 }
-export type ProcessingS3UploadMode = "CONTINUOUS" | "END_OF_JOB";
+export type ProcessingS3UploadMode = "Continuous" | "EndOfJob";
 export interface ProcessingStoppingCondition {
   MaxRuntimeInSeconds: number;
 }
@@ -10646,12 +10646,12 @@ export interface ProductionVariant {
   CapacityReservationConfig?: ProductionVariantCapacityReservationConfig;
 }
 export type ProductionVariantAcceleratorType =
-  | "ML_EIA1_MEDIUM"
-  | "ML_EIA1_LARGE"
-  | "ML_EIA1_XLARGE"
-  | "ML_EIA2_MEDIUM"
-  | "ML_EIA2_LARGE"
-  | "ML_EIA2_XLARGE";
+  | "ml.eia1.medium"
+  | "ml.eia1.large"
+  | "ml.eia1.xlarge"
+  | "ml.eia2.medium"
+  | "ml.eia2.large"
+  | "ml.eia2.xlarge";
 export interface ProductionVariantCapacityReservationConfig {
   CapacityReservationPreference?: CapacityReservationPreference;
   MlReservationArn?: string;
@@ -10672,274 +10672,274 @@ export interface ProductionVariantCoreDumpConfig {
   KmsKeyId?: string;
 }
 export type ProductionVariantInferenceAmiVersion =
-  | "AL2_GPU_2"
-  | "AL2_GPU_2_1"
-  | "AL2_GPU_3_1"
-  | "AL2_NEURON_2";
+  | "al2-ami-sagemaker-inference-gpu-2"
+  | "al2-ami-sagemaker-inference-gpu-2-1"
+  | "al2-ami-sagemaker-inference-gpu-3-1"
+  | "al2-ami-sagemaker-inference-neuron-2";
 export type ProductionVariantInstanceType =
-  | "ML_T2_MEDIUM"
-  | "ML_T2_LARGE"
-  | "ML_T2_XLARGE"
-  | "ML_T2_2XLARGE"
-  | "ML_M4_XLARGE"
-  | "ML_M4_2XLARGE"
-  | "ML_M4_4XLARGE"
-  | "ML_M4_10XLARGE"
-  | "ML_M4_16XLARGE"
-  | "ML_M5_LARGE"
-  | "ML_M5_XLARGE"
-  | "ML_M5_2XLARGE"
-  | "ML_M5_4XLARGE"
-  | "ML_M5_12XLARGE"
-  | "ML_M5_24XLARGE"
-  | "ML_M5D_LARGE"
-  | "ML_M5D_XLARGE"
-  | "ML_M5D_2XLARGE"
-  | "ML_M5D_4XLARGE"
-  | "ML_M5D_12XLARGE"
-  | "ML_M5D_24XLARGE"
-  | "ML_C4_LARGE"
-  | "ML_C4_XLARGE"
-  | "ML_C4_2XLARGE"
-  | "ML_C4_4XLARGE"
-  | "ML_C4_8XLARGE"
-  | "ML_P2_XLARGE"
-  | "ML_P2_8XLARGE"
-  | "ML_P2_16XLARGE"
-  | "ML_P3_2XLARGE"
-  | "ML_P3_8XLARGE"
-  | "ML_P3_16XLARGE"
-  | "ML_C5_LARGE"
-  | "ML_C5_XLARGE"
-  | "ML_C5_2XLARGE"
-  | "ML_C5_4XLARGE"
-  | "ML_C5_9XLARGE"
-  | "ML_C5_18XLARGE"
-  | "ML_C5D_LARGE"
-  | "ML_C5D_XLARGE"
-  | "ML_C5D_2XLARGE"
-  | "ML_C5D_4XLARGE"
-  | "ML_C5D_9XLARGE"
-  | "ML_C5D_18XLARGE"
-  | "ML_G4DN_XLARGE"
-  | "ML_G4DN_2XLARGE"
-  | "ML_G4DN_4XLARGE"
-  | "ML_G4DN_8XLARGE"
-  | "ML_G4DN_12XLARGE"
-  | "ML_G4DN_16XLARGE"
-  | "ML_R5_LARGE"
-  | "ML_R5_XLARGE"
-  | "ML_R5_2XLARGE"
-  | "ML_R5_4XLARGE"
-  | "ML_R5_12XLARGE"
-  | "ML_R5_24XLARGE"
-  | "ML_R5D_LARGE"
-  | "ML_R5D_XLARGE"
-  | "ML_R5D_2XLARGE"
-  | "ML_R5D_4XLARGE"
-  | "ML_R5D_12XLARGE"
-  | "ML_R5D_24XLARGE"
-  | "ML_INF1_XLARGE"
-  | "ML_INF1_2XLARGE"
-  | "ML_INF1_6XLARGE"
-  | "ML_INF1_24XLARGE"
-  | "ML_DL1_24XLARGE"
-  | "ML_C6I_LARGE"
-  | "ML_C6I_XLARGE"
-  | "ML_C6I_2XLARGE"
-  | "ML_C6I_4XLARGE"
-  | "ML_C6I_8XLARGE"
-  | "ML_C6I_12XLARGE"
-  | "ML_C6I_16XLARGE"
-  | "ML_C6I_24XLARGE"
-  | "ML_C6I_32XLARGE"
-  | "ML_M6I_LARGE"
-  | "ML_M6I_XLARGE"
-  | "ML_M6I_2XLARGE"
-  | "ML_M6I_4XLARGE"
-  | "ML_M6I_8XLARGE"
-  | "ML_M6I_12XLARGE"
-  | "ML_M6I_16XLARGE"
-  | "ML_M6I_24XLARGE"
-  | "ML_M6I_32XLARGE"
-  | "ML_R6I_LARGE"
-  | "ML_R6I_XLARGE"
-  | "ML_R6I_2XLARGE"
-  | "ML_R6I_4XLARGE"
-  | "ML_R6I_8XLARGE"
-  | "ML_R6I_12XLARGE"
-  | "ML_R6I_16XLARGE"
-  | "ML_R6I_24XLARGE"
-  | "ML_R6I_32XLARGE"
-  | "ML_G5_XLARGE"
-  | "ML_G5_2XLARGE"
-  | "ML_G5_4XLARGE"
-  | "ML_G5_8XLARGE"
-  | "ML_G5_12XLARGE"
-  | "ML_G5_16XLARGE"
-  | "ML_G5_24XLARGE"
-  | "ML_G5_48XLARGE"
-  | "ML_G6_XLARGE"
-  | "ML_G6_2XLARGE"
-  | "ML_G6_4XLARGE"
-  | "ML_G6_8XLARGE"
-  | "ML_G6_12XLARGE"
-  | "ML_G6_16XLARGE"
-  | "ML_G6_24XLARGE"
-  | "ML_G6_48XLARGE"
-  | "ML_R8G_MEDIUM"
-  | "ML_R8G_LARGE"
-  | "ML_R8G_XLARGE"
-  | "ML_R8G_2XLARGE"
-  | "ML_R8G_4XLARGE"
-  | "ML_R8G_8XLARGE"
-  | "ML_R8G_12XLARGE"
-  | "ML_R8G_16XLARGE"
-  | "ML_R8G_24XLARGE"
-  | "ML_R8G_48XLARGE"
-  | "ML_G6E_XLARGE"
-  | "ML_G6E_2XLARGE"
-  | "ML_G6E_4XLARGE"
-  | "ML_G6E_8XLARGE"
-  | "ML_G6E_12XLARGE"
-  | "ML_G6E_16XLARGE"
-  | "ML_G6E_24XLARGE"
-  | "ML_G6E_48XLARGE"
-  | "ML_P4D_24XLARGE"
-  | "ML_C7G_LARGE"
-  | "ML_C7G_XLARGE"
-  | "ML_C7G_2XLARGE"
-  | "ML_C7G_4XLARGE"
-  | "ML_C7G_8XLARGE"
-  | "ML_C7G_12XLARGE"
-  | "ML_C7G_16XLARGE"
-  | "ML_M6G_LARGE"
-  | "ML_M6G_XLARGE"
-  | "ML_M6G_2XLARGE"
-  | "ML_M6G_4XLARGE"
-  | "ML_M6G_8XLARGE"
-  | "ML_M6G_12XLARGE"
-  | "ML_M6G_16XLARGE"
-  | "ML_M6GD_LARGE"
-  | "ML_M6GD_XLARGE"
-  | "ML_M6GD_2XLARGE"
-  | "ML_M6GD_4XLARGE"
-  | "ML_M6GD_8XLARGE"
-  | "ML_M6GD_12XLARGE"
-  | "ML_M6GD_16XLARGE"
-  | "ML_C6G_LARGE"
-  | "ML_C6G_XLARGE"
-  | "ML_C6G_2XLARGE"
-  | "ML_C6G_4XLARGE"
-  | "ML_C6G_8XLARGE"
-  | "ML_C6G_12XLARGE"
-  | "ML_C6G_16XLARGE"
-  | "ML_C6GD_LARGE"
-  | "ML_C6GD_XLARGE"
-  | "ML_C6GD_2XLARGE"
-  | "ML_C6GD_4XLARGE"
-  | "ML_C6GD_8XLARGE"
-  | "ML_C6GD_12XLARGE"
-  | "ML_C6GD_16XLARGE"
-  | "ML_C6GN_LARGE"
-  | "ML_C6GN_XLARGE"
-  | "ML_C6GN_2XLARGE"
-  | "ML_C6GN_4XLARGE"
-  | "ML_C6GN_8XLARGE"
-  | "ML_C6GN_12XLARGE"
-  | "ML_C6GN_16XLARGE"
-  | "ML_R6G_LARGE"
-  | "ML_R6G_XLARGE"
-  | "ML_R6G_2XLARGE"
-  | "ML_R6G_4XLARGE"
-  | "ML_R6G_8XLARGE"
-  | "ML_R6G_12XLARGE"
-  | "ML_R6G_16XLARGE"
-  | "ML_R6GD_LARGE"
-  | "ML_R6GD_XLARGE"
-  | "ML_R6GD_2XLARGE"
-  | "ML_R6GD_4XLARGE"
-  | "ML_R6GD_8XLARGE"
-  | "ML_R6GD_12XLARGE"
-  | "ML_R6GD_16XLARGE"
-  | "ML_P4DE_24XLARGE"
-  | "ML_TRN1_2XLARGE"
-  | "ML_TRN1_32XLARGE"
-  | "ML_TRN1N_32XLARGE"
-  | "ML_TRN2_48XLARGE"
-  | "ML_INF2_XLARGE"
-  | "ML_INF2_8XLARGE"
-  | "ML_INF2_24XLARGE"
-  | "ML_INF2_48XLARGE"
-  | "ML_P5_48XLARGE"
-  | "ML_P5E_48XLARGE"
-  | "ML_P5EN_48XLARGE"
-  | "ML_M7I_LARGE"
-  | "ML_M7I_XLARGE"
-  | "ML_M7I_2XLARGE"
-  | "ML_M7I_4XLARGE"
-  | "ML_M7I_8XLARGE"
-  | "ML_M7I_12XLARGE"
-  | "ML_M7I_16XLARGE"
-  | "ML_M7I_24XLARGE"
-  | "ML_M7I_48XLARGE"
-  | "ML_C7I_LARGE"
-  | "ML_C7I_XLARGE"
-  | "ML_C7I_2XLARGE"
-  | "ML_C7I_4XLARGE"
-  | "ML_C7I_8XLARGE"
-  | "ML_C7I_12XLARGE"
-  | "ML_C7I_16XLARGE"
-  | "ML_C7I_24XLARGE"
-  | "ML_C7I_48XLARGE"
-  | "ML_R7I_LARGE"
-  | "ML_R7I_XLARGE"
-  | "ML_R7I_2XLARGE"
-  | "ML_R7I_4XLARGE"
-  | "ML_R7I_8XLARGE"
-  | "ML_R7I_12XLARGE"
-  | "ML_R7I_16XLARGE"
-  | "ML_R7I_24XLARGE"
-  | "ML_R7I_48XLARGE"
-  | "ML_C8G_MEDIUM"
-  | "ML_C8G_LARGE"
-  | "ML_C8G_XLARGE"
-  | "ML_C8G_2XLARGE"
-  | "ML_C8G_4XLARGE"
-  | "ML_C8G_8XLARGE"
-  | "ML_C8G_12XLARGE"
-  | "ML_C8G_16XLARGE"
-  | "ML_C8G_24XLARGE"
-  | "ML_C8G_48XLARGE"
-  | "ML_R7GD_MEDIUM"
-  | "ML_R7GD_LARGE"
-  | "ML_R7GD_XLARGE"
-  | "ML_R7GD_2XLARGE"
-  | "ML_R7GD_4XLARGE"
-  | "ML_R7GD_8XLARGE"
-  | "ML_R7GD_12XLARGE"
-  | "ML_R7GD_16XLARGE"
-  | "ML_M8G_MEDIUM"
-  | "ML_M8G_LARGE"
-  | "ML_M8G_XLARGE"
-  | "ML_M8G_2XLARGE"
-  | "ML_M8G_4XLARGE"
-  | "ML_M8G_8XLARGE"
-  | "ML_M8G_12XLARGE"
-  | "ML_M8G_16XLARGE"
-  | "ML_M8G_24XLARGE"
-  | "ML_M8G_48XLARGE"
-  | "ML_C6IN_LARGE"
-  | "ML_C6IN_XLARGE"
-  | "ML_C6IN_2XLARGE"
-  | "ML_C6IN_4XLARGE"
-  | "ML_C6IN_8XLARGE"
-  | "ML_C6IN_12XLARGE"
-  | "ML_C6IN_16XLARGE"
-  | "ML_C6IN_24XLARGE"
-  | "ML_C6IN_32XLARGE"
-  | "ML_P6_B200_48XLARGE"
-  | "ML_P6E_GB200_36XLARGE";
+  | "ml.t2.medium"
+  | "ml.t2.large"
+  | "ml.t2.xlarge"
+  | "ml.t2.2xlarge"
+  | "ml.m4.xlarge"
+  | "ml.m4.2xlarge"
+  | "ml.m4.4xlarge"
+  | "ml.m4.10xlarge"
+  | "ml.m4.16xlarge"
+  | "ml.m5.large"
+  | "ml.m5.xlarge"
+  | "ml.m5.2xlarge"
+  | "ml.m5.4xlarge"
+  | "ml.m5.12xlarge"
+  | "ml.m5.24xlarge"
+  | "ml.m5d.large"
+  | "ml.m5d.xlarge"
+  | "ml.m5d.2xlarge"
+  | "ml.m5d.4xlarge"
+  | "ml.m5d.12xlarge"
+  | "ml.m5d.24xlarge"
+  | "ml.c4.large"
+  | "ml.c4.xlarge"
+  | "ml.c4.2xlarge"
+  | "ml.c4.4xlarge"
+  | "ml.c4.8xlarge"
+  | "ml.p2.xlarge"
+  | "ml.p2.8xlarge"
+  | "ml.p2.16xlarge"
+  | "ml.p3.2xlarge"
+  | "ml.p3.8xlarge"
+  | "ml.p3.16xlarge"
+  | "ml.c5.large"
+  | "ml.c5.xlarge"
+  | "ml.c5.2xlarge"
+  | "ml.c5.4xlarge"
+  | "ml.c5.9xlarge"
+  | "ml.c5.18xlarge"
+  | "ml.c5d.large"
+  | "ml.c5d.xlarge"
+  | "ml.c5d.2xlarge"
+  | "ml.c5d.4xlarge"
+  | "ml.c5d.9xlarge"
+  | "ml.c5d.18xlarge"
+  | "ml.g4dn.xlarge"
+  | "ml.g4dn.2xlarge"
+  | "ml.g4dn.4xlarge"
+  | "ml.g4dn.8xlarge"
+  | "ml.g4dn.12xlarge"
+  | "ml.g4dn.16xlarge"
+  | "ml.r5.large"
+  | "ml.r5.xlarge"
+  | "ml.r5.2xlarge"
+  | "ml.r5.4xlarge"
+  | "ml.r5.12xlarge"
+  | "ml.r5.24xlarge"
+  | "ml.r5d.large"
+  | "ml.r5d.xlarge"
+  | "ml.r5d.2xlarge"
+  | "ml.r5d.4xlarge"
+  | "ml.r5d.12xlarge"
+  | "ml.r5d.24xlarge"
+  | "ml.inf1.xlarge"
+  | "ml.inf1.2xlarge"
+  | "ml.inf1.6xlarge"
+  | "ml.inf1.24xlarge"
+  | "ml.dl1.24xlarge"
+  | "ml.c6i.large"
+  | "ml.c6i.xlarge"
+  | "ml.c6i.2xlarge"
+  | "ml.c6i.4xlarge"
+  | "ml.c6i.8xlarge"
+  | "ml.c6i.12xlarge"
+  | "ml.c6i.16xlarge"
+  | "ml.c6i.24xlarge"
+  | "ml.c6i.32xlarge"
+  | "ml.m6i.large"
+  | "ml.m6i.xlarge"
+  | "ml.m6i.2xlarge"
+  | "ml.m6i.4xlarge"
+  | "ml.m6i.8xlarge"
+  | "ml.m6i.12xlarge"
+  | "ml.m6i.16xlarge"
+  | "ml.m6i.24xlarge"
+  | "ml.m6i.32xlarge"
+  | "ml.r6i.large"
+  | "ml.r6i.xlarge"
+  | "ml.r6i.2xlarge"
+  | "ml.r6i.4xlarge"
+  | "ml.r6i.8xlarge"
+  | "ml.r6i.12xlarge"
+  | "ml.r6i.16xlarge"
+  | "ml.r6i.24xlarge"
+  | "ml.r6i.32xlarge"
+  | "ml.g5.xlarge"
+  | "ml.g5.2xlarge"
+  | "ml.g5.4xlarge"
+  | "ml.g5.8xlarge"
+  | "ml.g5.12xlarge"
+  | "ml.g5.16xlarge"
+  | "ml.g5.24xlarge"
+  | "ml.g5.48xlarge"
+  | "ml.g6.xlarge"
+  | "ml.g6.2xlarge"
+  | "ml.g6.4xlarge"
+  | "ml.g6.8xlarge"
+  | "ml.g6.12xlarge"
+  | "ml.g6.16xlarge"
+  | "ml.g6.24xlarge"
+  | "ml.g6.48xlarge"
+  | "ml.r8g.medium"
+  | "ml.r8g.large"
+  | "ml.r8g.xlarge"
+  | "ml.r8g.2xlarge"
+  | "ml.r8g.4xlarge"
+  | "ml.r8g.8xlarge"
+  | "ml.r8g.12xlarge"
+  | "ml.r8g.16xlarge"
+  | "ml.r8g.24xlarge"
+  | "ml.r8g.48xlarge"
+  | "ml.g6e.xlarge"
+  | "ml.g6e.2xlarge"
+  | "ml.g6e.4xlarge"
+  | "ml.g6e.8xlarge"
+  | "ml.g6e.12xlarge"
+  | "ml.g6e.16xlarge"
+  | "ml.g6e.24xlarge"
+  | "ml.g6e.48xlarge"
+  | "ml.p4d.24xlarge"
+  | "ml.c7g.large"
+  | "ml.c7g.xlarge"
+  | "ml.c7g.2xlarge"
+  | "ml.c7g.4xlarge"
+  | "ml.c7g.8xlarge"
+  | "ml.c7g.12xlarge"
+  | "ml.c7g.16xlarge"
+  | "ml.m6g.large"
+  | "ml.m6g.xlarge"
+  | "ml.m6g.2xlarge"
+  | "ml.m6g.4xlarge"
+  | "ml.m6g.8xlarge"
+  | "ml.m6g.12xlarge"
+  | "ml.m6g.16xlarge"
+  | "ml.m6gd.large"
+  | "ml.m6gd.xlarge"
+  | "ml.m6gd.2xlarge"
+  | "ml.m6gd.4xlarge"
+  | "ml.m6gd.8xlarge"
+  | "ml.m6gd.12xlarge"
+  | "ml.m6gd.16xlarge"
+  | "ml.c6g.large"
+  | "ml.c6g.xlarge"
+  | "ml.c6g.2xlarge"
+  | "ml.c6g.4xlarge"
+  | "ml.c6g.8xlarge"
+  | "ml.c6g.12xlarge"
+  | "ml.c6g.16xlarge"
+  | "ml.c6gd.large"
+  | "ml.c6gd.xlarge"
+  | "ml.c6gd.2xlarge"
+  | "ml.c6gd.4xlarge"
+  | "ml.c6gd.8xlarge"
+  | "ml.c6gd.12xlarge"
+  | "ml.c6gd.16xlarge"
+  | "ml.c6gn.large"
+  | "ml.c6gn.xlarge"
+  | "ml.c6gn.2xlarge"
+  | "ml.c6gn.4xlarge"
+  | "ml.c6gn.8xlarge"
+  | "ml.c6gn.12xlarge"
+  | "ml.c6gn.16xlarge"
+  | "ml.r6g.large"
+  | "ml.r6g.xlarge"
+  | "ml.r6g.2xlarge"
+  | "ml.r6g.4xlarge"
+  | "ml.r6g.8xlarge"
+  | "ml.r6g.12xlarge"
+  | "ml.r6g.16xlarge"
+  | "ml.r6gd.large"
+  | "ml.r6gd.xlarge"
+  | "ml.r6gd.2xlarge"
+  | "ml.r6gd.4xlarge"
+  | "ml.r6gd.8xlarge"
+  | "ml.r6gd.12xlarge"
+  | "ml.r6gd.16xlarge"
+  | "ml.p4de.24xlarge"
+  | "ml.trn1.2xlarge"
+  | "ml.trn1.32xlarge"
+  | "ml.trn1n.32xlarge"
+  | "ml.trn2.48xlarge"
+  | "ml.inf2.xlarge"
+  | "ml.inf2.8xlarge"
+  | "ml.inf2.24xlarge"
+  | "ml.inf2.48xlarge"
+  | "ml.p5.48xlarge"
+  | "ml.p5e.48xlarge"
+  | "ml.p5en.48xlarge"
+  | "ml.m7i.large"
+  | "ml.m7i.xlarge"
+  | "ml.m7i.2xlarge"
+  | "ml.m7i.4xlarge"
+  | "ml.m7i.8xlarge"
+  | "ml.m7i.12xlarge"
+  | "ml.m7i.16xlarge"
+  | "ml.m7i.24xlarge"
+  | "ml.m7i.48xlarge"
+  | "ml.c7i.large"
+  | "ml.c7i.xlarge"
+  | "ml.c7i.2xlarge"
+  | "ml.c7i.4xlarge"
+  | "ml.c7i.8xlarge"
+  | "ml.c7i.12xlarge"
+  | "ml.c7i.16xlarge"
+  | "ml.c7i.24xlarge"
+  | "ml.c7i.48xlarge"
+  | "ml.r7i.large"
+  | "ml.r7i.xlarge"
+  | "ml.r7i.2xlarge"
+  | "ml.r7i.4xlarge"
+  | "ml.r7i.8xlarge"
+  | "ml.r7i.12xlarge"
+  | "ml.r7i.16xlarge"
+  | "ml.r7i.24xlarge"
+  | "ml.r7i.48xlarge"
+  | "ml.c8g.medium"
+  | "ml.c8g.large"
+  | "ml.c8g.xlarge"
+  | "ml.c8g.2xlarge"
+  | "ml.c8g.4xlarge"
+  | "ml.c8g.8xlarge"
+  | "ml.c8g.12xlarge"
+  | "ml.c8g.16xlarge"
+  | "ml.c8g.24xlarge"
+  | "ml.c8g.48xlarge"
+  | "ml.r7gd.medium"
+  | "ml.r7gd.large"
+  | "ml.r7gd.xlarge"
+  | "ml.r7gd.2xlarge"
+  | "ml.r7gd.4xlarge"
+  | "ml.r7gd.8xlarge"
+  | "ml.r7gd.12xlarge"
+  | "ml.r7gd.16xlarge"
+  | "ml.m8g.medium"
+  | "ml.m8g.large"
+  | "ml.m8g.xlarge"
+  | "ml.m8g.2xlarge"
+  | "ml.m8g.4xlarge"
+  | "ml.m8g.8xlarge"
+  | "ml.m8g.12xlarge"
+  | "ml.m8g.16xlarge"
+  | "ml.m8g.24xlarge"
+  | "ml.m8g.48xlarge"
+  | "ml.c6in.large"
+  | "ml.c6in.xlarge"
+  | "ml.c6in.2xlarge"
+  | "ml.c6in.4xlarge"
+  | "ml.c6in.8xlarge"
+  | "ml.c6in.12xlarge"
+  | "ml.c6in.16xlarge"
+  | "ml.c6in.24xlarge"
+  | "ml.c6in.32xlarge"
+  | "ml.p6-b200.48xlarge"
+  | "ml.p6e-gb200.36xlarge";
 export type ProductionVariantList = Array<ProductionVariant>;
 export interface ProductionVariantManagedInstanceScaling {
   Status?: ManagedInstanceScalingStatus;
@@ -11020,7 +11020,7 @@ export type ProfilerRuleEvaluationStatuses =
 export type ProfilingIntervalInMilliseconds = number;
 
 export type ProfilingParameters = Record<string, string>;
-export type ProfilingStatus = "ENABLED" | "DISABLED";
+export type ProfilingStatus = "Enabled" | "Disabled";
 export type ProgrammingLang = string;
 
 export interface Project {
@@ -11044,19 +11044,19 @@ export type ProjectEntityName = string;
 
 export type ProjectId = string;
 
-export type ProjectSortBy = "NAME" | "CREATION_TIME";
-export type ProjectSortOrder = "ASCENDING" | "DESCENDING";
+export type ProjectSortBy = "Name" | "CreationTime";
+export type ProjectSortOrder = "Ascending" | "Descending";
 export type ProjectStatus =
-  | "PENDING"
-  | "CREATE_IN_PROGRESS"
-  | "CREATE_COMPLETED"
-  | "CREATE_FAILED"
-  | "DELETE_IN_PROGRESS"
-  | "DELETE_FAILED"
-  | "DELETE_COMPLETED"
-  | "UPDATE_IN_PROGRESS"
-  | "UPDATE_COMPLETED"
-  | "UPDATE_FAILED";
+  | "Pending"
+  | "CreateInProgress"
+  | "CreateCompleted"
+  | "CreateFailed"
+  | "DeleteInProgress"
+  | "DeleteFailed"
+  | "DeleteCompleted"
+  | "UpdateInProgress"
+  | "UpdateCompleted"
+  | "UpdateFailed";
 export interface ProjectSummary {
   ProjectName: string;
   ProjectDescription?: string;
@@ -11235,12 +11235,12 @@ export interface RecommendationJobStoppingConditions {
 export type RecommendationJobSupportedContentType = string;
 
 export type RecommendationJobSupportedContentTypes = Array<string>;
-export type RecommendationJobSupportedEndpointType = "REALTIME" | "SERVERLESS";
+export type RecommendationJobSupportedEndpointType = "RealTime" | "Serverless";
 export type RecommendationJobSupportedInstanceTypes = Array<string>;
 export type RecommendationJobSupportedResponseMIMEType = string;
 
 export type RecommendationJobSupportedResponseMIMETypes = Array<string>;
-export type RecommendationJobType = "DEFAULT" | "ADVANCED";
+export type RecommendationJobType = "Default" | "Advanced";
 export interface RecommendationJobVpcConfig {
   SecurityGroupIds: Array<string>;
   Subnets: Array<string>;
@@ -11266,7 +11266,7 @@ export type RecommendationStatus =
   | "FAILED"
   | "NOT_APPLICABLE";
 export type RecommendationStepType = "BENCHMARK";
-export type RecordWrapper = "NONE" | "RECORDIO";
+export type RecordWrapper = "None" | "RecordIO";
 export type RedshiftClusterId = string;
 
 export type RedshiftDatabase = string;
@@ -11285,7 +11285,7 @@ export interface RedshiftDatasetDefinition {
 export type RedshiftQueryString = string;
 
 export type RedshiftResultCompressionType =
-  | "NONE"
+  | "None"
   | "GZIP"
   | "BZIP2"
   | "ZSTD"
@@ -11305,7 +11305,7 @@ export interface RegisterDevicesRequest {
 export interface RegisterModelStepMetadata {
   Arn?: string;
 }
-export type Relation = "EQUAL_TO" | "GREATER_THAN_OR_EQUAL_TO";
+export type Relation = "EqualTo" | "GreaterThanOrEqualTo";
 export type ReleaseNotes = string;
 
 export interface RemoteDebugConfig {
@@ -11332,7 +11332,7 @@ export interface RenderUiTemplateResponse {
   RenderedContent: string;
   Errors: Array<RenderingError>;
 }
-export type RepositoryAccessMode = "PLATFORM" | "VPC";
+export type RepositoryAccessMode = "Platform" | "Vpc";
 export interface RepositoryAuthConfig {
   RepositoryCredentialsProviderArn: string;
 }
@@ -11349,14 +11349,14 @@ export type ReservedCapacityDurationMinutes = number;
 export type ReservedCapacityInstanceCount = number;
 
 export type ReservedCapacityInstanceType =
-  | "ML_P4D_24XLARGE"
-  | "ML_P5_48XLARGE"
-  | "ML_P5E_48XLARGE"
-  | "ML_P5EN_48XLARGE"
-  | "ML_TRN1_32XLARGE"
-  | "ML_TRN2_48XLARGE"
-  | "ML_P6_B200_48XLARGE"
-  | "ML_P4DE_24XLARGE";
+  | "ml.p4d.24xlarge"
+  | "ml.p5.48xlarge"
+  | "ml.p5e.48xlarge"
+  | "ml.p5en.48xlarge"
+  | "ml.trn1.32xlarge"
+  | "ml.trn2.48xlarge"
+  | "ml.p6-b200.48xlarge"
+  | "ml.p4de.24xlarge";
 export interface ReservedCapacityOffering {
   InstanceType: ReservedCapacityInstanceType;
   InstanceCount: number;
@@ -11368,11 +11368,11 @@ export interface ReservedCapacityOffering {
 }
 export type ReservedCapacityOfferings = Array<ReservedCapacityOffering>;
 export type ReservedCapacityStatus =
-  | "PENDING"
-  | "ACTIVE"
-  | "SCHEDULED"
-  | "EXPIRED"
-  | "FAILED";
+  | "Pending"
+  | "Active"
+  | "Scheduled"
+  | "Expired"
+  | "Failed";
 export type ReservedCapacitySummaries = Array<ReservedCapacitySummary>;
 export interface ReservedCapacitySummary {
   ReservedCapacityArn: string;
@@ -11405,8 +11405,8 @@ export type ResourceCatalogDescription = string;
 export type ResourceCatalogList = Array<ResourceCatalog>;
 export type ResourceCatalogName = string;
 
-export type ResourceCatalogSortBy = "CREATION_TIME";
-export type ResourceCatalogSortOrder = "ASCENDING" | "DESCENDING";
+export type ResourceCatalogSortBy = "CreationTime";
+export type ResourceCatalogSortOrder = "Ascending" | "Descending";
 export interface ResourceConfig {
   InstanceType?: TrainingInstanceType;
   InstanceCount?: number;
@@ -11453,7 +11453,7 @@ export interface ResourceSharingConfig {
   Strategy: ResourceSharingStrategy;
   BorrowLimit?: number;
 }
-export type ResourceSharingStrategy = "LEND" | "DONTLEND" | "LENDANDBORROW";
+export type ResourceSharingStrategy = "Lend" | "DontLend" | "LendAndBorrow";
 export interface ResourceSpec {
   SageMakerImageArn?: string;
   SageMakerImageVersionArn?: string;
@@ -11462,24 +11462,24 @@ export interface ResourceSpec {
   LifecycleConfigArn?: string;
 }
 export type ResourceType =
-  | "TRAINING_JOB"
-  | "EXPERIMENT"
-  | "EXPERIMENT_TRIAL"
-  | "EXPERIMENT_TRIAL_COMPONENT"
-  | "ENDPOINT"
-  | "MODEL"
-  | "MODEL_PACKAGE"
-  | "MODEL_PACKAGE_GROUP"
-  | "PIPELINE"
-  | "PIPELINE_EXECUTION"
-  | "FEATURE_GROUP"
-  | "FEATURE_METADATA"
-  | "IMAGE"
-  | "IMAGE_VERSION"
-  | "PROJECT"
-  | "HYPER_PARAMETER_TUNING_JOB"
-  | "MODEL_CARD"
-  | "PIPELINE_VERSION";
+  | "TrainingJob"
+  | "Experiment"
+  | "ExperimentTrial"
+  | "ExperimentTrialComponent"
+  | "Endpoint"
+  | "Model"
+  | "ModelPackage"
+  | "ModelPackageGroup"
+  | "Pipeline"
+  | "PipelineExecution"
+  | "FeatureGroup"
+  | "FeatureMetadata"
+  | "Image"
+  | "ImageVersion"
+  | "Project"
+  | "HyperParameterTuningJob"
+  | "ModelCard"
+  | "PipelineVersion";
 export type ResponseMIMEType = string;
 
 export type ResponseMIMETypes = Array<string>;
@@ -11510,13 +11510,13 @@ export interface RollingUpdatePolicy {
   MaximumExecutionTimeoutInSeconds?: number;
   RollbackMaximumBatchSize?: CapacitySize;
 }
-export type RootAccess = "ENABLED" | "DISABLED";
+export type RootAccess = "Enabled" | "Disabled";
 export type RoutingStrategy = "LEAST_OUTSTANDING_REQUESTS" | "RANDOM";
 export interface RSessionAppSettings {
   DefaultResourceSpec?: ResourceSpec;
   CustomImages?: Array<CustomImage>;
 }
-export type RStudioServerProAccessStatus = "Enabled" | "Disabled";
+export type RStudioServerProAccessStatus = "ENABLED" | "DISABLED";
 export interface RStudioServerProAppSettings {
   AccessStatus?: RStudioServerProAccessStatus;
   UserGroup?: RStudioServerProUserGroup;
@@ -11533,18 +11533,18 @@ export interface RStudioServerProDomainSettingsForUpdate {
   RStudioConnectUrl?: string;
   RStudioPackageManagerUrl?: string;
 }
-export type RStudioServerProUserGroup = "Admin" | "User";
+export type RStudioServerProUserGroup = "R_STUDIO_ADMIN" | "R_STUDIO_USER";
 export type RuleConfigurationName = string;
 
 export type RuleEvaluationStatus =
-  | "IN_PROGRESS"
-  | "NO_ISSUES_FOUND"
-  | "ISSUES_FOUND"
-  | "ERROR"
-  | "STOPPING"
-  | "STOPPED";
+  | "InProgress"
+  | "NoIssuesFound"
+  | "IssuesFound"
+  | "Error"
+  | "Stopping"
+  | "Stopped";
 export type RuleParameters = Record<string, string>;
-export type S3DataDistribution = "FULLY_REPLICATED" | "SHARDED_BY_S3_KEY";
+export type S3DataDistribution = "FullyReplicated" | "ShardedByS3Key";
 export interface S3DataSource {
   S3DataType: S3DataType;
   S3Uri: string;
@@ -11555,10 +11555,10 @@ export interface S3DataSource {
   HubAccessConfig?: HubAccessConfig;
 }
 export type S3DataType =
-  | "MANIFEST_FILE"
-  | "S3_PREFIX"
-  | "AUGMENTED_MANIFEST_FILE"
-  | "CONVERSE";
+  | "ManifestFile"
+  | "S3Prefix"
+  | "AugmentedManifestFile"
+  | "Converse";
 export interface S3FileSystem {
   S3Uri?: string;
 }
@@ -11599,9 +11599,9 @@ export type SageMakerImageVersionAlias = string;
 export type SageMakerImageVersionAliases = Array<string>;
 export type SageMakerPublicHubContentArn = string;
 
-export type SageMakerResourceName = "TRAINING_JOB" | "HYPERPOD_CLUSTER";
+export type SageMakerResourceName = "training-job" | "hyperpod-cluster";
 export type SageMakerResourceNames = Array<SageMakerResourceName>;
-export type SagemakerServicecatalogStatus = "ENABLED" | "DISABLED";
+export type SagemakerServicecatalogStatus = "Enabled" | "Disabled";
 export type SampleWeightAttributeName = string;
 
 export type SamplingPercentage = number;
@@ -11638,19 +11638,19 @@ export interface SchedulerConfig {
   FairShare?: FairShare;
 }
 export type SchedulerResourceStatus =
-  | "CREATING"
-  | "CREATE_FAILED"
-  | "CREATE_ROLLBACK_FAILED"
-  | "CREATED"
-  | "UPDATING"
-  | "UPDATE_FAILED"
-  | "UPDATE_ROLLBACK_FAILED"
-  | "UPDATED"
-  | "DELETING"
-  | "DELETE_FAILED"
-  | "DELETE_ROLLBACK_FAILED"
-  | "DELETED";
-export type ScheduleStatus = "PENDING" | "FAILED" | "SCHEDULED" | "STOPPED";
+  | "Creating"
+  | "CreateFailed"
+  | "CreateRollbackFailed"
+  | "Created"
+  | "Updating"
+  | "UpdateFailed"
+  | "UpdateRollbackFailed"
+  | "Updated"
+  | "Deleting"
+  | "DeleteFailed"
+  | "DeleteRollbackFailed"
+  | "Deleted";
+export type ScheduleStatus = "Pending" | "Failed" | "Scheduled" | "Stopped";
 export type Scope = string;
 
 export interface SearchExpression {
@@ -11694,7 +11694,7 @@ export interface SearchResponse {
   TotalHits?: TotalHits;
 }
 export type SearchResultsList = Array<SearchRecord>;
-export type SearchSortOrder = "ASCENDING" | "DESCENDING";
+export type SearchSortOrder = "Ascending" | "Descending";
 export interface SearchTrainingPlanOfferingsRequest {
   InstanceType?: ReservedCapacityInstanceType;
   InstanceCount?: number;
@@ -11707,23 +11707,23 @@ export interface SearchTrainingPlanOfferingsResponse {
   TrainingPlanOfferings: Array<TrainingPlanOffering>;
 }
 export type SecondaryStatus =
-  | "STARTING"
-  | "LAUNCHING_ML_INSTANCES"
-  | "PREPARING_TRAINING_STACK"
-  | "DOWNLOADING"
-  | "DOWNLOADING_TRAINING_IMAGE"
-  | "TRAINING"
-  | "UPLOADING"
-  | "STOPPING"
-  | "STOPPED"
-  | "MAX_RUNTIME_EXCEEDED"
-  | "COMPLETED"
-  | "FAILED"
-  | "INTERRUPTED"
-  | "MAX_WAIT_TIME_EXCEEDED"
-  | "UPDATING"
-  | "RESTARTING"
-  | "PENDING";
+  | "Starting"
+  | "LaunchingMLInstances"
+  | "PreparingTrainingStack"
+  | "Downloading"
+  | "DownloadingTrainingImage"
+  | "Training"
+  | "Uploading"
+  | "Stopping"
+  | "Stopped"
+  | "MaxRuntimeExceeded"
+  | "Completed"
+  | "Failed"
+  | "Interrupted"
+  | "MaxWaitTimeExceeded"
+  | "Updating"
+  | "Restarting"
+  | "Pending";
 export interface SecondaryStatusTransition {
   Status: SecondaryStatus;
   StartTime: Date | string;
@@ -11816,32 +11816,30 @@ export type SingleSignOnApplicationArn = string;
 
 export type SingleSignOnUserIdentifier = string;
 
-export type SkipModelValidation = "ALL" | "NONE";
+export type SkipModelValidation = "All" | "None";
 export type SnsTopicArn = string;
 
-export type SortActionsBy = "NAME" | "CREATION_TIME";
-export type SortArtifactsBy = "CREATION_TIME";
+export type SortActionsBy = "Name" | "CreationTime";
+export type SortArtifactsBy = "CreationTime";
 export type SortAssociationsBy =
-  | "SOURCE_ARN"
-  | "DESTINATION_ARN"
-  | "SOURCE_TYPE"
-  | "DESTINATION_TYPE"
-  | "CREATION_TIME";
-export type SortBy = "NAME" | "CREATION_TIME" | "STATUS";
-export type SortClusterSchedulerConfigBy = "NAME" | "CREATION_TIME" | "STATUS";
-export type SortContextsBy = "NAME" | "CREATION_TIME";
-export type SortExperimentsBy = "NAME" | "CREATION_TIME";
-export type SortInferenceExperimentsBy = "NAME" | "CREATION_TIME" | "STATUS";
-export type SortLineageGroupsBy = "NAME" | "CREATION_TIME";
-export type SortOrder = "ASCENDING" | "DESCENDING";
-export type SortPipelineExecutionsBy =
-  | "CREATION_TIME"
-  | "PIPELINE_EXECUTION_ARN";
-export type SortPipelinesBy = "NAME" | "CREATION_TIME";
-export type SortQuotaBy = "NAME" | "CREATION_TIME" | "STATUS" | "CLUSTER_ARN";
-export type SortTrackingServerBy = "NAME" | "CREATION_TIME" | "STATUS";
-export type SortTrialComponentsBy = "NAME" | "CREATION_TIME";
-export type SortTrialsBy = "NAME" | "CREATION_TIME";
+  | "SourceArn"
+  | "DestinationArn"
+  | "SourceType"
+  | "DestinationType"
+  | "CreationTime";
+export type SortBy = "Name" | "CreationTime" | "Status";
+export type SortClusterSchedulerConfigBy = "Name" | "CreationTime" | "Status";
+export type SortContextsBy = "Name" | "CreationTime";
+export type SortExperimentsBy = "Name" | "CreationTime";
+export type SortInferenceExperimentsBy = "Name" | "CreationTime" | "Status";
+export type SortLineageGroupsBy = "Name" | "CreationTime";
+export type SortOrder = "Ascending" | "Descending";
+export type SortPipelineExecutionsBy = "CreationTime" | "PipelineExecutionArn";
+export type SortPipelinesBy = "Name" | "CreationTime";
+export type SortQuotaBy = "Name" | "CreationTime" | "Status" | "ClusterArn";
+export type SortTrackingServerBy = "Name" | "CreationTime" | "Status";
+export type SortTrialComponentsBy = "Name" | "CreationTime";
+export type SortTrialsBy = "Name" | "CreationTime";
 export interface SourceAlgorithm {
   ModelDataUrl?: string;
   ModelDataSource?: ModelDataSource;
@@ -11928,18 +11926,18 @@ export interface SpaceStorageSettings {
 }
 export type SpawnRate = number;
 
-export type SplitType = "NONE" | "LINE" | "RECORDIO" | "TFRECORD";
+export type SplitType = "None" | "Line" | "RecordIO" | "TFRecord";
 export type StageDescription = string;
 
 export type StageStatus =
-  | "Creating"
-  | "ReadyToDeploy"
-  | "Starting"
-  | "InProgress"
-  | "Deployed"
-  | "Failed"
-  | "Stopping"
-  | "Stopped";
+  | "CREATING"
+  | "READYTODEPLOY"
+  | "STARTING"
+  | "INPROGRESS"
+  | "DEPLOYED"
+  | "FAILED"
+  | "STOPPING"
+  | "STOPPED";
 export interface Stairs {
   DurationInSeconds?: number;
   NumberOfSteps?: number;
@@ -11989,11 +11987,11 @@ export interface StartSessionResponse {
   TokenValue?: string;
 }
 export type Statistic =
-  | "AVERAGE"
-  | "MINIMUM"
-  | "MAXIMUM"
-  | "SAMPLE_COUNT"
-  | "SUM";
+  | "Average"
+  | "Minimum"
+  | "Maximum"
+  | "SampleCount"
+  | "Sum";
 export type StatusDetails = string;
 
 export type StatusMessage = string;
@@ -12005,12 +12003,12 @@ export type StepDisplayName = string;
 export type StepName = string;
 
 export type StepStatus =
-  | "STARTING"
-  | "EXECUTING"
-  | "STOPPING"
-  | "STOPPED"
-  | "FAILED"
-  | "SUCCEEDED";
+  | "Starting"
+  | "Executing"
+  | "Stopping"
+  | "Stopped"
+  | "Failed"
+  | "Succeeded";
 export interface StopAutoMLJobRequest {
   AutoMLJobName: string;
 }
@@ -12079,7 +12077,7 @@ export interface StopTrainingJobRequest {
 export interface StopTransformJobRequest {
   TransformJobName: string;
 }
-export type StorageType = "STANDARD" | "IN_MEMORY";
+export type StorageType = "Standard" | "InMemory";
 export type StreamUrl = string;
 
 export type SagemakerString = string;
@@ -12127,7 +12125,7 @@ export type StudioLifecycleConfigSortKey =
   | "CreationTime"
   | "LastModifiedTime"
   | "Name";
-export type StudioWebPortal = "Enabled" | "Disabled";
+export type StudioWebPortal = "ENABLED" | "DISABLED";
 export interface StudioWebPortalSettings {
   HiddenMlTools?: Array<MlTools>;
   HiddenAppTypes?: Array<AppType>;
@@ -12150,7 +12148,7 @@ export type Success = boolean;
 export interface SuggestionQuery {
   PropertyNameQuery?: PropertyNameQuery;
 }
-export type TableFormat = "DEFAULT" | "GLUE" | "ICEBERG";
+export type TableFormat = "Default" | "Glue" | "Iceberg";
 export type TableName = string;
 
 export interface TabularJobConfig {
@@ -12180,43 +12178,43 @@ export type TagValue = string;
 export type TargetAttributeName = string;
 
 export type TargetDevice =
-  | "LAMBDA"
-  | "ML_M4"
-  | "ML_M5"
-  | "ML_M6G"
-  | "ML_C4"
-  | "ML_C5"
-  | "ML_C6G"
-  | "ML_P2"
-  | "ML_P3"
-  | "ML_G4DN"
-  | "ML_INF1"
-  | "ML_INF2"
-  | "ML_TRN1"
-  | "ML_EIA2"
-  | "JETSON_TX1"
-  | "JETSON_TX2"
-  | "JETSON_NANO"
-  | "JETSON_XAVIER"
-  | "RASP3B"
-  | "RASP4B"
-  | "IMX8QM"
-  | "DEEPLENS"
-  | "RK3399"
-  | "RK3288"
-  | "AISAGE"
-  | "SBE_C"
-  | "QCS605"
-  | "QCS603"
-  | "SITARA_AM57X"
-  | "AMBA_CV2"
-  | "AMBA_CV22"
-  | "AMBA_CV25"
-  | "X86_WIN32"
-  | "X86_WIN64"
-  | "COREML"
-  | "JACINTO_TDA4VM"
-  | "IMX8MPLUS";
+  | "lambda"
+  | "ml_m4"
+  | "ml_m5"
+  | "ml_m6g"
+  | "ml_c4"
+  | "ml_c5"
+  | "ml_c6g"
+  | "ml_p2"
+  | "ml_p3"
+  | "ml_g4dn"
+  | "ml_inf1"
+  | "ml_inf2"
+  | "ml_trn1"
+  | "ml_eia2"
+  | "jetson_tx1"
+  | "jetson_tx2"
+  | "jetson_nano"
+  | "jetson_xavier"
+  | "rasp3b"
+  | "rasp4b"
+  | "imx8qm"
+  | "deeplens"
+  | "rk3399"
+  | "rk3288"
+  | "aisage"
+  | "sbe_c"
+  | "qcs605"
+  | "qcs603"
+  | "sitara_am57x"
+  | "amba_cv2"
+  | "amba_cv22"
+  | "amba_cv25"
+  | "x86_win32"
+  | "x86_win64"
+  | "coreml"
+  | "jacinto_tda4vm"
+  | "imx8mplus";
 export type TargetLabelColumn = string;
 
 export type TargetObjectiveMetricValue = number;
@@ -12314,7 +12312,7 @@ export interface ThroughputConfigUpdate {
   ProvisionedReadCapacityUnits?: number;
   ProvisionedWriteCapacityUnits?: number;
 }
-export type ThroughputMode = "ON_DEMAND" | "PROVISIONED";
+export type ThroughputMode = "OnDemand" | "Provisioned";
 export interface TimeSeriesConfig {
   TargetAttributeName: string;
   TimestampAttributeName: string;
@@ -12355,30 +12353,30 @@ export type TotalInstanceCount = number;
 export type TrackingServerArn = string;
 
 export type TrackingServerMaintenanceStatus =
-  | "MAINTENANCE_IN_PROGRESS"
-  | "MAINTENANCE_COMPLETE"
-  | "MAINTENANCE_FAILED";
+  | "MaintenanceInProgress"
+  | "MaintenanceComplete"
+  | "MaintenanceFailed";
 export type TrackingServerName = string;
 
-export type TrackingServerSize = "S" | "M" | "L";
+export type TrackingServerSize = "Small" | "Medium" | "Large";
 export type TrackingServerStatus =
-  | "CREATING"
-  | "CREATED"
-  | "CREATE_FAILED"
-  | "UPDATING"
-  | "UPDATED"
-  | "UPDATE_FAILED"
-  | "DELETING"
-  | "DELETE_FAILED"
-  | "STOPPING"
-  | "STOPPED"
-  | "STOP_FAILED"
-  | "STARTING"
-  | "STARTED"
-  | "START_FAILED"
-  | "MAINTENANCE_IN_PROGRESS"
-  | "MAINTENANCE_COMPLETE"
-  | "MAINTENANCE_FAILED";
+  | "Creating"
+  | "Created"
+  | "CreateFailed"
+  | "Updating"
+  | "Updated"
+  | "UpdateFailed"
+  | "Deleting"
+  | "DeleteFailed"
+  | "Stopping"
+  | "Stopped"
+  | "StopFailed"
+  | "Starting"
+  | "Started"
+  | "StartFailed"
+  | "MaintenanceInProgress"
+  | "MaintenanceComplete"
+  | "MaintenanceFailed";
 export interface TrackingServerSummary {
   TrackingServerArn?: string;
   TrackingServerName?: string;
@@ -12421,146 +12419,146 @@ export interface TrainingImageConfig {
   TrainingRepositoryAccessMode: TrainingRepositoryAccessMode;
   TrainingRepositoryAuthConfig?: TrainingRepositoryAuthConfig;
 }
-export type TrainingInputMode = "PIPE" | "FILE" | "FASTFILE";
+export type TrainingInputMode = "Pipe" | "File" | "FastFile";
 export type TrainingInstanceCount = number;
 
 export type TrainingInstanceType =
-  | "ML_M4_XLARGE"
-  | "ML_M4_2XLARGE"
-  | "ML_M4_4XLARGE"
-  | "ML_M4_10XLARGE"
-  | "ML_M4_16XLARGE"
-  | "ML_G4DN_XLARGE"
-  | "ML_G4DN_2XLARGE"
-  | "ML_G4DN_4XLARGE"
-  | "ML_G4DN_8XLARGE"
-  | "ML_G4DN_12XLARGE"
-  | "ML_G4DN_16XLARGE"
-  | "ML_M5_LARGE"
-  | "ML_M5_XLARGE"
-  | "ML_M5_2XLARGE"
-  | "ML_M5_4XLARGE"
-  | "ML_M5_12XLARGE"
-  | "ML_M5_24XLARGE"
-  | "ML_C4_XLARGE"
-  | "ML_C4_2XLARGE"
-  | "ML_C4_4XLARGE"
-  | "ML_C4_8XLARGE"
-  | "ML_P2_XLARGE"
-  | "ML_P2_8XLARGE"
-  | "ML_P2_16XLARGE"
-  | "ML_P3_2XLARGE"
-  | "ML_P3_8XLARGE"
-  | "ML_P3_16XLARGE"
-  | "ML_P3DN_24XLARGE"
-  | "ML_P4D_24XLARGE"
-  | "ML_P4DE_24XLARGE"
-  | "ML_P5_48XLARGE"
-  | "ML_P5E_48XLARGE"
-  | "ML_P5EN_48XLARGE"
-  | "ML_C5_XLARGE"
-  | "ML_C5_2XLARGE"
-  | "ML_C5_4XLARGE"
-  | "ML_C5_9XLARGE"
-  | "ML_C5_18XLARGE"
-  | "ML_C5N_XLARGE"
-  | "ML_C5N_2XLARGE"
-  | "ML_C5N_4XLARGE"
-  | "ML_C5N_9XLARGE"
-  | "ML_C5N_18XLARGE"
-  | "ML_G5_XLARGE"
-  | "ML_G5_2XLARGE"
-  | "ML_G5_4XLARGE"
-  | "ML_G5_8XLARGE"
-  | "ML_G5_16XLARGE"
-  | "ML_G5_12XLARGE"
-  | "ML_G5_24XLARGE"
-  | "ML_G5_48XLARGE"
-  | "ML_G6_XLARGE"
-  | "ML_G6_2XLARGE"
-  | "ML_G6_4XLARGE"
-  | "ML_G6_8XLARGE"
-  | "ML_G6_16XLARGE"
-  | "ML_G6_12XLARGE"
-  | "ML_G6_24XLARGE"
-  | "ML_G6_48XLARGE"
-  | "ML_G6E_XLARGE"
-  | "ML_G6E_2XLARGE"
-  | "ML_G6E_4XLARGE"
-  | "ML_G6E_8XLARGE"
-  | "ML_G6E_16XLARGE"
-  | "ML_G6E_12XLARGE"
-  | "ML_G6E_24XLARGE"
-  | "ML_G6E_48XLARGE"
-  | "ML_TRN1_2XLARGE"
-  | "ML_TRN1_32XLARGE"
-  | "ML_TRN1N_32XLARGE"
-  | "ML_TRN2_48XLARGE"
-  | "ML_M6I_LARGE"
-  | "ML_M6I_XLARGE"
-  | "ML_M6I_2XLARGE"
-  | "ML_M6I_4XLARGE"
-  | "ML_M6I_8XLARGE"
-  | "ML_M6I_12XLARGE"
-  | "ML_M6I_16XLARGE"
-  | "ML_M6I_24XLARGE"
-  | "ML_M6I_32XLARGE"
-  | "ML_C6I_XLARGE"
-  | "ML_C6I_2XLARGE"
-  | "ML_C6I_8XLARGE"
-  | "ML_C6I_4XLARGE"
-  | "ML_C6I_12XLARGE"
-  | "ML_C6I_16XLARGE"
-  | "ML_C6I_24XLARGE"
-  | "ML_C6I_32XLARGE"
-  | "ML_R5D_LARGE"
-  | "ML_R5D_XLARGE"
-  | "ML_R5D_2XLARGE"
-  | "ML_R5D_4XLARGE"
-  | "ML_R5D_8XLARGE"
-  | "ML_R5D_12XLARGE"
-  | "ML_R5D_16XLARGE"
-  | "ML_R5D_24XLARGE"
-  | "ML_T3_MEDIUM"
-  | "ML_T3_LARGE"
-  | "ML_T3_XLARGE"
-  | "ML_T3_2XLARGE"
-  | "ML_R5_LARGE"
-  | "ML_R5_XLARGE"
-  | "ML_R5_2XLARGE"
-  | "ML_R5_4XLARGE"
-  | "ML_R5_8XLARGE"
-  | "ML_R5_12XLARGE"
-  | "ML_R5_16XLARGE"
-  | "ML_R5_24XLARGE"
-  | "ML_P6_B200_48XLARGE"
-  | "ML_M7I_LARGE"
-  | "ML_M7I_XLARGE"
-  | "ML_M7I_2XLARGE"
-  | "ML_M7I_4XLARGE"
-  | "ML_M7I_8XLARGE"
-  | "ML_M7I_12XLARGE"
-  | "ML_M7I_16XLARGE"
-  | "ML_M7I_24XLARGE"
-  | "ML_M7I_48XLARGE"
-  | "ML_C7I_LARGE"
-  | "ML_C7I_XLARGE"
-  | "ML_C7I_2XLARGE"
-  | "ML_C7I_4XLARGE"
-  | "ML_C7I_8XLARGE"
-  | "ML_C7I_12XLARGE"
-  | "ML_C7I_16XLARGE"
-  | "ML_C7I_24XLARGE"
-  | "ML_C7I_48XLARGE"
-  | "ML_R7I_LARGE"
-  | "ML_R7I_XLARGE"
-  | "ML_R7I_2XLARGE"
-  | "ML_R7I_4XLARGE"
-  | "ML_R7I_8XLARGE"
-  | "ML_R7I_12XLARGE"
-  | "ML_R7I_16XLARGE"
-  | "ML_R7I_24XLARGE"
-  | "ML_R7I_48XLARGE";
+  | "ml.m4.xlarge"
+  | "ml.m4.2xlarge"
+  | "ml.m4.4xlarge"
+  | "ml.m4.10xlarge"
+  | "ml.m4.16xlarge"
+  | "ml.g4dn.xlarge"
+  | "ml.g4dn.2xlarge"
+  | "ml.g4dn.4xlarge"
+  | "ml.g4dn.8xlarge"
+  | "ml.g4dn.12xlarge"
+  | "ml.g4dn.16xlarge"
+  | "ml.m5.large"
+  | "ml.m5.xlarge"
+  | "ml.m5.2xlarge"
+  | "ml.m5.4xlarge"
+  | "ml.m5.12xlarge"
+  | "ml.m5.24xlarge"
+  | "ml.c4.xlarge"
+  | "ml.c4.2xlarge"
+  | "ml.c4.4xlarge"
+  | "ml.c4.8xlarge"
+  | "ml.p2.xlarge"
+  | "ml.p2.8xlarge"
+  | "ml.p2.16xlarge"
+  | "ml.p3.2xlarge"
+  | "ml.p3.8xlarge"
+  | "ml.p3.16xlarge"
+  | "ml.p3dn.24xlarge"
+  | "ml.p4d.24xlarge"
+  | "ml.p4de.24xlarge"
+  | "ml.p5.48xlarge"
+  | "ml.p5e.48xlarge"
+  | "ml.p5en.48xlarge"
+  | "ml.c5.xlarge"
+  | "ml.c5.2xlarge"
+  | "ml.c5.4xlarge"
+  | "ml.c5.9xlarge"
+  | "ml.c5.18xlarge"
+  | "ml.c5n.xlarge"
+  | "ml.c5n.2xlarge"
+  | "ml.c5n.4xlarge"
+  | "ml.c5n.9xlarge"
+  | "ml.c5n.18xlarge"
+  | "ml.g5.xlarge"
+  | "ml.g5.2xlarge"
+  | "ml.g5.4xlarge"
+  | "ml.g5.8xlarge"
+  | "ml.g5.16xlarge"
+  | "ml.g5.12xlarge"
+  | "ml.g5.24xlarge"
+  | "ml.g5.48xlarge"
+  | "ml.g6.xlarge"
+  | "ml.g6.2xlarge"
+  | "ml.g6.4xlarge"
+  | "ml.g6.8xlarge"
+  | "ml.g6.16xlarge"
+  | "ml.g6.12xlarge"
+  | "ml.g6.24xlarge"
+  | "ml.g6.48xlarge"
+  | "ml.g6e.xlarge"
+  | "ml.g6e.2xlarge"
+  | "ml.g6e.4xlarge"
+  | "ml.g6e.8xlarge"
+  | "ml.g6e.16xlarge"
+  | "ml.g6e.12xlarge"
+  | "ml.g6e.24xlarge"
+  | "ml.g6e.48xlarge"
+  | "ml.trn1.2xlarge"
+  | "ml.trn1.32xlarge"
+  | "ml.trn1n.32xlarge"
+  | "ml.trn2.48xlarge"
+  | "ml.m6i.large"
+  | "ml.m6i.xlarge"
+  | "ml.m6i.2xlarge"
+  | "ml.m6i.4xlarge"
+  | "ml.m6i.8xlarge"
+  | "ml.m6i.12xlarge"
+  | "ml.m6i.16xlarge"
+  | "ml.m6i.24xlarge"
+  | "ml.m6i.32xlarge"
+  | "ml.c6i.xlarge"
+  | "ml.c6i.2xlarge"
+  | "ml.c6i.8xlarge"
+  | "ml.c6i.4xlarge"
+  | "ml.c6i.12xlarge"
+  | "ml.c6i.16xlarge"
+  | "ml.c6i.24xlarge"
+  | "ml.c6i.32xlarge"
+  | "ml.r5d.large"
+  | "ml.r5d.xlarge"
+  | "ml.r5d.2xlarge"
+  | "ml.r5d.4xlarge"
+  | "ml.r5d.8xlarge"
+  | "ml.r5d.12xlarge"
+  | "ml.r5d.16xlarge"
+  | "ml.r5d.24xlarge"
+  | "ml.t3.medium"
+  | "ml.t3.large"
+  | "ml.t3.xlarge"
+  | "ml.t3.2xlarge"
+  | "ml.r5.large"
+  | "ml.r5.xlarge"
+  | "ml.r5.2xlarge"
+  | "ml.r5.4xlarge"
+  | "ml.r5.8xlarge"
+  | "ml.r5.12xlarge"
+  | "ml.r5.16xlarge"
+  | "ml.r5.24xlarge"
+  | "ml.p6-b200.48xlarge"
+  | "ml.m7i.large"
+  | "ml.m7i.xlarge"
+  | "ml.m7i.2xlarge"
+  | "ml.m7i.4xlarge"
+  | "ml.m7i.8xlarge"
+  | "ml.m7i.12xlarge"
+  | "ml.m7i.16xlarge"
+  | "ml.m7i.24xlarge"
+  | "ml.m7i.48xlarge"
+  | "ml.c7i.large"
+  | "ml.c7i.xlarge"
+  | "ml.c7i.2xlarge"
+  | "ml.c7i.4xlarge"
+  | "ml.c7i.8xlarge"
+  | "ml.c7i.12xlarge"
+  | "ml.c7i.16xlarge"
+  | "ml.c7i.24xlarge"
+  | "ml.c7i.48xlarge"
+  | "ml.r7i.large"
+  | "ml.r7i.xlarge"
+  | "ml.r7i.2xlarge"
+  | "ml.r7i.4xlarge"
+  | "ml.r7i.8xlarge"
+  | "ml.r7i.12xlarge"
+  | "ml.r7i.16xlarge"
+  | "ml.r7i.24xlarge"
+  | "ml.r7i.48xlarge";
 export type TrainingInstanceTypes = Array<TrainingInstanceType>;
 export interface TrainingJob {
   TrainingJobName?: string;
@@ -12612,7 +12610,7 @@ export interface TrainingJobDefinition {
   ResourceConfig: ResourceConfig;
   StoppingCondition: StoppingCondition;
 }
-export type TrainingJobEarlyStoppingType = "OFF" | "AUTO";
+export type TrainingJobEarlyStoppingType = "Off" | "Auto";
 export type TrainingJobName = string;
 
 export type TrainingJobSortByOptions =
@@ -12621,11 +12619,11 @@ export type TrainingJobSortByOptions =
   | "Status"
   | "FinalObjectiveMetricValue";
 export type TrainingJobStatus =
-  | "IN_PROGRESS"
-  | "COMPLETED"
-  | "FAILED"
-  | "STOPPING"
-  | "STOPPED";
+  | "InProgress"
+  | "Completed"
+  | "Failed"
+  | "Stopping"
+  | "Stopped";
 export type TrainingJobStatusCounter = number;
 
 export interface TrainingJobStatusCounters {
@@ -12663,7 +12661,7 @@ export interface TrainingPlanFilter {
   Name: TrainingPlanFilterName;
   Value: string;
 }
-export type TrainingPlanFilterName = "STATUS";
+export type TrainingPlanFilterName = "Status";
 export type TrainingPlanFilters = Array<TrainingPlanFilter>;
 export type TrainingPlanName = string;
 
@@ -12681,14 +12679,14 @@ export interface TrainingPlanOffering {
 export type TrainingPlanOfferingId = string;
 
 export type TrainingPlanOfferings = Array<TrainingPlanOffering>;
-export type TrainingPlanSortBy = "NAME" | "START_TIME" | "STATUS";
-export type TrainingPlanSortOrder = "ASCENDING" | "DESCENDING";
+export type TrainingPlanSortBy = "TrainingPlanName" | "StartTime" | "Status";
+export type TrainingPlanSortOrder = "Ascending" | "Descending";
 export type TrainingPlanStatus =
-  | "PENDING"
-  | "ACTIVE"
-  | "SCHEDULED"
-  | "EXPIRED"
-  | "FAILED";
+  | "Pending"
+  | "Active"
+  | "Scheduled"
+  | "Expired"
+  | "Failed";
 export type TrainingPlanStatusMessage = string;
 
 export type TrainingPlanSummaries = Array<TrainingPlanSummary>;
@@ -12709,7 +12707,7 @@ export interface TrainingPlanSummary {
   TargetResources?: Array<SageMakerResourceName>;
   ReservedCapacitySummaries?: Array<ReservedCapacitySummary>;
 }
-export type TrainingRepositoryAccessMode = "PLATFORM" | "VPC";
+export type TrainingRepositoryAccessMode = "Platform" | "Vpc";
 export interface TrainingRepositoryAuthConfig {
   TrainingRepositoryCredentialsProviderArn: string;
 }
@@ -12749,106 +12747,106 @@ export interface TransformInput {
 export type TransformInstanceCount = number;
 
 export type TransformInstanceType =
-  | "ML_M4_XLARGE"
-  | "ML_M4_2XLARGE"
-  | "ML_M4_4XLARGE"
-  | "ML_M4_10XLARGE"
-  | "ML_M4_16XLARGE"
-  | "ML_C4_XLARGE"
-  | "ML_C4_2XLARGE"
-  | "ML_C4_4XLARGE"
-  | "ML_C4_8XLARGE"
-  | "ML_P2_XLARGE"
-  | "ML_P2_8XLARGE"
-  | "ML_P2_16XLARGE"
-  | "ML_P3_2XLARGE"
-  | "ML_P3_8XLARGE"
-  | "ML_P3_16XLARGE"
-  | "ML_C5_XLARGE"
-  | "ML_C5_2XLARGE"
-  | "ML_C5_4XLARGE"
-  | "ML_C5_9XLARGE"
-  | "ML_C5_18XLARGE"
-  | "ML_M5_LARGE"
-  | "ML_M5_XLARGE"
-  | "ML_M5_2XLARGE"
-  | "ML_M5_4XLARGE"
-  | "ML_M5_12XLARGE"
-  | "ML_M5_24XLARGE"
-  | "ML_M6I_LARGE"
-  | "ML_M6I_XLARGE"
-  | "ML_M6I_2XLARGE"
-  | "ML_M6I_4XLARGE"
-  | "ML_M6I_8XLARGE"
-  | "ML_M6I_12XLARGE"
-  | "ML_M6I_16XLARGE"
-  | "ML_M6I_24XLARGE"
-  | "ML_M6I_32XLARGE"
-  | "ML_C6I_LARGE"
-  | "ML_C6I_XLARGE"
-  | "ML_C6I_2XLARGE"
-  | "ML_C6I_4XLARGE"
-  | "ML_C6I_8XLARGE"
-  | "ML_C6I_12XLARGE"
-  | "ML_C6I_16XLARGE"
-  | "ML_C6I_24XLARGE"
-  | "ML_C6I_32XLARGE"
-  | "ML_R6I_LARGE"
-  | "ML_R6I_XLARGE"
-  | "ML_R6I_2XLARGE"
-  | "ML_R6I_4XLARGE"
-  | "ML_R6I_8XLARGE"
-  | "ML_R6I_12XLARGE"
-  | "ML_R6I_16XLARGE"
-  | "ML_R6I_24XLARGE"
-  | "ML_R6I_32XLARGE"
-  | "ML_M7I_LARGE"
-  | "ML_M7I_XLARGE"
-  | "ML_M7I_2XLARGE"
-  | "ML_M7I_4XLARGE"
-  | "ML_M7I_8XLARGE"
-  | "ML_M7I_12XLARGE"
-  | "ML_M7I_16XLARGE"
-  | "ML_M7I_24XLARGE"
-  | "ML_M7I_48XLARGE"
-  | "ML_C7I_LARGE"
-  | "ML_C7I_XLARGE"
-  | "ML_C7I_2XLARGE"
-  | "ML_C7I_4XLARGE"
-  | "ML_C7I_8XLARGE"
-  | "ML_C7I_12XLARGE"
-  | "ML_C7I_16XLARGE"
-  | "ML_C7I_24XLARGE"
-  | "ML_C7I_48XLARGE"
-  | "ML_R7I_LARGE"
-  | "ML_R7I_XLARGE"
-  | "ML_R7I_2XLARGE"
-  | "ML_R7I_4XLARGE"
-  | "ML_R7I_8XLARGE"
-  | "ML_R7I_12XLARGE"
-  | "ML_R7I_16XLARGE"
-  | "ML_R7I_24XLARGE"
-  | "ML_R7I_48XLARGE"
-  | "ML_G4DN_XLARGE"
-  | "ML_G4DN_2XLARGE"
-  | "ML_G4DN_4XLARGE"
-  | "ML_G4DN_8XLARGE"
-  | "ML_G4DN_12XLARGE"
-  | "ML_G4DN_16XLARGE"
-  | "ML_G5_XLARGE"
-  | "ML_G5_2XLARGE"
-  | "ML_G5_4XLARGE"
-  | "ML_G5_8XLARGE"
-  | "ML_G5_12XLARGE"
-  | "ML_G5_16XLARGE"
-  | "ML_G5_24XLARGE"
-  | "ML_G5_48XLARGE"
-  | "ML_TRN1_2XLARGE"
-  | "ML_TRN1_32XLARGE"
-  | "ML_INF2_XLARGE"
-  | "ML_INF2_8XLARGE"
-  | "ML_INF2_24XLARGE"
-  | "ML_INF2_48XLARGE";
+  | "ml.m4.xlarge"
+  | "ml.m4.2xlarge"
+  | "ml.m4.4xlarge"
+  | "ml.m4.10xlarge"
+  | "ml.m4.16xlarge"
+  | "ml.c4.xlarge"
+  | "ml.c4.2xlarge"
+  | "ml.c4.4xlarge"
+  | "ml.c4.8xlarge"
+  | "ml.p2.xlarge"
+  | "ml.p2.8xlarge"
+  | "ml.p2.16xlarge"
+  | "ml.p3.2xlarge"
+  | "ml.p3.8xlarge"
+  | "ml.p3.16xlarge"
+  | "ml.c5.xlarge"
+  | "ml.c5.2xlarge"
+  | "ml.c5.4xlarge"
+  | "ml.c5.9xlarge"
+  | "ml.c5.18xlarge"
+  | "ml.m5.large"
+  | "ml.m5.xlarge"
+  | "ml.m5.2xlarge"
+  | "ml.m5.4xlarge"
+  | "ml.m5.12xlarge"
+  | "ml.m5.24xlarge"
+  | "ml.m6i.large"
+  | "ml.m6i.xlarge"
+  | "ml.m6i.2xlarge"
+  | "ml.m6i.4xlarge"
+  | "ml.m6i.8xlarge"
+  | "ml.m6i.12xlarge"
+  | "ml.m6i.16xlarge"
+  | "ml.m6i.24xlarge"
+  | "ml.m6i.32xlarge"
+  | "ml.c6i.large"
+  | "ml.c6i.xlarge"
+  | "ml.c6i.2xlarge"
+  | "ml.c6i.4xlarge"
+  | "ml.c6i.8xlarge"
+  | "ml.c6i.12xlarge"
+  | "ml.c6i.16xlarge"
+  | "ml.c6i.24xlarge"
+  | "ml.c6i.32xlarge"
+  | "ml.r6i.large"
+  | "ml.r6i.xlarge"
+  | "ml.r6i.2xlarge"
+  | "ml.r6i.4xlarge"
+  | "ml.r6i.8xlarge"
+  | "ml.r6i.12xlarge"
+  | "ml.r6i.16xlarge"
+  | "ml.r6i.24xlarge"
+  | "ml.r6i.32xlarge"
+  | "ml.m7i.large"
+  | "ml.m7i.xlarge"
+  | "ml.m7i.2xlarge"
+  | "ml.m7i.4xlarge"
+  | "ml.m7i.8xlarge"
+  | "ml.m7i.12xlarge"
+  | "ml.m7i.16xlarge"
+  | "ml.m7i.24xlarge"
+  | "ml.m7i.48xlarge"
+  | "ml.c7i.large"
+  | "ml.c7i.xlarge"
+  | "ml.c7i.2xlarge"
+  | "ml.c7i.4xlarge"
+  | "ml.c7i.8xlarge"
+  | "ml.c7i.12xlarge"
+  | "ml.c7i.16xlarge"
+  | "ml.c7i.24xlarge"
+  | "ml.c7i.48xlarge"
+  | "ml.r7i.large"
+  | "ml.r7i.xlarge"
+  | "ml.r7i.2xlarge"
+  | "ml.r7i.4xlarge"
+  | "ml.r7i.8xlarge"
+  | "ml.r7i.12xlarge"
+  | "ml.r7i.16xlarge"
+  | "ml.r7i.24xlarge"
+  | "ml.r7i.48xlarge"
+  | "ml.g4dn.xlarge"
+  | "ml.g4dn.2xlarge"
+  | "ml.g4dn.4xlarge"
+  | "ml.g4dn.8xlarge"
+  | "ml.g4dn.12xlarge"
+  | "ml.g4dn.16xlarge"
+  | "ml.g5.xlarge"
+  | "ml.g5.2xlarge"
+  | "ml.g5.4xlarge"
+  | "ml.g5.8xlarge"
+  | "ml.g5.12xlarge"
+  | "ml.g5.16xlarge"
+  | "ml.g5.24xlarge"
+  | "ml.g5.48xlarge"
+  | "ml.trn1.2xlarge"
+  | "ml.trn1.32xlarge"
+  | "ml.inf2.xlarge"
+  | "ml.inf2.8xlarge"
+  | "ml.inf2.24xlarge"
+  | "ml.inf2.48xlarge";
 export type TransformInstanceTypes = Array<TransformInstanceType>;
 export interface TransformJob {
   TransformJobName?: string;
@@ -12888,11 +12886,11 @@ export interface TransformJobDefinition {
 export type TransformJobName = string;
 
 export type TransformJobStatus =
-  | "IN_PROGRESS"
-  | "COMPLETED"
-  | "FAILED"
-  | "STOPPING"
-  | "STOPPED";
+  | "InProgress"
+  | "Completed"
+  | "Failed"
+  | "Stopping"
+  | "Stopped";
 export interface TransformJobStepMetadata {
   Arn?: string;
 }
@@ -13001,11 +12999,11 @@ export type TrialComponentParameterValue =
   | (_TrialComponentParameterValue & { StringValue: string })
   | (_TrialComponentParameterValue & { NumberValue: number });
 export type TrialComponentPrimaryStatus =
-  | "IN_PROGRESS"
-  | "COMPLETED"
-  | "FAILED"
-  | "STOPPING"
-  | "STOPPED";
+  | "InProgress"
+  | "Completed"
+  | "Failed"
+  | "Stopping"
+  | "Stopped";
 export type TrialComponentSimpleSummaries = Array<TrialComponentSimpleSummary>;
 export interface TrialComponentSimpleSummary {
   TrialComponentName?: string;
@@ -13067,11 +13065,11 @@ export interface TtlDuration {
   Value?: number;
 }
 export type TtlDurationUnit =
-  | "SECONDS"
-  | "MINUTES"
-  | "HOURS"
-  | "DAYS"
-  | "WEEKS";
+  | "Seconds"
+  | "Minutes"
+  | "Hours"
+  | "Days"
+  | "Weeks";
 export type TtlDurationValue = number;
 
 export interface TuningJobCompletionCriteria {
@@ -13629,11 +13627,11 @@ export type VariantPropertyType =
   | "DesiredWeight"
   | "DataCaptureConfig";
 export type VariantStatus =
-  | "CREATING"
-  | "UPDATING"
-  | "DELETING"
-  | "ACTIVATING_TRAFFIC"
-  | "BAKING";
+  | "Creating"
+  | "Updating"
+  | "Deleting"
+  | "ActivatingTraffic"
+  | "Baking";
 export type VariantStatusMessage = string;
 
 export type VariantWeight = number;
@@ -13681,10 +13679,10 @@ export type WaitIntervalInSeconds = number;
 export type WaitTimeIntervalInSeconds = number;
 
 export type WarmPoolResourceStatus =
-  | "AVAILABLE"
-  | "TERMINATED"
-  | "REUSED"
-  | "INUSE";
+  | "Available"
+  | "Terminated"
+  | "Reused"
+  | "InUse";
 export interface WarmPoolStatus {
   Status: WarmPoolResourceStatus;
   ResourceRetainedBillableTimeInSeconds?: number;
@@ -13723,11 +13721,11 @@ export type WorkforceSecurityGroupId = string;
 
 export type WorkforceSecurityGroupIds = Array<string>;
 export type WorkforceStatus =
-  | "INITIALIZING"
-  | "UPDATING"
-  | "DELETING"
-  | "FAILED"
-  | "ACTIVE";
+  | "Initializing"
+  | "Updating"
+  | "Deleting"
+  | "Failed"
+  | "Active";
 export type WorkforceSubnetId = string;
 
 export type WorkforceSubnets = Array<string>;

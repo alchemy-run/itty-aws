@@ -497,7 +497,7 @@ export type ErrorDetailList = Array<ErrorDetail>;
 export type Errors = Record<string, BatchDescribeErrorDetail>;
 export type ExceptionMessageContent = string;
 
-export type FailureCode = "ClientError" | "ServerFault";
+export type FailureCode = "CLIENT_ERROR" | "SERVER_FAULT";
 export interface Filter {
   Name?: string;
   ValueList?: Array<string>;

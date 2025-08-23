@@ -993,7 +993,7 @@ export type ControlSources = string;
 
 export type ControlState = "ACTIVE" | "END_OF_SUPPORT";
 export type ControlStatus = "UNDER_REVIEW" | "REVIEWED" | "INACTIVE";
-export type ControlType = "STANDARD" | "CUSTOM" | "CORE";
+export type ControlType = "Standard" | "Custom" | "Core";
 export interface CreateAssessmentFrameworkControl {
   id: string;
 }
@@ -1068,10 +1068,10 @@ export interface CreateDelegationRequest {
 }
 export type CreateDelegationRequests = Array<CreateDelegationRequest>;
 export type DataSourceType =
-  | "AWS_CLOUDTRAIL"
-  | "AWS_CONFIG"
-  | "AWS_SECURITY_HUB"
-  | "AWS_API_CALL"
+  | "AWS_Cloudtrail"
+  | "AWS_Config"
+  | "AWS_Security_Hub"
+  | "AWS_API_Call"
   | "MANUAL";
 export interface DefaultExportDestination {
   destinationType?: ExportDestinationType;
@@ -1227,7 +1227,7 @@ export interface FrameworkMetadata {
 export type FrameworkMetadataList = Array<AssessmentFrameworkMetadata>;
 export type FrameworkName = string;
 
-export type FrameworkType = "STANDARD" | "CUSTOM";
+export type FrameworkType = "Standard" | "Custom";
 export type GenericArn = string;
 
 export interface GetAccountStatusRequest {}
@@ -1639,16 +1639,16 @@ export interface SourceKeyword {
 export type SourceName = string;
 
 export type SourceSetUpOption =
-  | "SYSTEM_CONTROLS_MAPPING"
-  | "PROCEDURAL_CONTROLS_MAPPING";
+  | "System_Controls_Mapping"
+  | "Procedural_Controls_Mapping";
 export type SourceType =
-  | "AWS_CLOUDTRAIL"
-  | "AWS_CONFIG"
-  | "AWS_SECURITY_HUB"
-  | "AWS_API_CALL"
+  | "AWS_Cloudtrail"
+  | "AWS_Config"
+  | "AWS_Security_Hub"
+  | "AWS_API_Call"
   | "MANUAL"
-  | "COMMON_CONTROL"
-  | "CORE_CONTROL";
+  | "Common_Control"
+  | "Core_Control";
 export interface StartAssessmentFrameworkShareRequest {
   frameworkId: string;
   destinationAccount: string;
@@ -1811,10 +1811,10 @@ export interface ValidationExceptionField {
 }
 export type ValidationExceptionFieldList = Array<ValidationExceptionField>;
 export type ValidationExceptionReason =
-  | "UNKNOWN_OPERATION"
-  | "CANNOT_PARSE"
-  | "FIELD_VALIDATION_FAILED"
-  | "OTHER";
+  | "unknownOperation"
+  | "cannotParse"
+  | "fieldValidationFailed"
+  | "other";
 export declare namespace AssociateAssessmentReportEvidenceFolder {
   export type Input = AssociateAssessmentReportEvidenceFolderRequest;
   export type Output = AssociateAssessmentReportEvidenceFolderResponse;

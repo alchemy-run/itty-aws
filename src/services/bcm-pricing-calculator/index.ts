@@ -1172,12 +1172,12 @@ export interface ValidationExceptionField {
 }
 export type ValidationExceptionFieldList = Array<ValidationExceptionField>;
 export type ValidationExceptionReason =
-  | "UNKNOWN_OPERATION"
-  | "CANNOT_PARSE"
-  | "FIELD_VALIDATION_FAILED"
-  | "INVALID_REQUEST_FROM_MEMBER"
-  | "DISALLOWED_RATE"
-  | "OTHER";
+  | "unknownOperation"
+  | "cannotParse"
+  | "fieldValidationFailed"
+  | "invalidRequestFromMember"
+  | "disallowedRate"
+  | "other";
 export type WorkloadEstimateCostStatus = "VALID" | "INVALID" | "STALE";
 export type WorkloadEstimateName = string;
 

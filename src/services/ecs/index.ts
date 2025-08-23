@@ -676,7 +676,7 @@ export type AgentUpdateStatus =
   | "UPDATING"
   | "UPDATED"
   | "FAILED";
-export type ApplicationProtocol = "HTTP" | "HTTP2" | "GRPC";
+export type ApplicationProtocol = "http" | "http2" | "grpc";
 export type AssignPublicIp = "ENABLED" | "DISABLED";
 export interface Attachment {
   id?: string;
@@ -826,7 +826,7 @@ export interface ClusterSetting {
   name?: ClusterSettingName;
   value?: string;
 }
-export type ClusterSettingName = "CONTAINER_INSIGHTS";
+export type ClusterSettingName = "containerInsights";
 export type ClusterSettings = Array<ClusterSetting>;
 export type Compatibility = "EC2" | "FARGATE" | "EXTERNAL";
 export type CompatibilityList = Array<Compatibility>;
@@ -1262,7 +1262,7 @@ export interface Device {
   containerPath?: string;
   permissions?: Array<DeviceCgroupPermission>;
 }
-export type DeviceCgroupPermission = "READ" | "WRITE" | "MKNOD";
+export type DeviceCgroupPermission = "read" | "write" | "mknod";
 export type DeviceCgroupPermissions = Array<DeviceCgroupPermission>;
 export type DevicesList = Array<Device>;
 export interface DiscoverPollEndpointRequest {
@@ -1288,7 +1288,7 @@ export type Duration = number;
 
 export type EBSKMSKeyId = string;
 
-export type EBSResourceType = "VOLUME";
+export type EBSResourceType = "volume";
 export type EBSSnapshotId = string;
 
 export interface EBSTagSpecification {
@@ -1319,7 +1319,7 @@ export interface EnvironmentFile {
   type: EnvironmentFileType;
 }
 export type EnvironmentFiles = Array<EnvironmentFile>;
-export type EnvironmentFileType = "S3";
+export type EnvironmentFileType = "s3";
 export type EnvironmentVariables = Array<KeyValuePair>;
 export interface EphemeralStorage {
   sizeInGiB: number;
@@ -1363,7 +1363,7 @@ export interface FirelensConfiguration {
   options?: Record<string, string>;
 }
 export type FirelensConfigurationOptionsMap = Record<string, string>;
-export type FirelensConfigurationType = "FLUENTD" | "FLUENTBIT";
+export type FirelensConfigurationType = "fluentd" | "fluentbit";
 export interface FSxWindowsFileServerAuthorizationConfig {
   credentialsParameter: string;
   domain: string;
@@ -1431,7 +1431,7 @@ export declare class InvalidParameterException extends EffectData.TaggedError(
 )<{
   readonly message?: string;
 }> {}
-export type IpcMode = "HOST" | "TASK" | "NONE";
+export type IpcMode = "host" | "task" | "none";
 export interface KernelCapabilities {
   add?: Array<string>;
   drop?: Array<string>;
@@ -1587,14 +1587,14 @@ export interface LogConfiguration {
 }
 export type LogConfigurationOptionsMap = Record<string, string>;
 export type LogDriver =
-  | "JSON_FILE"
-  | "SYSLOG"
-  | "JOURNALD"
-  | "GELF"
-  | "FLUENTD"
-  | "AWSLOGS"
-  | "SPLUNK"
-  | "AWSFIRELENS";
+  | "json-file"
+  | "syslog"
+  | "journald"
+  | "gelf"
+  | "fluentd"
+  | "awslogs"
+  | "splunk"
+  | "awsfirelens";
 export type Long = number;
 
 export interface ManagedAgent {
@@ -1666,7 +1666,7 @@ export interface NetworkInterface {
   ipv6Address?: string;
 }
 export type NetworkInterfaces = Array<NetworkInterface>;
-export type NetworkMode = "BRIDGE" | "HOST" | "AWSVPC" | "NONE";
+export type NetworkMode = "bridge" | "host" | "awsvpc" | "none";
 export declare class NoUpdateAvailableException extends EffectData.TaggedError(
   "NoUpdateAvailableException",
 )<{
@@ -1683,19 +1683,19 @@ export type OSFamily =
   | "WINDOWS_SERVER_2025_FULL"
   | "WINDOWS_SERVER_20H2_CORE"
   | "LINUX";
-export type PidMode = "HOST" | "TASK";
+export type PidMode = "host" | "task";
 export interface PlacementConstraint {
   type?: PlacementConstraintType;
   expression?: string;
 }
 export type PlacementConstraints = Array<PlacementConstraint>;
-export type PlacementConstraintType = "DISTINCT_INSTANCE" | "MEMBER_OF";
+export type PlacementConstraintType = "distinctInstance" | "memberOf";
 export type PlacementStrategies = Array<PlacementStrategy>;
 export interface PlacementStrategy {
   type?: PlacementStrategyType;
   field?: string;
 }
-export type PlacementStrategyType = "RANDOM" | "SPREAD" | "BINPACK";
+export type PlacementStrategyType = "random" | "spread" | "binpack";
 export interface PlatformDevice {
   id: string;
   type: PlatformDeviceType;
@@ -1837,7 +1837,7 @@ export interface ResourceRequirement {
 }
 export type ResourceRequirements = Array<ResourceRequirement>;
 export type Resources = Array<Resource>;
-export type ResourceType = "GPU" | "INFERENCE_ACCELERATOR";
+export type ResourceType = "GPU" | "InferenceAccelerator";
 export interface Rollback {
   reason?: string;
   startedAt?: Date | string;
@@ -1878,7 +1878,7 @@ export interface Scale {
 }
 export type ScaleUnit = "PERCENT";
 export type SchedulingStrategy = "REPLICA" | "DAEMON";
-export type Scope = "TASK" | "SHARED";
+export type Scope = "task" | "shared";
 export interface Secret {
   name: string;
   valueFrom: string;
@@ -2134,18 +2134,18 @@ export interface Setting {
   type?: SettingType;
 }
 export type SettingName =
-  | "SERVICE_LONG_ARN_FORMAT"
-  | "TASK_LONG_ARN_FORMAT"
-  | "CONTAINER_INSTANCE_LONG_ARN_FORMAT"
-  | "AWSVPC_TRUNKING"
-  | "CONTAINER_INSIGHTS"
-  | "FARGATE_FIPS_MODE"
-  | "TAG_RESOURCE_AUTHORIZATION"
-  | "FARGATE_TASK_RETIREMENT_WAIT_PERIOD"
-  | "GUARD_DUTY_ACTIVATE"
-  | "DEFAULT_LOG_DRIVER_MODE";
+  | "serviceLongArnFormat"
+  | "taskLongArnFormat"
+  | "containerInstanceLongArnFormat"
+  | "awsvpcTrunking"
+  | "containerInsights"
+  | "fargateFIPSMode"
+  | "tagResourceAuthorization"
+  | "fargateTaskRetirementWaitPeriod"
+  | "guardDutyActivate"
+  | "defaultLogDriverMode";
 export type Settings = Array<Setting>;
-export type SettingType = "USER" | "AWS_MANAGED";
+export type SettingType = "user" | "aws_managed";
 export type SortOrder = "ASC" | "DESC";
 export type StabilityStatus = "STEADY_STATE" | "STABILIZING";
 export interface StartTaskRequest {
@@ -2253,7 +2253,7 @@ export declare class TargetNotFoundException extends EffectData.TaggedError(
 )<{
   readonly message?: string;
 }> {}
-export type TargetType = "CONTAINER_INSTANCE";
+export type TargetType = "container-instance";
 export interface Task {
   attachments?: Array<Attachment>;
   attributes?: Array<Attribute>;
@@ -2330,7 +2330,7 @@ export interface TaskDefinitionPlacementConstraint {
 }
 export type TaskDefinitionPlacementConstraints =
   Array<TaskDefinitionPlacementConstraint>;
-export type TaskDefinitionPlacementConstraintType = "MEMBER_OF";
+export type TaskDefinitionPlacementConstraintType = "memberOf";
 export type TaskDefinitionStatus = "ACTIVE" | "INACTIVE" | "DELETE_IN_PROGRESS";
 export interface TaskEphemeralStorage {
   sizeInGiB?: number;
@@ -2338,7 +2338,7 @@ export interface TaskEphemeralStorage {
 }
 export type TaskField = "TAGS";
 export type TaskFieldList = Array<TaskField>;
-export type TaskFilesystemType = "EXT3" | "EXT4" | "XFS" | "NTFS";
+export type TaskFilesystemType = "ext3" | "ext4" | "xfs" | "ntfs";
 export interface TaskManagedEBSVolumeConfiguration {
   encrypted?: boolean;
   kmsKeyId?: string;
@@ -2402,12 +2402,12 @@ export declare class TaskSetNotFoundException extends EffectData.TaggedError(
 }> {}
 export type TaskSets = Array<TaskSet>;
 export type TaskStopCode =
-  | "TASK_FAILED_TO_START"
-  | "ESSENTIAL_CONTAINER_EXITED"
-  | "USER_INITIATED"
-  | "SERVICE_SCHEDULER_INITIATED"
-  | "SPOT_INTERRUPTION"
-  | "TERMINATION_NOTICE";
+  | "TaskFailedToStart"
+  | "EssentialContainerExited"
+  | "UserInitiated"
+  | "ServiceSchedulerInitiated"
+  | "SpotInterruption"
+  | "TerminationNotice";
 export interface TaskVolumeConfiguration {
   name: string;
   managedEBSVolume?: TaskManagedEBSVolumeConfiguration;
@@ -2425,7 +2425,7 @@ export interface Tmpfs {
   mountOptions?: Array<string>;
 }
 export type TmpfsList = Array<Tmpfs>;
-export type TransportProtocol = "TCP" | "UDP";
+export type TransportProtocol = "tcp" | "udp";
 export interface Ulimit {
   name: UlimitName;
   softLimit: number;
@@ -2433,21 +2433,21 @@ export interface Ulimit {
 }
 export type UlimitList = Array<Ulimit>;
 export type UlimitName =
-  | "CORE"
-  | "CPU"
-  | "DATA"
-  | "FSIZE"
-  | "LOCKS"
-  | "MEMLOCK"
-  | "MSGQUEUE"
-  | "NICE"
-  | "NOFILE"
-  | "NPROC"
-  | "RSS"
-  | "RTPRIO"
-  | "RTTIME"
-  | "SIGPENDING"
-  | "STACK";
+  | "core"
+  | "cpu"
+  | "data"
+  | "fsize"
+  | "locks"
+  | "memlock"
+  | "msgqueue"
+  | "nice"
+  | "nofile"
+  | "nproc"
+  | "rss"
+  | "rtprio"
+  | "rttime"
+  | "sigpending"
+  | "stack";
 export declare class UnsupportedFeatureException extends EffectData.TaggedError(
   "UnsupportedFeatureException",
 )<{
@@ -2556,7 +2556,7 @@ export interface UpdateTaskSetRequest {
 export interface UpdateTaskSetResponse {
   taskSet?: TaskSet;
 }
-export type VersionConsistency = "ENABLED" | "DISABLED";
+export type VersionConsistency = "enabled" | "disabled";
 export interface VersionInfo {
   agentVersion?: string;
   agentHash?: string;

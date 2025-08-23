@@ -20,14 +20,6 @@ import type { ProtocolHandler } from "./protocols/interface.ts";
 import { RestJson1Handler } from "./protocols/rest-json-1.ts";
 import { RestXmlHandler } from "./protocols/rest-xml.ts";
 
-// Helper function to extract simple error name from AWS namespaced error type
-function extractErrorName(awsErrorType: string): string {
-  // AWS returns errors like "com.amazonaws.dynamodb.v20120810#ResourceNotFoundException"
-  // We need to extract "ResourceNotFoundException"
-  const parts = awsErrorType.split("#");
-  return parts.length > 1 ? parts[1] : awsErrorType;
-}
-
 function resolveProtocolHandler(protocol: string): ProtocolHandler {
   switch (protocol) {
     case "ec2Query":
@@ -148,34 +140,98 @@ export function createServiceProxy<T>(
             // Get protocol handler for this service
             const protocolHandler = resolveProtocolHandler(metadata.protocol);
 
+            // Extract operation-specific metadata for restJson1
+            let httpMethod = "POST";
+            let uriPath = "/";
+            let finalInput = input;
+
+            if (metadata.protocol === "restJson1") {
+              const operationSpec = (metadata as any).operations?.[action];
+
+              if (operationSpec) {
+                // Handle both string and object operation specs
+                const httpSpec =
+                  typeof operationSpec === "string"
+                    ? operationSpec
+                    : operationSpec.http;
+
+                if (httpSpec) {
+                  // Parse "METHOD /path/with/{params}" format
+                  const spaceIndex = httpSpec.indexOf(" ");
+                  if (spaceIndex > 0) {
+                    httpMethod = httpSpec.substring(0, spaceIndex);
+                    uriPath = httpSpec.substring(spaceIndex + 1);
+                  }
+                }
+              }
+
+              // Extract path parameters from URI template
+              const pathParams = [...uriPath.matchAll(/\{(\w+)\}/g)].map(
+                (m) => m[1],
+              );
+
+              if (pathParams.length > 0 && input && typeof input === "object") {
+                // Build URI with path substitution and separate body
+                let processedUri = uriPath;
+                const remainingInput = { ...input };
+
+                for (const param of pathParams) {
+                  if (param in (input as any)) {
+                    const value = (input as any)[param];
+                    processedUri = processedUri.replace(
+                      `{${param}}`,
+                      encodeURIComponent(String(value)),
+                    );
+                    delete (remainingInput as any)[param];
+                  }
+                }
+
+                uriPath = processedUri;
+                finalInput = remainingInput;
+              }
+            }
+
             // Serialize request body using protocol handler
-            const body = protocolHandler.buildRequest(input, action, metadata);
+            const body = protocolHandler.buildRequest(
+              finalInput,
+              action,
+              metadata,
+            );
 
             // Get headers from protocol handler (with body for Content-Length)
             const headers = protocolHandler.getHeaders(action, metadata, body);
 
             // Use custom endpoint, global endpoint, or construct regional AWS endpoint
-            const endpoint = resolvedConfig.endpoint
+            const baseEndpoint = resolvedConfig.endpoint
               ? resolvedConfig.endpoint
               : (metadata as any).globalEndpoint
                 ? (metadata as any).globalEndpoint
-                : `https://${metadata.endpointPrefix}.${resolvedConfig.region}.amazonaws.com/`;
+                : `https://${metadata.endpointPrefix}.${resolvedConfig.region}.amazonaws.com`;
+
+            // Build full URL with path
+            const fullUrl = baseEndpoint.replace(/\/$/, "") + uriPath;
 
             // Log the AWS request
             yield* Effect.logDebug("AWS Request", {
               service: normalizedServiceName,
               action,
-              endpoint,
+              method: httpMethod,
+              url: fullUrl,
               headers,
               input,
+              finalInput,
               body,
             });
 
             const response = yield* Effect.promise(() =>
-              client.fetch(endpoint, {
-                method: "POST",
+              client.fetch(fullUrl, {
+                method: httpMethod,
                 headers,
-                body,
+                // Don't send body for GET/DELETE requests
+                body:
+                  httpMethod === "GET" || httpMethod === "DELETE"
+                    ? undefined
+                    : body,
               }),
             ).pipe(Effect.timeout("30 seconds"));
 
@@ -200,58 +256,31 @@ export function createServiceProxy<T>(
             if (statusCode >= 200 && statusCode < 300) {
               // Success
               if (!responseText) return {};
-              return protocolHandler.parseResponse(responseText, 200, metadata);
+              return protocolHandler.parseResponse(
+                responseText,
+                statusCode,
+                metadata,
+                response.headers,
+                action,
+              );
             } else {
-              // Error handling
-              const errorData = protocolHandler.parseError(
+              // Error handling - now standardized across all protocols
+              const parsedError = protocolHandler.parseError(
                 responseText,
                 statusCode,
                 response.headers,
               );
 
-              // Extract error info from protocol-specific error data
-              let errorType = "UnknownError";
-              let errorMessage = "Unknown error";
-              let requestId: string | undefined;
-
-              // Handle different protocol error formats
-              if (errorData && typeof errorData === "object") {
-                if ("name" in errorData && "$metadata" in errorData) {
-                  // EC2 Query protocol format (Error object)
-                  errorType = (errorData as any).name;
-                  errorMessage = (errorData as any).message || "Unknown error";
-                  requestId = (errorData as any).$metadata?.requestId;
-                } else {
-                  // AWS JSON protocol format (plain object)
-                  errorType =
-                    (errorData as any).__type ||
-                    (errorData as any).code ||
-                    "UnknownError";
-                  errorMessage =
-                    (errorData as any).Message ||
-                    (errorData as any).message ||
-                    "Unknown error";
-                }
-              }
-
-              // Fallback to headers for request ID if not found in error data
-              if (!requestId) {
-                requestId =
-                  response.headers.get("x-amzn-requestid") ||
-                  response.headers.get("x-amz-request-id") ||
-                  undefined;
-              }
-
               const errorMeta: AwsErrorMeta = {
                 statusCode,
-                requestId,
+                requestId: parsedError.requestId,
               };
 
-              // Extract simple error name from AWS namespaced error type
-              const simpleErrorName = extractErrorName(errorType);
+              // Use the sanitized error type directly from the protocol handler
+              const errorType = parsedError.errorType;
 
               // Map to specific error types
-              switch (simpleErrorName) {
+              switch (errorType) {
                 case "ThrottlingException":
                 case "TooManyRequestsException":
                   yield* Effect.fail(new ThrottlingException(errorMeta));
@@ -274,9 +303,9 @@ export function createServiceProxy<T>(
                 default:
                   // All service-specific errors - create dynamically with correct _tag
                   yield* Effect.fail(
-                    createServiceError(simpleErrorName, {
+                    createServiceError(errorType, {
                       ...errorMeta,
-                      message: errorMessage,
+                      message: parsedError.message,
                     }),
                   );
               }

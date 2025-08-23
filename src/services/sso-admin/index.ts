@@ -1303,10 +1303,10 @@ export interface GrantItem {
 }
 export type Grants = Array<GrantItem>;
 export type GrantType =
-  | "AUTHORIZATION_CODE"
-  | "REFRESH_TOKEN"
-  | "JWT_BEARER"
-  | "TOKEN_EXCHANGE";
+  | "authorization_code"
+  | "refresh_token"
+  | "urn:ietf:params:oauth:grant-type:jwt-bearer"
+  | "urn:ietf:params:oauth:grant-type:token-exchange";
 export interface IamAuthenticationMethod {
   ActorPolicy: unknown;
 }

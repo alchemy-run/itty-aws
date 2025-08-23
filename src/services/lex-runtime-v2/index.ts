@@ -155,7 +155,7 @@ export interface ConfigurationEvent {
   eventId?: string;
   clientTimestampMillis?: number;
 }
-export type ConfirmationState = "CONFIRMED" | "DENIED" | "NONE";
+export type ConfirmationState = "Confirmed" | "Denied" | "None";
 export declare class ConflictException extends EffectData.TaggedError(
   "ConflictException",
 )<{
@@ -186,12 +186,12 @@ export interface DialogAction {
   subSlotToElicit?: ElicitSubSlot;
 }
 export type DialogActionType =
-  | "CLOSE"
-  | "CONFIRM_INTENT"
-  | "DELEGATE"
-  | "ELICIT_INTENT"
-  | "ELICIT_SLOT"
-  | "NONE";
+  | "Close"
+  | "ConfirmIntent"
+  | "Delegate"
+  | "ElicitIntent"
+  | "ElicitSlot"
+  | "None";
 export interface DisconnectionEvent {
   eventId?: string;
   clientTimestampMillis?: number;
@@ -234,7 +234,7 @@ export interface ImageResponseCard {
   imageUrl?: string;
   buttons?: Array<Button>;
 }
-export type InputMode = "TEXT" | "SPEECH" | "DTMF";
+export type InputMode = "Text" | "Speech" | "DTMF";
 export interface Intent {
   name: string;
   slots?: Record<string, Slot>;
@@ -251,12 +251,12 @@ export interface IntentResultEvent {
   recognizedBotMember?: RecognizedBotMember;
 }
 export type IntentState =
-  | "FAILED"
-  | "FULFILLED"
-  | "IN_PROGRESS"
-  | "READY_FOR_FULFILLMENT"
-  | "WAITING"
-  | "FULFILLMENT_IN_PROGRESS";
+  | "Failed"
+  | "Fulfilled"
+  | "InProgress"
+  | "ReadyForFulfillment"
+  | "Waiting"
+  | "FulfillmentInProgress";
 export declare class InternalServerException extends EffectData.TaggedError(
   "InternalServerException",
 )<{
@@ -269,7 +269,7 @@ export interface Interpretation {
   interpretationSource?: InterpretationSource;
 }
 export type Interpretations = Array<Interpretation>;
-export type InterpretationSource = "BEDROCK" | "LEX";
+export type InterpretationSource = "Bedrock" | "Lex";
 export type LocaleId = string;
 
 export interface Message {
@@ -278,9 +278,9 @@ export interface Message {
   imageResponseCard?: ImageResponseCard;
 }
 export type MessageContentType =
-  | "CUSTOM_PAYLOAD"
-  | "IMAGE_RESPONSE_CARD"
-  | "PLAIN_TEXT"
+  | "CustomPayload"
+  | "ImageResponseCard"
+  | "PlainText"
   | "SSML";
 export type Messages = Array<Message>;
 export type Name = string;
@@ -405,7 +405,7 @@ export interface SessionState {
   originatingRequestId?: string;
   runtimeHints?: RuntimeHints;
 }
-export type Shape = "SCALAR" | "LIST" | "COMPOSITE";
+export type Shape = "Scalar" | "List" | "Composite";
 export interface Slot {
   value?: Value;
   shape?: Shape;
@@ -515,7 +515,7 @@ export type LexRuntimeV2String = string;
 
 export type StringList = Array<string>;
 export type StringMap = Record<string, string>;
-export type StyleType = "DEFAULT" | "SPELL_BY_LETTER" | "SPELL_BY_WORD";
+export type StyleType = "Default" | "SpellByLetter" | "SpellByWord";
 export type Text = string;
 
 export interface TextInputEvent {

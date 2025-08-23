@@ -875,8 +875,8 @@ export type Colorimetry =
   | "BT709"
   | "BT2020"
   | "BT2100"
-  | "ST2065_1"
-  | "ST2065_3"
+  | "ST2065-1"
+  | "ST2065-3"
   | "XYZ";
 export declare class ConflictException extends EffectData.TaggedError(
   "ConflictException",
@@ -1215,7 +1215,7 @@ export declare class InternalServerErrorException extends EffectData.TaggedError
 )<{
   readonly Message: string;
 }> {}
-export type KeyType = "speke" | "static_key" | "srt_password";
+export type KeyType = "speke" | "static-key" | "srt-password";
 export interface ListBridgesRequest {
   FilterArn?: string;
   MaxResults?: number;
@@ -1368,7 +1368,7 @@ export interface MediaStreamSourceConfigurationRequest {
   InputConfigurations?: Array<InputConfigurationRequest>;
   MediaStreamName: string;
 }
-export type MediaStreamType = "video" | "audio" | "ancillary_data";
+export type MediaStreamType = "video" | "audio" | "ancillary-data";
 export interface MessageDetail {
   Code: string;
   Message: string;
@@ -1437,18 +1437,18 @@ export interface Output {
 export type OutputStatus = "ENABLED" | "DISABLED";
 export type PriceUnits = "HOURLY";
 export type Protocol =
-  | "zixi_push"
-  | "rtp_fec"
+  | "zixi-push"
+  | "rtp-fec"
   | "rtp"
-  | "zixi_pull"
+  | "zixi-pull"
   | "rist"
-  | "st2110_jpegxs"
+  | "st2110-jpegxs"
   | "cdi"
-  | "srt_listener"
-  | "srt_caller"
-  | "fujitsu_qos"
+  | "srt-listener"
+  | "srt-caller"
+  | "fujitsu-qos"
   | "udp"
-  | "ndi_speed_hq";
+  | "ndi-speed-hq";
 export interface PurchaseOfferingRequest {
   OfferingArn: string;
   ReservationName: string;
@@ -1541,7 +1541,7 @@ export interface RevokeFlowEntitlementResponse {
 export type ScanMode =
   | "progressive"
   | "interlace"
-  | "progressive_segmented_frame";
+  | "progressive-segmented-frame";
 export declare class ServiceUnavailableException extends EffectData.TaggedError(
   "ServiceUnavailableException",
 )<{
@@ -1632,8 +1632,8 @@ export type Tcs =
   | "LINEAR"
   | "BT2100LINPQ"
   | "BT2100LINHLG"
-  | "ST2065_1"
-  | "ST428_1"
+  | "ST2065-1"
+  | "ST428-1"
   | "DENSITY";
 export interface ThumbnailDetails {
   FlowArn: string;

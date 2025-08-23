@@ -28,7 +28,7 @@ export interface Checksum {
 }
 export type ChecksumString = string;
 
-export type ChecksumType = "Sha1";
+export type ChecksumType = "SHA1";
 export interface Definition {
   ModelHandle?: string;
   S3Url?: string;
@@ -55,7 +55,7 @@ export interface DeploymentResult {
   DeploymentEndTime?: Date | string;
   DeploymentModels?: Array<DeploymentModel>;
 }
-export type DeploymentStatus = "Success" | "Fail";
+export type DeploymentStatus = "SUCCESS" | "FAIL";
 export type DeploymentType = "Model";
 export type DeviceFleetName = string;
 
@@ -83,7 +83,7 @@ export type EntityName = string;
 
 export type ErrorMessage = string;
 
-export type FailureHandlingPolicy = "RollbackOnFailure" | "DoNothing";
+export type FailureHandlingPolicy = "ROLLBACK_ON_FAILURE" | "DO_NOTHING";
 export interface GetDeploymentsRequest {
   DeviceName: string;
   DeviceFleetName: string;
@@ -116,7 +116,7 @@ export interface Model {
 export type ModelName = string;
 
 export type Models = Array<Model>;
-export type ModelState = "Deploy" | "Undeploy";
+export type ModelState = "DEPLOY" | "UNDEPLOY";
 export type S3Uri = string;
 
 export interface SendHeartbeatRequest {

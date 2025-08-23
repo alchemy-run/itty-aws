@@ -1453,14 +1453,14 @@ export type Blob = Uint8Array | string;
 export type ApiGatewayBoolean = boolean;
 
 export type CacheClusterSize =
-  | "SIZE_0_POINT_5_GB"
-  | "SIZE_1_POINT_6_GB"
-  | "SIZE_6_POINT_1_GB"
-  | "SIZE_13_POINT_5_GB"
-  | "SIZE_28_POINT_4_GB"
-  | "SIZE_58_POINT_2_GB"
-  | "SIZE_118_GB"
-  | "SIZE_237_GB";
+  | "0.5"
+  | "1.6"
+  | "6.1"
+  | "13.5"
+  | "28.4"
+  | "58.2"
+  | "118"
+  | "237";
 export type CacheClusterStatus =
   | "CREATE_IN_PROGRESS"
   | "AVAILABLE"
@@ -2333,7 +2333,7 @@ export interface PutMethodResponseRequest {
   responseParameters?: Record<string, boolean>;
   responseModels?: Record<string, string>;
 }
-export type PutMode = "Merge" | "Overwrite";
+export type PutMode = "merge" | "overwrite";
 export interface PutRestApiRequest {
   restApiId: string;
   mode?: PutMode;

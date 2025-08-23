@@ -104,40 +104,40 @@ export type AWSAccountId = string;
 
 export type AWSAccountIds = Array<string>;
 export type AwsRegion =
-  | "AF_SOUTH_1"
-  | "AP_EAST_1"
-  | "AP_NORTHEAST_1"
-  | "AP_NORTHEAST_2"
-  | "AP_NORTHEAST_3"
-  | "AP_SOUTH_1"
-  | "AP_SOUTH_2"
-  | "AP_SOUTHEAST_1"
-  | "AP_SOUTHEAST_2"
-  | "AP_SOUTHEAST_3"
-  | "AP_SOUTHEAST_4"
-  | "AP_SOUTHEAST_5"
-  | "AP_SOUTHEAST_7"
-  | "CA_CENTRAL_1"
-  | "CA_WEST_1"
-  | "CN_NORTH_1"
-  | "CN_NORTHWEST_1"
-  | "EU_CENTRAL_1"
-  | "EU_CENTRAL_2"
-  | "EU_NORTH_1"
-  | "EU_SOUTH_1"
-  | "EU_SOUTH_2"
-  | "EU_WEST_1"
-  | "EU_WEST_2"
-  | "EU_WEST_3"
-  | "IL_CENTRAL_1"
-  | "ME_CENTRAL_1"
-  | "ME_SOUTH_1"
-  | "MX_CENTRAL_1"
-  | "SA_EAST_1"
-  | "US_EAST_1"
-  | "US_EAST_2"
-  | "US_WEST_1"
-  | "US_WEST_2";
+  | "af-south-1"
+  | "ap-east-1"
+  | "ap-northeast-1"
+  | "ap-northeast-2"
+  | "ap-northeast-3"
+  | "ap-south-1"
+  | "ap-south-2"
+  | "ap-southeast-1"
+  | "ap-southeast-2"
+  | "ap-southeast-3"
+  | "ap-southeast-4"
+  | "ap-southeast-5"
+  | "ap-southeast-7"
+  | "ca-central-1"
+  | "ca-west-1"
+  | "cn-north-1"
+  | "cn-northwest-1"
+  | "eu-central-1"
+  | "eu-central-2"
+  | "eu-north-1"
+  | "eu-south-1"
+  | "eu-south-2"
+  | "eu-west-1"
+  | "eu-west-2"
+  | "eu-west-3"
+  | "il-central-1"
+  | "me-central-1"
+  | "me-south-1"
+  | "mx-central-1"
+  | "sa-east-1"
+  | "us-east-1"
+  | "us-east-2"
+  | "us-west-1"
+  | "us-west-2";
 export type AwsService = string;
 
 export interface BatchGetMemberAccountDetailsRequest {
@@ -164,7 +164,7 @@ export interface CaseAttachmentAttributes {
   createdDate: Date | string;
 }
 export type CaseAttachmentsList = Array<CaseAttachmentAttributes>;
-export type CaseAttachmentStatus = "VERIFIED" | "FAILED" | "PENDING";
+export type CaseAttachmentStatus = "Verified" | "Failed" | "Pending";
 export type CaseDescription = string;
 
 export type CaseEditAction = string;
@@ -181,13 +181,13 @@ export type CaseEditMessage = string;
 export type CaseId = string;
 
 export type CaseStatus =
-  | "SUBMITTED"
-  | "ACKNOWLEDGED"
-  | "DETECTION_AND_ANALYSIS"
-  | "CONTAINMENT_ERADICATION_AND_RECOVERY"
-  | "POST_INCIDENT_ACTIVITIES"
-  | "READY_TO_CLOSE"
-  | "CLOSED";
+  | "Submitted"
+  | "Acknowledged"
+  | "Detection and Analysis"
+  | "Containment, Eradication and Recovery"
+  | "Post-incident Activities"
+  | "Ready to Close"
+  | "Closed";
 export type CaseTitle = string;
 
 export interface CloseCaseRequest {
@@ -198,10 +198,10 @@ export interface CloseCaseResponse {
   closedDate?: Date | string;
 }
 export type ClosureCode =
-  | "INVESTIGATION_COMPLETED"
-  | "NOT_RESOLVED"
-  | "FALSE_POSITIVE"
-  | "DUPLICATE";
+  | "Investigation Completed"
+  | "Not Resolved"
+  | "False Positive"
+  | "Duplicate";
 export type CommentBody = string;
 
 export type CommentId = string;
@@ -250,10 +250,10 @@ export interface CreateMembershipRequest {
 export interface CreateMembershipResponse {
   membershipId: string;
 }
-export type CustomerType = "STANDALONE" | "ORGANIZATION";
+export type CustomerType = "Standalone" | "Organization";
 export type EmailAddress = string;
 
-export type EngagementType = "SECURITY_INCIDENT" | "INVESTIGATION";
+export type EngagementType = "Security Incident" | "Investigation";
 export type FileName = string;
 
 export interface GetCaseAttachmentDownloadUrlRequest {
@@ -430,28 +430,28 @@ export interface ListTagsForResourceOutput {
   tags: Record<string, string>;
 }
 export type MembershipAccountRelationshipStatus =
-  | "ASSOCIATED"
-  | "DISASSOCIATED";
-export type MembershipAccountRelationshipType = "ORGANIZATION";
+  | "Associated"
+  | "Disassociated";
+export type MembershipAccountRelationshipType = "Organization";
 export type MembershipArn = string;
 
 export type MembershipId = string;
 
 export type MembershipName = string;
 
-export type MembershipStatus = "ACTIVE" | "CANCELLED" | "TERMINATED";
+export type MembershipStatus = "Active" | "Cancelled" | "Terminated";
 export interface OptInFeature {
   featureName: OptInFeatureName;
   isEnabled: boolean;
 }
-export type OptInFeatureName = "TRIAGE";
+export type OptInFeatureName = "Triage";
 export type OptInFeatures = Array<OptInFeature>;
-export type PendingAction = "CUSTOMER" | "NONE";
+export type PendingAction = "Customer" | "None";
 export type PersonName = string;
 
 export type PrincipalId = string;
 
-export type ResolverType = "AWS" | "SELF";
+export type ResolverType = "AWS" | "Self";
 export declare class ResourceNotFoundException extends EffectData.TaggedError(
   "ResourceNotFoundException",
 )<{
@@ -463,10 +463,10 @@ export declare class SecurityIncidentResponseNotActiveException extends EffectDa
   readonly message: string;
 }> {}
 export type SelfManagedCaseStatus =
-  | "SUBMITTED"
-  | "DETECTION_AND_ANALYSIS"
-  | "CONTAINMENT_ERADICATION_AND_RECOVERY"
-  | "POST_INCIDENT_ACTIVITIES";
+  | "Submitted"
+  | "Detection and Analysis"
+  | "Containment, Eradication and Recovery"
+  | "Post-incident Activities";
 export declare class ServiceQuotaExceededException extends EffectData.TaggedError(
   "ServiceQuotaExceededException",
 )<{

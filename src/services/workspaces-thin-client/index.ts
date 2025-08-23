@@ -250,7 +250,7 @@ export interface DeregisterDeviceRequest {
 export interface DeregisterDeviceResponse {}
 export type DesktopEndpoint = string;
 
-export type DesktopType = "WORKSPACES" | "APPSTREAM" | "WORKSPACES_WEB";
+export type DesktopType = "workspaces" | "appstream" | "workspaces-web";
 export interface Device {
   id?: string;
   serialNumber?: string;
@@ -563,10 +563,10 @@ export interface ValidationExceptionField {
 }
 export type ValidationExceptionFieldList = Array<ValidationExceptionField>;
 export type ValidationExceptionReason =
-  | "UNKNOWN_OPERATION"
-  | "CANNOT_PARSE"
-  | "FIELD_VALIDATION_FAILED"
-  | "OTHER";
+  | "unknownOperation"
+  | "cannotParse"
+  | "fieldValidationFailed"
+  | "other";
 export declare namespace CreateEnvironment {
   export type Input = CreateEnvironmentRequest;
   export type Output = CreateEnvironmentResponse;

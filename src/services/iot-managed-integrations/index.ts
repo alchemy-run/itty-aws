@@ -2381,7 +2381,7 @@ export type SchemaVersionNamespaceName = string;
 
 export type SchemaVersionSchema = unknown;
 
-export type SchemaVersionType = "CAPABILITY" | "DEFINITION";
+export type SchemaVersionType = "capability" | "definition";
 export type SchemaVersionVersion = string;
 
 export type SchemaVersionVisibility = "PUBLIC" | "PRIVATE";

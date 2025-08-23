@@ -1277,7 +1277,7 @@ export interface AcceleratorCountRange {
   min: number;
   max?: number;
 }
-export type AcceleratorName = "T4" | "A10G" | "L4" | "L40S";
+export type AcceleratorName = "t4" | "a10g" | "l4" | "l40s";
 export type AcceleratorRuntime = string;
 
 export interface AcceleratorSelection {
@@ -1289,7 +1289,7 @@ export interface AcceleratorTotalMemoryMiBRange {
   min: number;
   max?: number;
 }
-export type AcceleratorType = "GPU";
+export type AcceleratorType = "gpu";
 export type AcceleratorTypes = Array<AcceleratorType>;
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",
@@ -1545,7 +1545,7 @@ export interface CopyJobTemplateRequest {
 export interface CopyJobTemplateResponse {
   templateType: JobTemplateType;
 }
-export type CpuArchitectureType = "X86_64" | "ARM64";
+export type CpuArchitectureType = "x86_64" | "arm64";
 export interface CreateBudgetRequest {
   clientToken?: string;
   farmId: string;
@@ -1850,7 +1850,7 @@ export interface Ec2EbsVolume {
   iops?: number;
   throughputMiB?: number;
 }
-export type Ec2MarketType = "ON_DEMAND" | "SPOT";
+export type Ec2MarketType = "on-demand" | "spot";
 export type EndedAt = Date | string;
 
 export type EndsAt = Date | string;
@@ -2992,7 +2992,7 @@ export type ParameterString = string;
 
 export type ParameterValue = string;
 
-export type PathFormat = "WINDOWS" | "POSIX";
+export type PathFormat = "windows" | "posix";
 export interface PathMappingRule {
   sourcePathFormat: PathFormat;
   sourcePath: string;

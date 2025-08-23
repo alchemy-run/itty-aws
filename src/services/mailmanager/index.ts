@@ -1709,7 +1709,7 @@ export interface SnsAction {
   Encoding?: SnsNotificationEncoding;
   PayloadType?: SnsNotificationPayloadType;
 }
-export type SnsNotificationEncoding = "UTF_8" | "BASE64";
+export type SnsNotificationEncoding = "UTF-8" | "BASE64";
 export type SnsNotificationPayloadType = "HEADERS" | "CONTENT";
 export type SnsTopicArn = string;
 

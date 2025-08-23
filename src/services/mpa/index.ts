@@ -339,12 +339,12 @@ export interface Filter {
   Value?: string;
 }
 export type FilterField =
-  | "ACTION_NAME"
-  | "APPROVAL_TEAM_NAME"
-  | "VOTING_TIME"
-  | "VOTE"
-  | "SESSION_STATUS"
-  | "INITIATION_TIME";
+  | "ActionName"
+  | "ApprovalTeamName"
+  | "VotingTime"
+  | "Vote"
+  | "SessionStatus"
+  | "InitiationTime";
 export type Filters = Array<Filter>;
 export interface GetApprovalTeamRequest {
   Arn: string;
@@ -614,14 +614,14 @@ export interface MofNApprovalStrategy {
   MinApprovalsRequired: number;
 }
 export type Operator =
-  | "EQUALS"
-  | "NOT_EQUALS"
-  | "GREATER_THAN"
-  | "LESS_THAN"
-  | "GREATER_THAN_OR_EQUAL_TO"
-  | "LESS_THAN_OR_EQUAL_TO"
+  | "EQ"
+  | "NE"
+  | "GT"
+  | "LT"
+  | "GTE"
+  | "LTE"
   | "CONTAINS"
-  | "DOES_NOT_CONTAIN"
+  | "NOT_CONTAINS"
   | "BETWEEN";
 export type ParticipantId = string;
 

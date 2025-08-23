@@ -1975,10 +1975,10 @@ export interface EncryptionConfiguration {
 }
 export interface EndOfInputEvent {}
 export type ErrorCode =
-  | "INTERNAL_ERROR"
-  | "INVALID_REQUEST"
-  | "RESOURCE_INACTIVE"
-  | "RESOURCE_NOT_FOUND";
+  | "InternalError"
+  | "InvalidRequest"
+  | "ResourceInactive"
+  | "ResourceNotFound";
 export interface ErrorDetail {
   errorMessage?: string;
   errorCode?: ErrorCode;
@@ -2698,7 +2698,7 @@ export interface PermissionCondition {
 }
 export type PermissionConditionKey = string;
 
-export type PermissionConditionOperator = "STRING_EQUALS";
+export type PermissionConditionOperator = "StringEquals";
 export type PermissionConditions = Array<PermissionCondition>;
 export type PermissionConditionValue = string;
 
@@ -2773,11 +2773,11 @@ export type PluginType =
   | "SMARTSHEET"
   | "ASANA";
 export type PluginTypeCategory =
-  | "CRM"
-  | "PROJECT_MANAGEMENT"
-  | "COMMUNICATION"
-  | "PRODUCTIVITY"
-  | "TICKETING_MANAGEMENT";
+  | "Customer relationship management (CRM)"
+  | "Project management"
+  | "Communication"
+  | "Productivity"
+  | "Ticketing and incident management";
 export interface PluginTypeMetadataSummary {
   type?: PluginType;
   category?: PluginTypeCategory;

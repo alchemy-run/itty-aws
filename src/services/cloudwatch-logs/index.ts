@@ -1455,13 +1455,13 @@ export type EntityKeyAttributesKey = string;
 export type EntityKeyAttributesValue = string;
 
 export type EntityRejectionErrorType =
-  | "INVALID_ENTITY"
-  | "INVALID_TYPE_VALUE"
-  | "INVALID_KEY_ATTRIBUTE"
-  | "INVALID_ATTRIBUTES"
-  | "ENTITY_SIZE_TOO_LARGE"
-  | "UNSUPPORTED_LOG_GROUP_TYPE"
-  | "MISSING_REQUIRED_FIELDS";
+  | "InvalidEntity"
+  | "InvalidTypeValue"
+  | "InvalidKeyAttributes"
+  | "InvalidAttributes"
+  | "EntitySizeTooLarge"
+  | "UnsupportedLogGroupType"
+  | "MissingRequiredFields";
 export type Enumerations = Record<string, number>;
 export type EpochMillis = number;
 
@@ -1481,10 +1481,10 @@ export type EventNumber = number;
 export type EventsLimit = number;
 
 export type EventSource =
-  | "CLOUD_TRAIL"
-  | "ROUTE53_RESOLVER"
-  | "VPC_FLOW"
-  | "EKS_AUDIT"
+  | "CloudTrail"
+  | "Route53Resolver"
+  | "VPCFlow"
+  | "EKSAudit"
   | "AWSWAF";
 export type ExpectedRevisionId = string;
 
@@ -1579,7 +1579,7 @@ export type FilterPattern = string;
 
 export type Flatten = boolean;
 
-export type FlattenedElement = "FIRST" | "LAST";
+export type FlattenedElement = "first" | "last";
 export type Force = boolean;
 
 export type ForceUpdate = boolean;
@@ -2025,7 +2025,7 @@ export type NextToken = string;
 
 export type NonMatchValue = string;
 
-export type OCSFVersion = "V1_1";
+export type OCSFVersion = "V1.1";
 export interface OpenSearchApplication {
   applicationEndpoint?: string;
   applicationArn?: string;
@@ -2101,7 +2101,7 @@ export declare class OperationAbortedException extends EffectData.TaggedError(
   readonly message?: string;
 }> {}
 export type OrderBy = "LogStreamName" | "LastEventTime";
-export type OutputFormat = "JSON" | "PLAIN" | "W3C" | "RAW" | "PARQUET";
+export type OutputFormat = "json" | "plain" | "w3c" | "raw" | "parquet";
 export type OutputFormats = Array<OutputFormat>;
 export interface OutputLogEvent {
   timestamp?: number;
@@ -2527,17 +2527,17 @@ export type StandardUnit =
   | "Terabits"
   | "Percent"
   | "Count"
-  | "BytesSecond"
-  | "KilobytesSecond"
-  | "MegabytesSecond"
-  | "GigabytesSecond"
-  | "TerabytesSecond"
-  | "BitsSecond"
-  | "KilobitsSecond"
-  | "MegabitsSecond"
-  | "GigabitsSecond"
-  | "TerabitsSecond"
-  | "CountSecond"
+  | "Bytes/Second"
+  | "Kilobytes/Second"
+  | "Megabytes/Second"
+  | "Gigabytes/Second"
+  | "Terabytes/Second"
+  | "Bits/Second"
+  | "Kilobits/Second"
+  | "Megabits/Second"
+  | "Gigabits/Second"
+  | "Terabits/Second"
+  | "Count/Second"
   | "None";
 export type StartFromHead = boolean;
 
@@ -2693,7 +2693,7 @@ export interface TrimString {
   withKeys: Array<string>;
 }
 export type TrimStringWithKeys = Array<string>;
-export type Type = "BOOLEAN" | "INTEGER" | "DOUBLE" | "STRING";
+export type Type = "boolean" | "integer" | "double" | "string";
 export interface TypeConverter {
   entries: Array<TypeConverterEntry>;
 }

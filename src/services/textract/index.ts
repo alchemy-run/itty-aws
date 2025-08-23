@@ -538,8 +538,8 @@ export declare class ConflictException extends EffectData.TaggedError(
   readonly Code?: string;
 }> {}
 export type ContentClassifier =
-  | "FREE_OF_PERSONALLY_IDENTIFIABLE_INFORMATION"
-  | "FREE_OF_ADULT_CONTENT";
+  | "FreeOfPersonallyIdentifiableInformation"
+  | "FreeOfAdultContent";
 export type ContentClassifiers = Array<ContentClassifier>;
 export interface CreateAdapterRequest {
   AdapterName: string;

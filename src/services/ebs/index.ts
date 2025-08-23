@@ -113,8 +113,8 @@ export type ChangedBlocksCount = number;
 
 export type Checksum = string;
 
-export type ChecksumAggregationMethod = "CHECKSUM_AGGREGATION_LINEAR";
-export type ChecksumAlgorithm = "CHECKSUM_ALGORITHM_SHA256";
+export type ChecksumAggregationMethod = "LINEAR";
+export type ChecksumAlgorithm = "SHA256";
 export interface CompleteSnapshotRequest {
   SnapshotId: string;
   ChangedBlocksCount: number;
@@ -240,7 +240,7 @@ export type ServiceQuotaExceededExceptionReason =
   "DEPENDENCY_SERVICE_QUOTA_EXCEEDED";
 export type SnapshotId = string;
 
-export type SSEType = "SSE_EBS" | "SSE_KMS" | "NONE";
+export type SSEType = "sse-ebs" | "sse-kms" | "none";
 export interface StartSnapshotRequest {
   VolumeSize: number;
   ParentSnapshotId?: string;
@@ -264,7 +264,7 @@ export interface StartSnapshotResponse {
   KmsKeyArn?: string;
   SseType?: SSEType;
 }
-export type Status = "COMPLETED" | "PENDING" | "ERROR";
+export type Status = "completed" | "pending" | "error";
 export interface Tag {
   Key?: string;
   Value?: string;

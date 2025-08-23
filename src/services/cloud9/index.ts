@@ -289,14 +289,14 @@ export type EnvironmentMembersList = Array<EnvironmentMember>;
 export type EnvironmentName = string;
 
 export type EnvironmentStatus =
-  | "ERROR"
-  | "CREATING"
-  | "CONNECTING"
-  | "READY"
-  | "STOPPING"
-  | "STOPPED"
-  | "DELETING";
-export type EnvironmentType = "SSH" | "EC2";
+  | "error"
+  | "creating"
+  | "connecting"
+  | "ready"
+  | "stopping"
+  | "stopped"
+  | "deleting";
+export type EnvironmentType = "ssh" | "ec2";
 export declare class ForbiddenException extends EffectData.TaggedError(
   "ForbiddenException",
 )<{
@@ -353,7 +353,7 @@ export type ManagedCredentialsStatus =
   | "FAILED_REMOVAL_BY_OWNER";
 export type MaxResults = number;
 
-export type MemberPermissions = "READ_WRITE" | "READ_ONLY";
+export type MemberPermissions = "read-write" | "read-only";
 export declare class NotFoundException extends EffectData.TaggedError(
   "NotFoundException",
 )<{
@@ -363,7 +363,7 @@ export declare class NotFoundException extends EffectData.TaggedError(
 }> {}
 export type NullableBoolean = boolean;
 
-export type Permissions = "OWNER" | "READ_WRITE" | "READ_ONLY";
+export type Permissions = "owner" | "read-write" | "read-only";
 export type PermissionsList = Array<Permissions>;
 export type Cloud9String = string;
 

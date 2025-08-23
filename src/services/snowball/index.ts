@@ -260,11 +260,11 @@ export interface ClusterMetadata {
   OnDeviceServiceConfiguration?: OnDeviceServiceConfiguration;
 }
 export type ClusterState =
-  | "AWAITING_QUORUM"
-  | "PENDING"
-  | "IN_USE"
-  | "COMPLETE"
-  | "CANCELLED";
+  | "AwaitingQuorum"
+  | "Pending"
+  | "InUse"
+  | "Complete"
+  | "Cancelled";
 export interface CompatibleImage {
   AmiId?: string;
   Name?: string;
@@ -530,19 +530,19 @@ export interface JobResource {
   Ec2AmiResources?: Array<Ec2AmiResource>;
 }
 export type JobState =
-  | "NEW"
-  | "PREPARING_APPLIANCE"
-  | "PREPARING_SHIPMENT"
-  | "IN_TRANSIT_TO_CUSTOMER"
-  | "WITH_CUSTOMER"
-  | "IN_TRANSIT_TO_AWS"
-  | "WITH_AWS_SORTING_FACILITY"
-  | "WITH_AWS"
-  | "IN_PROGRESS"
-  | "COMPLETE"
-  | "CANCELLED"
-  | "LISTING"
-  | "PENDING";
+  | "New"
+  | "PreparingAppliance"
+  | "PreparingShipment"
+  | "InTransitToCustomer"
+  | "WithCustomer"
+  | "InTransitToAWS"
+  | "WithAWSSortingFacility"
+  | "WithAWS"
+  | "InProgress"
+  | "Complete"
+  | "Cancelled"
+  | "Listing"
+  | "Pending";
 export type JobStateList = Array<JobState>;
 export type JobType = "IMPORT" | "EXPORT" | "LOCAL_USE";
 export interface KeyRange {
@@ -643,7 +643,7 @@ export interface LongTermPricingListEntry {
   SnowballType?: SnowballType;
   JobIds?: Array<string>;
 }
-export type LongTermPricingType = "ONE_YEAR" | "THREE_YEAR" | "ONE_MONTH";
+export type LongTermPricingType = "OneYear" | "ThreeYear" | "OneMonth";
 export interface NFSOnDeviceServiceConfiguration {
   StorageLimit?: number;
   StorageUnit?: StorageUnit;
@@ -718,10 +718,10 @@ export interface ShippingDetails {
   OutboundShipment?: Shipment;
 }
 export type ShippingLabelStatus =
-  | "IN_PROGRESS"
-  | "TIMED_OUT"
-  | "SUCCEEDED"
-  | "FAILED";
+  | "InProgress"
+  | "TimedOut"
+  | "Succeeded"
+  | "Failed";
 export type ShippingOption = "SECOND_DAY" | "NEXT_DAY" | "EXPRESS" | "STANDARD";
 export type SnowballCapacity =
   | "T50"
@@ -732,7 +732,7 @@ export type SnowballCapacity =
   | "T8"
   | "T14"
   | "T32"
-  | "NO_PREFERENCE"
+  | "NoPreference"
   | "T240"
   | "T13";
 export type SnowballType =

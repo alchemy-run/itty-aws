@@ -1371,12 +1371,12 @@ export interface OnDemandCapacityReservationOptions {
   CapacityReservationPreference?: OnDemandCapacityReservationPreference;
   CapacityReservationResourceGroupArn?: string;
 }
-export type OnDemandCapacityReservationPreference = "OPEN" | "NONE";
+export type OnDemandCapacityReservationPreference = "open" | "none";
 export type OnDemandCapacityReservationUsageStrategy =
-  "USE_CAPACITY_RESERVATIONS_FIRST";
+  "use-capacity-reservations-first";
 export type OnDemandProvisioningAllocationStrategy =
-  | "LOWEST_PRICE"
-  | "PRIORITIZED";
+  | "lowest-price"
+  | "prioritized";
 export interface OnDemandProvisioningSpecification {
   AllocationStrategy: OnDemandProvisioningAllocationStrategy;
   CapacityReservationOptions?: OnDemandCapacityReservationOptions;
@@ -1605,11 +1605,11 @@ export interface SimplifiedApplication {
 }
 export type SimplifiedApplicationList = Array<SimplifiedApplication>;
 export type SpotProvisioningAllocationStrategy =
-  | "CAPACITY_OPTIMIZED"
-  | "PRICE_CAPACITY_OPTIMIZED"
-  | "LOWEST_PRICE"
-  | "DIVERSIFIED"
-  | "CAPACITY_OPTIMIZED_PRIORITIZED";
+  | "capacity-optimized"
+  | "price-capacity-optimized"
+  | "lowest-price"
+  | "diversified"
+  | "capacity-optimized-prioritized";
 export interface SpotProvisioningSpecification {
   TimeoutDurationMinutes: number;
   TimeoutAction: SpotProvisioningTimeoutAction;

@@ -207,7 +207,7 @@ export type ClientLabel = string;
 export type ClientList = Array<string>;
 export type ClientToken = string;
 
-export type ClientVersion = "FIVE_ONE" | "FIVE_THREE";
+export type ClientVersion = "5.1" | "5.3";
 export declare class CloudHsmInternalException extends EffectData.TaggedError(
   "CloudHsmInternalException",
 )<{

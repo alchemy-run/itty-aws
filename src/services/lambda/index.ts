@@ -844,12 +844,12 @@ export interface AmazonManagedKafkaEventSourceConfig {
   SchemaRegistryConfig?: KafkaSchemaRegistryConfig;
 }
 export type ApplicationLogLevel =
-  | "Trace"
-  | "Debug"
-  | "Info"
-  | "Warn"
-  | "Error"
-  | "Fatal";
+  | "TRACE"
+  | "DEBUG"
+  | "INFO"
+  | "WARN"
+  | "ERROR"
+  | "FATAL";
 export type Architecture = "x86_64" | "arm64";
 export type ArchitecturesList = Array<Architecture>;
 export type Arn = string;
@@ -1769,7 +1769,7 @@ export interface ListVersionsByFunctionResponse {
 }
 export type LocalMountPath = string;
 
-export type LogFormat = "Json" | "Text";
+export type LogFormat = "JSON" | "Text";
 export interface LoggingConfig {
   LogFormat?: LogFormat;
   ApplicationLogLevel?: ApplicationLogLevel;
@@ -2021,46 +2021,46 @@ export type RoleArn = string;
 
 export type Runtime =
   | "nodejs"
-  | "nodejs43"
-  | "nodejs610"
-  | "nodejs810"
-  | "nodejs10x"
-  | "nodejs12x"
-  | "nodejs14x"
-  | "nodejs16x"
+  | "nodejs4.3"
+  | "nodejs6.10"
+  | "nodejs8.10"
+  | "nodejs10.x"
+  | "nodejs12.x"
+  | "nodejs14.x"
+  | "nodejs16.x"
   | "java8"
-  | "java8al2"
+  | "java8.al2"
   | "java11"
-  | "python27"
-  | "python36"
-  | "python37"
-  | "python38"
-  | "python39"
-  | "dotnetcore10"
-  | "dotnetcore20"
-  | "dotnetcore21"
-  | "dotnetcore31"
+  | "python2.7"
+  | "python3.6"
+  | "python3.7"
+  | "python3.8"
+  | "python3.9"
+  | "dotnetcore1.0"
+  | "dotnetcore2.0"
+  | "dotnetcore2.1"
+  | "dotnetcore3.1"
   | "dotnet6"
   | "dotnet8"
-  | "nodejs43edge"
-  | "go1x"
-  | "ruby25"
-  | "ruby27"
+  | "nodejs4.3-edge"
+  | "go1.x"
+  | "ruby2.5"
+  | "ruby2.7"
   | "provided"
-  | "providedal2"
-  | "nodejs18x"
-  | "python310"
+  | "provided.al2"
+  | "nodejs18.x"
+  | "python3.10"
   | "java17"
-  | "ruby32"
-  | "ruby33"
-  | "ruby34"
-  | "python311"
-  | "nodejs20x"
-  | "providedal2023"
-  | "python312"
+  | "ruby3.2"
+  | "ruby3.3"
+  | "ruby3.4"
+  | "python3.11"
+  | "nodejs20.x"
+  | "provided.al2023"
+  | "python3.12"
   | "java21"
-  | "python313"
-  | "nodejs22x";
+  | "python3.13"
+  | "nodejs22.x";
 export type RuntimeVersionArn = string;
 
 export interface RuntimeVersionConfig {
@@ -2187,7 +2187,7 @@ export declare class SubnetIPAddressLimitReachedException extends EffectData.Tag
   readonly Type?: string;
   readonly Message?: string;
 }> {}
-export type SystemLogLevel = "Debug" | "Info" | "Warn";
+export type SystemLogLevel = "DEBUG" | "INFO" | "WARN";
 export type TaggableResource = string;
 
 export type TagKey = string;

@@ -385,9 +385,9 @@ export type FilterList = Array<Filter>;
 export type FilterName = string;
 
 export type FilterOperator =
-  | "EQUALS"
-  | "GREATER_THAN_OR_EQUALS"
-  | "LESS_THAN_OR_EQUALS";
+  | "Equals"
+  | "GreaterThanOrEquals"
+  | "LessThanOrEquals";
 export type FilterValue = string;
 
 export interface GetApplicationInput {

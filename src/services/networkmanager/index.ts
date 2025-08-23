@@ -1220,7 +1220,7 @@ export type ConnectionId = string;
 
 export type ConnectionIdList = Array<string>;
 export type ConnectionList = Array<Connection>;
-export type ConnectionState = "pending" | "available" | "deleting" | "updating";
+export type ConnectionState = "PENDING" | "AVAILABLE" | "DELETING" | "UPDATING";
 export type ConnectionStatus = "UP" | "DOWN";
 export type ConnectionType = "BGP" | "IPSEC";
 export interface ConnectPeer {
@@ -1244,10 +1244,10 @@ export interface ConnectPeerAssociation {
 }
 export type ConnectPeerAssociationList = Array<ConnectPeerAssociation>;
 export type ConnectPeerAssociationState =
-  | "pending"
-  | "available"
-  | "deleting"
-  | "deleted";
+  | "PENDING"
+  | "AVAILABLE"
+  | "DELETING"
+  | "DELETED";
 export interface ConnectPeerBgpConfiguration {
   CoreNetworkAsn?: number;
   PeerAsn?: number;
@@ -1577,10 +1577,10 @@ export interface CustomerGatewayAssociation {
 }
 export type CustomerGatewayAssociationList = Array<CustomerGatewayAssociation>;
 export type CustomerGatewayAssociationState =
-  | "pending"
-  | "available"
-  | "deleting"
-  | "deleted";
+  | "PENDING"
+  | "AVAILABLE"
+  | "DELETING"
+  | "DELETED";
 export type DateTime = Date | string;
 
 export interface DeleteAttachmentRequest {
@@ -1690,7 +1690,7 @@ export type DeviceId = string;
 
 export type DeviceIdList = Array<string>;
 export type DeviceList = Array<Device>;
-export type DeviceState = "pending" | "available" | "deleting" | "updating";
+export type DeviceState = "PENDING" | "AVAILABLE" | "DELETING" | "UPDATING";
 export type DirectConnectGatewayArn = string;
 
 export interface DirectConnectGatewayAttachment {
@@ -2025,10 +2025,10 @@ export type GlobalNetworkId = string;
 export type GlobalNetworkIdList = Array<string>;
 export type GlobalNetworkList = Array<GlobalNetwork>;
 export type GlobalNetworkState =
-  | "pending"
-  | "available"
-  | "deleting"
-  | "updating";
+  | "PENDING"
+  | "AVAILABLE"
+  | "DELETING"
+  | "UPDATING";
 export type Integer = number;
 
 export declare class InternalServerException extends EffectData.TaggedError(
@@ -2062,15 +2062,15 @@ export interface LinkAssociation {
 }
 export type LinkAssociationList = Array<LinkAssociation>;
 export type LinkAssociationState =
-  | "pending"
-  | "available"
-  | "deleting"
-  | "deleted";
+  | "PENDING"
+  | "AVAILABLE"
+  | "DELETING"
+  | "DELETED";
 export type LinkId = string;
 
 export type LinkIdList = Array<string>;
 export type LinkList = Array<Link>;
-export type LinkState = "pending" | "available" | "deleting" | "updating";
+export type LinkState = "PENDING" | "AVAILABLE" | "DELETING" | "UPDATING";
 export interface ListAttachmentsRequest {
   CoreNetworkId?: string;
   AttachmentType?: AttachmentType;
@@ -2250,7 +2250,7 @@ export interface PeeringError {
 export type PeeringErrorCode =
   | "TRANSIT_GATEWAY_NOT_FOUND"
   | "TRANSIT_GATEWAY_PEERS_LIMIT_EXCEEDED"
-  | "MISSING_REQUIRED_PERMISSIONS"
+  | "MISSING_PERMISSIONS"
   | "INTERNAL_ERROR"
   | "EDGE_LOCATION_PEER_DUPLICATE"
   | "INVALID_TRANSIT_GATEWAY_STATE";
@@ -2356,7 +2356,7 @@ export type RouteAnalysisCompletionReasonCode =
   | "ROUTE_NOT_FOUND"
   | "BLACKHOLE_ROUTE_FOR_DESTINATION_FOUND"
   | "INACTIVE_ROUTE_FOR_DESTINATION_FOUND"
-  | "TRANSIT_GATEWAY_ATTACHMENT"
+  | "TRANSIT_GATEWAY_ATTACHMENT_ATTACH_ARN_NO_MATCH"
   | "MAX_HOPS_EXCEEDED"
   | "POSSIBLE_MIDDLEBOX"
   | "NO_DESTINATION_ARN_PROVIDED";
@@ -2374,7 +2374,7 @@ export interface RouteAnalysisPath {
   CompletionStatus?: RouteAnalysisCompletion;
   Path?: Array<PathComponent>;
 }
-export type RouteAnalysisStatus = "running" | "completed" | "failed";
+export type RouteAnalysisStatus = "RUNNING" | "COMPLETED" | "FAILED";
 export type RouteState = "ACTIVE" | "BLACKHOLE";
 export type RouteStateList = Array<RouteState>;
 export interface RouteTableIdentifier {
@@ -2388,8 +2388,8 @@ export type RouteTableType =
   | "NETWORK_FUNCTION_GROUP";
 export type RouteType = "PROPAGATED" | "STATIC";
 export type RouteTypeList = Array<RouteType>;
-export type SegmentActionServiceInsertion = "SEND_VIA" | "SEND_TO";
-export type SendViaMode = "DUAL_HOP" | "SINGLE_HOP";
+export type SegmentActionServiceInsertion = "send-via" | "send-to";
+export type SendViaMode = "dual-hop" | "single-hop";
 export type ServerSideString = string;
 
 export interface ServiceInsertionAction {
@@ -2428,7 +2428,7 @@ export type SiteId = string;
 
 export type SiteIdList = Array<string>;
 export type SiteList = Array<Site>;
-export type SiteState = "pending" | "available" | "deleting" | "updating";
+export type SiteState = "PENDING" | "AVAILABLE" | "DELETING" | "UPDATING";
 export interface SiteToSiteVpnAttachment {
   Attachment?: Attachment;
   VpnConnectionArn?: string;
@@ -2499,10 +2499,10 @@ export interface TransitGatewayConnectPeerAssociation {
 export type TransitGatewayConnectPeerAssociationList =
   Array<TransitGatewayConnectPeerAssociation>;
 export type TransitGatewayConnectPeerAssociationState =
-  | "pending"
-  | "available"
-  | "deleting"
-  | "deleted";
+  | "PENDING"
+  | "AVAILABLE"
+  | "DELETING"
+  | "DELETED";
 export interface TransitGatewayPeering {
   Peering?: Peering;
   TransitGatewayArn?: string;
@@ -2517,11 +2517,11 @@ export interface TransitGatewayRegistration {
 }
 export type TransitGatewayRegistrationList = Array<TransitGatewayRegistration>;
 export type TransitGatewayRegistrationState =
-  | "pending"
-  | "available"
-  | "deleting"
-  | "deleted"
-  | "failed";
+  | "PENDING"
+  | "AVAILABLE"
+  | "DELETING"
+  | "DELETED"
+  | "FAILED";
 export interface TransitGatewayRegistrationStateReason {
   Code?: TransitGatewayRegistrationState;
   Message?: string;
@@ -2636,10 +2636,10 @@ export interface ValidationExceptionField {
 }
 export type ValidationExceptionFieldList = Array<ValidationExceptionField>;
 export type ValidationExceptionReason =
-  | "UNKNOWN_OPERATION"
-  | "CANNOT_PARSE"
-  | "FIELD_VALIDATION_FAILED"
-  | "OTHER";
+  | "UnknownOperation"
+  | "CannotParse"
+  | "FieldValidationFailed"
+  | "Other";
 export interface Via {
   NetworkFunctionGroups?: Array<NetworkFunctionGroup>;
   WithEdgeOverrides?: Array<EdgeOverride>;

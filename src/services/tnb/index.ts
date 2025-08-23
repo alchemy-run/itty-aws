@@ -421,7 +421,7 @@ export interface DeleteSolNetworkInstanceInput {
 export interface DeleteSolNetworkPackageInput {
   nsdInfoId: string;
 }
-export type DescriptorContentType = "TEXT_PLAIN";
+export type DescriptorContentType = "text/plain";
 export type ErrorCause = string;
 
 export type ErrorDetails = string;
@@ -794,7 +794,7 @@ export type NsState =
 export type OnboardingState = "CREATED" | "ONBOARDED" | "ERROR";
 export type OperationalState = "ENABLED" | "DISABLED";
 export type OverrideList = Array<ToscaOverride>;
-export type PackageContentType = "APPLICATION_ZIP";
+export type PackageContentType = "application/zip";
 export type PaginationToken = string;
 
 export interface ProblemDetails {

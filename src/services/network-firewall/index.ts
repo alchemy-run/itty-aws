@@ -1368,8 +1368,8 @@ export declare class LogDestinationPermissionException extends EffectData.Tagged
 }> {}
 export type LogDestinationType =
   | "S3"
-  | "CLOUDWATCH_LOGS"
-  | "KINESIS_DATA_FIREHOSE";
+  | "CloudWatchLogs"
+  | "KinesisDataFirehose";
 export interface LoggingConfiguration {
   LogDestinationConfigs: Array<LogDestinationConfig>;
 }
@@ -1629,7 +1629,7 @@ export interface StatefulRuleOptions {
   RuleOrder?: RuleOrder;
 }
 export type StatefulRuleProtocol =
-  | "ANY"
+  | "IP"
   | "TCP"
   | "UDP"
   | "ICMP"

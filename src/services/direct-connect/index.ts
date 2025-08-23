@@ -430,7 +430,7 @@ export interface AcceptDirectConnectGatewayAssociationProposalRequest {
 export interface AcceptDirectConnectGatewayAssociationProposalResult {
   directConnectGatewayAssociation?: DirectConnectGatewayAssociation;
 }
-export type AddressFamily = "IPv4" | "IPv6";
+export type AddressFamily = "ipv4" | "ipv6";
 export type AgreementList = Array<CustomerAgreement>;
 export type AgreementName = string;
 
@@ -535,12 +535,12 @@ export type BGPPeerId = string;
 export type BGPPeerIdList = Array<string>;
 export type BGPPeerList = Array<BGPPeer>;
 export type BGPPeerState =
-  | "Verifying"
-  | "Pending"
-  | "Available"
-  | "Deleting"
-  | "Deleted";
-export type BGPStatus = "Up" | "Down" | "Unknown";
+  | "verifying"
+  | "pending"
+  | "available"
+  | "deleting"
+  | "deleted";
+export type BGPStatus = "up" | "down" | "unknown";
 export type BooleanFlag = boolean;
 
 export type Cak = string;
@@ -983,8 +983,8 @@ export type GatewayIdentifier = string;
 
 export type GatewayIdToAssociate = string;
 
-export type GatewayType = "VirtualPrivateGateway" | "TransitGateway";
-export type HasLogicalRedundancy = "Unknown" | "Yes" | "No";
+export type GatewayType = "virtualPrivateGateway" | "transitGateway";
+export type HasLogicalRedundancy = "unknown" | "yes" | "no";
 export interface Interconnect {
   interconnectId?: string;
   interconnectName?: string;
@@ -1081,7 +1081,7 @@ export interface Loa {
 }
 export type LoaContent = Uint8Array | string;
 
-export type LoaContentType = "PDF";
+export type LoaContentType = "application/pdf";
 export type LoaIssueTime = Date | string;
 
 export interface Location {
@@ -1193,7 +1193,7 @@ export interface NewTransitVirtualInterfaceAllocation {
   addressFamily?: AddressFamily;
   tags?: Array<Tag>;
 }
-export type NniPartnerType = "V1" | "V2" | "NonPartner";
+export type NniPartnerType = "v1" | "v2" | "nonPartner";
 export type OwnerAccount = string;
 
 export type PaginationToken = string;

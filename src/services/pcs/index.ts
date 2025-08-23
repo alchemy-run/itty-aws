@@ -579,9 +579,9 @@ export interface SlurmCustomSetting {
 }
 export type SlurmCustomSettings = Array<SlurmCustomSetting>;
 export type SpotAllocationStrategy =
-  | "LOWEST_PRICE"
-  | "CAPACITY_OPTIMIZED"
-  | "PRICE_CAPACITY_OPTIMIZED";
+  | "lowest-price"
+  | "capacity-optimized"
+  | "price-capacity-optimized";
 export interface SpotOptions {
   allocationStrategy?: SpotAllocationStrategy;
 }
@@ -649,10 +649,10 @@ export interface ValidationExceptionField {
 }
 export type ValidationExceptionFieldList = Array<ValidationExceptionField>;
 export type ValidationExceptionReason =
-  | "UNKNOWN_OPERATION"
-  | "CANNOT_PARSE"
-  | "FIELD_VALIDATION_FAILED"
-  | "OTHER";
+  | "unknownOperation"
+  | "cannotParse"
+  | "fieldValidationFailed"
+  | "other";
 export declare namespace ListTagsForResource {
   export type Input = ListTagsForResourceRequest;
   export type Output = ListTagsForResourceResponse;

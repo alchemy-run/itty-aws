@@ -533,10 +533,10 @@ export declare class ConfigurationSetAlreadyExistsException extends EffectData.T
   readonly message?: string;
 }> {}
 export type ConfigurationSetAttribute =
-  | "EVENT_DESTINATIONS"
-  | "TRACKING_OPTIONS"
-  | "DELIVERY_OPTIONS"
-  | "REPUTATION_OPTIONS";
+  | "eventDestinations"
+  | "trackingOptions"
+  | "deliveryOptions"
+  | "reputationOptions";
 export type ConfigurationSetAttributeList = Array<ConfigurationSetAttribute>;
 export declare class ConfigurationSetDoesNotExistException extends EffectData.TaggedError(
   "ConfigurationSetDoesNotExistException",
@@ -727,16 +727,16 @@ export type DiagnosticCode = string;
 
 export type DimensionName = string;
 
-export type DimensionValueSource = "MESSAGE_TAG" | "EMAIL_HEADER" | "LINK_TAG";
+export type DimensionValueSource = "messageTag" | "emailHeader" | "linkTag";
 export type DkimAttributes = Record<string, IdentityDkimAttributes>;
 export type Domain = string;
 
 export type DsnAction =
-  | "FAILED"
-  | "DELAYED"
-  | "DELIVERED"
-  | "RELAYED"
-  | "EXPANDED";
+  | "failed"
+  | "delayed"
+  | "delivered"
+  | "relayed"
+  | "expanded";
 export type DsnStatus = string;
 
 export type Enabled = boolean;
@@ -771,14 +771,14 @@ export type EventDestinationName = string;
 
 export type EventDestinations = Array<EventDestination>;
 export type EventType =
-  | "SEND"
-  | "REJECT"
-  | "BOUNCE"
-  | "COMPLAINT"
-  | "DELIVERY"
-  | "OPEN"
-  | "CLICK"
-  | "RENDERING_FAILURE";
+  | "send"
+  | "reject"
+  | "bounce"
+  | "complaint"
+  | "delivery"
+  | "open"
+  | "click"
+  | "renderingFailure";
 export type EventTypes = Array<EventType>;
 export type Explanation = string;
 
@@ -1351,7 +1351,7 @@ export interface SNSAction {
   TopicArn: string;
   Encoding?: SNSActionEncoding;
 }
-export type SNSActionEncoding = "UTF8" | "Base64";
+export type SNSActionEncoding = "UTF-8" | "Base64";
 export interface SNSDestination {
   TopicARN: string;
 }
@@ -1359,7 +1359,7 @@ export interface StopAction {
   Scope: StopScope;
   TopicArn?: string;
 }
-export type StopScope = "RULE_SET";
+export type StopScope = "RuleSet";
 export type Subject = string;
 
 export type SubjectPart = string;

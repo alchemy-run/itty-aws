@@ -780,7 +780,7 @@ export interface AlarmRecommendation {
 }
 export type AlarmRecommendationList = Array<AlarmRecommendation>;
 export type AlarmReferenceIdList = Array<string>;
-export type AlarmType = "METRIC" | "COMPOSITE" | "CANARY" | "LOGS" | "EVENT";
+export type AlarmType = "Metric" | "Composite" | "Canary" | "Logs" | "Event";
 export interface App {
   appArn: string;
   name: string;
@@ -823,7 +823,7 @@ export interface AppAssessment {
   driftStatus?: DriftStatus;
   summary?: AssessmentSummary;
 }
-export type AppAssessmentScheduleType = "DISABLED" | "DAILY";
+export type AppAssessmentScheduleType = "Disabled" | "Daily";
 export interface AppAssessmentSummary {
   appArn?: string;
   appVersion?: string;
@@ -842,12 +842,12 @@ export interface AppAssessmentSummary {
 }
 export type AppAssessmentSummaryList = Array<AppAssessmentSummary>;
 export type AppComplianceStatusType =
-  | "POLICY_BREACHED"
-  | "POLICY_MET"
-  | "NOT_ASSESSED"
-  | "CHANGES_DETECTED"
-  | "NOT_APPLICABLE"
-  | "MISSING_POLICY";
+  | "PolicyBreached"
+  | "PolicyMet"
+  | "NotAssessed"
+  | "ChangesDetected"
+  | "NotApplicable"
+  | "MissingPolicy";
 export interface AppComponent {
   name: string;
   type: string;
@@ -864,7 +864,7 @@ export interface AppComponentCompliance {
 }
 export type AppComponentList = Array<AppComponent>;
 export type AppComponentNameList = Array<string>;
-export type AppDriftStatusType = "NOT_CHECKED" | "NOT_DETECTED" | "DETECTED";
+export type AppDriftStatusType = "NotChecked" | "NotDetected" | "Detected";
 export interface AppInputSource {
   sourceName?: string;
   importType: ResourceMappingType;
@@ -874,7 +874,7 @@ export interface AppInputSource {
   eksSourceClusterNamespace?: EksSourceClusterNamespace;
 }
 export type AppInputSourceList = Array<AppInputSource>;
-export type AppStatusType = "ACTIVE" | "DELETING";
+export type AppStatusType = "Active" | "Deleting";
 export interface AppSummary {
   appArn: string;
   name: string;
@@ -904,7 +904,7 @@ export type Arn = string;
 
 export type ArnList = Array<string>;
 export type AssessmentCompliance = Record<DisruptionType, DisruptionCompliance>;
-export type AssessmentInvoker = "USER" | "SYSTEM";
+export type AssessmentInvoker = "User" | "System";
 export interface AssessmentRiskRecommendation {
   risk?: string;
   recommendation?: string;
@@ -912,7 +912,7 @@ export interface AssessmentRiskRecommendation {
 }
 export type AssessmentRiskRecommendationList =
   Array<AssessmentRiskRecommendation>;
-export type AssessmentStatus = "PENDING" | "INPROGRESS" | "FAILED" | "SUCCESS";
+export type AssessmentStatus = "Pending" | "InProgress" | "Failed" | "Success";
 export type AssessmentStatusList = Array<AssessmentStatus>;
 export interface AssessmentSummary {
   summary?: string;
@@ -963,10 +963,10 @@ export interface ComplianceDrift {
 }
 export type ComplianceDriftList = Array<ComplianceDrift>;
 export type ComplianceStatus =
-  | "POLICY_BREACHED"
-  | "POLICY_MET"
-  | "NOT_APPLICABLE"
-  | "MISSING_POLICY";
+  | "PolicyBreached"
+  | "PolicyMet"
+  | "NotApplicable"
+  | "MissingPolicy";
 export type ComponentCompliancesList = Array<AppComponentCompliance>;
 export interface ComponentRecommendation {
   appComponentName: string;
@@ -981,12 +981,12 @@ export interface Condition {
 }
 export type ConditionList = Array<Condition>;
 export type ConditionOperatorType =
-  | "EQUALS"
-  | "NOT_EQUALS"
-  | "GREATER_THEN"
-  | "GREATER_OR_EQUALS"
-  | "LESS_THEN"
-  | "LESS_OR_EQUALS";
+  | "Equals"
+  | "NotEquals"
+  | "GreaterThen"
+  | "GreaterOrEquals"
+  | "LessThen"
+  | "LessOrEquals";
 export interface ConfigRecommendation {
   cost?: Cost;
   appComponentName?: string;
@@ -1004,12 +1004,12 @@ export interface ConfigRecommendation {
 }
 export type ConfigRecommendationList = Array<ConfigRecommendation>;
 export type ConfigRecommendationOptimizationType =
-  | "LEAST_COST"
-  | "LEAST_CHANGE"
-  | "BEST_AZ_RECOVERY"
-  | "LEAST_ERRORS"
-  | "BEST_ATTAINABLE"
-  | "BEST_REGION_RECOVERY";
+  | "LeastCost"
+  | "LeastChange"
+  | "BestAZRecovery"
+  | "LeastErrors"
+  | "BestAttainable"
+  | "BestRegionRecovery";
 export declare class ConflictException extends EffectData.TaggedError(
   "ConflictException",
 )<{
@@ -1022,7 +1022,7 @@ export interface Cost {
   currency: string;
   frequency: CostFrequency;
 }
-export type CostFrequency = "HOURLY" | "DAILY" | "MONTHLY" | "YEARLY";
+export type CostFrequency = "Hourly" | "Daily" | "Monthly" | "Yearly";
 export interface CreateAppRequest {
   name: string;
   description?: string;
@@ -1097,9 +1097,9 @@ export type CurrencyCode = string;
 export type CustomerId = string;
 
 export type DataLocationConstraint =
-  | "ANY_LOCATION"
-  | "SAME_CONTINENT"
-  | "SAME_COUNTRY";
+  | "AnyLocation"
+  | "SameContinent"
+  | "SameCountry";
 export interface DeleteAppAssessmentRequest {
   assessmentArn: string;
   clientToken?: string;
@@ -1267,7 +1267,7 @@ export interface DescribeResourceGroupingRecommendationTaskResponse {
   status: ResourcesGroupingRecGenStatusType;
   errorMessage?: string;
 }
-export type DifferenceType = "NOT_EQUAL" | "ADDED" | "REMOVED";
+export type DifferenceType = "NotEqual" | "Added" | "Removed";
 export interface DisruptionCompliance {
   achievableRtoInSecs?: number;
   currentRtoInSecs?: number;
@@ -1282,15 +1282,15 @@ export interface DisruptionCompliance {
 }
 export type DisruptionPolicy = Record<DisruptionType, FailurePolicy>;
 export type DisruptionResiliencyScore = Record<DisruptionType, number>;
-export type DisruptionType = "SOFTWARE" | "HARDWARE" | "AZ" | "REGION";
+export type DisruptionType = "Software" | "Hardware" | "AZ" | "Region";
 export type DocumentName = string;
 
 export type Double = number;
 
-export type DriftStatus = "NOT_CHECKED" | "NOT_DETECTED" | "DETECTED";
+export type DriftStatus = "NotChecked" | "NotDetected" | "Detected";
 export type DriftType =
-  | "APPLICATION_COMPLIANCE"
-  | "APP_COMPONENT_RESILIENCY_COMPLIANCE_STATUS";
+  | "ApplicationCompliance"
+  | "AppComponentResiliencyComplianceStatus";
 export type EksNamespace = string;
 
 export type EksNamespaceList = Array<string>;
@@ -1327,11 +1327,11 @@ export interface EventSubscription {
   snsTopicArn?: string;
 }
 export type EventSubscriptionList = Array<EventSubscription>;
-export type EventType = "SCHEDULED_ASSESSMENT_FAILURE" | "DRIFT_DETECTED";
+export type EventType = "ScheduledAssessmentFailure" | "DriftDetected";
 export type ExcludeRecommendationReason =
-  | "ALREADY_IMPLEMENTED"
-  | "NOT_RELEVANT"
-  | "COMPLEXITY_OF_IMPLEMENTATION";
+  | "AlreadyImplemented"
+  | "NotRelevant"
+  | "ComplexityOfImplementation";
 export interface Experiment {
   experimentArn?: string;
   experimentTemplateId?: string;
@@ -1350,7 +1350,7 @@ export interface Field {
   name: string;
   aggregation?: FieldAggregationType;
 }
-export type FieldAggregationType = "MIN" | "MAX" | "SUM" | "AVG" | "COUNT";
+export type FieldAggregationType = "Min" | "Max" | "Sum" | "Avg" | "Count";
 export type FieldList = Array<Field>;
 export interface GroupingAppComponent {
   appComponentId: string;
@@ -1368,17 +1368,17 @@ export interface GroupingRecommendation {
   creationTime: Date | string;
   rejectionReason?: GroupingRecommendationRejectionReason;
 }
-export type GroupingRecommendationConfidenceLevel = "HIGH" | "MEDIUM";
+export type GroupingRecommendationConfidenceLevel = "High" | "Medium";
 export type GroupingRecommendationList = Array<GroupingRecommendation>;
 export type GroupingRecommendationRejectionReason =
-  | "DISTINCT_BUSINESS_PURPOSE"
-  | "SEPARATE_DATA_CONCERN"
-  | "DISTINCT_USER_GROUP_HANDLING"
-  | "OTHER";
+  | "DistinctBusinessPurpose"
+  | "SeparateDataConcern"
+  | "DistinctUserGroupHandling"
+  | "Other";
 export type GroupingRecommendationStatusType =
-  | "ACCEPTED"
-  | "REJECTED"
-  | "PENDING_DECISION";
+  | "Accepted"
+  | "Rejected"
+  | "PendingDecision";
 export interface GroupingResource {
   resourceName: string;
   resourceType: string;
@@ -1388,11 +1388,11 @@ export interface GroupingResource {
 }
 export type GroupingResourceList = Array<GroupingResource>;
 export type HaArchitecture =
-  | "MULTI_SITE"
-  | "WARM_STANDBY"
-  | "PILOT_LIGHT"
-  | "BACKUP_AND_RESTORE"
-  | "NO_RECOVERY_PLAN";
+  | "MultiSite"
+  | "WarmStandby"
+  | "PilotLight"
+  | "BackupAndRestore"
+  | "NoRecoveryPlan";
 export type IamRoleArn = string;
 
 export type IamRoleArnList = Array<string>;
@@ -1651,10 +1651,10 @@ export type LongOptional = number;
 export type MaxResults = number;
 
 export type MetricsExportStatusType =
-  | "PENDING"
-  | "IN_PROGRESS"
-  | "FAILED"
-  | "SUCCESS";
+  | "Pending"
+  | "InProgress"
+  | "Failed"
+  | "Success";
 export type NextToken = string;
 
 export interface PermissionModel {
@@ -1662,8 +1662,8 @@ export interface PermissionModel {
   invokerRoleName?: string;
   crossAccountRoleArns?: Array<string>;
 }
-export type PermissionModelType = "LEGACY_IAM_USER" | "ROLE_BASED";
-export type PhysicalIdentifierType = "ARN" | "NATIVE";
+export type PermissionModelType = "LegacyIAMUser" | "RoleBased";
+export type PhysicalIdentifierType = "Arn" | "Native";
 export interface PhysicalResource {
   resourceName?: string;
   logicalResourceId: LogicalResourceId;
@@ -1705,10 +1705,10 @@ export type RecommendationCompliance = Record<
   RecommendationDisruptionCompliance
 >;
 export type RecommendationComplianceStatus =
-  | "BREACHED_UNATTAINABLE"
-  | "BREACHED_CAN_MEET"
-  | "MET_CAN_IMPROVE"
-  | "MISSING_POLICY";
+  | "BreachedUnattainable"
+  | "BreachedCanMeet"
+  | "MetCanImprove"
+  | "MissingPolicy";
 export interface RecommendationDisruptionCompliance {
   expectedComplianceStatus: ComplianceStatus;
   expectedRtoInSecs?: number;
@@ -1729,10 +1729,10 @@ export interface RecommendationItem {
 }
 export type RecommendationItemList = Array<RecommendationItem>;
 export type RecommendationStatus =
-  | "IMPLEMENTED"
-  | "INACTIVE"
-  | "NOT_IMPLEMENTED"
-  | "EXCLUDED";
+  | "Implemented"
+  | "Inactive"
+  | "NotImplemented"
+  | "Excluded";
 export interface RecommendationTemplate {
   templatesLocation?: S3Location;
   assessmentArn: string;
@@ -1751,10 +1751,10 @@ export interface RecommendationTemplate {
 }
 export type RecommendationTemplateList = Array<RecommendationTemplate>;
 export type RecommendationTemplateStatus =
-  | "PENDING"
-  | "IN_PROGRESS"
-  | "FAILED"
-  | "SUCCESS";
+  | "Pending"
+  | "InProgress"
+  | "Failed"
+  | "Success";
 export type RecommendationTemplateStatusList =
   Array<RecommendationTemplateStatus>;
 export type RejectGroupingRecommendationEntries =
@@ -1784,7 +1784,7 @@ export interface RemoveDraftAppVersionResourceMappingsResponse {
   appArn?: string;
   appVersion?: string;
 }
-export type RenderRecommendationType = "ALARM" | "SOP" | "TEST";
+export type RenderRecommendationType = "Alarm" | "Sop" | "Test";
 export type RenderRecommendationTypeList = Array<RenderRecommendationType>;
 export type ResiliencyPolicies = Array<ResiliencyPolicy>;
 export interface ResiliencyPolicy {
@@ -1799,18 +1799,18 @@ export interface ResiliencyPolicy {
   tags?: Record<string, string>;
 }
 export type ResiliencyPolicyTier =
-  | "MISSION_CRITICAL"
-  | "CRITICAL"
-  | "IMPORTANT"
-  | "CORE_SERVICES"
-  | "NON_CRITICAL"
-  | "NOT_APPLICABLE";
+  | "MissionCritical"
+  | "Critical"
+  | "Important"
+  | "CoreServices"
+  | "NonCritical"
+  | "NotApplicable";
 export interface ResiliencyScore {
   score: number;
   disruptionScore: Record<DisruptionType, number>;
   componentScore?: Record<ResiliencyScoreType, ScoringComponentResiliencyScore>;
 }
-export type ResiliencyScoreType = "COMPLIANCE" | "TEST" | "ALARM" | "SOP";
+export type ResiliencyScoreType = "Compliance" | "Test" | "Alarm" | "Sop";
 export interface ResolveAppVersionResourcesRequest {
   appArn: string;
   appVersion: string;
@@ -1846,11 +1846,11 @@ export interface ResourceIdentifier {
   resourceType?: string;
 }
 export type ResourceImportStatusType =
-  | "PENDING"
-  | "IN_PROGRESS"
-  | "FAILED"
-  | "SUCCESS";
-export type ResourceImportStrategyType = "ADD_ONLY" | "REPLACE_ALL";
+  | "Pending"
+  | "InProgress"
+  | "Failed"
+  | "Success";
+export type ResourceImportStrategyType = "AddOnly" | "ReplaceAll";
 export interface ResourceMapping {
   resourceName?: string;
   logicalStackName?: string;
@@ -1863,11 +1863,11 @@ export interface ResourceMapping {
 }
 export type ResourceMappingList = Array<ResourceMapping>;
 export type ResourceMappingType =
-  | "CFN_STACK"
-  | "RESOURCE"
-  | "APP_REGISTRY_APP"
-  | "RESOURCE_GROUP"
-  | "TERRAFORM"
+  | "CfnStack"
+  | "Resource"
+  | "AppRegistryApp"
+  | "ResourceGroup"
+  | "Terraform"
   | "EKS";
 export declare class ResourceNotFoundException extends EffectData.TaggedError(
   "ResourceNotFoundException",
@@ -1877,16 +1877,16 @@ export declare class ResourceNotFoundException extends EffectData.TaggedError(
   readonly resourceType?: string;
 }> {}
 export type ResourceResolutionStatusType =
-  | "PENDING"
-  | "IN_PROGRESS"
-  | "FAILED"
-  | "SUCCESS";
+  | "Pending"
+  | "InProgress"
+  | "Failed"
+  | "Success";
 export type ResourcesGroupingRecGenStatusType =
-  | "PENDING"
-  | "IN_PROGRESS"
-  | "FAILED"
-  | "SUCCESS";
-export type ResourceSourceType = "APP_TEMPLATE" | "DISCOVERED";
+  | "Pending"
+  | "InProgress"
+  | "Failed"
+  | "Success";
+export type ResourceSourceType = "AppTemplate" | "Discovered";
 export type ResourceType = string;
 
 export type RetryAfterSeconds = number;
@@ -1986,7 +1986,7 @@ export interface TagResourceRequest {
 export interface TagResourceResponse {}
 export type TagValue = string;
 
-export type TemplateFormat = "CFN_YAML" | "CFN_JSON";
+export type TemplateFormat = "CfnYaml" | "CfnJson";
 export interface TerraformSource {
   s3StateFileUrl: string;
 }
@@ -2007,8 +2007,8 @@ export interface TestRecommendation {
   recommendationStatus?: RecommendationStatus;
 }
 export type TestRecommendationList = Array<TestRecommendation>;
-export type TestRisk = "SMALL" | "MEDIUM" | "HIGH";
-export type TestType = "SOFTWARE" | "HARDWARE" | "AZ" | "REGION";
+export type TestRisk = "Small" | "Medium" | "High";
+export type TestType = "Software" | "Hardware" | "AZ" | "Region";
 export declare class ThrottlingException extends EffectData.TaggedError(
   "ThrottlingException",
 )<{

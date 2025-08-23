@@ -1163,7 +1163,7 @@ export interface AggregatedUtterancesFilter {
   operator: AggregatedUtterancesFilterOperator;
 }
 export type AggregatedUtterancesFilterName = "Utterance";
-export type AggregatedUtterancesFilterOperator = "Contains" | "Equals";
+export type AggregatedUtterancesFilterOperator = "CO" | "EQ";
 export type AggregatedUtterancesFilters = Array<AggregatedUtterancesFilter>;
 export type AggregatedUtterancesSortAttribute = "HitCount" | "MissedCount";
 export interface AggregatedUtterancesSortBy {
@@ -1208,7 +1208,7 @@ export type AnalyticsCommonFilterName =
   | "LocaleId"
   | "Modality"
   | "Channel";
-export type AnalyticsFilterOperator = "Equals" | "GreaterThan" | "LessThan";
+export type AnalyticsFilterOperator = "EQ" | "GT" | "LT";
 export type AnalyticsFilterValue = string;
 
 export type AnalyticsFilterValues = Array<string>;
@@ -1638,7 +1638,7 @@ export interface BotFilter {
   operator: BotFilterOperator;
 }
 export type BotFilterName = "BotName" | "BotType";
-export type BotFilterOperator = "Contains" | "Equals" | "NotEquals";
+export type BotFilterOperator = "CO" | "EQ" | "NE";
 export type BotFilters = Array<BotFilter>;
 export interface BotImportSpecification {
   botName: string;
@@ -1660,7 +1660,7 @@ export interface BotLocaleFilter {
   operator: BotLocaleFilterOperator;
 }
 export type BotLocaleFilterName = "BotLocaleName";
-export type BotLocaleFilterOperator = "Contains" | "Equals";
+export type BotLocaleFilterOperator = "CO" | "EQ";
 export type BotLocaleFilters = Array<BotLocaleFilter>;
 export interface BotLocaleHistoryEvent {
   event: string;
@@ -2761,7 +2761,7 @@ export interface ExportFilter {
   operator: ExportFilterOperator;
 }
 export type ExportFilterName = "ExportResourceType";
-export type ExportFilterOperator = "Contains" | "Equals";
+export type ExportFilterOperator = "CO" | "EQ";
 export type ExportFilters = Array<ExportFilter>;
 export interface ExportResourceSpecification {
   botExportSpecification?: BotExportSpecification;
@@ -2897,7 +2897,7 @@ export interface ImportFilter {
   operator: ImportFilterOperator;
 }
 export type ImportFilterName = "ImportResourceType";
-export type ImportFilterOperator = "Contains" | "Equals";
+export type ImportFilterOperator = "CO" | "EQ";
 export type ImportFilters = Array<ImportFilter>;
 export interface ImportResourceSpecification {
   botImportSpecification?: BotImportSpecification;
@@ -2986,7 +2986,7 @@ export interface IntentFilter {
   operator: IntentFilterOperator;
 }
 export type IntentFilterName = "IntentName";
-export type IntentFilterOperator = "Contains" | "Equals";
+export type IntentFilterOperator = "CO" | "EQ";
 export type IntentFilters = Array<IntentFilter>;
 export interface IntentLevelSlotResolutionTestResultItem {
   intentName: string;
@@ -3825,7 +3825,7 @@ export interface SlotFilter {
   operator: SlotFilterOperator;
 }
 export type SlotFilterName = "SlotName";
-export type SlotFilterOperator = "Contains" | "Equals";
+export type SlotFilterOperator = "CO" | "EQ";
 export type SlotFilters = Array<SlotFilter>;
 export type SlotHintsIntentMap = Record<
   string,
@@ -3882,7 +3882,7 @@ export interface SlotTypeFilter {
   operator: SlotTypeFilterOperator;
 }
 export type SlotTypeFilterName = "SlotTypeName" | "ExternalSourceType";
-export type SlotTypeFilterOperator = "Contains" | "Equals";
+export type SlotTypeFilterOperator = "CO" | "EQ";
 export type SlotTypeFilters = Array<SlotTypeFilter>;
 export type SlotTypeSignature = string;
 
@@ -4618,7 +4618,7 @@ export declare class ValidationException extends EffectData.TaggedError(
 }> {}
 export type Value = string;
 
-export type VoiceEngine = "Standard" | "Neural" | "LongForm" | "Generative";
+export type VoiceEngine = "standard" | "neural" | "long-form" | "generative";
 export type VoiceId = string;
 
 export interface VoiceSettings {

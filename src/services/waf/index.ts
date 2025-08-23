@@ -1712,13 +1712,13 @@ export interface Predicate {
 }
 export type Predicates = Array<Predicate>;
 export type PredicateType =
-  | "IP_MATCH"
-  | "BYTE_MATCH"
-  | "SQL_INJECTION_MATCH"
-  | "GEO_MATCH"
-  | "SIZE_CONSTRAINT"
-  | "XSS_MATCH"
-  | "REGEX_MATCH";
+  | "IPMatch"
+  | "ByteMatch"
+  | "SqlInjectionMatch"
+  | "GeoMatch"
+  | "SizeConstraint"
+  | "XssMatch"
+  | "RegexMatch";
 export interface PutLoggingConfigurationRequest {
   LoggingConfiguration: LoggingConfiguration;
 }

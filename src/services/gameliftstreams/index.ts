@@ -301,7 +301,7 @@ export type ApplicationStatus =
   | "READY"
   | "DELETING"
   | "ERROR";
-export type ApplicationStatusReason = "INTERNAL_ERROR" | "ACCESS_DENIED";
+export type ApplicationStatusReason = "internalError" | "accessDenied";
 export interface ApplicationSummary {
   Arn: string;
   Id?: string;
@@ -575,7 +575,7 @@ export type OnDemandCapacity = number;
 
 export type OutputUri = string;
 
-export type Protocol = "WEBRTC";
+export type Protocol = "WebRTC";
 export interface RemoveStreamGroupLocationsInput {
   Identifier: string;
   Locations: Array<string>;
@@ -664,9 +664,7 @@ export type StreamGroupStatus =
   | "ACTIVE_WITH_ERRORS"
   | "ERROR"
   | "DELETING";
-export type StreamGroupStatusReason =
-  | "INTERNAL_ERROR"
-  | "NO_AVAILABLE_INSTANCES";
+export type StreamGroupStatusReason = "internalError" | "noAvailableInstances";
 export interface StreamGroupSummary {
   Arn: string;
   Id?: string;
@@ -688,10 +686,10 @@ export type StreamSessionStatus =
   | "TERMINATED"
   | "ERROR";
 export type StreamSessionStatusReason =
-  | "INTERNAL_ERROR"
-  | "INVALID_SIGNAL_REQUEST"
-  | "PLACEMENT_TIMEOUT"
-  | "APP_LOG_S3_DESTINATION_ERROR";
+  | "internalError"
+  | "invalidSignalRequest"
+  | "placementTimeout"
+  | "applicationLogS3DestinationError";
 export interface StreamSessionSummary {
   Arn?: string;
   UserId?: string;

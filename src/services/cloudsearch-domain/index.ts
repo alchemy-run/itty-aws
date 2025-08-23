@@ -31,7 +31,7 @@ export interface BucketInfo {
   buckets?: Array<Bucket>;
 }
 export type BucketList = Array<Bucket>;
-export type ContentType = "application_json" | "application_xml";
+export type ContentType = "application/json" | "application/xml";
 export type Cursor = string;
 
 export type Deletes = number;

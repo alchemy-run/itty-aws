@@ -137,14 +137,17 @@ export declare class AccessDeniedException extends EffectData.TaggedError(
 }> {}
 export type AmazonResourceName = string;
 
-export type AuthorizationStrategy = "SMARTV1" | "SMART_ON_FHIR" | "AWS_AUTH";
+export type AuthorizationStrategy =
+  | "SMART_ON_FHIR_V1"
+  | "SMART_ON_FHIR"
+  | "AWS_AUTH";
 export type HealthlakeBoolean = boolean;
 
 export type BoundedLengthString = string;
 
 export type ClientTokenString = string;
 
-export type CmkType = "CM_CMK" | "AO_CMK";
+export type CmkType = "CUSTOMER_MANAGED_KMS_KEY" | "AWS_OWNED_KMS_KEY";
 export type ConfigurationMetadata = string;
 
 export declare class ConflictException extends EffectData.TaggedError(

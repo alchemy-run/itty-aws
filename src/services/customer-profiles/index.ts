@@ -1124,13 +1124,13 @@ export interface ContactPreference {
   ContactType?: ContactType;
 }
 export type ContactType =
-  | "PHONE_NUMBER"
-  | "MOBILE_PHONE_NUMBER"
-  | "HOME_PHONE_NUMBER"
-  | "BUSINESS_PHONE_NUMBER"
-  | "EMAIL_ADDRESS"
-  | "PERSONAL_EMAIL_ADDRESS"
-  | "BUSINESS_EMAIL_ADDRESS";
+  | "PhoneNumber"
+  | "MobilePhoneNumber"
+  | "HomePhoneNumber"
+  | "BusinessPhoneNumber"
+  | "EmailAddress"
+  | "PersonalEmailAddress"
+  | "BusinessEmailAddress";
 export interface CreateCalculatedAttributeDefinitionRequest {
   DomainName: string;
   CalculatedAttributeName: string;
@@ -1322,7 +1322,7 @@ export interface CreateUploadJobResponse {
 }
 export type CustomAttributes = Record<string, AttributeDimension>;
 export type DataFormat = "CSV" | "JSONL" | "ORC";
-export type DataPullMode = "INCREMENTAL" | "COMPLETE";
+export type DataPullMode = "Incremental" | "Complete";
 export type CustomerProfilesDate = Date | string;
 
 export interface DateDimension {
@@ -2744,10 +2744,10 @@ export interface SourceConnectorProperties {
   Zendesk?: ZendeskSourceProperties;
 }
 export type SourceConnectorType =
-  | "SALESFORCE"
-  | "MARKETO"
-  | "ZENDESK"
-  | "SERVICENOW"
+  | "Salesforce"
+  | "Marketo"
+  | "Zendesk"
+  | "Servicenow"
   | "S3";
 export type SourceFields = Array<string>;
 export interface SourceFlowConfig {
@@ -2853,13 +2853,13 @@ export interface Task {
 export type TaskPropertiesMap = Record<OperatorPropertiesKeys, string>;
 export type Tasks = Array<Task>;
 export type TaskType =
-  | "ARITHMETIC"
-  | "FILTER"
-  | "MAP"
-  | "MASK"
-  | "MERGE"
-  | "TRUNCATE"
-  | "VALIDATE";
+  | "Arithmetic"
+  | "Filter"
+  | "Map"
+  | "Mask"
+  | "Merge"
+  | "Truncate"
+  | "Validate";
 export type text = string;
 
 export interface Threshold {
@@ -2884,7 +2884,7 @@ export interface TriggerConfig {
 export interface TriggerProperties {
   Scheduled?: ScheduledTriggerProperties;
 }
-export type TriggerType = "SCHEDULED" | "EVENT" | "ONDEMAND";
+export type TriggerType = "Scheduled" | "Event" | "OnDemand";
 export type Type = "ALL" | "ANY" | "NONE";
 export type typeName = string;
 

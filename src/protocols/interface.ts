@@ -5,9 +5,15 @@ export interface ServiceMetadata {
   readonly version: string;
   readonly endpointPrefix: string;
   readonly protocol: string;
-  readonly targetPrefix: string;
+  readonly targetPrefix?: string; // only used for awsJson1_0 and awsJson1_1
   readonly globalEndpoint?: string; // For global services like IAM and CloudFront
   readonly signingRegion?: string; // Override signing region for global services
+}
+
+export interface ParsedError {
+  readonly errorType: string;
+  readonly message: string;
+  readonly requestId?: string;
 }
 
 export interface ProtocolHandler {
@@ -32,10 +38,12 @@ export interface ProtocolHandler {
     responseText: string,
     statusCode: number,
     metadata?: ServiceMetadata,
+    headers?: Headers,
+    action?: string,
   ): unknown;
   parseError(
     responseText: string,
     statusCode: number,
     headers?: Headers,
-  ): unknown;
+  ): ParsedError;
 }

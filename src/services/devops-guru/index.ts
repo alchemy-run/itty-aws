@@ -433,9 +433,9 @@ export interface CloudFormationHealth {
 }
 export type CloudFormationHealths = Array<CloudFormationHealth>;
 export type CloudWatchMetricDataStatusCode =
-  | "COMPLETE"
-  | "INTERNAL_ERROR"
-  | "PARTIAL_DATA";
+  | "Complete"
+  | "InternalError"
+  | "PartialData";
 export interface CloudWatchMetricsDataSummary {
   TimestampMetricValuePairList?: Array<TimestampMetricValuePair>;
   StatusCode?: CloudWatchMetricDataStatusCode;
@@ -466,14 +466,14 @@ export type CloudWatchMetricsNamespace = string;
 export type CloudWatchMetricsPeriod = number;
 
 export type CloudWatchMetricsStat =
-  | "SUM"
-  | "AVERAGE"
-  | "SAMPLE_COUNT"
-  | "MINIMUM"
-  | "MAXIMUM"
-  | "P99"
-  | "P90"
-  | "P50";
+  | "Sum"
+  | "Average"
+  | "SampleCount"
+  | "Minimum"
+  | "Maximum"
+  | "p99"
+  | "p90"
+  | "p50";
 export type CloudWatchMetricsUnit = string;
 
 export declare class ConflictException extends EffectData.TaggedError(

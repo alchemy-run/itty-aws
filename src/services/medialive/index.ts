@@ -1942,7 +1942,7 @@ export interface Ac3Settings {
   MetadataControl?: Ac3MetadataControl;
   AttenuationControl?: Ac3AttenuationControl;
 }
-export type AcceptHeader = "image_jpeg";
+export type AcceptHeader = "image/jpeg";
 export interface AcceptInputDeviceTransferRequest {
   InputDeviceId: string;
 }
@@ -2536,7 +2536,7 @@ export declare class ConflictException extends EffectData.TaggedError(
 )<{
   readonly Message?: string;
 }> {}
-export type ContentType = "image_jpeg";
+export type ContentType = "image/jpeg";
 export interface CreateChannelPlacementGroupRequest {
   ClusterId: string;
   Name?: string;
@@ -2831,7 +2831,7 @@ export type DashRoleAudio =
   | "DESCRIPTION"
   | "DUB"
   | "EMERGENCY"
-  | "ENHANCED_AUDIO_INTELLIGIBILITY"
+  | "ENHANCED-AUDIO-INTELLIGIBILITY"
   | "KARAOKE"
   | "MAIN"
   | "SUPPLEMENTARY";
@@ -2843,7 +2843,7 @@ export type DashRoleCaption =
   | "DUB"
   | "EASYREADER"
   | "EMERGENCY"
-  | "FORCED_SUBTITLE"
+  | "FORCED-SUBTITLE"
   | "KARAOKE"
   | "MAIN"
   | "METADATA"
@@ -4168,13 +4168,13 @@ export interface InputDeviceConfigurableAudioChannelPairConfig {
 }
 export type InputDeviceConfigurableAudioChannelPairProfile =
   | "DISABLED"
-  | "VBR_AAC_HHE_16000"
-  | "VBR_AAC_HE_64000"
-  | "VBR_AAC_LC_128000"
-  | "CBR_AAC_HQ_192000"
-  | "CBR_AAC_HQ_256000"
-  | "CBR_AAC_HQ_384000"
-  | "CBR_AAC_HQ_512000";
+  | "VBR-AAC_HHE-16000"
+  | "VBR-AAC_HE-64000"
+  | "VBR-AAC_LC-128000"
+  | "CBR-AAC_HQ-192000"
+  | "CBR-AAC_HQ-256000"
+  | "CBR-AAC_HQ-384000"
+  | "CBR-AAC_HQ-512000";
 export interface InputDeviceConfigurableSettings {
   ConfiguredInput?: InputDeviceConfiguredInput;
   MaxBitrate?: number;
@@ -4257,13 +4257,13 @@ export interface InputDeviceUhdAudioChannelPairConfig {
 }
 export type InputDeviceUhdAudioChannelPairProfile =
   | "DISABLED"
-  | "VBR_AAC_HHE_16000"
-  | "VBR_AAC_HE_64000"
-  | "VBR_AAC_LC_128000"
-  | "CBR_AAC_HQ_192000"
-  | "CBR_AAC_HQ_256000"
-  | "CBR_AAC_HQ_384000"
-  | "CBR_AAC_HQ_512000";
+  | "VBR-AAC_HHE-16000"
+  | "VBR-AAC_HE-64000"
+  | "VBR-AAC_LC-128000"
+  | "CBR-AAC_HQ-192000"
+  | "CBR-AAC_HQ-256000"
+  | "CBR-AAC_HQ-384000"
+  | "CBR-AAC_HQ-512000";
 export interface InputDeviceUhdSettings {
   ActiveInput?: InputDeviceActiveInput;
   ConfiguredInput?: InputDeviceConfiguredInput;

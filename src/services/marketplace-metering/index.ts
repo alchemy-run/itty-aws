@@ -236,9 +236,9 @@ export interface UsageRecordResult {
 }
 export type UsageRecordResultList = Array<UsageRecordResult>;
 export type UsageRecordResultStatus =
-  | "SUCCESS"
-  | "CUSTOMER_NOT_SUBSCRIBED"
-  | "DUPLICATE_RECORD";
+  | "Success"
+  | "CustomerNotSubscribed"
+  | "DuplicateRecord";
 export type VersionInteger = number;
 
 export declare namespace BatchMeterUsage {

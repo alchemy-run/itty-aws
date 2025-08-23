@@ -354,7 +354,7 @@ export declare class AccessDeniedException extends EffectData.TaggedError(
 }> {}
 export type Arn = string;
 
-export type BlankNodeHandling = "CONVERT_TO_IRI";
+export type BlankNodeHandling = "convertToIri";
 export interface CancelExportTaskInput {
   taskIdentifier: string;
 }

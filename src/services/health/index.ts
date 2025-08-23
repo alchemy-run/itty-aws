@@ -292,7 +292,7 @@ export interface EventAggregate {
   aggregateValue?: string;
   count?: number;
 }
-export type eventAggregateField = "EventTypeCategory";
+export type eventAggregateField = "eventTypeCategory";
 export type EventAggregateList = Array<EventAggregate>;
 export type eventArn = string;
 
@@ -331,7 +331,7 @@ export interface EventFilter {
 export type EventList = Array<Event>;
 export type eventMetadata = Record<string, string>;
 export type eventScopeCode = "PUBLIC" | "ACCOUNT_SPECIFIC" | "NONE";
-export type eventStatusCode = "OPEN" | "CLOSED" | "UPCOMING";
+export type eventStatusCode = "open" | "closed" | "upcoming";
 export type eventStatusCodeList = Array<eventStatusCode>;
 export interface EventType {
   service?: string;
@@ -341,10 +341,10 @@ export interface EventType {
 export type EventType2 = string;
 
 export type eventTypeCategory =
-  | "ISSUE"
-  | "ACCOUNT_NOTIFICATION"
-  | "SCHEDULED_CHANGE"
-  | "INVESTIGATION";
+  | "issue"
+  | "accountNotification"
+  | "scheduledChange"
+  | "investigation";
 export type EventTypeCategoryList = Array<eventTypeCategory>;
 export type eventTypeCategoryList2 = Array<eventTypeCategory>;
 export type eventTypeCode = string;

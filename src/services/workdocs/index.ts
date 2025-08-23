@@ -1176,17 +1176,17 @@ export declare class LimitExceededException extends EffectData.TaggedError(
 export type LimitType = number;
 
 export type LocaleType =
-  | "EN"
-  | "FR"
-  | "KO"
-  | "DE"
-  | "ES"
-  | "JA"
-  | "RU"
-  | "ZH_CN"
-  | "ZH_TW"
-  | "PT_BR"
-  | "DEFAULT";
+  | "en"
+  | "fr"
+  | "ko"
+  | "de"
+  | "es"
+  | "ja"
+  | "ru"
+  | "zh_CN"
+  | "zh_TW"
+  | "pt_BR"
+  | "default";
 export interface LongRangeType {
   StartValue?: number;
   EndValue?: number;

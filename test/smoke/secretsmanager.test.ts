@@ -216,7 +216,7 @@ describe("SecretsManager Smoke Tests", () => {
         // Clean up any existing binary secret
         yield* deleteSecretIfExists(binarySecretName);
 
-        const binaryData = Buffer.from("binary-test-data").toString("base64");
+        const binaryData = Buffer.from("binary-test-data");
 
         const binaryCreateResult = yield* client.createSecret({
           Name: binarySecretName,
@@ -232,9 +232,19 @@ describe("SecretsManager Smoke Tests", () => {
         });
 
         expect(binaryGetResult.SecretBinary).toBeDefined();
-        expect(
-          Buffer.from(binaryGetResult.SecretBinary || "", "base64").toString(),
-        ).toBe("binary-test-data");
+        expect(binaryGetResult.SecretString).toBeUndefined();
+
+        if (typeof binaryGetResult.SecretBinary === "string") {
+          expect(
+            Buffer.from(binaryGetResult.SecretBinary, "base64").toString(),
+          ).toBe("binary-test-data");
+        } else if (binaryGetResult.SecretBinary instanceof Uint8Array) {
+          expect(Buffer.from(binaryGetResult.SecretBinary).toString()).toBe(
+            "binary-test-data",
+          );
+        } else {
+          throw new Error("SecretBinary should be string or Uint8Array");
+        }
 
         yield* Console.log("Binary secret operations completed successfully");
 
@@ -274,15 +284,15 @@ describe("SecretsManager Smoke Tests", () => {
 
         expect(listResult.SecretList).toBeDefined();
         expect(Array.isArray(listResult.SecretList)).toBe(true);
-        expect(listResult.SecretList.length).toBeLessThanOrEqual(10);
+        expect(listResult.SecretList!.length).toBeLessThanOrEqual(10);
 
         yield* Console.log(
-          `Listed ${listResult.SecretList.length} secrets (max 10)`,
+          `Listed ${listResult.SecretList!.length} secrets (max 10)`,
         );
 
         // Test filtering by name
-        if (listResult.SecretList.length > 0) {
-          const firstSecret = listResult.SecretList[0];
+        if (listResult.SecretList!.length > 0) {
+          const firstSecret = listResult.SecretList![0];
           const filterResult = yield* client.listSecrets({
             Filters: [
               {

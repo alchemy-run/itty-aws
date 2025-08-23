@@ -252,9 +252,9 @@ export type FeatureStatus =
   | "DISABLED_PENDING_REBOOT"
   | "UNKNOWN";
 export type FineGrainedAction =
-  | "DESCRIBE_DIMENSION_KEYS"
-  | "GET_DIMENSION_KEY_DETAILS"
-  | "GET_RESOURCE_METRICS";
+  | "DescribeDimensionKeys"
+  | "GetDimensionKeyDetails"
+  | "GetResourceMetrics";
 export interface GetDimensionKeyDetailsRequest {
   ServiceType: ServiceType;
   Identifier: string;

@@ -1478,7 +1478,7 @@ export interface NetworkInterface {
   customDecodingInterface?: CustomDecodingInterface;
 }
 export type NetworkInterfaceFailureReason =
-  | "DUPLICATE_INTERFACE"
+  | "DUPLICATE_NETWORK_INTERFACE"
   | "CONFLICTING_NETWORK_INTERFACE"
   | "NETWORK_INTERFACE_TO_ADD_ALREADY_EXISTS"
   | "CAN_NETWORK_INTERFACE_INFO_IS_NULL"
@@ -1956,7 +1956,7 @@ export interface UpdateFleetResponse {
   id?: string;
   arn?: string;
 }
-export type UpdateMode = "OVERWRITE" | "MERGE";
+export type UpdateMode = "Overwrite" | "Merge";
 export interface UpdateModelManifestRequest {
   name: string;
   description?: string;
@@ -2041,13 +2041,13 @@ export interface ValidationExceptionField {
 }
 export type ValidationExceptionFieldList = Array<ValidationExceptionField>;
 export type ValidationExceptionReason =
-  | "UNKNOWN_OPERATION"
-  | "CANNOT_PARSE"
-  | "FIELD_VALIDATION_FAILED"
-  | "OTHER";
+  | "unknownOperation"
+  | "cannotParse"
+  | "fieldValidationFailed"
+  | "other";
 export type VehicleAssociationBehavior =
-  | "CREATE_IOT_THING"
-  | "VALIDATE_IOT_THING_EXISTS";
+  | "CreateIotThing"
+  | "ValidateIotThingExists";
 export interface VehicleMiddleware {
   name: string;
   protocolName: VehicleMiddlewareProtocol;

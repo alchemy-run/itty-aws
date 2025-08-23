@@ -337,13 +337,13 @@ export declare class ResourceNotFoundException extends EffectData.TaggedError(
   readonly amznErrorType?: string;
 }> {}
 export type ResourceType =
-  | "AWS_CLOUDWATCH_METRIC"
-  | "AWS_LOGS_LOGGROUP"
-  | "AWS_XRAY_TRACE"
-  | "AWS_APPLICATIONINSIGHTS_APPLICATION"
-  | "AWS_INTERNETMONITOR_MONITOR"
-  | "AWS_APPLICATION_SIGNALS_SERVICE"
-  | "AWS_APPLICATION_SIGNALS_SLO";
+  | "AWS::CloudWatch::Metric"
+  | "AWS::Logs::LogGroup"
+  | "AWS::XRay::Trace"
+  | "AWS::ApplicationInsights::Application"
+  | "AWS::InternetMonitor::Monitor"
+  | "AWS::ApplicationSignals::Service"
+  | "AWS::ApplicationSignals::ServiceLevelObjective";
 export type ResourceTypesInput = Array<ResourceType>;
 export type ResourceTypesOutput = Array<string>;
 export declare class ServiceQuotaExceededException extends EffectData.TaggedError(

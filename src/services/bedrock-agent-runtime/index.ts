@@ -435,11 +435,11 @@ export type ActionGroupName = string;
 export type ActionGroupOutputString = string;
 
 export type ActionGroupSignature =
-  | "AMAZON_USERINPUT"
-  | "AMAZON_CODEINTERPRETER"
-  | "ANTHROPIC_COMPUTER"
-  | "ANTHROPIC_BASH"
-  | "ANTHROPIC_TEXTEDITOR";
+  | "AMAZON.UserInput"
+  | "AMAZON.CodeInterpreter"
+  | "ANTHROPIC.Computer"
+  | "ANTHROPIC.Bash"
+  | "ANTHROPIC.TextEditor";
 export type ActionGroupSignatureParams = Record<string, string>;
 export type ActionInvocationType =
   | "RESULT"
@@ -664,7 +664,7 @@ export type ContentType = string;
 export interface ConversationHistory {
   messages?: Array<Message>;
 }
-export type ConversationRole = "USER" | "ASSISTANT";
+export type ConversationRole = "user" | "assistant";
 export interface CreateInvocationRequest {
   invocationId?: string;
   description?: string;
@@ -807,7 +807,7 @@ export interface FlowExecutionError {
   message?: string;
 }
 export type FlowExecutionErrors = Array<FlowExecutionError>;
-export type FlowExecutionErrorType = "TIMED_OUT";
+export type FlowExecutionErrorType = "ExecutionTimedOut";
 interface _FlowExecutionEvent {
   flowInputEvent?: FlowExecutionInputEvent;
   flowOutputEvent?: FlowExecutionOutputEvent;
@@ -827,7 +827,7 @@ export type FlowExecutionEvent =
   | (_FlowExecutionEvent & { nodeFailureEvent: NodeFailureEvent })
   | (_FlowExecutionEvent & { flowFailureEvent: FlowFailureEvent });
 export type FlowExecutionEvents = Array<FlowExecutionEvent>;
-export type FlowExecutionEventType = "NODE" | "FLOW";
+export type FlowExecutionEventType = "Node" | "Flow";
 export type FlowExecutionId = string;
 
 export type FlowExecutionIdentifier = string;
@@ -847,11 +847,11 @@ export interface FlowExecutionOutputEvent {
 export type FlowExecutionRoleArn = string;
 
 export type FlowExecutionStatus =
-  | "RUNNING"
-  | "SUCCEEDED"
-  | "FAILED"
-  | "TIMED_OUT"
-  | "ABORTED";
+  | "Running"
+  | "Succeeded"
+  | "Failed"
+  | "TimedOut"
+  | "Aborted";
 export type FlowExecutionSummaries = Array<FlowExecutionSummary>;
 export interface FlowExecutionSummary {
   executionArn: string;
@@ -1280,12 +1280,12 @@ export interface ImageBlock {
   format: ImageFormat;
   source: ImageSource;
 }
-export type ImageFormat = "PNG" | "JPEG" | "GIF" | "WEBP";
+export type ImageFormat = "png" | "jpeg" | "gif" | "webp";
 export interface ImageInput {
   format: ImageInputFormat;
   source: ImageInputSource;
 }
-export type ImageInputFormat = "PNG" | "JPEG" | "GIF" | "WEBP";
+export type ImageInputFormat = "png" | "jpeg" | "gif" | "webp";
 export type ImageInputs = Array<ImageInput>;
 interface _ImageInputSource {
   bytes?: Uint8Array | string;
@@ -1763,13 +1763,13 @@ export type NodeOutputFields = Array<NodeOutputField>;
 export type NodeOutputName = string;
 
 export type NodeType =
-  | "FLOW_INPUT_NODE"
-  | "FLOW_OUTPUT_NODE"
-  | "LAMBDA_FUNCTION_NODE"
-  | "KNOWLEDGE_BASE_NODE"
-  | "PROMPT_NODE"
-  | "CONDITION_NODE"
-  | "LEX_NODE";
+  | "FlowInputNode"
+  | "FlowOutputNode"
+  | "LambdaFunctionNode"
+  | "KnowledgeBaseNode"
+  | "PromptNode"
+  | "ConditionNode"
+  | "LexNode";
 export type NonBlankString = string;
 
 export interface Observation {
@@ -1882,11 +1882,11 @@ export type ParameterName = string;
 
 export type Parameters = Array<Parameter>;
 export type ParameterType =
-  | "STRING"
-  | "NUMBER"
-  | "INTEGER"
-  | "BOOLEAN"
-  | "ARRAY";
+  | "string"
+  | "number"
+  | "integer"
+  | "boolean"
+  | "array";
 export type PartBody = Uint8Array | string;
 
 export type Payload = string;
@@ -1896,7 +1896,7 @@ export interface PayloadPart {
   attribution?: Attribution;
 }
 export type PayloadType = "TEXT" | "RETURN_CONTROL";
-export type PerformanceConfigLatency = "STANDARD" | "OPTIMIZED";
+export type PerformanceConfigLatency = "standard" | "optimized";
 export interface PerformanceConfiguration {
   latency?: PerformanceConfigLatency;
 }

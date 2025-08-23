@@ -483,33 +483,33 @@ export interface ListTagsForResourceOutput {
 export type MaxResults = number;
 
 export type MetricUnit =
-  | "SECONDS"
-  | "MICROSECONDS"
-  | "MILLISECONDS"
-  | "BYTES"
-  | "KILOBYTES"
-  | "MEGABYTES"
-  | "GIGABYTES"
-  | "TERABYTES"
-  | "BITS"
-  | "KILOBITS"
-  | "MEGABITS"
-  | "GIGABITS"
-  | "TERABITS"
-  | "PERCENT"
-  | "COUNT"
-  | "BYTES_PER_SECOND"
-  | "KILOBYTES_PER_SECOND"
-  | "MEGABYTES_PER_SECOND"
-  | "GIGABYTES_PER_SECOND"
-  | "TERABYTES_PER_SECOND"
-  | "BITS_PER_SECOND"
-  | "KILOBITS_PER_SECOND"
-  | "MEGABITS_PER_SECOND"
-  | "GIGABITS_PER_SECOND"
-  | "TERABITS_PER_SECOND"
-  | "COUNT_PER_SECOND"
-  | "NONE";
+  | "Seconds"
+  | "Microseconds"
+  | "Milliseconds"
+  | "Bytes"
+  | "Kilobytes"
+  | "Megabytes"
+  | "Gigabytes"
+  | "Terabytes"
+  | "Bits"
+  | "Kilobits"
+  | "Megabits"
+  | "Gigabits"
+  | "Terabits"
+  | "Percent"
+  | "Count"
+  | "Bytes/Second"
+  | "Kilobytes/Second"
+  | "Megabytes/Second"
+  | "Gigabytes/Second"
+  | "Terabytes/Second"
+  | "Bits/Second"
+  | "Kilobits/Second"
+  | "Megabits/Second"
+  | "Gigabits/Second"
+  | "Terabits/Second"
+  | "Count/Second"
+  | "None";
 export type MonitorArn = string;
 
 export type MonitorList = Array<MonitorSummary>;
@@ -518,7 +518,10 @@ export interface MonitorLocalResource {
   identifier: string;
 }
 export type MonitorLocalResources = Array<MonitorLocalResource>;
-export type MonitorLocalResourceType = "AWS_VPC" | "AWS_AZ" | "AWS_SUBNET";
+export type MonitorLocalResourceType =
+  | "AWS::EC2::VPC"
+  | "AWS::AvailabilityZone"
+  | "AWS::EC2::Subnet";
 export type MonitorMetric =
   | "ROUND_TRIP_TIME"
   | "TIMEOUTS"
@@ -530,10 +533,10 @@ export interface MonitorRemoteResource {
 }
 export type MonitorRemoteResources = Array<MonitorRemoteResource>;
 export type MonitorRemoteResourceType =
-  | "AWS_VPC"
-  | "AWS_AZ"
-  | "AWS_SUBNET"
-  | "AWS_SERVICE";
+  | "AWS::EC2::VPC"
+  | "AWS::AvailabilityZone"
+  | "AWS::EC2::Subnet"
+  | "AWS::AWSService";
 export type MonitorStatus =
   | "PENDING"
   | "ACTIVE"

@@ -646,7 +646,7 @@ export interface AddTagsToResourceMessage {
   ResourceName: string;
   Tags: Array<Tag>;
 }
-export type ApplyMethod = "immediate" | "pending_reboot";
+export type ApplyMethod = "immediate" | "pending-reboot";
 export interface ApplyPendingMaintenanceActionMessage {
   ResourceIdentifier: string;
   ApplyAction: string;
@@ -1583,7 +1583,7 @@ export interface FailoverState {
   ToDbClusterArn?: string;
   IsDataLossAllowed?: boolean;
 }
-export type FailoverStatus = "PENDING" | "FAILING_OVER" | "CANCELLING";
+export type FailoverStatus = "pending" | "failing-over" | "cancelling";
 export interface Filter {
   Name: string;
   Values: Array<string>;
@@ -2109,12 +2109,12 @@ export declare class SourceNotFoundFault extends EffectData.TaggedError(
   readonly message?: string;
 }> {}
 export type SourceType =
-  | "db_instance"
-  | "db_parameter_group"
-  | "db_security_group"
-  | "db_snapshot"
-  | "db_cluster"
-  | "db_cluster_snapshot";
+  | "db-instance"
+  | "db-parameter-group"
+  | "db-security-group"
+  | "db-snapshot"
+  | "db-cluster"
+  | "db-cluster-snapshot";
 export interface StartDBClusterMessage {
   DBClusterIdentifier: string;
 }

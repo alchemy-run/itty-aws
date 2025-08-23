@@ -1143,7 +1143,7 @@ export interface PlacementConstraint {
 export type PlacementConstraintExpression = string;
 
 export type PlacementConstraints = Array<PlacementConstraint>;
-export type PlacementConstraintType = "DISTINCT_INSTANCE" | "MEMBER_OF";
+export type PlacementConstraintType = "distinctInstance" | "memberOf";
 export type PlacementStrategies = Array<PlacementStrategy>;
 export interface PlacementStrategy {
   type?: PlacementStrategyType;
@@ -1151,7 +1151,7 @@ export interface PlacementStrategy {
 }
 export type PlacementStrategyField = string;
 
-export type PlacementStrategyType = "RANDOM" | "SPREAD" | "BINPACK";
+export type PlacementStrategyType = "random" | "spread" | "binpack";
 export declare class PolicyLengthExceededException extends EffectData.TaggedError(
   "PolicyLengthExceededException",
 )<{

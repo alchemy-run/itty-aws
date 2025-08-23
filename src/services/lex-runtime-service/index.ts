@@ -118,13 +118,13 @@ export type ButtonTextStringWithLength = string;
 
 export type ButtonValueStringWithLength = string;
 
-export type ConfirmationStatus = "NONE" | "CONFIRMED" | "DENIED";
+export type ConfirmationStatus = "None" | "Confirmed" | "Denied";
 export declare class ConflictException extends EffectData.TaggedError(
   "ConflictException",
 )<{
   readonly message?: string;
 }> {}
-export type ContentType = "GENERIC";
+export type ContentType = "application/vnd.amazonaws.card.generic";
 export interface DeleteSessionRequest {
   botName: string;
   botAlias: string;
@@ -151,23 +151,23 @@ export interface DialogAction {
   messageFormat?: MessageFormatType;
 }
 export type DialogActionType =
-  | "ELICIT_INTENT"
-  | "CONFIRM_INTENT"
-  | "ELICIT_SLOT"
-  | "CLOSE"
-  | "DELEGATE";
+  | "ElicitIntent"
+  | "ConfirmIntent"
+  | "ElicitSlot"
+  | "Close"
+  | "Delegate";
 export type DialogState =
-  | "ELICIT_INTENT"
-  | "CONFIRM_INTENT"
-  | "ELICIT_SLOT"
-  | "FULFILLED"
-  | "READY_FOR_FULFILLMENT"
-  | "FAILED";
+  | "ElicitIntent"
+  | "ConfirmIntent"
+  | "ElicitSlot"
+  | "Fulfilled"
+  | "ReadyForFulfillment"
+  | "Failed";
 export type Double = number;
 
 export type ErrorMessage = string;
 
-export type FulfillmentState = "FULFILLED" | "FAILED" | "READY_FOR_FULFILLMENT";
+export type FulfillmentState = "Fulfilled" | "Failed" | "ReadyForFulfillment";
 export interface GenericAttachment {
   title?: string;
   subTitle?: string;
@@ -227,10 +227,10 @@ export declare class LoopDetectedException extends EffectData.TaggedError(
   readonly Message?: string;
 }> {}
 export type MessageFormatType =
-  | "PLAIN_TEXT"
-  | "CUSTOM_PAYLOAD"
+  | "PlainText"
+  | "CustomPayload"
   | "SSML"
-  | "COMPOSITE";
+  | "Composite";
 export declare class NotAcceptableException extends EffectData.TaggedError(
   "NotAcceptableException",
 )<{

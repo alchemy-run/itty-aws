@@ -988,16 +988,16 @@ export interface OnPremConfig {
   AgentArns: Array<string>;
 }
 export type Operator =
-  | "EQ"
-  | "NE"
-  | "IN"
-  | "LE"
-  | "LT"
-  | "GE"
-  | "GT"
-  | "CONTAINS"
-  | "NOT_CONTAINS"
-  | "BEGINS_WITH";
+  | "Equals"
+  | "NotEquals"
+  | "In"
+  | "LessThanOrEqual"
+  | "LessThan"
+  | "GreaterThanOrEqual"
+  | "GreaterThan"
+  | "Contains"
+  | "NotContains"
+  | "BeginsWith";
 export interface Options {
   VerifyMode?: VerifyMode;
   OverwriteMode?: OverwriteMode;

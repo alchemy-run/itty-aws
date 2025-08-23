@@ -445,9 +445,9 @@ export type EntityArn = string;
 
 export type EntityType = "IAM_ROLE" | "IAM_USER";
 export type ErrorCode =
-  | "InvalidGraphArn"
-  | "InvalidRequestBody"
-  | "InternalError";
+  | "INVALID_GRAPH_ARN"
+  | "INVALID_REQUEST_BODY"
+  | "INTERNAL_ERROR";
 export type ErrorCodeReason = string;
 
 export type ErrorMessage = string;

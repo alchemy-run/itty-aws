@@ -107,15 +107,15 @@ export interface CallAnalyticsItem {
 }
 export type CallAnalyticsItemList = Array<CallAnalyticsItem>;
 export type CallAnalyticsLanguageCode =
-  | "EN_US"
-  | "EN_GB"
-  | "ES_US"
-  | "FR_CA"
-  | "FR_FR"
-  | "EN_AU"
-  | "IT_IT"
-  | "DE_DE"
-  | "PT_BR";
+  | "en-US"
+  | "en-GB"
+  | "es-US"
+  | "fr-CA"
+  | "fr-FR"
+  | "en-AU"
+  | "it-IT"
+  | "de-DE"
+  | "pt-BR";
 interface _CallAnalyticsTranscriptResultStream {
   UtteranceEvent?: UtteranceEvent;
   CategoryEvent?: CategoryEvent;
@@ -185,7 +185,7 @@ export declare class ConflictException extends EffectData.TaggedError(
   readonly Message?: string;
 }> {}
 export type ContentIdentificationType = "PII";
-export type ContentRedactionOutput = "REDACTED" | "REDACTED_AND_UNREDACTED";
+export type ContentRedactionOutput = "redacted" | "redacted_and_unredacted";
 export type ContentRedactionType = "PII";
 export type DateTime = Date | string;
 
@@ -230,65 +230,65 @@ export interface Item {
   Stable?: boolean;
 }
 export type ItemList = Array<Item>;
-export type ItemType = "PRONUNCIATION" | "PUNCTUATION";
+export type ItemType = "pronunciation" | "punctuation";
 export type KMSEncryptionContextMap = Record<string, string>;
 export type KMSKeyId = string;
 
 export type LanguageCode =
-  | "EN_US"
-  | "EN_GB"
-  | "ES_US"
-  | "FR_CA"
-  | "FR_FR"
-  | "EN_AU"
-  | "IT_IT"
-  | "DE_DE"
-  | "PT_BR"
-  | "JA_JP"
-  | "KO_KR"
-  | "ZH_CN"
-  | "TH_TH"
-  | "ES_ES"
-  | "AR_SA"
-  | "PT_PT"
-  | "CA_ES"
-  | "AR_AE"
-  | "HI_IN"
-  | "ZH_HK"
-  | "NL_NL"
-  | "NO_NO"
-  | "SV_SE"
-  | "PL_PL"
-  | "FI_FI"
-  | "ZH_TW"
-  | "EN_IN"
-  | "EN_IE"
-  | "EN_NZ"
-  | "EN_AB"
-  | "EN_ZA"
-  | "EN_WL"
-  | "DE_CH"
-  | "AF_ZA"
-  | "EU_ES"
-  | "HR_HR"
-  | "CS_CZ"
-  | "DA_DK"
-  | "FA_IR"
-  | "GL_ES"
-  | "EL_GR"
-  | "HE_IL"
-  | "ID_ID"
-  | "LV_LV"
-  | "MS_MY"
-  | "RO_RO"
-  | "RU_RU"
-  | "SR_RS"
-  | "SK_SK"
-  | "SO_SO"
-  | "TL_PH"
-  | "UK_UA"
-  | "VI_VN"
-  | "ZU_ZA";
+  | "en-US"
+  | "en-GB"
+  | "es-US"
+  | "fr-CA"
+  | "fr-FR"
+  | "en-AU"
+  | "it-IT"
+  | "de-DE"
+  | "pt-BR"
+  | "ja-JP"
+  | "ko-KR"
+  | "zh-CN"
+  | "th-TH"
+  | "es-ES"
+  | "ar-SA"
+  | "pt-PT"
+  | "ca-ES"
+  | "ar-AE"
+  | "hi-IN"
+  | "zh-HK"
+  | "nl-NL"
+  | "no-NO"
+  | "sv-SE"
+  | "pl-PL"
+  | "fi-FI"
+  | "zh-TW"
+  | "en-IN"
+  | "en-IE"
+  | "en-NZ"
+  | "en-AB"
+  | "en-ZA"
+  | "en-WL"
+  | "de-CH"
+  | "af-ZA"
+  | "eu-ES"
+  | "hr-HR"
+  | "cs-CZ"
+  | "da-DK"
+  | "fa-IR"
+  | "gl-ES"
+  | "el-GR"
+  | "he-IL"
+  | "id-ID"
+  | "lv-LV"
+  | "ms-MY"
+  | "ro-RO"
+  | "ru-RU"
+  | "sr-RS"
+  | "sk-SK"
+  | "so-SO"
+  | "tl-PH"
+  | "uk-UA"
+  | "vi-VN"
+  | "zu-ZA";
 export type LanguageIdentification = Array<LanguageWithScore>;
 export type LanguageOptions = string;
 
@@ -304,7 +304,7 @@ export declare class LimitExceededException extends EffectData.TaggedError(
 export type Long = number;
 
 export type MatchedCategoryDetails = Record<string, PointsOfInterest>;
-export type MediaEncoding = "PCM" | "OGG_OPUS" | "FLAC";
+export type MediaEncoding = "pcm" | "ogg-opus" | "flac";
 export type MediaSampleRateHertz = number;
 
 export interface MedicalAlternative {
@@ -378,8 +378,8 @@ export type MedicalScribeInputStream =
   | (_MedicalScribeInputStream & {
       ConfigurationEvent: MedicalScribeConfigurationEvent;
     });
-export type MedicalScribeLanguageCode = "EN_US";
-export type MedicalScribeMediaEncoding = "PCM" | "OGG_OPUS" | "FLAC";
+export type MedicalScribeLanguageCode = "en-US";
+export type MedicalScribeMediaEncoding = "pcm" | "ogg-opus" | "flac";
 export type MedicalScribeMediaSampleRateHertz = number;
 
 export type MedicalScribeNoteTemplate =
@@ -460,7 +460,7 @@ export interface MedicalScribeTranscriptItem {
 }
 export type MedicalScribeTranscriptItemList =
   Array<MedicalScribeTranscriptItem>;
-export type MedicalScribeTranscriptItemType = "PRONUNCIATION" | "PUNCTUATION";
+export type MedicalScribeTranscriptItemType = "pronunciation" | "punctuation";
 export interface MedicalScribeTranscriptSegment {
   SegmentId?: string;
   BeginAudioTime?: number;
@@ -470,7 +470,7 @@ export interface MedicalScribeTranscriptSegment {
   IsPartial?: boolean;
   ChannelId?: string;
 }
-export type MedicalScribeVocabularyFilterMethod = "REMOVE" | "MASK" | "TAG";
+export type MedicalScribeVocabularyFilterMethod = "remove" | "mask" | "tag";
 export interface MedicalTranscript {
   Results?: Array<MedicalResult>;
 }
@@ -511,7 +511,7 @@ export type NullableBoolean = boolean;
 
 export type NumberOfChannels = number;
 
-export type PartialResultsStability = "HIGH" | "MEDIUM" | "LOW";
+export type PartialResultsStability = "high" | "medium" | "low";
 export type ParticipantRole = "AGENT" | "CUSTOMER";
 export type PiiEntityTypes = string;
 
@@ -738,7 +738,7 @@ export interface UtteranceEvent {
   Sentiment?: Sentiment;
   IssuesDetected?: Array<IssueDetected>;
 }
-export type VocabularyFilterMethod = "REMOVE" | "MASK" | "TAG";
+export type VocabularyFilterMethod = "remove" | "mask" | "tag";
 export type VocabularyFilterName = string;
 
 export type VocabularyFilterNames = string;

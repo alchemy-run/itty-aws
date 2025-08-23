@@ -830,7 +830,7 @@ export type AgreementStatus =
   | "PENDING"
   | "NOT_AVAILABLE"
   | "ERROR";
-export type ApplicationType = "MODEL_EVALUATION" | "RAG_EVALUATION";
+export type ApplicationType = "ModelEvaluation" | "RagEvaluation";
 export type Arn = string;
 
 export type AttributeType = "STRING" | "NUMBER" | "BOOLEAN" | "STRING_LIST";
@@ -901,7 +901,7 @@ export interface CloudWatchConfig {
   roleArn: string;
   largeDataDeliveryS3Config?: S3Config;
 }
-export type CommitmentDuration = "ONE_MONTH" | "SIX_MONTHS";
+export type CommitmentDuration = "OneMonth" | "SixMonths";
 export declare class ConflictException extends EffectData.TaggedError(
   "ConflictException",
 )<{
@@ -1120,7 +1120,7 @@ export type CustomModelDeploymentDescription = string;
 
 export type CustomModelDeploymentIdentifier = string;
 
-export type CustomModelDeploymentStatus = "CREATING" | "ACTIVE" | "FAILED";
+export type CustomModelDeploymentStatus = "Creating" | "Active" | "Failed";
 export interface CustomModelDeploymentSummary {
   customModelDeploymentArn: string;
   customModelDeploymentName: string;
@@ -1278,13 +1278,13 @@ export type EvaluationJobIdentifiers = Array<string>;
 export type EvaluationJobName = string;
 
 export type EvaluationJobStatus =
-  | "IN_PROGRESS"
-  | "COMPLETED"
-  | "FAILED"
-  | "STOPPING"
-  | "STOPPED"
-  | "DELETING";
-export type EvaluationJobType = "HUMAN" | "AUTOMATED";
+  | "InProgress"
+  | "Completed"
+  | "Failed"
+  | "Stopping"
+  | "Stopped"
+  | "Deleting";
+export type EvaluationJobType = "Human" | "Automated";
 export type EvaluationMetricDescription = string;
 
 export type EvaluationMetricName = string;
@@ -1359,11 +1359,11 @@ export interface EvaluationSummary {
   applicationType?: ApplicationType;
 }
 export type EvaluationTaskType =
-  | "SUMMARIZATION"
-  | "CLASSIFICATION"
-  | "QUESTION_AND_ANSWER"
-  | "GENERATION"
-  | "CUSTOM";
+  | "Summarization"
+  | "Classification"
+  | "QuestionAndAnswer"
+  | "Generation"
+  | "Custom";
 export type EvaluationTaskTypes = Array<EvaluationTaskType>;
 interface _EvaluatorModelConfig {
   bedrockEvaluatorModels?: Array<BedrockEvaluatorModel>;
@@ -1406,11 +1406,11 @@ export type FilterKey = string;
 export type FilterValue = unknown;
 
 export type FineTuningJobStatus =
-  | "IN_PROGRESS"
-  | "COMPLETED"
-  | "FAILED"
-  | "STOPPING"
-  | "STOPPED";
+  | "InProgress"
+  | "Completed"
+  | "Failed"
+  | "Stopping"
+  | "Stopped";
 export type FoundationModelArn = string;
 
 export interface FoundationModelDetails {
@@ -2110,12 +2110,12 @@ export type InvocationLogSource = _InvocationLogSource & { s3Uri: string };
 export type JobName = string;
 
 export type JobStatusDetails =
-  | "IN_PROGRESS"
-  | "COMPLETED"
-  | "STOPPING"
-  | "STOPPED"
-  | "FAILED"
-  | "NOT_STARTED";
+  | "InProgress"
+  | "Completed"
+  | "Stopping"
+  | "Stopped"
+  | "Failed"
+  | "NotStarted";
 export interface KbInferenceConfig {
   textInferenceConfig?: TextInferenceConfig;
 }
@@ -2408,7 +2408,7 @@ export type ModelArn = string;
 
 export type ModelCopyJobArn = string;
 
-export type ModelCopyJobStatus = "IN_PROGRESS" | "COMPLETED" | "FAILED";
+export type ModelCopyJobStatus = "InProgress" | "Completed" | "Failed";
 export type ModelCopyJobSummaries = Array<ModelCopyJobSummary>;
 export interface ModelCopyJobSummary {
   jobArn: string;
@@ -2433,11 +2433,11 @@ export type ModelCustomizationJobArn = string;
 export type ModelCustomizationJobIdentifier = string;
 
 export type ModelCustomizationJobStatus =
-  | "IN_PROGRESS"
-  | "COMPLETED"
-  | "FAILED"
-  | "STOPPING"
-  | "STOPPED";
+  | "InProgress"
+  | "Completed"
+  | "Failed"
+  | "Stopping"
+  | "Stopped";
 export type ModelCustomizationJobSummaries =
   Array<ModelCustomizationJobSummary>;
 export interface ModelCustomizationJobSummary {
@@ -2469,7 +2469,7 @@ export type ModelImportJobArn = string;
 
 export type ModelImportJobIdentifier = string;
 
-export type ModelImportJobStatus = "IN_PROGRESS" | "COMPLETED" | "FAILED";
+export type ModelImportJobStatus = "InProgress" | "Completed" | "Failed";
 export type ModelImportJobSummaries = Array<ModelImportJobSummary>;
 export interface ModelImportJobSummary {
   jobArn: string;
@@ -2516,16 +2516,16 @@ export interface ModelInvocationJobS3OutputDataConfig {
   s3BucketOwner?: string;
 }
 export type ModelInvocationJobStatus =
-  | "SUBMITTED"
-  | "IN_PROGRESS"
-  | "COMPLETED"
-  | "FAILED"
-  | "STOPPING"
-  | "STOPPED"
-  | "PARTIALLY_COMPLETED"
-  | "EXPIRED"
-  | "VALIDATING"
-  | "SCHEDULED";
+  | "Submitted"
+  | "InProgress"
+  | "Completed"
+  | "Failed"
+  | "Stopping"
+  | "Stopped"
+  | "PartiallyCompleted"
+  | "Expired"
+  | "Validating"
+  | "Scheduled";
 export type ModelInvocationJobSummaries = Array<ModelInvocationJobSummary>;
 export interface ModelInvocationJobSummary {
   jobArn: string;
@@ -2552,7 +2552,7 @@ export type ModelName = string;
 
 export type ModelSourceIdentifier = string;
 
-export type ModelStatus = "ACTIVE" | "CREATING" | "FAILED";
+export type ModelStatus = "Active" | "Creating" | "Failed";
 export type NonBlankString = string;
 
 export interface Offer {
@@ -2574,7 +2574,7 @@ export interface OutputDataConfig {
 }
 export type PaginationToken = string;
 
-export type PerformanceConfigLatency = "STANDARD" | "OPTIMIZED";
+export type PerformanceConfigLatency = "standard" | "optimized";
 export interface PerformanceConfiguration {
   latency?: PerformanceConfigLatency;
 }
@@ -2609,7 +2609,7 @@ export interface PromptRouterTargetModel {
 export type PromptRouterTargetModelArn = string;
 
 export type PromptRouterTargetModels = Array<PromptRouterTargetModel>;
-export type PromptRouterType = "CUSTOM" | "DEFAULT";
+export type PromptRouterType = "custom" | "default";
 export interface PromptTemplate {
   textPromptTemplate?: string;
 }
@@ -2622,10 +2622,10 @@ export type ProvisionedModelId = string;
 export type ProvisionedModelName = string;
 
 export type ProvisionedModelStatus =
-  | "CREATING"
-  | "IN_SERVICE"
-  | "UPDATING"
-  | "FAILED";
+  | "Creating"
+  | "InService"
+  | "Updating"
+  | "Failed";
 export type ProvisionedModelSummaries = Array<ProvisionedModelSummary>;
 export interface ProvisionedModelSummary {
   provisionedModelName: string;
@@ -2807,10 +2807,10 @@ export declare class ServiceUnavailableException extends EffectData.TaggedError(
 )<{
   readonly message?: string;
 }> {}
-export type SortByProvisionedModels = "CREATION_TIME";
-export type SortJobsBy = "CREATION_TIME";
-export type SortModelsBy = "CREATION_TIME";
-export type SortOrder = "ASCENDING" | "DESCENDING";
+export type SortByProvisionedModels = "CreationTime";
+export type SortJobsBy = "CreationTime";
+export type SortModelsBy = "CreationTime";
+export type SortOrder = "Ascending" | "Descending";
 export type Status = "REGISTERED" | "INCOMPATIBLE_ENDPOINT";
 export interface StatusDetails {
   validationDetails?: ValidationDetails;

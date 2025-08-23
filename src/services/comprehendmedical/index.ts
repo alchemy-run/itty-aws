@@ -577,7 +577,7 @@ export type JobStatus =
   | "STOPPED";
 export type KMSKey = string;
 
-export type LanguageCode = "EN";
+export type LanguageCode = "en";
 export interface ListEntitiesDetectionV2JobsRequest {
   Filter?: ComprehendMedicalAsyncJobFilter;
   NextToken?: string;

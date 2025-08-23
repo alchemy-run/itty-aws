@@ -1540,8 +1540,8 @@ export type ActivityStreamModeList = Array<string>;
 export type ActivityStreamPolicyStatus =
   | "locked"
   | "unlocked"
-  | "locking_policy"
-  | "unlocking_policy";
+  | "locking-policy"
+  | "unlocking-policy";
 export type ActivityStreamStatus =
   | "stopped"
   | "starting"
@@ -1568,7 +1568,7 @@ export interface AddTagsToResourceMessage {
   ResourceName: string;
   Tags: Array<Tag>;
 }
-export type ApplyMethod = "immediate" | "pending_reboot";
+export type ApplyMethod = "immediate" | "pending-reboot";
 export interface ApplyPendingMaintenanceActionMessage {
   ResourceIdentifier: string;
   ApplyAction: string;
@@ -1580,7 +1580,7 @@ export interface ApplyPendingMaintenanceActionResult {
 export type Arn = string;
 
 export type AttributeValueList = Array<string>;
-export type AuditPolicyState = "LOCKED_POLICY" | "UNLOCKED_POLICY";
+export type AuditPolicyState = "locked" | "unlocked";
 export declare class AuthorizationAlreadyExistsFault extends EffectData.TaggedError(
   "AuthorizationAlreadyExistsFault",
 )<{
@@ -1607,7 +1607,7 @@ export interface AuthorizeDBSecurityGroupIngressResult {
   DBSecurityGroup?: DBSecurityGroup;
 }
 export type AuthScheme = "SECRETS";
-export type AutomationMode = "FULL" | "ALL_PAUSED";
+export type AutomationMode = "full" | "all-paused";
 export interface AvailabilityZone {
   Name?: string;
 }
@@ -1735,7 +1735,7 @@ export interface ClusterPendingModifiedValues {
   StorageType?: string;
   CertificateDetails?: CertificateDetails;
 }
-export type ClusterScalabilityType = "STANDARD" | "LIMITLESS";
+export type ClusterScalabilityType = "standard" | "limitless";
 export interface ConnectionPoolConfiguration {
   MaxConnectionsPercent?: number;
   MaxIdleConnectionsPercent?: number;
@@ -2213,10 +2213,10 @@ export type CustomEngineVersion = string;
 export type CustomEngineVersionStatus =
   | "available"
   | "inactive"
-  | "inactive_except_restore";
+  | "inactive-except-restore";
 export type DatabaseArn = string;
 
-export type DatabaseInsightsMode = "STANDARD" | "ADVANCED";
+export type DatabaseInsightsMode = "standard" | "advanced";
 export type DataFilter = string;
 
 export interface DBCluster {
@@ -2875,12 +2875,12 @@ export declare class DBProxyEndpointQuotaExceededFault extends EffectData.Tagged
   readonly message?: string;
 }> {}
 export type DBProxyEndpointStatus =
-  | "AVAILABLE"
-  | "MODIFYING"
-  | "INCOMPATIBLE_NETWORK"
-  | "INSUFFICIENT_RESOURCE_LIMITS"
-  | "CREATING"
-  | "DELETING";
+  | "available"
+  | "modifying"
+  | "incompatible-network"
+  | "insufficient-resource-limits"
+  | "creating"
+  | "deleting";
 export type DBProxyEndpointTargetRole = "READ_WRITE" | "READ_ONLY";
 export type DBProxyList = Array<DBProxy>;
 export type DBProxyName = string;
@@ -2896,15 +2896,15 @@ export declare class DBProxyQuotaExceededFault extends EffectData.TaggedError(
   readonly message?: string;
 }> {}
 export type DBProxyStatus =
-  | "AVAILABLE"
-  | "MODIFYING"
-  | "INCOMPATIBLE_NETWORK"
-  | "INSUFFICIENT_RESOURCE_LIMITS"
-  | "CREATING"
-  | "DELETING"
-  | "SUSPENDED"
-  | "SUSPENDING"
-  | "REACTIVATING";
+  | "available"
+  | "modifying"
+  | "incompatible-network"
+  | "insufficient-resource-limits"
+  | "creating"
+  | "deleting"
+  | "suspended"
+  | "suspending"
+  | "reactivating";
 export interface DBProxyTarget {
   TargetArn?: string;
   Endpoint?: string;
@@ -3856,7 +3856,7 @@ export interface FailoverState {
   ToDbClusterArn?: string;
   IsDataLossAllowed?: boolean;
 }
-export type FailoverStatus = "PENDING" | "FAILING_OVER" | "CANCELLING";
+export type FailoverStatus = "pending" | "failing-over" | "cancelling";
 export type FeatureNameList = Array<string>;
 export interface Filter {
   Name: string;
@@ -3897,8 +3897,8 @@ export interface GlobalClusterMember {
 }
 export type GlobalClusterMemberList = Array<GlobalClusterMember>;
 export type GlobalClusterMemberSynchronizationStatus =
-  | "CONNECTED"
-  | "PENDING_RESYNC";
+  | "connected"
+  | "pending-resync";
 export declare class GlobalClusterNotFoundFault extends EffectData.TaggedError(
   "GlobalClusterNotFoundFault",
 )<{
@@ -4002,13 +4002,13 @@ export declare class IntegrationQuotaExceededFault extends EffectData.TaggedErro
   readonly message?: string;
 }> {}
 export type IntegrationStatus =
-  | "CREATING"
-  | "ACTIVE"
-  | "MODIFYING"
-  | "FAILED"
-  | "DELETING"
-  | "SYNCING"
-  | "NEEDS_ATTENTION";
+  | "creating"
+  | "active"
+  | "modifying"
+  | "failed"
+  | "deleting"
+  | "syncing"
+  | "needs_attention";
 export declare class InvalidBlueGreenDeploymentStateFault extends EffectData.TaggedError(
   "InvalidBlueGreenDeploymentStateFault",
 )<{
@@ -4176,31 +4176,31 @@ export declare class KMSKeyNotAccessibleFault extends EffectData.TaggedError(
   readonly message?: string;
 }> {}
 export type LifecycleSupportName =
-  | "OPEN_SOURCE_RDS_STANDARD_SUPPORT"
-  | "OPEN_SOURCE_RDS_EXTENDED_SUPPORT";
+  | "open-source-rds-standard-support"
+  | "open-source-rds-extended-support";
 export interface LimitlessDatabase {
   Status?: LimitlessDatabaseStatus;
   MinRequiredACU?: number;
 }
 export type LimitlessDatabaseStatus =
-  | "ACTIVE"
-  | "NOT_IN_USE"
-  | "ENABLED"
-  | "DISABLED"
-  | "ENABLING"
-  | "DISABLING"
-  | "MODIFYING_MAX_CAPACITY"
-  | "ERROR";
+  | "active"
+  | "not-in-use"
+  | "enabled"
+  | "disabled"
+  | "enabling"
+  | "disabling"
+  | "modifying-max-capacity"
+  | "error";
 export interface ListTagsForResourceMessage {
   ResourceName: string;
   Filters?: Array<Filter>;
 }
 export type LocalWriteForwardingStatus =
-  | "ENABLED"
-  | "DISABLED"
-  | "ENABLING"
-  | "DISABLING"
-  | "REQUESTED";
+  | "enabled"
+  | "disabled"
+  | "enabling"
+  | "disabling"
+  | "requested";
 export type LogTypeList = Array<string>;
 export type Long = number;
 
@@ -4902,7 +4902,7 @@ export interface RemoveTagsFromResourceMessage {
   ResourceName: string;
   TagKeys: Array<string>;
 }
-export type ReplicaMode = "OPEN_READ_ONLY" | "MOUNTED";
+export type ReplicaMode = "open-read-only" | "mounted";
 export interface ReservedDBInstance {
   ReservedDBInstanceId?: string;
   ReservedDBInstancesOfferingId?: string;
@@ -5368,15 +5368,15 @@ export interface SourceRegionMessage {
   SourceRegions?: Array<SourceRegion>;
 }
 export type SourceType =
-  | "db_instance"
-  | "db_parameter_group"
-  | "db_security_group"
-  | "db_snapshot"
-  | "db_cluster"
-  | "db_cluster_snapshot"
-  | "custom_engine_version"
-  | "db_proxy"
-  | "blue_green_deployment";
+  | "db-instance"
+  | "db-parameter-group"
+  | "db-security-group"
+  | "db-snapshot"
+  | "db-cluster"
+  | "db-cluster-snapshot"
+  | "custom-engine-version"
+  | "db-proxy"
+  | "blue-green-deployment";
 export interface StartActivityStreamRequest {
   ResourceArn: string;
   Mode: ActivityStreamMode;
@@ -5566,7 +5566,7 @@ export type TargetHealthReason =
   | "INVALID_REPLICATION_STATE";
 export type TargetList = Array<DBProxyTarget>;
 export type TargetRole = "READ_WRITE" | "READ_ONLY" | "UNKNOWN";
-export type TargetState = "registering" | "available" | "unavailable";
+export type TargetState = "REGISTERING" | "AVAILABLE" | "UNAVAILABLE";
 export type TargetStorageType = string;
 
 export type TargetType =
@@ -5678,11 +5678,11 @@ export interface VpcSecurityGroupMembership {
 }
 export type VpcSecurityGroupMembershipList = Array<VpcSecurityGroupMembership>;
 export type WriteForwardingStatus =
-  | "ENABLED"
-  | "DISABLED"
-  | "ENABLING"
-  | "DISABLING"
-  | "UNKNOWN";
+  | "enabled"
+  | "disabled"
+  | "enabling"
+  | "disabling"
+  | "unknown";
 export declare namespace AddRoleToDBCluster {
   export type Input = AddRoleToDBClusterMessage;
   export type Output = {};

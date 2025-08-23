@@ -324,8 +324,8 @@ export type AnalysisSchemeLanguage =
   | "sv"
   | "th"
   | "tr"
-  | "zh_Hans"
-  | "zh_Hant";
+  | "zh-Hans"
+  | "zh-Hant";
 export interface AnalysisSchemeStatus {
   Options: AnalysisScheme;
   Status: OptionStatus;
@@ -617,11 +617,11 @@ export type IndexFieldType =
   | "text"
   | "date"
   | "latlon"
-  | "int_array"
-  | "double_array"
-  | "literal_array"
-  | "text_array"
-  | "date_array";
+  | "int-array"
+  | "double-array"
+  | "literal-array"
+  | "text-array"
+  | "date-array";
 export type InstanceCount = number;
 
 export interface IntArrayOptions {
@@ -710,23 +710,23 @@ export interface OptionStatus {
 export type PartitionCount = number;
 
 export type PartitionInstanceType =
-  | "search_m1_small"
-  | "search_m1_large"
-  | "search_m2_xlarge"
-  | "search_m2_2xlarge"
-  | "search_m3_medium"
-  | "search_m3_large"
-  | "search_m3_xlarge"
-  | "search_m3_2xlarge"
-  | "search_small"
-  | "search_medium"
-  | "search_large"
-  | "search_xlarge"
-  | "search_2xlarge"
-  | "search_previousgeneration_small"
-  | "search_previousgeneration_large"
-  | "search_previousgeneration_xlarge"
-  | "search_previousgeneration_2xlarge";
+  | "search.m1.small"
+  | "search.m1.large"
+  | "search.m2.xlarge"
+  | "search.m2.2xlarge"
+  | "search.m3.medium"
+  | "search.m3.large"
+  | "search.m3.xlarge"
+  | "search.m3.2xlarge"
+  | "search.small"
+  | "search.medium"
+  | "search.large"
+  | "search.xlarge"
+  | "search.2xlarge"
+  | "search.previousgeneration.small"
+  | "search.previousgeneration.large"
+  | "search.previousgeneration.xlarge"
+  | "search.previousgeneration.2xlarge";
 export type PolicyDocument = string;
 
 export declare class ResourceAlreadyExistsException extends EffectData.TaggedError(
@@ -788,8 +788,8 @@ export interface TextOptions {
   AnalysisScheme?: string;
 }
 export type TLSSecurityPolicy =
-  | "POLICY_MIN_TLS_1_0_2019_07"
-  | "POLICY_MIN_TLS_1_2_2019_07";
+  | "Policy-Min-TLS-1-0-2019-07"
+  | "Policy-Min-TLS-1-2-2019-07";
 export type UIntValue = number;
 
 export interface UpdateAvailabilityOptionsRequest {

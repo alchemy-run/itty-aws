@@ -112,18 +112,18 @@ export interface Endpoint {
   CustomerOwnedIpv4Pool?: string;
   FailedReason?: FailedReason;
 }
-export type EndpointAccessType = "PRIVATE" | "CUSTOMER_OWNED_IP";
+export type EndpointAccessType = "Private" | "CustomerOwnedIp";
 export type EndpointArn = string;
 
 export type EndpointId = string;
 
 export type Endpoints = Array<Endpoint>;
 export type EndpointStatus =
-  | "PENDING"
-  | "AVAILABLE"
-  | "DELETING"
-  | "CREATE_FAILED"
-  | "DELETE_FAILED";
+  | "Pending"
+  | "Available"
+  | "Deleting"
+  | "Create_Failed"
+  | "Delete_Failed";
 export type ErrorCode = string;
 
 export type ErrorMessage = string;
