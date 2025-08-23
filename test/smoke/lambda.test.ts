@@ -73,10 +73,13 @@ exports.handler = async (event) => {
         zip.addFile("index.js", Buffer.from(functionCode));
         const zipBuffer = zip.toBuffer();
 
+        const sts = new AWS.STS();
+        const whoami = yield* sts.getCallerIdentity({});
+
         const createResult = yield* client.createFunction({
           FunctionName: testFunctionName,
           Runtime: "nodejs18.x",
-          Role: "arn:aws:iam::572252539264:role/lambda-execution-role", // FIXME: this is using the sandbox account id
+          Role: `arn:aws:iam::${whoami.Account}:role/lambda-execution-role`,
           Handler: "index.handler",
           Code: {
             ZipFile: zipBuffer,
