@@ -3,9 +3,6 @@ export const serviceMetadata = {
   accessanalyzer: {
     sdkId: "AccessAnalyzer",
     version: "2019-11-01",
-    arnNamespace: "access-analyzer",
-    cloudTrailEventSource: "access-analyzer.amazonaws.com",
-    endpointPrefix: "",
     protocol: "restJson1",
     operations: {
       ApplyArchiveRule: "PUT /archive-rule",
@@ -51,9 +48,6 @@ export const serviceMetadata = {
   account: {
     sdkId: "Account",
     version: "2021-02-01",
-    arnNamespace: "account",
-    cloudTrailEventSource: "CLOUDTRAIL_EVENT_SOURCE",
-    endpointPrefix: "",
     protocol: "restJson1",
     operations: {
       AcceptPrimaryEmailUpdate: "POST /acceptPrimaryEmailUpdate",
@@ -75,27 +69,20 @@ export const serviceMetadata = {
   acm: {
     sdkId: "ACM",
     version: "2015-12-08",
-    arnNamespace: "acm",
-    cloudTrailEventSource: "acm.amazonaws.com",
-    endpointPrefix: "acm",
     protocol: "awsJson1_1",
+    endpointPrefix: "acm",
     targetPrefix: "CertificateManager",
   },
   acmpca: {
     sdkId: "ACM PCA",
     version: "2017-08-22",
-    arnNamespace: "acm-pca",
-    cloudTrailEventSource: "acm-pca.amazonaws.com",
-    endpointPrefix: "acm-pca",
     protocol: "awsJson1_1",
+    endpointPrefix: "acm-pca",
     targetPrefix: "ACMPrivateCA",
   },
   aiops: {
     sdkId: "AIOps",
     version: "2018-05-10",
-    arnNamespace: "aiops",
-    cloudTrailEventSource: "aiops.amazonaws.com",
-    endpointPrefix: "",
     protocol: "restJson1",
     operations: {
       ListTagsForResource: "GET /tags/{resourceArn}",
@@ -117,9 +104,6 @@ export const serviceMetadata = {
   amp: {
     sdkId: "amp",
     version: "2020-08-01",
-    arnNamespace: "aps",
-    cloudTrailEventSource: "CLOUDTRAIL_PLACEHOLDER_REPLACED_BY_CDK",
-    endpointPrefix: "",
     protocol: "restJson1",
     operations: {
       GetDefaultScraperConfiguration: "GET /scraperconfiguration",
@@ -175,10 +159,8 @@ export const serviceMetadata = {
   amplify: {
     sdkId: "Amplify",
     version: "2017-07-25",
-    arnNamespace: "amplify",
-    cloudTrailEventSource: "amplify.amazonaws.com",
-    endpointPrefix: "amplify",
     protocol: "restJson1",
+    endpointPrefix: "amplify",
     operations: {
       CreateApp: "POST /apps",
       CreateBackendEnvironment: "POST /apps/{appId}/backendenvironments",
@@ -226,10 +208,8 @@ export const serviceMetadata = {
   amplifybackend: {
     sdkId: "AmplifyBackend",
     version: "2020-08-11",
-    arnNamespace: "amplifybackend",
-    cloudTrailEventSource: "amplifybackend.amazonaws.com",
-    endpointPrefix: "amplifybackend",
     protocol: "restJson1",
+    endpointPrefix: "amplifybackend",
     operations: {
       CloneBackend:
         "POST /backend/{AppId}/environments/{BackendEnvironmentName}/clone",
@@ -282,9 +262,6 @@ export const serviceMetadata = {
   amplifyuibuilder: {
     sdkId: "AmplifyUIBuilder",
     version: "2021-08-11",
-    arnNamespace: "amplifyuibuilder",
-    cloudTrailEventSource: "amplifyuibuilder.amazonaws.com",
-    endpointPrefix: "",
     protocol: "restJson1",
     operations: {
       ExchangeCodeForToken: "POST /tokens/{provider}",
@@ -384,10 +361,8 @@ export const serviceMetadata = {
   apigateway: {
     sdkId: "API Gateway",
     version: "2015-07-09",
-    arnNamespace: "apigateway",
-    cloudTrailEventSource: "apigateway.amazonaws.com",
-    endpointPrefix: "apigateway",
     protocol: "restJson1",
+    endpointPrefix: "apigateway",
     operations: {
       CreateApiKey: "POST /apikeys",
       CreateAuthorizer: "POST /restapis/{restApiId}/authorizers",
@@ -579,10 +554,8 @@ export const serviceMetadata = {
   apigatewaymanagementapi: {
     sdkId: "ApiGatewayManagementApi",
     version: "2018-11-29",
-    arnNamespace: "apigateway",
-    cloudTrailEventSource: "apigatewaymanagementapi.amazonaws.com",
-    endpointPrefix: "execute-api",
     protocol: "restJson1",
+    endpointPrefix: "execute-api",
     operations: {
       DeleteConnection: "DELETE /@connections/{ConnectionId}",
       GetConnection: "GET /@connections/{ConnectionId}",
@@ -592,10 +565,8 @@ export const serviceMetadata = {
   apigatewayv2: {
     sdkId: "ApiGatewayV2",
     version: "2018-11-29",
-    arnNamespace: "apigateway",
-    cloudTrailEventSource: "apigatewayv2.amazonaws.com",
-    endpointPrefix: "apigateway",
     protocol: "restJson1",
+    endpointPrefix: "apigateway",
     operations: {
       CreateApi: "POST /v2/apis",
       CreateApiMapping: "POST /v2/domainnames/{DomainName}/apimappings",
@@ -703,9 +674,6 @@ export const serviceMetadata = {
   appmesh: {
     sdkId: "App Mesh",
     version: "2019-01-25",
-    arnNamespace: "appmesh",
-    cloudTrailEventSource: "appmesh.amazonaws.com",
-    endpointPrefix: "",
     protocol: "restJson1",
     operations: {
       ListTagsForResource: "GET /v20190125/tags",
@@ -893,10 +861,8 @@ export const serviceMetadata = {
   appconfig: {
     sdkId: "AppConfig",
     version: "2019-10-09",
-    arnNamespace: "appconfig",
-    cloudTrailEventSource: "appconfig.amazonaws.com",
-    endpointPrefix: "appconfig",
     protocol: "restJson1",
+    endpointPrefix: "appconfig",
     operations: {
       CreateApplication: "POST /applications",
       CreateConfigurationProfile:
@@ -999,10 +965,8 @@ export const serviceMetadata = {
   appconfigdata: {
     sdkId: "AppConfigData",
     version: "2021-11-11",
-    arnNamespace: "appconfigdata",
-    cloudTrailEventSource: "appconfigdata.amazonaws.com",
-    endpointPrefix: "appconfigdata",
     protocol: "restJson1",
+    endpointPrefix: "appconfigdata",
     operations: {
       GetLatestConfiguration: {
         http: "GET /configuration",
@@ -1020,9 +984,6 @@ export const serviceMetadata = {
   appfabric: {
     sdkId: "AppFabric",
     version: "2023-05-19",
-    arnNamespace: "appfabric",
-    cloudTrailEventSource: "appfabric.amazonaws.com",
-    endpointPrefix: "",
     protocol: "restJson1",
     operations: {
       BatchGetUserAccessTasks: "POST /useraccess/batchget",
@@ -1071,10 +1032,8 @@ export const serviceMetadata = {
   appflow: {
     sdkId: "Appflow",
     version: "2020-08-23",
-    arnNamespace: "appflow",
-    cloudTrailEventSource: "appflow.amazonaws.com",
-    endpointPrefix: "appflow",
     protocol: "restJson1",
+    endpointPrefix: "appflow",
     operations: {
       CancelFlowExecutions: "POST /cancel-flow-executions",
       CreateConnectorProfile: "POST /create-connector-profile",
@@ -1106,10 +1065,8 @@ export const serviceMetadata = {
   appintegrations: {
     sdkId: "AppIntegrations",
     version: "2020-07-29",
-    arnNamespace: "app-integrations",
-    cloudTrailEventSource: "app-integrations.amazonaws.com",
-    endpointPrefix: "app-integrations",
     protocol: "restJson1",
+    endpointPrefix: "app-integrations",
     operations: {
       CreateApplication: "POST /applications",
       CreateDataIntegration: "POST /dataIntegrations",
@@ -1145,37 +1102,29 @@ export const serviceMetadata = {
   applicationautoscaling: {
     sdkId: "Application Auto Scaling",
     version: "2016-02-06",
-    arnNamespace: "application-autoscaling",
-    cloudTrailEventSource: "applicationautoscaling.amazonaws.com",
-    endpointPrefix: "application-autoscaling",
     protocol: "awsJson1_1",
+    endpointPrefix: "application-autoscaling",
     targetPrefix: "AnyScaleFrontendService",
   },
   applicationdiscoveryservice: {
     sdkId: "Application Discovery Service",
     version: "2015-11-01",
-    arnNamespace: "discovery",
-    cloudTrailEventSource: "applicationdiscoveryservice.amazonaws.com",
-    endpointPrefix: "discovery",
     protocol: "awsJson1_1",
+    endpointPrefix: "discovery",
     targetPrefix: "AWSPoseidonService_V2015_11_01",
   },
   applicationinsights: {
     sdkId: "Application Insights",
     version: "2018-11-25",
-    arnNamespace: "applicationinsights",
-    cloudTrailEventSource: "applicationinsights.amazonaws.com",
-    endpointPrefix: "applicationinsights",
     protocol: "awsJson1_1",
+    endpointPrefix: "applicationinsights",
     targetPrefix: "EC2WindowsBarleyService",
   },
   applicationsignals: {
     sdkId: "Application Signals",
     version: "2024-04-15",
-    arnNamespace: "application-signals",
-    cloudTrailEventSource: "application-signals.amazonaws.com",
-    endpointPrefix: "application-signals",
     protocol: "restJson1",
+    endpointPrefix: "application-signals",
     operations: {
       BatchGetServiceLevelObjectiveBudgetReport: "POST /budget-report",
       BatchUpdateExclusionWindows: "PATCH /exclusion-windows",
@@ -1200,10 +1149,8 @@ export const serviceMetadata = {
   applicationcostprofiler: {
     sdkId: "ApplicationCostProfiler",
     version: "2020-09-10",
-    arnNamespace: "application-cost-profiler",
-    cloudTrailEventSource: "applicationcostprofiler.amazonaws.com",
-    endpointPrefix: "application-cost-profiler",
     protocol: "restJson1",
+    endpointPrefix: "application-cost-profiler",
     operations: {
       DeleteReportDefinition: "DELETE /reportDefinition/{reportId}",
       GetReportDefinition: "GET /reportDefinition/{reportId}",
@@ -1216,28 +1163,22 @@ export const serviceMetadata = {
   apprunner: {
     sdkId: "AppRunner",
     version: "2020-05-15",
-    arnNamespace: "apprunner",
-    cloudTrailEventSource: "apprunner.amazonaws.com",
-    endpointPrefix: "apprunner",
     protocol: "awsJson1_0",
+    endpointPrefix: "apprunner",
     targetPrefix: "AppRunner",
   },
   appstream: {
     sdkId: "AppStream",
     version: "2016-12-01",
-    arnNamespace: "appstream",
-    cloudTrailEventSource: "appstream.amazonaws.com",
-    endpointPrefix: "appstream2",
     protocol: "awsJson1_1",
+    endpointPrefix: "appstream2",
     targetPrefix: "PhotonAdminProxyService",
   },
   appsync: {
     sdkId: "AppSync",
     version: "2017-07-25",
-    arnNamespace: "appsync",
-    cloudTrailEventSource: "appsync.amazonaws.com",
-    endpointPrefix: "appsync",
     protocol: "restJson1",
+    endpointPrefix: "appsync",
     operations: {
       AssociateApi: "POST /v1/domainnames/{domainName}/apiassociation",
       AssociateMergedGraphqlApi:
@@ -1339,10 +1280,8 @@ export const serviceMetadata = {
   apptest: {
     sdkId: "AppTest",
     version: "2022-12-06",
-    arnNamespace: "apptest",
-    cloudTrailEventSource: "apptest.amazonaws.com",
-    endpointPrefix: "apptest",
     protocol: "restJson1",
+    endpointPrefix: "apptest",
     operations: {
       ListTagsForResource: "GET /tags/{resourceArn}",
       TagResource: "POST /tags/{resourceArn}",
@@ -1375,19 +1314,15 @@ export const serviceMetadata = {
   arcregionswitch: {
     sdkId: "ARC Region switch",
     version: "2022-07-26",
-    arnNamespace: "arc-region-switch",
-    cloudTrailEventSource: "arc-region-switch.amazonaws.com",
-    endpointPrefix: "arc-region-switch",
     protocol: "awsJson1_0",
+    endpointPrefix: "arc-region-switch",
     targetPrefix: "ArcRegionSwitch",
   },
   arczonalshift: {
     sdkId: "ARC Zonal Shift",
     version: "2022-10-30",
-    arnNamespace: "",
-    cloudTrailEventSource: "",
-    endpointPrefix: "arc-zonal-shift",
     protocol: "restJson1",
+    endpointPrefix: "arc-zonal-shift",
     operations: {
       CancelPracticeRun: "DELETE /practiceruns/{zonalShiftId}",
       CancelZonalShift: "DELETE /zonalshifts/{zonalShiftId}",
@@ -1414,9 +1349,6 @@ export const serviceMetadata = {
   artifact: {
     sdkId: "Artifact",
     version: "2018-05-10",
-    arnNamespace: "artifact",
-    cloudTrailEventSource: "artifact.amazonaws.com",
-    endpointPrefix: "",
     protocol: "restJson1",
     operations: {
       GetAccountSettings: "GET /v1/account-settings/get",
@@ -1431,19 +1363,15 @@ export const serviceMetadata = {
   athena: {
     sdkId: "Athena",
     version: "2017-05-18",
-    arnNamespace: "athena",
-    cloudTrailEventSource: "athena.amazonaws.com",
-    endpointPrefix: "athena",
     protocol: "awsJson1_1",
+    endpointPrefix: "athena",
     targetPrefix: "AmazonAthena",
   },
   auditmanager: {
     sdkId: "AuditManager",
     version: "2017-07-25",
-    arnNamespace: "auditmanager",
-    cloudTrailEventSource: "auditmanager.amazonaws.com",
-    endpointPrefix: "auditmanager",
     protocol: "restJson1",
+    endpointPrefix: "auditmanager",
     operations: {
       AssociateAssessmentReportEvidenceFolder:
         "PUT /assessments/{assessmentId}/associateToAssessmentReport",
@@ -1536,36 +1464,28 @@ export const serviceMetadata = {
   autoscaling: {
     sdkId: "Auto Scaling",
     version: "2011-01-01",
-    arnNamespace: "autoscaling",
-    cloudTrailEventSource: "autoscaling.amazonaws.com",
-    endpointPrefix: "autoscaling",
     protocol: "awsQuery",
+    endpointPrefix: "autoscaling",
   },
   autoscalingplans: {
     sdkId: "Auto Scaling Plans",
     version: "2018-01-06",
-    arnNamespace: "autoscaling-plans",
-    cloudTrailEventSource: "autoscalingplans.amazonaws.com",
-    endpointPrefix: "autoscaling-plans",
     protocol: "awsJson1_1",
+    endpointPrefix: "autoscaling-plans",
     targetPrefix: "AnyScaleScalingPlannerFrontendService",
   },
   b2bi: {
     sdkId: "b2bi",
     version: "2022-06-23",
-    arnNamespace: "",
-    cloudTrailEventSource: "",
-    endpointPrefix: "b2bi",
     protocol: "awsJson1_0",
+    endpointPrefix: "b2bi",
     targetPrefix: "B2BI",
   },
   backup: {
     sdkId: "Backup",
     version: "2018-11-15",
-    arnNamespace: "backup",
-    cloudTrailEventSource: "backup.amazonaws.com",
-    endpointPrefix: "backup",
     protocol: "restJson1",
+    endpointPrefix: "backup",
     operations: {
       AssociateBackupVaultMpaApprovalTeam:
         "PUT /backup-vaults/{BackupVaultName}/mpaApprovalTeam",
@@ -1710,19 +1630,15 @@ export const serviceMetadata = {
   backupgateway: {
     sdkId: "Backup Gateway",
     version: "2021-01-01",
-    arnNamespace: "backup-gateway",
-    cloudTrailEventSource: "backup-gateway.amazonaws.com",
-    endpointPrefix: "backup-gateway",
     protocol: "awsJson1_0",
+    endpointPrefix: "backup-gateway",
     targetPrefix: "BackupOnPremises_v20210101",
   },
   backupsearch: {
     sdkId: "BackupSearch",
     version: "2018-05-10",
-    arnNamespace: "backup-search",
-    cloudTrailEventSource: "backup.amazonaws.com",
-    endpointPrefix: "backup-search",
     protocol: "restJson1",
+    endpointPrefix: "backup-search",
     operations: {
       ListSearchJobBackups: "GET /search-jobs/{SearchJobIdentifier}/backups",
       ListSearchJobResults:
@@ -1742,10 +1658,8 @@ export const serviceMetadata = {
   batch: {
     sdkId: "Batch",
     version: "2016-08-10",
-    arnNamespace: "batch",
-    cloudTrailEventSource: "batch.amazonaws.com",
-    endpointPrefix: "batch",
     protocol: "restJson1",
+    endpointPrefix: "batch",
     operations: {
       CancelJob: "POST /v1/canceljob",
       CreateComputeEnvironment: "POST /v1/createcomputeenvironment",
@@ -1791,28 +1705,21 @@ export const serviceMetadata = {
   bcmdataexports: {
     sdkId: "BCM Data Exports",
     version: "2023-11-26",
-    arnNamespace: "bcm-data-exports",
-    cloudTrailEventSource: "bcm-data-exports.amazonaws.com",
-    endpointPrefix: "bcm-data-exports",
     protocol: "awsJson1_1",
+    endpointPrefix: "bcm-data-exports",
     targetPrefix: "AWSBillingAndCostManagementDataExports",
   },
   bcmpricingcalculator: {
     sdkId: "BCM Pricing Calculator",
     version: "2024-06-19",
-    arnNamespace: "bcm-pricing-calculator",
-    cloudTrailEventSource: "bcm-pricing-calculator.amazonaws.com",
-    endpointPrefix: "",
     protocol: "awsJson1_0",
     targetPrefix: "AWSBCMPricingCalculator",
   },
   bedrock: {
     sdkId: "Bedrock",
     version: "2023-04-20",
-    arnNamespace: "",
-    cloudTrailEventSource: "",
-    endpointPrefix: "bedrock",
     protocol: "restJson1",
+    endpointPrefix: "bedrock",
     operations: {
       BatchDeleteEvaluationJob: "POST /evaluation-jobs/batch-delete",
       CreateCustomModel: "POST /custom-models/create-custom-model",
@@ -1907,10 +1814,8 @@ export const serviceMetadata = {
   bedrockagent: {
     sdkId: "Bedrock Agent",
     version: "2023-06-05",
-    arnNamespace: "bedrock",
-    cloudTrailEventSource: "bedrock.amazonaws.com",
-    endpointPrefix: "bedrock-agent",
     protocol: "restJson1",
+    endpointPrefix: "bedrock-agent",
     operations: {
       ValidateFlowDefinition: "POST /flows/validate-definition",
       AssociateAgentCollaborator:
@@ -2018,10 +1923,8 @@ export const serviceMetadata = {
   bedrockagentruntime: {
     sdkId: "Bedrock Agent Runtime",
     version: "2023-07-26",
-    arnNamespace: "bedrock",
-    cloudTrailEventSource: "bedrock.amazonaws.com",
-    endpointPrefix: "bedrock-agent-runtime",
     protocol: "restJson1",
+    endpointPrefix: "bedrock-agent-runtime",
     operations: {
       CreateInvocation: "PUT /sessions/{sessionIdentifier}/invocations/",
       CreateSession: "PUT /sessions/",
@@ -2100,10 +2003,8 @@ export const serviceMetadata = {
   bedrockagentcore: {
     sdkId: "Bedrock AgentCore",
     version: "2024-02-28",
-    arnNamespace: "bedrock-agentcore",
-    cloudTrailEventSource: "bedrock-agentcore.amazonaws.com",
-    endpointPrefix: "bedrock-agentcore",
     protocol: "restJson1",
+    endpointPrefix: "bedrock-agentcore",
     operations: {
       GetResourceApiKey: "POST /identities/api-key",
       GetResourceOauth2Token: "POST /identities/oauth2/token",
@@ -2167,10 +2068,8 @@ export const serviceMetadata = {
   bedrockagentcorecontrol: {
     sdkId: "Bedrock AgentCore Control",
     version: "2023-06-05",
-    arnNamespace: "bedrock-agentcore",
-    cloudTrailEventSource: "bedrock-agentcore.amazonaws.com",
-    endpointPrefix: "bedrock-agentcore-control",
     protocol: "restJson1",
+    endpointPrefix: "bedrock-agentcore-control",
     operations: {
       GetTokenVault: "POST /identities/get-token-vault",
       SetTokenVaultCMK: "POST /identities/set-token-vault-cmk",
@@ -2245,10 +2144,8 @@ export const serviceMetadata = {
   bedrockdataautomation: {
     sdkId: "Bedrock Data Automation",
     version: "2023-07-26",
-    arnNamespace: "bedrock",
-    cloudTrailEventSource: "bedrock.amazonaws.com",
-    endpointPrefix: "bedrock-data-automation",
     protocol: "restJson1",
+    endpointPrefix: "bedrock-data-automation",
     operations: {
       CreateBlueprintVersion: "POST /blueprints/{blueprintArn}/versions/",
       ListTagsForResource: "POST /listTagsForResource",
@@ -2271,19 +2168,15 @@ export const serviceMetadata = {
   bedrockdataautomationruntime: {
     sdkId: "Bedrock Data Automation Runtime",
     version: "2024-06-13",
-    arnNamespace: "bedrock",
-    cloudTrailEventSource: "bedrock.amazonaws.com",
-    endpointPrefix: "bedrock-data-automation-runtime",
     protocol: "awsJson1_1",
+    endpointPrefix: "bedrock-data-automation-runtime",
     targetPrefix: "AmazonBedrockKeystoneRuntimeService",
   },
   bedrockruntime: {
     sdkId: "Bedrock Runtime",
     version: "2023-09-30",
-    arnNamespace: "",
-    cloudTrailEventSource: "bedrock.amazonaws.com",
-    endpointPrefix: "bedrock-runtime",
     protocol: "restJson1",
+    endpointPrefix: "bedrock-runtime",
     operations: {
       ApplyGuardrail:
         "POST /guardrail/{guardrailIdentifier}/version/{guardrailVersion}/apply",
@@ -2324,18 +2217,13 @@ export const serviceMetadata = {
   billing: {
     sdkId: "Billing",
     version: "2023-09-07",
-    arnNamespace: "billing",
-    cloudTrailEventSource: "billing.amazonaws.com",
-    endpointPrefix: "billing",
     protocol: "awsJson1_0",
+    endpointPrefix: "billing",
     targetPrefix: "AWSBilling",
   },
   billingconductor: {
     sdkId: "billingconductor",
     version: "2021-07-30",
-    arnNamespace: "billingconductor",
-    cloudTrailEventSource: "billingconductor.amazonaws.com",
-    endpointPrefix: "",
     protocol: "restJson1",
     operations: {
       GetBillingGroupCostReport: "POST /get-billing-group-cost-report",
@@ -2380,9 +2268,6 @@ export const serviceMetadata = {
   braket: {
     sdkId: "Braket",
     version: "2019-09-01",
-    arnNamespace: "",
-    cloudTrailEventSource: "braket.amazonaws.com",
-    endpointPrefix: "",
     protocol: "restJson1",
     operations: {
       ListTagsForResource: "GET /tags/{resourceArn}",
@@ -2403,19 +2288,15 @@ export const serviceMetadata = {
   budgets: {
     sdkId: "Budgets",
     version: "2016-10-20",
-    arnNamespace: "budgets",
-    cloudTrailEventSource: "budgets.amazonaws.com",
-    endpointPrefix: "budgets",
     protocol: "awsJson1_1",
+    endpointPrefix: "budgets",
     targetPrefix: "AWSBudgetServiceGateway",
   },
   chatbot: {
     sdkId: "chatbot",
     version: "2017-10-11",
-    arnNamespace: "chatbot",
-    cloudTrailEventSource: "chatbot.amazonaws.com",
-    endpointPrefix: "chatbot",
     protocol: "restJson1",
+    endpointPrefix: "chatbot",
     operations: {
       AssociateToConfiguration: "POST /associate-to-configuration",
       CreateChimeWebhookConfiguration:
@@ -2471,10 +2352,8 @@ export const serviceMetadata = {
   chime: {
     sdkId: "Chime",
     version: "2018-05-01",
-    arnNamespace: "chime",
-    cloudTrailEventSource: "chime.amazonaws.com",
-    endpointPrefix: "chime",
     protocol: "restJson1",
+    endpointPrefix: "chime",
     operations: {
       AssociatePhoneNumberWithUser:
         "POST /accounts/{AccountId}/users/{UserId}?operation=associate-phone-number",
@@ -2561,10 +2440,8 @@ export const serviceMetadata = {
   chimesdkidentity: {
     sdkId: "Chime SDK Identity",
     version: "2021-04-20",
-    arnNamespace: "chime",
-    cloudTrailEventSource: "chimesdkidentity.amazonaws.com",
-    endpointPrefix: "identity-chime",
     protocol: "restJson1",
+    endpointPrefix: "identity-chime",
     operations: {
       CreateAppInstance: "POST /app-instances",
       CreateAppInstanceAdmin: "POST /app-instances/{AppInstanceArn}/admins",
@@ -2611,10 +2488,8 @@ export const serviceMetadata = {
   chimesdkmediapipelines: {
     sdkId: "Chime SDK Media Pipelines",
     version: "2021-07-15",
-    arnNamespace: "chime",
-    cloudTrailEventSource: "chimesdkmediapipelines.amazonaws.com",
-    endpointPrefix: "media-pipelines-chime",
     protocol: "restJson1",
+    endpointPrefix: "media-pipelines-chime",
     operations: {
       CreateMediaCapturePipeline: "POST /sdk-media-capture-pipelines",
       CreateMediaConcatenationPipeline:
@@ -2673,10 +2548,8 @@ export const serviceMetadata = {
   chimesdkmeetings: {
     sdkId: "Chime SDK Meetings",
     version: "2021-07-15",
-    arnNamespace: "chime",
-    cloudTrailEventSource: "chimesdkmeetings.amazonaws.com",
-    endpointPrefix: "meetings-chime",
     protocol: "restJson1",
+    endpointPrefix: "meetings-chime",
     operations: {
       BatchCreateAttendee:
         "POST /meetings/{MeetingId}/attendees?operation=batch-create",
@@ -2704,10 +2577,8 @@ export const serviceMetadata = {
   chimesdkmessaging: {
     sdkId: "Chime SDK Messaging",
     version: "2021-05-15",
-    arnNamespace: "chime",
-    cloudTrailEventSource: "chimesdkmessaging.amazonaws.com",
-    endpointPrefix: "messaging-chime",
     protocol: "restJson1",
+    endpointPrefix: "messaging-chime",
     operations: {
       AssociateChannelFlow: "PUT /channels/{ChannelArn}/channel-flow",
       BatchCreateChannelMembership:
@@ -2786,10 +2657,8 @@ export const serviceMetadata = {
   chimesdkvoice: {
     sdkId: "Chime SDK Voice",
     version: "2022-08-03",
-    arnNamespace: "chime",
-    cloudTrailEventSource: "chimesdkvoice.amazonaws.com",
-    endpointPrefix: "voice-chime",
     protocol: "restJson1",
+    endpointPrefix: "voice-chime",
     operations: {
       AssociatePhoneNumbersWithVoiceConnector:
         "POST /voice-connectors/{VoiceConnectorId}?operation=associate-phone-numbers",
@@ -2947,9 +2816,6 @@ export const serviceMetadata = {
   cleanrooms: {
     sdkId: "CleanRooms",
     version: "2022-02-17",
-    arnNamespace: "cleanrooms",
-    cloudTrailEventSource: "cleanrooms.amazonaws.com",
-    endpointPrefix: "",
     protocol: "restJson1",
     operations: {
       ListTagsForResource: "GET /tags/{resourceArn}",
@@ -3106,9 +2972,6 @@ export const serviceMetadata = {
   cleanroomsml: {
     sdkId: "CleanRoomsML",
     version: "2023-09-06",
-    arnNamespace: "cleanrooms-ml",
-    cloudTrailEventSource: "cleanrooms-ml.amazonaws.com",
-    endpointPrefix: "",
     protocol: "restJson1",
     operations: {
       ListCollaborationConfiguredModelAlgorithmAssociations:
@@ -3215,28 +3078,22 @@ export const serviceMetadata = {
   cloud9: {
     sdkId: "Cloud9",
     version: "2017-09-23",
-    arnNamespace: "cloud9",
-    cloudTrailEventSource: "cloud9.amazonaws.com",
-    endpointPrefix: "cloud9",
     protocol: "awsJson1_1",
+    endpointPrefix: "cloud9",
     targetPrefix: "AWSCloud9WorkspaceManagementService",
   },
   cloudcontrol: {
     sdkId: "CloudControl",
     version: "2021-09-30",
-    arnNamespace: "",
-    cloudTrailEventSource: "cloudcontrolapi.amazonaws.com",
-    endpointPrefix: "cloudcontrolapi",
     protocol: "awsJson1_0",
+    endpointPrefix: "cloudcontrolapi",
     targetPrefix: "CloudApiService",
   },
   clouddirectory: {
     sdkId: "CloudDirectory",
     version: "2017-01-11",
-    arnNamespace: "clouddirectory",
-    cloudTrailEventSource: "clouddirectory.amazonaws.com",
-    endpointPrefix: "clouddirectory",
     protocol: "restJson1",
+    endpointPrefix: "clouddirectory",
     operations: {
       AddFacetToObject: "PUT /amazonclouddirectory/2017-01-11/object/facets",
       ApplySchema: "PUT /amazonclouddirectory/2017-01-11/schema/apply",
@@ -3337,18 +3194,14 @@ export const serviceMetadata = {
   cloudformation: {
     sdkId: "CloudFormation",
     version: "2010-05-15",
-    arnNamespace: "cloudformation",
-    cloudTrailEventSource: "cloudformation.amazonaws.com",
-    endpointPrefix: "cloudformation",
     protocol: "awsQuery",
+    endpointPrefix: "cloudformation",
   },
   cloudfront: {
     sdkId: "CloudFront",
     version: "2020-05-31",
-    arnNamespace: "cloudfront",
-    cloudTrailEventSource: "cloudfront.amazonaws.com",
-    endpointPrefix: "cloudfront",
     protocol: "restXml",
+    endpointPrefix: "cloudfront",
     operations: {
       AssociateDistributionTenantWebACL: {
         traits: {
@@ -4034,10 +3887,8 @@ export const serviceMetadata = {
   cloudfrontkeyvaluestore: {
     sdkId: "CloudFront KeyValueStore",
     version: "2022-07-26",
-    arnNamespace: "key-value-store",
-    cloudTrailEventSource: "key-value-store.amazonaws.com",
-    endpointPrefix: "cloudfront-keyvaluestore",
     protocol: "restJson1",
+    endpointPrefix: "cloudfront-keyvaluestore",
     operations: {
       DeleteKey: {
         http: "DELETE /key-value-stores/{KvsARN}/keys/{Key}",
@@ -4070,36 +3921,28 @@ export const serviceMetadata = {
   cloudhsm: {
     sdkId: "CloudHSM",
     version: "2014-05-30",
-    arnNamespace: "cloudhsm",
-    cloudTrailEventSource: "cloudhsm.amazonaws.com",
-    endpointPrefix: "cloudhsm",
     protocol: "awsJson1_1",
+    endpointPrefix: "cloudhsm",
     targetPrefix: "CloudHsmFrontendService",
   },
   cloudhsmv2: {
     sdkId: "CloudHSM V2",
     version: "2017-04-28",
-    arnNamespace: "cloudhsm",
-    cloudTrailEventSource: "cloudhsmv2.amazonaws.com",
-    endpointPrefix: "cloudhsmv2",
     protocol: "awsJson1_1",
+    endpointPrefix: "cloudhsmv2",
     targetPrefix: "BaldrApiService",
   },
   cloudsearch: {
     sdkId: "CloudSearch",
     version: "2013-01-01",
-    arnNamespace: "cloudsearch",
-    cloudTrailEventSource: "cloudsearch.amazonaws.com",
-    endpointPrefix: "cloudsearch",
     protocol: "awsQuery",
+    endpointPrefix: "cloudsearch",
   },
   cloudsearchdomain: {
     sdkId: "CloudSearch Domain",
     version: "2013-01-01",
-    arnNamespace: "cloudsearch",
-    cloudTrailEventSource: "cloudsearchdomain.amazonaws.com",
-    endpointPrefix: "cloudsearchdomain",
     protocol: "restJson1",
+    endpointPrefix: "cloudsearchdomain",
     operations: {
       Search: "GET /2013-01-01/search?format=sdk&pretty=true",
       Suggest: "GET /2013-01-01/suggest?format=sdk&pretty=true",
@@ -4109,19 +3952,15 @@ export const serviceMetadata = {
   cloudtrail: {
     sdkId: "CloudTrail",
     version: "2013-11-01",
-    arnNamespace: "cloudtrail",
-    cloudTrailEventSource: "cloudtrail.amazonaws.com",
-    endpointPrefix: "cloudtrail",
     protocol: "awsJson1_1",
+    endpointPrefix: "cloudtrail",
     targetPrefix: "CloudTrail_20131101",
   },
   cloudtraildata: {
     sdkId: "CloudTrail Data",
     version: "2021-08-11",
-    arnNamespace: "",
-    cloudTrailEventSource: "",
-    endpointPrefix: "cloudtrail-data",
     protocol: "restJson1",
+    endpointPrefix: "cloudtrail-data",
     operations: {
       PutAuditEvents: "POST /PutAuditEvents",
     },
@@ -4129,36 +3968,28 @@ export const serviceMetadata = {
   cloudwatch: {
     sdkId: "CloudWatch",
     version: "2010-08-01",
-    arnNamespace: "monitoring",
-    cloudTrailEventSource: "monitoring.amazonaws.com",
-    endpointPrefix: "monitoring",
     protocol: "awsQuery",
+    endpointPrefix: "monitoring",
   },
   cloudwatchevents: {
     sdkId: "CloudWatch Events",
     version: "2015-10-07",
-    arnNamespace: "events",
-    cloudTrailEventSource: "events.amazonaws.com",
-    endpointPrefix: "events",
     protocol: "awsJson1_1",
+    endpointPrefix: "events",
     targetPrefix: "AWSEvents",
   },
   cloudwatchlogs: {
     sdkId: "CloudWatch Logs",
     version: "2014-03-28",
-    arnNamespace: "logs",
-    cloudTrailEventSource: "logs.amazonaws.com",
-    endpointPrefix: "logs",
     protocol: "awsJson1_1",
+    endpointPrefix: "logs",
     targetPrefix: "Logs_20140328",
   },
   codeartifact: {
     sdkId: "codeartifact",
     version: "2018-09-22",
-    arnNamespace: "codeartifact",
-    cloudTrailEventSource: "codeartifact.amazonaws.com",
-    endpointPrefix: "codeartifact",
     protocol: "restJson1",
+    endpointPrefix: "codeartifact",
     operations: {
       AssociateExternalConnection: "POST /v1/repository/external-connection",
       CopyPackageVersions: "POST /v1/package/versions/copy",
@@ -4225,19 +4056,15 @@ export const serviceMetadata = {
   codebuild: {
     sdkId: "CodeBuild",
     version: "2016-10-06",
-    arnNamespace: "codebuild",
-    cloudTrailEventSource: "codebuild.amazonaws.com",
-    endpointPrefix: "codebuild",
     protocol: "awsJson1_1",
+    endpointPrefix: "codebuild",
     targetPrefix: "CodeBuild_20161006",
   },
   codecatalyst: {
     sdkId: "CodeCatalyst",
     version: "2022-09-28",
-    arnNamespace: "",
-    cloudTrailEventSource: "",
-    endpointPrefix: "codecatalyst",
     protocol: "restJson1",
+    endpointPrefix: "codecatalyst",
     operations: {
       GetUserDetails: "GET /userDetails",
       VerifySession: "GET /session",
@@ -4303,37 +4130,29 @@ export const serviceMetadata = {
   codecommit: {
     sdkId: "CodeCommit",
     version: "2015-04-13",
-    arnNamespace: "codecommit",
-    cloudTrailEventSource: "codecommit.amazonaws.com",
-    endpointPrefix: "codecommit",
     protocol: "awsJson1_1",
+    endpointPrefix: "codecommit",
     targetPrefix: "CodeCommit_20150413",
   },
   codeconnections: {
     sdkId: "CodeConnections",
     version: "2023-12-01",
-    arnNamespace: "codeconnections",
-    cloudTrailEventSource: "codeconnections.amazonaws.com",
-    endpointPrefix: "codeconnections",
     protocol: "awsJson1_0",
+    endpointPrefix: "codeconnections",
     targetPrefix: "CodeConnections_20231201",
   },
   codedeploy: {
     sdkId: "CodeDeploy",
     version: "2014-10-06",
-    arnNamespace: "codedeploy",
-    cloudTrailEventSource: "codedeploy.amazonaws.com",
-    endpointPrefix: "codedeploy",
     protocol: "awsJson1_1",
+    endpointPrefix: "codedeploy",
     targetPrefix: "CodeDeploy_20141006",
   },
   codegurureviewer: {
     sdkId: "CodeGuru Reviewer",
     version: "2019-09-19",
-    arnNamespace: "codeguru-reviewer",
-    cloudTrailEventSource: "codeguru-reviewer.amazonaws.com",
-    endpointPrefix: "codeguru-reviewer",
     protocol: "restJson1",
+    endpointPrefix: "codeguru-reviewer",
     operations: {
       AssociateRepository: "POST /associations",
       CreateCodeReview: "POST /codereviews",
@@ -4355,9 +4174,6 @@ export const serviceMetadata = {
   codegurusecurity: {
     sdkId: "CodeGuru Security",
     version: "2018-05-10",
-    arnNamespace: "codeguru-security",
-    cloudTrailEventSource: "codeguru-security.amazonaws.com",
-    endpointPrefix: "",
     protocol: "restJson1",
     operations: {
       BatchGetFindings: "POST /batchGetFindings",
@@ -4378,10 +4194,8 @@ export const serviceMetadata = {
   codeguruprofiler: {
     sdkId: "CodeGuruProfiler",
     version: "2019-07-18",
-    arnNamespace: "codeguru-profiler",
-    cloudTrailEventSource: "codeguru-profiler.amazonaws.com",
-    endpointPrefix: "codeguru-profiler",
     protocol: "restJson1",
+    endpointPrefix: "codeguru-profiler",
     operations: {
       GetFindingsReportAccountSummary: "GET /internal/findingsReports",
       ListTagsForResource: "GET /tags/{resourceArn}",
@@ -4449,28 +4263,22 @@ export const serviceMetadata = {
   codepipeline: {
     sdkId: "CodePipeline",
     version: "2015-07-09",
-    arnNamespace: "codepipeline",
-    cloudTrailEventSource: "codepipeline.amazonaws.com",
-    endpointPrefix: "codepipeline",
     protocol: "awsJson1_1",
+    endpointPrefix: "codepipeline",
     targetPrefix: "CodePipeline_20150709",
   },
   codestarconnections: {
     sdkId: "CodeStar connections",
     version: "2019-12-01",
-    arnNamespace: "codestar-connections",
-    cloudTrailEventSource: "codestarconnections.amazonaws.com",
-    endpointPrefix: "codestar-connections",
     protocol: "awsJson1_0",
+    endpointPrefix: "codestar-connections",
     targetPrefix: "CodeStar_connections_20191201",
   },
   codestarnotifications: {
     sdkId: "codestar notifications",
     version: "2019-10-15",
-    arnNamespace: "codestar-notifications",
-    cloudTrailEventSource: "codestarnotifications.amazonaws.com",
-    endpointPrefix: "codestar-notifications",
     protocol: "restJson1",
+    endpointPrefix: "codestar-notifications",
     operations: {
       CreateNotificationRule: "POST /createNotificationRule",
       DeleteNotificationRule: "POST /deleteNotificationRule",
@@ -4490,28 +4298,22 @@ export const serviceMetadata = {
   cognitoidentity: {
     sdkId: "Cognito Identity",
     version: "2014-06-30",
-    arnNamespace: "cognito-identity",
-    cloudTrailEventSource: "cognito-identity.amazonaws.com",
-    endpointPrefix: "cognito-identity",
     protocol: "awsJson1_1",
+    endpointPrefix: "cognito-identity",
     targetPrefix: "AWSCognitoIdentityService",
   },
   cognitoidentityprovider: {
     sdkId: "Cognito Identity Provider",
     version: "2016-04-18",
-    arnNamespace: "cognito-idp",
-    cloudTrailEventSource: "cognito-idp.amazonaws.com",
-    endpointPrefix: "cognito-idp",
     protocol: "awsJson1_1",
+    endpointPrefix: "cognito-idp",
     targetPrefix: "AWSCognitoIdentityProviderService",
   },
   cognitosync: {
     sdkId: "Cognito Sync",
     version: "2014-06-30",
-    arnNamespace: "cognito-sync",
-    cloudTrailEventSource: "cognitosync.amazonaws.com",
-    endpointPrefix: "cognito-sync",
     protocol: "restJson1",
+    endpointPrefix: "cognito-sync",
     operations: {
       BulkPublish: "POST /identitypools/{IdentityPoolId}/bulkpublish",
       DeleteDataset:
@@ -4547,46 +4349,36 @@ export const serviceMetadata = {
   comprehend: {
     sdkId: "Comprehend",
     version: "2017-11-27",
-    arnNamespace: "comprehend",
-    cloudTrailEventSource: "comprehend.amazonaws.com",
-    endpointPrefix: "comprehend",
     protocol: "awsJson1_1",
+    endpointPrefix: "comprehend",
     targetPrefix: "Comprehend_20171127",
   },
   comprehendmedical: {
     sdkId: "ComprehendMedical",
     version: "2018-10-30",
-    arnNamespace: "comprehendmedical",
-    cloudTrailEventSource: "comprehendmedical.amazonaws.com",
-    endpointPrefix: "comprehendmedical",
     protocol: "awsJson1_1",
+    endpointPrefix: "comprehendmedical",
     targetPrefix: "ComprehendMedical_20181030",
   },
   computeoptimizer: {
     sdkId: "Compute Optimizer",
     version: "2019-11-01",
-    arnNamespace: "compute-optimizer",
-    cloudTrailEventSource: "computeoptimizer.amazonaws.com",
-    endpointPrefix: "compute-optimizer",
     protocol: "awsJson1_0",
+    endpointPrefix: "compute-optimizer",
     targetPrefix: "ComputeOptimizerService",
   },
   configservice: {
     sdkId: "Config Service",
     version: "2014-11-12",
-    arnNamespace: "config",
-    cloudTrailEventSource: "configservice.amazonaws.com",
-    endpointPrefix: "config",
     protocol: "awsJson1_1",
+    endpointPrefix: "config",
     targetPrefix: "StarlingDoveService",
   },
   connect: {
     sdkId: "Connect",
     version: "2017-08-08",
-    arnNamespace: "connect",
-    cloudTrailEventSource: "connect.amazonaws.com",
-    endpointPrefix: "connect",
     protocol: "restJson1",
+    endpointPrefix: "connect",
     operations: {
       ActivateEvaluationForm:
         "POST /evaluation-forms/{InstanceId}/{EvaluationFormId}/activate",
@@ -4993,10 +4785,8 @@ export const serviceMetadata = {
   connectcontactlens: {
     sdkId: "Connect Contact Lens",
     version: "2020-08-21",
-    arnNamespace: "connect",
-    cloudTrailEventSource: "connectcontactlens.amazonaws.com",
-    endpointPrefix: "contact-lens",
     protocol: "restJson1",
+    endpointPrefix: "contact-lens",
     operations: {
       ListRealtimeContactAnalysisSegments:
         "POST /realtime-contact-analysis/analysis-segments",
@@ -5005,9 +4795,6 @@ export const serviceMetadata = {
   connectcampaigns: {
     sdkId: "ConnectCampaigns",
     version: "2021-01-30",
-    arnNamespace: "connect-campaigns",
-    cloudTrailEventSource: "connect-campaigns.amazonaws.com",
-    endpointPrefix: "",
     protocol: "restJson1",
     operations: {
       CreateCampaign: "PUT /campaigns",
@@ -5043,9 +4830,6 @@ export const serviceMetadata = {
   connectcampaignsv2: {
     sdkId: "ConnectCampaignsV2",
     version: "2024-04-23",
-    arnNamespace: "connect-campaigns",
-    cloudTrailEventSource: "connect-campaigns.amazonaws.com",
-    endpointPrefix: "",
     protocol: "restJson1",
     operations: {
       CreateCampaign: "PUT /v2/campaigns",
@@ -5105,10 +4889,8 @@ export const serviceMetadata = {
   connectcases: {
     sdkId: "ConnectCases",
     version: "2022-10-03",
-    arnNamespace: "cases",
-    cloudTrailEventSource: "event-source-placeholder",
-    endpointPrefix: "cases",
     protocol: "restJson1",
+    endpointPrefix: "cases",
     operations: {
       ListTagsForResource: "GET /tags/{arn}",
       TagResource: "POST /tags/{arn}",
@@ -5163,10 +4945,8 @@ export const serviceMetadata = {
   connectparticipant: {
     sdkId: "ConnectParticipant",
     version: "2018-09-07",
-    arnNamespace: "connect",
-    cloudTrailEventSource: "connectparticipant.amazonaws.com",
-    endpointPrefix: "participant.connect",
     protocol: "restJson1",
+    endpointPrefix: "participant.connect",
     operations: {
       CancelParticipantAuthentication:
         "POST /participant/cancel-authentication",
@@ -5185,9 +4965,6 @@ export const serviceMetadata = {
   controlcatalog: {
     sdkId: "ControlCatalog",
     version: "2018-05-10",
-    arnNamespace: "controlcatalog",
-    cloudTrailEventSource: "controlcatalog.amazonaws.com",
-    endpointPrefix: "",
     protocol: "restJson1",
     operations: {
       ListControlMappings: "POST /list-control-mappings",
@@ -5201,10 +4978,8 @@ export const serviceMetadata = {
   controltower: {
     sdkId: "ControlTower",
     version: "2018-05-10",
-    arnNamespace: "controltower",
-    cloudTrailEventSource: "controltower.amazonaws.com",
-    endpointPrefix: "controltower",
     protocol: "restJson1",
+    endpointPrefix: "controltower",
     operations: {
       DisableControl: "POST /disable-control",
       CreateLandingZone: "POST /create-landingzone",
@@ -5239,37 +5014,29 @@ export const serviceMetadata = {
   costandusagereportservice: {
     sdkId: "Cost and Usage Report Service",
     version: "2017-01-06",
-    arnNamespace: "cur",
-    cloudTrailEventSource: "costandusagereportservice.amazonaws.com",
-    endpointPrefix: "cur",
     protocol: "awsJson1_1",
+    endpointPrefix: "cur",
     targetPrefix: "AWSOrigamiServiceGatewayService",
   },
   costexplorer: {
     sdkId: "Cost Explorer",
     version: "2017-10-25",
-    arnNamespace: "ce",
-    cloudTrailEventSource: "costexplorer.amazonaws.com",
-    endpointPrefix: "ce",
     protocol: "awsJson1_1",
+    endpointPrefix: "ce",
     targetPrefix: "AWSInsightsIndexService",
   },
   costoptimizationhub: {
     sdkId: "Cost Optimization Hub",
     version: "2022-07-26",
-    arnNamespace: "",
-    cloudTrailEventSource: "",
-    endpointPrefix: "cost-optimization-hub",
     protocol: "awsJson1_0",
+    endpointPrefix: "cost-optimization-hub",
     targetPrefix: "CostOptimizationHubService",
   },
   customerprofiles: {
     sdkId: "Customer Profiles",
     version: "2020-08-15",
-    arnNamespace: "profile",
-    cloudTrailEventSource: "profile.amazonaws.com",
-    endpointPrefix: "profile",
     protocol: "restJson1",
+    endpointPrefix: "profile",
     operations: {
       AddProfileKey: "POST /domains/{DomainName}/profiles/keys",
       BatchGetCalculatedAttributeForProfile:
@@ -5407,28 +5174,22 @@ export const serviceMetadata = {
   datapipeline: {
     sdkId: "Data Pipeline",
     version: "2012-10-29",
-    arnNamespace: "datapipeline",
-    cloudTrailEventSource: "datapipeline.amazonaws.com",
-    endpointPrefix: "datapipeline",
     protocol: "awsJson1_1",
+    endpointPrefix: "datapipeline",
     targetPrefix: "DataPipeline",
   },
   databasemigrationservice: {
     sdkId: "Database Migration Service",
     version: "2016-01-01",
-    arnNamespace: "dms",
-    cloudTrailEventSource: "dms.amazonaws.com",
-    endpointPrefix: "dms",
     protocol: "awsJson1_1",
+    endpointPrefix: "dms",
     targetPrefix: "AmazonDMSv20160101",
   },
   databrew: {
     sdkId: "DataBrew",
     version: "2017-07-25",
-    arnNamespace: "databrew",
-    cloudTrailEventSource: "databrew.amazonaws.com",
-    endpointPrefix: "databrew",
     protocol: "restJson1",
+    endpointPrefix: "databrew",
     operations: {
       BatchDeleteRecipeVersion: "POST /recipes/{Name}/batchDeleteRecipeVersion",
       CreateDataset: "POST /datasets",
@@ -5480,10 +5241,8 @@ export const serviceMetadata = {
   dataexchange: {
     sdkId: "DataExchange",
     version: "2017-07-25",
-    arnNamespace: "dataexchange",
-    cloudTrailEventSource: "dataexchange.amazonaws.com",
-    endpointPrefix: "dataexchange",
     protocol: "restJson1",
+    endpointPrefix: "dataexchange",
     operations: {
       AcceptDataGrant: "POST /v1/data-grants/{DataGrantArn}/accept",
       CancelJob: "DELETE /v1/jobs/{JobId}",
@@ -5537,18 +5296,13 @@ export const serviceMetadata = {
   datasync: {
     sdkId: "DataSync",
     version: "2018-11-09",
-    arnNamespace: "datasync",
-    cloudTrailEventSource: "datasync.amazonaws.com",
-    endpointPrefix: "datasync",
     protocol: "awsJson1_1",
+    endpointPrefix: "datasync",
     targetPrefix: "FmrsService",
   },
   datazone: {
     sdkId: "DataZone",
     version: "2018-05-10",
-    arnNamespace: "datazone",
-    cloudTrailEventSource: "datazone.amazonaws.com",
-    endpointPrefix: "",
     protocol: "restJson1",
     operations: {
       AcceptPredictions:
@@ -5840,18 +5594,13 @@ export const serviceMetadata = {
   dax: {
     sdkId: "DAX",
     version: "2017-04-19",
-    arnNamespace: "dax",
-    cloudTrailEventSource: "dax.amazonaws.com",
-    endpointPrefix: "dax",
     protocol: "awsJson1_1",
+    endpointPrefix: "dax",
     targetPrefix: "AmazonDAXV3",
   },
   deadline: {
     sdkId: "deadline",
     version: "2023-10-12",
-    arnNamespace: "deadline",
-    cloudTrailEventSource: "deadline.amazonaws.com",
-    endpointPrefix: "",
     protocol: "restJson1",
     operations: {
       CreateQueueFleetAssociation:
@@ -6037,10 +5786,8 @@ export const serviceMetadata = {
   detective: {
     sdkId: "Detective",
     version: "2018-10-26",
-    arnNamespace: "detective",
-    cloudTrailEventSource: "detective.amazonaws.com",
-    endpointPrefix: "api.detective",
     protocol: "restJson1",
+    endpointPrefix: "api.detective",
     operations: {
       AcceptInvitation: "PUT /invitation",
       BatchGetGraphMemberDatasources: "POST /graph/datasources/get",
@@ -6078,19 +5825,15 @@ export const serviceMetadata = {
   devicefarm: {
     sdkId: "Device Farm",
     version: "2015-06-23",
-    arnNamespace: "devicefarm",
-    cloudTrailEventSource: "devicefarm.amazonaws.com",
-    endpointPrefix: "devicefarm",
     protocol: "awsJson1_1",
+    endpointPrefix: "devicefarm",
     targetPrefix: "DeviceFarm_20150623",
   },
   devopsguru: {
     sdkId: "DevOps Guru",
     version: "2020-12-01",
-    arnNamespace: "devops-guru",
-    cloudTrailEventSource: "devopsguru.amazonaws.com",
-    endpointPrefix: "devops-guru",
     protocol: "restJson1",
+    endpointPrefix: "devops-guru",
     operations: {
       AddNotificationChannel: "PUT /channels",
       DeleteInsight: "DELETE /insights/{Id}",
@@ -6131,28 +5874,22 @@ export const serviceMetadata = {
   directconnect: {
     sdkId: "Direct Connect",
     version: "2012-10-25",
-    arnNamespace: "directconnect",
-    cloudTrailEventSource: "directconnect.amazonaws.com",
-    endpointPrefix: "directconnect",
     protocol: "awsJson1_1",
+    endpointPrefix: "directconnect",
     targetPrefix: "OvertureService",
   },
   directoryservice: {
     sdkId: "Directory Service",
     version: "2015-04-16",
-    arnNamespace: "ds",
-    cloudTrailEventSource: "ds.amazonaws.com",
-    endpointPrefix: "ds",
     protocol: "awsJson1_1",
+    endpointPrefix: "ds",
     targetPrefix: "DirectoryService_20150416",
   },
   directoryservicedata: {
     sdkId: "Directory Service Data",
     version: "2023-05-31",
-    arnNamespace: "ds",
-    cloudTrailEventSource: "ds.amazonaws.com",
-    endpointPrefix: "ds-data",
     protocol: "restJson1",
+    endpointPrefix: "ds-data",
     operations: {
       AddGroupMember: "POST /GroupMemberships/AddGroupMember",
       CreateGroup: "POST /Groups/CreateGroup",
@@ -6176,10 +5913,8 @@ export const serviceMetadata = {
   dlm: {
     sdkId: "DLM",
     version: "2018-01-12",
-    arnNamespace: "dlm",
-    cloudTrailEventSource: "dlm.amazonaws.com",
-    endpointPrefix: "dlm",
     protocol: "restJson1",
+    endpointPrefix: "dlm",
     operations: {
       CreateLifecyclePolicy: "POST /policies",
       DeleteLifecyclePolicy: "DELETE /policies/{PolicyId}",
@@ -6194,17 +5929,12 @@ export const serviceMetadata = {
   docdb: {
     sdkId: "DocDB",
     version: "2014-10-31",
-    arnNamespace: "rds",
-    cloudTrailEventSource: "docdb.amazonaws.com",
-    endpointPrefix: "rds",
     protocol: "awsQuery",
+    endpointPrefix: "rds",
   },
   docdbelastic: {
     sdkId: "DocDB Elastic",
     version: "2022-11-28",
-    arnNamespace: "docdb-elastic",
-    cloudTrailEventSource: "CASCADES_EVENT_SOURCE",
-    endpointPrefix: "",
     protocol: "restJson1",
     operations: {
       ApplyPendingMaintenanceAction: "POST /pending-action",
@@ -6232,9 +5962,6 @@ export const serviceMetadata = {
   drs: {
     sdkId: "drs",
     version: "2020-02-26",
-    arnNamespace: "drs",
-    cloudTrailEventSource: "drs.amazonaws.com",
-    endpointPrefix: "",
     protocol: "restJson1",
     operations: {
       CreateExtendedSourceServer: "POST /CreateExtendedSourceServer",
@@ -6302,10 +6029,8 @@ export const serviceMetadata = {
   dsql: {
     sdkId: "DSQL",
     version: "2018-05-10",
-    arnNamespace: "dsql",
-    cloudTrailEventSource: "dsql.amazonaws.com",
-    endpointPrefix: "dsql",
     protocol: "restJson1",
+    endpointPrefix: "dsql",
     operations: {
       ListTagsForResource: "GET /tags/{resourceArn}",
       TagResource: "POST /tags/{resourceArn}",
@@ -6322,28 +6047,22 @@ export const serviceMetadata = {
   dynamodb: {
     sdkId: "DynamoDB",
     version: "2012-08-10",
-    arnNamespace: "dynamodb",
-    cloudTrailEventSource: "dynamodb.amazonaws.com",
-    endpointPrefix: "dynamodb",
     protocol: "awsJson1_0",
+    endpointPrefix: "dynamodb",
     targetPrefix: "DynamoDB_20120810",
   },
   dynamodbstreams: {
     sdkId: "DynamoDB Streams",
     version: "2012-08-10",
-    arnNamespace: "dynamodb",
-    cloudTrailEventSource: "dynamodbstreams.amazonaws.com",
-    endpointPrefix: "streams.dynamodb",
     protocol: "awsJson1_0",
+    endpointPrefix: "streams.dynamodb",
     targetPrefix: "DynamoDBStreams_20120810",
   },
   ebs: {
     sdkId: "EBS",
     version: "2019-11-02",
-    arnNamespace: "ebs",
-    cloudTrailEventSource: "ebs.amazonaws.com",
-    endpointPrefix: "ebs",
     protocol: "restJson1",
+    endpointPrefix: "ebs",
     operations: {
       CompleteSnapshot: "POST /snapshots/completion/{SnapshotId}",
       GetSnapshotBlock: {
@@ -6370,54 +6089,42 @@ export const serviceMetadata = {
   ec2: {
     sdkId: "EC2",
     version: "2016-11-15",
-    arnNamespace: "ec2",
-    cloudTrailEventSource: "ec2.amazonaws.com",
-    endpointPrefix: "ec2",
     protocol: "ec2Query",
+    endpointPrefix: "ec2",
   },
   ec2instanceconnect: {
     sdkId: "EC2 Instance Connect",
     version: "2018-04-02",
-    arnNamespace: "ec2-instance-connect",
-    cloudTrailEventSource: "ec2instanceconnect.amazonaws.com",
-    endpointPrefix: "ec2-instance-connect",
     protocol: "awsJson1_1",
+    endpointPrefix: "ec2-instance-connect",
     targetPrefix: "AWSEC2InstanceConnectService",
   },
   ecr: {
     sdkId: "ECR",
     version: "2015-09-21",
-    arnNamespace: "ecr",
-    cloudTrailEventSource: "ecr.amazonaws.com",
-    endpointPrefix: "api.ecr",
     protocol: "awsJson1_1",
+    endpointPrefix: "api.ecr",
     targetPrefix: "AmazonEC2ContainerRegistry_V20150921",
   },
   ecrpublic: {
     sdkId: "ECR PUBLIC",
     version: "2020-10-30",
-    arnNamespace: "ecr-public",
-    cloudTrailEventSource: "ecrpublic.amazonaws.com",
-    endpointPrefix: "api.ecr-public",
     protocol: "awsJson1_1",
+    endpointPrefix: "api.ecr-public",
     targetPrefix: "SpencerFrontendService",
   },
   ecs: {
     sdkId: "ECS",
     version: "2014-11-13",
-    arnNamespace: "ecs",
-    cloudTrailEventSource: "ecs.amazonaws.com",
-    endpointPrefix: "ecs",
     protocol: "awsJson1_1",
+    endpointPrefix: "ecs",
     targetPrefix: "AmazonEC2ContainerServiceV20141113",
   },
   efs: {
     sdkId: "EFS",
     version: "2015-02-01",
-    arnNamespace: "elasticfilesystem",
-    cloudTrailEventSource: "elasticfilesystem.amazonaws.com",
-    endpointPrefix: "elasticfilesystem",
     protocol: "restJson1",
+    endpointPrefix: "elasticfilesystem",
     operations: {
       CreateAccessPoint: "POST /2015-02-01/access-points",
       CreateFileSystem: "POST /2015-02-01/file-systems",
@@ -6467,10 +6174,8 @@ export const serviceMetadata = {
   eks: {
     sdkId: "EKS",
     version: "2017-11-01",
-    arnNamespace: "eks",
-    cloudTrailEventSource: "eks.amazonaws.com",
-    endpointPrefix: "eks",
     protocol: "restJson1",
+    endpointPrefix: "eks",
     operations: {
       AssociateAccessPolicy:
         "POST /clusters/{clusterName}/access-entries/{principalArn}/access-policies",
@@ -6556,10 +6261,8 @@ export const serviceMetadata = {
   eksauth: {
     sdkId: "EKS Auth",
     version: "2023-11-26",
-    arnNamespace: "eks-auth",
-    cloudTrailEventSource: "eks-auth.amazonaws.com",
-    endpointPrefix: "eks-auth",
     protocol: "restJson1",
+    endpointPrefix: "eks-auth",
     operations: {
       AssumeRoleForPodIdentity:
         "POST /clusters/{clusterName}/assume-role-for-pod-identity",
@@ -6568,34 +6271,26 @@ export const serviceMetadata = {
   elasticbeanstalk: {
     sdkId: "Elastic Beanstalk",
     version: "2010-12-01",
-    arnNamespace: "elasticbeanstalk",
-    cloudTrailEventSource: "elasticbeanstalk.amazonaws.com",
-    endpointPrefix: "elasticbeanstalk",
     protocol: "awsQuery",
+    endpointPrefix: "elasticbeanstalk",
   },
   elasticloadbalancing: {
     sdkId: "Elastic Load Balancing",
     version: "2012-06-01",
-    arnNamespace: "elasticloadbalancing",
-    cloudTrailEventSource: "elasticloadbalancing.amazonaws.com",
-    endpointPrefix: "elasticloadbalancing",
     protocol: "awsQuery",
+    endpointPrefix: "elasticloadbalancing",
   },
   elasticloadbalancingv2: {
     sdkId: "Elastic Load Balancing v2",
     version: "2015-12-01",
-    arnNamespace: "elasticloadbalancing",
-    cloudTrailEventSource: "elasticloadbalancing.amazonaws.com",
-    endpointPrefix: "elasticloadbalancing",
     protocol: "awsQuery",
+    endpointPrefix: "elasticloadbalancing",
   },
   elastictranscoder: {
     sdkId: "Elastic Transcoder",
     version: "2012-09-25",
-    arnNamespace: "elastictranscoder",
-    cloudTrailEventSource: "elastictranscoder.amazonaws.com",
-    endpointPrefix: "elastictranscoder",
     protocol: "restJson1",
+    endpointPrefix: "elastictranscoder",
     operations: {
       CancelJob: "DELETE /2012-09-25/jobs/{Id}",
       CreateJob: "POST /2012-09-25/jobs",
@@ -6620,18 +6315,14 @@ export const serviceMetadata = {
   elasticache: {
     sdkId: "ElastiCache",
     version: "2015-02-02",
-    arnNamespace: "elasticache",
-    cloudTrailEventSource: "elasticache.amazonaws.com",
-    endpointPrefix: "elasticache",
     protocol: "awsQuery",
+    endpointPrefix: "elasticache",
   },
   elasticsearchservice: {
     sdkId: "Elasticsearch Service",
     version: "2015-01-01",
-    arnNamespace: "es",
-    cloudTrailEventSource: "elasticsearchservice.amazonaws.com",
-    endpointPrefix: "es",
     protocol: "restJson1",
+    endpointPrefix: "es",
     operations: {
       AcceptInboundCrossClusterSearchConnection:
         "PUT /2015-01-01/es/ccs/inboundConnection/{CrossClusterSearchConnectionId}/accept",
@@ -6716,19 +6407,15 @@ export const serviceMetadata = {
   emr: {
     sdkId: "EMR",
     version: "2009-03-31",
-    arnNamespace: "elasticmapreduce",
-    cloudTrailEventSource: "elasticmapreduce.amazonaws.com",
-    endpointPrefix: "elasticmapreduce",
     protocol: "awsJson1_1",
+    endpointPrefix: "elasticmapreduce",
     targetPrefix: "ElasticMapReduce",
   },
   emrcontainers: {
     sdkId: "EMR containers",
     version: "2020-10-01",
-    arnNamespace: "emr-containers",
-    cloudTrailEventSource: "emrcontainers.amazonaws.com",
-    endpointPrefix: "emr-containers",
     protocol: "restJson1",
+    endpointPrefix: "emr-containers",
     operations: {
       CancelJobRun: "DELETE /virtualclusters/{virtualClusterId}/jobruns/{id}",
       CreateJobTemplate: "POST /jobtemplates",
@@ -6762,9 +6449,6 @@ export const serviceMetadata = {
   emrserverless: {
     sdkId: "EMR Serverless",
     version: "2021-07-13",
-    arnNamespace: "emr-serverless",
-    cloudTrailEventSource: "emr-serverless.amazonaws.com",
-    endpointPrefix: "",
     protocol: "restJson1",
     operations: {
       ListTagsForResource: "GET /tags/{resourceArn}",
@@ -6790,9 +6474,6 @@ export const serviceMetadata = {
   entityresolution: {
     sdkId: "EntityResolution",
     version: "2018-05-10",
-    arnNamespace: "entityresolution",
-    cloudTrailEventSource: "entityresolution.amazonaws.com",
-    endpointPrefix: "",
     protocol: "restJson1",
     operations: {
       AddPolicyStatement: "POST /policies/{arn}/{statementId}",
@@ -6839,18 +6520,13 @@ export const serviceMetadata = {
   eventbridge: {
     sdkId: "EventBridge",
     version: "2015-10-07",
-    arnNamespace: "events",
-    cloudTrailEventSource: "events.amazonaws.com",
-    endpointPrefix: "events",
     protocol: "awsJson1_1",
+    endpointPrefix: "events",
     targetPrefix: "AWSEvents",
   },
   evidently: {
     sdkId: "Evidently",
     version: "2021-02-01",
-    arnNamespace: "evidently",
-    cloudTrailEventSource: "evidently.amazonaws.com",
-    endpointPrefix: "",
     protocol: "restJson1",
     operations: {
       ListTagsForResource: "GET /tags/{resourceArn}",
@@ -6899,19 +6575,14 @@ export const serviceMetadata = {
   evs: {
     sdkId: "evs",
     version: "2023-07-27",
-    arnNamespace: "evs",
-    cloudTrailEventSource: "evs.amazonaws.com",
-    endpointPrefix: "",
     protocol: "awsJson1_0",
     targetPrefix: "AmazonElasticVMwareService",
   },
   finspace: {
     sdkId: "finspace",
     version: "2021-03-12",
-    arnNamespace: "finspace",
-    cloudTrailEventSource: "finspace.amazonaws.com",
-    endpointPrefix: "finspace",
     protocol: "restJson1",
+    endpointPrefix: "finspace",
     operations: {
       CreateEnvironment: "POST /environment",
       CreateKxChangeset:
@@ -6993,10 +6664,8 @@ export const serviceMetadata = {
   finspacedata: {
     sdkId: "finspace data",
     version: "2020-07-13",
-    arnNamespace: "finspace-api",
-    cloudTrailEventSource: "finspacedata.amazonaws.com",
-    endpointPrefix: "finspace-api",
     protocol: "restJson1",
+    endpointPrefix: "finspace-api",
     operations: {
       AssociateUserToPermissionGroup: {
         http: "POST /permission-group/{permissionGroupId}/users/{userId}",
@@ -7046,19 +6715,15 @@ export const serviceMetadata = {
   firehose: {
     sdkId: "Firehose",
     version: "2015-08-04",
-    arnNamespace: "firehose",
-    cloudTrailEventSource: "firehose.amazonaws.com",
-    endpointPrefix: "firehose",
     protocol: "awsJson1_1",
+    endpointPrefix: "firehose",
     targetPrefix: "Firehose_20150804",
   },
   fis: {
     sdkId: "fis",
     version: "2020-12-01",
-    arnNamespace: "fis",
-    cloudTrailEventSource: "fis.amazonaws.com",
-    endpointPrefix: "fis",
     protocol: "restJson1",
+    endpointPrefix: "fis",
     operations: {
       CreateExperimentTemplate: "POST /experimentTemplates",
       CreateTargetAccountConfiguration:
@@ -7099,72 +6764,55 @@ export const serviceMetadata = {
   fms: {
     sdkId: "FMS",
     version: "2018-01-01",
-    arnNamespace: "fms",
-    cloudTrailEventSource: "fms.amazonaws.com",
-    endpointPrefix: "fms",
     protocol: "awsJson1_1",
+    endpointPrefix: "fms",
     targetPrefix: "AWSFMS_20180101",
   },
   forecast: {
     sdkId: "forecast",
     version: "2018-06-26",
-    arnNamespace: "forecast",
-    cloudTrailEventSource: "forecast.amazonaws.com",
-    endpointPrefix: "forecast",
     protocol: "awsJson1_1",
+    endpointPrefix: "forecast",
     targetPrefix: "AmazonForecast",
   },
   forecastquery: {
     sdkId: "forecastquery",
     version: "2018-06-26",
-    arnNamespace: "forecast",
-    cloudTrailEventSource: "forecastquery.amazonaws.com",
-    endpointPrefix: "forecastquery",
     protocol: "awsJson1_1",
+    endpointPrefix: "forecastquery",
     targetPrefix: "AmazonForecastRuntime",
   },
   frauddetector: {
     sdkId: "FraudDetector",
     version: "2019-11-15",
-    arnNamespace: "frauddetector",
-    cloudTrailEventSource: "frauddetector.amazonaws.com",
-    endpointPrefix: "frauddetector",
     protocol: "awsJson1_1",
+    endpointPrefix: "frauddetector",
     targetPrefix: "AWSHawksNestServiceFacade",
   },
   freetier: {
     sdkId: "FreeTier",
     version: "2023-09-07",
-    arnNamespace: "",
-    cloudTrailEventSource: "",
-    endpointPrefix: "freetier",
     protocol: "awsJson1_0",
+    endpointPrefix: "freetier",
     targetPrefix: "AWSFreeTierService",
   },
   fsx: {
     sdkId: "FSx",
     version: "2018-03-01",
-    arnNamespace: "fsx",
-    cloudTrailEventSource: "fsx.amazonaws.com",
-    endpointPrefix: "fsx",
     protocol: "awsJson1_1",
+    endpointPrefix: "fsx",
     targetPrefix: "AWSSimbaAPIService_v20180301",
   },
   gamelift: {
     sdkId: "GameLift",
     version: "2015-10-01",
-    arnNamespace: "gamelift",
-    cloudTrailEventSource: "gamelift.amazonaws.com",
-    endpointPrefix: "gamelift",
     protocol: "awsJson1_1",
+    endpointPrefix: "gamelift",
     targetPrefix: "GameLift",
   },
   gameliftstreams: {
     sdkId: "GameLiftStreams",
     version: "2018-05-10",
-    arnNamespace: "gameliftstreams",
-    cloudTrailEventSource: "gameliftstreams.amazonaws.com",
-    endpointPrefix: "",
     protocol: "restJson1",
     operations: {
       AddStreamGroupLocations: "POST /streamgroups/{Identifier}/locations",
@@ -7201,9 +6849,6 @@ export const serviceMetadata = {
   geomaps: {
     sdkId: "Geo Maps",
     version: "2020-11-19",
-    arnNamespace: "geo-maps",
-    cloudTrailEventSource: "geo-maps.amazonaws.com",
-    endpointPrefix: "",
     protocol: "restJson1",
     operations: {
       GetGlyphs: {
@@ -7258,9 +6903,6 @@ export const serviceMetadata = {
   geoplaces: {
     sdkId: "Geo Places",
     version: "2020-11-19",
-    arnNamespace: "geo-places",
-    cloudTrailEventSource: "geo-places.amazonaws.com",
-    endpointPrefix: "",
     protocol: "restJson1",
     operations: {
       Autocomplete: {
@@ -7310,9 +6952,6 @@ export const serviceMetadata = {
   georoutes: {
     sdkId: "Geo Routes",
     version: "2020-11-19",
-    arnNamespace: "geo-routes",
-    cloudTrailEventSource: "geo-routes.amazonaws.com",
-    endpointPrefix: "",
     protocol: "restJson1",
     operations: {
       CalculateIsolines: {
@@ -7350,10 +6989,8 @@ export const serviceMetadata = {
   glacier: {
     sdkId: "Glacier",
     version: "2012-06-01",
-    arnNamespace: "glacier",
-    cloudTrailEventSource: "glacier.amazonaws.com",
-    endpointPrefix: "glacier",
     protocol: "restJson1",
+    endpointPrefix: "glacier",
     operations: {
       AbortMultipartUpload:
         "DELETE /{accountId}/vaults/{vaultName}/multipart-uploads/{uploadId}",
@@ -7470,27 +7107,20 @@ export const serviceMetadata = {
   globalaccelerator: {
     sdkId: "Global Accelerator",
     version: "2018-08-08",
-    arnNamespace: "globalaccelerator",
-    cloudTrailEventSource: "globalaccelerator.amazonaws.com",
-    endpointPrefix: "globalaccelerator",
     protocol: "awsJson1_1",
+    endpointPrefix: "globalaccelerator",
     targetPrefix: "GlobalAccelerator_V20180706",
   },
   glue: {
     sdkId: "Glue",
     version: "2017-03-31",
-    arnNamespace: "glue",
-    cloudTrailEventSource: "glue.amazonaws.com",
-    endpointPrefix: "glue",
     protocol: "awsJson1_1",
+    endpointPrefix: "glue",
     targetPrefix: "AWSGlue",
   },
   grafana: {
     sdkId: "grafana",
     version: "2020-08-18",
-    arnNamespace: "grafana",
-    cloudTrailEventSource: "EVENT_SOURCE_VALUE",
-    endpointPrefix: "",
     protocol: "restJson1",
     operations: {
       ListTagsForResource: "GET /tags/{resourceArn}",
@@ -7535,10 +7165,8 @@ export const serviceMetadata = {
   greengrass: {
     sdkId: "Greengrass",
     version: "2017-06-07",
-    arnNamespace: "greengrass",
-    cloudTrailEventSource: "greengrass.amazonaws.com",
-    endpointPrefix: "greengrass",
     protocol: "restJson1",
+    endpointPrefix: "greengrass",
     operations: {
       AssociateRoleToGroup: "PUT /greengrass/groups/{GroupId}/role",
       AssociateServiceRoleToAccount: "PUT /greengrass/servicerole",
@@ -7692,10 +7320,8 @@ export const serviceMetadata = {
   greengrassv2: {
     sdkId: "GreengrassV2",
     version: "2020-11-30",
-    arnNamespace: "greengrass",
-    cloudTrailEventSource: "greengrass.amazonaws.com",
-    endpointPrefix: "greengrass",
     protocol: "restJson1",
+    endpointPrefix: "greengrass",
     operations: {
       AssociateServiceRoleToAccount: "PUT /greengrass/servicerole",
       BatchAssociateClientDeviceWithCoreDevice:
@@ -7741,9 +7367,6 @@ export const serviceMetadata = {
   groundstation: {
     sdkId: "GroundStation",
     version: "2019-05-23",
-    arnNamespace: "groundstation",
-    cloudTrailEventSource: "groundstation.amazonaws.com",
-    endpointPrefix: "",
     protocol: "restJson1",
     operations: {
       GetMinuteUsage: "POST /minute-usage",
@@ -7786,10 +7409,8 @@ export const serviceMetadata = {
   guardduty: {
     sdkId: "GuardDuty",
     version: "2017-11-28",
-    arnNamespace: "guardduty",
-    cloudTrailEventSource: "guardduty.amazonaws.com",
-    endpointPrefix: "guardduty",
     protocol: "restJson1",
+    endpointPrefix: "guardduty",
     operations: {
       AcceptAdministratorInvitation:
         "POST /detector/{DetectorId}/administrator",
@@ -7888,47 +7509,37 @@ export const serviceMetadata = {
   health: {
     sdkId: "Health",
     version: "2016-08-04",
-    arnNamespace: "health",
-    cloudTrailEventSource: "health.amazonaws.com",
-    endpointPrefix: "health",
     protocol: "awsJson1_1",
+    endpointPrefix: "health",
     targetPrefix: "AWSHealth_20160804",
   },
   healthlake: {
     sdkId: "HealthLake",
     version: "2017-07-01",
-    arnNamespace: "healthlake",
-    cloudTrailEventSource: "healthlake.amazonaws.com",
-    endpointPrefix: "healthlake",
     protocol: "awsJson1_0",
+    endpointPrefix: "healthlake",
     targetPrefix: "HealthLake",
   },
   iam: {
     sdkId: "IAM",
     version: "2010-05-08",
-    arnNamespace: "iam",
-    cloudTrailEventSource: "iam.amazonaws.com",
-    endpointPrefix: "iam",
     protocol: "awsQuery",
+    endpointPrefix: "iam",
     globalEndpoint: "https://iam.amazonaws.com",
     signingRegion: "us-east-1",
   },
   identitystore: {
     sdkId: "identitystore",
     version: "2020-06-15",
-    arnNamespace: "identitystore",
-    cloudTrailEventSource: "identitystore.amazonaws.com",
-    endpointPrefix: "identitystore",
     protocol: "awsJson1_1",
+    endpointPrefix: "identitystore",
     targetPrefix: "AWSIdentityStore",
   },
   imagebuilder: {
     sdkId: "imagebuilder",
     version: "2019-12-02",
-    arnNamespace: "imagebuilder",
-    cloudTrailEventSource: "imagebuilder.amazonaws.com",
-    endpointPrefix: "imagebuilder",
     protocol: "restJson1",
+    endpointPrefix: "imagebuilder",
     operations: {
       CancelImageCreation: "PUT /CancelImageCreation",
       CancelLifecycleExecution: "PUT /CancelLifecycleExecution",
@@ -8016,18 +7627,13 @@ export const serviceMetadata = {
   inspector: {
     sdkId: "Inspector",
     version: "2016-02-16",
-    arnNamespace: "inspector",
-    cloudTrailEventSource: "inspector.amazonaws.com",
-    endpointPrefix: "inspector",
     protocol: "awsJson1_1",
+    endpointPrefix: "inspector",
     targetPrefix: "InspectorService",
   },
   inspectorscan: {
     sdkId: "Inspector Scan",
     version: "2023-08-08",
-    arnNamespace: "inspector-scan",
-    cloudTrailEventSource: "inspector-scan.amazonaws.com",
-    endpointPrefix: "",
     protocol: "restJson1",
     operations: {
       ScanSbom: "POST /scan/sbom",
@@ -8036,9 +7642,6 @@ export const serviceMetadata = {
   inspector2: {
     sdkId: "Inspector2",
     version: "2020-06-08",
-    arnNamespace: "inspector2",
-    cloudTrailEventSource: "inspector2.amazon.aws",
-    endpointPrefix: "",
     protocol: "restJson1",
     operations: {
       AssociateMember: "POST /members/associate",
@@ -8136,9 +7739,6 @@ export const serviceMetadata = {
   internetmonitor: {
     sdkId: "InternetMonitor",
     version: "2021-06-03",
-    arnNamespace: "internetmonitor",
-    cloudTrailEventSource: "internetmonitor.amazonaws.com",
-    endpointPrefix: "",
     protocol: "restJson1",
     operations: {
       ListTagsForResource: "GET /tags/{ResourceArn}",
@@ -8165,19 +7765,15 @@ export const serviceMetadata = {
   invoicing: {
     sdkId: "Invoicing",
     version: "2024-12-01",
-    arnNamespace: "invoicing",
-    cloudTrailEventSource: "invoicing.amazonaws.com",
-    endpointPrefix: "invoicing",
     protocol: "awsJson1_0",
+    endpointPrefix: "invoicing",
     targetPrefix: "Invoicing",
   },
   iot: {
     sdkId: "IoT",
     version: "2015-05-28",
-    arnNamespace: "iot",
-    cloudTrailEventSource: "iot.amazonaws.com",
-    endpointPrefix: "iot",
     protocol: "restJson1",
+    endpointPrefix: "iot",
     operations: {
       AcceptCertificateTransfer:
         "PATCH /accept-certificate-transfer/{certificateId}",
@@ -8508,10 +8104,8 @@ export const serviceMetadata = {
   iotdataplane: {
     sdkId: "IoT Data Plane",
     version: "2015-05-28",
-    arnNamespace: "iotdata",
-    cloudTrailEventSource: "iotdataplane.amazonaws.com",
-    endpointPrefix: "data-ats.iot",
     protocol: "restJson1",
+    endpointPrefix: "data-ats.iot",
     operations: {
       DeleteThingShadow: {
         http: "DELETE /things/{thingName}/shadow",
@@ -8541,10 +8135,8 @@ export const serviceMetadata = {
   iotevents: {
     sdkId: "IoT Events",
     version: "2018-07-27",
-    arnNamespace: "iotevents",
-    cloudTrailEventSource: "iotevents.amazonaws.com",
-    endpointPrefix: "iotevents",
     protocol: "restJson1",
+    endpointPrefix: "iotevents",
     operations: {
       CreateAlarmModel: "POST /alarm-models",
       CreateDetectorModel: "POST /detector-models",
@@ -8580,10 +8172,8 @@ export const serviceMetadata = {
   ioteventsdata: {
     sdkId: "IoT Events Data",
     version: "2018-10-23",
-    arnNamespace: "ioteventsdata",
-    cloudTrailEventSource: "ioteventsdata.amazonaws.com",
-    endpointPrefix: "data.iotevents",
     protocol: "restJson1",
+    endpointPrefix: "data.iotevents",
     operations: {
       BatchAcknowledgeAlarm: "POST /alarms/acknowledge",
       BatchDeleteDetector: "POST /detectors/delete",
@@ -8602,10 +8192,8 @@ export const serviceMetadata = {
   iotjobsdataplane: {
     sdkId: "IoT Jobs Data Plane",
     version: "2017-09-29",
-    arnNamespace: "iot-jobs-data",
-    cloudTrailEventSource: "iotjobsdataplane.amazonaws.com",
-    endpointPrefix: "data.jobs.iot",
     protocol: "restJson1",
+    endpointPrefix: "data.jobs.iot",
     operations: {
       DescribeJobExecution: "GET /things/{thingName}/jobs/{jobId}",
       GetPendingJobExecutions: "GET /things/{thingName}/jobs",
@@ -8617,10 +8205,8 @@ export const serviceMetadata = {
   iotmanagedintegrations: {
     sdkId: "IoT Managed Integrations",
     version: "2025-03-03",
-    arnNamespace: "iotmanagedintegrations",
-    cloudTrailEventSource: "iotmanagedintegrations.amazonaws.com",
-    endpointPrefix: "api.iotmanagedintegrations",
     protocol: "restJson1",
+    endpointPrefix: "api.iotmanagedintegrations",
     operations: {
       GetCustomEndpoint: "GET /custom-endpoint",
       ListTagsForResource: "GET /tags/{ResourceArn}",
@@ -8724,10 +8310,8 @@ export const serviceMetadata = {
   iotwireless: {
     sdkId: "IoT Wireless",
     version: "2020-11-22",
-    arnNamespace: "iotwireless",
-    cloudTrailEventSource: "iotwireless.amazonaws.com",
-    endpointPrefix: "api.iotwireless",
     protocol: "restJson1",
+    endpointPrefix: "api.iotwireless",
     operations: {
       AssociateAwsAccountWithPartnerAccount: "POST /partner-accounts",
       AssociateMulticastGroupWithFuotaTask:
@@ -8889,10 +8473,8 @@ export const serviceMetadata = {
   iotanalytics: {
     sdkId: "IoTAnalytics",
     version: "2017-11-27",
-    arnNamespace: "iotanalytics",
-    cloudTrailEventSource: "iotanalytics.amazonaws.com",
-    endpointPrefix: "iotanalytics",
     protocol: "restJson1",
+    endpointPrefix: "iotanalytics",
     operations: {
       BatchPutMessage: "POST /messages/batch",
       CancelPipelineReprocessing:
@@ -8934,10 +8516,8 @@ export const serviceMetadata = {
   iotdeviceadvisor: {
     sdkId: "IotDeviceAdvisor",
     version: "2020-09-18",
-    arnNamespace: "iotdeviceadvisor",
-    cloudTrailEventSource: "iotdeviceadvisor.amazonaws.com",
-    endpointPrefix: "api.iotdeviceadvisor",
     protocol: "restJson1",
+    endpointPrefix: "api.iotdeviceadvisor",
     operations: {
       CreateSuiteDefinition: "POST /suiteDefinitions",
       DeleteSuiteDefinition: "DELETE /suiteDefinitions/{suiteDefinitionId}",
@@ -8961,10 +8541,8 @@ export const serviceMetadata = {
   iotfleethub: {
     sdkId: "IoTFleetHub",
     version: "2020-11-03",
-    arnNamespace: "iotfleethub",
-    cloudTrailEventSource: "iotfleethub.amazonaws.com",
-    endpointPrefix: "api.fleethub.iot",
     protocol: "restJson1",
+    endpointPrefix: "api.fleethub.iot",
     operations: {
       CreateApplication: "POST /applications",
       DeleteApplication: "DELETE /applications/{applicationId}",
@@ -8979,28 +8557,21 @@ export const serviceMetadata = {
   iotfleetwise: {
     sdkId: "IoTFleetWise",
     version: "2021-06-17",
-    arnNamespace: "iotfleetwise",
-    cloudTrailEventSource: "iotfleetwise.amazonaws.com",
-    endpointPrefix: "",
     protocol: "awsJson1_0",
     targetPrefix: "IoTAutobahnControlPlane",
   },
   iotsecuretunneling: {
     sdkId: "IoTSecureTunneling",
     version: "2018-10-05",
-    arnNamespace: "iotsecuredtunneling",
-    cloudTrailEventSource: "iotsecuretunneling.amazonaws.com",
-    endpointPrefix: "api.tunneling.iot",
     protocol: "awsJson1_1",
+    endpointPrefix: "api.tunneling.iot",
     targetPrefix: "IoTSecuredTunneling",
   },
   iotsitewise: {
     sdkId: "IoTSiteWise",
     version: "2019-12-02",
-    arnNamespace: "iotsitewise",
-    cloudTrailEventSource: "iotsitewise.amazonaws.com",
-    endpointPrefix: "iotsitewise",
     protocol: "restJson1",
+    endpointPrefix: "iotsitewise",
     operations: {
       AssociateAssets: "POST /assets/{assetId}/associate",
       AssociateTimeSeriesToAssetProperty: "POST /timeseries/associate",
@@ -9134,19 +8705,15 @@ export const serviceMetadata = {
   iotthingsgraph: {
     sdkId: "IoTThingsGraph",
     version: "2018-09-06",
-    arnNamespace: "iotthingsgraph",
-    cloudTrailEventSource: "iotthingsgraph.amazonaws.com",
-    endpointPrefix: "iotthingsgraph",
     protocol: "awsJson1_1",
+    endpointPrefix: "iotthingsgraph",
     targetPrefix: "IotThingsGraphFrontEndService",
   },
   iottwinmaker: {
     sdkId: "IoTTwinMaker",
     version: "2021-11-29",
-    arnNamespace: "",
-    cloudTrailEventSource: "",
-    endpointPrefix: "iottwinmaker",
     protocol: "restJson1",
+    endpointPrefix: "iottwinmaker",
     operations: {
       BatchPutPropertyValues:
         "POST /workspaces/{workspaceId}/entity-properties",
@@ -9204,9 +8771,6 @@ export const serviceMetadata = {
   ivs: {
     sdkId: "ivs",
     version: "2020-07-14",
-    arnNamespace: "ivs",
-    cloudTrailEventSource: "ivs.amazonaws.com",
-    endpointPrefix: "",
     protocol: "restJson1",
     operations: {
       BatchGetChannel: "POST /BatchGetChannel",
@@ -9250,10 +8814,8 @@ export const serviceMetadata = {
   ivsrealtime: {
     sdkId: "IVS RealTime",
     version: "2020-07-14",
-    arnNamespace: "ivs",
-    cloudTrailEventSource: "ivs.amazonaws.com",
-    endpointPrefix: "ivsrealtime",
     protocol: "restJson1",
+    endpointPrefix: "ivsrealtime",
     operations: {
       CreateEncoderConfiguration: "POST /CreateEncoderConfiguration",
       CreateIngestConfiguration: "POST /CreateIngestConfiguration",
@@ -9321,9 +8883,6 @@ export const serviceMetadata = {
   ivschat: {
     sdkId: "ivschat",
     version: "2020-07-14",
-    arnNamespace: "ivschat",
-    cloudTrailEventSource: "ivschat.amazonaws.com",
-    endpointPrefix: "",
     protocol: "restJson1",
     operations: {
       CreateChatToken: "POST /CreateChatToken",
@@ -9348,10 +8907,8 @@ export const serviceMetadata = {
   kafka: {
     sdkId: "Kafka",
     version: "2018-11-14",
-    arnNamespace: "kafka",
-    cloudTrailEventSource: "kafka.amazonaws.com",
-    endpointPrefix: "kafka",
     protocol: "restJson1",
+    endpointPrefix: "kafka",
     operations: {
       BatchAssociateScramSecret: "POST /v1/clusters/{ClusterArn}/scram-secrets",
       BatchDisassociateScramSecret:
@@ -9416,10 +8973,8 @@ export const serviceMetadata = {
   kafkaconnect: {
     sdkId: "KafkaConnect",
     version: "2021-09-14",
-    arnNamespace: "kafkaconnect",
-    cloudTrailEventSource: "kafkaconnect.amazonaws.com",
-    endpointPrefix: "kafkaconnect",
     protocol: "restJson1",
+    endpointPrefix: "kafkaconnect",
     operations: {
       CreateConnector: "POST /v1/connectors",
       CreateCustomPlugin: "POST /v1/custom-plugins",
@@ -9447,73 +9002,57 @@ export const serviceMetadata = {
   kendra: {
     sdkId: "kendra",
     version: "2019-02-03",
-    arnNamespace: "kendra",
-    cloudTrailEventSource: "kendra.amazonaws.com",
-    endpointPrefix: "kendra",
     protocol: "awsJson1_1",
+    endpointPrefix: "kendra",
     targetPrefix: "AWSKendraFrontendService",
   },
   kendraranking: {
     sdkId: "Kendra Ranking",
     version: "2022-10-19",
-    arnNamespace: "kendra-ranking",
-    cloudTrailEventSource: "kendraranking.amazonaws.com",
-    endpointPrefix: "kendra-ranking",
     protocol: "awsJson1_0",
+    endpointPrefix: "kendra-ranking",
     targetPrefix: "AWSKendraRerankingFrontendService",
   },
   keyspaces: {
     sdkId: "Keyspaces",
     version: "2022-02-10",
-    arnNamespace: "cassandra",
-    cloudTrailEventSource: "cassandra.amazonaws.com",
-    endpointPrefix: "cassandra",
     protocol: "awsJson1_0",
+    endpointPrefix: "cassandra",
     targetPrefix: "KeyspacesService",
   },
   keyspacesstreams: {
     sdkId: "KeyspacesStreams",
     version: "2024-09-09",
-    arnNamespace: "cassandra",
-    cloudTrailEventSource: "cassandra-streams.amazonaws.com",
-    endpointPrefix: "cassandra-streams",
     protocol: "awsJson1_0",
+    endpointPrefix: "cassandra-streams",
     targetPrefix: "KeyspacesStreams",
   },
   kinesis: {
     sdkId: "Kinesis",
     version: "2013-12-02",
-    arnNamespace: "kinesis",
-    cloudTrailEventSource: "kinesis.amazonaws.com",
-    endpointPrefix: "kinesis",
     protocol: "awsJson1_1",
+    endpointPrefix: "kinesis",
     targetPrefix: "Kinesis_20131202",
   },
   kinesisanalytics: {
     sdkId: "Kinesis Analytics",
     version: "2015-08-14",
-    arnNamespace: "kinesisanalytics",
-    cloudTrailEventSource: "kinesisanalytics.amazonaws.com",
-    endpointPrefix: "kinesisanalytics",
     protocol: "awsJson1_1",
+    endpointPrefix: "kinesisanalytics",
     targetPrefix: "KinesisAnalytics_20150814",
   },
   kinesisanalyticsv2: {
     sdkId: "Kinesis Analytics V2",
     version: "2018-05-23",
-    arnNamespace: "kinesisanalytics",
-    cloudTrailEventSource: "kinesisanalytics.amazonaws.com",
-    endpointPrefix: "kinesisanalytics",
     protocol: "awsJson1_1",
+    endpointPrefix: "kinesisanalytics",
     targetPrefix: "KinesisAnalytics_20180523",
   },
   kinesisvideo: {
     sdkId: "Kinesis Video",
     version: "2017-09-30",
-    arnNamespace: "kinesisvideo",
-    cloudTrailEventSource: "kinesisvideo.amazonaws.com",
-    endpointPrefix: "kinesisvideo",
     protocol: "restJson1",
+    endpointPrefix: "kinesisvideo",
     operations: {
       CreateSignalingChannel: "POST /createSignalingChannel",
       CreateStream: "POST /createStream",
@@ -9555,10 +9094,8 @@ export const serviceMetadata = {
   kinesisvideoarchivedmedia: {
     sdkId: "Kinesis Video Archived Media",
     version: "2017-09-30",
-    arnNamespace: "kinesisvideo",
-    cloudTrailEventSource: "kinesisvideoarchivedmedia.amazonaws.com",
-    endpointPrefix: "kinesisvideo",
     protocol: "restJson1",
+    endpointPrefix: "kinesisvideo",
     operations: {
       GetClip: {
         http: "POST /getClip",
@@ -9583,10 +9120,8 @@ export const serviceMetadata = {
   kinesisvideomedia: {
     sdkId: "Kinesis Video Media",
     version: "2017-09-30",
-    arnNamespace: "kinesisvideo",
-    cloudTrailEventSource: "kinesisvideomedia.amazonaws.com",
-    endpointPrefix: "kinesisvideo",
     protocol: "restJson1",
+    endpointPrefix: "kinesisvideo",
     operations: {
       GetMedia: {
         http: "POST /getMedia",
@@ -9600,10 +9135,8 @@ export const serviceMetadata = {
   kinesisvideosignaling: {
     sdkId: "Kinesis Video Signaling",
     version: "2019-12-04",
-    arnNamespace: "kinesisvideo",
-    cloudTrailEventSource: "kinesisvideosignaling.amazonaws.com",
-    endpointPrefix: "kinesisvideo",
     protocol: "restJson1",
+    endpointPrefix: "kinesisvideo",
     operations: {
       GetIceServerConfig: "POST /v1/get-ice-server-config",
       SendAlexaOfferToMaster: "POST /v1/send-alexa-offer-to-master",
@@ -9612,10 +9145,8 @@ export const serviceMetadata = {
   kinesisvideowebrtcstorage: {
     sdkId: "Kinesis Video WebRTC Storage",
     version: "2018-05-10",
-    arnNamespace: "kinesisvideo",
-    cloudTrailEventSource: "kinesisvideo.amazonaws.com",
-    endpointPrefix: "kinesisvideo",
     protocol: "restJson1",
+    endpointPrefix: "kinesisvideo",
     operations: {
       JoinStorageSession: "POST /joinStorageSession",
       JoinStorageSessionAsViewer: "POST /joinStorageSessionAsViewer",
@@ -9624,19 +9155,15 @@ export const serviceMetadata = {
   kms: {
     sdkId: "KMS",
     version: "2014-11-01",
-    arnNamespace: "kms",
-    cloudTrailEventSource: "kms.amazonaws.com",
-    endpointPrefix: "kms",
     protocol: "awsJson1_1",
+    endpointPrefix: "kms",
     targetPrefix: "TrentService",
   },
   lakeformation: {
     sdkId: "LakeFormation",
     version: "2017-03-31",
-    arnNamespace: "lakeformation",
-    cloudTrailEventSource: "lakeformation.amazonaws.com",
-    endpointPrefix: "lakeformation",
     protocol: "restJson1",
+    endpointPrefix: "lakeformation",
     operations: {
       AddLFTagsToResource: "POST /AddLFTagsToResource",
       AssumeDecoratedRoleWithSAML: "POST /AssumeDecoratedRoleWithSAML",
@@ -9714,10 +9241,8 @@ export const serviceMetadata = {
   lambda: {
     sdkId: "Lambda",
     version: "2015-03-31",
-    arnNamespace: "lambda",
-    cloudTrailEventSource: "lambda.amazonaws.com",
-    endpointPrefix: "lambda",
     protocol: "restJson1",
+    endpointPrefix: "lambda",
     operations: {
       GetAccountSettings: "GET /2016-08-19/account-settings",
       ListTags: "GET /2017-03-31/tags/{Resource}",
@@ -9848,10 +9373,8 @@ export const serviceMetadata = {
   launchwizard: {
     sdkId: "Launch Wizard",
     version: "2018-05-10",
-    arnNamespace: "launchwizard",
-    cloudTrailEventSource: "launchwizard.amazonaws.com",
-    endpointPrefix: "launchwizard",
     protocol: "restJson1",
+    endpointPrefix: "launchwizard",
     operations: {
       ListTagsForResource: "GET /tags/{resourceArn}",
       TagResource: "POST /tags/{resourceArn}",
@@ -9870,10 +9393,8 @@ export const serviceMetadata = {
   lexmodelbuildingservice: {
     sdkId: "Lex Model Building Service",
     version: "2017-04-19",
-    arnNamespace: "lex",
-    cloudTrailEventSource: "lexmodelbuildingservice.amazonaws.com",
-    endpointPrefix: "models.lex",
     protocol: "restJson1",
+    endpointPrefix: "models.lex",
     operations: {
       CreateBotVersion: "POST /bots/{name}/versions",
       CreateIntentVersion: "POST /intents/{name}/versions",
@@ -9925,10 +9446,8 @@ export const serviceMetadata = {
   lexmodelsv2: {
     sdkId: "Lex Models V2",
     version: "2020-08-07",
-    arnNamespace: "lex",
-    cloudTrailEventSource: "lexmodelsv2.amazonaws.com",
-    endpointPrefix: "models-v2-lex",
     protocol: "restJson1",
+    endpointPrefix: "models-v2-lex",
     operations: {
       BatchCreateCustomVocabularyItem:
         "PUT /bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/customvocabulary/DEFAULT/batchcreate",
@@ -10081,10 +9600,8 @@ export const serviceMetadata = {
   lexruntimeservice: {
     sdkId: "Lex Runtime Service",
     version: "2016-11-28",
-    arnNamespace: "lex",
-    cloudTrailEventSource: "lexruntimeservice.amazonaws.com",
-    endpointPrefix: "runtime.lex",
     protocol: "restJson1",
+    endpointPrefix: "runtime.lex",
     operations: {
       DeleteSession:
         "DELETE /bot/{botName}/alias/{botAlias}/user/{userId}/session",
@@ -10135,10 +9652,8 @@ export const serviceMetadata = {
   lexruntimev2: {
     sdkId: "Lex Runtime V2",
     version: "2020-08-07",
-    arnNamespace: "lex",
-    cloudTrailEventSource: "lexruntimev2.amazonaws.com",
-    endpointPrefix: "runtime-v2-lex",
     protocol: "restJson1",
+    endpointPrefix: "runtime-v2-lex",
     operations: {
       DeleteSession:
         "DELETE /bots/{botId}/botAliases/{botAliasId}/botLocales/{localeId}/sessions/{sessionId}",
@@ -10183,18 +9698,13 @@ export const serviceMetadata = {
   licensemanager: {
     sdkId: "License Manager",
     version: "2018-08-01",
-    arnNamespace: "license-manager",
-    cloudTrailEventSource: "license-manager.amazonaws.com",
-    endpointPrefix: "license-manager",
     protocol: "awsJson1_1",
+    endpointPrefix: "license-manager",
     targetPrefix: "AWSLicenseManager",
   },
   licensemanagerlinuxsubscriptions: {
     sdkId: "License Manager Linux Subscriptions",
     version: "2018-05-10",
-    arnNamespace: "license-manager-linux-subscriptions",
-    cloudTrailEventSource: "license-manager-linux-subscriptions.amazonaws.com",
-    endpointPrefix: "",
     protocol: "restJson1",
     operations: {
       DeregisterSubscriptionProvider:
@@ -10218,9 +9728,6 @@ export const serviceMetadata = {
   licensemanagerusersubscriptions: {
     sdkId: "License Manager User Subscriptions",
     version: "2018-05-10",
-    arnNamespace: "license-manager-user-subscriptions",
-    cloudTrailEventSource: "license-manager-user-subscriptions.amazonaws.com",
-    endpointPrefix: "",
     protocol: "restJson1",
     operations: {
       AssociateUser: "POST /user/AssociateUser",
@@ -10251,18 +9758,13 @@ export const serviceMetadata = {
   lightsail: {
     sdkId: "Lightsail",
     version: "2016-11-28",
-    arnNamespace: "lightsail",
-    cloudTrailEventSource: "lightsail.amazonaws.com",
-    endpointPrefix: "lightsail",
     protocol: "awsJson1_1",
+    endpointPrefix: "lightsail",
     targetPrefix: "Lightsail_20161128",
   },
   location: {
     sdkId: "Location",
     version: "2020-11-19",
-    arnNamespace: "geo",
-    cloudTrailEventSource: "geo.amazonaws.com",
-    endpointPrefix: "",
     protocol: "restJson1",
     operations: {
       AssociateTrackerConsumer:
@@ -10383,19 +9885,15 @@ export const serviceMetadata = {
   lookoutequipment: {
     sdkId: "LookoutEquipment",
     version: "2020-12-15",
-    arnNamespace: "lookoutequipment",
-    cloudTrailEventSource: "lookoutequipment.amazonaws.com",
-    endpointPrefix: "lookoutequipment",
     protocol: "awsJson1_0",
+    endpointPrefix: "lookoutequipment",
     targetPrefix: "AWSLookoutEquipmentFrontendService",
   },
   lookoutmetrics: {
     sdkId: "LookoutMetrics",
     version: "2017-07-25",
-    arnNamespace: "lookoutmetrics",
-    cloudTrailEventSource: "lookoutmetrics.amazonaws.com",
-    endpointPrefix: "lookoutmetrics",
     protocol: "restJson1",
+    endpointPrefix: "lookoutmetrics",
     operations: {
       ActivateAnomalyDetector: "POST /ActivateAnomalyDetector",
       BackTestAnomalyDetector: "POST /BackTestAnomalyDetector",
@@ -10433,10 +9931,8 @@ export const serviceMetadata = {
   lookoutvision: {
     sdkId: "LookoutVision",
     version: "2020-11-20",
-    arnNamespace: "lookoutvision",
-    cloudTrailEventSource: "lookoutvision.amazonaws.com",
-    endpointPrefix: "lookoutvision",
     protocol: "restJson1",
+    endpointPrefix: "lookoutvision",
     operations: {
       CreateDataset: "POST /2020-11-20/projects/{ProjectName}/datasets",
       CreateModel: "POST /2020-11-20/projects/{ProjectName}/models",
@@ -10477,10 +9973,8 @@ export const serviceMetadata = {
   m2: {
     sdkId: "m2",
     version: "2021-04-28",
-    arnNamespace: "m2",
-    cloudTrailEventSource: "m2.amazonaws.com",
-    endpointPrefix: "m2",
     protocol: "restJson1",
+    endpointPrefix: "m2",
     operations: {
       GetSignedBluinsightsUrl: "GET /signed-bi-url",
       ListEngineVersions: "GET /engine-versions",
@@ -10539,19 +10033,15 @@ export const serviceMetadata = {
   machinelearning: {
     sdkId: "Machine Learning",
     version: "2014-12-12",
-    arnNamespace: "machinelearning",
-    cloudTrailEventSource: "machinelearning.amazonaws.com",
-    endpointPrefix: "machinelearning",
     protocol: "awsJson1_1",
+    endpointPrefix: "machinelearning",
     targetPrefix: "AmazonML_20141212",
   },
   macie2: {
     sdkId: "Macie2",
     version: "2020-01-01",
-    arnNamespace: "macie2",
-    cloudTrailEventSource: "macie2.amazonaws.com",
-    endpointPrefix: "macie2",
     protocol: "restJson1",
+    endpointPrefix: "macie2",
     operations: {
       AcceptInvitation: "POST /invitations/accept",
       BatchGetCustomDataIdentifiers: "POST /custom-data-identifiers/get",
@@ -10650,19 +10140,15 @@ export const serviceMetadata = {
   mailmanager: {
     sdkId: "MailManager",
     version: "2023-10-17",
-    arnNamespace: "ses",
-    cloudTrailEventSource: "ses.amazonaws.com",
-    endpointPrefix: "mail-manager",
     protocol: "awsJson1_0",
+    endpointPrefix: "mail-manager",
     targetPrefix: "MailManagerSvc",
   },
   managedblockchain: {
     sdkId: "ManagedBlockchain",
     version: "2018-09-24",
-    arnNamespace: "managedblockchain",
-    cloudTrailEventSource: "managedblockchain.amazonaws.com",
-    endpointPrefix: "managedblockchain",
     protocol: "restJson1",
+    endpointPrefix: "managedblockchain",
     operations: {
       CreateAccessor: "POST /accessors",
       CreateMember: "POST /networks/{NetworkId}/members",
@@ -10697,9 +10183,6 @@ export const serviceMetadata = {
   managedblockchainquery: {
     sdkId: "ManagedBlockchain Query",
     version: "2023-05-04",
-    arnNamespace: "managedblockchain-query",
-    cloudTrailEventSource: "managedblockchain-query.amazonaws.com",
-    endpointPrefix: "",
     protocol: "restJson1",
     operations: {
       BatchGetTokenBalance: "POST /batch-get-token-balance",
@@ -10716,19 +10199,15 @@ export const serviceMetadata = {
   marketplaceagreement: {
     sdkId: "Marketplace Agreement",
     version: "2020-03-01",
-    arnNamespace: "",
-    cloudTrailEventSource: "",
-    endpointPrefix: "agreement-marketplace",
     protocol: "awsJson1_0",
+    endpointPrefix: "agreement-marketplace",
     targetPrefix: "AWSMPCommerceService_v20200301",
   },
   marketplacecatalog: {
     sdkId: "Marketplace Catalog",
     version: "2018-09-17",
-    arnNamespace: "aws-marketplace",
-    cloudTrailEventSource: "marketplacecatalog.amazonaws.com",
-    endpointPrefix: "catalog.marketplace",
     protocol: "restJson1",
+    endpointPrefix: "catalog.marketplace",
     operations: {
       BatchDescribeEntities: "POST /BatchDescribeEntities",
       CancelChangeSet: "PATCH /CancelChangeSet",
@@ -10748,19 +10227,15 @@ export const serviceMetadata = {
   marketplacecommerceanalytics: {
     sdkId: "Marketplace Commerce Analytics",
     version: "2015-07-01",
-    arnNamespace: "marketplacecommerceanalytics",
-    cloudTrailEventSource: "marketplacecommerceanalytics.amazonaws.com",
-    endpointPrefix: "marketplacecommerceanalytics",
     protocol: "awsJson1_1",
+    endpointPrefix: "marketplacecommerceanalytics",
     targetPrefix: "MarketplaceCommerceAnalytics20150701",
   },
   marketplacedeployment: {
     sdkId: "Marketplace Deployment",
     version: "2023-01-25",
-    arnNamespace: "aws-marketplace",
-    cloudTrailEventSource: "aws-marketplace.amazonaws.com",
-    endpointPrefix: "deployment-marketplace",
     protocol: "restJson1",
+    endpointPrefix: "deployment-marketplace",
     operations: {
       ListTagsForResource: "GET /tags/{resourceArn}",
       TagResource: "POST /tags/{resourceArn}",
@@ -10772,28 +10247,22 @@ export const serviceMetadata = {
   marketplaceentitlementservice: {
     sdkId: "Marketplace Entitlement Service",
     version: "2017-01-11",
-    arnNamespace: "aws-marketplace",
-    cloudTrailEventSource: "marketplaceentitlementservice.amazonaws.com",
-    endpointPrefix: "entitlement.marketplace",
     protocol: "awsJson1_1",
+    endpointPrefix: "entitlement.marketplace",
     targetPrefix: "AWSMPEntitlementService",
   },
   marketplacemetering: {
     sdkId: "Marketplace Metering",
     version: "2016-01-14",
-    arnNamespace: "aws-marketplace",
-    cloudTrailEventSource: "marketplacemetering.amazonaws.com",
-    endpointPrefix: "metering.marketplace",
     protocol: "awsJson1_1",
+    endpointPrefix: "metering.marketplace",
     targetPrefix: "AWSMPMeteringService",
   },
   marketplacereporting: {
     sdkId: "Marketplace Reporting",
     version: "2018-05-10",
-    arnNamespace: "aws-marketplace",
-    cloudTrailEventSource: "reporting-marketplace.amazonaws.com",
-    endpointPrefix: "reporting-marketplace",
     protocol: "restJson1",
+    endpointPrefix: "reporting-marketplace",
     operations: {
       GetBuyerDashboard: "POST /getBuyerDashboard",
     },
@@ -10801,9 +10270,6 @@ export const serviceMetadata = {
   mediaconnect: {
     sdkId: "MediaConnect",
     version: "2018-11-14",
-    arnNamespace: "mediaconnect",
-    cloudTrailEventSource: "mediaconnect.amazonaws.com",
-    endpointPrefix: "",
     protocol: "restJson1",
     operations: {
       ListEntitlements: "GET /v1/entitlements",
@@ -10869,10 +10335,8 @@ export const serviceMetadata = {
   mediaconvert: {
     sdkId: "MediaConvert",
     version: "2017-08-29",
-    arnNamespace: "mediaconvert",
-    cloudTrailEventSource: "mediaconvert.amazonaws.com",
-    endpointPrefix: "mediaconvert",
     protocol: "restJson1",
+    endpointPrefix: "mediaconvert",
     operations: {
       AssociateCertificate: "POST /2017-08-29/certificates",
       CancelJob: "DELETE /2017-08-29/jobs/{Id}",
@@ -10910,10 +10374,8 @@ export const serviceMetadata = {
   medialive: {
     sdkId: "MediaLive",
     version: "2017-10-14",
-    arnNamespace: "medialive",
-    cloudTrailEventSource: "medialive.amazonaws.com",
-    endpointPrefix: "medialive",
     protocol: "restJson1",
+    endpointPrefix: "medialive",
     operations: {
       AcceptInputDeviceTransfer:
         "POST /prod/inputDevices/{InputDeviceId}/accept",
@@ -11084,10 +10546,8 @@ export const serviceMetadata = {
   mediapackage: {
     sdkId: "MediaPackage",
     version: "2017-10-12",
-    arnNamespace: "mediapackage",
-    cloudTrailEventSource: "mediapackage.amazonaws.com",
-    endpointPrefix: "mediapackage",
     protocol: "restJson1",
+    endpointPrefix: "mediapackage",
     operations: {
       ConfigureLogs: "PUT /channels/{Id}/configure_logs",
       CreateChannel: "POST /channels",
@@ -11114,10 +10574,8 @@ export const serviceMetadata = {
   mediapackagevod: {
     sdkId: "MediaPackage Vod",
     version: "2018-11-07",
-    arnNamespace: "mediapackage-vod",
-    cloudTrailEventSource: "mediapackagevod.amazonaws.com",
-    endpointPrefix: "mediapackage-vod",
     protocol: "restJson1",
+    endpointPrefix: "mediapackage-vod",
     operations: {
       ConfigureLogs: "PUT /packaging_groups/{Id}/configure_logs",
       CreateAsset: "POST /assets",
@@ -11141,10 +10599,8 @@ export const serviceMetadata = {
   mediapackagev2: {
     sdkId: "MediaPackageV2",
     version: "2022-12-25",
-    arnNamespace: "mediapackagev2",
-    cloudTrailEventSource: "mediapackagev2.amazonaws.com",
-    endpointPrefix: "mediapackagev2",
     protocol: "restJson1",
+    endpointPrefix: "mediapackagev2",
     operations: {
       ListTagsForResource: "GET /tags/{ResourceArn}",
       TagResource: "POST /tags/{ResourceArn}",
@@ -11199,19 +10655,15 @@ export const serviceMetadata = {
   mediastore: {
     sdkId: "MediaStore",
     version: "2017-09-01",
-    arnNamespace: "mediastore",
-    cloudTrailEventSource: "mediastore.amazonaws.com",
-    endpointPrefix: "mediastore",
     protocol: "awsJson1_1",
+    endpointPrefix: "mediastore",
     targetPrefix: "MediaStore_20170901",
   },
   mediastoredata: {
     sdkId: "MediaStore Data",
     version: "2017-09-01",
-    arnNamespace: "mediastore",
-    cloudTrailEventSource: "mediastoredata.amazonaws.com",
-    endpointPrefix: "data.mediastore",
     protocol: "restJson1",
+    endpointPrefix: "data.mediastore",
     operations: {
       DeleteObject: "DELETE /{Path+}",
       DescribeObject: {
@@ -11244,10 +10696,8 @@ export const serviceMetadata = {
   mediatailor: {
     sdkId: "MediaTailor",
     version: "2018-04-23",
-    arnNamespace: "mediatailor",
-    cloudTrailEventSource: "mediatailor.amazonaws.com",
-    endpointPrefix: "api.mediatailor",
     protocol: "restJson1",
+    endpointPrefix: "api.mediatailor",
     operations: {
       ConfigureLogsForPlaybackConfiguration:
         "PUT /configureLogs/playbackConfiguration",
@@ -11311,10 +10761,8 @@ export const serviceMetadata = {
   medicalimaging: {
     sdkId: "Medical Imaging",
     version: "2023-07-19",
-    arnNamespace: "medical-imaging",
-    cloudTrailEventSource: "medical-imaging.amazonaws.com",
-    endpointPrefix: "medical-imaging",
     protocol: "restJson1",
+    endpointPrefix: "medical-imaging",
     operations: {
       CopyImageSet:
         "POST /datastore/{datastoreId}/imageSet/{sourceImageSetId}/copyImageSet",
@@ -11358,18 +10806,13 @@ export const serviceMetadata = {
   memorydb: {
     sdkId: "MemoryDB",
     version: "2021-01-01",
-    arnNamespace: "memorydb",
-    cloudTrailEventSource: "memorydb.amazonaws.com",
-    endpointPrefix: "memory-db",
     protocol: "awsJson1_1",
+    endpointPrefix: "memory-db",
     targetPrefix: "AmazonMemoryDB",
   },
   mgn: {
     sdkId: "mgn",
     version: "2020-02-26",
-    arnNamespace: "mgn",
-    cloudTrailEventSource: "mgn.amazonaws.com",
-    endpointPrefix: "",
     protocol: "restJson1",
     operations: {
       InitializeService: "POST /InitializeService",
@@ -11456,19 +10899,15 @@ export const serviceMetadata = {
   migrationhub: {
     sdkId: "Migration Hub",
     version: "2017-05-31",
-    arnNamespace: "mgh",
-    cloudTrailEventSource: "migrationhub.amazonaws.com",
-    endpointPrefix: "mgh",
     protocol: "awsJson1_1",
+    endpointPrefix: "mgh",
     targetPrefix: "AWSMigrationHub",
   },
   migrationhubrefactorspaces: {
     sdkId: "Migration Hub Refactor Spaces",
     version: "2021-10-26",
-    arnNamespace: "refactor-spaces",
-    cloudTrailEventSource: "refactor-spaces.amazonaws.com",
-    endpointPrefix: "refactor-spaces",
     protocol: "restJson1",
+    endpointPrefix: "refactor-spaces",
     operations: {
       CreateApplication:
         "POST /environments/{EnvironmentIdentifier}/applications",
@@ -11512,19 +10951,15 @@ export const serviceMetadata = {
   migrationhubconfig: {
     sdkId: "MigrationHub Config",
     version: "2019-06-30",
-    arnNamespace: "mgh",
-    cloudTrailEventSource: "migrationhubconfig.amazonaws.com",
-    endpointPrefix: "migrationhub-config",
     protocol: "awsJson1_1",
+    endpointPrefix: "migrationhub-config",
     targetPrefix: "AWSMigrationHubMultiAccountService",
   },
   migrationhuborchestrator: {
     sdkId: "MigrationHubOrchestrator",
     version: "2021-08-28",
-    arnNamespace: "migrationhub-orchestrator",
-    cloudTrailEventSource: "migrationhub-orchestrator.amazonaws.com",
-    endpointPrefix: "migrationhub-orchestrator",
     protocol: "restJson1",
+    endpointPrefix: "migrationhub-orchestrator",
     operations: {
       ListTagsForResource: "GET /tags/{resourceArn}",
       TagResource: "POST /tags/{resourceArn}",
@@ -11563,10 +10998,8 @@ export const serviceMetadata = {
   migrationhubstrategy: {
     sdkId: "MigrationHubStrategy",
     version: "2020-02-19",
-    arnNamespace: "",
-    cloudTrailEventSource: "migrationhub-strategy.amazonaws.com",
-    endpointPrefix: "migrationhub-strategy",
     protocol: "restJson1",
+    endpointPrefix: "migrationhub-strategy",
     operations: {
       GetApplicationComponentDetails:
         "GET /get-applicationcomponent-details/{applicationComponentId}",
@@ -11600,9 +11033,6 @@ export const serviceMetadata = {
   mpa: {
     sdkId: "MPA",
     version: "2022-07-26",
-    arnNamespace: "mpa",
-    cloudTrailEventSource: "mpa.amazonaws.com",
-    endpointPrefix: "",
     protocol: "restJson1",
     operations: {
       GetPolicyVersion: "GET /policy-versions/{PolicyVersionArn}",
@@ -11632,10 +11062,8 @@ export const serviceMetadata = {
   mq: {
     sdkId: "mq",
     version: "2017-11-27",
-    arnNamespace: "mq",
-    cloudTrailEventSource: "mq.amazonaws.com",
-    endpointPrefix: "mq",
     protocol: "restJson1",
+    endpointPrefix: "mq",
     operations: {
       CreateBroker: "POST /v1/brokers",
       CreateConfiguration: "POST /v1/configurations",
@@ -11668,18 +11096,13 @@ export const serviceMetadata = {
   mturk: {
     sdkId: "MTurk",
     version: "2017-01-17",
-    arnNamespace: "mturk-requester",
-    cloudTrailEventSource: "mturk.amazonaws.com",
-    endpointPrefix: "mturk-requester",
     protocol: "awsJson1_1",
+    endpointPrefix: "mturk-requester",
     targetPrefix: "MTurkRequesterServiceV20170117",
   },
   mwaa: {
     sdkId: "MWAA",
     version: "2020-07-01",
-    arnNamespace: "airflow",
-    cloudTrailEventSource: "airflow.amazonaws.com",
-    endpointPrefix: "",
     protocol: "restJson1",
     operations: {
       CreateCliToken: "POST /clitoken/{Name}",
@@ -11699,17 +11122,12 @@ export const serviceMetadata = {
   neptune: {
     sdkId: "Neptune",
     version: "2014-10-31",
-    arnNamespace: "rds",
-    cloudTrailEventSource: "neptune.amazonaws.com",
-    endpointPrefix: "rds",
     protocol: "awsQuery",
+    endpointPrefix: "rds",
   },
   neptunegraph: {
     sdkId: "Neptune Graph",
     version: "2023-11-29",
-    arnNamespace: "neptune-graph",
-    cloudTrailEventSource: "neptune-graph.amazonaws.com",
-    endpointPrefix: "",
     protocol: "restJson1",
     operations: {
       CancelQuery: "DELETE /queries/{queryId}",
@@ -11756,9 +11174,6 @@ export const serviceMetadata = {
   neptunedata: {
     sdkId: "neptunedata",
     version: "2023-08-01",
-    arnNamespace: "neptune-db",
-    cloudTrailEventSource: "neptune-db.amazonaws.com",
-    endpointPrefix: "",
     protocol: "restJson1",
     operations: {
       CancelGremlinQuery: "DELETE /gremlin/status/{queryId}",
@@ -11844,18 +11259,13 @@ export const serviceMetadata = {
   networkfirewall: {
     sdkId: "Network Firewall",
     version: "2020-11-12",
-    arnNamespace: "network-firewall",
-    cloudTrailEventSource: "networkfirewall.amazonaws.com",
-    endpointPrefix: "network-firewall",
     protocol: "awsJson1_0",
+    endpointPrefix: "network-firewall",
     targetPrefix: "NetworkFirewall_20201112",
   },
   networkflowmonitor: {
     sdkId: "NetworkFlowMonitor",
     version: "2023-04-19",
-    arnNamespace: "networkflowmonitor",
-    cloudTrailEventSource: "networkflowmonitor.amazonaws.com",
-    endpointPrefix: "",
     protocol: "restJson1",
     operations: {
       ListTagsForResource: "GET /tags/{resourceArn}",
@@ -11900,10 +11310,8 @@ export const serviceMetadata = {
   networkmanager: {
     sdkId: "NetworkManager",
     version: "2019-07-05",
-    arnNamespace: "networkmanager",
-    cloudTrailEventSource: "networkmanager.amazonaws.com",
-    endpointPrefix: "networkmanager",
     protocol: "restJson1",
+    endpointPrefix: "networkmanager",
     operations: {
       AcceptAttachment: "POST /attachments/{AttachmentId}/accept",
       AssociateConnectPeer:
@@ -12040,9 +11448,6 @@ export const serviceMetadata = {
   networkmonitor: {
     sdkId: "NetworkMonitor",
     version: "2023-08-01",
-    arnNamespace: "networkmonitor",
-    cloudTrailEventSource: "networkmonitor.amazonaws.com",
-    endpointPrefix: "",
     protocol: "restJson1",
     operations: {
       ListTagsForResource: "GET /tags/{resourceArn}",
@@ -12062,10 +11467,8 @@ export const serviceMetadata = {
   notifications: {
     sdkId: "Notifications",
     version: "2018-05-10",
-    arnNamespace: "notifications",
-    cloudTrailEventSource: "notifications.amazonaws.com",
-    endpointPrefix: "notifications",
     protocol: "restJson1",
+    endpointPrefix: "notifications",
     operations: {
       ListManagedNotificationChannelAssociations:
         "GET /channels/list-managed-notification-channel-associations",
@@ -12118,10 +11521,8 @@ export const serviceMetadata = {
   notificationscontacts: {
     sdkId: "NotificationsContacts",
     version: "2018-05-10",
-    arnNamespace: "notifications-contacts",
-    cloudTrailEventSource: "notifications-contacts.amazonaws.com",
-    endpointPrefix: "notifications-contacts",
     protocol: "restJson1",
+    endpointPrefix: "notifications-contacts",
     operations: {
       ListTagsForResource: "GET /tags/{arn}",
       TagResource: "POST /tags/{arn}",
@@ -12137,9 +11538,6 @@ export const serviceMetadata = {
   oam: {
     sdkId: "OAM",
     version: "2022-06-10",
-    arnNamespace: "oam",
-    cloudTrailEventSource: "{{CLOUD_TRAIL_EVENT_SOURCE}}",
-    endpointPrefix: "",
     protocol: "restJson1",
     operations: {
       CreateLink: "POST /CreateLink",
@@ -12162,9 +11560,6 @@ export const serviceMetadata = {
   observabilityadmin: {
     sdkId: "ObservabilityAdmin",
     version: "2018-05-10",
-    arnNamespace: "observabilityadmin",
-    cloudTrailEventSource: "observabilityadmin.amazonaws.com",
-    endpointPrefix: "",
     protocol: "restJson1",
     operations: {
       CreateTelemetryRule: "POST /CreateTelemetryRule",
@@ -12201,18 +11596,12 @@ export const serviceMetadata = {
   odb: {
     sdkId: "odb",
     version: "2024-08-20",
-    arnNamespace: "odb",
-    cloudTrailEventSource: "odb.amazonaws.com",
-    endpointPrefix: "",
     protocol: "awsJson1_0",
     targetPrefix: "Odb",
   },
   omics: {
     sdkId: "Omics",
     version: "2022-11-28",
-    arnNamespace: "omics",
-    cloudTrailEventSource: "omics.amazonaws.com",
-    endpointPrefix: "",
     protocol: "restJson1",
     operations: {
       DeleteS3AccessPolicy: "DELETE /s3accesspolicy/{s3AccessPointArn}",
@@ -12349,10 +11738,8 @@ export const serviceMetadata = {
   opensearch: {
     sdkId: "OpenSearch",
     version: "2021-01-01",
-    arnNamespace: "es",
-    cloudTrailEventSource: "opensearch.amazonaws.com",
-    endpointPrefix: "es",
     protocol: "restJson1",
+    endpointPrefix: "es",
     operations: {
       AcceptInboundConnection:
         "PUT /2021-01-01/opensearch/cc/inboundConnection/{ConnectionId}/accept",
@@ -12480,46 +11867,35 @@ export const serviceMetadata = {
   opensearchserverless: {
     sdkId: "OpenSearchServerless",
     version: "2021-11-01",
-    arnNamespace: "aoss",
-    cloudTrailEventSource: "aoss.amazonaws.com",
-    endpointPrefix: "",
     protocol: "awsJson1_0",
     targetPrefix: "OpenSearchServerless",
   },
   opsworks: {
     sdkId: "OpsWorks",
     version: "2013-02-18",
-    arnNamespace: "opsworks",
-    cloudTrailEventSource: "opsworks.amazonaws.com",
-    endpointPrefix: "opsworks",
     protocol: "awsJson1_1",
+    endpointPrefix: "opsworks",
     targetPrefix: "OpsWorks_20130218",
   },
   opsworkscm: {
     sdkId: "OpsWorksCM",
     version: "2016-11-01",
-    arnNamespace: "opsworks-cm",
-    cloudTrailEventSource: "opsworkscm.amazonaws.com",
-    endpointPrefix: "opsworks-cm",
     protocol: "awsJson1_1",
+    endpointPrefix: "opsworks-cm",
     targetPrefix: "OpsWorksCM_V2016_11_01",
   },
   organizations: {
     sdkId: "Organizations",
     version: "2016-11-28",
-    arnNamespace: "organizations",
-    cloudTrailEventSource: "organizations.amazonaws.com",
-    endpointPrefix: "organizations",
     protocol: "awsJson1_1",
+    endpointPrefix: "organizations",
     targetPrefix: "AWSOrganizationsV20161128",
   },
   osis: {
     sdkId: "OSIS",
     version: "2022-01-01",
-    arnNamespace: "osis",
-    cloudTrailEventSource: "osis.amazonaws.com",
-    endpointPrefix: "osis",
     protocol: "restJson1",
+    endpointPrefix: "osis",
     operations: {
       CreatePipeline: "POST /2022-01-01/osis/createPipeline",
       DeletePipeline: "DELETE /2022-01-01/osis/deletePipeline/{PipelineName}",
@@ -12542,10 +11918,8 @@ export const serviceMetadata = {
   outposts: {
     sdkId: "Outposts",
     version: "2019-12-03",
-    arnNamespace: "outposts",
-    cloudTrailEventSource: "outposts.amazonaws.com",
-    endpointPrefix: "outposts",
     protocol: "restJson1",
+    endpointPrefix: "outposts",
     operations: {
       CancelCapacityTask:
         "POST /outposts/{OutpostIdentifier}/capacity/{CapacityTaskId}",
@@ -12592,9 +11966,6 @@ export const serviceMetadata = {
   panorama: {
     sdkId: "Panorama",
     version: "2019-07-24",
-    arnNamespace: "panorama",
-    cloudTrailEventSource: "panorama.amazonaws.com",
-    endpointPrefix: "",
     protocol: "restJson1",
     operations: {
       CreateApplicationInstance: "POST /application-instances",
@@ -12645,28 +12016,22 @@ export const serviceMetadata = {
   partnercentralselling: {
     sdkId: "PartnerCentral Selling",
     version: "2022-07-26",
-    arnNamespace: "partnercentral",
-    cloudTrailEventSource: "partnercentral-selling.amazonaws.com",
-    endpointPrefix: "partnercentral-selling",
     protocol: "awsJson1_0",
+    endpointPrefix: "partnercentral-selling",
     targetPrefix: "AWSPartnerCentralSelling",
   },
   paymentcryptography: {
     sdkId: "Payment Cryptography",
     version: "2021-09-14",
-    arnNamespace: "payment-cryptography",
-    cloudTrailEventSource: "payment-cryptography.amazonaws.com",
-    endpointPrefix: "controlplane.payment-cryptography",
     protocol: "awsJson1_0",
+    endpointPrefix: "controlplane.payment-cryptography",
     targetPrefix: "PaymentCryptographyControlPlane",
   },
   paymentcryptographydata: {
     sdkId: "Payment Cryptography Data",
     version: "2022-02-03",
-    arnNamespace: "",
-    cloudTrailEventSource: "",
-    endpointPrefix: "dataplane.payment-cryptography",
     protocol: "restJson1",
+    endpointPrefix: "dataplane.payment-cryptography",
     operations: {
       DecryptData: "POST /keys/{KeyIdentifier}/decrypt",
       EncryptData: "POST /keys/{KeyIdentifier}/encrypt",
@@ -12685,9 +12050,6 @@ export const serviceMetadata = {
   pcaconnectorad: {
     sdkId: "Pca Connector Ad",
     version: "2018-05-10",
-    arnNamespace: "pca-connector-ad",
-    cloudTrailEventSource: "pca-connector-ad.amazonaws.com",
-    endpointPrefix: "",
     protocol: "restJson1",
     operations: {
       ListTagsForResource: "GET /tags/{ResourceArn}",
@@ -12731,9 +12093,6 @@ export const serviceMetadata = {
   pcaconnectorscep: {
     sdkId: "Pca Connector Scep",
     version: "2018-05-10",
-    arnNamespace: "pca-connector-scep",
-    cloudTrailEventSource: "pca-connector-scep.amazonaws.com",
-    endpointPrefix: "",
     protocol: "restJson1",
     operations: {
       ListTagsForResource: "GET /tags/{ResourceArn}",
@@ -12753,28 +12112,21 @@ export const serviceMetadata = {
   pcs: {
     sdkId: "PCS",
     version: "2023-02-10",
-    arnNamespace: "pcs",
-    cloudTrailEventSource: "pcs.amazonaws.com",
-    endpointPrefix: "",
     protocol: "awsJson1_0",
     targetPrefix: "AWSParallelComputingService",
   },
   personalize: {
     sdkId: "Personalize",
     version: "2018-05-22",
-    arnNamespace: "personalize",
-    cloudTrailEventSource: "personalize.amazonaws.com",
-    endpointPrefix: "personalize",
     protocol: "awsJson1_1",
+    endpointPrefix: "personalize",
     targetPrefix: "AmazonPersonalize",
   },
   personalizeevents: {
     sdkId: "Personalize Events",
     version: "2018-03-22",
-    arnNamespace: "personalize",
-    cloudTrailEventSource: "personalizeevents.amazonaws.com",
-    endpointPrefix: "personalize-events",
     protocol: "restJson1",
+    endpointPrefix: "personalize-events",
     operations: {
       PutActionInteractions: "POST /action-interactions",
       PutActions: "POST /actions",
@@ -12786,10 +12138,8 @@ export const serviceMetadata = {
   personalizeruntime: {
     sdkId: "Personalize Runtime",
     version: "2018-05-22",
-    arnNamespace: "personalize",
-    cloudTrailEventSource: "personalizeruntime.amazonaws.com",
-    endpointPrefix: "personalize-runtime",
     protocol: "restJson1",
+    endpointPrefix: "personalize-runtime",
     operations: {
       GetActionRecommendations: "POST /action-recommendations",
       GetPersonalizedRanking: "POST /personalize-ranking",
@@ -12799,19 +12149,15 @@ export const serviceMetadata = {
   pi: {
     sdkId: "PI",
     version: "2018-02-27",
-    arnNamespace: "pi",
-    cloudTrailEventSource: "pi.amazonaws.com",
-    endpointPrefix: "pi",
     protocol: "awsJson1_1",
+    endpointPrefix: "pi",
     targetPrefix: "PerformanceInsightsv20180227",
   },
   pinpoint: {
     sdkId: "Pinpoint",
     version: "2016-12-01",
-    arnNamespace: "mobiletargeting",
-    cloudTrailEventSource: "pinpoint.amazonaws.com",
-    endpointPrefix: "pinpoint",
     protocol: "restJson1",
+    endpointPrefix: "pinpoint",
     operations: {
       CreateApp: {
         http: "POST /v1/apps",
@@ -13540,10 +12886,8 @@ export const serviceMetadata = {
   pinpointemail: {
     sdkId: "Pinpoint Email",
     version: "2018-07-26",
-    arnNamespace: "ses",
-    cloudTrailEventSource: "pinpointemail.amazonaws.com",
-    endpointPrefix: "email",
     protocol: "restJson1",
+    endpointPrefix: "email",
     operations: {
       CreateConfigurationSet: "POST /v1/email/configuration-sets",
       CreateConfigurationSetEventDestination:
@@ -13615,10 +12959,8 @@ export const serviceMetadata = {
   pinpointsmsvoice: {
     sdkId: "Pinpoint SMS Voice",
     version: "2018-09-05",
-    arnNamespace: "sms-voice",
-    cloudTrailEventSource: "pinpointsmsvoice.amazonaws.com",
-    endpointPrefix: "sms-voice.pinpoint",
     protocol: "restJson1",
+    endpointPrefix: "sms-voice.pinpoint",
     operations: {
       CreateConfigurationSet: "POST /v1/sms-voice/configuration-sets",
       CreateConfigurationSetEventDestination:
@@ -13638,19 +12980,15 @@ export const serviceMetadata = {
   pinpointsmsvoicev2: {
     sdkId: "Pinpoint SMS Voice V2",
     version: "2022-03-31",
-    arnNamespace: "sms-voice",
-    cloudTrailEventSource: "sms-voice.amazonaws.com",
-    endpointPrefix: "sms-voice",
     protocol: "awsJson1_0",
+    endpointPrefix: "sms-voice",
     targetPrefix: "PinpointSMSVoiceV2",
   },
   pipes: {
     sdkId: "Pipes",
     version: "2015-10-07",
-    arnNamespace: "pipes",
-    cloudTrailEventSource: "pipes.amazonaws.com",
-    endpointPrefix: "pipes",
     protocol: "restJson1",
+    endpointPrefix: "pipes",
     operations: {
       ListTagsForResource: "GET /tags/{resourceArn}",
       TagResource: "POST /tags/{resourceArn}",
@@ -13667,10 +13005,8 @@ export const serviceMetadata = {
   polly: {
     sdkId: "Polly",
     version: "2016-06-10",
-    arnNamespace: "polly",
-    cloudTrailEventSource: "polly.amazonaws.com",
-    endpointPrefix: "polly",
     protocol: "restJson1",
+    endpointPrefix: "polly",
     operations: {
       DeleteLexicon: "DELETE /v1/lexicons/{Name}",
       DescribeVoices: "GET /v1/voices",
@@ -13693,18 +13029,13 @@ export const serviceMetadata = {
   pricing: {
     sdkId: "Pricing",
     version: "2017-10-15",
-    arnNamespace: "pricing",
-    cloudTrailEventSource: "pricelist.amazonaws.com",
-    endpointPrefix: "api.pricing",
     protocol: "awsJson1_1",
+    endpointPrefix: "api.pricing",
     targetPrefix: "AWSPriceListService",
   },
   privatenetworks: {
     sdkId: "PrivateNetworks",
     version: "2021-12-03",
-    arnNamespace: "private-networks",
-    cloudTrailEventSource: "private-networks.amazonaws.com",
-    endpointPrefix: "",
     protocol: "restJson1",
     operations: {
       AcknowledgeOrderReceipt: "POST /v1/orders/acknowledge",
@@ -13738,19 +13069,15 @@ export const serviceMetadata = {
   proton: {
     sdkId: "Proton",
     version: "2020-07-20",
-    arnNamespace: "",
-    cloudTrailEventSource: "",
-    endpointPrefix: "proton",
     protocol: "awsJson1_0",
+    endpointPrefix: "proton",
     targetPrefix: "AwsProton20200720",
   },
   qapps: {
     sdkId: "QApps",
     version: "2023-11-27",
-    arnNamespace: "qapps",
-    cloudTrailEventSource: "qapps.amazonaws.com",
-    endpointPrefix: "data.qapps",
     protocol: "restJson1",
+    endpointPrefix: "data.qapps",
     operations: {
       AssociateLibraryItemReview: "POST /catalog.associateItemRating",
       AssociateQAppWithUser: "POST /apps.install",
@@ -13792,9 +13119,6 @@ export const serviceMetadata = {
   qbusiness: {
     sdkId: "QBusiness",
     version: "2023-11-27",
-    arnNamespace: "qbusiness",
-    cloudTrailEventSource: "qbusiness.amazonaws.com",
-    endpointPrefix: "",
     protocol: "restJson1",
     operations: {
       AssociatePermission: "POST /applications/{applicationId}/policy",
@@ -13931,9 +13255,6 @@ export const serviceMetadata = {
   qconnect: {
     sdkId: "QConnect",
     version: "2020-10-19",
-    arnNamespace: "wisdom",
-    cloudTrailEventSource: "wisdom.amazonaws.com",
-    endpointPrefix: "",
     protocol: "restJson1",
     operations: {
       ListTagsForResource: "GET /tags/{resourceArn}",
@@ -14085,10 +13406,8 @@ export const serviceMetadata = {
   qldb: {
     sdkId: "QLDB",
     version: "2019-01-02",
-    arnNamespace: "qldb",
-    cloudTrailEventSource: "qldb.amazonaws.com",
-    endpointPrefix: "qldb",
     protocol: "restJson1",
+    endpointPrefix: "qldb",
     operations: {
       CancelJournalKinesisStream:
         "DELETE /ledgers/{LedgerName}/journal-kinesis-streams/{StreamId}",
@@ -14120,19 +13439,15 @@ export const serviceMetadata = {
   qldbsession: {
     sdkId: "QLDB Session",
     version: "2019-07-11",
-    arnNamespace: "qldb",
-    cloudTrailEventSource: "qldbsession.amazonaws.com",
-    endpointPrefix: "session.qldb",
     protocol: "awsJson1_0",
+    endpointPrefix: "session.qldb",
     targetPrefix: "QLDBSession",
   },
   quicksight: {
     sdkId: "QuickSight",
     version: "2018-04-01",
-    arnNamespace: "quicksight",
-    cloudTrailEventSource: "quicksight.amazonaws.com",
-    endpointPrefix: "quicksight",
     protocol: "restJson1",
+    endpointPrefix: "quicksight",
     operations: {
       BatchCreateTopicReviewedAnswer: {
         http: "POST /accounts/{AwsAccountId}/topics/{TopicId}/batch-create-reviewed-answers",
@@ -15282,10 +14597,8 @@ export const serviceMetadata = {
   ram: {
     sdkId: "RAM",
     version: "2018-01-04",
-    arnNamespace: "ram",
-    cloudTrailEventSource: "ram.amazonaws.com",
-    endpointPrefix: "ram",
     protocol: "restJson1",
+    endpointPrefix: "ram",
     operations: {
       AcceptResourceShareInvitation: "POST /acceptresourceshareinvitation",
       AssociateResourceShare: "POST /associateresourceshare",
@@ -15332,10 +14645,8 @@ export const serviceMetadata = {
   rbin: {
     sdkId: "rbin",
     version: "2021-06-15",
-    arnNamespace: "rbin",
-    cloudTrailEventSource: "rbin.amazonaws.com",
-    endpointPrefix: "rbin",
     protocol: "restJson1",
+    endpointPrefix: "rbin",
     operations: {
       CreateRule: "POST /rules",
       DeleteRule: "DELETE /rules/{Identifier}",
@@ -15352,17 +14663,12 @@ export const serviceMetadata = {
   rds: {
     sdkId: "RDS",
     version: "2014-10-31",
-    arnNamespace: "rds",
-    cloudTrailEventSource: "rds.amazonaws.com",
-    endpointPrefix: "rds",
     protocol: "awsQuery",
+    endpointPrefix: "rds",
   },
   rdsdata: {
     sdkId: "RDS Data",
     version: "2018-08-01",
-    arnNamespace: "rds-data",
-    cloudTrailEventSource: "rds-data.amazonaws.com",
-    endpointPrefix: "",
     protocol: "restJson1",
     operations: {
       BatchExecuteStatement: "POST /BatchExecute",
@@ -15376,44 +14682,31 @@ export const serviceMetadata = {
   redshift: {
     sdkId: "Redshift",
     version: "2012-12-01",
-    arnNamespace: "redshift",
-    cloudTrailEventSource: "redshift.amazonaws.com",
-    endpointPrefix: "redshift",
     protocol: "awsQuery",
+    endpointPrefix: "redshift",
   },
   redshiftdata: {
     sdkId: "Redshift Data",
     version: "2019-12-20",
-    arnNamespace: "redshift-data",
-    cloudTrailEventSource: "redshift-data.amazonaws.com",
-    endpointPrefix: "",
     protocol: "awsJson1_1",
     targetPrefix: "RedshiftData",
   },
   redshiftserverless: {
     sdkId: "Redshift Serverless",
     version: "2021-04-21",
-    arnNamespace: "redshift-serverless",
-    cloudTrailEventSource: "redshift-serverless.amazonaws.com",
-    endpointPrefix: "",
     protocol: "awsJson1_1",
     targetPrefix: "RedshiftServerless",
   },
   rekognition: {
     sdkId: "Rekognition",
     version: "2016-06-27",
-    arnNamespace: "rekognition",
-    cloudTrailEventSource: "rekognition.amazonaws.com",
-    endpointPrefix: "rekognition",
     protocol: "awsJson1_1",
+    endpointPrefix: "rekognition",
     targetPrefix: "RekognitionService",
   },
   repostspace: {
     sdkId: "repostspace",
     version: "2022-05-13",
-    arnNamespace: "repostspace",
-    cloudTrailEventSource: "repostspace.amazonaws.com",
-    endpointPrefix: "",
     protocol: "restJson1",
     operations: {
       BatchAddChannelRoleToAccessors:
@@ -15442,10 +14735,8 @@ export const serviceMetadata = {
   resiliencehub: {
     sdkId: "resiliencehub",
     version: "2020-04-30",
-    arnNamespace: "resiliencehub",
-    cloudTrailEventSource: "resiliencehub.amazonaws.com",
-    endpointPrefix: "resiliencehub",
     protocol: "restJson1",
+    endpointPrefix: "resiliencehub",
     operations: {
       AcceptResourceGroupingRecommendations:
         "POST /accept-resource-grouping-recommendations",
@@ -15533,10 +14824,8 @@ export const serviceMetadata = {
   resourceexplorer2: {
     sdkId: "Resource Explorer 2",
     version: "2022-07-28",
-    arnNamespace: "resource-explorer-2",
-    cloudTrailEventSource: "resource-explorer-2.amazonaws.com",
-    endpointPrefix: "resource-explorer-2",
     protocol: "restJson1",
+    endpointPrefix: "resource-explorer-2",
     operations: {
       BatchGetView: "POST /BatchGetView",
       DisassociateDefaultView: "POST /DisassociateDefaultView",
@@ -15568,10 +14857,8 @@ export const serviceMetadata = {
   resourcegroups: {
     sdkId: "Resource Groups",
     version: "2017-11-27",
-    arnNamespace: "resource-groups",
-    cloudTrailEventSource: "resourcegroups.amazonaws.com",
-    endpointPrefix: "resource-groups",
     protocol: "restJson1",
+    endpointPrefix: "resource-groups",
     operations: {
       CancelTagSyncTask: "POST /cancel-tag-sync-task",
       CreateGroup: "POST /groups",
@@ -15601,19 +14888,15 @@ export const serviceMetadata = {
   resourcegroupstaggingapi: {
     sdkId: "Resource Groups Tagging API",
     version: "2017-01-26",
-    arnNamespace: "tagging",
-    cloudTrailEventSource: "resourcegroupstaggingapi.amazonaws.com",
-    endpointPrefix: "tagging",
     protocol: "awsJson1_1",
+    endpointPrefix: "tagging",
     targetPrefix: "ResourceGroupsTaggingAPI_20170126",
   },
   robomaker: {
     sdkId: "RoboMaker",
     version: "2018-06-29",
-    arnNamespace: "robomaker",
-    cloudTrailEventSource: "robomaker.amazonaws.com",
-    endpointPrefix: "robomaker",
     protocol: "restJson1",
+    endpointPrefix: "robomaker",
     operations: {
       BatchDeleteWorlds: "POST /batchDeleteWorlds",
       BatchDescribeSimulationJob: "POST /batchDescribeSimulationJob",
@@ -15678,9 +14961,6 @@ export const serviceMetadata = {
   rolesanywhere: {
     sdkId: "RolesAnywhere",
     version: "2018-05-10",
-    arnNamespace: "rolesanywhere",
-    cloudTrailEventSource: "rolesanywhere.amazonaws.com",
-    endpointPrefix: "",
     protocol: "restJson1",
     operations: {
       ListTagsForResource: "GET /ListTagsForResource",
@@ -15718,10 +14998,8 @@ export const serviceMetadata = {
   route53: {
     sdkId: "Route 53",
     version: "2013-04-01",
-    arnNamespace: "route53",
-    cloudTrailEventSource: "route53.amazonaws.com",
-    endpointPrefix: "route53",
     protocol: "restXml",
+    endpointPrefix: "route53",
     operations: {
       CreateCidrCollection: {
         traits: {
@@ -15773,28 +15051,22 @@ export const serviceMetadata = {
   route53domains: {
     sdkId: "Route 53 Domains",
     version: "2014-05-15",
-    arnNamespace: "route53domains",
-    cloudTrailEventSource: "route53domains.amazonaws.com",
-    endpointPrefix: "route53domains",
     protocol: "awsJson1_1",
+    endpointPrefix: "route53domains",
     targetPrefix: "Route53Domains_v20140515",
   },
   route53recoverycluster: {
     sdkId: "Route53 Recovery Cluster",
     version: "2019-12-02",
-    arnNamespace: "route53-recovery-cluster",
-    cloudTrailEventSource: "route53recoverycluster.amazonaws.com",
-    endpointPrefix: "route53-recovery-cluster",
     protocol: "awsJson1_0",
+    endpointPrefix: "route53-recovery-cluster",
     targetPrefix: "ToggleCustomerAPI",
   },
   route53recoverycontrolconfig: {
     sdkId: "Route53 Recovery Control Config",
     version: "2020-11-02",
-    arnNamespace: "route53-recovery-control-config",
-    cloudTrailEventSource: "route53recoverycontrolconfig.amazonaws.com",
-    endpointPrefix: "route53-recovery-control-config",
     protocol: "restJson1",
+    endpointPrefix: "route53-recovery-control-config",
     operations: {
       CreateCluster: "POST /cluster",
       CreateControlPanel: "POST /controlpanel",
@@ -15828,10 +15100,8 @@ export const serviceMetadata = {
   route53recoveryreadiness: {
     sdkId: "Route53 Recovery Readiness",
     version: "2019-12-02",
-    arnNamespace: "route53-recovery-readiness",
-    cloudTrailEventSource: "route53-recovery-readiness.amazonaws.com",
-    endpointPrefix: "route53-recovery-readiness",
     protocol: "restJson1",
+    endpointPrefix: "route53-recovery-readiness",
     operations: {
       CreateCell: "POST /cells",
       CreateCrossAccountAuthorization: "POST /crossaccountauthorizations",
@@ -15875,9 +15145,6 @@ export const serviceMetadata = {
   route53profiles: {
     sdkId: "Route53Profiles",
     version: "2018-05-10",
-    arnNamespace: "route53profiles",
-    cloudTrailEventSource: "route53profiles.amazonaws.com",
-    endpointPrefix: "",
     protocol: "restJson1",
     operations: {
       AssociateProfile: "POST /profileassociation",
@@ -15906,18 +15173,13 @@ export const serviceMetadata = {
   route53resolver: {
     sdkId: "Route53Resolver",
     version: "2018-04-01",
-    arnNamespace: "route53resolver",
-    cloudTrailEventSource: "route53resolver.amazonaws.com",
-    endpointPrefix: "route53resolver",
     protocol: "awsJson1_1",
+    endpointPrefix: "route53resolver",
     targetPrefix: "Route53Resolver",
   },
   rum: {
     sdkId: "RUM",
     version: "2018-05-10",
-    arnNamespace: "rum",
-    cloudTrailEventSource: "rum.amazonaws.com",
-    endpointPrefix: "",
     protocol: "restJson1",
     operations: {
       ListTagsForResource: "GET /tags/{ResourceArn}",
@@ -15950,10 +15212,8 @@ export const serviceMetadata = {
   s3: {
     sdkId: "S3",
     version: "2006-03-01",
-    arnNamespace: "s3",
-    cloudTrailEventSource: "s3.amazonaws.com",
-    endpointPrefix: "s3",
     protocol: "restXml",
+    endpointPrefix: "s3",
     operations: {
       AbortMultipartUpload: {
         traits: {
@@ -16362,10 +15622,8 @@ export const serviceMetadata = {
   s3control: {
     sdkId: "S3 Control",
     version: "2018-08-20",
-    arnNamespace: "s3",
-    cloudTrailEventSource: "s3control.amazonaws.com",
-    endpointPrefix: "s3-control",
     protocol: "restXml",
+    endpointPrefix: "s3-control",
     operations: {
       CreateBucket: {
         traits: {
@@ -16392,10 +15650,8 @@ export const serviceMetadata = {
   s3outposts: {
     sdkId: "S3Outposts",
     version: "2017-07-25",
-    arnNamespace: "s3-outposts",
-    cloudTrailEventSource: "s3outposts.amazonaws.com",
-    endpointPrefix: "s3-outposts",
     protocol: "restJson1",
+    endpointPrefix: "s3-outposts",
     operations: {
       CreateEndpoint: "POST /S3Outposts/CreateEndpoint",
       DeleteEndpoint: "DELETE /S3Outposts/DeleteEndpoint",
@@ -16407,9 +15663,6 @@ export const serviceMetadata = {
   s3tables: {
     sdkId: "S3Tables",
     version: "2018-05-10",
-    arnNamespace: "s3tables",
-    cloudTrailEventSource: "s3tables.amazonaws.com",
-    endpointPrefix: "",
     protocol: "restJson1",
     operations: {
       CreateNamespace: "PUT /namespaces/{tableBucketARN}",
@@ -16457,10 +15710,8 @@ export const serviceMetadata = {
   s3vectors: {
     sdkId: "S3Vectors",
     version: "2025-07-15",
-    arnNamespace: "s3vectors",
-    cloudTrailEventSource: "s3vectors.amazonaws.com",
-    endpointPrefix: "s3vectors",
     protocol: "restJson1",
+    endpointPrefix: "s3vectors",
     operations: {
       CreateIndex: "POST /CreateIndex",
       CreateVectorBucket: "POST /CreateVectorBucket",
@@ -16483,19 +15734,15 @@ export const serviceMetadata = {
   sagemaker: {
     sdkId: "SageMaker",
     version: "2017-07-24",
-    arnNamespace: "sagemaker",
-    cloudTrailEventSource: "sagemaker.amazonaws.com",
-    endpointPrefix: "api.sagemaker",
     protocol: "awsJson1_1",
+    endpointPrefix: "api.sagemaker",
     targetPrefix: "SageMaker",
   },
   sagemakera2iruntime: {
     sdkId: "SageMaker A2I Runtime",
     version: "2019-11-07",
-    arnNamespace: "sagemaker",
-    cloudTrailEventSource: "sagemakera2iruntime.amazonaws.com",
-    endpointPrefix: "a2i-runtime.sagemaker",
     protocol: "restJson1",
+    endpointPrefix: "a2i-runtime.sagemaker",
     operations: {
       DeleteHumanLoop: "DELETE /human-loops/{HumanLoopName}",
       DescribeHumanLoop: "GET /human-loops/{HumanLoopName}",
@@ -16507,10 +15754,8 @@ export const serviceMetadata = {
   sagemakeredge: {
     sdkId: "Sagemaker Edge",
     version: "2020-09-23",
-    arnNamespace: "sagemaker",
-    cloudTrailEventSource: "sagemakeredge.amazonaws.com",
-    endpointPrefix: "edge.sagemaker",
     protocol: "restJson1",
+    endpointPrefix: "edge.sagemaker",
     operations: {
       GetDeployments: "POST /GetDeployments",
       GetDeviceRegistration: "POST /GetDeviceRegistration",
@@ -16520,10 +15765,8 @@ export const serviceMetadata = {
   sagemakerfeaturestoreruntime: {
     sdkId: "SageMaker FeatureStore Runtime",
     version: "2020-07-01",
-    arnNamespace: "sagemaker",
-    cloudTrailEventSource: "sagemakerfeaturestoreruntime.amazonaws.com",
-    endpointPrefix: "featurestore-runtime.sagemaker",
     protocol: "restJson1",
+    endpointPrefix: "featurestore-runtime.sagemaker",
     operations: {
       BatchGetRecord: "POST /BatchGetRecord",
       DeleteRecord: "DELETE /FeatureGroup/{FeatureGroupName}",
@@ -16534,9 +15777,6 @@ export const serviceMetadata = {
   sagemakergeospatial: {
     sdkId: "SageMaker Geospatial",
     version: "2020-05-27",
-    arnNamespace: "sagemaker-geospatial",
-    cloudTrailEventSource: "sagemaker-geospatial.amazonaws.com",
-    endpointPrefix: "",
     protocol: "restJson1",
     operations: {
       ListTagsForResource: "GET /tags/{ResourceArn}",
@@ -16568,10 +15808,8 @@ export const serviceMetadata = {
   sagemakermetrics: {
     sdkId: "SageMaker Metrics",
     version: "2022-09-30",
-    arnNamespace: "sagemaker",
-    cloudTrailEventSource: "sagemakermetrics.amazonaws.com",
-    endpointPrefix: "metrics.sagemaker",
     protocol: "restJson1",
+    endpointPrefix: "metrics.sagemaker",
     operations: {
       BatchGetMetrics: "POST /BatchGetMetrics",
       BatchPutMetrics: "PUT /BatchPutMetrics",
@@ -16580,10 +15818,8 @@ export const serviceMetadata = {
   sagemakerruntime: {
     sdkId: "SageMaker Runtime",
     version: "2017-05-13",
-    arnNamespace: "sagemaker",
-    cloudTrailEventSource: "sagemakerruntime.amazonaws.com",
-    endpointPrefix: "runtime.sagemaker",
     protocol: "restJson1",
+    endpointPrefix: "runtime.sagemaker",
     operations: {
       InvokeEndpoint: {
         http: "POST /endpoints/{EndpointName}/invocations",
@@ -16617,10 +15853,8 @@ export const serviceMetadata = {
   savingsplans: {
     sdkId: "savingsplans",
     version: "2019-06-28",
-    arnNamespace: "savingsplans",
-    cloudTrailEventSource: "savingsplans.amazonaws.com",
-    endpointPrefix: "savingsplans",
     protocol: "restJson1",
+    endpointPrefix: "savingsplans",
     operations: {
       CreateSavingsPlan: "POST /CreateSavingsPlan",
       DeleteQueuedSavingsPlan: "POST /DeleteQueuedSavingsPlan",
@@ -16638,9 +15872,6 @@ export const serviceMetadata = {
   scheduler: {
     sdkId: "Scheduler",
     version: "2021-06-30",
-    arnNamespace: "scheduler",
-    cloudTrailEventSource: "scheduler.amazonaws.com",
-    endpointPrefix: "",
     protocol: "restJson1",
     operations: {
       ListTagsForResource: "GET /tags/{ResourceArn}",
@@ -16660,10 +15891,8 @@ export const serviceMetadata = {
   schemas: {
     sdkId: "schemas",
     version: "2019-12-02",
-    arnNamespace: "schemas",
-    cloudTrailEventSource: "schemas.amazonaws.com",
-    endpointPrefix: "schemas",
     protocol: "restJson1",
+    endpointPrefix: "schemas",
     operations: {
       CreateDiscoverer: "POST /v1/discoverers",
       CreateRegistry: "POST /v1/registries/name/{RegistryName}",
@@ -16715,18 +15944,13 @@ export const serviceMetadata = {
   secretsmanager: {
     sdkId: "Secrets Manager",
     version: "2017-10-17",
-    arnNamespace: "secretsmanager",
-    cloudTrailEventSource: "secretsmanager.amazonaws.com",
-    endpointPrefix: "secretsmanager",
     protocol: "awsJson1_1",
+    endpointPrefix: "secretsmanager",
     targetPrefix: "secretsmanager",
   },
   securityir: {
     sdkId: "Security IR",
     version: "2018-05-10",
-    arnNamespace: "security-ir",
-    cloudTrailEventSource: "security-ir.amazonaws.com",
-    endpointPrefix: "",
     protocol: "restJson1",
     operations: {
       ListTagsForResource: "GET /v1/tags/{resourceArn}",
@@ -16759,10 +15983,8 @@ export const serviceMetadata = {
   securityhub: {
     sdkId: "SecurityHub",
     version: "2018-10-26",
-    arnNamespace: "securityhub",
-    cloudTrailEventSource: "securityhub.amazonaws.com",
-    endpointPrefix: "securityhub",
     protocol: "restJson1",
+    endpointPrefix: "securityhub",
     operations: {
       AcceptAdministratorInvitation: "POST /administrator",
       AcceptInvitation: "POST /master",
@@ -16883,9 +16105,6 @@ export const serviceMetadata = {
   securitylake: {
     sdkId: "SecurityLake",
     version: "2018-05-10",
-    arnNamespace: "securitylake",
-    cloudTrailEventSource: "securitylake.amazonaws.com",
-    endpointPrefix: "",
     protocol: "restJson1",
     operations: {
       CreateDataLakeExceptionSubscription:
@@ -16935,10 +16154,8 @@ export const serviceMetadata = {
   serverlessapplicationrepository: {
     sdkId: "ServerlessApplicationRepository",
     version: "2017-09-08",
-    arnNamespace: "serverlessrepo",
-    cloudTrailEventSource: "serverlessapplicationrepository.amazonaws.com",
-    endpointPrefix: "serverlessrepo",
     protocol: "restJson1",
+    endpointPrefix: "serverlessrepo",
     operations: {
       CreateApplication: "POST /applications",
       CreateApplicationVersion:
@@ -16964,19 +16181,15 @@ export const serviceMetadata = {
   servicecatalog: {
     sdkId: "Service Catalog",
     version: "2015-12-10",
-    arnNamespace: "servicecatalog",
-    cloudTrailEventSource: "servicecatalog.amazonaws.com",
-    endpointPrefix: "servicecatalog",
     protocol: "awsJson1_1",
+    endpointPrefix: "servicecatalog",
     targetPrefix: "AWS242ServiceCatalogService",
   },
   servicecatalogappregistry: {
     sdkId: "Service Catalog AppRegistry",
     version: "2020-06-24",
-    arnNamespace: "servicecatalog",
-    cloudTrailEventSource: "servicecatalogappregistry.amazonaws.com",
-    endpointPrefix: "servicecatalog-appregistry",
     protocol: "restJson1",
+    endpointPrefix: "servicecatalog-appregistry",
     operations: {
       AssociateAttributeGroup:
         "PUT /applications/{application}/attribute-groups/{attributeGroup}",
@@ -17014,36 +16227,28 @@ export const serviceMetadata = {
   servicequotas: {
     sdkId: "Service Quotas",
     version: "2019-06-24",
-    arnNamespace: "servicequotas",
-    cloudTrailEventSource: "servicequotas.amazonaws.com",
-    endpointPrefix: "servicequotas",
     protocol: "awsJson1_1",
+    endpointPrefix: "servicequotas",
     targetPrefix: "ServiceQuotasV20190624",
   },
   servicediscovery: {
     sdkId: "ServiceDiscovery",
     version: "2017-03-14",
-    arnNamespace: "servicediscovery",
-    cloudTrailEventSource: "servicediscovery.amazonaws.com",
-    endpointPrefix: "servicediscovery",
     protocol: "awsJson1_1",
+    endpointPrefix: "servicediscovery",
     targetPrefix: "Route53AutoNaming_v20170314",
   },
   ses: {
     sdkId: "SES",
     version: "2010-12-01",
-    arnNamespace: "ses",
-    cloudTrailEventSource: "ses.amazonaws.com",
-    endpointPrefix: "email",
     protocol: "awsQuery",
+    endpointPrefix: "email",
   },
   sesv2: {
     sdkId: "SESv2",
     version: "2019-09-27",
-    arnNamespace: "ses",
-    cloudTrailEventSource: "sesv2.amazonaws.com",
-    endpointPrefix: "email",
     protocol: "restJson1",
+    endpointPrefix: "email",
     operations: {
       BatchGetMetricData: "POST /v2/email/metrics/batch",
       CancelExportJob: "PUT /v2/email/export-jobs/{JobId}/cancel",
@@ -17210,28 +16415,22 @@ export const serviceMetadata = {
   sfn: {
     sdkId: "SFN",
     version: "2016-11-23",
-    arnNamespace: "states",
-    cloudTrailEventSource: "states.amazonaws.com",
-    endpointPrefix: "states",
     protocol: "awsJson1_0",
+    endpointPrefix: "states",
     targetPrefix: "AWSStepFunctions",
   },
   shield: {
     sdkId: "Shield",
     version: "2016-06-02",
-    arnNamespace: "shield",
-    cloudTrailEventSource: "shield.amazonaws.com",
-    endpointPrefix: "shield",
     protocol: "awsJson1_1",
+    endpointPrefix: "shield",
     targetPrefix: "AWSShield_20160616",
   },
   signer: {
     sdkId: "signer",
     version: "2017-08-25",
-    arnNamespace: "signer",
-    cloudTrailEventSource: "signer.amazonaws.com",
-    endpointPrefix: "signer",
     protocol: "restJson1",
+    endpointPrefix: "signer",
     operations: {
       AddProfilePermission: "POST /signing-profiles/{profileName}/permissions",
       CancelSigningProfile: "DELETE /signing-profiles/{profileName}",
@@ -17258,10 +16457,8 @@ export const serviceMetadata = {
   simspaceweaver: {
     sdkId: "SimSpaceWeaver",
     version: "2022-10-28",
-    arnNamespace: "simspaceweaver",
-    cloudTrailEventSource: "simspaceweaver.amazonaws.com",
-    endpointPrefix: "simspaceweaver",
     protocol: "restJson1",
+    endpointPrefix: "simspaceweaver",
     operations: {
       ListTagsForResource: "GET /tags/{ResourceArn}",
       TagResource: "POST /tags/{ResourceArn}",
@@ -17284,18 +16481,13 @@ export const serviceMetadata = {
   sms: {
     sdkId: "SMS",
     version: "2016-10-24",
-    arnNamespace: "sms",
-    cloudTrailEventSource: "sms.amazonaws.com",
-    endpointPrefix: "sms",
     protocol: "awsJson1_1",
+    endpointPrefix: "sms",
     targetPrefix: "AWSServerMigrationService_V2016_10_24",
   },
   snowdevicemanagement: {
     sdkId: "Snow Device Management",
     version: "2021-08-04",
-    arnNamespace: "snow-device-management",
-    cloudTrailEventSource: "snow-device-management.amazonaws.com",
-    endpointPrefix: "",
     protocol: "restJson1",
     operations: {
       ListTagsForResource: "GET /tags/{resourceArn}",
@@ -17317,27 +16509,21 @@ export const serviceMetadata = {
   snowball: {
     sdkId: "Snowball",
     version: "2016-06-30",
-    arnNamespace: "snowball",
-    cloudTrailEventSource: "snowball.amazonaws.com",
-    endpointPrefix: "snowball",
     protocol: "awsJson1_1",
+    endpointPrefix: "snowball",
     targetPrefix: "AWSIESnowballJobManagementService",
   },
   sns: {
     sdkId: "SNS",
     version: "2010-03-31",
-    arnNamespace: "sns",
-    cloudTrailEventSource: "sns.amazonaws.com",
-    endpointPrefix: "sns",
     protocol: "awsQuery",
+    endpointPrefix: "sns",
   },
   socialmessaging: {
     sdkId: "SocialMessaging",
     version: "2024-01-01",
-    arnNamespace: "social-messaging",
-    cloudTrailEventSource: "social-messaging.amazonaws.com",
-    endpointPrefix: "social-messaging",
     protocol: "restJson1",
+    endpointPrefix: "social-messaging",
     operations: {
       CreateWhatsAppMessageTemplate: "POST /v1/whatsapp/template/put",
       CreateWhatsAppMessageTemplateFromLibrary:
@@ -17369,36 +16555,27 @@ export const serviceMetadata = {
   sqs: {
     sdkId: "SQS",
     version: "2012-11-05",
-    arnNamespace: "sqs",
-    cloudTrailEventSource: "sqs.amazonaws.com",
-    endpointPrefix: "sqs",
     protocol: "awsJson1_0",
+    endpointPrefix: "sqs",
     targetPrefix: "AmazonSQS",
   },
   ssm: {
     sdkId: "SSM",
     version: "2014-11-06",
-    arnNamespace: "ssm",
-    cloudTrailEventSource: "ssm.amazonaws.com",
-    endpointPrefix: "ssm",
     protocol: "awsJson1_1",
+    endpointPrefix: "ssm",
     targetPrefix: "AmazonSSM",
   },
   ssmcontacts: {
     sdkId: "SSM Contacts",
     version: "2021-05-03",
-    arnNamespace: "ssm-contacts",
-    cloudTrailEventSource: "ssmcontacts.amazonaws.com",
-    endpointPrefix: "ssm-contacts",
     protocol: "awsJson1_1",
+    endpointPrefix: "ssm-contacts",
     targetPrefix: "SSMContacts",
   },
   ssmguiconnect: {
     sdkId: "SSM GuiConnect",
     version: "2021-05-01",
-    arnNamespace: "ssm-guiconnect",
-    cloudTrailEventSource: "ssm-guiconnect.amazonaws.com",
-    endpointPrefix: "",
     protocol: "restJson1",
     operations: {
       DeleteConnectionRecordingPreferences:
@@ -17412,9 +16589,6 @@ export const serviceMetadata = {
   ssmincidents: {
     sdkId: "SSM Incidents",
     version: "2018-05-10",
-    arnNamespace: "ssm-incidents",
-    cloudTrailEventSource: "ssm-incidents.amazonaws.com",
-    endpointPrefix: "",
     protocol: "restJson1",
     operations: {
       BatchGetIncidentFindings: "POST /batchGetIncidentFindings",
@@ -17453,9 +16627,6 @@ export const serviceMetadata = {
   ssmquicksetup: {
     sdkId: "SSM QuickSetup",
     version: "2018-05-10",
-    arnNamespace: "ssm-quicksetup",
-    cloudTrailEventSource: "ssm-quicksetup.amazonaws.com",
-    endpointPrefix: "",
     protocol: "restJson1",
     operations: {
       CreateConfigurationManager: "POST /configurationManager",
@@ -17478,10 +16649,8 @@ export const serviceMetadata = {
   ssmsap: {
     sdkId: "Ssm Sap",
     version: "2018-05-10",
-    arnNamespace: "ssm-sap",
-    cloudTrailEventSource: "ssm-sap.amazonaws.com",
-    endpointPrefix: "ssm-sap",
     protocol: "restJson1",
+    endpointPrefix: "ssm-sap",
     operations: {
       DeleteResourcePermission: "POST /delete-resource-permission",
       DeregisterApplication: "POST /deregister-application",
@@ -17509,10 +16678,8 @@ export const serviceMetadata = {
   sso: {
     sdkId: "SSO",
     version: "2019-06-10",
-    arnNamespace: "awsssoportal",
-    cloudTrailEventSource: "sso.amazonaws.com",
-    endpointPrefix: "portal.sso",
     protocol: "restJson1",
+    endpointPrefix: "portal.sso",
     operations: {
       GetRoleCredentials: "GET /federation/credentials",
       ListAccountRoles: "GET /assignment/roles",
@@ -17523,19 +16690,15 @@ export const serviceMetadata = {
   ssoadmin: {
     sdkId: "SSO Admin",
     version: "2020-07-20",
-    arnNamespace: "sso",
-    cloudTrailEventSource: "sso.amazonaws.com",
-    endpointPrefix: "sso",
     protocol: "awsJson1_1",
+    endpointPrefix: "sso",
     targetPrefix: "SWBExternalService",
   },
   ssooidc: {
     sdkId: "SSO OIDC",
     version: "2019-06-10",
-    arnNamespace: "sso-oauth",
-    cloudTrailEventSource: "ssooidc.amazonaws.com",
-    endpointPrefix: "oidc",
     protocol: "restJson1",
+    endpointPrefix: "oidc",
     operations: {
       CreateToken: "POST /token",
       CreateTokenWithIAM: "POST /token?aws_iam=t",
@@ -17546,27 +16709,21 @@ export const serviceMetadata = {
   storagegateway: {
     sdkId: "Storage Gateway",
     version: "2013-06-30",
-    arnNamespace: "storagegateway",
-    cloudTrailEventSource: "storagegateway.amazonaws.com",
-    endpointPrefix: "storagegateway",
     protocol: "awsJson1_1",
+    endpointPrefix: "storagegateway",
     targetPrefix: "StorageGateway_20130630",
   },
   sts: {
     sdkId: "STS",
     version: "2011-06-15",
-    arnNamespace: "sts",
-    cloudTrailEventSource: "sts.amazonaws.com",
-    endpointPrefix: "sts",
     protocol: "awsQuery",
+    endpointPrefix: "sts",
   },
   supplychain: {
     sdkId: "SupplyChain",
     version: "2024-01-01",
-    arnNamespace: "scn",
-    cloudTrailEventSource: "scn.amazonaws.com",
-    endpointPrefix: "scn",
     protocol: "restJson1",
+    endpointPrefix: "scn",
     operations: {
       GetDataIntegrationEvent:
         "GET /api-data/data-integration/instance/{instanceId}/data-integration-events/{eventId}",
@@ -17625,18 +16782,13 @@ export const serviceMetadata = {
   support: {
     sdkId: "Support",
     version: "2013-04-15",
-    arnNamespace: "support",
-    cloudTrailEventSource: "support.amazonaws.com",
-    endpointPrefix: "support",
     protocol: "awsJson1_1",
+    endpointPrefix: "support",
     targetPrefix: "AWSSupport_20130415",
   },
   supportapp: {
     sdkId: "Support App",
     version: "2021-08-20",
-    arnNamespace: "supportapp",
-    cloudTrailEventSource: "supportapp.amazonaws.com",
-    endpointPrefix: "",
     protocol: "restJson1",
     operations: {
       CreateSlackChannelConfiguration:
@@ -17661,19 +16813,15 @@ export const serviceMetadata = {
   swf: {
     sdkId: "SWF",
     version: "2012-01-25",
-    arnNamespace: "swf",
-    cloudTrailEventSource: "swf.amazonaws.com",
-    endpointPrefix: "swf",
     protocol: "awsJson1_0",
+    endpointPrefix: "swf",
     targetPrefix: "SimpleWorkflowService",
   },
   synthetics: {
     sdkId: "synthetics",
     version: "2017-10-11",
-    arnNamespace: "synthetics",
-    cloudTrailEventSource: "synthetics.amazonaws.com",
-    endpointPrefix: "synthetics",
     protocol: "restJson1",
+    endpointPrefix: "synthetics",
     operations: {
       AssociateResource: "PATCH /group/{GroupIdentifier}/associate",
       CreateCanary: "POST /canary",
@@ -17702,9 +16850,6 @@ export const serviceMetadata = {
   taxsettings: {
     sdkId: "TaxSettings",
     version: "2018-05-10",
-    arnNamespace: "tax",
-    cloudTrailEventSource: "tax.amazonaws.com",
-    endpointPrefix: "",
     protocol: "restJson1",
     operations: {
       BatchDeleteTaxRegistration: "POST /BatchDeleteTaxRegistration",
@@ -17730,45 +16875,33 @@ export const serviceMetadata = {
   textract: {
     sdkId: "Textract",
     version: "2018-06-27",
-    arnNamespace: "textract",
-    cloudTrailEventSource: "textract.amazonaws.com",
-    endpointPrefix: "textract",
     protocol: "awsJson1_1",
+    endpointPrefix: "textract",
     targetPrefix: "Textract",
   },
   timestreaminfluxdb: {
     sdkId: "Timestream InfluxDB",
     version: "2023-01-27",
-    arnNamespace: "timestream-influxdb",
-    cloudTrailEventSource: "timestream-influxdb.amazonaws.com",
-    endpointPrefix: "",
     protocol: "awsJson1_0",
     targetPrefix: "AmazonTimestreamInfluxDB",
   },
   timestreamquery: {
     sdkId: "Timestream Query",
     version: "2018-11-01",
-    arnNamespace: "timestream",
-    cloudTrailEventSource: "timestreamquery.amazonaws.com",
-    endpointPrefix: "query.timestream",
     protocol: "awsJson1_0",
+    endpointPrefix: "query.timestream",
     targetPrefix: "Timestream_20181101",
   },
   timestreamwrite: {
     sdkId: "Timestream Write",
     version: "2018-11-01",
-    arnNamespace: "timestream",
-    cloudTrailEventSource: "timestreamwrite.amazonaws.com",
-    endpointPrefix: "ingest.timestream",
     protocol: "awsJson1_0",
+    endpointPrefix: "ingest.timestream",
     targetPrefix: "Timestream_20181101",
   },
   tnb: {
     sdkId: "tnb",
     version: "2008-10-21",
-    arnNamespace: "tnb",
-    cloudTrailEventSource: "tnb.amazonaws.com",
-    endpointPrefix: "",
     protocol: "restJson1",
     operations: {
       CancelSolNetworkOperation:
@@ -17844,19 +16977,15 @@ export const serviceMetadata = {
   transcribe: {
     sdkId: "Transcribe",
     version: "2017-10-26",
-    arnNamespace: "transcribe",
-    cloudTrailEventSource: "transcribe.amazonaws.com",
-    endpointPrefix: "transcribe",
     protocol: "awsJson1_1",
+    endpointPrefix: "transcribe",
     targetPrefix: "Transcribe",
   },
   transcribestreaming: {
     sdkId: "Transcribe Streaming",
     version: "2017-10-26",
-    arnNamespace: "transcribe",
-    cloudTrailEventSource: "transcribestreaming.amazonaws.com",
-    endpointPrefix: "transcribestreaming",
     protocol: "restJson1",
+    endpointPrefix: "transcribestreaming",
     operations: {
       GetMedicalScribeStream: "GET /medical-scribe-stream/{SessionId}",
       StartCallAnalyticsStreamTranscription: {
@@ -17952,27 +17081,20 @@ export const serviceMetadata = {
   transfer: {
     sdkId: "Transfer",
     version: "2018-11-05",
-    arnNamespace: "transfer",
-    cloudTrailEventSource: "transfer.amazonaws.com",
-    endpointPrefix: "transfer",
     protocol: "awsJson1_1",
+    endpointPrefix: "transfer",
     targetPrefix: "TransferService",
   },
   translate: {
     sdkId: "Translate",
     version: "2017-07-01",
-    arnNamespace: "translate",
-    cloudTrailEventSource: "translate.amazonaws.com",
-    endpointPrefix: "translate",
     protocol: "awsJson1_1",
+    endpointPrefix: "translate",
     targetPrefix: "AWSShineFrontendService_20170701",
   },
   trustedadvisor: {
     sdkId: "TrustedAdvisor",
     version: "2022-09-15",
-    arnNamespace: "trustedadvisor",
-    cloudTrailEventSource: "trustedadvisor.amazonaws.com",
-    endpointPrefix: "",
     protocol: "restJson1",
     operations: {
       BatchUpdateRecommendationResourceExclusion:
@@ -17998,27 +17120,20 @@ export const serviceMetadata = {
   verifiedpermissions: {
     sdkId: "VerifiedPermissions",
     version: "2021-12-01",
-    arnNamespace: "verifiedpermissions",
-    cloudTrailEventSource: "verifiedpermissions.amazonaws.com",
-    endpointPrefix: "verifiedpermissions",
     protocol: "awsJson1_0",
+    endpointPrefix: "verifiedpermissions",
     targetPrefix: "VerifiedPermissions",
   },
   voiceid: {
     sdkId: "Voice ID",
     version: "2021-09-27",
-    arnNamespace: "voiceid",
-    cloudTrailEventSource: "voiceid.amazonaws.com",
-    endpointPrefix: "voiceid",
     protocol: "awsJson1_0",
+    endpointPrefix: "voiceid",
     targetPrefix: "VoiceID",
   },
   vpclattice: {
     sdkId: "VPC Lattice",
     version: "2022-11-30",
-    arnNamespace: "vpc-lattice",
-    cloudTrailEventSource: "vpc-lattice.amazonaws.com",
-    endpointPrefix: "",
     protocol: "restJson1",
     operations: {
       BatchUpdateRule:
@@ -18128,37 +17243,29 @@ export const serviceMetadata = {
   waf: {
     sdkId: "WAF",
     version: "2015-08-24",
-    arnNamespace: "waf",
-    cloudTrailEventSource: "waf.amazonaws.com",
-    endpointPrefix: "waf",
     protocol: "awsJson1_1",
+    endpointPrefix: "waf",
     targetPrefix: "AWSWAF_20150824",
   },
   wafregional: {
     sdkId: "WAF Regional",
     version: "2016-11-28",
-    arnNamespace: "waf-regional",
-    cloudTrailEventSource: "wafregional.amazonaws.com",
-    endpointPrefix: "waf-regional",
     protocol: "awsJson1_1",
+    endpointPrefix: "waf-regional",
     targetPrefix: "AWSWAF_Regional_20161128",
   },
   wafv2: {
     sdkId: "WAFV2",
     version: "2019-07-29",
-    arnNamespace: "wafv2",
-    cloudTrailEventSource: "wafv2.amazonaws.com",
-    endpointPrefix: "wafv2",
     protocol: "awsJson1_1",
+    endpointPrefix: "wafv2",
     targetPrefix: "AWSWAF_20190729",
   },
   wellarchitected: {
     sdkId: "WellArchitected",
     version: "2020-03-31",
-    arnNamespace: "wellarchitected",
-    cloudTrailEventSource: "wellarchitected.amazonaws.com",
-    endpointPrefix: "wellarchitected",
     protocol: "restJson1",
+    endpointPrefix: "wellarchitected",
     operations: {
       AssociateLenses: "PATCH /workloads/{WorkloadId}/associateLenses",
       AssociateProfiles: "PATCH /workloads/{WorkloadId}/associateProfiles",
@@ -18251,9 +17358,6 @@ export const serviceMetadata = {
   wisdom: {
     sdkId: "Wisdom",
     version: "2020-10-19",
-    arnNamespace: "wisdom",
-    cloudTrailEventSource: "wisdom.amazonaws.com",
-    endpointPrefix: "",
     protocol: "restJson1",
     operations: {
       ListTagsForResource: "GET /tags/{resourceArn}",
@@ -18319,10 +17423,8 @@ export const serviceMetadata = {
   workdocs: {
     sdkId: "WorkDocs",
     version: "2016-05-01",
-    arnNamespace: "workdocs",
-    cloudTrailEventSource: "workdocs.amazonaws.com",
-    endpointPrefix: "workdocs",
     protocol: "restJson1",
+    endpointPrefix: "workdocs",
     operations: {
       AbortDocumentVersionUpload:
         "DELETE /api/v1/documents/{DocumentId}/versions/{VersionId}",
@@ -18388,19 +17490,15 @@ export const serviceMetadata = {
   workmail: {
     sdkId: "WorkMail",
     version: "2017-10-01",
-    arnNamespace: "workmail",
-    cloudTrailEventSource: "workmail.amazonaws.com",
-    endpointPrefix: "workmail",
     protocol: "awsJson1_1",
+    endpointPrefix: "workmail",
     targetPrefix: "WorkMailService",
   },
   workmailmessageflow: {
     sdkId: "WorkMailMessageFlow",
     version: "2019-05-01",
-    arnNamespace: "workmailmessageflow",
-    cloudTrailEventSource: "workmailmessageflow.amazonaws.com",
-    endpointPrefix: "workmailmessageflow",
     protocol: "restJson1",
+    endpointPrefix: "workmailmessageflow",
     operations: {
       GetRawMessageContent: {
         http: "GET /messages/{messageId}",
@@ -18414,27 +17512,19 @@ export const serviceMetadata = {
   workspaces: {
     sdkId: "WorkSpaces",
     version: "2015-04-08",
-    arnNamespace: "workspaces",
-    cloudTrailEventSource: "workspaces.amazonaws.com",
-    endpointPrefix: "workspaces",
     protocol: "awsJson1_1",
+    endpointPrefix: "workspaces",
     targetPrefix: "WorkspacesService",
   },
   workspacesinstances: {
     sdkId: "Workspaces Instances",
     version: "2022-07-26",
-    arnNamespace: "workspaces-instances",
-    cloudTrailEventSource: "workspaces-instances.amazonaws.com",
-    endpointPrefix: "",
     protocol: "awsJson1_0",
     targetPrefix: "EUCMIFrontendAPIService",
   },
   workspacesthinclient: {
     sdkId: "WorkSpaces Thin Client",
     version: "2023-08-22",
-    arnNamespace: "thinclient",
-    cloudTrailEventSource: "thinclient.amazonaws.com",
-    endpointPrefix: "",
     protocol: "restJson1",
     operations: {
       CreateEnvironment: "POST /environments",
@@ -18458,10 +17548,8 @@ export const serviceMetadata = {
   workspacesweb: {
     sdkId: "WorkSpaces Web",
     version: "2020-07-08",
-    arnNamespace: "workspaces-web",
-    cloudTrailEventSource: "workspaces-web.amazonaws.com",
-    endpointPrefix: "workspaces-web",
     protocol: "restJson1",
+    endpointPrefix: "workspaces-web",
     operations: {
       ExpireSession: "DELETE /portals/{portalId}/sessions/{sessionId}",
       GetSession: "GET /portals/{portalId}/sessions/{sessionId}",
@@ -18558,10 +17646,8 @@ export const serviceMetadata = {
   xray: {
     sdkId: "XRay",
     version: "2016-04-12",
-    arnNamespace: "xray",
-    cloudTrailEventSource: "xray.amazonaws.com",
-    endpointPrefix: "xray",
     protocol: "restJson1",
+    endpointPrefix: "xray",
     operations: {
       BatchGetTraces: "POST /Traces",
       CancelTraceRetrieval: "POST /CancelTraceRetrieval",

@@ -635,17 +635,10 @@ const generateServiceCode = (serviceName: string, manifest: Manifest) =>
     const serviceTraits = serviceShape.traits || {};
     const serviceInfo = (serviceTraits["aws.api#service"] as any) || {};
     const sdkId = serviceInfo.sdkId || "";
-    const arnNamespace = serviceInfo.arnNamespace || "";
-    const cloudFormationName = serviceInfo.cloudFormationName || "";
-    const endpointPrefix = serviceInfo.endpointPrefix || "";
+    const endpointPrefix = serviceInfo.endpointPrefix || undefined;
 
     // Extract version from service shape (direct property, not in traits)
     const version = (serviceShape as any).version || "";
-
-    // Extract cloudTrailEventSource with fallback to arnNamespace + ".amazonaws.com"
-    const cloudTrailEventSource =
-      serviceInfo.cloudTrailEventSource ||
-      (arnNamespace ? `${arnNamespace}.amazonaws.com` : "");
 
     // Determine protocol
     let protocol = "unknown";
@@ -1140,9 +1133,6 @@ const generateServiceCode = (serviceName: string, manifest: Manifest) =>
     const metadata = {
       sdkId,
       version,
-      arnNamespace,
-      cloudFormationName,
-      cloudTrailEventSource,
       endpointPrefix,
       protocol,
       targetPrefix,
@@ -1172,10 +1162,10 @@ export const serviceMetadata = {\n`;
       code += `  ${metadataKey}: {\n`;
       code += `    sdkId: "${meta.sdkId}",\n`;
       code += `    version: "${meta.version}",\n`;
-      code += `    arnNamespace: "${meta.arnNamespace}",\n`;
-      code += `    cloudTrailEventSource: "${meta.cloudTrailEventSource}",\n`;
-      code += `    endpointPrefix: "${meta.endpointPrefix}",\n`;
       code += `    protocol: "${meta.protocol}",\n`;
+      if (meta.endpointPrefix) {
+        code += `    endpointPrefix: "${meta.endpointPrefix}",\n`;
+      }
       if (meta.targetPrefix) {
         code += `    targetPrefix: "${meta.targetPrefix}",\n`;
       }

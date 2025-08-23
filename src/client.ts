@@ -16,7 +16,10 @@ import { AwsJson10Handler } from "./protocols/aws-json-1-0.ts";
 import { AwsJson11Handler } from "./protocols/aws-json-1-1.ts";
 import { AwsQueryHandler } from "./protocols/aws-query.ts";
 import { Ec2QueryHandler } from "./protocols/ec2-query.ts";
-import type { ProtocolHandler } from "./protocols/interface.ts";
+import type {
+  ProtocolHandler,
+  ServiceMetadata,
+} from "./protocols/interface.ts";
 import { RestJson1Handler } from "./protocols/rest-json-1.ts";
 import { RestXmlHandler } from "./protocols/rest-xml.ts";
 
@@ -109,8 +112,9 @@ export function createServiceProxy<T>(
   };
 
   const normalizedServiceName = serviceName.toLowerCase();
-  const metadata =
-    serviceMetadata[normalizedServiceName as keyof typeof serviceMetadata];
+  const metadata = serviceMetadata[
+    normalizedServiceName as keyof typeof serviceMetadata
+  ] as ServiceMetadata;
 
   // if (!metadata) {
   //   throw new Error(`Unknown service: ${serviceName}`);
@@ -202,14 +206,15 @@ export function createServiceProxy<T>(
             const headers = protocolHandler.getHeaders(action, metadata, body);
 
             // Use custom endpoint, global endpoint, or construct regional AWS endpoint
-            const baseEndpoint = resolvedConfig.endpoint
-              ? resolvedConfig.endpoint
-              : (metadata as any).globalEndpoint
-                ? (metadata as any).globalEndpoint
-                : `https://${metadata.endpointPrefix}.${resolvedConfig.region}.amazonaws.com`;
+            const endpoint =
+              resolvedConfig.endpoint ??
+              metadata.globalEndpoint ??
+              (metadata.endpointPrefix
+                ? `https://${metadata.endpointPrefix}.${resolvedConfig.region}.amazonaws.com`
+                : `https://${metadata.sdkId.toLowerCase()}.${resolvedConfig.region}.amazonaws.com`);
 
             // Build full URL with path
-            const fullUrl = baseEndpoint.replace(/\/$/, "") + uriPath;
+            const fullUrl = endpoint.replace(/\/$/, "") + uriPath;
 
             // Log the AWS request
             yield* Effect.logDebug("AWS Request", {
