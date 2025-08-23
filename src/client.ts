@@ -233,7 +233,7 @@ export function createServiceProxy<T>(
                     ? undefined
                     : body,
               }),
-            ).pipe(Effect.timeout("30 seconds"));
+            ).pipe(Effect.timeout("30 seconds")); //FIXME: why a 30-second timeout?
 
             const responseText = yield* Effect.promise(() => response.text());
             const statusCode = response.status;
@@ -255,7 +255,6 @@ export function createServiceProxy<T>(
 
             if (statusCode >= 200 && statusCode < 300) {
               // Success
-              if (!responseText) return {};
               return protocolHandler.parseResponse(
                 responseText,
                 statusCode,
