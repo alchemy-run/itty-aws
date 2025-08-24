@@ -1,7 +1,7 @@
 import * as Data from "effect/Data";
 import { createServiceProxy } from "./client.ts";
 
-import type * as AWS_ from "../src/aws.ts";
+import type * as AWS_ from "./aws.ts";
 
 const services: Record<string, Record<string, any>> = {};
 

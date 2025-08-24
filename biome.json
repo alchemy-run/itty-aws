@@ -1,5 +1,5 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.0.0-beta.5/schema.json",
+  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
   "vcs": {
     "enabled": true,
     "clientKind": "git",
@@ -47,6 +47,7 @@
         "noBannedTypes": "off"
       },
       "suspicious": {
+        "noConsole": "error",
         "noExplicitAny": "off",
         "noImplicitAnyLet": "off",
         "noAssignInExpressions": "off",
@@ -67,6 +68,7 @@
         "noInferrableTypes": "error",
         "useExponentiationOperator": "error",
         "useTemplate": "error",
+        "noCommonJs": "error",
         "noParameterAssign": "off",
         "noNonNullAssertion": "off",
         "useDefaultParameterLast": "error",
@@ -97,5 +99,17 @@
       "indentWidth": 2,
       "indentStyle": "space"
     }
-  }
+  },
+  "overrides": [
+    {
+      "includes": ["scripts/**"],
+      "linter": {
+        "rules": {
+          "suspicious": {
+            "noConsole": "off"
+          }
+        }
+      }
+    }
+  ]
 }
