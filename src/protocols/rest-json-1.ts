@@ -77,37 +77,18 @@ export class RestJson1Handler implements ProtocolHandler {
     // Standard JSON response handling for operations without special traits
     if (!responseText) return {};
     try {
-      const parsed = JSON.parse(responseText);
-      return this.removeNulls(parsed);
+      const parsed = JSON.parse(responseText, (_key, value) => {
+        // Remove nulls and undefineds
+        if (value === null || value === undefined) {
+          return undefined;
+        }
+        return value;
+      });
+      return parsed;
     } catch {
       // If response isn't JSON, return as-is (could be binary data)
       return responseText;
     }
-  }
-
-  private removeNulls(obj: unknown): unknown {
-    if (obj === null || obj === undefined) {
-      return undefined;
-    }
-
-    if (Array.isArray(obj)) {
-      return obj
-        .map((item) => this.removeNulls(item))
-        .filter((item) => item !== undefined);
-    }
-
-    if (typeof obj === "object") {
-      const result: Record<string, unknown> = {};
-      for (const [key, value] of Object.entries(obj)) {
-        const cleaned = this.removeNulls(value);
-        if (cleaned !== undefined) {
-          result[key] = cleaned;
-        }
-      }
-      return result;
-    }
-
-    return obj;
   }
 
   parseError(
