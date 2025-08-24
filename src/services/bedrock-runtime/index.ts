@@ -1298,3 +1298,47 @@ export declare namespace StartAsyncInvoke {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Bedrock Runtime",
+  version: "2023-09-30",
+  protocol: "restJson1",
+  endpointPrefix: "bedrock-runtime",
+  operations: {
+    ApplyGuardrail:
+      "POST /guardrail/{guardrailIdentifier}/version/{guardrailVersion}/apply",
+    Converse: "POST /model/{modelId}/converse",
+    ConverseStream: {
+      http: "POST /model/{modelId}/converse-stream",
+      traits: {
+        stream: "httpPayload",
+      },
+    },
+    GetAsyncInvoke: "GET /async-invoke/{invocationArn}",
+    InvokeModel: {
+      http: "POST /model/{modelId}/invoke",
+      traits: {
+        body: "httpPayload",
+        contentType: "Content-Type",
+        performanceConfigLatency: "X-Amzn-Bedrock-PerformanceConfig-Latency",
+      },
+    },
+    InvokeModelWithBidirectionalStream: {
+      http: "POST /model/{modelId}/invoke-with-bidirectional-stream",
+      traits: {
+        body: "httpPayload",
+      },
+    },
+    InvokeModelWithResponseStream: {
+      http: "POST /model/{modelId}/invoke-with-response-stream",
+      traits: {
+        body: "httpPayload",
+        contentType: "X-Amzn-Bedrock-Content-Type",
+        performanceConfigLatency: "X-Amzn-Bedrock-PerformanceConfig-Latency",
+      },
+    },
+    ListAsyncInvokes: "GET /async-invoke",
+    StartAsyncInvoke: "POST /async-invoke",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

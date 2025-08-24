@@ -1394,3 +1394,37 @@ export declare namespace UpdateTestSuite {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "AppTest",
+  version: "2022-12-06",
+  protocol: "restJson1",
+  endpointPrefix: "apptest",
+  operations: {
+    ListTagsForResource: "GET /tags/{resourceArn}",
+    TagResource: "POST /tags/{resourceArn}",
+    UntagResource: "DELETE /tags/{resourceArn}",
+    CreateTestCase: "POST /testcase",
+    CreateTestConfiguration: "POST /testconfiguration",
+    CreateTestSuite: "POST /testsuite",
+    DeleteTestCase: "DELETE /testcases/{testCaseId}",
+    DeleteTestConfiguration: "DELETE /testconfigurations/{testConfigurationId}",
+    DeleteTestRun: "DELETE /testruns/{testRunId}",
+    DeleteTestSuite: "DELETE /testsuites/{testSuiteId}",
+    GetTestCase: "GET /testcases/{testCaseId}",
+    GetTestConfiguration: "GET /testconfigurations/{testConfigurationId}",
+    GetTestRunStep: "GET /testruns/{testRunId}/steps/{stepName}",
+    GetTestSuite: "GET /testsuites/{testSuiteId}",
+    ListTestCases: "GET /testcases",
+    ListTestConfigurations: "GET /testconfigurations",
+    ListTestRunSteps: "GET /testruns/{testRunId}/steps",
+    ListTestRunTestCases: "GET /testruns/{testRunId}/testcases",
+    ListTestRuns: "GET /testruns",
+    ListTestSuites: "GET /testsuites",
+    StartTestRun: "POST /testrun",
+    UpdateTestCase: "PATCH /testcases/{testCaseId}",
+    UpdateTestConfiguration: "PATCH /testconfigurations/{testConfigurationId}",
+    UpdateTestSuite: "PATCH /testsuites/{testSuiteId}",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

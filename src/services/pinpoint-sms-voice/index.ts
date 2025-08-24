@@ -322,3 +322,26 @@ export declare namespace UpdateConfigurationSetEventDestination {
     | TooManyRequestsException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Pinpoint SMS Voice",
+  version: "2018-09-05",
+  protocol: "restJson1",
+  endpointPrefix: "sms-voice.pinpoint",
+  operations: {
+    CreateConfigurationSet: "POST /v1/sms-voice/configuration-sets",
+    CreateConfigurationSetEventDestination:
+      "POST /v1/sms-voice/configuration-sets/{ConfigurationSetName}/event-destinations",
+    DeleteConfigurationSet:
+      "DELETE /v1/sms-voice/configuration-sets/{ConfigurationSetName}",
+    DeleteConfigurationSetEventDestination:
+      "DELETE /v1/sms-voice/configuration-sets/{ConfigurationSetName}/event-destinations/{EventDestinationName}",
+    GetConfigurationSetEventDestinations:
+      "GET /v1/sms-voice/configuration-sets/{ConfigurationSetName}/event-destinations",
+    ListConfigurationSets: "GET /v1/sms-voice/configuration-sets",
+    SendVoiceMessage: "POST /v1/sms-voice/voice/message",
+    UpdateConfigurationSetEventDestination:
+      "PUT /v1/sms-voice/configuration-sets/{ConfigurationSetName}/event-destinations/{EventDestinationName}",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

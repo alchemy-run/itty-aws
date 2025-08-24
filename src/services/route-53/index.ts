@@ -2883,3 +2883,58 @@ export declare namespace UpdateTrafficPolicyInstance {
     | PriorRequestNotComplete
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Route 53",
+  version: "2013-04-01",
+  protocol: "restXml",
+  endpointPrefix: "route53",
+  operations: {
+    CreateCidrCollection: {
+      traits: {
+        Location: "Location",
+      },
+    },
+    CreateHealthCheck: {
+      traits: {
+        Location: "Location",
+      },
+    },
+    CreateHostedZone: {
+      traits: {
+        Location: "Location",
+      },
+    },
+    CreateKeySigningKey: {
+      traits: {
+        Location: "Location",
+      },
+    },
+    CreateQueryLoggingConfig: {
+      traits: {
+        Location: "Location",
+      },
+    },
+    CreateReusableDelegationSet: {
+      traits: {
+        Location: "Location",
+      },
+    },
+    CreateTrafficPolicy: {
+      traits: {
+        Location: "Location",
+      },
+    },
+    CreateTrafficPolicyInstance: {
+      traits: {
+        Location: "Location",
+      },
+    },
+    CreateTrafficPolicyVersion: {
+      traits: {
+        Location: "Location",
+      },
+    },
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

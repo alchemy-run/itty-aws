@@ -2205,3 +2205,12 @@ export declare namespace UpdateRetrainingScheduler {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "LookoutEquipment",
+  version: "2020-12-15",
+  protocol: "awsJson1_0",
+  endpointPrefix: "lookoutequipment",
+  targetPrefix: "AWSLookoutEquipmentFrontendService",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

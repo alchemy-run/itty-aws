@@ -347,3 +347,18 @@ export declare namespace UpdateJobExecution {
     | ThrottlingException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "IoT Jobs Data Plane",
+  version: "2017-09-29",
+  protocol: "restJson1",
+  endpointPrefix: "data.jobs.iot",
+  operations: {
+    DescribeJobExecution: "GET /things/{thingName}/jobs/{jobId}",
+    GetPendingJobExecutions: "GET /things/{thingName}/jobs",
+    StartCommandExecution: "POST /command-executions",
+    StartNextPendingJobExecution: "PUT /things/{thingName}/jobs/$next",
+    UpdateJobExecution: "POST /things/{thingName}/jobs/{jobId}",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

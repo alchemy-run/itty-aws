@@ -2456,3 +2456,12 @@ export declare namespace UpdatePipeline {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "CodePipeline",
+  version: "2015-07-09",
+  protocol: "awsJson1_1",
+  endpointPrefix: "codepipeline",
+  targetPrefix: "CodePipeline_20150709",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

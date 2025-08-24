@@ -646,3 +646,32 @@ export declare namespace UpdateApplication {
     | TooManyRequestsException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "ServerlessApplicationRepository",
+  version: "2017-09-08",
+  protocol: "restJson1",
+  endpointPrefix: "serverlessrepo",
+  operations: {
+    CreateApplication: "POST /applications",
+    CreateApplicationVersion:
+      "PUT /applications/{ApplicationId}/versions/{SemanticVersion}",
+    CreateCloudFormationChangeSet:
+      "POST /applications/{ApplicationId}/changesets",
+    CreateCloudFormationTemplate:
+      "POST /applications/{ApplicationId}/templates",
+    DeleteApplication: "DELETE /applications/{ApplicationId}",
+    GetApplication: "GET /applications/{ApplicationId}",
+    GetApplicationPolicy: "GET /applications/{ApplicationId}/policy",
+    GetCloudFormationTemplate:
+      "GET /applications/{ApplicationId}/templates/{TemplateId}",
+    ListApplicationDependencies:
+      "GET /applications/{ApplicationId}/dependencies",
+    ListApplications: "GET /applications",
+    ListApplicationVersions: "GET /applications/{ApplicationId}/versions",
+    PutApplicationPolicy: "PUT /applications/{ApplicationId}/policy",
+    UnshareApplication: "POST /applications/{ApplicationId}/unshare",
+    UpdateApplication: "PATCH /applications/{ApplicationId}",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

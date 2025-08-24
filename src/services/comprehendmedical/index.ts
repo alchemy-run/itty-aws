@@ -1207,3 +1207,12 @@ export declare namespace StopSNOMEDCTInferenceJob {
     | TooManyRequestsException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "ComprehendMedical",
+  version: "2018-10-30",
+  protocol: "awsJson1_1",
+  endpointPrefix: "comprehendmedical",
+  targetPrefix: "ComprehendMedical_20181030",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

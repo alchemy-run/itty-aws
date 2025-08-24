@@ -59,3 +59,14 @@ export declare namespace GetBuyerDashboard {
     | UnauthorizedException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Marketplace Reporting",
+  version: "2018-05-10",
+  protocol: "restJson1",
+  endpointPrefix: "reporting-marketplace",
+  operations: {
+    GetBuyerDashboard: "POST /getBuyerDashboard",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

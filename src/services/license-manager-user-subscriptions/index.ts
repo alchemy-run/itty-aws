@@ -760,3 +760,35 @@ export declare namespace UpdateIdentityProviderSettings {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "License Manager User Subscriptions",
+  version: "2018-05-10",
+  protocol: "restJson1",
+  operations: {
+    AssociateUser: "POST /user/AssociateUser",
+    CreateLicenseServerEndpoint:
+      "POST /license-server/CreateLicenseServerEndpoint",
+    DeleteLicenseServerEndpoint:
+      "POST /license-server/DeleteLicenseServerEndpoint",
+    DeregisterIdentityProvider:
+      "POST /identity-provider/DeregisterIdentityProvider",
+    DisassociateUser: "POST /user/DisassociateUser",
+    ListIdentityProviders: "POST /identity-provider/ListIdentityProviders",
+    ListInstances: "POST /instance/ListInstances",
+    ListLicenseServerEndpoints:
+      "POST /license-server/ListLicenseServerEndpoints",
+    ListProductSubscriptions: "POST /user/ListProductSubscriptions",
+    ListTagsForResource: "GET /tags/{ResourceArn}",
+    ListUserAssociations: "POST /user/ListUserAssociations",
+    RegisterIdentityProvider:
+      "POST /identity-provider/RegisterIdentityProvider",
+    StartProductSubscription: "POST /user/StartProductSubscription",
+    StopProductSubscription: "POST /user/StopProductSubscription",
+    TagResource: "PUT /tags/{ResourceArn}",
+    UntagResource: "DELETE /tags/{ResourceArn}",
+    UpdateIdentityProviderSettings:
+      "POST /identity-provider/UpdateIdentityProviderSettings",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

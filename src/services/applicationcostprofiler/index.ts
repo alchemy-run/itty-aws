@@ -257,3 +257,19 @@ export declare namespace UpdateReportDefinition {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "ApplicationCostProfiler",
+  version: "2020-09-10",
+  protocol: "restJson1",
+  endpointPrefix: "application-cost-profiler",
+  operations: {
+    DeleteReportDefinition: "DELETE /reportDefinition/{reportId}",
+    GetReportDefinition: "GET /reportDefinition/{reportId}",
+    ImportApplicationUsage: "POST /importApplicationUsage",
+    ListReportDefinitions: "GET /reportDefinition",
+    PutReportDefinition: "POST /reportDefinition",
+    UpdateReportDefinition: "PUT /reportDefinition/{reportId}",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

@@ -2423,3 +2423,12 @@ export declare namespace UpdateCostCategoryDefinition {
     | ServiceQuotaExceededException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Cost Explorer",
+  version: "2017-10-25",
+  protocol: "awsJson1_1",
+  endpointPrefix: "ce",
+  targetPrefix: "AWSInsightsIndexService",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

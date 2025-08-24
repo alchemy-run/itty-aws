@@ -79,3 +79,15 @@ export declare namespace JoinStorageSessionAsViewer {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Kinesis Video WebRTC Storage",
+  version: "2018-05-10",
+  protocol: "restJson1",
+  endpointPrefix: "kinesisvideo",
+  operations: {
+    JoinStorageSession: "POST /joinStorageSession",
+    JoinStorageSessionAsViewer: "POST /joinStorageSessionAsViewer",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

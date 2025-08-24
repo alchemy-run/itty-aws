@@ -983,3 +983,12 @@ export declare namespace UpdateApplication {
     | UnsupportedOperationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Kinesis Analytics",
+  version: "2015-08-14",
+  protocol: "awsJson1_1",
+  endpointPrefix: "kinesisanalytics",
+  targetPrefix: "KinesisAnalytics_20150814",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

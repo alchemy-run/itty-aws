@@ -586,3 +586,12 @@ export declare namespace UpdateEnvironmentMembership {
     | TooManyRequestsException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Cloud9",
+  version: "2017-09-23",
+  protocol: "awsJson1_1",
+  endpointPrefix: "cloud9",
+  targetPrefix: "AWSCloud9WorkspaceManagementService",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

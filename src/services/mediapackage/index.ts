@@ -965,3 +965,33 @@ export declare namespace UpdateOriginEndpoint {
     | UnprocessableEntityException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "MediaPackage",
+  version: "2017-10-12",
+  protocol: "restJson1",
+  endpointPrefix: "mediapackage",
+  operations: {
+    ConfigureLogs: "PUT /channels/{Id}/configure_logs",
+    CreateChannel: "POST /channels",
+    CreateHarvestJob: "POST /harvest_jobs",
+    CreateOriginEndpoint: "POST /origin_endpoints",
+    DeleteChannel: "DELETE /channels/{Id}",
+    DeleteOriginEndpoint: "DELETE /origin_endpoints/{Id}",
+    DescribeChannel: "GET /channels/{Id}",
+    DescribeHarvestJob: "GET /harvest_jobs/{Id}",
+    DescribeOriginEndpoint: "GET /origin_endpoints/{Id}",
+    ListChannels: "GET /channels",
+    ListHarvestJobs: "GET /harvest_jobs",
+    ListOriginEndpoints: "GET /origin_endpoints",
+    ListTagsForResource: "GET /tags/{ResourceArn}",
+    RotateChannelCredentials: "PUT /channels/{Id}/credentials",
+    RotateIngestEndpointCredentials:
+      "PUT /channels/{Id}/ingest_endpoints/{IngestEndpointId}/credentials",
+    TagResource: "POST /tags/{ResourceArn}",
+    UntagResource: "DELETE /tags/{ResourceArn}",
+    UpdateChannel: "PUT /channels/{Id}",
+    UpdateOriginEndpoint: "PUT /origin_endpoints/{Id}",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

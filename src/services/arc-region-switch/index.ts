@@ -966,3 +966,12 @@ export declare namespace UpdatePlan {
   export type Output = UpdatePlanResponse;
   export type Error = ResourceNotFoundException | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "ARC Region switch",
+  version: "2022-07-26",
+  protocol: "awsJson1_0",
+  endpointPrefix: "arc-region-switch",
+  targetPrefix: "ArcRegionSwitch",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

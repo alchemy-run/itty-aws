@@ -756,3 +756,31 @@ export declare namespace UpdateCluster {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "DocDB Elastic",
+  version: "2022-11-28",
+  protocol: "restJson1",
+  operations: {
+    ApplyPendingMaintenanceAction: "POST /pending-action",
+    CopyClusterSnapshot: "POST /cluster-snapshot/{snapshotArn}/copy",
+    CreateCluster: "POST /cluster",
+    CreateClusterSnapshot: "POST /cluster-snapshot",
+    DeleteCluster: "DELETE /cluster/{clusterArn}",
+    DeleteClusterSnapshot: "DELETE /cluster-snapshot/{snapshotArn}",
+    GetCluster: "GET /cluster/{clusterArn}",
+    GetClusterSnapshot: "GET /cluster-snapshot/{snapshotArn}",
+    GetPendingMaintenanceAction: "GET /pending-action/{resourceArn}",
+    ListClusters: "GET /clusters",
+    ListClusterSnapshots: "GET /cluster-snapshots",
+    ListPendingMaintenanceActions: "GET /pending-actions",
+    ListTagsForResource: "GET /tags/{resourceArn}",
+    RestoreClusterFromSnapshot: "POST /cluster-snapshot/{snapshotArn}/restore",
+    StartCluster: "POST /cluster/{clusterArn}/start",
+    StopCluster: "POST /cluster/{clusterArn}/stop",
+    TagResource: "POST /tags/{resourceArn}",
+    UntagResource: "DELETE /tags/{resourceArn}",
+    UpdateCluster: "PUT /cluster/{clusterArn}",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

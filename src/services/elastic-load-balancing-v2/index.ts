@@ -2367,3 +2367,11 @@ export declare namespace SetSubnets {
     | SubnetNotFoundException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Elastic Load Balancing v2",
+  version: "2015-12-01",
+  protocol: "awsQuery",
+  endpointPrefix: "elasticloadbalancing",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

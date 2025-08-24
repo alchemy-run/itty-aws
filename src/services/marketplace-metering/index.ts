@@ -300,3 +300,12 @@ export declare namespace ResolveCustomer {
     | ThrottlingException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Marketplace Metering",
+  version: "2016-01-14",
+  protocol: "awsJson1_1",
+  endpointPrefix: "metering.marketplace",
+  targetPrefix: "AWSMPMeteringService",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

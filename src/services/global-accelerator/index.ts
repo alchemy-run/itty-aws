@@ -2011,3 +2011,12 @@ export declare namespace WithdrawByoipCidr {
     | InvalidArgumentException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Global Accelerator",
+  version: "2018-08-08",
+  protocol: "awsJson1_1",
+  endpointPrefix: "globalaccelerator",
+  targetPrefix: "GlobalAccelerator_V20180706",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

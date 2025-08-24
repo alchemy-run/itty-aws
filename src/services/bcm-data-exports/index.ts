@@ -508,3 +508,12 @@ export declare namespace UpdateExport {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "BCM Data Exports",
+  version: "2023-11-26",
+  protocol: "awsJson1_1",
+  endpointPrefix: "bcm-data-exports",
+  targetPrefix: "AWSBillingAndCostManagementDataExports",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

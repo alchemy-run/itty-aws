@@ -934,3 +934,29 @@ export declare namespace PutTaxRegistration {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "TaxSettings",
+  version: "2018-05-10",
+  protocol: "restJson1",
+  operations: {
+    BatchDeleteTaxRegistration: "POST /BatchDeleteTaxRegistration",
+    BatchGetTaxExemptions: "POST /BatchGetTaxExemptions",
+    BatchPutTaxRegistration: "POST /BatchPutTaxRegistration",
+    DeleteSupplementalTaxRegistration:
+      "POST /DeleteSupplementalTaxRegistration",
+    DeleteTaxRegistration: "POST /DeleteTaxRegistration",
+    GetTaxExemptionTypes: "POST /GetTaxExemptionTypes",
+    GetTaxInheritance: "POST /GetTaxInheritance",
+    GetTaxRegistration: "POST /GetTaxRegistration",
+    GetTaxRegistrationDocument: "POST /GetTaxRegistrationDocument",
+    ListSupplementalTaxRegistrations: "POST /ListSupplementalTaxRegistrations",
+    ListTaxExemptions: "POST /ListTaxExemptions",
+    ListTaxRegistrations: "POST /ListTaxRegistrations",
+    PutSupplementalTaxRegistration: "POST /PutSupplementalTaxRegistration",
+    PutTaxExemption: "POST /PutTaxExemption",
+    PutTaxInheritance: "POST /PutTaxInheritance",
+    PutTaxRegistration: "POST /PutTaxRegistration",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

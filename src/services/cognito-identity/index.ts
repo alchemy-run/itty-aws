@@ -934,3 +934,12 @@ export declare namespace UpdateIdentityPool {
     | TooManyRequestsException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Cognito Identity",
+  version: "2014-06-30",
+  protocol: "awsJson1_1",
+  endpointPrefix: "cognito-identity",
+  targetPrefix: "AWSCognitoIdentityService",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

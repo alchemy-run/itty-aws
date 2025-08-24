@@ -483,3 +483,25 @@ export declare namespace ListWorkloads {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Launch Wizard",
+  version: "2018-05-10",
+  protocol: "restJson1",
+  endpointPrefix: "launchwizard",
+  operations: {
+    ListTagsForResource: "GET /tags/{resourceArn}",
+    TagResource: "POST /tags/{resourceArn}",
+    UntagResource: "DELETE /tags/{resourceArn}",
+    CreateDeployment: "POST /createDeployment",
+    DeleteDeployment: "POST /deleteDeployment",
+    GetDeployment: "POST /getDeployment",
+    GetWorkload: "POST /getWorkload",
+    GetWorkloadDeploymentPattern: "POST /getWorkloadDeploymentPattern",
+    ListDeploymentEvents: "POST /listDeploymentEvents",
+    ListDeployments: "POST /listDeployments",
+    ListWorkloadDeploymentPatterns: "POST /listWorkloadDeploymentPatterns",
+    ListWorkloads: "POST /listWorkloads",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

@@ -7411,3 +7411,11 @@ export declare namespace SwitchoverReadReplica {
     | InvalidDBInstanceStateFault
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "RDS",
+  version: "2014-10-31",
+  protocol: "awsQuery",
+  endpointPrefix: "rds",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

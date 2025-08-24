@@ -275,3 +275,12 @@ export declare namespace ListStreams {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "DynamoDB Streams",
+  version: "2012-08-10",
+  protocol: "awsJson1_0",
+  endpointPrefix: "streams.dynamodb",
+  targetPrefix: "DynamoDBStreams_20120810",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

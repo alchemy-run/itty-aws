@@ -1090,3 +1090,12 @@ export declare namespace UpdateCertificateAuthority {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "ACM PCA",
+  version: "2017-08-22",
+  protocol: "awsJson1_1",
+  endpointPrefix: "acm-pca",
+  targetPrefix: "ACMPrivateCA",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

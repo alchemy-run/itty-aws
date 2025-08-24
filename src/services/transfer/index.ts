@@ -3027,3 +3027,12 @@ export declare namespace UpdateWebAppCustomization {
     | ThrottlingException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Transfer",
+  version: "2018-11-05",
+  protocol: "awsJson1_1",
+  endpointPrefix: "transfer",
+  targetPrefix: "TransferService",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

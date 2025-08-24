@@ -23053,3 +23053,11 @@ export declare namespace WithdrawByoipCidr {
   export type Output = WithdrawByoipCidrResult;
   export type Error = CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "EC2",
+  version: "2016-11-15",
+  protocol: "ec2Query",
+  endpointPrefix: "ec2",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

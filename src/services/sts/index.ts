@@ -416,3 +416,11 @@ export declare namespace GetSessionToken {
   export type Output = GetSessionTokenResponse;
   export type Error = RegionDisabledException | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "STS",
+  version: "2011-06-15",
+  protocol: "awsQuery",
+  endpointPrefix: "sts",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

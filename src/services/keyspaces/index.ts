@@ -894,3 +894,12 @@ export declare namespace UpdateTable {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Keyspaces",
+  version: "2022-02-10",
+  protocol: "awsJson1_0",
+  endpointPrefix: "cassandra",
+  targetPrefix: "KeyspacesService",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

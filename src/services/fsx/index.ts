@@ -3111,3 +3111,12 @@ export declare namespace UpdateVolume {
     | VolumeNotFound
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "FSx",
+  version: "2018-03-01",
+  protocol: "awsJson1_1",
+  endpointPrefix: "fsx",
+  targetPrefix: "AWSSimbaAPIService_v20180301",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

@@ -553,3 +553,24 @@ export declare namespace UpdateProbe {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "NetworkMonitor",
+  version: "2023-08-01",
+  protocol: "restJson1",
+  operations: {
+    ListTagsForResource: "GET /tags/{resourceArn}",
+    TagResource: "POST /tags/{resourceArn}",
+    UntagResource: "DELETE /tags/{resourceArn}",
+    CreateMonitor: "POST /monitors",
+    CreateProbe: "POST /monitors/{monitorName}/probes",
+    DeleteMonitor: "DELETE /monitors/{monitorName}",
+    DeleteProbe: "DELETE /monitors/{monitorName}/probes/{probeId}",
+    GetMonitor: "GET /monitors/{monitorName}",
+    GetProbe: "GET /monitors/{monitorName}/probes/{probeId}",
+    ListMonitors: "GET /monitors",
+    UpdateMonitor: "PATCH /monitors/{monitorName}",
+    UpdateProbe: "PATCH /monitors/{monitorName}/probes/{probeId}",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

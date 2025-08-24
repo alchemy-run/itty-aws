@@ -16036,3 +16036,12 @@ export declare namespace UpdateWorkteam {
   export type Output = UpdateWorkteamResponse;
   export type Error = ResourceLimitExceeded | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "SageMaker",
+  version: "2017-07-24",
+  protocol: "awsJson1_1",
+  endpointPrefix: "api.sagemaker",
+  targetPrefix: "SageMaker",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

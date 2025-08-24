@@ -188,3 +188,12 @@ export declare namespace GetHomeRegion {
     | ThrottlingException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "MigrationHub Config",
+  version: "2019-06-30",
+  protocol: "awsJson1_1",
+  endpointPrefix: "migrationhub-config",
+  targetPrefix: "AWSMigrationHubMultiAccountService",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

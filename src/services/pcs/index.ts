@@ -868,3 +868,11 @@ export declare namespace UpdateQueue {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "PCS",
+  version: "2023-02-10",
+  protocol: "awsJson1_0",
+  targetPrefix: "AWSParallelComputingService",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

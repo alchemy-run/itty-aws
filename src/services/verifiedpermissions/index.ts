@@ -1369,3 +1369,12 @@ export declare namespace UpdatePolicyTemplate {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "VerifiedPermissions",
+  version: "2021-12-01",
+  protocol: "awsJson1_0",
+  endpointPrefix: "verifiedpermissions",
+  targetPrefix: "VerifiedPermissions",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

@@ -3191,3 +3191,12 @@ export declare namespace UpdateXssMatchSet {
     | WAFStaleDataException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "WAF Regional",
+  version: "2016-11-28",
+  protocol: "awsJson1_1",
+  endpointPrefix: "waf-regional",
+  targetPrefix: "AWSWAF_Regional_20161128",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

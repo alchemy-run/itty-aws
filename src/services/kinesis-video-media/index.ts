@@ -97,3 +97,20 @@ export declare namespace GetMedia {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Kinesis Video Media",
+  version: "2017-09-30",
+  protocol: "restJson1",
+  endpointPrefix: "kinesisvideo",
+  operations: {
+    GetMedia: {
+      http: "POST /getMedia",
+      traits: {
+        ContentType: "Content-Type",
+        Payload: "httpPayload",
+      },
+    },
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

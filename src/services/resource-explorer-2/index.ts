@@ -882,3 +882,38 @@ export declare namespace UpdateView {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Resource Explorer 2",
+  version: "2022-07-28",
+  protocol: "restJson1",
+  endpointPrefix: "resource-explorer-2",
+  operations: {
+    BatchGetView: "POST /BatchGetView",
+    DisassociateDefaultView: "POST /DisassociateDefaultView",
+    GetAccountLevelServiceConfiguration:
+      "POST /GetAccountLevelServiceConfiguration",
+    GetDefaultView: "POST /GetDefaultView",
+    GetIndex: "POST /GetIndex",
+    GetManagedView: "POST /GetManagedView",
+    ListIndexesForMembers: "POST /ListIndexesForMembers",
+    ListManagedViews: "POST /ListManagedViews",
+    ListResources: "POST /ListResources",
+    ListSupportedResourceTypes: "POST /ListSupportedResourceTypes",
+    ListTagsForResource: "GET /tags/{resourceArn}",
+    Search: "POST /Search",
+    TagResource: "POST /tags/{resourceArn}",
+    UntagResource: "DELETE /tags/{resourceArn}",
+    AssociateDefaultView: "POST /AssociateDefaultView",
+    CreateIndex: "POST /CreateIndex",
+    CreateView: "POST /CreateView",
+    DeleteIndex: "POST /DeleteIndex",
+    DeleteView: "POST /DeleteView",
+    GetView: "POST /GetView",
+    ListIndexes: "POST /ListIndexes",
+    ListViews: "POST /ListViews",
+    UpdateIndexType: "POST /UpdateIndexType",
+    UpdateView: "POST /UpdateView",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

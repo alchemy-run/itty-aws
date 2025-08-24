@@ -2557,3 +2557,12 @@ export declare namespace UpdatePolicy {
     | UnsupportedAPIEndpointException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Organizations",
+  version: "2016-11-28",
+  protocol: "awsJson1_1",
+  endpointPrefix: "organizations",
+  targetPrefix: "AWSOrganizationsV20161128",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

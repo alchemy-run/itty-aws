@@ -716,3 +716,41 @@ export declare namespace UpdateTelemetryRuleForOrganization {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "ObservabilityAdmin",
+  version: "2018-05-10",
+  protocol: "restJson1",
+  operations: {
+    CreateTelemetryRule: "POST /CreateTelemetryRule",
+    CreateTelemetryRuleForOrganization:
+      "POST /CreateTelemetryRuleForOrganization",
+    DeleteTelemetryRule: "POST /DeleteTelemetryRule",
+    DeleteTelemetryRuleForOrganization:
+      "POST /DeleteTelemetryRuleForOrganization",
+    GetTelemetryEvaluationStatus: "POST /GetTelemetryEvaluationStatus",
+    GetTelemetryEvaluationStatusForOrganization:
+      "POST /GetTelemetryEvaluationStatusForOrganization",
+    GetTelemetryRule: "POST /GetTelemetryRule",
+    GetTelemetryRuleForOrganization: "POST /GetTelemetryRuleForOrganization",
+    ListResourceTelemetry: "POST /ListResourceTelemetry",
+    ListResourceTelemetryForOrganization:
+      "POST /ListResourceTelemetryForOrganization",
+    ListTagsForResource: "POST /ListTagsForResource",
+    ListTelemetryRules: "POST /ListTelemetryRules",
+    ListTelemetryRulesForOrganization:
+      "POST /ListTelemetryRulesForOrganization",
+    StartTelemetryEvaluation: "POST /StartTelemetryEvaluation",
+    StartTelemetryEvaluationForOrganization:
+      "POST /StartTelemetryEvaluationForOrganization",
+    StopTelemetryEvaluation: "POST /StopTelemetryEvaluation",
+    StopTelemetryEvaluationForOrganization:
+      "POST /StopTelemetryEvaluationForOrganization",
+    TagResource: "POST /TagResource",
+    UntagResource: "POST /UntagResource",
+    UpdateTelemetryRule: "POST /UpdateTelemetryRule",
+    UpdateTelemetryRuleForOrganization:
+      "POST /UpdateTelemetryRuleForOrganization",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

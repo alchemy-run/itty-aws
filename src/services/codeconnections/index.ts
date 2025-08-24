@@ -1075,3 +1075,12 @@ export declare namespace UpdateSyncConfiguration {
     | UpdateOutOfSyncException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "CodeConnections",
+  version: "2023-12-01",
+  protocol: "awsJson1_0",
+  endpointPrefix: "codeconnections",
+  targetPrefix: "CodeConnections_20231201",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

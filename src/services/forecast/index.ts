@@ -2307,3 +2307,12 @@ export declare namespace UpdateDatasetGroup {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "forecast",
+  version: "2018-06-26",
+  protocol: "awsJson1_1",
+  endpointPrefix: "forecast",
+  targetPrefix: "AmazonForecast",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

@@ -1421,3 +1421,47 @@ export declare namespace UpdateMissionProfile {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "GroundStation",
+  version: "2019-05-23",
+  protocol: "restJson1",
+  operations: {
+    GetMinuteUsage: "POST /minute-usage",
+    ListTagsForResource: "GET /tags/{resourceArn}",
+    TagResource: "POST /tags/{resourceArn}",
+    UntagResource: "DELETE /tags/{resourceArn}",
+    CancelContact: "DELETE /contact/{contactId}",
+    CreateConfig: "POST /config",
+    CreateDataflowEndpointGroup: "POST /dataflowEndpointGroup",
+    CreateEphemeris: "POST /ephemeris",
+    CreateMissionProfile: "POST /missionprofile",
+    DeleteConfig: "DELETE /config/{configType}/{configId}",
+    DeleteDataflowEndpointGroup:
+      "DELETE /dataflowEndpointGroup/{dataflowEndpointGroupId}",
+    DeleteEphemeris: "DELETE /ephemeris/{ephemerisId}",
+    DeleteMissionProfile: "DELETE /missionprofile/{missionProfileId}",
+    DescribeContact: "GET /contact/{contactId}",
+    DescribeEphemeris: "GET /ephemeris/{ephemerisId}",
+    GetAgentConfiguration: "GET /agent/{agentId}/configuration",
+    GetConfig: "GET /config/{configType}/{configId}",
+    GetDataflowEndpointGroup:
+      "GET /dataflowEndpointGroup/{dataflowEndpointGroupId}",
+    GetMissionProfile: "GET /missionprofile/{missionProfileId}",
+    GetSatellite: "GET /satellite/{satelliteId}",
+    ListConfigs: "GET /config",
+    ListContacts: "POST /contacts",
+    ListDataflowEndpointGroups: "GET /dataflowEndpointGroup",
+    ListEphemerides: "POST /ephemerides",
+    ListGroundStations: "GET /groundstation",
+    ListMissionProfiles: "GET /missionprofile",
+    ListSatellites: "GET /satellite",
+    RegisterAgent: "POST /agent",
+    ReserveContact: "POST /contact",
+    UpdateAgentStatus: "PUT /agent/{agentId}",
+    UpdateConfig: "PUT /config/{configType}/{configId}",
+    UpdateEphemeris: "PUT /ephemeris/{ephemerisId}",
+    UpdateMissionProfile: "PUT /missionprofile/{missionProfileId}",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

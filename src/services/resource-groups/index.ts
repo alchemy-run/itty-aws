@@ -1032,3 +1032,36 @@ export declare namespace UpdateGroupQuery {
     | TooManyRequestsException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Resource Groups",
+  version: "2017-11-27",
+  protocol: "restJson1",
+  endpointPrefix: "resource-groups",
+  operations: {
+    CancelTagSyncTask: "POST /cancel-tag-sync-task",
+    CreateGroup: "POST /groups",
+    DeleteGroup: "POST /delete-group",
+    GetAccountSettings: "POST /get-account-settings",
+    GetGroup: "POST /get-group",
+    GetGroupConfiguration: "POST /get-group-configuration",
+    GetGroupQuery: "POST /get-group-query",
+    GetTags: "GET /resources/{Arn}/tags",
+    GetTagSyncTask: "POST /get-tag-sync-task",
+    GroupResources: "POST /group-resources",
+    ListGroupingStatuses: "POST /list-grouping-statuses",
+    ListGroupResources: "POST /list-group-resources",
+    ListGroups: "POST /groups-list",
+    ListTagSyncTasks: "POST /list-tag-sync-tasks",
+    PutGroupConfiguration: "POST /put-group-configuration",
+    SearchResources: "POST /resources/search",
+    StartTagSyncTask: "POST /start-tag-sync-task",
+    Tag: "PUT /resources/{Arn}/tags",
+    UngroupResources: "POST /ungroup-resources",
+    Untag: "PATCH /resources/{Arn}/tags",
+    UpdateAccountSettings: "POST /update-account-settings",
+    UpdateGroup: "POST /update-group",
+    UpdateGroupQuery: "POST /update-group-query",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

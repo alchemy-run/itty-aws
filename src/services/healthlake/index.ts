@@ -592,3 +592,12 @@ export declare namespace UntagResource {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "HealthLake",
+  version: "2017-07-01",
+  protocol: "awsJson1_0",
+  endpointPrefix: "healthlake",
+  targetPrefix: "HealthLake",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

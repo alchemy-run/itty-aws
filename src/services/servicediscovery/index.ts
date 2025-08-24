@@ -1111,3 +1111,12 @@ export declare namespace UpdateServiceAttributes {
     | ServiceNotFound
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "ServiceDiscovery",
+  version: "2017-03-14",
+  protocol: "awsJson1_1",
+  endpointPrefix: "servicediscovery",
+  targetPrefix: "Route53AutoNaming_v20170314",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

@@ -1791,3 +1791,12 @@ export declare namespace UpdateTransformer {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "b2bi",
+  version: "2022-06-23",
+  protocol: "awsJson1_0",
+  endpointPrefix: "b2bi",
+  targetPrefix: "B2BI",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

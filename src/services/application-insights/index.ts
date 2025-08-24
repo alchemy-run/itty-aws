@@ -1341,3 +1341,12 @@ export declare namespace UpdateWorkload {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Application Insights",
+  version: "2018-11-25",
+  protocol: "awsJson1_1",
+  endpointPrefix: "applicationinsights",
+  targetPrefix: "EC2WindowsBarleyService",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

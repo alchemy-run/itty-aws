@@ -649,3 +649,38 @@ export declare namespace UpdateLedgerPermissionsMode {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "QLDB",
+  version: "2019-01-02",
+  protocol: "restJson1",
+  endpointPrefix: "qldb",
+  operations: {
+    CancelJournalKinesisStream:
+      "DELETE /ledgers/{LedgerName}/journal-kinesis-streams/{StreamId}",
+    CreateLedger: "POST /ledgers",
+    DeleteLedger: "DELETE /ledgers/{Name}",
+    DescribeJournalKinesisStream:
+      "GET /ledgers/{LedgerName}/journal-kinesis-streams/{StreamId}",
+    DescribeJournalS3Export:
+      "GET /ledgers/{Name}/journal-s3-exports/{ExportId}",
+    DescribeLedger: "GET /ledgers/{Name}",
+    ExportJournalToS3: "POST /ledgers/{Name}/journal-s3-exports",
+    GetBlock: "POST /ledgers/{Name}/block",
+    GetDigest: "POST /ledgers/{Name}/digest",
+    GetRevision: "POST /ledgers/{Name}/revision",
+    ListJournalKinesisStreamsForLedger:
+      "GET /ledgers/{LedgerName}/journal-kinesis-streams",
+    ListJournalS3Exports: "GET /journal-s3-exports",
+    ListJournalS3ExportsForLedger: "GET /ledgers/{Name}/journal-s3-exports",
+    ListLedgers: "GET /ledgers",
+    ListTagsForResource: "GET /tags/{ResourceArn}",
+    StreamJournalToKinesis:
+      "POST /ledgers/{LedgerName}/journal-kinesis-streams",
+    TagResource: "POST /tags/{ResourceArn}",
+    UntagResource: "DELETE /tags/{ResourceArn}",
+    UpdateLedger: "PATCH /ledgers/{Name}",
+    UpdateLedgerPermissionsMode: "PATCH /ledgers/{Name}/permissions-mode",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

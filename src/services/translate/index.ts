@@ -906,3 +906,12 @@ export declare namespace UpdateParallelData {
     | TooManyRequestsException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Translate",
+  version: "2017-07-01",
+  protocol: "awsJson1_1",
+  endpointPrefix: "translate",
+  targetPrefix: "AWSShineFrontendService_20170701",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

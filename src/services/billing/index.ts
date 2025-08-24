@@ -455,3 +455,12 @@ export declare namespace UpdateBillingView {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Billing",
+  version: "2023-09-07",
+  protocol: "awsJson1_0",
+  endpointPrefix: "billing",
+  targetPrefix: "AWSBilling",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

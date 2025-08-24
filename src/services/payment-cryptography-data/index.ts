@@ -1060,3 +1060,25 @@ export declare namespace VerifyPinData {
     | VerificationFailedException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Payment Cryptography Data",
+  version: "2022-02-03",
+  protocol: "restJson1",
+  endpointPrefix: "dataplane.payment-cryptography",
+  operations: {
+    DecryptData: "POST /keys/{KeyIdentifier}/decrypt",
+    EncryptData: "POST /keys/{KeyIdentifier}/encrypt",
+    GenerateCardValidationData: "POST /cardvalidationdata/generate",
+    GenerateMac: "POST /mac/generate",
+    GenerateMacEmvPinChange: "POST /macemvpinchange/generate",
+    GeneratePinData: "POST /pindata/generate",
+    ReEncryptData: "POST /keys/{IncomingKeyIdentifier}/reencrypt",
+    TranslatePinData: "POST /pindata/translate",
+    VerifyAuthRequestCryptogram: "POST /cryptogram/verify",
+    VerifyCardValidationData: "POST /cardvalidationdata/verify",
+    VerifyMac: "POST /mac/verify",
+    VerifyPinData: "POST /pindata/verify",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

@@ -1808,3 +1808,64 @@ export declare namespace UpdateMediaPipelineKinesisVideoStreamPool {
     | UnauthorizedClientException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Chime SDK Media Pipelines",
+  version: "2021-07-15",
+  protocol: "restJson1",
+  endpointPrefix: "media-pipelines-chime",
+  operations: {
+    CreateMediaCapturePipeline: "POST /sdk-media-capture-pipelines",
+    CreateMediaConcatenationPipeline: "POST /sdk-media-concatenation-pipelines",
+    CreateMediaInsightsPipeline: "POST /media-insights-pipelines",
+    CreateMediaInsightsPipelineConfiguration:
+      "POST /media-insights-pipeline-configurations",
+    CreateMediaLiveConnectorPipeline:
+      "POST /sdk-media-live-connector-pipelines",
+    CreateMediaPipelineKinesisVideoStreamPool:
+      "POST /media-pipeline-kinesis-video-stream-pools",
+    CreateMediaStreamPipeline: "POST /sdk-media-stream-pipelines",
+    DeleteMediaCapturePipeline:
+      "DELETE /sdk-media-capture-pipelines/{MediaPipelineId}",
+    DeleteMediaInsightsPipelineConfiguration:
+      "DELETE /media-insights-pipeline-configurations/{Identifier}",
+    DeleteMediaPipeline: "DELETE /sdk-media-pipelines/{MediaPipelineId}",
+    DeleteMediaPipelineKinesisVideoStreamPool:
+      "DELETE /media-pipeline-kinesis-video-stream-pools/{Identifier}",
+    GetMediaCapturePipeline:
+      "GET /sdk-media-capture-pipelines/{MediaPipelineId}",
+    GetMediaInsightsPipelineConfiguration:
+      "GET /media-insights-pipeline-configurations/{Identifier}",
+    GetMediaPipeline: "GET /sdk-media-pipelines/{MediaPipelineId}",
+    GetMediaPipelineKinesisVideoStreamPool:
+      "GET /media-pipeline-kinesis-video-stream-pools/{Identifier}",
+    GetSpeakerSearchTask:
+      "GET /media-insights-pipelines/{Identifier}/speaker-search-tasks/{SpeakerSearchTaskId}",
+    GetVoiceToneAnalysisTask:
+      "GET /media-insights-pipelines/{Identifier}/voice-tone-analysis-tasks/{VoiceToneAnalysisTaskId}",
+    ListMediaCapturePipelines: "GET /sdk-media-capture-pipelines",
+    ListMediaInsightsPipelineConfigurations:
+      "GET /media-insights-pipeline-configurations",
+    ListMediaPipelineKinesisVideoStreamPools:
+      "GET /media-pipeline-kinesis-video-stream-pools",
+    ListMediaPipelines: "GET /sdk-media-pipelines",
+    ListTagsForResource: "GET /tags",
+    StartSpeakerSearchTask:
+      "POST /media-insights-pipelines/{Identifier}/speaker-search-tasks?operation=start",
+    StartVoiceToneAnalysisTask:
+      "POST /media-insights-pipelines/{Identifier}/voice-tone-analysis-tasks?operation=start",
+    StopSpeakerSearchTask:
+      "POST /media-insights-pipelines/{Identifier}/speaker-search-tasks/{SpeakerSearchTaskId}?operation=stop",
+    StopVoiceToneAnalysisTask:
+      "POST /media-insights-pipelines/{Identifier}/voice-tone-analysis-tasks/{VoiceToneAnalysisTaskId}?operation=stop",
+    TagResource: "POST /tags?operation=tag-resource",
+    UntagResource: "POST /tags?operation=untag-resource",
+    UpdateMediaInsightsPipelineConfiguration:
+      "PUT /media-insights-pipeline-configurations/{Identifier}",
+    UpdateMediaInsightsPipelineStatus:
+      "PUT /media-insights-pipeline-status/{Identifier}",
+    UpdateMediaPipelineKinesisVideoStreamPool:
+      "PUT /media-pipeline-kinesis-video-stream-pools/{Identifier}",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

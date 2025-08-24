@@ -946,3 +946,12 @@ export declare namespace PutResourceAttributes {
     | UnauthorizedOperation
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Migration Hub",
+  version: "2017-05-31",
+  protocol: "awsJson1_1",
+  endpointPrefix: "mgh",
+  targetPrefix: "AWSMigrationHub",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

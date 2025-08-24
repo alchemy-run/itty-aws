@@ -1608,3 +1608,11 @@ export declare namespace UntagResource {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "CloudWatch",
+  version: "2010-08-01",
+  protocol: "awsQuery",
+  endpointPrefix: "monitoring",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

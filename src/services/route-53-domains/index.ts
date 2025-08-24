@@ -1457,3 +1457,12 @@ export declare namespace ViewBilling {
   export type Output = ViewBillingResponse;
   export type Error = InvalidInput | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Route 53 Domains",
+  version: "2014-05-15",
+  protocol: "awsJson1_1",
+  endpointPrefix: "route53domains",
+  targetPrefix: "Route53Domains_v20140515",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

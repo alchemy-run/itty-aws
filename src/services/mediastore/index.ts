@@ -619,3 +619,12 @@ export declare namespace UntagResource {
     | InternalServerError
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "MediaStore",
+  version: "2017-09-01",
+  protocol: "awsJson1_1",
+  endpointPrefix: "mediastore",
+  targetPrefix: "MediaStore_20170901",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

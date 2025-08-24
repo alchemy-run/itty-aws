@@ -559,3 +559,27 @@ export declare namespace UpdateLink {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "OAM",
+  version: "2022-06-10",
+  protocol: "restJson1",
+  operations: {
+    CreateLink: "POST /CreateLink",
+    CreateSink: "POST /CreateSink",
+    DeleteLink: "POST /DeleteLink",
+    DeleteSink: "POST /DeleteSink",
+    GetLink: "POST /GetLink",
+    GetSink: "POST /GetSink",
+    GetSinkPolicy: "POST /GetSinkPolicy",
+    ListAttachedLinks: "POST /ListAttachedLinks",
+    ListLinks: "POST /ListLinks",
+    ListSinks: "POST /ListSinks",
+    ListTagsForResource: "GET /tags/{ResourceArn}",
+    PutSinkPolicy: "POST /PutSinkPolicy",
+    TagResource: "PUT /tags/{ResourceArn}",
+    UntagResource: "DELETE /tags/{ResourceArn}",
+    UpdateLink: "POST /UpdateLink",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

@@ -552,3 +552,12 @@ export declare namespace EnableHealthServiceAccessForOrganization {
   export type Output = {};
   export type Error = ConcurrentModificationException | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Health",
+  version: "2016-08-04",
+  protocol: "awsJson1_1",
+  endpointPrefix: "health",
+  targetPrefix: "AWSHealth_20160804",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

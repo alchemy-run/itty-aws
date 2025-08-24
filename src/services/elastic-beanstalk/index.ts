@@ -1780,3 +1780,11 @@ export declare namespace ValidateConfigurationSettings {
     | TooManyBucketsException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Elastic Beanstalk",
+  version: "2010-12-01",
+  protocol: "awsQuery",
+  endpointPrefix: "elasticbeanstalk",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

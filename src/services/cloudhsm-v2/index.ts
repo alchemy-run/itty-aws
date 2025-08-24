@@ -777,3 +777,12 @@ export declare namespace UntagResource {
     | CloudHsmTagException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "CloudHSM V2",
+  version: "2017-04-28",
+  protocol: "awsJson1_1",
+  endpointPrefix: "cloudhsmv2",
+  targetPrefix: "BaldrApiService",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

@@ -555,3 +555,24 @@ export declare namespace StartAttachmentUpload {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "ConnectParticipant",
+  version: "2018-09-07",
+  protocol: "restJson1",
+  endpointPrefix: "participant.connect",
+  operations: {
+    CancelParticipantAuthentication: "POST /participant/cancel-authentication",
+    CompleteAttachmentUpload: "POST /participant/complete-attachment-upload",
+    CreateParticipantConnection: "POST /participant/connection",
+    DescribeView: "GET /participant/views/{ViewToken}",
+    DisconnectParticipant: "POST /participant/disconnect",
+    GetAttachment: "POST /participant/attachment",
+    GetAuthenticationUrl: "POST /participant/authentication-url",
+    GetTranscript: "POST /participant/transcript",
+    SendEvent: "POST /participant/event",
+    SendMessage: "POST /participant/message",
+    StartAttachmentUpload: "POST /participant/start-attachment-upload",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

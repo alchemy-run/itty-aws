@@ -2631,3 +2631,12 @@ export declare namespace UpdateTLSInspectionConfiguration {
     | ThrottlingException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Network Firewall",
+  version: "2020-11-12",
+  protocol: "awsJson1_0",
+  endpointPrefix: "network-firewall",
+  targetPrefix: "NetworkFirewall_20201112",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

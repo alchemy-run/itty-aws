@@ -2323,3 +2323,11 @@ export declare namespace UpdateWorkgroup {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Redshift Serverless",
+  version: "2021-04-21",
+  protocol: "awsJson1_1",
+  targetPrefix: "RedshiftServerless",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

@@ -547,3 +547,21 @@ export declare namespace ListTransactions {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "ManagedBlockchain Query",
+  version: "2023-05-04",
+  protocol: "restJson1",
+  operations: {
+    BatchGetTokenBalance: "POST /batch-get-token-balance",
+    GetAssetContract: "POST /get-asset-contract",
+    GetTokenBalance: "POST /get-token-balance",
+    GetTransaction: "POST /get-transaction",
+    ListAssetContracts: "POST /list-asset-contracts",
+    ListFilteredTransactionEvents: "POST /list-filtered-transaction-events",
+    ListTokenBalances: "POST /list-token-balances",
+    ListTransactionEvents: "POST /list-transaction-events",
+    ListTransactions: "POST /list-transactions",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

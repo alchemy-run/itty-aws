@@ -1396,3 +1396,43 @@ export declare namespace UpdateTimelineEvent {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "SSM Incidents",
+  version: "2018-05-10",
+  protocol: "restJson1",
+  operations: {
+    BatchGetIncidentFindings: "POST /batchGetIncidentFindings",
+    CreateReplicationSet: "POST /createReplicationSet",
+    CreateResponsePlan: "POST /createResponsePlan",
+    CreateTimelineEvent: "POST /createTimelineEvent",
+    DeleteIncidentRecord: "POST /deleteIncidentRecord",
+    DeleteReplicationSet: "POST /deleteReplicationSet",
+    DeleteResourcePolicy: "POST /deleteResourcePolicy",
+    DeleteResponsePlan: "POST /deleteResponsePlan",
+    DeleteTimelineEvent: "POST /deleteTimelineEvent",
+    GetIncidentRecord: "GET /getIncidentRecord",
+    GetReplicationSet: "GET /getReplicationSet",
+    GetResourcePolicies: "POST /getResourcePolicies",
+    GetResponsePlan: "GET /getResponsePlan",
+    GetTimelineEvent: "GET /getTimelineEvent",
+    ListIncidentFindings: "POST /listIncidentFindings",
+    ListIncidentRecords: "POST /listIncidentRecords",
+    ListRelatedItems: "POST /listRelatedItems",
+    ListReplicationSets: "POST /listReplicationSets",
+    ListResponsePlans: "POST /listResponsePlans",
+    ListTagsForResource: "GET /tags/{resourceArn}",
+    ListTimelineEvents: "POST /listTimelineEvents",
+    PutResourcePolicy: "POST /putResourcePolicy",
+    StartIncident: "POST /startIncident",
+    TagResource: "POST /tags/{resourceArn}",
+    UntagResource: "DELETE /tags/{resourceArn}",
+    UpdateDeletionProtection: "POST /updateDeletionProtection",
+    UpdateIncidentRecord: "POST /updateIncidentRecord",
+    UpdateRelatedItems: "POST /updateRelatedItems",
+    UpdateReplicationSet: "POST /updateReplicationSet",
+    UpdateResponsePlan: "POST /updateResponsePlan",
+    UpdateTimelineEvent: "POST /updateTimelineEvent",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

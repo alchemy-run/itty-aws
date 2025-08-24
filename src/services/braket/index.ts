@@ -677,3 +677,25 @@ export declare namespace SearchQuantumTasks {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Braket",
+  version: "2019-09-01",
+  protocol: "restJson1",
+  operations: {
+    ListTagsForResource: "GET /tags/{resourceArn}",
+    TagResource: "POST /tags/{resourceArn}",
+    UntagResource: "DELETE /tags/{resourceArn}",
+    CancelJob: "PUT /job/{jobArn}/cancel",
+    CancelQuantumTask: "PUT /quantum-task/{quantumTaskArn}/cancel",
+    CreateJob: "POST /job",
+    CreateQuantumTask: "POST /quantum-task",
+    GetDevice: "GET /device/{deviceArn}",
+    GetJob: "GET /job/{jobArn}",
+    GetQuantumTask: "GET /quantum-task/{quantumTaskArn}",
+    SearchDevices: "POST /devices",
+    SearchJobs: "POST /jobs",
+    SearchQuantumTasks: "POST /quantum-tasks",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

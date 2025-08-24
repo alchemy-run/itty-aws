@@ -632,3 +632,30 @@ export declare namespace UpdateRecommendationLifecycle {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "TrustedAdvisor",
+  version: "2022-09-15",
+  protocol: "restJson1",
+  operations: {
+    BatchUpdateRecommendationResourceExclusion:
+      "PUT /v1/batch-update-recommendation-resource-exclusion",
+    GetOrganizationRecommendation:
+      "GET /v1/organization-recommendations/{organizationRecommendationIdentifier}",
+    GetRecommendation: "GET /v1/recommendations/{recommendationIdentifier}",
+    ListChecks: "GET /v1/checks",
+    ListOrganizationRecommendationAccounts:
+      "GET /v1/organization-recommendations/{organizationRecommendationIdentifier}/accounts",
+    ListOrganizationRecommendationResources:
+      "GET /v1/organization-recommendations/{organizationRecommendationIdentifier}/resources",
+    ListOrganizationRecommendations: "GET /v1/organization-recommendations",
+    ListRecommendationResources:
+      "GET /v1/recommendations/{recommendationIdentifier}/resources",
+    ListRecommendations: "GET /v1/recommendations",
+    UpdateOrganizationRecommendationLifecycle:
+      "PUT /v1/organization-recommendations/{organizationRecommendationIdentifier}/lifecycle",
+    UpdateRecommendationLifecycle:
+      "PUT /v1/recommendations/{recommendationIdentifier}/lifecycle",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

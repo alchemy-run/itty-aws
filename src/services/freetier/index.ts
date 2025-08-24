@@ -281,3 +281,12 @@ export declare namespace UpgradeAccountPlan {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "FreeTier",
+  version: "2023-09-07",
+  protocol: "awsJson1_0",
+  endpointPrefix: "freetier",
+  targetPrefix: "AWSFreeTierService",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

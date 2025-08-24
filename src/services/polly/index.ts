@@ -628,3 +628,29 @@ export declare namespace SynthesizeSpeech {
     | TextLengthExceededException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Polly",
+  version: "2016-06-10",
+  protocol: "restJson1",
+  endpointPrefix: "polly",
+  operations: {
+    DeleteLexicon: "DELETE /v1/lexicons/{Name}",
+    DescribeVoices: "GET /v1/voices",
+    GetLexicon: "GET /v1/lexicons/{Name}",
+    GetSpeechSynthesisTask: "GET /v1/synthesisTasks/{TaskId}",
+    ListLexicons: "GET /v1/lexicons",
+    ListSpeechSynthesisTasks: "GET /v1/synthesisTasks",
+    PutLexicon: "PUT /v1/lexicons/{Name}",
+    StartSpeechSynthesisTask: "POST /v1/synthesisTasks",
+    SynthesizeSpeech: {
+      http: "POST /v1/speech",
+      traits: {
+        AudioStream: "httpPayload",
+        ContentType: "Content-Type",
+        RequestCharacters: "x-amzn-RequestCharacters",
+      },
+    },
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

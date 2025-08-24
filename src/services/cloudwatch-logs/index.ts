@@ -3753,3 +3753,12 @@ export declare namespace UpdateLogAnomalyDetector {
     | ServiceUnavailableException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "CloudWatch Logs",
+  version: "2014-03-28",
+  protocol: "awsJson1_1",
+  endpointPrefix: "logs",
+  targetPrefix: "Logs_20140328",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

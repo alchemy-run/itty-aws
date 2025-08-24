@@ -2107,3 +2107,72 @@ export declare namespace UpdateRepository {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "codeartifact",
+  version: "2018-09-22",
+  protocol: "restJson1",
+  endpointPrefix: "codeartifact",
+  operations: {
+    AssociateExternalConnection: "POST /v1/repository/external-connection",
+    CopyPackageVersions: "POST /v1/package/versions/copy",
+    CreateDomain: "POST /v1/domain",
+    CreatePackageGroup: "POST /v1/package-group",
+    CreateRepository: "POST /v1/repository",
+    DeleteDomain: "DELETE /v1/domain",
+    DeleteDomainPermissionsPolicy: "DELETE /v1/domain/permissions/policy",
+    DeletePackage: "DELETE /v1/package",
+    DeletePackageGroup: "DELETE /v1/package-group",
+    DeletePackageVersions: "POST /v1/package/versions/delete",
+    DeleteRepository: "DELETE /v1/repository",
+    DeleteRepositoryPermissionsPolicy:
+      "DELETE /v1/repository/permissions/policies",
+    DescribeDomain: "GET /v1/domain",
+    DescribePackage: "GET /v1/package",
+    DescribePackageGroup: "GET /v1/package-group",
+    DescribePackageVersion: "GET /v1/package/version",
+    DescribeRepository: "GET /v1/repository",
+    DisassociateExternalConnection: "DELETE /v1/repository/external-connection",
+    DisposePackageVersions: "POST /v1/package/versions/dispose",
+    GetAssociatedPackageGroup: "GET /v1/get-associated-package-group",
+    GetAuthorizationToken: "POST /v1/authorization-token",
+    GetDomainPermissionsPolicy: "GET /v1/domain/permissions/policy",
+    GetPackageVersionAsset: {
+      http: "GET /v1/package/version/asset",
+      traits: {
+        asset: "httpPayload",
+        assetName: "X-AssetName",
+        packageVersion: "X-PackageVersion",
+        packageVersionRevision: "X-PackageVersionRevision",
+      },
+    },
+    GetPackageVersionReadme: "GET /v1/package/version/readme",
+    GetRepositoryEndpoint: "GET /v1/repository/endpoint",
+    GetRepositoryPermissionsPolicy: "GET /v1/repository/permissions/policy",
+    ListAllowedRepositoriesForGroup:
+      "GET /v1/package-group-allowed-repositories",
+    ListAssociatedPackages: "GET /v1/list-associated-packages",
+    ListDomains: "POST /v1/domains",
+    ListPackageGroups: "POST /v1/package-groups",
+    ListPackages: "POST /v1/packages",
+    ListPackageVersionAssets: "POST /v1/package/version/assets",
+    ListPackageVersionDependencies: "POST /v1/package/version/dependencies",
+    ListPackageVersions: "POST /v1/package/versions",
+    ListRepositories: "POST /v1/repositories",
+    ListRepositoriesInDomain: "POST /v1/domain/repositories",
+    ListSubPackageGroups: "POST /v1/package-groups/sub-groups",
+    ListTagsForResource: "POST /v1/tags",
+    PublishPackageVersion: "POST /v1/package/version/publish",
+    PutDomainPermissionsPolicy: "PUT /v1/domain/permissions/policy",
+    PutPackageOriginConfiguration: "POST /v1/package",
+    PutRepositoryPermissionsPolicy: "PUT /v1/repository/permissions/policy",
+    TagResource: "POST /v1/tag",
+    UntagResource: "POST /v1/untag",
+    UpdatePackageGroup: "PUT /v1/package-group",
+    UpdatePackageGroupOriginConfiguration:
+      "PUT /v1/package-group-origin-configuration",
+    UpdatePackageVersionsStatus: "POST /v1/package/versions/update_status",
+    UpdateRepository: "PUT /v1/repository",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

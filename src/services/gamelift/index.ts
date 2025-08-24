@@ -5598,3 +5598,12 @@ export declare namespace ValidateMatchmakingRuleSet {
     | UnsupportedRegionException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "GameLift",
+  version: "2015-10-01",
+  protocol: "awsJson1_1",
+  endpointPrefix: "gamelift",
+  targetPrefix: "GameLift",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

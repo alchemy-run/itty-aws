@@ -724,3 +724,42 @@ export declare namespace UpdateRecords {
     | TooManyRequestsException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Cognito Sync",
+  version: "2014-06-30",
+  protocol: "restJson1",
+  endpointPrefix: "cognito-sync",
+  operations: {
+    BulkPublish: "POST /identitypools/{IdentityPoolId}/bulkpublish",
+    DeleteDataset:
+      "DELETE /identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}",
+    DescribeDataset:
+      "GET /identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}",
+    DescribeIdentityPoolUsage: "GET /identitypools/{IdentityPoolId}",
+    DescribeIdentityUsage:
+      "GET /identitypools/{IdentityPoolId}/identities/{IdentityId}",
+    GetBulkPublishDetails:
+      "POST /identitypools/{IdentityPoolId}/getBulkPublishDetails",
+    GetCognitoEvents: "GET /identitypools/{IdentityPoolId}/events",
+    GetIdentityPoolConfiguration:
+      "GET /identitypools/{IdentityPoolId}/configuration",
+    ListDatasets:
+      "GET /identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets",
+    ListIdentityPoolUsage: "GET /identitypools",
+    ListRecords:
+      "GET /identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}/records",
+    RegisterDevice:
+      "POST /identitypools/{IdentityPoolId}/identity/{IdentityId}/device",
+    SetCognitoEvents: "POST /identitypools/{IdentityPoolId}/events",
+    SetIdentityPoolConfiguration:
+      "POST /identitypools/{IdentityPoolId}/configuration",
+    SubscribeToDataset:
+      "POST /identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}/subscriptions/{DeviceId}",
+    UnsubscribeFromDataset:
+      "DELETE /identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}/subscriptions/{DeviceId}",
+    UpdateRecords:
+      "POST /identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

@@ -1211,3 +1211,12 @@ export declare namespace UpdateMLModel {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Machine Learning",
+  version: "2014-12-12",
+  protocol: "awsJson1_1",
+  endpointPrefix: "machinelearning",
+  targetPrefix: "AmazonML_20141212",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

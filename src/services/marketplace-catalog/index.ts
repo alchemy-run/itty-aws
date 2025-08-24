@@ -1167,3 +1167,26 @@ export declare namespace UntagResource {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Marketplace Catalog",
+  version: "2018-09-17",
+  protocol: "restJson1",
+  endpointPrefix: "catalog.marketplace",
+  operations: {
+    BatchDescribeEntities: "POST /BatchDescribeEntities",
+    CancelChangeSet: "PATCH /CancelChangeSet",
+    DeleteResourcePolicy: "DELETE /DeleteResourcePolicy",
+    DescribeChangeSet: "GET /DescribeChangeSet",
+    DescribeEntity: "GET /DescribeEntity",
+    GetResourcePolicy: "GET /GetResourcePolicy",
+    ListChangeSets: "POST /ListChangeSets",
+    ListEntities: "POST /ListEntities",
+    ListTagsForResource: "POST /ListTagsForResource",
+    PutResourcePolicy: "POST /PutResourcePolicy",
+    StartChangeSet: "POST /StartChangeSet",
+    TagResource: "POST /TagResource",
+    UntagResource: "POST /UntagResource",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

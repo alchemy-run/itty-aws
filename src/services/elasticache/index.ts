@@ -3699,3 +3699,11 @@ export declare namespace TestMigration {
     | ReplicationGroupNotFoundFault
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "ElastiCache",
+  version: "2015-02-02",
+  protocol: "awsQuery",
+  endpointPrefix: "elasticache",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

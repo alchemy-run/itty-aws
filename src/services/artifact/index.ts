@@ -379,3 +379,19 @@ export declare namespace PutAccountSettings {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Artifact",
+  version: "2018-05-10",
+  protocol: "restJson1",
+  operations: {
+    GetAccountSettings: "GET /v1/account-settings/get",
+    GetReport: "GET /v1/report/get",
+    GetReportMetadata: "GET /v1/report/getMetadata",
+    GetTermForReport: "GET /v1/report/getTermForReport",
+    ListCustomerAgreements: "GET /v1/customer-agreement/list",
+    ListReports: "GET /v1/report/list",
+    PutAccountSettings: "PUT /v1/account-settings/put",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

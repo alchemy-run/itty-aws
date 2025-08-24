@@ -314,3 +314,12 @@ export declare namespace ListStreams {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "KeyspacesStreams",
+  version: "2024-09-09",
+  protocol: "awsJson1_0",
+  endpointPrefix: "cassandra-streams",
+  targetPrefix: "KeyspacesStreams",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

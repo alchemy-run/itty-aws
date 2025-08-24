@@ -536,3 +536,24 @@ export declare namespace UntagResource {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "savingsplans",
+  version: "2019-06-28",
+  protocol: "restJson1",
+  endpointPrefix: "savingsplans",
+  operations: {
+    CreateSavingsPlan: "POST /CreateSavingsPlan",
+    DeleteQueuedSavingsPlan: "POST /DeleteQueuedSavingsPlan",
+    DescribeSavingsPlanRates: "POST /DescribeSavingsPlanRates",
+    DescribeSavingsPlans: "POST /DescribeSavingsPlans",
+    DescribeSavingsPlansOfferingRates:
+      "POST /DescribeSavingsPlansOfferingRates",
+    DescribeSavingsPlansOfferings: "POST /DescribeSavingsPlansOfferings",
+    ListTagsForResource: "POST /ListTagsForResource",
+    ReturnSavingsPlan: "POST /ReturnSavingsPlan",
+    TagResource: "POST /TagResource",
+    UntagResource: "POST /UntagResource",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

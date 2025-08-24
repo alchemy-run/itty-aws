@@ -11,15 +11,12 @@ import {
   ValidationException,
   type AwsErrorMeta,
 } from "./error.ts";
-import { serviceMetadata } from "./metadata.ts";
+import { loadServiceMetadata } from "./metadata-loader.ts";
 import { AwsJson10Handler } from "./protocols/aws-json-1-0.ts";
 import { AwsJson11Handler } from "./protocols/aws-json-1-1.ts";
 import { AwsQueryHandler } from "./protocols/aws-query.ts";
 import { Ec2QueryHandler } from "./protocols/ec2-query.ts";
-import type {
-  ProtocolHandler,
-  ServiceMetadata,
-} from "./protocols/interface.ts";
+import type { ProtocolHandler } from "./protocols/interface.ts";
 import { RestJson1Handler } from "./protocols/rest-json-1.ts";
 import { RestXmlHandler } from "./protocols/rest-xml.ts";
 
@@ -112,13 +109,6 @@ export function createServiceProxy<T>(
   };
 
   const normalizedServiceName = serviceName.toLowerCase();
-  const metadata = serviceMetadata[
-    normalizedServiceName as keyof typeof serviceMetadata
-  ] as ServiceMetadata;
-
-  // if (!metadata) {
-  //   throw new Error(`Unknown service: ${serviceName}`);
-  // }
 
   const _client: Promise<AwsClient> = createAwsClient(
     normalizedServiceName,
@@ -135,6 +125,11 @@ export function createServiceProxy<T>(
 
         return (input: unknown) =>
           Effect.gen(function* () {
+            // Load metadata dynamically
+            const metadata = yield* Effect.promise(() =>
+              loadServiceMetadata(normalizedServiceName),
+            );
+
             const client = yield* Effect.promise(() => _client);
 
             // Convert camelCase method to PascalCase action

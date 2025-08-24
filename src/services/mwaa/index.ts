@@ -576,3 +576,24 @@ export declare namespace UpdateEnvironment {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "MWAA",
+  version: "2020-07-01",
+  protocol: "restJson1",
+  operations: {
+    CreateCliToken: "POST /clitoken/{Name}",
+    CreateEnvironment: "PUT /environments/{Name}",
+    CreateWebLoginToken: "POST /webtoken/{Name}",
+    DeleteEnvironment: "DELETE /environments/{Name}",
+    GetEnvironment: "GET /environments/{Name}",
+    InvokeRestApi: "POST /restapi/{Name}",
+    ListEnvironments: "GET /environments",
+    ListTagsForResource: "GET /tags/{ResourceArn}",
+    PublishMetrics: "POST /metrics/environments/{EnvironmentName}",
+    TagResource: "POST /tags/{ResourceArn}",
+    UntagResource: "DELETE /tags/{ResourceArn}",
+    UpdateEnvironment: "PATCH /environments/{Name}",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

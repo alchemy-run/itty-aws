@@ -627,3 +627,51 @@ export declare namespace StartConversation {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Lex Runtime V2",
+  version: "2020-08-07",
+  protocol: "restJson1",
+  endpointPrefix: "runtime-v2-lex",
+  operations: {
+    DeleteSession:
+      "DELETE /bots/{botId}/botAliases/{botAliasId}/botLocales/{localeId}/sessions/{sessionId}",
+    GetSession:
+      "GET /bots/{botId}/botAliases/{botAliasId}/botLocales/{localeId}/sessions/{sessionId}",
+    PutSession: {
+      http: "POST /bots/{botId}/botAliases/{botAliasId}/botLocales/{localeId}/sessions/{sessionId}",
+      traits: {
+        contentType: "Content-Type",
+        messages: "x-amz-lex-messages",
+        sessionState: "x-amz-lex-session-state",
+        requestAttributes: "x-amz-lex-request-attributes",
+        sessionId: "x-amz-lex-session-id",
+        audioStream: "httpPayload",
+      },
+    },
+    RecognizeText:
+      "POST /bots/{botId}/botAliases/{botAliasId}/botLocales/{localeId}/sessions/{sessionId}/text",
+    RecognizeUtterance: {
+      http: "POST /bots/{botId}/botAliases/{botAliasId}/botLocales/{localeId}/sessions/{sessionId}/utterance",
+      traits: {
+        inputMode: "x-amz-lex-input-mode",
+        contentType: "Content-Type",
+        messages: "x-amz-lex-messages",
+        interpretations: "x-amz-lex-interpretations",
+        sessionState: "x-amz-lex-session-state",
+        requestAttributes: "x-amz-lex-request-attributes",
+        sessionId: "x-amz-lex-session-id",
+        inputTranscript: "x-amz-lex-input-transcript",
+        audioStream: "httpPayload",
+        recognizedBotMember: "x-amz-lex-recognized-bot-member",
+      },
+    },
+    StartConversation: {
+      http: "POST /bots/{botId}/botAliases/{botAliasId}/botLocales/{localeId}/sessions/{sessionId}/conversation",
+      traits: {
+        responseEventStream: "httpPayload",
+      },
+    },
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

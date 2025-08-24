@@ -2388,3 +2388,12 @@ export declare namespace UpdateWorkGroup {
     | InvalidRequestException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Athena",
+  version: "2017-05-18",
+  protocol: "awsJson1_1",
+  endpointPrefix: "athena",
+  targetPrefix: "AmazonAthena",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

@@ -654,3 +654,33 @@ export declare namespace UpdateProfileResourceAssociation {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Route53Profiles",
+  version: "2018-05-10",
+  protocol: "restJson1",
+  operations: {
+    AssociateProfile: "POST /profileassociation",
+    AssociateResourceToProfile: "POST /profileresourceassociation",
+    CreateProfile: "POST /profile",
+    DeleteProfile: "DELETE /profile/{ProfileId}",
+    DisassociateProfile:
+      "DELETE /profileassociation/Profileid/{ProfileId}/resourceid/{ResourceId}",
+    DisassociateResourceFromProfile:
+      "DELETE /profileresourceassociation/profileid/{ProfileId}/resourcearn/{ResourceArn}",
+    GetProfile: "GET /profile/{ProfileId}",
+    GetProfileAssociation: "GET /profileassociation/{ProfileAssociationId}",
+    GetProfileResourceAssociation:
+      "GET /profileresourceassociation/{ProfileResourceAssociationId}",
+    ListProfileAssociations: "GET /profileassociations",
+    ListProfileResourceAssociations:
+      "GET /profileresourceassociations/profileid/{ProfileId}",
+    ListProfiles: "GET /profiles",
+    ListTagsForResource: "GET /tags/{ResourceArn}",
+    TagResource: "POST /tags/{ResourceArn}",
+    UntagResource: "DELETE /tags/{ResourceArn}",
+    UpdateProfileResourceAssociation:
+      "PATCH /profileresourceassociation/{ProfileResourceAssociationId}",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

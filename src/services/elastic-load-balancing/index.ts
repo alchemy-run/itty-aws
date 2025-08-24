@@ -1064,3 +1064,11 @@ export declare namespace SetLoadBalancerPoliciesOfListener {
     | PolicyNotFoundException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Elastic Load Balancing",
+  version: "2012-06-01",
+  protocol: "awsQuery",
+  endpointPrefix: "elasticloadbalancing",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

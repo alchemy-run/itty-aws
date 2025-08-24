@@ -771,3 +771,12 @@ export declare namespace UpdateCertificateOptions {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "ACM",
+  version: "2015-12-08",
+  protocol: "awsJson1_1",
+  endpointPrefix: "acm",
+  targetPrefix: "CertificateManager",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

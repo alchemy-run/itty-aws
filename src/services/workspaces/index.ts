@@ -3663,3 +3663,12 @@ export declare namespace UpdateWorkspacesPool {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "WorkSpaces",
+  version: "2015-04-08",
+  protocol: "awsJson1_1",
+  endpointPrefix: "workspaces",
+  targetPrefix: "WorkspacesService",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

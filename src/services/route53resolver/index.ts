@@ -2762,3 +2762,12 @@ export declare namespace UpdateResolverRule {
     | ThrottlingException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Route53Resolver",
+  version: "2018-04-01",
+  protocol: "awsJson1_1",
+  endpointPrefix: "route53resolver",
+  targetPrefix: "Route53Resolver",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

@@ -90,3 +90,20 @@ export declare namespace PutRawMessageContent {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "WorkMailMessageFlow",
+  version: "2019-05-01",
+  protocol: "restJson1",
+  endpointPrefix: "workmailmessageflow",
+  operations: {
+    GetRawMessageContent: {
+      http: "GET /messages/{messageId}",
+      traits: {
+        messageContent: "httpPayload",
+      },
+    },
+    PutRawMessageContent: "POST /messages/{messageId}",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

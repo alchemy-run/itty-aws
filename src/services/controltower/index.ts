@@ -1153,3 +1153,41 @@ export declare namespace UpdateLandingZone {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "ControlTower",
+  version: "2018-05-10",
+  protocol: "restJson1",
+  endpointPrefix: "controltower",
+  operations: {
+    DisableControl: "POST /disable-control",
+    CreateLandingZone: "POST /create-landingzone",
+    DeleteLandingZone: "POST /delete-landingzone",
+    DisableBaseline: "POST /disable-baseline",
+    EnableBaseline: "POST /enable-baseline",
+    EnableControl: "POST /enable-control",
+    GetBaseline: "POST /get-baseline",
+    GetBaselineOperation: "POST /get-baseline-operation",
+    GetControlOperation: "POST /get-control-operation",
+    GetEnabledBaseline: "POST /get-enabled-baseline",
+    GetEnabledControl: "POST /get-enabled-control",
+    GetLandingZone: "POST /get-landingzone",
+    GetLandingZoneOperation: "POST /get-landingzone-operation",
+    ListBaselines: "POST /list-baselines",
+    ListControlOperations: "POST /list-control-operations",
+    ListEnabledBaselines: "POST /list-enabled-baselines",
+    ListEnabledControls: "POST /list-enabled-controls",
+    ListLandingZoneOperations: "POST /list-landingzone-operations",
+    ListLandingZones: "POST /list-landingzones",
+    ListTagsForResource: "GET /tags/{resourceArn}",
+    ResetEnabledBaseline: "POST /reset-enabled-baseline",
+    ResetEnabledControl: "POST /reset-enabled-control",
+    ResetLandingZone: "POST /reset-landingzone",
+    TagResource: "POST /tags/{resourceArn}",
+    UntagResource: "DELETE /tags/{resourceArn}",
+    UpdateEnabledBaseline: "POST /update-enabled-baseline",
+    UpdateEnabledControl: "POST /update-enabled-control",
+    UpdateLandingZone: "POST /update-landingzone",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

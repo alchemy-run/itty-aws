@@ -2264,3 +2264,11 @@ export declare namespace SwitchoverGlobalCluster {
     | InvalidGlobalClusterStateFault
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "DocDB",
+  version: "2014-10-31",
+  protocol: "awsQuery",
+  endpointPrefix: "rds",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

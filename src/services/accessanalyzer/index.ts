@@ -2026,3 +2026,50 @@ export declare namespace UpdateArchiveRule {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "AccessAnalyzer",
+  version: "2019-11-01",
+  protocol: "restJson1",
+  operations: {
+    ApplyArchiveRule: "PUT /archive-rule",
+    CancelPolicyGeneration: "PUT /policy/generation/{jobId}",
+    CheckAccessNotGranted: "POST /policy/check-access-not-granted",
+    CheckNoNewAccess: "POST /policy/check-no-new-access",
+    CheckNoPublicAccess: "POST /policy/check-no-public-access",
+    CreateAccessPreview: "PUT /access-preview",
+    GenerateFindingRecommendation: "POST /recommendation/{id}",
+    GetAccessPreview: "GET /access-preview/{accessPreviewId}",
+    GetAnalyzedResource: "GET /analyzed-resource",
+    GetFinding: "GET /finding/{id}",
+    GetFindingRecommendation: "GET /recommendation/{id}",
+    GetFindingsStatistics: "POST /analyzer/findings/statistics",
+    GetFindingV2: "GET /findingv2/{id}",
+    GetGeneratedPolicy: "GET /policy/generation/{jobId}",
+    ListAccessPreviewFindings: "POST /access-preview/{accessPreviewId}",
+    ListAccessPreviews: "GET /access-preview",
+    ListAnalyzedResources: "POST /analyzed-resource",
+    ListFindings: "POST /finding",
+    ListFindingsV2: "POST /findingv2",
+    ListPolicyGenerations: "GET /policy/generation",
+    ListTagsForResource: "GET /tags/{resourceArn}",
+    StartPolicyGeneration: "PUT /policy/generation",
+    StartResourceScan: "POST /resource/scan",
+    TagResource: "POST /tags/{resourceArn}",
+    UntagResource: "DELETE /tags/{resourceArn}",
+    UpdateFindings: "PUT /finding",
+    ValidatePolicy: "POST /policy/validation",
+    CreateAnalyzer: "PUT /analyzer",
+    CreateArchiveRule: "PUT /analyzer/{analyzerName}/archive-rule",
+    DeleteAnalyzer: "DELETE /analyzer/{analyzerName}",
+    DeleteArchiveRule:
+      "DELETE /analyzer/{analyzerName}/archive-rule/{ruleName}",
+    GetAnalyzer: "GET /analyzer/{analyzerName}",
+    GetArchiveRule: "GET /analyzer/{analyzerName}/archive-rule/{ruleName}",
+    ListAnalyzers: "GET /analyzer",
+    ListArchiveRules: "GET /analyzer/{analyzerName}/archive-rule",
+    UpdateAnalyzer: "PUT /analyzer/{analyzerName}",
+    UpdateArchiveRule: "PUT /analyzer/{analyzerName}/archive-rule/{ruleName}",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

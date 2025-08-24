@@ -550,3 +550,12 @@ export declare namespace UpdateResource {
     | UnsupportedActionException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "CloudControl",
+  version: "2021-09-30",
+  protocol: "awsJson1_0",
+  endpointPrefix: "cloudcontrolapi",
+  targetPrefix: "CloudApiService",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

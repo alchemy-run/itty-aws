@@ -2100,3 +2100,12 @@ export declare namespace UpdateUser {
     | UserNotFoundFault
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "MemoryDB",
+  version: "2021-01-01",
+  protocol: "awsJson1_1",
+  endpointPrefix: "memory-db",
+  targetPrefix: "AmazonMemoryDB",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

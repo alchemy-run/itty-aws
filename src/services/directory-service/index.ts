@@ -3377,3 +3377,12 @@ export declare namespace VerifyTrust {
     | UnsupportedOperationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Directory Service",
+  version: "2015-04-16",
+  protocol: "awsJson1_1",
+  endpointPrefix: "ds",
+  targetPrefix: "DirectoryService_20150416",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

@@ -174,3 +174,12 @@ export declare namespace SendCommand {
     | RateExceededException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "QLDB Session",
+  version: "2019-07-11",
+  protocol: "awsJson1_0",
+  endpointPrefix: "session.qldb",
+  targetPrefix: "QLDBSession",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

@@ -7377,3 +7377,12 @@ export declare namespace UpdateRelationalDatabaseParameters {
     | UnauthenticatedException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Lightsail",
+  version: "2016-11-28",
+  protocol: "awsJson1_1",
+  endpointPrefix: "lightsail",
+  targetPrefix: "Lightsail_20161128",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

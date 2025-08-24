@@ -305,3 +305,21 @@ export declare namespace UpdateApplication {
     | ThrottlingException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "IoTFleetHub",
+  version: "2020-11-03",
+  protocol: "restJson1",
+  endpointPrefix: "api.fleethub.iot",
+  operations: {
+    CreateApplication: "POST /applications",
+    DeleteApplication: "DELETE /applications/{applicationId}",
+    DescribeApplication: "GET /applications/{applicationId}",
+    ListApplications: "GET /applications",
+    ListTagsForResource: "GET /tags/{resourceArn}",
+    TagResource: "POST /tags/{resourceArn}",
+    UntagResource: "DELETE /tags/{resourceArn}",
+    UpdateApplication: "PATCH /applications/{applicationId}",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

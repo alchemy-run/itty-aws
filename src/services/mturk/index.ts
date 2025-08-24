@@ -1052,3 +1052,12 @@ export declare namespace UpdateQualificationType {
   export type Output = UpdateQualificationTypeResponse;
   export type Error = RequestError | ServiceFault | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "MTurk",
+  version: "2017-01-17",
+  protocol: "awsJson1_1",
+  endpointPrefix: "mturk-requester",
+  targetPrefix: "MTurkRequesterServiceV20170117",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

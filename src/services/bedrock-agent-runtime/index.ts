@@ -3015,3 +3015,84 @@ export declare namespace UpdateSession {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Bedrock Agent Runtime",
+  version: "2023-07-26",
+  protocol: "restJson1",
+  endpointPrefix: "bedrock-agent-runtime",
+  operations: {
+    CreateInvocation: "PUT /sessions/{sessionIdentifier}/invocations/",
+    CreateSession: "PUT /sessions/",
+    DeleteAgentMemory:
+      "DELETE /agents/{agentId}/agentAliases/{agentAliasId}/memories",
+    DeleteSession: "DELETE /sessions/{sessionIdentifier}/",
+    EndSession: "PATCH /sessions/{sessionIdentifier}",
+    GenerateQuery: "POST /generateQuery",
+    GetAgentMemory:
+      "GET /agents/{agentId}/agentAliases/{agentAliasId}/memories",
+    GetExecutionFlowSnapshot:
+      "GET /flows/{flowIdentifier}/aliases/{flowAliasIdentifier}/executions/{executionIdentifier}/flowsnapshot",
+    GetFlowExecution:
+      "GET /flows/{flowIdentifier}/aliases/{flowAliasIdentifier}/executions/{executionIdentifier}",
+    GetInvocationStep:
+      "POST /sessions/{sessionIdentifier}/invocationSteps/{invocationStepId}",
+    GetSession: "GET /sessions/{sessionIdentifier}/",
+    InvokeAgent: {
+      http: "POST /agents/{agentId}/agentAliases/{agentAliasId}/sessions/{sessionId}/text",
+      traits: {
+        completion: "httpPayload",
+        contentType: "x-amzn-bedrock-agent-content-type",
+        sessionId: "x-amz-bedrock-agent-session-id",
+        memoryId: "x-amz-bedrock-agent-memory-id",
+      },
+    },
+    InvokeFlow: {
+      http: "POST /flows/{flowIdentifier}/aliases/{flowAliasIdentifier}",
+      traits: {
+        responseStream: "httpPayload",
+        executionId: "x-amz-bedrock-flow-execution-id",
+      },
+    },
+    InvokeInlineAgent: {
+      http: "POST /agents/{sessionId}",
+      traits: {
+        completion: "httpPayload",
+        contentType: "x-amzn-bedrock-agent-content-type",
+        sessionId: "x-amz-bedrock-agent-session-id",
+      },
+    },
+    ListFlowExecutionEvents:
+      "GET /flows/{flowIdentifier}/aliases/{flowAliasIdentifier}/executions/{executionIdentifier}/events",
+    ListFlowExecutions: "GET /flows/{flowIdentifier}/executions",
+    ListInvocationSteps: "POST /sessions/{sessionIdentifier}/invocationSteps/",
+    ListInvocations: "POST /sessions/{sessionIdentifier}/invocations/",
+    ListSessions: "POST /sessions/",
+    ListTagsForResource: "GET /tags/{resourceArn}",
+    OptimizePrompt: {
+      http: "POST /optimize-prompt",
+      traits: {
+        optimizedPrompt: "httpPayload",
+      },
+    },
+    PutInvocationStep: "PUT /sessions/{sessionIdentifier}/invocationSteps/",
+    Rerank: "POST /rerank",
+    Retrieve: "POST /knowledgebases/{knowledgeBaseId}/retrieve",
+    RetrieveAndGenerate: "POST /retrieveAndGenerate",
+    RetrieveAndGenerateStream: {
+      http: "POST /retrieveAndGenerateStream",
+      traits: {
+        stream: "httpPayload",
+        sessionId: "x-amzn-bedrock-knowledge-base-session-id",
+      },
+    },
+    StartFlowExecution:
+      "POST /flows/{flowIdentifier}/aliases/{flowAliasIdentifier}/executions",
+    StopFlowExecution:
+      "POST /flows/{flowIdentifier}/aliases/{flowAliasIdentifier}/executions/{executionIdentifier}/stop",
+    TagResource: "POST /tags/{resourceArn}",
+    UntagResource: "DELETE /tags/{resourceArn}",
+    UpdateSession: "PUT /sessions/{sessionIdentifier}/",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

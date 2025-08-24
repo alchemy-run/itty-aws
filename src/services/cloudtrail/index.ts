@@ -3424,3 +3424,12 @@ export declare namespace UpdateTrail {
     | UnsupportedOperationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "CloudTrail",
+  version: "2013-11-01",
+  protocol: "awsJson1_1",
+  endpointPrefix: "cloudtrail",
+  targetPrefix: "CloudTrail_20131101",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

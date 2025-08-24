@@ -124,3 +124,15 @@ export declare namespace SendAlexaOfferToMaster {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Kinesis Video Signaling",
+  version: "2019-12-04",
+  protocol: "restJson1",
+  endpointPrefix: "kinesisvideo",
+  operations: {
+    GetIceServerConfig: "POST /v1/get-ice-server-config",
+    SendAlexaOfferToMaster: "POST /v1/send-alexa-offer-to-master",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

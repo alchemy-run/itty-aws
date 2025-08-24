@@ -2043,3 +2043,12 @@ export declare namespace UntagResource {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "FMS",
+  version: "2018-01-01",
+  protocol: "awsJson1_1",
+  endpointPrefix: "fms",
+  targetPrefix: "AWSFMS_20180101",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

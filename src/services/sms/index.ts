@@ -1536,3 +1536,12 @@ export declare namespace UpdateReplicationJob {
     | UnauthorizedOperationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "SMS",
+  version: "2016-10-24",
+  protocol: "awsJson1_1",
+  endpointPrefix: "sms",
+  targetPrefix: "AWSServerMigrationService_V2016_10_24",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

@@ -786,3 +786,11 @@ export declare namespace UntagResource {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Workspaces Instances",
+  version: "2022-07-26",
+  protocol: "awsJson1_0",
+  targetPrefix: "EUCMIFrontendAPIService",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

@@ -2767,3 +2767,12 @@ export declare namespace UpdateEnrollmentStatus {
     | ThrottlingException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Compute Optimizer",
+  version: "2019-11-01",
+  protocol: "awsJson1_0",
+  endpointPrefix: "compute-optimizer",
+  targetPrefix: "ComputeOptimizerService",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

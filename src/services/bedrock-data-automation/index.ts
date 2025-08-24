@@ -789,3 +789,28 @@ export declare namespace UpdateDataAutomationProject {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Bedrock Data Automation",
+  version: "2023-07-26",
+  protocol: "restJson1",
+  endpointPrefix: "bedrock-data-automation",
+  operations: {
+    CreateBlueprintVersion: "POST /blueprints/{blueprintArn}/versions/",
+    ListTagsForResource: "POST /listTagsForResource",
+    TagResource: "POST /tagResource",
+    UntagResource: "POST /untagResource",
+    CreateBlueprint: "PUT /blueprints/",
+    CreateDataAutomationProject: "PUT /data-automation-projects/",
+    DeleteBlueprint: "DELETE /blueprints/{blueprintArn}/",
+    DeleteDataAutomationProject:
+      "DELETE /data-automation-projects/{projectArn}/",
+    GetBlueprint: "POST /blueprints/{blueprintArn}/",
+    GetDataAutomationProject: "POST /data-automation-projects/{projectArn}/",
+    ListBlueprints: "POST /blueprints/",
+    ListDataAutomationProjects: "POST /data-automation-projects/",
+    UpdateBlueprint: "PUT /blueprints/{blueprintArn}/",
+    UpdateDataAutomationProject: "PUT /data-automation-projects/{projectArn}/",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

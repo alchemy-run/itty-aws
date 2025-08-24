@@ -275,3 +275,18 @@ export declare namespace ListSharedEndpoints {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "S3Outposts",
+  version: "2017-07-25",
+  protocol: "restJson1",
+  endpointPrefix: "s3-outposts",
+  operations: {
+    CreateEndpoint: "POST /S3Outposts/CreateEndpoint",
+    DeleteEndpoint: "DELETE /S3Outposts/DeleteEndpoint",
+    ListEndpoints: "GET /S3Outposts/ListEndpoints",
+    ListOutpostsWithS3: "GET /S3Outposts/ListOutpostsWithS3",
+    ListSharedEndpoints: "GET /S3Outposts/ListSharedEndpoints",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

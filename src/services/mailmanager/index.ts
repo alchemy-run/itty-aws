@@ -2427,3 +2427,12 @@ export declare namespace UpdateTrafficPolicy {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "MailManager",
+  version: "2023-10-17",
+  protocol: "awsJson1_0",
+  endpointPrefix: "mail-manager",
+  targetPrefix: "MailManagerSvc",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

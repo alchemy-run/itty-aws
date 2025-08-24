@@ -647,3 +647,25 @@ export declare namespace ListDetectors {
     | ThrottlingException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "IoT Events Data",
+  version: "2018-10-23",
+  protocol: "restJson1",
+  endpointPrefix: "data.iotevents",
+  operations: {
+    BatchAcknowledgeAlarm: "POST /alarms/acknowledge",
+    BatchDeleteDetector: "POST /detectors/delete",
+    BatchDisableAlarm: "POST /alarms/disable",
+    BatchEnableAlarm: "POST /alarms/enable",
+    BatchPutMessage: "POST /inputs/messages",
+    BatchResetAlarm: "POST /alarms/reset",
+    BatchSnoozeAlarm: "POST /alarms/snooze",
+    BatchUpdateDetector: "POST /detectors",
+    DescribeAlarm: "GET /alarms/{alarmModelName}/keyValues",
+    DescribeDetector: "GET /detectors/{detectorModelName}/keyValues",
+    ListAlarms: "GET /alarms/{alarmModelName}",
+    ListDetectors: "GET /detectors/{detectorModelName}",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

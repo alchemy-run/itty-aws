@@ -179,3 +179,17 @@ export declare namespace Logout {
     | UnauthorizedException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "SSO",
+  version: "2019-06-10",
+  protocol: "restJson1",
+  endpointPrefix: "portal.sso",
+  operations: {
+    GetRoleCredentials: "GET /federation/credentials",
+    ListAccountRoles: "GET /assignment/roles",
+    ListAccounts: "GET /assignment/accounts",
+    Logout: "POST /logout",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

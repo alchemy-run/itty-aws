@@ -342,3 +342,23 @@ export declare namespace UpdateCluster {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "DSQL",
+  version: "2018-05-10",
+  protocol: "restJson1",
+  endpointPrefix: "dsql",
+  operations: {
+    ListTagsForResource: "GET /tags/{resourceArn}",
+    TagResource: "POST /tags/{resourceArn}",
+    UntagResource: "DELETE /tags/{resourceArn}",
+    CreateCluster: "POST /cluster",
+    DeleteCluster: "DELETE /cluster/{identifier}",
+    GetCluster: "GET /cluster/{identifier}",
+    GetVpcEndpointServiceName:
+      "GET /clusters/{identifier}/vpc-endpoint-service-name",
+    ListClusters: "GET /cluster",
+    UpdateCluster: "POST /cluster/{identifier}",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

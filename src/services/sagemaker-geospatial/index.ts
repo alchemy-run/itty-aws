@@ -1116,3 +1116,36 @@ export declare namespace StopVectorEnrichmentJob {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "SageMaker Geospatial",
+  version: "2020-05-27",
+  protocol: "restJson1",
+  operations: {
+    ListTagsForResource: "GET /tags/{ResourceArn}",
+    TagResource: "PUT /tags/{ResourceArn}",
+    UntagResource: "DELETE /tags/{ResourceArn}",
+    DeleteEarthObservationJob: "DELETE /earth-observation-jobs/{Arn}",
+    DeleteVectorEnrichmentJob: "DELETE /vector-enrichment-jobs/{Arn}",
+    ExportEarthObservationJob: "POST /export-earth-observation-job",
+    ExportVectorEnrichmentJob: "POST /export-vector-enrichment-jobs",
+    GetEarthObservationJob: "GET /earth-observation-jobs/{Arn}",
+    GetRasterDataCollection: "GET /raster-data-collection/{Arn}",
+    GetTile: {
+      http: "GET /tile/{z}/{x}/{y}",
+      traits: {
+        BinaryFile: "httpPayload",
+      },
+    },
+    GetVectorEnrichmentJob: "GET /vector-enrichment-jobs/{Arn}",
+    ListEarthObservationJobs: "POST /list-earth-observation-jobs",
+    ListRasterDataCollections: "GET /raster-data-collections",
+    ListVectorEnrichmentJobs: "POST /list-vector-enrichment-jobs",
+    SearchRasterDataCollection: "POST /search-raster-data-collection",
+    StartEarthObservationJob: "POST /earth-observation-jobs",
+    StartVectorEnrichmentJob: "POST /vector-enrichment-jobs",
+    StopEarthObservationJob: "POST /earth-observation-jobs/stop",
+    StopVectorEnrichmentJob: "POST /vector-enrichment-jobs/stop",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

@@ -690,3 +690,12 @@ export declare namespace UpdateServerEngineAttributes {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "OpsWorksCM",
+  version: "2016-11-01",
+  protocol: "awsJson1_1",
+  endpointPrefix: "opsworks-cm",
+  targetPrefix: "OpsWorksCM_V2016_11_01",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

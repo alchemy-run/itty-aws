@@ -92,3 +92,12 @@ export declare namespace GetEntitlements {
     | ThrottlingException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Marketplace Entitlement Service",
+  version: "2017-01-11",
+  protocol: "awsJson1_1",
+  endpointPrefix: "entitlement.marketplace",
+  targetPrefix: "AWSMPEntitlementService",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

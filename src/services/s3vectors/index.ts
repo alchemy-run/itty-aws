@@ -607,3 +607,29 @@ export declare namespace QueryVectors {
     | ServiceUnavailableException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "S3Vectors",
+  version: "2025-07-15",
+  protocol: "restJson1",
+  endpointPrefix: "s3vectors",
+  operations: {
+    CreateIndex: "POST /CreateIndex",
+    CreateVectorBucket: "POST /CreateVectorBucket",
+    DeleteIndex: "POST /DeleteIndex",
+    DeleteVectorBucket: "POST /DeleteVectorBucket",
+    DeleteVectorBucketPolicy: "POST /DeleteVectorBucketPolicy",
+    DeleteVectors: "POST /DeleteVectors",
+    GetIndex: "POST /GetIndex",
+    GetVectorBucket: "POST /GetVectorBucket",
+    GetVectorBucketPolicy: "POST /GetVectorBucketPolicy",
+    GetVectors: "POST /GetVectors",
+    ListIndexes: "POST /ListIndexes",
+    ListVectorBuckets: "POST /ListVectorBuckets",
+    ListVectors: "POST /ListVectors",
+    PutVectorBucketPolicy: "POST /PutVectorBucketPolicy",
+    PutVectors: "POST /PutVectors",
+    QueryVectors: "POST /QueryVectors",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

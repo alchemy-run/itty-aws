@@ -544,3 +544,21 @@ export declare namespace UpdateLifecyclePolicy {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "DLM",
+  version: "2018-01-12",
+  protocol: "restJson1",
+  endpointPrefix: "dlm",
+  operations: {
+    CreateLifecyclePolicy: "POST /policies",
+    DeleteLifecyclePolicy: "DELETE /policies/{PolicyId}",
+    GetLifecyclePolicies: "GET /policies",
+    GetLifecyclePolicy: "GET /policies/{PolicyId}",
+    ListTagsForResource: "GET /tags/{ResourceArn}",
+    TagResource: "POST /tags/{ResourceArn}",
+    UntagResource: "DELETE /tags/{ResourceArn}",
+    UpdateLifecyclePolicy: "PATCH /policies/{PolicyId}",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

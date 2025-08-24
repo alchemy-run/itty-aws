@@ -1271,3 +1271,12 @@ export declare namespace UploadEntityDefinitions {
     | ThrottlingException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "IoTThingsGraph",
+  version: "2018-09-06",
+  protocol: "awsJson1_1",
+  endpointPrefix: "iotthingsgraph",
+  targetPrefix: "IotThingsGraphFrontEndService",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

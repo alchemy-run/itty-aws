@@ -375,3 +375,18 @@ export declare namespace ListObjectives {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "ControlCatalog",
+  version: "2018-05-10",
+  protocol: "restJson1",
+  operations: {
+    ListControlMappings: "POST /list-control-mappings",
+    GetControl: "POST /get-control",
+    ListCommonControls: "POST /common-controls",
+    ListControls: "POST /list-controls",
+    ListDomains: "POST /domains",
+    ListObjectives: "POST /objectives",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

@@ -3793,3 +3793,12 @@ export declare namespace UpdateFlywheel {
     | TooManyRequestsException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Comprehend",
+  version: "2017-11-27",
+  protocol: "awsJson1_1",
+  endpointPrefix: "comprehend",
+  targetPrefix: "Comprehend_20171127",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

@@ -211,3 +211,59 @@ export declare namespace GetTile {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Geo Maps",
+  version: "2020-11-19",
+  protocol: "restJson1",
+  operations: {
+    GetGlyphs: {
+      http: "GET /glyphs/{FontStack}/{FontUnicodeRange}",
+      traits: {
+        Blob: "httpPayload",
+        ContentType: "Content-Type",
+        CacheControl: "Cache-Control",
+        ETag: "ETag",
+      },
+    },
+    GetSprites: {
+      http: "GET /styles/{Style}/{ColorScheme}/{Variant}/sprites/{FileName}",
+      traits: {
+        Blob: "httpPayload",
+        ContentType: "Content-Type",
+        CacheControl: "Cache-Control",
+        ETag: "ETag",
+      },
+    },
+    GetStaticMap: {
+      http: "GET /static/{FileName}",
+      traits: {
+        Blob: "httpPayload",
+        ContentType: "Content-Type",
+        CacheControl: "Cache-Control",
+        ETag: "ETag",
+        PricingBucket: "x-amz-geo-pricing-bucket",
+      },
+    },
+    GetStyleDescriptor: {
+      http: "GET /styles/{Style}/descriptor",
+      traits: {
+        Blob: "httpPayload",
+        ContentType: "Content-Type",
+        CacheControl: "Cache-Control",
+        ETag: "ETag",
+      },
+    },
+    GetTile: {
+      http: "GET /tiles/{Tileset}/{Z}/{X}/{Y}",
+      traits: {
+        Blob: "httpPayload",
+        ContentType: "Content-Type",
+        CacheControl: "Cache-Control",
+        ETag: "ETag",
+        PricingBucket: "x-amz-geo-pricing-bucket",
+      },
+    },
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

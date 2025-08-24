@@ -1641,3 +1641,61 @@ export declare namespace UpdateOriginEndpoint {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "MediaPackageV2",
+  version: "2022-12-25",
+  protocol: "restJson1",
+  endpointPrefix: "mediapackagev2",
+  operations: {
+    ListTagsForResource: "GET /tags/{ResourceArn}",
+    TagResource: "POST /tags/{ResourceArn}",
+    UntagResource: "DELETE /tags/{ResourceArn}",
+    CancelHarvestJob:
+      "PUT /channelGroup/{ChannelGroupName}/channel/{ChannelName}/originEndpoint/{OriginEndpointName}/harvestJob/{HarvestJobName}",
+    CreateChannel: "POST /channelGroup/{ChannelGroupName}/channel",
+    CreateChannelGroup: "POST /channelGroup",
+    CreateHarvestJob:
+      "POST /channelGroup/{ChannelGroupName}/channel/{ChannelName}/originEndpoint/{OriginEndpointName}/harvestJob",
+    CreateOriginEndpoint:
+      "POST /channelGroup/{ChannelGroupName}/channel/{ChannelName}/originEndpoint",
+    DeleteChannel:
+      "DELETE /channelGroup/{ChannelGroupName}/channel/{ChannelName}/",
+    DeleteChannelGroup: "DELETE /channelGroup/{ChannelGroupName}",
+    DeleteChannelPolicy:
+      "DELETE /channelGroup/{ChannelGroupName}/channel/{ChannelName}/policy",
+    DeleteOriginEndpoint:
+      "DELETE /channelGroup/{ChannelGroupName}/channel/{ChannelName}/originEndpoint/{OriginEndpointName}",
+    DeleteOriginEndpointPolicy:
+      "DELETE /channelGroup/{ChannelGroupName}/channel/{ChannelName}/originEndpoint/{OriginEndpointName}/policy",
+    GetChannel: "GET /channelGroup/{ChannelGroupName}/channel/{ChannelName}/",
+    GetChannelGroup: "GET /channelGroup/{ChannelGroupName}",
+    GetChannelPolicy:
+      "GET /channelGroup/{ChannelGroupName}/channel/{ChannelName}/policy",
+    GetHarvestJob:
+      "GET /channelGroup/{ChannelGroupName}/channel/{ChannelName}/originEndpoint/{OriginEndpointName}/harvestJob/{HarvestJobName}",
+    GetOriginEndpoint:
+      "GET /channelGroup/{ChannelGroupName}/channel/{ChannelName}/originEndpoint/{OriginEndpointName}",
+    GetOriginEndpointPolicy:
+      "GET /channelGroup/{ChannelGroupName}/channel/{ChannelName}/originEndpoint/{OriginEndpointName}/policy",
+    ListChannelGroups: "GET /channelGroup",
+    ListChannels: "GET /channelGroup/{ChannelGroupName}/channel",
+    ListHarvestJobs: "GET /channelGroup/{ChannelGroupName}/harvestJob",
+    ListOriginEndpoints:
+      "GET /channelGroup/{ChannelGroupName}/channel/{ChannelName}/originEndpoint",
+    PutChannelPolicy:
+      "PUT /channelGroup/{ChannelGroupName}/channel/{ChannelName}/policy",
+    PutOriginEndpointPolicy:
+      "POST /channelGroup/{ChannelGroupName}/channel/{ChannelName}/originEndpoint/{OriginEndpointName}/policy",
+    ResetChannelState:
+      "POST /channelGroup/{ChannelGroupName}/channel/{ChannelName}/reset",
+    ResetOriginEndpointState:
+      "POST /channelGroup/{ChannelGroupName}/channel/{ChannelName}/originEndpoint/{OriginEndpointName}/reset",
+    UpdateChannel:
+      "PUT /channelGroup/{ChannelGroupName}/channel/{ChannelName}/",
+    UpdateChannelGroup: "PUT /channelGroup/{ChannelGroupName}",
+    UpdateOriginEndpoint:
+      "PUT /channelGroup/{ChannelGroupName}/channel/{ChannelName}/originEndpoint/{OriginEndpointName}",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

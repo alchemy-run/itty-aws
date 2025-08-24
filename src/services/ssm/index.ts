@@ -7953,3 +7953,12 @@ export declare namespace UpdateServiceSetting {
     | TooManyUpdates
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "SSM",
+  version: "2014-11-06",
+  protocol: "awsJson1_1",
+  endpointPrefix: "ssm",
+  targetPrefix: "AmazonSSM",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

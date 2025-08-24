@@ -3879,3 +3879,12 @@ export declare namespace VerifyDestinationNumber {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Pinpoint SMS Voice V2",
+  version: "2022-03-31",
+  protocol: "awsJson1_0",
+  endpointPrefix: "sms-voice",
+  targetPrefix: "PinpointSMSVoiceV2",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

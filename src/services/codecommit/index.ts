@@ -5523,3 +5523,12 @@ export declare namespace UpdateRepositoryName {
     | RepositoryNameRequiredException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "CodeCommit",
+  version: "2015-04-13",
+  protocol: "awsJson1_1",
+  endpointPrefix: "codecommit",
+  targetPrefix: "CodeCommit_20150413",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

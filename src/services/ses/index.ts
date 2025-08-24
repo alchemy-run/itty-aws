@@ -2037,3 +2037,11 @@ export declare namespace VerifyEmailIdentity {
   export type Output = VerifyEmailIdentityResponse;
   export type Error = CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "SES",
+  version: "2010-12-01",
+  protocol: "awsQuery",
+  endpointPrefix: "email",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

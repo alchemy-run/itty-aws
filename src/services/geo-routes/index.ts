@@ -1581,3 +1581,42 @@ export declare namespace SnapToRoads {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Geo Routes",
+  version: "2020-11-19",
+  protocol: "restJson1",
+  operations: {
+    CalculateIsolines: {
+      http: "POST /isolines",
+      traits: {
+        PricingBucket: "x-amz-geo-pricing-bucket",
+      },
+    },
+    CalculateRouteMatrix: {
+      http: "POST /route-matrix",
+      traits: {
+        PricingBucket: "x-amz-geo-pricing-bucket",
+      },
+    },
+    CalculateRoutes: {
+      http: "POST /routes",
+      traits: {
+        PricingBucket: "x-amz-geo-pricing-bucket",
+      },
+    },
+    OptimizeWaypoints: {
+      http: "POST /optimize-waypoints",
+      traits: {
+        PricingBucket: "x-amz-geo-pricing-bucket",
+      },
+    },
+    SnapToRoads: {
+      http: "POST /snap-to-roads",
+      traits: {
+        PricingBucket: "x-amz-geo-pricing-bucket",
+      },
+    },
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

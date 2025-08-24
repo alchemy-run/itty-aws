@@ -2559,3 +2559,12 @@ export declare namespace UpdateSolution {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Personalize",
+  version: "2018-05-22",
+  protocol: "awsJson1_1",
+  endpointPrefix: "personalize",
+  targetPrefix: "AmazonPersonalize",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

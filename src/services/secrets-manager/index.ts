@@ -1017,3 +1017,12 @@ export declare namespace ValidateResourcePolicy {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Secrets Manager",
+  version: "2017-10-17",
+  protocol: "awsJson1_1",
+  endpointPrefix: "secretsmanager",
+  targetPrefix: "secretsmanager",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

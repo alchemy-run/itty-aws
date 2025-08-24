@@ -1283,3 +1283,12 @@ export declare namespace UpdateDomain {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Voice ID",
+  version: "2021-09-27",
+  protocol: "awsJson1_0",
+  endpointPrefix: "voiceid",
+  targetPrefix: "VoiceID",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

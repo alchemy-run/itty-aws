@@ -1700,3 +1700,48 @@ export declare namespace UpdateQAppSessionMetadata {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "QApps",
+  version: "2023-11-27",
+  protocol: "restJson1",
+  endpointPrefix: "data.qapps",
+  operations: {
+    AssociateLibraryItemReview: "POST /catalog.associateItemRating",
+    AssociateQAppWithUser: "POST /apps.install",
+    BatchCreateCategory: "POST /catalog.createCategories",
+    BatchDeleteCategory: "POST /catalog.deleteCategories",
+    BatchUpdateCategory: "POST /catalog.updateCategories",
+    CreateLibraryItem: "POST /catalog.createItem",
+    CreatePresignedUrl: "POST /apps.createPresignedUrl",
+    CreateQApp: "POST /apps.create",
+    DeleteLibraryItem: "POST /catalog.deleteItem",
+    DeleteQApp: "POST /apps.delete",
+    DescribeQAppPermissions: "GET /apps.describeQAppPermissions",
+    DisassociateLibraryItemReview: "POST /catalog.disassociateItemRating",
+    DisassociateQAppFromUser: "POST /apps.uninstall",
+    ExportQAppSessionData: "POST /runtime.exportQAppSessionData",
+    GetLibraryItem: "GET /catalog.getItem",
+    GetQApp: "GET /apps.get",
+    GetQAppSession: "GET /runtime.getQAppSession",
+    GetQAppSessionMetadata: "GET /runtime.getQAppSessionMetadata",
+    ImportDocument: "POST /apps.importDocument",
+    ListCategories: "GET /catalog.listCategories",
+    ListLibraryItems: "GET /catalog.list",
+    ListQApps: "GET /apps.list",
+    ListQAppSessionData: "GET /runtime.listQAppSessionData",
+    ListTagsForResource: "GET /tags/{resourceARN}",
+    PredictQApp: "POST /apps.predictQApp",
+    StartQAppSession: "POST /runtime.startQAppSession",
+    StopQAppSession: "POST /runtime.deleteMiniAppRun",
+    TagResource: "POST /tags/{resourceARN}",
+    UntagResource: "DELETE /tags/{resourceARN}",
+    UpdateLibraryItem: "POST /catalog.updateItem",
+    UpdateLibraryItemMetadata: "POST /catalog.updateItemMetadata",
+    UpdateQApp: "POST /apps.update",
+    UpdateQAppPermissions: "POST /apps.updateQAppPermissions",
+    UpdateQAppSession: "POST /runtime.updateQAppSession",
+    UpdateQAppSessionMetadata: "POST /runtime.updateQAppSessionMetadata",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

@@ -623,3 +623,25 @@ export declare namespace UpdateAccountConfiguration {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "CodeGuru Security",
+  version: "2018-05-10",
+  protocol: "restJson1",
+  operations: {
+    BatchGetFindings: "POST /batchGetFindings",
+    CreateScan: "POST /scans",
+    CreateUploadUrl: "POST /uploadUrl",
+    GetAccountConfiguration: "GET /accountConfiguration/get",
+    GetFindings: "GET /findings/{scanName}",
+    GetMetricsSummary: "GET /metrics/summary",
+    GetScan: "GET /scans/{scanName}",
+    ListFindingsMetrics: "GET /metrics/findings",
+    ListScans: "GET /scans",
+    ListTagsForResource: "GET /tags/{resourceArn}",
+    TagResource: "POST /tags/{resourceArn}",
+    UntagResource: "DELETE /tags/{resourceArn}",
+    UpdateAccountConfiguration: "PUT /updateAccountConfiguration",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

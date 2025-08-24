@@ -586,3 +586,11 @@ export declare namespace ListTables {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Redshift Data",
+  version: "2019-12-20",
+  protocol: "awsJson1_1",
+  targetPrefix: "RedshiftData",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

@@ -960,3 +960,12 @@ export declare namespace UpdateSubnetGroup {
     | SubnetQuotaExceededFault
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "DAX",
+  version: "2017-04-19",
+  protocol: "awsJson1_1",
+  endpointPrefix: "dax",
+  targetPrefix: "AmazonDAXV3",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

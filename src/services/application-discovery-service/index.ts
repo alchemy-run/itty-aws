@@ -1322,3 +1322,12 @@ export declare namespace UpdateApplication {
     | ServerInternalErrorException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Application Discovery Service",
+  version: "2015-11-01",
+  protocol: "awsJson1_1",
+  endpointPrefix: "discovery",
+  targetPrefix: "AWSPoseidonService_V2015_11_01",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

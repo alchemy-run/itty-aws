@@ -1550,3 +1550,11 @@ export declare namespace UpdateWorkloadEstimate {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "BCM Pricing Calculator",
+  version: "2024-06-19",
+  protocol: "awsJson1_0",
+  targetPrefix: "AWSBCMPricingCalculator",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

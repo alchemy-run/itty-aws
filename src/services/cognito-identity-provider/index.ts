@@ -5482,3 +5482,12 @@ export declare namespace VerifyUserAttribute {
     | UserNotFoundException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Cognito Identity Provider",
+  version: "2016-04-18",
+  protocol: "awsJson1_1",
+  endpointPrefix: "cognito-idp",
+  targetPrefix: "AWSCognitoIdentityProviderService",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

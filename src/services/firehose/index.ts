@@ -1501,3 +1501,12 @@ export declare namespace UpdateDestination {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Firehose",
+  version: "2015-08-04",
+  protocol: "awsJson1_1",
+  endpointPrefix: "firehose",
+  targetPrefix: "Firehose_20150804",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

@@ -1588,3 +1588,11 @@ export declare namespace VerifySMSSandboxPhoneNumber {
     | VerificationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "SNS",
+  version: "2010-03-31",
+  protocol: "awsQuery",
+  endpointPrefix: "sns",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

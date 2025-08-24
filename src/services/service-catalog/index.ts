@@ -3224,3 +3224,12 @@ export declare namespace UpdateTagOption {
     | TagOptionNotMigratedException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Service Catalog",
+  version: "2015-12-10",
+  protocol: "awsJson1_1",
+  endpointPrefix: "servicecatalog",
+  targetPrefix: "AWS242ServiceCatalogService",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

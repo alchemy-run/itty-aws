@@ -878,3 +878,11 @@ export declare namespace UpdateDbInstance {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Timestream InfluxDB",
+  version: "2023-01-27",
+  protocol: "awsJson1_0",
+  targetPrefix: "AmazonTimestreamInfluxDB",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

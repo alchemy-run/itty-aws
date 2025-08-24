@@ -358,3 +358,36 @@ export declare namespace UpdateThingShadow {
     | UnsupportedDocumentEncodingException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "IoT Data Plane",
+  version: "2015-05-28",
+  protocol: "restJson1",
+  endpointPrefix: "data-ats.iot",
+  operations: {
+    DeleteThingShadow: {
+      http: "DELETE /things/{thingName}/shadow",
+      traits: {
+        payload: "httpPayload",
+      },
+    },
+    GetRetainedMessage: "GET /retainedMessage/{topic}",
+    GetThingShadow: {
+      http: "GET /things/{thingName}/shadow",
+      traits: {
+        payload: "httpPayload",
+      },
+    },
+    ListNamedShadowsForThing:
+      "GET /api/things/shadow/ListNamedShadowsForThing/{thingName}",
+    ListRetainedMessages: "GET /retainedMessage",
+    Publish: "POST /topics/{topic}",
+    UpdateThingShadow: {
+      http: "POST /things/{thingName}/shadow",
+      traits: {
+        payload: "httpPayload",
+      },
+    },
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

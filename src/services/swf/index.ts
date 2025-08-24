@@ -1862,3 +1862,12 @@ export declare namespace UntagResource {
     | UnknownResourceFault
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "SWF",
+  version: "2012-01-25",
+  protocol: "awsJson1_0",
+  endpointPrefix: "swf",
+  targetPrefix: "SimpleWorkflowService",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

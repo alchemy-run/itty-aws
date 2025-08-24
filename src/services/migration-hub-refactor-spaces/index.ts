@@ -1206,3 +1206,49 @@ export declare namespace UpdateRoute {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Migration Hub Refactor Spaces",
+  version: "2021-10-26",
+  protocol: "restJson1",
+  endpointPrefix: "refactor-spaces",
+  operations: {
+    CreateApplication:
+      "POST /environments/{EnvironmentIdentifier}/applications",
+    CreateEnvironment: "POST /environments",
+    CreateRoute:
+      "POST /environments/{EnvironmentIdentifier}/applications/{ApplicationIdentifier}/routes",
+    CreateService:
+      "POST /environments/{EnvironmentIdentifier}/applications/{ApplicationIdentifier}/services",
+    DeleteApplication:
+      "DELETE /environments/{EnvironmentIdentifier}/applications/{ApplicationIdentifier}",
+    DeleteEnvironment: "DELETE /environments/{EnvironmentIdentifier}",
+    DeleteResourcePolicy: "DELETE /resourcepolicy/{Identifier}",
+    DeleteRoute:
+      "DELETE /environments/{EnvironmentIdentifier}/applications/{ApplicationIdentifier}/routes/{RouteIdentifier}",
+    DeleteService:
+      "DELETE /environments/{EnvironmentIdentifier}/applications/{ApplicationIdentifier}/services/{ServiceIdentifier}",
+    GetApplication:
+      "GET /environments/{EnvironmentIdentifier}/applications/{ApplicationIdentifier}",
+    GetEnvironment: "GET /environments/{EnvironmentIdentifier}",
+    GetResourcePolicy: "GET /resourcepolicy/{Identifier}",
+    GetRoute:
+      "GET /environments/{EnvironmentIdentifier}/applications/{ApplicationIdentifier}/routes/{RouteIdentifier}",
+    GetService:
+      "GET /environments/{EnvironmentIdentifier}/applications/{ApplicationIdentifier}/services/{ServiceIdentifier}",
+    ListApplications: "GET /environments/{EnvironmentIdentifier}/applications",
+    ListEnvironments: "GET /environments",
+    ListEnvironmentVpcs: "GET /environments/{EnvironmentIdentifier}/vpcs",
+    ListRoutes:
+      "GET /environments/{EnvironmentIdentifier}/applications/{ApplicationIdentifier}/routes",
+    ListServices:
+      "GET /environments/{EnvironmentIdentifier}/applications/{ApplicationIdentifier}/services",
+    ListTagsForResource: "GET /tags/{ResourceArn}",
+    PutResourcePolicy: "PUT /resourcepolicy",
+    TagResource: "POST /tags/{ResourceArn}",
+    UntagResource: "DELETE /tags/{ResourceArn}",
+    UpdateRoute:
+      "PATCH /environments/{EnvironmentIdentifier}/applications/{ApplicationIdentifier}/routes/{RouteIdentifier}",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

@@ -1283,3 +1283,56 @@ export declare namespace UpdateCustomAction {
     | UnauthorizedException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "chatbot",
+  version: "2017-10-11",
+  protocol: "restJson1",
+  endpointPrefix: "chatbot",
+  operations: {
+    AssociateToConfiguration: "POST /associate-to-configuration",
+    CreateChimeWebhookConfiguration: "POST /create-chime-webhook-configuration",
+    CreateMicrosoftTeamsChannelConfiguration:
+      "POST /create-ms-teams-channel-configuration",
+    CreateSlackChannelConfiguration: "POST /create-slack-channel-configuration",
+    DeleteChimeWebhookConfiguration: "POST /delete-chime-webhook-configuration",
+    DeleteMicrosoftTeamsChannelConfiguration:
+      "POST /delete-ms-teams-channel-configuration",
+    DeleteMicrosoftTeamsConfiguredTeam:
+      "POST /delete-ms-teams-configured-teams",
+    DeleteMicrosoftTeamsUserIdentity: "POST /delete-ms-teams-user-identity",
+    DeleteSlackChannelConfiguration: "POST /delete-slack-channel-configuration",
+    DeleteSlackUserIdentity: "POST /delete-slack-user-identity",
+    DeleteSlackWorkspaceAuthorization:
+      "POST /delete-slack-workspace-authorization",
+    DescribeChimeWebhookConfigurations:
+      "POST /describe-chime-webhook-configurations",
+    DescribeSlackChannelConfigurations:
+      "POST /describe-slack-channel-configurations",
+    DescribeSlackUserIdentities: "POST /describe-slack-user-identities",
+    DescribeSlackWorkspaces: "POST /describe-slack-workspaces",
+    DisassociateFromConfiguration: "POST /disassociate-from-configuration",
+    GetAccountPreferences: "POST /get-account-preferences",
+    GetMicrosoftTeamsChannelConfiguration:
+      "POST /get-ms-teams-channel-configuration",
+    ListAssociations: "POST /list-associations",
+    ListMicrosoftTeamsChannelConfigurations:
+      "POST /list-ms-teams-channel-configurations",
+    ListMicrosoftTeamsConfiguredTeams: "POST /list-ms-teams-configured-teams",
+    ListMicrosoftTeamsUserIdentities: "POST /list-ms-teams-user-identities",
+    ListTagsForResource: "POST /list-tags-for-resource",
+    TagResource: "POST /tag-resource",
+    UntagResource: "POST /untag-resource",
+    UpdateAccountPreferences: "POST /update-account-preferences",
+    UpdateChimeWebhookConfiguration: "POST /update-chime-webhook-configuration",
+    UpdateMicrosoftTeamsChannelConfiguration:
+      "POST /update-ms-teams-channel-configuration",
+    UpdateSlackChannelConfiguration: "POST /update-slack-channel-configuration",
+    CreateCustomAction: "POST /create-custom-action",
+    DeleteCustomAction: "POST /delete-custom-action",
+    GetCustomAction: "POST /get-custom-action",
+    ListCustomActions: "POST /list-custom-actions",
+    UpdateCustomAction: "POST /update-custom-action",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

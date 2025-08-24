@@ -123,3 +123,24 @@ export declare namespace StartConfigurationSession {
     | ThrottlingException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "AppConfigData",
+  version: "2021-11-11",
+  protocol: "restJson1",
+  endpointPrefix: "appconfigdata",
+  operations: {
+    GetLatestConfiguration: {
+      http: "GET /configuration",
+      traits: {
+        NextPollConfigurationToken: "Next-Poll-Configuration-Token",
+        NextPollIntervalInSeconds: "Next-Poll-Interval-In-Seconds",
+        ContentType: "Content-Type",
+        Configuration: "httpPayload",
+        VersionLabel: "Version-Label",
+      },
+    },
+    StartConfigurationSession: "POST /configurationsessions",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

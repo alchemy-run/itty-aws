@@ -1120,3 +1120,49 @@ export declare namespace UpdateResourceSet {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Route53 Recovery Readiness",
+  version: "2019-12-02",
+  protocol: "restJson1",
+  endpointPrefix: "route53-recovery-readiness",
+  operations: {
+    CreateCell: "POST /cells",
+    CreateCrossAccountAuthorization: "POST /crossaccountauthorizations",
+    CreateReadinessCheck: "POST /readinesschecks",
+    CreateRecoveryGroup: "POST /recoverygroups",
+    CreateResourceSet: "POST /resourcesets",
+    DeleteCell: "DELETE /cells/{CellName}",
+    DeleteCrossAccountAuthorization:
+      "DELETE /crossaccountauthorizations/{CrossAccountAuthorization}",
+    DeleteReadinessCheck: "DELETE /readinesschecks/{ReadinessCheckName}",
+    DeleteRecoveryGroup: "DELETE /recoverygroups/{RecoveryGroupName}",
+    DeleteResourceSet: "DELETE /resourcesets/{ResourceSetName}",
+    GetArchitectureRecommendations:
+      "GET /recoverygroups/{RecoveryGroupName}/architectureRecommendations",
+    GetCell: "GET /cells/{CellName}",
+    GetCellReadinessSummary: "GET /cellreadiness/{CellName}",
+    GetReadinessCheck: "GET /readinesschecks/{ReadinessCheckName}",
+    GetReadinessCheckResourceStatus:
+      "GET /readinesschecks/{ReadinessCheckName}/resource/{ResourceIdentifier}/status",
+    GetReadinessCheckStatus: "GET /readinesschecks/{ReadinessCheckName}/status",
+    GetRecoveryGroup: "GET /recoverygroups/{RecoveryGroupName}",
+    GetRecoveryGroupReadinessSummary:
+      "GET /recoverygroupreadiness/{RecoveryGroupName}",
+    GetResourceSet: "GET /resourcesets/{ResourceSetName}",
+    ListCells: "GET /cells",
+    ListCrossAccountAuthorizations: "GET /crossaccountauthorizations",
+    ListReadinessChecks: "GET /readinesschecks",
+    ListRecoveryGroups: "GET /recoverygroups",
+    ListResourceSets: "GET /resourcesets",
+    ListRules: "GET /rules",
+    ListTagsForResources: "GET /tags/{ResourceArn}",
+    TagResource: "POST /tags/{ResourceArn}",
+    UntagResource: "DELETE /tags/{ResourceArn}",
+    UpdateCell: "PUT /cells/{CellName}",
+    UpdateReadinessCheck: "PUT /readinesschecks/{ReadinessCheckName}",
+    UpdateRecoveryGroup: "PUT /recoverygroups/{RecoveryGroupName}",
+    UpdateResourceSet: "PUT /resourcesets/{ResourceSetName}",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

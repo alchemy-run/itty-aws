@@ -2283,3 +2283,72 @@ export declare namespace UpdateReplicationConfigurationTemplate {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "drs",
+  version: "2020-02-26",
+  protocol: "restJson1",
+  operations: {
+    CreateExtendedSourceServer: "POST /CreateExtendedSourceServer",
+    DeleteLaunchAction: "POST /DeleteLaunchAction",
+    InitializeService: "POST /InitializeService",
+    ListExtensibleSourceServers: "POST /ListExtensibleSourceServers",
+    ListLaunchActions: "POST /ListLaunchActions",
+    ListStagingAccounts: "GET /ListStagingAccounts",
+    ListTagsForResource: "GET /tags/{resourceArn}",
+    PutLaunchAction: "POST /PutLaunchAction",
+    TagResource: "POST /tags/{resourceArn}",
+    UntagResource: "DELETE /tags/{resourceArn}",
+    AssociateSourceNetworkStack: "POST /AssociateSourceNetworkStack",
+    CreateLaunchConfigurationTemplate:
+      "POST /CreateLaunchConfigurationTemplate",
+    CreateReplicationConfigurationTemplate:
+      "POST /CreateReplicationConfigurationTemplate",
+    CreateSourceNetwork: "POST /CreateSourceNetwork",
+    DeleteJob: "POST /DeleteJob",
+    DeleteLaunchConfigurationTemplate:
+      "POST /DeleteLaunchConfigurationTemplate",
+    DeleteRecoveryInstance: "POST /DeleteRecoveryInstance",
+    DeleteReplicationConfigurationTemplate:
+      "POST /DeleteReplicationConfigurationTemplate",
+    DeleteSourceNetwork: "POST /DeleteSourceNetwork",
+    DeleteSourceServer: "POST /DeleteSourceServer",
+    DescribeJobLogItems: "POST /DescribeJobLogItems",
+    DescribeJobs: "POST /DescribeJobs",
+    DescribeLaunchConfigurationTemplates:
+      "POST /DescribeLaunchConfigurationTemplates",
+    DescribeRecoveryInstances: "POST /DescribeRecoveryInstances",
+    DescribeRecoverySnapshots: "POST /DescribeRecoverySnapshots",
+    DescribeReplicationConfigurationTemplates:
+      "POST /DescribeReplicationConfigurationTemplates",
+    DescribeSourceNetworks: "POST /DescribeSourceNetworks",
+    DescribeSourceServers: "POST /DescribeSourceServers",
+    DisconnectRecoveryInstance: "POST /DisconnectRecoveryInstance",
+    DisconnectSourceServer: "POST /DisconnectSourceServer",
+    ExportSourceNetworkCfnTemplate: "POST /ExportSourceNetworkCfnTemplate",
+    GetFailbackReplicationConfiguration:
+      "POST /GetFailbackReplicationConfiguration",
+    GetLaunchConfiguration: "POST /GetLaunchConfiguration",
+    GetReplicationConfiguration: "POST /GetReplicationConfiguration",
+    RetryDataReplication: "POST /RetryDataReplication",
+    ReverseReplication: "POST /ReverseReplication",
+    StartFailbackLaunch: "POST /StartFailbackLaunch",
+    StartRecovery: "POST /StartRecovery",
+    StartReplication: "POST /StartReplication",
+    StartSourceNetworkRecovery: "POST /StartSourceNetworkRecovery",
+    StartSourceNetworkReplication: "POST /StartSourceNetworkReplication",
+    StopFailback: "POST /StopFailback",
+    StopReplication: "POST /StopReplication",
+    StopSourceNetworkReplication: "POST /StopSourceNetworkReplication",
+    TerminateRecoveryInstances: "POST /TerminateRecoveryInstances",
+    UpdateFailbackReplicationConfiguration:
+      "POST /UpdateFailbackReplicationConfiguration",
+    UpdateLaunchConfiguration: "POST /UpdateLaunchConfiguration",
+    UpdateLaunchConfigurationTemplate:
+      "POST /UpdateLaunchConfigurationTemplate",
+    UpdateReplicationConfiguration: "POST /UpdateReplicationConfiguration",
+    UpdateReplicationConfigurationTemplate:
+      "POST /UpdateReplicationConfigurationTemplate",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

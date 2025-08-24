@@ -69,7 +69,6 @@ export function getServiceMeta(serviceId: string): AwsQueryServiceMeta | null {
       serviceMetadata.set(serviceId, meta);
       return meta;
     } catch (_error) {
-      console.warn(`No AWS Query metadata found for service: ${serviceId}`);
       return null;
     }
   }

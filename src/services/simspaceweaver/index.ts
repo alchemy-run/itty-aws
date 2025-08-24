@@ -624,3 +624,29 @@ export declare namespace StopSimulation {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "SimSpaceWeaver",
+  version: "2022-10-28",
+  protocol: "restJson1",
+  endpointPrefix: "simspaceweaver",
+  operations: {
+    ListTagsForResource: "GET /tags/{ResourceArn}",
+    TagResource: "POST /tags/{ResourceArn}",
+    UntagResource: "DELETE /tags/{ResourceArn}",
+    CreateSnapshot: "POST /createsnapshot",
+    DeleteApp: "DELETE /deleteapp",
+    DeleteSimulation: "DELETE /deletesimulation",
+    DescribeApp: "GET /describeapp",
+    DescribeSimulation: "GET /describesimulation",
+    ListApps: "GET /listapps",
+    ListSimulations: "GET /listsimulations",
+    StartApp: "POST /startapp",
+    StartClock: "POST /startclock",
+    StartSimulation: "POST /startsimulation",
+    StopApp: "POST /stopapp",
+    StopClock: "POST /stopclock",
+    StopSimulation: "POST /stopsimulation",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

@@ -938,3 +938,12 @@ export declare namespace UntagResource {
     | TooManyRequestsException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Service Quotas",
+  version: "2019-06-24",
+  protocol: "awsJson1_1",
+  endpointPrefix: "servicequotas",
+  targetPrefix: "ServiceQuotasV20190624",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

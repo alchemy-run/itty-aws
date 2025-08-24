@@ -386,3 +386,12 @@ export declare namespace SearchAgreements {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Marketplace Agreement",
+  version: "2020-03-01",
+  protocol: "awsJson1_0",
+  endpointPrefix: "agreement-marketplace",
+  targetPrefix: "AWSMPCommerceService_v20200301",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

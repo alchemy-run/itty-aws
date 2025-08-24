@@ -1144,68 +1144,52 @@ const generateServiceCode = (serviceName: string, manifest: Manifest) =>
       }),
     };
 
-    return { code, metadata };
-  });
-
-// Generate metadata file
-const generateMetadataFile = (servicesMetadata: Record<string, any>) => {
-  let code = `// Auto-generated service metadata
-export const serviceMetadata = {\n`;
-
-  Object.entries(servicesMetadata)
-    .sort(([a], [b]) => a.localeCompare(b)) // Sort alphabetically by service name
-    .forEach(([_service, meta]) => {
-      // Use the consistent interface name as the key, same as service class generation
-      let consistentInterfaceName = meta.sdkId.replace(/\s+/g, ""); // Remove spaces to make valid TS identifier
-      // Convert to lowercase for metadata key to match client.ts lookup pattern
-      const metadataKey = consistentInterfaceName.toLowerCase();
-      code += `  ${metadataKey}: {\n`;
-      code += `    sdkId: "${meta.sdkId}",\n`;
-      code += `    version: "${meta.version}",\n`;
-      code += `    protocol: "${meta.protocol}",\n`;
-      if (meta.endpointPrefix) {
-        code += `    endpointPrefix: "${meta.endpointPrefix}",\n`;
-      }
-      if (meta.targetPrefix) {
-        code += `    targetPrefix: "${meta.targetPrefix}",\n`;
-      }
-      // Only include optional fields if they are defined
-      if (meta.globalEndpoint) {
-        code += `    globalEndpoint: "${meta.globalEndpoint}",\n`;
-      }
-      if (meta.signingRegion) {
-        code += `    signingRegion: "${meta.signingRegion}",\n`;
-      }
-      if (meta.operations) {
-        code += "    operations: {\n";
-        Object.entries(meta.operations).forEach(([opName, opSpec]) => {
-          if (typeof opSpec === "string") {
-            // Simple HTTP mapping (existing behavior)
-            code += `      "${opName}": "${opSpec}",\n`;
-          } else {
-            // Complex mapping with traits
-            code += `      "${opName}": {\n`;
-            if (opSpec.http) {
-              code += `        http: "${opSpec.http}",\n`;
-            }
-            if (opSpec.traits) {
-              code += "        traits: {\n";
-              Object.entries(opSpec.traits).forEach(([fieldName, trait]) => {
-                code += `          "${fieldName}": "${trait}",\n`;
-              });
-              code += "        },\n";
-            }
+    // Add metadata export to the service code
+    code += "\n// Service metadata\n";
+    code += "export const metadata = {\n";
+    code += `  sdkId: "${sdkId}",\n`;
+    code += `  version: "${version}",\n`;
+    code += `  protocol: "${protocol}",\n`;
+    if (endpointPrefix) {
+      code += `  endpointPrefix: "${endpointPrefix}",\n`;
+    }
+    if (targetPrefix) {
+      code += `  targetPrefix: "${targetPrefix}",\n`;
+    }
+    if (globalEndpoint) {
+      code += `  globalEndpoint: "${globalEndpoint}",\n`;
+    }
+    if (signingRegion) {
+      code += `  signingRegion: "${signingRegion}",\n`;
+    }
+    if (Object.keys(operationMappings).length > 0) {
+      code += "  operations: {\n";
+      Object.entries(operationMappings).forEach(([opName, opSpec]) => {
+        if (typeof opSpec === "string") {
+          // Simple HTTP mapping (existing behavior)
+          code += `    "${opName}": "${opSpec}",\n`;
+        } else {
+          // Complex mapping with traits
+          code += `    "${opName}": {\n`;
+          if (opSpec.http) {
+            code += `      http: "${opSpec.http}",\n`;
+          }
+          if (opSpec.traits) {
+            code += "      traits: {\n";
+            Object.entries(opSpec.traits).forEach(([fieldName, trait]) => {
+              code += `        "${fieldName}": "${trait}",\n`;
+            });
             code += "      },\n";
           }
-        });
-        code += "    },\n";
-      }
+          code += "    },\n";
+        }
+      });
       code += "  },\n";
-    });
+    }
+    code += `} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;\n`;
 
-  code += "} as const;\n";
-  return code;
-};
+    return { code, metadata };
+  });
 
 // Generate index file that exports all services
 const generateIndexFile = (
@@ -1358,10 +1342,6 @@ const program = Effect.gen(function* () {
       // Continue with other services instead of failing completely
     }
   }
-
-  // Generate metadata file
-  const metadataCode = generateMetadataFile(servicesMetadata);
-  yield* fs.writeFileString("src/metadata.ts", metadataCode);
 
   // Generate index file
   const indexCode = generateIndexFile(awsServiceExports);

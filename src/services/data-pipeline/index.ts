@@ -672,3 +672,12 @@ export declare namespace ValidatePipelineDefinition {
     | PipelineNotFoundException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Data Pipeline",
+  version: "2012-10-29",
+  protocol: "awsJson1_1",
+  endpointPrefix: "datapipeline",
+  targetPrefix: "DataPipeline",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

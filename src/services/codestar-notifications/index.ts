@@ -477,3 +477,26 @@ export declare namespace UpdateNotificationRule {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "codestar notifications",
+  version: "2019-10-15",
+  protocol: "restJson1",
+  endpointPrefix: "codestar-notifications",
+  operations: {
+    CreateNotificationRule: "POST /createNotificationRule",
+    DeleteNotificationRule: "POST /deleteNotificationRule",
+    DeleteTarget: "POST /deleteTarget",
+    DescribeNotificationRule: "POST /describeNotificationRule",
+    ListEventTypes: "POST /listEventTypes",
+    ListNotificationRules: "POST /listNotificationRules",
+    ListTagsForResource: "POST /listTagsForResource",
+    ListTargets: "POST /listTargets",
+    Subscribe: "POST /subscribe",
+    TagResource: "POST /tagResource",
+    Unsubscribe: "POST /unsubscribe",
+    UntagResource: "POST /untagResource/{Arn}",
+    UpdateNotificationRule: "POST /updateNotificationRule",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

@@ -1633,3 +1633,51 @@ export declare namespace UpdateResourceShare {
     | UnknownResourceException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "RAM",
+  version: "2018-01-04",
+  protocol: "restJson1",
+  endpointPrefix: "ram",
+  operations: {
+    AcceptResourceShareInvitation: "POST /acceptresourceshareinvitation",
+    AssociateResourceShare: "POST /associateresourceshare",
+    AssociateResourceSharePermission: "POST /associateresourcesharepermission",
+    CreatePermission: "POST /createpermission",
+    CreatePermissionVersion: "POST /createpermissionversion",
+    CreateResourceShare: "POST /createresourceshare",
+    DeletePermission: "DELETE /deletepermission",
+    DeletePermissionVersion: "DELETE /deletepermissionversion",
+    DeleteResourceShare: "DELETE /deleteresourceshare",
+    DisassociateResourceShare: "POST /disassociateresourceshare",
+    DisassociateResourceSharePermission:
+      "POST /disassociateresourcesharepermission",
+    EnableSharingWithAwsOrganization: "POST /enablesharingwithawsorganization",
+    GetPermission: "POST /getpermission",
+    GetResourcePolicies: "POST /getresourcepolicies",
+    GetResourceShareAssociations: "POST /getresourceshareassociations",
+    GetResourceShareInvitations: "POST /getresourceshareinvitations",
+    GetResourceShares: "POST /getresourceshares",
+    ListPendingInvitationResources: "POST /listpendinginvitationresources",
+    ListPermissionAssociations: "POST /listpermissionassociations",
+    ListPermissions: "POST /listpermissions",
+    ListPermissionVersions: "POST /listpermissionversions",
+    ListPrincipals: "POST /listprincipals",
+    ListReplacePermissionAssociationsWork:
+      "POST /listreplacepermissionassociationswork",
+    ListResources: "POST /listresources",
+    ListResourceSharePermissions: "POST /listresourcesharepermissions",
+    ListResourceTypes: "POST /listresourcetypes",
+    PromotePermissionCreatedFromPolicy:
+      "POST /promotepermissioncreatedfrompolicy",
+    PromoteResourceShareCreatedFromPolicy:
+      "POST /promoteresourcesharecreatedfrompolicy",
+    RejectResourceShareInvitation: "POST /rejectresourceshareinvitation",
+    ReplacePermissionAssociations: "POST /replacepermissionassociations",
+    SetDefaultPermissionVersion: "POST /setdefaultpermissionversion",
+    TagResource: "POST /tagresource",
+    UntagResource: "POST /untagresource",
+    UpdateResourceShare: "POST /updateresourceshare",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

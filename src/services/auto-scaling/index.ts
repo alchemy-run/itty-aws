@@ -2436,3 +2436,11 @@ export declare namespace UpdateAutoScalingGroup {
     | ServiceLinkedRoleFailure
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Auto Scaling",
+  version: "2011-01-01",
+  protocol: "awsQuery",
+  endpointPrefix: "autoscaling",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

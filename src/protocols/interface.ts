@@ -8,6 +8,14 @@ export interface ServiceMetadata {
   readonly targetPrefix?: string; // only used for awsJson1_0 and awsJson1_1
   readonly globalEndpoint?: string; // For global services like IAM and CloudFront
   readonly signingRegion?: string; // Override signing region for global services
+  readonly operations?: Record<
+    string,
+    | string
+    | {
+        readonly http?: string;
+        readonly traits?: Record<string, string>;
+      }
+  >; // Operation mappings for restJson1 and trait mappings
 }
 
 export interface ParsedError {

@@ -1250,3 +1250,12 @@ export declare namespace UpdateSubscription {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Shield",
+  version: "2016-06-02",
+  protocol: "awsJson1_1",
+  endpointPrefix: "shield",
+  targetPrefix: "AWSShield_20160616",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

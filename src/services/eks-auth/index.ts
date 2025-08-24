@@ -115,3 +115,15 @@ export declare namespace AssumeRoleForPodIdentity {
     | ThrottlingException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "EKS Auth",
+  version: "2023-11-26",
+  protocol: "restJson1",
+  endpointPrefix: "eks-auth",
+  operations: {
+    AssumeRoleForPodIdentity:
+      "POST /clusters/{clusterName}/assume-role-for-pod-identity",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

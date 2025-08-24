@@ -2357,3 +2357,12 @@ export declare namespace ValidatePullThroughCacheRule {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "ECR",
+  version: "2015-09-21",
+  protocol: "awsJson1_1",
+  endpointPrefix: "api.ecr",
+  targetPrefix: "AmazonEC2ContainerRegistry_V20150921",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

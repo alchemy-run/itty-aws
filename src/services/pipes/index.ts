@@ -1048,3 +1048,23 @@ export declare namespace UpdatePipe {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Pipes",
+  version: "2015-10-07",
+  protocol: "restJson1",
+  endpointPrefix: "pipes",
+  operations: {
+    ListTagsForResource: "GET /tags/{resourceArn}",
+    TagResource: "POST /tags/{resourceArn}",
+    UntagResource: "DELETE /tags/{resourceArn}",
+    CreatePipe: "POST /v1/pipes/{Name}",
+    DeletePipe: "DELETE /v1/pipes/{Name}",
+    DescribePipe: "GET /v1/pipes/{Name}",
+    ListPipes: "GET /v1/pipes",
+    StartPipe: "POST /v1/pipes/{Name}/start",
+    StopPipe: "POST /v1/pipes/{Name}/stop",
+    UpdatePipe: "PUT /v1/pipes/{Name}",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

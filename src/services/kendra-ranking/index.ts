@@ -409,3 +409,12 @@ export declare namespace UpdateRescoreExecutionPlan {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Kendra Ranking",
+  version: "2022-10-19",
+  protocol: "awsJson1_0",
+  endpointPrefix: "kendra-ranking",
+  targetPrefix: "AWSKendraRerankingFrontendService",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

@@ -3087,3 +3087,12 @@ export declare namespace UpdateTimeToLive {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "DynamoDB",
+  version: "2012-08-10",
+  protocol: "awsJson1_0",
+  endpointPrefix: "dynamodb",
+  targetPrefix: "DynamoDB_20120810",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

@@ -5061,3 +5061,13 @@ export declare namespace UploadSSHPublicKey {
     | UnrecognizedPublicKeyEncodingException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "IAM",
+  version: "2010-05-08",
+  protocol: "awsQuery",
+  endpointPrefix: "iam",
+  globalEndpoint: "https://iam.amazonaws.com",
+  signingRegion: "us-east-1",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

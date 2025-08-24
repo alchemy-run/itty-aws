@@ -386,3 +386,31 @@ export declare namespace ListFragments {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Kinesis Video Archived Media",
+  version: "2017-09-30",
+  protocol: "restJson1",
+  endpointPrefix: "kinesisvideo",
+  operations: {
+    GetClip: {
+      http: "POST /getClip",
+      traits: {
+        ContentType: "Content-Type",
+        Payload: "httpPayload",
+      },
+    },
+    GetDASHStreamingSessionURL: "POST /getDASHStreamingSessionURL",
+    GetHLSStreamingSessionURL: "POST /getHLSStreamingSessionURL",
+    GetImages: "POST /getImages",
+    GetMediaForFragmentList: {
+      http: "POST /getMediaForFragmentList",
+      traits: {
+        ContentType: "Content-Type",
+        Payload: "httpPayload",
+      },
+    },
+    ListFragments: "POST /listFragments",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

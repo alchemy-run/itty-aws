@@ -2273,3 +2273,12 @@ export declare namespace UpdateVolume {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "OpsWorks",
+  version: "2013-02-18",
+  protocol: "awsJson1_1",
+  endpointPrefix: "opsworks",
+  targetPrefix: "OpsWorks_20130218",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

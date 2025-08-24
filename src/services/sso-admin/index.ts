@@ -2753,3 +2753,12 @@ export declare namespace PutApplicationGrant {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "SSO Admin",
+  version: "2020-07-20",
+  protocol: "awsJson1_1",
+  endpointPrefix: "sso",
+  targetPrefix: "SWBExternalService",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

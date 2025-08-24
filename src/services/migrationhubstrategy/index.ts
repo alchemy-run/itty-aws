@@ -1210,3 +1210,40 @@ export declare namespace UpdateServerConfig {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "MigrationHubStrategy",
+  version: "2020-02-19",
+  protocol: "restJson1",
+  endpointPrefix: "migrationhub-strategy",
+  operations: {
+    GetApplicationComponentDetails:
+      "GET /get-applicationcomponent-details/{applicationComponentId}",
+    GetApplicationComponentStrategies:
+      "GET /get-applicationcomponent-strategies/{applicationComponentId}",
+    GetAssessment: "GET /get-assessment/{id}",
+    GetImportFileTask: "GET /get-import-file-task/{id}",
+    GetLatestAssessmentId: "GET /get-latest-assessment-id",
+    GetPortfolioPreferences: "GET /get-portfolio-preferences",
+    GetPortfolioSummary: "GET /get-portfolio-summary",
+    GetRecommendationReportDetails:
+      "GET /get-recommendation-report-details/{id}",
+    GetServerDetails: "GET /get-server-details/{serverId}",
+    GetServerStrategies: "GET /get-server-strategies/{serverId}",
+    ListAnalyzableServers: "POST /list-analyzable-servers",
+    ListApplicationComponents: "POST /list-applicationcomponents",
+    ListCollectors: "GET /list-collectors",
+    ListImportFileTask: "GET /list-import-file-task",
+    ListServers: "POST /list-servers",
+    PutPortfolioPreferences: "POST /put-portfolio-preferences",
+    StartAssessment: "POST /start-assessment",
+    StartImportFileTask: "POST /start-import-file-task",
+    StartRecommendationReportGeneration:
+      "POST /start-recommendation-report-generation",
+    StopAssessment: "POST /stop-assessment",
+    UpdateApplicationComponentConfig:
+      "POST /update-applicationcomponent-config/",
+    UpdateServerConfig: "POST /update-server-config/",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

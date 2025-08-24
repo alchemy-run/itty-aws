@@ -343,3 +343,17 @@ export declare namespace StartDeviceAuthorization {
     | UnauthorizedClientException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "SSO OIDC",
+  version: "2019-06-10",
+  protocol: "restJson1",
+  endpointPrefix: "oidc",
+  operations: {
+    CreateToken: "POST /token",
+    CreateTokenWithIAM: "POST /token?aws_iam=t",
+    RegisterClient: "POST /client/register",
+    StartDeviceAuthorization: "POST /device_authorization",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

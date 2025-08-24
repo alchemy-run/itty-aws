@@ -1852,3 +1852,12 @@ export declare namespace UpdateTaskExecution {
     | InvalidRequestException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "DataSync",
+  version: "2018-11-09",
+  protocol: "awsJson1_1",
+  endpointPrefix: "datasync",
+  targetPrefix: "FmrsService",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

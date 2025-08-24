@@ -728,3 +728,29 @@ export declare namespace UpdateRoom {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "ivschat",
+  version: "2020-07-14",
+  protocol: "restJson1",
+  operations: {
+    CreateChatToken: "POST /CreateChatToken",
+    CreateLoggingConfiguration: "POST /CreateLoggingConfiguration",
+    CreateRoom: "POST /CreateRoom",
+    DeleteLoggingConfiguration: "POST /DeleteLoggingConfiguration",
+    DeleteMessage: "POST /DeleteMessage",
+    DeleteRoom: "POST /DeleteRoom",
+    DisconnectUser: "POST /DisconnectUser",
+    GetLoggingConfiguration: "POST /GetLoggingConfiguration",
+    GetRoom: "POST /GetRoom",
+    ListLoggingConfigurations: "POST /ListLoggingConfigurations",
+    ListRooms: "POST /ListRooms",
+    ListTagsForResource: "GET /tags/{resourceArn}",
+    SendEvent: "POST /SendEvent",
+    TagResource: "POST /tags/{resourceArn}",
+    UntagResource: "DELETE /tags/{resourceArn}",
+    UpdateLoggingConfiguration: "POST /UpdateLoggingConfiguration",
+    UpdateRoom: "POST /UpdateRoom",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

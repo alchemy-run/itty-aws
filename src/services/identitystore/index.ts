@@ -700,3 +700,12 @@ export declare namespace UpdateUser {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "identitystore",
+  version: "2020-06-15",
+  protocol: "awsJson1_1",
+  endpointPrefix: "identitystore",
+  targetPrefix: "AWSIdentityStore",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

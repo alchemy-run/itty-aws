@@ -499,3 +499,11 @@ export declare namespace ListEnvironments {
   export type Output = ListEnvironmentsResponse;
   export type Error = ValidationException | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "evs",
+  version: "2023-07-27",
+  protocol: "awsJson1_0",
+  targetPrefix: "AmazonElasticVMwareService",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

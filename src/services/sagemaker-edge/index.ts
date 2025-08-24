@@ -152,3 +152,16 @@ export declare namespace SendHeartbeat {
   export type Output = {};
   export type Error = InternalServiceException | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Sagemaker Edge",
+  version: "2020-09-23",
+  protocol: "restJson1",
+  endpointPrefix: "edge.sagemaker",
+  operations: {
+    GetDeployments: "POST /GetDeployments",
+    GetDeviceRegistration: "POST /GetDeviceRegistration",
+    SendHeartbeat: "POST /SendHeartbeat",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

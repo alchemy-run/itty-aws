@@ -127,3 +127,12 @@ export declare namespace QueryWhatIfForecast {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "forecastquery",
+  version: "2018-06-26",
+  protocol: "awsJson1_1",
+  endpointPrefix: "forecastquery",
+  targetPrefix: "AmazonForecastRuntime",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

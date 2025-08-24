@@ -341,3 +341,29 @@ export declare namespace UpdateSlackChannelConfiguration {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Support App",
+  version: "2021-08-20",
+  protocol: "restJson1",
+  operations: {
+    CreateSlackChannelConfiguration:
+      "POST /control/create-slack-channel-configuration",
+    DeleteAccountAlias: "POST /control/delete-account-alias",
+    DeleteSlackChannelConfiguration:
+      "POST /control/delete-slack-channel-configuration",
+    DeleteSlackWorkspaceConfiguration:
+      "POST /control/delete-slack-workspace-configuration",
+    GetAccountAlias: "POST /control/get-account-alias",
+    ListSlackChannelConfigurations:
+      "POST /control/list-slack-channel-configurations",
+    ListSlackWorkspaceConfigurations:
+      "POST /control/list-slack-workspace-configurations",
+    PutAccountAlias: "POST /control/put-account-alias",
+    RegisterSlackWorkspaceForOrganization:
+      "POST /control/register-slack-workspace-for-organization",
+    UpdateSlackChannelConfiguration:
+      "POST /control/update-slack-channel-configuration",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

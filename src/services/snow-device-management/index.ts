@@ -575,3 +575,26 @@ export declare namespace ListTasks {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Snow Device Management",
+  version: "2021-08-04",
+  protocol: "restJson1",
+  operations: {
+    ListTagsForResource: "GET /tags/{resourceArn}",
+    TagResource: "POST /tags/{resourceArn}",
+    UntagResource: "DELETE /tags/{resourceArn}",
+    CancelTask: "POST /task/{taskId}/cancel",
+    CreateTask: "POST /task",
+    DescribeDevice: "POST /managed-device/{managedDeviceId}/describe",
+    DescribeDeviceEc2Instances:
+      "POST /managed-device/{managedDeviceId}/resources/ec2/describe",
+    DescribeExecution: "POST /task/{taskId}/execution/{managedDeviceId}",
+    DescribeTask: "POST /task/{taskId}",
+    ListDeviceResources: "GET /managed-device/{managedDeviceId}/resources",
+    ListDevices: "GET /managed-devices",
+    ListExecutions: "GET /executions",
+    ListTasks: "GET /tasks",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

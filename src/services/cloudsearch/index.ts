@@ -1120,3 +1120,11 @@ export declare namespace UpdateServiceAccessPolicies {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "CloudSearch",
+  version: "2013-01-01",
+  protocol: "awsQuery",
+  endpointPrefix: "cloudsearch",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

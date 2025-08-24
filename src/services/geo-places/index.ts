@@ -851,3 +851,54 @@ export declare namespace Suggest {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Geo Places",
+  version: "2020-11-19",
+  protocol: "restJson1",
+  operations: {
+    Autocomplete: {
+      http: "POST /autocomplete",
+      traits: {
+        PricingBucket: "x-amz-geo-pricing-bucket",
+      },
+    },
+    Geocode: {
+      http: "POST /geocode",
+      traits: {
+        PricingBucket: "x-amz-geo-pricing-bucket",
+      },
+    },
+    GetPlace: {
+      http: "GET /place/{PlaceId}",
+      traits: {
+        PricingBucket: "x-amz-geo-pricing-bucket",
+      },
+    },
+    ReverseGeocode: {
+      http: "POST /reverse-geocode",
+      traits: {
+        PricingBucket: "x-amz-geo-pricing-bucket",
+      },
+    },
+    SearchNearby: {
+      http: "POST /search-nearby",
+      traits: {
+        PricingBucket: "x-amz-geo-pricing-bucket",
+      },
+    },
+    SearchText: {
+      http: "POST /search-text",
+      traits: {
+        PricingBucket: "x-amz-geo-pricing-bucket",
+      },
+    },
+    Suggest: {
+      http: "POST /suggest",
+      traits: {
+        PricingBucket: "x-amz-geo-pricing-bucket",
+      },
+    },
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

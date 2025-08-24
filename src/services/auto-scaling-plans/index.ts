@@ -417,3 +417,12 @@ export declare namespace UpdateScalingPlan {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Auto Scaling Plans",
+  version: "2018-01-06",
+  protocol: "awsJson1_1",
+  endpointPrefix: "autoscaling-plans",
+  targetPrefix: "AnyScaleScalingPlannerFrontendService",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

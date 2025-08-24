@@ -2279,3 +2279,12 @@ export declare namespace UpdateWebhook {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "CodeBuild",
+  version: "2016-10-06",
+  protocol: "awsJson1_1",
+  endpointPrefix: "codebuild",
+  targetPrefix: "CodeBuild_20161006",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

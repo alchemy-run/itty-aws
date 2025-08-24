@@ -205,3 +205,17 @@ export declare namespace PutRecord {
     | ValidationError
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "SageMaker FeatureStore Runtime",
+  version: "2020-07-01",
+  protocol: "restJson1",
+  endpointPrefix: "featurestore-runtime.sagemaker",
+  operations: {
+    BatchGetRecord: "POST /BatchGetRecord",
+    DeleteRecord: "DELETE /FeatureGroup/{FeatureGroupName}",
+    GetRecord: "GET /FeatureGroup/{FeatureGroupName}",
+    PutRecord: "PUT /FeatureGroup/{FeatureGroupName}",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

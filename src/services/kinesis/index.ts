@@ -1424,3 +1424,12 @@ export declare namespace UpdateStreamMode {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Kinesis",
+  version: "2013-12-02",
+  protocol: "awsJson1_1",
+  endpointPrefix: "kinesis",
+  targetPrefix: "Kinesis_20131202",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

@@ -1468,3 +1468,50 @@ export declare namespace UpdateGraph {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Neptune Graph",
+  version: "2023-11-29",
+  protocol: "restJson1",
+  operations: {
+    CancelQuery: "DELETE /queries/{queryId}",
+    ExecuteQuery: {
+      http: "POST /queries",
+      traits: {
+        payload: "httpPayload",
+      },
+    },
+    GetGraphSummary: "GET /summary",
+    GetQuery: "GET /queries/{queryId}",
+    ListQueries: "GET /queries",
+    ListTagsForResource: "GET /tags/{resourceArn}",
+    TagResource: "POST /tags/{resourceArn}",
+    UntagResource: "DELETE /tags/{resourceArn}",
+    CancelExportTask: "DELETE /exporttasks/{taskIdentifier}",
+    CancelImportTask: "DELETE /importtasks/{taskIdentifier}",
+    CreateGraph: "POST /graphs",
+    CreateGraphSnapshot: "POST /snapshots",
+    CreateGraphUsingImportTask: "POST /importtasks",
+    CreatePrivateGraphEndpoint: "POST /graphs/{graphIdentifier}/endpoints/",
+    DeleteGraph: "DELETE /graphs/{graphIdentifier}",
+    DeleteGraphSnapshot: "DELETE /snapshots/{snapshotIdentifier}",
+    DeletePrivateGraphEndpoint:
+      "DELETE /graphs/{graphIdentifier}/endpoints/{vpcId}",
+    GetExportTask: "GET /exporttasks/{taskIdentifier}",
+    GetGraph: "GET /graphs/{graphIdentifier}",
+    GetGraphSnapshot: "GET /snapshots/{snapshotIdentifier}",
+    GetImportTask: "GET /importtasks/{taskIdentifier}",
+    GetPrivateGraphEndpoint: "GET /graphs/{graphIdentifier}/endpoints/{vpcId}",
+    ListExportTasks: "GET /exporttasks",
+    ListGraphSnapshots: "GET /snapshots",
+    ListGraphs: "GET /graphs",
+    ListImportTasks: "GET /importtasks",
+    ListPrivateGraphEndpoints: "GET /graphs/{graphIdentifier}/endpoints/",
+    ResetGraph: "PUT /graphs/{graphIdentifier}",
+    RestoreGraphFromSnapshot: "POST /snapshots/{snapshotIdentifier}/restore",
+    StartExportTask: "POST /exporttasks",
+    StartImportTask: "POST /graphs/{graphIdentifier}/importtasks",
+    UpdateGraph: "PATCH /graphs/{graphIdentifier}",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

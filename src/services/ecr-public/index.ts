@@ -1065,3 +1065,12 @@ export declare namespace UploadLayerPart {
     | UploadNotFoundException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "ECR PUBLIC",
+  version: "2020-10-30",
+  protocol: "awsJson1_1",
+  endpointPrefix: "api.ecr-public",
+  targetPrefix: "SpencerFrontendService",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

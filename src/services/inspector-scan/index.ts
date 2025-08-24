@@ -72,3 +72,13 @@ export declare namespace ScanSbom {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Inspector Scan",
+  version: "2023-08-08",
+  protocol: "restJson1",
+  operations: {
+    ScanSbom: "POST /scan/sbom",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

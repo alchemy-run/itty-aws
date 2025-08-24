@@ -381,3 +381,33 @@ export declare namespace StartSnapshot {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "EBS",
+  version: "2019-11-02",
+  protocol: "restJson1",
+  endpointPrefix: "ebs",
+  operations: {
+    CompleteSnapshot: "POST /snapshots/completion/{SnapshotId}",
+    GetSnapshotBlock: {
+      http: "GET /snapshots/{SnapshotId}/blocks/{BlockIndex}",
+      traits: {
+        DataLength: "x-amz-Data-Length",
+        BlockData: "httpPayload",
+        Checksum: "x-amz-Checksum",
+        ChecksumAlgorithm: "x-amz-Checksum-Algorithm",
+      },
+    },
+    ListChangedBlocks: "GET /snapshots/{SecondSnapshotId}/changedblocks",
+    ListSnapshotBlocks: "GET /snapshots/{SnapshotId}/blocks",
+    PutSnapshotBlock: {
+      http: "PUT /snapshots/{SnapshotId}/blocks/{BlockIndex}",
+      traits: {
+        Checksum: "x-amz-Checksum",
+        ChecksumAlgorithm: "x-amz-Checksum-Algorithm",
+      },
+    },
+    StartSnapshot: "POST /snapshots",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

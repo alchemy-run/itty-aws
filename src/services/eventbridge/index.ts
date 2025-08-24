@@ -2392,3 +2392,12 @@ export declare namespace UpdateEventBus {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "EventBridge",
+  version: "2015-10-07",
+  protocol: "awsJson1_1",
+  endpointPrefix: "events",
+  targetPrefix: "AWSEvents",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

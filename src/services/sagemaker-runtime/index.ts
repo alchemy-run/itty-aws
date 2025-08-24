@@ -226,3 +226,40 @@ export declare namespace InvokeEndpointWithResponseStream {
     | ValidationError
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "SageMaker Runtime",
+  version: "2017-05-13",
+  protocol: "restJson1",
+  endpointPrefix: "runtime.sagemaker",
+  operations: {
+    InvokeEndpoint: {
+      http: "POST /endpoints/{EndpointName}/invocations",
+      traits: {
+        Body: "httpPayload",
+        ContentType: "Content-Type",
+        InvokedProductionVariant: "x-Amzn-Invoked-Production-Variant",
+        CustomAttributes: "X-Amzn-SageMaker-Custom-Attributes",
+        NewSessionId: "X-Amzn-SageMaker-New-Session-Id",
+        ClosedSessionId: "X-Amzn-SageMaker-Closed-Session-Id",
+      },
+    },
+    InvokeEndpointAsync: {
+      http: "POST /endpoints/{EndpointName}/async-invocations",
+      traits: {
+        OutputLocation: "X-Amzn-SageMaker-OutputLocation",
+        FailureLocation: "X-Amzn-SageMaker-FailureLocation",
+      },
+    },
+    InvokeEndpointWithResponseStream: {
+      http: "POST /endpoints/{EndpointName}/invocations-response-stream",
+      traits: {
+        Body: "httpPayload",
+        ContentType: "X-Amzn-SageMaker-Content-Type",
+        InvokedProductionVariant: "x-Amzn-Invoked-Production-Variant",
+        CustomAttributes: "X-Amzn-SageMaker-Custom-Attributes",
+      },
+    },
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

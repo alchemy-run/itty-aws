@@ -192,3 +192,16 @@ export declare namespace UploadDocuments {
   export type Output = UploadDocumentsResponse;
   export type Error = DocumentServiceException | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "CloudSearch Domain",
+  version: "2013-01-01",
+  protocol: "restJson1",
+  endpointPrefix: "cloudsearchdomain",
+  operations: {
+    Search: "GET /2013-01-01/search?format=sdk&pretty=true",
+    Suggest: "GET /2013-01-01/suggest?format=sdk&pretty=true",
+    UploadDocuments: "POST /2013-01-01/documents/batch?format=sdk",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

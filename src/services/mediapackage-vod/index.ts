@@ -753,3 +753,30 @@ export declare namespace UpdatePackagingGroup {
     | UnprocessableEntityException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "MediaPackage Vod",
+  version: "2018-11-07",
+  protocol: "restJson1",
+  endpointPrefix: "mediapackage-vod",
+  operations: {
+    ConfigureLogs: "PUT /packaging_groups/{Id}/configure_logs",
+    CreateAsset: "POST /assets",
+    CreatePackagingConfiguration: "POST /packaging_configurations",
+    CreatePackagingGroup: "POST /packaging_groups",
+    DeleteAsset: "DELETE /assets/{Id}",
+    DeletePackagingConfiguration: "DELETE /packaging_configurations/{Id}",
+    DeletePackagingGroup: "DELETE /packaging_groups/{Id}",
+    DescribeAsset: "GET /assets/{Id}",
+    DescribePackagingConfiguration: "GET /packaging_configurations/{Id}",
+    DescribePackagingGroup: "GET /packaging_groups/{Id}",
+    ListAssets: "GET /assets",
+    ListPackagingConfigurations: "GET /packaging_configurations",
+    ListPackagingGroups: "GET /packaging_groups",
+    ListTagsForResource: "GET /tags/{ResourceArn}",
+    TagResource: "POST /tags/{ResourceArn}",
+    UntagResource: "DELETE /tags/{ResourceArn}",
+    UpdatePackagingGroup: "PUT /packaging_groups/{Id}",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

@@ -661,3 +661,12 @@ export declare namespace ResolveCase {
   export type Output = ResolveCaseResponse;
   export type Error = CaseIdNotFound | InternalServerError | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Support",
+  version: "2013-04-15",
+  protocol: "awsJson1_1",
+  endpointPrefix: "support",
+  targetPrefix: "AWSSupport_20130415",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

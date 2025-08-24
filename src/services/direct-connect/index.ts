@@ -2003,3 +2003,12 @@ export declare namespace UpdateVirtualInterfaceAttributes {
     | DirectConnectServerException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Direct Connect",
+  version: "2012-10-25",
+  protocol: "awsJson1_1",
+  endpointPrefix: "directconnect",
+  targetPrefix: "OvertureService",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

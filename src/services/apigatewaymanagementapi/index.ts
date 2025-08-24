@@ -98,3 +98,16 @@ export declare namespace PostToConnection {
     | PayloadTooLargeException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "ApiGatewayManagementApi",
+  version: "2018-11-29",
+  protocol: "restJson1",
+  endpointPrefix: "execute-api",
+  operations: {
+    DeleteConnection: "DELETE /@connections/{ConnectionId}",
+    GetConnection: "GET /@connections/{ConnectionId}",
+    PostToConnection: "POST /@connections/{ConnectionId}",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

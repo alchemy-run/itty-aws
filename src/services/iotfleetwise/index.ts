@@ -2784,3 +2784,11 @@ export declare namespace UpdateVehicle {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "IoTFleetWise",
+  version: "2021-06-17",
+  protocol: "awsJson1_0",
+  targetPrefix: "IoTAutobahnControlPlane",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

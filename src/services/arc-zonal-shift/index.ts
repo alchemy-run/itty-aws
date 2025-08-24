@@ -665,3 +665,32 @@ export declare namespace UpdateZonalShift {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "ARC Zonal Shift",
+  version: "2022-10-30",
+  protocol: "restJson1",
+  endpointPrefix: "arc-zonal-shift",
+  operations: {
+    CancelPracticeRun: "DELETE /practiceruns/{zonalShiftId}",
+    CancelZonalShift: "DELETE /zonalshifts/{zonalShiftId}",
+    CreatePracticeRunConfiguration: "POST /configuration",
+    DeletePracticeRunConfiguration:
+      "DELETE /configuration/{resourceIdentifier}",
+    GetAutoshiftObserverNotificationStatus:
+      "GET /autoshift-observer-notification",
+    GetManagedResource: "GET /managedresources/{resourceIdentifier}",
+    ListAutoshifts: "GET /autoshifts",
+    ListManagedResources: "GET /managedresources",
+    ListZonalShifts: "GET /zonalshifts",
+    StartPracticeRun: "POST /practiceruns",
+    StartZonalShift: "POST /zonalshifts",
+    UpdateAutoshiftObserverNotificationStatus:
+      "PUT /autoshift-observer-notification",
+    UpdatePracticeRunConfiguration: "PATCH /configuration/{resourceIdentifier}",
+    UpdateZonalAutoshiftConfiguration:
+      "PUT /managedresources/{resourceIdentifier}",
+    UpdateZonalShift: "PATCH /zonalshifts/{zonalShiftId}",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

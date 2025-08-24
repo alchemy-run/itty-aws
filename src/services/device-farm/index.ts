@@ -2998,3 +2998,12 @@ export declare namespace UpdateVPCEConfiguration {
     | ServiceAccountException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Device Farm",
+  version: "2015-06-23",
+  protocol: "awsJson1_1",
+  endpointPrefix: "devicefarm",
+  targetPrefix: "DeviceFarm_20150623",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

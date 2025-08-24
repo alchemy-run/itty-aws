@@ -760,3 +760,28 @@ export declare namespace UntagResource {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "CodeGuru Reviewer",
+  version: "2019-09-19",
+  protocol: "restJson1",
+  endpointPrefix: "codeguru-reviewer",
+  operations: {
+    AssociateRepository: "POST /associations",
+    CreateCodeReview: "POST /codereviews",
+    DescribeCodeReview: "GET /codereviews/{CodeReviewArn}",
+    DescribeRecommendationFeedback: "GET /feedback/{CodeReviewArn}",
+    DescribeRepositoryAssociation: "GET /associations/{AssociationArn}",
+    DisassociateRepository: "DELETE /associations/{AssociationArn}",
+    ListCodeReviews: "GET /codereviews",
+    ListRecommendationFeedback:
+      "GET /feedback/{CodeReviewArn}/RecommendationFeedback",
+    ListRecommendations: "GET /codereviews/{CodeReviewArn}/Recommendations",
+    ListRepositoryAssociations: "GET /associations",
+    ListTagsForResource: "GET /tags/{resourceArn}",
+    PutRecommendationFeedback: "PUT /feedback",
+    TagResource: "POST /tags/{resourceArn}",
+    UntagResource: "DELETE /tags/{resourceArn}",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

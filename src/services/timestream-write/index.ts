@@ -927,3 +927,12 @@ export declare namespace WriteRecords {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Timestream Write",
+  version: "2018-11-01",
+  protocol: "awsJson1_0",
+  endpointPrefix: "ingest.timestream",
+  targetPrefix: "Timestream_20181101",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

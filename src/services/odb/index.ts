@@ -2019,3 +2019,11 @@ export declare namespace UpdateOdbNetwork {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "odb",
+  version: "2024-08-20",
+  protocol: "awsJson1_0",
+  targetPrefix: "Odb",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

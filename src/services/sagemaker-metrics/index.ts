@@ -105,3 +105,15 @@ export declare namespace BatchPutMetrics {
   export type Output = BatchPutMetricsResponse;
   export type Error = CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "SageMaker Metrics",
+  version: "2022-09-30",
+  protocol: "restJson1",
+  endpointPrefix: "metrics.sagemaker",
+  operations: {
+    BatchGetMetrics: "POST /BatchGetMetrics",
+    BatchPutMetrics: "PUT /BatchPutMetrics",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

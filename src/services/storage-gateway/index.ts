@@ -3065,3 +3065,12 @@ export declare namespace UpdateVTLDeviceType {
     | InvalidGatewayRequestException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Storage Gateway",
+  version: "2013-06-30",
+  protocol: "awsJson1_1",
+  endpointPrefix: "storagegateway",
+  targetPrefix: "StorageGateway_20130630",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

@@ -555,3 +555,27 @@ export declare namespace UpdateServiceSettings {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "SSM QuickSetup",
+  version: "2018-05-10",
+  protocol: "restJson1",
+  operations: {
+    CreateConfigurationManager: "POST /configurationManager",
+    DeleteConfigurationManager: "DELETE /configurationManager/{ManagerArn}",
+    GetConfiguration: "GET /getConfiguration/{ConfigurationId}",
+    GetConfigurationManager: "GET /configurationManager/{ManagerArn}",
+    GetServiceSettings: "GET /serviceSettings",
+    ListConfigurationManagers: "POST /listConfigurationManagers",
+    ListConfigurations: "POST /listConfigurations",
+    ListQuickSetupTypes: "GET /listQuickSetupTypes",
+    ListTagsForResource: "GET /tags/{ResourceArn}",
+    TagResource: "PUT /tags/{ResourceArn}",
+    UntagResource: "DELETE /tags/{ResourceArn}",
+    UpdateConfigurationDefinition:
+      "PUT /configurationDefinition/{ManagerArn}/{Id}",
+    UpdateConfigurationManager: "PUT /configurationManager/{ManagerArn}",
+    UpdateServiceSettings: "PUT /serviceSettings",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

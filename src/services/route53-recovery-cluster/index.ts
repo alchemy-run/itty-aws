@@ -233,3 +233,12 @@ export declare namespace UpdateRoutingControlStates {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Route53 Recovery Cluster",
+  version: "2019-12-02",
+  protocol: "awsJson1_0",
+  endpointPrefix: "route53-recovery-cluster",
+  targetPrefix: "ToggleCustomerAPI",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

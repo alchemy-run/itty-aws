@@ -423,3 +423,23 @@ export declare namespace UpdateRule {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "rbin",
+  version: "2021-06-15",
+  protocol: "restJson1",
+  endpointPrefix: "rbin",
+  operations: {
+    CreateRule: "POST /rules",
+    DeleteRule: "DELETE /rules/{Identifier}",
+    GetRule: "GET /rules/{Identifier}",
+    ListRules: "POST /list-rules",
+    ListTagsForResource: "GET /tags/{ResourceArn}",
+    LockRule: "PATCH /rules/{Identifier}/lock",
+    TagResource: "POST /tags/{ResourceArn}",
+    UnlockRule: "PATCH /rules/{Identifier}/unlock",
+    UntagResource: "DELETE /tags/{ResourceArn}",
+    UpdateRule: "PATCH /rules/{Identifier}",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

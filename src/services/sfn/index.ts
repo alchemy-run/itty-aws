@@ -1899,3 +1899,12 @@ export declare namespace ValidateStateMachineDefinition {
   export type Output = ValidateStateMachineDefinitionOutput;
   export type Error = ValidationException | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "SFN",
+  version: "2016-11-23",
+  protocol: "awsJson1_0",
+  endpointPrefix: "states",
+  targetPrefix: "AWSStepFunctions",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

@@ -1902,3 +1902,12 @@ export declare namespace UpdateVocabularyFilter {
     | NotFoundException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Transcribe",
+  version: "2017-10-26",
+  protocol: "awsJson1_1",
+  endpointPrefix: "transcribe",
+  targetPrefix: "Transcribe",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

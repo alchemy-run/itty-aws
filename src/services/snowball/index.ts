@@ -1049,3 +1049,12 @@ export declare namespace UpdateLongTermPricing {
   export type Output = UpdateLongTermPricingResult;
   export type Error = InvalidResourceException | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Snowball",
+  version: "2016-06-30",
+  protocol: "awsJson1_1",
+  endpointPrefix: "snowball",
+  targetPrefix: "AWSIESnowballJobManagementService",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

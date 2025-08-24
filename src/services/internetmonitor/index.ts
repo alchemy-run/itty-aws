@@ -764,3 +764,31 @@ export declare namespace UpdateMonitor {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "InternetMonitor",
+  version: "2021-06-03",
+  protocol: "restJson1",
+  operations: {
+    ListTagsForResource: "GET /tags/{ResourceArn}",
+    TagResource: "POST /tags/{ResourceArn}",
+    UntagResource: "DELETE /tags/{ResourceArn}",
+    CreateMonitor: "POST /v20210603/Monitors",
+    DeleteMonitor: "DELETE /v20210603/Monitors/{MonitorName}",
+    GetHealthEvent:
+      "GET /v20210603/Monitors/{MonitorName}/HealthEvents/{EventId}",
+    GetInternetEvent: "GET /v20210603/InternetEvents/{EventId}",
+    GetMonitor: "GET /v20210603/Monitors/{MonitorName}",
+    GetQueryResults:
+      "GET /v20210603/Monitors/{MonitorName}/Queries/{QueryId}/Results",
+    GetQueryStatus:
+      "GET /v20210603/Monitors/{MonitorName}/Queries/{QueryId}/Status",
+    ListHealthEvents: "GET /v20210603/Monitors/{MonitorName}/HealthEvents",
+    ListInternetEvents: "GET /v20210603/InternetEvents",
+    ListMonitors: "GET /v20210603/Monitors",
+    StartQuery: "POST /v20210603/Monitors/{MonitorName}/Queries",
+    StopQuery: "DELETE /v20210603/Monitors/{MonitorName}/Queries/{QueryId}",
+    UpdateMonitor: "PATCH /v20210603/Monitors/{MonitorName}",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

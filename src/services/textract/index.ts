@@ -1561,3 +1561,12 @@ export declare namespace UpdateAdapter {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Textract",
+  version: "2018-06-27",
+  protocol: "awsJson1_1",
+  endpointPrefix: "textract",
+  targetPrefix: "Textract",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

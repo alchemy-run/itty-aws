@@ -140,3 +140,15 @@ export declare namespace ListRealtimeContactAnalysisSegments {
     | ThrottlingException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Connect Contact Lens",
+  version: "2020-08-21",
+  protocol: "restJson1",
+  endpointPrefix: "contact-lens",
+  operations: {
+    ListRealtimeContactAnalysisSegments:
+      "POST /realtime-contact-analysis/analysis-segments",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

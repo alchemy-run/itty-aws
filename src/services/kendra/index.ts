@@ -3944,3 +3944,12 @@ export declare namespace UpdateThesaurus {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "kendra",
+  version: "2019-02-03",
+  protocol: "awsJson1_1",
+  endpointPrefix: "kendra",
+  targetPrefix: "AWSKendraFrontendService",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

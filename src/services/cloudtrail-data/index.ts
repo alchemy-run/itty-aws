@@ -97,3 +97,14 @@ export declare namespace PutAuditEvents {
     | UnsupportedOperationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "CloudTrail Data",
+  version: "2021-08-11",
+  protocol: "restJson1",
+  endpointPrefix: "cloudtrail-data",
+  operations: {
+    PutAuditEvents: "POST /PutAuditEvents",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

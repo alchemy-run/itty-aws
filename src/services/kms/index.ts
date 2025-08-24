@@ -2564,3 +2564,12 @@ export declare namespace VerifyMac {
     | NotFoundException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "KMS",
+  version: "2014-11-01",
+  protocol: "awsJson1_1",
+  endpointPrefix: "kms",
+  targetPrefix: "TrentService",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

@@ -2897,3 +2897,12 @@ export declare namespace UpdateThemeForStack {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "AppStream",
+  version: "2016-12-01",
+  protocol: "awsJson1_1",
+  endpointPrefix: "appstream2",
+  targetPrefix: "PhotonAdminProxyService",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

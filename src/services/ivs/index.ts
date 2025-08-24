@@ -1365,3 +1365,48 @@ export declare namespace UpdatePlaybackRestrictionPolicy {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "ivs",
+  version: "2020-07-14",
+  protocol: "restJson1",
+  operations: {
+    BatchGetChannel: "POST /BatchGetChannel",
+    BatchGetStreamKey: "POST /BatchGetStreamKey",
+    BatchStartViewerSessionRevocation:
+      "POST /BatchStartViewerSessionRevocation",
+    CreateChannel: "POST /CreateChannel",
+    CreatePlaybackRestrictionPolicy: "POST /CreatePlaybackRestrictionPolicy",
+    CreateRecordingConfiguration: "POST /CreateRecordingConfiguration",
+    CreateStreamKey: "POST /CreateStreamKey",
+    DeleteChannel: "POST /DeleteChannel",
+    DeletePlaybackKeyPair: "POST /DeletePlaybackKeyPair",
+    DeletePlaybackRestrictionPolicy: "POST /DeletePlaybackRestrictionPolicy",
+    DeleteRecordingConfiguration: "POST /DeleteRecordingConfiguration",
+    DeleteStreamKey: "POST /DeleteStreamKey",
+    GetChannel: "POST /GetChannel",
+    GetPlaybackKeyPair: "POST /GetPlaybackKeyPair",
+    GetPlaybackRestrictionPolicy: "POST /GetPlaybackRestrictionPolicy",
+    GetRecordingConfiguration: "POST /GetRecordingConfiguration",
+    GetStream: "POST /GetStream",
+    GetStreamKey: "POST /GetStreamKey",
+    GetStreamSession: "POST /GetStreamSession",
+    ImportPlaybackKeyPair: "POST /ImportPlaybackKeyPair",
+    ListChannels: "POST /ListChannels",
+    ListPlaybackKeyPairs: "POST /ListPlaybackKeyPairs",
+    ListPlaybackRestrictionPolicies: "POST /ListPlaybackRestrictionPolicies",
+    ListRecordingConfigurations: "POST /ListRecordingConfigurations",
+    ListStreamKeys: "POST /ListStreamKeys",
+    ListStreams: "POST /ListStreams",
+    ListStreamSessions: "POST /ListStreamSessions",
+    ListTagsForResource: "GET /tags/{resourceArn}",
+    PutMetadata: "POST /PutMetadata",
+    StartViewerSessionRevocation: "POST /StartViewerSessionRevocation",
+    StopStream: "POST /StopStream",
+    TagResource: "POST /tags/{resourceArn}",
+    UntagResource: "DELETE /tags/{resourceArn}",
+    UpdateChannel: "POST /UpdateChannel",
+    UpdatePlaybackRestrictionPolicy: "POST /UpdatePlaybackRestrictionPolicy",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

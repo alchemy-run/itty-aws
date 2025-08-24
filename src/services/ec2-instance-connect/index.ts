@@ -165,3 +165,12 @@ export declare namespace SendSSHPublicKey {
     | ThrottlingException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "EC2 Instance Connect",
+  version: "2018-04-02",
+  protocol: "awsJson1_1",
+  endpointPrefix: "ec2-instance-connect",
+  targetPrefix: "AWSEC2InstanceConnectService",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

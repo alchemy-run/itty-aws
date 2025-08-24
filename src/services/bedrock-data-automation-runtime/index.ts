@@ -277,3 +277,12 @@ export declare namespace InvokeDataAutomationAsync {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Bedrock Data Automation Runtime",
+  version: "2024-06-13",
+  protocol: "awsJson1_1",
+  endpointPrefix: "bedrock-data-automation-runtime",
+  targetPrefix: "AmazonBedrockKeystoneRuntimeService",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

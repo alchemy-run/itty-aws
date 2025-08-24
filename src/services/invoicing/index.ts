@@ -540,3 +540,12 @@ export declare namespace UpdateInvoiceUnit {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Invoicing",
+  version: "2024-12-01",
+  protocol: "awsJson1_0",
+  endpointPrefix: "invoicing",
+  targetPrefix: "Invoicing",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

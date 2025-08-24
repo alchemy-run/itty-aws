@@ -879,3 +879,31 @@ export declare namespace UpdateServiceLevelObjective {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Application Signals",
+  version: "2024-04-15",
+  protocol: "restJson1",
+  endpointPrefix: "application-signals",
+  operations: {
+    BatchGetServiceLevelObjectiveBudgetReport: "POST /budget-report",
+    BatchUpdateExclusionWindows: "PATCH /exclusion-windows",
+    GetService: "POST /service",
+    ListServiceDependencies: "POST /service-dependencies",
+    ListServiceDependents: "POST /service-dependents",
+    ListServiceLevelObjectiveExclusionWindows:
+      "GET /slo/{Id}/exclusion-windows",
+    ListServiceOperations: "POST /service-operations",
+    ListServices: "GET /services",
+    ListTagsForResource: "GET /tags",
+    StartDiscovery: "POST /start-discovery",
+    TagResource: "POST /tag-resource",
+    UntagResource: "POST /untag-resource",
+    CreateServiceLevelObjective: "POST /slo",
+    DeleteServiceLevelObjective: "DELETE /slo/{Id}",
+    GetServiceLevelObjective: "GET /slo/{Id}",
+    ListServiceLevelObjectives: "POST /slos",
+    UpdateServiceLevelObjective: "PATCH /slo/{Id}",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

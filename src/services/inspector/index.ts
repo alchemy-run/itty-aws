@@ -1613,3 +1613,12 @@ export declare namespace UpdateAssessmentTarget {
     | ServiceTemporarilyUnavailableException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Inspector",
+  version: "2016-02-16",
+  protocol: "awsJson1_1",
+  endpointPrefix: "inspector",
+  targetPrefix: "InspectorService",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

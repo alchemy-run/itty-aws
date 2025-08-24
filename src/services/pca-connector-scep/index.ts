@@ -508,3 +508,24 @@ export declare namespace ListConnectors {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Pca Connector Scep",
+  version: "2018-05-10",
+  protocol: "restJson1",
+  operations: {
+    ListTagsForResource: "GET /tags/{ResourceArn}",
+    TagResource: "POST /tags/{ResourceArn}",
+    UntagResource: "DELETE /tags/{ResourceArn}",
+    CreateChallenge: "POST /challenges",
+    CreateConnector: "POST /connectors",
+    DeleteChallenge: "DELETE /challenges/{ChallengeArn}",
+    DeleteConnector: "DELETE /connectors/{ConnectorArn}",
+    GetChallengeMetadata: "GET /challengeMetadata/{ChallengeArn}",
+    GetChallengePassword: "GET /challengePasswords/{ChallengeArn}",
+    GetConnector: "GET /connectors/{ConnectorArn}",
+    ListChallengeMetadata: "GET /challengeMetadata",
+    ListConnectors: "GET /connectors",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

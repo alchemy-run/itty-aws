@@ -746,3 +746,12 @@ export declare namespace UpdatePreferences {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Cost Optimization Hub",
+  version: "2022-07-26",
+  protocol: "awsJson1_0",
+  endpointPrefix: "cost-optimization-hub",
+  targetPrefix: "CostOptimizationHubService",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

@@ -211,3 +211,39 @@ export declare namespace PutObject {
     | InternalServerError
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "MediaStore Data",
+  version: "2017-09-01",
+  protocol: "restJson1",
+  endpointPrefix: "data.mediastore",
+  operations: {
+    DeleteObject: "DELETE /{Path+}",
+    DescribeObject: {
+      http: "HEAD /{Path+}",
+      traits: {
+        ETag: "ETag",
+        ContentType: "Content-Type",
+        ContentLength: "Content-Length",
+        CacheControl: "Cache-Control",
+        LastModified: "Last-Modified",
+      },
+    },
+    GetObject: {
+      http: "GET /{Path+}",
+      traits: {
+        Body: "httpPayload",
+        CacheControl: "Cache-Control",
+        ContentRange: "Content-Range",
+        ContentLength: "Content-Length",
+        ContentType: "Content-Type",
+        ETag: "ETag",
+        LastModified: "Last-Modified",
+        StatusCode: "httpResponseCode",
+      },
+    },
+    ListItems: "GET /",
+    PutObject: "PUT /{Path+}",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

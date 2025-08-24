@@ -1586,3 +1586,12 @@ export declare namespace UpdateRotation {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "SSM Contacts",
+  version: "2021-05-03",
+  protocol: "awsJson1_1",
+  endpointPrefix: "ssm-contacts",
+  targetPrefix: "SSMContacts",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

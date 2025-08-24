@@ -237,3 +237,12 @@ export declare namespace UntagResource {
   export type Output = UntagResourceResponse;
   export type Error = ResourceNotFoundException | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "IoTSecureTunneling",
+  version: "2018-10-05",
+  protocol: "awsJson1_1",
+  endpointPrefix: "api.tunneling.iot",
+  targetPrefix: "IoTSecuredTunneling",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

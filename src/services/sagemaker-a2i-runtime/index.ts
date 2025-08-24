@@ -231,3 +231,18 @@ export declare namespace StopHumanLoop {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "SageMaker A2I Runtime",
+  version: "2019-11-07",
+  protocol: "restJson1",
+  endpointPrefix: "a2i-runtime.sagemaker",
+  operations: {
+    DeleteHumanLoop: "DELETE /human-loops/{HumanLoopName}",
+    DescribeHumanLoop: "GET /human-loops/{HumanLoopName}",
+    ListHumanLoops: "GET /human-loops",
+    StartHumanLoop: "POST /human-loops",
+    StopHumanLoop: "POST /human-loops/stop",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

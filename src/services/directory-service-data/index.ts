@@ -804,3 +804,30 @@ export declare namespace UpdateUser {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Directory Service Data",
+  version: "2023-05-31",
+  protocol: "restJson1",
+  endpointPrefix: "ds-data",
+  operations: {
+    AddGroupMember: "POST /GroupMemberships/AddGroupMember",
+    CreateGroup: "POST /Groups/CreateGroup",
+    CreateUser: "POST /Users/CreateUser",
+    DeleteGroup: "POST /Groups/DeleteGroup",
+    DeleteUser: "POST /Users/DeleteUser",
+    DescribeGroup: "POST /Groups/DescribeGroup",
+    DescribeUser: "POST /Users/DescribeUser",
+    DisableUser: "POST /Users/DisableUser",
+    ListGroupMembers: "POST /GroupMemberships/ListGroupMembers",
+    ListGroups: "POST /Groups/ListGroups",
+    ListGroupsForMember: "POST /GroupMemberships/ListGroupsForMember",
+    ListUsers: "POST /Users/ListUsers",
+    RemoveGroupMember: "POST /GroupMemberships/RemoveGroupMember",
+    SearchGroups: "POST /Groups/SearchGroups",
+    SearchUsers: "POST /Users/SearchUsers",
+    UpdateGroup: "POST /Groups/UpdateGroup",
+    UpdateUser: "POST /Users/UpdateUser",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

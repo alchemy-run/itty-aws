@@ -1068,3 +1068,40 @@ export declare namespace UpdateStreamGroup {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "GameLiftStreams",
+  version: "2018-05-10",
+  protocol: "restJson1",
+  operations: {
+    AddStreamGroupLocations: "POST /streamgroups/{Identifier}/locations",
+    AssociateApplications: "POST /streamgroups/{Identifier}/associations",
+    CreateStreamSessionConnection:
+      "POST /streamgroups/{Identifier}/streamsessions/{StreamSessionIdentifier}/connections",
+    DisassociateApplications: "POST /streamgroups/{Identifier}/disassociations",
+    ExportStreamSessionFiles:
+      "PUT /streamgroups/{Identifier}/streamsessions/{StreamSessionIdentifier}/exportfiles",
+    GetStreamSession:
+      "GET /streamgroups/{Identifier}/streamsessions/{StreamSessionIdentifier}",
+    ListStreamSessions: "GET /streamgroups/{Identifier}/streamsessions",
+    ListStreamSessionsByAccount: "GET /streamsessions",
+    ListTagsForResource: "GET /tags/{ResourceArn}",
+    RemoveStreamGroupLocations: "DELETE /streamgroups/{Identifier}/locations",
+    StartStreamSession: "POST /streamgroups/{Identifier}/streamsessions",
+    TagResource: "POST /tags/{ResourceArn}",
+    TerminateStreamSession:
+      "DELETE /streamgroups/{Identifier}/streamsessions/{StreamSessionIdentifier}",
+    UntagResource: "DELETE /tags/{ResourceArn}",
+    CreateApplication: "POST /applications",
+    CreateStreamGroup: "POST /streamgroups",
+    DeleteApplication: "DELETE /applications/{Identifier}",
+    DeleteStreamGroup: "DELETE /streamgroups/{Identifier}",
+    GetApplication: "GET /applications/{Identifier}",
+    GetStreamGroup: "GET /streamgroups/{Identifier}",
+    ListApplications: "GET /applications",
+    ListStreamGroups: "GET /streamgroups",
+    UpdateApplication: "PATCH /applications/{Identifier}",
+    UpdateStreamGroup: "PATCH /streamgroups/{Identifier}",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

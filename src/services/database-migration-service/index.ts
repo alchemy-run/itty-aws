@@ -4561,3 +4561,12 @@ export declare namespace UpdateSubscriptionsToEventBridge {
     | InvalidResourceStateFault
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Database Migration Service",
+  version: "2016-01-01",
+  protocol: "awsJson1_1",
+  endpointPrefix: "dms",
+  targetPrefix: "AmazonDMSv20160101",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

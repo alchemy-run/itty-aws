@@ -366,3 +366,12 @@ export declare namespace UntagResources {
     | ThrottledException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Resource Groups Tagging API",
+  version: "2017-01-26",
+  protocol: "awsJson1_1",
+  endpointPrefix: "tagging",
+  targetPrefix: "ResourceGroupsTaggingAPI_20170126",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

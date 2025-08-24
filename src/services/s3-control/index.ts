@@ -2891,3 +2891,33 @@ export declare namespace UpdateStorageLensGroup {
   export type Output = {};
   export type Error = CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "S3 Control",
+  version: "2018-08-20",
+  protocol: "restXml",
+  endpointPrefix: "s3-control",
+  operations: {
+    CreateBucket: {
+      traits: {
+        Location: "Location",
+      },
+    },
+    GetPublicAccessBlock: {
+      traits: {
+        PublicAccessBlockConfiguration: "httpPayload",
+      },
+    },
+    GetStorageLensConfiguration: {
+      traits: {
+        StorageLensConfiguration: "httpPayload",
+      },
+    },
+    GetStorageLensGroup: {
+      traits: {
+        StorageLensGroup: "httpPayload",
+      },
+    },
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

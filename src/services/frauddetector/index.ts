@@ -2919,3 +2919,12 @@ export declare namespace UpdateVariable {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "FraudDetector",
+  version: "2019-11-15",
+  protocol: "awsJson1_1",
+  endpointPrefix: "frauddetector",
+  targetPrefix: "AWSHawksNestServiceFacade",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

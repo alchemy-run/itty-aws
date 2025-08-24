@@ -1071,3 +1071,12 @@ export declare namespace UpdateSyncConfiguration {
     | UpdateOutOfSyncException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "CodeStar connections",
+  version: "2019-12-01",
+  protocol: "awsJson1_0",
+  endpointPrefix: "codestar-connections",
+  targetPrefix: "CodeStar_connections_20191201",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

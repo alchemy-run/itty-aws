@@ -806,3 +806,33 @@ export declare namespace UpdateSpace {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "repostspace",
+  version: "2022-05-13",
+  protocol: "restJson1",
+  operations: {
+    BatchAddChannelRoleToAccessors:
+      "POST /spaces/{spaceId}/channels/{channelId}/roles",
+    BatchAddRole: "POST /spaces/{spaceId}/roles",
+    BatchRemoveChannelRoleFromAccessors:
+      "PATCH /spaces/{spaceId}/channels/{channelId}/roles",
+    BatchRemoveRole: "PATCH /spaces/{spaceId}/roles",
+    CreateChannel: "POST /spaces/{spaceId}/channels",
+    CreateSpace: "POST /spaces",
+    DeleteSpace: "DELETE /spaces/{spaceId}",
+    DeregisterAdmin: "DELETE /spaces/{spaceId}/admins/{adminId}",
+    GetChannel: "GET /spaces/{spaceId}/channels/{channelId}",
+    GetSpace: "GET /spaces/{spaceId}",
+    ListChannels: "GET /spaces/{spaceId}/channels",
+    ListSpaces: "GET /spaces",
+    ListTagsForResource: "GET /tags/{resourceArn}",
+    RegisterAdmin: "POST /spaces/{spaceId}/admins/{adminId}",
+    SendInvites: "POST /spaces/{spaceId}/invite",
+    TagResource: "POST /tags/{resourceArn}",
+    UntagResource: "DELETE /tags/{resourceArn}",
+    UpdateChannel: "PUT /spaces/{spaceId}/channels/{channelId}",
+    UpdateSpace: "PUT /spaces/{spaceId}",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

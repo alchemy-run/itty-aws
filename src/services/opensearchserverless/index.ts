@@ -1399,3 +1399,11 @@ export declare namespace UpdateSecurityPolicy {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "OpenSearchServerless",
+  version: "2021-11-01",
+  protocol: "awsJson1_0",
+  targetPrefix: "OpenSearchServerless",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

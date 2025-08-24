@@ -1440,3 +1440,12 @@ export declare namespace UpdateVpcIngressConnection {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "AppRunner",
+  version: "2020-05-15",
+  protocol: "awsJson1_0",
+  endpointPrefix: "apprunner",
+  targetPrefix: "AppRunner",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

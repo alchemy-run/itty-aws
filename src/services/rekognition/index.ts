@@ -4228,3 +4228,12 @@ export declare namespace UpdateStreamProcessor {
     | ThrottlingException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Rekognition",
+  version: "2016-06-27",
+  protocol: "awsJson1_1",
+  endpointPrefix: "rekognition",
+  targetPrefix: "RekognitionService",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

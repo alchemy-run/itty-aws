@@ -874,3 +874,34 @@ export declare namespace UpdateAttendeeCapabilities {
     | UnauthorizedException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Chime SDK Meetings",
+  version: "2021-07-15",
+  protocol: "restJson1",
+  endpointPrefix: "meetings-chime",
+  operations: {
+    BatchCreateAttendee:
+      "POST /meetings/{MeetingId}/attendees?operation=batch-create",
+    BatchUpdateAttendeeCapabilitiesExcept:
+      "PUT /meetings/{MeetingId}/attendees/capabilities?operation=batch-update-except",
+    CreateAttendee: "POST /meetings/{MeetingId}/attendees",
+    CreateMeeting: "POST /meetings",
+    CreateMeetingWithAttendees: "POST /meetings?operation=create-attendees",
+    DeleteAttendee: "DELETE /meetings/{MeetingId}/attendees/{AttendeeId}",
+    DeleteMeeting: "DELETE /meetings/{MeetingId}",
+    GetAttendee: "GET /meetings/{MeetingId}/attendees/{AttendeeId}",
+    GetMeeting: "GET /meetings/{MeetingId}",
+    ListAttendees: "GET /meetings/{MeetingId}/attendees",
+    ListTagsForResource: "GET /tags",
+    StartMeetingTranscription:
+      "POST /meetings/{MeetingId}/transcription?operation=start",
+    StopMeetingTranscription:
+      "POST /meetings/{MeetingId}/transcription?operation=stop",
+    TagResource: "POST /tags?operation=tag-resource",
+    UntagResource: "POST /tags?operation=untag-resource",
+    UpdateAttendeeCapabilities:
+      "PUT /meetings/{MeetingId}/attendees/{AttendeeId}/capabilities",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

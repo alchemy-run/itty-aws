@@ -2337,3 +2337,12 @@ export declare namespace UpdateStudioSessionMapping {
     | InvalidRequestException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "EMR",
+  version: "2009-03-31",
+  protocol: "awsJson1_1",
+  endpointPrefix: "elasticmapreduce",
+  targetPrefix: "ElasticMapReduce",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

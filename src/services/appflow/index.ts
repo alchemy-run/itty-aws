@@ -2293,3 +2293,38 @@ export declare namespace UpdateFlow {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Appflow",
+  version: "2020-08-23",
+  protocol: "restJson1",
+  endpointPrefix: "appflow",
+  operations: {
+    CancelFlowExecutions: "POST /cancel-flow-executions",
+    CreateConnectorProfile: "POST /create-connector-profile",
+    CreateFlow: "POST /create-flow",
+    DeleteConnectorProfile: "POST /delete-connector-profile",
+    DeleteFlow: "POST /delete-flow",
+    DescribeConnector: "POST /describe-connector",
+    DescribeConnectorEntity: "POST /describe-connector-entity",
+    DescribeConnectorProfiles: "POST /describe-connector-profiles",
+    DescribeConnectors: "POST /describe-connectors",
+    DescribeFlow: "POST /describe-flow",
+    DescribeFlowExecutionRecords: "POST /describe-flow-execution-records",
+    ListConnectorEntities: "POST /list-connector-entities",
+    ListConnectors: "POST /list-connectors",
+    ListFlows: "POST /list-flows",
+    ListTagsForResource: "GET /tags/{resourceArn}",
+    RegisterConnector: "POST /register-connector",
+    ResetConnectorMetadataCache: "POST /reset-connector-metadata-cache",
+    StartFlow: "POST /start-flow",
+    StopFlow: "POST /stop-flow",
+    TagResource: "POST /tags/{resourceArn}",
+    UnregisterConnector: "POST /unregister-connector",
+    UntagResource: "DELETE /tags/{resourceArn}",
+    UpdateConnectorProfile: "POST /update-connector-profile",
+    UpdateConnectorRegistration: "POST /update-connector-registration",
+    UpdateFlow: "POST /update-flow",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

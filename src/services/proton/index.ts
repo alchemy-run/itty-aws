@@ -3559,3 +3559,12 @@ export declare namespace UpdateTemplateSyncConfig {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Proton",
+  version: "2020-07-20",
+  protocol: "awsJson1_0",
+  endpointPrefix: "proton",
+  targetPrefix: "AwsProton20200720",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

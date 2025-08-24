@@ -12543,3 +12543,12 @@ export declare namespace UpdateWorkflow {
     | OperationTimeoutException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Glue",
+  version: "2017-03-31",
+  protocol: "awsJson1_1",
+  endpointPrefix: "glue",
+  targetPrefix: "AWSGlue",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

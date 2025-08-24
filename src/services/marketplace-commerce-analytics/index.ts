@@ -107,3 +107,12 @@ export declare namespace StartSupportDataExport {
   export type Output = StartSupportDataExportResult;
   export type Error = MarketplaceCommerceAnalyticsException | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Marketplace Commerce Analytics",
+  version: "2015-07-01",
+  protocol: "awsJson1_1",
+  endpointPrefix: "marketplacecommerceanalytics",
+  targetPrefix: "MarketplaceCommerceAnalytics20150701",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

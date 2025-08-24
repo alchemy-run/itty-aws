@@ -197,3 +197,18 @@ export declare namespace PutDeploymentParameter {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Marketplace Deployment",
+  version: "2023-01-25",
+  protocol: "restJson1",
+  endpointPrefix: "deployment-marketplace",
+  operations: {
+    ListTagsForResource: "GET /tags/{resourceArn}",
+    TagResource: "POST /tags/{resourceArn}",
+    UntagResource: "DELETE /tags/{resourceArn}",
+    PutDeploymentParameter:
+      "POST /catalogs/{catalog}/products/{productId}/deployment-parameters",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

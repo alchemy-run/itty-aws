@@ -846,3 +846,30 @@ export declare namespace UpdateApplication {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "EMR Serverless",
+  version: "2021-07-13",
+  protocol: "restJson1",
+  operations: {
+    ListTagsForResource: "GET /tags/{resourceArn}",
+    TagResource: "POST /tags/{resourceArn}",
+    UntagResource: "DELETE /tags/{resourceArn}",
+    CancelJobRun: "DELETE /applications/{applicationId}/jobruns/{jobRunId}",
+    CreateApplication: "POST /applications",
+    DeleteApplication: "DELETE /applications/{applicationId}",
+    GetApplication: "GET /applications/{applicationId}",
+    GetDashboardForJobRun:
+      "GET /applications/{applicationId}/jobruns/{jobRunId}/dashboard",
+    GetJobRun: "GET /applications/{applicationId}/jobruns/{jobRunId}",
+    ListApplications: "GET /applications",
+    ListJobRunAttempts:
+      "GET /applications/{applicationId}/jobruns/{jobRunId}/attempts",
+    ListJobRuns: "GET /applications/{applicationId}/jobruns",
+    StartApplication: "POST /applications/{applicationId}/start",
+    StartJobRun: "POST /applications/{applicationId}/jobruns",
+    StopApplication: "POST /applications/{applicationId}/stop",
+    UpdateApplication: "PATCH /applications/{applicationId}",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

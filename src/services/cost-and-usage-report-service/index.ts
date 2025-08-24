@@ -284,3 +284,12 @@ export declare namespace UntagResource {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Cost and Usage Report Service",
+  version: "2017-01-06",
+  protocol: "awsJson1_1",
+  endpointPrefix: "cur",
+  targetPrefix: "AWSOrigamiServiceGatewayService",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

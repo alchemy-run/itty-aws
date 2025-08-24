@@ -443,3 +443,25 @@ export declare namespace UpdateInvestigationGroup {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "AIOps",
+  version: "2018-05-10",
+  protocol: "restJson1",
+  operations: {
+    ListTagsForResource: "GET /tags/{resourceArn}",
+    TagResource: "POST /tags/{resourceArn}",
+    UntagResource: "DELETE /tags/{resourceArn}",
+    CreateInvestigationGroup: "POST /investigationGroups",
+    DeleteInvestigationGroup: "DELETE /investigationGroups/{identifier}",
+    DeleteInvestigationGroupPolicy:
+      "DELETE /investigationGroups/{identifier}/policy",
+    GetInvestigationGroup: "GET /investigationGroups/{identifier}",
+    GetInvestigationGroupPolicy: "GET /investigationGroups/{identifier}/policy",
+    ListInvestigationGroups: "GET /investigationGroups",
+    PutInvestigationGroupPolicy:
+      "POST /investigationGroups/{identifier}/policy",
+    UpdateInvestigationGroup: "PATCH /investigationGroups/{identifier}",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

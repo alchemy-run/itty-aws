@@ -262,3 +262,39 @@ export declare namespace UpdateKeys {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "CloudFront KeyValueStore",
+  version: "2022-07-26",
+  protocol: "restJson1",
+  endpointPrefix: "cloudfront-keyvaluestore",
+  operations: {
+    DeleteKey: {
+      http: "DELETE /key-value-stores/{KvsARN}/keys/{Key}",
+      traits: {
+        ETag: "ETag",
+      },
+    },
+    DescribeKeyValueStore: {
+      http: "GET /key-value-stores/{KvsARN}",
+      traits: {
+        ETag: "ETag",
+      },
+    },
+    GetKey: "GET /key-value-stores/{KvsARN}/keys/{Key}",
+    ListKeys: "GET /key-value-stores/{KvsARN}/keys",
+    PutKey: {
+      http: "PUT /key-value-stores/{KvsARN}/keys/{Key}",
+      traits: {
+        ETag: "ETag",
+      },
+    },
+    UpdateKeys: {
+      http: "POST /key-value-stores/{KvsARN}/keys",
+      traits: {
+        ETag: "ETag",
+      },
+    },
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

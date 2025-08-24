@@ -3185,3 +3185,12 @@ export declare namespace UpdateWebACL {
     | WAFUnavailableEntityException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "WAFV2",
+  version: "2019-07-29",
+  protocol: "awsJson1_1",
+  endpointPrefix: "wafv2",
+  targetPrefix: "AWSWAF_20190729",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

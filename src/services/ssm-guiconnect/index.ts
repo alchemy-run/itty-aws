@@ -162,3 +162,18 @@ export declare namespace UpdateConnectionRecordingPreferences {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "SSM GuiConnect",
+  version: "2021-05-01",
+  protocol: "restJson1",
+  operations: {
+    DeleteConnectionRecordingPreferences:
+      "POST /DeleteConnectionRecordingPreferences",
+    GetConnectionRecordingPreferences:
+      "POST /GetConnectionRecordingPreferences",
+    UpdateConnectionRecordingPreferences:
+      "POST /UpdateConnectionRecordingPreferences",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

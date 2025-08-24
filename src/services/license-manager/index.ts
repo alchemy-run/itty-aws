@@ -2343,3 +2343,12 @@ export declare namespace UpdateServiceSettings {
     | ServerInternalException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "License Manager",
+  version: "2018-08-01",
+  protocol: "awsJson1_1",
+  endpointPrefix: "license-manager",
+  targetPrefix: "AWSLicenseManager",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

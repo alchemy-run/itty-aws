@@ -1003,3 +1003,12 @@ export declare namespace UpdateAlias {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Payment Cryptography",
+  version: "2021-09-14",
+  protocol: "awsJson1_0",
+  endpointPrefix: "controlplane.payment-cryptography",
+  targetPrefix: "PaymentCryptographyControlPlane",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

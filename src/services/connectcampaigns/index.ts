@@ -864,3 +864,40 @@ export declare namespace UpdateCampaignOutboundCallConfig {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "ConnectCampaigns",
+  version: "2021-01-30",
+  protocol: "restJson1",
+  operations: {
+    CreateCampaign: "PUT /campaigns",
+    DeleteCampaign: "DELETE /campaigns/{id}",
+    DeleteConnectInstanceConfig:
+      "DELETE /connect-instance/{connectInstanceId}/config",
+    DeleteInstanceOnboardingJob:
+      "DELETE /connect-instance/{connectInstanceId}/onboarding",
+    DescribeCampaign: "GET /campaigns/{id}",
+    GetCampaignState: "GET /campaigns/{id}/state",
+    GetCampaignStateBatch: "POST /campaigns-state",
+    GetConnectInstanceConfig:
+      "GET /connect-instance/{connectInstanceId}/config",
+    GetInstanceOnboardingJobStatus:
+      "GET /connect-instance/{connectInstanceId}/onboarding",
+    ListCampaigns: "POST /campaigns-summary",
+    ListTagsForResource: "GET /tags/{arn}",
+    PauseCampaign: "POST /campaigns/{id}/pause",
+    PutDialRequestBatch: "PUT /campaigns/{id}/dial-requests",
+    ResumeCampaign: "POST /campaigns/{id}/resume",
+    StartCampaign: "POST /campaigns/{id}/start",
+    StartInstanceOnboardingJob:
+      "PUT /connect-instance/{connectInstanceId}/onboarding",
+    StopCampaign: "POST /campaigns/{id}/stop",
+    TagResource: "POST /tags/{arn}",
+    UntagResource: "DELETE /tags/{arn}",
+    UpdateCampaignDialerConfig: "POST /campaigns/{id}/dialer-config",
+    UpdateCampaignName: "POST /campaigns/{id}/name",
+    UpdateCampaignOutboundCallConfig:
+      "POST /campaigns/{id}/outbound-call-config",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

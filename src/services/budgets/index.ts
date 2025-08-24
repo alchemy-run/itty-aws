@@ -1276,3 +1276,12 @@ export declare namespace UpdateSubscriber {
     | ThrottlingException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Budgets",
+  version: "2016-10-20",
+  protocol: "awsJson1_1",
+  endpointPrefix: "budgets",
+  targetPrefix: "AWSBudgetServiceGateway",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

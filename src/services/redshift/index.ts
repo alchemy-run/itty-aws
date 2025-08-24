@@ -5669,3 +5669,11 @@ export declare namespace UpdatePartnerStatus {
     | UnsupportedOperationFault
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Redshift",
+  version: "2012-12-01",
+  protocol: "awsQuery",
+  endpointPrefix: "redshift",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

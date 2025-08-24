@@ -703,3 +703,12 @@ export declare namespace UpdateHypervisor {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Backup Gateway",
+  version: "2021-01-01",
+  protocol: "awsJson1_0",
+  endpointPrefix: "backup-gateway",
+  targetPrefix: "BackupOnPremises_v20210101",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

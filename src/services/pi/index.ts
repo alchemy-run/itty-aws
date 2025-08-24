@@ -593,3 +593,12 @@ export declare namespace UntagResource {
     | NotAuthorizedException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "PI",
+  version: "2018-02-27",
+  protocol: "awsJson1_1",
+  endpointPrefix: "pi",
+  targetPrefix: "PerformanceInsightsv20180227",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

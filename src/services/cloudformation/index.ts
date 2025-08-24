@@ -3568,3 +3568,11 @@ export declare namespace ValidateTemplate {
   export type Output = ValidateTemplateOutput;
   export type Error = CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "CloudFormation",
+  version: "2010-05-15",
+  protocol: "awsQuery",
+  endpointPrefix: "cloudformation",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

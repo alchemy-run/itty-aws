@@ -200,3 +200,18 @@ export declare namespace PutUsers {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Personalize Events",
+  version: "2018-03-22",
+  protocol: "restJson1",
+  endpointPrefix: "personalize-events",
+  operations: {
+    PutActionInteractions: "POST /action-interactions",
+    PutActions: "POST /actions",
+    PutEvents: "POST /events",
+    PutItems: "POST /items",
+    PutUsers: "POST /users",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

@@ -1015,3 +1015,31 @@ export declare namespace UpdatePipelineStatus {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Elastic Transcoder",
+  version: "2012-09-25",
+  protocol: "restJson1",
+  endpointPrefix: "elastictranscoder",
+  operations: {
+    CancelJob: "DELETE /2012-09-25/jobs/{Id}",
+    CreateJob: "POST /2012-09-25/jobs",
+    CreatePipeline: "POST /2012-09-25/pipelines",
+    CreatePreset: "POST /2012-09-25/presets",
+    DeletePipeline: "DELETE /2012-09-25/pipelines/{Id}",
+    DeletePreset: "DELETE /2012-09-25/presets/{Id}",
+    ListJobsByPipeline: "GET /2012-09-25/jobsByPipeline/{PipelineId}",
+    ListJobsByStatus: "GET /2012-09-25/jobsByStatus/{Status}",
+    ListPipelines: "GET /2012-09-25/pipelines",
+    ListPresets: "GET /2012-09-25/presets",
+    ReadJob: "GET /2012-09-25/jobs/{Id}",
+    ReadPipeline: "GET /2012-09-25/pipelines/{Id}",
+    ReadPreset: "GET /2012-09-25/presets/{Id}",
+    TestRole: "POST /2012-09-25/roleTests",
+    UpdatePipeline: "PUT /2012-09-25/pipelines/{Id}",
+    UpdatePipelineNotifications:
+      "POST /2012-09-25/pipelines/{Id}/notifications",
+    UpdatePipelineStatus: "POST /2012-09-25/pipelines/{Id}/status",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

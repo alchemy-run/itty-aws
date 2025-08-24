@@ -1155,3 +1155,44 @@ export declare namespace UpdateOrganizationConfiguration {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Detective",
+  version: "2018-10-26",
+  protocol: "restJson1",
+  endpointPrefix: "api.detective",
+  operations: {
+    AcceptInvitation: "PUT /invitation",
+    BatchGetGraphMemberDatasources: "POST /graph/datasources/get",
+    BatchGetMembershipDatasources: "POST /membership/datasources/get",
+    CreateGraph: "POST /graph",
+    CreateMembers: "POST /graph/members",
+    DeleteGraph: "POST /graph/removal",
+    DeleteMembers: "POST /graph/members/removal",
+    DescribeOrganizationConfiguration:
+      "POST /orgs/describeOrganizationConfiguration",
+    DisableOrganizationAdminAccount: "POST /orgs/disableAdminAccount",
+    DisassociateMembership: "POST /membership/removal",
+    EnableOrganizationAdminAccount: "POST /orgs/enableAdminAccount",
+    GetInvestigation: "POST /investigations/getInvestigation",
+    GetMembers: "POST /graph/members/get",
+    ListDatasourcePackages: "POST /graph/datasources/list",
+    ListGraphs: "POST /graphs/list",
+    ListIndicators: "POST /investigations/listIndicators",
+    ListInvestigations: "POST /investigations/listInvestigations",
+    ListInvitations: "POST /invitations/list",
+    ListMembers: "POST /graph/members/list",
+    ListOrganizationAdminAccounts: "POST /orgs/adminAccountslist",
+    ListTagsForResource: "GET /tags/{ResourceArn}",
+    RejectInvitation: "POST /invitation/removal",
+    StartInvestigation: "POST /investigations/startInvestigation",
+    StartMonitoringMember: "POST /graph/member/monitoringstate",
+    TagResource: "POST /tags/{ResourceArn}",
+    UntagResource: "DELETE /tags/{ResourceArn}",
+    UpdateDatasourcePackages: "POST /graph/datasources/update",
+    UpdateInvestigationState: "POST /investigations/updateInvestigationState",
+    UpdateOrganizationConfiguration:
+      "POST /orgs/updateOrganizationConfiguration",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

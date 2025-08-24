@@ -646,3 +646,24 @@ export declare namespace UpdateSchedule {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Scheduler",
+  version: "2021-06-30",
+  protocol: "restJson1",
+  operations: {
+    ListTagsForResource: "GET /tags/{ResourceArn}",
+    TagResource: "POST /tags/{ResourceArn}",
+    UntagResource: "DELETE /tags/{ResourceArn}",
+    CreateSchedule: "POST /schedules/{Name}",
+    CreateScheduleGroup: "POST /schedule-groups/{Name}",
+    DeleteSchedule: "DELETE /schedules/{Name}",
+    DeleteScheduleGroup: "DELETE /schedule-groups/{Name}",
+    GetSchedule: "GET /schedules/{Name}",
+    GetScheduleGroup: "GET /schedule-groups/{Name}",
+    ListScheduleGroups: "GET /schedule-groups",
+    ListSchedules: "GET /schedules",
+    UpdateSchedule: "PUT /schedules/{Name}",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

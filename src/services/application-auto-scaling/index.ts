@@ -859,3 +859,12 @@ export declare namespace UntagResource {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Application Auto Scaling",
+  version: "2016-02-06",
+  protocol: "awsJson1_1",
+  endpointPrefix: "application-autoscaling",
+  targetPrefix: "AnyScaleFrontendService",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

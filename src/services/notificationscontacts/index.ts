@@ -365,3 +365,22 @@ export declare namespace SendActivationCode {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "NotificationsContacts",
+  version: "2018-05-10",
+  protocol: "restJson1",
+  endpointPrefix: "notifications-contacts",
+  operations: {
+    ListTagsForResource: "GET /tags/{arn}",
+    TagResource: "POST /tags/{arn}",
+    UntagResource: "DELETE /tags/{arn}",
+    ActivateEmailContact: "PUT /emailcontacts/{arn}/activate/{code}",
+    CreateEmailContact: "POST /2022-09-19/emailcontacts",
+    DeleteEmailContact: "DELETE /emailcontacts/{arn}",
+    GetEmailContact: "GET /emailcontacts/{arn}",
+    ListEmailContacts: "GET /emailcontacts",
+    SendActivationCode: "POST /2022-10-31/emailcontacts/{arn}/activate/send",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

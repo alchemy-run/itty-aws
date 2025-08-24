@@ -162,3 +162,16 @@ export declare namespace GetRecommendations {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Personalize Runtime",
+  version: "2018-05-22",
+  protocol: "restJson1",
+  endpointPrefix: "personalize-runtime",
+  operations: {
+    GetActionRecommendations: "POST /action-recommendations",
+    GetPersonalizedRanking: "POST /personalize-ranking",
+    GetRecommendations: "POST /recommendations",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

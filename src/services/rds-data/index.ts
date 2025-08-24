@@ -556,3 +556,18 @@ export declare namespace RollbackTransaction {
     | TransactionNotFoundException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "RDS Data",
+  version: "2018-08-01",
+  protocol: "restJson1",
+  operations: {
+    BatchExecuteStatement: "POST /BatchExecute",
+    BeginTransaction: "POST /BeginTransaction",
+    CommitTransaction: "POST /CommitTransaction",
+    ExecuteSql: "POST /ExecuteSql",
+    ExecuteStatement: "POST /Execute",
+    RollbackTransaction: "POST /RollbackTransaction",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

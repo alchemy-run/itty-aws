@@ -2600,3 +2600,12 @@ export declare namespace UpdateOpportunity {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "PartnerCentral Selling",
+  version: "2022-07-26",
+  protocol: "awsJson1_0",
+  endpointPrefix: "partnercentral-selling",
+  targetPrefix: "AWSPartnerCentralSelling",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

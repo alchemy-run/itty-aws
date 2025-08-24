@@ -1127,3 +1127,47 @@ export declare namespace UpdateWorkspaceConfiguration {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "grafana",
+  version: "2020-08-18",
+  protocol: "restJson1",
+  operations: {
+    ListTagsForResource: "GET /tags/{resourceArn}",
+    ListVersions: "GET /versions",
+    TagResource: "POST /tags/{resourceArn}",
+    UntagResource: "DELETE /tags/{resourceArn}",
+    AssociateLicense: "POST /workspaces/{workspaceId}/licenses/{licenseType}",
+    CreateWorkspace: "POST /workspaces",
+    CreateWorkspaceApiKey: "POST /workspaces/{workspaceId}/apikeys",
+    CreateWorkspaceServiceAccount:
+      "POST /workspaces/{workspaceId}/serviceaccounts",
+    CreateWorkspaceServiceAccountToken:
+      "POST /workspaces/{workspaceId}/serviceaccounts/{serviceAccountId}/tokens",
+    DeleteWorkspace: "DELETE /workspaces/{workspaceId}",
+    DeleteWorkspaceApiKey: "DELETE /workspaces/{workspaceId}/apikeys/{keyName}",
+    DeleteWorkspaceServiceAccount:
+      "DELETE /workspaces/{workspaceId}/serviceaccounts/{serviceAccountId}",
+    DeleteWorkspaceServiceAccountToken:
+      "DELETE /workspaces/{workspaceId}/serviceaccounts/{serviceAccountId}/tokens/{tokenId}",
+    DescribeWorkspace: "GET /workspaces/{workspaceId}",
+    DescribeWorkspaceAuthentication:
+      "GET /workspaces/{workspaceId}/authentication",
+    DescribeWorkspaceConfiguration:
+      "GET /workspaces/{workspaceId}/configuration",
+    DisassociateLicense:
+      "DELETE /workspaces/{workspaceId}/licenses/{licenseType}",
+    ListPermissions: "GET /workspaces/{workspaceId}/permissions",
+    ListWorkspaceServiceAccountTokens:
+      "GET /workspaces/{workspaceId}/serviceaccounts/{serviceAccountId}/tokens",
+    ListWorkspaceServiceAccounts:
+      "GET /workspaces/{workspaceId}/serviceaccounts",
+    ListWorkspaces: "GET /workspaces",
+    UpdatePermissions: "PATCH /workspaces/{workspaceId}/permissions",
+    UpdateWorkspace: "PUT /workspaces/{workspaceId}",
+    UpdateWorkspaceAuthentication:
+      "POST /workspaces/{workspaceId}/authentication",
+    UpdateWorkspaceConfiguration: "PUT /workspaces/{workspaceId}/configuration",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

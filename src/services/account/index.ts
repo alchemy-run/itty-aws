@@ -525,3 +525,26 @@ export declare namespace StartPrimaryEmailUpdate {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Account",
+  version: "2021-02-01",
+  protocol: "restJson1",
+  operations: {
+    AcceptPrimaryEmailUpdate: "POST /acceptPrimaryEmailUpdate",
+    DeleteAlternateContact: "POST /deleteAlternateContact",
+    DisableRegion: "POST /disableRegion",
+    EnableRegion: "POST /enableRegion",
+    GetAccountInformation: "POST /getAccountInformation",
+    GetAlternateContact: "POST /getAlternateContact",
+    GetContactInformation: "POST /getContactInformation",
+    GetPrimaryEmail: "POST /getPrimaryEmail",
+    GetRegionOptStatus: "POST /getRegionOptStatus",
+    ListRegions: "POST /listRegions",
+    PutAccountName: "POST /putAccountName",
+    PutAlternateContact: "POST /putAlternateContact",
+    PutContactInformation: "POST /putContactInformation",
+    StartPrimaryEmailUpdate: "POST /startPrimaryEmailUpdate",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

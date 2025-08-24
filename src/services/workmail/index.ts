@@ -3387,3 +3387,12 @@ export declare namespace UpdateUser {
     | UnsupportedOperationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "WorkMail",
+  version: "2017-10-01",
+  protocol: "awsJson1_1",
+  endpointPrefix: "workmail",
+  targetPrefix: "WorkMailService",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

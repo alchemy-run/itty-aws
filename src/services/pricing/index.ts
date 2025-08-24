@@ -284,3 +284,12 @@ export declare namespace ListPriceLists {
     | ThrottlingException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Pricing",
+  version: "2017-10-15",
+  protocol: "awsJson1_1",
+  endpointPrefix: "api.pricing",
+  targetPrefix: "AWSPriceListService",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

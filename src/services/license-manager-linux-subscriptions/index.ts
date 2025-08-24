@@ -391,3 +391,28 @@ export declare namespace UpdateServiceSettings {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "License Manager Linux Subscriptions",
+  version: "2018-05-10",
+  protocol: "restJson1",
+  operations: {
+    DeregisterSubscriptionProvider:
+      "POST /subscription/DeregisterSubscriptionProvider",
+    GetRegisteredSubscriptionProvider:
+      "POST /subscription/GetRegisteredSubscriptionProvider",
+    GetServiceSettings: "POST /subscription/GetServiceSettings",
+    ListLinuxSubscriptionInstances:
+      "POST /subscription/ListLinuxSubscriptionInstances",
+    ListLinuxSubscriptions: "POST /subscription/ListLinuxSubscriptions",
+    ListRegisteredSubscriptionProviders:
+      "POST /subscription/ListRegisteredSubscriptionProviders",
+    ListTagsForResource: "GET /tags/{resourceArn}",
+    RegisterSubscriptionProvider:
+      "POST /subscription/RegisterSubscriptionProvider",
+    TagResource: "PUT /tags/{resourceArn}",
+    UntagResource: "DELETE /tags/{resourceArn}",
+    UpdateServiceSettings: "POST /subscription/UpdateServiceSettings",
+  },
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

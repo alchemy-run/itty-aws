@@ -1091,3 +1091,12 @@ export declare namespace UntagQueue {
     | UnsupportedOperation
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "SQS",
+  version: "2012-11-05",
+  protocol: "awsJson1_0",
+  endpointPrefix: "sqs",
+  targetPrefix: "AmazonSQS",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

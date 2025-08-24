@@ -4377,3 +4377,12 @@ export declare namespace UntagResource {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Config Service",
+  version: "2014-11-12",
+  protocol: "awsJson1_1",
+  endpointPrefix: "config",
+  targetPrefix: "StarlingDoveService",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

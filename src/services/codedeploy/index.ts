@@ -2851,3 +2851,12 @@ export declare namespace UpdateDeploymentGroup {
     | TriggerTargetsLimitExceededException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "CodeDeploy",
+  version: "2014-10-06",
+  protocol: "awsJson1_1",
+  endpointPrefix: "codedeploy",
+  targetPrefix: "CodeDeploy_20141006",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

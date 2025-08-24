@@ -853,3 +853,12 @@ export declare namespace UpdateScheduledQuery {
     | ValidationException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "Timestream Query",
+  version: "2018-11-01",
+  protocol: "awsJson1_0",
+  endpointPrefix: "query.timestream",
+  targetPrefix: "Timestream_20181101",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;

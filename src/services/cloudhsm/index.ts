@@ -647,3 +647,12 @@ export declare namespace RemoveTagsFromResource {
     | InvalidRequestException
     | CommonAwsError;
 }
+
+// Service metadata
+export const metadata = {
+  sdkId: "CloudHSM",
+  version: "2014-05-30",
+  protocol: "awsJson1_1",
+  endpointPrefix: "cloudhsm",
+  targetPrefix: "CloudHsmFrontendService",
+} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;
