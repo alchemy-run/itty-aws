@@ -193,7 +193,7 @@ export class Ec2QueryHandler implements ProtocolHandler {
     input: unknown,
     action: string,
     _metadata: ServiceMetadata,
-  ): string {
+  ): Promise<string> {
     // if unknown operation, it's an error
     const op = ec2ModelMeta.operations[action];
     if (!op) throw new Error(`Unknown operation: ${action}`);
@@ -213,7 +213,7 @@ export class Ec2QueryHandler implements ProtocolHandler {
       }
     }
 
-    return new URLSearchParams(params).toString();
+    return Promise.resolve(new URLSearchParams(params).toString());
   }
 
   getHeaders(
@@ -233,12 +233,13 @@ export class Ec2QueryHandler implements ProtocolHandler {
     _metadata?: ServiceMetadata,
     _headers?: Headers,
     _action?: string,
-  ): unknown {
-    if (statusCode >= 400) return this.parseError(responseText, statusCode);
-    if (!responseText) return {};
+  ): Promise<unknown> {
+    if (statusCode >= 400)
+      return Promise.resolve(this.parseError(responseText, statusCode));
+    if (!responseText) return Promise.resolve({});
 
     const doc = safeParseXml(responseText);
-    if (!doc) return {};
+    if (!doc) return Promise.resolve({});
 
     const wrapperName = findResponseWrapperName(doc);
     const payloadNode = doc[wrapperName] ?? doc;
@@ -251,12 +252,14 @@ export class Ec2QueryHandler implements ProtocolHandler {
       const outShape = opMeta?.output ?? `${opName}Result`;
 
       if (outShape) {
-        return fromXml(ec2ModelMeta.shapes, outShape, payloadNode);
+        return Promise.resolve(
+          fromXml(ec2ModelMeta.shapes, outShape, payloadNode),
+        );
       }
     }
 
     // If no specific shape found, return the payload node
-    return payloadNode;
+    return Promise.resolve(payloadNode);
   }
 
   parseError(

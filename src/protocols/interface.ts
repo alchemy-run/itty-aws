@@ -33,7 +33,7 @@ export interface ProtocolHandler {
     input: unknown,
     action: string,
     metadata: ServiceMetadata,
-  ): string | Promise<string>;
+  ): Promise<string>;
 
   getHeaders(
     action: string,
@@ -48,7 +48,7 @@ export interface ProtocolHandler {
     metadata?: ServiceMetadata,
     headers?: Headers,
     action?: string,
-  ): unknown | Promise<unknown>;
+  ): Promise<unknown>;
   parseError(
     responseText: string,
     statusCode: number,

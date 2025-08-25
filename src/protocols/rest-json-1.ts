@@ -13,16 +13,16 @@ export class RestJson1Handler implements ProtocolHandler {
     input: unknown,
     _action: string,
     _metadata: ServiceMetadata,
-  ): string {
+  ): Promise<string> {
     // Input has already been processed by the client to remove path/query params
     // Just serialize the remaining fields as JSON
     if (
       !input ||
       (typeof input === "object" && Object.keys(input).length === 0)
     ) {
-      return "";
+      return Promise.resolve("");
     }
-    return stringifyRestJson(input);
+    return Promise.resolve(stringifyRestJson(input));
   }
 
   getHeaders(
@@ -48,7 +48,7 @@ export class RestJson1Handler implements ProtocolHandler {
     metadata?: ServiceMetadata,
     headers?: Headers,
     action?: string,
-  ): unknown {
+  ): Promise<unknown> {
     // Check if this operation has special HTTP trait mappings
     const operationTraits =
       metadata && action && (metadata as any).operations?.[action]?.traits;
@@ -71,11 +71,11 @@ export class RestJson1Handler implements ProtocolHandler {
         }
       }
 
-      return result;
+      return Promise.resolve(result);
     }
 
     // Standard JSON response handling for operations without special traits
-    if (!responseText) return {};
+    if (!responseText) return Promise.resolve({});
     try {
       const parsed = JSON.parse(responseText, (_key, value) => {
         // Remove nulls and undefineds
@@ -84,10 +84,10 @@ export class RestJson1Handler implements ProtocolHandler {
         }
         return value;
       });
-      return parsed;
+      return Promise.resolve(parsed);
     } catch {
       // If response isn't JSON, return as-is (could be binary data)
-      return responseText;
+      return Promise.resolve(responseText);
     }
   }
 

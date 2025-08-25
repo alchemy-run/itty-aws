@@ -12,10 +12,10 @@ export class RestXmlHandler implements ProtocolHandler {
     input: unknown,
     _action: string,
     _metadata: ServiceMetadata,
-  ): string {
+  ): Promise<string> {
     // For now, we'll serialize as JSON until proper XML serialization is implemented
     // This is a placeholder for future S3 support
-    return JSON.stringify(input);
+    return Promise.resolve(JSON.stringify(input));
   }
 
   getHeaders(
@@ -35,14 +35,14 @@ export class RestXmlHandler implements ProtocolHandler {
     _metadata?: ServiceMetadata,
     _headers?: Headers,
     _action?: string,
-  ): unknown {
-    if (!responseText) return {};
+  ): Promise<unknown> {
+    if (!responseText) return Promise.resolve({});
     // TODO: Implement proper XML parsing for S3 responses
     // For now, fall back to JSON parsing
     try {
-      return JSON.parse(responseText);
+      return Promise.resolve(JSON.parse(responseText));
     } catch {
-      return { data: responseText };
+      return Promise.resolve({ data: responseText });
     }
   }
 

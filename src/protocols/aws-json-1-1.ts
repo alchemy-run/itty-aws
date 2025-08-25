@@ -49,10 +49,10 @@ export class AwsJson11Handler implements ProtocolHandler {
     input: unknown,
     _action: string,
     _metadata: ServiceMetadata,
-  ): string {
+  ): Promise<string> {
     // Ensure empty input becomes {}
     const payload = input === null || input === undefined ? {} : input;
-    return stringifyAwsJson(payload);
+    return Promise.resolve(stringifyAwsJson(payload));
   }
 
   getHeaders(
@@ -82,11 +82,11 @@ export class AwsJson11Handler implements ProtocolHandler {
     _metadata?: ServiceMetadata,
     _headers?: Headers,
     _action?: string,
-  ): unknown {
-    if (!responseText || responseText.trim() === "") return {};
+  ): Promise<unknown> {
+    if (!responseText || responseText.trim() === "") return Promise.resolve({});
 
     try {
-      return JSON.parse(responseText);
+      return Promise.resolve(JSON.parse(responseText));
     } catch (error) {
       throw new Error(
         `Invalid JSON response: ${error instanceof Error ? error.message : String(error)}`,

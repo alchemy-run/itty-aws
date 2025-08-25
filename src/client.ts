@@ -196,9 +196,7 @@ export function createServiceProxy<T>(
               action,
               metadata,
             );
-            const body = bodyResult instanceof Promise
-              ? yield* Effect.promise(() => bodyResult)
-              : bodyResult;
+            const body = yield* Effect.promise(() => bodyResult);
 
             // Get headers from protocol handler (with body for Content-Length)
             const headers = protocolHandler.getHeaders(action, metadata, body);
@@ -265,9 +263,7 @@ export function createServiceProxy<T>(
                 response.headers,
                 action,
               );
-              return result instanceof Promise
-                ? yield* Effect.promise(() => result)
-                : result;
+              return yield* Effect.promise(() => result);
             } else {
               // Error handling - now standardized across all protocols
               const parsedError = protocolHandler.parseError(

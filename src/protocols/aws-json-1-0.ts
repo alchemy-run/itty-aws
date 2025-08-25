@@ -13,12 +13,12 @@ export class AwsJson10Handler implements ProtocolHandler {
     input: unknown,
     _action: string,
     _metadata: ServiceMetadata,
-  ): string {
+  ): Promise<string> {
     // AWS JSON 1.0 requires empty input to be serialized as {}
     if (input === undefined || input === null) {
-      return "{}";
+      return Promise.resolve("{}");
     }
-    return stringifyAwsJson(input);
+    return Promise.resolve(stringifyAwsJson(input));
   }
 
   getHeaders(
@@ -39,10 +39,10 @@ export class AwsJson10Handler implements ProtocolHandler {
     _metadata?: ServiceMetadata,
     _headers?: Headers,
     _action?: string,
-  ): unknown {
+  ): Promise<unknown> {
     // Empty response body should return empty object
-    if (!responseText || responseText.trim() === "") return {};
-    return JSON.parse(responseText);
+    if (!responseText || responseText.trim() === "") return Promise.resolve({});
+    return Promise.resolve(JSON.parse(responseText));
   }
 
   parseError(
