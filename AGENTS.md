@@ -15,9 +15,15 @@
 
 ## Coding Style & Naming Conventions
 - Language: TypeScript (ESM; `"type": "module"`). Prefer `Effect`-first APIs and explicit types.
-- Formatting/Lint: Biome. Run `bun run biome check --write .` locally if needed.
+- Formatting/Lint: Biome. ALWAYS run `bun biome check --write .` after making changes (target specific paths when possible for speed).
 - Indentation: 2 spaces; keep lines concise and pure functions where possible.
 - File naming: kebab-case for scripts, lowerCamelCase for members, PascalCase for types.
+
+## Agent Workflow (Codex CLI)
+- Implement minimal, targeted changes.
+- Build locally with `tsc -b` when relevant.
+- ALWAYS format with Biome before finishing: `bun biome check --write .` (or `bun biome check --write <changed-paths>`).
+- Optionally run tests or smoke checks when touching protocols or serializers.
 
 ## Testing Guidelines
 - Framework: Vitest (`vitest.config.ts` sets `environment: "node"`, `globals: true`).

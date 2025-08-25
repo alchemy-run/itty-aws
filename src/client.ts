@@ -139,67 +139,10 @@ export function createServiceProxy<T>(
             // Get protocol handler for this service
             const protocolHandler = resolveProtocolHandler(metadata.protocol);
 
-            // Extract operation-specific metadata for restJson1
-            let httpMethod = "POST";
-            let uriPath = "/";
-            let finalInput = input;
-
-            if (metadata.protocol === "restJson1") {
-              const operationSpec = (metadata as any).operations?.[action];
-
-              if (operationSpec) {
-                // Handle both string and object operation specs
-                const httpSpec =
-                  typeof operationSpec === "string"
-                    ? operationSpec
-                    : operationSpec.http;
-
-                if (httpSpec) {
-                  // Parse "METHOD /path/with/{params}" format
-                  const spaceIndex = httpSpec.indexOf(" ");
-                  if (spaceIndex > 0) {
-                    httpMethod = httpSpec.substring(0, spaceIndex);
-                    uriPath = httpSpec.substring(spaceIndex + 1);
-                  }
-                }
-              }
-
-              // Extract path parameters from URI template
-              const pathParams = [...uriPath.matchAll(/\{(\w+)\}/g)].map(
-                (m) => m[1],
-              );
-
-              if (pathParams.length > 0 && input && typeof input === "object") {
-                // Build URI with path substitution and separate body
-                let processedUri = uriPath;
-                const remainingInput = { ...input };
-
-                for (const param of pathParams) {
-                  if (param in (input as any)) {
-                    const value = (input as any)[param];
-                    processedUri = processedUri.replace(
-                      `{${param}}`,
-                      encodeURIComponent(String(value)),
-                    );
-                    delete (remainingInput as any)[param];
-                  }
-                }
-
-                uriPath = processedUri;
-                finalInput = remainingInput;
-              }
-            }
-
-            // Serialize request body using protocol handler
-            const bodyResult = protocolHandler.buildRequest(
-              finalInput,
-              action,
-              metadata,
+            // Build request with protocol handler
+            const req = yield* Effect.promise(() =>
+              protocolHandler.buildHttpRequest(input, action, metadata),
             );
-            const body = yield* Effect.promise(() => bodyResult);
-
-            // Get headers from protocol handler (with body for Content-Length)
-            const headers = protocolHandler.getHeaders(action, metadata, body);
 
             // Use custom endpoint, global endpoint, or construct regional AWS endpoint
             const endpoint =
@@ -210,29 +153,28 @@ export function createServiceProxy<T>(
                 : `https://${metadata.sdkId.toLowerCase()}.${resolvedConfig.region}.amazonaws.com`);
 
             // Build full URL with path
-            const fullUrl = endpoint.replace(/\/$/, "") + uriPath;
+            const fullUrl = endpoint.replace(/\/$/, "") + req.path;
 
             // Log the AWS request
             yield* Effect.logDebug("AWS Request", {
               service: normalizedServiceName,
               action,
-              method: httpMethod,
+              method: req.method,
               url: fullUrl,
-              headers,
+              headers: req.headers,
               input,
-              finalInput,
-              body,
+              body: req.body,
             });
 
             const response = yield* Effect.promise(() =>
               client.fetch(fullUrl, {
-                method: httpMethod,
-                headers,
+                method: req.method,
+                headers: req.headers,
                 // Don't send body for GET/DELETE requests
                 body:
-                  httpMethod === "GET" || httpMethod === "DELETE"
+                  req.method === "GET" || req.method === "DELETE"
                     ? undefined
-                    : body,
+                    : req.body,
               }),
             ).pipe(Effect.timeout("30 seconds")); //FIXME: why a 30-second timeout?
 

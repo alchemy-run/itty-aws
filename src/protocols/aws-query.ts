@@ -3,6 +3,7 @@ import { getServiceMeta } from "../awsquery-metadata/index.js";
 import type {
   ParsedError,
   ProtocolHandler,
+  ProtocolRequest,
   ServiceMetadata,
 } from "./interface.ts";
 
@@ -205,11 +206,11 @@ export class AwsQueryHandler implements ProtocolHandler {
   readonly name = "awsQuery";
   readonly contentType = "application/x-www-form-urlencoded";
 
-  async buildRequest(
+  async buildHttpRequest(
     input: unknown,
     action: string,
     metadata: ServiceMetadata,
-  ): Promise<string> {
+  ): Promise<ProtocolRequest> {
     const serviceMeta = await getServiceMeta(metadata.sdkId);
 
     if (!serviceMeta) {
@@ -230,17 +231,12 @@ export class AwsQueryHandler implements ProtocolHandler {
       toParams(serviceMeta.shapes, operation.input, input, "", params);
     }
 
-    return new URLSearchParams(params).toString();
-  }
-
-  getHeaders(
-    _action: string,
-    _metadata: ServiceMetadata,
-    _body?: string,
-  ): Record<string, string> {
+    const body = new URLSearchParams(params).toString();
     return {
-      "Content-Type": this.contentType,
-      "User-Agent": "itty-aws",
+      method: "POST",
+      path: "/",
+      headers: { "Content-Type": this.contentType, "User-Agent": "itty-aws" },
+      body,
     };
   }
 

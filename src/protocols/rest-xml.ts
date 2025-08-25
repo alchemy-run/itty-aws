@@ -1,6 +1,7 @@
 import type {
   ParsedError,
   ProtocolHandler,
+  ProtocolRequest,
   ServiceMetadata,
 } from "./interface.ts";
 
@@ -8,25 +9,19 @@ export class RestXmlHandler implements ProtocolHandler {
   readonly name = "restXml";
   readonly contentType = "application/xml";
 
-  buildRequest(
+  buildHttpRequest(
     input: unknown,
     _action: string,
     _metadata: ServiceMetadata,
-  ): Promise<string> {
-    // For now, we'll serialize as JSON until proper XML serialization is implemented
-    // This is a placeholder for future S3 support
-    return Promise.resolve(JSON.stringify(input));
-  }
-
-  getHeaders(
-    _action: string,
-    _metadata: ServiceMetadata,
-    _body?: string,
-  ): Record<string, string> {
-    return {
-      "Content-Type": this.contentType,
-      "User-Agent": "itty-aws",
-    };
+  ): Promise<ProtocolRequest> {
+    // Placeholder: serialize as JSON until full XML and traits are supported
+    const body = JSON.stringify(input ?? {});
+    return Promise.resolve({
+      method: "POST",
+      path: "/",
+      headers: { "Content-Type": this.contentType, "User-Agent": "itty-aws" },
+      body,
+    });
   }
 
   parseResponse(

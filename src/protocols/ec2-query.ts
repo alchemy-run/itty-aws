@@ -4,6 +4,7 @@ import { capitalizeFirst } from "../utils.ts";
 import type {
   ParsedError,
   ProtocolHandler,
+  ProtocolRequest,
   ServiceMetadata,
 } from "./interface.ts";
 
@@ -189,11 +190,11 @@ export class Ec2QueryHandler implements ProtocolHandler {
   readonly name = "ec2Query";
   readonly contentType = "application/x-www-form-urlencoded; charset=utf-8";
 
-  buildRequest(
+  buildHttpRequest(
     input: unknown,
     action: string,
     _metadata: ServiceMetadata,
-  ): Promise<string> {
+  ): Promise<ProtocolRequest> {
     // if unknown operation, it's an error
     const op = ec2ModelMeta.operations[action];
     if (!op) throw new Error(`Unknown operation: ${action}`);
@@ -213,18 +214,16 @@ export class Ec2QueryHandler implements ProtocolHandler {
       }
     }
 
-    return Promise.resolve(new URLSearchParams(params).toString());
-  }
-
-  getHeaders(
-    _action: string,
-    _metadata: ServiceMetadata,
-    _body?: string,
-  ): Record<string, string> {
-    return {
-      "Content-Type": this.contentType,
-      "User-Agent": "itty-aws",
-    };
+    const body = new URLSearchParams(params).toString();
+    return Promise.resolve({
+      method: "POST",
+      path: "/",
+      headers: {
+        "Content-Type": this.contentType,
+        "User-Agent": "itty-aws",
+      },
+      body,
+    });
   }
 
   parseResponse(

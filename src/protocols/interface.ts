@@ -24,22 +24,23 @@ export interface ParsedError {
   readonly requestId?: string;
 }
 
+export interface ProtocolRequest {
+  readonly method: string;
+  readonly path: string; // begins with '/'
+  readonly headers: Record<string, string>;
+  readonly body?: string;
+}
+
 export interface ProtocolHandler {
   readonly name: string;
   readonly contentType: string;
 
-  // Translate input JSON into protocol-specific request format (e.g. XML)
-  buildRequest(
+  // Build the complete HTTP request details for the given operation input
+  buildHttpRequest(
     input: unknown,
     action: string,
     metadata: ServiceMetadata,
-  ): Promise<string>;
-
-  getHeaders(
-    action: string,
-    metadata: ServiceMetadata,
-    body?: string,
-  ): Record<string, string>;
+  ): Promise<ProtocolRequest>;
 
   // Translate protocol-specific response (e.g. XML) into JSON
   parseResponse(

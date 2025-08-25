@@ -1,6 +1,7 @@
 import type {
   ParsedError,
   ProtocolHandler,
+  ProtocolRequest,
   ServiceMetadata,
 } from "./interface.ts";
 import { stringifyAwsJson } from "./json-serializer.ts";
@@ -45,35 +46,20 @@ export class AwsJson11Handler implements ProtocolHandler {
   readonly name = "awsJson1_1";
   readonly contentType = "application/x-amz-json-1.1";
 
-  buildRequest(
+  async buildHttpRequest(
     input: unknown,
-    _action: string,
-    _metadata: ServiceMetadata,
-  ): Promise<string> {
-    // Ensure empty input becomes {}
-    const payload = input === null || input === undefined ? {} : input;
-    return Promise.resolve(stringifyAwsJson(payload));
-  }
-
-  getHeaders(
     action: string,
     metadata: ServiceMetadata,
-    body?: string,
-  ): Record<string, string> {
+  ): Promise<ProtocolRequest> {
+    const payload = input === null || input === undefined ? {} : input;
+    const body = stringifyAwsJson(payload);
     const headers: Record<string, string> = {
       "Content-Type": this.contentType,
       "X-Amz-Target": `${metadata.targetPrefix}.${action}`,
       "User-Agent": "itty-aws",
+      "Content-Length": new TextEncoder().encode(body).length.toString(),
     };
-
-    // Add Content-Length if body is provided
-    if (body !== undefined) {
-      headers["Content-Length"] = new TextEncoder()
-        .encode(body)
-        .length.toString();
-    }
-
-    return headers;
+    return { method: "POST", path: "/", headers, body };
   }
 
   parseResponse(

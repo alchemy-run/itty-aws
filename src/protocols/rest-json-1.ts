@@ -1,6 +1,7 @@
 import type {
   ParsedError,
   ProtocolHandler,
+  ProtocolRequest,
   ServiceMetadata,
 } from "./interface.ts";
 import { stringifyRestJson } from "./json-serializer.ts";
@@ -9,37 +10,66 @@ export class RestJson1Handler implements ProtocolHandler {
   readonly name = "restJson1";
   readonly contentType = "application/json";
 
-  buildRequest(
+  async buildHttpRequest(
     input: unknown,
-    _action: string,
-    _metadata: ServiceMetadata,
-  ): Promise<string> {
-    // Input has already been processed by the client to remove path/query params
-    // Just serialize the remaining fields as JSON
-    if (
-      !input ||
-      (typeof input === "object" && Object.keys(input).length === 0)
-    ) {
-      return Promise.resolve("");
-    }
-    return Promise.resolve(stringifyRestJson(input));
-  }
+    action: string,
+    metadata: ServiceMetadata,
+  ): Promise<ProtocolRequest> {
+    // Determine METHOD and URI path from operation metadata
+    let httpMethod = "POST";
+    let uriPath = "/";
+    let remainingInput = input as any;
 
-  getHeaders(
-    _action: string,
-    _metadata: ServiceMetadata,
-    body?: string,
-  ): Record<string, string> {
+    const operationSpec = (metadata as any).operations?.[action];
+    if (operationSpec) {
+      const httpSpec =
+        typeof operationSpec === "string" ? operationSpec : operationSpec.http;
+      if (httpSpec) {
+        const spaceIndex = httpSpec.indexOf(" ");
+        if (spaceIndex > 0) {
+          httpMethod = httpSpec.substring(0, spaceIndex);
+          uriPath = httpSpec.substring(spaceIndex + 1);
+        }
+      }
+    }
+
+    // Replace path params and strip from body
+    const pathParams = [...uriPath.matchAll(/\{(\w+)\}/g)].map((m) => m[1]);
+    if (pathParams.length > 0 && input && typeof input === "object") {
+      let processedUri = uriPath;
+      const inputCopy: Record<string, unknown> = { ...(input as any) };
+      for (const param of pathParams) {
+        if (param in inputCopy) {
+          const value = inputCopy[param];
+          processedUri = processedUri.replace(
+            `{${param}}`,
+            encodeURIComponent(String(value)),
+          );
+          delete inputCopy[param];
+        }
+      }
+      uriPath = processedUri;
+      remainingInput = inputCopy;
+    }
+
+    // Body: only when present and not GET/DELETE
+    let body: string | undefined;
+    if (
+      httpMethod !== "GET" &&
+      httpMethod !== "DELETE" &&
+      remainingInput &&
+      (typeof remainingInput !== "object" ||
+        Object.keys(remainingInput).length > 0)
+    ) {
+      body = stringifyRestJson(remainingInput);
+    }
+
     const headers: Record<string, string> = {
       "User-Agent": "itty-aws",
     };
+    if (body) headers["Content-Type"] = this.contentType;
 
-    // Only set Content-Type if there's a body
-    if (body) {
-      headers["Content-Type"] = this.contentType;
-    }
-
-    return headers;
+    return { method: httpMethod, path: uriPath, headers, body };
   }
 
   parseResponse(
