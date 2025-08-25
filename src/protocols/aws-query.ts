@@ -205,12 +205,12 @@ export class AwsQueryHandler implements ProtocolHandler {
   readonly name = "awsQuery";
   readonly contentType = "application/x-www-form-urlencoded";
 
-  buildRequest(
+  async buildRequest(
     input: unknown,
     action: string,
     metadata: ServiceMetadata,
-  ): string {
-    const serviceMeta = getServiceMeta(metadata.sdkId);
+  ): Promise<string> {
+    const serviceMeta = await getServiceMeta(metadata.sdkId);
 
     if (!serviceMeta) {
       throw new Error(
@@ -244,13 +244,13 @@ export class AwsQueryHandler implements ProtocolHandler {
     };
   }
 
-  parseResponse(
+  async parseResponse(
     responseText: string,
     statusCode: number,
     metadata?: ServiceMetadata,
     _headers?: Headers,
     _action?: string,
-  ): unknown {
+  ): Promise<unknown> {
     if (statusCode >= 400) return this.parseError(responseText, statusCode);
     if (!responseText) return {};
 
@@ -263,7 +263,7 @@ export class AwsQueryHandler implements ProtocolHandler {
       );
     }
 
-    const serviceMeta = getServiceMeta(metadata.sdkId);
+    const serviceMeta = await getServiceMeta(metadata.sdkId);
     if (!serviceMeta) {
       throw new Error(
         `AWS Query metadata not found for service "${metadata.sdkId}". ` +

@@ -53,26 +53,33 @@ export type ShapeKind =
 // Lazy-loaded service metadata cache
 const serviceMetadata = new Map<string, AwsQueryServiceMeta>();
 
-export function getServiceMeta(serviceId: string): AwsQueryServiceMeta | null {
+export async function getServiceMeta(
+  serviceId: string,
+): Promise<AwsQueryServiceMeta> {
   if (!serviceMetadata.has(serviceId)) {
+    // Normalize service ID for file lookup
+    const fileName = serviceId.toLowerCase().replace(/\s+/g, "-");
+
     try {
-      // Normalize service ID for file lookup
-      const fileName = serviceId.toLowerCase().replace(/\s+/g, "-");
-      // Try to import the metadata - first try compiled .js, then fallback to .ts for dev
-      let meta;
-      try {
-        meta = require(`./${fileName}.js`).metadata;
-      } catch {
-        // Fallback to TypeScript file for development/testing
-        meta = require(`./${fileName}.ts`).metadata;
+      const module = await import(`./${fileName}.ts`);
+      if (!module.metadata) {
+        throw new Error(`No metadata exported from service: ${serviceId}`);
       }
-      serviceMetadata.set(serviceId, meta);
-      return meta;
-    } catch (_error) {
-      return null;
+      serviceMetadata.set(serviceId, module.metadata);
+      return module.metadata;
+    } catch (error) {
+      if (
+        error instanceof Error &&
+        error.message.includes("No metadata exported")
+      ) {
+        throw error; // Re-throw metadata-specific errors
+      }
+      throw new Error(
+        `Failed to load metadata for service: ${serviceId} (${error})`,
+      );
     }
   }
-  return serviceMetadata.get(serviceId) || null;
+  return serviceMetadata.get(serviceId)!;
 }
 
 // Auto-generated list of supported services

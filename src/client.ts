@@ -191,11 +191,14 @@ export function createServiceProxy<T>(
             }
 
             // Serialize request body using protocol handler
-            const body = protocolHandler.buildRequest(
+            const bodyResult = protocolHandler.buildRequest(
               finalInput,
               action,
               metadata,
             );
+            const body = bodyResult instanceof Promise
+              ? yield* Effect.promise(() => bodyResult)
+              : bodyResult;
 
             // Get headers from protocol handler (with body for Content-Length)
             const headers = protocolHandler.getHeaders(action, metadata, body);
@@ -255,13 +258,16 @@ export function createServiceProxy<T>(
 
             if (statusCode >= 200 && statusCode < 300) {
               // Success
-              return protocolHandler.parseResponse(
+              const result = protocolHandler.parseResponse(
                 responseText,
                 statusCode,
                 metadata,
                 response.headers,
                 action,
               );
+              return result instanceof Promise
+                ? yield* Effect.promise(() => result)
+                : result;
             } else {
               // Error handling - now standardized across all protocols
               const parsedError = protocolHandler.parseError(
