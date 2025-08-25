@@ -1,5 +1,4 @@
 import { XMLParser } from "fast-xml-parser";
-import { ec2ModelMeta } from "../ec2-metadata.ts";
 import { capitalizeFirst } from "../utils.ts";
 import type {
   ParsedError,
@@ -21,6 +20,17 @@ function safeParseXml(xmlText: string): any {
   } catch {
     return null;
   }
+}
+
+// Lazy-load EC2 metadata to avoid eager import when EC2 isn't used
+let ec2ModelMetaPromise: Promise<any> | undefined;
+async function getEc2ModelMeta() {
+  if (!ec2ModelMetaPromise) {
+    ec2ModelMetaPromise = import("../ec2-metadata.ts").then(
+      (m) => m.ec2ModelMeta,
+    );
+  }
+  return ec2ModelMetaPromise;
 }
 
 function toParams(
@@ -190,11 +200,12 @@ export class Ec2QueryHandler implements ProtocolHandler {
   readonly name = "ec2Query";
   readonly contentType = "application/x-www-form-urlencoded; charset=utf-8";
 
-  buildHttpRequest(
+  async buildHttpRequest(
     input: unknown,
     action: string,
     _metadata: ServiceMetadata,
   ): Promise<ProtocolRequest> {
+    const ec2ModelMeta = await getEc2ModelMeta();
     // if unknown operation, it's an error
     const op = ec2ModelMeta.operations[action];
     if (!op) throw new Error(`Unknown operation: ${action}`);
@@ -215,7 +226,7 @@ export class Ec2QueryHandler implements ProtocolHandler {
     }
 
     const body = new URLSearchParams(params).toString();
-    return Promise.resolve({
+    return {
       method: "POST",
       path: "/",
       headers: {
@@ -223,42 +234,40 @@ export class Ec2QueryHandler implements ProtocolHandler {
         "User-Agent": "itty-aws",
       },
       body,
-    });
+    };
   }
 
-  parseResponse(
+  async parseResponse(
     responseText: string,
     statusCode: number,
     _metadata?: ServiceMetadata,
     _headers?: Headers,
     _action?: string,
   ): Promise<unknown> {
-    if (statusCode >= 400)
-      return Promise.resolve(this.parseError(responseText, statusCode));
-    if (!responseText) return Promise.resolve({});
+    if (statusCode >= 400) return this.parseError(responseText, statusCode);
+    if (!responseText) return {};
 
     const doc = safeParseXml(responseText);
-    if (!doc) return Promise.resolve({});
+    if (!doc) return {};
 
     const wrapperName = findResponseWrapperName(doc);
     const payloadNode = doc[wrapperName] ?? doc;
 
     if (wrapperName) {
       const opName = wrapperName.replace(/Response$/, "");
+      const ec2ModelMeta = await getEc2ModelMeta();
       const opMeta = ec2ModelMeta.operations[opName];
       // if the operation exists, but there is not output
       // that means it follows the pattern and we can rebuild the target without metadata
       const outShape = opMeta?.output ?? `${opName}Result`;
 
       if (outShape) {
-        return Promise.resolve(
-          fromXml(ec2ModelMeta.shapes, outShape, payloadNode),
-        );
+        return fromXml(ec2ModelMeta.shapes, outShape, payloadNode);
       }
     }
 
     // If no specific shape found, return the payload node
-    return Promise.resolve(payloadNode);
+    return payloadNode;
   }
 
   parseError(
