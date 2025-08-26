@@ -15,15 +15,12 @@ import { loadServiceMetadata } from "./metadata-loader.ts";
 import { AwsJson10Handler } from "./protocols/aws-json-1-0.ts";
 import { AwsJson11Handler } from "./protocols/aws-json-1-1.ts";
 import { AwsQueryHandler } from "./protocols/aws-query.ts";
-import { Ec2QueryHandler } from "./protocols/ec2-query.ts";
 import type { ProtocolHandler } from "./protocols/interface.ts";
 import { RestJson1Handler } from "./protocols/rest-json-1.ts";
 import { RestXmlHandler } from "./protocols/rest-xml.ts";
 
 function resolveProtocolHandler(protocol: string): ProtocolHandler {
   switch (protocol) {
-    case "ec2Query":
-      return new Ec2QueryHandler();
     case "awsQuery":
       return new AwsQueryHandler();
     case "awsJson1_0":
@@ -51,6 +48,26 @@ function createServiceError(
 }
 
 // Types
+
+export interface ServiceMetadata {
+  readonly sdkId: string;
+  readonly version: string;
+  readonly protocol: string;
+  readonly sigV4ServiceName: string;
+  readonly endpointPrefix?: string;
+  readonly targetPrefix?: string; // only used for awsJson1_0 and awsJson1_1
+  readonly globalEndpoint?: string; // For global services like IAM and CloudFront
+  readonly signingRegion?: string; // Override signing region for global services
+  readonly operations?: Record<
+    string,
+    | string
+    | {
+        readonly http?: string;
+        readonly traits?: Record<string, string>;
+      }
+  >; // Operation mappings for restJson1 and trait mappings
+}
+
 export type AwsRegion = string;
 
 export interface AwsCredentials {
@@ -61,9 +78,10 @@ export interface AwsCredentials {
 
 // Client configuration options
 export interface AWSClientConfig {
-  readonly region?: string;
   readonly credentials?: AwsCredentials;
+  readonly region?: string;
   readonly endpoint?: string;
+  readonly protocolHandler?: ProtocolHandler;
 }
 
 // Base AWS service class that all services extend
@@ -74,15 +92,13 @@ export abstract class AWSServiceClient {
       region: config?.region ?? "us-east-1",
       credentials: config?.credentials ?? (undefined as any), // Will be resolved later
       endpoint: config?.endpoint ?? (undefined as any), // Will be resolved per service
+      protocolHandler: config?.protocolHandler ?? (undefined as any),
     };
   }
 }
 
 // Promise-based AWS client creator
-async function createAwsClient(
-  service: string,
-  config: Required<AWSClientConfig>,
-) {
+async function createAwsClient(service: string, config: AWSClientConfig) {
   // Use provided credentials or fall back to AWS credential chain
   const credentials = config.credentials
     ? config.credentials
@@ -100,13 +116,9 @@ async function createAwsClient(
 // Standalone service proxy creator function
 export function createServiceProxy<T>(
   serviceName: string,
-  config: AWSClientConfig = {},
+  config: AWSClientConfig,
 ): T {
-  const resolvedConfig: Required<AWSClientConfig> = {
-    region: config.region ?? "us-east-1",
-    credentials: config.credentials ?? (undefined as any), // Will be resolved later
-    endpoint: config.endpoint ?? (undefined as any), // Will be resolved per service
-  };
+  const resolvedConfig = config;
 
   const normalizedServiceName = serviceName.toLowerCase();
 
@@ -137,7 +149,9 @@ export function createServiceProxy<T>(
               methodName.charAt(0).toUpperCase() + methodName.slice(1);
 
             // Get protocol handler for this service
-            const protocolHandler = resolveProtocolHandler(metadata.protocol);
+            const protocolHandler = resolvedConfig.protocolHandler
+              ? resolvedConfig.protocolHandler
+              : resolveProtocolHandler(metadata.protocol);
 
             // Build request with protocol handler
             const req = yield* Effect.promise(() =>
@@ -166,6 +180,7 @@ export function createServiceProxy<T>(
               body: req.body,
             });
 
+            //const start = performance.now();
             const response = yield* Effect.promise(() =>
               client.fetch(fullUrl, {
                 method: req.method,
@@ -179,6 +194,8 @@ export function createServiceProxy<T>(
             ).pipe(Effect.timeout("30 seconds")); //FIXME: why a 30-second timeout?
 
             const responseText = yield* Effect.promise(() => response.text());
+            //console.log("TIME FOR CLIENT FETCH: ", performance.now() - start);
+
             const statusCode = response.status;
 
             // Log the AWS response

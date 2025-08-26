@@ -1,10 +1,11 @@
 import { XMLParser } from "fast-xml-parser";
+import type { ServiceMetadata } from "../client.ts";
+import type { Ec2ModelMeta } from "../ec2-metadata.ts";
 import { capitalizeFirst } from "../utils.ts";
 import type {
   ParsedError,
   ProtocolHandler,
   ProtocolRequest,
-  ServiceMetadata,
 } from "./interface.ts";
 
 const xmlParser = new XMLParser({
@@ -20,17 +21,6 @@ function safeParseXml(xmlText: string): any {
   } catch {
     return null;
   }
-}
-
-// Lazy-load EC2 metadata to avoid eager import when EC2 isn't used
-let ec2ModelMetaPromise: Promise<any> | undefined;
-async function getEc2ModelMeta() {
-  if (!ec2ModelMetaPromise) {
-    ec2ModelMetaPromise = import("../ec2-metadata.ts").then(
-      (m) => m.ec2ModelMeta,
-    );
-  }
-  return ec2ModelMetaPromise;
 }
 
 function toParams(
@@ -199,29 +189,34 @@ function findResponseWrapperName(doc: any): string {
 export class Ec2QueryHandler implements ProtocolHandler {
   readonly name = "ec2Query";
   readonly contentType = "application/x-www-form-urlencoded; charset=utf-8";
+  private readonly ec2ModelMeta: Ec2ModelMeta;
+
+  constructor(ec2ModelMeta: Ec2ModelMeta) {
+    this.ec2ModelMeta = ec2ModelMeta;
+  }
 
   async buildHttpRequest(
     input: unknown,
     action: string,
     _metadata: ServiceMetadata,
   ): Promise<ProtocolRequest> {
-    const ec2ModelMeta = await getEc2ModelMeta();
     // if unknown operation, it's an error
-    const op = ec2ModelMeta.operations[action];
+    const op = this.ec2ModelMeta.operations[action];
     if (!op) throw new Error(`Unknown operation: ${action}`);
 
     const params: Record<string, string> = {
       Action: action,
-      Version: ec2ModelMeta.version,
+      Version: this.ec2ModelMeta.version,
     };
 
     // if there is no exception for the operation input target,
     // then we fall back to defaults
     if (input) {
-      if (op.input) toParams(ec2ModelMeta.shapes, op.input, input, "", params);
+      if (op.input)
+        toParams(this.ec2ModelMeta.shapes, op.input, input, "", params);
       else {
         const inputTarget = `${action}Request`;
-        toParams(ec2ModelMeta.shapes, inputTarget, input, "", params);
+        toParams(this.ec2ModelMeta.shapes, inputTarget, input, "", params);
       }
     }
 
@@ -255,14 +250,13 @@ export class Ec2QueryHandler implements ProtocolHandler {
 
     if (wrapperName) {
       const opName = wrapperName.replace(/Response$/, "");
-      const ec2ModelMeta = await getEc2ModelMeta();
-      const opMeta = ec2ModelMeta.operations[opName];
+      const opMeta = this.ec2ModelMeta.operations[opName];
       // if the operation exists, but there is not output
       // that means it follows the pattern and we can rebuild the target without metadata
       const outShape = opMeta?.output ?? `${opName}Result`;
 
       if (outShape) {
-        return fromXml(ec2ModelMeta.shapes, outShape, payloadNode);
+        return fromXml(this.ec2ModelMeta.shapes, outShape, payloadNode);
       }
     }
 
