@@ -634,8 +634,10 @@ const generateServiceCode = (serviceName: string, manifest: Manifest) =>
     // Extract service metadata
     const serviceTraits = serviceShape.traits || {};
     const serviceInfo = (serviceTraits["aws.api#service"] as any) || {};
+    const sigV4ServiceInfo = (serviceTraits["aws.auth#sigv4"] as any) || {};
     const sdkId = serviceInfo.sdkId || "";
     const endpointPrefix = serviceInfo.endpointPrefix || undefined;
+    const sigV4ServiceName = sigV4ServiceInfo?.name || undefined;
 
     // Extract version from service shape (direct property, not in traits)
     const version = (serviceShape as any).version || "";
@@ -1135,6 +1137,7 @@ const generateServiceCode = (serviceName: string, manifest: Manifest) =>
       version,
       endpointPrefix,
       protocol,
+      sigV4ServiceName,
       targetPrefix,
       globalEndpoint,
       signingRegion,
@@ -1146,10 +1149,11 @@ const generateServiceCode = (serviceName: string, manifest: Manifest) =>
 
     // Add metadata export to the service code
     code += "\n// Service metadata\n";
-    code += "export const metadata = {\n";
+    code += "const _metadata = {\n";
     code += `  sdkId: "${sdkId}",\n`;
     code += `  version: "${version}",\n`;
     code += `  protocol: "${protocol}",\n`;
+    code += `  sigV4ServiceName: "${sigV4ServiceName}",\n`;
     if (endpointPrefix) {
       code += `  endpointPrefix: "${endpointPrefix}",\n`;
     }
@@ -1186,7 +1190,7 @@ const generateServiceCode = (serviceName: string, manifest: Manifest) =>
       });
       code += "  },\n";
     }
-    code += `} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;\n`;
+    code += "}  as const satisfies ServiceMetadata;\n";
 
     return { code, metadata };
   });
