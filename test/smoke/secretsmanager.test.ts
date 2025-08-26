@@ -1,12 +1,12 @@
 import { describe, expect, it } from "@effect/vitest";
 import { Console, Effect } from "effect";
-import { AWS } from "../../src/index.ts";
+import { SecretsManager } from "../../src/services/secrets-manager/index.ts";
 
 describe("SecretsManager Smoke Tests", () => {
   const testSecretName = "itty-aws-test-secret";
   const binarySecretName = "itty-aws-test-secret-binary";
   const rotationSecretName = "itty-aws-test-secret-rotation";
-  const client = new AWS.SecretsManager({ region: "us-east-1" });
+  const client = new SecretsManager({ region: "us-east-1" });
 
   const deleteSecretIfExists = (secretName: string) =>
     client

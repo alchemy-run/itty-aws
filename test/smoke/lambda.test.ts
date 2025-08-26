@@ -1,11 +1,12 @@
 import { describe, expect, it } from "@effect/vitest";
 import AdmZip from "adm-zip";
 import { Console, Effect, Schedule } from "effect";
-import { AWS } from "../../src/index.ts";
+import { Lambda } from "../../src/services/lambda/index.ts";
+import { STS } from "../../src/services/sts/index.ts";
 
 describe("Lambda Smoke Tests", () => {
   const testFunctionName = "itty-aws-test-function";
-  const client = new AWS.Lambda({ region: "us-east-1" });
+  const client = new Lambda({ region: "us-east-1" });
 
   const waitForFunctionActive = (functionName: string) =>
     client.getFunctionConfiguration({ FunctionName: functionName }).pipe(
@@ -73,7 +74,7 @@ exports.handler = async (event) => {
         zip.addFile("index.js", Buffer.from(functionCode));
         const zipBuffer = zip.toBuffer();
 
-        const sts = new AWS.STS();
+        const sts = new STS();
         const whoami = yield* sts.getCallerIdentity({});
 
         const createResult = yield* client.createFunction({

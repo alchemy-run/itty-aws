@@ -1,9 +1,9 @@
 import { describe, expect, it } from "@effect/vitest";
 import { Console, Effect, Schedule } from "effect";
-import { AWS } from "../../src/index.ts";
+import { EC2 } from "../../src/services/ec2/index.ts";
 
 describe("EC2 Smoke Tests", () => {
-  const client = new AWS.EC2({ region: "us-east-1" });
+  const client = new EC2({ region: "us-east-1" });
   const VPC_NAME = "itty-aws-test-vpc";
 
   const waitForVpcState = (vpcId: string, expectedState: string) =>

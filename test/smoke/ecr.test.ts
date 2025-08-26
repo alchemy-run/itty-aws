@@ -1,10 +1,10 @@
 import { describe, expect, it } from "@effect/vitest";
 import { Console, Effect } from "effect";
-import { AWS } from "../../src/index.ts";
+import { ECR } from "../../src/services/ecr/index.ts";
 
 describe("ECR Smoke Tests", () => {
   const testRepositoryName = "itty-aws-test-repo";
-  const client = new AWS.ECR({ region: "us-east-1" });
+  const client = new ECR({ region: "us-east-1" });
 
   const deleteRepositoryIfExists = (repositoryName: string) =>
     client

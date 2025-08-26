@@ -26,7 +26,6 @@ function createServiceError(
 }
 
 // Types
-
 export interface ServiceMetadata {
   readonly sdkId: string;
   readonly version: string;

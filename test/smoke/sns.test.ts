@@ -1,10 +1,10 @@
 import { describe, expect, it } from "@effect/vitest";
 import { Console, Effect } from "effect";
-import { AWS } from "../../src/index.ts";
+import { SNS } from "../../src/services/sns/index.ts";
 
 describe("SNS Smoke Tests", () => {
   const testTopicName = "itty-aws-test-topic";
-  const client = new AWS.SNS({ region: "us-east-1" });
+  const client = new SNS({ region: "us-east-1" });
 
   const deleteTopicIfExists = (topicName: string) =>
     client.listTopics({}).pipe(

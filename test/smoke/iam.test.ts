@@ -1,9 +1,9 @@
 import { describe, expect, it } from "@effect/vitest";
 import { Console, Effect } from "effect";
-import { AWS } from "../../src/index.ts";
+import { IAM } from "../../src/services/iam/index.ts";
 
 describe("IAM Smoke Tests", () => {
-  const client = new AWS.IAM({ region: "us-east-1" });
+  const client = new IAM({ region: "us-east-1" });
   const TEST_USER_NAME = "itty-aws-test-user";
   const TEST_ROLE_NAME = "itty-aws-test-role";
   const TEST_POLICY_NAME = "itty-aws-test-policy";
