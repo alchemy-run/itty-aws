@@ -617,7 +617,7 @@ const getProtocolHandler = (
       return {
         import:
           'import { AwsQueryHandler } from "../../protocols/aws-query.ts";',
-        handler: "new AwsQueryHandler()",
+        handler: "new AwsQueryHandler(protocolMetadata)",
       };
     case "restXml":
       return {
@@ -636,6 +636,7 @@ const getProtocolHandler = (
 const generateServiceIndex = (
   metadata: any,
   consistentInterfaceName: string,
+  serviceName: string,
 ) => {
   const protocolInfo = getProtocolHandler(metadata.protocol);
 
@@ -643,6 +644,10 @@ const generateServiceIndex = (
   code += `import { AWSServiceClient, createServiceProxy } from "../../client.ts";\n`;
   if (protocolInfo.import) {
     code += `${protocolInfo.import}\n`;
+  }
+  // Add protocol metadata import for awsQuery services
+  if (metadata.protocol === "awsQuery") {
+    code += `import { metadata as protocolMetadata } from "../../awsquery-metadata/${serviceName}.ts";\n`;
   }
   code += `import type { ${consistentInterfaceName} as _${consistentInterfaceName} } from "./types.ts";\n\n`;
 
@@ -1427,7 +1432,11 @@ const program = Effect.gen(function* () {
       });
 
       // Generate the service index code
-      const indexCode = generateServiceIndex(metadata, awsInterfaceName);
+      const indexCode = generateServiceIndex(
+        metadata,
+        awsInterfaceName,
+        serviceName,
+      );
 
       // Write both files
       const outputDir = `src/services/${serviceName}`;

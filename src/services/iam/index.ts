@@ -1,6 +1,7 @@
 import type { AWSClientConfig, ServiceMetadata } from "../../client.ts";
 import { AWSServiceClient, createServiceProxy } from "../../client.ts";
 import { AwsQueryHandler } from "../../protocols/aws-query.ts";
+import { metadata as protocolMetadata } from "../../awsquery-metadata/iam.ts";
 import type { IAM as _IAM } from "./types.ts";
 
 // Service metadata
@@ -21,7 +22,7 @@ export const IAM = class extends AWSServiceClient {
   constructor(config: AWSClientConfig) {
     config = {
       ...config,
-      protocolHandler: new AwsQueryHandler(),
+      protocolHandler: new AwsQueryHandler(protocolMetadata),
     };
     super(config);
     // biome-ignore lint/correctness/noConstructorReturn: deliberate proxy usage

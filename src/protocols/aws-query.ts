@@ -1,5 +1,5 @@
 import { XMLParser } from "fast-xml-parser";
-import { getServiceMeta } from "../awsquery-metadata/index.js";
+import type { AwsQueryServiceMeta } from "../awsquery-metadata/index.ts";
 import type { ServiceMetadata } from "../client.ts";
 import type {
   ParsedError,
@@ -205,30 +205,33 @@ function fromXml(shapes: Record<string, any>, shapeId: string, node: any): any {
 export class AwsQueryHandler implements ProtocolHandler {
   readonly name = "awsQuery";
   readonly contentType = "application/x-www-form-urlencoded";
+  protocolMetadata: AwsQueryServiceMeta;
+
+  constructor(protocolMetadata: AwsQueryServiceMeta) {
+    this.protocolMetadata = protocolMetadata;
+  }
 
   async buildHttpRequest(
     input: unknown,
     operation: string,
     metadata: ServiceMetadata,
   ): Promise<ProtocolRequest> {
-    const serviceMeta = await getServiceMeta(metadata.sdkId);
-
-    if (!serviceMeta) {
-      throw new Error(
-        `AWS Query metadata not found for service "${metadata.sdkId}". ` +
-          "AWS Query protocol requires shape metadata for proper serialization. ",
-      );
-    }
+    // if (!serviceMeta) {
+    //   throw new Error(
+    //     `AWS Query metadata not found for service "${metadata.sdkId}". ` +
+    //       "AWS Query protocol requires shape metadata for proper serialization. ",
+    //   );
+    // }
 
     const params: Record<string, string> = {
       Action: operation,
-      Version: serviceMeta.version,
+      Version: metadata.version,
     };
 
-    const op = serviceMeta.operations[operation];
+    const op = this.protocolMetadata.operations[operation];
     if (op?.input && input) {
       // Use shape-aware serialization
-      toParams(serviceMeta.shapes, op.input, input, "", params);
+      toParams(this.protocolMetadata.shapes, op.input, input, "", params);
     }
 
     const body = new URLSearchParams(params).toString();
@@ -243,7 +246,7 @@ export class AwsQueryHandler implements ProtocolHandler {
   async parseResponse(
     responseText: string,
     statusCode: number,
-    metadata?: ServiceMetadata,
+    _metadata?: ServiceMetadata,
     _headers?: Headers,
     _operation?: string,
   ): Promise<unknown> {
@@ -253,20 +256,19 @@ export class AwsQueryHandler implements ProtocolHandler {
     const doc = safeParseXml(responseText);
     if (!doc) return {};
 
-    if (!metadata) {
-      throw new Error(
-        "AWS Query protocol requires service metadata for response parsing",
-      );
-    }
+    // if (!metadata) {
+    //   throw new Error(
+    //     "AWS Query protocol requires service metadata for response parsing",
+    //   );
+    // }
 
-    const serviceMeta = await getServiceMeta(metadata.sdkId);
-    if (!serviceMeta) {
-      throw new Error(
-        `AWS Query metadata not found for service "${metadata.sdkId}". ` +
-          "AWS Query protocol requires shape metadata for proper response parsing. " +
-          `Please generate metadata using: bun scripts/generate-awsquery-metadata.ts "${metadata.sdkId}"`,
-      );
-    }
+    // if (!serviceMeta) {
+    //   throw new Error(
+    //     `AWS Query metadata not found for service "${metadata.sdkId}". ` +
+    //       "AWS Query protocol requires shape metadata for proper response parsing. " +
+    //       `Please generate metadata using: bun scripts/generate-awsquery-metadata.ts "${metadata.sdkId}"`,
+    //   );
+    // }
 
     const responseKey = Object.keys(doc).find((key) =>
       key.endsWith("Response"),
@@ -274,7 +276,7 @@ export class AwsQueryHandler implements ProtocolHandler {
     if (!responseKey) throw new Error("Invalid response.");
 
     const opName = responseKey.replace(/Response$/, "");
-    const operation = serviceMeta.operations[opName];
+    const operation = this.protocolMetadata.operations[opName];
 
     if (operation?.output) {
       const responseNode = doc[responseKey];
@@ -282,7 +284,11 @@ export class AwsQueryHandler implements ProtocolHandler {
       const resultNode = responseNode?.[resultKey] ?? responseNode;
 
       // Use shape-aware parsing
-      return fromXml(serviceMeta.shapes, operation.output, resultNode);
+      return fromXml(
+        this.protocolMetadata.shapes,
+        operation.output,
+        resultNode,
+      );
     } else {
       throw new Error("Unable to parse response.");
     }

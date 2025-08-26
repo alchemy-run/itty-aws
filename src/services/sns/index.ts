@@ -1,6 +1,7 @@
 import type { AWSClientConfig, ServiceMetadata } from "../../client.ts";
 import { AWSServiceClient, createServiceProxy } from "../../client.ts";
 import { AwsQueryHandler } from "../../protocols/aws-query.ts";
+import { metadata as protocolMetadata } from "../../awsquery-metadata/sns.ts";
 import type { SNS as _SNS } from "./types.ts";
 
 // Service metadata
@@ -19,7 +20,7 @@ export const SNS = class extends AWSServiceClient {
   constructor(config: AWSClientConfig) {
     config = {
       ...config,
-      protocolHandler: new AwsQueryHandler(),
+      protocolHandler: new AwsQueryHandler(protocolMetadata),
     };
     super(config);
     // biome-ignore lint/correctness/noConstructorReturn: deliberate proxy usage
