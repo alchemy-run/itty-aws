@@ -1,4 +1,4 @@
-import type { ServiceMetadata } from "./protocols/interface.ts";
+import type { ServiceMetadata } from "./client.ts";
 
 const metadataCache = new Map<string, ServiceMetadata>();
 

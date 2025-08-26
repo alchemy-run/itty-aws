@@ -1,10 +1,10 @@
 import { XMLParser } from "fast-xml-parser";
 import { getServiceMeta } from "../awsquery-metadata/index.js";
+import type { ServiceMetadata } from "../client.ts";
 import type {
   ParsedError,
   ProtocolHandler,
   ProtocolRequest,
-  ServiceMetadata,
 } from "./interface.ts";
 
 const xmlParser = new XMLParser({

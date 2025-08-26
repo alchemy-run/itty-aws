@@ -1,6 +1,6 @@
 import { XMLParser } from "fast-xml-parser";
 import type { ServiceMetadata } from "../client.ts";
-import type { Ec2ModelMeta } from "../ec2-metadata.ts";
+import { ec2ModelMeta, type Ec2ModelMeta } from "../ec2-metadata.ts";
 import { capitalizeFirst } from "../utils.ts";
 import type {
   ParsedError,
@@ -189,11 +189,7 @@ function findResponseWrapperName(doc: any): string {
 export class Ec2QueryHandler implements ProtocolHandler {
   readonly name = "ec2Query";
   readonly contentType = "application/x-www-form-urlencoded; charset=utf-8";
-  private readonly ec2ModelMeta: Ec2ModelMeta;
-
-  constructor(ec2ModelMeta: Ec2ModelMeta) {
-    this.ec2ModelMeta = ec2ModelMeta;
-  }
+  private readonly ec2ModelMeta: Ec2ModelMeta = ec2ModelMeta;
 
   async buildHttpRequest(
     input: unknown,

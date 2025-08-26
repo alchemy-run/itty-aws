@@ -1,8 +1,8 @@
+import type { ServiceMetadata } from "../client.ts";
 import type {
   ParsedError,
   ProtocolHandler,
   ProtocolRequest,
-  ServiceMetadata,
 } from "./interface.ts";
 
 export class RestXmlHandler implements ProtocolHandler {
