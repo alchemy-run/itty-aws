@@ -584,7 +584,143 @@ const generateMapType = (
   return code;
 };
 
-const generateServiceCode = (serviceName: string, manifest: Manifest) =>
+// Helper to get protocol handler import
+const getProtocolHandler = (
+  protocol: string,
+): { import: string; handler: string } => {
+  switch (protocol) {
+    case "awsJson1_0":
+      return {
+        import:
+          'import { AwsJson10Handler } from "../../protocols/aws-json-1-0.ts";',
+        handler: "new AwsJson10Handler()",
+      };
+    case "awsJson1_1":
+      return {
+        import:
+          'import { AwsJson11Handler } from "../../protocols/aws-json-1-1.ts";',
+        handler: "new AwsJson11Handler()",
+      };
+    case "restJson1":
+      return {
+        import:
+          'import { RestJson1Handler } from "../../protocols/rest-json-1.ts";',
+        handler: "new RestJson1Handler()",
+      };
+    case "ec2Query":
+      return {
+        import:
+          'import { Ec2QueryHandler } from "../../protocols/ec2-query.ts";',
+        handler: "new Ec2QueryHandler()",
+      };
+    case "awsQuery":
+      return {
+        import:
+          'import { AwsQueryHandler } from "../../protocols/aws-query.ts";',
+        handler: "new AwsQueryHandler()",
+      };
+    case "restXml":
+      return {
+        import: 'import { RestXmlHandler } from "../../protocols/rest-xml.ts";',
+        handler: "new RestXmlHandler()",
+      };
+    default:
+      return {
+        import: "",
+        handler: "undefined",
+      };
+  }
+};
+
+// Generate service index.ts file with proxy implementation
+const generateServiceIndex = (
+  serviceName: string,
+  metadata: any,
+  consistentInterfaceName: string,
+) => {
+  const { protocol, endpointPrefix } = metadata;
+  const protocolInfo = getProtocolHandler(protocol);
+
+  let code = `import type { AWSClientConfig, ServiceMetadata } from "../../client.ts";\n`;
+  code += `import { AWSServiceClient, createServiceProxy } from "../../client.ts";\n`;
+  if (protocolInfo.import) {
+    code += `${protocolInfo.import}\n`;
+  }
+  code += `import type { ${consistentInterfaceName} as _${consistentInterfaceName} } from "./types.ts";\n\n`;
+
+  // Service metadata
+  code += "// Service metadata\n";
+  code += "const metadata = {\n";
+  code += `  sdkId: "${metadata.sdkId}",\n`;
+  code += `  version: "${metadata.version}",\n`;
+  code += `  protocol: "${metadata.protocol}",\n`;
+  code += `  sigV4ServiceName: "${metadata.sigV4ServiceName}",\n`;
+  if (metadata.endpointPrefix) {
+    code += `  endpointPrefix: "${metadata.endpointPrefix}",\n`;
+  }
+  if (metadata.targetPrefix) {
+    code += `  targetPrefix: "${metadata.targetPrefix}",\n`;
+  }
+  if (metadata.globalEndpoint) {
+    code += `  globalEndpoint: "${metadata.globalEndpoint}",\n`;
+  }
+  if (metadata.signingRegion) {
+    code += `  signingRegion: "${metadata.signingRegion}",\n`;
+  }
+  if (metadata.operations && Object.keys(metadata.operations).length > 0) {
+    code += "  operations: {\n";
+    Object.entries(metadata.operations).forEach(([opName, opSpec]) => {
+      if (typeof opSpec === "string") {
+        // Simple HTTP mapping (existing behavior)
+        code += `    "${opName}": "${opSpec}",\n`;
+      } else {
+        // Complex mapping with traits
+        code += `    "${opName}": {\n`;
+        if ((opSpec as any).http) {
+          code += `      http: "${(opSpec as any).http}",\n`;
+        }
+        if ((opSpec as any).traits) {
+          code += "      traits: {\n";
+          Object.entries((opSpec as any).traits).forEach(
+            ([fieldName, trait]) => {
+              code += `        "${fieldName}": "${trait}",\n`;
+            },
+          );
+          code += "      },\n";
+        }
+        code += "    },\n";
+      }
+    });
+    code += "  },\n";
+  }
+  code += "} as const satisfies ServiceMetadata;\n\n";
+
+  // Re-export all types from types.ts for backward compatibility
+  code += "// Re-export all types from types.ts for backward compatibility\n";
+  code += 'export type * from "./types.ts";\n\n';
+
+  // Service class implementation
+
+  code += `export const ${consistentInterfaceName} = class extends AWSServiceClient {\n`;
+  code += "  constructor(config: AWSClientConfig) {\n";
+  code += "    config = {\n";
+  code += "      ...config,\n";
+  if (protocolInfo.handler !== "undefined") {
+    code += `      protocolHandler: ${protocolInfo.handler},\n`;
+  }
+  code += "    }\n";
+  code += "    super(config);\n";
+  code +=
+    "    // biome-ignore lint/correctness/noConstructorReturn: deliberate proxy usage\n";
+  code +=
+    "    return createServiceProxy(metadata.sigV4ServiceName, this.config);\n";
+  code += "  }\n";
+  code += `} as unknown as typeof _${consistentInterfaceName};\n`;
+
+  return code;
+};
+
+const generateServiceTypes = (serviceName: string, manifest: Manifest) =>
   Effect.gen(function* () {
     // Check if we need Data import (only if there are error classes)
     let needsDataImport = false;
@@ -1147,51 +1283,6 @@ const generateServiceCode = (serviceName: string, manifest: Manifest) =>
       }),
     };
 
-    // Add metadata export to the service code
-    code += "\n// Service metadata\n";
-    code += "const _metadata = {\n";
-    code += `  sdkId: "${sdkId}",\n`;
-    code += `  version: "${version}",\n`;
-    code += `  protocol: "${protocol}",\n`;
-    code += `  sigV4ServiceName: "${sigV4ServiceName}",\n`;
-    if (endpointPrefix) {
-      code += `  endpointPrefix: "${endpointPrefix}",\n`;
-    }
-    if (targetPrefix) {
-      code += `  targetPrefix: "${targetPrefix}",\n`;
-    }
-    if (globalEndpoint) {
-      code += `  globalEndpoint: "${globalEndpoint}",\n`;
-    }
-    if (signingRegion) {
-      code += `  signingRegion: "${signingRegion}",\n`;
-    }
-    if (Object.keys(operationMappings).length > 0) {
-      code += "  operations: {\n";
-      Object.entries(operationMappings).forEach(([opName, opSpec]) => {
-        if (typeof opSpec === "string") {
-          // Simple HTTP mapping (existing behavior)
-          code += `    "${opName}": "${opSpec}",\n`;
-        } else {
-          // Complex mapping with traits
-          code += `    "${opName}": {\n`;
-          if (opSpec.http) {
-            code += `      http: "${opSpec.http}",\n`;
-          }
-          if (opSpec.traits) {
-            code += "      traits: {\n";
-            Object.entries(opSpec.traits).forEach(([fieldName, trait]) => {
-              code += `        "${fieldName}": "${trait}",\n`;
-            });
-            code += "      },\n";
-          }
-          code += "    },\n";
-        }
-      });
-      code += "  },\n";
-    }
-    code += "}  as const satisfies ServiceMetadata;\n";
-
     return { code, metadata };
   });
 
@@ -1299,8 +1390,8 @@ const program = Effect.gen(function* () {
       const serviceInfo = (serviceTraits["aws.api#service"] as any) || {};
       const sdkId = serviceInfo.sdkId || serviceName;
 
-      // Generate the code
-      const { code, metadata } = yield* generateServiceCode(
+      // Generate the types and metadata
+      const { code: typesCode, metadata } = yield* generateServiceTypes(
         serviceName,
         manifest,
       );
@@ -1337,11 +1428,18 @@ const program = Effect.gen(function* () {
         friendlyName: sdkId,
       });
 
-      // Write the generated file
-      const outputPath = `src/services/${serviceName}/index.ts`;
+      // Generate the service index code
+      const indexCode = generateServiceIndex(
+        serviceName,
+        metadata,
+        awsInterfaceName,
+      );
+
+      // Write both files
       const outputDir = `src/services/${serviceName}`;
       yield* fs.makeDirectory(outputDir, { recursive: true });
-      yield* fs.writeFileString(outputPath, code);
+      yield* fs.writeFileString(`${outputDir}/types.ts`, typesCode);
+      yield* fs.writeFileString(`${outputDir}/index.ts`, indexCode);
     } catch (_error) {
       // Continue with other services instead of failing completely
     }
