@@ -73,7 +73,6 @@ async function run() {
       const metaOut = res.metafile.outputs[out];
       totalBytes += metaOut.bytes;
       files.push(out);
-      const inputs = Object.keys(metaOut.inputs || {});
     }
 
     results.push({

@@ -56,18 +56,18 @@ export interface AWSClientConfig {
   readonly credentials?: AwsCredentials;
   readonly region?: string;
   readonly endpoint?: string;
-  readonly protocolHandler?: ProtocolHandler;
+  readonly protocolHandler: ProtocolHandler;
 }
 
 // Base AWS service class that all services extend
 export abstract class AWSServiceClient {
   protected readonly config: Required<AWSClientConfig>;
-  constructor(config?: AWSClientConfig) {
+  constructor(config: AWSClientConfig) {
     this.config = {
-      region: config?.region ?? "us-east-1",
-      credentials: config?.credentials ?? (undefined as any), // Will be resolved later
-      endpoint: config?.endpoint ?? (undefined as any), // Will be resolved per service
-      protocolHandler: config?.protocolHandler ?? (undefined as any),
+      region: config.region ?? "us-east-1",
+      credentials: config.credentials ?? (undefined as any), // Will be resolved later
+      endpoint: config.endpoint ?? (undefined as any), // Will be resolved per service
+      protocolHandler: config.protocolHandler,
     };
   }
 }
@@ -114,20 +114,13 @@ export function createServiceProxy<T>(
             const operation =
               methodName.charAt(0).toUpperCase() + methodName.slice(1);
 
-            // Get protocol handler for this service
-            const protocolHandler = config.protocolHandler
-              ? config.protocolHandler
-              : undefined;
-
-            // get out
-            // FIXME, this is basically just input validation -- do it earlier
-            if (!protocolHandler) {
-              return new Error(`Unknown protocol: ${metadata.protocol}`);
-            }
-
             // Build request with protocol handler
             const req = yield* Effect.promise(() =>
-              protocolHandler.buildHttpRequest(input, operation, metadata),
+              config.protocolHandler.buildHttpRequest(
+                input,
+                operation,
+                metadata,
+              ),
             );
 
             // Use custom endpoint, global endpoint, or construct regional AWS endpoint
@@ -152,7 +145,6 @@ export function createServiceProxy<T>(
               body: req.body,
             });
 
-            //const start = performance.now();
             const response = yield* Effect.promise(() =>
               client.fetch(fullUrl, {
                 method: req.method,
@@ -166,7 +158,6 @@ export function createServiceProxy<T>(
             ).pipe(Effect.timeout("30 seconds")); //FIXME: why a 30-second timeout?
 
             const responseText = yield* Effect.promise(() => response.text());
-            //console.log("TIME FOR CLIENT FETCH: ", performance.now() - start);
 
             const statusCode = response.status;
 
@@ -187,7 +178,7 @@ export function createServiceProxy<T>(
 
             if (statusCode >= 200 && statusCode < 300) {
               // Success
-              const result = protocolHandler.parseResponse(
+              const result = config.protocolHandler.parseResponse(
                 responseText,
                 statusCode,
                 metadata,
@@ -197,7 +188,7 @@ export function createServiceProxy<T>(
               return yield* Effect.promise(() => result);
             } else {
               // Error handling - now standardized across all protocols
-              const parsedError = protocolHandler.parseError(
+              const parsedError = config.protocolHandler.parseError(
                 responseText,
                 statusCode,
                 response.headers,
