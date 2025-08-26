@@ -1,7 +1,7 @@
 import { build } from "esbuild";
-import { mkdirSync, rmSync, writeFileSync, existsSync } from "node:fs";
 import { execSync } from "node:child_process";
-import { join, dirname } from "node:path";
+import { existsSync, mkdirSync, rmSync, writeFileSync } from "node:fs";
+import { dirname, join } from "node:path";
 
 type Scenario = {
   name: string;
@@ -9,10 +9,11 @@ type Scenario = {
 };
 
 const scenarios: Scenario[] = [
-  { name: "aws-only", entry: "scripts/fixtures/aws-only.ts" },
   { name: "sqs", entry: "scripts/fixtures/sqs.ts" },
   { name: "ec2", entry: "scripts/fixtures/ec2.ts" },
   { name: "s3", entry: "scripts/fixtures/s3.ts" },
+  { name: "lambda", entry: "scripts/fixtures/lambda.ts" },
+  { name: "dynamodb", entry: "scripts/fixtures/dynamodb.ts" },
 ];
 
 async function run() {
