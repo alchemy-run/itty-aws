@@ -634,12 +634,10 @@ const getProtocolHandler = (
 
 // Generate service index.ts file with proxy implementation
 const generateServiceIndex = (
-  serviceName: string,
   metadata: any,
   consistentInterfaceName: string,
 ) => {
-  const { protocol, endpointPrefix } = metadata;
-  const protocolInfo = getProtocolHandler(protocol);
+  const protocolInfo = getProtocolHandler(metadata.protocol);
 
   let code = `import type { AWSClientConfig, ServiceMetadata } from "../../client.ts";\n`;
   code += `import { AWSServiceClient, createServiceProxy } from "../../client.ts";\n`;
@@ -1268,6 +1266,7 @@ const generateServiceTypes = (serviceName: string, manifest: Manifest) =>
     }
 
     // Store metadata for the service
+    // FIXME: shouldn't this be typed to ServiceMetdata?
     const metadata = {
       sdkId,
       version,
@@ -1429,11 +1428,7 @@ const program = Effect.gen(function* () {
       });
 
       // Generate the service index code
-      const indexCode = generateServiceIndex(
-        serviceName,
-        metadata,
-        awsInterfaceName,
-      );
+      const indexCode = generateServiceIndex(metadata, awsInterfaceName);
 
       // Write both files
       const outputDir = `src/services/${serviceName}`;

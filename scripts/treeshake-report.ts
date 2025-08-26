@@ -1,11 +1,5 @@
 import { build } from "esbuild";
-import {
-  mkdirSync,
-  rmSync,
-  statSync,
-  writeFileSync,
-  existsSync,
-} from "node:fs";
+import { mkdirSync, rmSync, writeFileSync, existsSync } from "node:fs";
 import { execSync } from "node:child_process";
 import { join, dirname } from "node:path";
 
@@ -92,7 +86,7 @@ async function run() {
 
     results.push({
       name: s.name,
-      totalKB: (totalBytes / 1024).toFixed(1) + " KB",
+      totalKB: `${(totalBytes / 1024).toFixed(1)} KB`,
       files,
       protocols: Array.from(protocols).sort(),
       services: Array.from(services).sort(),
