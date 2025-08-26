@@ -193,15 +193,15 @@ export class Ec2QueryHandler implements ProtocolHandler {
 
   async buildHttpRequest(
     input: unknown,
-    action: string,
+    operation: string,
     _metadata: ServiceMetadata,
   ): Promise<ProtocolRequest> {
     // if unknown operation, it's an error
-    const op = this.ec2ModelMeta.operations[action];
-    if (!op) throw new Error(`Unknown operation: ${action}`);
+    const op = this.ec2ModelMeta.operations[operation];
+    if (!op) throw new Error(`Unknown operation: ${operation}`);
 
     const params: Record<string, string> = {
-      Action: action,
+      Action: operation,
       Version: this.ec2ModelMeta.version,
     };
 
@@ -211,7 +211,7 @@ export class Ec2QueryHandler implements ProtocolHandler {
       if (op.input)
         toParams(this.ec2ModelMeta.shapes, op.input, input, "", params);
       else {
-        const inputTarget = `${action}Request`;
+        const inputTarget = `${operation}Request`;
         toParams(this.ec2ModelMeta.shapes, inputTarget, input, "", params);
       }
     }
@@ -233,7 +233,7 @@ export class Ec2QueryHandler implements ProtocolHandler {
     statusCode: number,
     _metadata?: ServiceMetadata,
     _headers?: Headers,
-    _action?: string,
+    _operation?: string,
   ): Promise<unknown> {
     if (statusCode >= 400) return this.parseError(responseText, statusCode);
     if (!responseText) return {};

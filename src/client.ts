@@ -11,22 +11,7 @@ import {
   ValidationException,
   type AwsErrorMeta,
 } from "./error.ts";
-import { AwsQueryHandler } from "./protocols/aws-query.ts";
 import type { ProtocolHandler } from "./protocols/interface.ts";
-import { RestJson1Handler } from "./protocols/rest-json-1.ts";
-import { RestXmlHandler } from "./protocols/rest-xml.ts";
-
-function resolveProtocolHandler(protocol: string): ProtocolHandler {
-  switch (protocol) {
-    case "awsQuery":
-      return new AwsQueryHandler();
-    case "restJson1":
-      return new RestJson1Handler();
-    case "restXml":
-      return new RestXmlHandler();
-  }
-  throw new Error(`Unknown protocol: ${protocol}`);
-}
 
 // Helper to create service-specific error dynamically
 function createServiceError(
@@ -106,11 +91,13 @@ async function createAwsClient(service: string, config: AWSClientConfig) {
 
 // Standalone service proxy creator function
 export function createServiceProxy<T>(
-  serviceName: string,
   metadata: ServiceMetadata,
   config: AWSClientConfig,
 ): T {
-  const _client: Promise<AwsClient> = createAwsClient(serviceName, config);
+  const _client: Promise<AwsClient> = createAwsClient(
+    metadata.sigV4ServiceName,
+    config,
+  );
 
   return new Proxy(
     {},
@@ -124,18 +111,24 @@ export function createServiceProxy<T>(
           Effect.gen(function* () {
             const client = yield* Effect.promise(() => _client);
 
-            // Convert camelCase method to PascalCase action
-            const action =
+            // Convert camelCase method to PascalCase operation
+            const operation =
               methodName.charAt(0).toUpperCase() + methodName.slice(1);
 
             // Get protocol handler for this service
             const protocolHandler = config.protocolHandler
               ? config.protocolHandler
-              : resolveProtocolHandler(metadata.protocol);
+              : undefined;
+
+            // get out
+            // FIXME, this is basically just input validation -- do it earlier
+            if (!protocolHandler) {
+              return new Error(`Unknown protocol: ${metadata.protocol}`);
+            }
 
             // Build request with protocol handler
             const req = yield* Effect.promise(() =>
-              protocolHandler.buildHttpRequest(input, action, metadata),
+              protocolHandler.buildHttpRequest(input, operation, metadata),
             );
 
             // Use custom endpoint, global endpoint, or construct regional AWS endpoint
@@ -151,8 +144,8 @@ export function createServiceProxy<T>(
 
             // Log the AWS request
             yield* Effect.logDebug("AWS Request", {
-              service: serviceName,
-              action,
+              service: metadata.sdkId,
+              operation,
               method: req.method,
               url: fullUrl,
               headers: req.headers,
@@ -180,8 +173,8 @@ export function createServiceProxy<T>(
 
             // Log the AWS response
             yield* Effect.logDebug("AWS Response", {
-              service: serviceName,
-              action,
+              service: metadata.sdkId,
+              operation,
               statusCode,
               headers: (() => {
                 const headersObj: Record<string, string> = {};
@@ -200,7 +193,7 @@ export function createServiceProxy<T>(
                 statusCode,
                 metadata,
                 response.headers,
-                action,
+                operation,
               );
               return yield* Effect.promise(() => result);
             } else {

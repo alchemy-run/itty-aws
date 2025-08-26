@@ -12,7 +12,7 @@ export class RestJson1Handler implements ProtocolHandler {
 
   async buildHttpRequest(
     input: unknown,
-    action: string,
+    operation: string,
     metadata: ServiceMetadata,
   ): Promise<ProtocolRequest> {
     // Determine METHOD and URI path from operation metadata
@@ -20,7 +20,7 @@ export class RestJson1Handler implements ProtocolHandler {
     let uriPath = "/";
     let remainingInput = input as any;
 
-    const operationSpec = (metadata as any).operations?.[action];
+    const operationSpec = (metadata as any).operations?.[operation];
     if (operationSpec) {
       const httpSpec =
         typeof operationSpec === "string" ? operationSpec : operationSpec.http;
@@ -77,11 +77,13 @@ export class RestJson1Handler implements ProtocolHandler {
     statusCode: number,
     metadata?: ServiceMetadata,
     headers?: Headers,
-    action?: string,
+    operation?: string,
   ): Promise<unknown> {
     // Check if this operation has special HTTP trait mappings
     const operationTraits =
-      metadata && action && (metadata as any).operations?.[action]?.traits;
+      metadata &&
+      operation &&
+      (metadata as any).operations?.[operation]?.traits;
 
     if (operationTraits) {
       // Handle operations with @httpPayload, @httpHeader, @httpResponseCode traits

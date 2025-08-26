@@ -12,7 +12,7 @@ export class AwsJson10Handler implements ProtocolHandler {
 
   async buildHttpRequest(
     input: unknown,
-    action: string,
+    operation: string,
     metadata: ServiceMetadata,
   ): Promise<ProtocolRequest> {
     const body = stringifyAwsJson(
@@ -20,7 +20,7 @@ export class AwsJson10Handler implements ProtocolHandler {
     );
     const headers: Record<string, string> = {
       "Content-Type": this.contentType,
-      "X-Amz-Target": `${metadata.targetPrefix}.${action}`,
+      "X-Amz-Target": `${metadata.targetPrefix}.${operation}`,
       "User-Agent": "itty-aws",
       "Content-Length": new TextEncoder().encode(body).length.toString(),
     };
@@ -32,7 +32,7 @@ export class AwsJson10Handler implements ProtocolHandler {
     _statusCode: number,
     _metadata?: ServiceMetadata,
     _headers?: Headers,
-    _action?: string,
+    _operation?: string,
   ): Promise<unknown> {
     // Empty response body should return empty object
     if (!responseText || responseText.trim() === "") return Promise.resolve({});

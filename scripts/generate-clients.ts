@@ -710,8 +710,7 @@ const generateServiceIndex = (
   code += "    super(config);\n";
   code +=
     "    // biome-ignore lint/correctness/noConstructorReturn: deliberate proxy usage\n";
-  code +=
-    "    return createServiceProxy(metadata.sigV4ServiceName, metadata, this.config);\n";
+  code += "    return createServiceProxy(metadata, this.config);\n";
   code += "  }\n";
   code += `} as unknown as typeof _${consistentInterfaceName};\n`;
 

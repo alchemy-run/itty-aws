@@ -208,7 +208,7 @@ export class AwsQueryHandler implements ProtocolHandler {
 
   async buildHttpRequest(
     input: unknown,
-    action: string,
+    operation: string,
     metadata: ServiceMetadata,
   ): Promise<ProtocolRequest> {
     const serviceMeta = await getServiceMeta(metadata.sdkId);
@@ -221,14 +221,14 @@ export class AwsQueryHandler implements ProtocolHandler {
     }
 
     const params: Record<string, string> = {
-      Action: action,
+      Action: operation,
       Version: serviceMeta.version,
     };
 
-    const operation = serviceMeta.operations[action];
-    if (operation?.input && input) {
+    const op = serviceMeta.operations[operation];
+    if (op?.input && input) {
       // Use shape-aware serialization
-      toParams(serviceMeta.shapes, operation.input, input, "", params);
+      toParams(serviceMeta.shapes, op.input, input, "", params);
     }
 
     const body = new URLSearchParams(params).toString();
@@ -245,7 +245,7 @@ export class AwsQueryHandler implements ProtocolHandler {
     statusCode: number,
     metadata?: ServiceMetadata,
     _headers?: Headers,
-    _action?: string,
+    _operation?: string,
   ): Promise<unknown> {
     if (statusCode >= 400) return this.parseError(responseText, statusCode);
     if (!responseText) return {};

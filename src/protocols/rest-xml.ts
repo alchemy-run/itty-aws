@@ -11,7 +11,7 @@ export class RestXmlHandler implements ProtocolHandler {
 
   buildHttpRequest(
     input: unknown,
-    _action: string,
+    _operation: string,
     _metadata: ServiceMetadata,
   ): Promise<ProtocolRequest> {
     // Placeholder: serialize as JSON until full XML and traits are supported
@@ -29,7 +29,7 @@ export class RestXmlHandler implements ProtocolHandler {
     _statusCode: number,
     _metadata?: ServiceMetadata,
     _headers?: Headers,
-    _action?: string,
+    _operation?: string,
   ): Promise<unknown> {
     if (!responseText) return Promise.resolve({});
     // TODO: Implement proper XML parsing for S3 responses

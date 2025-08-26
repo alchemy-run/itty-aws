@@ -1,138 +1,29 @@
-import type { Effect, Data as EffectData } from "effect";
-import type { CommonAwsError } from "../../error.ts";
-import { AWSServiceClient } from "../../client.ts";
-
-export declare class forecastquery extends AWSServiceClient {
-  queryForecast(
-    input: QueryForecastRequest,
-  ): Effect.Effect<
-    QueryForecastResponse,
-    | InvalidInputException
-    | InvalidNextTokenException
-    | LimitExceededException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | CommonAwsError
-  >;
-  queryWhatIfForecast(
-    input: QueryWhatIfForecastRequest,
-  ): Effect.Effect<
-    QueryWhatIfForecastResponse,
-    | InvalidInputException
-    | InvalidNextTokenException
-    | LimitExceededException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | CommonAwsError
-  >;
-}
-
-export declare class Forecastquery extends forecastquery {}
-
-export type Arn = string;
-
-export type AttributeName = string;
-
-export type AttributeValue = string;
-
-export interface DataPoint {
-  Timestamp?: string;
-  Value?: number;
-}
-export type DateTime = string;
-
-export type Double = number;
-
-export type ErrorMessage = string;
-
-export type Filters = Record<string, string>;
-export interface Forecast {
-  Predictions?: Record<string, Array<DataPoint>>;
-}
-export declare class InvalidInputException extends EffectData.TaggedError(
-  "InvalidInputException",
-)<{
-  readonly Message?: string;
-}> {}
-export declare class InvalidNextTokenException extends EffectData.TaggedError(
-  "InvalidNextTokenException",
-)<{
-  readonly Message?: string;
-}> {}
-export declare class LimitExceededException extends EffectData.TaggedError(
-  "LimitExceededException",
-)<{
-  readonly Message?: string;
-}> {}
-export type LongArn = string;
-
-export type NextToken = string;
-
-export type Predictions = Record<string, Array<DataPoint>>;
-export interface QueryForecastRequest {
-  ForecastArn: string;
-  StartDate?: string;
-  EndDate?: string;
-  Filters: Record<string, string>;
-  NextToken?: string;
-}
-export interface QueryForecastResponse {
-  Forecast?: Forecast;
-}
-export interface QueryWhatIfForecastRequest {
-  WhatIfForecastArn: string;
-  StartDate?: string;
-  EndDate?: string;
-  Filters: Record<string, string>;
-  NextToken?: string;
-}
-export interface QueryWhatIfForecastResponse {
-  Forecast?: Forecast;
-}
-export declare class ResourceInUseException extends EffectData.TaggedError(
-  "ResourceInUseException",
-)<{
-  readonly Message?: string;
-}> {}
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
-  "ResourceNotFoundException",
-)<{
-  readonly Message?: string;
-}> {}
-export type Statistic = string;
-
-export type TimeSeries = Array<DataPoint>;
-export type Timestamp = string;
-
-export declare namespace QueryForecast {
-  export type Input = QueryForecastRequest;
-  export type Output = QueryForecastResponse;
-  export type Error =
-    | InvalidInputException
-    | InvalidNextTokenException
-    | LimitExceededException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | CommonAwsError;
-}
-
-export declare namespace QueryWhatIfForecast {
-  export type Input = QueryWhatIfForecastRequest;
-  export type Output = QueryWhatIfForecastResponse;
-  export type Error =
-    | InvalidInputException
-    | InvalidNextTokenException
-    | LimitExceededException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | CommonAwsError;
-}
+import type { AWSClientConfig, ServiceMetadata } from "../../client.ts";
+import { AWSServiceClient, createServiceProxy } from "../../client.ts";
+import { AwsJson11Handler } from "../../protocols/aws-json-1-1.ts";
+import type { forecastquery as _forecastquery } from "./types.ts";
 
 // Service metadata
-export const metadata = {
+const metadata = {
   sdkId: "forecastquery",
   version: "2018-06-26",
   protocol: "awsJson1_1",
+  sigV4ServiceName: "forecast",
   endpointPrefix: "forecastquery",
   targetPrefix: "AmazonForecastRuntime",
-} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;
+} as const satisfies ServiceMetadata;
+
+// Re-export all types from types.ts for backward compatibility
+export type * from "./types.ts";
+
+export const forecastquery = class extends AWSServiceClient {
+  constructor(config: AWSClientConfig) {
+    config = {
+      ...config,
+      protocolHandler: new AwsJson11Handler(),
+    };
+    super(config);
+    // biome-ignore lint/correctness/noConstructorReturn: deliberate proxy usage
+    return createServiceProxy(metadata, this.config);
+  }
+} as unknown as typeof _forecastquery;

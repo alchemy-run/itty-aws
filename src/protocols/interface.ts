@@ -22,7 +22,7 @@ export interface ProtocolHandler {
   // Build the complete HTTP request details for the given operation input
   buildHttpRequest(
     input: unknown,
-    action: string,
+    operation: string,
     metadata: ServiceMetadata,
   ): Promise<ProtocolRequest>;
 
@@ -32,7 +32,7 @@ export interface ProtocolHandler {
     statusCode: number,
     metadata?: ServiceMetadata,
     headers?: Headers,
-    action?: string,
+    operation?: string,
   ): Promise<unknown>;
   parseError(
     responseText: string,

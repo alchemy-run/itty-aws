@@ -1,108 +1,14 @@
-import type { Effect, Data as EffectData } from "effect";
-import type { CommonAwsError } from "../../error.ts";
-import { AWSServiceClient } from "../../client.ts";
-
-export declare class KinesisVideoMedia extends AWSServiceClient {
-  getMedia(
-    input: GetMediaInput,
-  ): Effect.Effect<
-    GetMediaOutput,
-    | ClientLimitExceededException
-    | ConnectionLimitExceededException
-    | InvalidArgumentException
-    | InvalidEndpointException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | CommonAwsError
-  >;
-}
-
-export declare class ClientLimitExceededException extends EffectData.TaggedError(
-  "ClientLimitExceededException",
-)<{
-  readonly Message?: string;
-}> {}
-export declare class ConnectionLimitExceededException extends EffectData.TaggedError(
-  "ConnectionLimitExceededException",
-)<{
-  readonly Message?: string;
-}> {}
-export type ContentType = string;
-
-export type ContinuationToken = string;
-
-export type ErrorMessage = string;
-
-export type FragmentNumberString = string;
-
-export interface GetMediaInput {
-  StreamName?: string;
-  StreamARN?: string;
-  StartSelector: StartSelector;
-}
-export interface GetMediaOutput {
-  ContentType?: string;
-  Payload?: Uint8Array | string;
-}
-export declare class InvalidArgumentException extends EffectData.TaggedError(
-  "InvalidArgumentException",
-)<{
-  readonly Message?: string;
-}> {}
-export declare class InvalidEndpointException extends EffectData.TaggedError(
-  "InvalidEndpointException",
-)<{
-  readonly Message?: string;
-}> {}
-export declare class NotAuthorizedException extends EffectData.TaggedError(
-  "NotAuthorizedException",
-)<{
-  readonly Message?: string;
-}> {}
-export type Payload = Uint8Array | string;
-
-export type ResourceARN = string;
-
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
-  "ResourceNotFoundException",
-)<{
-  readonly Message?: string;
-}> {}
-export interface StartSelector {
-  StartSelectorType: StartSelectorType;
-  AfterFragmentNumber?: string;
-  StartTimestamp?: Date | string;
-  ContinuationToken?: string;
-}
-export type StartSelectorType =
-  | "FRAGMENT_NUMBER"
-  | "SERVER_TIMESTAMP"
-  | "PRODUCER_TIMESTAMP"
-  | "NOW"
-  | "EARLIEST"
-  | "CONTINUATION_TOKEN";
-export type StreamName = string;
-
-export type Timestamp = Date | string;
-
-export declare namespace GetMedia {
-  export type Input = GetMediaInput;
-  export type Output = GetMediaOutput;
-  export type Error =
-    | ClientLimitExceededException
-    | ConnectionLimitExceededException
-    | InvalidArgumentException
-    | InvalidEndpointException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | CommonAwsError;
-}
+import type { AWSClientConfig, ServiceMetadata } from "../../client.ts";
+import { AWSServiceClient, createServiceProxy } from "../../client.ts";
+import { RestJson1Handler } from "../../protocols/rest-json-1.ts";
+import type { KinesisVideoMedia as _KinesisVideoMedia } from "./types.ts";
 
 // Service metadata
-export const metadata = {
+const metadata = {
   sdkId: "Kinesis Video Media",
   version: "2017-09-30",
   protocol: "restJson1",
+  sigV4ServiceName: "kinesisvideo",
   endpointPrefix: "kinesisvideo",
   operations: {
     GetMedia: {
@@ -113,4 +19,19 @@ export const metadata = {
       },
     },
   },
-} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;
+} as const satisfies ServiceMetadata;
+
+// Re-export all types from types.ts for backward compatibility
+export type * from "./types.ts";
+
+export const KinesisVideoMedia = class extends AWSServiceClient {
+  constructor(config: AWSClientConfig) {
+    config = {
+      ...config,
+      protocolHandler: new RestJson1Handler(),
+    };
+    super(config);
+    // biome-ignore lint/correctness/noConstructorReturn: deliberate proxy usage
+    return createServiceProxy(metadata, this.config);
+  }
+} as unknown as typeof _KinesisVideoMedia;

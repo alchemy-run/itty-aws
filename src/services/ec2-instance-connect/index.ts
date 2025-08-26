@@ -1,176 +1,29 @@
-import type { Effect, Data as EffectData } from "effect";
-import type { CommonAwsError } from "../../error.ts";
-import { AWSServiceClient } from "../../client.ts";
-
-export declare class EC2InstanceConnect extends AWSServiceClient {
-  sendSerialConsoleSSHPublicKey(
-    input: SendSerialConsoleSSHPublicKeyRequest,
-  ): Effect.Effect<
-    SendSerialConsoleSSHPublicKeyResponse,
-    | AuthException
-    | EC2InstanceNotFoundException
-    | EC2InstanceStateInvalidException
-    | EC2InstanceTypeInvalidException
-    | EC2InstanceUnavailableException
-    | InvalidArgsException
-    | SerialConsoleAccessDisabledException
-    | SerialConsoleSessionLimitExceededException
-    | SerialConsoleSessionUnavailableException
-    | SerialConsoleSessionUnsupportedException
-    | ServiceException
-    | ThrottlingException
-    | CommonAwsError
-  >;
-  sendSSHPublicKey(
-    input: SendSSHPublicKeyRequest,
-  ): Effect.Effect<
-    SendSSHPublicKeyResponse,
-    | AuthException
-    | EC2InstanceNotFoundException
-    | EC2InstanceStateInvalidException
-    | EC2InstanceUnavailableException
-    | InvalidArgsException
-    | ServiceException
-    | ThrottlingException
-    | CommonAwsError
-  >;
-}
-
-export declare class Ec2InstanceConnect extends EC2InstanceConnect {}
-
-export declare class AuthException extends EffectData.TaggedError(
-  "AuthException",
-)<{
-  readonly Message?: string;
-}> {}
-export type AvailabilityZone = string;
-
-export declare class EC2InstanceNotFoundException extends EffectData.TaggedError(
-  "EC2InstanceNotFoundException",
-)<{
-  readonly Message?: string;
-}> {}
-export declare class EC2InstanceStateInvalidException extends EffectData.TaggedError(
-  "EC2InstanceStateInvalidException",
-)<{
-  readonly Message?: string;
-}> {}
-export declare class EC2InstanceTypeInvalidException extends EffectData.TaggedError(
-  "EC2InstanceTypeInvalidException",
-)<{
-  readonly Message?: string;
-}> {}
-export declare class EC2InstanceUnavailableException extends EffectData.TaggedError(
-  "EC2InstanceUnavailableException",
-)<{
-  readonly Message?: string;
-}> {}
-export type InstanceId = string;
-
-export type InstanceOSUser = string;
-
-export declare class InvalidArgsException extends EffectData.TaggedError(
-  "InvalidArgsException",
-)<{
-  readonly Message?: string;
-}> {}
-export type RequestId = string;
-
-export interface SendSerialConsoleSSHPublicKeyRequest {
-  InstanceId: string;
-  SerialPort?: number;
-  SSHPublicKey: string;
-}
-export interface SendSerialConsoleSSHPublicKeyResponse {
-  RequestId?: string;
-  Success?: boolean;
-}
-export interface SendSSHPublicKeyRequest {
-  InstanceId: string;
-  InstanceOSUser: string;
-  SSHPublicKey: string;
-  AvailabilityZone?: string;
-}
-export interface SendSSHPublicKeyResponse {
-  RequestId?: string;
-  Success?: boolean;
-}
-export declare class SerialConsoleAccessDisabledException extends EffectData.TaggedError(
-  "SerialConsoleAccessDisabledException",
-)<{
-  readonly Message?: string;
-}> {}
-export declare class SerialConsoleSessionLimitExceededException extends EffectData.TaggedError(
-  "SerialConsoleSessionLimitExceededException",
-)<{
-  readonly Message?: string;
-}> {}
-export declare class SerialConsoleSessionUnavailableException extends EffectData.TaggedError(
-  "SerialConsoleSessionUnavailableException",
-)<{
-  readonly Message?: string;
-}> {}
-export declare class SerialConsoleSessionUnsupportedException extends EffectData.TaggedError(
-  "SerialConsoleSessionUnsupportedException",
-)<{
-  readonly Message?: string;
-}> {}
-export type SerialPort = number;
-
-export declare class ServiceException extends EffectData.TaggedError(
-  "ServiceException",
-)<{
-  readonly Message?: string;
-}> {}
-export type SSHPublicKey = string;
-
-export type Ec2InstanceConnectString = string;
-
-export type Success = boolean;
-
-export declare class ThrottlingException extends EffectData.TaggedError(
-  "ThrottlingException",
-)<{
-  readonly Message?: string;
-}> {}
-export declare namespace SendSerialConsoleSSHPublicKey {
-  export type Input = SendSerialConsoleSSHPublicKeyRequest;
-  export type Output = SendSerialConsoleSSHPublicKeyResponse;
-  export type Error =
-    | AuthException
-    | EC2InstanceNotFoundException
-    | EC2InstanceStateInvalidException
-    | EC2InstanceTypeInvalidException
-    | EC2InstanceUnavailableException
-    | InvalidArgsException
-    | SerialConsoleAccessDisabledException
-    | SerialConsoleSessionLimitExceededException
-    | SerialConsoleSessionUnavailableException
-    | SerialConsoleSessionUnsupportedException
-    | ServiceException
-    | ThrottlingException
-    | CommonAwsError;
-}
-
-export declare namespace SendSSHPublicKey {
-  export type Input = SendSSHPublicKeyRequest;
-  export type Output = SendSSHPublicKeyResponse;
-  export type Error =
-    | AuthException
-    | EC2InstanceNotFoundException
-    | EC2InstanceStateInvalidException
-    | EC2InstanceUnavailableException
-    | InvalidArgsException
-    | ServiceException
-    | ThrottlingException
-    | CommonAwsError;
-}
+import type { AWSClientConfig, ServiceMetadata } from "../../client.ts";
+import { AWSServiceClient, createServiceProxy } from "../../client.ts";
+import { AwsJson11Handler } from "../../protocols/aws-json-1-1.ts";
+import type { EC2InstanceConnect as _EC2InstanceConnect } from "./types.ts";
 
 // Service metadata
-export const metadata = {
+const metadata = {
   sdkId: "EC2 Instance Connect",
   version: "2018-04-02",
   protocol: "awsJson1_1",
+  sigV4ServiceName: "ec2-instance-connect",
   endpointPrefix: "ec2-instance-connect",
   targetPrefix: "AWSEC2InstanceConnectService",
-} as const satisfies import("../../protocols/interface.ts").ServiceMetadata;
+} as const satisfies ServiceMetadata;
+
+// Re-export all types from types.ts for backward compatibility
+export type * from "./types.ts";
+
+export const EC2InstanceConnect = class extends AWSServiceClient {
+  constructor(config: AWSClientConfig) {
+    config = {
+      ...config,
+      protocolHandler: new AwsJson11Handler(),
+    };
+    super(config);
+    // biome-ignore lint/correctness/noConstructorReturn: deliberate proxy usage
+    return createServiceProxy(metadata, this.config);
+  }
+} as unknown as typeof _EC2InstanceConnect;
