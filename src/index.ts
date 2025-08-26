@@ -1,5 +1,4 @@
 import * as Data from "effect/Data";
-import { createServiceProxy } from "./client.ts";
 
 import type * as AWS_ from "./aws.ts";
 
@@ -12,9 +11,9 @@ export const AWS = new Proxy(
   {
     get: (_, serviceName: string) => {
       return (services[serviceName] ??= new Proxy(class {}, {
-        construct(_, config: any): any {
-          return createServiceProxy(serviceName, config);
-        },
+        // construct(_, config: any): any {
+        //   // return createServiceProxy(serviceName, config);
+        // },
         get(_, className: string) {
           if (className.endsWith("Exception")) {
             return (services[serviceName][className] ??= (() => {

@@ -11,9 +11,6 @@ import {
   ValidationException,
   type AwsErrorMeta,
 } from "./error.ts";
-import { loadServiceMetadata } from "./metadata-loader.ts";
-import { AwsJson10Handler } from "./protocols/aws-json-1-0.ts";
-import { AwsJson11Handler } from "./protocols/aws-json-1-1.ts";
 import { AwsQueryHandler } from "./protocols/aws-query.ts";
 import type { ProtocolHandler } from "./protocols/interface.ts";
 import { RestJson1Handler } from "./protocols/rest-json-1.ts";
@@ -23,10 +20,6 @@ function resolveProtocolHandler(protocol: string): ProtocolHandler {
   switch (protocol) {
     case "awsQuery":
       return new AwsQueryHandler();
-    case "awsJson1_0":
-      return new AwsJson10Handler();
-    case "awsJson1_1":
-      return new AwsJson11Handler();
     case "restJson1":
       return new RestJson1Handler();
     case "restXml":
@@ -67,8 +60,6 @@ export interface ServiceMetadata {
       }
   >; // Operation mappings for restJson1 and trait mappings
 }
-
-export type AwsRegion = string;
 
 export interface AwsCredentials {
   readonly accessKeyId: string;
@@ -116,16 +107,10 @@ async function createAwsClient(service: string, config: AWSClientConfig) {
 // Standalone service proxy creator function
 export function createServiceProxy<T>(
   serviceName: string,
+  metadata: ServiceMetadata,
   config: AWSClientConfig,
 ): T {
-  const resolvedConfig = config;
-
-  const normalizedServiceName = serviceName.toLowerCase();
-
-  const _client: Promise<AwsClient> = createAwsClient(
-    normalizedServiceName,
-    resolvedConfig,
-  );
+  const _client: Promise<AwsClient> = createAwsClient(serviceName, config);
 
   return new Proxy(
     {},
@@ -137,11 +122,6 @@ export function createServiceProxy<T>(
 
         return (input: unknown) =>
           Effect.gen(function* () {
-            // Load metadata dynamically
-            const metadata = yield* Effect.promise(() =>
-              loadServiceMetadata(normalizedServiceName),
-            );
-
             const client = yield* Effect.promise(() => _client);
 
             // Convert camelCase method to PascalCase action
@@ -149,8 +129,8 @@ export function createServiceProxy<T>(
               methodName.charAt(0).toUpperCase() + methodName.slice(1);
 
             // Get protocol handler for this service
-            const protocolHandler = resolvedConfig.protocolHandler
-              ? resolvedConfig.protocolHandler
+            const protocolHandler = config.protocolHandler
+              ? config.protocolHandler
               : resolveProtocolHandler(metadata.protocol);
 
             // Build request with protocol handler
@@ -160,18 +140,18 @@ export function createServiceProxy<T>(
 
             // Use custom endpoint, global endpoint, or construct regional AWS endpoint
             const endpoint =
-              resolvedConfig.endpoint ??
+              config.endpoint ??
               metadata.globalEndpoint ??
               (metadata.endpointPrefix
-                ? `https://${metadata.endpointPrefix}.${resolvedConfig.region}.amazonaws.com`
-                : `https://${metadata.sdkId.toLowerCase()}.${resolvedConfig.region}.amazonaws.com`);
+                ? `https://${metadata.endpointPrefix}.${config.region}.amazonaws.com`
+                : `https://${metadata.sdkId.toLowerCase()}.${config.region}.amazonaws.com`);
 
             // Build full URL with path
             const fullUrl = endpoint.replace(/\/$/, "") + req.path;
 
             // Log the AWS request
             yield* Effect.logDebug("AWS Request", {
-              service: normalizedServiceName,
+              service: serviceName,
               action,
               method: req.method,
               url: fullUrl,
@@ -200,7 +180,7 @@ export function createServiceProxy<T>(
 
             // Log the AWS response
             yield* Effect.logDebug("AWS Response", {
-              service: normalizedServiceName,
+              service: serviceName,
               action,
               statusCode,
               headers: (() => {
