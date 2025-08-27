@@ -1,7 +1,8 @@
+import type { ServiceMetadata } from "../client.ts";
 import type {
   ParsedError,
   ProtocolHandler,
-  ServiceMetadata,
+  ProtocolRequest,
 } from "./interface.ts";
 import { stringifyRestJson } from "./json-serializer.ts";
 
@@ -9,37 +10,66 @@ export class RestJson1Handler implements ProtocolHandler {
   readonly name = "restJson1";
   readonly contentType = "application/json";
 
-  buildRequest(
+  async buildHttpRequest(
     input: unknown,
-    _action: string,
-    _metadata: ServiceMetadata,
-  ): string {
-    // Input has already been processed by the client to remove path/query params
-    // Just serialize the remaining fields as JSON
-    if (
-      !input ||
-      (typeof input === "object" && Object.keys(input).length === 0)
-    ) {
-      return "";
-    }
-    return stringifyRestJson(input);
-  }
+    operation: string,
+    metadata: ServiceMetadata,
+  ): Promise<ProtocolRequest> {
+    // Determine METHOD and URI path from operation metadata
+    let httpMethod = "POST";
+    let uriPath = "/";
+    let remainingInput = input as any;
 
-  getHeaders(
-    _action: string,
-    _metadata: ServiceMetadata,
-    body?: string,
-  ): Record<string, string> {
+    const operationSpec = (metadata as any).operations?.[operation];
+    if (operationSpec) {
+      const httpSpec =
+        typeof operationSpec === "string" ? operationSpec : operationSpec.http;
+      if (httpSpec) {
+        const spaceIndex = httpSpec.indexOf(" ");
+        if (spaceIndex > 0) {
+          httpMethod = httpSpec.substring(0, spaceIndex);
+          uriPath = httpSpec.substring(spaceIndex + 1);
+        }
+      }
+    }
+
+    // Replace path params and strip from body
+    const pathParams = [...uriPath.matchAll(/\{(\w+)\}/g)].map((m) => m[1]);
+    if (pathParams.length > 0 && input && typeof input === "object") {
+      let processedUri = uriPath;
+      const inputCopy: Record<string, unknown> = { ...(input as any) };
+      for (const param of pathParams) {
+        if (param in inputCopy) {
+          const value = inputCopy[param];
+          processedUri = processedUri.replace(
+            `{${param}}`,
+            encodeURIComponent(String(value)),
+          );
+          delete inputCopy[param];
+        }
+      }
+      uriPath = processedUri;
+      remainingInput = inputCopy;
+    }
+
+    // Body: only when present and not GET/DELETE
+    let body: string | undefined;
+    if (
+      httpMethod !== "GET" &&
+      httpMethod !== "DELETE" &&
+      remainingInput &&
+      (typeof remainingInput !== "object" ||
+        Object.keys(remainingInput).length > 0)
+    ) {
+      body = stringifyRestJson(remainingInput);
+    }
+
     const headers: Record<string, string> = {
       "User-Agent": "itty-aws",
     };
+    if (body) headers["Content-Type"] = this.contentType;
 
-    // Only set Content-Type if there's a body
-    if (body) {
-      headers["Content-Type"] = this.contentType;
-    }
-
-    return headers;
+    return { method: httpMethod, path: uriPath, headers, body };
   }
 
   parseResponse(
@@ -47,11 +77,13 @@ export class RestJson1Handler implements ProtocolHandler {
     statusCode: number,
     metadata?: ServiceMetadata,
     headers?: Headers,
-    action?: string,
-  ): unknown {
+    operation?: string,
+  ): Promise<unknown> {
     // Check if this operation has special HTTP trait mappings
     const operationTraits =
-      metadata && action && (metadata as any).operations?.[action]?.traits;
+      metadata &&
+      operation &&
+      (metadata as any).operations?.[operation]?.traits;
 
     if (operationTraits) {
       // Handle operations with @httpPayload, @httpHeader, @httpResponseCode traits
@@ -71,43 +103,24 @@ export class RestJson1Handler implements ProtocolHandler {
         }
       }
 
-      return result;
+      return Promise.resolve(result);
     }
 
     // Standard JSON response handling for operations without special traits
-    if (!responseText) return {};
+    if (!responseText) return Promise.resolve({});
     try {
-      const parsed = JSON.parse(responseText);
-      return this.removeNulls(parsed);
+      const parsed = JSON.parse(responseText, (_key, value) => {
+        // Remove nulls and undefineds
+        if (value === null || value === undefined) {
+          return undefined;
+        }
+        return value;
+      });
+      return Promise.resolve(parsed);
     } catch {
       // If response isn't JSON, return as-is (could be binary data)
-      return responseText;
+      return Promise.resolve(responseText);
     }
-  }
-
-  private removeNulls(obj: unknown): unknown {
-    if (obj === null || obj === undefined) {
-      return undefined;
-    }
-
-    if (Array.isArray(obj)) {
-      return obj
-        .map((item) => this.removeNulls(item))
-        .filter((item) => item !== undefined);
-    }
-
-    if (typeof obj === "object") {
-      const result: Record<string, unknown> = {};
-      for (const [key, value] of Object.entries(obj)) {
-        const cleaned = this.removeNulls(value);
-        if (cleaned !== undefined) {
-          result[key] = cleaned;
-        }
-      }
-      return result;
-    }
-
-    return obj;
   }
 
   parseError(

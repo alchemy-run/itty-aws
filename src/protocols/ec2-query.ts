@@ -1,10 +1,11 @@
 import { XMLParser } from "fast-xml-parser";
-import { ec2ModelMeta } from "../ec2-metadata.ts";
+import type { ServiceMetadata } from "../client.ts";
+import { ec2ModelMeta, type Ec2ModelMeta } from "../ec2-metadata.ts";
 import { capitalizeFirst } from "../utils.ts";
 import type {
   ParsedError,
   ProtocolHandler,
-  ServiceMetadata,
+  ProtocolRequest,
 } from "./interface.ts";
 
 const xmlParser = new XMLParser({
@@ -188,52 +189,52 @@ function findResponseWrapperName(doc: any): string {
 export class Ec2QueryHandler implements ProtocolHandler {
   readonly name = "ec2Query";
   readonly contentType = "application/x-www-form-urlencoded; charset=utf-8";
+  private readonly ec2ModelMeta: Ec2ModelMeta = ec2ModelMeta;
 
-  buildRequest(
+  async buildHttpRequest(
     input: unknown,
-    action: string,
+    operation: string,
     _metadata: ServiceMetadata,
-  ): string {
+  ): Promise<ProtocolRequest> {
     // if unknown operation, it's an error
-    const op = ec2ModelMeta.operations[action];
-    if (!op) throw new Error(`Unknown operation: ${action}`);
+    const op = this.ec2ModelMeta.operations[operation];
+    if (!op) throw new Error(`Unknown operation: ${operation}`);
 
     const params: Record<string, string> = {
-      Action: action,
-      Version: ec2ModelMeta.version,
+      Action: operation,
+      Version: this.ec2ModelMeta.version,
     };
 
     // if there is no exception for the operation input target,
     // then we fall back to defaults
     if (input) {
-      if (op.input) toParams(ec2ModelMeta.shapes, op.input, input, "", params);
+      if (op.input)
+        toParams(this.ec2ModelMeta.shapes, op.input, input, "", params);
       else {
-        const inputTarget = `${action}Request`;
-        toParams(ec2ModelMeta.shapes, inputTarget, input, "", params);
+        const inputTarget = `${operation}Request`;
+        toParams(this.ec2ModelMeta.shapes, inputTarget, input, "", params);
       }
     }
 
-    return new URLSearchParams(params).toString();
-  }
-
-  getHeaders(
-    _action: string,
-    _metadata: ServiceMetadata,
-    _body?: string,
-  ): Record<string, string> {
+    const body = new URLSearchParams(params).toString();
     return {
-      "Content-Type": this.contentType,
-      "User-Agent": "itty-aws",
+      method: "POST",
+      path: "/",
+      headers: {
+        "Content-Type": this.contentType,
+        "User-Agent": "itty-aws",
+      },
+      body,
     };
   }
 
-  parseResponse(
+  async parseResponse(
     responseText: string,
     statusCode: number,
     _metadata?: ServiceMetadata,
     _headers?: Headers,
-    _action?: string,
-  ): unknown {
+    _operation?: string,
+  ): Promise<unknown> {
     if (statusCode >= 400) return this.parseError(responseText, statusCode);
     if (!responseText) return {};
 
@@ -245,13 +246,13 @@ export class Ec2QueryHandler implements ProtocolHandler {
 
     if (wrapperName) {
       const opName = wrapperName.replace(/Response$/, "");
-      const opMeta = ec2ModelMeta.operations[opName];
+      const opMeta = this.ec2ModelMeta.operations[opName];
       // if the operation exists, but there is not output
       // that means it follows the pattern and we can rebuild the target without metadata
       const outShape = opMeta?.output ?? `${opName}Result`;
 
       if (outShape) {
-        return fromXml(ec2ModelMeta.shapes, outShape, payloadNode);
+        return fromXml(this.ec2ModelMeta.shapes, outShape, payloadNode);
       }
     }
 

@@ -1,32 +1,27 @@
+import type { ServiceMetadata } from "../client.ts";
 import type {
   ParsedError,
   ProtocolHandler,
-  ServiceMetadata,
+  ProtocolRequest,
 } from "./interface.ts";
 
 export class RestXmlHandler implements ProtocolHandler {
   readonly name = "restXml";
   readonly contentType = "application/xml";
 
-  buildRequest(
+  buildHttpRequest(
     input: unknown,
-    _action: string,
+    _operation: string,
     _metadata: ServiceMetadata,
-  ): string {
-    // For now, we'll serialize as JSON until proper XML serialization is implemented
-    // This is a placeholder for future S3 support
-    return JSON.stringify(input);
-  }
-
-  getHeaders(
-    _action: string,
-    _metadata: ServiceMetadata,
-    _body?: string,
-  ): Record<string, string> {
-    return {
-      "Content-Type": this.contentType,
-      "User-Agent": "itty-aws",
-    };
+  ): Promise<ProtocolRequest> {
+    // Placeholder: serialize as JSON until full XML and traits are supported
+    const body = JSON.stringify(input ?? {});
+    return Promise.resolve({
+      method: "POST",
+      path: "/",
+      headers: { "Content-Type": this.contentType, "User-Agent": "itty-aws" },
+      body,
+    });
   }
 
   parseResponse(
@@ -34,15 +29,15 @@ export class RestXmlHandler implements ProtocolHandler {
     _statusCode: number,
     _metadata?: ServiceMetadata,
     _headers?: Headers,
-    _action?: string,
-  ): unknown {
-    if (!responseText) return {};
+    _operation?: string,
+  ): Promise<unknown> {
+    if (!responseText) return Promise.resolve({});
     // TODO: Implement proper XML parsing for S3 responses
     // For now, fall back to JSON parsing
     try {
-      return JSON.parse(responseText);
+      return Promise.resolve(JSON.parse(responseText));
     } catch {
-      return { data: responseText };
+      return Promise.resolve({ data: responseText });
     }
   }
 

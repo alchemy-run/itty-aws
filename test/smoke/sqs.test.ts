@@ -1,10 +1,10 @@
 import { describe, expect, it } from "@effect/vitest";
 import { Console, Effect } from "effect";
-import { AWS } from "../../src/index.ts";
+import { SQS } from "../../src/services/sqs/index.ts";
 
 describe("SQS Smoke Tests", () => {
   const testQueueName = "itty-aws-test-queue";
-  const client = new AWS.SQS({ region: "us-east-1" });
+  const client = new SQS({ region: "us-east-1" });
 
   const deleteQueueIfExists = (queueName: string) =>
     client.getQueueUrl({ QueueName: queueName }).pipe(

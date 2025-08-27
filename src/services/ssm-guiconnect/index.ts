@@ -1,164 +1,36 @@
-import type { Effect, Data as EffectData } from "effect";
-import type { CommonAwsError } from "../../error.ts";
-import { AWSServiceClient } from "../../client.ts";
+import type { AWSClientConfig, ServiceMetadata } from "../../client.ts";
+import { AWSServiceClient, createServiceProxy } from "../../client.ts";
+import { RestJson1Handler } from "../../protocols/rest-json-1.ts";
+import type { SSMGuiConnect as _SSMGuiConnect } from "./types.ts";
 
-export declare class SSMGuiConnect extends AWSServiceClient {
-  deleteConnectionRecordingPreferences(
-    input: DeleteConnectionRecordingPreferencesRequest,
-  ): Effect.Effect<
-    DeleteConnectionRecordingPreferencesResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
-  >;
-  getConnectionRecordingPreferences(input: {}): Effect.Effect<
-    GetConnectionRecordingPreferencesResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
-  >;
-  updateConnectionRecordingPreferences(
-    input: UpdateConnectionRecordingPreferencesRequest,
-  ): Effect.Effect<
-    UpdateConnectionRecordingPreferencesResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
-  >;
-}
+// Service metadata
+const metadata = {
+  sdkId: "SSM GuiConnect",
+  version: "2021-05-01",
+  protocol: "restJson1",
+  sigV4ServiceName: "ssm-guiconnect",
+  operations: {
+    DeleteConnectionRecordingPreferences:
+      "POST /DeleteConnectionRecordingPreferences",
+    GetConnectionRecordingPreferences:
+      "POST /GetConnectionRecordingPreferences",
+    UpdateConnectionRecordingPreferences:
+      "POST /UpdateConnectionRecordingPreferences",
+  },
+} as const satisfies ServiceMetadata;
 
-export declare class SsmGuiconnect extends SSMGuiConnect {}
+// Re-export all types from types.ts for backward compatibility
+export type * from "./types.ts";
 
-export declare class AccessDeniedException extends EffectData.TaggedError(
-  "AccessDeniedException",
-)<{
-  readonly message: string;
-}> {}
-export type AccountId = string;
-
-export type BucketName = string;
-
-export type ClientToken = string;
-
-export declare class ConflictException extends EffectData.TaggedError(
-  "ConflictException",
-)<{
-  readonly message: string;
-}> {}
-export type ConnectionArn = string;
-
-export interface ConnectionRecordingPreferences {
-  RecordingDestinations: RecordingDestinations;
-  KMSKeyArn: string;
-}
-export type ConnectionToken = string;
-
-export interface DeleteConnectionRecordingPreferencesRequest {
-  ClientToken?: string;
-}
-export interface DeleteConnectionRecordingPreferencesResponse {
-  ClientToken?: string;
-}
-export type ErrorMessage = string;
-
-export interface GetConnectionRecordingPreferencesResponse {
-  ClientToken?: string;
-  ConnectionRecordingPreferences?: ConnectionRecordingPreferences;
-}
-export declare class InternalServerException extends EffectData.TaggedError(
-  "InternalServerException",
-)<{
-  readonly message: string;
-}> {}
-export interface RecordingDestinations {
-  S3Buckets: Array<S3Bucket>;
-}
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
-  "ResourceNotFoundException",
-)<{
-  readonly message: string;
-}> {}
-export interface S3Bucket {
-  BucketOwner: string;
-  BucketName: string;
-}
-export type S3Buckets = Array<S3Bucket>;
-export declare class ServiceQuotaExceededException extends EffectData.TaggedError(
-  "ServiceQuotaExceededException",
-)<{
-  readonly message: string;
-}> {}
-export declare class ThrottlingException extends EffectData.TaggedError(
-  "ThrottlingException",
-)<{
-  readonly message: string;
-}> {}
-export interface UpdateConnectionRecordingPreferencesRequest {
-  ConnectionRecordingPreferences: ConnectionRecordingPreferences;
-  ClientToken?: string;
-}
-export interface UpdateConnectionRecordingPreferencesResponse {
-  ClientToken?: string;
-  ConnectionRecordingPreferences?: ConnectionRecordingPreferences;
-}
-export declare class ValidationException extends EffectData.TaggedError(
-  "ValidationException",
-)<{
-  readonly message: string;
-}> {}
-export declare namespace DeleteConnectionRecordingPreferences {
-  export type Input = DeleteConnectionRecordingPreferencesRequest;
-  export type Output = DeleteConnectionRecordingPreferencesResponse;
-  export type Error =
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError;
-}
-
-export declare namespace GetConnectionRecordingPreferences {
-  export type Input = {};
-  export type Output = GetConnectionRecordingPreferencesResponse;
-  export type Error =
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError;
-}
-
-export declare namespace UpdateConnectionRecordingPreferences {
-  export type Input = UpdateConnectionRecordingPreferencesRequest;
-  export type Output = UpdateConnectionRecordingPreferencesResponse;
-  export type Error =
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError;
-}
+export const SSMGuiConnect = class extends AWSServiceClient {
+  constructor(cfg: Partial<AWSClientConfig> = {}) {
+    const config: AWSClientConfig = {
+      region: cfg.region ?? "us-east-1",
+      credentials: cfg.credentials,
+      endpoint: cfg.endpoint,
+    };
+    super(config);
+    // biome-ignore lint/correctness/noConstructorReturn: deliberate proxy usage
+    return createServiceProxy(metadata, this.config, new RestJson1Handler());
+  }
+} as unknown as typeof _SSMGuiConnect;

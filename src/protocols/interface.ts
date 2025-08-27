@@ -1,14 +1,6 @@
-// Protocol handler interface for AWS Smithy protocols
+import type { ServiceMetadata } from "../client.ts";
 
-export interface ServiceMetadata {
-  readonly sdkId: string;
-  readonly version: string;
-  readonly endpointPrefix: string;
-  readonly protocol: string;
-  readonly targetPrefix?: string; // only used for awsJson1_0 and awsJson1_1
-  readonly globalEndpoint?: string; // For global services like IAM and CloudFront
-  readonly signingRegion?: string; // Override signing region for global services
-}
+// Protocol handler interface for AWS Smithy protocols
 
 export interface ParsedError {
   readonly errorType: string;
@@ -16,22 +8,23 @@ export interface ParsedError {
   readonly requestId?: string;
 }
 
+export interface ProtocolRequest {
+  readonly method: string;
+  readonly path: string; // begins with '/'
+  readonly headers: Record<string, string>;
+  readonly body?: string;
+}
+
 export interface ProtocolHandler {
   readonly name: string;
   readonly contentType: string;
 
-  // Translate input JSON into protocol-specific request format (e.g. XML)
-  buildRequest(
+  // Build the complete HTTP request details for the given operation input
+  buildHttpRequest(
     input: unknown,
-    action: string,
+    operation: string,
     metadata: ServiceMetadata,
-  ): string;
-
-  getHeaders(
-    action: string,
-    metadata: ServiceMetadata,
-    body?: string,
-  ): Record<string, string>;
+  ): Promise<ProtocolRequest>;
 
   // Translate protocol-specific response (e.g. XML) into JSON
   parseResponse(
@@ -39,8 +32,8 @@ export interface ProtocolHandler {
     statusCode: number,
     metadata?: ServiceMetadata,
     headers?: Headers,
-    action?: string,
-  ): unknown;
+    operation?: string,
+  ): Promise<unknown>;
   parseError(
     responseText: string,
     statusCode: number,

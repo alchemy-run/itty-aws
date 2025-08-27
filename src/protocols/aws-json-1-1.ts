@@ -1,7 +1,8 @@
+import type { ServiceMetadata } from "../client.ts";
 import type {
   ParsedError,
   ProtocolHandler,
-  ServiceMetadata,
+  ProtocolRequest,
 } from "./interface.ts";
 import { stringifyAwsJson } from "./json-serializer.ts";
 
@@ -45,35 +46,20 @@ export class AwsJson11Handler implements ProtocolHandler {
   readonly name = "awsJson1_1";
   readonly contentType = "application/x-amz-json-1.1";
 
-  buildRequest(
+  async buildHttpRequest(
     input: unknown,
-    _action: string,
-    _metadata: ServiceMetadata,
-  ): string {
-    // Ensure empty input becomes {}
-    const payload = input === null || input === undefined ? {} : input;
-    return stringifyAwsJson(payload);
-  }
-
-  getHeaders(
-    action: string,
+    operation: string,
     metadata: ServiceMetadata,
-    body?: string,
-  ): Record<string, string> {
+  ): Promise<ProtocolRequest> {
+    const payload = input === null || input === undefined ? {} : input;
+    const body = stringifyAwsJson(payload);
     const headers: Record<string, string> = {
       "Content-Type": this.contentType,
-      "X-Amz-Target": `${metadata.targetPrefix}.${action}`,
+      "X-Amz-Target": `${metadata.targetPrefix}.${operation}`,
       "User-Agent": "itty-aws",
+      "Content-Length": new TextEncoder().encode(body).length.toString(),
     };
-
-    // Add Content-Length if body is provided
-    if (body !== undefined) {
-      headers["Content-Length"] = new TextEncoder()
-        .encode(body)
-        .length.toString();
-    }
-
-    return headers;
+    return { method: "POST", path: "/", headers, body };
   }
 
   parseResponse(
@@ -81,12 +67,12 @@ export class AwsJson11Handler implements ProtocolHandler {
     _statusCode: number,
     _metadata?: ServiceMetadata,
     _headers?: Headers,
-    _action?: string,
-  ): unknown {
-    if (!responseText || responseText.trim() === "") return {};
+    _operation?: string,
+  ): Promise<unknown> {
+    if (!responseText || responseText.trim() === "") return Promise.resolve({});
 
     try {
-      return JSON.parse(responseText);
+      return Promise.resolve(JSON.parse(responseText));
     } catch (error) {
       throw new Error(
         `Invalid JSON response: ${error instanceof Error ? error.message : String(error)}`,

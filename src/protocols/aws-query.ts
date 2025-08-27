@@ -1,9 +1,10 @@
 import { XMLParser } from "fast-xml-parser";
-import { getServiceMeta } from "../awsquery-metadata/index.js";
+import type { AwsQueryServiceMeta } from "../awsquery-metadata/index.ts";
+import type { ServiceMetadata } from "../client.ts";
 import type {
   ParsedError,
   ProtocolHandler,
-  ServiceMetadata,
+  ProtocolRequest,
 } from "./interface.ts";
 
 const xmlParser = new XMLParser({
@@ -204,73 +205,70 @@ function fromXml(shapes: Record<string, any>, shapeId: string, node: any): any {
 export class AwsQueryHandler implements ProtocolHandler {
   readonly name = "awsQuery";
   readonly contentType = "application/x-www-form-urlencoded";
+  protocolMetadata: AwsQueryServiceMeta;
 
-  buildRequest(
+  constructor(protocolMetadata: AwsQueryServiceMeta) {
+    this.protocolMetadata = protocolMetadata;
+  }
+
+  async buildHttpRequest(
     input: unknown,
-    action: string,
+    operation: string,
     metadata: ServiceMetadata,
-  ): string {
-    const serviceMeta = getServiceMeta(metadata.sdkId);
-
-    if (!serviceMeta) {
-      throw new Error(
-        `AWS Query metadata not found for service "${metadata.sdkId}". ` +
-          "AWS Query protocol requires shape metadata for proper serialization. ",
-      );
-    }
+  ): Promise<ProtocolRequest> {
+    // if (!serviceMeta) {
+    //   throw new Error(
+    //     `AWS Query metadata not found for service "${metadata.sdkId}". ` +
+    //       "AWS Query protocol requires shape metadata for proper serialization. ",
+    //   );
+    // }
 
     const params: Record<string, string> = {
-      Action: action,
-      Version: serviceMeta.version,
+      Action: operation,
+      Version: metadata.version,
     };
 
-    const operation = serviceMeta.operations[action];
-    if (operation?.input && input) {
+    const op = this.protocolMetadata.operations[operation];
+    if (op?.input && input) {
       // Use shape-aware serialization
-      toParams(serviceMeta.shapes, operation.input, input, "", params);
+      toParams(this.protocolMetadata.shapes, op.input, input, "", params);
     }
 
-    return new URLSearchParams(params).toString();
-  }
-
-  getHeaders(
-    _action: string,
-    _metadata: ServiceMetadata,
-    _body?: string,
-  ): Record<string, string> {
+    const body = new URLSearchParams(params).toString();
     return {
-      "Content-Type": this.contentType,
-      "User-Agent": "itty-aws",
+      method: "POST",
+      path: "/",
+      headers: { "Content-Type": this.contentType, "User-Agent": "itty-aws" },
+      body,
     };
   }
 
-  parseResponse(
+  async parseResponse(
     responseText: string,
     statusCode: number,
-    metadata?: ServiceMetadata,
+    _metadata?: ServiceMetadata,
     _headers?: Headers,
-    _action?: string,
-  ): unknown {
+    _operation?: string,
+  ): Promise<unknown> {
     if (statusCode >= 400) return this.parseError(responseText, statusCode);
     if (!responseText) return {};
 
     const doc = safeParseXml(responseText);
     if (!doc) return {};
 
-    if (!metadata) {
-      throw new Error(
-        "AWS Query protocol requires service metadata for response parsing",
-      );
-    }
+    // if (!metadata) {
+    //   throw new Error(
+    //     "AWS Query protocol requires service metadata for response parsing",
+    //   );
+    // }
 
-    const serviceMeta = getServiceMeta(metadata.sdkId);
-    if (!serviceMeta) {
-      throw new Error(
-        `AWS Query metadata not found for service "${metadata.sdkId}". ` +
-          "AWS Query protocol requires shape metadata for proper response parsing. " +
-          `Please generate metadata using: bun scripts/generate-awsquery-metadata.ts "${metadata.sdkId}"`,
-      );
-    }
+    // if (!serviceMeta) {
+    //   throw new Error(
+    //     `AWS Query metadata not found for service "${metadata.sdkId}". ` +
+    //       "AWS Query protocol requires shape metadata for proper response parsing. " +
+    //       `Please generate metadata using: bun scripts/generate-awsquery-metadata.ts "${metadata.sdkId}"`,
+    //   );
+    // }
 
     const responseKey = Object.keys(doc).find((key) =>
       key.endsWith("Response"),
@@ -278,7 +276,7 @@ export class AwsQueryHandler implements ProtocolHandler {
     if (!responseKey) throw new Error("Invalid response.");
 
     const opName = responseKey.replace(/Response$/, "");
-    const operation = serviceMeta.operations[opName];
+    const operation = this.protocolMetadata.operations[opName];
 
     if (operation?.output) {
       const responseNode = doc[responseKey];
@@ -286,7 +284,11 @@ export class AwsQueryHandler implements ProtocolHandler {
       const resultNode = responseNode?.[resultKey] ?? responseNode;
 
       // Use shape-aware parsing
-      return fromXml(serviceMeta.shapes, operation.output, resultNode);
+      return fromXml(
+        this.protocolMetadata.shapes,
+        operation.output,
+        resultNode,
+      );
     } else {
       throw new Error("Unable to parse response.");
     }

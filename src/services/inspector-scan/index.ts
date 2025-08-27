@@ -1,74 +1,31 @@
-import type { Effect, Data as EffectData } from "effect";
-import type { CommonAwsError } from "../../error.ts";
-import { AWSServiceClient } from "../../client.ts";
+import type { AWSClientConfig, ServiceMetadata } from "../../client.ts";
+import { AWSServiceClient, createServiceProxy } from "../../client.ts";
+import { RestJson1Handler } from "../../protocols/rest-json-1.ts";
+import type { InspectorScan as _InspectorScan } from "./types.ts";
 
-export declare class InspectorScan extends AWSServiceClient {
-  scanSbom(
-    input: ScanSbomRequest,
-  ): Effect.Effect<
-    ScanSbomResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
-  >;
-}
+// Service metadata
+const metadata = {
+  sdkId: "Inspector Scan",
+  version: "2023-08-08",
+  protocol: "restJson1",
+  sigV4ServiceName: "inspector-scan",
+  operations: {
+    ScanSbom: "POST /scan/sbom",
+  },
+} as const satisfies ServiceMetadata;
 
-export declare class AccessDeniedException extends EffectData.TaggedError(
-  "AccessDeniedException",
-)<{
-  readonly message: string;
-}> {}
-export declare class InternalServerException extends EffectData.TaggedError(
-  "InternalServerException",
-)<{
-  readonly message: string;
-  readonly reason: InternalServerExceptionReason;
-  readonly retryAfterSeconds?: number;
-}> {}
-export type InternalServerExceptionReason = "FAILED_TO_GENERATE_SBOM" | "OTHER";
-export type OutputFormat = "CYCLONE_DX_1_5" | "INSPECTOR";
-export type Sbom = unknown;
+// Re-export all types from types.ts for backward compatibility
+export type * from "./types.ts";
 
-export interface ScanSbomRequest {
-  sbom: unknown;
-  outputFormat?: OutputFormat;
-}
-export interface ScanSbomResponse {
-  sbom?: unknown;
-}
-export declare class ThrottlingException extends EffectData.TaggedError(
-  "ThrottlingException",
-)<{
-  readonly message: string;
-  readonly retryAfterSeconds?: number;
-}> {}
-export declare class ValidationException extends EffectData.TaggedError(
-  "ValidationException",
-)<{
-  readonly message: string;
-  readonly reason: ValidationExceptionReason;
-  readonly fields?: Array<ValidationExceptionField>;
-}> {}
-export interface ValidationExceptionField {
-  name: string;
-  message: string;
-}
-export type ValidationExceptionFields = Array<ValidationExceptionField>;
-export type ValidationExceptionReason =
-  | "UNKNOWN_OPERATION"
-  | "CANNOT_PARSE"
-  | "FIELD_VALIDATION_FAILED"
-  | "UNSUPPORTED_SBOM_TYPE"
-  | "OTHER";
-export declare namespace ScanSbom {
-  export type Input = ScanSbomRequest;
-  export type Output = ScanSbomResponse;
-  export type Error =
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError;
-}
+export const InspectorScan = class extends AWSServiceClient {
+  constructor(cfg: Partial<AWSClientConfig> = {}) {
+    const config: AWSClientConfig = {
+      region: cfg.region ?? "us-east-1",
+      credentials: cfg.credentials,
+      endpoint: cfg.endpoint,
+    };
+    super(config);
+    // biome-ignore lint/correctness/noConstructorReturn: deliberate proxy usage
+    return createServiceProxy(metadata, this.config, new RestJson1Handler());
+  }
+} as unknown as typeof _InspectorScan;

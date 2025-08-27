@@ -1,61 +1,32 @@
-import type { Effect, Data as EffectData } from "effect";
-import type { CommonAwsError } from "../../error.ts";
-import { AWSServiceClient } from "../../client.ts";
+import type { AWSClientConfig, ServiceMetadata } from "../../client.ts";
+import { AWSServiceClient, createServiceProxy } from "../../client.ts";
+import { RestJson1Handler } from "../../protocols/rest-json-1.ts";
+import type { MarketplaceReporting as _MarketplaceReporting } from "./types.ts";
 
-export declare class MarketplaceReporting extends AWSServiceClient {
-  getBuyerDashboard(
-    input: GetBuyerDashboardInput,
-  ): Effect.Effect<
-    GetBuyerDashboardOutput,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | UnauthorizedException
-    | CommonAwsError
-  >;
-}
+// Service metadata
+const metadata = {
+  sdkId: "Marketplace Reporting",
+  version: "2018-05-10",
+  protocol: "restJson1",
+  sigV4ServiceName: "aws-marketplace",
+  endpointPrefix: "reporting-marketplace",
+  operations: {
+    GetBuyerDashboard: "POST /getBuyerDashboard",
+  },
+} as const satisfies ServiceMetadata;
 
-export declare class AccessDeniedException extends EffectData.TaggedError(
-  "AccessDeniedException",
-)<{
-  readonly message?: string;
-}> {}
-export declare class BadRequestException extends EffectData.TaggedError(
-  "BadRequestException",
-)<{
-  readonly message?: string;
-}> {}
-export type DashboardIdentifier = string;
+// Re-export all types from types.ts for backward compatibility
+export type * from "./types.ts";
 
-export type EmbeddingDomain = string;
-
-export type EmbeddingDomains = Array<string>;
-export interface GetBuyerDashboardInput {
-  dashboardIdentifier: string;
-  embeddingDomains: Array<string>;
-}
-export interface GetBuyerDashboardOutput {
-  embedUrl: string;
-  dashboardIdentifier: string;
-  embeddingDomains: Array<string>;
-}
-export declare class InternalServerException extends EffectData.TaggedError(
-  "InternalServerException",
-)<{
-  readonly message?: string;
-}> {}
-export declare class UnauthorizedException extends EffectData.TaggedError(
-  "UnauthorizedException",
-)<{
-  readonly message?: string;
-}> {}
-export declare namespace GetBuyerDashboard {
-  export type Input = GetBuyerDashboardInput;
-  export type Output = GetBuyerDashboardOutput;
-  export type Error =
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | UnauthorizedException
-    | CommonAwsError;
-}
+export const MarketplaceReporting = class extends AWSServiceClient {
+  constructor(cfg: Partial<AWSClientConfig> = {}) {
+    const config: AWSClientConfig = {
+      region: cfg.region ?? "us-east-1",
+      credentials: cfg.credentials,
+      endpoint: cfg.endpoint,
+    };
+    super(config);
+    // biome-ignore lint/correctness/noConstructorReturn: deliberate proxy usage
+    return createServiceProxy(metadata, this.config, new RestJson1Handler());
+  }
+} as unknown as typeof _MarketplaceReporting;

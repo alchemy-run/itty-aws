@@ -1,125 +1,42 @@
-import type { Effect, Data as EffectData } from "effect";
-import type { CommonAwsError } from "../../error.ts";
-import { AWSServiceClient } from "../../client.ts";
+import type { AWSClientConfig, ServiceMetadata } from "../../client.ts";
+import { AWSServiceClient, createServiceProxy } from "../../client.ts";
+import { RestJson1Handler } from "../../protocols/rest-json-1.ts";
+import type { AppConfigData as _AppConfigData } from "./types.ts";
 
-export declare class AppConfigData extends AWSServiceClient {
-  getLatestConfiguration(
-    input: GetLatestConfigurationRequest,
-  ): Effect.Effect<
-    GetLatestConfigurationResponse,
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
-  >;
-  startConfigurationSession(
-    input: StartConfigurationSessionRequest,
-  ): Effect.Effect<
-    StartConfigurationSessionResponse,
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
-  >;
-}
+// Service metadata
+const metadata = {
+  sdkId: "AppConfigData",
+  version: "2021-11-11",
+  protocol: "restJson1",
+  sigV4ServiceName: "appconfig",
+  endpointPrefix: "appconfigdata",
+  operations: {
+    GetLatestConfiguration: {
+      http: "GET /configuration",
+      traits: {
+        NextPollConfigurationToken: "Next-Poll-Configuration-Token",
+        NextPollIntervalInSeconds: "Next-Poll-Interval-In-Seconds",
+        ContentType: "Content-Type",
+        Configuration: "httpPayload",
+        VersionLabel: "Version-Label",
+      },
+    },
+    StartConfigurationSession: "POST /configurationsessions",
+  },
+} as const satisfies ServiceMetadata;
 
-export declare class Appconfigdata extends AppConfigData {}
+// Re-export all types from types.ts for backward compatibility
+export type * from "./types.ts";
 
-interface _BadRequestDetails {
-  InvalidParameters?: Record<string, InvalidParameterDetail>;
-}
-
-export type BadRequestDetails = _BadRequestDetails & {
-  InvalidParameters: Record<string, InvalidParameterDetail>;
-};
-export declare class BadRequestException extends EffectData.TaggedError(
-  "BadRequestException",
-)<{
-  readonly Message?: string;
-  readonly Reason?: string;
-  readonly Details?: BadRequestDetails;
-}> {}
-export type BadRequestReason = string;
-
-export interface GetLatestConfigurationRequest {
-  ConfigurationToken: string;
-}
-export interface GetLatestConfigurationResponse {
-  NextPollConfigurationToken?: string;
-  NextPollIntervalInSeconds?: number;
-  ContentType?: string;
-  Configuration?: Uint8Array | string;
-  VersionLabel?: string;
-}
-export type Id = string;
-
-export type Identifier = string;
-
-export type Integer = number;
-
-export declare class InternalServerException extends EffectData.TaggedError(
-  "InternalServerException",
-)<{
-  readonly Message?: string;
-}> {}
-export interface InvalidParameterDetail {
-  Problem?: string;
-}
-export type InvalidParameterMap = Record<string, InvalidParameterDetail>;
-export type InvalidParameterProblem = string;
-
-export type OptionalPollSeconds = number;
-
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
-  "ResourceNotFoundException",
-)<{
-  readonly Message?: string;
-  readonly ResourceType?: string;
-  readonly ReferencedBy?: Record<string, string>;
-}> {}
-export type ResourceType = string;
-
-export type SensitiveBlob = Uint8Array | string;
-
-export interface StartConfigurationSessionRequest {
-  ApplicationIdentifier: string;
-  EnvironmentIdentifier: string;
-  ConfigurationProfileIdentifier: string;
-  RequiredMinimumPollIntervalInSeconds?: number;
-}
-export interface StartConfigurationSessionResponse {
-  InitialConfigurationToken?: string;
-}
-export type AppconfigdataString = string;
-
-export type StringMap = Record<string, string>;
-export declare class ThrottlingException extends EffectData.TaggedError(
-  "ThrottlingException",
-)<{
-  readonly Message?: string;
-}> {}
-export type Token = string;
-
-export declare namespace GetLatestConfiguration {
-  export type Input = GetLatestConfigurationRequest;
-  export type Output = GetLatestConfigurationResponse;
-  export type Error =
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError;
-}
-
-export declare namespace StartConfigurationSession {
-  export type Input = StartConfigurationSessionRequest;
-  export type Output = StartConfigurationSessionResponse;
-  export type Error =
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError;
-}
+export const AppConfigData = class extends AWSServiceClient {
+  constructor(cfg: Partial<AWSClientConfig> = {}) {
+    const config: AWSClientConfig = {
+      region: cfg.region ?? "us-east-1",
+      credentials: cfg.credentials,
+      endpoint: cfg.endpoint,
+    };
+    super(config);
+    // biome-ignore lint/correctness/noConstructorReturn: deliberate proxy usage
+    return createServiceProxy(metadata, this.config, new RestJson1Handler());
+  }
+} as unknown as typeof _AppConfigData;

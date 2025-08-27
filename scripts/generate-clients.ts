@@ -584,7 +584,148 @@ const generateMapType = (
   return code;
 };
 
-const generateServiceCode = (serviceName: string, manifest: Manifest) =>
+// Helper to get protocol handler import
+const getProtocolHandler = (
+  protocol: string,
+): { import: string; handler: string } => {
+  switch (protocol) {
+    case "awsJson1_0":
+      return {
+        import:
+          'import { AwsJson10Handler } from "../../protocols/aws-json-1-0.ts";',
+        handler: "new AwsJson10Handler()",
+      };
+    case "awsJson1_1":
+      return {
+        import:
+          'import { AwsJson11Handler } from "../../protocols/aws-json-1-1.ts";',
+        handler: "new AwsJson11Handler()",
+      };
+    case "restJson1":
+      return {
+        import:
+          'import { RestJson1Handler } from "../../protocols/rest-json-1.ts";',
+        handler: "new RestJson1Handler()",
+      };
+    case "ec2Query":
+      return {
+        import:
+          'import { Ec2QueryHandler } from "../../protocols/ec2-query.ts";',
+        handler: "new Ec2QueryHandler()",
+      };
+    case "awsQuery":
+      return {
+        import:
+          'import { AwsQueryHandler } from "../../protocols/aws-query.ts";',
+        handler: "new AwsQueryHandler(protocolMetadata)",
+      };
+    case "restXml":
+      return {
+        import: 'import { RestXmlHandler } from "../../protocols/rest-xml.ts";',
+        handler: "new RestXmlHandler()",
+      };
+    default:
+      return {
+        import: "",
+        handler: "undefined",
+      };
+  }
+};
+
+// Generate service index.ts file with proxy implementation
+const generateServiceIndex = (
+  metadata: any,
+  consistentInterfaceName: string,
+  serviceName: string,
+) => {
+  const protocolInfo = getProtocolHandler(metadata.protocol);
+
+  let code = `import type { AWSClientConfig, ServiceMetadata } from "../../client.ts";\n`;
+  code += `import { AWSServiceClient, createServiceProxy } from "../../client.ts";\n`;
+  if (protocolInfo.import) {
+    code += `${protocolInfo.import}\n`;
+  }
+  // Add protocol metadata import for awsQuery services
+  if (metadata.protocol === "awsQuery") {
+    code += `import { metadata as protocolMetadata } from "../../awsquery-metadata/${serviceName}.ts";\n`;
+  }
+  code += `import type { ${consistentInterfaceName} as _${consistentInterfaceName} } from "./types.ts";\n\n`;
+
+  // Service metadata
+  code += "// Service metadata\n";
+  code += "const metadata = {\n";
+  code += `  sdkId: "${metadata.sdkId}",\n`;
+  code += `  version: "${metadata.version}",\n`;
+  code += `  protocol: "${metadata.protocol}",\n`;
+  code += `  sigV4ServiceName: "${metadata.sigV4ServiceName}",\n`;
+  if (metadata.endpointPrefix) {
+    code += `  endpointPrefix: "${metadata.endpointPrefix}",\n`;
+  }
+  if (metadata.targetPrefix) {
+    code += `  targetPrefix: "${metadata.targetPrefix}",\n`;
+  }
+  if (metadata.globalEndpoint) {
+    code += `  globalEndpoint: "${metadata.globalEndpoint}",\n`;
+  }
+  if (metadata.signingRegion) {
+    code += `  signingRegion: "${metadata.signingRegion}",\n`;
+  }
+  if (metadata.operations && Object.keys(metadata.operations).length > 0) {
+    code += "  operations: {\n";
+    Object.entries(metadata.operations).forEach(([opName, opSpec]) => {
+      if (typeof opSpec === "string") {
+        // Simple HTTP mapping (existing behavior)
+        code += `    "${opName}": "${opSpec}",\n`;
+      } else {
+        // Complex mapping with traits
+        code += `    "${opName}": {\n`;
+        if ((opSpec as any).http) {
+          code += `      http: "${(opSpec as any).http}",\n`;
+        }
+        if ((opSpec as any).traits) {
+          code += "      traits: {\n";
+          Object.entries((opSpec as any).traits).forEach(
+            ([fieldName, trait]) => {
+              code += `        "${fieldName}": "${trait}",\n`;
+            },
+          );
+          code += "      },\n";
+        }
+        code += "    },\n";
+      }
+    });
+    code += "  },\n";
+  }
+  code += "} as const satisfies ServiceMetadata;\n\n";
+
+  // Re-export all types from types.ts for backward compatibility
+  code += "// Re-export all types from types.ts for backward compatibility\n";
+  code += 'export type * from "./types.ts";\n\n';
+
+  // Service class implementation
+
+  code += `export const ${consistentInterfaceName} = class extends AWSServiceClient {\n`;
+  code += "  constructor(cfg: Partial<AWSClientConfig> = {}) {\n";
+  code += "    const config: AWSClientConfig = {\n";
+  code += '      region: cfg.region ?? "us-east-1",\n';
+  code += "      credentials: cfg.credentials,\n";
+  code += "      endpoint: cfg.endpoint,\n";
+  code += "    };\n";
+  code += "    super(config);\n";
+  code +=
+    "    // biome-ignore lint/correctness/noConstructorReturn: deliberate proxy usage\n";
+  if (protocolInfo.handler !== "undefined") {
+    code += `    return createServiceProxy(metadata, this.config, ${protocolInfo.handler});\n`;
+  } else {
+    code += "    return createServiceProxy(metadata, this.config);\n";
+  }
+  code += "  }\n";
+  code += `} as unknown as typeof _${consistentInterfaceName};\n`;
+
+  return code;
+};
+
+const generateServiceTypes = (serviceName: string, manifest: Manifest) =>
   Effect.gen(function* () {
     // Check if we need Data import (only if there are error classes)
     let needsDataImport = false;
@@ -634,18 +775,13 @@ const generateServiceCode = (serviceName: string, manifest: Manifest) =>
     // Extract service metadata
     const serviceTraits = serviceShape.traits || {};
     const serviceInfo = (serviceTraits["aws.api#service"] as any) || {};
+    const sigV4ServiceInfo = (serviceTraits["aws.auth#sigv4"] as any) || {};
     const sdkId = serviceInfo.sdkId || "";
-    const arnNamespace = serviceInfo.arnNamespace || "";
-    const cloudFormationName = serviceInfo.cloudFormationName || "";
-    const endpointPrefix = serviceInfo.endpointPrefix || "";
+    const endpointPrefix = serviceInfo.endpointPrefix || undefined;
+    const sigV4ServiceName = sigV4ServiceInfo?.name || undefined;
 
     // Extract version from service shape (direct property, not in traits)
     const version = (serviceShape as any).version || "";
-
-    // Extract cloudTrailEventSource with fallback to arnNamespace + ".amazonaws.com"
-    const cloudTrailEventSource =
-      serviceInfo.cloudTrailEventSource ||
-      (arnNamespace ? `${arnNamespace}.amazonaws.com` : "");
 
     // Determine protocol
     let protocol = "unknown";
@@ -1137,14 +1273,13 @@ const generateServiceCode = (serviceName: string, manifest: Manifest) =>
     }
 
     // Store metadata for the service
+    // FIXME: shouldn't this be typed to ServiceMetdata?
     const metadata = {
       sdkId,
       version,
-      arnNamespace,
-      cloudFormationName,
-      cloudTrailEventSource,
       endpointPrefix,
       protocol,
+      sigV4ServiceName,
       targetPrefix,
       globalEndpoint,
       signingRegion,
@@ -1156,66 +1291,6 @@ const generateServiceCode = (serviceName: string, manifest: Manifest) =>
 
     return { code, metadata };
   });
-
-// Generate metadata file
-const generateMetadataFile = (servicesMetadata: Record<string, any>) => {
-  let code = `// Auto-generated service metadata
-export const serviceMetadata = {\n`;
-
-  Object.entries(servicesMetadata)
-    .sort(([a], [b]) => a.localeCompare(b)) // Sort alphabetically by service name
-    .forEach(([_service, meta]) => {
-      // Use the consistent interface name as the key, same as service class generation
-      let consistentInterfaceName = meta.sdkId.replace(/\s+/g, ""); // Remove spaces to make valid TS identifier
-      // Convert to lowercase for metadata key to match client.ts lookup pattern
-      const metadataKey = consistentInterfaceName.toLowerCase();
-      code += `  ${metadataKey}: {\n`;
-      code += `    sdkId: "${meta.sdkId}",\n`;
-      code += `    version: "${meta.version}",\n`;
-      code += `    arnNamespace: "${meta.arnNamespace}",\n`;
-      code += `    cloudTrailEventSource: "${meta.cloudTrailEventSource}",\n`;
-      code += `    endpointPrefix: "${meta.endpointPrefix}",\n`;
-      code += `    protocol: "${meta.protocol}",\n`;
-      if (meta.targetPrefix) {
-        code += `    targetPrefix: "${meta.targetPrefix}",\n`;
-      }
-      // Only include optional fields if they are defined
-      if (meta.globalEndpoint) {
-        code += `    globalEndpoint: "${meta.globalEndpoint}",\n`;
-      }
-      if (meta.signingRegion) {
-        code += `    signingRegion: "${meta.signingRegion}",\n`;
-      }
-      if (meta.operations) {
-        code += "    operations: {\n";
-        Object.entries(meta.operations).forEach(([opName, opSpec]) => {
-          if (typeof opSpec === "string") {
-            // Simple HTTP mapping (existing behavior)
-            code += `      "${opName}": "${opSpec}",\n`;
-          } else {
-            // Complex mapping with traits
-            code += `      "${opName}": {\n`;
-            if (opSpec.http) {
-              code += `        http: "${opSpec.http}",\n`;
-            }
-            if (opSpec.traits) {
-              code += "        traits: {\n";
-              Object.entries(opSpec.traits).forEach(([fieldName, trait]) => {
-                code += `          "${fieldName}": "${trait}",\n`;
-              });
-              code += "        },\n";
-            }
-            code += "      },\n";
-          }
-        });
-        code += "    },\n";
-      }
-      code += "  },\n";
-    });
-
-  code += "} as const;\n";
-  return code;
-};
 
 // Generate index file that exports all services
 const generateIndexFile = (
@@ -1321,8 +1396,8 @@ const program = Effect.gen(function* () {
       const serviceInfo = (serviceTraits["aws.api#service"] as any) || {};
       const sdkId = serviceInfo.sdkId || serviceName;
 
-      // Generate the code
-      const { code, metadata } = yield* generateServiceCode(
+      // Generate the types and metadata
+      const { code: typesCode, metadata } = yield* generateServiceTypes(
         serviceName,
         manifest,
       );
@@ -1359,19 +1434,22 @@ const program = Effect.gen(function* () {
         friendlyName: sdkId,
       });
 
-      // Write the generated file
-      const outputPath = `src/services/${serviceName}/index.ts`;
+      // Generate the service index code
+      const indexCode = generateServiceIndex(
+        metadata,
+        awsInterfaceName,
+        serviceName,
+      );
+
+      // Write both files
       const outputDir = `src/services/${serviceName}`;
       yield* fs.makeDirectory(outputDir, { recursive: true });
-      yield* fs.writeFileString(outputPath, code);
+      yield* fs.writeFileString(`${outputDir}/types.ts`, typesCode);
+      yield* fs.writeFileString(`${outputDir}/index.ts`, indexCode);
     } catch (_error) {
       // Continue with other services instead of failing completely
     }
   }
-
-  // Generate metadata file
-  const metadataCode = generateMetadataFile(servicesMetadata);
-  yield* fs.writeFileString("src/metadata.ts", metadataCode);
 
   // Generate index file
   const indexCode = generateIndexFile(awsServiceExports);
