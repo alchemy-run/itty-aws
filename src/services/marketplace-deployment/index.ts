@@ -23,13 +23,14 @@ const metadata = {
 export type * from "./types.ts";
 
 export const MarketplaceDeployment = class extends AWSServiceClient {
-  constructor(config: AWSClientConfig) {
-    config = {
-      ...config,
-      protocolHandler: new RestJson1Handler(),
+  constructor(cfg: Partial<AWSClientConfig> = {}) {
+    const config: AWSClientConfig = {
+      region: cfg.region ?? "us-east-1",
+      credentials: cfg.credentials,
+      endpoint: cfg.endpoint,
     };
     super(config);
     // biome-ignore lint/correctness/noConstructorReturn: deliberate proxy usage
-    return createServiceProxy(metadata, this.config);
+    return createServiceProxy(metadata, this.config, new RestJson1Handler());
   }
 } as unknown as typeof _MarketplaceDeployment;

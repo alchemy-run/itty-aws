@@ -705,17 +705,20 @@ const generateServiceIndex = (
   // Service class implementation
 
   code += `export const ${consistentInterfaceName} = class extends AWSServiceClient {\n`;
-  code += "  constructor(config: AWSClientConfig) {\n";
-  code += "    config = {\n";
-  code += "      ...config,\n";
-  if (protocolInfo.handler !== "undefined") {
-    code += `      protocolHandler: ${protocolInfo.handler},\n`;
-  }
-  code += "    }\n";
+  code += "  constructor(cfg: Partial<AWSClientConfig> = {}) {\n";
+  code += "    const config: AWSClientConfig = {\n";
+  code += '      region: cfg.region ?? "us-east-1",\n';
+  code += "      credentials: cfg.credentials,\n";
+  code += "      endpoint: cfg.endpoint,\n";
+  code += "    };\n";
   code += "    super(config);\n";
   code +=
     "    // biome-ignore lint/correctness/noConstructorReturn: deliberate proxy usage\n";
-  code += "    return createServiceProxy(metadata, this.config);\n";
+  if (protocolInfo.handler !== "undefined") {
+    code += `    return createServiceProxy(metadata, this.config, ${protocolInfo.handler});\n`;
+  } else {
+    code += "    return createServiceProxy(metadata, this.config);\n";
+  }
   code += "  }\n";
   code += `} as unknown as typeof _${consistentInterfaceName};\n`;
 

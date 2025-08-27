@@ -56,7 +56,6 @@ export interface AWSClientConfig {
   readonly credentials?: AwsCredentials;
   readonly region?: string;
   readonly endpoint?: string;
-  readonly protocolHandler: ProtocolHandler;
 }
 
 // Base AWS service class that all services extend
@@ -67,7 +66,6 @@ export abstract class AWSServiceClient {
       region: config.region ?? "us-east-1",
       credentials: config.credentials ?? (undefined as any), // Will be resolved later
       endpoint: config.endpoint ?? (undefined as any), // Will be resolved per service
-      protocolHandler: config.protocolHandler,
     };
   }
 }
@@ -92,6 +90,7 @@ async function createAwsClient(service: string, config: AWSClientConfig) {
 export function createServiceProxy<T>(
   metadata: ServiceMetadata,
   config: AWSClientConfig,
+  protocolHandler: ProtocolHandler,
 ): T {
   const _client: Promise<AwsClient> = createAwsClient(
     metadata.sigV4ServiceName,
@@ -116,11 +115,7 @@ export function createServiceProxy<T>(
 
             // Build request with protocol handler
             const req = yield* Effect.promise(() =>
-              config.protocolHandler.buildHttpRequest(
-                input,
-                operation,
-                metadata,
-              ),
+              protocolHandler.buildHttpRequest(input, operation, metadata),
             );
 
             // Use custom endpoint, global endpoint, or construct regional AWS endpoint
@@ -178,7 +173,7 @@ export function createServiceProxy<T>(
 
             if (statusCode >= 200 && statusCode < 300) {
               // Success
-              const result = config.protocolHandler.parseResponse(
+              const result = protocolHandler.parseResponse(
                 responseText,
                 statusCode,
                 metadata,
@@ -188,7 +183,7 @@ export function createServiceProxy<T>(
               return yield* Effect.promise(() => result);
             } else {
               // Error handling - now standardized across all protocols
-              const parsedError = config.protocolHandler.parseError(
+              const parsedError = protocolHandler.parseError(
                 responseText,
                 statusCode,
                 response.headers,

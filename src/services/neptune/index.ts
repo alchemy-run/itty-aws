@@ -17,13 +17,18 @@ const metadata = {
 export type * from "./types.ts";
 
 export const Neptune = class extends AWSServiceClient {
-  constructor(config: AWSClientConfig) {
-    config = {
-      ...config,
-      protocolHandler: new AwsQueryHandler(protocolMetadata),
+  constructor(cfg: Partial<AWSClientConfig> = {}) {
+    const config: AWSClientConfig = {
+      region: cfg.region ?? "us-east-1",
+      credentials: cfg.credentials,
+      endpoint: cfg.endpoint,
     };
     super(config);
     // biome-ignore lint/correctness/noConstructorReturn: deliberate proxy usage
-    return createServiceProxy(metadata, this.config);
+    return createServiceProxy(
+      metadata,
+      this.config,
+      new AwsQueryHandler(protocolMetadata),
+    );
   }
 } as unknown as typeof _Neptune;

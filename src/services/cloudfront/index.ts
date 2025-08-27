@@ -697,13 +697,14 @@ const metadata = {
 export type * from "./types.ts";
 
 export const CloudFront = class extends AWSServiceClient {
-  constructor(config: AWSClientConfig) {
-    config = {
-      ...config,
-      protocolHandler: new RestXmlHandler(),
+  constructor(cfg: Partial<AWSClientConfig> = {}) {
+    const config: AWSClientConfig = {
+      region: cfg.region ?? "us-east-1",
+      credentials: cfg.credentials,
+      endpoint: cfg.endpoint,
     };
     super(config);
     // biome-ignore lint/correctness/noConstructorReturn: deliberate proxy usage
-    return createServiceProxy(metadata, this.config);
+    return createServiceProxy(metadata, this.config, new RestXmlHandler());
   }
 } as unknown as typeof _CloudFront;
