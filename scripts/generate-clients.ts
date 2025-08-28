@@ -1329,39 +1329,6 @@ const generateIndexFile = (
   return code;
 };
 
-// Generate AWS services type file
-const generateAwsFile = (
-  serviceExports: Array<{
-    serviceName: string;
-    serviceInterfaceName: string;
-    friendlyName: string;
-  }>,
-) => {
-  let code = "// Auto-generated AWS services re-exports\n\n";
-
-  // Sort services alphabetically by friendly name
-  const sortedServices = serviceExports.sort((a, b) =>
-    a.friendlyName.localeCompare(b.friendlyName),
-  );
-
-  // Re-export each service class directly using friendly names
-  sortedServices.forEach(
-    ({ serviceName, serviceInterfaceName, friendlyName }) => {
-      // Remove spaces and make it a valid TypeScript export name
-      const exportName = friendlyName.replace(/\s+/g, "");
-
-      // If the friendly name differs from the interface name, alias it
-      if (exportName !== serviceInterfaceName) {
-        code += `export { ${serviceInterfaceName} as ${exportName} } from "./services/${serviceName}/index.ts";\n`;
-      } else {
-        code += `export { ${serviceInterfaceName} } from "./services/${serviceName}/index.ts";\n`;
-      }
-    },
-  );
-
-  return code;
-};
-
 // Main program
 const program = Effect.gen(function* () {
   const fs = yield* FileSystem.FileSystem;
@@ -1454,10 +1421,6 @@ const program = Effect.gen(function* () {
   // Generate index file
   const indexCode = generateIndexFile(awsServiceExports);
   yield* fs.writeFileString("src/services/index.ts", indexCode);
-
-  // Generate AWS services type file
-  const awsCode = generateAwsFile(awsServiceExports);
-  yield* fs.writeFileString("src/aws.ts", awsCode);
 });
 
 // Run the program
