@@ -3,6 +3,7 @@ import { AwsV4Signer } from "aws4fetch";
 import * as Data from "effect/Data";
 import * as Effect from "effect/Effect";
 import type { AwsErrorMeta } from "./error.ts";
+import { DefaultFetch, Fetch } from "./fetch.service.ts";
 import type { ProtocolHandler } from "./protocols/interface.ts";
 
 // Helper to create service-specific error dynamically
@@ -83,8 +84,9 @@ export function createServiceProxy<T>(
           return undefined;
         }
 
-        return (input: unknown) =>
-          Effect.gen(function* () {
+        return (input: unknown) => {
+          const program = Effect.gen(function* () {
+            const fetchSvc = yield* Fetch;
             const credentials = yield* Effect.promise(() => getCredentials());
 
             // Convert camelCase method to PascalCase operation
@@ -139,7 +141,7 @@ export function createServiceProxy<T>(
 
             // Use global fetch instead of client.fetch
             const response = yield* Effect.promise(() =>
-              fetch(signedRequest.url.toString(), {
+              fetchSvc.fetch(signedRequest.url.toString(), {
                 method: signedRequest.method,
                 headers: signedRequest.headers,
                 body: signedRequest.body,
@@ -196,7 +198,9 @@ export function createServiceProxy<T>(
                 }),
               );
             }
-          });
+          }).pipe(Effect.provideService(Fetch, DefaultFetch));
+          return program;
+        };
       },
     },
   ) as T;
