@@ -9,6 +9,7 @@
       "devDependencies": {
         "@aws-sdk/credential-providers": "^3",
         "@biomejs/biome": "^2.1.1",
+        "@effect/language-service": "^0.36.0",
         "@effect/platform": "^0.87.12",
         "@effect/platform-node": "^0.89.5",
         "@effect/vitest": "^0.23.12",
@@ -110,6 +111,8 @@
     "@effect/cluster": ["@effect/cluster@0.41.17", "", { "peerDependencies": { "@effect/platform": "^0.87.12", "@effect/rpc": "^0.64.13", "@effect/sql": "^0.40.13", "@effect/workflow": "^0.4.13", "effect": "^3.16.12" } }, "sha512-VCsyCbTRrYxashuZFWo7IS9RptXB5a7DUXlKJFlxd9swXWMxlvSX4D/KGayJXuWhogyMrQAvmUjC53bxj3Gm/w=="],
 
     "@effect/experimental": ["@effect/experimental@0.51.13", "", { "dependencies": { "uuid": "^11.0.3" }, "peerDependencies": { "@effect/platform": "^0.87.12", "effect": "^3.16.12", "ioredis": "^5", "lmdb": "^3" }, "optionalPeers": ["ioredis", "lmdb"] }, "sha512-5dqPCO6HT6zLQw2yZaVZgIY4gytr1YQA3ZxfKyXPymKBTyTog0vrQxAiV7KUhXHQLpxvEdmaSisr/S1WUYUBrA=="],
+
+    "@effect/language-service": ["@effect/language-service@0.36.0", "", { "bin": { "effect-language-service": "cli.js" } }, "sha512-KoE5e+7vhcd29fBTDBvttWHv1z1KPg9Ji2DyhD0hETBaoM9IsFymboD6WqpDoGH1QZRr6CmTD3DfaZUs8K6Mrg=="],
 
     "@effect/platform": ["@effect/platform@0.87.12", "", { "dependencies": { "find-my-way-ts": "^0.1.6", "msgpackr": "^1.11.4", "multipasta": "^0.2.5" }, "peerDependencies": { "effect": "^3.16.12" } }, "sha512-IRYynFjo18wmfTd0FVNAXSC631+gE1yBeBfcOHtPLyMlApjhB31YzaCs+T9kY1cBrE7nZ78lJl0MtHmu1W9Wkw=="],
 
