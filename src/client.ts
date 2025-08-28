@@ -2,15 +2,7 @@ import { fromNodeProviderChain } from "@aws-sdk/credential-providers";
 import { AwsV4Signer } from "aws4fetch";
 import * as Data from "effect/Data";
 import * as Effect from "effect/Effect";
-import {
-  AccessDeniedException,
-  RequestTimeout,
-  ServiceUnavailable,
-  ThrottlingException,
-  UnauthorizedException,
-  ValidationException,
-  type AwsErrorMeta,
-} from "./error.ts";
+import type { AwsErrorMeta } from "./error.ts";
 import type { ProtocolHandler } from "./protocols/interface.ts";
 
 // Helper to create service-specific error dynamically
@@ -197,38 +189,12 @@ export function createServiceProxy<T>(
               };
 
               // Use the sanitized error type directly from the protocol handler
-              const errorType = parsedError.errorType;
-
-              // Map to specific error types
-              switch (errorType) {
-                case "ThrottlingException":
-                case "TooManyRequestsException":
-                  yield* Effect.fail(new ThrottlingException(errorMeta));
-                  break;
-                case "ServiceUnavailable":
-                  yield* Effect.fail(new ServiceUnavailable(errorMeta));
-                  break;
-                case "RequestTimeout":
-                  yield* Effect.fail(new RequestTimeout(errorMeta));
-                  break;
-                case "AccessDeniedException":
-                  yield* Effect.fail(new AccessDeniedException(errorMeta));
-                  break;
-                case "UnauthorizedException":
-                  yield* Effect.fail(new UnauthorizedException(errorMeta));
-                  break;
-                case "ValidationException":
-                  yield* Effect.fail(new ValidationException(errorMeta));
-                  break;
-                default:
-                  // All service-specific errors - create dynamically with correct _tag
-                  yield* Effect.fail(
-                    createServiceError(errorType, {
-                      ...errorMeta,
-                      message: parsedError.message,
-                    }),
-                  );
-              }
+              yield* Effect.fail(
+                createServiceError(parsedError.errorType, {
+                  ...errorMeta,
+                  message: parsedError.message,
+                }),
+              );
             }
           });
       },
