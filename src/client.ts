@@ -1,5 +1,5 @@
 import { fromNodeProviderChain } from "@aws-sdk/credential-providers";
-import { AwsClient } from "aws4fetch";
+import { AwsV4Signer } from "aws4fetch";
 import * as Data from "effect/Data";
 import * as Effect from "effect/Effect";
 import {
@@ -70,32 +70,18 @@ export abstract class AWSServiceClient {
   }
 }
 
-// Promise-based AWS client creator
-async function createAwsClient(service: string, config: AWSClientConfig) {
-  // Use provided credentials or fall back to AWS credential chain
-  const credentials = config.credentials
-    ? config.credentials
-    : await fromNodeProviderChain()();
-
-  return new AwsClient({
-    accessKeyId: credentials.accessKeyId,
-    secretAccessKey: credentials.secretAccessKey,
-    sessionToken: credentials.sessionToken,
-    service: service,
-    region: config.region,
-  });
-}
-
 // Standalone service proxy creator function
 export function createServiceProxy<T>(
   metadata: ServiceMetadata,
   config: AWSClientConfig,
   protocolHandler: ProtocolHandler,
 ): T {
-  const _client: Promise<AwsClient> = createAwsClient(
-    metadata.sigV4ServiceName,
-    config,
-  );
+  // Get credentials - either provided or from AWS credential chain
+  const getCredentials = async () => {
+    return config.credentials
+      ? config.credentials
+      : await fromNodeProviderChain()();
+  };
 
   return new Proxy(
     {},
@@ -107,7 +93,7 @@ export function createServiceProxy<T>(
 
         return (input: unknown) =>
           Effect.gen(function* () {
-            const client = yield* Effect.promise(() => _client);
+            const credentials = yield* Effect.promise(() => getCredentials());
 
             // Convert camelCase method to PascalCase operation
             const operation =
@@ -129,26 +115,42 @@ export function createServiceProxy<T>(
             // Build full URL with path
             const fullUrl = endpoint.replace(/\/$/, "") + req.path;
 
+            // Create AWS V4 Signer for this request
+            const signer = new AwsV4Signer({
+              method: req.method,
+              url: fullUrl,
+              headers: req.headers,
+              body:
+                req.method === "GET" || req.method === "DELETE"
+                  ? undefined
+                  : req.body,
+              accessKeyId: credentials.accessKeyId,
+              secretAccessKey: credentials.secretAccessKey,
+              sessionToken: credentials.sessionToken,
+              service: metadata.sigV4ServiceName,
+              region: config.region,
+            });
+
+            // Sign the request
+            const signedRequest = yield* Effect.promise(() => signer.sign());
+
             // Log the AWS request
             yield* Effect.logDebug("AWS Request", {
               service: metadata.sdkId,
               operation,
-              method: req.method,
-              url: fullUrl,
-              headers: req.headers,
+              method: signedRequest.method,
+              url: signedRequest.url.toString(),
+              headers: signedRequest.headers,
               input,
-              body: req.body,
+              body: signedRequest.body,
             });
 
+            // Use global fetch instead of client.fetch
             const response = yield* Effect.promise(() =>
-              client.fetch(fullUrl, {
-                method: req.method,
-                headers: req.headers,
-                // Don't send body for GET/DELETE requests
-                body:
-                  req.method === "GET" || req.method === "DELETE"
-                    ? undefined
-                    : req.body,
+              fetch(signedRequest.url.toString(), {
+                method: signedRequest.method,
+                headers: signedRequest.headers,
+                body: signedRequest.body,
               }),
             ).pipe(Effect.timeout("30 seconds")); //FIXME: why a 30-second timeout?
 
