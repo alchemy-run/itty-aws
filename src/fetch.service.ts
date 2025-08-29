@@ -19,7 +19,7 @@ export const Fetch = Context.Tag("Fetch")<
 export const DefaultFetch: Fetch = {
   fetch: (info, init) => {
     return globalThis.fetch(info as any, init as any);
-  }
+  },
 };
 
 // export const DefaultFetchLayer = Layer.succeed(

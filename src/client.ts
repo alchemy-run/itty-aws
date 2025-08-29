@@ -70,7 +70,6 @@ export function createServiceProxy<T>(
   config: AWSClientConfig,
   protocolHandler: ProtocolHandler,
 ): T {
-
   return new Proxy(
     {},
     {
@@ -80,17 +79,22 @@ export function createServiceProxy<T>(
         }
 
         return (input: unknown) => {
-          const program = Effect.gen(function* () {   
+          const program = Effect.gen(function* () {
             const fetchSvc = Option.match(yield* Effect.serviceOption(Fetch), {
               onSome: (fetch) => fetch,
-              onNone: () => DefaultFetch
+              onNone: () => DefaultFetch,
             });
-            const credentialSvc = Option.match(yield* Effect.serviceOption(Credentials), {
-              onSome: (cred) => cred,
-              onNone: () => DefaultCredentials
-            });
-            
-            const credentials = yield* Effect.promise(() => credentialSvc.getCredentials());
+            const credentialSvc = Option.match(
+              yield* Effect.serviceOption(Credentials),
+              {
+                onSome: (cred) => cred,
+                onNone: () => DefaultCredentials,
+              },
+            );
+
+            const credentials = yield* Effect.promise(() =>
+              credentialSvc.getCredentials(),
+            );
 
             // Convert camelCase method to PascalCase operation
             const operation =
@@ -208,5 +212,3 @@ export function createServiceProxy<T>(
     },
   ) as T;
 }
-
-
