@@ -21,4 +21,3 @@ export const DefaultFetch: Fetch = {
     return globalThis.fetch(info as any, init as any);
   },
 };
-
