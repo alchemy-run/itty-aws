@@ -17,5 +17,18 @@ export const Fetch = Context.Tag("Fetch")<
 >();
 
 export const DefaultFetch: Fetch = {
-  fetch: (info, init) => globalThis.fetch(info as any, init as any),
+  fetch: (info, init) => {
+    console.log("default implementation used.");
+    return globalThis.fetch(info as any, init as any);
+  }
 };
+
+// export const DefaultFetchLayer = Layer.succeed(
+//   Fetch,
+//   {
+//     fetch: (info, init) => {
+//         console.log("default fetch implementation was called");
+//         return globalThis.fetch(info as any, init as any);
+//   }
+//   }
+// )

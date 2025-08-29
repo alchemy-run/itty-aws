@@ -2,6 +2,7 @@ import { fromNodeProviderChain } from "@aws-sdk/credential-providers";
 import { AwsV4Signer } from "aws4fetch";
 import * as Data from "effect/Data";
 import * as Effect from "effect/Effect";
+import * as Option from "effect/Option";
 import type { AwsErrorMeta } from "./error.ts";
 import { DefaultFetch, Fetch } from "./fetch.service.ts";
 import type { ProtocolHandler } from "./protocols/interface.ts";
@@ -79,14 +80,17 @@ export function createServiceProxy<T>(
   return new Proxy(
     {},
     {
-      get(_, methodName: string | symbol) {
+      get(_, methodName) {
         if (typeof methodName !== "string") {
           return undefined;
         }
 
         return (input: unknown) => {
-          const program = Effect.gen(function* () {
-            const fetchSvc = yield* Fetch;
+          const program = Effect.gen(function* () {   
+            const fetchSvc = Option.match(yield* Effect.serviceOption(Fetch), {
+              onSome: (fetch) => fetch,
+              onNone: () => DefaultFetch
+            })
             const credentials = yield* Effect.promise(() => getCredentials());
 
             // Convert camelCase method to PascalCase operation
@@ -198,10 +202,12 @@ export function createServiceProxy<T>(
                 }),
               );
             }
-          }).pipe(Effect.provideService(Fetch, DefaultFetch));
+          });
           return program;
         };
       },
     },
   ) as T;
 }
+
+
