@@ -10,10 +10,10 @@ A lightweight AWS SDK implementation for [Effect](https://effect.website) implem
 - **Fast cold starts**: No impact on Lambda startup times
 
 ```ts
-import { AWS } from "itty-aws";
+import { DynamoDB } from "itty-aws/dynamodb";
 import { Effect, Schedule } from "effect";
 
-const ddb = new AWS.DynamoDB({ region: "us-east-1" });
+const ddb = new DynamoDB({ region: "us-east-1" });
 
 // Type-safe operations with built-in error handling
 const program = Effect.gen(function* () {
@@ -40,10 +40,10 @@ The official AWS SDK v3 is a massive 200+ NPM package monorepo with an awkward `
 
 `itty-aws` implements a standlone AWS SDK with a single PM package containing a `Proxy` and types generated from the Smithy spec. 
 
-`itty-aws` also brings back the good ol' days of `aws-sdk` (v2) where you have a single `AWS` object from which you can instantiate any client for any AWS service. Instead of the clunky `client.send(new Command())` syntax, `itty-aws` supports `client.apiName(..)` syntax:
+`itty-aws` also brings back the good ol' days of `aws-sdk` (v2) where instead of the clunky `client.send(new Command())` syntax, `itty-aws` supports `client.apiName(..)` syntax:
 
 ```ts
-const client = new AWS.DynamoDB({ region: "us-east-1" });
+const client = new DynamoDB({ region: "us-east-1" });
 
 // instead of just simply calling a method
 yield* client.getItem({
@@ -77,13 +77,13 @@ npm install itty-aws effect
 
 ## Usage
 
-Import the `AWS` proxy and create a client for the service you want to use. The service will expose each API as a method that returns an `Effect` value with the correct response and error types.
+Create a client for the service you want to use. The service will expose each API as a method that returns an `Effect` value with the correct response and error types.
 
 ```ts
-import { AWS } from "itty-aws";
+import { DynamoDB } from "itty-aws/dynamodb";
 import { Effect, Console, Schedule } from "effect";
 
-const ddb = new AWS.DynamoDB({ region: "us-east-1" });
+const ddb = new DynamoDB({ region: "us-east-1" });
 
 const program = Effect.gen(function* () {
   // All operations return Effect values with typed errors
@@ -109,45 +109,6 @@ const program = Effect.gen(function* () {
 
 // Execute the program
 Effect.runPromise(program);
-```
-
-## Debug Logging
-
-`itty-aws` includes built-in debug logging using Effect's structured logging system. Enable debug logging to see detailed AWS request and response information:
-
-```ts
-import { AWS } from "itty-aws";
-import { Effect, Logger, LogLevel } from "effect";
-
-const s3 = new AWS.S3({ region: "us-east-1" });
-
-const program = s3.listBuckets({}).pipe(
-  Logger.withMinimumLogLevel(LogLevel.Debug)
-);
-
-Effect.runPromise(program);
-```
-
-Debug logs include:
-- **AWS Request**: Service name, action, and input parameters
-- **AWS Response**: HTTP status code and response headers
-
-Example debug output:
-```
-timestamp=2025-08-12T13:38:21.596Z level=DEBUG fiber=#0 message="AWS Request" message="{
-  \"service\": \"dynamodb\",
-  \"action\": \"ListTables\", 
-  \"input\": {}
-}"
-timestamp=2025-08-12T13:38:21.722Z level=DEBUG fiber=#0 message="AWS Response" message="{
-  \"service\": \"dynamodb\",
-  \"action\": \"ListTables\",
-  \"statusCode\": 200,
-  \"headers\": {
-    \"content-type\": \"application/x-amz-json-1.0\",
-    \"x-amzn-requestid\": \"FJG4U0QQCEIBGU9T4QL7CAGDHFVV4KQNSO5AEMVJF66Q9ASUAAJG\"
-  }
-}"
 ```
 
 ## Exact Error Modeling
@@ -178,19 +139,11 @@ We use the official AWS API models from the [`aws/api-models-aws`](https://githu
 
 The Smithy specifications are then used to generate TypeScript types (types only, no runtime code) for each service in [src/services](src/services).
 
-The [src/client.ts](src/client.ts) file contains the `AWS` proxy that is used to dynamically construct:
+The [src/client.ts](src/client.ts) file contains the proxy that is used to dynamically construct:
 1. the Client for a service.
 2. TaggedError types for each error code.
 
-The Service's Client is yet anothe Proxy that intercepts method calls to infer the API name and then submit the request to AWS via `aws4fetch` which signs the request.
+The service's client is a Proxy that intercepts method calls to infer the API name and then submit the request to AWS via `aws4fetch` which signs the request.
 
-All of the Service's errors are modeled with TaggedErrors, except purely as `declare class` to avoid the code size cost of a physical class. The `AWS` proxy detects references ending with `Exception` and dynamically constructs the correct `TaggedError` type on the fly.
-
-## Status
-
-The entire AWS SDK (including all Services and APIs) fits in to a
-
-- Minified bundle size of: `1347.3 KB`.
-- Un-minified bundle size of: `2066.0 KB`.
-- Core bundle size (excluding Effect.js): `1215.3 KB`.
+All of the service's errors are modeled with TaggedErrors, except purely as `declare class` to avoid the code size cost of a physical class. The proxy detects constructs the correct `TaggedError` type on the fly from the AWS service response.
 
