@@ -1,8 +1,8 @@
-import { fromNodeProviderChain } from "@aws-sdk/credential-providers";
 import { AwsV4Signer } from "aws4fetch";
 import * as Data from "effect/Data";
 import * as Effect from "effect/Effect";
 import * as Option from "effect/Option";
+import { Credentials, DefaultCredentials } from "./credential.service.ts";
 import type { AwsErrorMeta } from "./error.ts";
 import { DefaultFetch, Fetch } from "./fetch.service.ts";
 import type { ProtocolHandler } from "./protocols/interface.ts";
@@ -70,12 +70,6 @@ export function createServiceProxy<T>(
   config: AWSClientConfig,
   protocolHandler: ProtocolHandler,
 ): T {
-  // Get credentials - either provided or from AWS credential chain
-  const getCredentials = async () => {
-    return config.credentials
-      ? config.credentials
-      : await fromNodeProviderChain()();
-  };
 
   return new Proxy(
     {},
@@ -90,8 +84,13 @@ export function createServiceProxy<T>(
             const fetchSvc = Option.match(yield* Effect.serviceOption(Fetch), {
               onSome: (fetch) => fetch,
               onNone: () => DefaultFetch
-            })
-            const credentials = yield* Effect.promise(() => getCredentials());
+            });
+            const credentialSvc = Option.match(yield* Effect.serviceOption(Credentials), {
+              onSome: (cred) => cred,
+              onNone: () => DefaultCredentials
+            });
+            
+            const credentials = yield* Effect.promise(() => credentialSvc.getCredentials());
 
             // Convert camelCase method to PascalCase operation
             const operation =

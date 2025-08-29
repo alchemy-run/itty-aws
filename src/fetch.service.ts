@@ -18,7 +18,6 @@ export const Fetch = Context.Tag("Fetch")<
 
 export const DefaultFetch: Fetch = {
   fetch: (info, init) => {
-    console.log("default implementation used.");
     return globalThis.fetch(info as any, init as any);
   }
 };
