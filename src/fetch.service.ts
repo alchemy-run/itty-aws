@@ -22,12 +22,3 @@ export const DefaultFetch: Fetch = {
   },
 };
 
-// export const DefaultFetchLayer = Layer.succeed(
-//   Fetch,
-//   {
-//     fetch: (info, init) => {
-//         console.log("default fetch implementation was called");
-//         return globalThis.fetch(info as any, init as any);
-//   }
-//   }
-// )
