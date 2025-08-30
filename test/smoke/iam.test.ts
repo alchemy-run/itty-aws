@@ -12,19 +12,25 @@ describe("IAM Smoke Tests", () => {
   const deleteUserIfExists = (userName: string) =>
     client.deleteUser({ UserName: userName }).pipe(
       Effect.tap(() => Console.log(`Cleaned up existing user: ${userName}`)),
-      Effect.catchTag("NoSuchEntityException", () => Effect.succeed("User doesn't exist.")),
+      Effect.catchTag("NoSuchEntityException", () =>
+        Effect.succeed("User doesn't exist."),
+      ),
     );
 
   const deleteRoleIfExists = (roleName: string) =>
     client.deleteRole({ RoleName: roleName }).pipe(
       Effect.tap(() => Console.log(`Cleaned up existing role: ${roleName}`)),
-      Effect.catchTag("NoSuchEntityException", () => Effect.succeed("Role doesn't exist.")),
+      Effect.catchTag("NoSuchEntityException", () =>
+        Effect.succeed("Role doesn't exist."),
+      ),
     );
 
   const deletePolicyIfExists = (policyArn: string) =>
     client.deletePolicy({ PolicyArn: policyArn }).pipe(
       Effect.tap(() => Console.log(`Cleaned up existing policy: ${policyArn}`)),
-      Effect.catchTag("NoSuchEntityException", () => Effect.succeed("Policy doesn't exist.")),
+      Effect.catchTag("NoSuchEntityException", () =>
+        Effect.succeed("Policy doesn't exist."),
+      ),
     );
 
   it.effect(
@@ -273,7 +279,9 @@ describe("IAM Smoke Tests", () => {
           })
           .pipe(
             Effect.map(() => ({ exists: true })),
-            Effect.catchTag("NoSuchEntityException", () => Effect.succeed({ exists: false })),
+            Effect.catchTag("NoSuchEntityException", () =>
+              Effect.succeed({ exists: false }),
+            ),
           );
 
         expect(deleteVerification.exists).toBe(false);
@@ -343,7 +351,9 @@ describe("IAM Smoke Tests", () => {
           })
           .pipe(
             Effect.map(() => ({ exists: true })),
-            Effect.catchTag("NoSuchEntityException", () => Effect.succeed({ exists: false })),
+            Effect.catchTag("NoSuchEntityException", () =>
+              Effect.succeed({ exists: false }),
+            ),
           );
 
         expect(deleteVerification.exists).toBe(false);
@@ -415,7 +425,9 @@ describe("IAM Smoke Tests", () => {
           })
           .pipe(
             Effect.map(() => ({ exists: true })),
-            Effect.catchTag("NoSuchEntityException", () => Effect.succeed({ exists: false })),
+            Effect.catchTag("NoSuchEntityException", () =>
+              Effect.succeed({ exists: false }),
+            ),
           );
 
         expect(deleteVerification.exists).toBe(false);
