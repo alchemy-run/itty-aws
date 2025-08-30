@@ -186,18 +186,13 @@ describe("IAM Smoke Tests", () => {
             UserName: "non-existent-user-12345",
           })
           .pipe(
-            Effect.map(() => ({ success: true, error: undefined })),
-            Effect.catchAll((error) =>
-              Effect.succeed({
-                success: false,
-                // FIXME: what is this mess
-                error: (error as any)?._tag || "UnknownError",
-              }),
+            Effect.map(() => ({ success: true })),
+            Effect.catchTag("NoSuchEntityException", () =>
+              Effect.succeed({ success: false }),
             ),
           );
 
         expect(errorResult.success).toBe(false);
-        expect(errorResult.error).toBeDefined();
 
         yield* Console.log("Error handling test completed successfully");
       }),
@@ -383,8 +378,8 @@ describe("IAM Smoke Tests", () => {
         // Step 0: Clean up any existing policy
         yield* Console.log("Step 0: Cleaning up any existing policy...");
         const sts = new STS({});
-        const accountId = yield* sts.getCallerIdentity({});
-        const policyArn = `arn:aws:iam::${accountId}:policy/test/${TEST_POLICY_NAME}`;
+        const identity = yield* sts.getCallerIdentity({});
+        const policyArn = `arn:aws:iam::${identity.Account}:policy/test/${TEST_POLICY_NAME}`;
         yield* deletePolicyIfExists(policyArn);
 
         // Create policy

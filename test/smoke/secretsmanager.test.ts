@@ -19,7 +19,6 @@ describe("SecretsManager Smoke Tests", () => {
           Console.log(`Cleaned up existing secret: ${secretName}`),
         ),
         Effect.catchTag("ResourceNotFoundException", () => Effect.void),
-        Effect.catchAll(() => Effect.void),
       );
 
   it.live(
@@ -195,13 +194,7 @@ describe("SecretsManager Smoke Tests", () => {
           .pipe(
             Effect.map(() => ({ success: true, error: undefined })),
             Effect.catchTag("ResourceNotFoundException", (error) =>
-              Effect.succeed({ success: false, error: error._tag }),
-            ),
-            Effect.catchAll((error) =>
-              Effect.succeed({
-                success: false,
-                error: error._tag || "UnknownError",
-              }),
+              Effect.succeed({ success: false, error: error.message }),
             ),
           );
 
@@ -328,14 +321,8 @@ describe("SecretsManager Smoke Tests", () => {
           })
           .pipe(
             Effect.map(() => ({ success: true, error: undefined })),
-            Effect.catchTag("InvalidParameterException", (error) =>
-              Effect.succeed({ success: false, error: error._tag }),
-            ),
-            Effect.catchAll((error) =>
-              Effect.succeed({
-                success: false,
-                error: error._tag || "UnknownError",
-              }),
+            Effect.catchTag("ValidationException", (error) =>
+              Effect.succeed({ success: false, error: error.message }),
             ),
           );
 

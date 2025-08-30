@@ -299,47 +299,41 @@ export class AwsQueryHandler implements ProtocolHandler {
     _statusCode: number,
     headers?: Headers,
   ): ParsedError {
+    // implementation based on protocol spec:
+    // https://smithy.io/2.0/aws/protocols/aws-query-protocol.html#operation-error-serialization
+
+    const getRequestId = (doc?: any): string | undefined =>
+      doc?.ErrorResponse?.RequestId ??
+      headers?.get("x-amzn-requestid") ??
+      headers?.get("x-amz-request-id");
+
     const doc = safeParseXml(responseText);
 
     if (!doc) {
       return {
         errorType: "UnknownError",
         message: responseText || "Unknown error",
-        requestId:
-          headers?.get("x-amzn-requestid") ||
-          headers?.get("x-amz-request-id") ||
-          undefined,
+        requestId: getRequestId(),
       };
     }
 
     // AWS Query error format: ErrorResponse -> Error
-    const errorNode = doc.ErrorResponse?.Error || doc.Error;
+    const errorNode = doc.ErrorResponse?.Error;
 
     if (!errorNode) {
       return {
         errorType: "UnknownError",
         message: responseText || "Unknown error",
-        requestId:
-          headers?.get("x-amzn-requestid") ||
-          headers?.get("x-amz-request-id") ||
-          undefined,
+        requestId: getRequestId(doc),
       };
     }
 
-    const errorType = errorNode.Code || "UnknownError";
-    const message = errorNode.Message || "Unknown error";
-
-    // Extract request ID from response metadata or headers
-    const requestId =
-      doc.ErrorResponse?.RequestId ||
-      headers?.get("x-amzn-requestid") ||
-      headers?.get("x-amz-request-id") ||
-      undefined;
-
     return {
-      errorType,
-      message,
-      requestId,
+      // structure names for exceptions (which get turned into types) include "Exception",
+      // but the error Code in the returned XML does not
+      errorType: `${errorNode.Code}Exception` || "UnknownError",
+      message: errorNode.Message || "Unknown error",
+      requestId: getRequestId(doc),
     };
   }
 }

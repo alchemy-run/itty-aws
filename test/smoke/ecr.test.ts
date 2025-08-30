@@ -16,8 +16,9 @@ describe("ECR Smoke Tests", () => {
         Effect.tap(() =>
           Console.log(`Cleaned up existing repository: ${repositoryName}`),
         ),
-        Effect.catchTag("RepositoryNotFoundException", () => Effect.void),
-        Effect.catchAll(() => Effect.void),
+        Effect.catchTag("RepositoryNotFoundException", () =>
+          Effect.succeed("Repository doesn't exist"),
+        ),
       );
 
   it.live(
@@ -186,12 +187,6 @@ describe("ECR Smoke Tests", () => {
             Effect.catchTag("RepositoryNotFoundException", (error) =>
               Effect.succeed({ success: false, error: error._tag }),
             ),
-            Effect.catchAll((error) =>
-              Effect.succeed({
-                success: false,
-                error: error._tag || "UnknownError",
-              }),
-            ),
           );
 
         expect(errorResult.success).toBe(false);
@@ -296,12 +291,6 @@ describe("ECR Smoke Tests", () => {
             Effect.map(() => ({ success: true, error: undefined })),
             Effect.catchTag("InvalidParameterException", (error) =>
               Effect.succeed({ success: false, error: error._tag }),
-            ),
-            Effect.catchAll((error) =>
-              Effect.succeed({
-                success: false,
-                error: error._tag || "UnknownError",
-              }),
             ),
           );
 
