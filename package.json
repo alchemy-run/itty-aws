@@ -71,7 +71,7 @@
     "effect": "^3.16.12",
     "esbuild": "^0.19.0",
     "ts-patch": "^3.3.0",
-    "typescript": "^5.8.3",
+    "typescript": "^5.9.2",
     "vitest": "3"
   }
 }
