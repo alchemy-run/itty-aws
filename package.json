@@ -30,6 +30,7 @@
     }
   },
   "scripts": {
+    "prepare": "ts-patch install -s",
     "build": "tsc -b",
     "generate": "bun scripts/generate-clients.ts && bun biome check --write && tsc -b",
     "generate-ec2-metadata": "bun scripts/generate-ec2-metadata.ts && bun biome check --write && tsc -b",
@@ -69,6 +70,7 @@
     "changelogithub": "^13.16.0",
     "effect": "^3.16.12",
     "esbuild": "^0.19.0",
+    "ts-patch": "^3.3.0",
     "typescript": "^5.8.3",
     "vitest": "3"
   }

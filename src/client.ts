@@ -198,7 +198,7 @@ export function createServiceProxy<T>(
               };
 
               // Use the sanitized error type directly from the protocol handler
-              yield* Effect.fail(
+              return yield* Effect.fail(
                 createServiceError(parsedError.errorType, {
                   ...errorMeta,
                   message: parsedError.message,
