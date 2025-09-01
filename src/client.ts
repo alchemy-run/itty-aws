@@ -2,7 +2,11 @@ import { AwsV4Signer } from "aws4fetch";
 import * as Data from "effect/Data";
 import * as Effect from "effect/Effect";
 import * as Option from "effect/Option";
-import { Credentials, DefaultCredentials } from "./credential.service.ts";
+import {
+  Credentials,
+  DefaultCredentials,
+  fromStaticCredentials,
+} from "./credential.service.ts";
 import type { AwsErrorMeta } from "./error.ts";
 import { DefaultFetch, Fetch } from "./fetch.service.ts";
 import type { ProtocolHandler } from "./protocols/interface.ts";
@@ -88,7 +92,10 @@ export function createServiceProxy<T>(
               yield* Effect.serviceOption(Credentials),
               {
                 onSome: (cred) => cred,
-                onNone: () => DefaultCredentials,
+                onNone: () =>
+                  config.credentials
+                    ? fromStaticCredentials(config.credentials)
+                    : DefaultCredentials,
               },
             );
 

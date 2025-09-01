@@ -19,3 +19,7 @@ export const DefaultCredentials: Credentials = {
     return await fromNodeProviderChain()();
   },
 };
+
+export const fromStaticCredentials = (creds: AwsCredentials): Credentials => ({
+  getCredentials: () => Promise.resolve(creds),
+});
