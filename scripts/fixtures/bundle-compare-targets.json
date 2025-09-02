@@ -1,0 +1,10 @@
+{
+  "services": [
+    { "service": "s3", "commands": ["GetObject", "PutObject"] },
+    { "service": "sqs", "commands": ["SendMessage", "ReceiveMessage"] },
+    { "service": "dynamodb", "commands": ["GetItem", "PutItem", "Query"] },
+    { "service": "lambda", "commands": ["Invoke"] },
+    { "service": "sts", "commands": ["GetCallerIdentity"] }
+  ]
+}
+

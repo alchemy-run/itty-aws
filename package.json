@@ -38,6 +38,7 @@
     "generate-service-support-table": "bun scripts/generate-service-support-table.ts",
     "gen": "bun generate",
     "bundle:size": "bun scripts/bundle-size.ts",
+    "bundle:compare": "bun scripts/bundle-compare.ts",
     "bundle:treeshake": "bun scripts/treeshake-report.ts",
     "bump": "bun ./scripts/bump.ts",
     "test": "vitest",
