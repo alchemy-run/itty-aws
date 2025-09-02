@@ -21,14 +21,20 @@ describe("DynamoDB Smoke Tests", () => {
   const waitForTableDelete = (tableName: string) =>
     client.describeTable({ TableName: tableName }).pipe(
       Effect.flatMap(() => Effect.fail("TableStillExists" as const)),
-      Effect.catchTag("ResourceNotFoundException", () => Effect.void),
+      Effect.catchTag("ResourceNotFoundException", () =>
+        Effect.succeed("Table deleted"),
+      ),
       Effect.retry({ schedule: Schedule.spaced("1 second"), times: 60 }),
     );
 
   const deleteTableIfExists = (tableName: string) =>
     client
       .deleteTable({ TableName: tableName })
-      .pipe(Effect.catchTag("ResourceNotFoundException", () => Effect.void));
+      .pipe(
+        Effect.catchTag("ResourceNotFoundException", () =>
+          Effect.succeed("Table deleted"),
+        ),
+      );
   it.live(
     "should perform complete DynamoDB lifecycle: create table, wait for active, perform operations, delete table",
     () =>
@@ -133,6 +139,7 @@ describe("DynamoDB Smoke Tests", () => {
               Effect.succeed({
                 exists: false,
                 error:
+                  // FIXME: truly atrocious
                   error._tag || error?.name || error?.Code || "UnknownError",
               }),
             ),

@@ -1,16 +1,14 @@
-import { fromNodeProviderChain } from "@aws-sdk/credential-providers";
-import { AwsClient } from "aws4fetch";
+import { AwsV4Signer } from "aws4fetch";
 import * as Data from "effect/Data";
 import * as Effect from "effect/Effect";
+import * as Option from "effect/Option";
 import {
-  AccessDeniedException,
-  RequestTimeout,
-  ServiceUnavailable,
-  ThrottlingException,
-  UnauthorizedException,
-  ValidationException,
-  type AwsErrorMeta,
-} from "./error.ts";
+  Credentials,
+  DefaultCredentials,
+  fromStaticCredentials,
+} from "./credential.service.ts";
+import type { AwsErrorMeta } from "./error.ts";
+import { DefaultFetch, Fetch } from "./fetch.service.ts";
 import type { ProtocolHandler } from "./protocols/interface.ts";
 
 // Helper to create service-specific error dynamically
@@ -70,44 +68,40 @@ export abstract class AWSServiceClient {
   }
 }
 
-// Promise-based AWS client creator
-async function createAwsClient(service: string, config: AWSClientConfig) {
-  // Use provided credentials or fall back to AWS credential chain
-  const credentials = config.credentials
-    ? config.credentials
-    : await fromNodeProviderChain()();
-
-  return new AwsClient({
-    accessKeyId: credentials.accessKeyId,
-    secretAccessKey: credentials.secretAccessKey,
-    sessionToken: credentials.sessionToken,
-    service: service,
-    region: config.region,
-  });
-}
-
 // Standalone service proxy creator function
 export function createServiceProxy<T>(
   metadata: ServiceMetadata,
   config: AWSClientConfig,
   protocolHandler: ProtocolHandler,
 ): T {
-  const _client: Promise<AwsClient> = createAwsClient(
-    metadata.sigV4ServiceName,
-    config,
-  );
-
   return new Proxy(
     {},
     {
-      get(_, methodName: string | symbol) {
+      get(_, methodName) {
         if (typeof methodName !== "string") {
           return undefined;
         }
 
-        return (input: unknown) =>
-          Effect.gen(function* () {
-            const client = yield* Effect.promise(() => _client);
+        return (input: unknown) => {
+          const program = Effect.gen(function* () {
+            const fetchSvc = Option.match(yield* Effect.serviceOption(Fetch), {
+              onSome: (fetch) => fetch,
+              onNone: () => DefaultFetch,
+            });
+            const credentialSvc = Option.match(
+              yield* Effect.serviceOption(Credentials),
+              {
+                onSome: (cred) => cred,
+                onNone: () =>
+                  config.credentials
+                    ? fromStaticCredentials(config.credentials)
+                    : DefaultCredentials,
+              },
+            );
+
+            const credentials = yield* Effect.promise(() =>
+              credentialSvc.getCredentials(),
+            );
 
             // Convert camelCase method to PascalCase operation
             const operation =
@@ -129,26 +123,42 @@ export function createServiceProxy<T>(
             // Build full URL with path
             const fullUrl = endpoint.replace(/\/$/, "") + req.path;
 
+            // Create AWS V4 Signer for this request
+            const signer = new AwsV4Signer({
+              method: req.method,
+              url: fullUrl,
+              headers: req.headers,
+              body:
+                req.method === "GET" || req.method === "DELETE"
+                  ? undefined
+                  : req.body,
+              accessKeyId: credentials.accessKeyId,
+              secretAccessKey: credentials.secretAccessKey,
+              sessionToken: credentials.sessionToken,
+              service: metadata.sigV4ServiceName,
+              region: config.region,
+            });
+
+            // Sign the request
+            const signedRequest = yield* Effect.promise(() => signer.sign());
+
             // Log the AWS request
             yield* Effect.logDebug("AWS Request", {
               service: metadata.sdkId,
               operation,
-              method: req.method,
-              url: fullUrl,
-              headers: req.headers,
+              method: signedRequest.method,
+              url: signedRequest.url.toString(),
+              headers: signedRequest.headers,
               input,
-              body: req.body,
+              body: signedRequest.body,
             });
 
+            // Use global fetch instead of client.fetch
             const response = yield* Effect.promise(() =>
-              client.fetch(fullUrl, {
-                method: req.method,
-                headers: req.headers,
-                // Don't send body for GET/DELETE requests
-                body:
-                  req.method === "GET" || req.method === "DELETE"
-                    ? undefined
-                    : req.body,
+              fetchSvc.fetch(signedRequest.url.toString(), {
+                method: signedRequest.method,
+                headers: signedRequest.headers,
+                body: signedRequest.body,
               }),
             ).pipe(Effect.timeout("30 seconds")); //FIXME: why a 30-second timeout?
 
@@ -195,40 +205,16 @@ export function createServiceProxy<T>(
               };
 
               // Use the sanitized error type directly from the protocol handler
-              const errorType = parsedError.errorType;
-
-              // Map to specific error types
-              switch (errorType) {
-                case "ThrottlingException":
-                case "TooManyRequestsException":
-                  yield* Effect.fail(new ThrottlingException(errorMeta));
-                  break;
-                case "ServiceUnavailable":
-                  yield* Effect.fail(new ServiceUnavailable(errorMeta));
-                  break;
-                case "RequestTimeout":
-                  yield* Effect.fail(new RequestTimeout(errorMeta));
-                  break;
-                case "AccessDeniedException":
-                  yield* Effect.fail(new AccessDeniedException(errorMeta));
-                  break;
-                case "UnauthorizedException":
-                  yield* Effect.fail(new UnauthorizedException(errorMeta));
-                  break;
-                case "ValidationException":
-                  yield* Effect.fail(new ValidationException(errorMeta));
-                  break;
-                default:
-                  // All service-specific errors - create dynamically with correct _tag
-                  yield* Effect.fail(
-                    createServiceError(errorType, {
-                      ...errorMeta,
-                      message: parsedError.message,
-                    }),
-                  );
-              }
+              return yield* Effect.fail(
+                createServiceError(parsedError.errorType, {
+                  ...errorMeta,
+                  message: parsedError.message,
+                }),
+              );
             }
           });
+          return program;
+        };
       },
     },
   ) as T;

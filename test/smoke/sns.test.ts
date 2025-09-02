@@ -1,6 +1,7 @@
 import { describe, expect, it } from "@effect/vitest";
 import { Console, Effect } from "effect";
 import { SNS } from "../../src/services/sns/index.ts";
+import { STS } from "../../src/services/sts/index.ts";
 
 describe("SNS Smoke Tests", () => {
   const testTopicName = "itty-aws-test-topic";
@@ -17,12 +18,16 @@ describe("SNS Smoke Tests", () => {
             Effect.tap(() =>
               Console.log(`Cleaned up existing topic: ${topic.TopicArn}`),
             ),
-            Effect.catchAll(() => Effect.void),
+            Effect.catchAll((error) =>
+              Console.log(`Error deleting topic: ${error.message}`),
+            ),
           );
         }
         return Effect.void;
       }),
-      Effect.catchAll(() => Effect.void),
+      Effect.catchAll((error) =>
+        Console.log(`Error listing topics: ${error.message}`),
+      ),
     );
 
   it.live(
@@ -125,9 +130,11 @@ describe("SNS Smoke Tests", () => {
         // Step 6: Test error handling - try to publish to non-existent topic
         yield* Console.log("Step 6: Testing error handling...");
 
+        const sts = new STS({});
+        const identity = yield* sts.getCallerIdentity({});
         const errorResult = yield* client
           .publish({
-            TopicArn: "arn:aws:sns:us-east-1:123456789012:non-existent-topic",
+            TopicArn: `arn:aws:sns:us-east-1:${identity.Account}:non-existent-topic`,
             Message: "This should fail",
           })
           .pipe(
@@ -135,12 +142,13 @@ describe("SNS Smoke Tests", () => {
             Effect.catchTag("NotFoundException", (error) =>
               Effect.succeed({ success: false, error: error._tag }),
             ),
-            Effect.catchAll((error) =>
-              Effect.succeed({
-                success: false,
-                error: error._tag || "UnknownError",
-              }),
-            ),
+            Effect.catchAll((error) => {
+              console.log(`Unexpected error: ${error}`);
+              return Effect.succeed({
+                success: true,
+                error: error._tag,
+              });
+            }),
           );
 
         expect(errorResult.success).toBe(false);
@@ -182,8 +190,9 @@ describe("SNS Smoke Tests", () => {
     "should handle invalid topic operations gracefully",
     () =>
       Effect.gen(function* () {
-        const invalidArn =
-          "arn:aws:sns:us-east-1:123456789012:non-existent-topic";
+        const sts = new STS({});
+        const identity = yield* sts.getCallerIdentity({});
+        const invalidArn = `arn:aws:sns:us-east-1:${identity.Account}:non-existent-topic`;
 
         // Test getting attributes for non-existent topic
         const result = yield* client
@@ -195,10 +204,10 @@ describe("SNS Smoke Tests", () => {
             Effect.catchTag("NotFoundException", (error) =>
               Effect.succeed({ success: false, error: error._tag }),
             ),
-            Effect.catchAll((error) =>
+            Effect.catchAll(() =>
               Effect.succeed({
-                success: false,
-                error: error._tag || "UnknownError",
+                success: true,
+                error: undefined,
               }),
             ),
           );

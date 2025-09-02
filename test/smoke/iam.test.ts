@@ -1,6 +1,7 @@
 import { describe, expect, it } from "@effect/vitest";
 import { Console, Effect } from "effect";
 import { IAM } from "../../src/services/iam/index.ts";
+import { STS } from "../../src/services/sts/index.ts";
 
 describe("IAM Smoke Tests", () => {
   const client = new IAM({ region: "us-east-1" });
@@ -11,22 +12,25 @@ describe("IAM Smoke Tests", () => {
   const deleteUserIfExists = (userName: string) =>
     client.deleteUser({ UserName: userName }).pipe(
       Effect.tap(() => Console.log(`Cleaned up existing user: ${userName}`)),
-      Effect.catchTag("NoSuchEntityException", () => Effect.void),
-      Effect.catchAll(() => Effect.void),
+      Effect.catchTag("NoSuchEntityException", () =>
+        Effect.succeed("User doesn't exist."),
+      ),
     );
 
   const deleteRoleIfExists = (roleName: string) =>
     client.deleteRole({ RoleName: roleName }).pipe(
       Effect.tap(() => Console.log(`Cleaned up existing role: ${roleName}`)),
-      Effect.catchTag("NoSuchEntityException", () => Effect.void),
-      Effect.catchAll(() => Effect.void),
+      Effect.catchTag("NoSuchEntityException", () =>
+        Effect.succeed("Role doesn't exist."),
+      ),
     );
 
   const deletePolicyIfExists = (policyArn: string) =>
     client.deletePolicy({ PolicyArn: policyArn }).pipe(
       Effect.tap(() => Console.log(`Cleaned up existing policy: ${policyArn}`)),
-      Effect.catchTag("NoSuchEntityException", () => Effect.void),
-      Effect.catchAll(() => Effect.void),
+      Effect.catchTag("NoSuchEntityException", () =>
+        Effect.succeed("Policy doesn't exist."),
+      ),
     );
 
   it.effect(
@@ -182,17 +186,13 @@ describe("IAM Smoke Tests", () => {
             UserName: "non-existent-user-12345",
           })
           .pipe(
-            Effect.map(() => ({ success: true, error: undefined })),
-            Effect.catchAll((error) =>
-              Effect.succeed({
-                success: false,
-                error: (error as any)?._tag || "UnknownError",
-              }),
+            Effect.map(() => ({ success: true })),
+            Effect.catchTag("NoSuchEntityException", () =>
+              Effect.succeed({ success: false }),
             ),
           );
 
         expect(errorResult.success).toBe(false);
-        expect(errorResult.error).toBeDefined();
 
         yield* Console.log("Error handling test completed successfully");
       }),
@@ -274,7 +274,9 @@ describe("IAM Smoke Tests", () => {
           })
           .pipe(
             Effect.map(() => ({ exists: true })),
-            Effect.catchAll(() => Effect.succeed({ exists: false })),
+            Effect.catchTag("NoSuchEntityException", () =>
+              Effect.succeed({ exists: false }),
+            ),
           );
 
         expect(deleteVerification.exists).toBe(false);
@@ -344,7 +346,9 @@ describe("IAM Smoke Tests", () => {
           })
           .pipe(
             Effect.map(() => ({ exists: true })),
-            Effect.catchAll(() => Effect.succeed({ exists: false })),
+            Effect.catchTag("NoSuchEntityException", () =>
+              Effect.succeed({ exists: false }),
+            ),
           );
 
         expect(deleteVerification.exists).toBe(false);
@@ -373,8 +377,9 @@ describe("IAM Smoke Tests", () => {
 
         // Step 0: Clean up any existing policy
         yield* Console.log("Step 0: Cleaning up any existing policy...");
-        const accountId = "123456789012"; // This would typically come from STS
-        const policyArn = `arn:aws:iam::${accountId}:policy/test/${TEST_POLICY_NAME}`;
+        const sts = new STS({});
+        const identity = yield* sts.getCallerIdentity({});
+        const policyArn = `arn:aws:iam::${identity.Account}:policy/test/${TEST_POLICY_NAME}`;
         yield* deletePolicyIfExists(policyArn);
 
         // Create policy
@@ -415,7 +420,9 @@ describe("IAM Smoke Tests", () => {
           })
           .pipe(
             Effect.map(() => ({ exists: true })),
-            Effect.catchAll(() => Effect.succeed({ exists: false })),
+            Effect.catchTag("NoSuchEntityException", () =>
+              Effect.succeed({ exists: false }),
+            ),
           );
 
         expect(deleteVerification.exists).toBe(false);
