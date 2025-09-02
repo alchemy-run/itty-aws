@@ -8,20 +8,18 @@ type TargetSpec = {
   commands: string[];
 };
 
+type Artifact = {
+  bytes: number;
+  gzipBytes: number;
+  outfile: string;
+  metafile: string;
+};
+
+type LibName = "itty-aws" | "aws-sdk-v3";
+
 type CompareReport = {
-  name: "itty-aws" | "aws-sdk-v3";
-  raw: {
-    bytes: number;
-    gzipBytes: number;
-    outfile: string;
-    metafile: string;
-  };
-  min: {
-    bytes: number;
-    gzipBytes: number;
-    outfile: string;
-    metafile: string;
-  };
+  service: string;
+  results: Record<LibName, { raw: Artifact; min: Artifact } | null>;
 };
 
 const ROOT = process.cwd();
@@ -150,10 +148,11 @@ export const keep = [${usageLines.join(", ")}];
 }
 
 async function buildOnce(opts: {
-  name: string;
+  name: LibName;
   entry: string;
   outfile: string;
   minify: boolean;
+  external?: string[];
 }): Promise<{ bytes: number; gzipBytes: number; metafilePath: string } | null> {
   try {
     const res = await build({
@@ -167,6 +166,7 @@ async function buildOnce(opts: {
       treeShaking: true,
       minify: opts.minify,
       metafile: true,
+      external: opts.external,
       define: {
         "process.env.NODE_ENV": '"production"',
       },
@@ -210,116 +210,143 @@ async function run() {
     );
   }
 
-  // Prepare entries
-  const ittyEntryPath = path.join(ENTRYDIR, "itty-aws.entry.ts");
-  const awsEntryPath = path.join(ENTRYDIR, "aws-sdk-v3.entry.ts");
+  // Build per service and generate report
   const importBase = path
     .relative(ENTRYDIR, path.join(ROOT, "src", "services"))
     .replace(/\\/g, "/");
-  fs.writeFileSync(ittyEntryPath, genIttyEntry(targets, importBase));
-  fs.writeFileSync(awsEntryPath, genAwsSdkEntry(targets));
-
-  // Build both profiles (raw + minified)
-  const ittyRawOut = path.join(OUTDIR, "itty-aws.raw.js");
-  const ittyMinOut = path.join(OUTDIR, "itty-aws.min.js");
-  const awsRawOut = path.join(OUTDIR, "aws-sdk-v3.raw.js");
-  const awsMinOut = path.join(OUTDIR, "aws-sdk-v3.min.js");
-
-  const ittyRaw = await buildOnce({
-    name: "itty-aws",
-    entry: ittyEntryPath,
-    outfile: ittyRawOut,
-    minify: false,
-  });
-  const ittyMin = await buildOnce({
-    name: "itty-aws",
-    entry: ittyEntryPath,
-    outfile: ittyMinOut,
-    minify: true,
-  });
-
-  const awsRaw = await buildOnce({
-    name: "aws-sdk-v3",
-    entry: awsEntryPath,
-    outfile: awsRawOut,
-    minify: false,
-  });
-  const awsMin = await buildOnce({
-    name: "aws-sdk-v3",
-    entry: awsEntryPath,
-    outfile: awsMinOut,
-    minify: true,
-  });
 
   const results: CompareReport[] = [];
-  if (ittyRaw && ittyMin) {
-    results.push({
-      name: "itty-aws",
-      raw: {
-        bytes: ittyRaw.bytes,
-        gzipBytes: ittyRaw.gzipBytes,
-        outfile: ittyRawOut,
-        metafile: ittyRaw.metafilePath,
-      },
-      min: {
-        bytes: ittyMin.bytes,
-        gzipBytes: ittyMin.gzipBytes,
-        outfile: ittyMinOut,
-        metafile: ittyMin.metafilePath,
-      },
-    });
-  }
-  if (awsRaw && awsMin) {
-    results.push({
-      name: "aws-sdk-v3",
-      raw: {
-        bytes: awsRaw.bytes,
-        gzipBytes: awsRaw.gzipBytes,
-        outfile: awsRawOut,
-        metafile: awsRaw.metafilePath,
-      },
-      min: {
-        bytes: awsMin.bytes,
-        gzipBytes: awsMin.gzipBytes,
-        outfile: awsMinOut,
-        metafile: awsMin.metafilePath,
-      },
-    });
-  }
-
-  // Pretty print results
   const toKB = (n: number) => `${(n / 1024).toFixed(2)} KB`;
   const toB = (n: number) => `${n} B`;
-  const print = (r: CompareReport) => {
-    console.log(`\n== ${r.name} ==`);
-    console.log(
-      `raw:  ${toKB(r.raw.bytes)} (${toB(r.raw.bytes)}), gzip: ${toKB(r.raw.gzipBytes)} -> ${path.relative(
-        ROOT,
-        r.raw.outfile,
-      )}`,
-    );
-    console.log(
-      `min:  ${toKB(r.min.bytes)} (${toB(r.min.bytes)}), gzip: ${toKB(r.min.gzipBytes)} -> ${path.relative(
-        ROOT,
-        r.min.outfile,
-      )}`,
-    );
-    console.log(
-      `meta: raw=${path.relative(ROOT, r.raw.metafile)} min=${path.relative(
-        ROOT,
-        r.min.metafile,
-      )}`,
-    );
-  };
 
-  if (results.length === 0) {
-    console.error(
-      "No results. If AWS SDK clients are missing, install the needed packages listed in scripts/fixtures/bundle-compare-targets.json",
+  for (const spec of targets) {
+    const serviceDir = path.join(OUTDIR, spec.service);
+    fs.mkdirSync(serviceDir, { recursive: true });
+
+    const ittyEntry = path.join(ENTRYDIR, `itty-aws.${spec.service}.entry.ts`);
+    const awsEntry = path.join(ENTRYDIR, `aws-sdk-v3.${spec.service}.entry.ts`);
+    const ittyEntryContent = genIttyEntry([spec], importBase);
+    const awsEntryContent = genAwsSdkEntry([spec]);
+    // Write entries for building
+    fs.writeFileSync(ittyEntry, ittyEntryContent);
+    fs.writeFileSync(awsEntry, awsEntryContent);
+    // Also write copies next to the built artifacts for inspection
+    fs.writeFileSync(
+      path.join(serviceDir, "itty-aws.entry.ts"),
+      ittyEntryContent,
     );
-    process.exitCode = 1;
-    return;
+    fs.writeFileSync(
+      path.join(serviceDir, "aws-sdk-v3.entry.ts"),
+      awsEntryContent,
+    );
+
+    const ittyRawOut = path.join(serviceDir, "itty-aws.raw.js");
+    const ittyMinOut = path.join(serviceDir, "itty-aws.min.js");
+    const awsRawOut = path.join(serviceDir, "aws-sdk-v3.raw.js");
+    const awsMinOut = path.join(serviceDir, "aws-sdk-v3.min.js");
+
+    const ittyRaw = await buildOnce({
+      name: "itty-aws",
+      entry: ittyEntry,
+      outfile: ittyRawOut,
+      minify: false,
+      external: ["effect"],
+    });
+    const ittyMin = await buildOnce({
+      name: "itty-aws",
+      entry: ittyEntry,
+      outfile: ittyMinOut,
+      minify: true,
+      external: ["effect"],
+    });
+
+    const awsRaw = await buildOnce({
+      name: "aws-sdk-v3",
+      entry: awsEntry,
+      outfile: awsRawOut,
+      minify: false,
+    });
+    const awsMin = await buildOnce({
+      name: "aws-sdk-v3",
+      entry: awsEntry,
+      outfile: awsMinOut,
+      minify: true,
+    });
+
+    const ittyRes =
+      ittyRaw && ittyMin
+        ? {
+            raw: {
+              bytes: ittyRaw.bytes,
+              gzipBytes: ittyRaw.gzipBytes,
+              outfile: ittyRawOut,
+              metafile: ittyRaw.metafilePath,
+            },
+            min: {
+              bytes: ittyMin.bytes,
+              gzipBytes: ittyMin.gzipBytes,
+              outfile: ittyMinOut,
+              metafile: ittyMin.metafilePath,
+            },
+          }
+        : null;
+    const awsRes =
+      awsRaw && awsMin
+        ? {
+            raw: {
+              bytes: awsRaw.bytes,
+              gzipBytes: awsRaw.gzipBytes,
+              outfile: awsRawOut,
+              metafile: awsRaw.metafilePath,
+            },
+            min: {
+              bytes: awsMin.bytes,
+              gzipBytes: awsMin.gzipBytes,
+              outfile: awsMinOut,
+              metafile: awsMin.metafilePath,
+            },
+          }
+        : null;
+
+    if (ittyRes && awsRes) {
+      console.log(`\n== ${spec.service} ==`);
+      console.log(
+        `itty-aws: raw ${toKB(ittyRes.raw.bytes)} (${toB(ittyRes.raw.bytes)}), gzip ${toKB(ittyRes.raw.gzipBytes)}; min ${toKB(ittyRes.min.bytes)}, gzip ${toKB(ittyRes.min.gzipBytes)}`,
+      );
+      console.log(
+        `aws-sdk-v3: raw ${toKB(awsRes.raw.bytes)} (${toB(awsRes.raw.bytes)}), gzip ${toKB(awsRes.raw.gzipBytes)}; min ${toKB(awsRes.min.bytes)}, gzip ${toKB(awsRes.min.gzipBytes)}`,
+      );
+    }
+
+    results.push({
+      service: spec.service,
+      results: { "itty-aws": ittyRes, "aws-sdk-v3": awsRes },
+    });
   }
-  results.forEach(print);
+
+  // Emit Markdown report
+  const lines: string[] = [];
+  lines.push(
+    "| Service | itty-aws (min KB) | itty-aws (gzip KB) | aws-sdk-v3 (min KB) | aws-sdk-v3 (gzip KB) |",
+  );
+  lines.push("|---|---:|---:|---:|---:|");
+  for (const r of results) {
+    const itty = r.results["itty-aws"];
+    const aws = r.results["aws-sdk-v3"];
+    if (!itty || !aws) continue;
+    lines.push(
+      `| ${r.service} | ${(itty.min.bytes / 1024).toFixed(2)} | ${(itty.min.gzipBytes / 1024).toFixed(2)} | ${(aws.min.bytes / 1024).toFixed(2)} | ${(aws.min.gzipBytes / 1024).toFixed(2)} |`,
+    );
+  }
+
+  const reportPath = path.join(OUTDIR, "report.md");
+  const header =
+    "# Bundle Size Comparison (per service)\n\n" +
+    "- Target: Node 18, ESM\n" +
+    "- Minification: on; tree-shaking; NODE_ENV=production\n" +
+    "- itty-aws: 'effect' is external\n\n";
+  fs.writeFileSync(reportPath, `${header + lines.join("\n")}\n`);
+  console.log(`\nWrote Markdown report to ${path.relative(ROOT, reportPath)}`);
 }
 
 run().catch((err) => {
