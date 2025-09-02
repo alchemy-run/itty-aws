@@ -358,17 +358,206 @@ const getDocumentation = (
   const docTrait = traits["smithy.api#documentation"];
   if (!docTrait || typeof docTrait !== "string") return undefined;
 
-  // Clean up the documentation: remove HTML tags and fix indentation
-  const cleanDoc = docTrait
-    .replace(/<\/?p>/g, "") // Remove <p> and </p> tags
-    .replace(/<\/?[^>]+>/g, "") // Remove other HTML tags
-    .replace(/^\s+/gm, "") // Remove leading whitespace from each line
-    .replace(/\n\s*\n/g, "\n") // Remove empty lines
+  // Step 1: Normalize line endings
+  let doc = docTrait.replace(/\r\n?/g, "\n");
+
+  // Step 2: Handle special sections first (before stripping other tags)
+  // Convert <note>...</note> to **Note:** sections
+  doc = doc.replace(/<note>\s*([\s\S]*?)\s*<\/note>/gi, (_, content) => {
+    const cleanContent = content.trim();
+    return `\n\n**Note:** ${cleanContent}\n\n`;
+  });
+
+  // Convert <important>...</important> to **Important:** sections
+  doc = doc.replace(
+    /<important>\s*([\s\S]*?)\s*<\/important>/gi,
+    (_, content) => {
+      const cleanContent = content.trim();
+      return `\n\n**Important:** ${cleanContent}\n\n`;
+    },
+  );
+
+  // Step 3: Handle definition lists
+  doc = doc.replace(/<dl>\s*([\s\S]*?)\s*<\/dl>/gi, (_, content) => {
+    let result = "\n\n";
+    // Process dt/dd pairs
+    const processed = content.replace(
+      /<dt>\s*([\s\S]*?)\s*<\/dt>\s*<dd>\s*([\s\S]*?)\s*<\/dd>/gi,
+      (_match: string, term: string, definition: string) => {
+        const cleanTerm = term.trim();
+        const cleanDef = definition.trim();
+        return `**${cleanTerm}**: ${cleanDef}\n\n`;
+      },
+    );
+    result += processed;
+    return result;
+  });
+
+  // Step 4: Handle lists - convert to markdown-style
+  // First, clean up paragraph tags within list items (they interfere with formatting)
+  doc = doc.replace(/<li>\s*([\s\S]*?)\s*<\/li>/gi, (_, content) => {
+    // Remove paragraph tags within list items but preserve their content
+    const cleanContent = content
+      .replace(/<p[^>]*>\s*/gi, "")
+      .replace(/<\/p>\s*/gi, " ")
+      .replace(/\s+/g, " ")
+      .trim();
+    return `<li>${cleanContent}</li>`;
+  });
+
+  // Process nested lists by handling them from inside out
+  // Handle unordered lists
+  doc = doc.replace(/<ul>\s*([\s\S]*?)\s*<\/ul>/gi, (_, content) => {
+    const listItems = content
+      .split(/<li>/)
+      .slice(1) // Remove empty first element
+      .map((item: string) => {
+        const cleanItem = item.replace(/<\/li>\s*/i, "").trim();
+        // Handle nested lists within list items
+        const processedItem = cleanItem.replace(
+          /<ul>\s*([\s\S]*?)\s*<\/ul>/gi,
+          (_match: string, nestedContent: string) => {
+            return nestedContent
+              .split(/<li>/)
+              .slice(1)
+              .map((nestedItem: string) => {
+                const cleanNested = nestedItem.replace(/<\/li>\s*/i, "").trim();
+                return `  - ${cleanNested}`;
+              })
+              .join("\n");
+          },
+        );
+        return `- ${processedItem}`;
+      })
+      .join("\n");
+    return `\n${listItems}\n`;
+  });
+
+  // Handle ordered lists
+  doc = doc.replace(/<ol>\s*([\s\S]*?)\s*<\/ol>/gi, (_, content) => {
+    const listItems = content
+      .split(/<li>/)
+      .slice(1)
+      .map((item: string, index: number) => {
+        const cleanItem = item.replace(/<\/li>\s*/i, "").trim();
+        return `${index + 1}. ${cleanItem}`;
+      })
+      .join("\n");
+    return `\n${listItems}\n`;
+  });
+
+  // Step 5: Handle links - convert to markdown format
+  doc = doc.replace(
+    /<a\s+href="([^"]*)"[^>]*>([\s\S]*?)<\/a>/gi,
+    (_, url, text) => {
+      const cleanText = text.trim();
+      const cleanUrl = url.trim();
+      // If text is empty or just the URL, use the URL as text
+      if (!cleanText || cleanText === cleanUrl) {
+        return `<${cleanUrl}>`;
+      }
+      return `[${cleanText}](${cleanUrl})`;
+    },
+  );
+
+  // Handle links without href (malformed)
+  doc = doc.replace(/<a[^>]*>([\s\S]*?)<\/a>/gi, "$1");
+
+  // Step 6: Handle emphasis and formatting
+  // Bold text
+  doc = doc.replace(/<(b|strong)>([\s\S]*?)<\/(?:b|strong)>/gi, "**$2**");
+
+  // Italic text
+  doc = doc.replace(/<(i|em)>([\s\S]*?)<\/(?:i|em)>/gi, "*$2*");
+
+  // Step 7: Handle code blocks - keep inline code, handle block code better
+  doc = doc.replace(/<code>([\s\S]*?)<\/code>/gi, (_, raw) => {
+    let code = raw
+      .replace(/&lt;/g, "<")
+      .replace(/&gt;/g, ">")
+      .replace(/&amp;/g, "&");
+
+    // Heuristic: if there's an opening "{" but no closing "}", append one
+    if (code.includes("{") && !code.includes("}")) code += "}";
+
+    // Safety: never allow "*/" to appear literally inside the comment
+    code = code.replace(/\*\//g, "*\u200B/");
+
+    // If code contains newlines or is long, treat as block, otherwise inline
+    if (code.includes("\n") || code.length > 50) {
+      return `\n\`\`\`\n${code}\n\`\`\`\n`;
+    }
+    return `\`${code}\``;
+  });
+
+  // Step 8: Handle paragraphs - convert to proper line breaks
+  doc = doc.replace(/<p[^>]*>\s*/gi, "\n\n");
+  doc = doc.replace(/<\/p>\s*/gi, "\n\n");
+  doc = doc.replace(/<p\/>\s*/gi, "\n\n");
+
+  // Step 9: Handle line breaks
+  doc = doc.replace(/<br\s*\/?>/gi, "\n");
+
+  // Step 10: Clean up custom AWS tags by converting them to appropriate text
+  // Handle <fullname>...</fullname> specially - just remove the tags
+  doc = doc.replace(/<fullname>([\s\S]*?)<\/fullname>/gi, "$1");
+
+  // Convert other placeholder tags to readable format
+  doc = doc.replace(
+    /<(account-id|region|partition|key|job-id|outpost-id|unique identifier|signature|credential|name|description|build|major|minor|patch|response|request|examples|example|my-bucket-name|Region|link[^>]*)>/gi,
+    "[$1]",
+  );
+  doc = doc.replace(
+    /<\/(account-id|region|partition|key|job-id|outpost-id|unique identifier|signature|credential|name|description|build|major|minor|patch|response|request|examples|example|my-bucket-name|Region|link)>/gi,
+    "",
+  );
+
+  // Handle any remaining unclosed single tags
+  doc = doc.replace(/<(replaceable|dt\/?)>/gi, "");
+  doc = doc.replace(/<\/(replaceable)>/gi, "");
+
+  // Step 11: Remove any remaining HTML tags as fallback
+  doc = doc.replace(/<\/?[^>]+>/g, "");
+
+  // Step 12: Decode HTML entities
+  doc = doc
+    .replace(/&nbsp;/g, " ")
+    .replace(/&amp;/g, "&")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&quot;/g, '"')
+    .replace(/&apos;/g, "'");
+
+  // Step 13: Final safety check for comment terminators
+  doc = doc.replace(/\*\//g, "*\u200B/");
+
+  // Step 14: Clean up whitespace
+  doc = doc
+    // Remove leading/trailing whitespace from lines
+    .replace(/^\s+/gm, "")
+    .replace(/\s+$/gm, "")
+    // Normalize multiple newlines but preserve intentional breaks
+    .replace(/\n{4,}/g, "\n\n\n") // Max 3 newlines
+    .replace(/\n{2,}(\s*[-*]|\s*\d+\.)/g, "\n$1") // Single line before list items
     .trim();
 
-  if (!cleanDoc) return undefined;
+  if (!doc) return undefined;
 
-  return `/**\n * ${cleanDoc.split("\n").join("\n * ")}\n */`;
+  // Step 15: Format as JSDoc comment
+  const lines = doc.split("\n");
+  let result = "/**\n";
+
+  for (const line of lines) {
+    if (line.trim() === "") {
+      result += " *\n";
+    } else {
+      result += ` * ${line}\n`;
+    }
+  }
+
+  result += " */";
+
+  return result;
 };
 
 // Helper to generate error class (declare class extending EffectData.TaggedError)
@@ -703,6 +892,10 @@ const generateServiceIndex = (
   code += 'export type * from "./types.ts";\n\n';
 
   // Service class implementation
+  // Attach service-level TSDoc if available
+  if (metadata.documentation) {
+    code += `${metadata.documentation}\n`;
+  }
 
   code += `export const ${consistentInterfaceName} = class extends AWSServiceClient {\n`;
   code += "  constructor(cfg: Partial<AWSClientConfig> = {}) {\n";
@@ -1004,10 +1197,19 @@ const generateServiceTypes = (serviceName: string, manifest: Manifest) =>
       consistentInterfaceName = `${consistentInterfaceName}Client`;
     }
 
+    // Service-level TSDoc (from service shape documentation)
+    const serviceDoc = getDocumentation(serviceTraits);
+    if (serviceDoc) {
+      code += `${serviceDoc}\n`;
+    }
+
     code += `export declare class ${consistentInterfaceName} extends AWSServiceClient {\n`;
 
     for (const operation of operations) {
       const methodName = toLowerCamelCase(operation.name);
+
+      // Attach TSDoc for the operation method (if provided by Smithy)
+      const methodDoc = getDocumentation(operation.shape.traits);
 
       // Get input and output types
       const inputType = operation.shape.input
@@ -1042,6 +1244,12 @@ const generateServiceTypes = (serviceName: string, manifest: Manifest) =>
           ? "{}"
           : outputType;
 
+      if (methodDoc) {
+        code += `${methodDoc
+          .split("\n")
+          .map((line) => `  ${line}`)
+          .join("\n")}\n`;
+      }
       code += `  ${methodName}(\n`;
       code += `    input: ${inputType},\n`;
       code += "  ): Effect.Effect<\n";
@@ -1064,6 +1272,9 @@ const generateServiceTypes = (serviceName: string, manifest: Manifest) =>
       simpleServiceName !== consistentInterfaceName &&
       !shapeNameCounts.has(simpleServiceName)
     ) {
+      if (serviceDoc) {
+        code += `${serviceDoc}\n`;
+      }
       code += `export declare class ${simpleServiceName} extends ${consistentInterfaceName} {}\n\n`;
     }
 
