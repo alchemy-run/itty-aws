@@ -24,11 +24,12 @@ type Artifact = {
   metafile: string;
 };
 
-type LibName = "itty-aws" | "aws-sdk-v3";
+type LibName = "itty-aws" | "itty-aws-no-effect" | "aws-sdk-v3";
 
 type CompareReport = {
   service: string;
-  results: Record<LibName, { raw: Artifact; min: Artifact } | null>;
+  className: string;
+  results: Record<LibName, Artifact | null>;
 };
 
 const ROOT = process.cwd();
@@ -278,8 +279,6 @@ async function run() {
     path.join(VENDOR_NODE_MODULES, "@aws-sdk"),
   );
   ensureVendorProject(requiredAwsPkgs, needsInstall);
-  const existing = requiredAwsPkgs.filter((p) => resolveAwsPackagePath(p));
-  const missing = requiredAwsPkgs.filter((p) => !resolveAwsPackagePath(p));
 
   // Intentionally quiet: no summary of missing/available packages printed
 
@@ -291,6 +290,7 @@ async function run() {
   const results: CompareReport[] = new Array(targets.length);
   const awsFailed: string[] = [];
   const ittyFailed: string[] = [];
+  const ittyNoEffectFailed: string[] = [];
 
   const concurrency = Math.max(2, Math.min(8, cpus().length));
   let next = 0;
@@ -325,18 +325,13 @@ async function run() {
         awsEntryData.code,
       );
 
-      const ittyRawOut = path.join(serviceDir, "itty-aws.raw.js");
       const ittyMinOut = path.join(serviceDir, "itty-aws.min.js");
-      const awsRawOut = path.join(serviceDir, "aws-sdk-v3.raw.js");
+      const ittyMinNoEffectOut = path.join(
+        serviceDir,
+        "itty-aws.no-effect.min.js",
+      );
       const awsMinOut = path.join(serviceDir, "aws-sdk-v3.min.js");
 
-      const ittyRaw = await buildOnce({
-        name: "itty-aws",
-        entry: ittyEntry,
-        outfile: ittyRawOut,
-        minify: false,
-        quiet: true,
-      });
       const ittyMin = await buildOnce({
         name: "itty-aws",
         entry: ittyEntry,
@@ -344,17 +339,17 @@ async function run() {
         minify: true,
         quiet: true,
       });
+      const ittyMinNoEffect = await buildOnce({
+        name: "itty-aws-no-effect",
+        entry: ittyEntry,
+        outfile: ittyMinNoEffectOut,
+        minify: true,
+        external: ["effect"],
+        quiet: true,
+      });
 
-      let awsRaw: Awaited<ReturnType<typeof buildOnce>> | null = null;
       let awsMin: Awaited<ReturnType<typeof buildOnce>> | null = null;
       if (awsEntryData.hasImports) {
-        awsRaw = await buildOnce({
-          name: "aws-sdk-v3",
-          entry: awsEntry,
-          outfile: awsRawOut,
-          minify: false,
-          quiet: true,
-        });
         awsMin = await buildOnce({
           name: "aws-sdk-v3",
           entry: awsEntry,
@@ -364,46 +359,44 @@ async function run() {
         });
       }
 
-      const ittyRes =
-        ittyRaw && ittyMin
-          ? {
-              raw: {
-                bytes: ittyRaw.bytes,
-                gzipBytes: ittyRaw.gzipBytes,
-                outfile: ittyRawOut,
-                metafile: ittyRaw.metafilePath,
-              },
-              min: {
-                bytes: ittyMin.bytes,
-                gzipBytes: ittyMin.gzipBytes,
-                outfile: ittyMinOut,
-                metafile: ittyMin.metafilePath,
-              },
-            }
-          : null;
+      const ittyRes = ittyMin
+        ? {
+            bytes: ittyMin.bytes,
+            gzipBytes: ittyMin.gzipBytes,
+            outfile: ittyMinOut,
+            metafile: ittyMin.metafilePath,
+          }
+        : null;
       if (!ittyRes) ittyFailed.push(spec.service);
-      const awsRes =
-        awsRaw && awsMin
-          ? {
-              raw: {
-                bytes: awsRaw.bytes,
-                gzipBytes: awsRaw.gzipBytes,
-                outfile: awsRawOut,
-                metafile: awsRaw.metafilePath,
-              },
-              min: {
-                bytes: awsMin.bytes,
-                gzipBytes: awsMin.gzipBytes,
-                outfile: awsMinOut,
-                metafile: awsMin.metafilePath,
-              },
-            }
-          : null;
+
+      const ittyNoEffectRes = ittyMinNoEffect
+        ? {
+            bytes: ittyMinNoEffect.bytes,
+            gzipBytes: ittyMinNoEffect.gzipBytes,
+            outfile: ittyMinNoEffectOut,
+            metafile: ittyMinNoEffect.metafilePath,
+          }
+        : null;
+      if (!ittyNoEffectRes) ittyNoEffectFailed.push(spec.service);
+
+      const awsRes = awsMin
+        ? {
+            bytes: awsMin.bytes,
+            gzipBytes: awsMin.gzipBytes,
+            outfile: awsMinOut,
+            metafile: awsMin.metafilePath,
+          }
+        : null;
       if (!awsRes) awsFailed.push(spec.service);
 
       results[i] = {
         service: spec.service,
-        results: { "itty-aws": ittyRes, "aws-sdk-v3": awsRes },
+        className: spec.className,
+        results: {
+          "itty-aws": ittyRes,
+          "itty-aws-no-effect": ittyNoEffectRes,
+          "aws-sdk-v3": awsRes,
+        },
       };
     }
   }
@@ -412,16 +405,48 @@ async function run() {
 
   // Emit Markdown report
   const lines: string[] = [];
+  const toKBint = (n: number) => Math.round(n / 1024);
+  const vs = (a: number, b: number) => {
+    if (!b || b === 0) return "N/A";
+    const pct = Math.round(((a - b) / b) * 100);
+    const arrow = pct < 0 ? "▼" : pct > 0 ? "▲" : "▶";
+    const sign = pct > 0 ? "+" : "";
+    return `${arrow} ${sign}${pct}%`;
+  };
+
+  // Minified table
   lines.push(
-    "| Service | itty-aws (min KB) | itty-aws (gzip KB) | aws-sdk-v3 (min KB) | aws-sdk-v3 (gzip KB) |",
+    "| Service | itty-aws (KB) | vs v3 | itty-aws (no Effect, KB) | vs v3 | aws-sdk-v3 (KB) |",
   );
-  lines.push("|---|---:|---:|---:|---:|");
+  lines.push(
+    "|---------|--------------:|--------:|--------------------------:|--------:|----------------:|",
+  );
   for (const r of results) {
     const itty = r.results["itty-aws"];
+    const ittyNoEff = r.results["itty-aws-no-effect"];
     const aws = r.results["aws-sdk-v3"];
-    if (!itty || !aws) continue;
+    if (!aws || !itty || !ittyNoEff) continue;
     lines.push(
-      `| ${r.service} | ${(itty.min.bytes / 1024).toFixed(2)} | ${(itty.min.gzipBytes / 1024).toFixed(2)} | ${(aws.min.bytes / 1024).toFixed(2)} | ${(aws.min.gzipBytes / 1024).toFixed(2)} |`,
+      `| ${r.className} | ${toKBint(itty.bytes)} | ${vs(itty.bytes, aws.bytes)} | ${toKBint(ittyNoEff.bytes)} | ${vs(ittyNoEff.bytes, aws.bytes)} | ${toKBint(aws.bytes)} |`,
+    );
+  }
+
+  lines.push("\n");
+
+  // Gzipped table
+  lines.push(
+    "| Service | itty-aws (gzip KB) | vs v3 | itty-aws (no Effect, gzip KB) | vs v3 | aws-sdk-v3 (gzip KB) |",
+  );
+  lines.push(
+    "|---------|------------------:|--------:|------------------------------:|--------:|--------------------:|",
+  );
+  for (const r of results) {
+    const itty = r.results["itty-aws"];
+    const ittyNoEff = r.results["itty-aws-no-effect"];
+    const aws = r.results["aws-sdk-v3"];
+    if (!aws || !itty || !ittyNoEff) continue;
+    lines.push(
+      `| ${r.className} | ${toKBint(itty.gzipBytes)} | ${vs(itty.gzipBytes, aws.gzipBytes)} | ${toKBint(ittyNoEff.gzipBytes)} | ${vs(ittyNoEff.gzipBytes, aws.gzipBytes)} | ${toKBint(aws.gzipBytes)} |`,
     );
   }
 
@@ -430,9 +455,11 @@ async function run() {
     "# Bundle Size Comparison (per service)\n\n" +
     "- Target: Node 18, ESM\n" +
     "- Minification: on; tree-shaking; NODE_ENV=production\n" +
-    "- itty-aws: 'effect' is external\n" +
     `- Services tested: ${results.filter((r) => r.results["itty-aws"] && r.results["aws-sdk-v3"]).length}\n` +
     (ittyFailed.length ? `- itty-aws failures: ${ittyFailed.length}\n` : "") +
+    (ittyNoEffectFailed.length
+      ? `- itty-aws (no Effect) failures: ${ittyNoEffectFailed.length}\n`
+      : "") +
     (awsFailed.length ? `- aws-sdk-v3 failures: ${awsFailed.length}\n` : "") +
     "\n";
   fs.writeFileSync(reportPath, `${header + lines.join("\n")}\n`);
