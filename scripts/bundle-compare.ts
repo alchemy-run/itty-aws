@@ -1,8 +1,9 @@
 import { build, type Metafile } from "esbuild";
+import { spawnSync } from "node:child_process";
 import fs from "node:fs";
+import { cpus } from "node:os";
 import path from "node:path";
 import { gzipSync } from "node:zlib";
-import { spawnSync } from "node:child_process";
 
 type TargetSpec = {
   service: string;
@@ -287,117 +288,127 @@ async function run() {
     .relative(ENTRYDIR, path.join(ROOT, "src", "services"))
     .replace(/\\/g, "/");
 
-  const results: CompareReport[] = [];
-  const toKB = (n: number) => `${(n / 1024).toFixed(2)} KB`;
-  const toB = (n: number) => `${n} B`;
-
+  const results: CompareReport[] = new Array(targets.length);
   const awsFailed: string[] = [];
   const ittyFailed: string[] = [];
 
-  for (const spec of targets) {
-    const serviceDir = path.join(OUTDIR, spec.service);
-    fs.mkdirSync(serviceDir, { recursive: true });
+  const concurrency = Math.max(2, Math.min(8, cpus().length));
+  let next = 0;
 
-    const ittyEntry = path.join(ENTRYDIR, `itty-aws.${spec.service}.entry.ts`);
-    const awsEntry = path.join(ENTRYDIR, `aws-sdk-v3.${spec.service}.entry.ts`);
-    const ittyEntryContent = genIttyEntry([spec], importBase);
-    const awsEntryData = genAwsSdkEntry([spec]);
-    // Write entries for building
-    fs.writeFileSync(ittyEntry, ittyEntryContent);
-    fs.writeFileSync(awsEntry, awsEntryData.code);
-    // Also write copies next to the built artifacts for inspection
-    fs.writeFileSync(
-      path.join(serviceDir, "itty-aws.entry.ts"),
-      ittyEntryContent,
-    );
-    fs.writeFileSync(
-      path.join(serviceDir, "aws-sdk-v3.entry.ts"),
-      awsEntryData.code,
-    );
+  async function worker() {
+    while (true) {
+      const i = next++;
+      if (i >= targets.length) break;
+      const spec = targets[i]!;
 
-    const ittyRawOut = path.join(serviceDir, "itty-aws.raw.js");
-    const ittyMinOut = path.join(serviceDir, "itty-aws.min.js");
-    const awsRawOut = path.join(serviceDir, "aws-sdk-v3.raw.js");
-    const awsMinOut = path.join(serviceDir, "aws-sdk-v3.min.js");
+      const serviceDir = path.join(OUTDIR, spec.service);
+      fs.mkdirSync(serviceDir, { recursive: true });
 
-    const ittyRaw = await buildOnce({
-      name: "itty-aws",
-      entry: ittyEntry,
-      outfile: ittyRawOut,
-      minify: false,
-      quiet: true,
-      //external: ["effect"],
-    });
-    const ittyMin = await buildOnce({
-      name: "itty-aws",
-      entry: ittyEntry,
-      outfile: ittyMinOut,
-      minify: true,
-      quiet: true,
-      //external: ["effect"],
-    });
+      const ittyEntry = path.join(
+        ENTRYDIR,
+        `itty-aws.${spec.service}.entry.ts`,
+      );
+      const awsEntry = path.join(
+        ENTRYDIR,
+        `aws-sdk-v3.${spec.service}.entry.ts`,
+      );
+      const ittyEntryContent = genIttyEntry([spec], importBase);
+      const awsEntryData = genAwsSdkEntry([spec]);
+      fs.writeFileSync(ittyEntry, ittyEntryContent);
+      fs.writeFileSync(awsEntry, awsEntryData.code);
+      fs.writeFileSync(
+        path.join(serviceDir, "itty-aws.entry.ts"),
+        ittyEntryContent,
+      );
+      fs.writeFileSync(
+        path.join(serviceDir, "aws-sdk-v3.entry.ts"),
+        awsEntryData.code,
+      );
 
-    let awsRaw: Awaited<ReturnType<typeof buildOnce>> | null = null;
-    let awsMin: Awaited<ReturnType<typeof buildOnce>> | null = null;
-    if (awsEntryData.hasImports) {
-      awsRaw = await buildOnce({
-        name: "aws-sdk-v3",
-        entry: awsEntry,
-        outfile: awsRawOut,
+      const ittyRawOut = path.join(serviceDir, "itty-aws.raw.js");
+      const ittyMinOut = path.join(serviceDir, "itty-aws.min.js");
+      const awsRawOut = path.join(serviceDir, "aws-sdk-v3.raw.js");
+      const awsMinOut = path.join(serviceDir, "aws-sdk-v3.min.js");
+
+      const ittyRaw = await buildOnce({
+        name: "itty-aws",
+        entry: ittyEntry,
+        outfile: ittyRawOut,
         minify: false,
         quiet: true,
       });
-      awsMin = await buildOnce({
-        name: "aws-sdk-v3",
-        entry: awsEntry,
-        outfile: awsMinOut,
+      const ittyMin = await buildOnce({
+        name: "itty-aws",
+        entry: ittyEntry,
+        outfile: ittyMinOut,
         minify: true,
         quiet: true,
       });
+
+      let awsRaw: Awaited<ReturnType<typeof buildOnce>> | null = null;
+      let awsMin: Awaited<ReturnType<typeof buildOnce>> | null = null;
+      if (awsEntryData.hasImports) {
+        awsRaw = await buildOnce({
+          name: "aws-sdk-v3",
+          entry: awsEntry,
+          outfile: awsRawOut,
+          minify: false,
+          quiet: true,
+        });
+        awsMin = await buildOnce({
+          name: "aws-sdk-v3",
+          entry: awsEntry,
+          outfile: awsMinOut,
+          minify: true,
+          quiet: true,
+        });
+      }
+
+      const ittyRes =
+        ittyRaw && ittyMin
+          ? {
+              raw: {
+                bytes: ittyRaw.bytes,
+                gzipBytes: ittyRaw.gzipBytes,
+                outfile: ittyRawOut,
+                metafile: ittyRaw.metafilePath,
+              },
+              min: {
+                bytes: ittyMin.bytes,
+                gzipBytes: ittyMin.gzipBytes,
+                outfile: ittyMinOut,
+                metafile: ittyMin.metafilePath,
+              },
+            }
+          : null;
+      if (!ittyRes) ittyFailed.push(spec.service);
+      const awsRes =
+        awsRaw && awsMin
+          ? {
+              raw: {
+                bytes: awsRaw.bytes,
+                gzipBytes: awsRaw.gzipBytes,
+                outfile: awsRawOut,
+                metafile: awsRaw.metafilePath,
+              },
+              min: {
+                bytes: awsMin.bytes,
+                gzipBytes: awsMin.gzipBytes,
+                outfile: awsMinOut,
+                metafile: awsMin.metafilePath,
+              },
+            }
+          : null;
+      if (!awsRes) awsFailed.push(spec.service);
+
+      results[i] = {
+        service: spec.service,
+        results: { "itty-aws": ittyRes, "aws-sdk-v3": awsRes },
+      };
     }
-
-    const ittyRes =
-      ittyRaw && ittyMin
-        ? {
-            raw: {
-              bytes: ittyRaw.bytes,
-              gzipBytes: ittyRaw.gzipBytes,
-              outfile: ittyRawOut,
-              metafile: ittyRaw.metafilePath,
-            },
-            min: {
-              bytes: ittyMin.bytes,
-              gzipBytes: ittyMin.gzipBytes,
-              outfile: ittyMinOut,
-              metafile: ittyMin.metafilePath,
-            },
-          }
-        : null;
-    if (!ittyRes) ittyFailed.push(spec.service);
-    const awsRes =
-      awsRaw && awsMin
-        ? {
-            raw: {
-              bytes: awsRaw.bytes,
-              gzipBytes: awsRaw.gzipBytes,
-              outfile: awsRawOut,
-              metafile: awsRaw.metafilePath,
-            },
-            min: {
-              bytes: awsMin.bytes,
-              gzipBytes: awsMin.gzipBytes,
-              outfile: awsMinOut,
-              metafile: awsMin.metafilePath,
-            },
-          }
-        : null;
-    if (!awsRes) awsFailed.push(spec.service);
-
-    results.push({
-      service: spec.service,
-      results: { "itty-aws": ittyRes, "aws-sdk-v3": awsRes },
-    });
   }
+
+  await Promise.all(Array.from({ length: concurrency }, () => worker()));
 
   // Emit Markdown report
   const lines: string[] = [];
