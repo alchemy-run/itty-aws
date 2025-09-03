@@ -91,7 +91,10 @@ export const keep = [${initLines.join(", ")}];
 `;
 }
 
-function genAwsSdkEntry(targets: TargetSpec[]): string {
+function genAwsSdkEntry(targets: TargetSpec[]): {
+  code: string;
+  hasImports: boolean;
+} {
   // Build import lines and usage lines per service
   const importLines: string[] = [];
   const initLines: string[] = [];
@@ -127,18 +130,21 @@ function genAwsSdkEntry(targets: TargetSpec[]): string {
     }
   }
 
-  if (importLines.length === 0) {
-    return `// No AWS SDK packages found
-export const keep = [];
-`;
+  const hasImports = importLines.length > 0;
+  if (!hasImports) {
+    return {
+      code: "// No AWS SDK packages found for these targets\nexport const keep = [];\n",
+      hasImports,
+    };
   }
 
-  return `// Auto-generated entry for AWS SDK v3 bundle comparison
+  const code = `// Auto-generated entry for AWS SDK v3 bundle comparison
 const CREDS = ${JSON.stringify(STATIC_CREDS)};
 ${importLines.join("\n")}
 ${initLines.join("\n")} 
 export const keep = [${usageLines.join(", ")}];
 `;
+  return { code, hasImports };
 }
 
 async function buildOnce(opts: {
@@ -256,10 +262,10 @@ async function run() {
     const ittyEntry = path.join(ENTRYDIR, `itty-aws.${spec.service}.entry.ts`);
     const awsEntry = path.join(ENTRYDIR, `aws-sdk-v3.${spec.service}.entry.ts`);
     const ittyEntryContent = genIttyEntry([spec], importBase);
-    const awsEntryContent = genAwsSdkEntry([spec]);
+    const awsEntryData = genAwsSdkEntry([spec]);
     // Write entries for building
     fs.writeFileSync(ittyEntry, ittyEntryContent);
-    fs.writeFileSync(awsEntry, awsEntryContent);
+    fs.writeFileSync(awsEntry, awsEntryData.code);
     // Also write copies next to the built artifacts for inspection
     fs.writeFileSync(
       path.join(serviceDir, "itty-aws.entry.ts"),
@@ -267,7 +273,7 @@ async function run() {
     );
     fs.writeFileSync(
       path.join(serviceDir, "aws-sdk-v3.entry.ts"),
-      awsEntryContent,
+      awsEntryData.code,
     );
 
     const ittyRawOut = path.join(serviceDir, "itty-aws.raw.js");
@@ -290,18 +296,26 @@ async function run() {
       //external: ["effect"],
     });
 
-    const awsRaw = await buildOnce({
-      name: "aws-sdk-v3",
-      entry: awsEntry,
-      outfile: awsRawOut,
-      minify: false,
-    });
-    const awsMin = await buildOnce({
-      name: "aws-sdk-v3",
-      entry: awsEntry,
-      outfile: awsMinOut,
-      minify: true,
-    });
+    let awsRaw: Awaited<ReturnType<typeof buildOnce>> | null = null;
+    let awsMin: Awaited<ReturnType<typeof buildOnce>> | null = null;
+    if (awsEntryData.hasImports) {
+      awsRaw = await buildOnce({
+        name: "aws-sdk-v3",
+        entry: awsEntry,
+        outfile: awsRawOut,
+        minify: false,
+      });
+      awsMin = await buildOnce({
+        name: "aws-sdk-v3",
+        entry: awsEntry,
+        outfile: awsMinOut,
+        minify: true,
+      });
+    } else {
+      console.warn(
+        `Skipping aws-sdk-v3 for '${spec.service}' (client package not installed)`,
+      );
+    }
 
     const ittyRes =
       ittyRaw && ittyMin
