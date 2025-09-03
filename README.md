@@ -38,7 +38,7 @@ const program = Effect.gen(function* () {
 
 The official AWS SDK v3 is a massive 200+ NPM package monorepo with an awkward `client.send(new Command())` syntax that is a heavy dependency in your bundle. The `@effect-aws/*` project adapts the AWS SDK v3 to Effect, but at the cost of an additional 200+ NPM packages. 
 
-`itty-aws` implements a standlone AWS SDK with a single PM package containing a `Proxy` and types generated from the Smithy spec. 
+`itty-aws` implements a standlone AWS SDK with a single NPM package containing a `Proxy` and types generated from the Smithy spec. 
 
 `itty-aws` also brings back the good ol' days of `aws-sdk` (v2) where instead of the clunky `client.send(new Command())` syntax, `itty-aws` supports `client.apiName(..)` syntax:
 
@@ -69,11 +69,11 @@ await client.send(new GetItemCommand({
 ## Installation
 
 ```bash
-npm install itty-aws effect
+npm install itty-aws
 ```
 
 > [!NOTE]
-> `itty-aws` requires [Effect](https://effect.website) as a peer dependency for type-safe error handling and composable operations.
+> `itty-aws` requires [Effect](https://effect.website) as a peer dependency for type-safe error handling and composable operations. If your package manager does not automatically install peer dependencies, you will need to install `effect` as well.
 
 ## Usage
 
@@ -113,7 +113,7 @@ Effect.runPromise(program);
 
 ## Exact Error Modeling
 
-Each operation's `Effect.Effect` type specifies exactly which errors can occur:
+Each operation's `Effect.Effect` type specifies exactly which errors can occur. This robust error handling allows you to handle errors exactly as you choose.
 
 ```ts
 putItem(
@@ -180,12 +180,7 @@ const program = Effect.gen(function* () {
 Effect.runPromise(program);
 ```
 
-The `DefaultCredentials` provider uses Node.js's standard credential chain, checking in order:
-1. Environment variables (`AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`)
-2. AWS credential files (`~/.aws/credentials`)
-3. IAM instance profile (when running on EC2)
-4. AWS SSO profiles
-5. Container credentials (when running on ECS/Fargate)
+The `DefaultCredentials` provider uses the AWS SDK v3 credential-providers module, calling `fromNodeProviderChain()`. See the [documentation](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-credential-providers/#fromnodeproviderchain).
 
 ### Option 3: Custom Credential Provider
 
@@ -210,17 +205,19 @@ const program = Effect.gen(function* () {
 );
 ```
 
-## How It Works
+## How itty-aws works
 
-We use the official AWS API models from the [`aws/api-models-aws`](https://github.com/aws/api-models-aws) repository as a git submodule to bring in the latest published models from AWS.
+We use the official AWS API models from the [`aws/api-models-aws`](https://github.com/aws/api-models-aws) repository as a git submodule to bring in the latest published Smithy models from AWS.
 
-The Smithy specifications are then used to generate TypeScript types (types only, no runtime code) for each service in [src/services](src/services).
+Those models used to generate TypeScript types (types only, no runtime code) for each service in [src/services](src/services).
 
-The [src/client.ts](src/client.ts) file contains the proxy that is used to dynamically construct:
+The [src/client.ts](src/client.ts) contains the proxy that is used to dynamically construct:
 1. the Client for a service.
 2. TaggedError types for each error code.
 
-The service's client is a Proxy that intercepts method calls to infer the API name and then submit the request to AWS via `aws4fetch` which signs the request.
+The service's client is a proxy that intercepts method calls to determine the API name and then submits the request to AWS. `aws4fetch` is used to sign the request.
 
-All of the service's errors are modeled with TaggedErrors, except purely as `declare class` to avoid the code size cost of a physical class. The proxy detects constructs the correct `TaggedError` type on the fly from the AWS service response.
+Service endpoints, AWS service names (used for signing), SerDe for the 6 procotols AWS uses across it's services, and other internal details are all extracted from the Smithy models to make a simplified user experience when interacting with any of the 400+ AWS services. 
+
+All service errors are modeled with Effect's TaggedErrors, purely as `declare class` to avoid the code size cost of a physical class. The proxy constructs the correct `TaggedError` type on the fly from the AWS service response.
 
