@@ -242,28 +242,25 @@ function showHelp() {
   console.log(`
 Bundle Size Comparison Tool for itty-aws
 
-Usage: bun scripts/bundle-compare.ts [--help] [--install-aws-sdk]
+Usage: bun scripts/bundle-compare.ts [--help]
 
 Behavior:
   - Always runs across all available AWS services
   - Selects up to 3 operations per service for bundling
-  - Compares against AWS SDK v3 clients installed in the project or a local vendor dir
-  - Use --install-aws-sdk to install clients into dist/bundle-compare/aws-sdk-vendor
+  - Installs AWS SDK v3 clients into a local vendor dir (dist/bundle-compare/aws-sdk-vendor) and compares against them
 
 Files generated:
   - dist/bundle-compare/report.md                     Markdown comparison report
   - scripts/fixtures/all-services-operations.json     All available services and operations
 
 Examples:
-  bun scripts/bundle-compare.ts                    # Run comparison for all services
-  bun scripts/bundle-compare.ts --install-aws-sdk  # Install vendor clients then compare
+  bun scripts/bundle-compare.ts                    # Install vendor clients and run comparison for all services
 `);
 }
 
 async function run() {
   const showHelpFlag =
     process.argv.includes("--help") || process.argv.includes("-h");
-  const installVendor = process.argv.includes("--install-aws-sdk");
 
   if (showHelpFlag) {
     showHelp();
@@ -275,9 +272,11 @@ async function run() {
   const requiredAwsPkgs = Array.from(
     new Set(targets.map((t) => `@aws-sdk/client-${t.service}`)),
   );
-  if (installVendor) {
-    ensureVendorProject(requiredAwsPkgs, true);
-  }
+  // Ensure vendor project exists and install if needed
+  const needsInstall = !fs.existsSync(
+    path.join(VENDOR_NODE_MODULES, "@aws-sdk"),
+  );
+  ensureVendorProject(requiredAwsPkgs, needsInstall);
   const existing = requiredAwsPkgs.filter((p) => resolveAwsPackagePath(p));
   const missing = requiredAwsPkgs.filter((p) => !resolveAwsPackagePath(p));
 
