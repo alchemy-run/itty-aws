@@ -1,9 +1,12 @@
+import { fromNodeProviderChain } from "@aws-sdk/credential-providers";
 import { describe, expect, it } from "@effect/vitest";
 import { Console, Effect, Schedule } from "effect";
 import { EC2 } from "../../src/services/ec2/index.ts";
 
+const credentials = await fromNodeProviderChain()();
+
 describe("EC2 Smoke Tests", () => {
-  const client = new EC2({ region: "us-east-1" });
+  const client = new EC2({ region: "us-east-1", credentials });
   const VPC_NAME = "itty-aws-test-vpc";
 
   const waitForVpcState = (vpcId: string, expectedState: string) =>

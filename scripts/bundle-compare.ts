@@ -250,14 +250,14 @@ async function run() {
       entry: ittyEntry,
       outfile: ittyRawOut,
       minify: false,
-      external: ["effect"],
+      //external: ["effect"],
     });
     const ittyMin = await buildOnce({
       name: "itty-aws",
       entry: ittyEntry,
       outfile: ittyMinOut,
       minify: true,
-      external: ["effect"],
+      //external: ["effect"],
     });
 
     const awsRaw = await buildOnce({

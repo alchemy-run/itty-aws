@@ -40,12 +40,8 @@
     "bundle:size": "bun scripts/bundle-size.ts",
     "bundle:compare": "bun scripts/bundle-compare.ts",
     "bundle:treeshake": "bun scripts/treeshake-report.ts",
+    "test:smoke": "bun vitest test/smoke/*.test.ts",
     "bump": "bun ./scripts/bump.ts",
-    "test": "vitest",
-    "test:run": "vitest run",
-    "test:watch": "vitest watch",
-    "test:ui": "vitest --ui",
-    "test:protocol": "bun run build && vitest run ./test/protocols/*.test.ts",
     "publish:npm": "bun publish"
   },
   "dependencies": {
