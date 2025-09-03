@@ -480,9 +480,31 @@ async function run() {
       : "") +
     (awsFailed.length ? `- aws-sdk-v3 failures: ${awsFailed.length}\n` : "") +
     "\n";
-  fs.writeFileSync(reportPath, `${header + lines.join("\n")}\n`);
+  const fullReport = header + lines.join("\n");
+  fs.writeFileSync(reportPath, `${fullReport}\n`);
+
+  // Update README.md with the bundle size report
+  const readmePath = path.join(ROOT, "README.md");
+  const readmeContent = fs.readFileSync(readmePath, "utf8");
+
+  // Find the marker comment and replace everything from there to end of file
+  const markerComment = "<!-- BUNDLE_SIZE_REPORT -->";
+  const markerIndex = readmeContent.indexOf(markerComment);
+  if (markerIndex === -1) {
+    console.warn(
+      `Warning: Could not find ${markerComment} marker in README.md`,
+    );
+    return;
+  }
+
+  const beforeMarker = readmeContent.substring(0, markerIndex);
+  const reportWithMarker = `${markerComment}\n${fullReport}`;
+  const updatedReadme = beforeMarker + reportWithMarker;
+  fs.writeFileSync(readmePath, updatedReadme);
+
   // Only print final outputs (path + failures)
   console.log(`Wrote Markdown report to ${path.relative(ROOT, reportPath)}`);
+  console.log("Updated README.md with bundle size report");
   if (ittyFailed.length)
     console.log(`itty-aws build failures: ${ittyFailed.join(", ")}`);
   if (awsFailed.length)
