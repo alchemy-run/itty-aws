@@ -37,12 +37,6 @@ const OUTDIR = path.join(ROOT, "dist", "bundle-compare");
 const ENTRYDIR = path.join(OUTDIR, "entries");
 const VENDORDIR = path.join(OUTDIR, "aws-sdk-vendor");
 const VENDOR_NODE_MODULES = path.join(VENDORDIR, "node_modules");
-const ALL_SERVICES_PATH = path.join(
-  ROOT,
-  "scripts",
-  "fixtures",
-  "all-services-operations.json",
-);
 
 // Static fake credentials (no provider chains)
 const STATIC_CREDS = {
@@ -64,20 +58,57 @@ function resolveAwsPackagePath(pkg: string): string | null {
   return null;
 }
 
-function loadAllServices(): ServiceInfo[] {
-  if (!fs.existsSync(ALL_SERVICES_PATH)) {
-    throw new Error(
-      `Missing all-services file at ${ALL_SERVICES_PATH}. Run 'bun scripts/extract-service-operations.ts' to generate it.`,
-    );
+function extractOperationsFromTypesFile(typesPath: string): { className: string; operations: string[] } | null {
+  if (!fs.existsSync(typesPath)) {
+    return null;
   }
-  const raw = fs.readFileSync(ALL_SERVICES_PATH, "utf8");
-  const parsed = JSON.parse(raw) as { services: ServiceInfo[] };
-  return parsed.services;
+
+  const content = fs.readFileSync(typesPath, 'utf8');
+  
+  // Find the main service class declaration
+  const classMatch = content.match(/export declare class (\w+) extends AWSServiceClient \{([\s\S]*?)\n\}/);
+  if (!classMatch) {
+    return null;
+  }
+
+  const className = classMatch[1];
+  const classBody = classMatch[2];
+
+  // Extract method names (operations)
+  const methodMatches = classBody.matchAll(/^\s+(\w+)\(/gm);
+  const operations = Array.from(methodMatches, match => match[1]);
+
+  return { className, operations };
+}
+
+function getAllServices(): ServiceInfo[] {
+  const servicesDir = path.join(ROOT, 'src', 'services');
+  const services: ServiceInfo[] = [];
+
+  const serviceDirs = fs.readdirSync(servicesDir, { withFileTypes: true })
+    .filter(dirent => dirent.isDirectory())
+    .map(dirent => dirent.name)
+    .sort();
+
+  for (const serviceDir of serviceDirs) {
+    const typesPath = path.join(servicesDir, serviceDir, 'types.ts');
+    const extracted = extractOperationsFromTypesFile(typesPath);
+    
+    if (extracted && extracted.operations.length > 0) {
+      services.push({
+        service: serviceDir,
+        className: extracted.className,
+        operations: extracted.operations
+      });
+    }
+  }
+
+  return services;
 }
 
 // Build targets list dynamically for all services (up to 3 ops each)
 function buildAllServiceTargets(): TargetSpec[] {
-  const all = loadAllServices();
+  const all = getAllServices();
   return all.map(({ service, className, operations }) => ({
     service,
     className,
@@ -253,7 +284,6 @@ Behavior:
 
 Files generated:
   - dist/bundle-compare/report.md                     Markdown comparison report
-  - scripts/fixtures/all-services-operations.json     All available services and operations
 
 Examples:
   bun scripts/bundle-compare.ts                    # Install vendor clients and run comparison for all services
