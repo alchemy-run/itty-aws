@@ -5,7 +5,14 @@ import { gzipSync } from "node:zlib";
 
 type TargetSpec = {
   service: string;
+  className: string;
   commands: string[];
+};
+
+type ServiceInfo = {
+  service: string;
+  className: string;
+  operations: string[];
 };
 
 type Artifact = {
@@ -31,6 +38,12 @@ const TARGETS_PATH = path.join(
   "fixtures",
   "bundle-compare-targets.json",
 );
+const ALL_SERVICES_PATH = path.join(
+  ROOT,
+  "scripts",
+  "fixtures",
+  "all-services-operations.json",
+);
 
 // Static fake credentials (no provider chains)
 const STATIC_CREDS = {
@@ -44,13 +57,26 @@ function ensureDirs() {
   fs.mkdirSync(ENTRYDIR, { recursive: true });
 }
 
-function loadTargets(): TargetSpec[] {
-  if (!fs.existsSync(TARGETS_PATH)) {
+function loadAllServices(): ServiceInfo[] {
+  if (!fs.existsSync(ALL_SERVICES_PATH)) {
     throw new Error(
-      `Missing targets file at ${TARGETS_PATH}. Run with --write-targets to create a default set.`,
+      `Missing all-services file at ${ALL_SERVICES_PATH}. Run 'bun scripts/extract-service-operations.ts' to generate it.`,
     );
   }
-  const raw = fs.readFileSync(TARGETS_PATH, "utf8");
+  const raw = fs.readFileSync(ALL_SERVICES_PATH, "utf8");
+  const parsed = JSON.parse(raw) as { services: ServiceInfo[] };
+  return parsed.services;
+}
+
+function loadTargets(): TargetSpec[] {
+  const targetPath = TARGETS_PATH;
+    
+  if (!fs.existsSync(targetPath)) {
+    throw new Error(
+      `Missing targets file at ${targetPath}. Run with --write-targets to create a default set, or --all-services to use all available services.`,
+    );
+  }
+  const raw = fs.readFileSync(targetPath, "utf8");
   const parsed = JSON.parse(raw) as { services: TargetSpec[] };
   return parsed.services;
 }
@@ -62,11 +88,11 @@ function writeDefaultTargets() {
   }
   const defaults = {
     services: [
-      { service: "s3", commands: ["GetObject", "PutObject"] },
-      { service: "sqs", commands: ["SendMessage", "ReceiveMessage"] },
-      { service: "dynamodb", commands: ["GetItem", "PutItem", "Query"] },
-      { service: "lambda", commands: ["Invoke"] },
-      { service: "sts", commands: ["GetCallerIdentity"] },
+      { service: "s3", className: "S3", commands: ["getObject", "putObject"] },
+      { service: "sqs", className: "SQS", commands: ["sendMessage", "receiveMessage"] },
+      { service: "dynamodb", className: "DynamoDB", commands: ["getItem", "putItem", "query"] },
+      { service: "lambda", className: "Lambda", commands: ["invoke"] },
+      { service: "sts", className: "STS", commands: ["getCallerIdentity"] },
     ],
   } satisfies { services: TargetSpec[] };
   fs.mkdirSync(path.dirname(TARGETS_PATH), { recursive: true });
@@ -77,19 +103,7 @@ function writeDefaultTargets() {
 function genIttyEntry(targets: TargetSpec[], importBase: string): string {
   const imports = new Set<string>();
   const initLines: string[] = [];
-  for (const { service } of targets) {
-    // Try to detect the exported client name from the service index
-    const indexPath = path.join(ROOT, "src", "services", service, "index.ts");
-    const src = fs.readFileSync(indexPath, "utf8");
-    const m = src.match(
-      /export\s+const\s+(\w+)\s*=\s*class\s+extends\s+AWSServiceClient/,
-    );
-    const className = m?.[1]
-      ? m[1]
-      : service
-          .split("-")
-          .map((s) => s.charAt(0).toUpperCase() + s.slice(1))
-          .join("");
+  for (const { service, className } of targets) {
     // Import from local src to ensure identical build settings
     imports.add(
       `import { ${className} } from "${importBase}/${service}/index.ts";`,
@@ -110,35 +124,43 @@ function genAwsSdkEntry(targets: TargetSpec[]): string {
   const importLines: string[] = [];
   const initLines: string[] = [];
   const usageLines: string[] = [];
-  const clientNameMap: Record<string, string> = {
-    s3: "S3Client",
-    sqs: "SQSClient",
-    dynamodb: "DynamoDBClient",
-    lambda: "LambdaClient",
-    sts: "STSClient",
-  };
-  for (const { service, commands } of targets) {
+  
+  for (const { service, commands, className } of targets) {
     const pkg = `@aws-sdk/client-${service}`;
-    const clientName =
-      clientNameMap[service] ??
-      `${service
-        .split("-")
-        .map((s) => s.charAt(0).toUpperCase() + s.slice(1))
-        .join("")}Client`;
-    const commandNames = commands.map((c) => `${c}Command`);
-    importLines.push(
-      `import { ${clientName}, ${commandNames.join(", ")} } from "${pkg}";`,
-    );
-    const clientVar = `${service.replace(/[-]/g, "")}Client`;
-    initLines.push(
-      `const ${clientVar} = new ${clientName}({ region: "us-east-1", credentials: CREDS, retryMode: "standard", maxAttempts: 3 });`,
-    );
-    // Create trivial command instances so they are included in bundle
-    for (const cmd of commandNames) {
-      usageLines.push(`new ${cmd}({})`);
+    const clientName = `${className}Client`;
+    const commandNames = commands.map((c) => {
+      // Convert camelCase to PascalCase for command names
+      return `${c.charAt(0).toUpperCase() + c.slice(1)}Command`;
+    });
+    
+    try {
+      // Check if the AWS SDK package exists before including it
+      const pkgPath = path.join(ROOT, "node_modules", ...pkg.split("/"));
+      if (fs.existsSync(pkgPath)) {
+        importLines.push(
+          `import { ${clientName}, ${commandNames.join(", ")} } from "${pkg}";`,
+        );
+        const clientVar = `${service.replace(/[-]/g, "")}Client`;
+        initLines.push(
+          `const ${clientVar} = new ${clientName}({ region: "us-east-1", credentials: CREDS, retryMode: "standard", maxAttempts: 3 });`,
+        );
+        // Create trivial command instances so they are included in bundle
+        for (const cmd of commandNames) {
+          usageLines.push(`new ${cmd}({})`);
+        }
+        usageLines.push(clientVar);
+      }
+    } catch (err) {
+      console.warn(`Warning: Could not process AWS SDK package ${pkg}: ${err}`);
     }
-    usageLines.push(clientVar);
   }
+  
+  if (importLines.length === 0) {
+    return `// No AWS SDK packages found
+export const keep = [];
+`;
+  }
+  
   return `// Auto-generated entry for AWS SDK v3 bundle comparison
 const CREDS = ${JSON.stringify(STATIC_CREDS)};
 ${importLines.join("\n")}
@@ -189,10 +211,66 @@ async function buildOnce(opts: {
   }
 }
 
+function generateAllServicesTargets() {
+  const allServices = loadAllServices();
+  
+  // Create targets for all services, selecting up to 3 operations per service
+  const targets: TargetSpec[] = allServices.map(({ service, className, operations }) => {
+    const selectedOps = operations.slice(0, Math.min(3, operations.length));
+    return {
+      service,
+      className,
+      commands: selectedOps,
+    };
+  });
+  
+  const targetData = { services: targets };
+  fs.writeFileSync(TARGETS_PATH, `${JSON.stringify(targetData, null, 2)}\n`);
+  console.log(`Generated targets for ${targets.length} services with operations`);
+}
+
+function showHelp() {
+  console.log(`
+Bundle Size Comparison Tool for itty-aws
+
+Usage: bun scripts/bundle-compare.ts [OPTIONS]
+
+Options:
+  --help               Show this help message
+  --write-targets      Create default targets file with popular services
+  --all-services       Generate targets for all available services
+  
+  (no options)        Run comparison using existing targets file
+
+Files generated:
+  - dist/bundle-compare/report.md                     Markdown comparison report
+  - scripts/fixtures/bundle-compare-targets.json      Service targets configuration
+  - scripts/fixtures/all-services-operations.json     All available services and operations
+
+Examples:
+  bun scripts/bundle-compare.ts --write-targets    # Create default targets
+  bun scripts/bundle-compare.ts                    # Run with default targets  
+  bun scripts/bundle-compare.ts --all-services     # Generate targets for all services
+`);
+}
+
 async function run() {
+  const showHelpFlag = process.argv.includes("--help") || process.argv.includes("-h");
   const writeTargets = process.argv.includes("--write-targets");
+  const allServices = process.argv.includes("--all-services");
+  
+  if (showHelpFlag) {
+    showHelp();
+    return;
+  }
+  
   if (writeTargets) {
     writeDefaultTargets();
+    return;
+  }
+  
+  if (allServices) {
+    generateAllServicesTargets();
     return;
   }
 
@@ -201,12 +279,22 @@ async function run() {
   const requiredAwsPkgs = Array.from(
     new Set(targets.map((t) => `@aws-sdk/client-${t.service}`)),
   );
+  const existing = requiredAwsPkgs.filter(
+    (p) => fs.existsSync(path.join(ROOT, "node_modules", ...p.split("/"))),
+  );
   const missing = requiredAwsPkgs.filter(
     (p) => !fs.existsSync(path.join(ROOT, "node_modules", ...p.split("/"))),
   );
-  if (missing.length) {
+  
+  console.log(`Building ${targets.length} services (${existing.length} AWS SDK packages available, ${missing.length} missing)`);
+  
+  if (missing.length > 0 && missing.length < 10) {
     console.warn(
       `\n⚠️  Missing AWS SDK clients: ${missing.join(", ")}.\n   Install with: bun add ${missing.join(" ")}\n`,
+    );
+  } else if (missing.length >= 10) {
+    console.warn(
+      `\n⚠️  Missing ${missing.length} AWS SDK clients.\n   This is expected when testing all services. Only installed packages will be compared.\n`,
     );
   }
 
@@ -344,7 +432,8 @@ async function run() {
     "# Bundle Size Comparison (per service)\n\n" +
     "- Target: Node 18, ESM\n" +
     "- Minification: on; tree-shaking; NODE_ENV=production\n" +
-    "- itty-aws: 'effect' is external\n\n";
+    "- itty-aws: 'effect' is external\n" +
+    `- Services tested: ${results.filter(r => r.results['itty-aws'] && r.results['aws-sdk-v3']).length}\n\n`;
   fs.writeFileSync(reportPath, `${header + lines.join("\n")}\n`);
   console.log(`\nWrote Markdown report to ${path.relative(ROOT, reportPath)}`);
 }

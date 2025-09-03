@@ -205,7 +205,7 @@ const program = Effect.gen(function* () {
 );
 ```
 
-## How itty-aws works
+## How itty-aws Works
 
 We use the official AWS API models from the [`aws/api-models-aws`](https://github.com/aws/api-models-aws) repository as a git submodule to bring in the latest published Smithy models from AWS.
 
