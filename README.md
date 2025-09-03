@@ -133,6 +133,83 @@ putItem(
 >;
 ```
 
+## Authentication
+
+`itty-aws` provides flexible authentication options. You can pass credentials directly to the client or use the AWS credential provider chain via Effect's dependency injection.
+
+### Option 1: Direct Credentials
+
+Pass credentials directly in the client configuration:
+
+```ts
+import { DynamoDB } from "itty-aws/dynamodb";
+
+const ddb = new DynamoDB({
+  region: "us-east-1",
+  credentials: {
+    accessKeyId: "YOUR_ACCESS_KEY_ID",
+    secretAccessKey: "YOUR_SECRET_ACCESS_KEY",
+    sessionToken: "YOUR_SESSION_TOKEN" // optional
+  }
+});
+```
+
+### Option 2: AWS Credential Provider Chain (Recommended)
+
+For production applications, use the AWS credential provider chain that automatically resolves credentials from environment variables, IAM roles, SSO, credential files, etc.:
+
+```ts
+import { DynamoDB } from "itty-aws/dynamodb";
+import { DefaultCredentials } from "itty-aws/credential.service";
+import { Credentials } from "itty-aws/credentials";
+import { Effect } from "effect";
+
+const ddb = new DynamoDB({ region: "us-east-1" });
+
+const program = Effect.gen(function* () {
+  const response = yield* ddb.getItem({
+    TableName: "my-table",
+    Key: { pk: { S: "user#123" } }
+  });
+  
+  return response.Item;
+}).pipe(
+  Effect.provideService(Credentials, DefaultCredentials)
+);
+
+Effect.runPromise(program);
+```
+
+The `DefaultCredentials` provider uses Node.js's standard credential chain, checking in order:
+1. Environment variables (`AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`)
+2. AWS credential files (`~/.aws/credentials`)
+3. IAM instance profile (when running on EC2)
+4. AWS SSO profiles
+5. Container credentials (when running on ECS/Fargate)
+
+### Option 3: Custom Credential Provider
+
+You can also create custom credential providers:
+
+```ts
+import { Credentials } from "itty-aws/credentials";
+import { Effect } from "effect";
+
+const customCredentials: Credentials = {
+  getCredentials: async () => ({
+    accessKeyId: await getAccessKeyFromVault(),
+    secretAccessKey: await getSecretFromVault(),
+    sessionToken: await getSessionTokenFromVault()
+  })
+};
+
+const program = Effect.gen(function* () {
+  // Your operations here
+}).pipe(
+  Effect.provideService(Credentials, customCredentials)
+);
+```
+
 ## How It Works
 
 We use the official AWS API models from the [`aws/api-models-aws`](https://github.com/aws/api-models-aws) repository as a git submodule to bring in the latest published models from AWS.
