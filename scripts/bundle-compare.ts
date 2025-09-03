@@ -58,15 +58,19 @@ function resolveAwsPackagePath(pkg: string): string | null {
   return null;
 }
 
-function extractOperationsFromTypesFile(typesPath: string): { className: string; operations: string[] } | null {
+function extractOperationsFromTypesFile(
+  typesPath: string,
+): { className: string; operations: string[] } | null {
   if (!fs.existsSync(typesPath)) {
     return null;
   }
 
-  const content = fs.readFileSync(typesPath, 'utf8');
-  
+  const content = fs.readFileSync(typesPath, "utf8");
+
   // Find the main service class declaration
-  const classMatch = content.match(/export declare class (\w+) extends AWSServiceClient \{([\s\S]*?)\n\}/);
+  const classMatch = content.match(
+    /export declare class (\w+) extends AWSServiceClient \{([\s\S]*?)\n\}/,
+  );
   if (!classMatch) {
     return null;
   }
@@ -76,29 +80,30 @@ function extractOperationsFromTypesFile(typesPath: string): { className: string;
 
   // Extract method names (operations)
   const methodMatches = classBody.matchAll(/^\s+(\w+)\(/gm);
-  const operations = Array.from(methodMatches, match => match[1]);
+  const operations = Array.from(methodMatches, (match) => match[1]);
 
   return { className, operations };
 }
 
 function getAllServices(): ServiceInfo[] {
-  const servicesDir = path.join(ROOT, 'src', 'services');
+  const servicesDir = path.join(ROOT, "src", "services");
   const services: ServiceInfo[] = [];
 
-  const serviceDirs = fs.readdirSync(servicesDir, { withFileTypes: true })
-    .filter(dirent => dirent.isDirectory())
-    .map(dirent => dirent.name)
+  const serviceDirs = fs
+    .readdirSync(servicesDir, { withFileTypes: true })
+    .filter((dirent) => dirent.isDirectory())
+    .map((dirent) => dirent.name)
     .sort();
 
   for (const serviceDir of serviceDirs) {
-    const typesPath = path.join(servicesDir, serviceDir, 'types.ts');
+    const typesPath = path.join(servicesDir, serviceDir, "types.ts");
     const extracted = extractOperationsFromTypesFile(typesPath);
-    
+
     if (extracted && extracted.operations.length > 0) {
       services.push({
         service: serviceDir,
         className: extracted.className,
-        operations: extracted.operations
+        operations: extracted.operations,
       });
     }
   }

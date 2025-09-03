@@ -57,8 +57,3 @@ The tool generates:
 - **Markdown report** at `dist/bundle-compare/report.md` with size comparisons
 - **Bundle artifacts** for inspection in `dist/bundle-compare/`
 
-### Bundle Comparison Features
-
-- **Automatic service discovery**: Scans all services in `src/services/`
-- **Detailed reporting**: Shows minified and gzipped sizes for both libraries
-
