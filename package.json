@@ -66,7 +66,7 @@
     "bun-types": "^1.2.18",
     "changelogithub": "^13.16.0",
     "effect": "^3.16.12",
-    "esbuild": "^0.19.0",
+    "esbuild": "^0.25.9",
     "ts-patch": "^3.3.0",
     "typescript": "^5.9.2",
     "vitest": "3"
