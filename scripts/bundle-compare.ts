@@ -414,31 +414,12 @@ async function run() {
     return `${arrow} ${sign}${pct}%`;
   };
 
-  // Minified table
+  // Single table using minified gzip sizes
   lines.push(
-    "| Service | itty-aws (KB) | vs v3 | itty-aws (no Effect, KB) | vs v3 | aws-sdk-v3 (KB) |",
+    "| Service | itty-aws<br/>(KB) | vs<br/>aws-sdk-v3 | itty-aws<br/>(no Effect, KB) | vs<br/>aws-sdk-v3 | aws-sdk-v3<br/>(KB) |",
   );
   lines.push(
     "|---------|--------------:|--------:|--------------------------:|--------:|----------------:|",
-  );
-  for (const r of results) {
-    const itty = r.results["itty-aws"];
-    const ittyNoEff = r.results["itty-aws-no-effect"];
-    const aws = r.results["aws-sdk-v3"];
-    if (!aws || !itty || !ittyNoEff) continue;
-    lines.push(
-      `| ${r.className} | ${toKBint(itty.bytes)} | ${vs(itty.bytes, aws.bytes)} | ${toKBint(ittyNoEff.bytes)} | ${vs(ittyNoEff.bytes, aws.bytes)} | ${toKBint(aws.bytes)} |`,
-    );
-  }
-
-  lines.push("\n");
-
-  // Gzipped table
-  lines.push(
-    "| Service | itty-aws (gzip KB) | vs v3 | itty-aws (no Effect, gzip KB) | vs v3 | aws-sdk-v3 (gzip KB) |",
-  );
-  lines.push(
-    "|---------|------------------:|--------:|------------------------------:|--------:|--------------------:|",
   );
   for (const r of results) {
     const itty = r.results["itty-aws"];
