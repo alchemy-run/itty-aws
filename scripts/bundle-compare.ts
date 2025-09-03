@@ -446,7 +446,9 @@ async function run() {
     const pct = Math.round(((a - b) / b) * 100);
     const arrow = pct < 0 ? "▼" : pct > 0 ? "▲" : "▶";
     const sign = pct > 0 ? "+" : "";
-    return `${arrow} ${sign}${pct}%`;
+    const color = pct < 0 ? "green" : pct > 0 ? "red" : "";
+    const text = `${arrow} ${sign}${pct}%`;
+    return color ? `<span style="color: ${color};">${text}</span>` : text;
   };
 
   // Single table using minified gzip sizes
