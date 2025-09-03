@@ -196,6 +196,7 @@ async function buildOnce(opts: {
   outfile: string;
   minify: boolean;
   external?: string[];
+  quiet?: boolean;
 }): Promise<{ bytes: number; gzipBytes: number; metafilePath: string } | null> {
   try {
     const res = await build({
@@ -225,10 +226,12 @@ async function buildOnce(opts: {
     );
     return { bytes: code.length, gzipBytes: gzip.length, metafilePath };
   } catch (err) {
-    console.error(
-      `Failed to build ${opts.name} (${opts.minify ? "min" : "raw"}):`,
-    );
-    console.error(err);
+    if (!opts.quiet) {
+      console.error(
+        `Failed to build ${opts.name} (${opts.minify ? "min" : "raw"}):`,
+      );
+      console.error(err);
+    }
     return null;
   }
 }
@@ -278,19 +281,7 @@ async function run() {
   const existing = requiredAwsPkgs.filter((p) => resolveAwsPackagePath(p));
   const missing = requiredAwsPkgs.filter((p) => !resolveAwsPackagePath(p));
 
-  console.log(
-    `Building ${targets.length} services (${existing.length} AWS SDK packages available, ${missing.length} missing)`,
-  );
-
-  if (missing.length > 0 && missing.length < 10) {
-    console.warn(
-      `\n⚠️  Missing AWS SDK clients: ${missing.join(", ")}.\n   Install with: bun add ${missing.join(" ")}\n   Or use: bun scripts/bundle-compare.ts --install-aws-sdk\n`,
-    );
-  } else if (missing.length >= 10) {
-    console.warn(
-      `\n⚠️  Missing ${missing.length} AWS SDK clients.\n   Use --install-aws-sdk to install clients to a local vendor dir for comparison.\n   Only installed packages will be compared otherwise.\n`,
-    );
-  }
+  // Intentionally quiet: no summary of missing/available packages printed
 
   // Build per service and generate report
   const importBase = path
@@ -300,6 +291,9 @@ async function run() {
   const results: CompareReport[] = [];
   const toKB = (n: number) => `${(n / 1024).toFixed(2)} KB`;
   const toB = (n: number) => `${n} B`;
+
+  const awsFailed: string[] = [];
+  const ittyFailed: string[] = [];
 
   for (const spec of targets) {
     const serviceDir = path.join(OUTDIR, spec.service);
@@ -332,6 +326,7 @@ async function run() {
       entry: ittyEntry,
       outfile: ittyRawOut,
       minify: false,
+      quiet: true,
       //external: ["effect"],
     });
     const ittyMin = await buildOnce({
@@ -339,6 +334,7 @@ async function run() {
       entry: ittyEntry,
       outfile: ittyMinOut,
       minify: true,
+      quiet: true,
       //external: ["effect"],
     });
 
@@ -350,17 +346,15 @@ async function run() {
         entry: awsEntry,
         outfile: awsRawOut,
         minify: false,
+        quiet: true,
       });
       awsMin = await buildOnce({
         name: "aws-sdk-v3",
         entry: awsEntry,
         outfile: awsMinOut,
         minify: true,
+        quiet: true,
       });
-    } else {
-      console.warn(
-        `Skipping aws-sdk-v3 for '${spec.service}' (client package not installed)`,
-      );
     }
 
     const ittyRes =
@@ -380,6 +374,7 @@ async function run() {
             },
           }
         : null;
+    if (!ittyRes) ittyFailed.push(spec.service);
     const awsRes =
       awsRaw && awsMin
         ? {
@@ -397,16 +392,7 @@ async function run() {
             },
           }
         : null;
-
-    if (ittyRes && awsRes) {
-      console.log(`\n== ${spec.service} ==`);
-      console.log(
-        `itty-aws: raw ${toKB(ittyRes.raw.bytes)} (${toB(ittyRes.raw.bytes)}), gzip ${toKB(ittyRes.raw.gzipBytes)}; min ${toKB(ittyRes.min.bytes)}, gzip ${toKB(ittyRes.min.gzipBytes)}`,
-      );
-      console.log(
-        `aws-sdk-v3: raw ${toKB(awsRes.raw.bytes)} (${toB(awsRes.raw.bytes)}), gzip ${toKB(awsRes.raw.gzipBytes)}; min ${toKB(awsRes.min.bytes)}, gzip ${toKB(awsRes.min.gzipBytes)}`,
-      );
-    }
+    if (!awsRes) awsFailed.push(spec.service);
 
     results.push({
       service: spec.service,
@@ -435,9 +421,17 @@ async function run() {
     "- Target: Node 18, ESM\n" +
     "- Minification: on; tree-shaking; NODE_ENV=production\n" +
     "- itty-aws: 'effect' is external\n" +
-    `- Services tested: ${results.filter((r) => r.results["itty-aws"] && r.results["aws-sdk-v3"]).length}\n\n`;
+    `- Services tested: ${results.filter((r) => r.results["itty-aws"] && r.results["aws-sdk-v3"]).length}\n` +
+    (ittyFailed.length ? `- itty-aws failures: ${ittyFailed.length}\n` : "") +
+    (awsFailed.length ? `- aws-sdk-v3 failures: ${awsFailed.length}\n` : "") +
+    "\n";
   fs.writeFileSync(reportPath, `${header + lines.join("\n")}\n`);
-  console.log(`\nWrote Markdown report to ${path.relative(ROOT, reportPath)}`);
+  // Only print final outputs (path + failures)
+  console.log(`Wrote Markdown report to ${path.relative(ROOT, reportPath)}`);
+  if (ittyFailed.length)
+    console.log(`itty-aws build failures: ${ittyFailed.join(", ")}`);
+  if (awsFailed.length)
+    console.log(`aws-sdk-v3 build failures: ${awsFailed.join(", ")}`);
 }
 
 run().catch((err) => {
