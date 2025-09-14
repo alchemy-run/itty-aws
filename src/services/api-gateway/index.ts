@@ -1,7 +1,9 @@
 import type { AWSClientConfig, ServiceMetadata } from "../../client.ts";
 import { AWSServiceClient, createServiceProxy } from "../../client.ts";
 import { RestJson1Handler } from "../../protocols/rest-json-1.ts";
-import type { APIGateway as _APIGateway } from "./types.ts";
+import type { APIGateway as _APIGatewayClient } from "./types.ts";
+
+export * from "./types.ts";
 
 // Service metadata
 const metadata = {
@@ -207,4 +209,4 @@ export const APIGateway = class extends AWSServiceClient {
     // biome-ignore lint/correctness/noConstructorReturn: deliberate proxy usage
     return createServiceProxy(metadata, this.config, new RestJson1Handler());
   }
-} as unknown as typeof _APIGateway;
+} as unknown as typeof _APIGatewayClient;

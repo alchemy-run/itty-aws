@@ -1,7 +1,9 @@
 import type { AWSClientConfig, ServiceMetadata } from "../../client.ts";
 import { AWSServiceClient, createServiceProxy } from "../../client.ts";
 import { RestXmlHandler } from "../../protocols/rest-xml.ts";
-import type { Route53 as _Route53 } from "./types.ts";
+import type { Route53 as _Route53Client } from "./types.ts";
+
+export * from "./types.ts";
 
 // Service metadata
 const metadata = {
@@ -73,4 +75,4 @@ export const Route53 = class extends AWSServiceClient {
     // biome-ignore lint/correctness/noConstructorReturn: deliberate proxy usage
     return createServiceProxy(metadata, this.config, new RestXmlHandler());
   }
-} as unknown as typeof _Route53;
+} as unknown as typeof _Route53Client;

@@ -1,7 +1,9 @@
 import type { AWSClientConfig, ServiceMetadata } from "../../client.ts";
 import { AWSServiceClient, createServiceProxy } from "../../client.ts";
 import { AwsJson11Handler } from "../../protocols/aws-json-1-1.ts";
-import type { CloudWatchLogs as _CloudWatchLogs } from "./types.ts";
+import type { CloudWatchLogs as _CloudWatchLogsClient } from "./types.ts";
+
+export * from "./types.ts";
 
 // Service metadata
 const metadata = {
@@ -27,4 +29,4 @@ export const CloudWatchLogs = class extends AWSServiceClient {
     // biome-ignore lint/correctness/noConstructorReturn: deliberate proxy usage
     return createServiceProxy(metadata, this.config, new AwsJson11Handler());
   }
-} as unknown as typeof _CloudWatchLogs;
+} as unknown as typeof _CloudWatchLogsClient;

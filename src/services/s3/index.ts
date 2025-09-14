@@ -1,7 +1,9 @@
 import type { AWSClientConfig, ServiceMetadata } from "../../client.ts";
 import { AWSServiceClient, createServiceProxy } from "../../client.ts";
 import { RestXmlHandler } from "../../protocols/rest-xml.ts";
-import type { S3 as _S3 } from "./types.ts";
+import type { S3 as _S3Client } from "./types.ts";
+
+export * from "./types.ts";
 
 // Service metadata
 const metadata = {
@@ -423,4 +425,4 @@ export const S3 = class extends AWSServiceClient {
     // biome-ignore lint/correctness/noConstructorReturn: deliberate proxy usage
     return createServiceProxy(metadata, this.config, new RestXmlHandler());
   }
-} as unknown as typeof _S3;
+} as unknown as typeof _S3Client;

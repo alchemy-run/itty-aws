@@ -1,7 +1,9 @@
 import type { AWSClientConfig, ServiceMetadata } from "../../client.ts";
 import { AWSServiceClient, createServiceProxy } from "../../client.ts";
 import { RestJson1Handler } from "../../protocols/rest-json-1.ts";
-import type { CognitoSync as _CognitoSync } from "./types.ts";
+import type { CognitoSync as _CognitoSyncClient } from "./types.ts";
+
+export * from "./types.ts";
 
 // Service metadata
 const metadata = {
@@ -57,4 +59,4 @@ export const CognitoSync = class extends AWSServiceClient {
     // biome-ignore lint/correctness/noConstructorReturn: deliberate proxy usage
     return createServiceProxy(metadata, this.config, new RestJson1Handler());
   }
-} as unknown as typeof _CognitoSync;
+} as unknown as typeof _CognitoSyncClient;

@@ -1,7 +1,9 @@
 import type { AWSClientConfig, ServiceMetadata } from "../../client.ts";
 import { AWSServiceClient, createServiceProxy } from "../../client.ts";
 import { RestJson1Handler } from "../../protocols/rest-json-1.ts";
-import type { synthetics as _synthetics } from "./types.ts";
+import type { synthetics as _syntheticsClient } from "./types.ts";
+
+export * from "./types.ts";
 
 // Service metadata
 const metadata = {
@@ -50,4 +52,4 @@ export const synthetics = class extends AWSServiceClient {
     // biome-ignore lint/correctness/noConstructorReturn: deliberate proxy usage
     return createServiceProxy(metadata, this.config, new RestJson1Handler());
   }
-} as unknown as typeof _synthetics;
+} as unknown as typeof _syntheticsClient;

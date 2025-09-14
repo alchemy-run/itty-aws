@@ -1,7 +1,9 @@
 import type { AWSClientConfig, ServiceMetadata } from "../../client.ts";
 import { AWSServiceClient, createServiceProxy } from "../../client.ts";
 import { RestJson1Handler } from "../../protocols/rest-json-1.ts";
-import type { KinesisVideo as _KinesisVideo } from "./types.ts";
+import type { KinesisVideo as _KinesisVideoClient } from "./types.ts";
+
+export * from "./types.ts";
 
 // Service metadata
 const metadata = {
@@ -63,4 +65,4 @@ export const KinesisVideo = class extends AWSServiceClient {
     // biome-ignore lint/correctness/noConstructorReturn: deliberate proxy usage
     return createServiceProxy(metadata, this.config, new RestJson1Handler());
   }
-} as unknown as typeof _KinesisVideo;
+} as unknown as typeof _KinesisVideoClient;

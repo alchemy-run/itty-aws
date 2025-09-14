@@ -1,7 +1,9 @@
 import type { AWSClientConfig, ServiceMetadata } from "../../client.ts";
 import { AWSServiceClient, createServiceProxy } from "../../client.ts";
 import { RestJson1Handler } from "../../protocols/rest-json-1.ts";
-import type { ConnectCampaigns as _ConnectCampaigns } from "./types.ts";
+import type { ConnectCampaigns as _ConnectCampaignsClient } from "./types.ts";
+
+export * from "./types.ts";
 
 // Service metadata
 const metadata = {
@@ -55,4 +57,4 @@ export const ConnectCampaigns = class extends AWSServiceClient {
     // biome-ignore lint/correctness/noConstructorReturn: deliberate proxy usage
     return createServiceProxy(metadata, this.config, new RestJson1Handler());
   }
-} as unknown as typeof _ConnectCampaigns;
+} as unknown as typeof _ConnectCampaignsClient;

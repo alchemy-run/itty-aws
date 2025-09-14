@@ -1,7 +1,9 @@
 import type { AWSClientConfig, ServiceMetadata } from "../../client.ts";
 import { AWSServiceClient, createServiceProxy } from "../../client.ts";
 import { AwsJson11Handler } from "../../protocols/aws-json-1-1.ts";
-import type { forecast as _forecast } from "./types.ts";
+import type { forecast as _forecastClient } from "./types.ts";
+
+export * from "./types.ts";
 
 // Service metadata
 const metadata = {
@@ -27,4 +29,4 @@ export const forecast = class extends AWSServiceClient {
     // biome-ignore lint/correctness/noConstructorReturn: deliberate proxy usage
     return createServiceProxy(metadata, this.config, new AwsJson11Handler());
   }
-} as unknown as typeof _forecast;
+} as unknown as typeof _forecastClient;

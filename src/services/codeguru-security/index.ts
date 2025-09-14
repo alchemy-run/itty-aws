@@ -1,7 +1,9 @@
 import type { AWSClientConfig, ServiceMetadata } from "../../client.ts";
 import { AWSServiceClient, createServiceProxy } from "../../client.ts";
 import { RestJson1Handler } from "../../protocols/rest-json-1.ts";
-import type { CodeGuruSecurity as _CodeGuruSecurity } from "./types.ts";
+import type { CodeGuruSecurity as _CodeGuruSecurityClient } from "./types.ts";
+
+export * from "./types.ts";
 
 // Service metadata
 const metadata = {
@@ -40,4 +42,4 @@ export const CodeGuruSecurity = class extends AWSServiceClient {
     // biome-ignore lint/correctness/noConstructorReturn: deliberate proxy usage
     return createServiceProxy(metadata, this.config, new RestJson1Handler());
   }
-} as unknown as typeof _CodeGuruSecurity;
+} as unknown as typeof _CodeGuruSecurityClient;

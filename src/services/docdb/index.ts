@@ -2,7 +2,9 @@ import type { AWSClientConfig, ServiceMetadata } from "../../client.ts";
 import { AWSServiceClient, createServiceProxy } from "../../client.ts";
 import { AwsQueryHandler } from "../../protocols/aws-query.ts";
 import { metadata as protocolMetadata } from "../../awsquery-metadata/docdb.ts";
-import type { DocDB as _DocDB } from "./types.ts";
+import type { DocDB as _DocDBClient } from "./types.ts";
+
+export * from "./types.ts";
 
 // Service metadata
 const metadata = {
@@ -31,4 +33,4 @@ export const DocDB = class extends AWSServiceClient {
       new AwsQueryHandler(protocolMetadata),
     );
   }
-} as unknown as typeof _DocDB;
+} as unknown as typeof _DocDBClient;

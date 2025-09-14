@@ -2,7 +2,9 @@ import type { AWSClientConfig, ServiceMetadata } from "../../client.ts";
 import { AWSServiceClient, createServiceProxy } from "../../client.ts";
 import { AwsQueryHandler } from "../../protocols/aws-query.ts";
 import { metadata as protocolMetadata } from "../../awsquery-metadata/auto-scaling.ts";
-import type { AutoScaling as _AutoScaling } from "./types.ts";
+import type { AutoScaling as _AutoScalingClient } from "./types.ts";
+
+export * from "./types.ts";
 
 // Service metadata
 const metadata = {
@@ -31,4 +33,4 @@ export const AutoScaling = class extends AWSServiceClient {
       new AwsQueryHandler(protocolMetadata),
     );
   }
-} as unknown as typeof _AutoScaling;
+} as unknown as typeof _AutoScalingClient;

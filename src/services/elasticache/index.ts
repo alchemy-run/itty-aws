@@ -2,7 +2,9 @@ import type { AWSClientConfig, ServiceMetadata } from "../../client.ts";
 import { AWSServiceClient, createServiceProxy } from "../../client.ts";
 import { AwsQueryHandler } from "../../protocols/aws-query.ts";
 import { metadata as protocolMetadata } from "../../awsquery-metadata/elasticache.ts";
-import type { ElastiCache as _ElastiCache } from "./types.ts";
+import type { ElastiCache as _ElastiCacheClient } from "./types.ts";
+
+export * from "./types.ts";
 
 // Service metadata
 const metadata = {
@@ -31,4 +33,4 @@ export const ElastiCache = class extends AWSServiceClient {
       new AwsQueryHandler(protocolMetadata),
     );
   }
-} as unknown as typeof _ElastiCache;
+} as unknown as typeof _ElastiCacheClient;

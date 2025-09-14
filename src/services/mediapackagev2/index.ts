@@ -1,7 +1,9 @@
 import type { AWSClientConfig, ServiceMetadata } from "../../client.ts";
 import { AWSServiceClient, createServiceProxy } from "../../client.ts";
 import { RestJson1Handler } from "../../protocols/rest-json-1.ts";
-import type { MediaPackageV2 as _MediaPackageV2 } from "./types.ts";
+import type { MediaPackageV2 as _MediaPackageV2Client } from "./types.ts";
+
+export * from "./types.ts";
 
 // Service metadata
 const metadata = {
@@ -76,4 +78,4 @@ export const MediaPackageV2 = class extends AWSServiceClient {
     // biome-ignore lint/correctness/noConstructorReturn: deliberate proxy usage
     return createServiceProxy(metadata, this.config, new RestJson1Handler());
   }
-} as unknown as typeof _MediaPackageV2;
+} as unknown as typeof _MediaPackageV2Client;

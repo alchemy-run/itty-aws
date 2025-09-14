@@ -1,7 +1,9 @@
 import type { AWSClientConfig, ServiceMetadata } from "../../client.ts";
 import { AWSServiceClient, createServiceProxy } from "../../client.ts";
 import { RestJson1Handler } from "../../protocols/rest-json-1.ts";
-import type { Route53RecoveryControlConfig as _Route53RecoveryControlConfig } from "./types.ts";
+import type { Route53RecoveryControlConfig as _Route53RecoveryControlConfigClient } from "./types.ts";
+
+export * from "./types.ts";
 
 // Service metadata
 const metadata = {
@@ -54,4 +56,4 @@ export const Route53RecoveryControlConfig = class extends AWSServiceClient {
     // biome-ignore lint/correctness/noConstructorReturn: deliberate proxy usage
     return createServiceProxy(metadata, this.config, new RestJson1Handler());
   }
-} as unknown as typeof _Route53RecoveryControlConfig;
+} as unknown as typeof _Route53RecoveryControlConfigClient;

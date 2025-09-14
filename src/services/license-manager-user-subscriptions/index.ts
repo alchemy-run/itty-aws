@@ -1,7 +1,9 @@
 import type { AWSClientConfig, ServiceMetadata } from "../../client.ts";
 import { AWSServiceClient, createServiceProxy } from "../../client.ts";
 import { RestJson1Handler } from "../../protocols/rest-json-1.ts";
-import type { LicenseManagerUserSubscriptions as _LicenseManagerUserSubscriptions } from "./types.ts";
+import type { LicenseManagerUserSubscriptions as _LicenseManagerUserSubscriptionsClient } from "./types.ts";
+
+export * from "./types.ts";
 
 // Service metadata
 const metadata = {
@@ -50,4 +52,4 @@ export const LicenseManagerUserSubscriptions = class extends AWSServiceClient {
     // biome-ignore lint/correctness/noConstructorReturn: deliberate proxy usage
     return createServiceProxy(metadata, this.config, new RestJson1Handler());
   }
-} as unknown as typeof _LicenseManagerUserSubscriptions;
+} as unknown as typeof _LicenseManagerUserSubscriptionsClient;

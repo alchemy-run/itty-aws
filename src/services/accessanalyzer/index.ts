@@ -1,7 +1,9 @@
 import type { AWSClientConfig, ServiceMetadata } from "../../client.ts";
 import { AWSServiceClient, createServiceProxy } from "../../client.ts";
 import { RestJson1Handler } from "../../protocols/rest-json-1.ts";
-import type { AccessAnalyzer as _AccessAnalyzer } from "./types.ts";
+import type { AccessAnalyzer as _AccessAnalyzerClient } from "./types.ts";
+
+export * from "./types.ts";
 
 // Service metadata
 const metadata = {
@@ -65,4 +67,4 @@ export const AccessAnalyzer = class extends AWSServiceClient {
     // biome-ignore lint/correctness/noConstructorReturn: deliberate proxy usage
     return createServiceProxy(metadata, this.config, new RestJson1Handler());
   }
-} as unknown as typeof _AccessAnalyzer;
+} as unknown as typeof _AccessAnalyzerClient;

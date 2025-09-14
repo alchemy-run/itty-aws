@@ -2,7 +2,9 @@ import type { AWSClientConfig, ServiceMetadata } from "../../client.ts";
 import { AWSServiceClient, createServiceProxy } from "../../client.ts";
 import { AwsQueryHandler } from "../../protocols/aws-query.ts";
 import { metadata as protocolMetadata } from "../../awsquery-metadata/sns.ts";
-import type { SNS as _SNS } from "./types.ts";
+import type { SNS as _SNSClient } from "./types.ts";
+
+export * from "./types.ts";
 
 // Service metadata
 const metadata = {
@@ -31,4 +33,4 @@ export const SNS = class extends AWSServiceClient {
       new AwsQueryHandler(protocolMetadata),
     );
   }
-} as unknown as typeof _SNS;
+} as unknown as typeof _SNSClient;

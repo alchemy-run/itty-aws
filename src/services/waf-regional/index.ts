@@ -1,7 +1,9 @@
 import type { AWSClientConfig, ServiceMetadata } from "../../client.ts";
 import { AWSServiceClient, createServiceProxy } from "../../client.ts";
 import { AwsJson11Handler } from "../../protocols/aws-json-1-1.ts";
-import type { WAFRegional as _WAFRegional } from "./types.ts";
+import type { WAFRegional as _WAFRegionalClient } from "./types.ts";
+
+export * from "./types.ts";
 
 // Service metadata
 const metadata = {
@@ -27,4 +29,4 @@ export const WAFRegional = class extends AWSServiceClient {
     // biome-ignore lint/correctness/noConstructorReturn: deliberate proxy usage
     return createServiceProxy(metadata, this.config, new AwsJson11Handler());
   }
-} as unknown as typeof _WAFRegional;
+} as unknown as typeof _WAFRegionalClient;

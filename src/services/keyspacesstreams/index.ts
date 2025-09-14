@@ -1,7 +1,9 @@
 import type { AWSClientConfig, ServiceMetadata } from "../../client.ts";
 import { AWSServiceClient, createServiceProxy } from "../../client.ts";
 import { AwsJson10Handler } from "../../protocols/aws-json-1-0.ts";
-import type { KeyspacesStreams as _KeyspacesStreams } from "./types.ts";
+import type { KeyspacesStreams as _KeyspacesStreamsClient } from "./types.ts";
+
+export * from "./types.ts";
 
 // Service metadata
 const metadata = {
@@ -27,4 +29,4 @@ export const KeyspacesStreams = class extends AWSServiceClient {
     // biome-ignore lint/correctness/noConstructorReturn: deliberate proxy usage
     return createServiceProxy(metadata, this.config, new AwsJson10Handler());
   }
-} as unknown as typeof _KeyspacesStreams;
+} as unknown as typeof _KeyspacesStreamsClient;

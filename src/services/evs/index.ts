@@ -1,7 +1,9 @@
 import type { AWSClientConfig, ServiceMetadata } from "../../client.ts";
 import { AWSServiceClient, createServiceProxy } from "../../client.ts";
 import { AwsJson10Handler } from "../../protocols/aws-json-1-0.ts";
-import type { evs as _evs } from "./types.ts";
+import type { evs as _evsClient } from "./types.ts";
+
+export * from "./types.ts";
 
 // Service metadata
 const metadata = {
@@ -26,4 +28,4 @@ export const evs = class extends AWSServiceClient {
     // biome-ignore lint/correctness/noConstructorReturn: deliberate proxy usage
     return createServiceProxy(metadata, this.config, new AwsJson10Handler());
   }
-} as unknown as typeof _evs;
+} as unknown as typeof _evsClient;

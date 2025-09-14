@@ -2,7 +2,9 @@ import type { AWSClientConfig, ServiceMetadata } from "../../client.ts";
 import { AWSServiceClient, createServiceProxy } from "../../client.ts";
 import { AwsQueryHandler } from "../../protocols/aws-query.ts";
 import { metadata as protocolMetadata } from "../../awsquery-metadata/elastic-beanstalk.ts";
-import type { ElasticBeanstalk as _ElasticBeanstalk } from "./types.ts";
+import type { ElasticBeanstalk as _ElasticBeanstalkClient } from "./types.ts";
+
+export * from "./types.ts";
 
 // Service metadata
 const metadata = {
@@ -31,4 +33,4 @@ export const ElasticBeanstalk = class extends AWSServiceClient {
       new AwsQueryHandler(protocolMetadata),
     );
   }
-} as unknown as typeof _ElasticBeanstalk;
+} as unknown as typeof _ElasticBeanstalkClient;

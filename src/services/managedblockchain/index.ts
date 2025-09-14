@@ -1,7 +1,9 @@
 import type { AWSClientConfig, ServiceMetadata } from "../../client.ts";
 import { AWSServiceClient, createServiceProxy } from "../../client.ts";
 import { RestJson1Handler } from "../../protocols/rest-json-1.ts";
-import type { ManagedBlockchain as _ManagedBlockchain } from "./types.ts";
+import type { ManagedBlockchain as _ManagedBlockchainClient } from "./types.ts";
+
+export * from "./types.ts";
 
 // Service metadata
 const metadata = {
@@ -55,4 +57,4 @@ export const ManagedBlockchain = class extends AWSServiceClient {
     // biome-ignore lint/correctness/noConstructorReturn: deliberate proxy usage
     return createServiceProxy(metadata, this.config, new RestJson1Handler());
   }
-} as unknown as typeof _ManagedBlockchain;
+} as unknown as typeof _ManagedBlockchainClient;

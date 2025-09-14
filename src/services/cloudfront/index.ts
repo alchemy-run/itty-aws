@@ -1,7 +1,9 @@
 import type { AWSClientConfig, ServiceMetadata } from "../../client.ts";
 import { AWSServiceClient, createServiceProxy } from "../../client.ts";
 import { RestXmlHandler } from "../../protocols/rest-xml.ts";
-import type { CloudFront as _CloudFront } from "./types.ts";
+import type { CloudFront as _CloudFrontClient } from "./types.ts";
+
+export * from "./types.ts";
 
 // Service metadata
 const metadata = {
@@ -707,4 +709,4 @@ export const CloudFront = class extends AWSServiceClient {
     // biome-ignore lint/correctness/noConstructorReturn: deliberate proxy usage
     return createServiceProxy(metadata, this.config, new RestXmlHandler());
   }
-} as unknown as typeof _CloudFront;
+} as unknown as typeof _CloudFrontClient;

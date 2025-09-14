@@ -1,7 +1,9 @@
 import type { AWSClientConfig, ServiceMetadata } from "../../client.ts";
 import { AWSServiceClient, createServiceProxy } from "../../client.ts";
 import { RestJson1Handler } from "../../protocols/rest-json-1.ts";
-import type { ElasticsearchService as _ElasticsearchService } from "./types.ts";
+import type { ElasticsearchService as _ElasticsearchServiceClient } from "./types.ts";
+
+export * from "./types.ts";
 
 // Service metadata
 const metadata = {
@@ -103,4 +105,4 @@ export const ElasticsearchService = class extends AWSServiceClient {
     // biome-ignore lint/correctness/noConstructorReturn: deliberate proxy usage
     return createServiceProxy(metadata, this.config, new RestJson1Handler());
   }
-} as unknown as typeof _ElasticsearchService;
+} as unknown as typeof _ElasticsearchServiceClient;

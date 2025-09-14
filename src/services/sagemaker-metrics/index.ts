@@ -1,7 +1,9 @@
 import type { AWSClientConfig, ServiceMetadata } from "../../client.ts";
 import { AWSServiceClient, createServiceProxy } from "../../client.ts";
 import { RestJson1Handler } from "../../protocols/rest-json-1.ts";
-import type { SageMakerMetrics as _SageMakerMetrics } from "./types.ts";
+import type { SageMakerMetrics as _SageMakerMetricsClient } from "./types.ts";
+
+export * from "./types.ts";
 
 // Service metadata
 const metadata = {
@@ -30,4 +32,4 @@ export const SageMakerMetrics = class extends AWSServiceClient {
     // biome-ignore lint/correctness/noConstructorReturn: deliberate proxy usage
     return createServiceProxy(metadata, this.config, new RestJson1Handler());
   }
-} as unknown as typeof _SageMakerMetrics;
+} as unknown as typeof _SageMakerMetricsClient;

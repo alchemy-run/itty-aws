@@ -1,7 +1,9 @@
 import type { AWSClientConfig, ServiceMetadata } from "../../client.ts";
 import { AWSServiceClient, createServiceProxy } from "../../client.ts";
 import { RestJson1Handler } from "../../protocols/rest-json-1.ts";
-import type { ResourceExplorer2 as _ResourceExplorer2 } from "./types.ts";
+import type { ResourceExplorer2 as _ResourceExplorer2Client } from "./types.ts";
+
+export * from "./types.ts";
 
 // Service metadata
 const metadata = {
@@ -53,4 +55,4 @@ export const ResourceExplorer2 = class extends AWSServiceClient {
     // biome-ignore lint/correctness/noConstructorReturn: deliberate proxy usage
     return createServiceProxy(metadata, this.config, new RestJson1Handler());
   }
-} as unknown as typeof _ResourceExplorer2;
+} as unknown as typeof _ResourceExplorer2Client;

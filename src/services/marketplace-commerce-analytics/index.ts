@@ -1,7 +1,9 @@
 import type { AWSClientConfig, ServiceMetadata } from "../../client.ts";
 import { AWSServiceClient, createServiceProxy } from "../../client.ts";
 import { AwsJson11Handler } from "../../protocols/aws-json-1-1.ts";
-import type { MarketplaceCommerceAnalytics as _MarketplaceCommerceAnalytics } from "./types.ts";
+import type { MarketplaceCommerceAnalytics as _MarketplaceCommerceAnalyticsClient } from "./types.ts";
+
+export * from "./types.ts";
 
 // Service metadata
 const metadata = {
@@ -27,4 +29,4 @@ export const MarketplaceCommerceAnalytics = class extends AWSServiceClient {
     // biome-ignore lint/correctness/noConstructorReturn: deliberate proxy usage
     return createServiceProxy(metadata, this.config, new AwsJson11Handler());
   }
-} as unknown as typeof _MarketplaceCommerceAnalytics;
+} as unknown as typeof _MarketplaceCommerceAnalyticsClient;

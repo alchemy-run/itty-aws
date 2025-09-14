@@ -1,7 +1,9 @@
 import type { AWSClientConfig, ServiceMetadata } from "../../client.ts";
 import { AWSServiceClient, createServiceProxy } from "../../client.ts";
 import { AwsJson10Handler } from "../../protocols/aws-json-1-0.ts";
-import type { CodeStarconnections as _CodeStarconnections } from "./types.ts";
+import type { CodeStarconnections as _CodeStarconnectionsClient } from "./types.ts";
+
+export * from "./types.ts";
 
 // Service metadata
 const metadata = {
@@ -27,4 +29,4 @@ export const CodeStarconnections = class extends AWSServiceClient {
     // biome-ignore lint/correctness/noConstructorReturn: deliberate proxy usage
     return createServiceProxy(metadata, this.config, new AwsJson10Handler());
   }
-} as unknown as typeof _CodeStarconnections;
+} as unknown as typeof _CodeStarconnectionsClient;

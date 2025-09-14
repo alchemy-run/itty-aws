@@ -1,7 +1,9 @@
 import type { AWSClientConfig, ServiceMetadata } from "../../client.ts";
 import { AWSServiceClient, createServiceProxy } from "../../client.ts";
 import { Ec2QueryHandler } from "../../protocols/ec2-query.ts";
-import type { EC2 as _EC2 } from "./types.ts";
+import type { EC2 as _EC2Client } from "./types.ts";
+
+export * from "./types.ts";
 
 // Service metadata
 const metadata = {
@@ -26,4 +28,4 @@ export const EC2 = class extends AWSServiceClient {
     // biome-ignore lint/correctness/noConstructorReturn: deliberate proxy usage
     return createServiceProxy(metadata, this.config, new Ec2QueryHandler());
   }
-} as unknown as typeof _EC2;
+} as unknown as typeof _EC2Client;

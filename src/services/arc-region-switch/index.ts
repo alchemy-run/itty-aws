@@ -1,7 +1,9 @@
 import type { AWSClientConfig, ServiceMetadata } from "../../client.ts";
 import { AWSServiceClient, createServiceProxy } from "../../client.ts";
 import { AwsJson10Handler } from "../../protocols/aws-json-1-0.ts";
-import type { ARCRegionswitch as _ARCRegionswitch } from "./types.ts";
+import type { ARCRegionswitch as _ARCRegionswitchClient } from "./types.ts";
+
+export * from "./types.ts";
 
 // Service metadata
 const metadata = {
@@ -27,4 +29,4 @@ export const ARCRegionswitch = class extends AWSServiceClient {
     // biome-ignore lint/correctness/noConstructorReturn: deliberate proxy usage
     return createServiceProxy(metadata, this.config, new AwsJson10Handler());
   }
-} as unknown as typeof _ARCRegionswitch;
+} as unknown as typeof _ARCRegionswitchClient;

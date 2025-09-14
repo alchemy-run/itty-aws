@@ -1,7 +1,9 @@
 import type { AWSClientConfig, ServiceMetadata } from "../../client.ts";
 import { AWSServiceClient, createServiceProxy } from "../../client.ts";
 import { RestJson1Handler } from "../../protocols/rest-json-1.ts";
-import type { PcaConnectorAd as _PcaConnectorAd } from "./types.ts";
+import type { PcaConnectorAd as _PcaConnectorAdClient } from "./types.ts";
+
+export * from "./types.ts";
 
 // Service metadata
 const metadata = {
@@ -63,4 +65,4 @@ export const PcaConnectorAd = class extends AWSServiceClient {
     // biome-ignore lint/correctness/noConstructorReturn: deliberate proxy usage
     return createServiceProxy(metadata, this.config, new RestJson1Handler());
   }
-} as unknown as typeof _PcaConnectorAd;
+} as unknown as typeof _PcaConnectorAdClient;

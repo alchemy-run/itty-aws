@@ -1,7 +1,9 @@
 import type { AWSClientConfig, ServiceMetadata } from "../../client.ts";
 import { AWSServiceClient, createServiceProxy } from "../../client.ts";
 import { AwsJson10Handler } from "../../protocols/aws-json-1-0.ts";
-import type { PinpointSMSVoiceV2 as _PinpointSMSVoiceV2 } from "./types.ts";
+import type { PinpointSMSVoiceV2 as _PinpointSMSVoiceV2Client } from "./types.ts";
+
+export * from "./types.ts";
 
 // Service metadata
 const metadata = {
@@ -27,4 +29,4 @@ export const PinpointSMSVoiceV2 = class extends AWSServiceClient {
     // biome-ignore lint/correctness/noConstructorReturn: deliberate proxy usage
     return createServiceProxy(metadata, this.config, new AwsJson10Handler());
   }
-} as unknown as typeof _PinpointSMSVoiceV2;
+} as unknown as typeof _PinpointSMSVoiceV2Client;

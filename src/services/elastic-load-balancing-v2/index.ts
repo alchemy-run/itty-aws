@@ -2,7 +2,9 @@ import type { AWSClientConfig, ServiceMetadata } from "../../client.ts";
 import { AWSServiceClient, createServiceProxy } from "../../client.ts";
 import { AwsQueryHandler } from "../../protocols/aws-query.ts";
 import { metadata as protocolMetadata } from "../../awsquery-metadata/elastic-load-balancing-v2.ts";
-import type { ElasticLoadBalancingv2 as _ElasticLoadBalancingv2 } from "./types.ts";
+import type { ElasticLoadBalancingv2 as _ElasticLoadBalancingv2Client } from "./types.ts";
+
+export * from "./types.ts";
 
 // Service metadata
 const metadata = {
@@ -31,4 +33,4 @@ export const ElasticLoadBalancingv2 = class extends AWSServiceClient {
       new AwsQueryHandler(protocolMetadata),
     );
   }
-} as unknown as typeof _ElasticLoadBalancingv2;
+} as unknown as typeof _ElasticLoadBalancingv2Client;

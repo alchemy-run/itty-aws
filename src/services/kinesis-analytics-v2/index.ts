@@ -1,7 +1,9 @@
 import type { AWSClientConfig, ServiceMetadata } from "../../client.ts";
 import { AWSServiceClient, createServiceProxy } from "../../client.ts";
 import { AwsJson11Handler } from "../../protocols/aws-json-1-1.ts";
-import type { KinesisAnalyticsV2 as _KinesisAnalyticsV2 } from "./types.ts";
+import type { KinesisAnalyticsV2 as _KinesisAnalyticsV2Client } from "./types.ts";
+
+export * from "./types.ts";
 
 // Service metadata
 const metadata = {
@@ -27,4 +29,4 @@ export const KinesisAnalyticsV2 = class extends AWSServiceClient {
     // biome-ignore lint/correctness/noConstructorReturn: deliberate proxy usage
     return createServiceProxy(metadata, this.config, new AwsJson11Handler());
   }
-} as unknown as typeof _KinesisAnalyticsV2;
+} as unknown as typeof _KinesisAnalyticsV2Client;

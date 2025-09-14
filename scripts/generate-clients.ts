@@ -838,7 +838,8 @@ const generateServiceIndex = (
   if (metadata.protocol === "awsQuery") {
     code += `import { metadata as protocolMetadata } from "../../awsquery-metadata/${serviceName}.ts";\n`;
   }
-  code += `import type { ${consistentInterfaceName} as _${consistentInterfaceName} } from "./types.ts";\n\n`;
+  code += `import type { ${consistentInterfaceName} as _${consistentInterfaceName}Client } from "./types.ts";\n\n`;
+  code += `export * from "./types.ts";\n\n`;
 
   // Service metadata
   code += "// Service metadata\n";
@@ -913,7 +914,7 @@ const generateServiceIndex = (
     code += "    return createServiceProxy(metadata, this.config);\n";
   }
   code += "  }\n";
-  code += `} as unknown as typeof _${consistentInterfaceName};\n`;
+  code += `} as unknown as typeof _${consistentInterfaceName}Client;\n`;
 
   return code;
 };
