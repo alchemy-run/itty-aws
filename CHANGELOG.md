@@ -1,3 +1,13 @@
+## v0.3.0
+
+### &nbsp;&nbsp;&nbsp;🚀 Features
+
+- RestJson1 + improved error handling &nbsp;-&nbsp; by **Kirk Mitchener** in https://github.com/sam-goodwin/itty-aws/issues/61 [<samp>(4663c)</samp>](https://github.com/sam-goodwin/itty-aws/commit/4663cb53)
+
+##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/sam-goodwin/itty-aws/compare/v0.2.2...v0.3.0)
+
+---
+
 ## v0.2.2
 
 *No significant changes*
