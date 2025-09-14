@@ -1,3 +1,13 @@
+## v0.3.3
+
+### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes
+
+- Export error.ts from root &nbsp;-&nbsp; by **Sam Goodwin** [<samp>(d6023)</samp>](https://github.com/sam-goodwin/itty-aws/commit/d602365a)
+
+##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/sam-goodwin/itty-aws/compare/v0.3.2...v0.3.3)
+
+---
+
 ## v0.3.2
 
 ### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes
