@@ -26,6 +26,7 @@ const metadata = {
 // Re-export all types from types.ts for backward compatibility
 export type * from "./types.ts";
 
+export type WorkMailMessageFlow = typeof WorkMailMessageFlow;
 export const WorkMailMessageFlow = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

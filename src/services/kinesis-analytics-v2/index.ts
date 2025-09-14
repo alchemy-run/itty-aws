@@ -18,6 +18,7 @@ const metadata = {
 // Re-export all types from types.ts for backward compatibility
 export type * from "./types.ts";
 
+export type KinesisAnalyticsV2 = typeof KinesisAnalyticsV2;
 export const KinesisAnalyticsV2 = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

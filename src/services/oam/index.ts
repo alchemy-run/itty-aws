@@ -33,6 +33,7 @@ const metadata = {
 // Re-export all types from types.ts for backward compatibility
 export type * from "./types.ts";
 
+export type OAM = typeof OAM;
 export const OAM = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

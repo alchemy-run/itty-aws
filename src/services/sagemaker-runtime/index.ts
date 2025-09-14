@@ -46,6 +46,7 @@ const metadata = {
 // Re-export all types from types.ts for backward compatibility
 export type * from "./types.ts";
 
+export type SageMakerRuntime = typeof SageMakerRuntime;
 export const SageMakerRuntime = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

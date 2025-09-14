@@ -18,6 +18,7 @@ const metadata = {
 // Re-export all types from types.ts for backward compatibility
 export type * from "./types.ts";
 
+export type SSOAdmin = typeof SSOAdmin;
 export const SSOAdmin = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

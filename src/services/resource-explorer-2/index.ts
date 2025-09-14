@@ -44,6 +44,7 @@ const metadata = {
 // Re-export all types from types.ts for backward compatibility
 export type * from "./types.ts";
 
+export type ResourceExplorer2 = typeof ResourceExplorer2;
 export const ResourceExplorer2 = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

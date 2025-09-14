@@ -898,6 +898,7 @@ const generateServiceIndex = (
     code += `${metadata.documentation}\n`;
   }
 
+  code += `export type ${consistentInterfaceName} = typeof ${consistentInterfaceName}\n`;
   code += `export const ${consistentInterfaceName} = class extends AWSServiceClient {\n`;
   code += "  constructor(cfg: Partial<AWSClientConfig> = {}) {\n";
   code += "    const config: AWSClientConfig = {\n";

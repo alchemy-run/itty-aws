@@ -36,6 +36,7 @@ const metadata = {
 // Re-export all types from types.ts for backward compatibility
 export type * from "./types.ts";
 
+export type DirectoryServiceData = typeof DirectoryServiceData;
 export const DirectoryServiceData = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

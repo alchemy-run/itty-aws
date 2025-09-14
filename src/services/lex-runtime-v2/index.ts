@@ -57,6 +57,7 @@ const metadata = {
 // Re-export all types from types.ts for backward compatibility
 export type * from "./types.ts";
 
+export type LexRuntimeV2 = typeof LexRuntimeV2;
 export const LexRuntimeV2 = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

@@ -68,6 +68,7 @@ const metadata = {
 // Re-export all types from types.ts for backward compatibility
 export type * from "./types.ts";
 
+export type IoTTwinMaker = typeof IoTTwinMaker;
 export const IoTTwinMaker = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

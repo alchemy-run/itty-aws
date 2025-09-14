@@ -22,6 +22,7 @@ const metadata = {
 // Re-export all types from types.ts for backward compatibility
 export type * from "./types.ts";
 
+export type CloudSearchDomain = typeof CloudSearchDomain;
 export const CloudSearchDomain = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

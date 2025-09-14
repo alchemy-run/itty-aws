@@ -70,6 +70,7 @@ const metadata = {
 // Re-export all types from types.ts for backward compatibility
 export type * from "./types.ts";
 
+export type ConnectCampaignsV2 = typeof ConnectCampaignsV2;
 export const ConnectCampaignsV2 = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

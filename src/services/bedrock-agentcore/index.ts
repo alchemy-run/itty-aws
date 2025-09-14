@@ -76,6 +76,7 @@ const metadata = {
 // Re-export all types from types.ts for backward compatibility
 export type * from "./types.ts";
 
+export type BedrockAgentCore = typeof BedrockAgentCore;
 export const BedrockAgentCore = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

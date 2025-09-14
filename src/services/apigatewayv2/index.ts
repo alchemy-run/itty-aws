@@ -120,6 +120,7 @@ const metadata = {
 // Re-export all types from types.ts for backward compatibility
 export type * from "./types.ts";
 
+export type ApiGatewayV2 = typeof ApiGatewayV2;
 export const ApiGatewayV2 = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

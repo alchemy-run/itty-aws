@@ -24,6 +24,7 @@ const metadata = {
 // Re-export all types from types.ts for backward compatibility
 export type * from "./types.ts";
 
+export type SSMGuiConnect = typeof SSMGuiConnect;
 export const SSMGuiConnect = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {
