@@ -2,11 +2,7 @@ import { AwsV4Signer } from "aws4fetch";
 import * as Data from "effect/Data";
 import * as Effect from "effect/Effect";
 import * as Option from "effect/Option";
-import {
-  Credentials,
-  DefaultCredentials,
-  fromStaticCredentials,
-} from "./credential.service.ts";
+import { Credentials, fromStaticCredentials } from "./credentials.ts";
 import type { AwsErrorMeta } from "./error.ts";
 import { DefaultFetch, Fetch } from "./fetch.service.ts";
 import type { ProtocolHandler } from "./protocols/interface.ts";
@@ -95,9 +91,17 @@ export function createServiceProxy<T>(
                 onNone: () =>
                   config.credentials
                     ? fromStaticCredentials(config.credentials)
-                    : DefaultCredentials,
+                    : null,
               },
             );
+
+            if (!credentialSvc) {
+              return yield* Effect.fail(
+                new Error(
+                  "No credentials provider configured. Pass 'credentials' in client config or provide a Credentials service. For Node's default provider chain, import DefaultCredentials from './credential.service.ts' and provide it via Effect Context.",
+                ),
+              );
+            }
 
             const credentials = yield* Effect.promise(() =>
               credentialSvc.getCredentials(),

@@ -1,25 +1,9 @@
 import { fromNodeProviderChain } from "@aws-sdk/credential-providers";
-import * as Context from "effect/Context";
-import type { AwsCredentials } from "./client.ts";
+import type { Credentials } from "./credentials.ts";
 
-// Service tag
-export interface Credentials {
-  readonly getCredentials: () => Promise<AwsCredentials>;
-}
-
-export const Credentials = Context.Tag("Credentials")<
-  Credentials,
-  {
-    readonly getCredentials: () => Promise<AwsCredentials>;
-  }
->();
-
+// Node.js default credential provider chain
 export const DefaultCredentials: Credentials = {
   getCredentials: async () => {
     return await fromNodeProviderChain()();
   },
 };
-
-export const fromStaticCredentials = (creds: AwsCredentials): Credentials => ({
-  getCredentials: () => Promise.resolve(creds),
-});

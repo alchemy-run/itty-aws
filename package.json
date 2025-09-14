@@ -37,14 +37,9 @@
     "generate-awsquery-metadata": "bun scripts/generate-awsquery-metadata.ts --all && bun biome check --write && tsc -b",
     "generate-service-support-table": "bun scripts/generate-service-support-table.ts",
     "gen": "bun generate",
-    "bundle:size": "bun scripts/bundle-size.ts",
-    "bundle:treeshake": "bun scripts/treeshake-report.ts",
+    "bundle:compare": "bun scripts/bundle-compare.ts",
+    "test:smoke": "bun vitest test/smoke/*.test.ts",
     "bump": "bun ./scripts/bump.ts",
-    "test": "vitest",
-    "test:run": "vitest run",
-    "test:watch": "vitest watch",
-    "test:ui": "vitest --ui",
-    "test:protocol": "bun run build && vitest run ./test/protocols/*.test.ts",
     "publish:npm": "bun publish"
   },
   "dependencies": {
@@ -69,7 +64,7 @@
     "bun-types": "^1.2.18",
     "changelogithub": "^13.16.0",
     "effect": "^3.16.12",
-    "esbuild": "^0.19.0",
+    "esbuild": "^0.25.9",
     "ts-patch": "^3.3.0",
     "typescript": "^5.9.2",
     "vitest": "3"

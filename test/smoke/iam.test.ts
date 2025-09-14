@@ -1,10 +1,13 @@
+import { fromNodeProviderChain } from "@aws-sdk/credential-providers";
 import { describe, expect, it } from "@effect/vitest";
 import { Console, Effect } from "effect";
 import { IAM } from "../../src/services/iam/index.ts";
 import { STS } from "../../src/services/sts/index.ts";
 
+const credentials = await fromNodeProviderChain()();
+
 describe("IAM Smoke Tests", () => {
-  const client = new IAM({ region: "us-east-1" });
+  const client = new IAM({ region: "us-east-1", credentials });
   const TEST_USER_NAME = "itty-aws-test-user";
   const TEST_ROLE_NAME = "itty-aws-test-role";
   const TEST_POLICY_NAME = "itty-aws-test-policy";
@@ -377,7 +380,7 @@ describe("IAM Smoke Tests", () => {
 
         // Step 0: Clean up any existing policy
         yield* Console.log("Step 0: Cleaning up any existing policy...");
-        const sts = new STS({});
+        const sts = new STS({ credentials });
         const identity = yield* sts.getCallerIdentity({});
         const policyArn = `arn:aws:iam::${identity.Account}:policy/test/${TEST_POLICY_NAME}`;
         yield* deletePolicyIfExists(policyArn);

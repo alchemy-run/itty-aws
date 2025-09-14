@@ -1,10 +1,13 @@
+import { fromNodeProviderChain } from "@aws-sdk/credential-providers";
 import { describe, expect, it } from "@effect/vitest";
 import { Console, Effect } from "effect";
 import { ECR } from "../../src/services/ecr/index.ts";
 
+const credentials = await fromNodeProviderChain()();
+
 describe("ECR Smoke Tests", () => {
   const testRepositoryName = "itty-aws-test-repo";
-  const client = new ECR({ region: "us-east-1" });
+  const client = new ECR({ region: "us-east-1", credentials });
 
   const deleteRepositoryIfExists = (repositoryName: string) =>
     client

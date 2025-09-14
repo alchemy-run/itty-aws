@@ -1,9 +1,12 @@
+import { fromNodeProviderChain } from "@aws-sdk/credential-providers";
 import { describe, expect, it } from "@effect/vitest";
 import { Console, Effect, Schedule } from "effect";
 import { DynamoDB } from "../../src/services/dynamodb/index.ts";
 
+const credentials = await fromNodeProviderChain()();
+
 describe("DynamoDB Smoke Tests", () => {
-  const client = new DynamoDB({ region: "us-east-1" });
+  const client = new DynamoDB({ region: "us-east-1", credentials });
   const TABLE_NAME = "test-itty-aws-smoke-test";
   const waitForTableActive = (tableName: string) =>
     client.describeTable({ TableName: tableName }).pipe(

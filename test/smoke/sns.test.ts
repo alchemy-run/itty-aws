@@ -1,11 +1,14 @@
+import { fromNodeProviderChain } from "@aws-sdk/credential-providers";
 import { describe, expect, it } from "@effect/vitest";
 import { Console, Effect } from "effect";
 import { SNS } from "../../src/services/sns/index.ts";
 import { STS } from "../../src/services/sts/index.ts";
 
+const credentials = await fromNodeProviderChain()();
+
 describe("SNS Smoke Tests", () => {
   const testTopicName = "itty-aws-test-topic";
-  const client = new SNS({ region: "us-east-1" });
+  const client = new SNS({ region: "us-east-1", credentials });
 
   const deleteTopicIfExists = (topicName: string) =>
     client.listTopics({}).pipe(
@@ -130,7 +133,7 @@ describe("SNS Smoke Tests", () => {
         // Step 6: Test error handling - try to publish to non-existent topic
         yield* Console.log("Step 6: Testing error handling...");
 
-        const sts = new STS({});
+        const sts = new STS({ credentials });
         const identity = yield* sts.getCallerIdentity({});
         const errorResult = yield* client
           .publish({
@@ -190,7 +193,7 @@ describe("SNS Smoke Tests", () => {
     "should handle invalid topic operations gracefully",
     () =>
       Effect.gen(function* () {
-        const sts = new STS({});
+        const sts = new STS({ credentials });
         const identity = yield* sts.getCallerIdentity({});
         const invalidArn = `arn:aws:sns:us-east-1:${identity.Account}:non-existent-topic`;
 
