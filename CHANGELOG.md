@@ -1,3 +1,13 @@
+## v0.3.2
+
+### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes
+
+- Export a type for each Service &nbsp;-&nbsp; by **Sam Goodwin** [<samp>(fcd4b)</samp>](https://github.com/sam-goodwin/itty-aws/commit/fcd4b3f7)
+
+##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/sam-goodwin/itty-aws/compare/v0.3.1...v0.3.2)
+
+---
+
 ## v0.3.1
 
 ### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes
