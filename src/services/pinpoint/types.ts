@@ -3481,11 +3481,11 @@ export interface NumberValidateResponse {
   ZipCode?: string;
 }
 export interface OpenHours {
-  EMAIL?: Record<DayOfWeek, Array<OpenHoursRule>>;
-  SMS?: Record<DayOfWeek, Array<OpenHoursRule>>;
-  PUSH?: Record<DayOfWeek, Array<OpenHoursRule>>;
-  VOICE?: Record<DayOfWeek, Array<OpenHoursRule>>;
-  CUSTOM?: Record<DayOfWeek, Array<OpenHoursRule>>;
+  EMAIL?: { [key in DayOfWeek]?: string };
+  SMS?: { [key in DayOfWeek]?: string };
+  PUSH?: { [key in DayOfWeek]?: string };
+  VOICE?: { [key in DayOfWeek]?: string };
+  CUSTOM?: { [key in DayOfWeek]?: string };
 }
 export interface OpenHoursRule {
   StartTime?: string;

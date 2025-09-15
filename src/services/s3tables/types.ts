@@ -15,6 +15,7 @@ import type {
   UnrecognizedClientException,
   UnknownOperationException,
   ValidationError,
+  ValidationException,
 } from "../../error.ts";
 type CommonAwsError =
   | ExpiredTokenException
@@ -32,6 +33,7 @@ type CommonAwsError =
   | UnrecognizedClientException
   | UnknownOperationException
   | ValidationError
+  | ValidationException
   | AccessDeniedException;
 import { AWSServiceClient } from "../../client.ts";
 
@@ -507,10 +509,7 @@ export interface GetTableBucketMaintenanceConfigurationRequest {
 }
 export interface GetTableBucketMaintenanceConfigurationResponse {
   tableBucketARN: string;
-  configuration: Record<
-    TableBucketMaintenanceType,
-    TableBucketMaintenanceConfigurationValue
-  >;
+  configuration: { [key in TableBucketMaintenanceType]?: string };
 }
 export interface GetTableBucketPolicyRequest {
   tableBucketARN: string;
@@ -544,10 +543,7 @@ export interface GetTableMaintenanceConfigurationRequest {
 }
 export interface GetTableMaintenanceConfigurationResponse {
   tableARN: string;
-  configuration: Record<
-    TableMaintenanceType,
-    TableMaintenanceConfigurationValue
-  >;
+  configuration: { [key in TableMaintenanceType]?: string };
 }
 export interface GetTableMaintenanceJobStatusRequest {
   tableBucketARN: string;
@@ -556,7 +552,7 @@ export interface GetTableMaintenanceJobStatusRequest {
 }
 export interface GetTableMaintenanceJobStatusResponse {
   tableARN: string;
-  status: Record<TableMaintenanceJobType, TableMaintenanceJobStatusValue>;
+  status: { [key in TableMaintenanceJobType]?: string };
 }
 export interface GetTableMetadataLocationRequest {
   tableBucketARN: string;

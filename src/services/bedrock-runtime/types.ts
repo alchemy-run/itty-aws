@@ -33,7 +33,8 @@ type CommonAwsError =
   | UnknownOperationException
   | ValidationError
   | AccessDeniedException
-  | ThrottlingException;
+  | ThrottlingException
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class BedrockRuntime extends AWSServiceClient {

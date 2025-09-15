@@ -15,6 +15,7 @@ import type {
   UnrecognizedClientException,
   UnknownOperationException,
   ValidationError,
+  ValidationException,
 } from "../../error.ts";
 type CommonAwsError =
   | AccessDeniedException
@@ -32,6 +33,7 @@ type CommonAwsError =
   | UnrecognizedClientException
   | UnknownOperationException
   | ValidationError
+  | ValidationException
   | ThrottlingException;
 import { AWSServiceClient } from "../../client.ts";
 
@@ -1854,7 +1856,7 @@ export interface ListDeploymentsOutput {
 export interface ListDeploymentTargetsInput {
   deploymentId: string;
   nextToken?: string;
-  targetFilters?: Record<TargetFilterName, Array<string>>;
+  targetFilters?: { [key in TargetFilterName]?: string };
 }
 export interface ListDeploymentTargetsOutput {
   targetIds?: Array<string>;

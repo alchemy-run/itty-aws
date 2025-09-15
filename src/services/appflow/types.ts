@@ -31,7 +31,8 @@ type CommonAwsError =
   | UnknownOperationException
   | ValidationError
   | AccessDeniedException
-  | ThrottlingException;
+  | ThrottlingException
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class Appflow extends AWSServiceClient {
@@ -810,7 +811,7 @@ export interface DescribeConnectorsRequest {
   nextToken?: string;
 }
 export interface DescribeConnectorsResponse {
-  connectorConfigurations?: Record<ConnectorType, ConnectorConfiguration>;
+  connectorConfigurations?: { [key in ConnectorType]?: string };
   connectors?: Array<ConnectorDetail>;
   nextToken?: string;
 }
@@ -1840,7 +1841,7 @@ export interface Task {
   connectorOperator?: ConnectorOperator;
   destinationField?: string;
   taskType: TaskType;
-  taskProperties?: Record<OperatorPropertiesKeys, string>;
+  taskProperties?: { [key in OperatorPropertiesKeys]?: string };
 }
 export type TaskPropertiesMap = Record<OperatorPropertiesKeys, string>;
 export type Tasks = Array<Task>;

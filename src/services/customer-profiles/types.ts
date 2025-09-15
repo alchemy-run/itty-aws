@@ -14,6 +14,7 @@ import type {
   UnrecognizedClientException,
   UnknownOperationException,
   ValidationError,
+  ValidationException,
 } from "../../error.ts";
 type CommonAwsError =
   | ExpiredTokenException
@@ -30,6 +31,7 @@ type CommonAwsError =
   | UnrecognizedClientException
   | UnknownOperationException
   | ValidationError
+  | ValidationException
   | AccessDeniedException
   | ThrottlingException;
 import { AWSServiceClient } from "../../client.ts";
@@ -2879,7 +2881,7 @@ export interface Task {
   ConnectorOperator?: ConnectorOperator;
   DestinationField?: string;
   SourceFields: Array<string>;
-  TaskProperties?: Record<OperatorPropertiesKeys, string>;
+  TaskProperties?: { [key in OperatorPropertiesKeys]?: string };
   TaskType: TaskType;
 }
 export type TaskPropertiesMap = Record<OperatorPropertiesKeys, string>;

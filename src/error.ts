@@ -54,6 +54,9 @@ export class UnknownOperationException extends Data.TaggedError(
 export class ValidationError extends Data.TaggedError(
   "ValidationError",
 )<AwsErrorMeta> {}
+export class ValidationException extends Data.TaggedError(
+  "ValidationException",
+)<AwsErrorMeta> {}
 
 export type CommonAwsError =
   | AccessDeniedException
@@ -71,7 +74,8 @@ export type CommonAwsError =
   | ThrottlingException
   | UnrecognizedClientException
   | UnknownOperationException
-  | ValidationError;
+  | ValidationError
+  | ValidationException;
 
 /**
  * @internal
@@ -93,6 +97,7 @@ export const commonAwsErrorNames = [
   "UnrecognizedClientException",
   "UnknownOperationException",
   "ValidationError",
+  "ValidationException",
 ];
 
 export function isCommonAwsErrorName(errorName: string): boolean {

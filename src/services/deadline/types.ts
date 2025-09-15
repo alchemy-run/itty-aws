@@ -31,7 +31,8 @@ type CommonAwsError =
   | UnknownOperationException
   | ValidationError
   | AccessDeniedException
-  | ThrottlingException;
+  | ThrottlingException
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class deadline extends AWSServiceClient {
@@ -2112,7 +2113,7 @@ export interface GetJobResponse {
   endedAt?: Date | string;
   taskRunStatus?: TaskRunStatus;
   targetTaskRunStatus?: JobTargetTaskRunStatus;
-  taskRunStatusCounts?: Record<TaskRunStatus, number>;
+  taskRunStatusCounts?: { [key in TaskRunStatus]?: string };
   taskFailureRetryCount?: number;
   storageProfileId?: string;
   maxFailedTasksCount?: number;
@@ -2298,7 +2299,7 @@ export interface GetStepResponse {
   lifecycleStatus: StepLifecycleStatus;
   lifecycleStatusMessage?: string;
   taskRunStatus: TaskRunStatus;
-  taskRunStatusCounts: Record<TaskRunStatus, number>;
+  taskRunStatusCounts: { [key in TaskRunStatus]?: string };
   taskFailureRetryCount?: number;
   targetTaskRunStatus?: StepTargetTaskRunStatus;
   createdAt: Date | string;
@@ -2557,7 +2558,7 @@ export interface JobSearchSummary {
   lifecycleStatusMessage?: string;
   taskRunStatus?: TaskRunStatus;
   targetTaskRunStatus?: JobTargetTaskRunStatus;
-  taskRunStatusCounts?: Record<TaskRunStatus, number>;
+  taskRunStatusCounts?: { [key in TaskRunStatus]?: string };
   taskFailureRetryCount?: number;
   priority?: number;
   maxFailedTasksCount?: number;
@@ -2587,7 +2588,7 @@ export interface JobSummary {
   endedAt?: Date | string;
   taskRunStatus?: TaskRunStatus;
   targetTaskRunStatus?: JobTargetTaskRunStatus;
-  taskRunStatusCounts?: Record<TaskRunStatus, number>;
+  taskRunStatusCounts?: { [key in TaskRunStatus]?: string };
   taskFailureRetryCount?: number;
   maxFailedTasksCount?: number;
   maxRetriesPerTask?: number;
@@ -3503,7 +3504,7 @@ export interface StepSearchSummary {
   lifecycleStatusMessage?: string;
   taskRunStatus?: TaskRunStatus;
   targetTaskRunStatus?: StepTargetTaskRunStatus;
-  taskRunStatusCounts?: Record<TaskRunStatus, number>;
+  taskRunStatusCounts?: { [key in TaskRunStatus]?: string };
   taskFailureRetryCount?: number;
   createdAt?: Date | string;
   createdBy?: string;
@@ -3520,7 +3521,7 @@ export interface StepSummary {
   lifecycleStatus: StepLifecycleStatus;
   lifecycleStatusMessage?: string;
   taskRunStatus: TaskRunStatus;
-  taskRunStatusCounts: Record<TaskRunStatus, number>;
+  taskRunStatusCounts: { [key in TaskRunStatus]?: string };
   taskFailureRetryCount?: number;
   targetTaskRunStatus?: StepTargetTaskRunStatus;
   createdAt: Date | string;

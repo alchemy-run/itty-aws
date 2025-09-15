@@ -1056,7 +1056,7 @@ export interface BatchGetMetricDataQuery {
   Id: string;
   Namespace: MetricNamespace;
   Metric: Metric;
-  Dimensions?: Record<MetricDimensionName, string>;
+  Dimensions?: { [key in MetricDimensionName]?: string };
   StartDate: Date | string;
   EndDate: Date | string;
 }
@@ -2120,7 +2120,7 @@ export type ListRecommendationsFilterKey =
   | "STATUS"
   | "RESOURCE_ARN";
 export interface ListRecommendationsRequest {
-  Filter?: Record<ListRecommendationsFilterKey, string>;
+  Filter?: { [key in ListRecommendationsFilterKey]?: string };
   NextToken?: string;
   PageSize?: number;
 }
@@ -2129,7 +2129,7 @@ export interface ListRecommendationsResponse {
   NextToken?: string;
 }
 export interface ListReputationEntitiesRequest {
-  Filter?: Record<ReputationEntityFilterKey, string>;
+  Filter?: { [key in ReputationEntityFilterKey]?: string };
   NextToken?: string;
   PageSize?: number;
 }
@@ -2172,7 +2172,7 @@ export type ListTenantResourcesFilterValue = string;
 
 export interface ListTenantResourcesRequest {
   TenantName: string;
-  Filter?: Record<ListTenantResourcesFilterKey, string>;
+  Filter?: { [key in ListTenantResourcesFilterKey]?: string };
   PageSize?: number;
   NextToken?: string;
 }
@@ -2296,7 +2296,7 @@ export type MetricDimensionValue = string;
 
 export type MetricNamespace = "VDM";
 export interface MetricsDataSource {
-  Dimensions: Record<MetricDimensionName, Array<string>>;
+  Dimensions: { [key in MetricDimensionName]?: string };
   Namespace: MetricNamespace;
   Metrics: Array<ExportMetric>;
   StartDate: Date | string;

@@ -31,7 +31,8 @@ type CommonAwsError =
   | UnknownOperationException
   | ValidationError
   | AccessDeniedException
-  | ThrottlingException;
+  | ThrottlingException
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class QBusiness extends AWSServiceClient {
@@ -1373,10 +1374,7 @@ export interface ChatResponseConfiguration {
 export type ChatResponseConfigurationArn = string;
 
 export interface ChatResponseConfigurationDetail {
-  responseConfigurations?: Record<
-    ResponseConfigurationType,
-    ResponseConfiguration
-  >;
+  responseConfigurations?: { [key in ResponseConfigurationType]?: string };
   responseConfigurationSummary?: string;
   status?: ChatResponseConfigurationStatus;
   error?: ErrorDetail;
@@ -1526,10 +1524,7 @@ export interface CreateChatResponseConfigurationRequest {
   applicationId: string;
   displayName: string;
   clientToken?: string;
-  responseConfigurations: Record<
-    ResponseConfigurationType,
-    ResponseConfiguration
-  >;
+  responseConfigurations: { [key in ResponseConfigurationType]?: string };
   tags?: Array<Tag>;
 }
 export interface CreateChatResponseConfigurationResponse {
@@ -3194,10 +3189,7 @@ export interface UpdateChatResponseConfigurationRequest {
   applicationId: string;
   chatResponseConfigurationId: string;
   displayName?: string;
-  responseConfigurations: Record<
-    ResponseConfigurationType,
-    ResponseConfiguration
-  >;
+  responseConfigurations: { [key in ResponseConfigurationType]?: string };
   clientToken?: string;
 }
 export interface UpdateChatResponseConfigurationResponse {}

@@ -32,7 +32,8 @@ type CommonAwsError =
   | ValidationError
   | AccessDeniedException
   | RequestTimeoutException
-  | ThrottlingException;
+  | ThrottlingException
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class Omics extends AWSServiceClient {

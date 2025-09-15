@@ -32,7 +32,8 @@ type CommonAwsError =
   | UnrecognizedClientException
   | UnknownOperationException
   | ValidationError
-  | AccessDeniedException;
+  | AccessDeniedException
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class ElasticsearchService extends AWSServiceClient {
@@ -788,7 +789,7 @@ export interface CreateElasticsearchDomainRequest {
   EncryptionAtRestOptions?: EncryptionAtRestOptions;
   NodeToNodeEncryptionOptions?: NodeToNodeEncryptionOptions;
   AdvancedOptions?: Record<string, string>;
-  LogPublishingOptions?: Record<LogType, LogPublishingOption>;
+  LogPublishingOptions?: { [key in LogType]?: string };
   DomainEndpointOptions?: DomainEndpointOptions;
   AdvancedSecurityOptions?: AdvancedSecurityOptionsInput;
   AutoTuneOptions?: AutoTuneOptionsInput;
@@ -1128,7 +1129,7 @@ export interface ElasticsearchDomainStatus {
   EncryptionAtRestOptions?: EncryptionAtRestOptions;
   NodeToNodeEncryptionOptions?: NodeToNodeEncryptionOptions;
   AdvancedOptions?: Record<string, string>;
-  LogPublishingOptions?: Record<LogType, LogPublishingOption>;
+  LogPublishingOptions?: { [key in LogType]?: string };
   ServiceSoftwareOptions?: ServiceSoftwareOptions;
   DomainEndpointOptions?: DomainEndpointOptions;
   AdvancedSecurityOptions?: AdvancedSecurityOptions;
@@ -1421,7 +1422,7 @@ export interface LogPublishingOption {
 }
 export type LogPublishingOptions = Record<LogType, LogPublishingOption>;
 export interface LogPublishingOptionsStatus {
-  Options?: Record<LogType, LogPublishingOption>;
+  Options?: { [key in LogType]?: string };
   Status?: OptionStatus;
 }
 export type LogType =
@@ -1738,7 +1739,7 @@ export interface UpdateElasticsearchDomainConfigRequest {
   CognitoOptions?: CognitoOptions;
   AdvancedOptions?: Record<string, string>;
   AccessPolicies?: string;
-  LogPublishingOptions?: Record<LogType, LogPublishingOption>;
+  LogPublishingOptions?: { [key in LogType]?: string };
   DomainEndpointOptions?: DomainEndpointOptions;
   AdvancedSecurityOptions?: AdvancedSecurityOptionsInput;
   NodeToNodeEncryptionOptions?: NodeToNodeEncryptionOptions;

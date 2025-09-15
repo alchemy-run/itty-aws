@@ -553,7 +553,7 @@ export interface CreateExtensionAssociationRequest {
 export interface CreateExtensionRequest {
   Name: string;
   Description?: string;
-  Actions: Record<ActionPoint, Array<Action>>;
+  Actions: { [key in ActionPoint]?: string };
   Parameters?: Record<string, Parameter>;
   Tags?: Record<string, string>;
   LatestVersionNumber?: number;
@@ -716,7 +716,7 @@ export interface Extension {
   VersionNumber?: number;
   Arn?: string;
   Description?: string;
-  Actions?: Record<ActionPoint, Array<Action>>;
+  Actions?: { [key in ActionPoint]?: string };
   Parameters?: Record<string, Parameter>;
 }
 export interface ExtensionAssociation {
@@ -1027,7 +1027,7 @@ export interface UpdateExtensionAssociationRequest {
 export interface UpdateExtensionRequest {
   ExtensionIdentifier: string;
   Description?: string;
-  Actions?: Record<ActionPoint, Array<Action>>;
+  Actions?: { [key in ActionPoint]?: string };
   Parameters?: Record<string, Parameter>;
   VersionNumber?: number;
 }

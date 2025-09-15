@@ -15,6 +15,7 @@ import type {
   UnrecognizedClientException,
   UnknownOperationException,
   ValidationError,
+  ValidationException,
 } from "../../error.ts";
 type CommonAwsError =
   | AccessDeniedException
@@ -32,6 +33,7 @@ type CommonAwsError =
   | UnrecognizedClientException
   | UnknownOperationException
   | ValidationError
+  | ValidationException
   | ThrottlingException;
 import { AWSServiceClient } from "../../client.ts";
 

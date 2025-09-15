@@ -15,6 +15,7 @@ import type {
   UnrecognizedClientException,
   UnknownOperationException,
   ValidationError,
+  ValidationException,
 } from "../../error.ts";
 type CommonAwsError =
   | ExpiredTokenException
@@ -32,6 +33,7 @@ type CommonAwsError =
   | UnrecognizedClientException
   | UnknownOperationException
   | ValidationError
+  | ValidationException
   | AccessDeniedException;
 import { AWSServiceClient } from "../../client.ts";
 
@@ -493,7 +495,7 @@ export interface AssessmentRun {
   dataCollected: boolean;
   stateChanges: Array<AssessmentRunStateChange>;
   notifications: Array<AssessmentRunNotification>;
-  findingCounts: Record<Severity, number>;
+  findingCounts: { [key in Severity]?: string };
 }
 export interface AssessmentRunAgent {
   agentId: string;

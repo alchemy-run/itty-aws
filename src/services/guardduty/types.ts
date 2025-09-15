@@ -15,6 +15,7 @@ import type {
   UnrecognizedClientException,
   UnknownOperationException,
   ValidationError,
+  ValidationException,
 } from "../../error.ts";
 type CommonAwsError =
   | ExpiredTokenException
@@ -32,6 +33,7 @@ type CommonAwsError =
   | UnrecognizedClientException
   | UnknownOperationException
   | ValidationError
+  | ValidationException
   | AccessDeniedException;
 import { AWSServiceClient } from "../../client.ts";
 
@@ -833,8 +835,8 @@ export type CoverageSortKey =
   | "ECS_CLUSTER_NAME"
   | "INSTANCE_ID";
 export interface CoverageStatistics {
-  CountByResourceType?: Record<ResourceType, number>;
-  CountByCoverageStatus?: Record<CoverageStatus, number>;
+  CountByResourceType?: { [key in ResourceType]?: string };
+  CountByCoverageStatus?: { [key in CoverageStatus]?: string };
 }
 export type CoverageStatisticsType =
   | "COUNT_BY_RESOURCE_TYPE"
@@ -2431,8 +2433,8 @@ export interface ScannedItemCount {
   Volumes?: number;
 }
 export interface ScanResourceCriteria {
-  Include?: Record<ScanCriterionKey, ScanCondition>;
-  Exclude?: Record<ScanCriterionKey, ScanCondition>;
+  Include?: { [key in ScanCriterionKey]?: string };
+  Exclude?: { [key in ScanCriterionKey]?: string };
 }
 export type ScanResult = "CLEAN" | "INFECTED";
 export interface ScanResultDetails {

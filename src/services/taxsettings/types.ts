@@ -32,7 +32,8 @@ type CommonAwsError =
   | UnrecognizedClientException
   | UnknownOperationException
   | ValidationError
-  | AccessDeniedException;
+  | AccessDeniedException
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class TaxSettings extends AWSServiceClient {
@@ -207,7 +208,7 @@ export interface AccountMetaData {
   seller?: string;
   address?: Address;
   addressType?: AddressRoleType;
-  addressRoleMap?: Record<AddressRoleType, Jurisdiction>;
+  addressRoleMap?: { [key in AddressRoleType]?: string };
 }
 export type AccountName = string;
 

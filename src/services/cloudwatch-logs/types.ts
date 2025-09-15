@@ -30,7 +30,8 @@ type CommonAwsError =
   | ValidationError
   | AccessDeniedException
   | ThrottlingException
-  | UnrecognizedClientException;
+  | UnrecognizedClientException
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class CloudWatchLogs extends AWSServiceClient {

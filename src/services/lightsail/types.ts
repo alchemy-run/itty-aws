@@ -15,6 +15,7 @@ import type {
   UnrecognizedClientException,
   UnknownOperationException,
   ValidationError,
+  ValidationException,
 } from "../../error.ts";
 type CommonAwsError =
   | ExpiredTokenException
@@ -32,6 +33,7 @@ type CommonAwsError =
   | UnrecognizedClientException
   | UnknownOperationException
   | ValidationError
+  | ValidationException
   | AccessDeniedException;
 import { AWSServiceClient } from "../../client.ts";
 
@@ -4079,7 +4081,7 @@ export interface LoadBalancer {
   instancePort?: number;
   instanceHealthSummary?: Array<InstanceHealthSummary>;
   tlsCertificateSummaries?: Array<LoadBalancerTlsCertificateSummary>;
-  configurationOptions?: Record<LoadBalancerAttributeName, string>;
+  configurationOptions?: { [key in LoadBalancerAttributeName]?: string };
   ipAddressType?: IpAddressType;
   httpsRedirectionEnabled?: boolean;
   tlsPolicyName?: string;

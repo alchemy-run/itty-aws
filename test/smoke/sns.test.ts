@@ -194,6 +194,7 @@ describe("SNS Smoke Tests", () => {
     () =>
       Effect.gen(function* () {
         const sts = new STS({ credentials });
+
         const identity = yield* sts.getCallerIdentity({});
         const invalidArn = `arn:aws:sns:us-east-1:${identity.Account}:non-existent-topic`;
 
@@ -207,14 +208,15 @@ describe("SNS Smoke Tests", () => {
             Effect.catchTag("NotFoundException", (error) =>
               Effect.succeed({ success: false, error: error._tag }),
             ),
-            Effect.catchAll(() =>
+            Effect.catchAll((err) =>
               Effect.succeed({
                 success: true,
-                error: undefined,
+                error: err._tag,
               }),
             ),
           );
 
+        console.log({ result });
         expect(result.success).toBe(false);
         expect(result.error).toBeDefined();
       }),

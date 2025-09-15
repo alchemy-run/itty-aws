@@ -31,7 +31,8 @@ type CommonAwsError =
   | UnknownOperationException
   | ValidationError
   | AccessDeniedException
-  | ThrottlingException;
+  | ThrottlingException
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class resiliencehub extends AWSServiceClient {
@@ -840,7 +841,7 @@ export interface AppAssessment {
   invoker: AssessmentInvoker;
   cost?: Cost;
   resiliencyScore?: ResiliencyScore;
-  compliance?: Record<DisruptionType, DisruptionCompliance>;
+  compliance?: { [key in DisruptionType]?: string };
   complianceStatus?: ComplianceStatus;
   assessmentStatus: AssessmentStatus;
   startTime?: Date | string;
@@ -889,7 +890,7 @@ export interface AppComponent {
 export interface AppComponentCompliance {
   cost?: Cost;
   appComponentName?: string;
-  compliance?: Record<DisruptionType, DisruptionCompliance>;
+  compliance?: { [key in DisruptionType]?: string };
   message?: string;
   status?: ComplianceStatus;
   resiliencyScore?: ResiliencyScore;
@@ -988,9 +989,9 @@ export interface ComplianceDrift {
   appId?: string;
   appVersion?: string;
   expectedReferenceId?: string;
-  expectedValue?: Record<DisruptionType, DisruptionCompliance>;
+  expectedValue?: { [key in DisruptionType]?: string };
   actualReferenceId?: string;
-  actualValue?: Record<DisruptionType, DisruptionCompliance>;
+  actualValue?: { [key in DisruptionType]?: string };
   diffType?: DifferenceType;
 }
 export type ComplianceDriftList = Array<ComplianceDrift>;
@@ -1022,11 +1023,8 @@ export type ConditionOperatorType =
 export interface ConfigRecommendation {
   cost?: Cost;
   appComponentName?: string;
-  compliance?: Record<DisruptionType, DisruptionCompliance>;
-  recommendationCompliance?: Record<
-    DisruptionType,
-    RecommendationDisruptionCompliance
-  >;
+  compliance?: { [key in DisruptionType]?: string };
+  recommendationCompliance?: { [key in DisruptionType]?: string };
   optimizationType: ConfigRecommendationOptimizationType;
   name: string;
   description?: string;
@@ -1117,7 +1115,7 @@ export interface CreateResiliencyPolicyRequest {
   policyDescription?: string;
   dataLocationConstraint?: DataLocationConstraint;
   tier: ResiliencyPolicyTier;
-  policy: Record<DisruptionType, FailurePolicy>;
+  policy: { [key in DisruptionType]?: string };
   clientToken?: string;
   tags?: Record<string, string>;
 }
@@ -1826,7 +1824,7 @@ export interface ResiliencyPolicy {
   dataLocationConstraint?: DataLocationConstraint;
   tier?: ResiliencyPolicyTier;
   estimatedCostTier?: EstimatedCostTier;
-  policy?: Record<DisruptionType, FailurePolicy>;
+  policy?: { [key in DisruptionType]?: string };
   creationTime?: Date | string;
   tags?: Record<string, string>;
 }
@@ -1839,8 +1837,8 @@ export type ResiliencyPolicyTier =
   | "NotApplicable";
 export interface ResiliencyScore {
   score: number;
-  disruptionScore: Record<DisruptionType, number>;
-  componentScore?: Record<ResiliencyScoreType, ScoringComponentResiliencyScore>;
+  disruptionScore: { [key in DisruptionType]?: string };
+  componentScore?: { [key in ResiliencyScoreType]?: string };
 }
 export type ResiliencyScoreType = "Compliance" | "Test" | "Alarm" | "Sop";
 export interface ResolveAppVersionResourcesRequest {
@@ -2132,7 +2130,7 @@ export interface UpdateResiliencyPolicyRequest {
   policyDescription?: string;
   dataLocationConstraint?: DataLocationConstraint;
   tier?: ResiliencyPolicyTier;
-  policy?: Record<DisruptionType, FailurePolicy>;
+  policy?: { [key in DisruptionType]?: string };
 }
 export interface UpdateResiliencyPolicyResponse {
   policy: ResiliencyPolicy;

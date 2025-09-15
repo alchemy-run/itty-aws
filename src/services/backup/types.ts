@@ -1279,7 +1279,7 @@ export interface CopyJob {
   IsParent?: boolean;
   CompositeMemberIdentifier?: string;
   NumberOfChildJobs?: number;
-  ChildJobsInState?: Record<CopyJobState, number>;
+  ChildJobsInState?: { [key in CopyJobState]?: string };
   ResourceName?: string;
   MessageCategory?: string;
 }
@@ -1517,7 +1517,7 @@ export interface DescribeBackupJobOutput {
   ParentJobId?: string;
   IsParent?: boolean;
   NumberOfChildJobs?: number;
-  ChildJobsInState?: Record<BackupJobState, number>;
+  ChildJobsInState?: { [key in BackupJobState]?: string };
   ResourceName?: string;
   InitiationDate?: Date | string;
   MessageCategory?: string;

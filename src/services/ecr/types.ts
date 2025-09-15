@@ -1,5 +1,40 @@
 import type { Effect, Data as EffectData } from "effect";
-import type { CommonAwsError } from "../../error.ts";
+import type {
+  AccessDeniedException,
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  ThrottlingException,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+type CommonAwsError =
+  | AccessDeniedException
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | ThrottlingException
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class ECR extends AWSServiceClient {
@@ -1035,14 +1070,14 @@ export type ImageScanFindingList = Array<ImageScanFinding>;
 export interface ImageScanFindings {
   imageScanCompletedAt?: Date | string;
   vulnerabilitySourceUpdatedAt?: Date | string;
-  findingSeverityCounts?: Record<FindingSeverity, number>;
+  findingSeverityCounts?: { [key in FindingSeverity]?: string };
   findings?: Array<ImageScanFinding>;
   enhancedFindings?: Array<EnhancedImageScanFinding>;
 }
 export interface ImageScanFindingsSummary {
   imageScanCompletedAt?: Date | string;
   vulnerabilitySourceUpdatedAt?: Date | string;
-  findingSeverityCounts?: Record<FindingSeverity, number>;
+  findingSeverityCounts?: { [key in FindingSeverity]?: string };
 }
 export interface ImageScanningConfiguration {
   scanOnPush?: boolean;

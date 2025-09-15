@@ -756,7 +756,7 @@ export interface Prediction {
   predictedLabel?: string;
   predictedValue?: number;
   predictedScores?: Record<string, number>;
-  details?: Record<DetailsAttributes, string>;
+  details?: { [key in DetailsAttributes]?: string };
 }
 export declare class PredictorNotMountedException extends EffectData.TaggedError(
   "PredictorNotMountedException",

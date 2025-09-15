@@ -785,9 +785,9 @@ export interface CopyProductInput {
   SourceProductArn: string;
   TargetProductId?: string;
   TargetProductName?: string;
-  SourceProvisioningArtifactIdentifiers?: Array<
-    Record<ProvisioningArtifactPropertyName, string>
-  >;
+  SourceProvisioningArtifactIdentifiers?: Array<{
+    [key in ProvisioningArtifactPropertyName]?: string;
+  }>;
   CopyOptions?: Array<CopyOption>;
   IdempotencyToken: string;
 }
@@ -888,7 +888,7 @@ export interface CreateProvisioningArtifactOutput {
 export interface CreateServiceActionInput {
   Name: string;
   DefinitionType: ServiceActionDefinitionType;
-  Definition: Record<ServiceActionDefinitionKey, string>;
+  Definition: { [key in ServiceActionDefinitionKey]?: string };
   Description?: string;
   AcceptLanguage?: string;
   IdempotencyToken: string;
@@ -2050,7 +2050,7 @@ export type SearchFilterValue = string;
 export interface SearchProductsAsAdminInput {
   AcceptLanguage?: string;
   PortfolioId?: string;
-  Filters?: Record<ProductViewFilterBy, Array<string>>;
+  Filters?: { [key in ProductViewFilterBy]?: string };
   SortBy?: ProductViewSortBy;
   SortOrder?: SortOrder;
   PageToken?: string;
@@ -2063,7 +2063,7 @@ export interface SearchProductsAsAdminOutput {
 }
 export interface SearchProductsInput {
   AcceptLanguage?: string;
-  Filters?: Record<ProductViewFilterBy, Array<string>>;
+  Filters?: { [key in ProductViewFilterBy]?: string };
   PageSize?: number;
   SortBy?: ProductViewSortBy;
   SortOrder?: SortOrder;
@@ -2077,7 +2077,7 @@ export interface SearchProductsOutput {
 export interface SearchProvisionedProductsInput {
   AcceptLanguage?: string;
   AccessLevelFilter?: AccessLevelFilter;
-  Filters?: Record<ProvisionedProductViewFilterBy, Array<string>>;
+  Filters?: { [key in ProvisionedProductViewFilterBy]?: string };
   SortBy?: string;
   SortOrder?: SortOrder;
   PageSize?: number;
@@ -2121,7 +2121,7 @@ export type ServiceActionDescription = string;
 
 export interface ServiceActionDetail {
   ServiceActionSummary?: ServiceActionSummary;
-  Definition?: Record<ServiceActionDefinitionKey, string>;
+  Definition?: { [key in ServiceActionDefinitionKey]?: string };
 }
 export type ServiceActionName = string;
 
@@ -2163,9 +2163,9 @@ export interface SourceConnectionDetail {
 export interface SourceConnectionParameters {
   CodeStar?: CodeStarParameters;
 }
-export type SourceProvisioningArtifactProperties = Array<
-  Record<ProvisioningArtifactPropertyName, string>
->;
+export type SourceProvisioningArtifactProperties = Array<{
+  [key in ProvisioningArtifactPropertyName]?: string;
+}>;
 export type SourceProvisioningArtifactPropertiesMap = Record<
   ProvisioningArtifactPropertyName,
   string
@@ -2340,12 +2340,12 @@ export interface UpdateProvisionedProductOutput {
 export interface UpdateProvisionedProductPropertiesInput {
   AcceptLanguage?: string;
   ProvisionedProductId: string;
-  ProvisionedProductProperties: Record<PropertyKey, string>;
+  ProvisionedProductProperties: { [key in PropertyKey]?: string };
   IdempotencyToken: string;
 }
 export interface UpdateProvisionedProductPropertiesOutput {
   ProvisionedProductId?: string;
-  ProvisionedProductProperties?: Record<PropertyKey, string>;
+  ProvisionedProductProperties?: { [key in PropertyKey]?: string };
   RecordId?: string;
   Status?: RecordStatus;
 }
@@ -2381,7 +2381,7 @@ export interface UpdateProvisioningPreferences {
 export interface UpdateServiceActionInput {
   Id: string;
   Name?: string;
-  Definition?: Record<ServiceActionDefinitionKey, string>;
+  Definition?: { [key in ServiceActionDefinitionKey]?: string };
   Description?: string;
   AcceptLanguage?: string;
 }

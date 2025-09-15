@@ -19,6 +19,7 @@ export {
   ThrottlingException,
   UnrecognizedClientException,
   UnknownOperationException,
+  ValidationException,
 } from "../../error.ts";
 
 // Service metadata

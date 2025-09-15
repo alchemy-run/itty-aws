@@ -32,7 +32,8 @@ type CommonAwsError =
   | UnrecognizedClientException
   | UnknownOperationException
   | ValidationError
-  | AccessDeniedException;
+  | AccessDeniedException
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class ApplicationInsights extends AWSServiceClient {
@@ -364,7 +365,7 @@ export interface ApplicationComponent {
   OsType?: OsType;
   Tier?: Tier;
   Monitor?: boolean;
-  DetectedWorkload?: Record<Tier, Record<string, string>>;
+  DetectedWorkload?: { [key in Tier]?: string };
 }
 export type ApplicationComponentList = Array<ApplicationComponent>;
 export interface ApplicationInfo {
@@ -806,7 +807,7 @@ export interface Problem {
   SeverityLevel?: SeverityLevel;
   AccountId?: string;
   ResourceGroupName?: string;
-  Feedback?: Record<FeedbackKey, FeedbackValue>;
+  Feedback?: { [key in FeedbackKey]?: string };
   RecurringCount?: number;
   LastRecurrenceTime?: Date | string;
   Visibility?: Visibility;

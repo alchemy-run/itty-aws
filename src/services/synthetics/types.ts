@@ -31,7 +31,8 @@ type CommonAwsError =
   | UnknownOperationException
   | ValidationError
   | AccessDeniedException
-  | RequestEntityTooLargeException;
+  | RequestEntityTooLargeException
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class synthetics extends AWSServiceClient {

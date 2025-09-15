@@ -31,7 +31,8 @@ type CommonAwsError =
   | UnknownOperationException
   | ValidationError
   | AccessDeniedException
-  | RequestTimeoutException;
+  | RequestTimeoutException
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class Wisdom extends AWSServiceClient {

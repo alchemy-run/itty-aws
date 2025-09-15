@@ -9,6 +9,7 @@
   "compilerOptions": {
     "outDir": "./dist",
     "rootDir": "./src",
+    "composite": true,
     "types": [
       "bun-types",
       "@types/node"

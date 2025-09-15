@@ -31,7 +31,8 @@ type CommonAwsError =
   | UnknownOperationException
   | ValidationError
   | AccessDeniedException
-  | ThrottlingException;
+  | ThrottlingException
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class codeartifact extends AWSServiceClient {
@@ -614,7 +615,7 @@ export type AssetName = string;
 export interface AssetSummary {
   name: string;
   size?: number;
-  hashes?: Record<HashAlgorithm, string>;
+  hashes?: { [key in HashAlgorithm]?: string };
 }
 export type AssetSummaryList = Array<AssetSummary>;
 export interface AssociatedPackage {
@@ -1170,7 +1171,7 @@ export type PackageGroupAllowedRepositoryUpdate = Record<
 >;
 export type PackageGroupAllowedRepositoryUpdates = Record<
   PackageGroupOriginRestrictionType,
-  Record<PackageGroupAllowedRepositoryUpdateType, Array<string>>
+  { [key in PackageGroupAllowedRepositoryUpdateType]?: string }
 >;
 export type PackageGroupAllowedRepositoryUpdateType = "ADDED" | "REMOVED";
 export type PackageGroupAssociationType = "STRONG" | "WEAK";
@@ -1188,10 +1189,7 @@ export interface PackageGroupDescription {
   parent?: PackageGroupReference;
 }
 export interface PackageGroupOriginConfiguration {
-  restrictions?: Record<
-    PackageGroupOriginRestrictionType,
-    PackageGroupOriginRestriction
-  >;
+  restrictions?: { [key in PackageGroupOriginRestrictionType]?: string };
 }
 export interface PackageGroupOriginRestriction {
   mode?: PackageGroupOriginRestrictionMode;
@@ -1466,19 +1464,15 @@ export interface UpdatePackageGroupOriginConfigurationRequest {
   domain: string;
   domainOwner?: string;
   packageGroup: string;
-  restrictions?: Record<
-    PackageGroupOriginRestrictionType,
-    PackageGroupOriginRestrictionMode
-  >;
+  restrictions?: { [key in PackageGroupOriginRestrictionType]?: string };
   addAllowedRepositories?: Array<PackageGroupAllowedRepository>;
   removeAllowedRepositories?: Array<PackageGroupAllowedRepository>;
 }
 export interface UpdatePackageGroupOriginConfigurationResult {
   packageGroup?: PackageGroupDescription;
-  allowedRepositoryUpdates?: Record<
-    PackageGroupOriginRestrictionType,
-    Record<PackageGroupAllowedRepositoryUpdateType, Array<string>>
-  >;
+  allowedRepositoryUpdates?: {
+    [key in PackageGroupOriginRestrictionType]?: string;
+  };
 }
 export interface UpdatePackageGroupRequest {
   domain: string;

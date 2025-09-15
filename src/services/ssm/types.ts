@@ -31,7 +31,8 @@ type CommonAwsError =
   | UnknownOperationException
   | ValidationError
   | AccessDeniedException
-  | ThrottlingException;
+  | ThrottlingException
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class SSM extends AWSServiceClient {
@@ -1827,7 +1828,7 @@ export declare class AutomationExecutionNotFoundException extends EffectData.Tag
   readonly Message?: string;
 }> {}
 export interface AutomationExecutionPreview {
-  StepPreviews?: Record<ImpactType, number>;
+  StepPreviews?: { [key in ImpactType]?: string };
   Regions?: Array<string>;
   TargetPreviews?: Array<TargetPreview>;
   TotalAccounts?: number;

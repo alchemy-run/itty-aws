@@ -185,7 +185,7 @@ export interface GetImagesInput {
   EndTimestamp: Date | string;
   SamplingInterval?: number;
   Format: Format;
-  FormatConfig?: Record<FormatConfigKey, string>;
+  FormatConfig?: { [key in FormatConfigKey]?: string };
   WidthPixels?: number;
   HeightPixels?: number;
   MaxResults?: number;

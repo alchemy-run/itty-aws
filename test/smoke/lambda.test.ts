@@ -2,8 +2,8 @@ import { fromNodeProviderChain } from "@aws-sdk/credential-providers";
 import { describe, expect, it } from "@effect/vitest";
 import AdmZip from "adm-zip";
 import { Console, Effect, Schedule } from "effect";
+import { IAM } from "../../src/services/iam/index.ts";
 import { Lambda } from "../../src/services/lambda/index.ts";
-import { STS } from "../../src/services/sts/index.ts";
 
 const credentials = await fromNodeProviderChain()();
 
@@ -77,13 +77,36 @@ exports.handler = async (event) => {
         zip.addFile("index.js", Buffer.from(functionCode));
         const zipBuffer = zip.toBuffer();
 
-        const sts = new STS({ credentials });
-        const whoami = yield* sts.getCallerIdentity({});
+        const iam = new IAM({ credentials });
+
+        const { Role } = yield* iam
+          .createRole({
+            RoleName: "lambda-execution-role",
+            AssumeRolePolicyDocument: JSON.stringify({
+              Version: "2012-10-17",
+              Statement: [
+                {
+                  Effect: "Allow",
+                  Principal: {
+                    Service: "lambda.amazonaws.com",
+                  },
+                  Action: "sts:AssumeRole",
+                },
+              ],
+            }),
+            Description: "Lambda execution role for smoke test",
+            Path: "/test/",
+          })
+          .pipe(
+            Effect.catchTag("EntityAlreadyExistsException", () =>
+              iam.getRole({ RoleName: "lambda-execution-role" }),
+            ),
+          );
 
         const createResult = yield* client.createFunction({
           FunctionName: testFunctionName,
           Runtime: "nodejs18.x",
-          Role: `arn:aws:iam::${whoami.Account}:role/lambda-execution-role`,
+          Role: Role.Arn,
           Handler: "index.handler",
           Code: {
             ZipFile: zipBuffer,

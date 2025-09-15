@@ -15,6 +15,7 @@ import type {
   ThrottlingException,
   UnrecognizedClientException,
   UnknownOperationException,
+  ValidationException,
 } from "../../error.ts";
 type CommonAwsError =
   | AccessDeniedException
@@ -30,6 +31,7 @@ type CommonAwsError =
   | ThrottlingException
   | UnrecognizedClientException
   | UnknownOperationException
+  | ValidationException
   | InternalFailure
   | ServiceUnavailable
   | ValidationError;

@@ -472,7 +472,7 @@ export interface CallAnalyticsJobSettings {
   LanguageModelName?: string;
   ContentRedaction?: ContentRedaction;
   LanguageOptions?: Array<LanguageCode>;
-  LanguageIdSettings?: Record<LanguageCode, LanguageIdSettings>;
+  LanguageIdSettings?: { [key in LanguageCode]?: string };
   Summarization?: Summarization;
 }
 export type CallAnalyticsJobStatus =
@@ -1251,7 +1251,7 @@ export interface StartTranscriptionJobRequest {
   LanguageOptions?: Array<LanguageCode>;
   Subtitles?: Subtitles;
   Tags?: Array<Tag>;
-  LanguageIdSettings?: Record<LanguageCode, LanguageIdSettings>;
+  LanguageIdSettings?: { [key in LanguageCode]?: string };
   ToxicityDetection?: Array<ToxicityDetectionSettings>;
 }
 export interface StartTranscriptionJobResponse {
@@ -1338,7 +1338,7 @@ export interface TranscriptionJob {
   LanguageCodes?: Array<LanguageCodeItem>;
   Tags?: Array<Tag>;
   Subtitles?: SubtitlesOutput;
-  LanguageIdSettings?: Record<LanguageCode, LanguageIdSettings>;
+  LanguageIdSettings?: { [key in LanguageCode]?: string };
   ToxicityDetection?: Array<ToxicityDetectionSettings>;
 }
 export type TranscriptionJobName = string;

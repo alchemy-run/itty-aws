@@ -12,9 +12,11 @@ export const foo = Effect.gen(function* () {
 
 export const bar = Effect.gen(function* () {
   const lambda = new Lambda({});
-  const result = yield* lambda.invoke({
-    FunctionName: "test",
-    Payload: "test",
-  });
+  const result = yield* lambda
+    .invoke({
+      FunctionName: "test",
+      Payload: "test",
+    })
+    .pipe(Effect.catchTag("ResourceNotFoundException", () => Effect.void));
   return result;
 });

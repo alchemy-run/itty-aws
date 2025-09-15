@@ -1,5 +1,40 @@
 import type { Effect, Data as EffectData } from "effect";
-import type { CommonAwsError } from "../../error.ts";
+import type {
+  AccessDeniedException,
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  ThrottlingException,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+type CommonAwsError =
+  | AccessDeniedException
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | ThrottlingException
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class OpsWorks extends AWSServiceClient {
@@ -455,7 +490,7 @@ export interface App {
   Domains?: Array<string>;
   EnableSsl?: boolean;
   SslConfiguration?: SslConfiguration;
-  Attributes?: Record<AppAttributesKeys, string>;
+  Attributes?: { [key in AppAttributesKeys]?: string };
   CreatedAt?: string;
   Environment?: Array<EnvironmentVariable>;
 }
@@ -519,7 +554,7 @@ export interface CloneStackRequest {
   Name?: string;
   Region?: string;
   VpcId?: string;
-  Attributes?: Record<StackAttributesKeys, string>;
+  Attributes?: { [key in StackAttributesKeys]?: string };
   ServiceRoleArn: string;
   DefaultInstanceProfileArn?: string;
   DefaultOs?: string;
@@ -678,7 +713,7 @@ export interface CreateAppRequest {
   Domains?: Array<string>;
   EnableSsl?: boolean;
   SslConfiguration?: SslConfiguration;
-  Attributes?: Record<AppAttributesKeys, string>;
+  Attributes?: { [key in AppAttributesKeys]?: string };
   Environment?: Array<EnvironmentVariable>;
 }
 export interface CreateAppResult {
@@ -724,7 +759,7 @@ export interface CreateLayerRequest {
   Type: LayerType;
   Name: string;
   Shortname: string;
-  Attributes?: Record<LayerAttributesKeys, string>;
+  Attributes?: { [key in LayerAttributesKeys]?: string };
   CloudWatchLogsConfiguration?: CloudWatchLogsConfiguration;
   CustomInstanceProfileArn?: string;
   CustomJson?: string;
@@ -746,7 +781,7 @@ export interface CreateStackRequest {
   Name: string;
   Region: string;
   VpcId?: string;
-  Attributes?: Record<StackAttributesKeys, string>;
+  Attributes?: { [key in StackAttributesKeys]?: string };
   ServiceRoleArn: string;
   DefaultInstanceProfileArn: string;
   DefaultOs?: string;
@@ -1145,7 +1180,7 @@ export interface Layer {
   Type?: LayerType;
   Name?: string;
   Shortname?: string;
-  Attributes?: Record<LayerAttributesKeys, string>;
+  Attributes?: { [key in LayerAttributesKeys]?: string };
   CloudWatchLogsConfiguration?: CloudWatchLogsConfiguration;
   CustomInstanceProfileArn?: string;
   CustomJson?: string;
@@ -1401,7 +1436,7 @@ export interface Stack {
   Arn?: string;
   Region?: string;
   VpcId?: string;
-  Attributes?: Record<StackAttributesKeys, string>;
+  Attributes?: { [key in StackAttributesKeys]?: string };
   ServiceRoleArn?: string;
   DefaultInstanceProfileArn?: string;
   DefaultOs?: string;
@@ -1494,7 +1529,7 @@ export interface UpdateAppRequest {
   Domains?: Array<string>;
   EnableSsl?: boolean;
   SslConfiguration?: SslConfiguration;
-  Attributes?: Record<AppAttributesKeys, string>;
+  Attributes?: { [key in AppAttributesKeys]?: string };
   Environment?: Array<EnvironmentVariable>;
 }
 export interface UpdateElasticIpRequest {
@@ -1519,7 +1554,7 @@ export interface UpdateLayerRequest {
   LayerId: string;
   Name?: string;
   Shortname?: string;
-  Attributes?: Record<LayerAttributesKeys, string>;
+  Attributes?: { [key in LayerAttributesKeys]?: string };
   CloudWatchLogsConfiguration?: CloudWatchLogsConfiguration;
   CustomInstanceProfileArn?: string;
   CustomJson?: string;
@@ -1545,7 +1580,7 @@ export interface UpdateRdsDbInstanceRequest {
 export interface UpdateStackRequest {
   StackId: string;
   Name?: string;
-  Attributes?: Record<StackAttributesKeys, string>;
+  Attributes?: { [key in StackAttributesKeys]?: string };
   ServiceRoleArn?: string;
   DefaultInstanceProfileArn?: string;
   DefaultOs?: string;

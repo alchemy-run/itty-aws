@@ -685,10 +685,7 @@ export interface AssociateWebACLRequest {
 }
 export interface AssociateWebACLResponse {}
 export interface AssociationConfig {
-  RequestBody?: Record<
-    AssociatedResourceType,
-    RequestBodyAssociatedResourceTypeConfig
-  >;
+  RequestBody?: { [key in AssociatedResourceType]?: string };
 }
 export type AttributeName = string;
 

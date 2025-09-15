@@ -31,7 +31,8 @@ type CommonAwsError =
   | UnknownOperationException
   | ValidationError
   | AccessDeniedException
-  | ThrottlingException;
+  | ThrottlingException
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class WellArchitected extends AWSServiceClient {
@@ -985,7 +986,7 @@ export interface CheckSummary {
   QuestionId?: string;
   ChoiceId?: string;
   Status?: CheckStatus;
-  AccountSummary?: Record<CheckStatus, number>;
+  AccountSummary?: { [key in CheckStatus]?: string };
 }
 export interface Choice {
   ChoiceId?: string;
@@ -1055,7 +1056,7 @@ export declare class ConflictException extends EffectData.TaggedError(
 }> {}
 export interface ConsolidatedReportMetric {
   MetricType?: MetricType;
-  RiskCounts?: Record<Risk, number>;
+  RiskCounts?: { [key in Risk]?: string };
   WorkloadId?: string;
   WorkloadName?: string;
   WorkloadArn?: string;
@@ -1430,7 +1431,7 @@ export type LensJSON = string;
 export interface LensMetric {
   LensArn?: string;
   Pillars?: Array<PillarMetric>;
-  RiskCounts?: Record<Risk, number>;
+  RiskCounts?: { [key in Risk]?: string };
 }
 export type LensMetrics = Array<LensMetric>;
 export type LensName = string;
@@ -1449,10 +1450,10 @@ export interface LensReview {
   JiraConfiguration?: JiraSelectedQuestionConfiguration;
   UpdatedAt?: Date | string;
   Notes?: string;
-  RiskCounts?: Record<Risk, number>;
+  RiskCounts?: { [key in Risk]?: string };
   NextToken?: string;
   Profiles?: Array<WorkloadProfile>;
-  PrioritizedRiskCounts?: Record<Risk, number>;
+  PrioritizedRiskCounts?: { [key in Risk]?: string };
 }
 export interface LensReviewReport {
   LensAlias?: string;
@@ -1467,9 +1468,9 @@ export interface LensReviewSummary {
   LensName?: string;
   LensStatus?: LensStatus;
   UpdatedAt?: Date | string;
-  RiskCounts?: Record<Risk, number>;
+  RiskCounts?: { [key in Risk]?: string };
   Profiles?: Array<WorkloadProfile>;
-  PrioritizedRiskCounts?: Record<Risk, number>;
+  PrioritizedRiskCounts?: { [key in Risk]?: string };
 }
 export type LensShareSummaries = Array<LensShareSummary>;
 export interface LensShareSummary {
@@ -1795,7 +1796,7 @@ export type PillarId = string;
 
 export interface PillarMetric {
   PillarId?: string;
-  RiskCounts?: Record<Risk, number>;
+  RiskCounts?: { [key in Risk]?: string };
   Questions?: Array<QuestionMetric>;
 }
 export type PillarMetrics = Array<PillarMetric>;
@@ -1807,8 +1808,8 @@ export interface PillarReviewSummary {
   PillarId?: string;
   PillarName?: string;
   Notes?: string;
-  RiskCounts?: Record<Risk, number>;
-  PrioritizedRiskCounts?: Record<Risk, number>;
+  RiskCounts?: { [key in Risk]?: string };
+  PrioritizedRiskCounts?: { [key in Risk]?: string };
 }
 export interface Profile {
   ProfileArn?: string;
@@ -1943,7 +1944,7 @@ export interface ReviewTemplate {
   Description?: string;
   Lenses?: Array<string>;
   Notes?: string;
-  QuestionCounts?: Record<Question, number>;
+  QuestionCounts?: { [key in Question]?: string };
   Owner?: string;
   UpdatedAt?: Date | string;
   TemplateArn?: string;
@@ -1994,7 +1995,7 @@ export interface ReviewTemplateLensReview {
   PillarReviewSummaries?: Array<ReviewTemplatePillarReviewSummary>;
   UpdatedAt?: Date | string;
   Notes?: string;
-  QuestionCounts?: Record<Question, number>;
+  QuestionCounts?: { [key in Question]?: string };
   NextToken?: string;
 }
 export type ReviewTemplatePillarReviewSummaries =
@@ -2003,7 +2004,7 @@ export interface ReviewTemplatePillarReviewSummary {
   PillarId?: string;
   PillarName?: string;
   Notes?: string;
-  QuestionCounts?: Record<Question, number>;
+  QuestionCounts?: { [key in Question]?: string };
 }
 export type ReviewTemplates = Array<ReviewTemplateSummary>;
 export interface ReviewTemplateSummary {
@@ -2308,7 +2309,7 @@ export interface Workload {
   Industry?: string;
   Notes?: string;
   ImprovementStatus?: WorkloadImprovementStatus;
-  RiskCounts?: Record<Risk, number>;
+  RiskCounts?: { [key in Risk]?: string };
   PillarPriorities?: Array<string>;
   Lenses?: Array<string>;
   Owner?: string;
@@ -2317,7 +2318,7 @@ export interface Workload {
   DiscoveryConfig?: WorkloadDiscoveryConfig;
   Applications?: Array<string>;
   Profiles?: Array<WorkloadProfile>;
-  PrioritizedRiskCounts?: Record<Risk, number>;
+  PrioritizedRiskCounts?: { [key in Risk]?: string };
   JiraConfiguration?: WorkloadJiraConfigurationOutput;
 }
 export type WorkloadAccountIds = Array<string>;
@@ -2401,10 +2402,10 @@ export interface WorkloadSummary {
   Owner?: string;
   UpdatedAt?: Date | string;
   Lenses?: Array<string>;
-  RiskCounts?: Record<Risk, number>;
+  RiskCounts?: { [key in Risk]?: string };
   ImprovementStatus?: WorkloadImprovementStatus;
   Profiles?: Array<WorkloadProfile>;
-  PrioritizedRiskCounts?: Record<Risk, number>;
+  PrioritizedRiskCounts?: { [key in Risk]?: string };
 }
 export declare namespace AssociateLenses {
   export type Input = AssociateLensesInput;

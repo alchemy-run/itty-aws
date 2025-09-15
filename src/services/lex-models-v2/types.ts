@@ -32,7 +32,8 @@ type CommonAwsError =
   | UnrecognizedClientException
   | UnknownOperationException
   | ValidationError
-  | ThrottlingException;
+  | ThrottlingException
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class LexModelsV2 extends AWSServiceClient {
@@ -2984,8 +2985,8 @@ export interface IntentClassificationTestResultItem {
 }
 export interface IntentClassificationTestResultItemCounts {
   totalResultCount: number;
-  speechTranscriptionResultCounts?: Record<TestResultMatchStatus, number>;
-  intentMatchResultCounts: Record<TestResultMatchStatus, number>;
+  speechTranscriptionResultCounts?: { [key in TestResultMatchStatus]?: string };
+  intentMatchResultCounts: { [key in TestResultMatchStatus]?: string };
 }
 export type IntentClassificationTestResultItemList =
   Array<IntentClassificationTestResultItem>;
@@ -3579,8 +3580,8 @@ export type OutputContextsList = Array<OutputContext>;
 export interface OverallTestResultItem {
   multiTurnConversation: boolean;
   totalResultCount: number;
-  speechTranscriptionResultCounts?: Record<TestResultMatchStatus, number>;
-  endToEndResultCounts: Record<TestResultMatchStatus, number>;
+  speechTranscriptionResultCounts?: { [key in TestResultMatchStatus]?: string };
+  endToEndResultCounts: { [key in TestResultMatchStatus]?: string };
 }
 export type OverallTestResultItemList = Array<OverallTestResultItem>;
 export interface OverallTestResults {
@@ -3665,10 +3666,7 @@ export interface PromptSpecification {
   maxRetries: number;
   allowInterrupt?: boolean;
   messageSelectionStrategy?: MessageSelectionStrategy;
-  promptAttemptsSpecification?: Record<
-    PromptAttempt,
-    PromptAttemptSpecification
-  >;
+  promptAttemptsSpecification?: { [key in PromptAttempt]?: string };
 }
 export type QInConnectAssistantARN = string;
 
@@ -3884,8 +3882,8 @@ export interface SlotResolutionTestResultItem {
 }
 export interface SlotResolutionTestResultItemCounts {
   totalResultCount: number;
-  speechTranscriptionResultCounts?: Record<TestResultMatchStatus, number>;
-  slotMatchResultCounts: Record<TestResultMatchStatus, number>;
+  speechTranscriptionResultCounts?: { [key in TestResultMatchStatus]?: string };
+  slotMatchResultCounts: { [key in TestResultMatchStatus]?: string };
 }
 export type SlotResolutionTestResultItems = Array<SlotResolutionTestResultItem>;
 export type SlotShape = "Scalar" | "List";

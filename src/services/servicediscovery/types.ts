@@ -581,7 +581,7 @@ export interface Operation {
   ErrorCode?: string;
   CreateDate?: Date | string;
   UpdateDate?: Date | string;
-  Targets?: Record<OperationTargetType, string>;
+  Targets?: { [key in OperationTargetType]?: string };
 }
 export interface OperationFilter {
   Name: OperationFilterName;

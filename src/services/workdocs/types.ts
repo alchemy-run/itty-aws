@@ -953,8 +953,8 @@ export interface DocumentVersionMetadata {
   ContentCreatedTimestamp?: Date | string;
   ContentModifiedTimestamp?: Date | string;
   CreatorId?: string;
-  Thumbnail?: Record<DocumentThumbnailType, string>;
-  Source?: Record<DocumentSourceType, string>;
+  Thumbnail?: { [key in DocumentThumbnailType]?: string };
+  Source?: { [key in DocumentSourceType]?: string };
 }
 export type DocumentVersionMetadataList = Array<DocumentVersionMetadata>;
 export type DocumentVersionStatus = "ACTIVE";

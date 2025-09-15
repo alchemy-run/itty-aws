@@ -28,14 +28,6 @@ describe("IAM Smoke Tests", () => {
       ),
     );
 
-  const deletePolicyIfExists = (policyArn: string) =>
-    client.deletePolicy({ PolicyArn: policyArn }).pipe(
-      Effect.tap(() => Console.log(`Cleaned up existing policy: ${policyArn}`)),
-      Effect.catchTag("NoSuchEntityException", () =>
-        Effect.succeed("Policy doesn't exist."),
-      ),
-    );
-
   it.effect(
     "should list IAM roles and parse AssumeRolePolicyDocument correctly",
     () =>
@@ -382,16 +374,37 @@ describe("IAM Smoke Tests", () => {
         yield* Console.log("Step 0: Cleaning up any existing policy...");
         const sts = new STS({ credentials });
         const identity = yield* sts.getCallerIdentity({});
-        const policyArn = `arn:aws:iam::${identity.Account}:policy/test/${TEST_POLICY_NAME}`;
-        yield* deletePolicyIfExists(policyArn);
+        console.log({ identity });
 
         // Create policy
-        const createResult = yield* client.createPolicy({
-          PolicyName: TEST_POLICY_NAME,
-          PolicyDocument: policyDocument,
-          Path: "/test/",
-          Description: "Test policy for IAM smoke tests",
-        });
+
+        const createResult = yield* client
+          .createPolicy({
+            PolicyName: TEST_POLICY_NAME,
+            PolicyDocument: policyDocument,
+            Path: "/test/",
+            Description: "Test policy for IAM smoke tests",
+          })
+          .pipe(
+            Effect.catchTag("EntityAlreadyExistsException", () =>
+              client
+                .listPolicies({
+                  PathPrefix: TEST_POLICY_NAME,
+                })
+                .pipe(
+                  Effect.map(
+                    (p) =>
+                      p.Policies?.find((p) => p.PolicyName === TEST_POLICY_NAME)
+                        ?.Arn,
+                  ),
+                  Effect.flatMap((arn) =>
+                    arn
+                      ? client.getPolicy({ PolicyArn: arn })
+                      : Effect.fail(new Error("Policy not found")),
+                  ),
+                ),
+            ),
+          );
 
         expect(createResult.Policy).toBeDefined();
         expect(createResult.Policy?.PolicyName).toBe(TEST_POLICY_NAME);

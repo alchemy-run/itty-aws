@@ -564,7 +564,7 @@ describe("SQS Smoke Tests", () => {
           })
           .pipe(
             Effect.map(() => ({ success: true, error: undefined })),
-            Effect.catchTag("InvalidParameterValue", (error) =>
+            Effect.catchTag("ValidationError", (error) =>
               Effect.succeed({ success: false, error: error._tag }),
             ),
             Effect.catchAll((error) =>

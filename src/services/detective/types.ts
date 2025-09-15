@@ -32,7 +32,8 @@ type CommonAwsError =
   | UnrecognizedClientException
   | UnknownOperationException
   | ValidationError
-  | AccessDeniedException;
+  | AccessDeniedException
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class Detective extends AWSServiceClient {
@@ -420,10 +421,7 @@ export type DatasourcePackage =
   | "ASFF_SECURITYHUB_FINDING";
 export interface DatasourcePackageIngestDetail {
   DatasourcePackageIngestState?: DatasourcePackageIngestState;
-  LastIngestStateChange?: Record<
-    DatasourcePackageIngestState,
-    TimestampForCollection
-  >;
+  LastIngestStateChange?: { [key in DatasourcePackageIngestState]?: string };
 }
 export type DatasourcePackageIngestDetails = Record<
   DatasourcePackage,
@@ -431,7 +429,7 @@ export type DatasourcePackageIngestDetails = Record<
 >;
 export type DatasourcePackageIngestHistory = Record<
   DatasourcePackage,
-  Record<DatasourcePackageIngestState, TimestampForCollection>
+  { [key in DatasourcePackageIngestState]?: string }
 >;
 export type DatasourcePackageIngestState = "STARTED" | "STOPPED" | "DISABLED";
 export type DatasourcePackageIngestStates = Record<
@@ -596,7 +594,7 @@ export interface ListDatasourcePackagesRequest {
   MaxResults?: number;
 }
 export interface ListDatasourcePackagesResponse {
-  DatasourcePackages?: Record<DatasourcePackage, DatasourcePackageIngestDetail>;
+  DatasourcePackages?: { [key in DatasourcePackage]?: string };
   NextToken?: string;
 }
 export interface ListGraphsRequest {
@@ -681,14 +679,8 @@ export interface MemberDetail {
   PercentOfGraphUtilization?: number;
   PercentOfGraphUtilizationUpdatedTime?: Date | string;
   InvitationType?: InvitationType;
-  VolumeUsageByDatasourcePackage?: Record<
-    DatasourcePackage,
-    DatasourcePackageUsageInfo
-  >;
-  DatasourcePackageIngestStates?: Record<
-    DatasourcePackage,
-    DatasourcePackageIngestState
-  >;
+  VolumeUsageByDatasourcePackage?: { [key in DatasourcePackage]?: string };
+  DatasourcePackageIngestStates?: { [key in DatasourcePackage]?: string };
 }
 export type MemberDetailList = Array<MemberDetail>;
 export type MemberDisabledReason = "VOLUME_TOO_HIGH" | "VOLUME_UNKNOWN";
@@ -697,10 +689,7 @@ export type MemberResultsLimit = number;
 export interface MembershipDatasources {
   AccountId?: string;
   GraphArn?: string;
-  DatasourcePackageIngestHistory?: Record<
-    DatasourcePackage,
-    Record<DatasourcePackageIngestState, TimestampForCollection>
-  >;
+  DatasourcePackageIngestHistory?: { [key in DatasourcePackage]?: string };
 }
 export type MembershipDatasourcesList = Array<MembershipDatasources>;
 export type MemberStatus =

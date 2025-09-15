@@ -15,6 +15,7 @@ import type {
   UnrecognizedClientException,
   UnknownOperationException,
   ValidationError,
+  ValidationException,
 } from "../../error.ts";
 type CommonAwsError =
   | AccessDeniedException
@@ -32,6 +33,7 @@ type CommonAwsError =
   | UnrecognizedClientException
   | UnknownOperationException
   | ValidationError
+  | ValidationException
   | ThrottlingException;
 import { AWSServiceClient } from "../../client.ts";
 
@@ -81,7 +83,7 @@ export type GetEntitlementFilters = Record<
 >;
 export interface GetEntitlementsRequest {
   ProductCode: string;
-  Filter?: Record<GetEntitlementFilterName, Array<string>>;
+  Filter?: { [key in GetEntitlementFilterName]?: string };
   NextToken?: string;
   MaxResults?: number;
 }

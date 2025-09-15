@@ -335,6 +335,7 @@ const generateTypeReference = (
           contextShapeName,
           options,
         );
+        const keyTypeShape = manifest.shapes[targetShape.key.target];
         const valueType = generateTypeReference(
           serviceName,
           targetShape.value.target,
@@ -342,6 +343,9 @@ const generateTypeReference = (
           contextShapeName,
           options,
         );
+        if (keyTypeShape?.type === "enum") {
+          return `{ [key in ${keyType}]?: string }`;
+        }
         return `Record<${keyType}, ${valueType}>`;
       }
       return "Record<string, unknown>";

@@ -10,7 +10,8 @@ import type {
 const xmlParser = new XMLParser({
   ignoreAttributes: true,
   attributeNamePrefix: "",
-  parseTagValue: true,
+  parseTagValue: false, // don't parse numbers, we'll parse them manually using shape types
+
   isArray: (name, _jpath, _isLeafNode, _isAttribute) => {
     // AWS Query protocol uses 'member' elements for array items
     return name === "member";
@@ -284,11 +285,13 @@ export class AwsQueryHandler implements ProtocolHandler {
       const resultNode = responseNode?.[resultKey] ?? responseNode;
 
       // Use shape-aware parsing
-      return fromXml(
+      const output = fromXml(
         this.protocolMetadata.shapes,
         operation.output,
         resultNode,
       );
+
+      return output;
     } else {
       throw new Error("Unable to parse response.");
     }

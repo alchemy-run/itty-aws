@@ -1969,7 +1969,7 @@ export interface GetAccountPasswordPolicyResponse {
   PasswordPolicy: PasswordPolicy;
 }
 export interface GetAccountSummaryResponse {
-  SummaryMap?: Record<summaryKeyType, number>;
+  SummaryMap?: { [key in summaryKeyType]?: string };
 }
 export interface GetContextKeysForCustomPolicyRequest {
   PolicyInputList: Array<string>;

@@ -22,6 +22,7 @@ export {
   UnrecognizedClientException,
   UnknownOperationException,
   ValidationError,
+  ValidationException,
 } from "../../error.ts";
 
 // Service metadata

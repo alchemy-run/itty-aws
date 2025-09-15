@@ -31,7 +31,8 @@ type CommonAwsError =
   | UnknownOperationException
   | ValidationError
   | AccessDeniedException
-  | ThrottlingException;
+  | ThrottlingException
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class Glue extends AWSServiceClient {
@@ -3749,7 +3750,7 @@ export interface Connection {
   Description?: string;
   ConnectionType?: ConnectionType;
   MatchCriteria?: Array<string>;
-  ConnectionProperties?: Record<ConnectionPropertyKey, string>;
+  ConnectionProperties?: { [key in ConnectionPropertyKey]?: string };
   SparkProperties?: Record<string, string>;
   AthenaProperties?: Record<string, string>;
   PythonProperties?: Record<string, string>;
@@ -3769,7 +3770,7 @@ export interface ConnectionInput {
   Description?: string;
   ConnectionType: ConnectionType;
   MatchCriteria?: Array<string>;
-  ConnectionProperties: Record<ConnectionPropertyKey, string>;
+  ConnectionProperties: { [key in ConnectionPropertyKey]?: string };
   SparkProperties?: Record<string, string>;
   AthenaProperties?: Record<string, string>;
   PythonProperties?: Record<string, string>;
@@ -5194,7 +5195,7 @@ export interface EvaluateDataQualityMultiFrame {
   AdditionalDataSources?: Record<string, string>;
   Ruleset: string;
   PublishingOptions?: DQResultsPublishingOptions;
-  AdditionalOptions?: Record<AdditionalOptionKeys, string>;
+  AdditionalOptions?: { [key in AdditionalOptionKeys]?: string };
   StopJobOnFailureOptions?: DQStopJobOnFailureOptions;
 }
 export type EvaluatedMetricsMap = Record<string, number>;
@@ -6565,7 +6566,7 @@ export interface JDBCConnectorOptions {
   NumPartitions?: number;
   JobBookmarkKeys?: Array<string>;
   JobBookmarkKeysSortOrder?: string;
-  DataTypeMapping?: Record<JDBCDataType, GlueRecordType>;
+  DataTypeMapping?: { [key in JDBCDataType]?: string };
 }
 export interface JDBCConnectorSource {
   Name: string;
@@ -8960,7 +8961,7 @@ export type TaskType =
   | "FIND_MATCHES";
 export interface TestConnectionInput {
   ConnectionType: ConnectionType;
-  ConnectionProperties: Record<ConnectionPropertyKey, string>;
+  ConnectionProperties: { [key in ConnectionPropertyKey]?: string };
   AuthenticationConfiguration?: AuthenticationConfigurationInput;
 }
 export interface TestConnectionRequest {

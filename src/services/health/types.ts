@@ -83,7 +83,7 @@ export declare class Health extends AWSServiceClient {
 export interface AccountEntityAggregate {
   accountId?: string;
   count?: number;
-  statuses?: Record<entityStatusCode, number>;
+  statuses?: { [key in entityStatusCode]?: string };
 }
 export type AccountEntityAggregatesList = Array<AccountEntityAggregate>;
 export type accountId = string;
@@ -238,7 +238,7 @@ export interface EntityAccountFilter {
 export interface EntityAggregate {
   eventArn?: string;
   count?: number;
-  statuses?: Record<entityStatusCode, number>;
+  statuses?: { [key in entityStatusCode]?: string };
 }
 export type EntityAggregateList = Array<EntityAggregate>;
 export type entityArn = string;
@@ -387,7 +387,7 @@ export type OrganizationEntityAccountFiltersList = Array<EntityAccountFilter>;
 export interface OrganizationEntityAggregate {
   eventArn?: string;
   count?: number;
-  statuses?: Record<entityStatusCode, number>;
+  statuses?: { [key in entityStatusCode]?: string };
   accounts?: Array<AccountEntityAggregate>;
 }
 export type OrganizationEntityAggregatesList =

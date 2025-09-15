@@ -2088,7 +2088,7 @@ export type SecurityGroupId = string;
 
 export type SecurityGroupIds = Array<string>;
 export interface SelfManagedEventSource {
-  Endpoints?: Record<EndPointType, Array<string>>;
+  Endpoints?: { [key in EndPointType]?: string };
 }
 export interface SelfManagedKafkaEventSourceConfig {
   ConsumerGroupId?: string;

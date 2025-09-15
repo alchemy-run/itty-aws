@@ -32,7 +32,8 @@ type CommonAwsError =
   | UnrecognizedClientException
   | UnknownOperationException
   | ValidationError
-  | ThrottlingException;
+  | ThrottlingException
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class IoT extends AWSServiceClient {
@@ -3274,7 +3275,7 @@ export type AttributeValue = string;
 
 export interface AuditCheckConfiguration {
   enabled?: boolean;
-  configuration?: Record<ConfigName, string>;
+  configuration?: { [key in ConfigName]?: string };
 }
 export type AuditCheckConfigurations = Record<string, AuditCheckConfiguration>;
 export interface AuditCheckDetails {
@@ -4263,7 +4264,7 @@ export interface CreateSecurityProfileRequest {
   securityProfileName: string;
   securityProfileDescription?: string;
   behaviors?: Array<Behavior>;
-  alertTargets?: Record<AlertTargetType, AlertTarget>;
+  alertTargets?: { [key in AlertTargetType]?: string };
   additionalMetricsToRetain?: Array<string>;
   additionalMetricsToRetainV2?: Array<MetricToRetain>;
   tags?: Array<Tag>;
@@ -4552,10 +4553,9 @@ export type DeprecationFlag = boolean;
 export interface DescribeAccountAuditConfigurationRequest {}
 export interface DescribeAccountAuditConfigurationResponse {
   roleArn?: string;
-  auditNotificationTargetConfigurations?: Record<
-    AuditNotificationType,
-    AuditNotificationTarget
-  >;
+  auditNotificationTargetConfigurations?: {
+    [key in AuditNotificationType]?: string;
+  };
   auditCheckConfigurations?: Record<string, AuditCheckConfiguration>;
 }
 export interface DescribeAuditFindingRequest {
@@ -4706,7 +4706,7 @@ export interface DescribeEndpointResponse {
 }
 export interface DescribeEventConfigurationsRequest {}
 export interface DescribeEventConfigurationsResponse {
-  eventConfigurations?: Record<EventType, Configuration>;
+  eventConfigurations?: { [key in EventType]?: string };
   creationDate?: Date | string;
   lastModifiedDate?: Date | string;
 }
@@ -4847,7 +4847,7 @@ export interface DescribeSecurityProfileResponse {
   securityProfileArn?: string;
   securityProfileDescription?: string;
   behaviors?: Array<Behavior>;
-  alertTargets?: Record<AlertTargetType, AlertTarget>;
+  alertTargets?: { [key in AlertTargetType]?: string };
   additionalMetricsToRetain?: Array<string>;
   additionalMetricsToRetainV2?: Array<MetricToRetain>;
   version?: number;
@@ -7910,10 +7910,9 @@ export interface UntagResourceRequest {
 export interface UntagResourceResponse {}
 export interface UpdateAccountAuditConfigurationRequest {
   roleArn?: string;
-  auditNotificationTargetConfigurations?: Record<
-    AuditNotificationType,
-    AuditNotificationTarget
-  >;
+  auditNotificationTargetConfigurations?: {
+    [key in AuditNotificationType]?: string;
+  };
   auditCheckConfigurations?: Record<string, AuditCheckConfiguration>;
 }
 export interface UpdateAccountAuditConfigurationResponse {}
@@ -8041,7 +8040,7 @@ export interface UpdateEncryptionConfigurationRequest {
 }
 export interface UpdateEncryptionConfigurationResponse {}
 export interface UpdateEventConfigurationsRequest {
-  eventConfigurations?: Record<EventType, Configuration>;
+  eventConfigurations?: { [key in EventType]?: string };
 }
 export interface UpdateEventConfigurationsResponse {}
 export interface UpdateFleetMetricRequest {
@@ -8137,7 +8136,7 @@ export interface UpdateSecurityProfileRequest {
   securityProfileName: string;
   securityProfileDescription?: string;
   behaviors?: Array<Behavior>;
-  alertTargets?: Record<AlertTargetType, AlertTarget>;
+  alertTargets?: { [key in AlertTargetType]?: string };
   additionalMetricsToRetain?: Array<string>;
   additionalMetricsToRetainV2?: Array<MetricToRetain>;
   deleteBehaviors?: boolean;
@@ -8152,7 +8151,7 @@ export interface UpdateSecurityProfileResponse {
   securityProfileArn?: string;
   securityProfileDescription?: string;
   behaviors?: Array<Behavior>;
-  alertTargets?: Record<AlertTargetType, AlertTarget>;
+  alertTargets?: { [key in AlertTargetType]?: string };
   additionalMetricsToRetain?: Array<string>;
   additionalMetricsToRetainV2?: Array<MetricToRetain>;
   version?: number;

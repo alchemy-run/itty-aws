@@ -769,8 +769,8 @@ export type AccountsCleanup = boolean;
 
 export interface AccountSettings {
   awsAccountNumber?: string;
-  unmeteredDevices?: Record<DevicePlatform, number>;
-  unmeteredRemoteAccessDevices?: Record<DevicePlatform, number>;
+  unmeteredDevices?: { [key in DevicePlatform]?: string };
+  unmeteredRemoteAccessDevices?: { [key in DevicePlatform]?: string };
   maxJobTimeoutMinutes?: number;
   trialMinutes?: TrialMinutes;
   maxSlots?: Record<string, number>;
@@ -1519,7 +1519,7 @@ export interface ListUniqueProblemsRequest {
   nextToken?: string;
 }
 export interface ListUniqueProblemsResult {
-  uniqueProblems?: Record<ExecutionResult, Array<UniqueProblem>>;
+  uniqueProblems?: { [key in ExecutionResult]?: string };
   nextToken?: string;
 }
 export interface ListUploadsRequest {

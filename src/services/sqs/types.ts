@@ -374,7 +374,7 @@ export interface ChangeMessageVisibilityRequest {
 }
 export interface CreateQueueRequest {
   QueueName: string;
-  Attributes?: Record<QueueAttributeName, string>;
+  Attributes?: { [key in QueueAttributeName]?: string };
   tags?: Record<string, string>;
 }
 export interface CreateQueueResult {
@@ -418,7 +418,7 @@ export interface GetQueueAttributesRequest {
   AttributeNames?: Array<QueueAttributeName>;
 }
 export interface GetQueueAttributesResult {
-  Attributes?: Record<QueueAttributeName, string>;
+  Attributes?: { [key in QueueAttributeName]?: string };
 }
 export interface GetQueueUrlRequest {
   QueueName: string;
@@ -542,7 +542,7 @@ export interface Message {
   ReceiptHandle?: string;
   MD5OfBody?: string;
   Body?: string;
-  Attributes?: Record<MessageSystemAttributeName, string>;
+  Attributes?: { [key in MessageSystemAttributeName]?: string };
   MD5OfMessageAttributes?: string;
   MessageAttributes?: Record<string, MessageAttributeValue>;
 }
@@ -685,10 +685,9 @@ export interface SendMessageBatchRequestEntry {
   MessageBody: string;
   DelaySeconds?: number;
   MessageAttributes?: Record<string, MessageAttributeValue>;
-  MessageSystemAttributes?: Record<
-    MessageSystemAttributeNameForSends,
-    MessageSystemAttributeValue
-  >;
+  MessageSystemAttributes?: {
+    [key in MessageSystemAttributeNameForSends]?: string;
+  };
   MessageDeduplicationId?: string;
   MessageGroupId?: string;
 }
@@ -713,10 +712,9 @@ export interface SendMessageRequest {
   MessageBody: string;
   DelaySeconds?: number;
   MessageAttributes?: Record<string, MessageAttributeValue>;
-  MessageSystemAttributes?: Record<
-    MessageSystemAttributeNameForSends,
-    MessageSystemAttributeValue
-  >;
+  MessageSystemAttributes?: {
+    [key in MessageSystemAttributeNameForSends]?: string;
+  };
   MessageDeduplicationId?: string;
   MessageGroupId?: string;
 }
@@ -729,7 +727,7 @@ export interface SendMessageResult {
 }
 export interface SetQueueAttributesRequest {
   QueueUrl: string;
-  Attributes: Record<QueueAttributeName, string>;
+  Attributes: { [key in QueueAttributeName]?: string };
 }
 export interface StartMessageMoveTaskRequest {
   SourceArn: string;

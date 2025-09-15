@@ -2210,10 +2210,7 @@ export interface AutoMLCandidate {
   LastModifiedTime: Date | string;
   FailureReason?: string;
   CandidateProperties?: CandidateProperties;
-  InferenceContainerDefinitions?: Record<
-    AutoMLProcessingUnit,
-    Array<AutoMLContainerDefinition>
-  >;
+  InferenceContainerDefinitions?: { [key in AutoMLProcessingUnit]?: string };
 }
 export interface AutoMLCandidateGenerationConfig {
   FeatureSpecificationS3Uri?: string;
@@ -6566,7 +6563,7 @@ export type FileSystemType = "EFS" | "FSxLustre";
 export type FillingTransformationMap = Record<FillingType, string>;
 export type FillingTransformations = Record<
   string,
-  Record<FillingType, string>
+  { [key in FillingType]?: string }
 >;
 export type FillingTransformationValue = string;
 
@@ -12335,7 +12332,7 @@ export interface TimeSeriesForecastingSettings {
   AmazonForecastRoleArn?: string;
 }
 export interface TimeSeriesTransformations {
-  Filling?: Record<string, Record<FillingType, string>>;
+  Filling?: Record<string, { [key in FillingType]?: string }>;
   Aggregation?: Record<string, AggregationTransformationValue>;
 }
 export type Timestamp = Date | string;

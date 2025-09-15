@@ -32,7 +32,8 @@ type CommonAwsError =
   | UnrecognizedClientException
   | UnknownOperationException
   | ValidationError
-  | AccessDeniedException;
+  | AccessDeniedException
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class ObservabilityAdmin extends AWSServiceClient {
@@ -330,7 +331,7 @@ export interface ListResourceTelemetryForOrganizationInput {
   AccountIdentifiers?: Array<string>;
   ResourceIdentifierPrefix?: string;
   ResourceTypes?: Array<ResourceType>;
-  TelemetryConfigurationState?: Record<TelemetryType, TelemetryState>;
+  TelemetryConfigurationState?: { [key in TelemetryType]?: string };
   ResourceTags?: Record<string, string>;
   MaxResults?: number;
   NextToken?: string;
@@ -344,7 +345,7 @@ export interface ListResourceTelemetryForOrganizationOutput {
 export interface ListResourceTelemetryInput {
   ResourceIdentifierPrefix?: string;
   ResourceTypes?: Array<ResourceType>;
-  TelemetryConfigurationState?: Record<TelemetryType, TelemetryState>;
+  TelemetryConfigurationState?: { [key in TelemetryType]?: string };
   ResourceTags?: Record<string, string>;
   MaxResults?: number;
   NextToken?: string;
@@ -439,7 +440,7 @@ export type TagValue = string;
 
 export interface TelemetryConfiguration {
   AccountIdentifier?: string;
-  TelemetryConfigurationState?: Record<TelemetryType, TelemetryState>;
+  TelemetryConfigurationState?: { [key in TelemetryType]?: string };
   ResourceType?: ResourceType;
   ResourceIdentifier?: string;
   ResourceTags?: Record<string, string>;

@@ -14,6 +14,7 @@ import type {
   UnrecognizedClientException,
   UnknownOperationException,
   ValidationError,
+  ValidationException,
 } from "../../error.ts";
 type CommonAwsError =
   | ExpiredTokenException
@@ -30,6 +31,7 @@ type CommonAwsError =
   | UnrecognizedClientException
   | UnknownOperationException
   | ValidationError
+  | ValidationException
   | AccessDeniedException
   | ThrottlingException;
 import { AWSServiceClient } from "../../client.ts";
@@ -5966,7 +5968,7 @@ export interface InboundRawMessage {
   Subject: string;
   Body: string;
   ContentType: string;
-  Headers?: Record<EmailHeaderType, string>;
+  Headers?: { [key in EmailHeaderType]?: string };
 }
 export type InboundSubject = string;
 
@@ -9380,9 +9382,9 @@ export interface UserData {
   RoutingProfile?: RoutingProfileReference;
   HierarchyPath?: HierarchyPathReference;
   Status?: AgentStatusReference;
-  AvailableSlotsByChannel?: Record<Channel, number>;
-  MaxSlotsByChannel?: Record<Channel, number>;
-  ActiveSlotsByChannel?: Record<Channel, number>;
+  AvailableSlotsByChannel?: { [key in Channel]?: string };
+  MaxSlotsByChannel?: { [key in Channel]?: string };
+  ActiveSlotsByChannel?: { [key in Channel]?: string };
   Contacts?: Array<AgentContactReference>;
   NextStatus?: string;
 }

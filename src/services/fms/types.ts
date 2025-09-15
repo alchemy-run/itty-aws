@@ -1142,8 +1142,8 @@ export interface Policy {
   ExcludeResourceTags: boolean;
   RemediationEnabled: boolean;
   DeleteUnusedFMManagedResources?: boolean;
-  IncludeMap?: Record<CustomerPolicyScopeIdType, Array<string>>;
-  ExcludeMap?: Record<CustomerPolicyScopeIdType, Array<string>>;
+  IncludeMap?: { [key in CustomerPolicyScopeIdType]?: string };
+  ExcludeMap?: { [key in CustomerPolicyScopeIdType]?: string };
   ResourceSetIds?: Array<string>;
   PolicyDescription?: string;
   PolicyStatus?: CustomerPolicyStatus;
@@ -1156,7 +1156,7 @@ export interface PolicyComplianceDetail {
   Violators?: Array<ComplianceViolator>;
   EvaluationLimitExceeded?: boolean;
   ExpiredAt?: Date | string;
-  IssueInfoMap?: Record<DependentServiceName, string>;
+  IssueInfoMap?: { [key in DependentServiceName]?: string };
 }
 export interface PolicyComplianceStatus {
   PolicyOwner?: string;
@@ -1165,7 +1165,7 @@ export interface PolicyComplianceStatus {
   MemberAccount?: string;
   EvaluationResults?: Array<EvaluationResult>;
   LastUpdated?: Date | string;
-  IssueInfoMap?: Record<DependentServiceName, string>;
+  IssueInfoMap?: { [key in DependentServiceName]?: string };
 }
 export type PolicyComplianceStatusList = Array<PolicyComplianceStatus>;
 export type PolicyComplianceStatusType = "COMPLIANT" | "NON_COMPLIANT";

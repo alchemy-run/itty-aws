@@ -32,7 +32,8 @@ type CommonAwsError =
   | UnrecognizedClientException
   | UnknownOperationException
   | ValidationError
-  | AccessDeniedException;
+  | AccessDeniedException
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class Outposts extends AWSServiceClient {
@@ -950,7 +951,7 @@ export interface OrderSummary {
   OrderId?: string;
   OrderType?: OrderType;
   Status?: OrderStatus;
-  LineItemCountsByStatus?: Record<LineItemStatus, number>;
+  LineItemCountsByStatus?: { [key in LineItemStatus]?: string };
   OrderSubmissionDate?: Date | string;
   OrderFulfilledDate?: Date | string;
 }

@@ -7,16 +7,23 @@ import type { AwsErrorMeta } from "./error.ts";
 import { DefaultFetch, Fetch } from "./fetch.service.ts";
 import type { ProtocolHandler } from "./protocols/interface.ts";
 
+const errorTags: {
+  [serviceName: string]: {
+    [errorName: string]: any;
+  };
+} = {};
+
 // Helper to create service-specific error dynamically
 function createServiceError(
+  serviceName: string,
   errorName: string,
   errorMeta: AwsErrorMeta & { message?: string },
 ) {
   // Create a tagged error dynamically with the correct error name
-  const ErrorClass = Data.TaggedError(errorName)<
-    AwsErrorMeta & { message?: string }
-  >;
-  return new ErrorClass(errorMeta);
+  return new ((errorTags[serviceName] ??= {})[errorName] ??= (() =>
+    Data.TaggedError(errorName)<AwsErrorMeta & { message?: string }>)())(
+    errorMeta,
+  );
 }
 
 // Types
@@ -210,10 +217,14 @@ export function createServiceProxy<T>(
 
               // Use the sanitized error type directly from the protocol handler
               return yield* Effect.fail(
-                createServiceError(parsedError.errorType, {
-                  ...errorMeta,
-                  message: parsedError.message,
-                }),
+                createServiceError(
+                  metadata.sigV4ServiceName,
+                  parsedError.errorType,
+                  {
+                    ...errorMeta,
+                    message: parsedError.message,
+                  },
+                ),
               );
             }
           });

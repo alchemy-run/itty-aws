@@ -15,6 +15,7 @@ import type {
   UnrecognizedClientException,
   UnknownOperationException,
   ValidationError,
+  ValidationException,
 } from "../../error.ts";
 type CommonAwsError =
   | ExpiredTokenException
@@ -32,6 +33,7 @@ type CommonAwsError =
   | UnrecognizedClientException
   | UnknownOperationException
   | ValidationError
+  | ValidationException
   | AccessDeniedException;
 import { AWSServiceClient } from "../../client.ts";
 
@@ -1739,7 +1741,7 @@ export interface UpdateTableStorageOptimizerRequest {
   CatalogId?: string;
   DatabaseName: string;
   TableName: string;
-  StorageOptimizerConfig: Record<OptimizerType, Record<string, string>>;
+  StorageOptimizerConfig: { [key in OptimizerType]?: string };
 }
 export interface UpdateTableStorageOptimizerResponse {
   Result?: string;
