@@ -1,3 +1,14 @@
+## v0.3.4
+
+### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes
+
+- Re-export errors to fix type portability errors &nbsp;-&nbsp; by **Sam Goodwin** [<samp>(c5e2e)</samp>](https://github.com/sam-goodwin/itty-aws/commit/c5e2e81b)
+- Do not parse numbers with xml parser &nbsp;-&nbsp; by **Sam Goodwin** [<samp>(3af8d)</samp>](https://github.com/sam-goodwin/itty-aws/commit/3af8db1d)
+
+##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/sam-goodwin/itty-aws/compare/v0.3.3...v0.3.4)
+
+---
+
 ## v0.3.3
 
 ### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes
