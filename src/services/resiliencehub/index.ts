@@ -5,6 +5,23 @@ import type { resiliencehub as _resiliencehubClient } from "./types.ts";
 
 export * from "./types.ts";
 
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+
 // Service metadata
 const metadata = {
   sdkId: "resiliencehub",
@@ -92,10 +109,8 @@ const metadata = {
   },
 } as const satisfies ServiceMetadata;
 
-// Re-export all types from types.ts for backward compatibility
-export type * from "./types.ts";
-
-export type resiliencehub = typeof resiliencehub;
+export type _resiliencehub = _resiliencehubClient;
+export interface resiliencehub extends _resiliencehub {}
 export const resiliencehub = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

@@ -5,6 +5,23 @@ import type { PinpointSMSVoiceV2 as _PinpointSMSVoiceV2Client } from "./types.ts
 
 export * from "./types.ts";
 
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+
 // Service metadata
 const metadata = {
   sdkId: "Pinpoint SMS Voice V2",
@@ -15,10 +32,8 @@ const metadata = {
   targetPrefix: "PinpointSMSVoiceV2",
 } as const satisfies ServiceMetadata;
 
-// Re-export all types from types.ts for backward compatibility
-export type * from "./types.ts";
-
-export type PinpointSMSVoiceV2 = typeof PinpointSMSVoiceV2;
+export type _PinpointSMSVoiceV2 = _PinpointSMSVoiceV2Client;
+export interface PinpointSMSVoiceV2 extends _PinpointSMSVoiceV2 {}
 export const PinpointSMSVoiceV2 = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

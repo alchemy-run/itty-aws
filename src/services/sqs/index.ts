@@ -5,6 +5,25 @@ import type { SQS as _SQSClient } from "./types.ts";
 
 export * from "./types.ts";
 
+export {
+  AccessDeniedException,
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  ThrottlingException,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+
 // Service metadata
 const metadata = {
   sdkId: "SQS",
@@ -15,10 +34,8 @@ const metadata = {
   targetPrefix: "AmazonSQS",
 } as const satisfies ServiceMetadata;
 
-// Re-export all types from types.ts for backward compatibility
-export type * from "./types.ts";
-
-export type SQS = typeof SQS;
+export type _SQS = _SQSClient;
+export interface SQS extends _SQS {}
 export const SQS = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

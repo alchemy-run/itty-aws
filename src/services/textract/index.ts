@@ -5,6 +5,23 @@ import type { Textract as _TextractClient } from "./types.ts";
 
 export * from "./types.ts";
 
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+
 // Service metadata
 const metadata = {
   sdkId: "Textract",
@@ -15,10 +32,8 @@ const metadata = {
   targetPrefix: "Textract",
 } as const satisfies ServiceMetadata;
 
-// Re-export all types from types.ts for backward compatibility
-export type * from "./types.ts";
-
-export type Textract = typeof Textract;
+export type _Textract = _TextractClient;
+export interface Textract extends _Textract {}
 export const Textract = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

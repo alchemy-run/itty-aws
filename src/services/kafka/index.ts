@@ -5,6 +5,25 @@ import type { Kafka as _KafkaClient } from "./types.ts";
 
 export * from "./types.ts";
 
+export {
+  AccessDeniedException,
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  ThrottlingException,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+
 // Service metadata
 const metadata = {
   sdkId: "Kafka",
@@ -73,10 +92,8 @@ const metadata = {
   },
 } as const satisfies ServiceMetadata;
 
-// Re-export all types from types.ts for backward compatibility
-export type * from "./types.ts";
-
-export type Kafka = typeof Kafka;
+export type _Kafka = _KafkaClient;
+export interface Kafka extends _Kafka {}
 export const Kafka = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

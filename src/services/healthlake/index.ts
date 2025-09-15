@@ -5,6 +5,23 @@ import type { HealthLake as _HealthLakeClient } from "./types.ts";
 
 export * from "./types.ts";
 
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+
 // Service metadata
 const metadata = {
   sdkId: "HealthLake",
@@ -15,10 +32,8 @@ const metadata = {
   targetPrefix: "HealthLake",
 } as const satisfies ServiceMetadata;
 
-// Re-export all types from types.ts for backward compatibility
-export type * from "./types.ts";
-
-export type HealthLake = typeof HealthLake;
+export type _HealthLake = _HealthLakeClient;
+export interface HealthLake extends _HealthLake {}
 export const HealthLake = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

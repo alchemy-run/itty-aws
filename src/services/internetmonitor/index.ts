@@ -5,6 +5,23 @@ import type { InternetMonitor as _InternetMonitorClient } from "./types.ts";
 
 export * from "./types.ts";
 
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+
 // Service metadata
 const metadata = {
   sdkId: "InternetMonitor",
@@ -34,10 +51,8 @@ const metadata = {
   },
 } as const satisfies ServiceMetadata;
 
-// Re-export all types from types.ts for backward compatibility
-export type * from "./types.ts";
-
-export type InternetMonitor = typeof InternetMonitor;
+export type _InternetMonitor = _InternetMonitorClient;
+export interface InternetMonitor extends _InternetMonitor {}
 export const InternetMonitor = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

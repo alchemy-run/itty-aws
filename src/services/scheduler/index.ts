@@ -5,6 +5,24 @@ import type { Scheduler as _SchedulerClient } from "./types.ts";
 
 export * from "./types.ts";
 
+export {
+  AccessDeniedException,
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+
 // Service metadata
 const metadata = {
   sdkId: "Scheduler",
@@ -27,10 +45,8 @@ const metadata = {
   },
 } as const satisfies ServiceMetadata;
 
-// Re-export all types from types.ts for backward compatibility
-export type * from "./types.ts";
-
-export type Scheduler = typeof Scheduler;
+export type _Scheduler = _SchedulerClient;
+export interface Scheduler extends _Scheduler {}
 export const Scheduler = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

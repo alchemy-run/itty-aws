@@ -5,6 +5,24 @@ import type { EC2InstanceConnect as _EC2InstanceConnectClient } from "./types.ts
 
 export * from "./types.ts";
 
+export {
+  AccessDeniedException,
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+
 // Service metadata
 const metadata = {
   sdkId: "EC2 Instance Connect",
@@ -15,10 +33,8 @@ const metadata = {
   targetPrefix: "AWSEC2InstanceConnectService",
 } as const satisfies ServiceMetadata;
 
-// Re-export all types from types.ts for backward compatibility
-export type * from "./types.ts";
-
-export type EC2InstanceConnect = typeof EC2InstanceConnect;
+export type _EC2InstanceConnect = _EC2InstanceConnectClient;
+export interface EC2InstanceConnect extends _EC2InstanceConnect {}
 export const EC2InstanceConnect = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

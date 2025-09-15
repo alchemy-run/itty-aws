@@ -5,6 +5,25 @@ import type { DatabaseMigrationService as _DatabaseMigrationServiceClient } from
 
 export * from "./types.ts";
 
+export {
+  AccessDeniedException,
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  ThrottlingException,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+
 // Service metadata
 const metadata = {
   sdkId: "Database Migration Service",
@@ -15,10 +34,8 @@ const metadata = {
   targetPrefix: "AmazonDMSv20160101",
 } as const satisfies ServiceMetadata;
 
-// Re-export all types from types.ts for backward compatibility
-export type * from "./types.ts";
-
-export type DatabaseMigrationService = typeof DatabaseMigrationService;
+export type _DatabaseMigrationService = _DatabaseMigrationServiceClient;
+export interface DatabaseMigrationService extends _DatabaseMigrationService {}
 export const DatabaseMigrationService = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

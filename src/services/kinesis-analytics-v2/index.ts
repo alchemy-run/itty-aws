@@ -5,6 +5,25 @@ import type { KinesisAnalyticsV2 as _KinesisAnalyticsV2Client } from "./types.ts
 
 export * from "./types.ts";
 
+export {
+  AccessDeniedException,
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  ThrottlingException,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+
 // Service metadata
 const metadata = {
   sdkId: "Kinesis Analytics V2",
@@ -15,10 +34,8 @@ const metadata = {
   targetPrefix: "KinesisAnalytics_20180523",
 } as const satisfies ServiceMetadata;
 
-// Re-export all types from types.ts for backward compatibility
-export type * from "./types.ts";
-
-export type KinesisAnalyticsV2 = typeof KinesisAnalyticsV2;
+export type _KinesisAnalyticsV2 = _KinesisAnalyticsV2Client;
+export interface KinesisAnalyticsV2 extends _KinesisAnalyticsV2 {}
 export const KinesisAnalyticsV2 = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

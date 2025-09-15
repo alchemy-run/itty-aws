@@ -1,6 +1,7 @@
 import { FileSystem } from "@effect/platform";
 import { NodeFileSystem } from "@effect/platform-node";
 import { Effect } from "effect";
+import { commonAwsErrorNames, isCommonAwsErrorName } from "../src/error.ts";
 import type { Manifest, Shape } from "./manifest.ts";
 import { loadAllLocalManifests } from "./manifest.ts";
 
@@ -208,6 +209,7 @@ const mapSmithyTypeToTypeScript = (
 
 // Helper to generate type reference from shape target
 const generateTypeReference = (
+  serviceName: string,
   target: string,
   memberName?: string,
   contextShapeName?: string,
@@ -315,6 +317,7 @@ const generateTypeReference = (
     case "list":
       if (targetShape.member) {
         const memberType = generateTypeReference(
+          serviceName,
           targetShape.member.target,
           memberName,
           contextShapeName,
@@ -326,12 +329,14 @@ const generateTypeReference = (
     case "map":
       if (targetShape.key && targetShape.value) {
         const keyType = generateTypeReference(
+          serviceName,
           targetShape.key.target,
           undefined,
           contextShapeName,
           options,
         );
         const valueType = generateTypeReference(
+          serviceName,
           targetShape.value.target,
           undefined,
           contextShapeName,
@@ -562,11 +567,13 @@ const getDocumentation = (
 
 // Helper to generate error class (declare class extending EffectData.TaggedError)
 const generateErrorInterface = (
-  shapeName: string,
+  serviceName: string,
+  shapeId: string,
   shape: any,
   options: TypeGenOptions,
 ): string => {
   const doc = getDocumentation(shape.traits);
+  const shapeName = extractShapeName(shapeId);
   let code = "";
 
   if (doc) {
@@ -582,6 +589,7 @@ const generateErrorInterface = (
     for (const [memberName, member] of Object.entries(shape.members)) {
       const memberInfo = member as any;
       const fieldType = generateTypeReference(
+        serviceName,
         memberInfo.target,
         memberName,
         shapeName,
@@ -605,8 +613,16 @@ const generateErrorInterface = (
   return code;
 };
 
+const sanitizeStructureName = (name: string) => {
+  if (isCommonAwsErrorName(name)) {
+    return `_${name}`;
+  }
+  return name;
+};
+
 // Helper to generate structure interface
 const generateStructureInterface = (
+  serviceName: string,
   name: string,
   shape: Extract<Shape, { type: "structure" }>,
   options: TypeGenOptions,
@@ -614,8 +630,13 @@ const generateStructureInterface = (
   const doc = getDocumentation(shape.traits);
   let code = doc ? `${doc}\n` : "";
 
+  (options.typeNameMapping ??= new Map()).set(
+    name,
+    sanitizeStructureName(name),
+  );
+
   // Generate regular interface
-  code += `export interface ${name} {\n`;
+  code += `export interface ${sanitizeStructureName(name)} {\n`;
   if (shape.members) {
     for (const [memberName, member] of Object.entries(shape.members)) {
       const memberDoc = getDocumentation(member.traits);
@@ -628,6 +649,7 @@ const generateStructureInterface = (
       const isRequiredField = isRequired(member.traits);
       const questionMark = isRequiredField ? "" : "?";
       const fieldType = generateTypeReference(
+        serviceName,
         member.target,
         memberName,
         name,
@@ -643,6 +665,7 @@ const generateStructureInterface = (
 
 // Helper to generate union type
 const generateUnionType = (
+  serviceName: string,
   name: string,
   shape: Extract<Shape, { type: "union" }>,
   options: TypeGenOptions,
@@ -657,11 +680,13 @@ const generateUnionType = (
     code += `interface ${baseName} {\n`;
     for (const [memberName, member] of Object.entries(shape.members)) {
       const memberType = generateTypeReference(
+        serviceName,
         member.target,
         memberName,
         baseName,
         options,
       );
+
       const memberDoc = getDocumentation(member.traits);
 
       if (memberDoc) {
@@ -679,6 +704,7 @@ const generateUnionType = (
     const variants = Object.entries(shape.members).map(
       ([memberName, member]) => {
         const memberType = generateTypeReference(
+          serviceName,
           member.target,
           memberName,
           baseName,
@@ -721,6 +747,7 @@ const generateEnumType = (
 
 // Helper to generate list type
 const generateListType = (
+  serviceName: string,
   name: string,
   shape: Extract<Shape, { type: "list" }>,
   options: TypeGenOptions,
@@ -730,6 +757,7 @@ const generateListType = (
 
   if (shape.member) {
     const memberType = generateTypeReference(
+      serviceName,
       shape.member.target,
       undefined,
       name,
@@ -745,6 +773,7 @@ const generateListType = (
 
 // Helper to generate map type
 const generateMapType = (
+  serviceName: string,
   name: string,
   shape: Extract<Shape, { type: "map" }>,
   options: TypeGenOptions,
@@ -754,12 +783,14 @@ const generateMapType = (
 
   if (shape.key && shape.value) {
     const keyType = generateTypeReference(
+      serviceName,
       shape.key.target,
       undefined,
       name,
       options,
     );
     const valueType = generateTypeReference(
+      serviceName,
       shape.value.target,
       undefined,
       name,
@@ -821,8 +852,21 @@ const getProtocolHandler = (
   }
 };
 
+const getServiceErrorOverrides = (manifest: Manifest) => {
+  const errorNames = new Set(
+    Object.entries(manifest.shapes)
+      .filter(([_, shape]) => shape.traits?.["smithy.api#error"])
+      .map(([shapeId, _]) => extractShapeName(shapeId)),
+  );
+  return {
+    overrides: commonAwsErrorNames.filter((n) => errorNames.has(n)),
+    inherited: commonAwsErrorNames.filter((n) => !errorNames.has(n)),
+  };
+};
+
 // Generate service index.ts file with proxy implementation
 const generateServiceIndex = (
+  manifest: Manifest,
   metadata: any,
   consistentInterfaceName: string,
   serviceName: string,
@@ -840,6 +884,15 @@ const generateServiceIndex = (
   }
   code += `import type { ${consistentInterfaceName} as _${consistentInterfaceName}Client } from "./types.ts";\n\n`;
   code += `export * from "./types.ts";\n\n`;
+  // console.log({ metadata, serviceName, manifest });
+
+  const { inherited } = getServiceErrorOverrides(manifest);
+
+  if (inherited.length === 0) {
+    code += `export * from "../../error.ts";\n\n`;
+  } else {
+    code += `export {${inherited.join(", ")}} from "../../error.ts";\n\n`;
+  }
 
   // Service metadata
   code += "// Service metadata\n";
@@ -888,9 +941,9 @@ const generateServiceIndex = (
   }
   code += "} as const satisfies ServiceMetadata;\n\n";
 
-  // Re-export all types from types.ts for backward compatibility
-  code += "// Re-export all types from types.ts for backward compatibility\n";
-  code += 'export type * from "./types.ts";\n\n';
+  // // Re-export all types from types.ts for backward compatibility
+  // code += "// Re-export all types from types.ts for backward compatibility\n";
+  // code += 'export type * from "./types.ts";\n\n';
 
   // Service class implementation
   // Attach service-level TSDoc if available
@@ -898,7 +951,17 @@ const generateServiceIndex = (
     code += `${metadata.documentation}\n`;
   }
 
-  code += `export type ${consistentInterfaceName} = typeof ${consistentInterfaceName}\n`;
+  /*
+  import type { Lambda as _LambdaClient } from "./types.ts";
+export * from "../../error.ts";
+export * from "./types.ts";
+export type _Lambda = _LambdaClient;
+export interface Lambda extends _Lambda {}
+export declare const Lambda: typeof _LambdaClient;
+
+*/
+  code += `export type _${consistentInterfaceName} = _${consistentInterfaceName}Client;\n`;
+  code += `export interface ${consistentInterfaceName} extends _${consistentInterfaceName} {}\n`;
   code += `export const ${consistentInterfaceName} = class extends AWSServiceClient {\n`;
   code += "  constructor(cfg: Partial<AWSClientConfig> = {}) {\n";
   code += "    const config: AWSClientConfig = {\n";
@@ -918,6 +981,13 @@ const generateServiceIndex = (
   code += `} as unknown as typeof _${consistentInterfaceName}Client;\n`;
 
   return code;
+};
+
+const getServicePascalCaseName = (serviceName: string): string => {
+  return serviceName
+    .split("-")
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .join("");
 };
 
 const generateServiceTypes = (serviceName: string, manifest: Manifest) =>
@@ -949,10 +1019,7 @@ const generateServiceTypes = (serviceName: string, manifest: Manifest) =>
 
     // Create type name mapping for conflicting types
     const typeNameMapping = new Map<string, string>();
-    const servicePrefix = serviceName
-      .split("-")
-      .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
-      .join("");
+    const servicePrefix = getServicePascalCaseName(serviceName);
 
     // Find service shape and extract metadata
     const serviceShapeEntry = Object.entries(manifest.shapes).find(
@@ -1129,7 +1196,14 @@ const generateServiceTypes = (serviceName: string, manifest: Manifest) =>
     if (needsBufferSupport) {
       code += `import type { Buffer } from "node:buffer";\n`;
     }
-    code += `import type { CommonAwsError } from "../../error.ts";\n`;
+    const { inherited, overrides } = getServiceErrorOverrides(manifest);
+    if (overrides.length === 0) {
+      code += `import type { CommonAwsError } from "../../error.ts";\n`;
+    } else {
+      code += `import type { ${inherited.join(", ")} } from "../../error.ts";\n`;
+      code += `type CommonAwsError = ${inherited.concat(overrides).join(" | ")};\n`;
+    }
+
     code += `import { AWSServiceClient } from "../../client.ts";\n\n`;
 
     // First pass: Build type name mapping for conflicting types and track all type names
@@ -1161,8 +1235,15 @@ const generateServiceTypes = (serviceName: string, manifest: Manifest) =>
     // For duplicates, create unique names
     const processedShapes = new Map<string, string>(); // shapeName -> first shapeId that uses it
 
-    for (const [shapeId, _shape] of allShapes) {
+    for (const [shapeId, shape] of allShapes) {
       const shapeName = extractShapeName(shapeId);
+
+      if (
+        !shape.traits?.["smithy.api#error"] &&
+        isCommonAwsErrorName(shapeName)
+      ) {
+        typeNameMapping.set(shapeName, sanitizeStructureName(shapeName));
+      }
 
       if (shapeName === "Unit") {
         continue;
@@ -1231,6 +1312,7 @@ const generateServiceTypes = (serviceName: string, manifest: Manifest) =>
 
       // Generate error union type
       const errors = operation.shape.errors || [];
+
       const errorTypes = errors.map(
         (error) =>
           typeNameMapping.get(extractShapeName(error.target)) ||
@@ -1310,12 +1392,14 @@ const generateServiceTypes = (serviceName: string, manifest: Manifest) =>
           // Check if it's an exception/error
           if (shape.traits && "smithy.api#error" in shape.traits) {
             code += generateErrorInterface(
-              finalTypeName,
+              serviceName,
+              shapeId,
               shape,
               createTypeGenOptions(),
             );
           } else {
             code += generateStructureInterface(
+              serviceName,
               finalTypeName,
               shape,
               createTypeGenOptions(),
@@ -1325,6 +1409,7 @@ const generateServiceTypes = (serviceName: string, manifest: Manifest) =>
           break;
         case "union":
           code += generateUnionType(
+            serviceName,
             finalTypeName,
             shape,
             createTypeGenOptions(),
@@ -1341,6 +1426,7 @@ const generateServiceTypes = (serviceName: string, manifest: Manifest) =>
           break;
         case "list":
           code += generateListType(
+            serviceName,
             finalTypeName,
             shape,
             createTypeGenOptions(),
@@ -1348,7 +1434,12 @@ const generateServiceTypes = (serviceName: string, manifest: Manifest) =>
           code += "\n";
           break;
         case "map":
-          code += generateMapType(finalTypeName, shape, createTypeGenOptions());
+          code += generateMapType(
+            serviceName,
+            finalTypeName,
+            shape,
+            createTypeGenOptions(),
+          );
           code += "\n";
           break;
         case "string":
@@ -1616,6 +1707,7 @@ const program = Effect.gen(function* () {
 
       // Generate the service index code
       const indexCode = generateServiceIndex(
+        manifest,
         metadata,
         awsInterfaceName,
         serviceName,

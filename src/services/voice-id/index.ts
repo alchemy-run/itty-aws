@@ -5,6 +5,23 @@ import type { VoiceID as _VoiceIDClient } from "./types.ts";
 
 export * from "./types.ts";
 
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+
 // Service metadata
 const metadata = {
   sdkId: "Voice ID",
@@ -15,10 +32,8 @@ const metadata = {
   targetPrefix: "VoiceID",
 } as const satisfies ServiceMetadata;
 
-// Re-export all types from types.ts for backward compatibility
-export type * from "./types.ts";
-
-export type VoiceID = typeof VoiceID;
+export type _VoiceID = _VoiceIDClient;
+export interface VoiceID extends _VoiceID {}
 export const VoiceID = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

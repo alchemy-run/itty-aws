@@ -5,6 +5,23 @@ import type { MigrationHubRefactorSpaces as _MigrationHubRefactorSpacesClient } 
 
 export * from "./types.ts";
 
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+
 // Service metadata
 const metadata = {
   sdkId: "Migration Hub Refactor Spaces",
@@ -52,10 +69,9 @@ const metadata = {
   },
 } as const satisfies ServiceMetadata;
 
-// Re-export all types from types.ts for backward compatibility
-export type * from "./types.ts";
-
-export type MigrationHubRefactorSpaces = typeof MigrationHubRefactorSpaces;
+export type _MigrationHubRefactorSpaces = _MigrationHubRefactorSpacesClient;
+export interface MigrationHubRefactorSpaces
+  extends _MigrationHubRefactorSpaces {}
 export const MigrationHubRefactorSpaces = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

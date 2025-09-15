@@ -5,6 +5,23 @@ import type { ComputeOptimizer as _ComputeOptimizerClient } from "./types.ts";
 
 export * from "./types.ts";
 
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+
 // Service metadata
 const metadata = {
   sdkId: "Compute Optimizer",
@@ -15,10 +32,8 @@ const metadata = {
   targetPrefix: "ComputeOptimizerService",
 } as const satisfies ServiceMetadata;
 
-// Re-export all types from types.ts for backward compatibility
-export type * from "./types.ts";
-
-export type ComputeOptimizer = typeof ComputeOptimizer;
+export type _ComputeOptimizer = _ComputeOptimizerClient;
+export interface ComputeOptimizer extends _ComputeOptimizer {}
 export const ComputeOptimizer = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

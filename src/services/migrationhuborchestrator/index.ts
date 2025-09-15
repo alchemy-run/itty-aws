@@ -5,6 +5,23 @@ import type { MigrationHubOrchestrator as _MigrationHubOrchestratorClient } from
 
 export * from "./types.ts";
 
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+
 // Service metadata
 const metadata = {
   sdkId: "MigrationHubOrchestrator",
@@ -48,10 +65,8 @@ const metadata = {
   },
 } as const satisfies ServiceMetadata;
 
-// Re-export all types from types.ts for backward compatibility
-export type * from "./types.ts";
-
-export type MigrationHubOrchestrator = typeof MigrationHubOrchestrator;
+export type _MigrationHubOrchestrator = _MigrationHubOrchestratorClient;
+export interface MigrationHubOrchestrator extends _MigrationHubOrchestrator {}
 export const MigrationHubOrchestrator = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

@@ -5,6 +5,23 @@ import type { BedrockDataAutomation as _BedrockDataAutomationClient } from "./ty
 
 export * from "./types.ts";
 
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+
 // Service metadata
 const metadata = {
   sdkId: "Bedrock Data Automation",
@@ -31,10 +48,8 @@ const metadata = {
   },
 } as const satisfies ServiceMetadata;
 
-// Re-export all types from types.ts for backward compatibility
-export type * from "./types.ts";
-
-export type BedrockDataAutomation = typeof BedrockDataAutomation;
+export type _BedrockDataAutomation = _BedrockDataAutomationClient;
+export interface BedrockDataAutomation extends _BedrockDataAutomation {}
 export const BedrockDataAutomation = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

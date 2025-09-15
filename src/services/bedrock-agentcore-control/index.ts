@@ -5,6 +5,23 @@ import type { BedrockAgentCoreControl as _BedrockAgentCoreControlClient } from "
 
 export * from "./types.ts";
 
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+
 // Service metadata
 const metadata = {
   sdkId: "Bedrock AgentCore Control",
@@ -82,10 +99,8 @@ const metadata = {
   },
 } as const satisfies ServiceMetadata;
 
-// Re-export all types from types.ts for backward compatibility
-export type * from "./types.ts";
-
-export type BedrockAgentCoreControl = typeof BedrockAgentCoreControl;
+export type _BedrockAgentCoreControl = _BedrockAgentCoreControlClient;
+export interface BedrockAgentCoreControl extends _BedrockAgentCoreControl {}
 export const BedrockAgentCoreControl = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

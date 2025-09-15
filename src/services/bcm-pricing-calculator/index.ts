@@ -5,6 +5,23 @@ import type { BCMPricingCalculator as _BCMPricingCalculatorClient } from "./type
 
 export * from "./types.ts";
 
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+
 // Service metadata
 const metadata = {
   sdkId: "BCM Pricing Calculator",
@@ -14,10 +31,8 @@ const metadata = {
   targetPrefix: "AWSBCMPricingCalculator",
 } as const satisfies ServiceMetadata;
 
-// Re-export all types from types.ts for backward compatibility
-export type * from "./types.ts";
-
-export type BCMPricingCalculator = typeof BCMPricingCalculator;
+export type _BCMPricingCalculator = _BCMPricingCalculatorClient;
+export interface BCMPricingCalculator extends _BCMPricingCalculator {}
 export const BCMPricingCalculator = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

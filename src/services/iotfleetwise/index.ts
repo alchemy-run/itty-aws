@@ -5,6 +5,23 @@ import type { IoTFleetWise as _IoTFleetWiseClient } from "./types.ts";
 
 export * from "./types.ts";
 
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+
 // Service metadata
 const metadata = {
   sdkId: "IoTFleetWise",
@@ -14,10 +31,8 @@ const metadata = {
   targetPrefix: "IoTAutobahnControlPlane",
 } as const satisfies ServiceMetadata;
 
-// Re-export all types from types.ts for backward compatibility
-export type * from "./types.ts";
-
-export type IoTFleetWise = typeof IoTFleetWise;
+export type _IoTFleetWise = _IoTFleetWiseClient;
+export interface IoTFleetWise extends _IoTFleetWise {}
 export const IoTFleetWise = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

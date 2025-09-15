@@ -1,0 +1,11 @@
+{
+  "type": "module",
+  "scripts": {
+    "setup": "rm -rf node_modules && cd ../ && rm -rf tsconfig.tsbuildinfo itty-aws.tgz dist && bun tsc -b && bun pm pack --filename itty-aws.tgz && cd smoke && bun i",
+    "build": "tsc -b"
+  },
+  "dependencies": {
+    "effect": "^3.17.13",
+    "itty-aws": "file:../itty-aws.tgz"
+  }
+}

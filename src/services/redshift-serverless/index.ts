@@ -5,6 +5,23 @@ import type { RedshiftServerless as _RedshiftServerlessClient } from "./types.ts
 
 export * from "./types.ts";
 
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+
 // Service metadata
 const metadata = {
   sdkId: "Redshift Serverless",
@@ -14,10 +31,8 @@ const metadata = {
   targetPrefix: "RedshiftServerless",
 } as const satisfies ServiceMetadata;
 
-// Re-export all types from types.ts for backward compatibility
-export type * from "./types.ts";
-
-export type RedshiftServerless = typeof RedshiftServerless;
+export type _RedshiftServerless = _RedshiftServerlessClient;
+export interface RedshiftServerless extends _RedshiftServerless {}
 export const RedshiftServerless = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

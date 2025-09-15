@@ -5,6 +5,23 @@ import type { BedrockAgentRuntime as _BedrockAgentRuntimeClient } from "./types.
 
 export * from "./types.ts";
 
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+
 // Service metadata
 const metadata = {
   sdkId: "Bedrock Agent Runtime",
@@ -87,10 +104,8 @@ const metadata = {
   },
 } as const satisfies ServiceMetadata;
 
-// Re-export all types from types.ts for backward compatibility
-export type * from "./types.ts";
-
-export type BedrockAgentRuntime = typeof BedrockAgentRuntime;
+export type _BedrockAgentRuntime = _BedrockAgentRuntimeClient;
+export interface BedrockAgentRuntime extends _BedrockAgentRuntime {}
 export const BedrockAgentRuntime = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

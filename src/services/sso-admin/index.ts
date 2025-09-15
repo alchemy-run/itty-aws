@@ -5,6 +5,23 @@ import type { SSOAdmin as _SSOAdminClient } from "./types.ts";
 
 export * from "./types.ts";
 
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+
 // Service metadata
 const metadata = {
   sdkId: "SSO Admin",
@@ -15,10 +32,8 @@ const metadata = {
   targetPrefix: "SWBExternalService",
 } as const satisfies ServiceMetadata;
 
-// Re-export all types from types.ts for backward compatibility
-export type * from "./types.ts";
-
-export type SSOAdmin = typeof SSOAdmin;
+export type _SSOAdmin = _SSOAdminClient;
+export interface SSOAdmin extends _SSOAdmin {}
 export const SSOAdmin = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

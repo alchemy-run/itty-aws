@@ -5,6 +5,23 @@ import type { CloudTrail as _CloudTrailClient } from "./types.ts";
 
 export * from "./types.ts";
 
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+
 // Service metadata
 const metadata = {
   sdkId: "CloudTrail",
@@ -15,10 +32,8 @@ const metadata = {
   targetPrefix: "CloudTrail_20131101",
 } as const satisfies ServiceMetadata;
 
-// Re-export all types from types.ts for backward compatibility
-export type * from "./types.ts";
-
-export type CloudTrail = typeof CloudTrail;
+export type _CloudTrail = _CloudTrailClient;
+export interface CloudTrail extends _CloudTrail {}
 export const CloudTrail = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

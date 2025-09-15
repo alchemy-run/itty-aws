@@ -5,6 +5,25 @@ import type { ChimeSDKMessaging as _ChimeSDKMessagingClient } from "./types.ts";
 
 export * from "./types.ts";
 
+export {
+  AccessDeniedException,
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  ThrottlingException,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+
 // Service metadata
 const metadata = {
   sdkId: "Chime SDK Messaging",
@@ -87,10 +106,8 @@ const metadata = {
   },
 } as const satisfies ServiceMetadata;
 
-// Re-export all types from types.ts for backward compatibility
-export type * from "./types.ts";
-
-export type ChimeSDKMessaging = typeof ChimeSDKMessaging;
+export type _ChimeSDKMessaging = _ChimeSDKMessagingClient;
+export interface ChimeSDKMessaging extends _ChimeSDKMessaging {}
 export const ChimeSDKMessaging = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

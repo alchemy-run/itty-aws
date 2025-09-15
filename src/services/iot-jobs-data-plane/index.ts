@@ -5,6 +5,24 @@ import type { IoTJobsDataPlane as _IoTJobsDataPlaneClient } from "./types.ts";
 
 export * from "./types.ts";
 
+export {
+  AccessDeniedException,
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+
 // Service metadata
 const metadata = {
   sdkId: "IoT Jobs Data Plane",
@@ -21,10 +39,8 @@ const metadata = {
   },
 } as const satisfies ServiceMetadata;
 
-// Re-export all types from types.ts for backward compatibility
-export type * from "./types.ts";
-
-export type IoTJobsDataPlane = typeof IoTJobsDataPlane;
+export type _IoTJobsDataPlane = _IoTJobsDataPlaneClient;
+export interface IoTJobsDataPlane extends _IoTJobsDataPlane {}
 export const IoTJobsDataPlane = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

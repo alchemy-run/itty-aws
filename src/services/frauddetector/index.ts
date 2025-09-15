@@ -5,6 +5,23 @@ import type { FraudDetector as _FraudDetectorClient } from "./types.ts";
 
 export * from "./types.ts";
 
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+
 // Service metadata
 const metadata = {
   sdkId: "FraudDetector",
@@ -15,10 +32,8 @@ const metadata = {
   targetPrefix: "AWSHawksNestServiceFacade",
 } as const satisfies ServiceMetadata;
 
-// Re-export all types from types.ts for backward compatibility
-export type * from "./types.ts";
-
-export type FraudDetector = typeof FraudDetector;
+export type _FraudDetector = _FraudDetectorClient;
+export interface FraudDetector extends _FraudDetector {}
 export const FraudDetector = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

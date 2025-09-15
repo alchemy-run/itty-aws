@@ -5,6 +5,23 @@ import type { PartnerCentralSelling as _PartnerCentralSellingClient } from "./ty
 
 export * from "./types.ts";
 
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+
 // Service metadata
 const metadata = {
   sdkId: "PartnerCentral Selling",
@@ -15,10 +32,8 @@ const metadata = {
   targetPrefix: "AWSPartnerCentralSelling",
 } as const satisfies ServiceMetadata;
 
-// Re-export all types from types.ts for backward compatibility
-export type * from "./types.ts";
-
-export type PartnerCentralSelling = typeof PartnerCentralSelling;
+export type _PartnerCentralSelling = _PartnerCentralSellingClient;
+export interface PartnerCentralSelling extends _PartnerCentralSelling {}
 export const PartnerCentralSelling = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

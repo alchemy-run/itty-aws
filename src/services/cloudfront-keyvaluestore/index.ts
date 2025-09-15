@@ -5,6 +5,24 @@ import type { CloudFrontKeyValueStore as _CloudFrontKeyValueStoreClient } from "
 
 export * from "./types.ts";
 
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  ThrottlingException,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+
 // Service metadata
 const metadata = {
   sdkId: "CloudFront KeyValueStore",
@@ -42,10 +60,8 @@ const metadata = {
   },
 } as const satisfies ServiceMetadata;
 
-// Re-export all types from types.ts for backward compatibility
-export type * from "./types.ts";
-
-export type CloudFrontKeyValueStore = typeof CloudFrontKeyValueStore;
+export type _CloudFrontKeyValueStore = _CloudFrontKeyValueStoreClient;
+export interface CloudFrontKeyValueStore extends _CloudFrontKeyValueStore {}
 export const CloudFrontKeyValueStore = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

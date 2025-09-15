@@ -5,6 +5,23 @@ import type { CodeGuruSecurity as _CodeGuruSecurityClient } from "./types.ts";
 
 export * from "./types.ts";
 
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+
 // Service metadata
 const metadata = {
   sdkId: "CodeGuru Security",
@@ -28,10 +45,8 @@ const metadata = {
   },
 } as const satisfies ServiceMetadata;
 
-// Re-export all types from types.ts for backward compatibility
-export type * from "./types.ts";
-
-export type CodeGuruSecurity = typeof CodeGuruSecurity;
+export type _CodeGuruSecurity = _CodeGuruSecurityClient;
+export interface CodeGuruSecurity extends _CodeGuruSecurity {}
 export const CodeGuruSecurity = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

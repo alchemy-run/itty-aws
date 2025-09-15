@@ -5,6 +5,23 @@ import type { PaymentCryptography as _PaymentCryptographyClient } from "./types.
 
 export * from "./types.ts";
 
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+
 // Service metadata
 const metadata = {
   sdkId: "Payment Cryptography",
@@ -15,10 +32,8 @@ const metadata = {
   targetPrefix: "PaymentCryptographyControlPlane",
 } as const satisfies ServiceMetadata;
 
-// Re-export all types from types.ts for backward compatibility
-export type * from "./types.ts";
-
-export type PaymentCryptography = typeof PaymentCryptography;
+export type _PaymentCryptography = _PaymentCryptographyClient;
+export interface PaymentCryptography extends _PaymentCryptography {}
 export const PaymentCryptography = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

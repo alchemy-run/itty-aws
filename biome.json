@@ -7,6 +7,8 @@
   },
   "files": {
     "includes": [
+      "./smoke/**/*.ts",
+      "./smoke/**/*.json",
       "./src/**/*.ts",
       "./test/**/*.ts",
       "./scripts/**/*.ts",

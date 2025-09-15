@@ -360,7 +360,7 @@ export interface PutPipelineDefinitionInput {
   parameterValues?: Array<ParameterValue>;
 }
 export interface PutPipelineDefinitionOutput {
-  validationErrors?: Array<ValidationError>;
+  validationErrors?: Array<_ValidationError>;
   validationWarnings?: Array<ValidationWarning>;
   errored: boolean;
 }
@@ -452,15 +452,15 @@ export interface ValidatePipelineDefinitionInput {
   parameterValues?: Array<ParameterValue>;
 }
 export interface ValidatePipelineDefinitionOutput {
-  validationErrors?: Array<ValidationError>;
+  validationErrors?: Array<_ValidationError>;
   validationWarnings?: Array<ValidationWarning>;
   errored: boolean;
 }
-export interface ValidationError {
+export interface _ValidationError {
   id?: string;
   errors?: Array<string>;
 }
-export type ValidationErrors = Array<ValidationError>;
+export type ValidationErrors = Array<_ValidationError>;
 export type validationMessage = string;
 
 export type validationMessages = Array<string>;

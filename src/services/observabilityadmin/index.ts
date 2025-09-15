@@ -5,6 +5,24 @@ import type { ObservabilityAdmin as _ObservabilityAdminClient } from "./types.ts
 
 export * from "./types.ts";
 
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  ThrottlingException,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+
 // Service metadata
 const metadata = {
   sdkId: "ObservabilityAdmin",
@@ -44,10 +62,8 @@ const metadata = {
   },
 } as const satisfies ServiceMetadata;
 
-// Re-export all types from types.ts for backward compatibility
-export type * from "./types.ts";
-
-export type ObservabilityAdmin = typeof ObservabilityAdmin;
+export type _ObservabilityAdmin = _ObservabilityAdminClient;
+export interface ObservabilityAdmin extends _ObservabilityAdmin {}
 export const ObservabilityAdmin = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

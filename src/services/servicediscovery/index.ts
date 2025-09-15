@@ -5,6 +5,25 @@ import type { ServiceDiscovery as _ServiceDiscoveryClient } from "./types.ts";
 
 export * from "./types.ts";
 
+export {
+  AccessDeniedException,
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  ThrottlingException,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+
 // Service metadata
 const metadata = {
   sdkId: "ServiceDiscovery",
@@ -15,10 +34,8 @@ const metadata = {
   targetPrefix: "Route53AutoNaming_v20170314",
 } as const satisfies ServiceMetadata;
 
-// Re-export all types from types.ts for backward compatibility
-export type * from "./types.ts";
-
-export type ServiceDiscovery = typeof ServiceDiscovery;
+export type _ServiceDiscovery = _ServiceDiscoveryClient;
+export interface ServiceDiscovery extends _ServiceDiscovery {}
 export const ServiceDiscovery = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

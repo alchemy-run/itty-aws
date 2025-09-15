@@ -5,6 +5,25 @@ import type { CloudWatchEvents as _CloudWatchEventsClient } from "./types.ts";
 
 export * from "./types.ts";
 
+export {
+  AccessDeniedException,
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  ThrottlingException,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+
 // Service metadata
 const metadata = {
   sdkId: "CloudWatch Events",
@@ -15,10 +34,8 @@ const metadata = {
   targetPrefix: "AWSEvents",
 } as const satisfies ServiceMetadata;
 
-// Re-export all types from types.ts for backward compatibility
-export type * from "./types.ts";
-
-export type CloudWatchEvents = typeof CloudWatchEvents;
+export type _CloudWatchEvents = _CloudWatchEventsClient;
+export interface CloudWatchEvents extends _CloudWatchEvents {}
 export const CloudWatchEvents = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

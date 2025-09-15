@@ -5,6 +5,23 @@ import type { WorkspacesInstances as _WorkspacesInstancesClient } from "./types.
 
 export * from "./types.ts";
 
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+
 // Service metadata
 const metadata = {
   sdkId: "Workspaces Instances",
@@ -14,10 +31,8 @@ const metadata = {
   targetPrefix: "EUCMIFrontendAPIService",
 } as const satisfies ServiceMetadata;
 
-// Re-export all types from types.ts for backward compatibility
-export type * from "./types.ts";
-
-export type WorkspacesInstances = typeof WorkspacesInstances;
+export type _WorkspacesInstances = _WorkspacesInstancesClient;
+export interface WorkspacesInstances extends _WorkspacesInstances {}
 export const WorkspacesInstances = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

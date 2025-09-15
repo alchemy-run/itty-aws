@@ -5,6 +5,24 @@ import type { CodeDeploy as _CodeDeployClient } from "./types.ts";
 
 export * from "./types.ts";
 
+export {
+  AccessDeniedException,
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+
 // Service metadata
 const metadata = {
   sdkId: "CodeDeploy",
@@ -15,10 +33,8 @@ const metadata = {
   targetPrefix: "CodeDeploy_20141006",
 } as const satisfies ServiceMetadata;
 
-// Re-export all types from types.ts for backward compatibility
-export type * from "./types.ts";
-
-export type CodeDeploy = typeof CodeDeploy;
+export type _CodeDeploy = _CodeDeployClient;
+export interface CodeDeploy extends _CodeDeploy {}
 export const CodeDeploy = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

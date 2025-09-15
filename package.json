@@ -30,9 +30,9 @@
     }
   },
   "scripts": {
-    "prepare": "ts-patch install -s",
     "build": "tsc -b",
     "generate": "bun scripts/generate-clients.ts && bun biome check --write && tsc -b",
+    "generate:unsafe": "bun scripts/generate-clients.ts",
     "generate-ec2-metadata": "bun scripts/generate-ec2-metadata.ts && bun biome check --write && tsc -b",
     "generate-awsquery-metadata": "bun scripts/generate-awsquery-metadata.ts --all && bun biome check --write && tsc -b",
     "generate-service-support-table": "bun scripts/generate-service-support-table.ts",

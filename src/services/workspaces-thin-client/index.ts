@@ -5,6 +5,23 @@ import type { WorkSpacesThinClient as _WorkSpacesThinClientClient } from "./type
 
 export * from "./types.ts";
 
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+
 // Service metadata
 const metadata = {
   sdkId: "WorkSpaces Thin Client",
@@ -31,10 +48,8 @@ const metadata = {
   },
 } as const satisfies ServiceMetadata;
 
-// Re-export all types from types.ts for backward compatibility
-export type * from "./types.ts";
-
-export type WorkSpacesThinClient = typeof WorkSpacesThinClient;
+export type _WorkSpacesThinClient = _WorkSpacesThinClientClient;
+export interface WorkSpacesThinClient extends _WorkSpacesThinClient {}
 export const WorkSpacesThinClient = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

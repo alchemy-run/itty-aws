@@ -5,6 +5,23 @@ import type { IoTManagedIntegrations as _IoTManagedIntegrationsClient } from "./
 
 export * from "./types.ts";
 
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+
 // Service metadata
 const metadata = {
   sdkId: "IoT Managed Integrations",
@@ -109,10 +126,8 @@ const metadata = {
   },
 } as const satisfies ServiceMetadata;
 
-// Re-export all types from types.ts for backward compatibility
-export type * from "./types.ts";
-
-export type IoTManagedIntegrations = typeof IoTManagedIntegrations;
+export type _IoTManagedIntegrations = _IoTManagedIntegrationsClient;
+export interface IoTManagedIntegrations extends _IoTManagedIntegrations {}
 export const IoTManagedIntegrations = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

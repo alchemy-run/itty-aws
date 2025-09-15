@@ -6,6 +6,25 @@ import type { ElasticLoadBalancingv2 as _ElasticLoadBalancingv2Client } from "./
 
 export * from "./types.ts";
 
+export {
+  AccessDeniedException,
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  ThrottlingException,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+
 // Service metadata
 const metadata = {
   sdkId: "Elastic Load Balancing v2",
@@ -15,10 +34,8 @@ const metadata = {
   endpointPrefix: "elasticloadbalancing",
 } as const satisfies ServiceMetadata;
 
-// Re-export all types from types.ts for backward compatibility
-export type * from "./types.ts";
-
-export type ElasticLoadBalancingv2 = typeof ElasticLoadBalancingv2;
+export type _ElasticLoadBalancingv2 = _ElasticLoadBalancingv2Client;
+export interface ElasticLoadBalancingv2 extends _ElasticLoadBalancingv2 {}
 export const ElasticLoadBalancingv2 = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

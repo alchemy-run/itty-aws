@@ -5,6 +5,24 @@ import type { ApplicationInsights as _ApplicationInsightsClient } from "./types.
 
 export * from "./types.ts";
 
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  ThrottlingException,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+
 // Service metadata
 const metadata = {
   sdkId: "Application Insights",
@@ -15,10 +33,8 @@ const metadata = {
   targetPrefix: "EC2WindowsBarleyService",
 } as const satisfies ServiceMetadata;
 
-// Re-export all types from types.ts for backward compatibility
-export type * from "./types.ts";
-
-export type ApplicationInsights = typeof ApplicationInsights;
+export type _ApplicationInsights = _ApplicationInsightsClient;
+export interface ApplicationInsights extends _ApplicationInsights {}
 export const ApplicationInsights = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

@@ -5,6 +5,24 @@ import type { KinesisVideoWebRTCStorage as _KinesisVideoWebRTCStorageClient } fr
 
 export * from "./types.ts";
 
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  ThrottlingException,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+
 // Service metadata
 const metadata = {
   sdkId: "Kinesis Video WebRTC Storage",
@@ -18,10 +36,8 @@ const metadata = {
   },
 } as const satisfies ServiceMetadata;
 
-// Re-export all types from types.ts for backward compatibility
-export type * from "./types.ts";
-
-export type KinesisVideoWebRTCStorage = typeof KinesisVideoWebRTCStorage;
+export type _KinesisVideoWebRTCStorage = _KinesisVideoWebRTCStorageClient;
+export interface KinesisVideoWebRTCStorage extends _KinesisVideoWebRTCStorage {}
 export const KinesisVideoWebRTCStorage = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

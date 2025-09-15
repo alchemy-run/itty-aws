@@ -1813,7 +1813,7 @@ export type __listOfThumbnail = Array<Thumbnail>;
 export type __listOfThumbnailDetail = Array<ThumbnailDetail>;
 export type __listOfTransferringInputDeviceSummary =
   Array<TransferringInputDeviceSummary>;
-export type __listOfValidationError = Array<ValidationError>;
+export type __listOfValidationError = Array<_ValidationError>;
 export type __listOfVideoDescription = Array<VideoDescription>;
 export type __long = number;
 
@@ -5960,7 +5960,7 @@ export declare class UnprocessableEntityException extends EffectData.TaggedError
   "UnprocessableEntityException",
 )<{
   readonly Message?: string;
-  readonly ValidationErrors?: Array<ValidationError>;
+  readonly ValidationErrors?: Array<_ValidationError>;
 }> {}
 export interface UpdateAccountConfigurationRequest {
   AccountConfiguration?: AccountConfiguration;
@@ -6244,7 +6244,7 @@ export interface UpdateSdiSourceRequest {
 export interface UpdateSdiSourceResponse {
   SdiSource?: SdiSource;
 }
-export interface ValidationError {
+export interface _ValidationError {
   ElementPath?: string;
   ErrorMessage?: string;
 }

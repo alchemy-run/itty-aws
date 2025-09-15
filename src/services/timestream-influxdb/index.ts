@@ -5,6 +5,23 @@ import type { TimestreamInfluxDB as _TimestreamInfluxDBClient } from "./types.ts
 
 export * from "./types.ts";
 
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+
 // Service metadata
 const metadata = {
   sdkId: "Timestream InfluxDB",
@@ -14,10 +31,8 @@ const metadata = {
   targetPrefix: "AmazonTimestreamInfluxDB",
 } as const satisfies ServiceMetadata;
 
-// Re-export all types from types.ts for backward compatibility
-export type * from "./types.ts";
-
-export type TimestreamInfluxDB = typeof TimestreamInfluxDB;
+export type _TimestreamInfluxDB = _TimestreamInfluxDBClient;
+export interface TimestreamInfluxDB extends _TimestreamInfluxDB {}
 export const TimestreamInfluxDB = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

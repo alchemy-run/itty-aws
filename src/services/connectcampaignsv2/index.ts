@@ -5,6 +5,23 @@ import type { ConnectCampaignsV2 as _ConnectCampaignsV2Client } from "./types.ts
 
 export * from "./types.ts";
 
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+
 // Service metadata
 const metadata = {
   sdkId: "ConnectCampaignsV2",
@@ -67,10 +84,8 @@ const metadata = {
   },
 } as const satisfies ServiceMetadata;
 
-// Re-export all types from types.ts for backward compatibility
-export type * from "./types.ts";
-
-export type ConnectCampaignsV2 = typeof ConnectCampaignsV2;
+export type _ConnectCampaignsV2 = _ConnectCampaignsV2Client;
+export interface ConnectCampaignsV2 extends _ConnectCampaignsV2 {}
 export const ConnectCampaignsV2 = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

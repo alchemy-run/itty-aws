@@ -5,6 +5,25 @@ import type { CognitoIdentityProvider as _CognitoIdentityProviderClient } from "
 
 export * from "./types.ts";
 
+export {
+  AccessDeniedException,
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  ThrottlingException,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+
 // Service metadata
 const metadata = {
   sdkId: "Cognito Identity Provider",
@@ -15,10 +34,8 @@ const metadata = {
   targetPrefix: "AWSCognitoIdentityProviderService",
 } as const satisfies ServiceMetadata;
 
-// Re-export all types from types.ts for backward compatibility
-export type * from "./types.ts";
-
-export type CognitoIdentityProvider = typeof CognitoIdentityProvider;
+export type _CognitoIdentityProvider = _CognitoIdentityProviderClient;
+export interface CognitoIdentityProvider extends _CognitoIdentityProvider {}
 export const CognitoIdentityProvider = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

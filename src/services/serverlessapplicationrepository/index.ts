@@ -5,6 +5,25 @@ import type { ServerlessApplicationRepository as _ServerlessApplicationRepositor
 
 export * from "./types.ts";
 
+export {
+  AccessDeniedException,
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  ThrottlingException,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+
 // Service metadata
 const metadata = {
   sdkId: "ServerlessApplicationRepository",
@@ -35,11 +54,10 @@ const metadata = {
   },
 } as const satisfies ServiceMetadata;
 
-// Re-export all types from types.ts for backward compatibility
-export type * from "./types.ts";
-
-export type ServerlessApplicationRepository =
-  typeof ServerlessApplicationRepository;
+export type _ServerlessApplicationRepository =
+  _ServerlessApplicationRepositoryClient;
+export interface ServerlessApplicationRepository
+  extends _ServerlessApplicationRepository {}
 export const ServerlessApplicationRepository = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

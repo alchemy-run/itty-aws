@@ -5,6 +5,23 @@ import type { TimestreamWrite as _TimestreamWriteClient } from "./types.ts";
 
 export * from "./types.ts";
 
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+
 // Service metadata
 const metadata = {
   sdkId: "Timestream Write",
@@ -15,10 +32,8 @@ const metadata = {
   targetPrefix: "Timestream_20181101",
 } as const satisfies ServiceMetadata;
 
-// Re-export all types from types.ts for backward compatibility
-export type * from "./types.ts";
-
-export type TimestreamWrite = typeof TimestreamWrite;
+export type _TimestreamWrite = _TimestreamWriteClient;
+export interface TimestreamWrite extends _TimestreamWrite {}
 export const TimestreamWrite = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

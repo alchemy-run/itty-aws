@@ -5,6 +5,22 @@ import type { SageMakerFeatureStoreRuntime as _SageMakerFeatureStoreRuntimeClien
 
 export * from "./types.ts";
 
+export {
+  AccessDeniedException,
+  ExpiredTokenException,
+  IncompleteSignature,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ThrottlingException,
+  UnrecognizedClientException,
+  UnknownOperationException,
+} from "../../error.ts";
+
 // Service metadata
 const metadata = {
   sdkId: "SageMaker FeatureStore Runtime",
@@ -20,10 +36,9 @@ const metadata = {
   },
 } as const satisfies ServiceMetadata;
 
-// Re-export all types from types.ts for backward compatibility
-export type * from "./types.ts";
-
-export type SageMakerFeatureStoreRuntime = typeof SageMakerFeatureStoreRuntime;
+export type _SageMakerFeatureStoreRuntime = _SageMakerFeatureStoreRuntimeClient;
+export interface SageMakerFeatureStoreRuntime
+  extends _SageMakerFeatureStoreRuntime {}
 export const SageMakerFeatureStoreRuntime = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

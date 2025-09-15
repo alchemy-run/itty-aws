@@ -5,6 +5,23 @@ import type { MarketplaceDeployment as _MarketplaceDeploymentClient } from "./ty
 
 export * from "./types.ts";
 
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+
 // Service metadata
 const metadata = {
   sdkId: "Marketplace Deployment",
@@ -21,10 +38,8 @@ const metadata = {
   },
 } as const satisfies ServiceMetadata;
 
-// Re-export all types from types.ts for backward compatibility
-export type * from "./types.ts";
-
-export type MarketplaceDeployment = typeof MarketplaceDeployment;
+export type _MarketplaceDeployment = _MarketplaceDeploymentClient;
+export interface MarketplaceDeployment extends _MarketplaceDeployment {}
 export const MarketplaceDeployment = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

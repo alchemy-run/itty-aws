@@ -5,6 +5,25 @@ import type { MarketplaceCommerceAnalytics as _MarketplaceCommerceAnalyticsClien
 
 export * from "./types.ts";
 
+export {
+  AccessDeniedException,
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  ThrottlingException,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+
 // Service metadata
 const metadata = {
   sdkId: "Marketplace Commerce Analytics",
@@ -15,10 +34,9 @@ const metadata = {
   targetPrefix: "MarketplaceCommerceAnalytics20150701",
 } as const satisfies ServiceMetadata;
 
-// Re-export all types from types.ts for backward compatibility
-export type * from "./types.ts";
-
-export type MarketplaceCommerceAnalytics = typeof MarketplaceCommerceAnalytics;
+export type _MarketplaceCommerceAnalytics = _MarketplaceCommerceAnalyticsClient;
+export interface MarketplaceCommerceAnalytics
+  extends _MarketplaceCommerceAnalytics {}
 export const MarketplaceCommerceAnalytics = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

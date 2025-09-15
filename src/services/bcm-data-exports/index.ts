@@ -5,6 +5,24 @@ import type { BCMDataExports as _BCMDataExportsClient } from "./types.ts";
 
 export * from "./types.ts";
 
+export {
+  AccessDeniedException,
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+
 // Service metadata
 const metadata = {
   sdkId: "BCM Data Exports",
@@ -15,10 +33,8 @@ const metadata = {
   targetPrefix: "AWSBillingAndCostManagementDataExports",
 } as const satisfies ServiceMetadata;
 
-// Re-export all types from types.ts for backward compatibility
-export type * from "./types.ts";
-
-export type BCMDataExports = typeof BCMDataExports;
+export type _BCMDataExports = _BCMDataExportsClient;
+export interface BCMDataExports extends _BCMDataExports {}
 export const BCMDataExports = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

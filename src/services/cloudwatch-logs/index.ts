@@ -5,6 +5,22 @@ import type { CloudWatchLogs as _CloudWatchLogsClient } from "./types.ts";
 
 export * from "./types.ts";
 
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+
 // Service metadata
 const metadata = {
   sdkId: "CloudWatch Logs",
@@ -15,10 +31,8 @@ const metadata = {
   targetPrefix: "Logs_20140328",
 } as const satisfies ServiceMetadata;
 
-// Re-export all types from types.ts for backward compatibility
-export type * from "./types.ts";
-
-export type CloudWatchLogs = typeof CloudWatchLogs;
+export type _CloudWatchLogs = _CloudWatchLogsClient;
+export interface CloudWatchLogs extends _CloudWatchLogs {}
 export const CloudWatchLogs = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

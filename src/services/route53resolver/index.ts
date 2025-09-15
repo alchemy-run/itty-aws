@@ -5,6 +5,23 @@ import type { Route53Resolver as _Route53ResolverClient } from "./types.ts";
 
 export * from "./types.ts";
 
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+
 // Service metadata
 const metadata = {
   sdkId: "Route53Resolver",
@@ -15,10 +32,8 @@ const metadata = {
   targetPrefix: "Route53Resolver",
 } as const satisfies ServiceMetadata;
 
-// Re-export all types from types.ts for backward compatibility
-export type * from "./types.ts";
-
-export type Route53Resolver = typeof Route53Resolver;
+export type _Route53Resolver = _Route53ResolverClient;
+export interface Route53Resolver extends _Route53Resolver {}
 export const Route53Resolver = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

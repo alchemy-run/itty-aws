@@ -5,6 +5,23 @@ import type { MarketplaceMetering as _MarketplaceMeteringClient } from "./types.
 
 export * from "./types.ts";
 
+export {
+  AccessDeniedException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+
 // Service metadata
 const metadata = {
   sdkId: "Marketplace Metering",
@@ -15,10 +32,8 @@ const metadata = {
   targetPrefix: "AWSMPMeteringService",
 } as const satisfies ServiceMetadata;
 
-// Re-export all types from types.ts for backward compatibility
-export type * from "./types.ts";
-
-export type MarketplaceMetering = typeof MarketplaceMetering;
+export type _MarketplaceMetering = _MarketplaceMeteringClient;
+export interface MarketplaceMetering extends _MarketplaceMetering {}
 export const MarketplaceMetering = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

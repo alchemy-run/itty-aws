@@ -5,6 +5,25 @@ import type { ApplicationAutoScaling as _ApplicationAutoScalingClient } from "./
 
 export * from "./types.ts";
 
+export {
+  AccessDeniedException,
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  ThrottlingException,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+
 // Service metadata
 const metadata = {
   sdkId: "Application Auto Scaling",
@@ -15,10 +34,8 @@ const metadata = {
   targetPrefix: "AnyScaleFrontendService",
 } as const satisfies ServiceMetadata;
 
-// Re-export all types from types.ts for backward compatibility
-export type * from "./types.ts";
-
-export type ApplicationAutoScaling = typeof ApplicationAutoScaling;
+export type _ApplicationAutoScaling = _ApplicationAutoScalingClient;
+export interface ApplicationAutoScaling extends _ApplicationAutoScaling {}
 export const ApplicationAutoScaling = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

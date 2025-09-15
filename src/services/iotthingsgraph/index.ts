@@ -5,6 +5,24 @@ import type { IoTThingsGraph as _IoTThingsGraphClient } from "./types.ts";
 
 export * from "./types.ts";
 
+export {
+  AccessDeniedException,
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+
 // Service metadata
 const metadata = {
   sdkId: "IoTThingsGraph",
@@ -15,10 +33,8 @@ const metadata = {
   targetPrefix: "IotThingsGraphFrontEndService",
 } as const satisfies ServiceMetadata;
 
-// Re-export all types from types.ts for backward compatibility
-export type * from "./types.ts";
-
-export type IoTThingsGraph = typeof IoTThingsGraph;
+export type _IoTThingsGraph = _IoTThingsGraphClient;
+export interface IoTThingsGraph extends _IoTThingsGraph {}
 export const IoTThingsGraph = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

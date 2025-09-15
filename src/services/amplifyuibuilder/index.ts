@@ -5,6 +5,24 @@ import type { AmplifyUIBuilder as _AmplifyUIBuilderClient } from "./types.ts";
 
 export * from "./types.ts";
 
+export {
+  AccessDeniedException,
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+
 // Service metadata
 const metadata = {
   sdkId: "AmplifyUIBuilder",
@@ -104,10 +122,8 @@ const metadata = {
   },
 } as const satisfies ServiceMetadata;
 
-// Re-export all types from types.ts for backward compatibility
-export type * from "./types.ts";
-
-export type AmplifyUIBuilder = typeof AmplifyUIBuilder;
+export type _AmplifyUIBuilder = _AmplifyUIBuilderClient;
+export interface AmplifyUIBuilder extends _AmplifyUIBuilder {}
 export const AmplifyUIBuilder = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

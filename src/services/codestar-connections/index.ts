@@ -5,6 +5,23 @@ import type { CodeStarconnections as _CodeStarconnectionsClient } from "./types.
 
 export * from "./types.ts";
 
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+
 // Service metadata
 const metadata = {
   sdkId: "CodeStar connections",
@@ -15,10 +32,8 @@ const metadata = {
   targetPrefix: "CodeStar_connections_20191201",
 } as const satisfies ServiceMetadata;
 
-// Re-export all types from types.ts for backward compatibility
-export type * from "./types.ts";
-
-export type CodeStarconnections = typeof CodeStarconnections;
+export type _CodeStarconnections = _CodeStarconnectionsClient;
+export interface CodeStarconnections extends _CodeStarconnections {}
 export const CodeStarconnections = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

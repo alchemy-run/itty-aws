@@ -5,6 +5,25 @@ import type { CostandUsageReportService as _CostandUsageReportServiceClient } fr
 
 export * from "./types.ts";
 
+export {
+  AccessDeniedException,
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  ThrottlingException,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+
 // Service metadata
 const metadata = {
   sdkId: "Cost and Usage Report Service",
@@ -15,10 +34,8 @@ const metadata = {
   targetPrefix: "AWSOrigamiServiceGatewayService",
 } as const satisfies ServiceMetadata;
 
-// Re-export all types from types.ts for backward compatibility
-export type * from "./types.ts";
-
-export type CostandUsageReportService = typeof CostandUsageReportService;
+export type _CostandUsageReportService = _CostandUsageReportServiceClient;
+export interface CostandUsageReportService extends _CostandUsageReportService {}
 export const CostandUsageReportService = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

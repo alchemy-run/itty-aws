@@ -1,5 +1,36 @@
 import type { Effect, Data as EffectData } from "effect";
-import type { CommonAwsError } from "../../error.ts";
+import type {
+  AccessDeniedException,
+  ExpiredTokenException,
+  IncompleteSignature,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ThrottlingException,
+  UnrecognizedClientException,
+  UnknownOperationException,
+} from "../../error.ts";
+type CommonAwsError =
+  | AccessDeniedException
+  | ExpiredTokenException
+  | IncompleteSignature
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ThrottlingException
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | InternalFailure
+  | ServiceUnavailable
+  | ValidationError;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class SageMakerFeatureStoreRuntime extends AWSServiceClient {

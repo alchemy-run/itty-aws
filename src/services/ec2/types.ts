@@ -8871,7 +8871,7 @@ export type EncryptionInTransitSupported = boolean;
 export type EndDateType = "unlimited" | "limited";
 export type EndpointSet = Array<ClientVpnEndpoint>;
 export type EphemeralNvmeSupport = "unsupported" | "supported" | "required";
-export type ErrorSet = Array<ValidationError>;
+export type ErrorSet = Array<_ValidationError>;
 export type EventCode =
   | "instance-reboot"
   | "system-reboot"
@@ -18114,12 +18114,12 @@ export type UserIdGroupPairList = Array<UserIdGroupPair>;
 export type UserIdGroupPairSet = Array<UserIdGroupPair>;
 export type UserIdStringList = Array<string>;
 export type UserTrustProviderType = "iam-identity-center" | "oidc";
-export interface ValidationError {
+export interface _ValidationError {
   Code?: string;
   Message?: string;
 }
 export interface ValidationWarning {
-  Errors?: Array<ValidationError>;
+  Errors?: Array<_ValidationError>;
 }
 export type ValueStringList = Array<string>;
 export type VCpuCount = number;

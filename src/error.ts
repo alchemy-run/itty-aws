@@ -6,33 +6,95 @@ export interface AwsErrorMeta {
 }
 
 // Common AWS errors that can occur across all services
-export class ThrottlingException extends Data.TaggedError(
-  "ThrottlingException",
+export class AccessDeniedException extends Data.TaggedError(
+  "AccessDeniedException",
+)<AwsErrorMeta> {}
+export class ExpiredTokenException extends Data.TaggedError(
+  "ExpiredTokenException",
+)<AwsErrorMeta> {}
+export class IncompleteSignature extends Data.TaggedError(
+  "IncompleteSignature",
+)<AwsErrorMeta> {}
+export class InternalFailure extends Data.TaggedError(
+  "InternalFailure",
+)<AwsErrorMeta> {}
+export class MalformedHttpRequestException extends Data.TaggedError(
+  "MalformedHttpRequestException",
+)<AwsErrorMeta> {}
+export class NotAuthorized extends Data.TaggedError(
+  "NotAuthorized",
+)<AwsErrorMeta> {}
+export class OptInRequired extends Data.TaggedError(
+  "OptInRequired",
+)<AwsErrorMeta> {}
+export class RequestAbortedException extends Data.TaggedError(
+  "RequestAbortedException",
+)<AwsErrorMeta> {}
+export class RequestEntityTooLargeException extends Data.TaggedError(
+  "RequestEntityTooLargeException",
+)<AwsErrorMeta> {}
+export class RequestExpired extends Data.TaggedError(
+  "RequestExpired",
+)<AwsErrorMeta> {}
+export class RequestTimeoutException extends Data.TaggedError(
+  "RequestTimeoutException",
 )<AwsErrorMeta> {}
 export class ServiceUnavailable extends Data.TaggedError(
   "ServiceUnavailable",
 )<AwsErrorMeta> {}
-export class RequestTimeout extends Data.TaggedError(
-  "RequestTimeout",
+export class ThrottlingException extends Data.TaggedError(
+  "ThrottlingException",
 )<AwsErrorMeta> {}
-export class UnknownError extends Data.TaggedError("UnknownError")<
-  AwsErrorMeta & { message: string }
-> {}
-export class AccessDeniedException extends Data.TaggedError(
-  "AccessDeniedException",
+export class UnrecognizedClientException extends Data.TaggedError(
+  "UnrecognizedClientException",
 )<AwsErrorMeta> {}
-export class UnauthorizedException extends Data.TaggedError(
-  "UnauthorizedException",
+export class UnknownOperationException extends Data.TaggedError(
+  "UnknownOperationException",
 )<AwsErrorMeta> {}
-export class ValidationException extends Data.TaggedError(
-  "ValidationException",
+export class ValidationError extends Data.TaggedError(
+  "ValidationError",
 )<AwsErrorMeta> {}
 
 export type CommonAwsError =
-  | ThrottlingException
-  | ServiceUnavailable
-  | RequestTimeout
-  | UnknownError
   | AccessDeniedException
-  | UnauthorizedException
-  | ValidationException;
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | ThrottlingException
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError;
+
+/**
+ * @internal
+ */
+export const commonAwsErrorNames = [
+  "AccessDeniedException",
+  "ExpiredTokenException",
+  "IncompleteSignature",
+  "InternalFailure",
+  "MalformedHttpRequestException",
+  "NotAuthorized",
+  "OptInRequired",
+  "RequestAbortedException",
+  "RequestEntityTooLargeException",
+  "RequestExpired",
+  "RequestTimeoutException",
+  "ServiceUnavailable",
+  "ThrottlingException",
+  "UnrecognizedClientException",
+  "UnknownOperationException",
+  "ValidationError",
+];
+
+export function isCommonAwsErrorName(errorName: string): boolean {
+  return commonAwsErrorNames.includes(errorName);
+}

@@ -5,6 +5,23 @@ import type { BudgetsClient as _BudgetsClientClient } from "./types.ts";
 
 export * from "./types.ts";
 
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+
 // Service metadata
 const metadata = {
   sdkId: "Budgets",
@@ -15,10 +32,8 @@ const metadata = {
   targetPrefix: "AWSBudgetServiceGateway",
 } as const satisfies ServiceMetadata;
 
-// Re-export all types from types.ts for backward compatibility
-export type * from "./types.ts";
-
-export type BudgetsClient = typeof BudgetsClient;
+export type _BudgetsClient = _BudgetsClientClient;
+export interface BudgetsClient extends _BudgetsClient {}
 export const BudgetsClient = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

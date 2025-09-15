@@ -5,6 +5,23 @@ import type { DirectoryServiceData as _DirectoryServiceDataClient } from "./type
 
 export * from "./types.ts";
 
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+
 // Service metadata
 const metadata = {
   sdkId: "Directory Service Data",
@@ -33,10 +50,8 @@ const metadata = {
   },
 } as const satisfies ServiceMetadata;
 
-// Re-export all types from types.ts for backward compatibility
-export type * from "./types.ts";
-
-export type DirectoryServiceData = typeof DirectoryServiceData;
+export type _DirectoryServiceData = _DirectoryServiceDataClient;
+export interface DirectoryServiceData extends _DirectoryServiceData {}
 export const DirectoryServiceData = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

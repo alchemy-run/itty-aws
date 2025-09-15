@@ -5,6 +5,23 @@ import type { CostOptimizationHub as _CostOptimizationHubClient } from "./types.
 
 export * from "./types.ts";
 
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+
 // Service metadata
 const metadata = {
   sdkId: "Cost Optimization Hub",
@@ -15,10 +32,8 @@ const metadata = {
   targetPrefix: "CostOptimizationHubService",
 } as const satisfies ServiceMetadata;
 
-// Re-export all types from types.ts for backward compatibility
-export type * from "./types.ts";
-
-export type CostOptimizationHub = typeof CostOptimizationHub;
+export type _CostOptimizationHub = _CostOptimizationHubClient;
+export interface CostOptimizationHub extends _CostOptimizationHub {}
 export const CostOptimizationHub = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

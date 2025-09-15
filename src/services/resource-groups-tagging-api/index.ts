@@ -5,6 +5,25 @@ import type { ResourceGroupsTaggingAPI as _ResourceGroupsTaggingAPIClient } from
 
 export * from "./types.ts";
 
+export {
+  AccessDeniedException,
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  ThrottlingException,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+
 // Service metadata
 const metadata = {
   sdkId: "Resource Groups Tagging API",
@@ -15,10 +34,8 @@ const metadata = {
   targetPrefix: "ResourceGroupsTaggingAPI_20170126",
 } as const satisfies ServiceMetadata;
 
-// Re-export all types from types.ts for backward compatibility
-export type * from "./types.ts";
-
-export type ResourceGroupsTaggingAPI = typeof ResourceGroupsTaggingAPI;
+export type _ResourceGroupsTaggingAPI = _ResourceGroupsTaggingAPIClient;
+export interface ResourceGroupsTaggingAPI extends _ResourceGroupsTaggingAPI {}
 export const ResourceGroupsTaggingAPI = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

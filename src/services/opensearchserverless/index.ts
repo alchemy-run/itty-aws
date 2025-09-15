@@ -5,6 +5,25 @@ import type { OpenSearchServerless as _OpenSearchServerlessClient } from "./type
 
 export * from "./types.ts";
 
+export {
+  AccessDeniedException,
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  ThrottlingException,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+
 // Service metadata
 const metadata = {
   sdkId: "OpenSearchServerless",
@@ -14,10 +33,8 @@ const metadata = {
   targetPrefix: "OpenSearchServerless",
 } as const satisfies ServiceMetadata;
 
-// Re-export all types from types.ts for backward compatibility
-export type * from "./types.ts";
-
-export type OpenSearchServerless = typeof OpenSearchServerless;
+export type _OpenSearchServerless = _OpenSearchServerlessClient;
+export interface OpenSearchServerless extends _OpenSearchServerless {}
 export const OpenSearchServerless = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

@@ -5,6 +5,23 @@ import type { LicenseManagerUserSubscriptions as _LicenseManagerUserSubscription
 
 export * from "./types.ts";
 
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+
 // Service metadata
 const metadata = {
   sdkId: "License Manager User Subscriptions",
@@ -38,11 +55,10 @@ const metadata = {
   },
 } as const satisfies ServiceMetadata;
 
-// Re-export all types from types.ts for backward compatibility
-export type * from "./types.ts";
-
-export type LicenseManagerUserSubscriptions =
-  typeof LicenseManagerUserSubscriptions;
+export type _LicenseManagerUserSubscriptions =
+  _LicenseManagerUserSubscriptionsClient;
+export interface LicenseManagerUserSubscriptions
+  extends _LicenseManagerUserSubscriptions {}
 export const LicenseManagerUserSubscriptions = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

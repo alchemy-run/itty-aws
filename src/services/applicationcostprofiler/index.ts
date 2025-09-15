@@ -5,6 +5,23 @@ import type { ApplicationCostProfiler as _ApplicationCostProfilerClient } from "
 
 export * from "./types.ts";
 
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+
 // Service metadata
 const metadata = {
   sdkId: "ApplicationCostProfiler",
@@ -22,10 +39,8 @@ const metadata = {
   },
 } as const satisfies ServiceMetadata;
 
-// Re-export all types from types.ts for backward compatibility
-export type * from "./types.ts";
-
-export type ApplicationCostProfiler = typeof ApplicationCostProfiler;
+export type _ApplicationCostProfiler = _ApplicationCostProfilerClient;
+export interface ApplicationCostProfiler extends _ApplicationCostProfiler {}
 export const ApplicationCostProfiler = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

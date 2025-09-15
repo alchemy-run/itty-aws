@@ -5,6 +5,25 @@ import type { ECRPUBLIC as _ECRPUBLICClient } from "./types.ts";
 
 export * from "./types.ts";
 
+export {
+  AccessDeniedException,
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  ThrottlingException,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+
 // Service metadata
 const metadata = {
   sdkId: "ECR PUBLIC",
@@ -15,10 +34,8 @@ const metadata = {
   targetPrefix: "SpencerFrontendService",
 } as const satisfies ServiceMetadata;
 
-// Re-export all types from types.ts for backward compatibility
-export type * from "./types.ts";
-
-export type ECRPUBLIC = typeof ECRPUBLIC;
+export type _ECRPUBLIC = _ECRPUBLICClient;
+export interface ECRPUBLIC extends _ECRPUBLIC {}
 export const ECRPUBLIC = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

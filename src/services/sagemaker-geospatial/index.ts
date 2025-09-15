@@ -5,6 +5,23 @@ import type { SageMakerGeospatial as _SageMakerGeospatialClient } from "./types.
 
 export * from "./types.ts";
 
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+
 // Service metadata
 const metadata = {
   sdkId: "SageMaker Geospatial",
@@ -39,10 +56,8 @@ const metadata = {
   },
 } as const satisfies ServiceMetadata;
 
-// Re-export all types from types.ts for backward compatibility
-export type * from "./types.ts";
-
-export type SageMakerGeospatial = typeof SageMakerGeospatial;
+export type _SageMakerGeospatial = _SageMakerGeospatialClient;
+export interface SageMakerGeospatial extends _SageMakerGeospatial {}
 export const SageMakerGeospatial = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

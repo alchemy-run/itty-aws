@@ -5,6 +5,23 @@ import type { Route53RecoveryReadiness as _Route53RecoveryReadinessClient } from
 
 export * from "./types.ts";
 
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+
 // Service metadata
 const metadata = {
   sdkId: "Route53 Recovery Readiness",
@@ -52,10 +69,8 @@ const metadata = {
   },
 } as const satisfies ServiceMetadata;
 
-// Re-export all types from types.ts for backward compatibility
-export type * from "./types.ts";
-
-export type Route53RecoveryReadiness = typeof Route53RecoveryReadiness;
+export type _Route53RecoveryReadiness = _Route53RecoveryReadinessClient;
+export interface Route53RecoveryReadiness extends _Route53RecoveryReadiness {}
 export const Route53RecoveryReadiness = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

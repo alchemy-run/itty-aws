@@ -5,6 +5,22 @@ import type { SageMakerRuntime as _SageMakerRuntimeClient } from "./types.ts";
 
 export * from "./types.ts";
 
+export {
+  AccessDeniedException,
+  ExpiredTokenException,
+  IncompleteSignature,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ThrottlingException,
+  UnrecognizedClientException,
+  UnknownOperationException,
+} from "../../error.ts";
+
 // Service metadata
 const metadata = {
   sdkId: "SageMaker Runtime",
@@ -43,10 +59,8 @@ const metadata = {
   },
 } as const satisfies ServiceMetadata;
 
-// Re-export all types from types.ts for backward compatibility
-export type * from "./types.ts";
-
-export type SageMakerRuntime = typeof SageMakerRuntime;
+export type _SageMakerRuntime = _SageMakerRuntimeClient;
+export interface SageMakerRuntime extends _SageMakerRuntime {}
 export const SageMakerRuntime = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

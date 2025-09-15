@@ -5,6 +5,23 @@ import type { Route53RecoveryCluster as _Route53RecoveryClusterClient } from "./
 
 export * from "./types.ts";
 
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+
 // Service metadata
 const metadata = {
   sdkId: "Route53 Recovery Cluster",
@@ -15,10 +32,8 @@ const metadata = {
   targetPrefix: "ToggleCustomerAPI",
 } as const satisfies ServiceMetadata;
 
-// Re-export all types from types.ts for backward compatibility
-export type * from "./types.ts";
-
-export type Route53RecoveryCluster = typeof Route53RecoveryCluster;
+export type _Route53RecoveryCluster = _Route53RecoveryClusterClient;
+export interface Route53RecoveryCluster extends _Route53RecoveryCluster {}
 export const Route53RecoveryCluster = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

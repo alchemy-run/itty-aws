@@ -5,6 +5,24 @@ import type { GlobalAccelerator as _GlobalAcceleratorClient } from "./types.ts";
 
 export * from "./types.ts";
 
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  ThrottlingException,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+
 // Service metadata
 const metadata = {
   sdkId: "Global Accelerator",
@@ -15,10 +33,8 @@ const metadata = {
   targetPrefix: "GlobalAccelerator_V20180706",
 } as const satisfies ServiceMetadata;
 
-// Re-export all types from types.ts for backward compatibility
-export type * from "./types.ts";
-
-export type GlobalAccelerator = typeof GlobalAccelerator;
+export type _GlobalAccelerator = _GlobalAcceleratorClient;
+export interface GlobalAccelerator extends _GlobalAccelerator {}
 export const GlobalAccelerator = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

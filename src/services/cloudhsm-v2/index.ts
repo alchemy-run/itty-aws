@@ -5,6 +5,25 @@ import type { CloudHSMV2 as _CloudHSMV2Client } from "./types.ts";
 
 export * from "./types.ts";
 
+export {
+  AccessDeniedException,
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  ThrottlingException,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+
 // Service metadata
 const metadata = {
   sdkId: "CloudHSM V2",
@@ -15,10 +34,8 @@ const metadata = {
   targetPrefix: "BaldrApiService",
 } as const satisfies ServiceMetadata;
 
-// Re-export all types from types.ts for backward compatibility
-export type * from "./types.ts";
-
-export type CloudHSMV2 = typeof CloudHSMV2;
+export type _CloudHSMV2 = _CloudHSMV2Client;
+export interface CloudHSMV2 extends _CloudHSMV2 {}
 export const CloudHSMV2 = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

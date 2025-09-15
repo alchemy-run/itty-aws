@@ -1,5 +1,38 @@
 import type { Effect, Data as EffectData } from "effect";
-import type { CommonAwsError } from "../../error.ts";
+import type {
+  AccessDeniedException,
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+type CommonAwsError =
+  | AccessDeniedException
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | ThrottlingException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class IoT extends AWSServiceClient {
@@ -8196,12 +8229,12 @@ export interface ValidateSecurityProfileBehaviorsRequest {
 }
 export interface ValidateSecurityProfileBehaviorsResponse {
   valid?: boolean;
-  validationErrors?: Array<ValidationError>;
+  validationErrors?: Array<_ValidationError>;
 }
-export interface ValidationError {
+export interface _ValidationError {
   errorMessage?: string;
 }
-export type ValidationErrors = Array<ValidationError>;
+export type ValidationErrors = Array<_ValidationError>;
 export declare class ValidationException extends EffectData.TaggedError(
   "ValidationException",
 )<{

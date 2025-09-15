@@ -5,6 +5,25 @@ import type { ServiceCatalog as _ServiceCatalogClient } from "./types.ts";
 
 export * from "./types.ts";
 
+export {
+  AccessDeniedException,
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  ThrottlingException,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+
 // Service metadata
 const metadata = {
   sdkId: "Service Catalog",
@@ -15,10 +34,8 @@ const metadata = {
   targetPrefix: "AWS242ServiceCatalogService",
 } as const satisfies ServiceMetadata;
 
-// Re-export all types from types.ts for backward compatibility
-export type * from "./types.ts";
-
-export type ServiceCatalog = typeof ServiceCatalog;
+export type _ServiceCatalog = _ServiceCatalogClient;
+export interface ServiceCatalog extends _ServiceCatalog {}
 export const ServiceCatalog = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

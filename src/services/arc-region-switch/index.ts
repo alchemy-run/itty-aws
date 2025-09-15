@@ -5,6 +5,24 @@ import type { ARCRegionswitch as _ARCRegionswitchClient } from "./types.ts";
 
 export * from "./types.ts";
 
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  ThrottlingException,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+
 // Service metadata
 const metadata = {
   sdkId: "ARC Region switch",
@@ -15,10 +33,8 @@ const metadata = {
   targetPrefix: "ArcRegionSwitch",
 } as const satisfies ServiceMetadata;
 
-// Re-export all types from types.ts for backward compatibility
-export type * from "./types.ts";
-
-export type ARCRegionswitch = typeof ARCRegionswitch;
+export type _ARCRegionswitch = _ARCRegionswitchClient;
+export interface ARCRegionswitch extends _ARCRegionswitch {}
 export const ARCRegionswitch = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

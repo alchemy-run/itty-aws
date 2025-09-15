@@ -5,6 +5,23 @@ import type { BackupGateway as _BackupGatewayClient } from "./types.ts";
 
 export * from "./types.ts";
 
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+
 // Service metadata
 const metadata = {
   sdkId: "Backup Gateway",
@@ -15,10 +32,8 @@ const metadata = {
   targetPrefix: "BackupOnPremises_v20210101",
 } as const satisfies ServiceMetadata;
 
-// Re-export all types from types.ts for backward compatibility
-export type * from "./types.ts";
-
-export type BackupGateway = typeof BackupGateway;
+export type _BackupGateway = _BackupGatewayClient;
+export interface BackupGateway extends _BackupGateway {}
 export const BackupGateway = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

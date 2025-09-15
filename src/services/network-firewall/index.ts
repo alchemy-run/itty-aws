@@ -5,6 +5,24 @@ import type { NetworkFirewall as _NetworkFirewallClient } from "./types.ts";
 
 export * from "./types.ts";
 
+export {
+  AccessDeniedException,
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+
 // Service metadata
 const metadata = {
   sdkId: "Network Firewall",
@@ -15,10 +33,8 @@ const metadata = {
   targetPrefix: "NetworkFirewall_20201112",
 } as const satisfies ServiceMetadata;
 
-// Re-export all types from types.ts for backward compatibility
-export type * from "./types.ts";
-
-export type NetworkFirewall = typeof NetworkFirewall;
+export type _NetworkFirewall = _NetworkFirewallClient;
+export interface NetworkFirewall extends _NetworkFirewall {}
 export const NetworkFirewall = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

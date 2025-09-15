@@ -5,6 +5,25 @@ import type { KinesisVideoSignaling as _KinesisVideoSignalingClient } from "./ty
 
 export * from "./types.ts";
 
+export {
+  AccessDeniedException,
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  ThrottlingException,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+
 // Service metadata
 const metadata = {
   sdkId: "Kinesis Video Signaling",
@@ -18,10 +37,8 @@ const metadata = {
   },
 } as const satisfies ServiceMetadata;
 
-// Re-export all types from types.ts for backward compatibility
-export type * from "./types.ts";
-
-export type KinesisVideoSignaling = typeof KinesisVideoSignaling;
+export type _KinesisVideoSignaling = _KinesisVideoSignalingClient;
+export interface KinesisVideoSignaling extends _KinesisVideoSignaling {}
 export const KinesisVideoSignaling = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

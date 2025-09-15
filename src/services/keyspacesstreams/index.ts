@@ -5,6 +5,23 @@ import type { KeyspacesStreams as _KeyspacesStreamsClient } from "./types.ts";
 
 export * from "./types.ts";
 
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+
 // Service metadata
 const metadata = {
   sdkId: "KeyspacesStreams",
@@ -15,10 +32,8 @@ const metadata = {
   targetPrefix: "KeyspacesStreams",
 } as const satisfies ServiceMetadata;
 
-// Re-export all types from types.ts for backward compatibility
-export type * from "./types.ts";
-
-export type KeyspacesStreams = typeof KeyspacesStreams;
+export type _KeyspacesStreams = _KeyspacesStreamsClient;
+export interface KeyspacesStreams extends _KeyspacesStreams {}
 export const KeyspacesStreams = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {
