@@ -895,7 +895,7 @@ const generateServiceIndex = (
   if (inherited.length === 0) {
     code += `export * from "../../error.ts";\n\n`;
   } else {
-    code += `export {${inherited.join(", ")}} from "../../error.ts";\n\n`;
+    code += `export {${inherited.join(", ")}, type CommonAwsError} from "../../error.ts";\n\n`;
   }
 
   // Service metadata

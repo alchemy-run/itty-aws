@@ -20,6 +20,7 @@ export {
   UnknownOperationException,
   ValidationError,
   ValidationException,
+  type CommonAwsError,
 } from "../../error.ts";
 
 // Service metadata
