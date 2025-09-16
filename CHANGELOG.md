@@ -1,3 +1,13 @@
+## v0.3.5
+
+### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes
+
+- Re-export CommonAwsError from all services &nbsp;-&nbsp; by **Sam Goodwin** [<samp>(33e03)</samp>](https://github.com/sam-goodwin/itty-aws/commit/33e03ecb)
+
+##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/sam-goodwin/itty-aws/compare/v0.3.4...v0.3.5)
+
+---
+
 ## v0.3.4
 
 ### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes
