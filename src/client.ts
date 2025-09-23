@@ -147,7 +147,10 @@ export function createServiceProxy<T>(
               secretAccessKey: credentials.secretAccessKey,
               sessionToken: credentials.sessionToken,
               service: metadata.sigV4ServiceName,
-              region: config.region,
+              // IAM is a global service, so it doesn't have a region
+              // TODO(sam): any others? Can we get from spec?
+              region:
+                metadata.sigV4ServiceName === "iam" ? undefined : config.region,
             });
 
             // Sign the request
