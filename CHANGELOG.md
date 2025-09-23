@@ -1,3 +1,13 @@
+## v0.3.6
+
+### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes
+
+- Do not set region for AWS IAM service &nbsp;-&nbsp; by **Sam Goodwin** [<samp>(1cc1c)</samp>](https://github.com/sam-goodwin/itty-aws/commit/1cc1cdd3)
+
+##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/sam-goodwin/itty-aws/compare/v0.3.5...v0.3.6)
+
+---
+
 ## v0.3.5
 
 ### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes
