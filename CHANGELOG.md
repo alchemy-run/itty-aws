@@ -1,3 +1,13 @@
+## v0.3.7
+
+### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes
+
+- Export credentials and credentials.service &nbsp;-&nbsp; by **Sam Goodwin** in https://github.com/sam-goodwin/itty-aws/issues/72 [<samp>(986f1)</samp>](https://github.com/sam-goodwin/itty-aws/commit/986f10b6)
+
+##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/sam-goodwin/itty-aws/compare/v0.3.6...v0.3.7)
+
+---
+
 ## v0.3.6
 
 ### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes
