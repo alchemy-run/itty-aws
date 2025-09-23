@@ -27,6 +27,16 @@
       "bun": "./src/services/*/index.ts",
       "import": "./dist/services/*/index.js",
       "types": "./dist/services/*/index.d.ts"
+    },
+    "./credentials": {
+      "bun": "./src/credentials/index.ts",
+      "import": "./dist/credentials/index.js",
+      "types": "./dist/credentials/index.d.ts"
+    },
+    "./credential.service": {
+      "bun": "./src/credential.service.ts",
+      "import": "./dist/credential.service.js",
+      "types": "./dist/credential.service.d.ts"
     }
   },
   "scripts": {
