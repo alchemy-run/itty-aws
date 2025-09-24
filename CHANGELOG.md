@@ -1,3 +1,13 @@
+## v0.3.8
+
+### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes
+
+- Export credentials &nbsp;-&nbsp; by **StackOps** and **stackops-ngin** in https://github.com/sam-goodwin/itty-aws/issues/73 [<samp>(c6735)</samp>](https://github.com/sam-goodwin/itty-aws/commit/c6735431)
+
+##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/sam-goodwin/itty-aws/compare/v0.3.7...v0.3.8)
+
+---
+
 ## v0.3.7
 
 ### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes
