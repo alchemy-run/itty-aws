@@ -91,27 +91,10 @@ export function createServiceProxy<T>(
               onSome: (fetch) => fetch,
               onNone: () => DefaultFetch,
             });
-            const credentialSvc = Option.match(
-              yield* Effect.serviceOption(Credentials),
-              {
-                onSome: (cred) => cred,
-                onNone: () =>
-                  config.credentials
-                    ? fromStaticCredentials(config.credentials)
-                    : null,
-              },
-            );
 
-            if (!credentialSvc) {
-              return yield* Effect.fail(
-                new Error(
-                  "No credentials provider configured. Pass 'credentials' in client config or provide a Credentials service. For Node's default provider chain, import DefaultCredentials from './credential.service.ts' and provide it via Effect Context.",
-                ),
-              );
-            }
-
-            const credentials = yield* Effect.promise(() =>
-              credentialSvc.getCredentials(),
+            const shouldSign = !(
+              metadata.sigV4ServiceName === "sso-oidc" &&
+              methodName === "createToken"
             );
 
             // Convert camelCase method to PascalCase operation
@@ -134,34 +117,67 @@ export function createServiceProxy<T>(
             // Build full URL with path
             const fullUrl = endpoint.replace(/\/$/, "") + req.path;
 
-            // Create AWS V4 Signer for this request
-            const signer = new AwsV4Signer({
-              method: req.method,
-              url: fullUrl,
-              headers: req.headers,
-              body:
-                req.method === "GET" || req.method === "DELETE"
-                  ? undefined
-                  : req.body,
-              accessKeyId: credentials.accessKeyId,
-              secretAccessKey: credentials.secretAccessKey,
-              sessionToken: credentials.sessionToken,
-              service: metadata.sigV4ServiceName,
-              // IAM is a global service, so it doesn't have a region
-              // TODO(sam): any others? Can we get from spec?
-              region:
-                metadata.sigV4ServiceName === "iam" ? undefined : config.region,
-            });
+            let signedRequest;
+            let url;
+            if (shouldSign) {
+              const credentialSvc = Option.match(
+                yield* Effect.serviceOption(Credentials),
+                {
+                  onSome: (cred) => cred,
+                  onNone: () =>
+                    config.credentials
+                      ? fromStaticCredentials(config.credentials)
+                      : null,
+                },
+              );
 
-            // Sign the request
-            const signedRequest = yield* Effect.promise(() => signer.sign());
+              if (!credentialSvc) {
+                return yield* Effect.fail(
+                  new Error(
+                    "No credentials provider configured. Pass 'credentials' in client config or provide a Credentials service. For Node's default provider chain, import DefaultCredentials from './credential.service.ts' and provide it via Effect Context.",
+                  ),
+                );
+              }
+
+              const credentials = yield* Effect.promise(async () =>
+                credentialSvc.getCredentials(),
+              );
+
+              // Create AWS V4 Signer for this request
+              const signer = new AwsV4Signer({
+                method: req.method,
+                url: fullUrl,
+                headers: req.headers,
+                body:
+                  req.method === "GET" || req.method === "DELETE"
+                    ? undefined
+                    : req.body,
+                accessKeyId: credentials.accessKeyId,
+                secretAccessKey: credentials.secretAccessKey,
+                sessionToken: credentials.sessionToken,
+                service: metadata.sigV4ServiceName,
+                // IAM is a global service, so it doesn't have a region
+                // TODO(sam): any others? Can we get from spec?
+                region:
+                  metadata.sigV4ServiceName === "iam"
+                    ? undefined
+                    : config.region,
+              });
+
+              // Sign the request
+              signedRequest = yield* Effect.promise(() => signer.sign());
+              url = signedRequest.url.toString();
+            } else {
+              signedRequest = req;
+              url = fullUrl;
+            }
 
             // Log the AWS request
             yield* Effect.logDebug("AWS Request", {
               service: metadata.sdkId,
               operation,
               method: signedRequest.method,
-              url: signedRequest.url.toString(),
+              url,
               headers: signedRequest.headers,
               input,
               body: signedRequest.body,
@@ -169,7 +185,7 @@ export function createServiceProxy<T>(
 
             // Use global fetch instead of client.fetch
             const response = yield* Effect.promise(() =>
-              fetchSvc.fetch(signedRequest.url.toString(), {
+              fetchSvc.fetch(url, {
                 method: signedRequest.method,
                 headers: signedRequest.headers,
                 body: signedRequest.body,
