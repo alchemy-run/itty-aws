@@ -1,3 +1,13 @@
+## v0.4.1
+
+### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes
+
+- **sso-oidc**: Use proper sigV4ServiceName to identity sso-oidc &nbsp;-&nbsp; by **Sam Goodwin** [<samp>(d89f7)</samp>](https://github.com/sam-goodwin/itty-aws/commit/d89f7e83)
+
+##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/sam-goodwin/itty-aws/compare/v0.4.0...v0.4.1)
+
+---
+
 ## v0.4.0
 
 ### &nbsp;&nbsp;&nbsp;🚀 Features
