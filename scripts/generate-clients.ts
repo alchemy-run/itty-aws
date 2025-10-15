@@ -1580,6 +1580,13 @@ const generateServiceTypes = (serviceName: string, manifest: Manifest) =>
       }
     }
 
+    // Generate service-specific errors union type
+    const allServiceErrors = Object.entries(manifest.shapes)
+      .filter(([_, shape]) => shape.traits?.["smithy.api#error"])
+      .map(([shapeId, _]) => extractShapeName(shapeId));
+    allServiceErrors.push("CommonAwsError");
+    code += `export type ${consistentInterfaceName}Errors = ${allServiceErrors.join(" | ")};\n\n`;
+
     // Store metadata for the service
     // FIXME: shouldn't this be typed to ServiceMetdata?
     const metadata = {
