@@ -92,11 +92,6 @@ export function createServiceProxy<T>(
               onNone: () => DefaultFetch,
             });
 
-            const shouldSign = !(
-              metadata.sigV4ServiceName === "sso-oidc" &&
-              methodName === "createToken"
-            );
-
             // Convert camelCase method to PascalCase operation
             const operation =
               methodName.charAt(0).toUpperCase() + methodName.slice(1);
@@ -116,6 +111,11 @@ export function createServiceProxy<T>(
 
             // Build full URL with path
             const fullUrl = endpoint.replace(/\/$/, "") + req.path;
+
+            const shouldSign = !(
+              metadata.sigV4ServiceName === "sso-oauth" &&
+              methodName === "createToken"
+            );
 
             let signedRequest;
             let url;
