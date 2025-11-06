@@ -36,7 +36,7 @@ export class RestXmlHandler implements ProtocolHandler {
       headers: { "Content-Type": this.contentType, "User-Agent": "itty-aws" },
     };
 
-    let body = {};
+    let body: Record<string, unknown> = {};
 
     for (const [key, value] of Object.entries(input)) {
       const type = operationMeta.members?.[key];
