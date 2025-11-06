@@ -1,41 +1,91 @@
+import * as FastCheck from "effect/FastCheck";
 import type { ServiceMetadata } from "../client.ts";
 import type {
   ParsedError,
   ProtocolHandler,
   ProtocolRequest,
 } from "./interface.ts";
+import { XMLBuilder, XMLParser } from "fast-xml-parser";
+
+type Writeable<T> = { -readonly [P in keyof T]: T[P] };
 
 export class RestXmlHandler implements ProtocolHandler {
   readonly name = "restXml";
   readonly contentType = "application/xml";
 
   buildHttpRequest(
-    input: unknown,
-    _operation: string,
-    _metadata: ServiceMetadata,
+    input: Record<string, unknown>,
+    operation: string,
+    metadata: ServiceMetadata,
   ): Promise<ProtocolRequest> {
-    // Placeholder: serialize as JSON until full XML and traits are supported
-    const body = JSON.stringify(input ?? {});
-    return Promise.resolve({
-      method: "POST",
-      path: "/",
+    const builder = new XMLBuilder();
+
+    const operationMeta = metadata?.operations?.[operation];
+    if (operationMeta == null || typeof operationMeta === "string") {
+      throw new Error("idk man?");
+    }
+
+    const [method, urlTemplate] = operationMeta.http?.split?.(/ (.+)/) as [
+      string,
+      string,
+    ];
+
+    const request: Writeable<ProtocolRequest> = {
+      path: urlTemplate,
+      method,
       headers: { "Content-Type": this.contentType, "User-Agent": "itty-aws" },
-      body,
-    });
+    };
+
+    let body = {};
+
+    for (const [key, value] of Object.entries(input)) {
+      const type = operationMeta.members?.[key];
+      if (type == null) {
+        request.path = request.path.replace(
+          new RegExp(`\{${key}\+?\}`),
+          value as string,
+        );
+      } else if (type === "httpPayload") {
+        body[key] = value;
+      } else {
+        request.headers[type] = value as string;
+      }
+    }
+
+    request.body = builder.build(body);
+
+    return Promise.resolve(request);
   }
 
   parseResponse(
     responseText: string,
     _statusCode: number,
-    _metadata?: ServiceMetadata,
-    _headers?: Headers,
-    _operation?: string,
+    metadata?: ServiceMetadata,
+    headers?: Headers,
+    operation?: string,
   ): Promise<unknown> {
-    if (!responseText) return Promise.resolve({});
-    // TODO: Implement proper XML parsing for S3 responses
-    // For now, fall back to JSON parsing
+    const operationMeta = metadata?.operations?.[operation!];
+    if (operationMeta == null || typeof operationMeta === "string") {
+      throw new Error("idk man?");
+    }
+
+    let headerData: Record<string, unknown> = {};
+
+    for (const [key, value] of Object.entries(operationMeta.traits ?? {})) {
+      if (value === "httpPayload") {
+        continue;
+      } else {
+        headerData[key] = headers?.get(value.toLowerCase());
+      }
+    }
+
+    if (!responseText) return Promise.resolve(headerData);
     try {
-      return Promise.resolve(JSON.parse(responseText));
+      const parser = new XMLParser();
+      return Promise.resolve({
+        ...parser.parse(responseText),
+        ...headerData,
+      });
     } catch {
       return Promise.resolve({ data: responseText });
     }
@@ -46,11 +96,11 @@ export class RestXmlHandler implements ProtocolHandler {
     _statusCode: number,
     headers?: Headers,
   ): ParsedError {
-    // TODO: Implement proper XML error parsing for S3
-    // For now, return a basic error structure
+    const parser = new XMLParser();
+    const error = responseText != null ? parser.parse(responseText) : null;
     return {
-      errorType: "UnknownError",
-      message: responseText || "Unknown error",
+      errorType: error.Error.Code ?? "UnknownError",
+      message: error.Error.Message ?? "Unknown error",
       requestId:
         headers?.get("x-amzn-requestid") ||
         headers?.get("x-amz-request-id") ||

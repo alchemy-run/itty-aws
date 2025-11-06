@@ -42,6 +42,7 @@ export interface ServiceMetadata {
     | {
         readonly http?: string;
         readonly traits?: Record<string, string>;
+        readonly members?: Record<string, string>;
       }
   >; // Operation mappings for restJson1 and trait mappings
 }

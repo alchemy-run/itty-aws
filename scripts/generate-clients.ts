@@ -938,6 +938,15 @@ const generateServiceIndex = (
           );
           code += "      },\n";
         }
+        if ((opSpec as any).members) {
+          code += "      members: {\n";
+          Object.entries((opSpec as any).members).forEach(
+            ([fieldName, member]) => {
+              code += `        "${fieldName}": "${member}",\n`;
+            },
+          );
+          code += "      },\n";
+        }
         code += "    },\n";
       }
     });
@@ -1565,6 +1574,37 @@ const generateServiceTypes = (serviceName: string, manifest: Manifest) =>
           }
         }
       }
+    } else if (protocol === "restXml") {
+      for (const operation of operations) {
+        const httpTrait = operation.shape.traits?.["smithy.api#http"];
+        let httpMapping;
+        if (httpTrait) {
+          const { method, uri } = httpTrait;
+          httpMapping = `${method} ${uri}`;
+        }
+        const outputTraits = operation.shape.output
+          ? extractHttpTraits(operation.shape.output.target)
+          : {};
+        const inputMembers = operation.shape.input
+          ? extractHttpTraits(operation.shape.input.target)
+          : {};
+
+        if (
+          Object.keys(outputTraits).length > 0 ||
+          Object.keys(inputMembers).length > 0 ||
+          httpMapping != null
+        ) {
+          operationMappings[operation.name] = {
+            members: {
+              ...inputMembers,
+            },
+            traits: {
+              ...outputTraits,
+            },
+            http: httpMapping,
+          };
+        }
+      }
     } else {
       // For non-restJson1 protocols, only check for trait mappings
       for (const operation of operations) {
@@ -1676,6 +1716,7 @@ const program = Effect.gen(function* () {
         serviceName,
         manifest,
       );
+
       servicesMetadata[serviceName] = metadata;
 
       // Store export info with sdkId

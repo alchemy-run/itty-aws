@@ -53,7 +53,8 @@
     "publish:npm": "bun publish"
   },
   "dependencies": {
-    "aws4fetch": "^1.0.20"
+    "aws4fetch": "^1.0.20",
+    "pathe": "^2.0.3"
   },
   "peerDependencies": {
     "@aws-sdk/credential-providers": "^3",
