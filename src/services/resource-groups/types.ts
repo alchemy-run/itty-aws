@@ -1032,3 +1032,13 @@ export declare namespace UpdateGroupQuery {
     | TooManyRequestsException
     | CommonAwsError;
 }
+
+export type ResourceGroupsErrors =
+  | BadRequestException
+  | ForbiddenException
+  | InternalServerErrorException
+  | MethodNotAllowedException
+  | NotFoundException
+  | TooManyRequestsException
+  | UnauthorizedException
+  | CommonAwsError;

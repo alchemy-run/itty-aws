@@ -33,15 +33,27 @@ const metadata = {
   endpointPrefix: "osis",
   operations: {
     CreatePipeline: "POST /2022-01-01/osis/createPipeline",
+    CreatePipelineEndpoint: "POST /2022-01-01/osis/createPipelineEndpoint",
     DeletePipeline: "DELETE /2022-01-01/osis/deletePipeline/{PipelineName}",
+    DeletePipelineEndpoint:
+      "DELETE /2022-01-01/osis/deletePipelineEndpoint/{EndpointId}",
+    DeleteResourcePolicy:
+      "DELETE /2022-01-01/osis/resourcePolicy/{ResourceArn}",
     GetPipeline: "GET /2022-01-01/osis/getPipeline/{PipelineName}",
     GetPipelineBlueprint:
       "GET /2022-01-01/osis/getPipelineBlueprint/{BlueprintName}",
     GetPipelineChangeProgress:
       "GET /2022-01-01/osis/getPipelineChangeProgress/{PipelineName}",
+    GetResourcePolicy: "GET /2022-01-01/osis/resourcePolicy/{ResourceArn}",
     ListPipelineBlueprints: "POST /2022-01-01/osis/listPipelineBlueprints",
+    ListPipelineEndpointConnections:
+      "GET /2022-01-01/osis/listPipelineEndpointConnections",
+    ListPipelineEndpoints: "GET /2022-01-01/osis/listPipelineEndpoints",
     ListPipelines: "GET /2022-01-01/osis/listPipelines",
     ListTagsForResource: "GET /2022-01-01/osis/listTagsForResource",
+    PutResourcePolicy: "PUT /2022-01-01/osis/resourcePolicy/{ResourceArn}",
+    RevokePipelineEndpointConnections:
+      "POST /2022-01-01/osis/revokePipelineEndpointConnections",
     StartPipeline: "PUT /2022-01-01/osis/startPipeline/{PipelineName}",
     StopPipeline: "PUT /2022-01-01/osis/stopPipeline/{PipelineName}",
     TagResource: "POST /2022-01-01/osis/tagResource",

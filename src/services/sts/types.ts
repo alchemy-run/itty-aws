@@ -451,3 +451,14 @@ export declare namespace GetSessionToken {
   export type Output = GetSessionTokenResponse;
   export type Error = RegionDisabledException | CommonAwsError;
 }
+
+export type STSErrors =
+  | ExpiredTokenException
+  | IDPCommunicationErrorException
+  | IDPRejectedClaimException
+  | InvalidAuthorizationMessageException
+  | InvalidIdentityTokenException
+  | MalformedPolicyDocumentException
+  | PackedPolicyTooLargeException
+  | RegionDisabledException
+  | CommonAwsError;

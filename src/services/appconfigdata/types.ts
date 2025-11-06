@@ -158,3 +158,10 @@ export declare namespace StartConfigurationSession {
     | ThrottlingException
     | CommonAwsError;
 }
+
+export type AppConfigDataErrors =
+  | BadRequestException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ThrottlingException
+  | CommonAwsError;

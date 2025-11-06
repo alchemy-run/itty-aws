@@ -2553,3 +2553,16 @@ export declare namespace UpdateKxVolume {
     | ValidationException
     | CommonAwsError;
 }
+
+export type finspaceErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | InvalidRequestException
+  | LimitExceededException
+  | ResourceAlreadyExistsException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

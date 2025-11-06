@@ -97,3 +97,12 @@ export declare namespace GetMedia {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+
+export type KinesisVideoMediaErrors =
+  | ClientLimitExceededException
+  | ConnectionLimitExceededException
+  | InvalidArgumentException
+  | InvalidEndpointException
+  | NotAuthorizedException
+  | ResourceNotFoundException
+  | CommonAwsError;

@@ -465,6 +465,18 @@ export declare class odb extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
+  updateOdbPeeringConnection(
+    input: UpdateOdbPeeringConnectionInput,
+  ): Effect.Effect<
+    UpdateOdbPeeringConnectionOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
 }
 
 export interface AcceptMarketplaceRegistrationInput {
@@ -886,6 +898,7 @@ export interface CreateOdbPeeringConnectionInput {
   odbNetworkId: string;
   peerNetworkId: string;
   displayName?: string;
+  peerNetworkCidrsToBeAdded?: Array<string>;
   clientToken?: string;
   tags?: Record<string, string>;
 }
@@ -1414,6 +1427,7 @@ export interface OdbPeeringConnection {
   odbNetworkArn?: string;
   peerNetworkArn?: string;
   odbPeeringConnectionType?: string;
+  peerNetworkCidrs?: Array<string>;
   createdAt?: Date | string;
   percentProgress?: number;
 }
@@ -1427,10 +1441,14 @@ export interface OdbPeeringConnectionSummary {
   odbNetworkArn?: string;
   peerNetworkArn?: string;
   odbPeeringConnectionType?: string;
+  peerNetworkCidrs?: Array<string>;
   createdAt?: Date | string;
   percentProgress?: number;
 }
 export type PatchingModeType = "ROLLING" | "NONROLLING";
+export type PeeredCidr = string;
+
+export type PeeredCidrList = Array<string>;
 export type PolicyDocument = string;
 
 export type PreferenceType = "NO_PREFERENCE" | "CUSTOM_PREFERENCE";
@@ -1560,6 +1578,18 @@ export interface UpdateOdbNetworkOutput {
   status?: ResourceStatus;
   statusReason?: string;
   odbNetworkId: string;
+}
+export interface UpdateOdbPeeringConnectionInput {
+  odbPeeringConnectionId: string;
+  displayName?: string;
+  peerNetworkCidrsToBeAdded?: Array<string>;
+  peerNetworkCidrsToBeRemoved?: Array<string>;
+}
+export interface UpdateOdbPeeringConnectionOutput {
+  displayName?: string;
+  status?: ResourceStatus;
+  statusReason?: string;
+  odbPeeringConnectionId: string;
 }
 export declare class ValidationException extends EffectData.TaggedError(
   "ValidationException",
@@ -2052,3 +2082,26 @@ export declare namespace UpdateOdbNetwork {
     | ValidationException
     | CommonAwsError;
 }
+
+export declare namespace UpdateOdbPeeringConnection {
+  export type Input = UpdateOdbPeeringConnectionInput;
+  export type Output = UpdateOdbPeeringConnectionOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export type odbErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

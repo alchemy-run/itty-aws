@@ -2882,3 +2882,14 @@ export declare namespace UpdateUserSettings {
     | ValidationException
     | CommonAwsError;
 }
+
+export type WorkSpacesWebErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | TooManyTagsException
+  | ValidationException
+  | CommonAwsError;

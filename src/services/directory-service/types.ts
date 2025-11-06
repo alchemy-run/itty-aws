@@ -313,6 +313,16 @@ export declare class DirectoryService extends AWSServiceClient {
     | UnsupportedOperationException
     | CommonAwsError
   >;
+  describeCAEnrollmentPolicy(
+    input: DescribeCAEnrollmentPolicyRequest,
+  ): Effect.Effect<
+    DescribeCAEnrollmentPolicyResult,
+    | ClientException
+    | DirectoryDoesNotExistException
+    | ServiceException
+    | UnsupportedOperationException
+    | CommonAwsError
+  >;
   describeCertificate(
     input: DescribeCertificateRequest,
   ): Effect.Effect<
@@ -489,6 +499,20 @@ export declare class DirectoryService extends AWSServiceClient {
     | ServiceException
     | CommonAwsError
   >;
+  disableCAEnrollmentPolicy(
+    input: DisableCAEnrollmentPolicyRequest,
+  ): Effect.Effect<
+    DisableCAEnrollmentPolicyResult,
+    | AccessDeniedException
+    | ClientException
+    | DirectoryDoesNotExistException
+    | DirectoryUnavailableException
+    | DisableAlreadyInProgressException
+    | EntityDoesNotExistException
+    | InvalidParameterException
+    | ServiceException
+    | CommonAwsError
+  >;
   disableClientAuthentication(
     input: DisableClientAuthenticationRequest,
   ): Effect.Effect<
@@ -544,6 +568,21 @@ export declare class DirectoryService extends AWSServiceClient {
     | ClientException
     | EntityDoesNotExistException
     | InsufficientPermissionsException
+    | ServiceException
+    | CommonAwsError
+  >;
+  enableCAEnrollmentPolicy(
+    input: EnableCAEnrollmentPolicyRequest,
+  ): Effect.Effect<
+    EnableCAEnrollmentPolicyResult,
+    | AccessDeniedException
+    | ClientException
+    | DirectoryDoesNotExistException
+    | DirectoryUnavailableException
+    | EnableAlreadyInProgressException
+    | EntityAlreadyExistsException
+    | EntityDoesNotExistException
+    | InvalidParameterException
     | ServiceException
     | CommonAwsError
   >;
@@ -1075,6 +1114,15 @@ export declare class AuthenticationFailedException extends EffectData.TaggedErro
 export type AvailabilityZone = string;
 
 export type AvailabilityZones = Array<string>;
+export type CaEnrollmentPolicyStatus =
+  | "InProgress"
+  | "Success"
+  | "Failed"
+  | "Disabling"
+  | "Disabled"
+  | "Impaired";
+export type CaEnrollmentPolicyStatusReason = string;
+
 export interface CancelSchemaExtensionRequest {
   DirectoryId: string;
   SchemaExtensionId: string;
@@ -1145,6 +1193,9 @@ export type CertificateType = "ClientCertAuth" | "ClientLDAPS";
 export type CidrIp = string;
 
 export type CidrIps = Array<string>;
+export type CidrIpv6 = string;
+
+export type CidrIpv6s = Array<string>;
 export interface ClientAuthenticationSettingInfo {
   Type?: ClientAuthenticationType;
   Status?: ClientAuthenticationStatus;
@@ -1177,6 +1228,7 @@ export type ComputerPassword = string;
 export interface ConditionalForwarder {
   RemoteDomainName?: string;
   DnsIpAddrs?: Array<string>;
+  DnsIpv6Addrs?: Array<string>;
   ReplicationScope?: ReplicationScope;
 }
 export type ConditionalForwarders = Array<ConditionalForwarder>;
@@ -1188,6 +1240,7 @@ export interface ConnectDirectoryRequest {
   Size: DirectorySize;
   ConnectSettings: DirectoryConnectSettings;
   Tags?: Array<Tag>;
+  NetworkType?: NetworkType;
 }
 export interface ConnectDirectoryResult {
   DirectoryId?: string;
@@ -1217,7 +1270,8 @@ export interface CreateComputerResult {
 export interface CreateConditionalForwarderRequest {
   DirectoryId: string;
   RemoteDomainName: string;
-  DnsIpAddrs: Array<string>;
+  DnsIpAddrs?: Array<string>;
+  DnsIpv6Addrs?: Array<string>;
 }
 export interface CreateConditionalForwarderResult {}
 export type CreatedDateTime = Date | string;
@@ -1230,6 +1284,7 @@ export interface CreateDirectoryRequest {
   Size: DirectorySize;
   VpcSettings?: DirectoryVpcSettings;
   Tags?: Array<Tag>;
+  NetworkType?: NetworkType;
 }
 export interface CreateDirectoryResult {
   DirectoryId?: string;
@@ -1255,6 +1310,7 @@ export interface CreateMicrosoftADRequest {
   VpcSettings: DirectoryVpcSettings;
   Edition?: DirectoryEdition;
   Tags?: Array<Tag>;
+  NetworkType?: NetworkType;
 }
 export interface CreateMicrosoftADResult {
   DirectoryId?: string;
@@ -1277,6 +1333,7 @@ export interface CreateTrustRequest {
   TrustDirection: TrustDirection;
   TrustType?: TrustType;
   ConditionalForwarderIpAddrs?: Array<string>;
+  ConditionalForwarderIpv6Addrs?: Array<string>;
   SelectiveAuth?: SelectiveAuth;
 }
 export interface CreateTrustResult {
@@ -1345,6 +1402,16 @@ export interface DescribeADAssessmentRequest {
 export interface DescribeADAssessmentResult {
   Assessment?: Assessment;
   AssessmentReports?: Array<AssessmentReport>;
+}
+export interface DescribeCAEnrollmentPolicyRequest {
+  DirectoryId: string;
+}
+export interface DescribeCAEnrollmentPolicyResult {
+  DirectoryId?: string;
+  PcaConnectorArn?: string;
+  CaEnrollmentPolicyStatus?: CaEnrollmentPolicyStatus;
+  LastUpdatedDateTime?: Date | string;
+  CaEnrollmentPolicyStatusReason?: string;
 }
 export interface DescribeCertificateRequest {
   DirectoryId: string;
@@ -1525,7 +1592,8 @@ export type DirectoryConfigurationStatus =
 export interface DirectoryConnectSettings {
   VpcId: string;
   SubnetIds: Array<string>;
-  CustomerDnsIps: Array<string>;
+  CustomerDnsIps?: Array<string>;
+  CustomerDnsIpsV6?: Array<string>;
   CustomerUserName: string;
 }
 export interface DirectoryConnectSettingsDescription {
@@ -1535,6 +1603,7 @@ export interface DirectoryConnectSettingsDescription {
   SecurityGroupId?: string;
   AvailabilityZones?: Array<string>;
   ConnectIps?: Array<string>;
+  ConnectIpsV6?: Array<string>;
 }
 export interface DirectoryDescription {
   DirectoryId?: string;
@@ -1546,6 +1615,7 @@ export interface DirectoryDescription {
   AccessUrl?: string;
   Description?: string;
   DnsIpAddrs?: Array<string>;
+  DnsIpv6Addrs?: Array<string>;
   Stage?: DirectoryStage;
   ShareStatus?: ShareStatus;
   ShareMethod?: ShareMethod;
@@ -1564,6 +1634,7 @@ export interface DirectoryDescription {
   RegionsInfo?: RegionsInfo;
   OsVersion?: OSVersion;
   HybridSettings?: HybridSettingsDescription;
+  NetworkType?: NetworkType;
 }
 export type DirectoryDescriptions = Array<DirectoryDescription>;
 export declare class DirectoryDoesNotExistException extends EffectData.TaggedError(
@@ -1572,7 +1643,7 @@ export declare class DirectoryDoesNotExistException extends EffectData.TaggedErr
   readonly Message?: string;
   readonly RequestId?: string;
 }> {}
-export type DirectoryEdition = "Enterprise" | "Standard";
+export type DirectoryEdition = "Enterprise" | "Standard" | "Hybrid";
 export type DirectoryId = string;
 
 export type DirectoryIds = Array<string>;
@@ -1610,6 +1681,9 @@ export declare class DirectoryNotSharedException extends EffectData.TaggedError(
 export type DirectoryShortName = string;
 
 export type DirectorySize = "Small" | "Large";
+export interface DirectorySizeUpdateSettings {
+  DirectorySize?: DirectorySize;
+}
 export type DirectoryStage =
   | "Requested"
   | "Creating"
@@ -1644,6 +1718,16 @@ export interface DirectoryVpcSettingsDescription {
   SecurityGroupId?: string;
   AvailabilityZones?: Array<string>;
 }
+export declare class DisableAlreadyInProgressException extends EffectData.TaggedError(
+  "DisableAlreadyInProgressException",
+)<{
+  readonly Message?: string;
+  readonly RequestId?: string;
+}> {}
+export interface DisableCAEnrollmentPolicyRequest {
+  DirectoryId: string;
+}
+export interface DisableCAEnrollmentPolicyResult {}
 export interface DisableClientAuthenticationRequest {
   DirectoryId: string;
   Type: ClientAuthenticationType;
@@ -1669,10 +1753,12 @@ export interface DisableSsoRequest {
 }
 export interface DisableSsoResult {}
 export type DnsIpAddrs = Array<string>;
+export type DnsIpv6Addrs = Array<string>;
 export interface DomainController {
   DirectoryId?: string;
   DomainControllerId?: string;
   DnsIpAddr?: string;
+  DnsIpv6Addr?: string;
   VpcId?: string;
   SubnetId?: string;
   AvailabilityZone?: string;
@@ -1702,6 +1788,17 @@ export type DomainControllerStatus =
   | "Updating";
 export type DomainControllerStatusReason = string;
 
+export declare class EnableAlreadyInProgressException extends EffectData.TaggedError(
+  "EnableAlreadyInProgressException",
+)<{
+  readonly Message?: string;
+  readonly RequestId?: string;
+}> {}
+export interface EnableCAEnrollmentPolicyRequest {
+  DirectoryId: string;
+  PcaConnectorArn: string;
+}
+export interface EnableCAEnrollmentPolicyResult {}
 export interface EnableClientAuthenticationRequest {
   DirectoryId: string;
   Type: ClientAuthenticationType;
@@ -1855,11 +1952,13 @@ export type IpAddr = string;
 export type IpAddrs = Array<string>;
 export interface IpRoute {
   CidrIp?: string;
+  CidrIpv6?: string;
   Description?: string;
 }
 export interface IpRouteInfo {
   DirectoryId?: string;
   CidrIp?: string;
+  CidrIpv6?: string;
   IpRouteStatusMsg?: IpRouteStatusMsg;
   AddedDateTime?: Date | string;
   IpRouteStatusReason?: string;
@@ -1882,6 +1981,9 @@ export type IpRouteStatusMsg =
   | "RemoveFailed";
 export type IpRouteStatusReason = string;
 
+export type Ipv6Addr = string;
+
+export type IpV6Addrs = Array<string>;
 export type LastUpdateDateTime = Date | string;
 
 export type LastUpdatedDateTime = Date | string;
@@ -1966,6 +2068,11 @@ export interface LogSubscription {
 export type LogSubscriptions = Array<LogSubscription>;
 export type ManualSnapshotsLimitReached = boolean;
 
+export type NetworkType = "Dual-stack" | "IPv4" | "IPv6";
+export interface NetworkUpdateSettings {
+  NetworkType?: NetworkType;
+  CustomerDnsIpsV6?: Array<string>;
+}
 export type NextToken = string;
 
 export declare class NoAvailableCertificateException extends EffectData.TaggedError(
@@ -1994,13 +2101,17 @@ export interface OwnerDirectoryDescription {
   DirectoryId?: string;
   AccountId?: string;
   DnsIpAddrs?: Array<string>;
+  DnsIpv6Addrs?: Array<string>;
   VpcSettings?: DirectoryVpcSettingsDescription;
   RadiusSettings?: RadiusSettings;
   RadiusStatus?: RadiusStatus;
+  NetworkType?: NetworkType;
 }
 export type PageLimit = number;
 
 export type Password = string;
+
+export type PcaConnectorArn = string;
 
 export type PortNumber = number;
 
@@ -2015,6 +2126,7 @@ export type RadiusRetries = number;
 
 export interface RadiusSettings {
   RadiusServers?: Array<string>;
+  RadiusServersIpv6?: Array<string>;
   RadiusPort?: number;
   RadiusTimeout?: number;
   RadiusRetries?: number;
@@ -2078,7 +2190,8 @@ export type RemoteDomainName = string;
 export type RemoteDomainNames = Array<string>;
 export interface RemoveIpRoutesRequest {
   DirectoryId: string;
-  CidrIps: Array<string>;
+  CidrIps?: Array<string>;
+  CidrIpv6s?: Array<string>;
 }
 export interface RemoveIpRoutesResult {}
 export interface RemoveRegionRequest {
@@ -2359,13 +2472,16 @@ export type UpdateActivities = Array<UpdateInfoEntry>;
 export interface UpdateConditionalForwarderRequest {
   DirectoryId: string;
   RemoteDomainName: string;
-  DnsIpAddrs: Array<string>;
+  DnsIpAddrs?: Array<string>;
+  DnsIpv6Addrs?: Array<string>;
 }
 export interface UpdateConditionalForwarderResult {}
 export interface UpdateDirectorySetupRequest {
   DirectoryId: string;
   UpdateType: UpdateType;
   OSUpdateSettings?: OSUpdateSettings;
+  DirectorySizeUpdateSettings?: DirectorySizeUpdateSettings;
+  NetworkUpdateSettings?: NetworkUpdateSettings;
   CreateSnapshotBeforeUpdate?: boolean;
 }
 export interface UpdateDirectorySetupResult {}
@@ -2418,7 +2534,7 @@ export interface UpdateTrustResult {
   RequestId?: string;
   TrustId?: string;
 }
-export type UpdateType = "OS";
+export type UpdateType = "OS" | "NETWORK" | "SIZE";
 export interface UpdateValue {
   OSUpdateSettings?: OSUpdateSettings;
 }
@@ -2741,6 +2857,17 @@ export declare namespace DescribeADAssessment {
     | CommonAwsError;
 }
 
+export declare namespace DescribeCAEnrollmentPolicy {
+  export type Input = DescribeCAEnrollmentPolicyRequest;
+  export type Output = DescribeCAEnrollmentPolicyResult;
+  export type Error =
+    | ClientException
+    | DirectoryDoesNotExistException
+    | ServiceException
+    | UnsupportedOperationException
+    | CommonAwsError;
+}
+
 export declare namespace DescribeCertificate {
   export type Input = DescribeCertificateRequest;
   export type Output = DescribeCertificateResult;
@@ -2932,6 +3059,21 @@ export declare namespace DescribeUpdateDirectory {
     | CommonAwsError;
 }
 
+export declare namespace DisableCAEnrollmentPolicy {
+  export type Input = DisableCAEnrollmentPolicyRequest;
+  export type Output = DisableCAEnrollmentPolicyResult;
+  export type Error =
+    | AccessDeniedException
+    | ClientException
+    | DirectoryDoesNotExistException
+    | DirectoryUnavailableException
+    | DisableAlreadyInProgressException
+    | EntityDoesNotExistException
+    | InvalidParameterException
+    | ServiceException
+    | CommonAwsError;
+}
+
 export declare namespace DisableClientAuthentication {
   export type Input = DisableClientAuthenticationRequest;
   export type Output = DisableClientAuthenticationResult;
@@ -2991,6 +3133,22 @@ export declare namespace DisableSso {
     | ClientException
     | EntityDoesNotExistException
     | InsufficientPermissionsException
+    | ServiceException
+    | CommonAwsError;
+}
+
+export declare namespace EnableCAEnrollmentPolicy {
+  export type Input = EnableCAEnrollmentPolicyRequest;
+  export type Output = EnableCAEnrollmentPolicyResult;
+  export type Error =
+    | AccessDeniedException
+    | ClientException
+    | DirectoryDoesNotExistException
+    | DirectoryUnavailableException
+    | EnableAlreadyInProgressException
+    | EntityAlreadyExistsException
+    | EntityDoesNotExistException
+    | InvalidParameterException
     | ServiceException
     | CommonAwsError;
 }
@@ -3412,3 +3570,46 @@ export declare namespace VerifyTrust {
     | UnsupportedOperationException
     | CommonAwsError;
 }
+
+export type DirectoryServiceErrors =
+  | ADAssessmentLimitExceededException
+  | AccessDeniedException
+  | AuthenticationFailedException
+  | CertificateAlreadyExistsException
+  | CertificateDoesNotExistException
+  | CertificateInUseException
+  | CertificateLimitExceededException
+  | ClientException
+  | DirectoryAlreadyInRegionException
+  | DirectoryAlreadySharedException
+  | DirectoryDoesNotExistException
+  | DirectoryInDesiredStateException
+  | DirectoryLimitExceededException
+  | DirectoryNotSharedException
+  | DirectoryUnavailableException
+  | DisableAlreadyInProgressException
+  | DomainControllerLimitExceededException
+  | EnableAlreadyInProgressException
+  | EntityAlreadyExistsException
+  | EntityDoesNotExistException
+  | IncompatibleSettingsException
+  | InsufficientPermissionsException
+  | InvalidCertificateException
+  | InvalidClientAuthStatusException
+  | InvalidLDAPSStatusException
+  | InvalidNextTokenException
+  | InvalidParameterException
+  | InvalidPasswordException
+  | InvalidTargetException
+  | IpRouteLimitExceededException
+  | NoAvailableCertificateException
+  | OrganizationsException
+  | RegionLimitExceededException
+  | ServiceException
+  | ShareLimitExceededException
+  | SnapshotLimitExceededException
+  | TagLimitExceededException
+  | UnsupportedOperationException
+  | UnsupportedSettingsException
+  | UserDoesNotExistException
+  | CommonAwsError;

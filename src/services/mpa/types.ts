@@ -1059,3 +1059,15 @@ export declare namespace UpdateApprovalTeam {
     | ValidationException
     | CommonAwsError;
 }
+
+export type MPAErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | InvalidParameterException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | TooManyTagsException
+  | ValidationException
+  | CommonAwsError;

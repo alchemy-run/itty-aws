@@ -2126,3 +2126,31 @@ export declare namespace UpdateUser {
     | UnauthorizedResourceAccessException
     | CommonAwsError;
 }
+
+export type WorkDocsErrors =
+  | ConcurrentModificationException
+  | ConflictingOperationException
+  | CustomMetadataLimitExceededException
+  | DeactivatingLastSystemUserException
+  | DocumentLockedForCommentsException
+  | DraftUploadOutOfSyncException
+  | EntityAlreadyExistsException
+  | EntityNotExistsException
+  | FailedDependencyException
+  | IllegalUserStateException
+  | InvalidArgumentException
+  | InvalidCommentOperationException
+  | InvalidOperationException
+  | InvalidPasswordException
+  | LimitExceededException
+  | ProhibitedStateException
+  | RequestedEntityTooLargeException
+  | ResourceAlreadyCheckedOutException
+  | ServiceUnavailableException
+  | StorageLimitExceededException
+  | StorageLimitWillExceedException
+  | TooManyLabelsException
+  | TooManySubscriptionsException
+  | UnauthorizedOperationException
+  | UnauthorizedResourceAccessException
+  | CommonAwsError;

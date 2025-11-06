@@ -1503,3 +1503,12 @@ export declare namespace ValidateConfiguration {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+
+export type AppConfigErrors =
+  | BadRequestException
+  | ConflictException
+  | InternalServerException
+  | PayloadTooLargeException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | CommonAwsError;

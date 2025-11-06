@@ -1307,3 +1307,10 @@ export declare namespace UpdateBackendStorage {
     | TooManyRequestsException
     | CommonAwsError;
 }
+
+export type AmplifyBackendErrors =
+  | BadRequestException
+  | GatewayTimeoutException
+  | NotFoundException
+  | TooManyRequestsException
+  | CommonAwsError;

@@ -1655,3 +1655,13 @@ export declare namespace UpdatePipeline {
     | ThrottlingException
     | CommonAwsError;
 }
+
+export type IoTAnalyticsErrors =
+  | InternalFailureException
+  | InvalidRequestException
+  | LimitExceededException
+  | ResourceAlreadyExistsException
+  | ResourceNotFoundException
+  | ServiceUnavailableException
+  | ThrottlingException
+  | CommonAwsError;

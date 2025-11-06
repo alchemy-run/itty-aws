@@ -37,6 +37,18 @@ type CommonAwsError =
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class ObservabilityAdmin extends AWSServiceClient {
+  createCentralizationRuleForOrganization(
+    input: CreateCentralizationRuleForOrganizationInput,
+  ): Effect.Effect<
+    CreateCentralizationRuleForOrganizationOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | TooManyRequestsException
+    | ValidationException
+    | CommonAwsError
+  >;
   createTelemetryRule(
     input: CreateTelemetryRuleInput,
   ): Effect.Effect<
@@ -61,6 +73,17 @@ export declare class ObservabilityAdmin extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
+  deleteCentralizationRuleForOrganization(
+    input: DeleteCentralizationRuleForOrganizationInput,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | TooManyRequestsException
+    | ValidationException
+    | CommonAwsError
+  >;
   deleteTelemetryRule(
     input: DeleteTelemetryRuleInput,
   ): Effect.Effect<
@@ -81,6 +104,25 @@ export declare class ObservabilityAdmin extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | ValidationException
+    | CommonAwsError
+  >;
+  getCentralizationRuleForOrganization(
+    input: GetCentralizationRuleForOrganizationInput,
+  ): Effect.Effect<
+    GetCentralizationRuleForOrganizationOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | TooManyRequestsException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getTelemetryEnrichmentStatus(input: {}): Effect.Effect<
+    GetTelemetryEnrichmentStatusOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | TooManyRequestsException
     | CommonAwsError
   >;
   getTelemetryEvaluationStatus(input: {}): Effect.Effect<
@@ -116,6 +158,16 @@ export declare class ObservabilityAdmin extends AWSServiceClient {
     | AccessDeniedException
     | InternalServerException
     | ResourceNotFoundException
+    | TooManyRequestsException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listCentralizationRulesForOrganization(
+    input: ListCentralizationRulesForOrganizationInput,
+  ): Effect.Effect<
+    ListCentralizationRulesForOrganizationOutput,
+    | AccessDeniedException
+    | InternalServerException
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError
@@ -171,6 +223,14 @@ export declare class ObservabilityAdmin extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
+  startTelemetryEnrichment(input: {}): Effect.Effect<
+    StartTelemetryEnrichmentOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
   startTelemetryEvaluation(input: {}): Effect.Effect<
     {},
     | AccessDeniedException
@@ -185,6 +245,14 @@ export declare class ObservabilityAdmin extends AWSServiceClient {
     | InternalServerException
     | TooManyRequestsException
     | ValidationException
+    | CommonAwsError
+  >;
+  stopTelemetryEnrichment(input: {}): Effect.Effect<
+    StopTelemetryEnrichmentOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | TooManyRequestsException
     | CommonAwsError
   >;
   stopTelemetryEvaluation(input: {}): Effect.Effect<
@@ -226,6 +294,18 @@ export declare class ObservabilityAdmin extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
+  updateCentralizationRuleForOrganization(
+    input: UpdateCentralizationRuleForOrganizationInput,
+  ): Effect.Effect<
+    UpdateCentralizationRuleForOrganizationOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | TooManyRequestsException
+    | ValidationException
+    | CommonAwsError
+  >;
   updateTelemetryRule(
     input: UpdateTelemetryRuleInput,
   ): Effect.Effect<
@@ -263,11 +343,52 @@ export declare class AccessDeniedException extends EffectData.TaggedError(
 export type AccountIdentifier = string;
 
 export type AccountIdentifiers = Array<string>;
+export type AwsResourceExplorerManagedViewArn = string;
+
+export type CentralizationFailureReason =
+  | "TRUSTED_ACCESS_NOT_ENABLED"
+  | "DESTINATION_ACCOUNT_NOT_IN_ORGANIZATION"
+  | "INTERNAL_SERVER_ERROR";
+export interface CentralizationRule {
+  Source: CentralizationRuleSource;
+  Destination: CentralizationRuleDestination;
+}
+export interface CentralizationRuleDestination {
+  Region: string;
+  Account?: string;
+  DestinationLogsConfiguration?: DestinationLogsConfiguration;
+}
+export interface CentralizationRuleSource {
+  Regions: Array<string>;
+  Scope?: string;
+  SourceLogsConfiguration?: SourceLogsConfiguration;
+}
+export type CentralizationRuleSummaries = Array<CentralizationRuleSummary>;
+export interface CentralizationRuleSummary {
+  RuleName?: string;
+  RuleArn?: string;
+  CreatorAccountId?: string;
+  CreatedTimeStamp?: number;
+  CreatedRegion?: string;
+  LastUpdateTimeStamp?: number;
+  RuleHealth?: RuleHealth;
+  FailureReason?: CentralizationFailureReason;
+  DestinationAccountId?: string;
+  DestinationRegion?: string;
+}
 export declare class ConflictException extends EffectData.TaggedError(
   "ConflictException",
 )<{
   readonly Message?: string;
 }> {}
+export interface CreateCentralizationRuleForOrganizationInput {
+  RuleName: string;
+  Rule: CentralizationRule;
+  Tags?: Record<string, string>;
+}
+export interface CreateCentralizationRuleForOrganizationOutput {
+  RuleArn?: string;
+}
 export interface CreateTelemetryRuleForOrganizationInput {
   RuleName: string;
   Rule: TelemetryRule;
@@ -284,15 +405,43 @@ export interface CreateTelemetryRuleInput {
 export interface CreateTelemetryRuleOutput {
   RuleArn?: string;
 }
+export interface DeleteCentralizationRuleForOrganizationInput {
+  RuleIdentifier: string;
+}
 export interface DeleteTelemetryRuleForOrganizationInput {
   RuleIdentifier: string;
 }
 export interface DeleteTelemetryRuleInput {
   RuleIdentifier: string;
 }
+export interface DestinationLogsConfiguration {
+  LogsEncryptionConfiguration?: LogsEncryptionConfiguration;
+  BackupConfiguration?: LogsBackupConfiguration;
+}
 export type DestinationType = "cloud-watch-logs";
+export type EncryptedLogGroupStrategy = "ALLOW" | "SKIP";
+export type EncryptionConflictResolutionStrategy = "ALLOW" | "SKIP";
+export type EncryptionStrategy = "CUSTOMER_MANAGED" | "AWS_OWNED";
 export type FailureReason = string;
 
+export interface GetCentralizationRuleForOrganizationInput {
+  RuleIdentifier: string;
+}
+export interface GetCentralizationRuleForOrganizationOutput {
+  RuleName?: string;
+  RuleArn?: string;
+  CreatorAccountId?: string;
+  CreatedTimeStamp?: number;
+  CreatedRegion?: string;
+  LastUpdateTimeStamp?: number;
+  RuleHealth?: RuleHealth;
+  FailureReason?: CentralizationFailureReason;
+  CentralizationRule?: CentralizationRule;
+}
+export interface GetTelemetryEnrichmentStatusOutput {
+  Status?: TelemetryEnrichmentStatus;
+  AwsResourceExplorerManagedViewArn?: string;
+}
 export interface GetTelemetryEvaluationStatusForOrganizationOutput {
   Status?: Status;
   FailureReason?: string;
@@ -327,6 +476,18 @@ export declare class InternalServerException extends EffectData.TaggedError(
   readonly Message?: string;
   readonly amznErrorType?: string;
 }> {}
+export interface ListCentralizationRulesForOrganizationInput {
+  RuleNamePrefix?: string;
+  AllRegions?: boolean;
+  MaxResults?: number;
+  NextToken?: string;
+}
+export type ListCentralizationRulesForOrganizationMaxResults = number;
+
+export interface ListCentralizationRulesForOrganizationOutput {
+  CentralizationRuleSummaries?: Array<CentralizationRuleSummary>;
+  NextToken?: string;
+}
 export interface ListResourceTelemetryForOrganizationInput {
   AccountIdentifiers?: Array<string>;
   ResourceIdentifierPrefix?: string;
@@ -386,11 +547,25 @@ export interface ListTelemetryRulesOutput {
   TelemetryRuleSummaries?: Array<TelemetryRuleSummary>;
   NextToken?: string;
 }
+export interface LogsBackupConfiguration {
+  Region: string;
+  KmsKeyArn?: string;
+}
+export interface LogsEncryptionConfiguration {
+  EncryptionStrategy: EncryptionStrategy;
+  KmsKeyArn?: string;
+  EncryptionConflictResolutionStrategy?: EncryptionConflictResolutionStrategy;
+}
+export type LogsFilterString = string;
+
 export type NextToken = string;
 
 export type OrganizationUnitIdentifier = string;
 
 export type OrganizationUnitIdentifiers = Array<string>;
+export type Region = string;
+
+export type Regions = Array<string>;
 export type ResourceArn = string;
 
 export type ResourceIdentifier = string;
@@ -409,6 +584,7 @@ export type ResourceType =
 export type ResourceTypes = Array<ResourceType>;
 export type RetentionPeriodInDays = number;
 
+export type RuleHealth = "Healthy" | "Unhealthy" | "Provisioning";
 export type RuleIdentifier = string;
 
 export type RuleName = string;
@@ -419,6 +595,16 @@ export declare class ServiceQuotaExceededException extends EffectData.TaggedErro
   readonly Message?: string;
   readonly amznErrorType?: string;
 }> {}
+export type SourceFilterString = string;
+
+export interface SourceLogsConfiguration {
+  LogGroupSelectionCriteria: string;
+  EncryptedLogGroupStrategy: EncryptedLogGroupStrategy;
+}
+export interface StartTelemetryEnrichmentOutput {
+  Status?: TelemetryEnrichmentStatus;
+  AwsResourceExplorerManagedViewArn?: string;
+}
 export type Status =
   | "NOT_STARTED"
   | "STARTING"
@@ -427,6 +613,9 @@ export type Status =
   | "STOPPING"
   | "FAILED_STOP"
   | "STOPPED";
+export interface StopTelemetryEnrichmentOutput {
+  Status?: TelemetryEnrichmentStatus;
+}
 export type TagKey = string;
 
 export type TagKeyList = Array<string>;
@@ -454,6 +643,7 @@ export interface TelemetryDestinationConfiguration {
   RetentionInDays?: number;
   VPCFlowLogParameters?: VPCFlowLogParameters;
 }
+export type TelemetryEnrichmentStatus = "Running" | "Stopped" | "Impaired";
 export interface TelemetryRule {
   ResourceType?: ResourceType;
   TelemetryType: TelemetryType;
@@ -481,6 +671,13 @@ export interface UntagResourceInput {
   ResourceARN: string;
   TagKeys: Array<string>;
 }
+export interface UpdateCentralizationRuleForOrganizationInput {
+  RuleIdentifier: string;
+  Rule: CentralizationRule;
+}
+export interface UpdateCentralizationRuleForOrganizationOutput {
+  RuleArn?: string;
+}
 export interface UpdateTelemetryRuleForOrganizationInput {
   RuleIdentifier: string;
   Rule: TelemetryRule;
@@ -505,6 +702,19 @@ export interface VPCFlowLogParameters {
   TrafficType?: string;
   MaxAggregationInterval?: number;
 }
+export declare namespace CreateCentralizationRuleForOrganization {
+  export type Input = CreateCentralizationRuleForOrganizationInput;
+  export type Output = CreateCentralizationRuleForOrganizationOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | TooManyRequestsException
+    | ValidationException
+    | CommonAwsError;
+}
+
 export declare namespace CreateTelemetryRule {
   export type Input = CreateTelemetryRuleInput;
   export type Output = CreateTelemetryRuleOutput;
@@ -531,6 +741,18 @@ export declare namespace CreateTelemetryRuleForOrganization {
     | CommonAwsError;
 }
 
+export declare namespace DeleteCentralizationRuleForOrganization {
+  export type Input = DeleteCentralizationRuleForOrganizationInput;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | TooManyRequestsException
+    | ValidationException
+    | CommonAwsError;
+}
+
 export declare namespace DeleteTelemetryRule {
   export type Input = DeleteTelemetryRuleInput;
   export type Output = {};
@@ -552,6 +774,29 @@ export declare namespace DeleteTelemetryRuleForOrganization {
     | ResourceNotFoundException
     | TooManyRequestsException
     | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetCentralizationRuleForOrganization {
+  export type Input = GetCentralizationRuleForOrganizationInput;
+  export type Output = GetCentralizationRuleForOrganizationOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | TooManyRequestsException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetTelemetryEnrichmentStatus {
+  export type Input = {};
+  export type Output = GetTelemetryEnrichmentStatusOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | TooManyRequestsException
     | CommonAwsError;
 }
 
@@ -595,6 +840,17 @@ export declare namespace GetTelemetryRuleForOrganization {
     | AccessDeniedException
     | InternalServerException
     | ResourceNotFoundException
+    | TooManyRequestsException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListCentralizationRulesForOrganization {
+  export type Input = ListCentralizationRulesForOrganizationInput;
+  export type Output = ListCentralizationRulesForOrganizationOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
     | TooManyRequestsException
     | ValidationException
     | CommonAwsError;
@@ -656,6 +912,17 @@ export declare namespace ListTelemetryRulesForOrganization {
     | CommonAwsError;
 }
 
+export declare namespace StartTelemetryEnrichment {
+  export type Input = {};
+  export type Output = StartTelemetryEnrichmentOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
 export declare namespace StartTelemetryEvaluation {
   export type Input = {};
   export type Output = {};
@@ -675,6 +942,17 @@ export declare namespace StartTelemetryEvaluationForOrganization {
     | InternalServerException
     | TooManyRequestsException
     | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace StopTelemetryEnrichment {
+  export type Input = {};
+  export type Output = StopTelemetryEnrichmentOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | TooManyRequestsException
     | CommonAwsError;
 }
 
@@ -725,6 +1003,19 @@ export declare namespace UntagResource {
     | CommonAwsError;
 }
 
+export declare namespace UpdateCentralizationRuleForOrganization {
+  export type Input = UpdateCentralizationRuleForOrganizationInput;
+  export type Output = UpdateCentralizationRuleForOrganizationOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | TooManyRequestsException
+    | ValidationException
+    | CommonAwsError;
+}
+
 export declare namespace UpdateTelemetryRule {
   export type Input = UpdateTelemetryRuleInput;
   export type Output = UpdateTelemetryRuleOutput;
@@ -750,3 +1041,13 @@ export declare namespace UpdateTelemetryRuleForOrganization {
     | ValidationException
     | CommonAwsError;
 }
+
+export type ObservabilityAdminErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | TooManyRequestsException
+  | ValidationException
+  | CommonAwsError;

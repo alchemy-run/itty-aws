@@ -793,3 +793,13 @@ export declare namespace UntagResource {
     | ValidationException
     | CommonAwsError;
 }
+
+export type CodeGuruReviewerErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | NotFoundException
+  | ResourceNotFoundException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

@@ -238,3 +238,11 @@ export declare namespace PutRecord {
     | ValidationError
     | CommonAwsError;
 }
+
+export type SageMakerFeatureStoreRuntimeErrors =
+  | AccessForbidden
+  | InternalFailure
+  | ResourceNotFound
+  | ServiceUnavailable
+  | ValidationError
+  | CommonAwsError;

@@ -48,6 +48,7 @@ export declare class evs extends AWSServiceClient {
   ): Effect.Effect<
     TagResourceResponse,
     | ResourceNotFoundException
+    | ServiceQuotaExceededException
     | TagPolicyException
     | TooManyTagsException
     | CommonAwsError
@@ -57,6 +58,15 @@ export declare class evs extends AWSServiceClient {
   ): Effect.Effect<
     UntagResourceResponse,
     ResourceNotFoundException | TagPolicyException | CommonAwsError
+  >;
+  associateEipToVlan(
+    input: AssociateEipToVlanRequest,
+  ): Effect.Effect<
+    AssociateEipToVlanResponse,
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createEnvironment(
     input: CreateEnvironmentRequest,
@@ -81,6 +91,15 @@ export declare class evs extends AWSServiceClient {
   ): Effect.Effect<
     DeleteEnvironmentHostResponse,
     ResourceNotFoundException | ValidationException | CommonAwsError
+  >;
+  disassociateEipFromVlan(
+    input: DisassociateEipFromVlanRequest,
+  ): Effect.Effect<
+    DisassociateEipFromVlanResponse,
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getEnvironment(
     input: GetEnvironmentRequest,
@@ -110,7 +129,20 @@ export declare class evs extends AWSServiceClient {
 
 export declare class Evs extends evs {}
 
+export type AllocationId = string;
+
 export type Arn = string;
+
+export interface AssociateEipToVlanRequest {
+  clientToken?: string;
+  environmentId: string;
+  vlanName: string;
+  allocationId: string;
+}
+export interface AssociateEipToVlanResponse {
+  vlan?: Vlan;
+}
+export type AssociationId = string;
 
 export interface Check {
   type?: CheckType;
@@ -178,6 +210,21 @@ export interface DeleteEnvironmentRequest {
 export interface DeleteEnvironmentResponse {
   environment?: Environment;
 }
+export interface DisassociateEipFromVlanRequest {
+  clientToken?: string;
+  environmentId: string;
+  vlanName: string;
+  associationId: string;
+}
+export interface DisassociateEipFromVlanResponse {
+  vlan?: Vlan;
+}
+export interface EipAssociation {
+  associationId?: string;
+  allocationId?: string;
+  ipAddress?: string;
+}
+export type EipAssociationList = Array<EipAssociation>;
 export interface Environment {
   environmentId?: string;
   environmentState?: EnvironmentState;
@@ -275,6 +322,8 @@ export interface InitialVlans {
   hcx: InitialVlanInfo;
   expansionVlan1: InitialVlanInfo;
   expansionVlan2: InitialVlanInfo;
+  isHcxPublic?: boolean;
+  hcxNetworkAclId?: string;
 }
 export type InstanceType = "i4i.metal";
 export type IpAddress = string;
@@ -321,6 +370,8 @@ export interface ListTagsForResourceResponse {
 }
 export type MaxResults = number;
 
+export type NetworkAclId = string;
+
 export interface NetworkInterface {
   networkInterfaceId?: string;
 }
@@ -353,6 +404,11 @@ export type SecurityGroups = Array<string>;
 export interface ServiceAccessSecurityGroups {
   securityGroups?: Array<string>;
 }
+export declare class ServiceQuotaExceededException extends EffectData.TaggedError(
+  "ServiceQuotaExceededException",
+)<{
+  readonly message: string;
+}> {}
 export type SolutionKey = string;
 
 export type StateDetails = string;
@@ -429,6 +485,9 @@ export interface Vlan {
   modifiedAt?: Date | string;
   vlanState?: VlanState;
   stateDetails?: string;
+  eipAssociations?: Array<EipAssociation>;
+  isPublic?: boolean;
+  networkAclId?: string;
 }
 export type VlanId = number;
 
@@ -454,6 +513,7 @@ export declare namespace TagResource {
   export type Output = TagResourceResponse;
   export type Error =
     | ResourceNotFoundException
+    | ServiceQuotaExceededException
     | TagPolicyException
     | TooManyTagsException
     | CommonAwsError;
@@ -465,6 +525,16 @@ export declare namespace UntagResource {
   export type Error =
     | ResourceNotFoundException
     | TagPolicyException
+    | CommonAwsError;
+}
+
+export declare namespace AssociateEipToVlan {
+  export type Input = AssociateEipToVlanRequest;
+  export type Output = AssociateEipToVlanResponse;
+  export type Error =
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
     | CommonAwsError;
 }
 
@@ -501,6 +571,16 @@ export declare namespace DeleteEnvironmentHost {
     | CommonAwsError;
 }
 
+export declare namespace DisassociateEipFromVlan {
+  export type Input = DisassociateEipFromVlanRequest;
+  export type Output = DisassociateEipFromVlanResponse;
+  export type Error =
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
 export declare namespace GetEnvironment {
   export type Input = GetEnvironmentRequest;
   export type Output = GetEnvironmentResponse;
@@ -533,3 +613,12 @@ export declare namespace ListEnvironments {
   export type Output = ListEnvironmentsResponse;
   export type Error = ValidationException | CommonAwsError;
 }
+
+export type evsErrors =
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | TagPolicyException
+  | ThrottlingException
+  | TooManyTagsException
+  | ValidationException
+  | CommonAwsError;

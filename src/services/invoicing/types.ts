@@ -573,3 +573,12 @@ export declare namespace UpdateInvoiceUnit {
     | ValidationException
     | CommonAwsError;
 }
+
+export type InvoicingErrors =
+  | AccessDeniedException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

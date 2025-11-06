@@ -641,3 +641,18 @@ export declare namespace QueryVectors {
     | ServiceUnavailableException
     | CommonAwsError;
 }
+
+export type S3VectorsErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | KmsDisabledException
+  | KmsInvalidKeyUsageException
+  | KmsInvalidStateException
+  | KmsNotFoundException
+  | NotFoundException
+  | ServiceQuotaExceededException
+  | ServiceUnavailableException
+  | TooManyRequestsException
+  | ValidationException
+  | CommonAwsError;

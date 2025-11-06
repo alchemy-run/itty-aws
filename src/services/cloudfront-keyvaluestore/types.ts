@@ -296,3 +296,12 @@ export declare namespace UpdateKeys {
     | ValidationException
     | CommonAwsError;
 }
+
+export type CloudFrontKeyValueStoreErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ValidationException
+  | CommonAwsError;

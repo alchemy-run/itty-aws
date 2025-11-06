@@ -1049,3 +1049,17 @@ export declare namespace UpdateLongTermPricing {
   export type Output = UpdateLongTermPricingResult;
   export type Error = InvalidResourceException | CommonAwsError;
 }
+
+export type SnowballErrors =
+  | ClusterLimitExceededException
+  | ConflictException
+  | Ec2RequestFailedException
+  | InvalidAddressException
+  | InvalidInputCombinationException
+  | InvalidJobStateException
+  | InvalidNextTokenException
+  | InvalidResourceException
+  | KMSRequestFailedException
+  | ReturnShippingLabelAlreadyExistsException
+  | UnsupportedAddressException
+  | CommonAwsError;

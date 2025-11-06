@@ -1399,3 +1399,14 @@ export declare namespace UpdateConnectivityInfo {
     | ValidationException
     | CommonAwsError;
 }
+
+export type GreengrassV2Errors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | RequestAlreadyInProgressException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

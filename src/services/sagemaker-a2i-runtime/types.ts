@@ -265,3 +265,12 @@ export declare namespace StopHumanLoop {
     | ValidationException
     | CommonAwsError;
 }
+
+export type SageMakerA2IRuntimeErrors =
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

@@ -1808,3 +1808,15 @@ export declare namespace UpdateMediaPipelineKinesisVideoStreamPool {
     | UnauthorizedClientException
     | CommonAwsError;
 }
+
+export type ChimeSDKMediaPipelinesErrors =
+  | BadRequestException
+  | ConflictException
+  | ForbiddenException
+  | NotFoundException
+  | ResourceLimitExceededException
+  | ServiceFailureException
+  | ServiceUnavailableException
+  | ThrottledClientException
+  | UnauthorizedClientException
+  | CommonAwsError;

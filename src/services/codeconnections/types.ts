@@ -567,7 +567,8 @@ export type ProviderType =
   | "GitHub"
   | "GitHubEnterpriseServer"
   | "GitLab"
-  | "GitLabSelfManaged";
+  | "GitLabSelfManaged"
+  | "AzureDevOps";
 export type PublishDeploymentStatus = "ENABLED" | "DISABLED";
 export type PullRequestComment = "ENABLED" | "DISABLED";
 export type RepositoryLinkArn = string;
@@ -1109,3 +1110,23 @@ export declare namespace UpdateSyncConfiguration {
     | UpdateOutOfSyncException
     | CommonAwsError;
 }
+
+export type CodeConnectionsErrors =
+  | AccessDeniedException
+  | ConcurrentModificationException
+  | ConditionalCheckFailedException
+  | ConflictException
+  | InternalServerException
+  | InvalidInputException
+  | LimitExceededException
+  | ResourceAlreadyExistsException
+  | ResourceNotFoundException
+  | ResourceUnavailableException
+  | RetryLatestCommitFailedException
+  | SyncBlockerDoesNotExistException
+  | SyncConfigurationStillExistsException
+  | ThrottlingException
+  | UnsupportedOperationException
+  | UnsupportedProviderTypeException
+  | UpdateOutOfSyncException
+  | CommonAwsError;

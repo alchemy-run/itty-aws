@@ -1211,3 +1211,14 @@ export declare namespace UpdateMLModel {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+
+export type MachineLearningErrors =
+  | IdempotentParameterMismatchException
+  | InternalServerException
+  | InvalidInputException
+  | InvalidTagException
+  | LimitExceededException
+  | PredictorNotMountedException
+  | ResourceNotFoundException
+  | TagLimitExceededException
+  | CommonAwsError;

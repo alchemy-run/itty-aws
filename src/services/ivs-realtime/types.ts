@@ -731,6 +731,7 @@ export interface GridConfiguration {
   videoAspectRatio?: VideoAspectRatio;
   videoFillMode?: VideoFillMode;
   gridGap?: number;
+  participantOrderAttribute?: string;
 }
 export type GridGap = number;
 
@@ -1055,6 +1056,7 @@ export interface PipConfiguration {
   pipPosition?: PipPosition;
   pipWidth?: number;
   pipHeight?: number;
+  participantOrderAttribute?: string;
 }
 export type PipHeight = number;
 
@@ -1759,3 +1761,13 @@ export declare namespace UpdateStage {
     | ValidationException
     | CommonAwsError;
 }
+
+export type IVSRealTimeErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | PendingVerification
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ValidationException
+  | CommonAwsError;

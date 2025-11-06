@@ -177,6 +177,15 @@ export type AttachmentName = string;
 export type Attachments = Array<AttachmentItem>;
 export type AttachmentSizeInBytes = number;
 
+export interface Attendee {
+  AttendeeId?: string;
+  JoinToken?: string;
+}
+export type AttendeeId = string;
+
+export interface AudioFeatures {
+  EchoReduction?: MeetingFeatureStatus;
+}
 export type AuthenticationUrl = string;
 
 export type Bool = boolean;
@@ -222,7 +231,10 @@ export interface ConnectionCredentials {
   ConnectionToken?: string;
   Expiry?: string;
 }
-export type ConnectionType = "WEBSOCKET" | "CONNECTION_CREDENTIALS";
+export type ConnectionType =
+  | "WEBSOCKET"
+  | "CONNECTION_CREDENTIALS"
+  | "WEBRTC_CONNECTION";
 export type ConnectionTypeList = Array<ConnectionType>;
 export type ContactId = string;
 
@@ -236,6 +248,7 @@ export interface CreateParticipantConnectionRequest {
 export interface CreateParticipantConnectionResponse {
   Websocket?: Websocket;
   ConnectionCredentials?: ConnectionCredentials;
+  WebRTCConnection?: WebRTCConnection;
 }
 export interface DescribeViewRequest {
   ViewToken: string;
@@ -283,6 +296,8 @@ export interface GetTranscriptResponse {
   Transcript?: Array<Item>;
   NextToken?: string;
 }
+export type GuidString = string;
+
 export type Instant = string;
 
 export declare class InternalServerException extends EffectData.TaggedError(
@@ -306,8 +321,14 @@ export interface Item {
   RelatedContactId?: string;
   ContactId?: string;
 }
+export type JoinToken = string;
+
 export type MaxResults = number;
 
+export interface MeetingFeaturesConfiguration {
+  Audio?: AudioFeatures;
+}
+export type MeetingFeatureStatus = "AVAILABLE" | "UNAVAILABLE";
 export type Message = string;
 
 export interface MessageMetadata {
@@ -425,6 +446,8 @@ export type UploadMetadataSignedHeadersValue = string;
 
 export type UploadMetadataUrl = string;
 
+export type URI = string;
+
 export type URLExpiryInSeconds = number;
 
 export declare class ValidationException extends EffectData.TaggedError(
@@ -459,6 +482,21 @@ export type ViewToken = string;
 
 export type ViewVersion = number;
 
+export interface WebRTCConnection {
+  Attendee?: Attendee;
+  Meeting?: WebRTCMeeting;
+}
+export interface WebRTCMediaPlacement {
+  AudioHostUrl?: string;
+  AudioFallbackUrl?: string;
+  SignalingUrl?: string;
+  EventIngestionUrl?: string;
+}
+export interface WebRTCMeeting {
+  MediaPlacement?: WebRTCMediaPlacement;
+  MeetingFeatures?: MeetingFeaturesConfiguration;
+  MeetingId?: string;
+}
 export interface Websocket {
   Url?: string;
   ConnectionExpiry?: string;
@@ -588,3 +626,13 @@ export declare namespace StartAttachmentUpload {
     | ValidationException
     | CommonAwsError;
 }
+
+export type ConnectParticipantErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

@@ -943,3 +943,17 @@ export declare namespace UpdateRumMetricDefinition {
     | ValidationException
     | CommonAwsError;
 }
+
+export type RUMErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | InvalidPolicyRevisionIdException
+  | MalformedPolicyDocumentException
+  | PolicyNotFoundException
+  | PolicySizeLimitExceededException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

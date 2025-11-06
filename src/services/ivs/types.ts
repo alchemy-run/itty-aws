@@ -1398,3 +1398,16 @@ export declare namespace UpdatePlaybackRestrictionPolicy {
     | ValidationException
     | CommonAwsError;
 }
+
+export type ivsErrors =
+  | AccessDeniedException
+  | ChannelNotBroadcasting
+  | ConflictException
+  | InternalServerException
+  | PendingVerification
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | StreamUnavailable
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

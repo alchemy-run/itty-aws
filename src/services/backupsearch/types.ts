@@ -91,7 +91,10 @@ export declare class BackupSearch extends AWSServiceClient {
     input: StartSearchJobInput,
   ): Effect.Effect<
     StartSearchJobOutput,
-    ConflictException | ServiceQuotaExceededException | CommonAwsError
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | CommonAwsError
   >;
   startSearchResultExportJob(
     input: StartSearchResultExportJobInput,
@@ -505,6 +508,7 @@ export declare namespace StartSearchJob {
   export type Output = StartSearchJobOutput;
   export type Error =
     | ConflictException
+    | ResourceNotFoundException
     | ServiceQuotaExceededException
     | CommonAwsError;
 }
@@ -527,3 +531,13 @@ export declare namespace StopSearchJob {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+
+export type BackupSearchErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

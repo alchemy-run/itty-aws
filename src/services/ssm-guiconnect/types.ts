@@ -195,3 +195,13 @@ export declare namespace UpdateConnectionRecordingPreferences {
     | ValidationException
     | CommonAwsError;
 }
+
+export type SSMGuiConnectErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

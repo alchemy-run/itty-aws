@@ -797,6 +797,7 @@ export declare class WorkMail extends AWSServiceClient {
     | MailDomainStateException
     | OrganizationNotFoundException
     | OrganizationStateException
+    | UnsupportedOperationException
     | CommonAwsError
   >;
   resetPassword(
@@ -2052,7 +2053,7 @@ export interface PutAccessControlRuleRequest {
 export interface PutAccessControlRuleResponse {}
 export interface PutEmailMonitoringConfigurationRequest {
   OrganizationId: string;
-  RoleArn: string;
+  RoleArn?: string;
   LogGroupArn: string;
 }
 export interface PutEmailMonitoringConfigurationResponse {}
@@ -3204,6 +3205,7 @@ export declare namespace RegisterToWorkMail {
     | MailDomainStateException
     | OrganizationNotFoundException
     | OrganizationStateException
+    | UnsupportedOperationException
     | CommonAwsError;
 }
 
@@ -3387,3 +3389,28 @@ export declare namespace UpdateUser {
     | UnsupportedOperationException
     | CommonAwsError;
 }
+
+export type WorkMailErrors =
+  | DirectoryInUseException
+  | DirectoryServiceAuthenticationFailedException
+  | DirectoryUnavailableException
+  | EmailAddressInUseException
+  | EntityAlreadyRegisteredException
+  | EntityNotFoundException
+  | EntityStateException
+  | InvalidConfigurationException
+  | InvalidCustomSesConfigurationException
+  | InvalidParameterException
+  | InvalidPasswordException
+  | LimitExceededException
+  | MailDomainInUseException
+  | MailDomainNotFoundException
+  | MailDomainStateException
+  | NameAvailabilityException
+  | OrganizationNotFoundException
+  | OrganizationStateException
+  | ReservedNameException
+  | ResourceNotFoundException
+  | TooManyTagsException
+  | UnsupportedOperationException
+  | CommonAwsError;

@@ -1186,3 +1186,13 @@ export declare namespace UpdateLandingZone {
     | ValidationException
     | CommonAwsError;
 }
+
+export type ControlTowerErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

@@ -290,3 +290,11 @@ export declare namespace UpdateReportDefinition {
     | ValidationException
     | CommonAwsError;
 }
+
+export type ApplicationCostProfilerErrors =
+  | AccessDeniedException
+  | InternalServerException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

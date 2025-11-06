@@ -230,3 +230,13 @@ export declare namespace PutDeploymentParameter {
     | ValidationException
     | CommonAwsError;
 }
+
+export type MarketplaceDeploymentErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

@@ -928,3 +928,12 @@ export declare namespace UpdateProfilingGroup {
     | ValidationException
     | CommonAwsError;
 }
+
+export type CodeGuruProfilerErrors =
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

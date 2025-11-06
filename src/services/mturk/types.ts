@@ -1052,3 +1052,5 @@ export declare namespace UpdateQualificationType {
   export type Output = UpdateQualificationTypeResponse;
   export type Error = RequestError | ServiceFault | CommonAwsError;
 }
+
+export type MTurkErrors = RequestError | ServiceFault | CommonAwsError;

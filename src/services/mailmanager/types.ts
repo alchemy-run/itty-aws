@@ -2460,3 +2460,12 @@ export declare namespace UpdateTrafficPolicy {
     | ValidationException
     | CommonAwsError;
 }
+
+export type MailManagerErrors =
+  | AccessDeniedException
+  | ConflictException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

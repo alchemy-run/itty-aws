@@ -526,6 +526,7 @@ export type AgentCollaboratorPayloadString = string;
 
 export type AgentId = string;
 
+export type AgentTraces = Array<TracePart>;
 export type AgentVersion = string;
 
 export interface AnalyzePromptEvent {
@@ -823,6 +824,7 @@ export interface FlowCompletionEvent {
   completionReason: FlowCompletionReason;
 }
 export type FlowCompletionReason = "SUCCESS" | "INPUT_REQUIRED";
+export type FlowControlNodeType = "Iterator" | "Loop";
 export type FlowErrorCode =
   | "VALIDATION"
   | "INTERNAL_SERVER"
@@ -849,6 +851,8 @@ interface _FlowExecutionEvent {
   conditionResultEvent?: ConditionResultEvent;
   nodeFailureEvent?: NodeFailureEvent;
   flowFailureEvent?: FlowFailureEvent;
+  nodeActionEvent?: NodeActionEvent;
+  nodeDependencyEvent?: NodeDependencyEvent;
 }
 
 export type FlowExecutionEvent =
@@ -858,7 +862,9 @@ export type FlowExecutionEvent =
   | (_FlowExecutionEvent & { nodeOutputEvent: NodeOutputEvent })
   | (_FlowExecutionEvent & { conditionResultEvent: ConditionResultEvent })
   | (_FlowExecutionEvent & { nodeFailureEvent: NodeFailureEvent })
-  | (_FlowExecutionEvent & { flowFailureEvent: FlowFailureEvent });
+  | (_FlowExecutionEvent & { flowFailureEvent: FlowFailureEvent })
+  | (_FlowExecutionEvent & { nodeActionEvent: NodeActionEvent })
+  | (_FlowExecutionEvent & { nodeDependencyEvent: NodeDependencyEvent });
 export type FlowExecutionEvents = Array<FlowExecutionEvent>;
 export type FlowExecutionEventType = "Node" | "Flow";
 export type FlowExecutionId = string;
@@ -931,6 +937,22 @@ export interface FlowMultiTurnInputRequestEvent {
   nodeType: NodeType;
   content: FlowMultiTurnInputContent;
 }
+export type FlowNodeInputCategory =
+  | "LoopCondition"
+  | "ReturnValueToLoopStart"
+  | "ExitLoop";
+export type FlowNodeInputExpression = string;
+
+export type FlowNodeInputName = string;
+
+export type FlowNodeIODataType =
+  | "String"
+  | "Number"
+  | "Boolean"
+  | "Object"
+  | "Array";
+export type FlowNodeOutputName = string;
+
 interface _FlowOutputContent {
   document?: unknown;
 }
@@ -989,6 +1011,7 @@ interface _FlowTrace {
   nodeOutputTrace?: FlowTraceNodeOutputEvent;
   conditionNodeResultTrace?: FlowTraceConditionNodeResultEvent;
   nodeActionTrace?: FlowTraceNodeActionEvent;
+  nodeDependencyTrace?: FlowTraceDependencyEvent;
 }
 
 export type FlowTrace =
@@ -997,7 +1020,8 @@ export type FlowTrace =
   | (_FlowTrace & {
       conditionNodeResultTrace: FlowTraceConditionNodeResultEvent;
     })
-  | (_FlowTrace & { nodeActionTrace: FlowTraceNodeActionEvent });
+  | (_FlowTrace & { nodeActionTrace: FlowTraceNodeActionEvent })
+  | (_FlowTrace & { nodeDependencyTrace: FlowTraceDependencyEvent });
 export interface FlowTraceCondition {
   conditionName: string;
 }
@@ -1007,6 +1031,11 @@ export interface FlowTraceConditionNodeResultEvent {
   satisfiedConditions: Array<FlowTraceCondition>;
 }
 export type FlowTraceConditions = Array<FlowTraceCondition>;
+export interface FlowTraceDependencyEvent {
+  nodeName: string;
+  timestamp: Date | string;
+  traceElements: TraceElements;
+}
 export interface FlowTraceEvent {
   trace: FlowTrace;
 }
@@ -1016,6 +1045,8 @@ export interface FlowTraceNodeActionEvent {
   requestId: string;
   serviceName: string;
   operationName: string;
+  operationRequest?: unknown;
+  operationResponse?: unknown;
 }
 interface _FlowTraceNodeInputContent {
   document?: unknown;
@@ -1029,11 +1060,27 @@ export interface FlowTraceNodeInputEvent {
   timestamp: Date | string;
   fields: Array<FlowTraceNodeInputField>;
 }
+export type FlowTraceNodeInputExecutionChain =
+  Array<FlowTraceNodeInputExecutionChainItem>;
+export interface FlowTraceNodeInputExecutionChainItem {
+  nodeName: string;
+  index?: number;
+  type: FlowControlNodeType;
+}
 export interface FlowTraceNodeInputField {
   nodeInputName: string;
   content: FlowTraceNodeInputContent;
+  source?: FlowTraceNodeInputSource;
+  type?: FlowNodeIODataType;
+  category?: FlowNodeInputCategory;
+  executionChain?: Array<FlowTraceNodeInputExecutionChainItem>;
 }
 export type FlowTraceNodeInputFields = Array<FlowTraceNodeInputField>;
+export interface FlowTraceNodeInputSource {
+  nodeName: string;
+  outputFieldName: string;
+  expression: string;
+}
 interface _FlowTraceNodeOutputContent {
   document?: unknown;
 }
@@ -1049,8 +1096,15 @@ export interface FlowTraceNodeOutputEvent {
 export interface FlowTraceNodeOutputField {
   nodeOutputName: string;
   content: FlowTraceNodeOutputContent;
+  next?: Array<FlowTraceNodeOutputNext>;
+  type?: FlowNodeIODataType;
 }
 export type FlowTraceNodeOutputFields = Array<FlowTraceNodeOutputField>;
+export interface FlowTraceNodeOutputNext {
+  nodeName: string;
+  inputFieldName: string;
+}
+export type FlowTraceNodeOutputNextList = Array<FlowTraceNodeOutputNext>;
 export type BedrockAgentRuntimeFunction = string;
 
 export interface FunctionDefinition {
@@ -1751,6 +1805,20 @@ export type Name = string;
 
 export type NextToken = string;
 
+export interface NodeActionEvent {
+  nodeName: string;
+  timestamp: Date | string;
+  requestId: string;
+  serviceName: string;
+  operationName: string;
+  operationRequest?: unknown;
+  operationResponse?: unknown;
+}
+export interface NodeDependencyEvent {
+  nodeName: string;
+  timestamp: Date | string;
+  traceElements: NodeTraceElements;
+}
 export type NodeErrorCode =
   | "VALIDATION"
   | "DEPENDENCY_FAILED"
@@ -1774,13 +1842,28 @@ export interface NodeInputEvent {
   timestamp: Date | string;
   fields: Array<NodeInputField>;
 }
+export type NodeInputExecutionChain = Array<NodeInputExecutionChainItem>;
+export interface NodeInputExecutionChainItem {
+  nodeName: string;
+  index?: number;
+  type: FlowControlNodeType;
+}
 export interface NodeInputField {
   name: string;
   content: NodeExecutionContent;
+  source?: NodeInputSource;
+  type?: FlowNodeIODataType;
+  category?: FlowNodeInputCategory;
+  executionChain?: Array<NodeInputExecutionChainItem>;
 }
 export type NodeInputFields = Array<NodeInputField>;
 export type NodeInputName = string;
 
+export interface NodeInputSource {
+  nodeName: string;
+  outputFieldName: string;
+  expression: string;
+}
 export type NodeName = string;
 
 export interface NodeOutputEvent {
@@ -1791,10 +1874,24 @@ export interface NodeOutputEvent {
 export interface NodeOutputField {
   name: string;
   content: NodeExecutionContent;
+  next?: Array<NodeOutputNext>;
+  type?: FlowNodeIODataType;
 }
 export type NodeOutputFields = Array<NodeOutputField>;
 export type NodeOutputName = string;
 
+export interface NodeOutputNext {
+  nodeName: string;
+  inputFieldName: string;
+}
+export type NodeOutputNextList = Array<NodeOutputNext>;
+interface _NodeTraceElements {
+  agentTraces?: Array<TracePart>;
+}
+
+export type NodeTraceElements = _NodeTraceElements & {
+  agentTraces: Array<TracePart>;
+};
 export type NodeType =
   | "FlowInputNode"
   | "FlowOutputNode"
@@ -2550,6 +2647,11 @@ export type Trace =
   | (_Trace & { routingClassifierTrace: RoutingClassifierTrace })
   | (_Trace & { failureTrace: FailureTrace })
   | (_Trace & { customOrchestrationTrace: CustomOrchestrationTrace });
+interface _TraceElements {
+  agentTraces?: Array<TracePart>;
+}
+
+export type TraceElements = _TraceElements & { agentTraces: Array<TracePart> };
 export type TraceId = string;
 
 export type TraceKnowledgeBaseId = string;
@@ -3048,3 +3150,16 @@ export declare namespace UpdateSession {
     | ValidationException
     | CommonAwsError;
 }
+
+export type BedrockAgentRuntimeErrors =
+  | AccessDeniedException
+  | BadGatewayException
+  | ConflictException
+  | DependencyFailedException
+  | InternalServerException
+  | ModelNotReadyException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

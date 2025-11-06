@@ -1780,3 +1780,25 @@ export declare namespace ValidateConfigurationSettings {
     | TooManyBucketsException
     | CommonAwsError;
 }
+
+export type ElasticBeanstalkErrors =
+  | CodeBuildNotInServiceRegionException
+  | ElasticBeanstalkServiceException
+  | InsufficientPrivilegesException
+  | InvalidRequestException
+  | ManagedActionInvalidStateException
+  | OperationInProgressException
+  | PlatformVersionStillReferencedException
+  | ResourceNotFoundException
+  | ResourceTypeNotSupportedException
+  | S3LocationNotInServiceRegionException
+  | S3SubscriptionRequiredException
+  | SourceBundleDeletionException
+  | TooManyApplicationVersionsException
+  | TooManyApplicationsException
+  | TooManyBucketsException
+  | TooManyConfigurationTemplatesException
+  | TooManyEnvironmentsException
+  | TooManyPlatformsException
+  | TooManyTagsException
+  | CommonAwsError;

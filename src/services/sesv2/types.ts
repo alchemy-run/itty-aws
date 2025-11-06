@@ -4011,3 +4011,19 @@ export declare namespace UpdateReputationEntityPolicy {
     | TooManyRequestsException
     | CommonAwsError;
 }
+
+export type SESv2Errors =
+  | AccountSuspendedException
+  | AlreadyExistsException
+  | BadRequestException
+  | ConcurrentModificationException
+  | ConflictException
+  | InternalServiceErrorException
+  | InvalidNextTokenException
+  | LimitExceededException
+  | MailFromDomainNotVerifiedException
+  | MessageRejected
+  | NotFoundException
+  | SendingPausedException
+  | TooManyRequestsException
+  | CommonAwsError;

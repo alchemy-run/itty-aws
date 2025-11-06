@@ -2238,3 +2238,13 @@ export declare namespace UpdateRetrainingScheduler {
     | ValidationException
     | CommonAwsError;
 }
+
+export type LookoutEquipmentErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

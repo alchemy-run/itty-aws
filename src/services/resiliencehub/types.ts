@@ -2930,3 +2930,13 @@ export declare namespace UpdateResiliencyPolicy {
     | ValidationException
     | CommonAwsError;
 }
+
+export type resiliencehubErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

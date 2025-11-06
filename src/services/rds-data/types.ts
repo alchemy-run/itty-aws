@@ -591,3 +591,23 @@ export declare namespace RollbackTransaction {
     | TransactionNotFoundException
     | CommonAwsError;
 }
+
+export type RDSDataErrors =
+  | AccessDeniedException
+  | BadRequestException
+  | DatabaseErrorException
+  | DatabaseNotFoundException
+  | DatabaseResumingException
+  | DatabaseUnavailableException
+  | ForbiddenException
+  | HttpEndpointNotEnabledException
+  | InternalServerErrorException
+  | InvalidResourceStateException
+  | InvalidSecretException
+  | NotFoundException
+  | SecretsErrorException
+  | ServiceUnavailableError
+  | StatementTimeoutException
+  | TransactionNotFoundException
+  | UnsupportedResultException
+  | CommonAwsError;

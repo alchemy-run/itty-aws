@@ -105,3 +105,10 @@ export declare namespace ScanSbom {
     | ValidationException
     | CommonAwsError;
 }
+
+export type InspectorScanErrors =
+  | AccessDeniedException
+  | InternalServerException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

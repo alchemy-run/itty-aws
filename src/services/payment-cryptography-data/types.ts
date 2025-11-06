@@ -113,6 +113,17 @@ export declare class PaymentCryptographyData extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
+  translateKeyMaterial(
+    input: TranslateKeyMaterialInput,
+  ): Effect.Effect<
+    TranslateKeyMaterialOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
   translatePinData(
     input: TranslatePinDataInput,
   ): Effect.Effect<
@@ -341,6 +352,13 @@ export type DerivationMethodAttributes =
   | (_DerivationMethodAttributes & { Visa: VisaAttributes })
   | (_DerivationMethodAttributes & { Emv2000: Emv2000Attributes })
   | (_DerivationMethodAttributes & { Mastercard: MasterCardAttributes });
+interface _DiffieHellmanDerivationData {
+  SharedInformation?: string;
+}
+
+export type DiffieHellmanDerivationData = _DiffieHellmanDerivationData & {
+  SharedInformation: string;
+};
 export interface DiscoverDynamicCardVerificationCode {
   CardExpiryDate: string;
   UnpredictableNumber: string;
@@ -500,7 +518,7 @@ export interface GeneratePinDataInput {
   EncryptionKeyIdentifier: string;
   GenerationAttributes: PinGenerationAttributes;
   PinDataLength?: number;
-  PrimaryAccountNumber: string;
+  PrimaryAccountNumber?: string;
   PinBlockFormat: PinBlockFormatForPinData;
   EncryptionWrappedKey?: WrappedKey;
 }
@@ -554,6 +572,23 @@ export interface Ibm3624RandomPin {
   PinValidationDataPadCharacter: string;
   PinValidationData: string;
 }
+export interface IncomingDiffieHellmanTr31KeyBlock {
+  PrivateKeyIdentifier: string;
+  CertificateAuthorityPublicKeyIdentifier: string;
+  PublicKeyCertificate: string;
+  DeriveKeyAlgorithm: SymmetricKeyAlgorithm;
+  KeyDerivationFunction: KeyDerivationFunction;
+  KeyDerivationHashAlgorithm: KeyDerivationHashAlgorithm;
+  DerivationData: DiffieHellmanDerivationData;
+  WrappedKeyBlock: string;
+}
+interface _IncomingKeyMaterial {
+  DiffieHellmanTr31KeyBlock?: IncomingDiffieHellmanTr31KeyBlock;
+}
+
+export type IncomingKeyMaterial = _IncomingKeyMaterial & {
+  DiffieHellmanTr31KeyBlock: IncomingDiffieHellmanTr31KeyBlock;
+};
 export type InitializationVectorType = string;
 
 export type IntegerRangeBetween0And6 = number;
@@ -579,6 +614,8 @@ export type KeyCheckValueAlgorithm = string;
 
 export type KeyDerivationFunction = "NIST_SP800" | "ANSI_X963";
 export type KeyDerivationHashAlgorithm = "SHA_256" | "SHA_384" | "SHA_512";
+export type KeyMaterial = string;
+
 export type MacAlgorithm =
   | "ISO9797_ALGORITHM1"
   | "ISO9797_ALGORITHM3"
@@ -629,6 +666,16 @@ export type MessageDataType = string;
 
 export type NumberLengthEquals2 = string;
 
+interface _OutgoingKeyMaterial {
+  Tr31KeyBlock?: OutgoingTr31KeyBlock;
+}
+
+export type OutgoingKeyMaterial = _OutgoingKeyMaterial & {
+  Tr31KeyBlock: OutgoingTr31KeyBlock;
+};
+export interface OutgoingTr31KeyBlock {
+  WrappingKeyIdentifier: string;
+}
 export type PaddingType = "PKCS1" | "OAEP_SHA1" | "OAEP_SHA256" | "OAEP_SHA512";
 export type PinBlockFormatForEmvPinChange =
   | "ISO_FORMAT_0"
@@ -636,6 +683,7 @@ export type PinBlockFormatForEmvPinChange =
   | "ISO_FORMAT_3";
 export type PinBlockFormatForPinData =
   | "ISO_FORMAT_0"
+  | "ISO_FORMAT_1"
   | "ISO_FORMAT_3"
   | "ISO_FORMAT_4";
 export type PinBlockLengthEquals16 = string;
@@ -801,6 +849,14 @@ export type TrackDataType = string;
 
 export type TransactionDataType = string;
 
+export interface TranslateKeyMaterialInput {
+  IncomingKeyMaterial: IncomingKeyMaterial;
+  OutgoingKeyMaterial: OutgoingKeyMaterial;
+  KeyCheckValueAlgorithm?: string;
+}
+export interface TranslateKeyMaterialOutput {
+  WrappedKey: WrappedWorkingKey;
+}
 export interface TranslatePinDataInput {
   IncomingKeyIdentifier: string;
   OutgoingKeyIdentifier: string;
@@ -895,7 +951,7 @@ export interface VerifyPinDataInput {
   EncryptionKeyIdentifier: string;
   VerificationAttributes: PinVerificationAttributes;
   EncryptedPinBlock: string;
-  PrimaryAccountNumber: string;
+  PrimaryAccountNumber?: string;
   PinBlockFormat: PinBlockFormatForPinData;
   PinDataLength?: number;
   DukptAttributes?: DukptAttributes;
@@ -946,6 +1002,13 @@ export type WrappedKeyMaterial =
   | (_WrappedKeyMaterial & {
       DiffieHellmanSymmetricKey: EcdhDerivationAttributes;
     });
+export type WrappedKeyMaterialFormat = string;
+
+export interface WrappedWorkingKey {
+  WrappedKeyMaterial: string;
+  KeyCheckValue: string;
+  WrappedKeyMaterialFormat: string;
+}
 export declare namespace DecryptData {
   export type Input = DecryptDataInput;
   export type Output = DecryptDataOutput;
@@ -1030,6 +1093,18 @@ export declare namespace ReEncryptData {
     | CommonAwsError;
 }
 
+export declare namespace TranslateKeyMaterial {
+  export type Input = TranslateKeyMaterialInput;
+  export type Output = TranslateKeyMaterialOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
 export declare namespace TranslatePinData {
   export type Input = TranslatePinDataInput;
   export type Output = TranslatePinDataOutput;
@@ -1093,3 +1168,12 @@ export declare namespace VerifyPinData {
     | VerificationFailedException
     | CommonAwsError;
 }
+
+export type PaymentCryptographyDataErrors =
+  | AccessDeniedException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ThrottlingException
+  | ValidationException
+  | VerificationFailedException
+  | CommonAwsError;

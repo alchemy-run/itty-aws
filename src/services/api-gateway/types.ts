@@ -4178,3 +4178,13 @@ export declare namespace UpdateVpcLink {
     | UnauthorizedException
     | CommonAwsError;
 }
+
+export type APIGatewayErrors =
+  | BadRequestException
+  | ConflictException
+  | LimitExceededException
+  | NotFoundException
+  | ServiceUnavailableException
+  | TooManyRequestsException
+  | UnauthorizedException
+  | CommonAwsError;

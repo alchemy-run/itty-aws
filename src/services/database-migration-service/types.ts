@@ -4561,3 +4561,32 @@ export declare namespace UpdateSubscriptionsToEventBridge {
     | InvalidResourceStateFault
     | CommonAwsError;
 }
+
+export type DatabaseMigrationServiceErrors =
+  | AccessDeniedFault
+  | CollectorNotFoundFault
+  | FailedDependencyFault
+  | InsufficientResourceCapacityFault
+  | InvalidCertificateFault
+  | InvalidOperationFault
+  | InvalidResourceStateFault
+  | InvalidSubnet
+  | KMSAccessDeniedFault
+  | KMSDisabledFault
+  | KMSFault
+  | KMSInvalidStateFault
+  | KMSKeyNotAccessibleFault
+  | KMSNotFoundFault
+  | KMSThrottlingFault
+  | ReplicationSubnetGroupDoesNotCoverEnoughAZs
+  | ResourceAlreadyExistsFault
+  | ResourceNotFoundFault
+  | ResourceQuotaExceededFault
+  | S3AccessDeniedFault
+  | S3ResourceNotFoundFault
+  | SNSInvalidTopicFault
+  | SNSNoAuthorizationFault
+  | StorageQuotaExceededFault
+  | SubnetAlreadyInUse
+  | UpgradeDependencyFailureFault
+  | CommonAwsError;

@@ -1708,3 +1708,14 @@ export declare namespace UpdateQuickResponse {
     | ValidationException
     | CommonAwsError;
 }
+
+export type WisdomErrors =
+  | AccessDeniedException
+  | ConflictException
+  | PreconditionFailedException
+  | RequestTimeoutException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | TooManyTagsException
+  | ValidationException
+  | CommonAwsError;

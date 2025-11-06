@@ -3793,3 +3793,22 @@ export declare namespace UpdateFlywheel {
     | TooManyRequestsException
     | CommonAwsError;
 }
+
+export type ComprehendErrors =
+  | BatchSizeLimitExceededException
+  | ConcurrentModificationException
+  | InternalServerException
+  | InvalidFilterException
+  | InvalidRequestException
+  | JobNotFoundException
+  | KmsKeyValidationException
+  | ResourceInUseException
+  | ResourceLimitExceededException
+  | ResourceNotFoundException
+  | ResourceUnavailableException
+  | TextSizeLimitExceededException
+  | TooManyRequestsException
+  | TooManyTagKeysException
+  | TooManyTagsException
+  | UnsupportedLanguageException
+  | CommonAwsError;

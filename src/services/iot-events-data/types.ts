@@ -683,3 +683,11 @@ export declare namespace ListDetectors {
     | ThrottlingException
     | CommonAwsError;
 }
+
+export type IoTEventsDataErrors =
+  | InternalFailureException
+  | InvalidRequestException
+  | ResourceNotFoundException
+  | ServiceUnavailableException
+  | ThrottlingException
+  | CommonAwsError;

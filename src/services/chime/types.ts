@@ -2524,3 +2524,17 @@ export declare namespace UpdateUserSettings {
     | UnauthorizedClientException
     | CommonAwsError;
 }
+
+export type ChimeErrors =
+  | AccessDeniedException
+  | BadRequestException
+  | ConflictException
+  | ForbiddenException
+  | NotFoundException
+  | ResourceLimitExceededException
+  | ServiceFailureException
+  | ServiceUnavailableException
+  | ThrottledClientException
+  | UnauthorizedClientException
+  | UnprocessableEntityException
+  | CommonAwsError;

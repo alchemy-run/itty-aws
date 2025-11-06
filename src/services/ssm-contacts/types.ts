@@ -1619,3 +1619,14 @@ export declare namespace UpdateRotation {
     | ValidationException
     | CommonAwsError;
 }
+
+export type SSMContactsErrors =
+  | AccessDeniedException
+  | ConflictException
+  | DataEncryptionException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

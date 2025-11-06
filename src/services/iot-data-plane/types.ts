@@ -39,6 +39,17 @@ type CommonAwsError =
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class IoTDataPlane extends AWSServiceClient {
+  deleteConnection(
+    input: DeleteConnectionRequest,
+  ): Effect.Effect<
+    {},
+    | ForbiddenException
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
+  >;
   deleteThingShadow(
     input: DeleteThingShadowRequest,
   ): Effect.Effect<
@@ -135,6 +146,10 @@ export declare class IoTDataPlane extends AWSServiceClient {
 
 export declare class IotDataPlane extends IoTDataPlane {}
 
+export type CleanSession = boolean;
+
+export type ClientId = string;
+
 export declare class ConflictException extends EffectData.TaggedError(
   "ConflictException",
 )<{
@@ -144,6 +159,11 @@ export type ContentType = string;
 
 export type CorrelationData = string;
 
+export interface DeleteConnectionRequest {
+  clientId: string;
+  cleanSession?: boolean;
+  preventWillMessage?: boolean;
+}
 export interface DeleteThingShadowRequest {
   thingName: string;
   shadowName?: string;
@@ -153,6 +173,11 @@ export interface DeleteThingShadowResponse {
 }
 export type errorMessage = string;
 
+export declare class ForbiddenException extends EffectData.TaggedError(
+  "ForbiddenException",
+)<{
+  readonly message?: string;
+}> {}
 export interface GetRetainedMessageRequest {
   topic: string;
 }
@@ -218,6 +243,8 @@ export type Payload = Uint8Array | string;
 
 export type PayloadFormatIndicator = "UNSPECIFIED_BYTES" | "UTF8_DATA";
 export type PayloadSize = number;
+
+export type PreventWillMessage = boolean;
 
 export interface PublishRequest {
   topic: string;
@@ -293,6 +320,18 @@ export interface UpdateThingShadowResponse {
   payload?: Stream.Stream<Uint8Array, ResponseError>;
 }
 export type UserPropertiesBlob = Uint8Array | string;
+
+export declare namespace DeleteConnection {
+  export type Input = DeleteConnectionRequest;
+  export type Output = {};
+  export type Error =
+    | ForbiddenException
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError;
+}
 
 export declare namespace DeleteThingShadow {
   export type Input = DeleteThingShadowRequest;
@@ -392,3 +431,17 @@ export declare namespace UpdateThingShadow {
     | UnsupportedDocumentEncodingException
     | CommonAwsError;
 }
+
+export type IoTDataPlaneErrors =
+  | ConflictException
+  | ForbiddenException
+  | InternalFailureException
+  | InvalidRequestException
+  | MethodNotAllowedException
+  | RequestEntityTooLargeException
+  | ResourceNotFoundException
+  | ServiceUnavailableException
+  | ThrottlingException
+  | UnauthorizedException
+  | UnsupportedDocumentEncodingException
+  | CommonAwsError;

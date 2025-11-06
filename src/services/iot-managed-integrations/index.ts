@@ -74,6 +74,7 @@ const metadata = {
     GetManagedThing: "GET /managed-things/{Identifier}",
     GetManagedThingCapabilities:
       "GET /managed-things-capabilities/{Identifier}",
+    GetManagedThingCertificate: "GET /managed-things-certificate/{Identifier}",
     GetManagedThingConnectivityData:
       "POST /managed-things-connectivity-data/{Identifier}",
     GetManagedThingMetaData: "GET /managed-things-metadata/{Identifier}",

@@ -2245,3 +2245,8 @@ export declare namespace UpdateThingRuntimeConfiguration {
     | InternalServerErrorException
     | CommonAwsError;
 }
+
+export type GreengrassErrors =
+  | BadRequestException
+  | InternalServerErrorException
+  | CommonAwsError;

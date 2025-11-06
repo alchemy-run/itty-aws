@@ -3792,3 +3792,14 @@ export declare namespace UpdateSensitivityInspectionTemplate {
     | ValidationException
     | CommonAwsError;
 }
+
+export type Macie2Errors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | UnprocessableEntityException
+  | ValidationException
+  | CommonAwsError;

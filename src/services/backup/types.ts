@@ -1016,7 +1016,12 @@ export interface BackupJob {
   BackupJobId?: string;
   BackupVaultName?: string;
   BackupVaultArn?: string;
+  VaultType?: string;
+  VaultLockState?: string;
   RecoveryPointArn?: string;
+  RecoveryPointLifecycle?: Lifecycle;
+  EncryptionKeyArn?: string;
+  IsEncrypted?: boolean;
   ResourceArn?: string;
   CreationDate?: Date | string;
   CompletionDate?: Date | string;
@@ -1265,7 +1270,11 @@ export interface CopyJob {
   SourceBackupVaultArn?: string;
   SourceRecoveryPointArn?: string;
   DestinationBackupVaultArn?: string;
+  DestinationVaultType?: string;
+  DestinationVaultLockState?: string;
   DestinationRecoveryPointArn?: string;
+  DestinationEncryptionKeyArn?: string;
+  DestinationRecoveryPointLifecycle?: Lifecycle;
   ResourceArn?: string;
   CreationDate?: Date | string;
   CompletionDate?: Date | string;
@@ -1497,8 +1506,13 @@ export interface DescribeBackupJobOutput {
   AccountId?: string;
   BackupJobId?: string;
   BackupVaultName?: string;
+  RecoveryPointLifecycle?: Lifecycle;
   BackupVaultArn?: string;
+  VaultType?: string;
+  VaultLockState?: string;
   RecoveryPointArn?: string;
+  EncryptionKeyArn?: string;
+  IsEncrypted?: boolean;
   ResourceArn?: string;
   CreationDate?: Date | string;
   CompletionDate?: Date | string;
@@ -1640,6 +1654,8 @@ export interface DescribeRestoreJobOutput {
   AccountId?: string;
   RestoreJobId?: string;
   RecoveryPointArn?: string;
+  SourceResourceArn?: string;
+  BackupVaultArn?: string;
   CreationDate?: Date | string;
   CompletionDate?: Date | string;
   Status?: RestoreJobStatus;
@@ -1710,6 +1726,7 @@ export interface GetBackupPlanFromTemplateOutput {
 export interface GetBackupPlanInput {
   BackupPlanId: string;
   VersionId?: string;
+  MaxScheduledRunsPreview?: number;
 }
 export interface GetBackupPlanOutput {
   BackupPlan?: BackupPlan;
@@ -1721,6 +1738,7 @@ export interface GetBackupPlanOutput {
   DeletionDate?: Date | string;
   LastExecutionDate?: Date | string;
   AdvancedBackupSettings?: Array<AdvancedBackupSetting>;
+  ScheduledRunsPreview?: Array<ScheduledPlanExecutionMember>;
 }
 export interface GetBackupSelectionInput {
   BackupPlanId: string;
@@ -2222,6 +2240,8 @@ export type MaxFrameworkInputs = number;
 
 export type MaxResults = number;
 
+export type MaxScheduledRunsPreview = number;
+
 export type MessageCategory = string;
 
 export type Metadata = Record<string, string>;
@@ -2324,8 +2344,12 @@ export type RecoveryPointByResourceList = Array<RecoveryPointByResource>;
 export interface RecoveryPointCreator {
   BackupPlanId?: string;
   BackupPlanArn?: string;
+  BackupPlanName?: string;
   BackupPlanVersion?: string;
   BackupRuleId?: string;
+  BackupRuleName?: string;
+  BackupRuleCron?: string;
+  BackupRuleTimezone?: string;
 }
 export interface RecoveryPointMember {
   RecoveryPointArn?: string;
@@ -2433,6 +2457,8 @@ export interface RestoreJobsListMember {
   AccountId?: string;
   RestoreJobId?: string;
   RecoveryPointArn?: string;
+  SourceResourceArn?: string;
+  BackupVaultArn?: string;
   CreationDate?: Date | string;
   CompletionDate?: Date | string;
   Status?: RestoreJobStatus;
@@ -2571,6 +2597,16 @@ export interface RevokeRestoreAccessBackupVaultInput {
   RestoreAccessBackupVaultArn: string;
   RequesterComment?: string;
 }
+export type RuleExecutionType =
+  | "CONTINUOUS"
+  | "SNAPSHOTS"
+  | "CONTINUOUS_AND_SNAPSHOTS";
+export interface ScheduledPlanExecutionMember {
+  ExecutionTime?: Date | string;
+  RuleId?: string;
+  RuleExecutionType?: RuleExecutionType;
+}
+export type ScheduledRunsPreview = Array<ScheduledPlanExecutionMember>;
 export type SensitiveStringMap = Record<string, string>;
 export declare class ServiceUnavailableException extends EffectData.TaggedError(
   "ServiceUnavailableException",
@@ -3838,3 +3874,16 @@ export declare namespace UpdateRestoreTestingSelection {
     | ServiceUnavailableException
     | CommonAwsError;
 }
+
+export type BackupErrors =
+  | AlreadyExistsException
+  | ConflictException
+  | DependencyFailureException
+  | InvalidParameterValueException
+  | InvalidRequestException
+  | InvalidResourceStateException
+  | LimitExceededException
+  | MissingParameterValueException
+  | ResourceNotFoundException
+  | ServiceUnavailableException
+  | CommonAwsError;

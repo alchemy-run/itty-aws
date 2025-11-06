@@ -883,6 +883,7 @@ export type InstanceFleetState =
   | "BOOTSTRAPPING"
   | "RUNNING"
   | "RESIZING"
+  | "RECONFIGURING"
   | "SUSPENDED"
   | "TERMINATING"
   | "TERMINATED";
@@ -2337,3 +2338,9 @@ export declare namespace UpdateStudioSessionMapping {
     | InvalidRequestException
     | CommonAwsError;
 }
+
+export type EMRErrors =
+  | InternalServerError
+  | InternalServerException
+  | InvalidRequestException
+  | CommonAwsError;

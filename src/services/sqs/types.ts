@@ -1089,3 +1089,34 @@ export declare namespace UntagQueue {
     | UnsupportedOperation
     | CommonAwsError;
 }
+
+export type SQSErrors =
+  | BatchEntryIdsNotDistinct
+  | BatchRequestTooLong
+  | EmptyBatchRequest
+  | InvalidAddress
+  | InvalidAttributeName
+  | InvalidAttributeValue
+  | InvalidBatchEntryId
+  | InvalidIdFormat
+  | InvalidMessageContents
+  | InvalidSecurity
+  | KmsAccessDenied
+  | KmsDisabled
+  | KmsInvalidKeyUsage
+  | KmsInvalidState
+  | KmsNotFound
+  | KmsOptInRequired
+  | KmsThrottled
+  | MessageNotInflight
+  | OverLimit
+  | PurgeQueueInProgress
+  | QueueDeletedRecently
+  | QueueDoesNotExist
+  | QueueNameExists
+  | ReceiptHandleIsInvalid
+  | RequestThrottled
+  | ResourceNotFoundException
+  | TooManyEntriesInBatchRequest
+  | UnsupportedOperation
+  | CommonAwsError;

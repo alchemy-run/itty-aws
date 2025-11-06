@@ -2356,3 +2356,17 @@ export declare namespace UpdateWorkgroup {
     | ValidationException
     | CommonAwsError;
 }
+
+export type RedshiftServerlessErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InsufficientCapacityException
+  | InternalServerException
+  | InvalidPaginationException
+  | Ipv6CidrBlockNotFoundException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | TooManyTagsException
+  | ValidationException
+  | CommonAwsError;

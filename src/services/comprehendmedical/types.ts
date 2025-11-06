@@ -1242,3 +1242,14 @@ export declare namespace StopSNOMEDCTInferenceJob {
     | TooManyRequestsException
     | CommonAwsError;
 }
+
+export type ComprehendMedicalErrors =
+  | InternalServerException
+  | InvalidEncodingException
+  | InvalidRequestException
+  | ResourceNotFoundException
+  | ServiceUnavailableException
+  | TextSizeLimitExceededException
+  | TooManyRequestsException
+  | ValidationException
+  | CommonAwsError;

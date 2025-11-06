@@ -696,3 +696,16 @@ export declare namespace ResolveCase {
   export type Output = ResolveCaseResponse;
   export type Error = CaseIdNotFound | InternalServerError | CommonAwsError;
 }
+
+export type SupportErrors =
+  | AttachmentIdNotFound
+  | AttachmentLimitExceeded
+  | AttachmentSetExpired
+  | AttachmentSetIdNotFound
+  | AttachmentSetSizeLimitExceeded
+  | CaseCreationLimitExceeded
+  | CaseIdNotFound
+  | DescribeAttachmentLimitExceeded
+  | InternalServerError
+  | ThrottlingException
+  | CommonAwsError;

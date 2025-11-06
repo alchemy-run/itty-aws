@@ -1103,3 +1103,13 @@ export declare namespace UpdateIngestionDestination {
     | ValidationException
     | CommonAwsError;
 }
+
+export type AppFabricErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

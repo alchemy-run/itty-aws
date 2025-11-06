@@ -499,6 +499,7 @@ export interface CreateIdMappingWorkflowInput {
   inputSourceConfig: Array<IdMappingWorkflowInputSource>;
   outputSourceConfig?: Array<IdMappingWorkflowOutputSource>;
   idMappingTechniques: IdMappingTechniques;
+  incrementalRunConfig?: IdMappingIncrementalRunConfig;
   roleArn?: string;
   tags?: Record<string, string>;
 }
@@ -509,6 +510,7 @@ export interface CreateIdMappingWorkflowOutput {
   inputSourceConfig: Array<IdMappingWorkflowInputSource>;
   outputSourceConfig?: Array<IdMappingWorkflowOutputSource>;
   idMappingTechniques: IdMappingTechniques;
+  incrementalRunConfig?: IdMappingIncrementalRunConfig;
   roleArn?: string;
 }
 export interface CreateIdNamespaceInput {
@@ -656,6 +658,7 @@ export interface GetIdMappingJobOutput {
   metrics?: IdMappingJobMetrics;
   errorDetails?: ErrorDetails;
   outputSourceConfig?: Array<IdMappingJobOutputSource>;
+  jobType?: JobType;
 }
 export interface GetIdMappingWorkflowInput {
   workflowName: string;
@@ -669,6 +672,7 @@ export interface GetIdMappingWorkflowOutput {
   idMappingTechniques: IdMappingTechniques;
   createdAt: Date | string;
   updatedAt: Date | string;
+  incrementalRunConfig?: IdMappingIncrementalRunConfig;
   roleArn?: string;
   tags?: Record<string, string>;
 }
@@ -767,14 +771,26 @@ export interface GetSchemaMappingOutput {
 }
 export type HeaderSafeUniqueId = string;
 
+export interface IdMappingIncrementalRunConfig {
+  incrementalRunType?: IdMappingIncrementalRunType;
+}
+export type IdMappingIncrementalRunType = "ON_DEMAND";
 export interface IdMappingJobMetrics {
   inputRecords?: number;
   totalRecordsProcessed?: number;
   recordsNotProcessed?: number;
+  deleteRecordsProcessed?: number;
   totalMappedRecords?: number;
   totalMappedSourceRecords?: number;
   totalMappedTargetRecords?: number;
   uniqueRecordsLoaded?: number;
+  newMappedRecords?: number;
+  newMappedSourceRecords?: number;
+  newMappedTargetRecords?: number;
+  newUniqueRecordsLoaded?: number;
+  mappedRecordsRemoved?: number;
+  mappedSourceRecordsRemoved?: number;
+  mappedTargetRecordsRemoved?: number;
 }
 export interface IdMappingJobOutputSource {
   roleArn: string;
@@ -860,6 +876,8 @@ export interface InputSource {
   schemaName: string;
   applyNormalization?: boolean;
 }
+export type InputSourceARN = string;
+
 export type InputSourceConfig = Array<InputSource>;
 export interface IntermediateSourceConfiguration {
   intermediateS3Path: string;
@@ -876,6 +894,7 @@ export interface JobMetrics {
   inputRecords?: number;
   totalRecordsProcessed?: number;
   recordsNotProcessed?: number;
+  deleteRecordsProcessed?: number;
   matchIDs?: number;
 }
 export interface JobOutputSource {
@@ -891,6 +910,7 @@ export interface JobSummary {
   startTime: Date | string;
   endTime?: Date | string;
 }
+export type JobType = "BATCH" | "INCREMENTAL" | "DELETE_ONLY";
 export type KMSArn = string;
 
 export interface ListIdMappingJobsInput {
@@ -1166,10 +1186,12 @@ export type ServiceType = "ASSIGNMENT" | "ID_MAPPING";
 export interface StartIdMappingJobInput {
   workflowName: string;
   outputSourceConfig?: Array<IdMappingJobOutputSource>;
+  jobType?: JobType;
 }
 export interface StartIdMappingJobOutput {
   jobId: string;
   outputSourceConfig?: Array<IdMappingJobOutputSource>;
+  jobType?: JobType;
 }
 export interface StartMatchingJobInput {
   workflowName: string;
@@ -1218,6 +1240,7 @@ export interface UpdateIdMappingWorkflowInput {
   inputSourceConfig: Array<IdMappingWorkflowInputSource>;
   outputSourceConfig?: Array<IdMappingWorkflowOutputSource>;
   idMappingTechniques: IdMappingTechniques;
+  incrementalRunConfig?: IdMappingIncrementalRunConfig;
   roleArn?: string;
 }
 export interface UpdateIdMappingWorkflowOutput {
@@ -1227,6 +1250,7 @@ export interface UpdateIdMappingWorkflowOutput {
   inputSourceConfig: Array<IdMappingWorkflowInputSource>;
   outputSourceConfig?: Array<IdMappingWorkflowOutputSource>;
   idMappingTechniques: IdMappingTechniques;
+  incrementalRunConfig?: IdMappingIncrementalRunConfig;
   roleArn?: string;
 }
 export interface UpdateIdNamespaceInput {
@@ -1735,3 +1759,13 @@ export declare namespace UpdateSchemaMapping {
     | ValidationException
     | CommonAwsError;
 }
+
+export type EntityResolutionErrors =
+  | AccessDeniedException
+  | ConflictException
+  | ExceedsLimitException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

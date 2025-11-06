@@ -1800,3 +1800,5 @@ export declare namespace UpdateServiceEnvironment {
   export type Output = UpdateServiceEnvironmentResponse;
   export type Error = ClientException | ServerException | CommonAwsError;
 }
+
+export type BatchErrors = ClientException | ServerException | CommonAwsError;

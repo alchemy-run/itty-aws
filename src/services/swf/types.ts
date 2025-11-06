@@ -1862,3 +1862,17 @@ export declare namespace UntagResource {
     | UnknownResourceFault
     | CommonAwsError;
 }
+
+export type SWFErrors =
+  | DefaultUndefinedFault
+  | DomainAlreadyExistsFault
+  | DomainDeprecatedFault
+  | LimitExceededFault
+  | OperationNotPermittedFault
+  | TooManyTagsFault
+  | TypeAlreadyExistsFault
+  | TypeDeprecatedFault
+  | TypeNotDeprecatedFault
+  | UnknownResourceFault
+  | WorkflowExecutionAlreadyStartedFault
+  | CommonAwsError;

@@ -817,7 +817,9 @@ export type CloudWatchRegion =
   | "us-isof-east-1"
   | "ap-southeast-7"
   | "ap-east-2"
-  | "eu-isoe-west-1";
+  | "eu-isoe-west-1"
+  | "ap-southeast-6"
+  | "us-isob-west-1";
 export type CollectionName = string;
 
 export type CollectionSummaries = Array<CollectionSummary>;
@@ -1917,7 +1919,8 @@ export type ResourceRecordSetRegion =
   | "ap-southeast-7"
   | "us-gov-east-1"
   | "us-gov-west-1"
-  | "ap-east-2";
+  | "ap-east-2"
+  | "ap-southeast-6";
 export type ResourceRecordSets = Array<ResourceRecordSet>;
 export type ResourceRecordSetWeight = number;
 
@@ -2236,7 +2239,9 @@ export type VPCRegion =
   | "us-isof-east-1"
   | "ap-southeast-7"
   | "ap-east-2"
-  | "eu-isoe-west-1";
+  | "eu-isoe-west-1"
+  | "ap-southeast-6"
+  | "us-isob-west-1";
 export type VPCs = Array<VPC>;
 export declare namespace ActivateKeySigningKey {
   export type Input = ActivateKeySigningKeyRequest;
@@ -2918,3 +2923,75 @@ export declare namespace UpdateTrafficPolicyInstance {
     | PriorRequestNotComplete
     | CommonAwsError;
 }
+
+export type Route53Errors =
+  | CidrBlockInUseException
+  | CidrCollectionAlreadyExistsException
+  | CidrCollectionInUseException
+  | CidrCollectionVersionMismatchException
+  | ConcurrentModification
+  | ConflictingDomainExists
+  | ConflictingTypes
+  | DNSSECNotFound
+  | DelegationSetAlreadyCreated
+  | DelegationSetAlreadyReusable
+  | DelegationSetInUse
+  | DelegationSetNotAvailable
+  | DelegationSetNotReusable
+  | HealthCheckAlreadyExists
+  | HealthCheckInUse
+  | HealthCheckVersionMismatch
+  | HostedZoneAlreadyExists
+  | HostedZoneNotEmpty
+  | HostedZoneNotFound
+  | HostedZoneNotPrivate
+  | HostedZonePartiallyDelegated
+  | IncompatibleVersion
+  | InsufficientCloudWatchLogsResourcePolicy
+  | InvalidArgument
+  | InvalidChangeBatch
+  | InvalidDomainName
+  | InvalidInput
+  | InvalidKMSArn
+  | InvalidKeySigningKeyName
+  | InvalidKeySigningKeyStatus
+  | InvalidPaginationToken
+  | InvalidSigningStatus
+  | InvalidTrafficPolicyDocument
+  | InvalidVPCId
+  | KeySigningKeyAlreadyExists
+  | KeySigningKeyInParentDSRecord
+  | KeySigningKeyInUse
+  | KeySigningKeyWithActiveStatusNotFound
+  | LastVPCAssociation
+  | LimitsExceeded
+  | NoSuchChange
+  | NoSuchCidrCollectionException
+  | NoSuchCidrLocationException
+  | NoSuchCloudWatchLogsLogGroup
+  | NoSuchDelegationSet
+  | NoSuchGeoLocation
+  | NoSuchHealthCheck
+  | NoSuchHostedZone
+  | NoSuchKeySigningKey
+  | NoSuchQueryLoggingConfig
+  | NoSuchTrafficPolicy
+  | NoSuchTrafficPolicyInstance
+  | NotAuthorizedException
+  | PriorRequestNotComplete
+  | PublicZoneVPCAssociation
+  | QueryLoggingConfigAlreadyExists
+  | ThrottlingException
+  | TooManyHealthChecks
+  | TooManyHostedZones
+  | TooManyKeySigningKeys
+  | TooManyTrafficPolicies
+  | TooManyTrafficPolicyInstances
+  | TooManyTrafficPolicyVersionsForCurrentPolicy
+  | TooManyVPCAssociationAuthorizations
+  | TrafficPolicyAlreadyExists
+  | TrafficPolicyInUse
+  | TrafficPolicyInstanceAlreadyExists
+  | VPCAssociationAuthorizationNotFound
+  | VPCAssociationNotFound
+  | CommonAwsError;

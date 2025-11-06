@@ -761,3 +761,14 @@ export declare namespace UpdateRoom {
     | ValidationException
     | CommonAwsError;
 }
+
+export type ivschatErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | PendingVerification
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

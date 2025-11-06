@@ -2426,3 +2426,19 @@ export declare namespace UpdateEventBus {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+
+export type EventBridgeErrors =
+  | AccessDeniedException
+  | ConcurrentModificationException
+  | IllegalStatusException
+  | InternalException
+  | InvalidEventPatternException
+  | InvalidStateException
+  | LimitExceededException
+  | ManagedRuleException
+  | OperationDisabledException
+  | PolicyLengthExceededException
+  | ResourceAlreadyExistsException
+  | ResourceNotFoundException
+  | ThrottlingException
+  | CommonAwsError;

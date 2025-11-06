@@ -884,3 +884,10 @@ export declare namespace Suggest {
     | ValidationException
     | CommonAwsError;
 }
+
+export type GeoPlacesErrors =
+  | AccessDeniedException
+  | InternalServerException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

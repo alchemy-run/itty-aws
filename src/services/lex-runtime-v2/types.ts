@@ -660,3 +660,14 @@ export declare namespace StartConversation {
     | ValidationException
     | CommonAwsError;
 }
+
+export type LexRuntimeV2Errors =
+  | AccessDeniedException
+  | BadGatewayException
+  | ConflictException
+  | DependencyFailedException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

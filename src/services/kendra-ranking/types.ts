@@ -442,3 +442,14 @@ export declare namespace UpdateRescoreExecutionPlan {
     | ValidationException
     | CommonAwsError;
 }
+
+export type KendraRankingErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ResourceUnavailableException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

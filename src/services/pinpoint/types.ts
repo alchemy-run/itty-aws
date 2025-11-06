@@ -5920,3 +5920,14 @@ export declare namespace VerifyOTPMessage {
     | TooManyRequestsException
     | CommonAwsError;
 }
+
+export type PinpointErrors =
+  | BadRequestException
+  | ConflictException
+  | ForbiddenException
+  | InternalServerErrorException
+  | MethodNotAllowedException
+  | NotFoundException
+  | PayloadTooLargeException
+  | TooManyRequestsException
+  | CommonAwsError;

@@ -213,6 +213,9 @@ export declare class AccessDeniedException extends EffectData.TaggedError(
 )<{
   readonly message?: string;
 }> {}
+export type AllowedWindow = string;
+
+export type AllowedWindows = Array<string>;
 export type AppliedStatus = "APPLIED" | "NOT_APPLIED";
 export type AppliedWeights = Record<string, number>;
 export type AutoshiftAppliedStatus = "APPLIED" | "NOT_APPLIED";
@@ -240,6 +243,7 @@ export type BlockedDates = Array<string>;
 export type BlockedWindow = string;
 
 export type BlockedWindows = Array<string>;
+export type BlockingAlarms = Array<ControlCondition>;
 export interface CancelPracticeRunRequest {
   zonalShiftId: string;
 }
@@ -273,18 +277,19 @@ export type ConflictExceptionReason =
   | "PracticeOutcomeAlarmsRed"
   | "PracticeBlockingAlarmsRed"
   | "PracticeInBlockedDates"
-  | "PracticeInBlockedWindows";
+  | "PracticeInBlockedWindows"
+  | "PracticeOutsideAllowedWindows";
 export interface ControlCondition {
   type: ControlConditionType;
   alarmIdentifier: string;
 }
-export type ControlConditions = Array<ControlCondition>;
 export type ControlConditionType = "CLOUDWATCH";
 export interface CreatePracticeRunConfigurationRequest {
   resourceIdentifier: string;
   blockedWindows?: Array<string>;
   blockedDates?: Array<string>;
   blockingAlarms?: Array<ControlCondition>;
+  allowedWindows?: Array<string>;
   outcomeAlarms: Array<ControlCondition>;
 }
 export interface CreatePracticeRunConfigurationResponse {
@@ -368,10 +373,12 @@ export type MaxResults = number;
 
 export type MetricIdentifier = string;
 
+export type OutcomeAlarms = Array<ControlCondition>;
 export interface PracticeRunConfiguration {
   blockingAlarms?: Array<ControlCondition>;
   outcomeAlarms: Array<ControlCondition>;
   blockedWindows?: Array<string>;
+  allowedWindows?: Array<string>;
   blockedDates?: Array<string>;
 }
 export type PracticeRunOutcome =
@@ -434,6 +441,7 @@ export interface UpdatePracticeRunConfigurationRequest {
   blockedWindows?: Array<string>;
   blockedDates?: Array<string>;
   blockingAlarms?: Array<ControlCondition>;
+  allowedWindows?: Array<string>;
   outcomeAlarms?: Array<ControlCondition>;
 }
 export interface UpdatePracticeRunConfigurationResponse {
@@ -474,7 +482,9 @@ export type ValidationExceptionReason =
   | "InvalidPracticeBlocker"
   | "FISExperimentUpdateNotAllowed"
   | "AutoshiftUpdateNotAllowed"
-  | "UnsupportedPracticeCancelShiftType";
+  | "UnsupportedPracticeCancelShiftType"
+  | "InvalidPracticeAllowedWindow"
+  | "InvalidPracticeWindows";
 export type Weight = number;
 
 export type ZonalAutoshiftStatus = "ENABLED" | "DISABLED";
@@ -698,3 +708,12 @@ export declare namespace UpdateZonalShift {
     | ValidationException
     | CommonAwsError;
 }
+
+export type ARCZonalShiftErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

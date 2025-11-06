@@ -917,3 +917,16 @@ export declare namespace UntagResource {
     | TooManyRequestsException
     | CommonAwsError;
 }
+
+export type signerErrors =
+  | AccessDeniedException
+  | BadRequestException
+  | ConflictException
+  | InternalServiceErrorException
+  | NotFoundException
+  | ResourceNotFoundException
+  | ServiceLimitExceededException
+  | ThrottlingException
+  | TooManyRequestsException
+  | ValidationException
+  | CommonAwsError;

@@ -275,3 +275,11 @@ export declare namespace ListStreams {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+
+export type DynamoDBStreamsErrors =
+  | ExpiredIteratorException
+  | InternalServerError
+  | LimitExceededException
+  | ResourceNotFoundException
+  | TrimmedDataAccessException
+  | CommonAwsError;

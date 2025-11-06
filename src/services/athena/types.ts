@@ -2388,3 +2388,12 @@ export declare namespace UpdateWorkGroup {
     | InvalidRequestException
     | CommonAwsError;
 }
+
+export type AthenaErrors =
+  | InternalServerException
+  | InvalidRequestException
+  | MetadataException
+  | ResourceNotFoundException
+  | SessionAlreadyExistsException
+  | TooManyRequestsException
+  | CommonAwsError;

@@ -532,6 +532,7 @@ export type ActiveDirectoryErrorType =
   | "DOMAIN_NOT_FOUND"
   | "INCOMPATIBLE_DOMAIN_MODE"
   | "WRONG_VPC"
+  | "INVALID_NETWORK_TYPE"
   | "INVALID_DOMAIN_STAGE";
 export type ActiveDirectoryFullyQualifiedName = string;
 
@@ -546,6 +547,7 @@ export interface AdministrativeAction {
   TargetSnapshotValues?: Snapshot;
   TotalTransferBytes?: number;
   RemainingTransferBytes?: number;
+  Message?: string;
 }
 export interface AdministrativeActionFailureDetails {
   Message?: string;
@@ -830,6 +832,7 @@ export interface CreateFileSystemFromBackupRequest {
   FileSystemTypeVersion?: string;
   OpenZFSConfiguration?: CreateFileSystemOpenZFSConfiguration;
   StorageCapacity?: number;
+  NetworkType?: NetworkType;
 }
 export interface CreateFileSystemFromBackupResponse {
   FileSystem?: FileSystem;
@@ -871,6 +874,7 @@ export interface CreateFileSystemOntapConfiguration {
   WeeklyMaintenanceStartTime?: string;
   HAPairs?: number;
   ThroughputCapacityPerHAPair?: number;
+  EndpointIpv6AddressRange?: string;
 }
 export interface CreateFileSystemOpenZFSConfiguration {
   AutomaticBackupRetentionDays?: number;
@@ -884,6 +888,7 @@ export interface CreateFileSystemOpenZFSConfiguration {
   RootVolumeConfiguration?: OpenZFSCreateRootVolumeConfiguration;
   PreferredSubnetId?: string;
   EndpointIpAddressRange?: string;
+  EndpointIpv6AddressRange?: string;
   RouteTableIds?: Array<string>;
   ReadCacheConfiguration?: OpenZFSReadCacheConfiguration;
 }
@@ -901,6 +906,7 @@ export interface CreateFileSystemRequest {
   OntapConfiguration?: CreateFileSystemOntapConfiguration;
   FileSystemTypeVersion?: string;
   OpenZFSConfiguration?: CreateFileSystemOpenZFSConfiguration;
+  NetworkType?: NetworkType;
 }
 export interface CreateFileSystemResponse {
   FileSystem?: FileSystem;
@@ -1005,6 +1011,8 @@ export interface CreateVolumeResponse {
   Volume?: Volume;
 }
 export type CreationTime = Date | string;
+
+export type CustomerSecretsManagerARN = string;
 
 export type DailyTime = string;
 
@@ -1487,12 +1495,14 @@ export interface FileSystem {
   OntapConfiguration?: OntapFileSystemConfiguration;
   FileSystemTypeVersion?: string;
   OpenZFSConfiguration?: OpenZFSFileSystemConfiguration;
+  NetworkType?: NetworkType;
 }
 export type FileSystemAdministratorsGroupName = string;
 
 export interface FileSystemEndpoint {
   DNSName?: string;
   IpAddresses?: Array<string>;
+  Ipv6Addresses?: Array<string>;
 }
 export interface FileSystemEndpoints {
   Intercluster?: FileSystemEndpoint;
@@ -1642,6 +1652,8 @@ export type IpAddress = string;
 
 export type IpAddressRange = string;
 
+export type Ipv6AddressRange = string;
+
 export type JunctionPath = string;
 
 export type KmsKeyId = string;
@@ -1750,6 +1762,7 @@ export type NetBiosAlias = string;
 export type NetworkInterfaceId = string;
 
 export type NetworkInterfaceIds = Array<string>;
+export type NetworkType = "IPV4" | "DUAL";
 export type NextToken = string;
 
 export interface NFSDataRepositoryConfiguration {
@@ -1784,6 +1797,7 @@ export interface OntapFileSystemConfiguration {
   FsxAdminPassword?: string;
   HAPairs?: number;
   ThroughputCapacityPerHAPair?: number;
+  EndpointIpv6AddressRange?: string;
 }
 export interface OntapVolumeConfiguration {
   FlexCacheEndpointType?: FlexCacheEndpointType;
@@ -1839,8 +1853,10 @@ export interface OpenZFSFileSystemConfiguration {
   RootVolumeId?: string;
   PreferredSubnetId?: string;
   EndpointIpAddressRange?: string;
+  EndpointIpv6AddressRange?: string;
   RouteTableIds?: Array<string>;
   EndpointIpAddress?: string;
+  EndpointIpv6Address?: string;
   ReadCacheConfiguration?: OpenZFSReadCacheConfiguration;
 }
 export interface OpenZFSFileSystemIdentity {
@@ -2045,14 +2061,16 @@ export interface SelfManagedActiveDirectoryAttributes {
   FileSystemAdministratorsGroup?: string;
   UserName?: string;
   DnsIps?: Array<string>;
+  DomainJoinServiceAccountSecret?: string;
 }
 export interface SelfManagedActiveDirectoryConfiguration {
   DomainName: string;
   OrganizationalUnitDistinguishedName?: string;
   FileSystemAdministratorsGroup?: string;
-  UserName: string;
-  Password: string;
+  UserName?: string;
+  Password?: string;
   DnsIps: Array<string>;
+  DomainJoinServiceAccountSecret?: string;
 }
 export interface SelfManagedActiveDirectoryConfigurationUpdates {
   UserName?: string;
@@ -2061,6 +2079,7 @@ export interface SelfManagedActiveDirectoryConfigurationUpdates {
   DomainName?: string;
   OrganizationalUnitDistinguishedName?: string;
   FileSystemAdministratorsGroup?: string;
+  DomainJoinServiceAccountSecret?: string;
 }
 export type ServiceLimit =
   | "FILE_SYSTEM_COUNT"
@@ -2156,7 +2175,9 @@ export type Status =
   | "PENDING"
   | "COMPLETED"
   | "UPDATED_OPTIMIZING"
-  | "OPTIMIZING";
+  | "OPTIMIZING"
+  | "PAUSED"
+  | "CANCELLED";
 export type StorageCapacity = number;
 
 export type StorageType = "SSD" | "HDD" | "INTELLIGENT_TIERING";
@@ -2224,6 +2245,7 @@ export interface SvmActiveDirectoryConfiguration {
 export interface SvmEndpoint {
   DNSName?: string;
   IpAddresses?: Array<string>;
+  Ipv6Addresses?: Array<string>;
 }
 export interface SvmEndpoints {
   Iscsi?: SvmEndpoint;
@@ -2329,6 +2351,7 @@ export interface UpdateFileSystemOntapConfiguration {
   RemoveRouteTableIds?: Array<string>;
   ThroughputCapacityPerHAPair?: number;
   HAPairs?: number;
+  EndpointIpv6AddressRange?: string;
 }
 export interface UpdateFileSystemOpenZFSConfiguration {
   AutomaticBackupRetentionDays?: number;
@@ -2341,6 +2364,7 @@ export interface UpdateFileSystemOpenZFSConfiguration {
   AddRouteTableIds?: Array<string>;
   RemoveRouteTableIds?: Array<string>;
   ReadCacheConfiguration?: OpenZFSReadCacheConfiguration;
+  EndpointIpv6AddressRange?: string;
 }
 export interface UpdateFileSystemRequest {
   FileSystemId: string;
@@ -2352,6 +2376,7 @@ export interface UpdateFileSystemRequest {
   OpenZFSConfiguration?: UpdateFileSystemOpenZFSConfiguration;
   StorageType?: StorageType;
   FileSystemTypeVersion?: string;
+  NetworkType?: NetworkType;
 }
 export interface UpdateFileSystemResponse {
   FileSystem?: FileSystem;
@@ -2530,6 +2555,7 @@ export interface WindowsFileSystemConfiguration {
   Aliases?: Array<Alias>;
   AuditLogConfiguration?: WindowsAuditLogConfiguration;
   DiskIopsConfiguration?: DiskIopsConfiguration;
+  PreferredFileServerIpv6?: string;
 }
 export declare namespace AssociateFileSystemAliases {
   export type Input = AssociateFileSystemAliasesRequest;
@@ -3111,3 +3137,46 @@ export declare namespace UpdateVolume {
     | VolumeNotFound
     | CommonAwsError;
 }
+
+export type FSxErrors =
+  | AccessPointAlreadyOwnedByYou
+  | ActiveDirectoryError
+  | BackupBeingCopied
+  | BackupInProgress
+  | BackupNotFound
+  | BackupRestoring
+  | BadRequest
+  | DataRepositoryAssociationNotFound
+  | DataRepositoryTaskEnded
+  | DataRepositoryTaskExecuting
+  | DataRepositoryTaskNotFound
+  | FileCacheNotFound
+  | FileSystemNotFound
+  | IncompatibleParameterError
+  | IncompatibleRegionForMultiAZ
+  | InternalServerError
+  | InvalidAccessPoint
+  | InvalidDataRepositoryType
+  | InvalidDestinationKmsKey
+  | InvalidExportPath
+  | InvalidImportPath
+  | InvalidNetworkSettings
+  | InvalidPerUnitStorageThroughput
+  | InvalidRegion
+  | InvalidRequest
+  | InvalidSourceKmsKey
+  | MissingFileCacheConfiguration
+  | MissingFileSystemConfiguration
+  | MissingVolumeConfiguration
+  | NotServiceResourceError
+  | ResourceDoesNotSupportTagging
+  | ResourceNotFound
+  | S3AccessPointAttachmentNotFound
+  | ServiceLimitExceeded
+  | SnapshotNotFound
+  | SourceBackupUnavailable
+  | StorageVirtualMachineNotFound
+  | TooManyAccessPoints
+  | UnsupportedOperation
+  | VolumeNotFound
+  | CommonAwsError;

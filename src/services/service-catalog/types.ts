@@ -3224,3 +3224,14 @@ export declare namespace UpdateTagOption {
     | TagOptionNotMigratedException
     | CommonAwsError;
 }
+
+export type ServiceCatalogErrors =
+  | DuplicateResourceException
+  | InvalidParametersException
+  | InvalidStateException
+  | LimitExceededException
+  | OperationNotSupportedException
+  | ResourceInUseException
+  | ResourceNotFoundException
+  | TagOptionNotMigratedException
+  | CommonAwsError;

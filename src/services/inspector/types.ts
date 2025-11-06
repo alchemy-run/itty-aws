@@ -1648,3 +1648,17 @@ export declare namespace UpdateAssessmentTarget {
     | ServiceTemporarilyUnavailableException
     | CommonAwsError;
 }
+
+export type InspectorErrors =
+  | AccessDeniedException
+  | AgentsAlreadyRunningAssessmentException
+  | AssessmentRunInProgressException
+  | InternalException
+  | InvalidCrossAccountRoleException
+  | InvalidInputException
+  | LimitExceededException
+  | NoSuchEntityException
+  | PreviewGenerationInProgressException
+  | ServiceTemporarilyUnavailableException
+  | UnsupportedFeatureException
+  | CommonAwsError;

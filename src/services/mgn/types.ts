@@ -2650,3 +2650,14 @@ export declare namespace UpdateWave {
     | UninitializedAccountException
     | CommonAwsError;
 }
+
+export type mgnErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | UninitializedAccountException
+  | ValidationException
+  | CommonAwsError;

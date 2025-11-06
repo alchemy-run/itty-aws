@@ -1090,3 +1090,25 @@ export declare namespace UpdateCertificateAuthority {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+
+export type ACMPCAErrors =
+  | CertificateMismatchException
+  | ConcurrentModificationException
+  | InvalidArgsException
+  | InvalidArnException
+  | InvalidNextTokenException
+  | InvalidPolicyException
+  | InvalidRequestException
+  | InvalidStateException
+  | InvalidTagException
+  | LimitExceededException
+  | LockoutPreventedException
+  | MalformedCSRException
+  | MalformedCertificateException
+  | PermissionAlreadyExistsException
+  | RequestAlreadyProcessedException
+  | RequestFailedException
+  | RequestInProgressException
+  | ResourceNotFoundException
+  | TooManyTagsException
+  | CommonAwsError;

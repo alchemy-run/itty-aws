@@ -427,6 +427,17 @@ export declare class ConnectCases extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
+  searchAllRelatedItems(
+    input: SearchAllRelatedItemsRequest,
+  ): Effect.Effect<
+    SearchAllRelatedItemsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
   searchCases(
     input: SearchCasesRequest,
   ): Effect.Effect<
@@ -468,6 +479,7 @@ export declare class ConnectCases extends AWSServiceClient {
     | ConflictException
     | InternalServerException
     | ResourceNotFoundException
+    | ServiceQuotaExceededException
     | ThrottlingException
     | ValidationException
     | CommonAwsError
@@ -505,6 +517,7 @@ export declare class ConnectCases extends AWSServiceClient {
     | ConflictException
     | InternalServerException
     | ResourceNotFoundException
+    | ServiceQuotaExceededException
     | ThrottlingException
     | ValidationException
     | CommonAwsError
@@ -576,7 +589,9 @@ export interface BatchGetCaseRuleRequest {
 export interface BatchGetCaseRuleResponse {
   caseRules: Array<GetCaseRuleResponse>;
   errors: Array<CaseRuleError>;
+  unprocessedCaseRules?: Array<string>;
 }
+export type BatchGetCaseRuleUnprocessedList = Array<string>;
 export type BatchGetFieldErrorList = Array<FieldError>;
 export type BatchGetFieldIdentifierList = Array<FieldIdentifier>;
 export type BatchGetFieldList = Array<GetFieldResponse>;
@@ -636,9 +651,14 @@ export type CaseRuleDescription = string;
 
 interface _CaseRuleDetails {
   required?: RequiredCaseRule;
+  fieldOptions?: FieldOptionsCaseRule;
+  hidden?: HiddenCaseRule;
 }
 
-export type CaseRuleDetails = _CaseRuleDetails & { required: RequiredCaseRule };
+export type CaseRuleDetails =
+  | (_CaseRuleDetails & { required: RequiredCaseRule })
+  | (_CaseRuleDetails & { fieldOptions: FieldOptionsCaseRule })
+  | (_CaseRuleDetails & { hidden: HiddenCaseRule });
 export interface CaseRuleError {
   id: string;
   errorCode: string;
@@ -682,6 +702,15 @@ export declare class ConflictException extends EffectData.TaggedError(
 )<{
   readonly message: string;
 }> {}
+export interface ConnectCaseContent {
+  caseId: string;
+}
+export interface ConnectCaseFilter {
+  caseId?: string;
+}
+export interface ConnectCaseInputContent {
+  caseId: string;
+}
 export type ConnectedToSystemTime = Date | string;
 
 export interface Contact {
@@ -772,8 +801,30 @@ export interface CreateTemplateResponse {
   templateId: string;
   templateArn: string;
 }
+export interface CustomContent {
+  fields: Array<FieldValue>;
+}
 export type CustomEntity = string;
 
+interface _CustomFieldsFilter {
+  field?: FieldFilter;
+  not?: CustomFieldsFilter;
+  andAll?: Array<CustomFieldsFilter>;
+  orAll?: Array<CustomFieldsFilter>;
+}
+
+export type CustomFieldsFilter =
+  | (_CustomFieldsFilter & { field: FieldFilter })
+  | (_CustomFieldsFilter & { not: CustomFieldsFilter })
+  | (_CustomFieldsFilter & { andAll: Array<CustomFieldsFilter> })
+  | (_CustomFieldsFilter & { orAll: Array<CustomFieldsFilter> });
+export type CustomFieldsFilterList = Array<CustomFieldsFilter>;
+export interface CustomFilter {
+  fields?: CustomFieldsFilter;
+}
+export interface CustomInputContent {
+  fields: Array<FieldValue>;
+}
 export interface DeleteCaseRequest {
   domainId: string;
   caseId: string;
@@ -891,6 +942,11 @@ export interface FieldOptionError {
 export type FieldOptionErrorList = Array<FieldOptionError>;
 export type FieldOptionName = string;
 
+export interface FieldOptionsCaseRule {
+  parentFieldId?: string;
+  childFieldId?: string;
+  parentChildFieldOptionsMappings: Array<ParentChildFieldOptionsMapping>;
+}
 export type FieldOptionsList = Array<FieldOption>;
 export type FieldOptionValue = string;
 
@@ -1025,6 +1081,10 @@ export interface GetTemplateResponse {
   lastModifiedTime?: Date | string;
   rules?: Array<TemplateRule>;
 }
+export interface HiddenCaseRule {
+  defaultValue: boolean;
+  conditions: Array<BooleanCondition>;
+}
 export type IamPrincipalArn = string;
 
 export declare class InternalServerException extends EffectData.TaggedError(
@@ -1153,6 +1213,15 @@ export type OperandTwo =
   | (_OperandTwo & { emptyValue: EmptyOperandValue });
 export type Order = string;
 
+export interface ParentChildFieldOptionsMapping {
+  parentFieldOptionValue: string;
+  childFieldOptionValues: Array<string>;
+}
+export type ParentChildFieldOptionsMappingList =
+  Array<ParentChildFieldOptionsMapping>;
+export type ParentChildFieldOptionValue = string;
+
+export type ParentChildFieldOptionValueList = Array<string>;
 export interface PutCaseEventConfigurationRequest {
   domainId: string;
   eventBridge: EventBridgeConfiguration;
@@ -1165,13 +1234,17 @@ interface _RelatedItemContent {
   comment?: CommentContent;
   file?: FileContent;
   sla?: SlaContent;
+  connectCase?: ConnectCaseContent;
+  custom?: CustomContent;
 }
 
 export type RelatedItemContent =
   | (_RelatedItemContent & { contact: ContactContent })
   | (_RelatedItemContent & { comment: CommentContent })
   | (_RelatedItemContent & { file: FileContent })
-  | (_RelatedItemContent & { sla: SlaContent });
+  | (_RelatedItemContent & { sla: SlaContent })
+  | (_RelatedItemContent & { connectCase: ConnectCaseContent })
+  | (_RelatedItemContent & { custom: CustomContent });
 export interface RelatedItemEventIncludedData {
   includeContent: boolean;
 }
@@ -1183,13 +1256,17 @@ interface _RelatedItemInputContent {
   comment?: CommentContent;
   file?: FileContent;
   sla?: SlaInputContent;
+  connectCase?: ConnectCaseInputContent;
+  custom?: CustomInputContent;
 }
 
 export type RelatedItemInputContent =
   | (_RelatedItemInputContent & { contact: Contact })
   | (_RelatedItemInputContent & { comment: CommentContent })
   | (_RelatedItemInputContent & { file: FileContent })
-  | (_RelatedItemInputContent & { sla: SlaInputContent });
+  | (_RelatedItemInputContent & { sla: SlaInputContent })
+  | (_RelatedItemInputContent & { connectCase: ConnectCaseInputContent })
+  | (_RelatedItemInputContent & { custom: CustomInputContent });
 export type RelatedItemType = string;
 
 interface _RelatedItemTypeFilter {
@@ -1197,13 +1274,17 @@ interface _RelatedItemTypeFilter {
   comment?: CommentFilter;
   file?: FileFilter;
   sla?: SlaFilter;
+  connectCase?: ConnectCaseFilter;
+  custom?: CustomFilter;
 }
 
 export type RelatedItemTypeFilter =
   | (_RelatedItemTypeFilter & { contact: ContactFilter })
   | (_RelatedItemTypeFilter & { comment: CommentFilter })
   | (_RelatedItemTypeFilter & { file: FileFilter })
-  | (_RelatedItemTypeFilter & { sla: SlaFilter });
+  | (_RelatedItemTypeFilter & { sla: SlaFilter })
+  | (_RelatedItemTypeFilter & { connectCase: ConnectCaseFilter })
+  | (_RelatedItemTypeFilter & { custom: CustomFilter });
 export interface RequiredCaseRule {
   defaultValue: boolean;
   conditions: Array<BooleanCondition>;
@@ -1220,6 +1301,35 @@ export declare class ResourceNotFoundException extends EffectData.TaggedError(
   readonly resourceType: string;
 }> {}
 export type RuleType = string;
+
+export interface SearchAllRelatedItemsRequest {
+  domainId: string;
+  maxResults?: number;
+  nextToken?: string;
+  filters?: Array<RelatedItemTypeFilter>;
+  sorts?: Array<SearchAllRelatedItemsSort>;
+}
+export interface SearchAllRelatedItemsResponse {
+  nextToken?: string;
+  relatedItems: Array<SearchAllRelatedItemsResponseItem>;
+}
+export interface SearchAllRelatedItemsResponseItem {
+  relatedItemId: string;
+  caseId: string;
+  type: string;
+  associationTime: Date | string;
+  content: RelatedItemContent;
+  performedBy?: UserUnion;
+  tags?: Record<string, string>;
+}
+export type SearchAllRelatedItemsResponseItemList =
+  Array<SearchAllRelatedItemsResponseItem>;
+export interface SearchAllRelatedItemsSort {
+  sortProperty: string;
+  sortOrder: string;
+}
+export type SearchAllRelatedItemsSortList = Array<SearchAllRelatedItemsSort>;
+export type SearchAllRelatedItemsSortProperty = string;
 
 export interface SearchCasesRequest {
   domainId: string;
@@ -1340,7 +1450,7 @@ export type TemplateName = string;
 
 export interface TemplateRule {
   caseRuleId: string;
-  fieldId: string;
+  fieldId?: string;
 }
 export type TemplateStatus = string;
 
@@ -1844,6 +1954,18 @@ export declare namespace PutCaseEventConfiguration {
     | CommonAwsError;
 }
 
+export declare namespace SearchAllRelatedItems {
+  export type Input = SearchAllRelatedItemsRequest;
+  export type Output = SearchAllRelatedItemsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
 export declare namespace SearchCases {
   export type Input = SearchCasesRequest;
   export type Output = SearchCasesResponse;
@@ -1888,6 +2010,7 @@ export declare namespace UpdateCaseRule {
     | ConflictException
     | InternalServerException
     | ResourceNotFoundException
+    | ServiceQuotaExceededException
     | ThrottlingException
     | ValidationException
     | CommonAwsError;
@@ -1928,7 +2051,18 @@ export declare namespace UpdateTemplate {
     | ConflictException
     | InternalServerException
     | ResourceNotFoundException
+    | ServiceQuotaExceededException
     | ThrottlingException
     | ValidationException
     | CommonAwsError;
 }
+
+export type ConnectCasesErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

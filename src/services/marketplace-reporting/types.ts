@@ -94,3 +94,10 @@ export declare namespace GetBuyerDashboard {
     | UnauthorizedException
     | CommonAwsError;
 }
+
+export type MarketplaceReportingErrors =
+  | AccessDeniedException
+  | BadRequestException
+  | InternalServerException
+  | UnauthorizedException
+  | CommonAwsError;

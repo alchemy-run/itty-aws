@@ -759,6 +759,7 @@ export declare class VPCLattice extends AWSServiceClient {
   ): Effect.Effect<
     UpdateResourceGatewayResponse,
     | AccessDeniedException
+    | ConflictException
     | InternalServerException
     | ResourceNotFoundException
     | ThrottlingException
@@ -955,10 +956,11 @@ export interface CreateResourceConfigurationResponse {
 export interface CreateResourceGatewayRequest {
   clientToken?: string;
   name: string;
-  vpcIdentifier: string;
-  subnetIds: Array<string>;
+  vpcIdentifier?: string;
+  subnetIds?: Array<string>;
   securityGroupIds?: Array<string>;
   ipAddressType?: string;
+  ipv4AddressesPerEni?: number;
   tags?: Record<string, string>;
 }
 export interface CreateResourceGatewayResponse {
@@ -970,6 +972,7 @@ export interface CreateResourceGatewayResponse {
   subnetIds?: Array<string>;
   securityGroupIds?: Array<string>;
   ipAddressType?: string;
+  ipv4AddressesPerEni?: number;
 }
 export interface CreateRuleRequest {
   serviceIdentifier: string;
@@ -1266,6 +1269,7 @@ export interface GetResourceGatewayResponse {
   subnetIds?: Array<string>;
   securityGroupIds?: Array<string>;
   ipAddressType?: string;
+  ipv4AddressesPerEni?: number;
   createdAt?: Date | string;
   lastUpdatedAt?: Date | string;
 }
@@ -1470,6 +1474,8 @@ export type IpAddressType = string;
 export interface IpResource {
   ipAddress?: string;
 }
+export type Ipv4AddressesPerEni = number;
+
 export type LambdaEventStructureVersion = string;
 
 export interface ListAccessLogSubscriptionsRequest {
@@ -1555,6 +1561,7 @@ export interface ListServiceNetworkResourceAssociationsRequest {
   resourceConfigurationIdentifier?: string;
   maxResults?: number;
   nextToken?: string;
+  includeChildren?: boolean;
 }
 export interface ListServiceNetworkResourceAssociationsResponse {
   items: Array<ServiceNetworkResourceAssociationSummary>;
@@ -1767,6 +1774,7 @@ export interface ResourceGatewaySummary {
   subnetIds?: Array<string>;
   securityGroupIds?: Array<string>;
   ipAddressType?: string;
+  ipv4AddressesPerEni?: number;
   createdAt?: Date | string;
   lastUpdatedAt?: Date | string;
 }
@@ -3018,6 +3026,7 @@ export declare namespace UpdateResourceGateway {
   export type Output = UpdateResourceGatewayResponse;
   export type Error =
     | AccessDeniedException
+    | ConflictException
     | InternalServerException
     | ResourceNotFoundException
     | ThrottlingException
@@ -3092,3 +3101,13 @@ export declare namespace UpdateTargetGroup {
     | ValidationException
     | CommonAwsError;
 }
+
+export type VPCLatticeErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

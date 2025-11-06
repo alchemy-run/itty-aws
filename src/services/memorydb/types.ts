@@ -238,6 +238,26 @@ export declare class MemoryDB extends AWSServiceClient {
     | MultiRegionClusterNotFoundFault
     | CommonAwsError
   >;
+  describeMultiRegionParameterGroups(
+    input: DescribeMultiRegionParameterGroupsRequest,
+  ): Effect.Effect<
+    DescribeMultiRegionParameterGroupsResponse,
+    | InvalidParameterCombinationException
+    | InvalidParameterValueException
+    | MultiRegionParameterGroupNotFoundFault
+    | ServiceLinkedRoleNotFoundFault
+    | CommonAwsError
+  >;
+  describeMultiRegionParameters(
+    input: DescribeMultiRegionParametersRequest,
+  ): Effect.Effect<
+    DescribeMultiRegionParametersResponse,
+    | InvalidParameterCombinationException
+    | InvalidParameterValueException
+    | MultiRegionParameterGroupNotFoundFault
+    | ServiceLinkedRoleNotFoundFault
+    | CommonAwsError
+  >;
   describeParameterGroups(
     input: DescribeParameterGroupsRequest,
   ): Effect.Effect<
@@ -849,6 +869,25 @@ export interface DescribeMultiRegionClustersResponse {
   NextToken?: string;
   MultiRegionClusters?: Array<MultiRegionCluster>;
 }
+export interface DescribeMultiRegionParameterGroupsRequest {
+  MultiRegionParameterGroupName?: string;
+  MaxResults?: number;
+  NextToken?: string;
+}
+export interface DescribeMultiRegionParameterGroupsResponse {
+  NextToken?: string;
+  MultiRegionParameterGroups?: Array<MultiRegionParameterGroup>;
+}
+export interface DescribeMultiRegionParametersRequest {
+  MultiRegionParameterGroupName: string;
+  Source?: string;
+  MaxResults?: number;
+  NextToken?: string;
+}
+export interface DescribeMultiRegionParametersResponse {
+  NextToken?: string;
+  MultiRegionParameters?: Array<MultiRegionParameter>;
+}
 export interface DescribeParameterGroupsRequest {
   ParameterGroupName?: string;
   MaxResults?: number;
@@ -1106,11 +1145,28 @@ export declare class MultiRegionClusterNotFoundFault extends EffectData.TaggedEr
 )<{
   readonly message?: string;
 }> {}
+export interface MultiRegionParameter {
+  Name?: string;
+  Value?: string;
+  Description?: string;
+  Source?: string;
+  DataType?: string;
+  AllowedValues?: string;
+  MinimumEngineVersion?: string;
+}
+export interface MultiRegionParameterGroup {
+  Name?: string;
+  Family?: string;
+  Description?: string;
+  ARN?: string;
+}
+export type MultiRegionParameterGroupList = Array<MultiRegionParameterGroup>;
 export declare class MultiRegionParameterGroupNotFoundFault extends EffectData.TaggedError(
   "MultiRegionParameterGroupNotFoundFault",
 )<{
   readonly message?: string;
 }> {}
+export type MultiRegionParametersList = Array<MultiRegionParameter>;
 export type NetworkType = "ipv4" | "ipv6" | "dual_stack";
 export type NetworkTypeList = Array<NetworkType>;
 export interface Node {
@@ -1814,6 +1870,28 @@ export declare namespace DescribeMultiRegionClusters {
     | CommonAwsError;
 }
 
+export declare namespace DescribeMultiRegionParameterGroups {
+  export type Input = DescribeMultiRegionParameterGroupsRequest;
+  export type Output = DescribeMultiRegionParameterGroupsResponse;
+  export type Error =
+    | InvalidParameterCombinationException
+    | InvalidParameterValueException
+    | MultiRegionParameterGroupNotFoundFault
+    | ServiceLinkedRoleNotFoundFault
+    | CommonAwsError;
+}
+
+export declare namespace DescribeMultiRegionParameters {
+  export type Input = DescribeMultiRegionParametersRequest;
+  export type Output = DescribeMultiRegionParametersResponse;
+  export type Error =
+    | InvalidParameterCombinationException
+    | InvalidParameterValueException
+    | MultiRegionParameterGroupNotFoundFault
+    | ServiceLinkedRoleNotFoundFault
+    | CommonAwsError;
+}
+
 export declare namespace DescribeParameterGroups {
   export type Input = DescribeParameterGroupsRequest;
   export type Output = DescribeParameterGroupsResponse;
@@ -2100,3 +2178,63 @@ export declare namespace UpdateUser {
     | UserNotFoundFault
     | CommonAwsError;
 }
+
+export type MemoryDBErrors =
+  | ACLAlreadyExistsFault
+  | ACLNotFoundFault
+  | ACLQuotaExceededFault
+  | APICallRateForCustomerExceededFault
+  | ClusterAlreadyExistsFault
+  | ClusterNotFoundFault
+  | ClusterQuotaForCustomerExceededFault
+  | DefaultUserRequired
+  | DuplicateUserNameFault
+  | InsufficientClusterCapacityFault
+  | InvalidACLStateFault
+  | InvalidARNFault
+  | InvalidClusterStateFault
+  | InvalidCredentialsException
+  | InvalidKMSKeyFault
+  | InvalidMultiRegionClusterStateFault
+  | InvalidNodeStateFault
+  | InvalidParameterCombinationException
+  | InvalidParameterGroupStateFault
+  | InvalidParameterValueException
+  | InvalidSnapshotStateFault
+  | InvalidSubnet
+  | InvalidUserStateFault
+  | InvalidVPCNetworkStateFault
+  | MultiRegionClusterAlreadyExistsFault
+  | MultiRegionClusterNotFoundFault
+  | MultiRegionParameterGroupNotFoundFault
+  | NoOperationFault
+  | NodeQuotaForClusterExceededFault
+  | NodeQuotaForCustomerExceededFault
+  | ParameterGroupAlreadyExistsFault
+  | ParameterGroupNotFoundFault
+  | ParameterGroupQuotaExceededFault
+  | ReservedNodeAlreadyExistsFault
+  | ReservedNodeNotFoundFault
+  | ReservedNodeQuotaExceededFault
+  | ReservedNodesOfferingNotFoundFault
+  | ServiceLinkedRoleNotFoundFault
+  | ServiceUpdateNotFoundFault
+  | ShardNotFoundFault
+  | ShardsPerClusterQuotaExceededFault
+  | SnapshotAlreadyExistsFault
+  | SnapshotNotFoundFault
+  | SnapshotQuotaExceededFault
+  | SubnetGroupAlreadyExistsFault
+  | SubnetGroupInUseFault
+  | SubnetGroupNotFoundFault
+  | SubnetGroupQuotaExceededFault
+  | SubnetInUse
+  | SubnetNotAllowedFault
+  | SubnetQuotaExceededFault
+  | TagNotFoundFault
+  | TagQuotaPerResourceExceeded
+  | TestFailoverNotAvailableFault
+  | UserAlreadyExistsFault
+  | UserNotFoundFault
+  | UserQuotaExceededFault
+  | CommonAwsError;

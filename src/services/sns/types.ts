@@ -1623,3 +1623,40 @@ export declare namespace VerifySMSSandboxPhoneNumber {
     | VerificationException
     | CommonAwsError;
 }
+
+export type SNSErrors =
+  | AuthorizationErrorException
+  | BatchEntryIdsNotDistinctException
+  | BatchRequestTooLongException
+  | ConcurrentAccessException
+  | EmptyBatchRequestException
+  | EndpointDisabledException
+  | FilterPolicyLimitExceededException
+  | InternalErrorException
+  | InvalidBatchEntryIdException
+  | InvalidParameterException
+  | InvalidParameterValueException
+  | InvalidSecurityException
+  | InvalidStateException
+  | KMSAccessDeniedException
+  | KMSDisabledException
+  | KMSInvalidStateException
+  | KMSNotFoundException
+  | KMSOptInRequired
+  | KMSThrottlingException
+  | NotFoundException
+  | OptedOutException
+  | PlatformApplicationDisabledException
+  | ReplayLimitExceededException
+  | ResourceNotFoundException
+  | StaleTagException
+  | SubscriptionLimitExceededException
+  | TagLimitExceededException
+  | TagPolicyException
+  | ThrottledException
+  | TooManyEntriesInBatchRequestException
+  | TopicLimitExceededException
+  | UserErrorException
+  | ValidationException
+  | VerificationException
+  | CommonAwsError;

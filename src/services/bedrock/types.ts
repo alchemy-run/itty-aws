@@ -48,6 +48,58 @@ export declare class Bedrock extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
+  cancelAutomatedReasoningPolicyBuildWorkflow(
+    input: CancelAutomatedReasoningPolicyBuildWorkflowRequest,
+  ): Effect.Effect<
+    CancelAutomatedReasoningPolicyBuildWorkflowResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createAutomatedReasoningPolicy(
+    input: CreateAutomatedReasoningPolicyRequest,
+  ): Effect.Effect<
+    CreateAutomatedReasoningPolicyResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | TooManyTagsException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createAutomatedReasoningPolicyTestCase(
+    input: CreateAutomatedReasoningPolicyTestCaseRequest,
+  ): Effect.Effect<
+    CreateAutomatedReasoningPolicyTestCaseResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createAutomatedReasoningPolicyVersion(
+    input: CreateAutomatedReasoningPolicyVersionRequest,
+  ): Effect.Effect<
+    CreateAutomatedReasoningPolicyVersionResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | TooManyTagsException
+    | ValidationException
+    | CommonAwsError
+  >;
   createCustomModel(
     input: CreateCustomModelRequest,
   ): Effect.Effect<
@@ -232,6 +284,45 @@ export declare class Bedrock extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
+  deleteAutomatedReasoningPolicy(
+    input: DeleteAutomatedReasoningPolicyRequest,
+  ): Effect.Effect<
+    DeleteAutomatedReasoningPolicyResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceInUseException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteAutomatedReasoningPolicyBuildWorkflow(
+    input: DeleteAutomatedReasoningPolicyBuildWorkflowRequest,
+  ): Effect.Effect<
+    DeleteAutomatedReasoningPolicyBuildWorkflowResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceInUseException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteAutomatedReasoningPolicyTestCase(
+    input: DeleteAutomatedReasoningPolicyTestCaseRequest,
+  ): Effect.Effect<
+    DeleteAutomatedReasoningPolicyTestCaseResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceInUseException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
   deleteCustomModel(
     input: DeleteCustomModelRequest,
   ): Effect.Effect<
@@ -355,6 +446,94 @@ export declare class Bedrock extends AWSServiceClient {
     | InternalServerException
     | ResourceNotFoundException
     | ServiceUnavailableException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  exportAutomatedReasoningPolicyVersion(
+    input: ExportAutomatedReasoningPolicyVersionRequest,
+  ): Effect.Effect<
+    ExportAutomatedReasoningPolicyVersionResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getAutomatedReasoningPolicy(
+    input: GetAutomatedReasoningPolicyRequest,
+  ): Effect.Effect<
+    GetAutomatedReasoningPolicyResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getAutomatedReasoningPolicyAnnotations(
+    input: GetAutomatedReasoningPolicyAnnotationsRequest,
+  ): Effect.Effect<
+    GetAutomatedReasoningPolicyAnnotationsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getAutomatedReasoningPolicyBuildWorkflow(
+    input: GetAutomatedReasoningPolicyBuildWorkflowRequest,
+  ): Effect.Effect<
+    GetAutomatedReasoningPolicyBuildWorkflowResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getAutomatedReasoningPolicyBuildWorkflowResultAssets(
+    input: GetAutomatedReasoningPolicyBuildWorkflowResultAssetsRequest,
+  ): Effect.Effect<
+    GetAutomatedReasoningPolicyBuildWorkflowResultAssetsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getAutomatedReasoningPolicyNextScenario(
+    input: GetAutomatedReasoningPolicyNextScenarioRequest,
+  ): Effect.Effect<
+    GetAutomatedReasoningPolicyNextScenarioResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getAutomatedReasoningPolicyTestCase(
+    input: GetAutomatedReasoningPolicyTestCaseRequest,
+  ): Effect.Effect<
+    GetAutomatedReasoningPolicyTestCaseResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getAutomatedReasoningPolicyTestResult(
+    input: GetAutomatedReasoningPolicyTestResultRequest,
+  ): Effect.Effect<
+    GetAutomatedReasoningPolicyTestResultResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
     | ThrottlingException
     | ValidationException
     | CommonAwsError
@@ -539,6 +718,51 @@ export declare class Bedrock extends AWSServiceClient {
     GetUseCaseForModelAccessResponse,
     | InternalServerException
     | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listAutomatedReasoningPolicies(
+    input: ListAutomatedReasoningPoliciesRequest,
+  ): Effect.Effect<
+    ListAutomatedReasoningPoliciesResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listAutomatedReasoningPolicyBuildWorkflows(
+    input: ListAutomatedReasoningPolicyBuildWorkflowsRequest,
+  ): Effect.Effect<
+    ListAutomatedReasoningPolicyBuildWorkflowsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listAutomatedReasoningPolicyTestCases(
+    input: ListAutomatedReasoningPolicyTestCasesRequest,
+  ): Effect.Effect<
+    ListAutomatedReasoningPolicyTestCasesResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listAutomatedReasoningPolicyTestResults(
+    input: ListAutomatedReasoningPolicyTestResultsRequest,
+  ): Effect.Effect<
+    ListAutomatedReasoningPolicyTestResultsResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
     | ThrottlingException
     | ValidationException
     | CommonAwsError
@@ -740,6 +964,32 @@ export declare class Bedrock extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
+  startAutomatedReasoningPolicyBuildWorkflow(
+    input: StartAutomatedReasoningPolicyBuildWorkflowRequest,
+  ): Effect.Effect<
+    StartAutomatedReasoningPolicyBuildWorkflowResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceInUseException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  startAutomatedReasoningPolicyTestWorkflow(
+    input: StartAutomatedReasoningPolicyTestWorkflowRequest,
+  ): Effect.Effect<
+    StartAutomatedReasoningPolicyTestWorkflowResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceInUseException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
   stopEvaluationJob(
     input: StopEvaluationJobRequest,
   ): Effect.Effect<
@@ -794,6 +1044,44 @@ export declare class Bedrock extends AWSServiceClient {
     UntagResourceResponse,
     | AccessDeniedException
     | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateAutomatedReasoningPolicy(
+    input: UpdateAutomatedReasoningPolicyRequest,
+  ): Effect.Effect<
+    UpdateAutomatedReasoningPolicyResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | TooManyTagsException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateAutomatedReasoningPolicyAnnotations(
+    input: UpdateAutomatedReasoningPolicyAnnotationsRequest,
+  ): Effect.Effect<
+    UpdateAutomatedReasoningPolicyAnnotationsResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateAutomatedReasoningPolicyTestCase(
+    input: UpdateAutomatedReasoningPolicyTestCaseRequest,
+  ): Effect.Effect<
+    UpdateAutomatedReasoningPolicyTestCaseResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceInUseException
     | ResourceNotFoundException
     | ThrottlingException
     | ValidationException
@@ -887,6 +1175,627 @@ export type AutomatedEvaluationCustomMetricSource =
   _AutomatedEvaluationCustomMetricSource & {
     customMetricDefinition: CustomMetricDefinition;
   };
+export type AutomatedReasoningCheckDifferenceScenarioList =
+  Array<AutomatedReasoningCheckScenario>;
+interface _AutomatedReasoningCheckFinding {
+  valid?: AutomatedReasoningCheckValidFinding;
+  invalid?: AutomatedReasoningCheckInvalidFinding;
+  satisfiable?: AutomatedReasoningCheckSatisfiableFinding;
+  impossible?: AutomatedReasoningCheckImpossibleFinding;
+  translationAmbiguous?: AutomatedReasoningCheckTranslationAmbiguousFinding;
+  tooComplex?: AutomatedReasoningCheckTooComplexFinding;
+  noTranslations?: AutomatedReasoningCheckNoTranslationsFinding;
+}
+
+export type AutomatedReasoningCheckFinding =
+  | (_AutomatedReasoningCheckFinding & {
+      valid: AutomatedReasoningCheckValidFinding;
+    })
+  | (_AutomatedReasoningCheckFinding & {
+      invalid: AutomatedReasoningCheckInvalidFinding;
+    })
+  | (_AutomatedReasoningCheckFinding & {
+      satisfiable: AutomatedReasoningCheckSatisfiableFinding;
+    })
+  | (_AutomatedReasoningCheckFinding & {
+      impossible: AutomatedReasoningCheckImpossibleFinding;
+    })
+  | (_AutomatedReasoningCheckFinding & {
+      translationAmbiguous: AutomatedReasoningCheckTranslationAmbiguousFinding;
+    })
+  | (_AutomatedReasoningCheckFinding & {
+      tooComplex: AutomatedReasoningCheckTooComplexFinding;
+    })
+  | (_AutomatedReasoningCheckFinding & {
+      noTranslations: AutomatedReasoningCheckNoTranslationsFinding;
+    });
+export type AutomatedReasoningCheckFindingList =
+  Array<AutomatedReasoningCheckFinding>;
+export interface AutomatedReasoningCheckImpossibleFinding {
+  translation?: AutomatedReasoningCheckTranslation;
+  contradictingRules?: Array<AutomatedReasoningCheckRule>;
+  logicWarning?: AutomatedReasoningCheckLogicWarning;
+}
+export interface AutomatedReasoningCheckInputTextReference {
+  text?: string;
+}
+export type AutomatedReasoningCheckInputTextReferenceList =
+  Array<AutomatedReasoningCheckInputTextReference>;
+export interface AutomatedReasoningCheckInvalidFinding {
+  translation?: AutomatedReasoningCheckTranslation;
+  contradictingRules?: Array<AutomatedReasoningCheckRule>;
+  logicWarning?: AutomatedReasoningCheckLogicWarning;
+}
+export interface AutomatedReasoningCheckLogicWarning {
+  type?: AutomatedReasoningCheckLogicWarningType;
+  premises?: Array<AutomatedReasoningLogicStatement>;
+  claims?: Array<AutomatedReasoningLogicStatement>;
+}
+export type AutomatedReasoningCheckLogicWarningType =
+  | "ALWAYS_TRUE"
+  | "ALWAYS_FALSE";
+export interface AutomatedReasoningCheckNoTranslationsFinding {}
+export type AutomatedReasoningCheckResult =
+  | "VALID"
+  | "INVALID"
+  | "SATISFIABLE"
+  | "IMPOSSIBLE"
+  | "TRANSLATION_AMBIGUOUS"
+  | "TOO_COMPLEX"
+  | "NO_TRANSLATION";
+export interface AutomatedReasoningCheckRule {
+  id?: string;
+  policyVersionArn?: string;
+}
+export type AutomatedReasoningCheckRuleList =
+  Array<AutomatedReasoningCheckRule>;
+export interface AutomatedReasoningCheckSatisfiableFinding {
+  translation?: AutomatedReasoningCheckTranslation;
+  claimsTrueScenario?: AutomatedReasoningCheckScenario;
+  claimsFalseScenario?: AutomatedReasoningCheckScenario;
+  logicWarning?: AutomatedReasoningCheckLogicWarning;
+}
+export interface AutomatedReasoningCheckScenario {
+  statements?: Array<AutomatedReasoningLogicStatement>;
+}
+export interface AutomatedReasoningCheckTooComplexFinding {}
+export interface AutomatedReasoningCheckTranslation {
+  premises?: Array<AutomatedReasoningLogicStatement>;
+  claims: Array<AutomatedReasoningLogicStatement>;
+  untranslatedPremises?: Array<AutomatedReasoningCheckInputTextReference>;
+  untranslatedClaims?: Array<AutomatedReasoningCheckInputTextReference>;
+  confidence: number;
+}
+export interface AutomatedReasoningCheckTranslationAmbiguousFinding {
+  options?: Array<AutomatedReasoningCheckTranslationOption>;
+  differenceScenarios?: Array<AutomatedReasoningCheckScenario>;
+}
+export type AutomatedReasoningCheckTranslationConfidence = number;
+
+export type AutomatedReasoningCheckTranslationList =
+  Array<AutomatedReasoningCheckTranslation>;
+export interface AutomatedReasoningCheckTranslationOption {
+  translations?: Array<AutomatedReasoningCheckTranslation>;
+}
+export type AutomatedReasoningCheckTranslationOptionList =
+  Array<AutomatedReasoningCheckTranslationOption>;
+export interface AutomatedReasoningCheckValidFinding {
+  translation?: AutomatedReasoningCheckTranslation;
+  claimsTrueScenario?: AutomatedReasoningCheckScenario;
+  supportingRules?: Array<AutomatedReasoningCheckRule>;
+  logicWarning?: AutomatedReasoningCheckLogicWarning;
+}
+export type AutomatedReasoningConfidenceFilterThreshold = number;
+
+export interface AutomatedReasoningLogicStatement {
+  logic: string;
+  naturalLanguage?: string;
+}
+export type AutomatedReasoningLogicStatementContent = string;
+
+export type AutomatedReasoningLogicStatementList =
+  Array<AutomatedReasoningLogicStatement>;
+export type AutomatedReasoningNaturalLanguageStatementContent = string;
+
+export interface AutomatedReasoningPolicyAddRuleAnnotation {
+  expression: string;
+}
+export interface AutomatedReasoningPolicyAddRuleFromNaturalLanguageAnnotation {
+  naturalLanguage: string;
+}
+export interface AutomatedReasoningPolicyAddRuleMutation {
+  rule: AutomatedReasoningPolicyDefinitionRule;
+}
+export interface AutomatedReasoningPolicyAddTypeAnnotation {
+  name: string;
+  description: string;
+  values: Array<AutomatedReasoningPolicyDefinitionTypeValue>;
+}
+export interface AutomatedReasoningPolicyAddTypeMutation {
+  type: AutomatedReasoningPolicyDefinitionType;
+}
+export interface AutomatedReasoningPolicyAddTypeValue {
+  value: string;
+  description?: string;
+}
+export interface AutomatedReasoningPolicyAddVariableAnnotation {
+  name: string;
+  type: string;
+  description: string;
+}
+export interface AutomatedReasoningPolicyAddVariableMutation {
+  variable: AutomatedReasoningPolicyDefinitionVariable;
+}
+interface _AutomatedReasoningPolicyAnnotation {
+  addType?: AutomatedReasoningPolicyAddTypeAnnotation;
+  updateType?: AutomatedReasoningPolicyUpdateTypeAnnotation;
+  deleteType?: AutomatedReasoningPolicyDeleteTypeAnnotation;
+  addVariable?: AutomatedReasoningPolicyAddVariableAnnotation;
+  updateVariable?: AutomatedReasoningPolicyUpdateVariableAnnotation;
+  deleteVariable?: AutomatedReasoningPolicyDeleteVariableAnnotation;
+  addRule?: AutomatedReasoningPolicyAddRuleAnnotation;
+  updateRule?: AutomatedReasoningPolicyUpdateRuleAnnotation;
+  deleteRule?: AutomatedReasoningPolicyDeleteRuleAnnotation;
+  addRuleFromNaturalLanguage?: AutomatedReasoningPolicyAddRuleFromNaturalLanguageAnnotation;
+  updateFromRulesFeedback?: AutomatedReasoningPolicyUpdateFromRuleFeedbackAnnotation;
+  updateFromScenarioFeedback?: AutomatedReasoningPolicyUpdateFromScenarioFeedbackAnnotation;
+  ingestContent?: AutomatedReasoningPolicyIngestContentAnnotation;
+}
+
+export type AutomatedReasoningPolicyAnnotation =
+  | (_AutomatedReasoningPolicyAnnotation & {
+      addType: AutomatedReasoningPolicyAddTypeAnnotation;
+    })
+  | (_AutomatedReasoningPolicyAnnotation & {
+      updateType: AutomatedReasoningPolicyUpdateTypeAnnotation;
+    })
+  | (_AutomatedReasoningPolicyAnnotation & {
+      deleteType: AutomatedReasoningPolicyDeleteTypeAnnotation;
+    })
+  | (_AutomatedReasoningPolicyAnnotation & {
+      addVariable: AutomatedReasoningPolicyAddVariableAnnotation;
+    })
+  | (_AutomatedReasoningPolicyAnnotation & {
+      updateVariable: AutomatedReasoningPolicyUpdateVariableAnnotation;
+    })
+  | (_AutomatedReasoningPolicyAnnotation & {
+      deleteVariable: AutomatedReasoningPolicyDeleteVariableAnnotation;
+    })
+  | (_AutomatedReasoningPolicyAnnotation & {
+      addRule: AutomatedReasoningPolicyAddRuleAnnotation;
+    })
+  | (_AutomatedReasoningPolicyAnnotation & {
+      updateRule: AutomatedReasoningPolicyUpdateRuleAnnotation;
+    })
+  | (_AutomatedReasoningPolicyAnnotation & {
+      deleteRule: AutomatedReasoningPolicyDeleteRuleAnnotation;
+    })
+  | (_AutomatedReasoningPolicyAnnotation & {
+      addRuleFromNaturalLanguage: AutomatedReasoningPolicyAddRuleFromNaturalLanguageAnnotation;
+    })
+  | (_AutomatedReasoningPolicyAnnotation & {
+      updateFromRulesFeedback: AutomatedReasoningPolicyUpdateFromRuleFeedbackAnnotation;
+    })
+  | (_AutomatedReasoningPolicyAnnotation & {
+      updateFromScenarioFeedback: AutomatedReasoningPolicyUpdateFromScenarioFeedbackAnnotation;
+    })
+  | (_AutomatedReasoningPolicyAnnotation & {
+      ingestContent: AutomatedReasoningPolicyIngestContentAnnotation;
+    });
+export type AutomatedReasoningPolicyAnnotationFeedbackNaturalLanguage = string;
+
+export type AutomatedReasoningPolicyAnnotationIngestContent = string;
+
+export type AutomatedReasoningPolicyAnnotationList =
+  Array<AutomatedReasoningPolicyAnnotation>;
+export type AutomatedReasoningPolicyAnnotationRuleNaturalLanguage = string;
+
+export type AutomatedReasoningPolicyAnnotationStatus = "APPLIED" | "FAILED";
+export type AutomatedReasoningPolicyArn = string;
+
+export type AutomatedReasoningPolicyArnList = Array<string>;
+export type AutomatedReasoningPolicyBuildDocumentBlob = Uint8Array | string;
+
+export type AutomatedReasoningPolicyBuildDocumentContentType = "pdf" | "txt";
+export type AutomatedReasoningPolicyBuildDocumentDescription = string;
+
+export type AutomatedReasoningPolicyBuildDocumentName = string;
+
+export interface AutomatedReasoningPolicyBuildLog {
+  entries: Array<AutomatedReasoningPolicyBuildLogEntry>;
+}
+export interface AutomatedReasoningPolicyBuildLogEntry {
+  annotation: AutomatedReasoningPolicyAnnotation;
+  status: AutomatedReasoningPolicyAnnotationStatus;
+  buildSteps: Array<AutomatedReasoningPolicyBuildStep>;
+}
+export type AutomatedReasoningPolicyBuildLogEntryList =
+  Array<AutomatedReasoningPolicyBuildLogEntry>;
+export type AutomatedReasoningPolicyBuildMessageType =
+  | "INFO"
+  | "WARNING"
+  | "ERROR";
+interface _AutomatedReasoningPolicyBuildResultAssets {
+  policyDefinition?: AutomatedReasoningPolicyDefinition;
+  qualityReport?: AutomatedReasoningPolicyDefinitionQualityReport;
+  buildLog?: AutomatedReasoningPolicyBuildLog;
+}
+
+export type AutomatedReasoningPolicyBuildResultAssets =
+  | (_AutomatedReasoningPolicyBuildResultAssets & {
+      policyDefinition: AutomatedReasoningPolicyDefinition;
+    })
+  | (_AutomatedReasoningPolicyBuildResultAssets & {
+      qualityReport: AutomatedReasoningPolicyDefinitionQualityReport;
+    })
+  | (_AutomatedReasoningPolicyBuildResultAssets & {
+      buildLog: AutomatedReasoningPolicyBuildLog;
+    });
+export type AutomatedReasoningPolicyBuildResultAssetType =
+  | "BUILD_LOG"
+  | "QUALITY_REPORT"
+  | "POLICY_DEFINITION";
+export interface AutomatedReasoningPolicyBuildStep {
+  context: AutomatedReasoningPolicyBuildStepContext;
+  priorElement?: AutomatedReasoningPolicyDefinitionElement;
+  messages: Array<AutomatedReasoningPolicyBuildStepMessage>;
+}
+interface _AutomatedReasoningPolicyBuildStepContext {
+  planning?: AutomatedReasoningPolicyPlanning;
+  mutation?: AutomatedReasoningPolicyMutation;
+}
+
+export type AutomatedReasoningPolicyBuildStepContext =
+  | (_AutomatedReasoningPolicyBuildStepContext & {
+      planning: AutomatedReasoningPolicyPlanning;
+    })
+  | (_AutomatedReasoningPolicyBuildStepContext & {
+      mutation: AutomatedReasoningPolicyMutation;
+    });
+export type AutomatedReasoningPolicyBuildStepList =
+  Array<AutomatedReasoningPolicyBuildStep>;
+export interface AutomatedReasoningPolicyBuildStepMessage {
+  message: string;
+  messageType: AutomatedReasoningPolicyBuildMessageType;
+}
+export type AutomatedReasoningPolicyBuildStepMessageList =
+  Array<AutomatedReasoningPolicyBuildStepMessage>;
+export interface AutomatedReasoningPolicyBuildWorkflowDocument {
+  document: Uint8Array | string;
+  documentContentType: AutomatedReasoningPolicyBuildDocumentContentType;
+  documentName: string;
+  documentDescription?: string;
+}
+export type AutomatedReasoningPolicyBuildWorkflowDocumentList =
+  Array<AutomatedReasoningPolicyBuildWorkflowDocument>;
+export type AutomatedReasoningPolicyBuildWorkflowId = string;
+
+export interface AutomatedReasoningPolicyBuildWorkflowRepairContent {
+  annotations: Array<AutomatedReasoningPolicyAnnotation>;
+}
+export interface AutomatedReasoningPolicyBuildWorkflowSource {
+  policyDefinition?: AutomatedReasoningPolicyDefinition;
+  workflowContent?: AutomatedReasoningPolicyWorkflowTypeContent;
+}
+export type AutomatedReasoningPolicyBuildWorkflowStatus =
+  | "SCHEDULED"
+  | "CANCEL_REQUESTED"
+  | "PREPROCESSING"
+  | "BUILDING"
+  | "TESTING"
+  | "COMPLETED"
+  | "FAILED"
+  | "CANCELLED";
+export type AutomatedReasoningPolicyBuildWorkflowSummaries =
+  Array<AutomatedReasoningPolicyBuildWorkflowSummary>;
+export interface AutomatedReasoningPolicyBuildWorkflowSummary {
+  policyArn: string;
+  buildWorkflowId: string;
+  status: AutomatedReasoningPolicyBuildWorkflowStatus;
+  buildWorkflowType: AutomatedReasoningPolicyBuildWorkflowType;
+  createdAt: Date | string;
+  updatedAt: Date | string;
+}
+export type AutomatedReasoningPolicyBuildWorkflowType =
+  | "INGEST_CONTENT"
+  | "REFINE_POLICY"
+  | "IMPORT_POLICY";
+export type AutomatedReasoningPolicyConflictedRuleIdList = Array<string>;
+export interface AutomatedReasoningPolicyDefinition {
+  version?: string;
+  types?: Array<AutomatedReasoningPolicyDefinitionType>;
+  rules?: Array<AutomatedReasoningPolicyDefinitionRule>;
+  variables?: Array<AutomatedReasoningPolicyDefinitionVariable>;
+}
+interface _AutomatedReasoningPolicyDefinitionElement {
+  policyDefinitionVariable?: AutomatedReasoningPolicyDefinitionVariable;
+  policyDefinitionType?: AutomatedReasoningPolicyDefinitionType;
+  policyDefinitionRule?: AutomatedReasoningPolicyDefinitionRule;
+}
+
+export type AutomatedReasoningPolicyDefinitionElement =
+  | (_AutomatedReasoningPolicyDefinitionElement & {
+      policyDefinitionVariable: AutomatedReasoningPolicyDefinitionVariable;
+    })
+  | (_AutomatedReasoningPolicyDefinitionElement & {
+      policyDefinitionType: AutomatedReasoningPolicyDefinitionType;
+    })
+  | (_AutomatedReasoningPolicyDefinitionElement & {
+      policyDefinitionRule: AutomatedReasoningPolicyDefinitionRule;
+    });
+export interface AutomatedReasoningPolicyDefinitionQualityReport {
+  typeCount: number;
+  variableCount: number;
+  ruleCount: number;
+  unusedTypes: Array<string>;
+  unusedTypeValues: Array<AutomatedReasoningPolicyDefinitionTypeValuePair>;
+  unusedVariables: Array<string>;
+  conflictingRules: Array<string>;
+  disjointRuleSets: Array<AutomatedReasoningPolicyDisjointRuleSet>;
+}
+export interface AutomatedReasoningPolicyDefinitionRule {
+  id: string;
+  expression: string;
+  alternateExpression?: string;
+}
+export type AutomatedReasoningPolicyDefinitionRuleAlternateExpression = string;
+
+export type AutomatedReasoningPolicyDefinitionRuleExpression = string;
+
+export type AutomatedReasoningPolicyDefinitionRuleId = string;
+
+export type AutomatedReasoningPolicyDefinitionRuleIdList = Array<string>;
+export type AutomatedReasoningPolicyDefinitionRuleList =
+  Array<AutomatedReasoningPolicyDefinitionRule>;
+export interface AutomatedReasoningPolicyDefinitionType {
+  name: string;
+  description?: string;
+  values: Array<AutomatedReasoningPolicyDefinitionTypeValue>;
+}
+export type AutomatedReasoningPolicyDefinitionTypeDescription = string;
+
+export type AutomatedReasoningPolicyDefinitionTypeList =
+  Array<AutomatedReasoningPolicyDefinitionType>;
+export type AutomatedReasoningPolicyDefinitionTypeName = string;
+
+export type AutomatedReasoningPolicyDefinitionTypeNameList = Array<string>;
+export interface AutomatedReasoningPolicyDefinitionTypeValue {
+  value: string;
+  description?: string;
+}
+export type AutomatedReasoningPolicyDefinitionTypeValueDescription = string;
+
+export type AutomatedReasoningPolicyDefinitionTypeValueList =
+  Array<AutomatedReasoningPolicyDefinitionTypeValue>;
+export type AutomatedReasoningPolicyDefinitionTypeValueName = string;
+
+export interface AutomatedReasoningPolicyDefinitionTypeValuePair {
+  typeName: string;
+  valueName: string;
+}
+export type AutomatedReasoningPolicyDefinitionTypeValuePairList =
+  Array<AutomatedReasoningPolicyDefinitionTypeValuePair>;
+export interface AutomatedReasoningPolicyDefinitionVariable {
+  name: string;
+  type: string;
+  description: string;
+}
+export type AutomatedReasoningPolicyDefinitionVariableDescription = string;
+
+export type AutomatedReasoningPolicyDefinitionVariableList =
+  Array<AutomatedReasoningPolicyDefinitionVariable>;
+export type AutomatedReasoningPolicyDefinitionVariableName = string;
+
+export type AutomatedReasoningPolicyDefinitionVariableNameList = Array<string>;
+export interface AutomatedReasoningPolicyDeleteRuleAnnotation {
+  ruleId: string;
+}
+export interface AutomatedReasoningPolicyDeleteRuleMutation {
+  id: string;
+}
+export interface AutomatedReasoningPolicyDeleteTypeAnnotation {
+  name: string;
+}
+export interface AutomatedReasoningPolicyDeleteTypeMutation {
+  name: string;
+}
+export interface AutomatedReasoningPolicyDeleteTypeValue {
+  value: string;
+}
+export interface AutomatedReasoningPolicyDeleteVariableAnnotation {
+  name: string;
+}
+export interface AutomatedReasoningPolicyDeleteVariableMutation {
+  name: string;
+}
+export type AutomatedReasoningPolicyDescription = string;
+
+export type AutomatedReasoningPolicyDisjointedRuleIdList = Array<string>;
+export interface AutomatedReasoningPolicyDisjointRuleSet {
+  variables: Array<string>;
+  rules: Array<string>;
+}
+export type AutomatedReasoningPolicyDisjointRuleSetList =
+  Array<AutomatedReasoningPolicyDisjointRuleSet>;
+export type AutomatedReasoningPolicyFormatVersion = string;
+
+export type AutomatedReasoningPolicyHash = string;
+
+export type AutomatedReasoningPolicyId = string;
+
+export interface AutomatedReasoningPolicyIngestContentAnnotation {
+  content: string;
+}
+interface _AutomatedReasoningPolicyMutation {
+  addType?: AutomatedReasoningPolicyAddTypeMutation;
+  updateType?: AutomatedReasoningPolicyUpdateTypeMutation;
+  deleteType?: AutomatedReasoningPolicyDeleteTypeMutation;
+  addVariable?: AutomatedReasoningPolicyAddVariableMutation;
+  updateVariable?: AutomatedReasoningPolicyUpdateVariableMutation;
+  deleteVariable?: AutomatedReasoningPolicyDeleteVariableMutation;
+  addRule?: AutomatedReasoningPolicyAddRuleMutation;
+  updateRule?: AutomatedReasoningPolicyUpdateRuleMutation;
+  deleteRule?: AutomatedReasoningPolicyDeleteRuleMutation;
+}
+
+export type AutomatedReasoningPolicyMutation =
+  | (_AutomatedReasoningPolicyMutation & {
+      addType: AutomatedReasoningPolicyAddTypeMutation;
+    })
+  | (_AutomatedReasoningPolicyMutation & {
+      updateType: AutomatedReasoningPolicyUpdateTypeMutation;
+    })
+  | (_AutomatedReasoningPolicyMutation & {
+      deleteType: AutomatedReasoningPolicyDeleteTypeMutation;
+    })
+  | (_AutomatedReasoningPolicyMutation & {
+      addVariable: AutomatedReasoningPolicyAddVariableMutation;
+    })
+  | (_AutomatedReasoningPolicyMutation & {
+      updateVariable: AutomatedReasoningPolicyUpdateVariableMutation;
+    })
+  | (_AutomatedReasoningPolicyMutation & {
+      deleteVariable: AutomatedReasoningPolicyDeleteVariableMutation;
+    })
+  | (_AutomatedReasoningPolicyMutation & {
+      addRule: AutomatedReasoningPolicyAddRuleMutation;
+    })
+  | (_AutomatedReasoningPolicyMutation & {
+      updateRule: AutomatedReasoningPolicyUpdateRuleMutation;
+    })
+  | (_AutomatedReasoningPolicyMutation & {
+      deleteRule: AutomatedReasoningPolicyDeleteRuleMutation;
+    });
+export type AutomatedReasoningPolicyName = string;
+
+export interface AutomatedReasoningPolicyPlanning {}
+export interface AutomatedReasoningPolicyScenario {
+  expression: string;
+  alternateExpression: string;
+  ruleIds: Array<string>;
+  expectedResult: AutomatedReasoningCheckResult;
+}
+export type AutomatedReasoningPolicyScenarioAlternateExpression = string;
+
+export type AutomatedReasoningPolicyScenarioExpression = string;
+
+export type AutomatedReasoningPolicySummaries =
+  Array<AutomatedReasoningPolicySummary>;
+export interface AutomatedReasoningPolicySummary {
+  policyArn: string;
+  name: string;
+  description?: string;
+  version: string;
+  policyId: string;
+  createdAt: Date | string;
+  updatedAt: Date | string;
+}
+export interface AutomatedReasoningPolicyTestCase {
+  testCaseId: string;
+  guardContent: string;
+  queryContent?: string;
+  expectedAggregatedFindingsResult?: AutomatedReasoningCheckResult;
+  createdAt: Date | string;
+  updatedAt: Date | string;
+  confidenceThreshold?: number;
+}
+export type AutomatedReasoningPolicyTestCaseId = string;
+
+export type AutomatedReasoningPolicyTestCaseIdList = Array<string>;
+export type AutomatedReasoningPolicyTestCaseList =
+  Array<AutomatedReasoningPolicyTestCase>;
+export type AutomatedReasoningPolicyTestGuardContent = string;
+
+export type AutomatedReasoningPolicyTestList =
+  Array<AutomatedReasoningPolicyTestResult>;
+export type AutomatedReasoningPolicyTestQueryContent = string;
+
+export interface AutomatedReasoningPolicyTestResult {
+  testCase: AutomatedReasoningPolicyTestCase;
+  policyArn: string;
+  testRunStatus: AutomatedReasoningPolicyTestRunStatus;
+  testFindings?: Array<AutomatedReasoningCheckFinding>;
+  testRunResult?: AutomatedReasoningPolicyTestRunResult;
+  aggregatedTestFindingsResult?: AutomatedReasoningCheckResult;
+  updatedAt: Date | string;
+}
+export type AutomatedReasoningPolicyTestRunResult = "PASSED" | "FAILED";
+export type AutomatedReasoningPolicyTestRunStatus =
+  | "NOT_STARTED"
+  | "SCHEDULED"
+  | "IN_PROGRESS"
+  | "COMPLETED"
+  | "FAILED";
+interface _AutomatedReasoningPolicyTypeValueAnnotation {
+  addTypeValue?: AutomatedReasoningPolicyAddTypeValue;
+  updateTypeValue?: AutomatedReasoningPolicyUpdateTypeValue;
+  deleteTypeValue?: AutomatedReasoningPolicyDeleteTypeValue;
+}
+
+export type AutomatedReasoningPolicyTypeValueAnnotation =
+  | (_AutomatedReasoningPolicyTypeValueAnnotation & {
+      addTypeValue: AutomatedReasoningPolicyAddTypeValue;
+    })
+  | (_AutomatedReasoningPolicyTypeValueAnnotation & {
+      updateTypeValue: AutomatedReasoningPolicyUpdateTypeValue;
+    })
+  | (_AutomatedReasoningPolicyTypeValueAnnotation & {
+      deleteTypeValue: AutomatedReasoningPolicyDeleteTypeValue;
+    });
+export type AutomatedReasoningPolicyTypeValueAnnotationList =
+  Array<AutomatedReasoningPolicyTypeValueAnnotation>;
+export interface AutomatedReasoningPolicyUpdateFromRuleFeedbackAnnotation {
+  ruleIds?: Array<string>;
+  feedback: string;
+}
+export interface AutomatedReasoningPolicyUpdateFromScenarioFeedbackAnnotation {
+  ruleIds?: Array<string>;
+  scenarioExpression: string;
+  feedback?: string;
+}
+export interface AutomatedReasoningPolicyUpdateRuleAnnotation {
+  ruleId: string;
+  expression: string;
+}
+export interface AutomatedReasoningPolicyUpdateRuleMutation {
+  rule: AutomatedReasoningPolicyDefinitionRule;
+}
+export interface AutomatedReasoningPolicyUpdateTypeAnnotation {
+  name: string;
+  newName?: string;
+  description?: string;
+  values: Array<AutomatedReasoningPolicyTypeValueAnnotation>;
+}
+export interface AutomatedReasoningPolicyUpdateTypeMutation {
+  type: AutomatedReasoningPolicyDefinitionType;
+}
+export interface AutomatedReasoningPolicyUpdateTypeValue {
+  value: string;
+  newValue?: string;
+  description?: string;
+}
+export interface AutomatedReasoningPolicyUpdateVariableAnnotation {
+  name: string;
+  newName?: string;
+  description?: string;
+}
+export interface AutomatedReasoningPolicyUpdateVariableMutation {
+  variable: AutomatedReasoningPolicyDefinitionVariable;
+}
+export type AutomatedReasoningPolicyVersion = string;
+
+interface _AutomatedReasoningPolicyWorkflowTypeContent {
+  documents?: Array<AutomatedReasoningPolicyBuildWorkflowDocument>;
+  policyRepairAssets?: AutomatedReasoningPolicyBuildWorkflowRepairContent;
+}
+
+export type AutomatedReasoningPolicyWorkflowTypeContent =
+  | (_AutomatedReasoningPolicyWorkflowTypeContent & {
+      documents: Array<AutomatedReasoningPolicyBuildWorkflowDocument>;
+    })
+  | (_AutomatedReasoningPolicyWorkflowTypeContent & {
+      policyRepairAssets: AutomatedReasoningPolicyBuildWorkflowRepairContent;
+    });
 export type BaseModelIdentifier = string;
 
 export interface BatchDeleteEvaluationJobError {
@@ -929,6 +1838,11 @@ export interface ByteContentDoc {
   contentType: string;
   data: Uint8Array | string;
 }
+export interface CancelAutomatedReasoningPolicyBuildWorkflowRequest {
+  policyArn: string;
+  buildWorkflowId: string;
+}
+export interface CancelAutomatedReasoningPolicyBuildWorkflowResponse {}
 export interface CloudWatchConfig {
   logGroupName: string;
   roleArn: string;
@@ -942,6 +1856,49 @@ export declare class ConflictException extends EffectData.TaggedError(
 }> {}
 export type ContentType = string;
 
+export interface CreateAutomatedReasoningPolicyRequest {
+  name: string;
+  description?: string;
+  clientRequestToken?: string;
+  policyDefinition?: AutomatedReasoningPolicyDefinition;
+  kmsKeyId?: string;
+  tags?: Array<Tag>;
+}
+export interface CreateAutomatedReasoningPolicyResponse {
+  policyArn: string;
+  version: string;
+  name: string;
+  description?: string;
+  definitionHash?: string;
+  createdAt: Date | string;
+  updatedAt: Date | string;
+}
+export interface CreateAutomatedReasoningPolicyTestCaseRequest {
+  policyArn: string;
+  guardContent: string;
+  queryContent?: string;
+  expectedAggregatedFindingsResult: AutomatedReasoningCheckResult;
+  clientRequestToken?: string;
+  confidenceThreshold?: number;
+}
+export interface CreateAutomatedReasoningPolicyTestCaseResponse {
+  policyArn: string;
+  testCaseId: string;
+}
+export interface CreateAutomatedReasoningPolicyVersionRequest {
+  policyArn: string;
+  clientRequestToken?: string;
+  lastUpdatedDefinitionHash: string;
+  tags?: Array<Tag>;
+}
+export interface CreateAutomatedReasoningPolicyVersionResponse {
+  policyArn: string;
+  version: string;
+  name: string;
+  description?: string;
+  definitionHash: string;
+  createdAt: Date | string;
+}
 export interface CreateCustomModelDeploymentRequest {
   modelDeploymentName: string;
   modelArn: string;
@@ -993,6 +1950,7 @@ export interface CreateGuardrailRequest {
   wordPolicyConfig?: GuardrailWordPolicyConfig;
   sensitiveInformationPolicyConfig?: GuardrailSensitiveInformationPolicyConfig;
   contextualGroundingPolicyConfig?: GuardrailContextualGroundingPolicyConfig;
+  automatedReasoningPolicyConfig?: GuardrailAutomatedReasoningPolicyConfig;
   crossRegionConfig?: GuardrailCrossRegionConfig;
   blockedInputMessaging: string;
   blockedOutputsMessaging: string;
@@ -1189,6 +2147,23 @@ export interface DataProcessingDetails {
   creationTime?: Date | string;
   lastModifiedTime?: Date | string;
 }
+export interface DeleteAutomatedReasoningPolicyBuildWorkflowRequest {
+  policyArn: string;
+  buildWorkflowId: string;
+  lastUpdatedAt: Date | string;
+}
+export interface DeleteAutomatedReasoningPolicyBuildWorkflowResponse {}
+export interface DeleteAutomatedReasoningPolicyRequest {
+  policyArn: string;
+  force?: boolean;
+}
+export interface DeleteAutomatedReasoningPolicyResponse {}
+export interface DeleteAutomatedReasoningPolicyTestCaseRequest {
+  policyArn: string;
+  testCaseId: string;
+  lastUpdatedAt: Date | string;
+}
+export interface DeleteAutomatedReasoningPolicyTestCaseResponse {}
 export interface DeleteCustomModelDeploymentRequest {
   customModelDeploymentIdentifier: string;
 }
@@ -1408,6 +2383,12 @@ export type EvaluatorModelConfig = _EvaluatorModelConfig & {
 export type EvaluatorModelIdentifier = string;
 
 export type EvaluatorModelIdentifiers = Array<string>;
+export interface ExportAutomatedReasoningPolicyVersionRequest {
+  policyArn: string;
+}
+export interface ExportAutomatedReasoningPolicyVersionResponse {
+  policyDefinition: AutomatedReasoningPolicyDefinition;
+}
 export interface ExternalSource {
   sourceType: ExternalSourceType;
   s3Location?: S3ObjectDoc;
@@ -1481,6 +2462,81 @@ export interface GenerationConfiguration {
   kbInferenceConfig?: KbInferenceConfig;
   additionalModelRequestFields?: Record<string, unknown>;
 }
+export interface GetAutomatedReasoningPolicyAnnotationsRequest {
+  policyArn: string;
+  buildWorkflowId: string;
+}
+export interface GetAutomatedReasoningPolicyAnnotationsResponse {
+  policyArn: string;
+  name: string;
+  buildWorkflowId: string;
+  annotations: Array<AutomatedReasoningPolicyAnnotation>;
+  annotationSetHash: string;
+  updatedAt: Date | string;
+}
+export interface GetAutomatedReasoningPolicyBuildWorkflowRequest {
+  policyArn: string;
+  buildWorkflowId: string;
+}
+export interface GetAutomatedReasoningPolicyBuildWorkflowResponse {
+  policyArn: string;
+  buildWorkflowId: string;
+  status: AutomatedReasoningPolicyBuildWorkflowStatus;
+  buildWorkflowType: AutomatedReasoningPolicyBuildWorkflowType;
+  documentName?: string;
+  documentContentType?: AutomatedReasoningPolicyBuildDocumentContentType;
+  documentDescription?: string;
+  createdAt: Date | string;
+  updatedAt: Date | string;
+}
+export interface GetAutomatedReasoningPolicyBuildWorkflowResultAssetsRequest {
+  policyArn: string;
+  buildWorkflowId: string;
+  assetType: AutomatedReasoningPolicyBuildResultAssetType;
+}
+export interface GetAutomatedReasoningPolicyBuildWorkflowResultAssetsResponse {
+  policyArn: string;
+  buildWorkflowId: string;
+  buildWorkflowAssets?: AutomatedReasoningPolicyBuildResultAssets;
+}
+export interface GetAutomatedReasoningPolicyNextScenarioRequest {
+  policyArn: string;
+  buildWorkflowId: string;
+}
+export interface GetAutomatedReasoningPolicyNextScenarioResponse {
+  policyArn: string;
+  scenario?: AutomatedReasoningPolicyScenario;
+}
+export interface GetAutomatedReasoningPolicyRequest {
+  policyArn: string;
+}
+export interface GetAutomatedReasoningPolicyResponse {
+  policyArn: string;
+  name: string;
+  version: string;
+  policyId: string;
+  description?: string;
+  definitionHash: string;
+  kmsKeyArn?: string;
+  createdAt?: Date | string;
+  updatedAt: Date | string;
+}
+export interface GetAutomatedReasoningPolicyTestCaseRequest {
+  policyArn: string;
+  testCaseId: string;
+}
+export interface GetAutomatedReasoningPolicyTestCaseResponse {
+  policyArn: string;
+  testCase: AutomatedReasoningPolicyTestCase;
+}
+export interface GetAutomatedReasoningPolicyTestResultRequest {
+  policyArn: string;
+  buildWorkflowId: string;
+  testCaseId: string;
+}
+export interface GetAutomatedReasoningPolicyTestResultResponse {
+  testResult: AutomatedReasoningPolicyTestResult;
+}
 export interface GetCustomModelDeploymentRequest {
   customModelDeploymentIdentifier: string;
 }
@@ -1545,6 +2601,8 @@ export interface GetFoundationModelAvailabilityResponse {
   entitlementAvailability: EntitlementAvailability;
   regionAvailability: RegionAvailability;
 }
+export type GetFoundationModelIdentifier = string;
+
 export interface GetFoundationModelRequest {
   modelIdentifier: string;
 }
@@ -1567,6 +2625,7 @@ export interface GetGuardrailResponse {
   wordPolicy?: GuardrailWordPolicy;
   sensitiveInformationPolicy?: GuardrailSensitiveInformationPolicy;
   contextualGroundingPolicy?: GuardrailContextualGroundingPolicy;
+  automatedReasoningPolicy?: GuardrailAutomatedReasoningPolicy;
   crossRegionDetails?: GuardrailCrossRegionDetails;
   createdAt: Date | string;
   updatedAt: Date | string;
@@ -1736,6 +2795,14 @@ export interface GetUseCaseForModelAccessResponse {
 }
 export type GuardrailArn = string;
 
+export interface GuardrailAutomatedReasoningPolicy {
+  policies: Array<string>;
+  confidenceThreshold?: number;
+}
+export interface GuardrailAutomatedReasoningPolicyConfig {
+  policies: Array<string>;
+  confidenceThreshold?: number;
+}
 export type GuardrailBlockedMessaging = string;
 
 export interface GuardrailConfiguration {
@@ -2191,6 +3258,43 @@ export interface KnowledgeBaseVectorSearchConfiguration {
 }
 export interface LegalTerm {
   url?: string;
+}
+export interface ListAutomatedReasoningPoliciesRequest {
+  policyArn?: string;
+  nextToken?: string;
+  maxResults?: number;
+}
+export interface ListAutomatedReasoningPoliciesResponse {
+  automatedReasoningPolicySummaries: Array<AutomatedReasoningPolicySummary>;
+  nextToken?: string;
+}
+export interface ListAutomatedReasoningPolicyBuildWorkflowsRequest {
+  policyArn: string;
+  nextToken?: string;
+  maxResults?: number;
+}
+export interface ListAutomatedReasoningPolicyBuildWorkflowsResponse {
+  automatedReasoningPolicyBuildWorkflowSummaries: Array<AutomatedReasoningPolicyBuildWorkflowSummary>;
+  nextToken?: string;
+}
+export interface ListAutomatedReasoningPolicyTestCasesRequest {
+  policyArn: string;
+  nextToken?: string;
+  maxResults?: number;
+}
+export interface ListAutomatedReasoningPolicyTestCasesResponse {
+  testCases: Array<AutomatedReasoningPolicyTestCase>;
+  nextToken?: string;
+}
+export interface ListAutomatedReasoningPolicyTestResultsRequest {
+  policyArn: string;
+  buildWorkflowId: string;
+  nextToken?: string;
+  maxResults?: number;
+}
+export interface ListAutomatedReasoningPolicyTestResultsResponse {
+  testResults: Array<AutomatedReasoningPolicyTestResult>;
+  nextToken?: string;
 }
 export interface ListCustomModelDeploymentsRequest {
   createdBefore?: Date | string;
@@ -2753,6 +3857,11 @@ export type RerankingMetadataSelectiveModeConfiguration =
   | (_RerankingMetadataSelectiveModeConfiguration & {
       fieldsToExclude: Array<FieldForReranking>;
     });
+export declare class ResourceInUseException extends EffectData.TaggedError(
+  "ResourceInUseException",
+)<{
+  readonly message?: string;
+}> {}
 export declare class ResourceNotFoundException extends EffectData.TaggedError(
   "ResourceNotFoundException",
 )<{
@@ -2844,6 +3953,25 @@ export type SortByProvisionedModels = "CreationTime";
 export type SortJobsBy = "CreationTime";
 export type SortModelsBy = "CreationTime";
 export type SortOrder = "Ascending" | "Descending";
+export interface StartAutomatedReasoningPolicyBuildWorkflowRequest {
+  policyArn: string;
+  buildWorkflowType: AutomatedReasoningPolicyBuildWorkflowType;
+  clientRequestToken?: string;
+  sourceContent: AutomatedReasoningPolicyBuildWorkflowSource;
+}
+export interface StartAutomatedReasoningPolicyBuildWorkflowResponse {
+  policyArn: string;
+  buildWorkflowId: string;
+}
+export interface StartAutomatedReasoningPolicyTestWorkflowRequest {
+  policyArn: string;
+  buildWorkflowId: string;
+  testCaseIds?: Array<string>;
+  clientRequestToken?: string;
+}
+export interface StartAutomatedReasoningPolicyTestWorkflowResponse {
+  policyArn: string;
+}
 export type Status = "REGISTERED" | "INCOMPATIBLE_ENDPOINT";
 export interface StatusDetails {
   validationDetails?: ValidationDetails;
@@ -2939,6 +4067,44 @@ export interface UntagResourceRequest {
   tagKeys: Array<string>;
 }
 export interface UntagResourceResponse {}
+export interface UpdateAutomatedReasoningPolicyAnnotationsRequest {
+  policyArn: string;
+  buildWorkflowId: string;
+  annotations: Array<AutomatedReasoningPolicyAnnotation>;
+  lastUpdatedAnnotationSetHash: string;
+}
+export interface UpdateAutomatedReasoningPolicyAnnotationsResponse {
+  policyArn: string;
+  buildWorkflowId: string;
+  annotationSetHash: string;
+  updatedAt: Date | string;
+}
+export interface UpdateAutomatedReasoningPolicyRequest {
+  policyArn: string;
+  policyDefinition: AutomatedReasoningPolicyDefinition;
+  name?: string;
+  description?: string;
+}
+export interface UpdateAutomatedReasoningPolicyResponse {
+  policyArn: string;
+  name: string;
+  definitionHash: string;
+  updatedAt: Date | string;
+}
+export interface UpdateAutomatedReasoningPolicyTestCaseRequest {
+  policyArn: string;
+  testCaseId: string;
+  guardContent: string;
+  queryContent?: string;
+  lastUpdatedAt: Date | string;
+  expectedAggregatedFindingsResult: AutomatedReasoningCheckResult;
+  confidenceThreshold?: number;
+  clientRequestToken?: string;
+}
+export interface UpdateAutomatedReasoningPolicyTestCaseResponse {
+  policyArn: string;
+  testCaseId: string;
+}
 export interface UpdateGuardrailRequest {
   guardrailIdentifier: string;
   name: string;
@@ -2948,6 +4114,7 @@ export interface UpdateGuardrailRequest {
   wordPolicyConfig?: GuardrailWordPolicyConfig;
   sensitiveInformationPolicyConfig?: GuardrailSensitiveInformationPolicyConfig;
   contextualGroundingPolicyConfig?: GuardrailContextualGroundingPolicyConfig;
+  automatedReasoningPolicyConfig?: GuardrailAutomatedReasoningPolicyConfig;
   crossRegionConfig?: GuardrailCrossRegionConfig;
   blockedInputMessaging: string;
   blockedOutputsMessaging: string;
@@ -3026,6 +4193,62 @@ export declare namespace BatchDeleteEvaluationJob {
     | InternalServerException
     | ResourceNotFoundException
     | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CancelAutomatedReasoningPolicyBuildWorkflow {
+  export type Input = CancelAutomatedReasoningPolicyBuildWorkflowRequest;
+  export type Output = CancelAutomatedReasoningPolicyBuildWorkflowResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateAutomatedReasoningPolicy {
+  export type Input = CreateAutomatedReasoningPolicyRequest;
+  export type Output = CreateAutomatedReasoningPolicyResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | TooManyTagsException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateAutomatedReasoningPolicyTestCase {
+  export type Input = CreateAutomatedReasoningPolicyTestCaseRequest;
+  export type Output = CreateAutomatedReasoningPolicyTestCaseResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateAutomatedReasoningPolicyVersion {
+  export type Input = CreateAutomatedReasoningPolicyVersionRequest;
+  export type Output = CreateAutomatedReasoningPolicyVersionResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | TooManyTagsException
     | ValidationException
     | CommonAwsError;
 }
@@ -3228,6 +4451,48 @@ export declare namespace CreateProvisionedModelThroughput {
     | CommonAwsError;
 }
 
+export declare namespace DeleteAutomatedReasoningPolicy {
+  export type Input = DeleteAutomatedReasoningPolicyRequest;
+  export type Output = DeleteAutomatedReasoningPolicyResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceInUseException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteAutomatedReasoningPolicyBuildWorkflow {
+  export type Input = DeleteAutomatedReasoningPolicyBuildWorkflowRequest;
+  export type Output = DeleteAutomatedReasoningPolicyBuildWorkflowResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceInUseException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteAutomatedReasoningPolicyTestCase {
+  export type Input = DeleteAutomatedReasoningPolicyTestCaseRequest;
+  export type Output = DeleteAutomatedReasoningPolicyTestCaseResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceInUseException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
 export declare namespace DeleteCustomModel {
   export type Input = DeleteCustomModelRequest;
   export type Output = DeleteCustomModelResponse;
@@ -3361,6 +4626,104 @@ export declare namespace DeregisterMarketplaceModelEndpoint {
     | InternalServerException
     | ResourceNotFoundException
     | ServiceUnavailableException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ExportAutomatedReasoningPolicyVersion {
+  export type Input = ExportAutomatedReasoningPolicyVersionRequest;
+  export type Output = ExportAutomatedReasoningPolicyVersionResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetAutomatedReasoningPolicy {
+  export type Input = GetAutomatedReasoningPolicyRequest;
+  export type Output = GetAutomatedReasoningPolicyResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetAutomatedReasoningPolicyAnnotations {
+  export type Input = GetAutomatedReasoningPolicyAnnotationsRequest;
+  export type Output = GetAutomatedReasoningPolicyAnnotationsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetAutomatedReasoningPolicyBuildWorkflow {
+  export type Input = GetAutomatedReasoningPolicyBuildWorkflowRequest;
+  export type Output = GetAutomatedReasoningPolicyBuildWorkflowResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetAutomatedReasoningPolicyBuildWorkflowResultAssets {
+  export type Input =
+    GetAutomatedReasoningPolicyBuildWorkflowResultAssetsRequest;
+  export type Output =
+    GetAutomatedReasoningPolicyBuildWorkflowResultAssetsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetAutomatedReasoningPolicyNextScenario {
+  export type Input = GetAutomatedReasoningPolicyNextScenarioRequest;
+  export type Output = GetAutomatedReasoningPolicyNextScenarioResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetAutomatedReasoningPolicyTestCase {
+  export type Input = GetAutomatedReasoningPolicyTestCaseRequest;
+  export type Output = GetAutomatedReasoningPolicyTestCaseResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetAutomatedReasoningPolicyTestResult {
+  export type Input = GetAutomatedReasoningPolicyTestResultRequest;
+  export type Output = GetAutomatedReasoningPolicyTestResultResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
     | ThrottlingException
     | ValidationException
     | CommonAwsError;
@@ -3562,6 +4925,55 @@ export declare namespace GetUseCaseForModelAccess {
   export type Error =
     | InternalServerException
     | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListAutomatedReasoningPolicies {
+  export type Input = ListAutomatedReasoningPoliciesRequest;
+  export type Output = ListAutomatedReasoningPoliciesResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListAutomatedReasoningPolicyBuildWorkflows {
+  export type Input = ListAutomatedReasoningPolicyBuildWorkflowsRequest;
+  export type Output = ListAutomatedReasoningPolicyBuildWorkflowsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListAutomatedReasoningPolicyTestCases {
+  export type Input = ListAutomatedReasoningPolicyTestCasesRequest;
+  export type Output = ListAutomatedReasoningPolicyTestCasesResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListAutomatedReasoningPolicyTestResults {
+  export type Input = ListAutomatedReasoningPolicyTestResultsRequest;
+  export type Output = ListAutomatedReasoningPolicyTestResultsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
     | ThrottlingException
     | ValidationException
     | CommonAwsError;
@@ -3783,6 +5195,34 @@ export declare namespace RegisterMarketplaceModelEndpoint {
     | CommonAwsError;
 }
 
+export declare namespace StartAutomatedReasoningPolicyBuildWorkflow {
+  export type Input = StartAutomatedReasoningPolicyBuildWorkflowRequest;
+  export type Output = StartAutomatedReasoningPolicyBuildWorkflowResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceInUseException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace StartAutomatedReasoningPolicyTestWorkflow {
+  export type Input = StartAutomatedReasoningPolicyTestWorkflowRequest;
+  export type Output = StartAutomatedReasoningPolicyTestWorkflowResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceInUseException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
 export declare namespace StopEvaluationJob {
   export type Input = StopEvaluationJobRequest;
   export type Output = StopEvaluationJobResponse;
@@ -3847,6 +5287,47 @@ export declare namespace UntagResource {
     | CommonAwsError;
 }
 
+export declare namespace UpdateAutomatedReasoningPolicy {
+  export type Input = UpdateAutomatedReasoningPolicyRequest;
+  export type Output = UpdateAutomatedReasoningPolicyResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | TooManyTagsException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateAutomatedReasoningPolicyAnnotations {
+  export type Input = UpdateAutomatedReasoningPolicyAnnotationsRequest;
+  export type Output = UpdateAutomatedReasoningPolicyAnnotationsResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateAutomatedReasoningPolicyTestCase {
+  export type Input = UpdateAutomatedReasoningPolicyTestCaseRequest;
+  export type Output = UpdateAutomatedReasoningPolicyTestCaseResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceInUseException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
 export declare namespace UpdateGuardrail {
   export type Input = UpdateGuardrailRequest;
   export type Output = UpdateGuardrailResponse;
@@ -3886,3 +5367,16 @@ export declare namespace UpdateProvisionedModelThroughput {
     | ValidationException
     | CommonAwsError;
 }
+
+export type BedrockErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | ResourceInUseException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ServiceUnavailableException
+  | ThrottlingException
+  | TooManyTagsException
+  | ValidationException
+  | CommonAwsError;

@@ -3191,3 +3191,26 @@ export declare namespace UpdateXssMatchSet {
     | WAFStaleDataException
     | CommonAwsError;
 }
+
+export type WAFRegionalErrors =
+  | WAFBadRequestException
+  | WAFDisallowedNameException
+  | WAFEntityMigrationException
+  | WAFInternalErrorException
+  | WAFInvalidAccountException
+  | WAFInvalidOperationException
+  | WAFInvalidParameterException
+  | WAFInvalidPermissionPolicyException
+  | WAFInvalidRegexPatternException
+  | WAFLimitsExceededException
+  | WAFNonEmptyEntityException
+  | WAFNonexistentContainerException
+  | WAFNonexistentItemException
+  | WAFReferencedItemException
+  | WAFServiceLinkedRoleErrorException
+  | WAFStaleDataException
+  | WAFSubscriptionNotFoundException
+  | WAFTagOperationException
+  | WAFTagOperationInternalErrorException
+  | WAFUnavailableEntityException
+  | CommonAwsError;

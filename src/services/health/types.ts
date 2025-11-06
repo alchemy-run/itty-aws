@@ -552,3 +552,9 @@ export declare namespace EnableHealthServiceAccessForOrganization {
   export type Output = {};
   export type Error = ConcurrentModificationException | CommonAwsError;
 }
+
+export type HealthErrors =
+  | ConcurrentModificationException
+  | InvalidPaginationToken
+  | UnsupportedLocale
+  | CommonAwsError;

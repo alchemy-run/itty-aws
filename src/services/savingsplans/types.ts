@@ -571,3 +571,10 @@ export declare namespace UntagResource {
     | ValidationException
     | CommonAwsError;
 }
+
+export type savingsplansErrors =
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ValidationException
+  | CommonAwsError;

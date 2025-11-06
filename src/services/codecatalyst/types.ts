@@ -1082,3 +1082,12 @@ export declare namespace UpdateSpace {
   export type Output = UpdateSpaceResponse;
   export type Error = CommonAwsError;
 }
+
+export type CodeCatalystErrors =
+  | AccessDeniedException
+  | ConflictException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

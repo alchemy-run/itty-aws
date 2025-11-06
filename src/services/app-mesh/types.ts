@@ -2391,3 +2391,16 @@ export declare namespace UpdateVirtualService {
     | TooManyRequestsException
     | CommonAwsError;
 }
+
+export type AppMeshErrors =
+  | BadRequestException
+  | ConflictException
+  | ForbiddenException
+  | InternalServerErrorException
+  | LimitExceededException
+  | NotFoundException
+  | ResourceInUseException
+  | ServiceUnavailableException
+  | TooManyRequestsException
+  | TooManyTagsException
+  | CommonAwsError;

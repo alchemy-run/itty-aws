@@ -894,3 +894,15 @@ export declare namespace UntagResource {
     | ValidationException
     | CommonAwsError;
 }
+
+export type ApplicationAutoScalingErrors =
+  | ConcurrentUpdateException
+  | FailedResourceAccessException
+  | InternalServiceException
+  | InvalidNextTokenException
+  | LimitExceededException
+  | ObjectNotFoundException
+  | ResourceNotFoundException
+  | TooManyTagsException
+  | ValidationException
+  | CommonAwsError;

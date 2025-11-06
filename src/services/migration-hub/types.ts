@@ -980,3 +980,16 @@ export declare namespace PutResourceAttributes {
     | UnauthorizedOperation
     | CommonAwsError;
 }
+
+export type MigrationHubErrors =
+  | AccessDeniedException
+  | DryRunOperation
+  | HomeRegionNotSetException
+  | InternalServerError
+  | InvalidInputException
+  | PolicyErrorException
+  | ResourceNotFoundException
+  | ServiceUnavailableException
+  | ThrottlingException
+  | UnauthorizedOperation
+  | CommonAwsError;

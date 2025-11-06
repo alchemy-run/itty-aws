@@ -370,7 +370,7 @@ export declare class AccessDeniedException extends EffectData.TaggedError(
   readonly Message?: string;
 }> {}
 export type AdMarkerDash = "BINARY" | "XML";
-export type AdMarkerHls = "DATERANGE";
+export type AdMarkerHls = "DATERANGE" | "SCTE35_ENHANCED";
 export interface CancelHarvestJobRequest {
   ChannelGroupName: string;
   ChannelName: string;
@@ -1674,3 +1674,13 @@ export declare namespace UpdateOriginEndpoint {
     | ValidationException
     | CommonAwsError;
 }
+
+export type MediaPackageV2Errors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

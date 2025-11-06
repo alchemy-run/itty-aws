@@ -557,6 +557,20 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | TooManyRequestsException
     | CommonAwsError
   >;
+  createTerms(
+    input: CreateTermsRequest,
+  ): Effect.Effect<
+    CreateTermsResponse,
+    | ConcurrentModificationException
+    | InternalErrorException
+    | InvalidParameterException
+    | LimitExceededException
+    | NotAuthorizedException
+    | ResourceNotFoundException
+    | TermsExistsException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
   createUserImportJob(
     input: CreateUserImportJobRequest,
   ): Effect.Effect<
@@ -655,6 +669,18 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     input: DeleteResourceServerRequest,
   ): Effect.Effect<
     {},
+    | InternalErrorException
+    | InvalidParameterException
+    | NotAuthorizedException
+    | ResourceNotFoundException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  deleteTerms(
+    input: DeleteTermsRequest,
+  ): Effect.Effect<
+    {},
+    | ConcurrentModificationException
     | InternalErrorException
     | InvalidParameterException
     | NotAuthorizedException
@@ -794,6 +820,17 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | ResourceNotFoundException
     | TooManyRequestsException
     | UserPoolAddOnNotEnabledException
+    | CommonAwsError
+  >;
+  describeTerms(
+    input: DescribeTermsRequest,
+  ): Effect.Effect<
+    DescribeTermsResponse,
+    | InternalErrorException
+    | InvalidParameterException
+    | NotAuthorizedException
+    | ResourceNotFoundException
+    | TooManyRequestsException
     | CommonAwsError
   >;
   describeUserImportJob(
@@ -1128,6 +1165,17 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
+    | InternalErrorException
+    | InvalidParameterException
+    | NotAuthorizedException
+    | ResourceNotFoundException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  listTerms(
+    input: ListTermsRequest,
+  ): Effect.Effect<
+    ListTermsResponse,
     | InternalErrorException
     | InvalidParameterException
     | NotAuthorizedException
@@ -1499,6 +1547,19 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     | InvalidParameterException
     | NotAuthorizedException
     | ResourceNotFoundException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  updateTerms(
+    input: UpdateTermsRequest,
+  ): Effect.Effect<
+    UpdateTermsResponse,
+    | ConcurrentModificationException
+    | InternalErrorException
+    | InvalidParameterException
+    | NotAuthorizedException
+    | ResourceNotFoundException
+    | TermsExistsException
     | TooManyRequestsException
     | CommonAwsError
   >;
@@ -2140,6 +2201,17 @@ export interface CreateResourceServerRequest {
 export interface CreateResourceServerResponse {
   ResourceServer: ResourceServerType;
 }
+export interface CreateTermsRequest {
+  UserPoolId: string;
+  ClientId: string;
+  TermsName: string;
+  TermsSource: TermsSourceType;
+  Enforcement: TermsEnforcementType;
+  Links?: Record<string, string>;
+}
+export interface CreateTermsResponse {
+  Terms?: TermsType;
+}
 export interface CreateUserImportJobRequest {
   JobName: string;
   UserPoolId: string;
@@ -2254,6 +2326,10 @@ export interface DeleteResourceServerRequest {
   UserPoolId: string;
   Identifier: string;
 }
+export interface DeleteTermsRequest {
+  TermsId: string;
+  UserPoolId: string;
+}
 export interface DeleteUserAttributesRequest {
   UserAttributeNames: Array<string>;
   AccessToken: string;
@@ -2318,6 +2394,13 @@ export interface DescribeRiskConfigurationRequest {
 }
 export interface DescribeRiskConfigurationResponse {
   RiskConfiguration: RiskConfigurationType;
+}
+export interface DescribeTermsRequest {
+  TermsId: string;
+  UserPoolId: string;
+}
+export interface DescribeTermsResponse {
+  Terms?: TermsType;
 }
 export interface DescribeUserImportJobRequest {
   UserPoolId: string;
@@ -2751,11 +2834,16 @@ export interface LambdaConfigType {
   CustomEmailSender?: CustomEmailLambdaVersionConfigType;
   KMSKeyID?: string;
 }
+export type LanguageIdType = string;
+
 export declare class LimitExceededException extends EffectData.TaggedError(
   "LimitExceededException",
 )<{
   readonly message?: string;
 }> {}
+export type LinksType = Record<string, string>;
+export type LinkUrlType = string;
+
 export interface ListDevicesRequest {
   AccessToken: string;
   Limit?: number;
@@ -2802,6 +2890,17 @@ export interface ListTagsForResourceRequest {
 }
 export interface ListTagsForResourceResponse {
   Tags?: Record<string, string>;
+}
+export interface ListTermsRequest {
+  UserPoolId: string;
+  MaxResults?: number;
+  NextToken?: string;
+}
+export type ListTermsRequestMaxResultsInteger = number;
+
+export interface ListTermsResponse {
+  Terms: Array<TermsDescriptionType>;
+  NextToken?: string;
 }
 export interface ListUserImportJobsRequest {
   UserPoolId: string;
@@ -3287,6 +3386,36 @@ export type TagValueType = string;
 
 export type TemporaryPasswordValidityDaysType = number;
 
+export type TermsDescriptionListType = Array<TermsDescriptionType>;
+export interface TermsDescriptionType {
+  TermsId: string;
+  TermsName: string;
+  Enforcement: TermsEnforcementType;
+  CreationDate: Date | string;
+  LastModifiedDate: Date | string;
+}
+export type TermsEnforcementType = "NONE";
+export declare class TermsExistsException extends EffectData.TaggedError(
+  "TermsExistsException",
+)<{
+  readonly message?: string;
+}> {}
+export type TermsIdType = string;
+
+export type TermsNameType = string;
+
+export type TermsSourceType = "LINK";
+export interface TermsType {
+  TermsId: string;
+  UserPoolId: string;
+  ClientId: string;
+  TermsName: string;
+  TermsSource: TermsSourceType;
+  Enforcement: TermsEnforcementType;
+  Links: Record<string, string>;
+  CreationDate: Date | string;
+  LastModifiedDate: Date | string;
+}
 export declare class TierChangeNotAllowedException extends EffectData.TaggedError(
   "TierChangeNotAllowedException",
 )<{
@@ -3406,6 +3535,17 @@ export interface UpdateResourceServerRequest {
 }
 export interface UpdateResourceServerResponse {
   ResourceServer: ResourceServerType;
+}
+export interface UpdateTermsRequest {
+  TermsId: string;
+  UserPoolId: string;
+  TermsName?: string;
+  TermsSource?: TermsSourceType;
+  Enforcement?: TermsEnforcementType;
+  Links?: Record<string, string>;
+}
+export interface UpdateTermsResponse {
+  Terms?: TermsType;
 }
 export interface UpdateUserAttributesRequest {
   UserAttributes: Array<AttributeType>;
@@ -4351,6 +4491,21 @@ export declare namespace CreateResourceServer {
     | CommonAwsError;
 }
 
+export declare namespace CreateTerms {
+  export type Input = CreateTermsRequest;
+  export type Output = CreateTermsResponse;
+  export type Error =
+    | ConcurrentModificationException
+    | InternalErrorException
+    | InvalidParameterException
+    | LimitExceededException
+    | NotAuthorizedException
+    | ResourceNotFoundException
+    | TermsExistsException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
 export declare namespace CreateUserImportJob {
   export type Input = CreateUserImportJobRequest;
   export type Output = CreateUserImportJobResponse;
@@ -4456,6 +4611,19 @@ export declare namespace DeleteResourceServer {
   export type Input = DeleteResourceServerRequest;
   export type Output = {};
   export type Error =
+    | InternalErrorException
+    | InvalidParameterException
+    | NotAuthorizedException
+    | ResourceNotFoundException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteTerms {
+  export type Input = DeleteTermsRequest;
+  export type Output = {};
+  export type Error =
+    | ConcurrentModificationException
     | InternalErrorException
     | InvalidParameterException
     | NotAuthorizedException
@@ -4606,6 +4774,18 @@ export declare namespace DescribeRiskConfiguration {
     | ResourceNotFoundException
     | TooManyRequestsException
     | UserPoolAddOnNotEnabledException
+    | CommonAwsError;
+}
+
+export declare namespace DescribeTerms {
+  export type Input = DescribeTermsRequest;
+  export type Output = DescribeTermsResponse;
+  export type Error =
+    | InternalErrorException
+    | InvalidParameterException
+    | NotAuthorizedException
+    | ResourceNotFoundException
+    | TooManyRequestsException
     | CommonAwsError;
 }
 
@@ -4964,6 +5144,18 @@ export declare namespace ListResourceServers {
 export declare namespace ListTagsForResource {
   export type Input = ListTagsForResourceRequest;
   export type Output = ListTagsForResourceResponse;
+  export type Error =
+    | InternalErrorException
+    | InvalidParameterException
+    | NotAuthorizedException
+    | ResourceNotFoundException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace ListTerms {
+  export type Input = ListTermsRequest;
+  export type Output = ListTermsResponse;
   export type Error =
     | InternalErrorException
     | InvalidParameterException
@@ -5367,6 +5559,20 @@ export declare namespace UpdateResourceServer {
     | CommonAwsError;
 }
 
+export declare namespace UpdateTerms {
+  export type Input = UpdateTermsRequest;
+  export type Output = UpdateTermsResponse;
+  export type Error =
+    | ConcurrentModificationException
+    | InternalErrorException
+    | InvalidParameterException
+    | NotAuthorizedException
+    | ResourceNotFoundException
+    | TermsExistsException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
 export declare namespace UpdateUserAttributes {
   export type Input = UpdateUserAttributesRequest;
   export type Output = UpdateUserAttributesResponse;
@@ -5482,3 +5688,61 @@ export declare namespace VerifyUserAttribute {
     | UserNotFoundException
     | CommonAwsError;
 }
+
+export type CognitoIdentityProviderErrors =
+  | AliasExistsException
+  | CodeDeliveryFailureException
+  | CodeMismatchException
+  | ConcurrentModificationException
+  | DeviceKeyExistsException
+  | DuplicateProviderException
+  | EnableSoftwareTokenMFAException
+  | ExpiredCodeException
+  | FeatureUnavailableInTierException
+  | ForbiddenException
+  | GroupExistsException
+  | InternalErrorException
+  | InvalidEmailRoleAccessPolicyException
+  | InvalidLambdaResponseException
+  | InvalidOAuthFlowException
+  | InvalidParameterException
+  | InvalidPasswordException
+  | InvalidSmsRoleAccessPolicyException
+  | InvalidSmsRoleTrustRelationshipException
+  | InvalidUserPoolConfigurationException
+  | LimitExceededException
+  | MFAMethodNotFoundException
+  | ManagedLoginBrandingExistsException
+  | NotAuthorizedException
+  | PasswordHistoryPolicyViolationException
+  | PasswordResetRequiredException
+  | PreconditionNotMetException
+  | RefreshTokenReuseException
+  | ResourceNotFoundException
+  | ScopeDoesNotExistException
+  | SoftwareTokenMFANotFoundException
+  | TermsExistsException
+  | TierChangeNotAllowedException
+  | TooManyFailedAttemptsException
+  | TooManyRequestsException
+  | UnauthorizedException
+  | UnexpectedLambdaException
+  | UnsupportedIdentityProviderException
+  | UnsupportedOperationException
+  | UnsupportedTokenTypeException
+  | UnsupportedUserStateException
+  | UserImportInProgressException
+  | UserLambdaValidationException
+  | UserNotConfirmedException
+  | UserNotFoundException
+  | UserPoolAddOnNotEnabledException
+  | UserPoolTaggingException
+  | UsernameExistsException
+  | WebAuthnChallengeNotFoundException
+  | WebAuthnClientMismatchException
+  | WebAuthnConfigurationMissingException
+  | WebAuthnCredentialNotSupportedException
+  | WebAuthnNotEnabledException
+  | WebAuthnOriginNotAllowedException
+  | WebAuthnRelyingPartyMismatchException
+  | CommonAwsError;

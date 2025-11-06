@@ -725,6 +725,18 @@ export declare class CloudFront extends AWSServiceClient {
     | RealtimeLogConfigInUse
     | CommonAwsError
   >;
+  deleteResourcePolicy(
+    input: DeleteResourcePolicyRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDenied
+    | EntityNotFound
+    | IllegalDelete
+    | InvalidArgument
+    | PreconditionFailed
+    | UnsupportedOperation
+    | CommonAwsError
+  >;
   deleteResponseHeadersPolicy(
     input: DeleteResponseHeadersPolicyRequest,
   ): Effect.Effect<
@@ -988,6 +1000,16 @@ export declare class CloudFront extends AWSServiceClient {
     GetRealtimeLogConfigResult,
     AccessDenied | InvalidArgument | NoSuchRealtimeLogConfig | CommonAwsError
   >;
+  getResourcePolicy(
+    input: GetResourcePolicyRequest,
+  ): Effect.Effect<
+    GetResourcePolicyResult,
+    | AccessDenied
+    | EntityNotFound
+    | InvalidArgument
+    | UnsupportedOperation
+    | CommonAwsError
+  >;
   getResponseHeadersPolicy(
     input: GetResponseHeadersPolicyRequest,
   ): Effect.Effect<
@@ -1101,6 +1123,16 @@ export declare class CloudFront extends AWSServiceClient {
   ): Effect.Effect<
     ListDistributionsByOriginRequestPolicyIdResult,
     AccessDenied | InvalidArgument | NoSuchOriginRequestPolicy | CommonAwsError
+  >;
+  listDistributionsByOwnedResource(
+    input: ListDistributionsByOwnedResourceRequest,
+  ): Effect.Effect<
+    ListDistributionsByOwnedResourceResult,
+    | AccessDenied
+    | EntityNotFound
+    | InvalidArgument
+    | UnsupportedOperation
+    | CommonAwsError
   >;
   listDistributionsByRealtimeLogConfig(
     input: ListDistributionsByRealtimeLogConfigRequest,
@@ -1257,6 +1289,18 @@ export declare class CloudFront extends AWSServiceClient {
     | UnsupportedOperation
     | CommonAwsError
   >;
+  putResourcePolicy(
+    input: PutResourcePolicyRequest,
+  ): Effect.Effect<
+    PutResourcePolicyResult,
+    | AccessDenied
+    | EntityNotFound
+    | IllegalUpdate
+    | InvalidArgument
+    | PreconditionFailed
+    | UnsupportedOperation
+    | CommonAwsError
+  >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -1286,6 +1330,18 @@ export declare class CloudFront extends AWSServiceClient {
     | InvalidArgument
     | InvalidTagging
     | NoSuchResource
+    | CommonAwsError
+  >;
+  updateAnycastIpList(
+    input: UpdateAnycastIpListRequest,
+  ): Effect.Effect<
+    UpdateAnycastIpListResult,
+    | AccessDenied
+    | EntityNotFound
+    | InvalidArgument
+    | InvalidIfMatchVersion
+    | PreconditionFailed
+    | UnsupportedOperation
     | CommonAwsError
   >;
   updateCachePolicy(
@@ -1740,6 +1796,7 @@ export interface AnycastIpList {
   Name: string;
   Status: string;
   Arn: string;
+  IpAddressType?: IpAddressType;
   AnycastIps: Array<string>;
   IpCount: number;
   LastModifiedTime: Date | string;
@@ -1762,6 +1819,8 @@ export interface AnycastIpListSummary {
   Arn: string;
   IpCount: number;
   LastModifiedTime: Date | string;
+  IpAddressType?: IpAddressType;
+  ETag?: string;
 }
 export type AnycastIps = Array<string>;
 export interface AssociateAliasRequest {
@@ -2069,6 +2128,7 @@ export interface CreateAnycastIpListRequest {
   Name: string;
   IpCount: number;
   Tags?: Tags;
+  IpAddressType?: IpAddressType;
 }
 export interface CreateAnycastIpListResult {
   AnycastIpList?: AnycastIpList;
@@ -2301,6 +2361,7 @@ export interface CustomOriginConfig {
   OriginSslProtocols?: OriginSslProtocols;
   OriginReadTimeout?: number;
   OriginKeepaliveTimeout?: number;
+  IpAddressType?: IpAddressType;
 }
 export interface DefaultCacheBehavior {
   TargetOriginId: string;
@@ -2390,6 +2451,9 @@ export interface DeletePublicKeyRequest {
 export interface DeleteRealtimeLogConfigRequest {
   Name?: string;
   ARN?: string;
+}
+export interface DeleteResourcePolicyRequest {
+  ResourceArn: string;
 }
 export interface DeleteResponseHeadersPolicyRequest {
   Id: string;
@@ -2492,6 +2556,19 @@ export interface DistributionIdList {
   Items?: Array<string>;
 }
 export type DistributionIdListSummary = Array<string>;
+export interface DistributionIdOwner {
+  DistributionId: string;
+  OwnerAccountId: string;
+}
+export type DistributionIdOwnerItemList = Array<DistributionIdOwner>;
+export interface DistributionIdOwnerList {
+  Marker: string;
+  NextMarker?: string;
+  MaxItems: number;
+  IsTruncated: boolean;
+  Quantity: number;
+  Items?: Array<DistributionIdOwner>;
+}
 export type distributionIdString = string;
 
 export interface DistributionList {
@@ -3019,6 +3096,13 @@ export interface GetRealtimeLogConfigRequest {
 export interface GetRealtimeLogConfigResult {
   RealtimeLogConfig?: RealtimeLogConfig;
 }
+export interface GetResourcePolicyRequest {
+  ResourceArn: string;
+}
+export interface GetResourcePolicyResult {
+  ResourceArn?: string;
+  PolicyDocument?: string;
+}
 export interface GetResponseHeadersPolicyConfigRequest {
   Id: string;
 }
@@ -3255,6 +3339,7 @@ export declare class InvalidWebACLId extends EffectData.TaggedError(
 )<{
   readonly Message?: string;
 }> {}
+export type IpAddressType = "ipv4" | "ipv6" | "dualstack";
 export type ItemSelection = "none" | "whitelist" | "all";
 export interface KeyGroup {
   Id: string;
@@ -3424,6 +3509,14 @@ export interface ListDistributionsByOriginRequestPolicyIdRequest {
 }
 export interface ListDistributionsByOriginRequestPolicyIdResult {
   DistributionIdList?: DistributionIdList;
+}
+export interface ListDistributionsByOwnedResourceRequest {
+  ResourceArn: string;
+  Marker?: string;
+  MaxItems?: number;
+}
+export interface ListDistributionsByOwnedResourceResult {
+  DistributionList?: DistributionIdOwnerList;
 }
 export interface ListDistributionsByRealtimeLogConfigRequest {
   Marker?: string;
@@ -3648,7 +3741,9 @@ export type MinimumProtocolVersion =
   | "TLSv1.1_2016"
   | "TLSv1.2_2018"
   | "TLSv1.2_2019"
-  | "TLSv1.2_2021";
+  | "TLSv1.2_2021"
+  | "TLSv1.3_2025"
+  | "TLSv1.2_2025";
 export declare class MissingBody extends EffectData.TaggedError("MissingBody")<{
   readonly Message?: string;
 }> {}
@@ -3994,6 +4089,13 @@ export interface PublishFunctionRequest {
 }
 export interface PublishFunctionResult {
   FunctionSummary?: FunctionSummary;
+}
+export interface PutResourcePolicyRequest {
+  ResourceArn: string;
+  PolicyDocument: string;
+}
+export interface PutResourcePolicyResult {
+  ResourceArn?: string;
 }
 export interface QueryArgProfile {
   QueryArg: string;
@@ -4661,6 +4763,15 @@ export interface UntagResourceRequest {
   Resource: string;
   TagKeys: TagKeys;
 }
+export interface UpdateAnycastIpListRequest {
+  Id: string;
+  IpAddressType?: IpAddressType;
+  IfMatch: string;
+}
+export interface UpdateAnycastIpListResult {
+  AnycastIpList?: AnycastIpList;
+  ETag?: string;
+}
 export interface UpdateCachePolicyRequest {
   CachePolicyConfig: CachePolicyConfig;
   Id: string;
@@ -4882,6 +4993,7 @@ export type ViewerProtocolPolicy =
 export interface VpcOrigin {
   Id: string;
   Arn: string;
+  AccountId?: string;
   Status: string;
   CreatedTime: Date | string;
   LastModifiedTime: Date | string;
@@ -4889,6 +5001,7 @@ export interface VpcOrigin {
 }
 export interface VpcOriginConfig {
   VpcOriginId: string;
+  OwnerAccountId?: string;
   OriginReadTimeout?: number;
   OriginKeepaliveTimeout?: number;
 }
@@ -4915,6 +5028,7 @@ export interface VpcOriginSummary {
   CreatedTime: Date | string;
   LastModifiedTime: Date | string;
   Arn: string;
+  AccountId?: string;
   OriginEndpointArn: string;
 }
 export type VpcOriginSummaryList = Array<VpcOriginSummary>;
@@ -5689,6 +5803,19 @@ export declare namespace DeleteRealtimeLogConfig {
     | CommonAwsError;
 }
 
+export declare namespace DeleteResourcePolicy {
+  export type Input = DeleteResourcePolicyRequest;
+  export type Output = {};
+  export type Error =
+    | AccessDenied
+    | EntityNotFound
+    | IllegalDelete
+    | InvalidArgument
+    | PreconditionFailed
+    | UnsupportedOperation
+    | CommonAwsError;
+}
+
 export declare namespace DeleteResponseHeadersPolicy {
   export type Input = DeleteResponseHeadersPolicyRequest;
   export type Output = {};
@@ -6008,6 +6135,17 @@ export declare namespace GetRealtimeLogConfig {
     | CommonAwsError;
 }
 
+export declare namespace GetResourcePolicy {
+  export type Input = GetResourcePolicyRequest;
+  export type Output = GetResourcePolicyResult;
+  export type Error =
+    | AccessDenied
+    | EntityNotFound
+    | InvalidArgument
+    | UnsupportedOperation
+    | CommonAwsError;
+}
+
 export declare namespace GetResponseHeadersPolicy {
   export type Input = GetResponseHeadersPolicyRequest;
   export type Output = GetResponseHeadersPolicyResult;
@@ -6154,6 +6292,17 @@ export declare namespace ListDistributionsByOriginRequestPolicyId {
     | AccessDenied
     | InvalidArgument
     | NoSuchOriginRequestPolicy
+    | CommonAwsError;
+}
+
+export declare namespace ListDistributionsByOwnedResource {
+  export type Input = ListDistributionsByOwnedResourceRequest;
+  export type Output = ListDistributionsByOwnedResourceResult;
+  export type Error =
+    | AccessDenied
+    | EntityNotFound
+    | InvalidArgument
+    | UnsupportedOperation
     | CommonAwsError;
 }
 
@@ -6356,6 +6505,19 @@ export declare namespace PublishFunction {
     | CommonAwsError;
 }
 
+export declare namespace PutResourcePolicy {
+  export type Input = PutResourcePolicyRequest;
+  export type Output = PutResourcePolicyResult;
+  export type Error =
+    | AccessDenied
+    | EntityNotFound
+    | IllegalUpdate
+    | InvalidArgument
+    | PreconditionFailed
+    | UnsupportedOperation
+    | CommonAwsError;
+}
+
 export declare namespace TagResource {
   export type Input = TagResourceRequest;
   export type Output = {};
@@ -6387,6 +6549,19 @@ export declare namespace UntagResource {
     | InvalidArgument
     | InvalidTagging
     | NoSuchResource
+    | CommonAwsError;
+}
+
+export declare namespace UpdateAnycastIpList {
+  export type Input = UpdateAnycastIpListRequest;
+  export type Output = UpdateAnycastIpListResult;
+  export type Error =
+    | AccessDenied
+    | EntityNotFound
+    | InvalidArgument
+    | InvalidIfMatchVersion
+    | PreconditionFailed
+    | UnsupportedOperation
     | CommonAwsError;
 }
 
@@ -6822,3 +6997,158 @@ export declare namespace VerifyDnsConfiguration {
     | InvalidArgument
     | CommonAwsError;
 }
+
+export type CloudFrontErrors =
+  | AccessDenied
+  | BatchTooLarge
+  | CNAMEAlreadyExists
+  | CachePolicyAlreadyExists
+  | CachePolicyInUse
+  | CannotChangeImmutablePublicKeyFields
+  | CannotDeleteEntityWhileInUse
+  | CannotUpdateEntityWhileInUse
+  | CloudFrontOriginAccessIdentityAlreadyExists
+  | CloudFrontOriginAccessIdentityInUse
+  | ContinuousDeploymentPolicyAlreadyExists
+  | ContinuousDeploymentPolicyInUse
+  | DistributionAlreadyExists
+  | DistributionNotDisabled
+  | EntityAlreadyExists
+  | EntityLimitExceeded
+  | EntityNotFound
+  | EntitySizeLimitExceeded
+  | FieldLevelEncryptionConfigAlreadyExists
+  | FieldLevelEncryptionConfigInUse
+  | FieldLevelEncryptionProfileAlreadyExists
+  | FieldLevelEncryptionProfileInUse
+  | FieldLevelEncryptionProfileSizeExceeded
+  | FunctionAlreadyExists
+  | FunctionInUse
+  | FunctionSizeLimitExceeded
+  | IllegalDelete
+  | IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior
+  | IllegalOriginAccessConfiguration
+  | IllegalUpdate
+  | InconsistentQuantities
+  | InvalidArgument
+  | InvalidAssociation
+  | InvalidDefaultRootObject
+  | InvalidDomainNameForOriginAccessControl
+  | InvalidErrorCode
+  | InvalidForwardCookies
+  | InvalidFunctionAssociation
+  | InvalidGeoRestrictionParameter
+  | InvalidHeadersForS3Origin
+  | InvalidIfMatchVersion
+  | InvalidLambdaFunctionAssociation
+  | InvalidLocationCode
+  | InvalidMinimumProtocolVersion
+  | InvalidOrigin
+  | InvalidOriginAccessControl
+  | InvalidOriginAccessIdentity
+  | InvalidOriginKeepaliveTimeout
+  | InvalidOriginReadTimeout
+  | InvalidProtocolSettings
+  | InvalidQueryStringParameters
+  | InvalidRelativePath
+  | InvalidRequiredProtocol
+  | InvalidResponseCode
+  | InvalidTTLOrder
+  | InvalidTagging
+  | InvalidViewerCertificate
+  | InvalidWebACLId
+  | KeyGroupAlreadyExists
+  | MissingBody
+  | MonitoringSubscriptionAlreadyExists
+  | NoSuchCachePolicy
+  | NoSuchCloudFrontOriginAccessIdentity
+  | NoSuchContinuousDeploymentPolicy
+  | NoSuchDistribution
+  | NoSuchFieldLevelEncryptionConfig
+  | NoSuchFieldLevelEncryptionProfile
+  | NoSuchFunctionExists
+  | NoSuchInvalidation
+  | NoSuchMonitoringSubscription
+  | NoSuchOrigin
+  | NoSuchOriginAccessControl
+  | NoSuchOriginRequestPolicy
+  | NoSuchPublicKey
+  | NoSuchRealtimeLogConfig
+  | NoSuchResource
+  | NoSuchResponseHeadersPolicy
+  | NoSuchStreamingDistribution
+  | OriginAccessControlAlreadyExists
+  | OriginAccessControlInUse
+  | OriginRequestPolicyAlreadyExists
+  | OriginRequestPolicyInUse
+  | PreconditionFailed
+  | PublicKeyAlreadyExists
+  | PublicKeyInUse
+  | QueryArgProfileEmpty
+  | RealtimeLogConfigAlreadyExists
+  | RealtimeLogConfigInUse
+  | RealtimeLogConfigOwnerMismatch
+  | ResourceInUse
+  | ResourceNotDisabled
+  | ResponseHeadersPolicyAlreadyExists
+  | ResponseHeadersPolicyInUse
+  | StagingDistributionInUse
+  | StreamingDistributionAlreadyExists
+  | StreamingDistributionNotDisabled
+  | TestFunctionFailed
+  | TooLongCSPInResponseHeadersPolicy
+  | TooManyCacheBehaviors
+  | TooManyCachePolicies
+  | TooManyCertificates
+  | TooManyCloudFrontOriginAccessIdentities
+  | TooManyContinuousDeploymentPolicies
+  | TooManyCookieNamesInWhiteList
+  | TooManyCookiesInCachePolicy
+  | TooManyCookiesInOriginRequestPolicy
+  | TooManyCustomHeadersInResponseHeadersPolicy
+  | TooManyDistributionCNAMEs
+  | TooManyDistributions
+  | TooManyDistributionsAssociatedToCachePolicy
+  | TooManyDistributionsAssociatedToFieldLevelEncryptionConfig
+  | TooManyDistributionsAssociatedToKeyGroup
+  | TooManyDistributionsAssociatedToOriginAccessControl
+  | TooManyDistributionsAssociatedToOriginRequestPolicy
+  | TooManyDistributionsAssociatedToResponseHeadersPolicy
+  | TooManyDistributionsWithFunctionAssociations
+  | TooManyDistributionsWithLambdaAssociations
+  | TooManyDistributionsWithSingleFunctionARN
+  | TooManyFieldLevelEncryptionConfigs
+  | TooManyFieldLevelEncryptionContentTypeProfiles
+  | TooManyFieldLevelEncryptionEncryptionEntities
+  | TooManyFieldLevelEncryptionFieldPatterns
+  | TooManyFieldLevelEncryptionProfiles
+  | TooManyFieldLevelEncryptionQueryArgProfiles
+  | TooManyFunctionAssociations
+  | TooManyFunctions
+  | TooManyHeadersInCachePolicy
+  | TooManyHeadersInForwardedValues
+  | TooManyHeadersInOriginRequestPolicy
+  | TooManyInvalidationsInProgress
+  | TooManyKeyGroups
+  | TooManyKeyGroupsAssociatedToDistribution
+  | TooManyLambdaFunctionAssociations
+  | TooManyOriginAccessControls
+  | TooManyOriginCustomHeaders
+  | TooManyOriginGroupsPerDistribution
+  | TooManyOriginRequestPolicies
+  | TooManyOrigins
+  | TooManyPublicKeys
+  | TooManyPublicKeysInKeyGroup
+  | TooManyQueryStringParameters
+  | TooManyQueryStringsInCachePolicy
+  | TooManyQueryStringsInOriginRequestPolicy
+  | TooManyRealtimeLogConfigs
+  | TooManyRemoveHeadersInResponseHeadersPolicy
+  | TooManyResponseHeadersPolicies
+  | TooManyStreamingDistributionCNAMEs
+  | TooManyStreamingDistributions
+  | TooManyTrustedSigners
+  | TrustedKeyGroupDoesNotExist
+  | TrustedSignerDoesNotExist
+  | UnsupportedOperation
+  | CommonAwsError;

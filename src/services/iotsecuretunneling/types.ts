@@ -237,3 +237,8 @@ export declare namespace UntagResource {
   export type Output = UntagResourceResponse;
   export type Error = ResourceNotFoundException | CommonAwsError;
 }
+
+export type IoTSecureTunnelingErrors =
+  | LimitExceededException
+  | ResourceNotFoundException
+  | CommonAwsError;

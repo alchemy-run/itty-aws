@@ -412,3 +412,13 @@ export declare namespace PutAccountSettings {
     | ValidationException
     | CommonAwsError;
 }
+
+export type ArtifactErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

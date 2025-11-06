@@ -3299,3 +3299,13 @@ export declare namespace UpgradeReviewTemplateLensReview {
     | ValidationException
     | CommonAwsError;
 }
+
+export type WellArchitectedErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

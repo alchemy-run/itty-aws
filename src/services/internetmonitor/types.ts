@@ -797,3 +797,17 @@ export declare namespace UpdateMonitor {
     | ValidationException
     | CommonAwsError;
 }
+
+export type InternetMonitorErrors =
+  | AccessDeniedException
+  | BadRequestException
+  | ConflictException
+  | InternalServerErrorException
+  | InternalServerException
+  | LimitExceededException
+  | NotFoundException
+  | ResourceNotFoundException
+  | ThrottlingException
+  | TooManyRequestsException
+  | ValidationException
+  | CommonAwsError;

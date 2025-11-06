@@ -1243,3 +1243,15 @@ export declare namespace UpdateServerConfig {
     | ValidationException
     | CommonAwsError;
 }
+
+export type MigrationHubStrategyErrors =
+  | AccessDeniedException
+  | ConflictException
+  | DependencyException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceLinkedRoleLockClientException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

@@ -680,3 +680,12 @@ export declare namespace UpdateSchedule {
     | ValidationException
     | CommonAwsError;
 }
+
+export type SchedulerErrors =
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

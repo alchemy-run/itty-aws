@@ -2047,3 +2047,17 @@ export declare namespace UpdateConnection {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+
+export type CloudWatchEventsErrors =
+  | ConcurrentModificationException
+  | IllegalStatusException
+  | InternalException
+  | InvalidEventPatternException
+  | InvalidStateException
+  | LimitExceededException
+  | ManagedRuleException
+  | OperationDisabledException
+  | PolicyLengthExceededException
+  | ResourceAlreadyExistsException
+  | ResourceNotFoundException
+  | CommonAwsError;

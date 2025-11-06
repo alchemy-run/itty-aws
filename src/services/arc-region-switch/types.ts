@@ -1001,3 +1001,11 @@ export declare namespace UpdatePlan {
   export type Output = UpdatePlanResponse;
   export type Error = ResourceNotFoundException | CommonAwsError;
 }
+
+export type ARCRegionswitchErrors =
+  | AccessDeniedException
+  | IllegalArgumentException
+  | IllegalStateException
+  | InternalServerException
+  | ResourceNotFoundException
+  | CommonAwsError;

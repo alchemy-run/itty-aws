@@ -476,3 +476,14 @@ export declare namespace UpdateInvestigationGroup {
     | ValidationException
     | CommonAwsError;
 }
+
+export type AIOpsErrors =
+  | AccessDeniedException
+  | ConflictException
+  | ForbiddenException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

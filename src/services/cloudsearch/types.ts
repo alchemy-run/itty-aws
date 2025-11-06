@@ -1155,3 +1155,14 @@ export declare namespace UpdateServiceAccessPolicies {
     | ValidationException
     | CommonAwsError;
 }
+
+export type CloudSearchErrors =
+  | BaseException
+  | DisabledOperationException
+  | InternalException
+  | InvalidTypeException
+  | LimitExceededException
+  | ResourceAlreadyExistsException
+  | ResourceNotFoundException
+  | ValidationException
+  | CommonAwsError;

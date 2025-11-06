@@ -1239,3 +1239,14 @@ export declare namespace UpdateRoute {
     | ValidationException
     | CommonAwsError;
 }
+
+export type MigrationHubRefactorSpacesErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | InvalidResourcePolicyException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

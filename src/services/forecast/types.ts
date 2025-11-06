@@ -2307,3 +2307,12 @@ export declare namespace UpdateDatasetGroup {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+
+export type forecastErrors =
+  | InvalidInputException
+  | InvalidNextTokenException
+  | LimitExceededException
+  | ResourceAlreadyExistsException
+  | ResourceInUseException
+  | ResourceNotFoundException
+  | CommonAwsError;

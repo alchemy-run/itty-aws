@@ -419,3 +419,11 @@ export declare namespace SearchAgreements {
     | ValidationException
     | CommonAwsError;
 }
+
+export type MarketplaceAgreementErrors =
+  | AccessDeniedException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

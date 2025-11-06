@@ -1702,3 +1702,14 @@ export declare namespace UpdateProjectDataDelivery {
     | ValidationException
     | CommonAwsError;
 }
+
+export type EvidentlyErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ServiceUnavailableException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

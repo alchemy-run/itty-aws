@@ -452,3 +452,12 @@ export declare namespace UpdateScalingPlan {
     | ValidationException
     | CommonAwsError;
 }
+
+export type AutoScalingPlansErrors =
+  | ConcurrentUpdateException
+  | InternalServiceException
+  | InvalidNextTokenException
+  | LimitExceededException
+  | ObjectNotFoundException
+  | ValidationException
+  | CommonAwsError;

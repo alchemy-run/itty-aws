@@ -972,3 +972,15 @@ export declare namespace SendWhatsAppMessage {
     | ThrottledRequestException
     | CommonAwsError;
 }
+
+export type SocialMessagingErrors =
+  | AccessDeniedByMetaException
+  | AccessDeniedException
+  | DependencyException
+  | InternalServiceException
+  | InvalidParametersException
+  | LimitExceededException
+  | ResourceNotFoundException
+  | ThrottledRequestException
+  | ValidationException
+  | CommonAwsError;

@@ -366,3 +366,12 @@ export declare namespace UntagResources {
     | ThrottledException
     | CommonAwsError;
 }
+
+export type ResourceGroupsTaggingAPIErrors =
+  | ConcurrentModificationException
+  | ConstraintViolationException
+  | InternalServiceException
+  | InvalidParameterException
+  | PaginationTokenExpiredException
+  | ThrottledException
+  | CommonAwsError;

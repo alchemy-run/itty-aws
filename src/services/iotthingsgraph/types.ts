@@ -1306,3 +1306,13 @@ export declare namespace UploadEntityDefinitions {
     | ThrottlingException
     | CommonAwsError;
 }
+
+export type IoTThingsGraphErrors =
+  | InternalFailureException
+  | InvalidRequestException
+  | LimitExceededException
+  | ResourceAlreadyExistsException
+  | ResourceInUseException
+  | ResourceNotFoundException
+  | ThrottlingException
+  | CommonAwsError;

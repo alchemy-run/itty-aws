@@ -66,11 +66,26 @@ export declare class DSQL extends AWSServiceClient {
     DeleteClusterOutput,
     ConflictException | ResourceNotFoundException | CommonAwsError
   >;
+  deleteClusterPolicy(
+    input: DeleteClusterPolicyInput,
+  ): Effect.Effect<
+    DeleteClusterPolicyOutput,
+    | ConflictException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
   getCluster(
     input: GetClusterInput,
   ): Effect.Effect<
     GetClusterOutput,
     ResourceNotFoundException | CommonAwsError
+  >;
+  getClusterPolicy(
+    input: GetClusterPolicyInput,
+  ): Effect.Effect<
+    GetClusterPolicyOutput,
+    ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   getVpcEndpointServiceName(
     input: GetVpcEndpointServiceNameInput,
@@ -87,6 +102,15 @@ export declare class DSQL extends AWSServiceClient {
   ): Effect.Effect<
     ListClustersOutput,
     ResourceNotFoundException | CommonAwsError
+  >;
+  putClusterPolicy(
+    input: PutClusterPolicyInput,
+  ): Effect.Effect<
+    PutClusterPolicyOutput,
+    | ConflictException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   updateCluster(
     input: UpdateClusterInput,
@@ -107,6 +131,8 @@ export declare class AccessDeniedException extends EffectData.TaggedError(
   readonly message: string;
 }> {}
 export type Arn = string;
+
+export type BypassPolicyLockoutSafetyCheck = boolean;
 
 export type ClientToken = string;
 
@@ -146,6 +172,8 @@ export interface CreateClusterInput {
   tags?: Record<string, string>;
   clientToken?: string;
   multiRegionProperties?: MultiRegionProperties;
+  policy?: string;
+  bypassPolicyLockoutSafetyCheck?: boolean;
 }
 export interface CreateClusterOutput {
   identifier: string;
@@ -165,6 +193,14 @@ export interface DeleteClusterOutput {
   arn: string;
   status: ClusterStatus;
   creationTime: Date | string;
+}
+export interface DeleteClusterPolicyInput {
+  identifier: string;
+  expectedPolicyVersion?: string;
+  clientToken?: string;
+}
+export interface DeleteClusterPolicyOutput {
+  policyVersion: string;
 }
 export type DeletionProtectionEnabled = boolean;
 
@@ -191,6 +227,13 @@ export interface GetClusterOutput {
   multiRegionProperties?: MultiRegionProperties;
   tags?: Record<string, string>;
   encryptionDetails?: EncryptionDetails;
+}
+export interface GetClusterPolicyInput {
+  identifier: string;
+}
+export interface GetClusterPolicyOutput {
+  policy: string;
+  policyVersion: string;
 }
 export interface GetVpcEndpointServiceNameInput {
   identifier: string;
@@ -230,6 +273,20 @@ export interface MultiRegionProperties {
 }
 export type NextToken = string;
 
+export type PolicyDocument = string;
+
+export type PolicyVersion = string;
+
+export interface PutClusterPolicyInput {
+  identifier: string;
+  policy: string;
+  bypassPolicyLockoutSafetyCheck?: boolean;
+  expectedPolicyVersion?: string;
+  clientToken?: string;
+}
+export interface PutClusterPolicyOutput {
+  policyVersion: string;
+}
 export type Region = string;
 
 export declare class ResourceNotFoundException extends EffectData.TaggedError(
@@ -343,10 +400,29 @@ export declare namespace DeleteCluster {
     | CommonAwsError;
 }
 
+export declare namespace DeleteClusterPolicy {
+  export type Input = DeleteClusterPolicyInput;
+  export type Output = DeleteClusterPolicyOutput;
+  export type Error =
+    | ConflictException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
 export declare namespace GetCluster {
   export type Input = GetClusterInput;
   export type Output = GetClusterOutput;
   export type Error = ResourceNotFoundException | CommonAwsError;
+}
+
+export declare namespace GetClusterPolicy {
+  export type Input = GetClusterPolicyInput;
+  export type Output = GetClusterPolicyOutput;
+  export type Error =
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
 }
 
 export declare namespace GetVpcEndpointServiceName {
@@ -366,6 +442,16 @@ export declare namespace ListClusters {
   export type Error = ResourceNotFoundException | CommonAwsError;
 }
 
+export declare namespace PutClusterPolicy {
+  export type Input = PutClusterPolicyInput;
+  export type Output = PutClusterPolicyOutput;
+  export type Error =
+    | ConflictException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
 export declare namespace UpdateCluster {
   export type Input = UpdateClusterInput;
   export type Output = UpdateClusterOutput;
@@ -375,3 +461,13 @@ export declare namespace UpdateCluster {
     | ValidationException
     | CommonAwsError;
 }
+
+export type DSQLErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

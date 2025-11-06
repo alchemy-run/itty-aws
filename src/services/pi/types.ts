@@ -593,3 +593,9 @@ export declare namespace UntagResource {
     | NotAuthorizedException
     | CommonAwsError;
 }
+
+export type PIErrors =
+  | InternalServiceError
+  | InvalidArgumentException
+  | NotAuthorizedException
+  | CommonAwsError;

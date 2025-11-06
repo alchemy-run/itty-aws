@@ -11612,3 +11612,39 @@ export declare namespace ValidateSecurityProfileBehaviors {
     | ThrottlingException
     | CommonAwsError;
 }
+
+export type IoTErrors =
+  | CertificateConflictException
+  | CertificateStateException
+  | CertificateValidationException
+  | ConflictException
+  | ConflictingResourceUpdateException
+  | DeleteConflictException
+  | IndexNotReadyException
+  | InternalException
+  | InternalFailureException
+  | InternalServerException
+  | InvalidAggregationException
+  | InvalidQueryException
+  | InvalidRequestException
+  | InvalidResponseException
+  | InvalidStateTransitionException
+  | LimitExceededException
+  | MalformedPolicyException
+  | NotConfiguredException
+  | RegistrationCodeValidationException
+  | ResourceAlreadyExistsException
+  | ResourceNotFoundException
+  | ResourceRegistrationFailureException
+  | ServiceQuotaExceededException
+  | ServiceUnavailableException
+  | SqlParseException
+  | TaskAlreadyExistsException
+  | ThrottlingException
+  | TransferAlreadyCompletedException
+  | TransferConflictException
+  | UnauthorizedException
+  | ValidationException
+  | VersionConflictException
+  | VersionsLimitExceededException
+  | CommonAwsError;

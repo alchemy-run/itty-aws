@@ -2043,3 +2043,12 @@ export declare namespace UntagResource {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+
+export type FMSErrors =
+  | InternalErrorException
+  | InvalidInputException
+  | InvalidOperationException
+  | InvalidTypeException
+  | LimitExceededException
+  | ResourceNotFoundException
+  | CommonAwsError;
