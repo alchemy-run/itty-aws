@@ -124,3 +124,12 @@ export declare namespace SendAlexaOfferToMaster {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+
+export type KinesisVideoSignalingErrors =
+  | ClientLimitExceededException
+  | InvalidArgumentException
+  | InvalidClientException
+  | NotAuthorizedException
+  | ResourceNotFoundException
+  | SessionExpiredException
+  | CommonAwsError;

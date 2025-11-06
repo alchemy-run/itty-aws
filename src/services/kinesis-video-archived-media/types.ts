@@ -386,3 +386,15 @@ export declare namespace ListFragments {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+
+export type KinesisVideoArchivedMediaErrors =
+  | ClientLimitExceededException
+  | InvalidArgumentException
+  | InvalidCodecPrivateDataException
+  | InvalidMediaFrameException
+  | MissingCodecPrivateDataException
+  | NoDataRetentionException
+  | NotAuthorizedException
+  | ResourceNotFoundException
+  | UnsupportedStreamMediaTypeException
+  | CommonAwsError;

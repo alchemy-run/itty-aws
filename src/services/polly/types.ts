@@ -301,7 +301,7 @@ export type MaxResults = number;
 
 export type NextToken = string;
 
-export type OutputFormat = "json" | "mp3" | "ogg_vorbis" | "pcm";
+export type OutputFormat = "json" | "mp3" | "ogg_opus" | "ogg_vorbis" | "pcm";
 export type OutputS3BucketName = string;
 
 export type OutputS3KeyPrefix = string;
@@ -628,3 +628,27 @@ export declare namespace SynthesizeSpeech {
     | TextLengthExceededException
     | CommonAwsError;
 }
+
+export type PollyErrors =
+  | EngineNotSupportedException
+  | InvalidLexiconException
+  | InvalidNextTokenException
+  | InvalidS3BucketException
+  | InvalidS3KeyException
+  | InvalidSampleRateException
+  | InvalidSnsTopicArnException
+  | InvalidSsmlException
+  | InvalidTaskIdException
+  | LanguageNotSupportedException
+  | LexiconNotFoundException
+  | LexiconSizeExceededException
+  | MarksNotSupportedForFormatException
+  | MaxLexemeLengthExceededException
+  | MaxLexiconsNumberExceededException
+  | ServiceFailureException
+  | SsmlMarksNotSupportedForTextTypeException
+  | SynthesisTaskNotFoundException
+  | TextLengthExceededException
+  | UnsupportedPlsAlphabetException
+  | UnsupportedPlsLanguageException
+  | CommonAwsError;

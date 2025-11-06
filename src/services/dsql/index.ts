@@ -36,10 +36,13 @@ const metadata = {
     UntagResource: "DELETE /tags/{resourceArn}",
     CreateCluster: "POST /cluster",
     DeleteCluster: "DELETE /cluster/{identifier}",
+    DeleteClusterPolicy: "DELETE /cluster/{identifier}/policy",
     GetCluster: "GET /cluster/{identifier}",
+    GetClusterPolicy: "GET /cluster/{identifier}/policy",
     GetVpcEndpointServiceName:
       "GET /clusters/{identifier}/vpc-endpoint-service-name",
     ListClusters: "GET /cluster",
+    PutClusterPolicy: "POST /cluster/{identifier}/policy",
     UpdateCluster: "POST /cluster/{identifier}",
   },
 } as const satisfies ServiceMetadata;

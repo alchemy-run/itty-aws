@@ -542,3 +542,11 @@ export declare namespace UpdateExport {
     | ValidationException
     | CommonAwsError;
 }
+
+export type BCMDataExportsErrors =
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

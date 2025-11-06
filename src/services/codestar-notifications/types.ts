@@ -511,3 +511,14 @@ export declare namespace UpdateNotificationRule {
     | ValidationException
     | CommonAwsError;
 }
+
+export type codestarnotificationsErrors =
+  | AccessDeniedException
+  | ConcurrentModificationException
+  | ConfigurationException
+  | InvalidNextTokenException
+  | LimitExceededException
+  | ResourceAlreadyExistsException
+  | ResourceNotFoundException
+  | ValidationException
+  | CommonAwsError;

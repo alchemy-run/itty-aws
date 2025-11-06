@@ -837,3 +837,10 @@ export declare namespace UpdateTrustAnchor {
     | ValidationException
     | CommonAwsError;
 }
+
+export type RolesAnywhereErrors =
+  | AccessDeniedException
+  | ResourceNotFoundException
+  | TooManyTagsException
+  | ValidationException
+  | CommonAwsError;

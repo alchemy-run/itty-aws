@@ -518,3 +518,10 @@ export declare namespace ListWorkloads {
     | ValidationException
     | CommonAwsError;
 }
+
+export type LaunchWizardErrors =
+  | InternalServerException
+  | ResourceLimitException
+  | ResourceNotFoundException
+  | ValidationException
+  | CommonAwsError;

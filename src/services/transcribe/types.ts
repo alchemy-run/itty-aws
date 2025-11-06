@@ -1001,6 +1001,9 @@ export type MedicalScribeChannelDefinitions =
   Array<MedicalScribeChannelDefinition>;
 export type MedicalScribeChannelId = number;
 
+export interface MedicalScribeContext {
+  PatientContext?: MedicalScribePatientContext;
+}
 export interface MedicalScribeJob {
   MedicalScribeJobName?: string;
   MedicalScribeJobStatus?: MedicalScribeJobStatus;
@@ -1014,6 +1017,7 @@ export interface MedicalScribeJob {
   Settings?: MedicalScribeSettings;
   DataAccessRoleArn?: string;
   ChannelDefinitions?: Array<MedicalScribeChannelDefinition>;
+  MedicalScribeContextProvided?: boolean;
   Tags?: Array<Tag>;
 }
 export type MedicalScribeJobStatus =
@@ -1045,6 +1049,9 @@ export interface MedicalScribeOutput {
   ClinicalDocumentUri: string;
 }
 export type MedicalScribeParticipantRole = "PATIENT" | "CLINICIAN";
+export interface MedicalScribePatientContext {
+  Pronouns?: Pronouns;
+}
 export interface MedicalScribeSettings {
   ShowSpeakerLabels?: boolean;
   MaxSpeakerLabels?: number;
@@ -1145,6 +1152,7 @@ export type PiiEntityType =
   | "SSN"
   | "ALL";
 export type PiiEntityTypes = Array<PiiEntityType>;
+export type Pronouns = "HE_HIM" | "SHE_HER" | "THEY_THEM";
 export type RedactionOutput = "redacted" | "redacted_and_unredacted";
 export type RedactionType = "PII";
 export interface RelativeTimeRange {
@@ -1209,6 +1217,7 @@ export interface StartMedicalScribeJobRequest {
   Settings: MedicalScribeSettings;
   ChannelDefinitions?: Array<MedicalScribeChannelDefinition>;
   Tags?: Array<Tag>;
+  MedicalScribeContext?: MedicalScribeContext;
 }
 export interface StartMedicalScribeJobResponse {
   MedicalScribeJob?: MedicalScribeJob;
@@ -1902,3 +1911,11 @@ export declare namespace UpdateVocabularyFilter {
     | NotFoundException
     | CommonAwsError;
 }
+
+export type TranscribeErrors =
+  | BadRequestException
+  | ConflictException
+  | InternalFailureException
+  | LimitExceededException
+  | NotFoundException
+  | CommonAwsError;

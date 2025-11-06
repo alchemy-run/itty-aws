@@ -541,3 +541,14 @@ export declare namespace ListConnectors {
     | ValidationException
     | CommonAwsError;
 }
+
+export type PcaConnectorScepErrors =
+  | AccessDeniedException
+  | BadRequestException
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

@@ -672,3 +672,11 @@ export declare namespace ValidatePipelineDefinition {
     | PipelineNotFoundException
     | CommonAwsError;
 }
+
+export type DataPipelineErrors =
+  | InternalServiceError
+  | InvalidRequestException
+  | PipelineDeletedException
+  | PipelineNotFoundException
+  | TaskNotFoundException
+  | CommonAwsError;

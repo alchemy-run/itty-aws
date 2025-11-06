@@ -1149,3 +1149,13 @@ export declare namespace StopVectorEnrichmentJob {
     | ValidationException
     | CommonAwsError;
 }
+
+export type SageMakerGeospatialErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

@@ -1017,3 +1017,18 @@ export declare namespace ValidateResourcePolicy {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+
+export type SecretsManagerErrors =
+  | DecryptionFailure
+  | EncryptionFailure
+  | InternalServiceError
+  | InvalidNextTokenException
+  | InvalidParameterException
+  | InvalidRequestException
+  | LimitExceededException
+  | MalformedPolicyDocumentException
+  | PreconditionNotMetException
+  | PublicPolicyException
+  | ResourceExistsException
+  | ResourceNotFoundException
+  | CommonAwsError;

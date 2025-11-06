@@ -789,3 +789,13 @@ export declare namespace UpdateCluster {
     | ValidationException
     | CommonAwsError;
 }
+
+export type DocDBElasticErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

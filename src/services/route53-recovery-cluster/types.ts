@@ -266,3 +266,14 @@ export declare namespace UpdateRoutingControlStates {
     | ValidationException
     | CommonAwsError;
 }
+
+export type Route53RecoveryClusterErrors =
+  | AccessDeniedException
+  | ConflictException
+  | EndpointTemporarilyUnavailableException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceLimitExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

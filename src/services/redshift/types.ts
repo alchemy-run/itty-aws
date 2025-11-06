@@ -276,8 +276,10 @@ export declare class Redshift extends AWSServiceClient {
     CreateRedshiftIdcApplicationResult,
     | DependentServiceAccessDeniedFault
     | DependentServiceUnavailableFault
+    | InvalidTagFault
     | RedshiftIdcApplicationAlreadyExistsFault
     | RedshiftIdcApplicationQuotaExceededFault
+    | TagLimitExceededFault
     | UnsupportedOperationFault
     | CommonAwsError
   >;
@@ -1920,6 +1922,8 @@ export interface CreateRedshiftIdcApplicationMessage {
   IamRoleArn: string;
   AuthorizedTokenIssuerList?: Array<AuthorizedTokenIssuer>;
   ServiceIntegrations?: Array<ServiceIntegrationsUnion>;
+  Tags?: Array<Tag>;
+  SsoTagKeys?: Array<string>;
 }
 export interface CreateRedshiftIdcApplicationResult {
   RedshiftIdcApplication?: RedshiftIdcApplication;
@@ -3421,6 +3425,8 @@ export interface RedshiftIdcApplication {
   IdcOnboardStatus?: string;
   AuthorizedTokenIssuerList?: Array<AuthorizedTokenIssuer>;
   ServiceIntegrations?: Array<ServiceIntegrationsUnion>;
+  Tags?: Array<Tag>;
+  SsoTagKeys?: Array<string>;
 }
 export declare class RedshiftIdcApplicationAlreadyExistsFault extends EffectData.TaggedError(
   "RedshiftIdcApplicationAlreadyExistsFault",
@@ -4472,8 +4478,10 @@ export declare namespace CreateRedshiftIdcApplication {
   export type Error =
     | DependentServiceAccessDeniedFault
     | DependentServiceUnavailableFault
+    | InvalidTagFault
     | RedshiftIdcApplicationAlreadyExistsFault
     | RedshiftIdcApplicationQuotaExceededFault
+    | TagLimitExceededFault
     | UnsupportedOperationFault
     | CommonAwsError;
 }
@@ -5669,3 +5677,148 @@ export declare namespace UpdatePartnerStatus {
     | UnsupportedOperationFault
     | CommonAwsError;
 }
+
+export type RedshiftErrors =
+  | AccessToClusterDeniedFault
+  | AccessToSnapshotDeniedFault
+  | AuthenticationProfileAlreadyExistsFault
+  | AuthenticationProfileNotFoundFault
+  | AuthenticationProfileQuotaExceededFault
+  | AuthorizationAlreadyExistsFault
+  | AuthorizationNotFoundFault
+  | AuthorizationQuotaExceededFault
+  | BatchDeleteRequestSizeExceededFault
+  | BatchModifyClusterSnapshotsLimitExceededFault
+  | BucketNotFoundFault
+  | ClusterAlreadyExistsFault
+  | ClusterNotFoundFault
+  | ClusterOnLatestRevisionFault
+  | ClusterParameterGroupAlreadyExistsFault
+  | ClusterParameterGroupNotFoundFault
+  | ClusterParameterGroupQuotaExceededFault
+  | ClusterQuotaExceededFault
+  | ClusterSecurityGroupAlreadyExistsFault
+  | ClusterSecurityGroupNotFoundFault
+  | ClusterSecurityGroupQuotaExceededFault
+  | ClusterSnapshotAlreadyExistsFault
+  | ClusterSnapshotNotFoundFault
+  | ClusterSnapshotQuotaExceededFault
+  | ClusterSubnetGroupAlreadyExistsFault
+  | ClusterSubnetGroupNotFoundFault
+  | ClusterSubnetGroupQuotaExceededFault
+  | ClusterSubnetQuotaExceededFault
+  | ConflictPolicyUpdateFault
+  | CopyToRegionDisabledFault
+  | CustomCnameAssociationFault
+  | CustomDomainAssociationNotFoundFault
+  | DependentServiceAccessDeniedFault
+  | DependentServiceRequestThrottlingFault
+  | DependentServiceUnavailableFault
+  | EndpointAlreadyExistsFault
+  | EndpointAuthorizationAlreadyExistsFault
+  | EndpointAuthorizationNotFoundFault
+  | EndpointAuthorizationsPerClusterLimitExceededFault
+  | EndpointNotFoundFault
+  | EndpointsPerAuthorizationLimitExceededFault
+  | EndpointsPerClusterLimitExceededFault
+  | EventSubscriptionQuotaExceededFault
+  | HsmClientCertificateAlreadyExistsFault
+  | HsmClientCertificateNotFoundFault
+  | HsmClientCertificateQuotaExceededFault
+  | HsmConfigurationAlreadyExistsFault
+  | HsmConfigurationNotFoundFault
+  | HsmConfigurationQuotaExceededFault
+  | InProgressTableRestoreQuotaExceededFault
+  | IncompatibleOrderableOptions
+  | InsufficientClusterCapacityFault
+  | InsufficientS3BucketPolicyFault
+  | IntegrationAlreadyExistsFault
+  | IntegrationConflictOperationFault
+  | IntegrationConflictStateFault
+  | IntegrationNotFoundFault
+  | IntegrationQuotaExceededFault
+  | IntegrationSourceNotFoundFault
+  | IntegrationTargetNotFoundFault
+  | InvalidAuthenticationProfileRequestFault
+  | InvalidAuthorizationStateFault
+  | InvalidClusterParameterGroupStateFault
+  | InvalidClusterSecurityGroupStateFault
+  | InvalidClusterSnapshotScheduleStateFault
+  | InvalidClusterSnapshotStateFault
+  | InvalidClusterStateFault
+  | InvalidClusterSubnetGroupStateFault
+  | InvalidClusterSubnetStateFault
+  | InvalidClusterTrackFault
+  | InvalidDataShareFault
+  | InvalidElasticIpFault
+  | InvalidEndpointStateFault
+  | InvalidHsmClientCertificateStateFault
+  | InvalidHsmConfigurationStateFault
+  | InvalidNamespaceFault
+  | InvalidPolicyFault
+  | InvalidReservedNodeStateFault
+  | InvalidRestoreFault
+  | InvalidRetentionPeriodFault
+  | InvalidS3BucketNameFault
+  | InvalidS3KeyPrefixFault
+  | InvalidScheduleFault
+  | InvalidScheduledActionFault
+  | InvalidSnapshotCopyGrantStateFault
+  | InvalidSubnet
+  | InvalidSubscriptionStateFault
+  | InvalidTableRestoreArgumentFault
+  | InvalidTagFault
+  | InvalidUsageLimitFault
+  | InvalidVPCNetworkStateFault
+  | Ipv6CidrBlockNotFoundFault
+  | LimitExceededFault
+  | NumberOfNodesPerClusterLimitExceededFault
+  | NumberOfNodesQuotaExceededFault
+  | PartnerNotFoundFault
+  | RedshiftIdcApplicationAlreadyExistsFault
+  | RedshiftIdcApplicationNotExistsFault
+  | RedshiftIdcApplicationQuotaExceededFault
+  | ReservedNodeAlreadyExistsFault
+  | ReservedNodeAlreadyMigratedFault
+  | ReservedNodeExchangeNotFoundFault
+  | ReservedNodeNotFoundFault
+  | ReservedNodeOfferingNotFoundFault
+  | ReservedNodeQuotaExceededFault
+  | ResizeNotFoundFault
+  | ResourceNotFoundFault
+  | SNSInvalidTopicFault
+  | SNSNoAuthorizationFault
+  | SNSTopicArnNotFoundFault
+  | ScheduleDefinitionTypeUnsupportedFault
+  | ScheduledActionAlreadyExistsFault
+  | ScheduledActionNotFoundFault
+  | ScheduledActionQuotaExceededFault
+  | ScheduledActionTypeUnsupportedFault
+  | SnapshotCopyAlreadyDisabledFault
+  | SnapshotCopyAlreadyEnabledFault
+  | SnapshotCopyDisabledFault
+  | SnapshotCopyGrantAlreadyExistsFault
+  | SnapshotCopyGrantNotFoundFault
+  | SnapshotCopyGrantQuotaExceededFault
+  | SnapshotScheduleAlreadyExistsFault
+  | SnapshotScheduleNotFoundFault
+  | SnapshotScheduleQuotaExceededFault
+  | SnapshotScheduleUpdateInProgressFault
+  | SourceNotFoundFault
+  | SubnetAlreadyInUse
+  | SubscriptionAlreadyExistFault
+  | SubscriptionCategoryNotFoundFault
+  | SubscriptionEventIdNotFoundFault
+  | SubscriptionNotFoundFault
+  | SubscriptionSeverityNotFoundFault
+  | TableLimitExceededFault
+  | TableRestoreNotFoundFault
+  | TagLimitExceededFault
+  | UnauthorizedOperation
+  | UnauthorizedPartnerIntegrationFault
+  | UnknownSnapshotCopyRegionFault
+  | UnsupportedOperationFault
+  | UnsupportedOptionFault
+  | UsageLimitAlreadyExistsFault
+  | UsageLimitNotFoundFault
+  | CommonAwsError;

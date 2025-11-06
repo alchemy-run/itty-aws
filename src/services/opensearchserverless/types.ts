@@ -160,6 +160,16 @@ export declare class OpenSearchServerless extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
+  createIndex(
+    input: CreateIndexRequest,
+  ): Effect.Effect<
+    CreateIndexResponse,
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
   createSecurityConfig(
     input: CreateSecurityConfigRequest,
   ): Effect.Effect<
@@ -195,6 +205,15 @@ export declare class OpenSearchServerless extends AWSServiceClient {
   ): Effect.Effect<
     DeleteCollectionResponse,
     | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteIndex(
+    input: DeleteIndexRequest,
+  ): Effect.Effect<
+    DeleteIndexResponse,
     | InternalServerException
     | ResourceNotFoundException
     | ValidationException
@@ -244,6 +263,15 @@ export declare class OpenSearchServerless extends AWSServiceClient {
     input: GetAccessPolicyRequest,
   ): Effect.Effect<
     GetAccessPolicyResponse,
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getIndex(
+    input: GetIndexRequest,
+  ): Effect.Effect<
+    GetIndexResponse,
     | InternalServerException
     | ResourceNotFoundException
     | ValidationException
@@ -319,6 +347,15 @@ export declare class OpenSearchServerless extends AWSServiceClient {
     UpdateCollectionResponse,
     | ConflictException
     | InternalServerException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateIndex(
+    input: UpdateIndexRequest,
+  ): Effect.Effect<
+    UpdateIndexResponse,
+    | InternalServerException
+    | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
   >;
@@ -434,6 +471,7 @@ export interface CollectionDetail {
   lastModifiedDate?: number;
   collectionEndpoint?: string;
   dashboardEndpoint?: string;
+  fipsEndpoints?: FipsEndpoints;
   failureCode?: string;
   failureMessage?: string;
 }
@@ -513,6 +551,12 @@ export interface CreateIamIdentityCenterConfigOptions {
   userAttribute?: string;
   groupAttribute?: string;
 }
+export interface CreateIndexRequest {
+  id: string;
+  indexName: string;
+  indexSchema?: unknown;
+}
+export interface CreateIndexResponse {}
 export interface CreateLifecyclePolicyRequest {
   type: string;
   name: string;
@@ -578,6 +622,11 @@ export interface DeleteCollectionRequest {
 export interface DeleteCollectionResponse {
   deleteCollectionDetail?: DeleteCollectionDetail;
 }
+export interface DeleteIndexRequest {
+  id: string;
+  indexName: string;
+}
+export interface DeleteIndexResponse {}
 export interface DeleteLifecyclePolicyRequest {
   type: string;
   name: string;
@@ -625,6 +674,10 @@ export interface EffectiveLifecyclePolicyErrorDetail {
 }
 export type EffectiveLifecyclePolicyErrorDetails =
   Array<EffectiveLifecyclePolicyErrorDetail>;
+export interface FipsEndpoints {
+  collectionEndpoint?: string;
+  dashboardEndpoint?: string;
+}
 export interface GetAccessPolicyRequest {
   type: string;
   name: string;
@@ -635,6 +688,13 @@ export interface GetAccessPolicyResponse {
 export interface GetAccountSettingsRequest {}
 export interface GetAccountSettingsResponse {
   accountSettingsDetail?: AccountSettingsDetail;
+}
+export interface GetIndexRequest {
+  id: string;
+  indexName: string;
+}
+export interface GetIndexResponse {
+  indexSchema?: unknown;
 }
 export interface GetPoliciesStatsRequest {}
 export interface GetPoliciesStatsResponse {
@@ -682,6 +742,10 @@ export type IamIdentityCenterInstanceArn = string;
 export type IamIdentityCenterUserAttribute = string;
 
 export type IndexingCapacityValue = number;
+
+export type IndexName = string;
+
+export type IndexSchema = unknown;
 
 export declare class InternalServerException extends EffectData.TaggedError(
   "InternalServerException",
@@ -965,6 +1029,12 @@ export interface UpdateIamIdentityCenterConfigOptions {
   userAttribute?: string;
   groupAttribute?: string;
 }
+export interface UpdateIndexRequest {
+  id: string;
+  indexName: string;
+  indexSchema?: unknown;
+}
+export interface UpdateIndexResponse {}
 export interface UpdateLifecyclePolicyRequest {
   type: string;
   name: string;
@@ -1207,6 +1277,17 @@ export declare namespace CreateCollection {
     | CommonAwsError;
 }
 
+export declare namespace CreateIndex {
+  export type Input = CreateIndexRequest;
+  export type Output = CreateIndexResponse;
+  export type Error =
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
 export declare namespace CreateSecurityConfig {
   export type Input = CreateSecurityConfigRequest;
   export type Output = CreateSecurityConfigResponse;
@@ -1245,6 +1326,16 @@ export declare namespace DeleteCollection {
   export type Output = DeleteCollectionResponse;
   export type Error =
     | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteIndex {
+  export type Input = DeleteIndexRequest;
+  export type Output = DeleteIndexResponse;
+  export type Error =
     | InternalServerException
     | ResourceNotFoundException
     | ValidationException
@@ -1298,6 +1389,16 @@ export declare namespace DeleteVpcEndpoint {
 export declare namespace GetAccessPolicy {
   export type Input = GetAccessPolicyRequest;
   export type Output = GetAccessPolicyResponse;
+  export type Error =
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetIndex {
+  export type Input = GetIndexRequest;
+  export type Output = GetIndexResponse;
   export type Error =
     | InternalServerException
     | ResourceNotFoundException
@@ -1400,6 +1501,16 @@ export declare namespace UpdateCollection {
     | CommonAwsError;
 }
 
+export declare namespace UpdateIndex {
+  export type Input = UpdateIndexRequest;
+  export type Output = UpdateIndexResponse;
+  export type Error =
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
 export declare namespace UpdateLifecyclePolicy {
   export type Input = UpdateLifecyclePolicyRequest;
   export type Output = UpdateLifecyclePolicyResponse;
@@ -1434,3 +1545,12 @@ export declare namespace UpdateSecurityPolicy {
     | ValidationException
     | CommonAwsError;
 }
+
+export type OpenSearchServerlessErrors =
+  | ConflictException
+  | InternalServerException
+  | OcuLimitExceededException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ValidationException
+  | CommonAwsError;

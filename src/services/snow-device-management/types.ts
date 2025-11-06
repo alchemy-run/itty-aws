@@ -608,3 +608,12 @@ export declare namespace ListTasks {
     | ValidationException
     | CommonAwsError;
 }
+
+export type SnowDeviceManagementErrors =
+  | AccessDeniedException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

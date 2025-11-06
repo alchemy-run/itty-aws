@@ -2609,3 +2609,40 @@ export declare namespace StartMLModelTransformJob {
     | UnsupportedOperationException
     | CommonAwsError;
 }
+
+export type neptunedataErrors =
+  | AccessDeniedException
+  | BadRequestException
+  | BulkLoadIdNotFoundException
+  | CancelledByUserException
+  | ClientTimeoutException
+  | ConcurrentModificationException
+  | ConstraintViolationException
+  | ExpiredStreamException
+  | FailureByQueryException
+  | IllegalArgumentException
+  | InternalFailureException
+  | InvalidArgumentException
+  | InvalidNumericDataException
+  | InvalidParameterException
+  | LoadUrlAccessDeniedException
+  | MLResourceNotFoundException
+  | MalformedQueryException
+  | MemoryLimitExceededException
+  | MethodNotAllowedException
+  | MissingParameterException
+  | ParsingException
+  | PreconditionsFailedException
+  | QueryLimitExceededException
+  | QueryLimitException
+  | QueryTooLargeException
+  | ReadOnlyViolationException
+  | S3Exception
+  | ServerShutdownException
+  | StatisticsNotAvailableException
+  | StreamRecordsNotFoundException
+  | ThrottlingException
+  | TimeLimitExceededException
+  | TooManyRequestsException
+  | UnsupportedOperationException
+  | CommonAwsError;

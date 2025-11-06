@@ -477,3 +477,17 @@ export declare namespace PutSession {
     | NotFoundException
     | CommonAwsError;
 }
+
+export type LexRuntimeServiceErrors =
+  | BadGatewayException
+  | BadRequestException
+  | ConflictException
+  | DependencyFailedException
+  | InternalFailureException
+  | LimitExceededException
+  | LoopDetectedException
+  | NotAcceptableException
+  | NotFoundException
+  | RequestTimeoutException
+  | UnsupportedMediaTypeException
+  | CommonAwsError;

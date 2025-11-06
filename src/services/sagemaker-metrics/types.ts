@@ -105,3 +105,5 @@ export declare namespace BatchPutMetrics {
   export type Output = BatchPutMetricsResponse;
   export type Error = CommonAwsError;
 }
+
+export type SageMakerMetricsErrors = CommonAwsError;

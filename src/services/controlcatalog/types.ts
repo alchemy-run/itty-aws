@@ -408,3 +408,11 @@ export declare namespace ListObjectives {
     | ValidationException
     | CommonAwsError;
 }
+
+export type ControlCatalogErrors =
+  | AccessDeniedException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

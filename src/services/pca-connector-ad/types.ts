@@ -1334,3 +1334,13 @@ export declare namespace UpdateTemplateGroupAccessControlEntry {
     | ValidationException
     | CommonAwsError;
 }
+
+export type PcaConnectorAdErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

@@ -2326,3 +2326,16 @@ export declare namespace UpdateFlow {
     | ValidationException
     | CommonAwsError;
 }
+
+export type AppflowErrors =
+  | AccessDeniedException
+  | ConflictException
+  | ConnectorAuthenticationException
+  | ConnectorServerException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | UnsupportedOperationException
+  | ValidationException
+  | CommonAwsError;

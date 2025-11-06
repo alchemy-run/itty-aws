@@ -415,3 +415,14 @@ export declare namespace StartSnapshot {
     | ValidationException
     | CommonAwsError;
 }
+
+export type EBSErrors =
+  | AccessDeniedException
+  | ConcurrentLimitExceededException
+  | ConflictException
+  | InternalServerException
+  | RequestThrottledException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ValidationException
+  | CommonAwsError;

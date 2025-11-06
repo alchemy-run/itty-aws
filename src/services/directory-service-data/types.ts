@@ -837,3 +837,13 @@ export declare namespace UpdateUser {
     | ValidationException
     | CommonAwsError;
 }
+
+export type DirectoryServiceDataErrors =
+  | AccessDeniedException
+  | ConflictException
+  | DirectoryUnavailableException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

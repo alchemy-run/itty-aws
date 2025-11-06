@@ -753,3 +753,12 @@ export declare namespace UpdatePackagingGroup {
     | UnprocessableEntityException
     | CommonAwsError;
 }
+
+export type MediaPackageVodErrors =
+  | ForbiddenException
+  | InternalServerErrorException
+  | NotFoundException
+  | ServiceUnavailableException
+  | TooManyRequestsException
+  | UnprocessableEntityException
+  | CommonAwsError;

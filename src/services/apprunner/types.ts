@@ -1440,3 +1440,11 @@ export declare namespace UpdateVpcIngressConnection {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+
+export type AppRunnerErrors =
+  | InternalServiceErrorException
+  | InvalidRequestException
+  | InvalidStateException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | CommonAwsError;

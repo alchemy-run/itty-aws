@@ -1285,3 +1285,19 @@ export declare namespace UpdateSubscription {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+
+export type ShieldErrors =
+  | AccessDeniedException
+  | AccessDeniedForDependencyException
+  | InternalErrorException
+  | InvalidOperationException
+  | InvalidPaginationTokenException
+  | InvalidParameterException
+  | InvalidResourceException
+  | LimitsExceededException
+  | LockedSubscriptionException
+  | NoAssociatedRoleException
+  | OptimisticLockException
+  | ResourceAlreadyExistsException
+  | ResourceNotFoundException
+  | CommonAwsError;

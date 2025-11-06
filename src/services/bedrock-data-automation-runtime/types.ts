@@ -310,3 +310,12 @@ export declare namespace InvokeDataAutomationAsync {
     | ValidationException
     | CommonAwsError;
 }
+
+export type BedrockDataAutomationRuntimeErrors =
+  | AccessDeniedException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

@@ -724,3 +724,19 @@ export declare namespace UpdateRecords {
     | TooManyRequestsException
     | CommonAwsError;
 }
+
+export type CognitoSyncErrors =
+  | AlreadyStreamedException
+  | ConcurrentModificationException
+  | DuplicateRequestException
+  | InternalErrorException
+  | InvalidConfigurationException
+  | InvalidLambdaFunctionOutputException
+  | InvalidParameterException
+  | LambdaThrottledException
+  | LimitExceededException
+  | NotAuthorizedException
+  | ResourceConflictException
+  | ResourceNotFoundException
+  | TooManyRequestsException
+  | CommonAwsError;

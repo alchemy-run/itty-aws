@@ -1354,3 +1354,38 @@ export declare namespace UpdateFileSystemProtection {
     | TooManyRequests
     | CommonAwsError;
 }
+
+export type EFSErrors =
+  | AccessPointAlreadyExists
+  | AccessPointLimitExceeded
+  | AccessPointNotFound
+  | AvailabilityZonesMismatch
+  | BadRequest
+  | ConflictException
+  | DependencyTimeout
+  | FileSystemAlreadyExists
+  | FileSystemInUse
+  | FileSystemLimitExceeded
+  | FileSystemNotFound
+  | IncorrectFileSystemLifeCycleState
+  | IncorrectMountTargetState
+  | InsufficientThroughputCapacity
+  | InternalServerError
+  | InvalidPolicyException
+  | IpAddressInUse
+  | MountTargetConflict
+  | MountTargetNotFound
+  | NetworkInterfaceLimitExceeded
+  | NoFreeAddressesInSubnet
+  | PolicyNotFound
+  | ReplicationAlreadyExists
+  | ReplicationNotFound
+  | SecurityGroupLimitExceeded
+  | SecurityGroupNotFound
+  | SubnetNotFound
+  | ThrottlingException
+  | ThroughputLimitExceeded
+  | TooManyRequests
+  | UnsupportedAvailabilityZone
+  | ValidationException
+  | CommonAwsError;

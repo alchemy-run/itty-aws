@@ -3592,3 +3592,13 @@ export declare namespace UpdateTemplateSyncConfig {
     | ValidationException
     | CommonAwsError;
 }
+
+export type ProtonErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

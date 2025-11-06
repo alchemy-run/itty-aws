@@ -2059,3 +2059,15 @@ export declare namespace UpdateArchiveRule {
     | ValidationException
     | CommonAwsError;
 }
+
+export type AccessAnalyzerErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | InvalidParameterException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | UnprocessableEntityException
+  | ValidationException
+  | CommonAwsError;

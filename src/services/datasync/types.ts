@@ -778,7 +778,11 @@ export type EfsSubdirectory = string;
 
 export type Endpoint = string;
 
-export type EndpointType = "PUBLIC" | "PRIVATE_LINK" | "FIPS";
+export type EndpointType =
+  | "PUBLIC"
+  | "PRIVATE_LINK"
+  | "FIPS"
+  | "FIPS_PRIVATE_LINK";
 export type FilterAttributeValue = string;
 
 export type FilterList = Array<FilterRule>;
@@ -1852,3 +1856,8 @@ export declare namespace UpdateTaskExecution {
     | InvalidRequestException
     | CommonAwsError;
 }
+
+export type DataSyncErrors =
+  | InternalException
+  | InvalidRequestException
+  | CommonAwsError;

@@ -46,6 +46,7 @@ export declare class BedrockRuntime extends AWSServiceClient {
     | InternalServerException
     | ResourceNotFoundException
     | ServiceQuotaExceededException
+    | ServiceUnavailableException
     | ThrottlingException
     | ValidationException
     | CommonAwsError
@@ -74,6 +75,18 @@ export declare class BedrockRuntime extends AWSServiceClient {
     | ModelErrorException
     | ModelNotReadyException
     | ModelTimeoutException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  countTokens(
+    input: CountTokensRequest,
+  ): Effect.Effect<
+    CountTokensResponse,
+    | AccessDeniedException
+    | InternalServerException
     | ResourceNotFoundException
     | ServiceUnavailableException
     | ThrottlingException
@@ -223,6 +236,8 @@ export interface AsyncInvokeSummary {
   endTime?: Date | string;
   outputDataConfig: AsyncInvokeOutputDataConfig;
 }
+export type AutomatedReasoningRuleIdentifier = string;
+
 export interface AutoToolChoice {}
 export interface BidirectionalInputPayloadPart {
   bytes?: Uint8Array | string;
@@ -250,12 +265,14 @@ export type CitationGeneratedContent = _CitationGeneratedContent & {
 };
 export type CitationGeneratedContentList = Array<CitationGeneratedContent>;
 interface _CitationLocation {
+  web?: WebLocation;
   documentChar?: DocumentCharLocation;
   documentPage?: DocumentPageLocation;
   documentChunk?: DocumentChunkLocation;
 }
 
 export type CitationLocation =
+  | (_CitationLocation & { web: WebLocation })
   | (_CitationLocation & { documentChar: DocumentCharLocation })
   | (_CitationLocation & { documentPage: DocumentPageLocation })
   | (_CitationLocation & { documentChunk: DocumentChunkLocation });
@@ -314,6 +331,7 @@ export type ContentBlock =
 interface _ContentBlockDelta {
   text?: string;
   toolUse?: ToolUseBlockDelta;
+  toolResult?: Array<ToolResultBlockDelta>;
   reasoningContent?: ReasoningContentBlockDelta;
   citation?: CitationsDelta;
 }
@@ -321,6 +339,7 @@ interface _ContentBlockDelta {
 export type ContentBlockDelta =
   | (_ContentBlockDelta & { text: string })
   | (_ContentBlockDelta & { toolUse: ToolUseBlockDelta })
+  | (_ContentBlockDelta & { toolResult: Array<ToolResultBlockDelta> })
   | (_ContentBlockDelta & { reasoningContent: ReasoningContentBlockDelta })
   | (_ContentBlockDelta & { citation: CitationsDelta });
 export interface ContentBlockDeltaEvent {
@@ -330,11 +349,12 @@ export interface ContentBlockDeltaEvent {
 export type ContentBlocks = Array<ContentBlock>;
 interface _ContentBlockStart {
   toolUse?: ToolUseBlockStart;
+  toolResult?: ToolResultBlockStart;
 }
 
-export type ContentBlockStart = _ContentBlockStart & {
-  toolUse: ToolUseBlockStart;
-};
+export type ContentBlockStart =
+  | (_ContentBlockStart & { toolUse: ToolUseBlockStart })
+  | (_ContentBlockStart & { toolResult: ToolResultBlockStart });
 export interface ContentBlockStartEvent {
   start: ContentBlockStart;
   contentBlockIndex: number;
@@ -436,9 +456,28 @@ export interface ConverseStreamTrace {
   guardrail?: GuardrailTraceAssessment;
   promptRouter?: PromptRouterTrace;
 }
+export interface ConverseTokensRequest {
+  messages?: Array<Message>;
+  system?: Array<SystemContentBlock>;
+}
 export interface ConverseTrace {
   guardrail?: GuardrailTraceAssessment;
   promptRouter?: PromptRouterTrace;
+}
+interface _CountTokensInput {
+  invokeModel?: InvokeModelTokensRequest;
+  converse?: ConverseTokensRequest;
+}
+
+export type CountTokensInput =
+  | (_CountTokensInput & { invokeModel: InvokeModelTokensRequest })
+  | (_CountTokensInput & { converse: ConverseTokensRequest });
+export interface CountTokensRequest {
+  modelId: string;
+  input: CountTokensInput;
+}
+export interface CountTokensResponse {
+  inputTokens: number;
 }
 export interface DocumentBlock {
   format?: DocumentFormat;
@@ -490,6 +529,8 @@ export type DocumentSource =
   | (_DocumentSource & { s3Location: S3Location })
   | (_DocumentSource & { text: string })
   | (_DocumentSource & { content: Array<DocumentContentBlock> });
+export type FoundationModelVersionIdentifier = string;
+
 export interface GetAsyncInvokeRequest {
   invocationArn: string;
 }
@@ -511,6 +552,7 @@ export interface GuardrailAssessment {
   wordPolicy?: GuardrailWordPolicyAssessment;
   sensitiveInformationPolicy?: GuardrailSensitiveInformationPolicyAssessment;
   contextualGroundingPolicy?: GuardrailContextualGroundingPolicyAssessment;
+  automatedReasoningPolicy?: GuardrailAutomatedReasoningPolicyAssessment;
   invocationMetrics?: GuardrailInvocationMetrics;
 }
 export type GuardrailAssessmentList = Array<GuardrailAssessment>;
@@ -519,6 +561,127 @@ export type GuardrailAssessmentListMap = Record<
   Array<GuardrailAssessment>
 >;
 export type GuardrailAssessmentMap = Record<string, GuardrailAssessment>;
+export type GuardrailAutomatedReasoningDifferenceScenarioList =
+  Array<GuardrailAutomatedReasoningScenario>;
+interface _GuardrailAutomatedReasoningFinding {
+  valid?: GuardrailAutomatedReasoningValidFinding;
+  invalid?: GuardrailAutomatedReasoningInvalidFinding;
+  satisfiable?: GuardrailAutomatedReasoningSatisfiableFinding;
+  impossible?: GuardrailAutomatedReasoningImpossibleFinding;
+  translationAmbiguous?: GuardrailAutomatedReasoningTranslationAmbiguousFinding;
+  tooComplex?: GuardrailAutomatedReasoningTooComplexFinding;
+  noTranslations?: GuardrailAutomatedReasoningNoTranslationsFinding;
+}
+
+export type GuardrailAutomatedReasoningFinding =
+  | (_GuardrailAutomatedReasoningFinding & {
+      valid: GuardrailAutomatedReasoningValidFinding;
+    })
+  | (_GuardrailAutomatedReasoningFinding & {
+      invalid: GuardrailAutomatedReasoningInvalidFinding;
+    })
+  | (_GuardrailAutomatedReasoningFinding & {
+      satisfiable: GuardrailAutomatedReasoningSatisfiableFinding;
+    })
+  | (_GuardrailAutomatedReasoningFinding & {
+      impossible: GuardrailAutomatedReasoningImpossibleFinding;
+    })
+  | (_GuardrailAutomatedReasoningFinding & {
+      translationAmbiguous: GuardrailAutomatedReasoningTranslationAmbiguousFinding;
+    })
+  | (_GuardrailAutomatedReasoningFinding & {
+      tooComplex: GuardrailAutomatedReasoningTooComplexFinding;
+    })
+  | (_GuardrailAutomatedReasoningFinding & {
+      noTranslations: GuardrailAutomatedReasoningNoTranslationsFinding;
+    });
+export type GuardrailAutomatedReasoningFindingList =
+  Array<GuardrailAutomatedReasoningFinding>;
+export interface GuardrailAutomatedReasoningImpossibleFinding {
+  translation?: GuardrailAutomatedReasoningTranslation;
+  contradictingRules?: Array<GuardrailAutomatedReasoningRule>;
+  logicWarning?: GuardrailAutomatedReasoningLogicWarning;
+}
+export interface GuardrailAutomatedReasoningInputTextReference {
+  text?: string;
+}
+export type GuardrailAutomatedReasoningInputTextReferenceList =
+  Array<GuardrailAutomatedReasoningInputTextReference>;
+export interface GuardrailAutomatedReasoningInvalidFinding {
+  translation?: GuardrailAutomatedReasoningTranslation;
+  contradictingRules?: Array<GuardrailAutomatedReasoningRule>;
+  logicWarning?: GuardrailAutomatedReasoningLogicWarning;
+}
+export interface GuardrailAutomatedReasoningLogicWarning {
+  type?: GuardrailAutomatedReasoningLogicWarningType;
+  premises?: Array<GuardrailAutomatedReasoningStatement>;
+  claims?: Array<GuardrailAutomatedReasoningStatement>;
+}
+export type GuardrailAutomatedReasoningLogicWarningType =
+  | "ALWAYS_FALSE"
+  | "ALWAYS_TRUE";
+export interface GuardrailAutomatedReasoningNoTranslationsFinding {}
+export type GuardrailAutomatedReasoningPoliciesProcessed = number;
+
+export interface GuardrailAutomatedReasoningPolicyAssessment {
+  findings?: Array<GuardrailAutomatedReasoningFinding>;
+}
+export type GuardrailAutomatedReasoningPolicyUnitsProcessed = number;
+
+export type GuardrailAutomatedReasoningPolicyVersionArn = string;
+
+export interface GuardrailAutomatedReasoningRule {
+  identifier?: string;
+  policyVersionArn?: string;
+}
+export type GuardrailAutomatedReasoningRuleList =
+  Array<GuardrailAutomatedReasoningRule>;
+export interface GuardrailAutomatedReasoningSatisfiableFinding {
+  translation?: GuardrailAutomatedReasoningTranslation;
+  claimsTrueScenario?: GuardrailAutomatedReasoningScenario;
+  claimsFalseScenario?: GuardrailAutomatedReasoningScenario;
+  logicWarning?: GuardrailAutomatedReasoningLogicWarning;
+}
+export interface GuardrailAutomatedReasoningScenario {
+  statements?: Array<GuardrailAutomatedReasoningStatement>;
+}
+export interface GuardrailAutomatedReasoningStatement {
+  logic?: string;
+  naturalLanguage?: string;
+}
+export type GuardrailAutomatedReasoningStatementList =
+  Array<GuardrailAutomatedReasoningStatement>;
+export type GuardrailAutomatedReasoningStatementLogicContent = string;
+
+export type GuardrailAutomatedReasoningStatementNaturalLanguageContent = string;
+
+export interface GuardrailAutomatedReasoningTooComplexFinding {}
+export interface GuardrailAutomatedReasoningTranslation {
+  premises?: Array<GuardrailAutomatedReasoningStatement>;
+  claims?: Array<GuardrailAutomatedReasoningStatement>;
+  untranslatedPremises?: Array<GuardrailAutomatedReasoningInputTextReference>;
+  untranslatedClaims?: Array<GuardrailAutomatedReasoningInputTextReference>;
+  confidence?: number;
+}
+export interface GuardrailAutomatedReasoningTranslationAmbiguousFinding {
+  options?: Array<GuardrailAutomatedReasoningTranslationOption>;
+  differenceScenarios?: Array<GuardrailAutomatedReasoningScenario>;
+}
+export type GuardrailAutomatedReasoningTranslationConfidence = number;
+
+export type GuardrailAutomatedReasoningTranslationList =
+  Array<GuardrailAutomatedReasoningTranslation>;
+export interface GuardrailAutomatedReasoningTranslationOption {
+  translations?: Array<GuardrailAutomatedReasoningTranslation>;
+}
+export type GuardrailAutomatedReasoningTranslationOptionList =
+  Array<GuardrailAutomatedReasoningTranslationOption>;
+export interface GuardrailAutomatedReasoningValidFinding {
+  translation?: GuardrailAutomatedReasoningTranslation;
+  claimsTrueScenario?: GuardrailAutomatedReasoningScenario;
+  supportingRules?: Array<GuardrailAutomatedReasoningRule>;
+  logicWarning?: GuardrailAutomatedReasoningLogicWarning;
+}
 export interface GuardrailConfiguration {
   guardrailIdentifier: string;
   guardrailVersion: string;
@@ -767,6 +930,8 @@ export interface GuardrailUsage {
   sensitiveInformationPolicyFreeUnits: number;
   contextualGroundingPolicyUnits: number;
   contentPolicyImageUnits?: number;
+  automatedReasoningPolicyUnits?: number;
+  automatedReasoningPolicies?: number;
 }
 export type GuardrailVersion = string;
 
@@ -825,6 +990,9 @@ export interface InvokeModelResponse {
   body: Stream.Stream<Uint8Array, ResponseError>;
   contentType: string;
   performanceConfigLatency?: PerformanceConfigLatency;
+}
+export interface InvokeModelTokensRequest {
+  body: Uint8Array | string | Stream.Stream<Uint8Array>;
 }
 interface _InvokeModelWithBidirectionalStreamInput {
   chunk?: BidirectionalInputPayloadPart;
@@ -1060,7 +1228,8 @@ export type StopReason =
   | "max_tokens"
   | "stop_sequence"
   | "guardrail_intervened"
-  | "content_filtered";
+  | "content_filtered"
+  | "model_context_window_exceeded";
 interface _SystemContentBlock {
   text?: string;
   guardContent?: GuardrailConverseContentBlock;
@@ -1072,6 +1241,9 @@ export type SystemContentBlock =
   | (_SystemContentBlock & { guardContent: GuardrailConverseContentBlock })
   | (_SystemContentBlock & { cachePoint: CachePointBlock });
 export type SystemContentBlocks = Array<SystemContentBlock>;
+export interface SystemTool {
+  name: string;
+}
 export interface Tag {
   key: string;
   value: string;
@@ -1101,11 +1273,13 @@ export interface TokenUsage {
 }
 interface _Tool {
   toolSpec?: ToolSpecification;
+  systemTool?: SystemTool;
   cachePoint?: CachePointBlock;
 }
 
 export type Tool =
   | (_Tool & { toolSpec: ToolSpecification })
+  | (_Tool & { systemTool: SystemTool })
   | (_Tool & { cachePoint: CachePointBlock });
 interface _ToolChoice {
   auto?: AutoToolChoice;
@@ -1131,6 +1305,18 @@ export type ToolName = string;
 export interface ToolResultBlock {
   toolUseId: string;
   content: Array<ToolResultContentBlock>;
+  status?: ToolResultStatus;
+  type?: string;
+}
+interface _ToolResultBlockDelta {
+  text?: string;
+}
+
+export type ToolResultBlockDelta = _ToolResultBlockDelta & { text: string };
+export type ToolResultBlocksDelta = Array<ToolResultBlockDelta>;
+export interface ToolResultBlockStart {
+  toolUseId: string;
+  type?: string;
   status?: ToolResultStatus;
 }
 interface _ToolResultContentBlock {
@@ -1159,6 +1345,7 @@ export interface ToolUseBlock {
   toolUseId: string;
   name: string;
   input: unknown;
+  type?: ToolUseType;
 }
 export interface ToolUseBlockDelta {
   input: string;
@@ -1166,9 +1353,11 @@ export interface ToolUseBlockDelta {
 export interface ToolUseBlockStart {
   toolUseId: string;
   name: string;
+  type?: ToolUseType;
 }
 export type ToolUseId = string;
 
+export type ToolUseType = "server_tool_use";
 export type Trace = "ENABLED" | "DISABLED" | "ENABLED_FULL";
 export declare class ValidationException extends EffectData.TaggedError(
   "ValidationException",
@@ -1197,6 +1386,10 @@ interface _VideoSource {
 export type VideoSource =
   | (_VideoSource & { bytes: Uint8Array | string })
   | (_VideoSource & { s3Location: S3Location });
+export interface WebLocation {
+  url?: string;
+  domain?: string;
+}
 export declare namespace ApplyGuardrail {
   export type Input = ApplyGuardrailRequest;
   export type Output = ApplyGuardrailResponse;
@@ -1205,6 +1398,7 @@ export declare namespace ApplyGuardrail {
     | InternalServerException
     | ResourceNotFoundException
     | ServiceQuotaExceededException
+    | ServiceUnavailableException
     | ThrottlingException
     | ValidationException
     | CommonAwsError;
@@ -1235,6 +1429,19 @@ export declare namespace ConverseStream {
     | ModelErrorException
     | ModelNotReadyException
     | ModelTimeoutException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CountTokens {
+  export type Input = CountTokensRequest;
+  export type Output = CountTokensResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
     | ResourceNotFoundException
     | ServiceUnavailableException
     | ThrottlingException
@@ -1331,3 +1538,18 @@ export declare namespace StartAsyncInvoke {
     | ValidationException
     | CommonAwsError;
 }
+
+export type BedrockRuntimeErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | ModelErrorException
+  | ModelNotReadyException
+  | ModelStreamErrorException
+  | ModelTimeoutException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ServiceUnavailableException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

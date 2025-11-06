@@ -222,3 +222,12 @@ export declare namespace GetHomeRegion {
     | ThrottlingException
     | CommonAwsError;
 }
+
+export type MigrationHubConfigErrors =
+  | AccessDeniedException
+  | DryRunOperation
+  | InternalServerError
+  | InvalidInputException
+  | ServiceUnavailableException
+  | ThrottlingException
+  | CommonAwsError;

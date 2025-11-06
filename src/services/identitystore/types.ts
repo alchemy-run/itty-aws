@@ -733,3 +733,13 @@ export declare namespace UpdateUser {
     | ValidationException
     | CommonAwsError;
 }
+
+export type identitystoreErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

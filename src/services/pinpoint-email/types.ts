@@ -1502,3 +1502,16 @@ export declare namespace UpdateConfigurationSetEventDestination {
     | TooManyRequestsException
     | CommonAwsError;
 }
+
+export type PinpointEmailErrors =
+  | AccountSuspendedException
+  | AlreadyExistsException
+  | BadRequestException
+  | ConcurrentModificationException
+  | LimitExceededException
+  | MailFromDomainNotVerifiedException
+  | MessageRejected
+  | NotFoundException
+  | SendingPausedException
+  | TooManyRequestsException
+  | CommonAwsError;

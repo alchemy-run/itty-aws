@@ -1883,7 +1883,7 @@ export interface Ec2EbsVolume {
   iops?: number;
   throughputMiB?: number;
 }
-export type Ec2MarketType = "on-demand" | "spot";
+export type Ec2MarketType = "on-demand" | "spot" | "wait-and-save";
 export type EndedAt = Date | string;
 
 export type EndsAt = Date | string;
@@ -2005,13 +2005,15 @@ export type FleetStatus =
   | "CREATE_IN_PROGRESS"
   | "UPDATE_IN_PROGRESS"
   | "CREATE_FAILED"
-  | "UPDATE_FAILED";
+  | "UPDATE_FAILED"
+  | "SUSPENDED";
 export type FleetSummaries = Array<FleetSummary>;
 export interface FleetSummary {
   fleetId: string;
   farmId: string;
   displayName: string;
   status: FleetStatus;
+  statusMessage?: string;
   autoScalingStatus?: AutoScalingStatus;
   targetWorkerCount?: number;
   workerCount: number;
@@ -2068,6 +2070,7 @@ export interface GetFleetResponse {
   displayName: string;
   description?: string;
   status: FleetStatus;
+  statusMessage?: string;
   autoScalingStatus?: AutoScalingStatus;
   targetWorkerCount?: number;
   workerCount: number;
@@ -5380,3 +5383,13 @@ export declare namespace UpdateWorkerSchedule {
     | ValidationException
     | CommonAwsError;
 }
+
+export type deadlineErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerErrorException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

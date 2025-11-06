@@ -1417,6 +1417,10 @@ export declare class ConflictException extends EffectData.TaggedError(
 }> {}
 export type ConnectionArn = string;
 
+export interface ContainerRegistryMap {
+  registryMappings?: Array<RegistryMapping>;
+  imageMappings?: Array<ImageMapping>;
+}
 export interface CreateAnnotationStoreRequest {
   reference?: ReferenceItem;
   name?: string;
@@ -1584,6 +1588,8 @@ export interface CreateWorkflowRequest {
   requestId: string;
   accelerators?: string;
   storageType?: string;
+  containerRegistryMap?: ContainerRegistryMap;
+  containerRegistryMapUri?: string;
   readmeMarkdown?: string;
   parameterTemplatePath?: string;
   readmePath?: string;
@@ -1613,6 +1619,8 @@ export interface CreateWorkflowVersionRequest {
   storageCapacity?: number;
   tags?: Record<string, string>;
   workflowBucketOwnerId?: string;
+  containerRegistryMap?: ContainerRegistryMap;
+  containerRegistryMapUri?: string;
   readmeMarkdown?: string;
   parameterTemplatePath?: string;
   readmePath?: string;
@@ -1708,6 +1716,8 @@ export interface DeleteWorkflowVersionRequest {
   versionName: string;
 }
 export type Description = string;
+
+export type EcrRepositoryPrefix = string;
 
 export type Encoding = string;
 
@@ -2061,6 +2071,7 @@ export interface GetRunTaskResponse {
   gpus?: number;
   instanceType?: string;
   failureReason?: string;
+  imageDetails?: ImageDetails;
 }
 export interface GetS3AccessPolicyRequest {
   s3AccessPointArn: string;
@@ -2155,6 +2166,7 @@ export interface GetWorkflowResponse {
   accelerators?: string;
   storageType?: string;
   uuid?: string;
+  containerRegistryMap?: ContainerRegistryMap;
   readme?: string;
   definitionRepositoryDetails?: DefinitionRepositoryDetails;
   readmePath?: string;
@@ -2187,6 +2199,7 @@ export interface GetWorkflowVersionResponse {
   tags?: Record<string, string>;
   uuid?: string;
   workflowBucketOwnerId?: string;
+  containerRegistryMap?: ContainerRegistryMap;
   readme?: string;
   definitionRepositoryDetails?: DefinitionRepositoryDetails;
   readmePath?: string;
@@ -2194,6 +2207,16 @@ export interface GetWorkflowVersionResponse {
 export type Header = boolean;
 
 export type IdList = Array<string>;
+export interface ImageDetails {
+  image?: string;
+  imageDigest?: string;
+  sourceImage?: string;
+}
+export interface ImageMapping {
+  sourceImage?: string;
+  destinationImage?: string;
+}
+export type ImageMappingsList = Array<ImageMapping>;
 export type ImportJobId = string;
 
 export interface ImportReadSetFilter {
@@ -2730,6 +2753,13 @@ export type ReferenceStoreName = string;
 
 export type ReferenceStreamingBlob = Uint8Array | string;
 
+export interface RegistryMapping {
+  upstreamRegistryUrl?: string;
+  ecrRepositoryPrefix?: string;
+  upstreamRepositoryPrefix?: string;
+  ecrAccountId?: string;
+}
+export type RegistryMappingsList = Array<RegistryMapping>;
 export declare class RequestTimeoutException extends EffectData.TaggedError(
   "RequestTimeoutException",
 )<{
@@ -3063,7 +3093,7 @@ export interface StartRunRequest {
   priority?: number;
   parameters?: unknown;
   storageCapacity?: number;
-  outputUri?: string;
+  outputUri: string;
   logLevel?: string;
   tags?: Record<string, string>;
   requestId: string;
@@ -3127,6 +3157,8 @@ export type TagValue = string;
 export type TaskFailureReason = string;
 
 export type TaskId = string;
+
+export type TaskImageDigest = string;
 
 export type TaskInstanceType = string;
 
@@ -3292,6 +3324,10 @@ export interface UploadReadSetPartRequest {
 export interface UploadReadSetPartResponse {
   checksum: string;
 }
+export type UpstreamRepositoryPrefix = string;
+
+export type Uri = string;
+
 export type UserCustomDescription = string;
 
 export type UserCustomName = string;
@@ -4765,3 +4801,16 @@ export declare namespace UploadReadSetPart {
     | ValidationException
     | CommonAwsError;
 }
+
+export type OmicsErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | NotSupportedOperationException
+  | RangeNotSatisfiableException
+  | RequestTimeoutException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

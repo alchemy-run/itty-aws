@@ -1082,3 +1082,12 @@ export declare namespace UpdatePipe {
     | ValidationException
     | CommonAwsError;
 }
+
+export type PipesErrors =
+  | ConflictException
+  | InternalException
+  | NotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

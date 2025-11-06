@@ -968,3 +968,13 @@ export declare namespace PutTaxRegistration {
     | ValidationException
     | CommonAwsError;
 }
+
+export type TaxSettingsErrors =
+  | AccessDeniedException
+  | AttachmentUploadException
+  | CaseCreationLimitExceededException
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ValidationException
+  | CommonAwsError;

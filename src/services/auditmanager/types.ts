@@ -2519,3 +2519,12 @@ export declare namespace ValidateAssessmentReportIntegrity {
     | ValidationException
     | CommonAwsError;
 }
+
+export type AuditManagerErrors =
+  | AccessDeniedException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

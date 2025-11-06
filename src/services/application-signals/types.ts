@@ -51,11 +51,33 @@ export declare class ApplicationSignals extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
+  deleteGroupingConfiguration(input: {}): Effect.Effect<
+    DeleteGroupingConfigurationOutput,
+    | AccessDeniedException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
   getService(
     input: GetServiceInput,
   ): Effect.Effect<
     GetServiceOutput,
     ThrottlingException | ValidationException | CommonAwsError
+  >;
+  listAuditFindings(
+    input: ListAuditFindingsInput,
+  ): Effect.Effect<
+    ListAuditFindingsOutput,
+    ThrottlingException | ValidationException | CommonAwsError
+  >;
+  listGroupingAttributeDefinitions(
+    input: ListGroupingAttributeDefinitionsInput,
+  ): Effect.Effect<
+    ListGroupingAttributeDefinitionsOutput,
+    | AccessDeniedException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listServiceDependencies(
     input: ListServiceDependenciesInput,
@@ -90,11 +112,26 @@ export declare class ApplicationSignals extends AWSServiceClient {
     ListServicesOutput,
     ThrottlingException | ValidationException | CommonAwsError
   >;
+  listServiceStates(
+    input: ListServiceStatesInput,
+  ): Effect.Effect<
+    ListServiceStatesOutput,
+    ThrottlingException | ValidationException | CommonAwsError
+  >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
     ResourceNotFoundException | ThrottlingException | CommonAwsError
+  >;
+  putGroupingConfiguration(
+    input: PutGroupingConfigurationInput,
+  ): Effect.Effect<
+    PutGroupingConfigurationOutput,
+    | AccessDeniedException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   startDiscovery(
     input: StartDiscoveryInput,
@@ -179,9 +216,52 @@ export type Attainment = number;
 
 export type AttainmentGoal = number;
 
+export interface AttributeFilter {
+  AttributeFilterName: string;
+  AttributeFilterValues: Array<string>;
+}
+export type AttributeFilterName = string;
+
+export type AttributeFilters = Array<AttributeFilter>;
+export type AttributeFilterValue = string;
+
+export type AttributeFilterValues = Array<string>;
 export type AttributeMap = Record<string, string>;
 export type AttributeMaps = Array<Record<string, string>>;
 export type Attributes = Record<string, string>;
+export interface AuditFinding {
+  KeyAttributes: Record<string, string>;
+  AuditorResults?: Array<AuditorResult>;
+  Operation?: string;
+  MetricGraph?: MetricGraph;
+  DependencyGraph?: DependencyGraph;
+  Type?: string;
+}
+export type AuditFindings = Array<AuditFinding>;
+export interface AuditorResult {
+  Auditor?: string;
+  Description?: string;
+  Severity?: Severity;
+}
+export type AuditorResults = Array<AuditorResult>;
+export type Auditors = Array<string>;
+export interface AuditTarget {
+  Type: string;
+  Data: AuditTargetEntity;
+}
+interface _AuditTargetEntity {
+  Service?: ServiceEntity;
+  Slo?: ServiceLevelObjectiveEntity;
+  ServiceOperation?: ServiceOperationEntity;
+  Canary?: CanaryEntity;
+}
+
+export type AuditTargetEntity =
+  | (_AuditTargetEntity & { Service: ServiceEntity })
+  | (_AuditTargetEntity & { Slo: ServiceLevelObjectiveEntity })
+  | (_AuditTargetEntity & { ServiceOperation: ServiceOperationEntity })
+  | (_AuditTargetEntity & { Canary: CanaryEntity });
+export type AuditTargets = Array<AuditTarget>;
 export type AwsAccountId = string;
 
 export interface BatchGetServiceLevelObjectiveBudgetReportInput {
@@ -226,11 +306,26 @@ export interface CalendarInterval {
 }
 export type CalendarIntervalDuration = number;
 
+export interface CanaryEntity {
+  CanaryName: string;
+}
+export interface ChangeEvent {
+  Timestamp: Date | string;
+  AccountId: string;
+  Region: string;
+  Entity: Record<string, string>;
+  ChangeEventType: ChangeEventType;
+  EventId: string;
+  UserName?: string;
+  EventName?: string;
+}
+export type ChangeEventType = "DEPLOYMENT";
 export declare class ConflictException extends EffectData.TaggedError(
   "ConflictException",
 )<{
   readonly Message: string;
 }> {}
+export type ConnectionType = "INDIRECT" | "DIRECT";
 export interface CreateServiceLevelObjectiveInput {
   Name: string;
   Description?: string;
@@ -243,6 +338,7 @@ export interface CreateServiceLevelObjectiveInput {
 export interface CreateServiceLevelObjectiveOutput {
   Slo: ServiceLevelObjective;
 }
+export interface DeleteGroupingConfigurationOutput {}
 export interface DeleteServiceLevelObjectiveInput {
   Id: string;
 }
@@ -250,6 +346,10 @@ export interface DeleteServiceLevelObjectiveOutput {}
 export interface DependencyConfig {
   DependencyKeyAttributes: Record<string, string>;
   DependencyOperationName: string;
+}
+export interface DependencyGraph {
+  Nodes?: Array<Node>;
+  Edges?: Array<Edge>;
 }
 export interface Dimension {
   Name: string;
@@ -261,6 +361,13 @@ export type Dimensions = Array<Dimension>;
 export type DimensionValue = string;
 
 export type DurationUnit = "MINUTE" | "HOUR" | "DAY" | "MONTH";
+export interface Edge {
+  SourceNodeId?: string;
+  DestinationNodeId?: string;
+  Duration?: number;
+  ConnectionType?: ConnectionType;
+}
+export type Edges = Array<Edge>;
 export type EvaluationType = "PeriodBased" | "RequestBased";
 export type ExclusionDuration = number;
 
@@ -303,6 +410,27 @@ export interface Goal {
   AttainmentGoal?: number;
   WarningThreshold?: number;
 }
+export type GroupIdentifier = string;
+
+export interface GroupingAttributeDefinition {
+  GroupingName: string;
+  GroupingSourceKeys?: Array<string>;
+  DefaultGroupingValue?: string;
+}
+export type GroupingAttributeDefinitions = Array<GroupingAttributeDefinition>;
+export interface GroupingConfiguration {
+  GroupingAttributeDefinitions: Array<GroupingAttributeDefinition>;
+  UpdatedAt: Date | string;
+}
+export type GroupingSourceKeyStringList = Array<string>;
+export type GroupingString = string;
+
+export type GroupName = string;
+
+export type GroupSource = string;
+
+export type GroupValue = string;
+
 interface _Interval {
   RollingInterval?: RollingInterval;
   CalendarInterval?: CalendarInterval;
@@ -315,6 +443,29 @@ export type KeyAttributeName = string;
 
 export type KeyAttributeValue = string;
 
+export type LatestChangeEvents = Array<ChangeEvent>;
+export type ListAuditFindingMaxResults = number;
+
+export interface ListAuditFindingsInput {
+  StartTime: Date | string;
+  EndTime: Date | string;
+  Auditors?: Array<string>;
+  AuditTargets: Array<AuditTarget>;
+  NextToken?: string;
+  MaxResults?: number;
+}
+export interface ListAuditFindingsOutput {
+  AuditFindings: Array<AuditFinding>;
+  NextToken?: string;
+}
+export interface ListGroupingAttributeDefinitionsInput {
+  NextToken?: string;
+}
+export interface ListGroupingAttributeDefinitionsOutput {
+  GroupingAttributeDefinitions: Array<GroupingAttributeDefinition>;
+  UpdatedAt?: Date | string;
+  NextToken?: string;
+}
 export interface ListServiceDependenciesInput {
   StartTime: Date | string;
   EndTime: Date | string;
@@ -362,9 +513,9 @@ export interface ListServiceLevelObjectivesInput {
   DependencyConfig?: DependencyConfig;
   MaxResults?: number;
   NextToken?: string;
-  MetricSourceTypes?: Array<MetricSourceType>;
   IncludeLinkedAccounts?: boolean;
   SloOwnerAwsAccountId?: string;
+  MetricSourceTypes?: Array<MetricSourceType>;
 }
 export type ListServiceLevelObjectivesMaxResults = number;
 
@@ -403,6 +554,23 @@ export interface ListServicesOutput {
   ServiceSummaries: Array<ServiceSummary>;
   NextToken?: string;
 }
+export interface ListServiceStatesInput {
+  StartTime: Date | string;
+  EndTime: Date | string;
+  MaxResults?: number;
+  NextToken?: string;
+  IncludeLinkedAccounts?: boolean;
+  AwsAccountId?: string;
+  AttributeFilters?: Array<AttributeFilter>;
+}
+export type ListServiceStatesMaxResults = number;
+
+export interface ListServiceStatesOutput {
+  StartTime: Date | string;
+  EndTime: Date | string;
+  ServiceStates: Array<ServiceState>;
+  NextToken?: string;
+}
 export interface ListTagsForResourceRequest {
   ResourceArn: string;
 }
@@ -427,6 +595,11 @@ export interface MetricDataQuery {
 }
 export type MetricExpression = string;
 
+export interface MetricGraph {
+  MetricDataQueries?: Array<MetricDataQuery>;
+  StartTime?: Date | string;
+  EndTime?: Date | string;
+}
 export type MetricId = string;
 
 export type MetricLabel = string;
@@ -470,10 +643,26 @@ export type Namespace = string;
 
 export type NextToken = string;
 
+export interface Node {
+  KeyAttributes: Record<string, string>;
+  Name: string;
+  NodeId: string;
+  Operation?: string;
+  Type?: string;
+  Duration?: number;
+  Status?: string;
+}
+export type Nodes = Array<Node>;
 export type OperationName = string;
 
 export type Period = number;
 
+export interface PutGroupingConfigurationInput {
+  GroupingAttributeDefinitions: Array<GroupingAttributeDefinition>;
+}
+export interface PutGroupingConfigurationOutput {
+  GroupingConfiguration: GroupingConfiguration;
+}
 export interface RecurrenceRule {
   Expression: string;
 }
@@ -525,6 +714,7 @@ export type RollingIntervalDuration = number;
 export interface Service {
   KeyAttributes: Record<string, string>;
   AttributeMaps?: Array<Record<string, string>>;
+  ServiceGroups?: Array<ServiceGroup>;
   MetricReferences: Array<MetricReference>;
   LogGroupReferences?: Array<Record<string, string>>;
 }
@@ -542,8 +732,21 @@ export interface ServiceDependent {
   MetricReferences: Array<MetricReference>;
 }
 export type ServiceDependents = Array<ServiceDependent>;
+export interface ServiceEntity {
+  Type?: string;
+  Name?: string;
+  Environment?: string;
+  AwsAccountId?: string;
+}
 export type ServiceErrorMessage = string;
 
+export interface ServiceGroup {
+  GroupName: string;
+  GroupValue: string;
+  GroupSource: string;
+  GroupIdentifier: string;
+}
+export type ServiceGroups = Array<ServiceGroup>;
 export interface ServiceLevelIndicator {
   SliMetric: ServiceLevelIndicatorMetric;
   MetricThreshold: number;
@@ -570,6 +773,7 @@ export interface ServiceLevelIndicatorMetricConfig {
   KeyAttributes?: Record<string, string>;
   OperationName?: string;
   MetricType?: ServiceLevelIndicatorMetricType;
+  MetricName?: string;
   Statistic?: string;
   PeriodSeconds?: number;
   MetricDataQueries?: Array<MetricDataQuery>;
@@ -630,6 +834,10 @@ export type ServiceLevelObjectiveBudgetStatus =
   | "INSUFFICIENT_DATA";
 export type ServiceLevelObjectiveDescription = string;
 
+export interface ServiceLevelObjectiveEntity {
+  SloName?: string;
+  SloArn?: string;
+}
 export type ServiceLevelObjectiveId = string;
 
 export type ServiceLevelObjectiveIds = Array<string>;
@@ -651,18 +859,31 @@ export interface ServiceOperation {
   Name: string;
   MetricReferences: Array<MetricReference>;
 }
+export interface ServiceOperationEntity {
+  Service?: ServiceEntity;
+  Operation?: string;
+  MetricType?: string;
+}
 export type ServiceOperations = Array<ServiceOperation>;
 export declare class ServiceQuotaExceededException extends EffectData.TaggedError(
   "ServiceQuotaExceededException",
 )<{
   readonly Message: string;
 }> {}
+export interface ServiceState {
+  AttributeFilters?: Array<AttributeFilter>;
+  Service: Record<string, string>;
+  LatestChangeEvents: Array<ChangeEvent>;
+}
+export type ServiceStates = Array<ServiceState>;
 export type ServiceSummaries = Array<ServiceSummary>;
 export interface ServiceSummary {
   KeyAttributes: Record<string, string>;
   AttributeMaps?: Array<Record<string, string>>;
   MetricReferences: Array<MetricReference>;
+  ServiceGroups?: Array<ServiceGroup>;
 }
+export type Severity = "CRITICAL" | "HIGH" | "MEDIUM" | "LOW" | "NONE";
 export type SLIPeriodSeconds = number;
 
 export type StandardUnit =
@@ -769,10 +990,39 @@ export declare namespace BatchUpdateExclusionWindows {
     | CommonAwsError;
 }
 
+export declare namespace DeleteGroupingConfiguration {
+  export type Input = {};
+  export type Output = DeleteGroupingConfigurationOutput;
+  export type Error =
+    | AccessDeniedException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
 export declare namespace GetService {
   export type Input = GetServiceInput;
   export type Output = GetServiceOutput;
   export type Error =
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListAuditFindings {
+  export type Input = ListAuditFindingsInput;
+  export type Output = ListAuditFindingsOutput;
+  export type Error =
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListGroupingAttributeDefinitions {
+  export type Input = ListGroupingAttributeDefinitionsInput;
+  export type Output = ListGroupingAttributeDefinitionsOutput;
+  export type Error =
+    | AccessDeniedException
     | ThrottlingException
     | ValidationException
     | CommonAwsError;
@@ -824,12 +1074,31 @@ export declare namespace ListServices {
     | CommonAwsError;
 }
 
+export declare namespace ListServiceStates {
+  export type Input = ListServiceStatesInput;
+  export type Output = ListServiceStatesOutput;
+  export type Error =
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
 export declare namespace ListTagsForResource {
   export type Input = ListTagsForResourceRequest;
   export type Output = ListTagsForResourceResponse;
   export type Error =
     | ResourceNotFoundException
     | ThrottlingException
+    | CommonAwsError;
+}
+
+export declare namespace PutGroupingConfiguration {
+  export type Input = PutGroupingConfigurationInput;
+  export type Output = PutGroupingConfigurationOutput;
+  export type Error =
+    | AccessDeniedException
+    | ThrottlingException
+    | ValidationException
     | CommonAwsError;
 }
 
@@ -912,3 +1181,12 @@ export declare namespace UpdateServiceLevelObjective {
     | ValidationException
     | CommonAwsError;
 }
+
+export type ApplicationSignalsErrors =
+  | AccessDeniedException
+  | ConflictException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

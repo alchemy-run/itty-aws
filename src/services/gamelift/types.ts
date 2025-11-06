@@ -5598,3 +5598,22 @@ export declare namespace ValidateMatchmakingRuleSet {
     | UnsupportedRegionException
     | CommonAwsError;
 }
+
+export type GameLiftErrors =
+  | ConflictException
+  | FleetCapacityExceededException
+  | GameSessionFullException
+  | IdempotentParameterMismatchException
+  | InternalServiceException
+  | InvalidFleetStatusException
+  | InvalidGameSessionStatusException
+  | InvalidRequestException
+  | LimitExceededException
+  | NotFoundException
+  | NotReadyException
+  | OutOfCapacityException
+  | TaggingFailedException
+  | TerminalRoutingStrategyException
+  | UnauthorizedException
+  | UnsupportedRegionException
+  | CommonAwsError;

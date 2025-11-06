@@ -2801,3 +2801,15 @@ export declare namespace UpdateEnrollmentStatus {
     | ThrottlingException
     | CommonAwsError;
 }
+
+export type ComputeOptimizerErrors =
+  | AccessDeniedException
+  | InternalServerException
+  | InvalidParameterValueException
+  | LimitExceededException
+  | MissingAuthenticationToken
+  | OptInRequiredException
+  | ResourceNotFoundException
+  | ServiceUnavailableException
+  | ThrottlingException
+  | CommonAwsError;

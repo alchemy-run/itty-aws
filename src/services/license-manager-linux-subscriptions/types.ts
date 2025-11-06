@@ -425,3 +425,10 @@ export declare namespace UpdateServiceSettings {
     | ValidationException
     | CommonAwsError;
 }
+
+export type LicenseManagerLinuxSubscriptionsErrors =
+  | InternalServerException
+  | ResourceNotFoundException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

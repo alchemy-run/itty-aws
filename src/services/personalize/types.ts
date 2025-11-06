@@ -2559,3 +2559,14 @@ export declare namespace UpdateSolution {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+
+export type PersonalizeErrors =
+  | InvalidInputException
+  | InvalidNextTokenException
+  | LimitExceededException
+  | ResourceAlreadyExistsException
+  | ResourceInUseException
+  | ResourceNotFoundException
+  | TooManyTagKeysException
+  | TooManyTagsException
+  | CommonAwsError;

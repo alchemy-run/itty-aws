@@ -594,3 +594,14 @@ export declare namespace UpdateLink {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+
+export type OAMErrors =
+  | ConflictException
+  | InternalServiceFault
+  | InvalidParameterException
+  | MissingRequiredParameterException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | TooManyTagsException
+  | ValidationException
+  | CommonAwsError;

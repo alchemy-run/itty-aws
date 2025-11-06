@@ -2392,3 +2392,46 @@ export declare namespace ValidatePullThroughCacheRule {
     | ValidationException
     | CommonAwsError;
 }
+
+export type ECRErrors =
+  | EmptyUploadException
+  | ImageAlreadyExistsException
+  | ImageDigestDoesNotMatchException
+  | ImageNotFoundException
+  | ImageTagAlreadyExistsException
+  | InvalidLayerException
+  | InvalidLayerPartException
+  | InvalidParameterException
+  | InvalidTagParameterException
+  | KmsException
+  | LayerAlreadyExistsException
+  | LayerInaccessibleException
+  | LayerPartTooSmallException
+  | LayersNotFoundException
+  | LifecyclePolicyNotFoundException
+  | LifecyclePolicyPreviewInProgressException
+  | LifecyclePolicyPreviewNotFoundException
+  | LimitExceededException
+  | PullThroughCacheRuleAlreadyExistsException
+  | PullThroughCacheRuleNotFoundException
+  | ReferencedImagesNotFoundException
+  | RegistryPolicyNotFoundException
+  | RepositoryAlreadyExistsException
+  | RepositoryNotEmptyException
+  | RepositoryNotFoundException
+  | RepositoryPolicyNotFoundException
+  | ScanNotFoundException
+  | SecretNotFoundException
+  | ServerException
+  | TemplateAlreadyExistsException
+  | TemplateNotFoundException
+  | TooManyTagsException
+  | UnableToAccessSecretException
+  | UnableToDecryptSecretValueException
+  | UnableToGetUpstreamImageException
+  | UnableToGetUpstreamLayerException
+  | UnsupportedImageTypeException
+  | UnsupportedUpstreamRegistryException
+  | UploadNotFoundException
+  | ValidationException
+  | CommonAwsError;

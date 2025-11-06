@@ -3977,3 +3977,18 @@ export declare namespace UpdateThesaurus {
     | ValidationException
     | CommonAwsError;
 }
+
+export type kendraErrors =
+  | AccessDeniedException
+  | ConflictException
+  | FeaturedResultsConflictException
+  | InternalServerException
+  | InvalidRequestException
+  | ResourceAlreadyExistException
+  | ResourceInUseException
+  | ResourceNotFoundException
+  | ResourceUnavailableException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

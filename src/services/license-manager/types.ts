@@ -2377,3 +2377,23 @@ export declare namespace UpdateServiceSettings {
     | ServerInternalException
     | CommonAwsError;
 }
+
+export type LicenseManagerErrors =
+  | AccessDeniedException
+  | AuthorizationException
+  | ConflictException
+  | EntitlementNotAllowedException
+  | FailedDependencyException
+  | FilterLimitExceededException
+  | InvalidParameterValueException
+  | InvalidResourceStateException
+  | LicenseUsageException
+  | NoEntitlementsAllowedException
+  | RateLimitExceededException
+  | RedirectException
+  | ResourceLimitExceededException
+  | ResourceNotFoundException
+  | ServerInternalException
+  | UnsupportedDigitalSignatureMethodException
+  | ValidationException
+  | CommonAwsError;

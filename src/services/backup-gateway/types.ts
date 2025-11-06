@@ -736,3 +736,12 @@ export declare namespace UpdateHypervisor {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+
+export type BackupGatewayErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

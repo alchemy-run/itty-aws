@@ -585,3 +585,27 @@ export declare namespace UpdateResource {
     | UnsupportedActionException
     | CommonAwsError;
 }
+
+export type CloudControlErrors =
+  | AlreadyExistsException
+  | ClientTokenConflictException
+  | ConcurrentModificationException
+  | ConcurrentOperationException
+  | GeneralServiceException
+  | HandlerFailureException
+  | HandlerInternalFailureException
+  | InvalidCredentialsException
+  | InvalidRequestException
+  | NetworkFailureException
+  | NotStabilizedException
+  | NotUpdatableException
+  | PrivateTypeException
+  | RequestTokenNotFoundException
+  | ResourceConflictException
+  | ResourceNotFoundException
+  | ServiceInternalErrorException
+  | ServiceLimitExceededException
+  | ThrottlingException
+  | TypeNotFoundException
+  | UnsupportedActionException
+  | CommonAwsError;

@@ -804,3 +804,22 @@ export declare namespace UpdateCertificateOptions {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+
+export type ACMErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InvalidArgsException
+  | InvalidArnException
+  | InvalidDomainValidationOptionsException
+  | InvalidParameterException
+  | InvalidStateException
+  | InvalidTagException
+  | LimitExceededException
+  | RequestInProgressException
+  | ResourceInUseException
+  | ResourceNotFoundException
+  | TagPolicyException
+  | ThrottlingException
+  | TooManyTagsException
+  | ValidationException
+  | CommonAwsError;

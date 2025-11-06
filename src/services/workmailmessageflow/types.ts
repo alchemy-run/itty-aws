@@ -90,3 +90,10 @@ export declare namespace PutRawMessageContent {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+
+export type WorkMailMessageFlowErrors =
+  | InvalidContentLocation
+  | MessageFrozen
+  | MessageRejected
+  | ResourceNotFoundException
+  | CommonAwsError;

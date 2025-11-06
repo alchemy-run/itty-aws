@@ -1733,3 +1733,15 @@ export declare namespace UpdateQAppSessionMetadata {
     | ValidationException
     | CommonAwsError;
 }
+
+export type QAppsErrors =
+  | AccessDeniedException
+  | ConflictException
+  | ContentTooLargeException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | UnauthorizedException
+  | ValidationException
+  | CommonAwsError;

@@ -503,6 +503,8 @@ export interface AddressSummary {
 }
 export type Alias = string;
 
+export type Amount = string;
+
 export type ApnPrograms = Array<string>;
 export interface AssigneeContact {
   Email: string;
@@ -997,6 +999,7 @@ export interface CreateOpportunityRequest {
   LifeCycle?: LifeCycle;
   Origin?: OpportunityOrigin;
   OpportunityTeam?: Array<Contact>;
+  Tags?: Array<Tag>;
 }
 export interface CreateOpportunityResponse {
   Id: string;
@@ -2633,3 +2636,13 @@ export declare namespace UpdateOpportunity {
     | ValidationException
     | CommonAwsError;
 }
+
+export type PartnerCentralSellingErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

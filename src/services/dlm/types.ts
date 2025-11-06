@@ -544,3 +544,10 @@ export declare namespace UpdateLifecyclePolicy {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+
+export type DLMErrors =
+  | InternalServerException
+  | InvalidRequestException
+  | LimitExceededException
+  | ResourceNotFoundException
+  | CommonAwsError;

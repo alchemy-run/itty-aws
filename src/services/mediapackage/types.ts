@@ -965,3 +965,12 @@ export declare namespace UpdateOriginEndpoint {
     | UnprocessableEntityException
     | CommonAwsError;
 }
+
+export type MediaPackageErrors =
+  | ForbiddenException
+  | InternalServerErrorException
+  | NotFoundException
+  | ServiceUnavailableException
+  | TooManyRequestsException
+  | UnprocessableEntityException
+  | CommonAwsError;

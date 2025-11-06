@@ -1153,3 +1153,12 @@ export declare namespace UpdateResourceSet {
     | ValidationException
     | CommonAwsError;
 }
+
+export type Route53RecoveryReadinessErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

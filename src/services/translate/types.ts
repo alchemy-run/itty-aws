@@ -906,3 +906,21 @@ export declare namespace UpdateParallelData {
     | TooManyRequestsException
     | CommonAwsError;
 }
+
+export type TranslateErrors =
+  | ConcurrentModificationException
+  | ConflictException
+  | DetectedLanguageLowConfidenceException
+  | InternalServerException
+  | InvalidFilterException
+  | InvalidParameterValueException
+  | InvalidRequestException
+  | LimitExceededException
+  | ResourceNotFoundException
+  | ServiceUnavailableException
+  | TextSizeLimitExceededException
+  | TooManyRequestsException
+  | TooManyTagsException
+  | UnsupportedDisplayLanguageCodeException
+  | UnsupportedLanguagePairException
+  | CommonAwsError;

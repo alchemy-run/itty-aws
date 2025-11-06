@@ -179,3 +179,10 @@ export declare namespace Logout {
     | UnauthorizedException
     | CommonAwsError;
 }
+
+export type SSOErrors =
+  | InvalidRequestException
+  | ResourceNotFoundException
+  | TooManyRequestsException
+  | UnauthorizedException
+  | CommonAwsError;

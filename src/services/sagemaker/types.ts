@@ -16,6 +16,18 @@ export declare class SageMaker extends AWSServiceClient {
     AssociateTrialComponentResponse,
     ResourceLimitExceeded | ResourceNotFound | CommonAwsError
   >;
+  attachClusterNodeVolume(
+    input: AttachClusterNodeVolumeRequest,
+  ): Effect.Effect<
+    AttachClusterNodeVolumeResponse,
+    ResourceNotFound | CommonAwsError
+  >;
+  batchAddClusterNodes(
+    input: BatchAddClusterNodesRequest,
+  ): Effect.Effect<
+    BatchAddClusterNodesResponse,
+    ResourceLimitExceeded | ResourceNotFound | CommonAwsError
+  >;
   batchDeleteClusterNodes(
     input: BatchDeleteClusterNodesRequest,
   ): Effect.Effect<
@@ -561,6 +573,9 @@ export declare class SageMaker extends AWSServiceClient {
     DeletePipelineResponse,
     ConflictException | ResourceNotFound | CommonAwsError
   >;
+  deleteProcessingJob(
+    input: DeleteProcessingJobRequest,
+  ): Effect.Effect<{}, ResourceInUse | ResourceNotFound | CommonAwsError>;
   deleteProject(
     input: DeleteProjectInput,
   ): Effect.Effect<{}, ConflictException | CommonAwsError>;
@@ -573,6 +588,9 @@ export declare class SageMaker extends AWSServiceClient {
   deleteTags(
     input: DeleteTagsInput,
   ): Effect.Effect<DeleteTagsOutput, CommonAwsError>;
+  deleteTrainingJob(
+    input: DeleteTrainingJobRequest,
+  ): Effect.Effect<{}, ResourceInUse | ResourceNotFound | CommonAwsError>;
   deleteTrial(
     input: DeleteTrialRequest,
   ): Effect.Effect<DeleteTrialResponse, ResourceNotFound | CommonAwsError>;
@@ -630,6 +648,12 @@ export declare class SageMaker extends AWSServiceClient {
   describeCluster(
     input: DescribeClusterRequest,
   ): Effect.Effect<DescribeClusterResponse, ResourceNotFound | CommonAwsError>;
+  describeClusterEvent(
+    input: DescribeClusterEventRequest,
+  ): Effect.Effect<
+    DescribeClusterEventResponse,
+    ResourceNotFound | CommonAwsError
+  >;
   describeClusterNode(
     input: DescribeClusterNodeRequest,
   ): Effect.Effect<
@@ -873,6 +897,12 @@ export declare class SageMaker extends AWSServiceClient {
   describeProject(
     input: DescribeProjectInput,
   ): Effect.Effect<DescribeProjectOutput, CommonAwsError>;
+  describeReservedCapacity(
+    input: DescribeReservedCapacityRequest,
+  ): Effect.Effect<
+    DescribeReservedCapacityResponse,
+    ResourceNotFound | CommonAwsError
+  >;
   describeSpace(
     input: DescribeSpaceRequest,
   ): Effect.Effect<DescribeSpaceResponse, ResourceNotFound | CommonAwsError>;
@@ -924,6 +954,12 @@ export declare class SageMaker extends AWSServiceClient {
   describeWorkteam(
     input: DescribeWorkteamRequest,
   ): Effect.Effect<DescribeWorkteamResponse, CommonAwsError>;
+  detachClusterNodeVolume(
+    input: DetachClusterNodeVolumeRequest,
+  ): Effect.Effect<
+    DetachClusterNodeVolumeResponse,
+    ResourceNotFound | CommonAwsError
+  >;
   disableSagemakerServicecatalogPortfolio(
     input: DisableSagemakerServicecatalogPortfolioInput,
   ): Effect.Effect<
@@ -1003,6 +1039,12 @@ export declare class SageMaker extends AWSServiceClient {
     input: ListCandidatesForAutoMLJobRequest,
   ): Effect.Effect<
     ListCandidatesForAutoMLJobResponse,
+    ResourceNotFound | CommonAwsError
+  >;
+  listClusterEvents(
+    input: ListClusterEventsRequest,
+  ): Effect.Effect<
+    ListClusterEventsResponse,
     ResourceNotFound | CommonAwsError
   >;
   listClusterNodes(
@@ -1258,6 +1300,12 @@ export declare class SageMaker extends AWSServiceClient {
   listTrials(
     input: ListTrialsRequest,
   ): Effect.Effect<ListTrialsResponse, ResourceNotFound | CommonAwsError>;
+  listUltraServersByReservedCapacity(
+    input: ListUltraServersByReservedCapacityRequest,
+  ): Effect.Effect<
+    ListUltraServersByReservedCapacityResponse,
+    ResourceNotFound | CommonAwsError
+  >;
   listUserProfiles(
     input: ListUserProfilesRequest,
   ): Effect.Effect<ListUserProfilesResponse, CommonAwsError>;
@@ -1672,6 +1720,8 @@ export declare class SageMaker extends AWSServiceClient {
 
 export declare class Sagemaker extends SageMaker {}
 
+export type AcceleratorsAmount = number;
+
 export type Accept = string;
 
 export type AcceptEula = boolean;
@@ -1712,7 +1762,16 @@ export interface AddAssociationResponse {
   SourceArn?: string;
   DestinationArn?: string;
 }
+export interface AddClusterNodeSpecification {
+  InstanceGroupName: string;
+  IncrementTargetCountBy: number;
+}
+export type AddClusterNodeSpecificationList =
+  Array<AddClusterNodeSpecification>;
 export type AdditionalCodeRepositoryNamesOrUrls = Array<string>;
+export interface AdditionalEnis {
+  EfaEnis?: Array<string>;
+}
 export interface AdditionalInferenceSpecificationDefinition {
   Name: string;
   Description?: string;
@@ -1937,6 +1996,7 @@ export type AppInstanceType =
   | "ml.trn1n.32xlarge"
   | "ml.p5.48xlarge"
   | "ml.p5en.48xlarge"
+  | "ml.p6-b200.48xlarge"
   | "ml.m6i.large"
   | "ml.m6i.xlarge"
   | "ml.m6i.2xlarge"
@@ -2161,6 +2221,19 @@ export type AthenaResultFormat =
   | "TEXTFILE";
 export type AthenaWorkGroup = string;
 
+export interface AttachClusterNodeVolumeRequest {
+  ClusterArn: string;
+  NodeId: string;
+  VolumeId: string;
+}
+export interface AttachClusterNodeVolumeResponse {
+  ClusterArn: string;
+  NodeId: string;
+  VolumeId: string;
+  AttachTime: Date | string;
+  Status: VolumeAttachmentStatus;
+  DeviceName: string;
+}
 export type AttributeName = string;
 
 export type AttributeNames = Array<string>;
@@ -2464,6 +2537,8 @@ export type AvailabilityZone = string;
 
 export type AvailableInstanceCount = number;
 
+export type AvailableSpareInstanceCount = number;
+
 export type AwsManagedHumanLoopRequestSource =
   | "AWS/Rekognition/DetectModerationLabels/Image/V3"
   | "AWS/Textract/AnalyzeDocument/Forms/V1";
@@ -2471,11 +2546,41 @@ export type BacktestResultsLocation = string;
 
 export type BaseModelName = string;
 
+export interface BatchAddClusterNodesError {
+  InstanceGroupName: string;
+  ErrorCode: BatchAddClusterNodesErrorCode;
+  FailedCount: number;
+  Message?: string;
+}
+export type BatchAddClusterNodesErrorCode =
+  | "InstanceGroupNotFound"
+  | "InvalidInstanceGroupStatus";
+export type BatchAddClusterNodesErrorList = Array<BatchAddClusterNodesError>;
+export interface BatchAddClusterNodesRequest {
+  ClusterName: string;
+  ClientToken?: string;
+  NodesToAdd: Array<AddClusterNodeSpecification>;
+}
+export interface BatchAddClusterNodesResponse {
+  Successful: Array<NodeAdditionResult>;
+  Failed: Array<BatchAddClusterNodesError>;
+}
+export type BatchAddFailureCount = number;
+
+export type BatchAddIncrementCount = number;
+
 export interface BatchDataCaptureConfig {
   DestinationS3Uri: string;
   KmsKeyId?: string;
   GenerateInferenceId?: boolean;
 }
+export interface BatchDeleteClusterNodeLogicalIdsError {
+  Code: BatchDeleteClusterNodesErrorCode;
+  Message: string;
+  NodeLogicalId: string;
+}
+export type BatchDeleteClusterNodeLogicalIdsErrorList =
+  Array<BatchDeleteClusterNodeLogicalIdsError>;
 export interface BatchDeleteClusterNodesError {
   Code: BatchDeleteClusterNodesErrorCode;
   Message: string;
@@ -2490,10 +2595,13 @@ export type BatchDeleteClusterNodesErrorList =
 export interface BatchDeleteClusterNodesRequest {
   ClusterName: string;
   NodeIds?: Array<string>;
+  NodeLogicalIds?: Array<string>;
 }
 export interface BatchDeleteClusterNodesResponse {
   Failed?: Array<BatchDeleteClusterNodesError>;
   Successful?: Array<string>;
+  FailedNodeLogicalIds?: Array<BatchDeleteClusterNodeLogicalIdsError>;
+  SuccessfulNodeLogicalIds?: Array<string>;
 }
 export interface BatchDescribeModelPackageError {
   ErrorCode: string;
@@ -2619,7 +2727,12 @@ export interface CanvasAppSettings {
   GenerativeAiSettings?: GenerativeAiSettings;
   EmrServerlessSettings?: EmrServerlessSettings;
 }
+export interface CapacityReservation {
+  Arn?: string;
+  Type?: CapacityReservationType;
+}
 export type CapacityReservationPreference = "capacity-reservations-only";
+export type CapacityReservationType = "ODCR" | "CRG";
 export interface CapacitySize {
   Type: CapacitySizeType;
   Value: number;
@@ -2890,15 +3003,60 @@ export type ClientToken = string;
 
 export type ClusterArn = string;
 
+export type ClusterAutoScalerType = "Karpenter";
+export interface ClusterAutoScalingConfig {
+  Mode: ClusterAutoScalingMode;
+  AutoScalerType?: ClusterAutoScalerType;
+}
+export interface ClusterAutoScalingConfigOutput {
+  Mode: ClusterAutoScalingMode;
+  AutoScalerType?: ClusterAutoScalerType;
+  Status: ClusterAutoScalingStatus;
+  FailureMessage?: string;
+}
+export type ClusterAutoScalingMode = "Enable" | "Disable";
+export type ClusterAutoScalingStatus =
+  | "InService"
+  | "Failed"
+  | "Creating"
+  | "Deleting";
 export type ClusterAvailabilityZone = string;
 
 export type ClusterAvailabilityZoneId = string;
 
+export type ClusterConfigMode = "Enable" | "Disable";
 export interface ClusterEbsVolumeConfig {
   VolumeSizeInGB?: number;
+  VolumeKmsKeyId?: string;
+  RootVolume?: boolean;
 }
 export type ClusterEbsVolumeSizeInGB = number;
 
+export interface ClusterEventDetail {
+  EventId: string;
+  ClusterArn: string;
+  ClusterName: string;
+  InstanceGroupName?: string;
+  InstanceId?: string;
+  ResourceType: ClusterEventResourceType;
+  EventTime: Date | string;
+  EventDetails?: EventDetails;
+  Description?: string;
+}
+export type ClusterEventMaxResults = number;
+
+export type ClusterEventResourceType = "Cluster" | "InstanceGroup" | "Instance";
+export type ClusterEventSummaries = Array<ClusterEventSummary>;
+export interface ClusterEventSummary {
+  EventId: string;
+  ClusterArn: string;
+  ClusterName: string;
+  InstanceGroupName?: string;
+  InstanceId?: string;
+  ResourceType: ClusterEventResourceType;
+  EventTime: Date | string;
+  Description?: string;
+}
 export type ClusterInstanceCount = number;
 
 export interface ClusterInstanceGroupDetails {
@@ -2916,6 +3074,11 @@ export interface ClusterInstanceGroupDetails {
   TrainingPlanStatus?: string;
   OverrideVpcConfig?: VpcConfig;
   ScheduledUpdateConfig?: ScheduledUpdateConfig;
+  CurrentImageId?: string;
+  DesiredImageId?: string;
+  TargetStateCount?: number;
+  SoftwareUpdateStatus?: SoftwareUpdateStatus;
+  ActiveSoftwareUpdateConfig?: DeploymentConfiguration;
 }
 export type ClusterInstanceGroupDetailsList =
   Array<ClusterInstanceGroupDetails>;
@@ -2933,10 +3096,13 @@ export interface ClusterInstanceGroupSpecification {
   TrainingPlanArn?: string;
   OverrideVpcConfig?: VpcConfig;
   ScheduledUpdateConfig?: ScheduledUpdateConfig;
+  ImageId?: string;
 }
 export type ClusterInstanceGroupSpecifications =
   Array<ClusterInstanceGroupSpecification>;
 export type ClusterInstanceGroupsToDelete = Array<string>;
+export type ClusterInstanceMemoryAllocationPercentage = number;
+
 export interface ClusterInstancePlacement {
   AvailabilityZone?: string;
   AvailabilityZoneId?: string;
@@ -2947,7 +3113,8 @@ export type ClusterInstanceStatus =
   | "Pending"
   | "ShuttingDown"
   | "SystemUpdating"
-  | "DeepHealthCheckInProgress";
+  | "DeepHealthCheckInProgress"
+  | "NotFound";
 export interface ClusterInstanceStatusDetails {
   Status: ClusterInstanceStatus;
   Message?: string;
@@ -2964,6 +3131,7 @@ export type ClusterInstanceType =
   | "ml.p4d.24xlarge"
   | "ml.p4de.24xlarge"
   | "ml.p5.48xlarge"
+  | "ml.p6e-gb200.36xlarge"
   | "ml.trn1.32xlarge"
   | "ml.trn1n.32xlarge"
   | "ml.g5.xlarge"
@@ -3079,6 +3247,11 @@ export interface ClusterLifeCycleConfig {
 }
 export type ClusterLifeCycleConfigFileName = string;
 
+export interface ClusterMetadata {
+  FailureMessage?: string;
+  EksRoleAccessEntries?: Array<string>;
+  SlrAccessEntry?: string;
+}
 export type ClusterName = string;
 
 export type ClusterNameOrArn = string;
@@ -3086,6 +3259,7 @@ export type ClusterNameOrArn = string;
 export interface ClusterNodeDetails {
   InstanceGroupName?: string;
   InstanceId?: string;
+  NodeLogicalId?: string;
   InstanceStatus?: ClusterInstanceStatusDetails;
   InstanceType?: ClusterInstanceType;
   LaunchTime?: Date | string;
@@ -3098,19 +3272,28 @@ export interface ClusterNodeDetails {
   PrivatePrimaryIpv6?: string;
   PrivateDnsHostname?: string;
   Placement?: ClusterInstancePlacement;
+  CurrentImageId?: string;
+  DesiredImageId?: string;
+  UltraServerInfo?: UltraServerInfo;
 }
 export type ClusterNodeId = string;
 
 export type ClusterNodeIds = Array<string>;
+export type ClusterNodeLogicalId = string;
+
+export type ClusterNodeLogicalIdList = Array<string>;
+export type ClusterNodeProvisioningMode = "Continuous";
 export type ClusterNodeRecovery = "Automatic" | "None";
 export type ClusterNodeSummaries = Array<ClusterNodeSummary>;
 export interface ClusterNodeSummary {
   InstanceGroupName: string;
   InstanceId: string;
+  NodeLogicalId?: string;
   InstanceType: ClusterInstanceType;
   LaunchTime: Date | string;
   LastSoftwareUpdateTime?: Date | string;
   InstanceStatus: ClusterInstanceStatusDetails;
+  UltraServerInfo?: UltraServerInfo;
 }
 export type ClusterNonNegativeInstanceCount = number;
 
@@ -3196,6 +3379,10 @@ export interface ClusterSummary {
 }
 export type ClusterThreadsPerCore = number;
 
+export interface ClusterTieredStorageConfig {
+  Mode: ClusterConfigMode;
+  InstanceMemoryAllocationPercentage?: number;
+}
 export interface CodeEditorAppImageConfig {
   FileSystemConfig?: FileSystemConfig;
   ContainerConfig?: ContainerConfig;
@@ -3298,6 +3485,9 @@ export type ComputeQuotaId = string;
 export interface ComputeQuotaResourceConfig {
   InstanceType: ClusterInstanceType;
   Count?: number;
+  Accelerators?: number;
+  VCpu?: number;
+  MemoryInGiB?: number;
 }
 export type ComputeQuotaResourceConfigList = Array<ComputeQuotaResourceConfig>;
 export interface ComputeQuotaSummary {
@@ -3325,6 +3515,8 @@ export interface ConditionStepMetadata {
   Outcome?: ConditionOutcome;
 }
 export type ConfigKey = string;
+
+export type ConfiguredSpareInstanceCount = number;
 
 export type ConfigValue = string;
 
@@ -3508,6 +3700,10 @@ export interface CreateClusterRequest {
   Tags?: Array<Tag>;
   Orchestrator?: ClusterOrchestrator;
   NodeRecovery?: ClusterNodeRecovery;
+  TieredStorageConfig?: ClusterTieredStorageConfig;
+  NodeProvisioningMode?: ClusterNodeProvisioningMode;
+  ClusterRole?: string;
+  AutoScaling?: ClusterAutoScalingConfig;
 }
 export interface CreateClusterResponse {
   ClusterArn: string;
@@ -3971,6 +4167,7 @@ export interface CreateNotebookInstanceInput {
   InstanceType: InstanceType;
   SubnetId?: string;
   SecurityGroupIds?: Array<string>;
+  IpAddressType?: IPAddressType;
   RoleArn: string;
   KmsKeyId?: string;
   Tags?: Array<Tag>;
@@ -4130,11 +4327,11 @@ export type CreateTemplateProviderList = Array<CreateTemplateProvider>;
 export interface CreateTrainingJobRequest {
   TrainingJobName: string;
   HyperParameters?: Record<string, string>;
-  AlgorithmSpecification: AlgorithmSpecification;
+  AlgorithmSpecification?: AlgorithmSpecification;
   RoleArn: string;
   InputDataConfig?: Array<Channel>;
   OutputDataConfig: OutputDataConfig;
-  ResourceConfig: ResourceConfig;
+  ResourceConfig?: ResourceConfig;
   VpcConfig?: VpcConfig;
   StoppingCondition: StoppingCondition;
   Tags?: Array<Tag>;
@@ -4160,6 +4357,7 @@ export interface CreateTrainingJobResponse {
 export interface CreateTrainingPlanRequest {
   TrainingPlanName: string;
   TrainingPlanOfferingId: string;
+  SpareInstanceCountPerUltraServer?: number;
   Tags?: Array<Tag>;
 }
 export interface CreateTrainingPlanResponse {
@@ -4599,6 +4797,9 @@ export interface DeletePipelineRequest {
 export interface DeletePipelineResponse {
   PipelineArn?: string;
 }
+export interface DeleteProcessingJobRequest {
+  ProcessingJobName: string;
+}
 export interface DeleteProjectInput {
   ProjectName: string;
 }
@@ -4614,6 +4815,9 @@ export interface DeleteTagsInput {
   TagKeys: Array<string>;
 }
 export interface DeleteTagsOutput {}
+export interface DeleteTrainingJobRequest {
+  TrainingJobName: string;
+}
 export interface DeleteTrialComponentRequest {
   TrialComponentName: string;
 }
@@ -4748,6 +4952,7 @@ export interface DescribeAppResponse {
   UserProfileName?: string;
   SpaceName?: string;
   Status?: AppStatus;
+  EffectiveTrustedIdentityPropagationStatus?: FeatureStatus;
   RecoveryMode?: boolean;
   LastHealthCheckTimestamp?: Date | string;
   LastUserActivityTimestamp?: Date | string;
@@ -4826,9 +5031,17 @@ export interface DescribeAutoMLJobV2Response {
   SecurityConfig?: AutoMLSecurityConfig;
   AutoMLComputeConfig?: AutoMLComputeConfig;
 }
+export interface DescribeClusterEventRequest {
+  EventId: string;
+  ClusterName: string;
+}
+export interface DescribeClusterEventResponse {
+  EventDetails?: ClusterEventDetail;
+}
 export interface DescribeClusterNodeRequest {
   ClusterName: string;
   NodeId?: string;
+  NodeLogicalId?: string;
 }
 export interface DescribeClusterNodeResponse {
   NodeDetails: ClusterNodeDetails;
@@ -4846,7 +5059,11 @@ export interface DescribeClusterResponse {
   RestrictedInstanceGroups?: Array<ClusterRestrictedInstanceGroupDetails>;
   VpcConfig?: VpcConfig;
   Orchestrator?: ClusterOrchestrator;
+  TieredStorageConfig?: ClusterTieredStorageConfig;
   NodeRecovery?: ClusterNodeRecovery;
+  NodeProvisioningMode?: ClusterNodeProvisioningMode;
+  ClusterRole?: string;
+  AutoScaling?: ClusterAutoScalingConfigOutput;
 }
 export interface DescribeClusterSchedulerConfigRequest {
   ClusterSchedulerConfigId: string;
@@ -5557,6 +5774,7 @@ export interface DescribeNotebookInstanceOutput {
   FailureReason?: string;
   Url?: string;
   InstanceType?: InstanceType;
+  IpAddressType?: IPAddressType;
   SubnetId?: string;
   SecurityGroups?: Array<string>;
   RoleArn?: string;
@@ -5707,6 +5925,24 @@ export interface DescribeProjectOutput {
   LastModifiedTime?: Date | string;
   LastModifiedBy?: UserContext;
 }
+export interface DescribeReservedCapacityRequest {
+  ReservedCapacityArn: string;
+}
+export interface DescribeReservedCapacityResponse {
+  ReservedCapacityArn: string;
+  ReservedCapacityType?: ReservedCapacityType;
+  Status?: ReservedCapacityStatus;
+  AvailabilityZone?: string;
+  DurationHours?: number;
+  DurationMinutes?: number;
+  StartTime?: Date | string;
+  EndTime?: Date | string;
+  InstanceType: ReservedCapacityInstanceType;
+  TotalInstanceCount: number;
+  AvailableInstanceCount?: number;
+  InUseInstanceCount?: number;
+  UltraServerSummary?: UltraServerSummary;
+}
 export interface DescribeSpaceRequest {
   DomainId: string;
   SpaceName: string;
@@ -5808,6 +6044,9 @@ export interface DescribeTrainingPlanResponse {
   TotalInstanceCount?: number;
   AvailableInstanceCount?: number;
   InUseInstanceCount?: number;
+  UnhealthyInstanceCount?: number;
+  AvailableSpareInstanceCount?: number;
+  TotalUltraServerCount?: number;
   TargetResources?: Array<SageMakerResourceName>;
   ReservedCapacitySummaries?: Array<ReservedCapacitySummary>;
 }
@@ -5915,6 +6154,19 @@ export interface DesiredWeightAndCapacity {
 export type DesiredWeightAndCapacityList = Array<DesiredWeightAndCapacity>;
 export type DestinationS3Uri = string;
 
+export interface DetachClusterNodeVolumeRequest {
+  ClusterArn: string;
+  NodeId: string;
+  VolumeId: string;
+}
+export interface DetachClusterNodeVolumeResponse {
+  ClusterArn: string;
+  NodeId: string;
+  VolumeId: string;
+  AttachTime: Date | string;
+  Status: VolumeAttachmentStatus;
+  DeviceName: string;
+}
 export type DetailedAlgorithmStatus =
   | "NotStarted"
   | "InProgress"
@@ -6025,6 +6277,7 @@ export interface DisassociateTrialComponentResponse {
 export interface DockerSettings {
   EnableDockerAccess?: FeatureStatus;
   VpcOnlyTrustedAccounts?: Array<string>;
+  RootlessDocker?: FeatureStatus;
 }
 export type DocumentSchemaVersion = string;
 
@@ -6051,17 +6304,21 @@ export interface DomainSettings {
   SecurityGroupIds?: Array<string>;
   RStudioServerProDomainSettings?: RStudioServerProDomainSettings;
   ExecutionRoleIdentityConfig?: ExecutionRoleIdentityConfig;
+  TrustedIdentityPropagationSettings?: TrustedIdentityPropagationSettings;
   DockerSettings?: DockerSettings;
   AmazonQSettings?: AmazonQSettings;
   UnifiedStudioSettings?: UnifiedStudioSettings;
+  IpAddressType?: IPAddressType;
 }
 export interface DomainSettingsForUpdate {
   RStudioServerProDomainSettingsForUpdate?: RStudioServerProDomainSettingsForUpdate;
   ExecutionRoleIdentityConfig?: ExecutionRoleIdentityConfig;
   SecurityGroupIds?: Array<string>;
+  TrustedIdentityPropagationSettings?: TrustedIdentityPropagationSettings;
   DockerSettings?: DockerSettings;
   AmazonQSettings?: AmazonQSettings;
   UnifiedStudioSettings?: UnifiedStudioSettings;
+  IpAddressType?: IPAddressType;
 }
 export type DomainStatus =
   | "Deleting"
@@ -6211,6 +6468,7 @@ export type EdgePresetDeploymentType = "GreengrassV2Component";
 export type Edges = Array<Edge>;
 export type EdgeVersion = string;
 
+export type EfaEnis = Array<string>;
 export interface EFSFileSystem {
   FileSystemId: string;
 }
@@ -6222,6 +6480,7 @@ export type EfsUid = string;
 
 export type EksClusterArn = string;
 
+export type EksRoleAccessEntries = Array<string>;
 export interface EmrServerlessComputeConfig {
   ExecutionRoleARN: string;
 }
@@ -6239,6 +6498,8 @@ export interface EMRStepMetadata {
   StepName?: string;
   LogFilePath?: string;
 }
+export type EnableCaching = boolean;
+
 export type EnableCapture = boolean;
 
 export type EnabledOrDisabled = "Enabled" | "Disabled";
@@ -6381,6 +6642,24 @@ export interface ErrorInfo {
   Code?: string;
   Reason?: string;
 }
+export interface EventDetails {
+  EventMetadata?: EventMetadata;
+}
+export type EventId = string;
+
+interface _EventMetadata {
+  Cluster?: ClusterMetadata;
+  InstanceGroup?: InstanceGroupMetadata;
+  InstanceGroupScaling?: InstanceGroupScalingMetadata;
+  Instance?: InstanceMetadata;
+}
+
+export type EventMetadata =
+  | (_EventMetadata & { Cluster: ClusterMetadata })
+  | (_EventMetadata & { InstanceGroup: InstanceGroupMetadata })
+  | (_EventMetadata & { InstanceGroupScaling: InstanceGroupScalingMetadata })
+  | (_EventMetadata & { Instance: InstanceMetadata });
+export type EventSortBy = "EventTime";
 export type ExcludeFeaturesAttribute = string;
 
 export type ExecutionRoleArns = Array<string>;
@@ -7140,6 +7419,8 @@ export type ImageDigest = string;
 
 export type ImageDisplayName = string;
 
+export type ImageId = string;
+
 export type ImageName = string;
 
 export type ImageNameContains = string;
@@ -7204,6 +7485,8 @@ export interface ImportHubContentResponse {
   HubArn: string;
   HubContentArn: string;
 }
+export type IncludeNodeLogicalIdsBoolean = boolean;
+
 export type InferenceComponentArn = string;
 
 export interface InferenceComponentCapacitySize {
@@ -7231,6 +7514,12 @@ export interface InferenceComponentContainerSpecificationSummary {
 }
 export type InferenceComponentCopyCount = number;
 
+export interface InferenceComponentDataCacheConfig {
+  EnableCaching: boolean;
+}
+export interface InferenceComponentDataCacheConfigSummary {
+  EnableCaching: boolean;
+}
 export interface InferenceComponentDeploymentConfig {
   RollingUpdatePolicy: InferenceComponentRollingUpdatePolicy;
   AutoRollbackConfiguration?: AutoRollbackConfig;
@@ -7259,6 +7548,7 @@ export interface InferenceComponentSpecification {
   StartupParameters?: InferenceComponentStartupParameters;
   ComputeResourceRequirements?: InferenceComponentComputeResourceRequirements;
   BaseInferenceComponentName?: string;
+  DataCacheConfig?: InferenceComponentDataCacheConfig;
 }
 export interface InferenceComponentSpecificationSummary {
   ModelName?: string;
@@ -7266,6 +7556,7 @@ export interface InferenceComponentSpecificationSummary {
   StartupParameters?: InferenceComponentStartupParameters;
   ComputeResourceRequirements?: InferenceComponentComputeResourceRequirements;
   BaseInferenceComponentName?: string;
+  DataCacheConfig?: InferenceComponentDataCacheConfigSummary;
 }
 export interface InferenceComponentStartupParameters {
   ModelDataDownloadTimeoutInSeconds?: number;
@@ -7409,10 +7700,23 @@ export interface InstanceGroup {
   InstanceCount: number;
   InstanceGroupName: string;
 }
+export interface InstanceGroupMetadata {
+  FailureMessage?: string;
+  AvailabilityZoneId?: string;
+  CapacityReservation?: CapacityReservation;
+  SubnetId?: string;
+  SecurityGroupIds?: Array<string>;
+  AmiOverride?: string;
+}
 export type InstanceGroupName = string;
 
 export type InstanceGroupNames = Array<string>;
 export type InstanceGroups = Array<InstanceGroup>;
+export interface InstanceGroupScalingMetadata {
+  InstanceCount?: number;
+  TargetCount?: number;
+  FailureMessage?: string;
+}
 export type InstanceGroupStatus =
   | "InService"
   | "Creating"
@@ -7423,8 +7727,20 @@ export type InstanceGroupStatus =
   | "Deleting";
 export type InstanceGroupTrainingPlanStatus = string;
 
+export interface InstanceMetadata {
+  CustomerEni?: string;
+  AdditionalEnis?: AdditionalEnis;
+  CapacityReservation?: CapacityReservation;
+  FailureMessage?: string;
+  LcsExecutionState?: string;
+  NodeLogicalId?: string;
+}
 export interface InstanceMetadataServiceConfiguration {
   MinimumInstanceMetadataServiceVersion: string;
+}
+export interface InstancePlacementConfig {
+  EnableMultipleJobs?: boolean;
+  PlacementSpecifications?: Array<PlacementSpecification>;
 }
 export type InstanceType =
   | "ml.t2.medium"
@@ -7510,6 +7826,7 @@ export type InstanceType =
   | "ml.p4d.24xlarge"
   | "ml.p4de.24xlarge"
   | "ml.p5.48xlarge"
+  | "ml.p6-b200.48xlarge"
   | "ml.m6i.large"
   | "ml.m6i.xlarge"
   | "ml.m6i.2xlarge"
@@ -7624,6 +7941,7 @@ export type InvocationsTimeoutInSeconds = number;
 
 export type IotRoleAlias = string;
 
+export type IPAddressType = "ipv4" | "dualstack";
 export type IsTrackingServerActive = "Active" | "Inactive";
 export type ItemIdentifierAttributeName = string;
 
@@ -7935,6 +8253,22 @@ export interface ListCandidatesForAutoMLJobResponse {
   Candidates: Array<AutoMLCandidate>;
   NextToken?: string;
 }
+export interface ListClusterEventsRequest {
+  ClusterName: string;
+  InstanceGroupName?: string;
+  NodeId?: string;
+  EventTimeAfter?: Date | string;
+  EventTimeBefore?: Date | string;
+  SortBy?: EventSortBy;
+  SortOrder?: SortOrder;
+  ResourceType?: ClusterEventResourceType;
+  MaxResults?: number;
+  NextToken?: string;
+}
+export interface ListClusterEventsResponse {
+  NextToken?: string;
+  Events?: Array<ClusterEventSummary>;
+}
 export interface ListClusterNodesRequest {
   ClusterName: string;
   CreationTimeAfter?: Date | string;
@@ -7944,6 +8278,7 @@ export interface ListClusterNodesRequest {
   NextToken?: string;
   SortBy?: ClusterSortBy;
   SortOrder?: SortOrder;
+  IncludeNodeLogicalIds?: boolean;
 }
 export interface ListClusterNodesResponse {
   NextToken?: string;
@@ -8944,6 +9279,15 @@ export interface ListTrialsResponse {
   TrialSummaries?: Array<TrialSummary>;
   NextToken?: string;
 }
+export interface ListUltraServersByReservedCapacityRequest {
+  ReservedCapacityArn: string;
+  MaxResults?: number;
+  NextToken?: string;
+}
+export interface ListUltraServersByReservedCapacityResponse {
+  NextToken?: string;
+  UltraServers: Array<UltraServer>;
+}
 export interface ListUserProfilesRequest {
   NextToken?: string;
   MaxResults?: number;
@@ -9040,6 +9384,8 @@ export interface MemberDefinition {
   OidcMemberDefinition?: OidcMemberDefinition;
 }
 export type MemberDefinitions = Array<MemberDefinition>;
+export type MemoryInGiBAmount = number;
+
 export type MemoryInMb = number;
 
 export interface MetadataProperties {
@@ -9804,6 +10150,12 @@ export type NetworkInterfaceId = string;
 
 export type NextToken = string;
 
+export interface NodeAdditionResult {
+  NodeLogicalId: string;
+  InstanceGroupName: string;
+  Status: ClusterInstanceStatus;
+}
+export type NodeAdditionResultList = Array<NodeAdditionResult>;
 export type NodeUnavailabilityType = "INSTANCE_COUNT" | "CAPACITY_PERCENTAGE";
 export type NodeUnavailabilityValue = number;
 
@@ -10359,6 +10711,11 @@ export interface PipelineVersionSummary {
   LastExecutionPipelineExecutionArn?: string;
 }
 export type PipelineVersionSummaryList = Array<PipelineVersionSummary>;
+export interface PlacementSpecification {
+  UltraServerId?: string;
+  InstanceCount: number;
+}
+export type PlacementSpecifications = Array<PlacementSpecification>;
 export type PlatformIdentifier = string;
 
 export type PolicyString = string;
@@ -10529,7 +10886,8 @@ export type ProcessingInstanceType =
   | "ml.r7i.12xlarge"
   | "ml.r7i.16xlarge"
   | "ml.r7i.24xlarge"
-  | "ml.r7i.48xlarge";
+  | "ml.r7i.48xlarge"
+  | "ml.p5.4xlarge";
 export interface ProcessingJob {
   ProcessingInputs?: Array<ProcessingInput>;
   ProcessingOutputConfig?: ProcessingOutputConfig;
@@ -10936,7 +11294,8 @@ export type ProductionVariantInstanceType =
   | "ml.c6in.24xlarge"
   | "ml.c6in.32xlarge"
   | "ml.p6-b200.48xlarge"
-  | "ml.p6e-gb200.36xlarge";
+  | "ml.p6e-gb200.36xlarge"
+  | "ml.p5.4xlarge";
 export type ProductionVariantList = Array<ProductionVariant>;
 export interface ProductionVariantManagedInstanceScaling {
   Status?: ManagedInstanceScalingStatus;
@@ -11353,8 +11712,13 @@ export type ReservedCapacityInstanceType =
   | "ml.trn1.32xlarge"
   | "ml.trn2.48xlarge"
   | "ml.p6-b200.48xlarge"
-  | "ml.p4de.24xlarge";
+  | "ml.p4de.24xlarge"
+  | "ml.p6e-gb200.36xlarge"
+  | "ml.p5.4xlarge";
 export interface ReservedCapacityOffering {
+  ReservedCapacityType?: ReservedCapacityType;
+  UltraServerType?: string;
+  UltraServerCount?: number;
   InstanceType: ReservedCapacityInstanceType;
   InstanceCount: number;
   AvailabilityZone?: string;
@@ -11373,6 +11737,9 @@ export type ReservedCapacityStatus =
 export type ReservedCapacitySummaries = Array<ReservedCapacitySummary>;
 export interface ReservedCapacitySummary {
   ReservedCapacityArn: string;
+  ReservedCapacityType?: ReservedCapacityType;
+  UltraServerType?: string;
+  UltraServerCount?: number;
   InstanceType: ReservedCapacityInstanceType;
   TotalInstanceCount: number;
   Status: ReservedCapacityStatus;
@@ -11382,6 +11749,7 @@ export interface ReservedCapacitySummary {
   StartTime?: Date | string;
   EndTime?: Date | string;
 }
+export type ReservedCapacityType = "UltraServer" | "Instance";
 export interface ResolvedAttributes {
   AutoMLJobObjective?: AutoMLJobObjective;
   ProblemType?: ProblemType;
@@ -11412,6 +11780,7 @@ export interface ResourceConfig {
   KeepAlivePeriodInSeconds?: number;
   InstanceGroups?: Array<InstanceGroup>;
   TrainingPlanArn?: string;
+  InstancePlacementConfig?: InstancePlacementConfig;
 }
 export interface ResourceConfigForUpdate {
   KeepAlivePeriodInSeconds: number;
@@ -11557,11 +11926,11 @@ export type S3DataType =
   | "AugmentedManifestFile"
   | "Converse";
 export interface S3FileSystem {
-  S3Uri?: string;
+  S3Uri: string;
 }
 export interface S3FileSystemConfig {
   MountPath?: string;
-  S3Uri?: string;
+  S3Uri: string;
 }
 export interface S3ModelDataSource {
   S3Uri: string;
@@ -11695,6 +12064,8 @@ export type SearchSortOrder = "Ascending" | "Descending";
 export interface SearchTrainingPlanOfferingsRequest {
   InstanceType?: ReservedCapacityInstanceType;
   InstanceCount?: number;
+  UltraServerType?: string;
+  UltraServerCount?: number;
   StartTimeAfter?: Date | string;
   EndTimeBefore?: Date | string;
   DurationHours: number;
@@ -11816,6 +12187,13 @@ export type SingleSignOnUserIdentifier = string;
 export type SkipModelValidation = "All" | "None";
 export type SnsTopicArn = string;
 
+export type SoftwareUpdateStatus =
+  | "Pending"
+  | "InProgress"
+  | "Succeeded"
+  | "Failed"
+  | "RollbackInProgress"
+  | "RollbackComplete";
 export type SortActionsBy = "Name" | "CreationTime";
 export type SortArtifactsBy = "CreationTime";
 export type SortAssociationsBy =
@@ -11921,6 +12299,8 @@ export type SpaceStatus =
 export interface SpaceStorageSettings {
   EbsStorageSettings?: EbsStorageSettings;
 }
+export type SpareInstanceCountPerUltraServer = number;
+
 export type SpawnRate = number;
 
 export type SplitType = "None" | "Line" | "RecordIO" | "TFRecord";
@@ -12173,6 +12553,8 @@ export type TagPropagation = "ENABLED" | "DISABLED";
 export type TagValue = string;
 
 export type TargetAttributeName = string;
+
+export type TargetCount = number;
 
 export type TargetDevice =
   | "lambda"
@@ -12555,7 +12937,9 @@ export type TrainingInstanceType =
   | "ml.r7i.12xlarge"
   | "ml.r7i.16xlarge"
   | "ml.r7i.24xlarge"
-  | "ml.r7i.48xlarge";
+  | "ml.r7i.48xlarge"
+  | "ml.p6e-gb200.36xlarge"
+  | "ml.p5.4xlarge";
 export type TrainingInstanceTypes = Array<TrainingInstanceType>;
 export interface TrainingJob {
   TrainingJobName?: string;
@@ -12620,7 +13004,8 @@ export type TrainingJobStatus =
   | "Completed"
   | "Failed"
   | "Stopping"
-  | "Stopped";
+  | "Stopped"
+  | "Deleting";
 export type TrainingJobStatusCounter = number;
 
 export interface TrainingJobStatusCounters {
@@ -12701,6 +13086,7 @@ export interface TrainingPlanSummary {
   TotalInstanceCount?: number;
   AvailableInstanceCount?: number;
   InUseInstanceCount?: number;
+  TotalUltraServerCount?: number;
   TargetResources?: Array<SageMakerResourceName>;
   ReservedCapacitySummaries?: Array<ReservedCapacitySummary>;
 }
@@ -13057,6 +13443,9 @@ export interface TrialSummary {
   CreationTime?: Date | string;
   LastModifiedTime?: Date | string;
 }
+export interface TrustedIdentityPropagationSettings {
+  Status: FeatureStatus;
+}
 export interface TtlDuration {
   Unit?: TtlDurationUnit;
   Value?: number;
@@ -13090,6 +13479,37 @@ export interface UiTemplateInfo {
   Url?: string;
   ContentSha256?: string;
 }
+export interface UltraServer {
+  UltraServerId: string;
+  UltraServerType: string;
+  AvailabilityZone: string;
+  InstanceType: ReservedCapacityInstanceType;
+  TotalInstanceCount: number;
+  ConfiguredSpareInstanceCount?: number;
+  AvailableInstanceCount?: number;
+  InUseInstanceCount?: number;
+  AvailableSpareInstanceCount?: number;
+  UnhealthyInstanceCount?: number;
+  HealthStatus?: UltraServerHealthStatus;
+}
+export type UltraServerCount = number;
+
+export type UltraServerHealthStatus = "OK" | "Impaired" | "Insufficient-Data";
+export interface UltraServerInfo {
+  Id?: string;
+}
+export type UltraServers = Array<UltraServer>;
+export interface UltraServerSummary {
+  UltraServerType: string;
+  InstanceType: ReservedCapacityInstanceType;
+  UltraServerCount?: number;
+  AvailableSpareInstanceCount?: number;
+  UnhealthyInstanceCount?: number;
+}
+export type UltraServerType = string;
+
+export type UnhealthyInstanceCount = number;
+
 export type UnifiedStudioDomainId = string;
 
 export type UnifiedStudioEnvironmentId = string;
@@ -13138,8 +13558,11 @@ export interface UpdateClusterRequest {
   ClusterName: string;
   InstanceGroups?: Array<ClusterInstanceGroupSpecification>;
   RestrictedInstanceGroups?: Array<ClusterRestrictedInstanceGroupSpecification>;
+  TieredStorageConfig?: ClusterTieredStorageConfig;
   NodeRecovery?: ClusterNodeRecovery;
   InstanceGroupsToDelete?: Array<string>;
+  ClusterRole?: string;
+  AutoScaling?: ClusterAutoScalingConfig;
 }
 export interface UpdateClusterResponse {
   ClusterArn: string;
@@ -13163,6 +13586,7 @@ export interface UpdateClusterSoftwareRequest {
   ClusterName: string;
   InstanceGroups?: Array<UpdateClusterSoftwareInstanceGroupSpecification>;
   DeploymentConfig?: DeploymentConfiguration;
+  ImageId?: string;
 }
 export interface UpdateClusterSoftwareResponse {
   ClusterArn: string;
@@ -13403,6 +13827,8 @@ export interface UpdateMonitoringScheduleResponse {
 export interface UpdateNotebookInstanceInput {
   NotebookInstanceName: string;
   InstanceType?: InstanceType;
+  IpAddressType?: IPAddressType;
+  PlatformIdentifier?: string;
   RoleArn?: string;
   LifecycleConfigName?: string;
   DisassociateLifecycleConfig?: boolean;
@@ -13633,6 +14059,8 @@ export type VariantStatusMessage = string;
 
 export type VariantWeight = number;
 
+export type VCpuAmount = number;
+
 export interface VectorConfig {
   Dimension: number;
 }
@@ -13660,6 +14088,16 @@ export type VisibilityConditionsKey = string;
 
 export type VisibilityConditionsList = Array<VisibilityConditions>;
 export type VisibilityConditionsValue = string;
+
+export type VolumeAttachmentStatus =
+  | "attaching"
+  | "attached"
+  | "detaching"
+  | "detached"
+  | "busy";
+export type VolumeDeviceName = string;
+
+export type VolumeId = string;
 
 export type VolumeSizeInGB = number;
 
@@ -13778,6 +14216,18 @@ export declare namespace AddTags {
 export declare namespace AssociateTrialComponent {
   export type Input = AssociateTrialComponentRequest;
   export type Output = AssociateTrialComponentResponse;
+  export type Error = ResourceLimitExceeded | ResourceNotFound | CommonAwsError;
+}
+
+export declare namespace AttachClusterNodeVolume {
+  export type Input = AttachClusterNodeVolumeRequest;
+  export type Output = AttachClusterNodeVolumeResponse;
+  export type Error = ResourceNotFound | CommonAwsError;
+}
+
+export declare namespace BatchAddClusterNodes {
+  export type Input = BatchAddClusterNodesRequest;
+  export type Output = BatchAddClusterNodesResponse;
   export type Error = ResourceLimitExceeded | ResourceNotFound | CommonAwsError;
 }
 
@@ -14512,6 +14962,12 @@ export declare namespace DeletePipeline {
   export type Error = ConflictException | ResourceNotFound | CommonAwsError;
 }
 
+export declare namespace DeleteProcessingJob {
+  export type Input = DeleteProcessingJobRequest;
+  export type Output = {};
+  export type Error = ResourceInUse | ResourceNotFound | CommonAwsError;
+}
+
 export declare namespace DeleteProject {
   export type Input = DeleteProjectInput;
   export type Output = {};
@@ -14534,6 +14990,12 @@ export declare namespace DeleteTags {
   export type Input = DeleteTagsInput;
   export type Output = DeleteTagsOutput;
   export type Error = CommonAwsError;
+}
+
+export declare namespace DeleteTrainingJob {
+  export type Input = DeleteTrainingJobRequest;
+  export type Output = {};
+  export type Error = ResourceInUse | ResourceNotFound | CommonAwsError;
 }
 
 export declare namespace DeleteTrial {
@@ -14617,6 +15079,12 @@ export declare namespace DescribeAutoMLJobV2 {
 export declare namespace DescribeCluster {
   export type Input = DescribeClusterRequest;
   export type Output = DescribeClusterResponse;
+  export type Error = ResourceNotFound | CommonAwsError;
+}
+
+export declare namespace DescribeClusterEvent {
+  export type Input = DescribeClusterEventRequest;
+  export type Output = DescribeClusterEventResponse;
   export type Error = ResourceNotFound | CommonAwsError;
 }
 
@@ -14908,6 +15376,12 @@ export declare namespace DescribeProject {
   export type Error = CommonAwsError;
 }
 
+export declare namespace DescribeReservedCapacity {
+  export type Input = DescribeReservedCapacityRequest;
+  export type Output = DescribeReservedCapacityResponse;
+  export type Error = ResourceNotFound | CommonAwsError;
+}
+
 export declare namespace DescribeSpace {
   export type Input = DescribeSpaceRequest;
   export type Output = DescribeSpaceResponse;
@@ -14972,6 +15446,12 @@ export declare namespace DescribeWorkteam {
   export type Input = DescribeWorkteamRequest;
   export type Output = DescribeWorkteamResponse;
   export type Error = CommonAwsError;
+}
+
+export declare namespace DetachClusterNodeVolume {
+  export type Input = DetachClusterNodeVolumeRequest;
+  export type Output = DetachClusterNodeVolumeResponse;
+  export type Error = ResourceNotFound | CommonAwsError;
 }
 
 export declare namespace DisableSagemakerServicecatalogPortfolio {
@@ -15089,6 +15569,12 @@ export declare namespace ListAutoMLJobs {
 export declare namespace ListCandidatesForAutoMLJob {
   export type Input = ListCandidatesForAutoMLJobRequest;
   export type Output = ListCandidatesForAutoMLJobResponse;
+  export type Error = ResourceNotFound | CommonAwsError;
+}
+
+export declare namespace ListClusterEvents {
+  export type Input = ListClusterEventsRequest;
+  export type Output = ListClusterEventsResponse;
   export type Error = ResourceNotFound | CommonAwsError;
 }
 
@@ -15509,6 +15995,12 @@ export declare namespace ListTrialComponents {
 export declare namespace ListTrials {
   export type Input = ListTrialsRequest;
   export type Output = ListTrialsResponse;
+  export type Error = ResourceNotFound | CommonAwsError;
+}
+
+export declare namespace ListUltraServersByReservedCapacity {
+  export type Input = ListUltraServersByReservedCapacityRequest;
+  export type Output = ListUltraServersByReservedCapacityResponse;
   export type Error = ResourceNotFound | CommonAwsError;
 }
 
@@ -16033,3 +16525,10 @@ export declare namespace UpdateWorkteam {
   export type Output = UpdateWorkteamResponse;
   export type Error = ResourceLimitExceeded | CommonAwsError;
 }
+
+export type SageMakerErrors =
+  | ConflictException
+  | ResourceInUse
+  | ResourceLimitExceeded
+  | ResourceNotFound
+  | CommonAwsError;

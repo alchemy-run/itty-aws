@@ -47,6 +47,17 @@ export declare class AppStream extends AWSServiceClient {
     | ResourceNotFoundException
     | CommonAwsError
   >;
+  associateSoftwareToImageBuilder(
+    input: AssociateSoftwareToImageBuilderRequest,
+  ): Effect.Effect<
+    AssociateSoftwareToImageBuilderResult,
+    | ConcurrentModificationException
+    | IncompatibleImageException
+    | InvalidParameterCombinationException
+    | OperationNotPermittedException
+    | ResourceNotFoundException
+    | CommonAwsError
+  >;
   batchAssociateUserStack(
     input: BatchAssociateUserStackRequest,
   ): Effect.Effect<
@@ -393,6 +404,15 @@ export declare class AppStream extends AWSServiceClient {
     DescribeApplicationsResult,
     OperationNotPermittedException | ResourceNotFoundException | CommonAwsError
   >;
+  describeAppLicenseUsage(
+    input: DescribeAppLicenseUsageRequest,
+  ): Effect.Effect<
+    DescribeAppLicenseUsageResult,
+    | InvalidParameterCombinationException
+    | OperationNotPermittedException
+    | ResourceNotFoundException
+    | CommonAwsError
+  >;
   describeDirectoryConfigs(
     input: DescribeDirectoryConfigsRequest,
   ): Effect.Effect<
@@ -439,6 +459,12 @@ export declare class AppStream extends AWSServiceClient {
   ): Effect.Effect<
     DescribeSessionsResult,
     InvalidParameterCombinationException | CommonAwsError
+  >;
+  describeSoftwareAssociations(
+    input: DescribeSoftwareAssociationsRequest,
+  ): Effect.Effect<
+    DescribeSoftwareAssociationsResult,
+    OperationNotPermittedException | ResourceNotFoundException | CommonAwsError
   >;
   describeStacks(
     input: DescribeStacksRequest,
@@ -519,6 +545,16 @@ export declare class AppStream extends AWSServiceClient {
     | ResourceNotFoundException
     | CommonAwsError
   >;
+  disassociateSoftwareFromImageBuilder(
+    input: DisassociateSoftwareFromImageBuilderRequest,
+  ): Effect.Effect<
+    DisassociateSoftwareFromImageBuilderResult,
+    | ConcurrentModificationException
+    | InvalidParameterCombinationException
+    | OperationNotPermittedException
+    | ResourceNotFoundException
+    | CommonAwsError
+  >;
   enableUser(
     input: EnableUserRequest,
   ): Effect.Effect<
@@ -584,6 +620,15 @@ export declare class AppStream extends AWSServiceClient {
     | IncompatibleImageException
     | InvalidAccountStatusException
     | ResourceNotAvailableException
+    | ResourceNotFoundException
+    | CommonAwsError
+  >;
+  startSoftwareDeploymentToImageBuilder(
+    input: StartSoftwareDeploymentToImageBuilderRequest,
+  ): Effect.Effect<
+    StartSoftwareDeploymentToImageBuilderResult,
+    | ConcurrentModificationException
+    | OperationNotPermittedException
     | ResourceNotFoundException
     | CommonAwsError
   >;
@@ -749,6 +794,16 @@ export type Action =
   | "DOMAIN_PASSWORD_SIGNIN"
   | "DOMAIN_SMART_CARD_SIGNIN"
   | "AUTO_TIME_ZONE_REDIRECTION";
+export type AdminAppLicenseUsageList = Array<AdminAppLicenseUsageRecord>;
+export interface AdminAppLicenseUsageRecord {
+  UserArn: string;
+  BillingPeriod: string;
+  OwnerAWSAccountId: string;
+  SubscriptionFirstUsedDate: Date | string;
+  SubscriptionLastUsedDate: Date | string;
+  LicenseType: string;
+  UserId: string;
+}
 export interface AppBlock {
   Name: string;
   Arn: string;
@@ -869,6 +924,11 @@ export interface AssociateFleetRequest {
   StackName: string;
 }
 export interface AssociateFleetResult {}
+export interface AssociateSoftwareToImageBuilderRequest {
+  ImageBuilderName: string;
+  SoftwareNames: Array<string>;
+}
+export interface AssociateSoftwareToImageBuilderResult {}
 export type AuthenticationType = "API" | "SAML" | "USERPOOL" | "AWS_AD";
 export type AwsAccountId = string;
 
@@ -1037,6 +1097,8 @@ export interface CreateImageBuilderRequest {
   AppstreamAgentVersion?: string;
   Tags?: Record<string, string>;
   AccessEndpoints?: Array<AccessEndpoint>;
+  SoftwaresToInstall?: Array<string>;
+  SoftwaresToUninstall?: Array<string>;
 }
 export interface CreateImageBuilderResult {
   ImageBuilder?: ImageBuilder;
@@ -1218,6 +1280,15 @@ export interface DescribeApplicationsResult {
   Applications?: Array<Application>;
   NextToken?: string;
 }
+export interface DescribeAppLicenseUsageRequest {
+  BillingPeriod: string;
+  MaxResults?: number;
+  NextToken?: string;
+}
+export interface DescribeAppLicenseUsageResult {
+  AppLicenseUsages?: Array<AdminAppLicenseUsageRecord>;
+  NextToken?: string;
+}
 export interface DescribeDirectoryConfigsRequest {
   DirectoryNames?: Array<string>;
   MaxResults?: number;
@@ -1289,6 +1360,16 @@ export interface DescribeSessionsRequest {
 }
 export interface DescribeSessionsResult {
   Sessions?: Array<Session>;
+  NextToken?: string;
+}
+export interface DescribeSoftwareAssociationsRequest {
+  AssociatedResource: string;
+  MaxResults?: number;
+  NextToken?: string;
+}
+export interface DescribeSoftwareAssociationsResult {
+  AssociatedResource?: string;
+  SoftwareAssociations?: Array<SoftwareAssociations>;
   NextToken?: string;
 }
 export interface DescribeStacksRequest {
@@ -1372,6 +1453,11 @@ export interface DisassociateFleetRequest {
   StackName: string;
 }
 export interface DisassociateFleetResult {}
+export interface DisassociateSoftwareFromImageBuilderRequest {
+  ImageBuilderName: string;
+  SoftwareNames: Array<string>;
+}
+export interface DisassociateSoftwareFromImageBuilderResult {}
 export type DisplayName = string;
 
 export type Domain = string;
@@ -1529,6 +1615,7 @@ export interface Image {
   SupportedInstanceFamilies?: Array<string>;
   DynamicAppProvidersEnabled?: DynamicAppProvidersEnabled;
   ImageSharedWithOthers?: ImageSharedWithOthers;
+  ManagedSoftwareIncluded?: boolean;
 }
 export interface ImageBuilder {
   Name: string;
@@ -1563,7 +1650,9 @@ export type ImageBuilderState =
   | "DELETING"
   | "FAILED"
   | "UPDATING"
-  | "PENDING_QUALIFICATION";
+  | "PENDING_QUALIFICATION"
+  | "PENDING_SYNCING_APPS"
+  | "SYNCING_APPS";
 export interface ImageBuilderStateChangeReason {
   Code?: ImageBuilderStateChangeReasonCode;
   Message?: string;
@@ -1770,6 +1859,20 @@ export interface SharedImagePermissions {
   imagePermissions: ImagePermissions;
 }
 export type SharedImagePermissionsList = Array<SharedImagePermissions>;
+export interface SoftwareAssociations {
+  SoftwareName?: string;
+  Status?: SoftwareDeploymentStatus;
+  DeploymentError?: Array<ErrorDetails>;
+}
+export type SoftwareAssociationsList = Array<SoftwareAssociations>;
+export type SoftwareDeploymentStatus =
+  | "STAGED_FOR_INSTALLATION"
+  | "PENDING_INSTALLATION"
+  | "INSTALLED"
+  | "STAGED_FOR_UNINSTALLATION"
+  | "PENDING_UNINSTALLATION"
+  | "FAILED_TO_INSTALL"
+  | "FAILED_TO_UNINSTALL";
 export interface Stack {
   Arn?: string;
   Name: string;
@@ -1826,6 +1929,11 @@ export interface StartImageBuilderRequest {
 export interface StartImageBuilderResult {
   ImageBuilder?: ImageBuilder;
 }
+export interface StartSoftwareDeploymentToImageBuilderRequest {
+  ImageBuilderName: string;
+  RetryFailedDeployments?: boolean;
+}
+export interface StartSoftwareDeploymentToImageBuilderResult {}
 export interface StopAppBlockBuilderRequest {
   Name: string;
 }
@@ -2119,6 +2227,18 @@ export declare namespace AssociateFleet {
     | IncompatibleImageException
     | InvalidAccountStatusException
     | LimitExceededException
+    | OperationNotPermittedException
+    | ResourceNotFoundException
+    | CommonAwsError;
+}
+
+export declare namespace AssociateSoftwareToImageBuilder {
+  export type Input = AssociateSoftwareToImageBuilderRequest;
+  export type Output = AssociateSoftwareToImageBuilderResult;
+  export type Error =
+    | ConcurrentModificationException
+    | IncompatibleImageException
+    | InvalidParameterCombinationException
     | OperationNotPermittedException
     | ResourceNotFoundException
     | CommonAwsError;
@@ -2521,6 +2641,16 @@ export declare namespace DescribeApplications {
     | CommonAwsError;
 }
 
+export declare namespace DescribeAppLicenseUsage {
+  export type Input = DescribeAppLicenseUsageRequest;
+  export type Output = DescribeAppLicenseUsageResult;
+  export type Error =
+    | InvalidParameterCombinationException
+    | OperationNotPermittedException
+    | ResourceNotFoundException
+    | CommonAwsError;
+}
+
 export declare namespace DescribeDirectoryConfigs {
   export type Input = DescribeDirectoryConfigsRequest;
   export type Output = DescribeDirectoryConfigsResult;
@@ -2568,6 +2698,15 @@ export declare namespace DescribeSessions {
   export type Input = DescribeSessionsRequest;
   export type Output = DescribeSessionsResult;
   export type Error = InvalidParameterCombinationException | CommonAwsError;
+}
+
+export declare namespace DescribeSoftwareAssociations {
+  export type Input = DescribeSoftwareAssociationsRequest;
+  export type Output = DescribeSoftwareAssociationsResult;
+  export type Error =
+    | OperationNotPermittedException
+    | ResourceNotFoundException
+    | CommonAwsError;
 }
 
 export declare namespace DescribeStacks {
@@ -2661,6 +2800,17 @@ export declare namespace DisassociateFleet {
     | CommonAwsError;
 }
 
+export declare namespace DisassociateSoftwareFromImageBuilder {
+  export type Input = DisassociateSoftwareFromImageBuilderRequest;
+  export type Output = DisassociateSoftwareFromImageBuilderResult;
+  export type Error =
+    | ConcurrentModificationException
+    | InvalidParameterCombinationException
+    | OperationNotPermittedException
+    | ResourceNotFoundException
+    | CommonAwsError;
+}
+
 export declare namespace EnableUser {
   export type Input = EnableUserRequest;
   export type Output = EnableUserResult;
@@ -2741,6 +2891,16 @@ export declare namespace StartImageBuilder {
     | IncompatibleImageException
     | InvalidAccountStatusException
     | ResourceNotAvailableException
+    | ResourceNotFoundException
+    | CommonAwsError;
+}
+
+export declare namespace StartSoftwareDeploymentToImageBuilder {
+  export type Input = StartSoftwareDeploymentToImageBuilderRequest;
+  export type Output = StartSoftwareDeploymentToImageBuilderResult;
+  export type Error =
+    | ConcurrentModificationException
+    | OperationNotPermittedException
     | ResourceNotFoundException
     | CommonAwsError;
 }
@@ -2897,3 +3057,20 @@ export declare namespace UpdateThemeForStack {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+
+export type AppStreamErrors =
+  | ConcurrentModificationException
+  | EntitlementAlreadyExistsException
+  | EntitlementNotFoundException
+  | IncompatibleImageException
+  | InvalidAccountStatusException
+  | InvalidParameterCombinationException
+  | InvalidRoleException
+  | LimitExceededException
+  | OperationNotPermittedException
+  | RequestLimitExceededException
+  | ResourceAlreadyExistsException
+  | ResourceInUseException
+  | ResourceNotAvailableException
+  | ResourceNotFoundException
+  | CommonAwsError;

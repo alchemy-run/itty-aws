@@ -162,3 +162,8 @@ export declare namespace GetRecommendations {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+
+export type PersonalizeRuntimeErrors =
+  | InvalidInputException
+  | ResourceNotFoundException
+  | CommonAwsError;

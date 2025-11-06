@@ -2037,3 +2037,40 @@ export declare namespace VerifyEmailIdentity {
   export type Output = VerifyEmailIdentityResponse;
   export type Error = CommonAwsError;
 }
+
+export type SESErrors =
+  | AccountSendingPausedException
+  | AlreadyExistsException
+  | CannotDeleteException
+  | ConfigurationSetAlreadyExistsException
+  | ConfigurationSetDoesNotExistException
+  | ConfigurationSetSendingPausedException
+  | CustomVerificationEmailInvalidContentException
+  | CustomVerificationEmailTemplateAlreadyExistsException
+  | CustomVerificationEmailTemplateDoesNotExistException
+  | EventDestinationAlreadyExistsException
+  | EventDestinationDoesNotExistException
+  | FromEmailAddressNotVerifiedException
+  | InvalidCloudWatchDestinationException
+  | InvalidConfigurationSetException
+  | InvalidDeliveryOptionsException
+  | InvalidFirehoseDestinationException
+  | InvalidLambdaFunctionException
+  | InvalidPolicyException
+  | InvalidRenderingParameterException
+  | InvalidS3ConfigurationException
+  | InvalidSNSDestinationException
+  | InvalidSnsTopicException
+  | InvalidTemplateException
+  | InvalidTrackingOptionsException
+  | LimitExceededException
+  | MailFromDomainNotVerifiedException
+  | MessageRejected
+  | MissingRenderingAttributeException
+  | ProductionAccessNotGrantedException
+  | RuleDoesNotExistException
+  | RuleSetDoesNotExistException
+  | TemplateDoesNotExistException
+  | TrackingOptionsAlreadyExistsException
+  | TrackingOptionsDoesNotExistException
+  | CommonAwsError;

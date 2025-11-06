@@ -586,3 +586,13 @@ export declare namespace UpdateProbe {
     | ValidationException
     | CommonAwsError;
 }
+
+export type NetworkMonitorErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

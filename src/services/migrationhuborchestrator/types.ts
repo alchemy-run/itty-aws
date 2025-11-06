@@ -1364,3 +1364,12 @@ export declare namespace UpdateWorkflowStepGroup {
     | ValidationException
     | CommonAwsError;
 }
+
+export type MigrationHubOrchestratorErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

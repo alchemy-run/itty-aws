@@ -458,3 +458,11 @@ export declare namespace UpdateRule {
     | ValidationException
     | CommonAwsError;
 }
+
+export type rbinErrors =
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ValidationException
+  | CommonAwsError;

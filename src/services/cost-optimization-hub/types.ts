@@ -779,3 +779,11 @@ export declare namespace UpdatePreferences {
     | ValidationException
     | CommonAwsError;
 }
+
+export type CostOptimizationHubErrors =
+  | AccessDeniedException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

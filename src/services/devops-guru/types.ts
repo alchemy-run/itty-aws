@@ -1915,3 +1915,13 @@ export declare namespace UpdateServiceIntegration {
     | ValidationException
     | CommonAwsError;
 }
+
+export type DevOpsGuruErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

@@ -1398,3 +1398,13 @@ export declare namespace UpdateTheme {
     | ResourceConflictException
     | CommonAwsError;
 }
+
+export type AmplifyUIBuilderErrors =
+  | InternalServerException
+  | InvalidParameterException
+  | ResourceConflictException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | UnauthorizedException
+  | CommonAwsError;

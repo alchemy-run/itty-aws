@@ -174,3 +174,11 @@ export declare namespace ListRealtimeContactAnalysisSegments {
     | ThrottlingException
     | CommonAwsError;
 }
+
+export type ConnectContactLensErrors =
+  | AccessDeniedException
+  | InternalServiceException
+  | InvalidRequestException
+  | ResourceNotFoundException
+  | ThrottlingException
+  | CommonAwsError;

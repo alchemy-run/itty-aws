@@ -211,3 +211,10 @@ export declare namespace PutObject {
     | InternalServerError
     | CommonAwsError;
 }
+
+export type MediaStoreDataErrors =
+  | ContainerNotFoundException
+  | InternalServerError
+  | ObjectNotFoundException
+  | RequestedRangeNotSatisfiableException
+  | CommonAwsError;

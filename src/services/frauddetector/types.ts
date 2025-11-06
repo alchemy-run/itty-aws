@@ -2952,3 +2952,13 @@ export declare namespace UpdateVariable {
     | ValidationException
     | CommonAwsError;
 }
+
+export type FraudDetectorErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ResourceUnavailableException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

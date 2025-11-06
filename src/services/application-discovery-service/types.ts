@@ -1322,3 +1322,16 @@ export declare namespace UpdateApplication {
     | ServerInternalErrorException
     | CommonAwsError;
 }
+
+export type ApplicationDiscoveryServiceErrors =
+  | AuthorizationErrorException
+  | ConflictErrorException
+  | HomeRegionNotSetException
+  | InvalidParameterException
+  | InvalidParameterValueException
+  | LimitExceededException
+  | OperationNotPermittedException
+  | ResourceInUseException
+  | ResourceNotFoundException
+  | ServerInternalErrorException
+  | CommonAwsError;

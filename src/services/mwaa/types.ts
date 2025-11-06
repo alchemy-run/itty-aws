@@ -610,3 +610,12 @@ export declare namespace UpdateEnvironment {
     | ValidationException
     | CommonAwsError;
 }
+
+export type MWAAErrors =
+  | AccessDeniedException
+  | InternalServerException
+  | ResourceNotFoundException
+  | RestApiClientException
+  | RestApiServerException
+  | ValidationException
+  | CommonAwsError;

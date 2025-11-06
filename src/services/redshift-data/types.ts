@@ -621,3 +621,15 @@ export declare namespace ListTables {
     | ValidationException
     | CommonAwsError;
 }
+
+export type RedshiftDataErrors =
+  | ActiveSessionsExceededException
+  | ActiveStatementsExceededException
+  | BatchExecuteStatementException
+  | DatabaseConnectionException
+  | ExecuteStatementException
+  | InternalServerException
+  | QueryTimeoutException
+  | ResourceNotFoundException
+  | ValidationException
+  | CommonAwsError;

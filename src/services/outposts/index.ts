@@ -65,6 +65,7 @@ const metadata = {
     ListTagsForResource: "GET /tags/{ResourceArn}",
     StartCapacityTask: "POST /outposts/{OutpostIdentifier}/capacity",
     StartConnection: "POST /connections",
+    StartOutpostDecommission: "POST /outposts/{OutpostIdentifier}/decommission",
     TagResource: "POST /tags/{ResourceArn}",
     UntagResource: "DELETE /tags/{ResourceArn}",
     UpdateOutpost: "PATCH /outposts/{OutpostId}",

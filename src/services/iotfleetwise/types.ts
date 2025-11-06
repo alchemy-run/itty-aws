@@ -2817,3 +2817,16 @@ export declare namespace UpdateVehicle {
     | ValidationException
     | CommonAwsError;
 }
+
+export type IoTFleetWiseErrors =
+  | AccessDeniedException
+  | ConflictException
+  | DecoderManifestValidationException
+  | InternalServerException
+  | InvalidNodeException
+  | InvalidSignalsException
+  | LimitExceededException
+  | ResourceNotFoundException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

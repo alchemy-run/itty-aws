@@ -1904,3 +1904,14 @@ export declare namespace UntagResource {
     | NotFoundException
     | CommonAwsError;
 }
+
+export type LexModelBuildingServiceErrors =
+  | AccessDeniedException
+  | BadRequestException
+  | ConflictException
+  | InternalFailureException
+  | LimitExceededException
+  | NotFoundException
+  | PreconditionFailedException
+  | ResourceInUseException
+  | CommonAwsError;

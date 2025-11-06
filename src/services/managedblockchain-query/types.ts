@@ -580,3 +580,12 @@ export declare namespace ListTransactions {
     | ValidationException
     | CommonAwsError;
 }
+
+export type ManagedBlockchainQueryErrors =
+  | AccessDeniedException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

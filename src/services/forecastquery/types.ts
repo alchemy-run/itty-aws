@@ -127,3 +127,11 @@ export declare namespace QueryWhatIfForecast {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+
+export type forecastqueryErrors =
+  | InvalidInputException
+  | InvalidNextTokenException
+  | LimitExceededException
+  | ResourceInUseException
+  | ResourceNotFoundException
+  | CommonAwsError;

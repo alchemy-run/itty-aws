@@ -983,3 +983,18 @@ export declare namespace UpdateApplication {
     | UnsupportedOperationException
     | CommonAwsError;
 }
+
+export type KinesisAnalyticsErrors =
+  | CodeValidationException
+  | ConcurrentModificationException
+  | InvalidApplicationConfigurationException
+  | InvalidArgumentException
+  | LimitExceededException
+  | ResourceInUseException
+  | ResourceNotFoundException
+  | ResourceProvisionedThroughputExceededException
+  | ServiceUnavailableException
+  | TooManyTagsException
+  | UnableToDetectSchemaException
+  | UnsupportedOperationException
+  | CommonAwsError;

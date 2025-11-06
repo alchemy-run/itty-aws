@@ -928,3 +928,12 @@ export declare namespace UpdateTable {
     | ValidationException
     | CommonAwsError;
 }
+
+export type KeyspacesErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ValidationException
+  | CommonAwsError;

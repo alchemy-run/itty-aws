@@ -1845,3 +1845,13 @@ export declare namespace UpdateRevision {
     | ValidationException
     | CommonAwsError;
 }
+
+export type DataExchangeErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceLimitExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

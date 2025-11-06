@@ -1283,3 +1283,38 @@ export declare namespace UpdateCustomAction {
     | UnauthorizedException
     | CommonAwsError;
 }
+
+export type chatbotErrors =
+  | ConflictException
+  | CreateChimeWebhookConfigurationException
+  | CreateSlackChannelConfigurationException
+  | CreateTeamsChannelConfigurationException
+  | DeleteChimeWebhookConfigurationException
+  | DeleteMicrosoftTeamsUserIdentityException
+  | DeleteSlackChannelConfigurationException
+  | DeleteSlackUserIdentityException
+  | DeleteSlackWorkspaceAuthorizationFault
+  | DeleteTeamsChannelConfigurationException
+  | DeleteTeamsConfiguredTeamException
+  | DescribeChimeWebhookConfigurationsException
+  | DescribeSlackChannelConfigurationsException
+  | DescribeSlackUserIdentitiesException
+  | DescribeSlackWorkspacesException
+  | GetAccountPreferencesException
+  | GetTeamsChannelConfigurationException
+  | InternalServiceError
+  | InvalidParameterException
+  | InvalidRequestException
+  | LimitExceededException
+  | ListMicrosoftTeamsConfiguredTeamsException
+  | ListMicrosoftTeamsUserIdentitiesException
+  | ListTeamsChannelConfigurationsException
+  | ResourceNotFoundException
+  | ServiceUnavailableException
+  | TooManyTagsException
+  | UnauthorizedException
+  | UpdateAccountPreferencesException
+  | UpdateChimeWebhookConfigurationException
+  | UpdateSlackChannelConfigurationException
+  | UpdateTeamsChannelConfigurationException
+  | CommonAwsError;

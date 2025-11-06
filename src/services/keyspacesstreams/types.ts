@@ -347,3 +347,11 @@ export declare namespace ListStreams {
     | ValidationException
     | CommonAwsError;
 }
+
+export type KeyspacesStreamsErrors =
+  | AccessDeniedException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

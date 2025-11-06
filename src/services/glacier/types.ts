@@ -1232,3 +1232,14 @@ export declare namespace UploadMultipartPart {
     | ServiceUnavailableException
     | CommonAwsError;
 }
+
+export type GlacierErrors =
+  | InsufficientCapacityException
+  | InvalidParameterValueException
+  | LimitExceededException
+  | MissingParameterValueException
+  | PolicyEnforcedException
+  | RequestTimeoutException
+  | ResourceNotFoundException
+  | ServiceUnavailableException
+  | CommonAwsError;

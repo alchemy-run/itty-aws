@@ -897,3 +897,15 @@ export declare namespace UpdateCampaignOutboundCallConfig {
     | ValidationException
     | CommonAwsError;
 }
+
+export type ConnectCampaignsErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | InvalidCampaignStateException
+  | InvalidStateException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

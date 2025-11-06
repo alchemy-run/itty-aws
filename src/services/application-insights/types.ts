@@ -1375,3 +1375,14 @@ export declare namespace UpdateWorkload {
     | ValidationException
     | CommonAwsError;
 }
+
+export type ApplicationInsightsErrors =
+  | AccessDeniedException
+  | BadRequestException
+  | InternalServerException
+  | ResourceInUseException
+  | ResourceNotFoundException
+  | TagsAlreadyExistException
+  | TooManyTagsException
+  | ValidationException
+  | CommonAwsError;

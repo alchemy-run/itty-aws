@@ -1281,3 +1281,12 @@ export declare namespace UpdateSubscriberNotification {
     | ThrottlingException
     | CommonAwsError;
 }
+
+export type SecurityLakeErrors =
+  | AccessDeniedException
+  | BadRequestException
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ThrottlingException
+  | CommonAwsError;

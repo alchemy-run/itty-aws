@@ -2441,3 +2441,17 @@ export declare namespace UpgradeElasticsearchDomain {
     | ValidationException
     | CommonAwsError;
 }
+
+export type ElasticsearchServiceErrors =
+  | AccessDeniedException
+  | BaseException
+  | ConflictException
+  | DisabledOperationException
+  | InternalException
+  | InvalidPaginationTokenException
+  | InvalidTypeException
+  | LimitExceededException
+  | ResourceAlreadyExistsException
+  | ResourceNotFoundException
+  | ValidationException
+  | CommonAwsError;

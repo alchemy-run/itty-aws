@@ -905,3 +905,12 @@ export declare namespace UpdateAttributeGroup {
     | ValidationException
     | CommonAwsError;
 }
+
+export type ServiceCatalogAppRegistryErrors =
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

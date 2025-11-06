@@ -732,6 +732,7 @@ export interface CreateRuleInput {
   Priority: number;
   Actions: Array<Action>;
   Tags?: Array<Tag>;
+  Transforms?: Array<RuleTransform>;
 }
 export interface CreateRuleOutput {
   Rules?: Array<Rule>;
@@ -1046,12 +1047,17 @@ export declare class HealthUnavailableException extends EffectData.TaggedError(
 }> {}
 export interface HostHeaderConditionConfig {
   Values?: Array<string>;
+  RegexValues?: Array<string>;
+}
+export interface HostHeaderRewriteConfig {
+  Rewrites?: Array<RewriteConfig>;
 }
 export type HttpCode = string;
 
 export interface HttpHeaderConditionConfig {
   HttpHeaderName?: string;
   Values?: Array<string>;
+  RegexValues?: Array<string>;
 }
 export type HttpHeaderConditionName = string;
 
@@ -1287,6 +1293,8 @@ export interface ModifyRuleInput {
   RuleArn: string;
   Conditions?: Array<RuleCondition>;
   Actions?: Array<Action>;
+  Transforms?: Array<RuleTransform>;
+  ResetTransforms?: boolean;
 }
 export interface ModifyRuleOutput {
   Rules?: Array<Rule>;
@@ -1348,6 +1356,7 @@ export type Path = string;
 
 export interface PathPatternConditionConfig {
   Values?: Array<string>;
+  RegexValues?: Array<string>;
 }
 export type Policy = string;
 
@@ -1426,6 +1435,8 @@ export interface RemoveTrustStoreRevocationsInput {
 export interface RemoveTrustStoreRevocationsOutput {}
 export type ResetCapacityReservation = boolean;
 
+export type ResetTransforms = boolean;
+
 export type ResourceArn = string;
 
 export type ResourceArns = Array<string>;
@@ -1460,12 +1471,18 @@ export declare class RevocationIdNotFoundException extends EffectData.TaggedErro
 }> {}
 export type RevocationIds = Array<number>;
 export type RevocationType = "CRL";
+export interface RewriteConfig {
+  Regex: string;
+  Replace: string;
+}
+export type RewriteConfigList = Array<RewriteConfig>;
 export interface Rule {
   RuleArn?: string;
   Priority?: string;
   Conditions?: Array<RuleCondition>;
   Actions?: Array<Action>;
   IsDefault?: boolean;
+  Transforms?: Array<RuleTransform>;
 }
 export type RuleArn = string;
 
@@ -1479,6 +1496,7 @@ export interface RuleCondition {
   QueryStringConfig?: QueryStringConditionConfig;
   HttpRequestMethodConfig?: HttpRequestMethodConditionConfig;
   SourceIpConfig?: SourceIpConditionConfig;
+  RegexValues?: Array<string>;
 }
 export type RuleConditionList = Array<RuleCondition>;
 export declare class RuleNotFoundException extends EffectData.TaggedError(
@@ -1494,6 +1512,12 @@ export interface RulePriorityPair {
   Priority?: number;
 }
 export type Rules = Array<Rule>;
+export interface RuleTransform {
+  Type: TransformTypeEnum;
+  HostHeaderRewriteConfig?: HostHeaderRewriteConfig;
+  UrlRewriteConfig?: UrlRewriteConfig;
+}
+export type RuleTransformList = Array<RuleTransform>;
 export type S3Bucket = string;
 
 export type S3Key = string;
@@ -1775,6 +1799,7 @@ export declare class TooManyUniqueTargetGroupsPerLoadBalancerException extends E
 }> {}
 export type TotalRevokedEntries = number;
 
+export type TransformTypeEnum = "host-header-rewrite" | "url-rewrite";
 export interface TrustStore {
   Name?: string;
   TrustStoreArn?: string;
@@ -1829,6 +1854,9 @@ export declare class UnsupportedProtocolException extends EffectData.TaggedError
 )<{
   readonly Message?: string;
 }> {}
+export interface UrlRewriteConfig {
+  Rewrites?: Array<RewriteConfig>;
+}
 export type VpcId = string;
 
 export interface ZonalCapacityReservationState {
@@ -2367,3 +2395,62 @@ export declare namespace SetSubnets {
     | SubnetNotFoundException
     | CommonAwsError;
 }
+
+export type ElasticLoadBalancingv2Errors =
+  | ALPNPolicyNotSupportedException
+  | AllocationIdNotFoundException
+  | AvailabilityZoneNotSupportedException
+  | CaCertificatesBundleNotFoundException
+  | CapacityDecreaseRequestsLimitExceededException
+  | CapacityReservationPendingException
+  | CapacityUnitsLimitExceededException
+  | CertificateNotFoundException
+  | DeleteAssociationSameAccountException
+  | DuplicateListenerException
+  | DuplicateLoadBalancerNameException
+  | DuplicateTagKeysException
+  | DuplicateTargetGroupNameException
+  | DuplicateTrustStoreNameException
+  | HealthUnavailableException
+  | IncompatibleProtocolsException
+  | InsufficientCapacityException
+  | InvalidCaCertificatesBundleException
+  | InvalidConfigurationRequestException
+  | InvalidLoadBalancerActionException
+  | InvalidRevocationContentException
+  | InvalidSchemeException
+  | InvalidSecurityGroupException
+  | InvalidSubnetException
+  | InvalidTargetException
+  | ListenerNotFoundException
+  | LoadBalancerNotFoundException
+  | OperationNotPermittedException
+  | PriorRequestNotCompleteException
+  | PriorityInUseException
+  | ResourceInUseException
+  | ResourceNotFoundException
+  | RevocationContentNotFoundException
+  | RevocationIdNotFoundException
+  | RuleNotFoundException
+  | SSLPolicyNotFoundException
+  | SubnetNotFoundException
+  | TargetGroupAssociationLimitException
+  | TargetGroupNotFoundException
+  | TooManyActionsException
+  | TooManyCertificatesException
+  | TooManyListenersException
+  | TooManyLoadBalancersException
+  | TooManyRegistrationsForTargetIdException
+  | TooManyRulesException
+  | TooManyTagsException
+  | TooManyTargetGroupsException
+  | TooManyTargetsException
+  | TooManyTrustStoreRevocationEntriesException
+  | TooManyTrustStoresException
+  | TooManyUniqueTargetGroupsPerLoadBalancerException
+  | TrustStoreAssociationNotFoundException
+  | TrustStoreInUseException
+  | TrustStoreNotFoundException
+  | TrustStoreNotReadyException
+  | UnsupportedProtocolException
+  | CommonAwsError;

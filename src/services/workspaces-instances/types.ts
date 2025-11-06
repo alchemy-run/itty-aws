@@ -819,3 +819,13 @@ export declare namespace UntagResource {
     | ValidationException
     | CommonAwsError;
 }
+
+export type WorkspacesInstancesErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

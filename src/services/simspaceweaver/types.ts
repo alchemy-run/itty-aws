@@ -658,3 +658,13 @@ export declare namespace StopSimulation {
     | ValidationException
     | CommonAwsError;
 }
+
+export type SimSpaceWeaverErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | TooManyTagsException
+  | ValidationException
+  | CommonAwsError;

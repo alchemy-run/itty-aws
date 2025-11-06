@@ -619,3 +619,12 @@ export declare namespace UntagResource {
     | InternalServerError
     | CommonAwsError;
 }
+
+export type MediaStoreErrors =
+  | ContainerInUseException
+  | ContainerNotFoundException
+  | CorsPolicyNotFoundException
+  | InternalServerError
+  | LimitExceededException
+  | PolicyNotFoundException
+  | CommonAwsError;

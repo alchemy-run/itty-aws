@@ -646,3 +646,12 @@ export declare namespace UpdateApplication {
     | TooManyRequestsException
     | CommonAwsError;
 }
+
+export type ServerlessApplicationRepositoryErrors =
+  | BadRequestException
+  | ConflictException
+  | ForbiddenException
+  | InternalServerErrorException
+  | NotFoundException
+  | TooManyRequestsException
+  | CommonAwsError;

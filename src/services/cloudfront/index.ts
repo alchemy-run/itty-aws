@@ -495,6 +495,11 @@ const metadata = {
         DistributionIdList: "httpPayload",
       },
     },
+    ListDistributionsByOwnedResource: {
+      traits: {
+        DistributionList: "httpPayload",
+      },
+    },
     ListDistributionsByRealtimeLogConfig: {
       traits: {
         DistributionList: "httpPayload",
@@ -598,6 +603,12 @@ const metadata = {
     TestFunction: {
       traits: {
         TestResult: "httpPayload",
+      },
+    },
+    UpdateAnycastIpList: {
+      traits: {
+        AnycastIpList: "httpPayload",
+        ETag: "ETag",
       },
     },
     UpdateCachePolicy: {

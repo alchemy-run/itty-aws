@@ -3394,3 +3394,41 @@ export declare namespace UpgradePublishedSchema {
     | ValidationException
     | CommonAwsError;
 }
+
+export type CloudDirectoryErrors =
+  | AccessDeniedException
+  | BatchWriteException
+  | CannotListParentOfRootException
+  | DirectoryAlreadyExistsException
+  | DirectoryDeletedException
+  | DirectoryNotDisabledException
+  | DirectoryNotEnabledException
+  | FacetAlreadyExistsException
+  | FacetInUseException
+  | FacetNotFoundException
+  | FacetValidationException
+  | IncompatibleSchemaException
+  | IndexedAttributeMissingException
+  | InternalServiceException
+  | InvalidArnException
+  | InvalidAttachmentException
+  | InvalidFacetUpdateException
+  | InvalidNextTokenException
+  | InvalidRuleException
+  | InvalidSchemaDocException
+  | InvalidTaggingRequestException
+  | LimitExceededException
+  | LinkNameAlreadyInUseException
+  | NotIndexException
+  | NotNodeException
+  | NotPolicyException
+  | ObjectAlreadyDetachedException
+  | ObjectNotDetachedException
+  | ResourceNotFoundException
+  | RetryableConflictException
+  | SchemaAlreadyExistsException
+  | SchemaAlreadyPublishedException
+  | StillContainsLinksException
+  | UnsupportedIndexTypeException
+  | ValidationException
+  | CommonAwsError;
