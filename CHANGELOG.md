@@ -1,3 +1,23 @@
+## v0.4.1
+
+### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes
+
+- **sso-oidc**: Use proper sigV4ServiceName to identity sso-oidc &nbsp;-&nbsp; by **Sam Goodwin** [<samp>(d89f7)</samp>](https://github.com/sam-goodwin/itty-aws/commit/d89f7e83)
+
+##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/sam-goodwin/itty-aws/compare/v0.4.0...v0.4.1)
+
+---
+
+## v0.4.0
+
+### &nbsp;&nbsp;&nbsp;🚀 Features
+
+- **sso-oidc**: Do not require AWS credentials for SSO OIDC &nbsp;-&nbsp; by **Sam Goodwin** [<samp>(3c607)</samp>](https://github.com/sam-goodwin/itty-aws/commit/3c607175)
+
+##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/sam-goodwin/itty-aws/compare/v0.3.8...v0.4.0)
+
+---
+
 ## v0.3.8
 
 ### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes
