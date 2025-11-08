@@ -5,25 +5,7 @@ import type { RDSData as _RDSDataClient } from "./types.ts";
 
 export * from "./types.ts";
 
-export {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  ThrottlingException,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-  ValidationException,
-  type CommonAwsError,
-} from "../../error.ts";
+export {ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError, ValidationException, type CommonAwsError} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -32,12 +14,12 @@ const metadata = {
   protocol: "restJson1",
   sigV4ServiceName: "rds-data",
   operations: {
-    BatchExecuteStatement: "POST /BatchExecute",
-    BeginTransaction: "POST /BeginTransaction",
-    CommitTransaction: "POST /CommitTransaction",
-    ExecuteSql: "POST /ExecuteSql",
-    ExecuteStatement: "POST /Execute",
-    RollbackTransaction: "POST /RollbackTransaction",
+    "BatchExecuteStatement": "POST /BatchExecute",
+    "BeginTransaction": "POST /BeginTransaction",
+    "CommitTransaction": "POST /CommitTransaction",
+    "ExecuteSql": "POST /ExecuteSql",
+    "ExecuteStatement": "POST /Execute",
+    "RollbackTransaction": "POST /RollbackTransaction",
   },
 } as const satisfies ServiceMetadata;
 

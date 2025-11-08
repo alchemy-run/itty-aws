@@ -5,25 +5,7 @@ import type { IoTEventsData as _IoTEventsDataClient } from "./types.ts";
 
 export * from "./types.ts";
 
-export {
-  AccessDeniedException,
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-  ValidationException,
-  type CommonAwsError,
-} from "../../error.ts";
+export {AccessDeniedException, ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, ValidationException, type CommonAwsError} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -33,18 +15,18 @@ const metadata = {
   sigV4ServiceName: "ioteventsdata",
   endpointPrefix: "data.iotevents",
   operations: {
-    BatchAcknowledgeAlarm: "POST /alarms/acknowledge",
-    BatchDeleteDetector: "POST /detectors/delete",
-    BatchDisableAlarm: "POST /alarms/disable",
-    BatchEnableAlarm: "POST /alarms/enable",
-    BatchPutMessage: "POST /inputs/messages",
-    BatchResetAlarm: "POST /alarms/reset",
-    BatchSnoozeAlarm: "POST /alarms/snooze",
-    BatchUpdateDetector: "POST /detectors",
-    DescribeAlarm: "GET /alarms/{alarmModelName}/keyValues",
-    DescribeDetector: "GET /detectors/{detectorModelName}/keyValues",
-    ListAlarms: "GET /alarms/{alarmModelName}",
-    ListDetectors: "GET /detectors/{detectorModelName}",
+    "BatchAcknowledgeAlarm": "POST /alarms/acknowledge",
+    "BatchDeleteDetector": "POST /detectors/delete",
+    "BatchDisableAlarm": "POST /alarms/disable",
+    "BatchEnableAlarm": "POST /alarms/enable",
+    "BatchPutMessage": "POST /inputs/messages",
+    "BatchResetAlarm": "POST /alarms/reset",
+    "BatchSnoozeAlarm": "POST /alarms/snooze",
+    "BatchUpdateDetector": "POST /detectors",
+    "DescribeAlarm": "GET /alarms/{alarmModelName}/keyValues",
+    "DescribeDetector": "GET /detectors/{detectorModelName}/keyValues",
+    "ListAlarms": "GET /alarms/{alarmModelName}",
+    "ListDetectors": "GET /detectors/{detectorModelName}",
   },
 } as const satisfies ServiceMetadata;
 

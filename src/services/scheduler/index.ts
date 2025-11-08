@@ -5,24 +5,7 @@ import type { Scheduler as _SchedulerClient } from "./types.ts";
 
 export * from "./types.ts";
 
-export {
-  AccessDeniedException,
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-  type CommonAwsError,
-} from "../../error.ts";
+export {AccessDeniedException, ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, type CommonAwsError} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -31,18 +14,18 @@ const metadata = {
   protocol: "restJson1",
   sigV4ServiceName: "scheduler",
   operations: {
-    ListTagsForResource: "GET /tags/{ResourceArn}",
-    TagResource: "POST /tags/{ResourceArn}",
-    UntagResource: "DELETE /tags/{ResourceArn}",
-    CreateSchedule: "POST /schedules/{Name}",
-    CreateScheduleGroup: "POST /schedule-groups/{Name}",
-    DeleteSchedule: "DELETE /schedules/{Name}",
-    DeleteScheduleGroup: "DELETE /schedule-groups/{Name}",
-    GetSchedule: "GET /schedules/{Name}",
-    GetScheduleGroup: "GET /schedule-groups/{Name}",
-    ListScheduleGroups: "GET /schedule-groups",
-    ListSchedules: "GET /schedules",
-    UpdateSchedule: "PUT /schedules/{Name}",
+    "ListTagsForResource": "GET /tags/{ResourceArn}",
+    "TagResource": "POST /tags/{ResourceArn}",
+    "UntagResource": "DELETE /tags/{ResourceArn}",
+    "CreateSchedule": "POST /schedules/{Name}",
+    "CreateScheduleGroup": "POST /schedule-groups/{Name}",
+    "DeleteSchedule": "DELETE /schedules/{Name}",
+    "DeleteScheduleGroup": "DELETE /schedule-groups/{Name}",
+    "GetSchedule": "GET /schedules/{Name}",
+    "GetScheduleGroup": "GET /schedule-groups/{Name}",
+    "ListScheduleGroups": "GET /schedule-groups",
+    "ListSchedules": "GET /schedules",
+    "UpdateSchedule": "PUT /schedules/{Name}",
   },
 } as const satisfies ServiceMetadata;
 

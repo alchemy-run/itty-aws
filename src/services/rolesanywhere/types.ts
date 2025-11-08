@@ -1,39 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  ThrottlingException,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-} from "../../error.ts";
-type CommonAwsError =
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | ThrottlingException
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | AccessDeniedException
-  | ValidationException;
+import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
+type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | ThrottlingException | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class RolesAnywhere extends AWSServiceClient {
@@ -41,47 +8,31 @@ export declare class RolesAnywhere extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   putNotificationSettings(
     input: PutNotificationSettingsRequest,
   ): Effect.Effect<
     PutNotificationSettingsResponse,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   resetNotificationSettings(
     input: ResetNotificationSettingsRequest,
   ): Effect.Effect<
     ResetNotificationSettingsResponse,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | TooManyTagsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | TooManyTagsException | ValidationException | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   createProfile(
     input: CreateProfileRequest,
@@ -99,10 +50,7 @@ export declare class RolesAnywhere extends AWSServiceClient {
     input: DeleteAttributeMappingRequest,
   ): Effect.Effect<
     DeleteAttributeMappingResponse,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   deleteCrl(
     input: ScalarCrlRequest,
@@ -180,10 +128,7 @@ export declare class RolesAnywhere extends AWSServiceClient {
     input: ScalarTrustAnchorRequest,
   ): Effect.Effect<
     TrustAnchorDetailResponse,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   importCrl(
     input: ImportCrlRequest,
@@ -219,37 +164,25 @@ export declare class RolesAnywhere extends AWSServiceClient {
     input: PutAttributeMappingRequest,
   ): Effect.Effect<
     PutAttributeMappingResponse,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   updateCrl(
     input: UpdateCrlRequest,
   ): Effect.Effect<
     CrlDetailResponse,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   updateProfile(
     input: UpdateProfileRequest,
   ): Effect.Effect<
     ProfileDetailResponse,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   updateTrustAnchor(
     input: UpdateTrustAnchorRequest,
   ): Effect.Effect<
     TrustAnchorDetailResponse,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
 }
 
@@ -462,9 +395,7 @@ interface _SourceData {
   acmPcaArn?: string;
 }
 
-export type SourceData =
-  | (_SourceData & { x509CertificateData: string })
-  | (_SourceData & { acmPcaArn: string });
+export type SourceData = (_SourceData & { x509CertificateData: string }) | (_SourceData & { acmPcaArn: string });
 export type SpecifierList = Array<string>;
 export interface SubjectDetail {
   subjectArn?: string;
@@ -502,7 +433,8 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Array<Tag>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export declare class TooManyTagsException extends EffectData.TaggedError(
@@ -532,7 +464,8 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateCrlRequest {
   crlId: string;
   name?: string;
@@ -722,7 +655,9 @@ export declare namespace EnableTrustAnchor {
 export declare namespace GetCrl {
   export type Input = ScalarCrlRequest;
   export type Output = CrlDetailResponse;
-  export type Error = ResourceNotFoundException | CommonAwsError;
+  export type Error =
+    | ResourceNotFoundException
+    | CommonAwsError;
 }
 
 export declare namespace GetProfile {
@@ -837,3 +772,4 @@ export declare namespace UpdateTrustAnchor {
     | ValidationException
     | CommonAwsError;
 }
+

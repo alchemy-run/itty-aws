@@ -5,26 +5,7 @@ import type { AppMesh as _AppMeshClient } from "./types.ts";
 
 export * from "./types.ts";
 
-export {
-  AccessDeniedException,
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  ThrottlingException,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-  ValidationException,
-  type CommonAwsError,
-} from "../../error.ts";
+export {AccessDeniedException, ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError, ValidationException, type CommonAwsError} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -33,184 +14,182 @@ const metadata = {
   protocol: "restJson1",
   sigV4ServiceName: "appmesh",
   operations: {
-    ListTagsForResource: "GET /v20190125/tags",
-    TagResource: "PUT /v20190125/tag",
-    UntagResource: "PUT /v20190125/untag",
-    CreateGatewayRoute: {
+    "ListTagsForResource": "GET /v20190125/tags",
+    "TagResource": "PUT /v20190125/tag",
+    "UntagResource": "PUT /v20190125/untag",
+    "CreateGatewayRoute": {
       http: "PUT /v20190125/meshes/{meshName}/virtualGateway/{virtualGatewayName}/gatewayRoutes",
       traits: {
-        gatewayRoute: "httpPayload",
+        "gatewayRoute": "httpPayload",
       },
     },
-    CreateMesh: {
+    "CreateMesh": {
       http: "PUT /v20190125/meshes",
       traits: {
-        mesh: "httpPayload",
+        "mesh": "httpPayload",
       },
     },
-    CreateRoute: {
+    "CreateRoute": {
       http: "PUT /v20190125/meshes/{meshName}/virtualRouter/{virtualRouterName}/routes",
       traits: {
-        route: "httpPayload",
+        "route": "httpPayload",
       },
     },
-    CreateVirtualGateway: {
+    "CreateVirtualGateway": {
       http: "PUT /v20190125/meshes/{meshName}/virtualGateways",
       traits: {
-        virtualGateway: "httpPayload",
+        "virtualGateway": "httpPayload",
       },
     },
-    CreateVirtualNode: {
+    "CreateVirtualNode": {
       http: "PUT /v20190125/meshes/{meshName}/virtualNodes",
       traits: {
-        virtualNode: "httpPayload",
+        "virtualNode": "httpPayload",
       },
     },
-    CreateVirtualRouter: {
+    "CreateVirtualRouter": {
       http: "PUT /v20190125/meshes/{meshName}/virtualRouters",
       traits: {
-        virtualRouter: "httpPayload",
+        "virtualRouter": "httpPayload",
       },
     },
-    CreateVirtualService: {
+    "CreateVirtualService": {
       http: "PUT /v20190125/meshes/{meshName}/virtualServices",
       traits: {
-        virtualService: "httpPayload",
+        "virtualService": "httpPayload",
       },
     },
-    DeleteGatewayRoute: {
+    "DeleteGatewayRoute": {
       http: "DELETE /v20190125/meshes/{meshName}/virtualGateway/{virtualGatewayName}/gatewayRoutes/{gatewayRouteName}",
       traits: {
-        gatewayRoute: "httpPayload",
+        "gatewayRoute": "httpPayload",
       },
     },
-    DeleteMesh: {
+    "DeleteMesh": {
       http: "DELETE /v20190125/meshes/{meshName}",
       traits: {
-        mesh: "httpPayload",
+        "mesh": "httpPayload",
       },
     },
-    DeleteRoute: {
+    "DeleteRoute": {
       http: "DELETE /v20190125/meshes/{meshName}/virtualRouter/{virtualRouterName}/routes/{routeName}",
       traits: {
-        route: "httpPayload",
+        "route": "httpPayload",
       },
     },
-    DeleteVirtualGateway: {
+    "DeleteVirtualGateway": {
       http: "DELETE /v20190125/meshes/{meshName}/virtualGateways/{virtualGatewayName}",
       traits: {
-        virtualGateway: "httpPayload",
+        "virtualGateway": "httpPayload",
       },
     },
-    DeleteVirtualNode: {
+    "DeleteVirtualNode": {
       http: "DELETE /v20190125/meshes/{meshName}/virtualNodes/{virtualNodeName}",
       traits: {
-        virtualNode: "httpPayload",
+        "virtualNode": "httpPayload",
       },
     },
-    DeleteVirtualRouter: {
+    "DeleteVirtualRouter": {
       http: "DELETE /v20190125/meshes/{meshName}/virtualRouters/{virtualRouterName}",
       traits: {
-        virtualRouter: "httpPayload",
+        "virtualRouter": "httpPayload",
       },
     },
-    DeleteVirtualService: {
+    "DeleteVirtualService": {
       http: "DELETE /v20190125/meshes/{meshName}/virtualServices/{virtualServiceName}",
       traits: {
-        virtualService: "httpPayload",
+        "virtualService": "httpPayload",
       },
     },
-    DescribeGatewayRoute: {
+    "DescribeGatewayRoute": {
       http: "GET /v20190125/meshes/{meshName}/virtualGateway/{virtualGatewayName}/gatewayRoutes/{gatewayRouteName}",
       traits: {
-        gatewayRoute: "httpPayload",
+        "gatewayRoute": "httpPayload",
       },
     },
-    DescribeMesh: {
+    "DescribeMesh": {
       http: "GET /v20190125/meshes/{meshName}",
       traits: {
-        mesh: "httpPayload",
+        "mesh": "httpPayload",
       },
     },
-    DescribeRoute: {
+    "DescribeRoute": {
       http: "GET /v20190125/meshes/{meshName}/virtualRouter/{virtualRouterName}/routes/{routeName}",
       traits: {
-        route: "httpPayload",
+        "route": "httpPayload",
       },
     },
-    DescribeVirtualGateway: {
+    "DescribeVirtualGateway": {
       http: "GET /v20190125/meshes/{meshName}/virtualGateways/{virtualGatewayName}",
       traits: {
-        virtualGateway: "httpPayload",
+        "virtualGateway": "httpPayload",
       },
     },
-    DescribeVirtualNode: {
+    "DescribeVirtualNode": {
       http: "GET /v20190125/meshes/{meshName}/virtualNodes/{virtualNodeName}",
       traits: {
-        virtualNode: "httpPayload",
+        "virtualNode": "httpPayload",
       },
     },
-    DescribeVirtualRouter: {
+    "DescribeVirtualRouter": {
       http: "GET /v20190125/meshes/{meshName}/virtualRouters/{virtualRouterName}",
       traits: {
-        virtualRouter: "httpPayload",
+        "virtualRouter": "httpPayload",
       },
     },
-    DescribeVirtualService: {
+    "DescribeVirtualService": {
       http: "GET /v20190125/meshes/{meshName}/virtualServices/{virtualServiceName}",
       traits: {
-        virtualService: "httpPayload",
+        "virtualService": "httpPayload",
       },
     },
-    ListGatewayRoutes:
-      "GET /v20190125/meshes/{meshName}/virtualGateway/{virtualGatewayName}/gatewayRoutes",
-    ListMeshes: "GET /v20190125/meshes",
-    ListRoutes:
-      "GET /v20190125/meshes/{meshName}/virtualRouter/{virtualRouterName}/routes",
-    ListVirtualGateways: "GET /v20190125/meshes/{meshName}/virtualGateways",
-    ListVirtualNodes: "GET /v20190125/meshes/{meshName}/virtualNodes",
-    ListVirtualRouters: "GET /v20190125/meshes/{meshName}/virtualRouters",
-    ListVirtualServices: "GET /v20190125/meshes/{meshName}/virtualServices",
-    UpdateGatewayRoute: {
+    "ListGatewayRoutes": "GET /v20190125/meshes/{meshName}/virtualGateway/{virtualGatewayName}/gatewayRoutes",
+    "ListMeshes": "GET /v20190125/meshes",
+    "ListRoutes": "GET /v20190125/meshes/{meshName}/virtualRouter/{virtualRouterName}/routes",
+    "ListVirtualGateways": "GET /v20190125/meshes/{meshName}/virtualGateways",
+    "ListVirtualNodes": "GET /v20190125/meshes/{meshName}/virtualNodes",
+    "ListVirtualRouters": "GET /v20190125/meshes/{meshName}/virtualRouters",
+    "ListVirtualServices": "GET /v20190125/meshes/{meshName}/virtualServices",
+    "UpdateGatewayRoute": {
       http: "PUT /v20190125/meshes/{meshName}/virtualGateway/{virtualGatewayName}/gatewayRoutes/{gatewayRouteName}",
       traits: {
-        gatewayRoute: "httpPayload",
+        "gatewayRoute": "httpPayload",
       },
     },
-    UpdateMesh: {
+    "UpdateMesh": {
       http: "PUT /v20190125/meshes/{meshName}",
       traits: {
-        mesh: "httpPayload",
+        "mesh": "httpPayload",
       },
     },
-    UpdateRoute: {
+    "UpdateRoute": {
       http: "PUT /v20190125/meshes/{meshName}/virtualRouter/{virtualRouterName}/routes/{routeName}",
       traits: {
-        route: "httpPayload",
+        "route": "httpPayload",
       },
     },
-    UpdateVirtualGateway: {
+    "UpdateVirtualGateway": {
       http: "PUT /v20190125/meshes/{meshName}/virtualGateways/{virtualGatewayName}",
       traits: {
-        virtualGateway: "httpPayload",
+        "virtualGateway": "httpPayload",
       },
     },
-    UpdateVirtualNode: {
+    "UpdateVirtualNode": {
       http: "PUT /v20190125/meshes/{meshName}/virtualNodes/{virtualNodeName}",
       traits: {
-        virtualNode: "httpPayload",
+        "virtualNode": "httpPayload",
       },
     },
-    UpdateVirtualRouter: {
+    "UpdateVirtualRouter": {
       http: "PUT /v20190125/meshes/{meshName}/virtualRouters/{virtualRouterName}",
       traits: {
-        virtualRouter: "httpPayload",
+        "virtualRouter": "httpPayload",
       },
     },
-    UpdateVirtualService: {
+    "UpdateVirtualService": {
       http: "PUT /v20190125/meshes/{meshName}/virtualServices/{virtualServiceName}",
       traits: {
-        virtualService: "httpPayload",
+        "virtualService": "httpPayload",
       },
     },
   },

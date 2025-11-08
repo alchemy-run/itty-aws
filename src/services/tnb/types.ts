@@ -1,38 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-} from "../../error.ts";
-type CommonAwsError =
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | AccessDeniedException
-  | ThrottlingException
-  | ValidationException;
+import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
+type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class tnb extends AWSServiceClient {
@@ -40,363 +8,199 @@ export declare class tnb extends AWSServiceClient {
     input: CancelSolNetworkOperationInput,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createSolFunctionPackage(
     input: CreateSolFunctionPackageInput,
   ): Effect.Effect<
     CreateSolFunctionPackageOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createSolNetworkInstance(
     input: CreateSolNetworkInstanceInput,
   ): Effect.Effect<
     CreateSolNetworkInstanceOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createSolNetworkPackage(
     input: CreateSolNetworkPackageInput,
   ): Effect.Effect<
     CreateSolNetworkPackageOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteSolFunctionPackage(
     input: DeleteSolFunctionPackageInput,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteSolNetworkInstance(
     input: DeleteSolNetworkInstanceInput,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteSolNetworkPackage(
     input: DeleteSolNetworkPackageInput,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getSolFunctionInstance(
     input: GetSolFunctionInstanceInput,
   ): Effect.Effect<
     GetSolFunctionInstanceOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getSolFunctionPackage(
     input: GetSolFunctionPackageInput,
   ): Effect.Effect<
     GetSolFunctionPackageOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getSolFunctionPackageContent(
     input: GetSolFunctionPackageContentInput,
   ): Effect.Effect<
     GetSolFunctionPackageContentOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getSolFunctionPackageDescriptor(
     input: GetSolFunctionPackageDescriptorInput,
   ): Effect.Effect<
     GetSolFunctionPackageDescriptorOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getSolNetworkInstance(
     input: GetSolNetworkInstanceInput,
   ): Effect.Effect<
     GetSolNetworkInstanceOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getSolNetworkOperation(
     input: GetSolNetworkOperationInput,
   ): Effect.Effect<
     GetSolNetworkOperationOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getSolNetworkPackage(
     input: GetSolNetworkPackageInput,
   ): Effect.Effect<
     GetSolNetworkPackageOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getSolNetworkPackageContent(
     input: GetSolNetworkPackageContentInput,
   ): Effect.Effect<
     GetSolNetworkPackageContentOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getSolNetworkPackageDescriptor(
     input: GetSolNetworkPackageDescriptorInput,
   ): Effect.Effect<
     GetSolNetworkPackageDescriptorOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   instantiateSolNetworkInstance(
     input: InstantiateSolNetworkInstanceInput,
   ): Effect.Effect<
     InstantiateSolNetworkInstanceOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listSolFunctionInstances(
     input: ListSolFunctionInstancesInput,
   ): Effect.Effect<
     ListSolFunctionInstancesOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listSolFunctionPackages(
     input: ListSolFunctionPackagesInput,
   ): Effect.Effect<
     ListSolFunctionPackagesOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listSolNetworkInstances(
     input: ListSolNetworkInstancesInput,
   ): Effect.Effect<
     ListSolNetworkInstancesOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listSolNetworkOperations(
     input: ListSolNetworkOperationsInput,
   ): Effect.Effect<
     ListSolNetworkOperationsOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listSolNetworkPackages(
     input: ListSolNetworkPackagesInput,
   ): Effect.Effect<
     ListSolNetworkPackagesOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceInput,
   ): Effect.Effect<
     ListTagsForResourceOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   putSolFunctionPackageContent(
     input: PutSolFunctionPackageContentInput,
   ): Effect.Effect<
     PutSolFunctionPackageContentOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   putSolNetworkPackageContent(
     input: PutSolNetworkPackageContentInput,
   ): Effect.Effect<
     PutSolNetworkPackageContentOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   tagResource(
     input: TagResourceInput,
   ): Effect.Effect<
     TagResourceOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   terminateSolNetworkInstance(
     input: TerminateSolNetworkInstanceInput,
   ): Effect.Effect<
     TerminateSolNetworkInstanceOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   untagResource(
     input: UntagResourceInput,
   ): Effect.Effect<
     UntagResourceOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateSolFunctionPackage(
     input: UpdateSolFunctionPackageInput,
   ): Effect.Effect<
     UpdateSolFunctionPackageOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateSolNetworkInstance(
     input: UpdateSolNetworkInstanceInput,
   ): Effect.Effect<
     UpdateSolNetworkInstanceOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateSolNetworkPackage(
     input: UpdateSolNetworkPackageInput,
   ): Effect.Effect<
     UpdateSolNetworkPackageOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   validateSolFunctionPackageContent(
     input: ValidateSolFunctionPackageContentInput,
   ): Effect.Effect<
     ValidateSolFunctionPackageContentOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   validateSolNetworkPackageContent(
     input: ValidateSolNetworkPackageContentInput,
   ): Effect.Effect<
     ValidateSolNetworkPackageContentOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
 }
 
@@ -576,8 +380,7 @@ export interface GetSolNetworkOperationTaskDetails {
   taskStartTime?: Date | string;
   taskEndTime?: Date | string;
 }
-export type GetSolNetworkOperationTasksList =
-  Array<GetSolNetworkOperationTaskDetails>;
+export type GetSolNetworkOperationTasksList = Array<GetSolNetworkOperationTaskDetails>;
 export interface GetSolNetworkPackageContentInput {
   nsdInfoId: string;
   accept: PackageContentType;
@@ -664,8 +467,7 @@ export interface ListSolFunctionInstanceMetadata {
   createdAt: Date | string;
   lastModified: Date | string;
 }
-export type ListSolFunctionInstanceResources =
-  Array<ListSolFunctionInstanceInfo>;
+export type ListSolFunctionInstanceResources = Array<ListSolFunctionInstanceInfo>;
 export interface ListSolFunctionInstancesInput {
   maxResults?: number;
   nextToken?: string;
@@ -747,8 +549,7 @@ export interface ListSolNetworkOperationsOutput {
   nextToken?: string;
   networkOperations?: Array<ListSolNetworkOperationsInfo>;
 }
-export type ListSolNetworkOperationsResources =
-  Array<ListSolNetworkOperationsInfo>;
+export type ListSolNetworkOperationsResources = Array<ListSolNetworkOperationsInfo>;
 export interface ListSolNetworkPackageInfo {
   id: string;
   arn: string;
@@ -802,28 +603,12 @@ export type NsInstanceArn = string;
 
 export type NsInstanceId = string;
 
-export type NsLcmOperationState =
-  | "PROCESSING"
-  | "COMPLETED"
-  | "FAILED"
-  | "CANCELLING"
-  | "CANCELLED";
+export type NsLcmOperationState = "PROCESSING" | "COMPLETED" | "FAILED" | "CANCELLING" | "CANCELLED";
 export type NsLcmOpOccArn = string;
 
 export type NsLcmOpOccId = string;
 
-export type NsState =
-  | "INSTANTIATED"
-  | "NOT_INSTANTIATED"
-  | "UPDATED"
-  | "IMPAIRED"
-  | "UPDATE_FAILED"
-  | "STOPPED"
-  | "DELETED"
-  | "INSTANTIATE_IN_PROGRESS"
-  | "INTENT_TO_UPDATE_IN_PROGRESS"
-  | "UPDATE_IN_PROGRESS"
-  | "TERMINATE_IN_PROGRESS";
+export type NsState = "INSTANTIATED" | "NOT_INSTANTIATED" | "UPDATED" | "IMPAIRED" | "UPDATE_FAILED" | "STOPPED" | "DELETED" | "INSTANTIATE_IN_PROGRESS" | "INTENT_TO_UPDATE_IN_PROGRESS" | "UPDATE_IN_PROGRESS" | "TERMINATE_IN_PROGRESS";
 export type OnboardingState = "CREATED" | "ONBOARDED" | "ERROR";
 export type OperationalState = "ENABLED" | "DISABLED";
 export type OverrideList = Array<ToscaOverride>;
@@ -888,17 +673,11 @@ export interface TagResourceInput {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceOutput {}
+export interface TagResourceOutput {
+}
 export type TagValue = string;
 
-export type TaskStatus =
-  | "SCHEDULED"
-  | "STARTED"
-  | "IN_PROGRESS"
-  | "COMPLETED"
-  | "ERROR"
-  | "SKIPPED"
-  | "CANCELLED";
+export type TaskStatus = "SCHEDULED" | "STARTED" | "IN_PROGRESS" | "COMPLETED" | "ERROR" | "SKIPPED" | "CANCELLED";
 export interface TerminateSolNetworkInstanceInput {
   nsInstanceId: string;
   tags?: Record<string, string>;
@@ -922,7 +701,8 @@ export interface UntagResourceInput {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceOutput {}
+export interface UntagResourceOutput {
+}
 export interface UpdateNsMetadata {
   nsdInfoId: string;
   additionalParamsForNs?: unknown;
@@ -1407,3 +1187,4 @@ export declare namespace ValidateSolNetworkPackageContent {
     | ValidationException
     | CommonAwsError;
 }
+

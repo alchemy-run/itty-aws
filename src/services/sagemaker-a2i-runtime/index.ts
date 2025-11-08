@@ -5,24 +5,7 @@ import type { SageMakerA2IRuntime as _SageMakerA2IRuntimeClient } from "./types.
 
 export * from "./types.ts";
 
-export {
-  AccessDeniedException,
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-  type CommonAwsError,
-} from "../../error.ts";
+export {AccessDeniedException, ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, type CommonAwsError} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -32,11 +15,11 @@ const metadata = {
   sigV4ServiceName: "sagemaker",
   endpointPrefix: "a2i-runtime.sagemaker",
   operations: {
-    DeleteHumanLoop: "DELETE /human-loops/{HumanLoopName}",
-    DescribeHumanLoop: "GET /human-loops/{HumanLoopName}",
-    ListHumanLoops: "GET /human-loops",
-    StartHumanLoop: "POST /human-loops",
-    StopHumanLoop: "POST /human-loops/stop",
+    "DeleteHumanLoop": "DELETE /human-loops/{HumanLoopName}",
+    "DescribeHumanLoop": "GET /human-loops/{HumanLoopName}",
+    "ListHumanLoops": "GET /human-loops",
+    "StartHumanLoop": "POST /human-loops",
+    "StopHumanLoop": "POST /human-loops/stop",
   },
 } as const satisfies ServiceMetadata;
 

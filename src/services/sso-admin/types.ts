@@ -1,38 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-} from "../../error.ts";
-type CommonAwsError =
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | AccessDeniedException
-  | ThrottlingException
-  | ValidationException;
+import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
+type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class SSOAdmin extends AWSServiceClient {
@@ -40,842 +8,439 @@ export declare class SSOAdmin extends AWSServiceClient {
     input: AttachCustomerManagedPolicyReferenceToPermissionSetRequest,
   ): Effect.Effect<
     AttachCustomerManagedPolicyReferenceToPermissionSetResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   attachManagedPolicyToPermissionSet(
     input: AttachManagedPolicyToPermissionSetRequest,
   ): Effect.Effect<
     AttachManagedPolicyToPermissionSetResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createAccountAssignment(
     input: CreateAccountAssignmentRequest,
   ): Effect.Effect<
     CreateAccountAssignmentResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createApplication(
     input: CreateApplicationRequest,
   ): Effect.Effect<
     CreateApplicationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createApplicationAssignment(
     input: CreateApplicationAssignmentRequest,
   ): Effect.Effect<
     CreateApplicationAssignmentResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createInstance(
     input: CreateInstanceRequest,
   ): Effect.Effect<
     CreateInstanceResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createInstanceAccessControlAttributeConfiguration(
     input: CreateInstanceAccessControlAttributeConfigurationRequest,
   ): Effect.Effect<
     CreateInstanceAccessControlAttributeConfigurationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createPermissionSet(
     input: CreatePermissionSetRequest,
   ): Effect.Effect<
     CreatePermissionSetResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createTrustedTokenIssuer(
     input: CreateTrustedTokenIssuerRequest,
   ): Effect.Effect<
     CreateTrustedTokenIssuerResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteAccountAssignment(
     input: DeleteAccountAssignmentRequest,
   ): Effect.Effect<
     DeleteAccountAssignmentResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteApplication(
     input: DeleteApplicationRequest,
   ): Effect.Effect<
     DeleteApplicationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteApplicationAssignment(
     input: DeleteApplicationAssignmentRequest,
   ): Effect.Effect<
     DeleteApplicationAssignmentResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteInlinePolicyFromPermissionSet(
     input: DeleteInlinePolicyFromPermissionSetRequest,
   ): Effect.Effect<
     DeleteInlinePolicyFromPermissionSetResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteInstance(
     input: DeleteInstanceRequest,
   ): Effect.Effect<
     DeleteInstanceResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteInstanceAccessControlAttributeConfiguration(
     input: DeleteInstanceAccessControlAttributeConfigurationRequest,
   ): Effect.Effect<
     DeleteInstanceAccessControlAttributeConfigurationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deletePermissionsBoundaryFromPermissionSet(
     input: DeletePermissionsBoundaryFromPermissionSetRequest,
   ): Effect.Effect<
     DeletePermissionsBoundaryFromPermissionSetResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deletePermissionSet(
     input: DeletePermissionSetRequest,
   ): Effect.Effect<
     DeletePermissionSetResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteTrustedTokenIssuer(
     input: DeleteTrustedTokenIssuerRequest,
   ): Effect.Effect<
     DeleteTrustedTokenIssuerResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   describeAccountAssignmentCreationStatus(
     input: DescribeAccountAssignmentCreationStatusRequest,
   ): Effect.Effect<
     DescribeAccountAssignmentCreationStatusResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   describeAccountAssignmentDeletionStatus(
     input: DescribeAccountAssignmentDeletionStatusRequest,
   ): Effect.Effect<
     DescribeAccountAssignmentDeletionStatusResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   describeApplication(
     input: DescribeApplicationRequest,
   ): Effect.Effect<
     DescribeApplicationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   describeApplicationAssignment(
     input: DescribeApplicationAssignmentRequest,
   ): Effect.Effect<
     DescribeApplicationAssignmentResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   describeApplicationProvider(
     input: DescribeApplicationProviderRequest,
   ): Effect.Effect<
     DescribeApplicationProviderResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   describeInstance(
     input: DescribeInstanceRequest,
   ): Effect.Effect<
     DescribeInstanceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   describeInstanceAccessControlAttributeConfiguration(
     input: DescribeInstanceAccessControlAttributeConfigurationRequest,
   ): Effect.Effect<
     DescribeInstanceAccessControlAttributeConfigurationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   describePermissionSet(
     input: DescribePermissionSetRequest,
   ): Effect.Effect<
     DescribePermissionSetResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   describePermissionSetProvisioningStatus(
     input: DescribePermissionSetProvisioningStatusRequest,
   ): Effect.Effect<
     DescribePermissionSetProvisioningStatusResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   describeTrustedTokenIssuer(
     input: DescribeTrustedTokenIssuerRequest,
   ): Effect.Effect<
     DescribeTrustedTokenIssuerResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   detachCustomerManagedPolicyReferenceFromPermissionSet(
     input: DetachCustomerManagedPolicyReferenceFromPermissionSetRequest,
   ): Effect.Effect<
     DetachCustomerManagedPolicyReferenceFromPermissionSetResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   detachManagedPolicyFromPermissionSet(
     input: DetachManagedPolicyFromPermissionSetRequest,
   ): Effect.Effect<
     DetachManagedPolicyFromPermissionSetResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getApplicationAssignmentConfiguration(
     input: GetApplicationAssignmentConfigurationRequest,
   ): Effect.Effect<
     GetApplicationAssignmentConfigurationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getInlinePolicyForPermissionSet(
     input: GetInlinePolicyForPermissionSetRequest,
   ): Effect.Effect<
     GetInlinePolicyForPermissionSetResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getPermissionsBoundaryForPermissionSet(
     input: GetPermissionsBoundaryForPermissionSetRequest,
   ): Effect.Effect<
     GetPermissionsBoundaryForPermissionSetResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listAccountAssignmentCreationStatus(
     input: ListAccountAssignmentCreationStatusRequest,
   ): Effect.Effect<
     ListAccountAssignmentCreationStatusResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listAccountAssignmentDeletionStatus(
     input: ListAccountAssignmentDeletionStatusRequest,
   ): Effect.Effect<
     ListAccountAssignmentDeletionStatusResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listAccountAssignments(
     input: ListAccountAssignmentsRequest,
   ): Effect.Effect<
     ListAccountAssignmentsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listAccountAssignmentsForPrincipal(
     input: ListAccountAssignmentsForPrincipalRequest,
   ): Effect.Effect<
     ListAccountAssignmentsForPrincipalResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listAccountsForProvisionedPermissionSet(
     input: ListAccountsForProvisionedPermissionSetRequest,
   ): Effect.Effect<
     ListAccountsForProvisionedPermissionSetResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listApplicationAssignments(
     input: ListApplicationAssignmentsRequest,
   ): Effect.Effect<
     ListApplicationAssignmentsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listApplicationAssignmentsForPrincipal(
     input: ListApplicationAssignmentsForPrincipalRequest,
   ): Effect.Effect<
     ListApplicationAssignmentsForPrincipalResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listApplicationProviders(
     input: ListApplicationProvidersRequest,
   ): Effect.Effect<
     ListApplicationProvidersResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listApplications(
     input: ListApplicationsRequest,
   ): Effect.Effect<
     ListApplicationsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listCustomerManagedPolicyReferencesInPermissionSet(
     input: ListCustomerManagedPolicyReferencesInPermissionSetRequest,
   ): Effect.Effect<
     ListCustomerManagedPolicyReferencesInPermissionSetResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listInstances(
     input: ListInstancesRequest,
   ): Effect.Effect<
     ListInstancesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listManagedPoliciesInPermissionSet(
     input: ListManagedPoliciesInPermissionSetRequest,
   ): Effect.Effect<
     ListManagedPoliciesInPermissionSetResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listPermissionSetProvisioningStatus(
     input: ListPermissionSetProvisioningStatusRequest,
   ): Effect.Effect<
     ListPermissionSetProvisioningStatusResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listPermissionSets(
     input: ListPermissionSetsRequest,
   ): Effect.Effect<
     ListPermissionSetsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listPermissionSetsProvisionedToAccount(
     input: ListPermissionSetsProvisionedToAccountRequest,
   ): Effect.Effect<
     ListPermissionSetsProvisionedToAccountResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listTrustedTokenIssuers(
     input: ListTrustedTokenIssuersRequest,
   ): Effect.Effect<
     ListTrustedTokenIssuersResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   provisionPermissionSet(
     input: ProvisionPermissionSetRequest,
   ): Effect.Effect<
     ProvisionPermissionSetResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   putApplicationAssignmentConfiguration(
     input: PutApplicationAssignmentConfigurationRequest,
   ): Effect.Effect<
     PutApplicationAssignmentConfigurationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   putInlinePolicyToPermissionSet(
     input: PutInlinePolicyToPermissionSetRequest,
   ): Effect.Effect<
     PutInlinePolicyToPermissionSetResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   putPermissionsBoundaryToPermissionSet(
     input: PutPermissionsBoundaryToPermissionSetRequest,
   ): Effect.Effect<
     PutPermissionsBoundaryToPermissionSetResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateApplication(
     input: UpdateApplicationRequest,
   ): Effect.Effect<
     UpdateApplicationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateInstance(
     input: UpdateInstanceRequest,
   ): Effect.Effect<
     UpdateInstanceResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateInstanceAccessControlAttributeConfiguration(
     input: UpdateInstanceAccessControlAttributeConfigurationRequest,
   ): Effect.Effect<
     UpdateInstanceAccessControlAttributeConfigurationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updatePermissionSet(
     input: UpdatePermissionSetRequest,
   ): Effect.Effect<
     UpdatePermissionSetResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateTrustedTokenIssuer(
     input: UpdateTrustedTokenIssuerRequest,
   ): Effect.Effect<
     UpdateTrustedTokenIssuerResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteApplicationAccessScope(
     input: DeleteApplicationAccessScopeRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteApplicationAuthenticationMethod(
     input: DeleteApplicationAuthenticationMethodRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteApplicationGrant(
     input: DeleteApplicationGrantRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getApplicationAccessScope(
     input: GetApplicationAccessScopeRequest,
   ): Effect.Effect<
     GetApplicationAccessScopeResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getApplicationAuthenticationMethod(
     input: GetApplicationAuthenticationMethodRequest,
   ): Effect.Effect<
     GetApplicationAuthenticationMethodResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getApplicationGrant(
     input: GetApplicationGrantRequest,
   ): Effect.Effect<
     GetApplicationGrantResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listApplicationAccessScopes(
     input: ListApplicationAccessScopesRequest,
   ): Effect.Effect<
     ListApplicationAccessScopesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listApplicationAuthenticationMethods(
     input: ListApplicationAuthenticationMethodsRequest,
   ): Effect.Effect<
     ListApplicationAuthenticationMethodsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listApplicationGrants(
     input: ListApplicationGrantsRequest,
   ): Effect.Effect<
     ListApplicationGrantsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   putApplicationAccessScope(
     input: PutApplicationAccessScopeRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   putApplicationAuthenticationMethod(
     input: PutApplicationAuthenticationMethodRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   putApplicationGrant(
     input: PutApplicationGrantRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
 }
 
@@ -914,8 +479,7 @@ export interface AccountAssignmentForPrincipal {
   PrincipalType?: PrincipalType;
 }
 export type AccountAssignmentList = Array<AccountAssignment>;
-export type AccountAssignmentListForPrincipal =
-  Array<AccountAssignmentForPrincipal>;
+export type AccountAssignmentListForPrincipal = Array<AccountAssignmentForPrincipal>;
 export interface AccountAssignmentOperationStatus {
   Status?: StatusValues;
   RequestId?: string;
@@ -927,8 +491,7 @@ export interface AccountAssignmentOperationStatus {
   PrincipalId?: string;
   CreatedDate?: Date | string;
 }
-export type AccountAssignmentOperationStatusList =
-  Array<AccountAssignmentOperationStatusMetadata>;
+export type AccountAssignmentOperationStatusList = Array<AccountAssignmentOperationStatusMetadata>;
 export interface AccountAssignmentOperationStatusMetadata {
   Status?: StatusValues;
   RequestId?: string;
@@ -962,8 +525,7 @@ export interface ApplicationAssignmentForPrincipal {
   PrincipalId?: string;
   PrincipalType?: PrincipalType;
 }
-export type ApplicationAssignmentListForPrincipal =
-  Array<ApplicationAssignmentForPrincipal>;
+export type ApplicationAssignmentListForPrincipal = Array<ApplicationAssignmentForPrincipal>;
 export type ApplicationAssignmentsList = Array<ApplicationAssignment>;
 export type ApplicationList = Array<Application>;
 export type ApplicationNameType = string;
@@ -988,7 +550,8 @@ export interface AttachCustomerManagedPolicyReferenceToPermissionSetRequest {
   PermissionSetArn: string;
   CustomerManagedPolicyReference: CustomerManagedPolicyReference;
 }
-export interface AttachCustomerManagedPolicyReferenceToPermissionSetResponse {}
+export interface AttachCustomerManagedPolicyReferenceToPermissionSetResponse {
+}
 export interface AttachedManagedPolicy {
   Name?: string;
   Arn?: string;
@@ -999,14 +562,13 @@ export interface AttachManagedPolicyToPermissionSetRequest {
   PermissionSetArn: string;
   ManagedPolicyArn: string;
 }
-export interface AttachManagedPolicyToPermissionSetResponse {}
+export interface AttachManagedPolicyToPermissionSetResponse {
+}
 interface _AuthenticationMethod {
   Iam?: IamAuthenticationMethod;
 }
 
-export type AuthenticationMethod = _AuthenticationMethod & {
-  Iam: IamAuthenticationMethod;
-};
+export type AuthenticationMethod = (_AuthenticationMethod & { Iam: IamAuthenticationMethod });
 export interface AuthenticationMethodItem {
   AuthenticationMethodType?: AuthenticationMethodType;
   AuthenticationMethod?: AuthenticationMethod;
@@ -1048,7 +610,8 @@ export interface CreateApplicationAssignmentRequest {
   PrincipalId: string;
   PrincipalType: PrincipalType;
 }
-export interface CreateApplicationAssignmentResponse {}
+export interface CreateApplicationAssignmentResponse {
+}
 export interface CreateApplicationRequest {
   InstanceArn: string;
   ApplicationProviderArn: string;
@@ -1066,7 +629,8 @@ export interface CreateInstanceAccessControlAttributeConfigurationRequest {
   InstanceArn: string;
   InstanceAccessControlAttributeConfiguration: InstanceAccessControlAttributeConfiguration;
 }
-export interface CreateInstanceAccessControlAttributeConfigurationResponse {}
+export interface CreateInstanceAccessControlAttributeConfigurationResponse {
+}
 export interface CreateInstanceRequest {
   Name?: string;
   ClientToken?: string;
@@ -1101,8 +665,7 @@ export interface CustomerManagedPolicyReference {
   Name: string;
   Path?: string;
 }
-export type CustomerManagedPolicyReferenceList =
-  Array<CustomerManagedPolicyReference>;
+export type CustomerManagedPolicyReferenceList = Array<CustomerManagedPolicyReference>;
 export type SsoAdminDate = Date | string;
 
 export interface DeleteAccountAssignmentRequest {
@@ -1125,7 +688,8 @@ export interface DeleteApplicationAssignmentRequest {
   PrincipalId: string;
   PrincipalType: PrincipalType;
 }
-export interface DeleteApplicationAssignmentResponse {}
+export interface DeleteApplicationAssignmentResponse {
+}
 export interface DeleteApplicationAuthenticationMethodRequest {
   ApplicationArn: string;
   AuthenticationMethodType: AuthenticationMethodType;
@@ -1137,34 +701,41 @@ export interface DeleteApplicationGrantRequest {
 export interface DeleteApplicationRequest {
   ApplicationArn: string;
 }
-export interface DeleteApplicationResponse {}
+export interface DeleteApplicationResponse {
+}
 export interface DeleteInlinePolicyFromPermissionSetRequest {
   InstanceArn: string;
   PermissionSetArn: string;
 }
-export interface DeleteInlinePolicyFromPermissionSetResponse {}
+export interface DeleteInlinePolicyFromPermissionSetResponse {
+}
 export interface DeleteInstanceAccessControlAttributeConfigurationRequest {
   InstanceArn: string;
 }
-export interface DeleteInstanceAccessControlAttributeConfigurationResponse {}
+export interface DeleteInstanceAccessControlAttributeConfigurationResponse {
+}
 export interface DeleteInstanceRequest {
   InstanceArn: string;
 }
-export interface DeleteInstanceResponse {}
+export interface DeleteInstanceResponse {
+}
 export interface DeletePermissionsBoundaryFromPermissionSetRequest {
   InstanceArn: string;
   PermissionSetArn: string;
 }
-export interface DeletePermissionsBoundaryFromPermissionSetResponse {}
+export interface DeletePermissionsBoundaryFromPermissionSetResponse {
+}
 export interface DeletePermissionSetRequest {
   InstanceArn: string;
   PermissionSetArn: string;
 }
-export interface DeletePermissionSetResponse {}
+export interface DeletePermissionSetResponse {
+}
 export interface DeleteTrustedTokenIssuerRequest {
   TrustedTokenIssuerArn: string;
 }
-export interface DeleteTrustedTokenIssuerResponse {}
+export interface DeleteTrustedTokenIssuerResponse {
+}
 export interface DescribeAccountAssignmentCreationStatusRequest {
   InstanceArn: string;
   AccountAssignmentCreationRequestId: string;
@@ -1261,13 +832,15 @@ export interface DetachCustomerManagedPolicyReferenceFromPermissionSetRequest {
   PermissionSetArn: string;
   CustomerManagedPolicyReference: CustomerManagedPolicyReference;
 }
-export interface DetachCustomerManagedPolicyReferenceFromPermissionSetResponse {}
+export interface DetachCustomerManagedPolicyReferenceFromPermissionSetResponse {
+}
 export interface DetachManagedPolicyFromPermissionSetRequest {
   InstanceArn: string;
   PermissionSetArn: string;
   ManagedPolicyArn: string;
 }
-export interface DetachManagedPolicyFromPermissionSetResponse {}
+export interface DetachManagedPolicyFromPermissionSetResponse {
+}
 export interface DisplayData {
   DisplayName?: string;
   IconUrl?: string;
@@ -1325,21 +898,13 @@ interface _Grant {
   TokenExchange?: TokenExchangeGrant;
 }
 
-export type Grant =
-  | (_Grant & { AuthorizationCode: AuthorizationCodeGrant })
-  | (_Grant & { JwtBearer: JwtBearerGrant })
-  | (_Grant & { RefreshToken: RefreshTokenGrant })
-  | (_Grant & { TokenExchange: TokenExchangeGrant });
+export type Grant = (_Grant & { AuthorizationCode: AuthorizationCodeGrant }) | (_Grant & { JwtBearer: JwtBearerGrant }) | (_Grant & { RefreshToken: RefreshTokenGrant }) | (_Grant & { TokenExchange: TokenExchangeGrant });
 export interface GrantItem {
   GrantType: GrantType;
   Grant: Grant;
 }
 export type Grants = Array<GrantItem>;
-export type GrantType =
-  | "authorization_code"
-  | "refresh_token"
-  | "urn:ietf:params:oauth:grant-type:jwt-bearer"
-  | "urn:ietf:params:oauth:grant-type:token-exchange";
+export type GrantType = "authorization_code" | "refresh_token" | "urn:ietf:params:oauth:grant-type:jwt-bearer" | "urn:ietf:params:oauth:grant-type:token-exchange";
 export interface IamAuthenticationMethod {
   ActorPolicy: unknown;
 }
@@ -1350,10 +915,7 @@ export type Id = string;
 export interface InstanceAccessControlAttributeConfiguration {
   AccessControlAttributes: Array<AccessControlAttribute>;
 }
-export type InstanceAccessControlAttributeConfigurationStatus =
-  | "ENABLED"
-  | "CREATION_IN_PROGRESS"
-  | "CREATION_FAILED";
+export type InstanceAccessControlAttributeConfigurationStatus = "ENABLED" | "CREATION_IN_PROGRESS" | "CREATION_FAILED";
 export type InstanceAccessControlAttributeConfigurationStatusReason = string;
 
 export type InstanceArn = string;
@@ -1367,10 +929,7 @@ export interface InstanceMetadata {
   CreatedDate?: Date | string;
   Status?: InstanceStatus;
 }
-export type InstanceStatus =
-  | "CREATE_IN_PROGRESS"
-  | "DELETE_IN_PROGRESS"
-  | "ACTIVE";
+export type InstanceStatus = "CREATE_IN_PROGRESS" | "DELETE_IN_PROGRESS" | "ACTIVE";
 export type InternalFailureMessage = string;
 
 export declare class InternalServerException extends EffectData.TaggedError(
@@ -1643,8 +1202,7 @@ export interface PermissionSetProvisioningStatus {
   FailureReason?: string;
   CreatedDate?: Date | string;
 }
-export type PermissionSetProvisioningStatusList =
-  Array<PermissionSetProvisioningStatusMetadata>;
+export type PermissionSetProvisioningStatusList = Array<PermissionSetProvisioningStatusMetadata>;
 export interface PermissionSetProvisioningStatusMetadata {
   Status?: StatusValues;
   RequestId?: string;
@@ -1657,9 +1215,7 @@ export interface PortalOptions {
 export type PrincipalId = string;
 
 export type PrincipalType = "USER" | "GROUP";
-export type ProvisioningStatus =
-  | "LATEST_PERMISSION_SET_PROVISIONED"
-  | "LATEST_PERMISSION_SET_NOT_PROVISIONED";
+export type ProvisioningStatus = "LATEST_PERMISSION_SET_PROVISIONED" | "LATEST_PERMISSION_SET_NOT_PROVISIONED";
 export interface ProvisionPermissionSetRequest {
   InstanceArn: string;
   PermissionSetArn: string;
@@ -1679,7 +1235,8 @@ export interface PutApplicationAssignmentConfigurationRequest {
   ApplicationArn: string;
   AssignmentRequired: boolean;
 }
-export interface PutApplicationAssignmentConfigurationResponse {}
+export interface PutApplicationAssignmentConfigurationResponse {
+}
 export interface PutApplicationAuthenticationMethodRequest {
   ApplicationArn: string;
   AuthenticationMethodType: AuthenticationMethodType;
@@ -1695,17 +1252,20 @@ export interface PutInlinePolicyToPermissionSetRequest {
   PermissionSetArn: string;
   InlinePolicy: string;
 }
-export interface PutInlinePolicyToPermissionSetResponse {}
+export interface PutInlinePolicyToPermissionSetResponse {
+}
 export interface PutPermissionsBoundaryToPermissionSetRequest {
   InstanceArn: string;
   PermissionSetArn: string;
   PermissionsBoundary: PermissionsBoundary;
 }
-export interface PutPermissionsBoundaryToPermissionSetResponse {}
+export interface PutPermissionsBoundaryToPermissionSetResponse {
+}
 export type Reason = string;
 
 export type RedirectUris = Array<string>;
-export interface RefreshTokenGrant {}
+export interface RefreshTokenGrant {
+}
 export type RelayState = string;
 
 export declare class ResourceNotFoundException extends EffectData.TaggedError(
@@ -1763,7 +1323,8 @@ export interface TagResourceRequest {
   ResourceArn: string;
   Tags: Array<Tag>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export type TargetId = string;
@@ -1778,7 +1339,8 @@ export type ThrottlingExceptionMessage = string;
 
 export type Token = string;
 
-export interface TokenExchangeGrant {}
+export interface TokenExchangeGrant {
+}
 export type TokenIssuerAudience = string;
 
 export type TokenIssuerAudiences = Array<string>;
@@ -1788,10 +1350,7 @@ interface _TrustedTokenIssuerConfiguration {
   OidcJwtConfiguration?: OidcJwtConfiguration;
 }
 
-export type TrustedTokenIssuerConfiguration =
-  _TrustedTokenIssuerConfiguration & {
-    OidcJwtConfiguration: OidcJwtConfiguration;
-  };
+export type TrustedTokenIssuerConfiguration = (_TrustedTokenIssuerConfiguration & { OidcJwtConfiguration: OidcJwtConfiguration });
 export type TrustedTokenIssuerList = Array<TrustedTokenIssuerMetadata>;
 export interface TrustedTokenIssuerMetadata {
   TrustedTokenIssuerArn?: string;
@@ -1805,10 +1364,7 @@ interface _TrustedTokenIssuerUpdateConfiguration {
   OidcJwtConfiguration?: OidcJwtUpdateConfiguration;
 }
 
-export type TrustedTokenIssuerUpdateConfiguration =
-  _TrustedTokenIssuerUpdateConfiguration & {
-    OidcJwtConfiguration: OidcJwtUpdateConfiguration;
-  };
+export type TrustedTokenIssuerUpdateConfiguration = (_TrustedTokenIssuerUpdateConfiguration & { OidcJwtConfiguration: OidcJwtUpdateConfiguration });
 export type TrustedTokenIssuerUrl = string;
 
 export interface UntagResourceRequest {
@@ -1816,7 +1372,8 @@ export interface UntagResourceRequest {
   ResourceArn: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateApplicationPortalOptions {
   SignInOptions?: SignInOptions;
 }
@@ -1827,17 +1384,20 @@ export interface UpdateApplicationRequest {
   Status?: ApplicationStatus;
   PortalOptions?: UpdateApplicationPortalOptions;
 }
-export interface UpdateApplicationResponse {}
+export interface UpdateApplicationResponse {
+}
 export interface UpdateInstanceAccessControlAttributeConfigurationRequest {
   InstanceArn: string;
   InstanceAccessControlAttributeConfiguration: InstanceAccessControlAttributeConfiguration;
 }
-export interface UpdateInstanceAccessControlAttributeConfigurationResponse {}
+export interface UpdateInstanceAccessControlAttributeConfigurationResponse {
+}
 export interface UpdateInstanceRequest {
   Name: string;
   InstanceArn: string;
 }
-export interface UpdateInstanceResponse {}
+export interface UpdateInstanceResponse {
+}
 export interface UpdatePermissionSetRequest {
   InstanceArn: string;
   PermissionSetArn: string;
@@ -1845,13 +1405,15 @@ export interface UpdatePermissionSetRequest {
   SessionDuration?: string;
   RelayState?: string;
 }
-export interface UpdatePermissionSetResponse {}
+export interface UpdatePermissionSetResponse {
+}
 export interface UpdateTrustedTokenIssuerRequest {
   TrustedTokenIssuerArn: string;
   Name?: string;
   TrustedTokenIssuerConfiguration?: TrustedTokenIssuerUpdateConfiguration;
 }
-export interface UpdateTrustedTokenIssuerResponse {}
+export interface UpdateTrustedTokenIssuerResponse {
+}
 export type URI = string;
 
 export type UUId = string;
@@ -1864,10 +1426,8 @@ export declare class ValidationException extends EffectData.TaggedError(
 export type ValidationExceptionMessage = string;
 
 export declare namespace AttachCustomerManagedPolicyReferenceToPermissionSet {
-  export type Input =
-    AttachCustomerManagedPolicyReferenceToPermissionSetRequest;
-  export type Output =
-    AttachCustomerManagedPolicyReferenceToPermissionSetResponse;
+  export type Input = AttachCustomerManagedPolicyReferenceToPermissionSetRequest;
+  export type Output = AttachCustomerManagedPolicyReferenceToPermissionSetResponse;
   export type Error =
     | AccessDeniedException
     | ConflictException
@@ -1950,8 +1510,7 @@ export declare namespace CreateInstance {
 
 export declare namespace CreateInstanceAccessControlAttributeConfiguration {
   export type Input = CreateInstanceAccessControlAttributeConfigurationRequest;
-  export type Output =
-    CreateInstanceAccessControlAttributeConfigurationResponse;
+  export type Output = CreateInstanceAccessControlAttributeConfigurationResponse;
   export type Error =
     | AccessDeniedException
     | ConflictException
@@ -2055,8 +1614,7 @@ export declare namespace DeleteInstance {
 
 export declare namespace DeleteInstanceAccessControlAttributeConfiguration {
   export type Input = DeleteInstanceAccessControlAttributeConfigurationRequest;
-  export type Output =
-    DeleteInstanceAccessControlAttributeConfigurationResponse;
+  export type Output = DeleteInstanceAccessControlAttributeConfigurationResponse;
   export type Error =
     | AccessDeniedException
     | ConflictException
@@ -2178,10 +1736,8 @@ export declare namespace DescribeInstance {
 }
 
 export declare namespace DescribeInstanceAccessControlAttributeConfiguration {
-  export type Input =
-    DescribeInstanceAccessControlAttributeConfigurationRequest;
-  export type Output =
-    DescribeInstanceAccessControlAttributeConfigurationResponse;
+  export type Input = DescribeInstanceAccessControlAttributeConfigurationRequest;
+  export type Output = DescribeInstanceAccessControlAttributeConfigurationResponse;
   export type Error =
     | AccessDeniedException
     | InternalServerException
@@ -2228,10 +1784,8 @@ export declare namespace DescribeTrustedTokenIssuer {
 }
 
 export declare namespace DetachCustomerManagedPolicyReferenceFromPermissionSet {
-  export type Input =
-    DetachCustomerManagedPolicyReferenceFromPermissionSetRequest;
-  export type Output =
-    DetachCustomerManagedPolicyReferenceFromPermissionSetResponse;
+  export type Input = DetachCustomerManagedPolicyReferenceFromPermissionSetRequest;
+  export type Output = DetachCustomerManagedPolicyReferenceFromPermissionSetResponse;
   export type Error =
     | AccessDeniedException
     | ConflictException
@@ -2399,8 +1953,7 @@ export declare namespace ListApplications {
 
 export declare namespace ListCustomerManagedPolicyReferencesInPermissionSet {
   export type Input = ListCustomerManagedPolicyReferencesInPermissionSetRequest;
-  export type Output =
-    ListCustomerManagedPolicyReferencesInPermissionSetResponse;
+  export type Output = ListCustomerManagedPolicyReferencesInPermissionSetResponse;
   export type Error =
     | AccessDeniedException
     | InternalServerException
@@ -2599,8 +2152,7 @@ export declare namespace UpdateInstance {
 
 export declare namespace UpdateInstanceAccessControlAttributeConfiguration {
   export type Input = UpdateInstanceAccessControlAttributeConfigurationRequest;
-  export type Output =
-    UpdateInstanceAccessControlAttributeConfigurationResponse;
+  export type Output = UpdateInstanceAccessControlAttributeConfigurationResponse;
   export type Error =
     | AccessDeniedException
     | ConflictException
@@ -2786,3 +2338,4 @@ export declare namespace PutApplicationGrant {
     | ValidationException
     | CommonAwsError;
 }
+

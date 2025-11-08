@@ -5,26 +5,7 @@ import type { SageMakerMetrics as _SageMakerMetricsClient } from "./types.ts";
 
 export * from "./types.ts";
 
-export {
-  AccessDeniedException,
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  ThrottlingException,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-  ValidationException,
-  type CommonAwsError,
-} from "../../error.ts";
+export {AccessDeniedException, ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError, ValidationException, type CommonAwsError} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -34,8 +15,8 @@ const metadata = {
   sigV4ServiceName: "sagemaker",
   endpointPrefix: "metrics.sagemaker",
   operations: {
-    BatchGetMetrics: "POST /BatchGetMetrics",
-    BatchPutMetrics: "PUT /BatchPutMetrics",
+    "BatchGetMetrics": "POST /BatchGetMetrics",
+    "BatchPutMetrics": "PUT /BatchPutMetrics",
   },
 } as const satisfies ServiceMetadata;
 

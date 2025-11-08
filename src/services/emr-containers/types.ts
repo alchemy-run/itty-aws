@@ -1,40 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  AccessDeniedException,
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  ThrottlingException,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-} from "../../error.ts";
-type CommonAwsError =
-  | AccessDeniedException
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | ThrottlingException
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | ValidationException;
+import type { AccessDeniedException, ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
+type CommonAwsError = AccessDeniedException | ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | ThrottlingException | UnrecognizedClientException | UnknownOperationException | ValidationError | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class EMRcontainers extends AWSServiceClient {
@@ -48,19 +14,13 @@ export declare class EMRcontainers extends AWSServiceClient {
     input: CreateJobTemplateRequest,
   ): Effect.Effect<
     CreateJobTemplateResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   createManagedEndpoint(
     input: CreateManagedEndpointRequest,
   ): Effect.Effect<
     CreateManagedEndpointResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   createSecurityConfiguration(
     input: CreateSecurityConfigurationRequest,
@@ -72,11 +32,7 @@ export declare class EMRcontainers extends AWSServiceClient {
     input: CreateVirtualClusterRequest,
   ): Effect.Effect<
     CreateVirtualClusterResponse,
-    | EKSRequestThrottledException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    EKSRequestThrottledException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   deleteJobTemplate(
     input: DeleteJobTemplateRequest,
@@ -100,56 +56,37 @@ export declare class EMRcontainers extends AWSServiceClient {
     input: DescribeJobRunRequest,
   ): Effect.Effect<
     DescribeJobRunResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   describeJobTemplate(
     input: DescribeJobTemplateRequest,
   ): Effect.Effect<
     DescribeJobTemplateResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   describeManagedEndpoint(
     input: DescribeManagedEndpointRequest,
   ): Effect.Effect<
     DescribeManagedEndpointResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   describeSecurityConfiguration(
     input: DescribeSecurityConfigurationRequest,
   ): Effect.Effect<
     DescribeSecurityConfigurationResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   describeVirtualCluster(
     input: DescribeVirtualClusterRequest,
   ): Effect.Effect<
     DescribeVirtualClusterResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   getManagedEndpointSessionCredentials(
     input: GetManagedEndpointSessionCredentialsRequest,
   ): Effect.Effect<
     GetManagedEndpointSessionCredentialsResponse,
-    | InternalServerException
-    | RequestThrottledException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | RequestThrottledException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   listJobRuns(
     input: ListJobRunsRequest,
@@ -179,10 +116,7 @@ export declare class EMRcontainers extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   listVirtualClusters(
     input: ListVirtualClustersRequest,
@@ -194,28 +128,19 @@ export declare class EMRcontainers extends AWSServiceClient {
     input: StartJobRunRequest,
   ): Effect.Effect<
     StartJobRunResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
 }
 
@@ -267,7 +192,7 @@ interface _ContainerInfo {
   eksInfo?: EksInfo;
 }
 
-export type ContainerInfo = _ContainerInfo & { eksInfo: EksInfo };
+export type ContainerInfo = (_ContainerInfo & { eksInfo: EksInfo });
 export interface ContainerLogRotationConfiguration {
   rotationSize: string;
   maxFilesToKeep: number;
@@ -335,7 +260,7 @@ interface _Credentials {
   token?: string;
 }
 
-export type Credentials = _Credentials & { token: string };
+export type Credentials = (_Credentials & { token: string });
 export type CredentialType = string;
 
 export type EmrContainersDate = Date | string;
@@ -426,12 +351,7 @@ export interface Endpoint {
 export type EndpointArn = string;
 
 export type Endpoints = Array<Endpoint>;
-export type EndpointState =
-  | "CREATING"
-  | "ACTIVE"
-  | "TERMINATING"
-  | "TERMINATED"
-  | "TERMINATED_WITH_ERRORS";
+export type EndpointState = "CREATING" | "ACTIVE" | "TERMINATING" | "TERMINATED" | "TERMINATED_WITH_ERRORS";
 export type EndpointStates = Array<EndpointState>;
 export type EndpointType = string;
 
@@ -441,11 +361,7 @@ export type EntryPointArgument = string;
 export type EntryPointArguments = Array<string>;
 export type EntryPointPath = string;
 
-export type FailureReason =
-  | "INTERNAL_ERROR"
-  | "USER_ERROR"
-  | "VALIDATION_ERROR"
-  | "CLUSTER_UNAVAILABLE";
+export type FailureReason = "INTERNAL_ERROR" | "USER_ERROR" | "VALIDATION_ERROR" | "CLUSTER_UNAVAILABLE";
 export interface GetManagedEndpointSessionCredentialsRequest {
   endpointIdentifier: string;
   virtualClusterIdentifier: string;
@@ -499,14 +415,7 @@ export interface JobRun {
   retryPolicyExecution?: RetryPolicyExecution;
 }
 export type JobRuns = Array<JobRun>;
-export type JobRunState =
-  | "PENDING"
-  | "SUBMITTED"
-  | "RUNNING"
-  | "FAILED"
-  | "CANCELLED"
-  | "CANCEL_PENDING"
-  | "COMPLETED";
+export type JobRunState = "PENDING" | "SUBMITTED" | "RUNNING" | "FAILED" | "CANCELLED" | "CANCEL_PENDING" | "COMPLETED";
 export type JobRunStates = Array<JobRunState>;
 export interface JobTemplate {
   name?: string;
@@ -749,17 +658,15 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TemplateParameter = string;
 
 export interface TemplateParameterConfiguration {
   type?: TemplateParameterDataType;
   defaultValue?: string;
 }
-export type TemplateParameterConfigurationMap = Record<
-  string,
-  TemplateParameterConfiguration
->;
+export type TemplateParameterConfigurationMap = Record<string, TemplateParameterConfiguration>;
 export type TemplateParameterDataType = "NUMBER" | "STRING";
 export type TemplateParameterInputMap = Record<string, string>;
 export type TemplateParameterName = string;
@@ -775,7 +682,8 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export type UriString = string;
 
 export declare class ValidationException extends EffectData.TaggedError(
@@ -796,11 +704,7 @@ export interface VirtualCluster {
 export type VirtualClusterArn = string;
 
 export type VirtualClusters = Array<VirtualCluster>;
-export type VirtualClusterState =
-  | "RUNNING"
-  | "TERMINATING"
-  | "TERMINATED"
-  | "ARRESTED";
+export type VirtualClusterState = "RUNNING" | "TERMINATING" | "TERMINATED" | "ARRESTED";
 export type VirtualClusterStates = Array<VirtualClusterState>;
 export declare namespace CancelJobRun {
   export type Input = CancelJobRunRequest;
@@ -1023,3 +927,4 @@ export declare namespace UntagResource {
     | ValidationException
     | CommonAwsError;
 }
+

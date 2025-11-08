@@ -7,299 +7,199 @@ export declare class GroundStation extends AWSServiceClient {
     input: GetMinuteUsageRequest,
   ): Effect.Effect<
     GetMinuteUsageResponse,
-    | DependencyException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | CommonAwsError
+    DependencyException | InvalidParameterException | ResourceNotFoundException | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | DependencyException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | CommonAwsError
+    DependencyException | InvalidParameterException | ResourceNotFoundException | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | DependencyException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | CommonAwsError
+    DependencyException | InvalidParameterException | ResourceNotFoundException | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | DependencyException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | CommonAwsError
+    DependencyException | InvalidParameterException | ResourceNotFoundException | CommonAwsError
   >;
   cancelContact(
     input: CancelContactRequest,
   ): Effect.Effect<
     ContactIdResponse,
-    | DependencyException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | CommonAwsError
+    DependencyException | InvalidParameterException | ResourceNotFoundException | CommonAwsError
   >;
   createConfig(
     input: CreateConfigRequest,
   ): Effect.Effect<
     ConfigIdResponse,
-    | DependencyException
-    | InvalidParameterException
-    | ResourceLimitExceededException
-    | ResourceNotFoundException
-    | CommonAwsError
+    DependencyException | InvalidParameterException | ResourceLimitExceededException | ResourceNotFoundException | CommonAwsError
   >;
   createDataflowEndpointGroup(
     input: CreateDataflowEndpointGroupRequest,
   ): Effect.Effect<
     DataflowEndpointGroupIdResponse,
-    | DependencyException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | CommonAwsError
+    DependencyException | InvalidParameterException | ResourceNotFoundException | CommonAwsError
   >;
   createEphemeris(
     input: CreateEphemerisRequest,
   ): Effect.Effect<
     EphemerisIdResponse,
-    | DependencyException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | CommonAwsError
+    DependencyException | InvalidParameterException | ResourceNotFoundException | CommonAwsError
   >;
   createMissionProfile(
     input: CreateMissionProfileRequest,
   ): Effect.Effect<
     MissionProfileIdResponse,
-    | DependencyException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | CommonAwsError
+    DependencyException | InvalidParameterException | ResourceNotFoundException | CommonAwsError
   >;
   deleteConfig(
     input: DeleteConfigRequest,
   ): Effect.Effect<
     ConfigIdResponse,
-    | DependencyException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | CommonAwsError
+    DependencyException | InvalidParameterException | ResourceNotFoundException | CommonAwsError
   >;
   deleteDataflowEndpointGroup(
     input: DeleteDataflowEndpointGroupRequest,
   ): Effect.Effect<
     DataflowEndpointGroupIdResponse,
-    | DependencyException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | CommonAwsError
+    DependencyException | InvalidParameterException | ResourceNotFoundException | CommonAwsError
   >;
   deleteEphemeris(
     input: DeleteEphemerisRequest,
   ): Effect.Effect<
     EphemerisIdResponse,
-    | DependencyException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | CommonAwsError
+    DependencyException | InvalidParameterException | ResourceNotFoundException | CommonAwsError
   >;
   deleteMissionProfile(
     input: DeleteMissionProfileRequest,
   ): Effect.Effect<
     MissionProfileIdResponse,
-    | DependencyException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | CommonAwsError
+    DependencyException | InvalidParameterException | ResourceNotFoundException | CommonAwsError
   >;
   describeContact(
     input: DescribeContactRequest,
   ): Effect.Effect<
     DescribeContactResponse,
-    | DependencyException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | CommonAwsError
+    DependencyException | InvalidParameterException | ResourceNotFoundException | CommonAwsError
   >;
   describeEphemeris(
     input: DescribeEphemerisRequest,
   ): Effect.Effect<
     DescribeEphemerisResponse,
-    | DependencyException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | CommonAwsError
+    DependencyException | InvalidParameterException | ResourceNotFoundException | CommonAwsError
   >;
   getAgentConfiguration(
     input: GetAgentConfigurationRequest,
   ): Effect.Effect<
     GetAgentConfigurationResponse,
-    | DependencyException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | CommonAwsError
+    DependencyException | InvalidParameterException | ResourceNotFoundException | CommonAwsError
   >;
   getConfig(
     input: GetConfigRequest,
   ): Effect.Effect<
     GetConfigResponse,
-    | DependencyException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | CommonAwsError
+    DependencyException | InvalidParameterException | ResourceNotFoundException | CommonAwsError
   >;
   getDataflowEndpointGroup(
     input: GetDataflowEndpointGroupRequest,
   ): Effect.Effect<
     GetDataflowEndpointGroupResponse,
-    | DependencyException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | CommonAwsError
+    DependencyException | InvalidParameterException | ResourceNotFoundException | CommonAwsError
   >;
   getMissionProfile(
     input: GetMissionProfileRequest,
   ): Effect.Effect<
     GetMissionProfileResponse,
-    | DependencyException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | CommonAwsError
+    DependencyException | InvalidParameterException | ResourceNotFoundException | CommonAwsError
   >;
   getSatellite(
     input: GetSatelliteRequest,
   ): Effect.Effect<
     GetSatelliteResponse,
-    | DependencyException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | CommonAwsError
+    DependencyException | InvalidParameterException | ResourceNotFoundException | CommonAwsError
   >;
   listConfigs(
     input: ListConfigsRequest,
   ): Effect.Effect<
     ListConfigsResponse,
-    | DependencyException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | CommonAwsError
+    DependencyException | InvalidParameterException | ResourceNotFoundException | CommonAwsError
   >;
   listContacts(
     input: ListContactsRequest,
   ): Effect.Effect<
     ListContactsResponse,
-    | DependencyException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | CommonAwsError
+    DependencyException | InvalidParameterException | ResourceNotFoundException | CommonAwsError
   >;
   listDataflowEndpointGroups(
     input: ListDataflowEndpointGroupsRequest,
   ): Effect.Effect<
     ListDataflowEndpointGroupsResponse,
-    | DependencyException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | CommonAwsError
+    DependencyException | InvalidParameterException | ResourceNotFoundException | CommonAwsError
   >;
   listEphemerides(
     input: ListEphemeridesRequest,
   ): Effect.Effect<
     ListEphemeridesResponse,
-    | DependencyException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | CommonAwsError
+    DependencyException | InvalidParameterException | ResourceNotFoundException | CommonAwsError
   >;
   listGroundStations(
     input: ListGroundStationsRequest,
   ): Effect.Effect<
     ListGroundStationsResponse,
-    | DependencyException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | CommonAwsError
+    DependencyException | InvalidParameterException | ResourceNotFoundException | CommonAwsError
   >;
   listMissionProfiles(
     input: ListMissionProfilesRequest,
   ): Effect.Effect<
     ListMissionProfilesResponse,
-    | DependencyException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | CommonAwsError
+    DependencyException | InvalidParameterException | ResourceNotFoundException | CommonAwsError
   >;
   listSatellites(
     input: ListSatellitesRequest,
   ): Effect.Effect<
     ListSatellitesResponse,
-    | DependencyException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | CommonAwsError
+    DependencyException | InvalidParameterException | ResourceNotFoundException | CommonAwsError
   >;
   registerAgent(
     input: RegisterAgentRequest,
   ): Effect.Effect<
     RegisterAgentResponse,
-    | DependencyException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | CommonAwsError
+    DependencyException | InvalidParameterException | ResourceNotFoundException | CommonAwsError
   >;
   reserveContact(
     input: ReserveContactRequest,
   ): Effect.Effect<
     ContactIdResponse,
-    | DependencyException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | CommonAwsError
+    DependencyException | InvalidParameterException | ResourceNotFoundException | CommonAwsError
   >;
   updateAgentStatus(
     input: UpdateAgentStatusRequest,
   ): Effect.Effect<
     UpdateAgentStatusResponse,
-    | DependencyException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | CommonAwsError
+    DependencyException | InvalidParameterException | ResourceNotFoundException | CommonAwsError
   >;
   updateConfig(
     input: UpdateConfigRequest,
   ): Effect.Effect<
     ConfigIdResponse,
-    | DependencyException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | CommonAwsError
+    DependencyException | InvalidParameterException | ResourceNotFoundException | CommonAwsError
   >;
   updateEphemeris(
     input: UpdateEphemerisRequest,
   ): Effect.Effect<
     EphemerisIdResponse,
-    | DependencyException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | CommonAwsError
+    DependencyException | InvalidParameterException | ResourceNotFoundException | CommonAwsError
   >;
   updateMissionProfile(
     input: UpdateMissionProfileRequest,
   ): Effect.Effect<
     MissionProfileIdResponse,
-    | DependencyException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | CommonAwsError
+    DependencyException | InvalidParameterException | ResourceNotFoundException | CommonAwsError
   >;
 }
 
@@ -358,14 +258,7 @@ export type CapabilityArn = string;
 
 export type CapabilityArnList = Array<string>;
 export type CapabilityHealth = "HEALTHY" | "UNHEALTHY";
-export type CapabilityHealthReason =
-  | "NO_REGISTERED_AGENT"
-  | "INVALID_IP_OWNERSHIP"
-  | "NOT_AUTHORIZED_TO_CREATE_SLR"
-  | "UNVERIFIED_IP_OWNERSHIP"
-  | "INITIALIZING_DATAPLANE"
-  | "DATAPLANE_FAILURE"
-  | "HEALTHY";
+export type CapabilityHealthReason = "NO_REGISTERED_AGENT" | "INVALID_IP_OWNERSHIP" | "NOT_AUTHORIZED_TO_CREATE_SLR" | "UNVERIFIED_IP_OWNERSHIP" | "INITIALIZING_DATAPLANE" | "DATAPLANE_FAILURE" | "HEALTHY";
 export type CapabilityHealthReasonList = Array<CapabilityHealthReason>;
 export interface ComponentStatusData {
   componentType: string;
@@ -386,24 +279,14 @@ export interface ComponentVersion {
 export type ComponentVersionList = Array<ComponentVersion>;
 export type ConfigArn = string;
 
-export type ConfigCapabilityType =
-  | "antenna-downlink"
-  | "antenna-downlink-demod-decode"
-  | "tracking"
-  | "dataflow-endpoint"
-  | "antenna-uplink"
-  | "uplink-echo"
-  | "s3-recording";
+export type ConfigCapabilityType = "antenna-downlink" | "antenna-downlink-demod-decode" | "tracking" | "dataflow-endpoint" | "antenna-uplink" | "uplink-echo" | "s3-recording";
 interface _ConfigDetails {
   endpointDetails?: EndpointDetails;
   antennaDemodDecodeDetails?: AntennaDemodDecodeDetails;
   s3RecordingDetails?: S3RecordingDetails;
 }
 
-export type ConfigDetails =
-  | (_ConfigDetails & { endpointDetails: EndpointDetails })
-  | (_ConfigDetails & { antennaDemodDecodeDetails: AntennaDemodDecodeDetails })
-  | (_ConfigDetails & { s3RecordingDetails: S3RecordingDetails });
+export type ConfigDetails = (_ConfigDetails & { endpointDetails: EndpointDetails }) | (_ConfigDetails & { antennaDemodDecodeDetails: AntennaDemodDecodeDetails }) | (_ConfigDetails & { s3RecordingDetails: S3RecordingDetails });
 export interface ConfigIdResponse {
   configId?: string;
   configType?: ConfigCapabilityType;
@@ -426,16 +309,7 @@ interface _ConfigTypeData {
   s3RecordingConfig?: S3RecordingConfig;
 }
 
-export type ConfigTypeData =
-  | (_ConfigTypeData & { antennaDownlinkConfig: AntennaDownlinkConfig })
-  | (_ConfigTypeData & { trackingConfig: TrackingConfig })
-  | (_ConfigTypeData & { dataflowEndpointConfig: DataflowEndpointConfig })
-  | (_ConfigTypeData & {
-      antennaDownlinkDemodDecodeConfig: AntennaDownlinkDemodDecodeConfig;
-    })
-  | (_ConfigTypeData & { antennaUplinkConfig: AntennaUplinkConfig })
-  | (_ConfigTypeData & { uplinkEchoConfig: UplinkEchoConfig })
-  | (_ConfigTypeData & { s3RecordingConfig: S3RecordingConfig });
+export type ConfigTypeData = (_ConfigTypeData & { antennaDownlinkConfig: AntennaDownlinkConfig }) | (_ConfigTypeData & { trackingConfig: TrackingConfig }) | (_ConfigTypeData & { dataflowEndpointConfig: DataflowEndpointConfig }) | (_ConfigTypeData & { antennaDownlinkDemodDecodeConfig: AntennaDownlinkDemodDecodeConfig }) | (_ConfigTypeData & { antennaUplinkConfig: AntennaUplinkConfig }) | (_ConfigTypeData & { uplinkEchoConfig: UplinkEchoConfig }) | (_ConfigTypeData & { s3RecordingConfig: S3RecordingConfig });
 export interface ConnectionDetails {
   socketAddress: SocketAddress;
   mtu?: number;
@@ -461,20 +335,7 @@ export interface ContactIdResponse {
   contactId?: string;
 }
 export type ContactList = Array<ContactData>;
-export type ContactStatus =
-  | "SCHEDULING"
-  | "FAILED_TO_SCHEDULE"
-  | "SCHEDULED"
-  | "CANCELLED"
-  | "AWS_CANCELLED"
-  | "PREPASS"
-  | "PASS"
-  | "POSTPASS"
-  | "COMPLETED"
-  | "FAILED"
-  | "AVAILABLE"
-  | "CANCELLING"
-  | "AWS_FAILED";
+export type ContactStatus = "SCHEDULING" | "FAILED_TO_SCHEDULE" | "SCHEDULED" | "CANCELLED" | "AWS_CANCELLED" | "PREPASS" | "PASS" | "POSTPASS" | "COMPLETED" | "FAILED" | "AVAILABLE" | "CANCELLING" | "AWS_FAILED";
 export interface CreateConfigRequest {
   name: string;
   configData: ConfigTypeData;
@@ -631,21 +492,14 @@ export interface EndpointDetails {
   healthReasons?: Array<CapabilityHealthReason>;
 }
 export type EndpointDetailsList = Array<EndpointDetails>;
-export type EndpointStatus =
-  | "created"
-  | "creating"
-  | "deleted"
-  | "deleting"
-  | "failed";
+export type EndpointStatus = "created" | "creating" | "deleted" | "deleting" | "failed";
 export type EphemeridesList = Array<EphemerisItem>;
 interface _EphemerisData {
   tle?: TLEEphemeris;
   oem?: OEMEphemeris;
 }
 
-export type EphemerisData =
-  | (_EphemerisData & { tle: TLEEphemeris })
-  | (_EphemerisData & { oem: OEMEphemeris });
+export type EphemerisData = (_EphemerisData & { tle: TLEEphemeris }) | (_EphemerisData & { oem: OEMEphemeris });
 export interface EphemerisDescription {
   sourceS3Object?: S3Object;
   ephemerisData?: string;
@@ -653,12 +507,7 @@ export interface EphemerisDescription {
 export interface EphemerisIdResponse {
   ephemerisId?: string;
 }
-export type EphemerisInvalidReason =
-  | "METADATA_INVALID"
-  | "TIME_RANGE_INVALID"
-  | "TRAJECTORY_INVALID"
-  | "KMS_KEY_INVALID"
-  | "VALIDATION_ERROR";
+export type EphemerisInvalidReason = "METADATA_INVALID" | "TIME_RANGE_INVALID" | "TRAJECTORY_INVALID" | "KMS_KEY_INVALID" | "VALIDATION_ERROR";
 export interface EphemerisItem {
   ephemerisId?: string;
   status?: EphemerisStatus;
@@ -677,22 +526,14 @@ export interface EphemerisMetaData {
 export type EphemerisPriority = number;
 
 export type EphemerisSource = "CUSTOMER_PROVIDED" | "SPACE_TRACK";
-export type EphemerisStatus =
-  | "VALIDATING"
-  | "INVALID"
-  | "ERROR"
-  | "ENABLED"
-  | "DISABLED"
-  | "EXPIRED";
+export type EphemerisStatus = "VALIDATING" | "INVALID" | "ERROR" | "ENABLED" | "DISABLED" | "EXPIRED";
 export type EphemerisStatusList = Array<EphemerisStatus>;
 interface _EphemerisTypeDescription {
   tle?: EphemerisDescription;
   oem?: EphemerisDescription;
 }
 
-export type EphemerisTypeDescription =
-  | (_EphemerisTypeDescription & { tle: EphemerisDescription })
-  | (_EphemerisTypeDescription & { oem: EphemerisDescription });
+export type EphemerisTypeDescription = (_EphemerisTypeDescription & { tle: EphemerisDescription }) | (_EphemerisTypeDescription & { oem: EphemerisDescription });
 export interface Frequency {
   value: number;
   units: FrequencyUnits;
@@ -810,10 +651,7 @@ interface _KmsKey {
   kmsAliasName?: string;
 }
 
-export type KmsKey =
-  | (_KmsKey & { kmsKeyArn: string })
-  | (_KmsKey & { kmsAliasArn: string })
-  | (_KmsKey & { kmsAliasName: string });
+export type KmsKey = (_KmsKey & { kmsKeyArn: string }) | (_KmsKey & { kmsAliasArn: string }) | (_KmsKey & { kmsAliasName: string });
 export interface ListConfigsRequest {
   maxResults?: number;
   nextToken?: string;
@@ -1014,7 +852,8 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagsMap = Record<string, string>;
 export interface TimeRange {
   startTime: Date | string;
@@ -1043,7 +882,8 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateAgentStatusRequest {
   agentId: string;
   taskId: string;
@@ -1421,3 +1261,4 @@ export declare namespace UpdateMissionProfile {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+

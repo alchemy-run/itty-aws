@@ -162,3 +162,4 @@ export declare namespace GetRecommendations {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+

@@ -36,7 +36,7 @@ export class RestXmlHandler implements ProtocolHandler {
       method,
       headers: {
         "Content-Type":
-          operationMeta?.traits?.Body === "httpStreaming"
+          operationMeta?.inputTraits?.Body === "httpStreaming"
             ? "application/octet-stream"
             : this.contentType,
         "User-Agent": "itty-aws",
@@ -44,22 +44,28 @@ export class RestXmlHandler implements ProtocolHandler {
     };
 
     let body: Record<string, unknown> = {};
+    let streamingBody = false;
 
     for (const [key, value] of Object.entries(input)) {
-      const type = operationMeta.members?.[key];
+      const type = operationMeta.inputTraits?.[key];
       if (type == null) {
         request.path = request.path.replace(
-          new RegExp(`\{${key}\+?\}`),
+          new RegExp(`\\{${key}\\+?\\}`, "g"),
           value as string,
         );
       } else if (type === "httpPayload") {
         body[key] = value;
+      } else if (type === "httpStreaming") {
+        streamingBody = true;
+        request.body = value as any;
       } else {
         request.headers[type] = value as string;
       }
     }
 
-    request.body = builder.build(body);
+    if (!streamingBody) {
+      request.body = builder.build(body);
+    }
 
     return Promise.resolve(request);
   }
@@ -78,14 +84,16 @@ export class RestXmlHandler implements ProtocolHandler {
 
     let headerData: Record<string, unknown> = {};
 
-    for (const [key, value] of Object.entries(operationMeta.traits ?? {})) {
-      if (value !== "httpPayload") {
+    for (const [key, value] of Object.entries(
+      operationMeta.outputTraits ?? {},
+    )) {
+      if (value !== "httpPayload" && value !== "httpStreaming") {
         headerData[key] = headers?.get(value.toLowerCase());
       }
     }
 
     try {
-      if (operationMeta?.traits?.Body === "httpStreaming") {
+      if (operationMeta?.outputTraits?.Body === "httpStreaming") {
         return {
           ...headerData,
           Body: Stream.fromReadableStream(
@@ -107,15 +115,15 @@ export class RestXmlHandler implements ProtocolHandler {
 
   async parseError(
     response: Response,
-    _statusCode: number,
+    statusCode: number,
     headers?: Headers,
   ): Promise<ParsedError> {
     const responseText = await response.text();
     const parser = new XMLParser();
     const error = responseText != null ? parser.parse(responseText) : null;
     return {
-      errorType: error.Error.Code ?? "UnknownError",
-      message: error.Error.Message ?? "Unknown error",
+      errorType: error?.Error?.Code ?? "UnknownError",
+      message: error?.Error?.Message ?? "Unknown error",
       requestId:
         headers?.get("x-amzn-requestid") ||
         headers?.get("x-amz-request-id") ||

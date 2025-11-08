@@ -5,23 +5,7 @@ import type { AIOps as _AIOpsClient } from "./types.ts";
 
 export * from "./types.ts";
 
-export {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-  type CommonAwsError,
-} from "../../error.ts";
+export {ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, type CommonAwsError} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -30,19 +14,17 @@ const metadata = {
   protocol: "restJson1",
   sigV4ServiceName: "aiops",
   operations: {
-    ListTagsForResource: "GET /tags/{resourceArn}",
-    TagResource: "POST /tags/{resourceArn}",
-    UntagResource: "DELETE /tags/{resourceArn}",
-    CreateInvestigationGroup: "POST /investigationGroups",
-    DeleteInvestigationGroup: "DELETE /investigationGroups/{identifier}",
-    DeleteInvestigationGroupPolicy:
-      "DELETE /investigationGroups/{identifier}/policy",
-    GetInvestigationGroup: "GET /investigationGroups/{identifier}",
-    GetInvestigationGroupPolicy: "GET /investigationGroups/{identifier}/policy",
-    ListInvestigationGroups: "GET /investigationGroups",
-    PutInvestigationGroupPolicy:
-      "POST /investigationGroups/{identifier}/policy",
-    UpdateInvestigationGroup: "PATCH /investigationGroups/{identifier}",
+    "ListTagsForResource": "GET /tags/{resourceArn}",
+    "TagResource": "POST /tags/{resourceArn}",
+    "UntagResource": "DELETE /tags/{resourceArn}",
+    "CreateInvestigationGroup": "POST /investigationGroups",
+    "DeleteInvestigationGroup": "DELETE /investigationGroups/{identifier}",
+    "DeleteInvestigationGroupPolicy": "DELETE /investigationGroups/{identifier}/policy",
+    "GetInvestigationGroup": "GET /investigationGroups/{identifier}",
+    "GetInvestigationGroupPolicy": "GET /investigationGroups/{identifier}/policy",
+    "ListInvestigationGroups": "GET /investigationGroups",
+    "PutInvestigationGroupPolicy": "POST /investigationGroups/{identifier}/policy",
+    "UpdateInvestigationGroup": "PATCH /investigationGroups/{identifier}",
   },
 } as const satisfies ServiceMetadata;
 

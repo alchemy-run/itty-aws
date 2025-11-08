@@ -5,26 +5,7 @@ import type { KinesisVideoMedia as _KinesisVideoMediaClient } from "./types.ts";
 
 export * from "./types.ts";
 
-export {
-  AccessDeniedException,
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  ThrottlingException,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-  ValidationException,
-  type CommonAwsError,
-} from "../../error.ts";
+export {AccessDeniedException, ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError, ValidationException, type CommonAwsError} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -34,11 +15,11 @@ const metadata = {
   sigV4ServiceName: "kinesisvideo",
   endpointPrefix: "kinesisvideo",
   operations: {
-    GetMedia: {
+    "GetMedia": {
       http: "POST /getMedia",
       traits: {
-        ContentType: "Content-Type",
-        Payload: "httpPayload",
+        "ContentType": "Content-Type",
+        "Payload": "httpPayload",
       },
     },
   },

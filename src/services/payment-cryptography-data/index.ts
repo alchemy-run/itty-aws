@@ -5,23 +5,7 @@ import type { PaymentCryptographyData as _PaymentCryptographyDataClient } from "
 
 export * from "./types.ts";
 
-export {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-  type CommonAwsError,
-} from "../../error.ts";
+export {ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, type CommonAwsError} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -31,18 +15,18 @@ const metadata = {
   sigV4ServiceName: "payment-cryptography",
   endpointPrefix: "dataplane.payment-cryptography",
   operations: {
-    DecryptData: "POST /keys/{KeyIdentifier}/decrypt",
-    EncryptData: "POST /keys/{KeyIdentifier}/encrypt",
-    GenerateCardValidationData: "POST /cardvalidationdata/generate",
-    GenerateMac: "POST /mac/generate",
-    GenerateMacEmvPinChange: "POST /macemvpinchange/generate",
-    GeneratePinData: "POST /pindata/generate",
-    ReEncryptData: "POST /keys/{IncomingKeyIdentifier}/reencrypt",
-    TranslatePinData: "POST /pindata/translate",
-    VerifyAuthRequestCryptogram: "POST /cryptogram/verify",
-    VerifyCardValidationData: "POST /cardvalidationdata/verify",
-    VerifyMac: "POST /mac/verify",
-    VerifyPinData: "POST /pindata/verify",
+    "DecryptData": "POST /keys/{KeyIdentifier}/decrypt",
+    "EncryptData": "POST /keys/{KeyIdentifier}/encrypt",
+    "GenerateCardValidationData": "POST /cardvalidationdata/generate",
+    "GenerateMac": "POST /mac/generate",
+    "GenerateMacEmvPinChange": "POST /macemvpinchange/generate",
+    "GeneratePinData": "POST /pindata/generate",
+    "ReEncryptData": "POST /keys/{IncomingKeyIdentifier}/reencrypt",
+    "TranslatePinData": "POST /pindata/translate",
+    "VerifyAuthRequestCryptogram": "POST /cryptogram/verify",
+    "VerifyCardValidationData": "POST /cardvalidationdata/verify",
+    "VerifyMac": "POST /mac/verify",
+    "VerifyPinData": "POST /pindata/verify",
   },
 } as const satisfies ServiceMetadata;
 

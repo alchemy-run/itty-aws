@@ -5,26 +5,7 @@ import type { CognitoSync as _CognitoSyncClient } from "./types.ts";
 
 export * from "./types.ts";
 
-export {
-  AccessDeniedException,
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  ThrottlingException,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-  ValidationException,
-  type CommonAwsError,
-} from "../../error.ts";
+export {AccessDeniedException, ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError, ValidationException, type CommonAwsError} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -34,35 +15,23 @@ const metadata = {
   sigV4ServiceName: "cognito-sync",
   endpointPrefix: "cognito-sync",
   operations: {
-    BulkPublish: "POST /identitypools/{IdentityPoolId}/bulkpublish",
-    DeleteDataset:
-      "DELETE /identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}",
-    DescribeDataset:
-      "GET /identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}",
-    DescribeIdentityPoolUsage: "GET /identitypools/{IdentityPoolId}",
-    DescribeIdentityUsage:
-      "GET /identitypools/{IdentityPoolId}/identities/{IdentityId}",
-    GetBulkPublishDetails:
-      "POST /identitypools/{IdentityPoolId}/getBulkPublishDetails",
-    GetCognitoEvents: "GET /identitypools/{IdentityPoolId}/events",
-    GetIdentityPoolConfiguration:
-      "GET /identitypools/{IdentityPoolId}/configuration",
-    ListDatasets:
-      "GET /identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets",
-    ListIdentityPoolUsage: "GET /identitypools",
-    ListRecords:
-      "GET /identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}/records",
-    RegisterDevice:
-      "POST /identitypools/{IdentityPoolId}/identity/{IdentityId}/device",
-    SetCognitoEvents: "POST /identitypools/{IdentityPoolId}/events",
-    SetIdentityPoolConfiguration:
-      "POST /identitypools/{IdentityPoolId}/configuration",
-    SubscribeToDataset:
-      "POST /identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}/subscriptions/{DeviceId}",
-    UnsubscribeFromDataset:
-      "DELETE /identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}/subscriptions/{DeviceId}",
-    UpdateRecords:
-      "POST /identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}",
+    "BulkPublish": "POST /identitypools/{IdentityPoolId}/bulkpublish",
+    "DeleteDataset": "DELETE /identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}",
+    "DescribeDataset": "GET /identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}",
+    "DescribeIdentityPoolUsage": "GET /identitypools/{IdentityPoolId}",
+    "DescribeIdentityUsage": "GET /identitypools/{IdentityPoolId}/identities/{IdentityId}",
+    "GetBulkPublishDetails": "POST /identitypools/{IdentityPoolId}/getBulkPublishDetails",
+    "GetCognitoEvents": "GET /identitypools/{IdentityPoolId}/events",
+    "GetIdentityPoolConfiguration": "GET /identitypools/{IdentityPoolId}/configuration",
+    "ListDatasets": "GET /identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets",
+    "ListIdentityPoolUsage": "GET /identitypools",
+    "ListRecords": "GET /identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}/records",
+    "RegisterDevice": "POST /identitypools/{IdentityPoolId}/identity/{IdentityId}/device",
+    "SetCognitoEvents": "POST /identitypools/{IdentityPoolId}/events",
+    "SetIdentityPoolConfiguration": "POST /identitypools/{IdentityPoolId}/configuration",
+    "SubscribeToDataset": "POST /identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}/subscriptions/{DeviceId}",
+    "UnsubscribeFromDataset": "DELETE /identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}/subscriptions/{DeviceId}",
+    "UpdateRecords": "POST /identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}",
   },
 } as const satisfies ServiceMetadata;
 

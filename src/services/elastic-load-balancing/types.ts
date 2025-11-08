@@ -7,29 +7,19 @@ export declare class ElasticLoadBalancing extends AWSServiceClient {
     input: AddTagsInput,
   ): Effect.Effect<
     AddTagsOutput,
-    | AccessPointNotFoundException
-    | DuplicateTagKeysException
-    | TooManyTagsException
-    | CommonAwsError
+    AccessPointNotFoundException | DuplicateTagKeysException | TooManyTagsException | CommonAwsError
   >;
   applySecurityGroupsToLoadBalancer(
     input: ApplySecurityGroupsToLoadBalancerInput,
   ): Effect.Effect<
     ApplySecurityGroupsToLoadBalancerOutput,
-    | AccessPointNotFoundException
-    | InvalidConfigurationRequestException
-    | InvalidSecurityGroupException
-    | CommonAwsError
+    AccessPointNotFoundException | InvalidConfigurationRequestException | InvalidSecurityGroupException | CommonAwsError
   >;
   attachLoadBalancerToSubnets(
     input: AttachLoadBalancerToSubnetsInput,
   ): Effect.Effect<
     AttachLoadBalancerToSubnetsOutput,
-    | AccessPointNotFoundException
-    | InvalidConfigurationRequestException
-    | InvalidSubnetException
-    | SubnetNotFoundException
-    | CommonAwsError
+    AccessPointNotFoundException | InvalidConfigurationRequestException | InvalidSubnetException | SubnetNotFoundException | CommonAwsError
   >;
   configureHealthCheck(
     input: ConfigureHealthCheckInput,
@@ -41,65 +31,38 @@ export declare class ElasticLoadBalancing extends AWSServiceClient {
     input: CreateAppCookieStickinessPolicyInput,
   ): Effect.Effect<
     CreateAppCookieStickinessPolicyOutput,
-    | AccessPointNotFoundException
-    | DuplicatePolicyNameException
-    | InvalidConfigurationRequestException
-    | TooManyPoliciesException
-    | CommonAwsError
+    AccessPointNotFoundException | DuplicatePolicyNameException | InvalidConfigurationRequestException | TooManyPoliciesException | CommonAwsError
   >;
   createLBCookieStickinessPolicy(
     input: CreateLBCookieStickinessPolicyInput,
   ): Effect.Effect<
     CreateLBCookieStickinessPolicyOutput,
-    | AccessPointNotFoundException
-    | DuplicatePolicyNameException
-    | InvalidConfigurationRequestException
-    | TooManyPoliciesException
-    | CommonAwsError
+    AccessPointNotFoundException | DuplicatePolicyNameException | InvalidConfigurationRequestException | TooManyPoliciesException | CommonAwsError
   >;
   createLoadBalancer(
     input: CreateAccessPointInput,
   ): Effect.Effect<
     CreateAccessPointOutput,
-    | CertificateNotFoundException
-    | DuplicateAccessPointNameException
-    | DuplicateTagKeysException
-    | InvalidConfigurationRequestException
-    | InvalidSchemeException
-    | InvalidSecurityGroupException
-    | InvalidSubnetException
-    | OperationNotPermittedException
-    | SubnetNotFoundException
-    | TooManyAccessPointsException
-    | TooManyTagsException
-    | UnsupportedProtocolException
-    | CommonAwsError
+    CertificateNotFoundException | DuplicateAccessPointNameException | DuplicateTagKeysException | InvalidConfigurationRequestException | InvalidSchemeException | InvalidSecurityGroupException | InvalidSubnetException | OperationNotPermittedException | SubnetNotFoundException | TooManyAccessPointsException | TooManyTagsException | UnsupportedProtocolException | CommonAwsError
   >;
   createLoadBalancerListeners(
     input: CreateLoadBalancerListenerInput,
   ): Effect.Effect<
     CreateLoadBalancerListenerOutput,
-    | AccessPointNotFoundException
-    | CertificateNotFoundException
-    | DuplicateListenerException
-    | InvalidConfigurationRequestException
-    | UnsupportedProtocolException
-    | CommonAwsError
+    AccessPointNotFoundException | CertificateNotFoundException | DuplicateListenerException | InvalidConfigurationRequestException | UnsupportedProtocolException | CommonAwsError
   >;
   createLoadBalancerPolicy(
     input: CreateLoadBalancerPolicyInput,
   ): Effect.Effect<
     CreateLoadBalancerPolicyOutput,
-    | AccessPointNotFoundException
-    | DuplicatePolicyNameException
-    | InvalidConfigurationRequestException
-    | PolicyTypeNotFoundException
-    | TooManyPoliciesException
-    | CommonAwsError
+    AccessPointNotFoundException | DuplicatePolicyNameException | InvalidConfigurationRequestException | PolicyTypeNotFoundException | TooManyPoliciesException | CommonAwsError
   >;
   deleteLoadBalancer(
     input: DeleteAccessPointInput,
-  ): Effect.Effect<DeleteAccessPointOutput, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteAccessPointOutput,
+    CommonAwsError
+  >;
   deleteLoadBalancerListeners(
     input: DeleteLoadBalancerListenerInput,
   ): Effect.Effect<
@@ -110,9 +73,7 @@ export declare class ElasticLoadBalancing extends AWSServiceClient {
     input: DeleteLoadBalancerPolicyInput,
   ): Effect.Effect<
     DeleteLoadBalancerPolicyOutput,
-    | AccessPointNotFoundException
-    | InvalidConfigurationRequestException
-    | CommonAwsError
+    AccessPointNotFoundException | InvalidConfigurationRequestException | CommonAwsError
   >;
   deregisterInstancesFromLoadBalancer(
     input: DeregisterEndPointsInput,
@@ -122,7 +83,10 @@ export declare class ElasticLoadBalancing extends AWSServiceClient {
   >;
   describeAccountLimits(
     input: DescribeAccountLimitsInput,
-  ): Effect.Effect<DescribeAccountLimitsOutput, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeAccountLimitsOutput,
+    CommonAwsError
+  >;
   describeInstanceHealth(
     input: DescribeEndPointStateInput,
   ): Effect.Effect<
@@ -133,9 +97,7 @@ export declare class ElasticLoadBalancing extends AWSServiceClient {
     input: DescribeLoadBalancerAttributesInput,
   ): Effect.Effect<
     DescribeLoadBalancerAttributesOutput,
-    | AccessPointNotFoundException
-    | LoadBalancerAttributeNotFoundException
-    | CommonAwsError
+    AccessPointNotFoundException | LoadBalancerAttributeNotFoundException | CommonAwsError
   >;
   describeLoadBalancerPolicies(
     input: DescribeLoadBalancerPoliciesInput,
@@ -165,17 +127,13 @@ export declare class ElasticLoadBalancing extends AWSServiceClient {
     input: DetachLoadBalancerFromSubnetsInput,
   ): Effect.Effect<
     DetachLoadBalancerFromSubnetsOutput,
-    | AccessPointNotFoundException
-    | InvalidConfigurationRequestException
-    | CommonAwsError
+    AccessPointNotFoundException | InvalidConfigurationRequestException | CommonAwsError
   >;
   disableAvailabilityZonesForLoadBalancer(
     input: RemoveAvailabilityZonesInput,
   ): Effect.Effect<
     RemoveAvailabilityZonesOutput,
-    | AccessPointNotFoundException
-    | InvalidConfigurationRequestException
-    | CommonAwsError
+    AccessPointNotFoundException | InvalidConfigurationRequestException | CommonAwsError
   >;
   enableAvailabilityZonesForLoadBalancer(
     input: AddAvailabilityZonesInput,
@@ -187,10 +145,7 @@ export declare class ElasticLoadBalancing extends AWSServiceClient {
     input: ModifyLoadBalancerAttributesInput,
   ): Effect.Effect<
     ModifyLoadBalancerAttributesOutput,
-    | AccessPointNotFoundException
-    | InvalidConfigurationRequestException
-    | LoadBalancerAttributeNotFoundException
-    | CommonAwsError
+    AccessPointNotFoundException | InvalidConfigurationRequestException | LoadBalancerAttributeNotFoundException | CommonAwsError
   >;
   registerInstancesWithLoadBalancer(
     input: RegisterEndPointsInput,
@@ -208,31 +163,19 @@ export declare class ElasticLoadBalancing extends AWSServiceClient {
     input: SetLoadBalancerListenerSSLCertificateInput,
   ): Effect.Effect<
     SetLoadBalancerListenerSSLCertificateOutput,
-    | AccessPointNotFoundException
-    | CertificateNotFoundException
-    | InvalidConfigurationRequestException
-    | ListenerNotFoundException
-    | UnsupportedProtocolException
-    | CommonAwsError
+    AccessPointNotFoundException | CertificateNotFoundException | InvalidConfigurationRequestException | ListenerNotFoundException | UnsupportedProtocolException | CommonAwsError
   >;
   setLoadBalancerPoliciesForBackendServer(
     input: SetLoadBalancerPoliciesForBackendServerInput,
   ): Effect.Effect<
     SetLoadBalancerPoliciesForBackendServerOutput,
-    | AccessPointNotFoundException
-    | InvalidConfigurationRequestException
-    | PolicyNotFoundException
-    | CommonAwsError
+    AccessPointNotFoundException | InvalidConfigurationRequestException | PolicyNotFoundException | CommonAwsError
   >;
   setLoadBalancerPoliciesOfListener(
     input: SetLoadBalancerPoliciesOfListenerInput,
   ): Effect.Effect<
     SetLoadBalancerPoliciesOfListenerOutput,
-    | AccessPointNotFoundException
-    | InvalidConfigurationRequestException
-    | ListenerNotFoundException
-    | PolicyNotFoundException
-    | CommonAwsError
+    AccessPointNotFoundException | InvalidConfigurationRequestException | ListenerNotFoundException | PolicyNotFoundException | CommonAwsError
   >;
 }
 
@@ -277,7 +220,8 @@ export interface AddTagsInput {
   LoadBalancerNames: Array<string>;
   Tags: Array<Tag>;
 }
-export interface AddTagsOutput {}
+export interface AddTagsOutput {
+}
 export type AppCookieStickinessPolicies = Array<AppCookieStickinessPolicy>;
 export interface AppCookieStickinessPolicy {
   PolicyName?: string;
@@ -357,7 +301,8 @@ export interface CreateAppCookieStickinessPolicyInput {
   PolicyName: string;
   CookieName: string;
 }
-export interface CreateAppCookieStickinessPolicyOutput {}
+export interface CreateAppCookieStickinessPolicyOutput {
+}
 export type CreatedTime = Date | string;
 
 export interface CreateLBCookieStickinessPolicyInput {
@@ -365,19 +310,22 @@ export interface CreateLBCookieStickinessPolicyInput {
   PolicyName: string;
   CookieExpirationPeriod?: number;
 }
-export interface CreateLBCookieStickinessPolicyOutput {}
+export interface CreateLBCookieStickinessPolicyOutput {
+}
 export interface CreateLoadBalancerListenerInput {
   LoadBalancerName: string;
   Listeners: Array<Listener>;
 }
-export interface CreateLoadBalancerListenerOutput {}
+export interface CreateLoadBalancerListenerOutput {
+}
 export interface CreateLoadBalancerPolicyInput {
   LoadBalancerName: string;
   PolicyName: string;
   PolicyTypeName: string;
   PolicyAttributes?: Array<PolicyAttribute>;
 }
-export interface CreateLoadBalancerPolicyOutput {}
+export interface CreateLoadBalancerPolicyOutput {
+}
 export interface CrossZoneLoadBalancing {
   Enabled: boolean;
 }
@@ -388,17 +336,20 @@ export type DefaultValue = string;
 export interface DeleteAccessPointInput {
   LoadBalancerName: string;
 }
-export interface DeleteAccessPointOutput {}
+export interface DeleteAccessPointOutput {
+}
 export interface DeleteLoadBalancerListenerInput {
   LoadBalancerName: string;
   LoadBalancerPorts: Array<number>;
 }
-export interface DeleteLoadBalancerListenerOutput {}
+export interface DeleteLoadBalancerListenerOutput {
+}
 export interface DeleteLoadBalancerPolicyInput {
   LoadBalancerName: string;
   PolicyName: string;
 }
-export interface DeleteLoadBalancerPolicyOutput {}
+export interface DeleteLoadBalancerPolicyOutput {
+}
 export declare class DependencyThrottleException extends EffectData.TaggedError(
   "DependencyThrottleException",
 )<{
@@ -658,8 +609,7 @@ export interface PolicyAttributeTypeDescription {
   DefaultValue?: string;
   Cardinality?: string;
 }
-export type PolicyAttributeTypeDescriptions =
-  Array<PolicyAttributeTypeDescription>;
+export type PolicyAttributeTypeDescriptions = Array<PolicyAttributeTypeDescription>;
 export interface PolicyDescription {
   PolicyName?: string;
   PolicyTypeName?: string;
@@ -711,7 +661,8 @@ export interface RemoveTagsInput {
   LoadBalancerNames: Array<string>;
   Tags: Array<TagKeyOnly>;
 }
-export interface RemoveTagsOutput {}
+export interface RemoveTagsOutput {
+}
 export type S3BucketName = string;
 
 export type SecurityGroupId = string;
@@ -726,19 +677,22 @@ export interface SetLoadBalancerListenerSSLCertificateInput {
   LoadBalancerPort: number;
   SSLCertificateId: string;
 }
-export interface SetLoadBalancerListenerSSLCertificateOutput {}
+export interface SetLoadBalancerListenerSSLCertificateOutput {
+}
 export interface SetLoadBalancerPoliciesForBackendServerInput {
   LoadBalancerName: string;
   InstancePort: number;
   PolicyNames: Array<string>;
 }
-export interface SetLoadBalancerPoliciesForBackendServerOutput {}
+export interface SetLoadBalancerPoliciesForBackendServerOutput {
+}
 export interface SetLoadBalancerPoliciesOfListenerInput {
   LoadBalancerName: string;
   LoadBalancerPort: number;
   PolicyNames: Array<string>;
 }
-export interface SetLoadBalancerPoliciesOfListenerOutput {}
+export interface SetLoadBalancerPoliciesOfListenerOutput {
+}
 export interface SourceSecurityGroup {
   OwnerAlias?: string;
   GroupName?: string;
@@ -831,7 +785,9 @@ export declare namespace AttachLoadBalancerToSubnets {
 export declare namespace ConfigureHealthCheck {
   export type Input = ConfigureHealthCheckInput;
   export type Output = ConfigureHealthCheckOutput;
-  export type Error = AccessPointNotFoundException | CommonAwsError;
+  export type Error =
+    | AccessPointNotFoundException
+    | CommonAwsError;
 }
 
 export declare namespace CreateAppCookieStickinessPolicy {
@@ -902,13 +858,16 @@ export declare namespace CreateLoadBalancerPolicy {
 export declare namespace DeleteLoadBalancer {
   export type Input = DeleteAccessPointInput;
   export type Output = DeleteAccessPointOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteLoadBalancerListeners {
   export type Input = DeleteLoadBalancerListenerInput;
   export type Output = DeleteLoadBalancerListenerOutput;
-  export type Error = AccessPointNotFoundException | CommonAwsError;
+  export type Error =
+    | AccessPointNotFoundException
+    | CommonAwsError;
 }
 
 export declare namespace DeleteLoadBalancerPolicy {
@@ -932,7 +891,8 @@ export declare namespace DeregisterInstancesFromLoadBalancer {
 export declare namespace DescribeAccountLimits {
   export type Input = DescribeAccountLimitsInput;
   export type Output = DescribeAccountLimitsOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeInstanceHealth {
@@ -965,7 +925,9 @@ export declare namespace DescribeLoadBalancerPolicies {
 export declare namespace DescribeLoadBalancerPolicyTypes {
   export type Input = DescribeLoadBalancerPolicyTypesInput;
   export type Output = DescribeLoadBalancerPolicyTypesOutput;
-  export type Error = PolicyTypeNotFoundException | CommonAwsError;
+  export type Error =
+    | PolicyTypeNotFoundException
+    | CommonAwsError;
 }
 
 export declare namespace DescribeLoadBalancers {
@@ -980,7 +942,9 @@ export declare namespace DescribeLoadBalancers {
 export declare namespace DescribeTags {
   export type Input = DescribeTagsInput;
   export type Output = DescribeTagsOutput;
-  export type Error = AccessPointNotFoundException | CommonAwsError;
+  export type Error =
+    | AccessPointNotFoundException
+    | CommonAwsError;
 }
 
 export declare namespace DetachLoadBalancerFromSubnets {
@@ -1004,7 +968,9 @@ export declare namespace DisableAvailabilityZonesForLoadBalancer {
 export declare namespace EnableAvailabilityZonesForLoadBalancer {
   export type Input = AddAvailabilityZonesInput;
   export type Output = AddAvailabilityZonesOutput;
-  export type Error = AccessPointNotFoundException | CommonAwsError;
+  export type Error =
+    | AccessPointNotFoundException
+    | CommonAwsError;
 }
 
 export declare namespace ModifyLoadBalancerAttributes {
@@ -1029,7 +995,9 @@ export declare namespace RegisterInstancesWithLoadBalancer {
 export declare namespace RemoveTags {
   export type Input = RemoveTagsInput;
   export type Output = RemoveTagsOutput;
-  export type Error = AccessPointNotFoundException | CommonAwsError;
+  export type Error =
+    | AccessPointNotFoundException
+    | CommonAwsError;
 }
 
 export declare namespace SetLoadBalancerListenerSSLCertificate {
@@ -1064,3 +1032,4 @@ export declare namespace SetLoadBalancerPoliciesOfListener {
     | PolicyNotFoundException
     | CommonAwsError;
 }
+

@@ -5,23 +5,7 @@ import type { SageMakerRuntime as _SageMakerRuntimeClient } from "./types.ts";
 
 export * from "./types.ts";
 
-export {
-  AccessDeniedException,
-  ExpiredTokenException,
-  IncompleteSignature,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ThrottlingException,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationException,
-  type CommonAwsError,
-} from "../../error.ts";
+export {AccessDeniedException, ExpiredTokenException, IncompleteSignature, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationException, type CommonAwsError} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -31,31 +15,31 @@ const metadata = {
   sigV4ServiceName: "sagemaker",
   endpointPrefix: "runtime.sagemaker",
   operations: {
-    InvokeEndpoint: {
+    "InvokeEndpoint": {
       http: "POST /endpoints/{EndpointName}/invocations",
       traits: {
-        Body: "httpPayload",
-        ContentType: "Content-Type",
-        InvokedProductionVariant: "x-Amzn-Invoked-Production-Variant",
-        CustomAttributes: "X-Amzn-SageMaker-Custom-Attributes",
-        NewSessionId: "X-Amzn-SageMaker-New-Session-Id",
-        ClosedSessionId: "X-Amzn-SageMaker-Closed-Session-Id",
+        "Body": "httpPayload",
+        "ContentType": "Content-Type",
+        "InvokedProductionVariant": "x-Amzn-Invoked-Production-Variant",
+        "CustomAttributes": "X-Amzn-SageMaker-Custom-Attributes",
+        "NewSessionId": "X-Amzn-SageMaker-New-Session-Id",
+        "ClosedSessionId": "X-Amzn-SageMaker-Closed-Session-Id",
       },
     },
-    InvokeEndpointAsync: {
+    "InvokeEndpointAsync": {
       http: "POST /endpoints/{EndpointName}/async-invocations",
       traits: {
-        OutputLocation: "X-Amzn-SageMaker-OutputLocation",
-        FailureLocation: "X-Amzn-SageMaker-FailureLocation",
+        "OutputLocation": "X-Amzn-SageMaker-OutputLocation",
+        "FailureLocation": "X-Amzn-SageMaker-FailureLocation",
       },
     },
-    InvokeEndpointWithResponseStream: {
+    "InvokeEndpointWithResponseStream": {
       http: "POST /endpoints/{EndpointName}/invocations-response-stream",
       traits: {
-        Body: "httpStreaming",
-        ContentType: "X-Amzn-SageMaker-Content-Type",
-        InvokedProductionVariant: "x-Amzn-Invoked-Production-Variant",
-        CustomAttributes: "X-Amzn-SageMaker-Custom-Attributes",
+        "Body": "httpStreaming",
+        "ContentType": "X-Amzn-SageMaker-Content-Type",
+        "InvokedProductionVariant": "x-Amzn-Invoked-Production-Variant",
+        "CustomAttributes": "X-Amzn-SageMaker-Custom-Attributes",
       },
     },
   },

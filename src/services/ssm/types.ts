@@ -1,38 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-} from "../../error.ts";
-type CommonAwsError =
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | AccessDeniedException
-  | ThrottlingException
-  | ValidationException;
+import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
+type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class SSM extends AWSServiceClient {
@@ -40,34 +8,19 @@ export declare class SSM extends AWSServiceClient {
     input: AddTagsToResourceRequest,
   ): Effect.Effect<
     AddTagsToResourceResult,
-    | InternalServerError
-    | InvalidResourceId
-    | InvalidResourceType
-    | TooManyTagsError
-    | TooManyUpdates
-    | CommonAwsError
+    InternalServerError | InvalidResourceId | InvalidResourceType | TooManyTagsError | TooManyUpdates | CommonAwsError
   >;
   associateOpsItemRelatedItem(
     input: AssociateOpsItemRelatedItemRequest,
   ): Effect.Effect<
     AssociateOpsItemRelatedItemResponse,
-    | InternalServerError
-    | OpsItemConflictException
-    | OpsItemInvalidParameterException
-    | OpsItemLimitExceededException
-    | OpsItemNotFoundException
-    | OpsItemRelatedItemAlreadyExistsException
-    | CommonAwsError
+    InternalServerError | OpsItemConflictException | OpsItemInvalidParameterException | OpsItemLimitExceededException | OpsItemNotFoundException | OpsItemRelatedItemAlreadyExistsException | CommonAwsError
   >;
   cancelCommand(
     input: CancelCommandRequest,
   ): Effect.Effect<
     CancelCommandResult,
-    | DuplicateInstanceId
-    | InternalServerError
-    | InvalidCommandId
-    | InvalidInstanceId
-    | CommonAwsError
+    DuplicateInstanceId | InternalServerError | InvalidCommandId | InvalidInstanceId | CommonAwsError
   >;
   cancelMaintenanceWindowExecution(
     input: CancelMaintenanceWindowExecutionRequest,
@@ -85,144 +38,73 @@ export declare class SSM extends AWSServiceClient {
     input: CreateAssociationRequest,
   ): Effect.Effect<
     CreateAssociationResult,
-    | AssociationAlreadyExists
-    | AssociationLimitExceeded
-    | InternalServerError
-    | InvalidDocument
-    | InvalidDocumentVersion
-    | InvalidInstanceId
-    | InvalidOutputLocation
-    | InvalidParameters
-    | InvalidSchedule
-    | InvalidTag
-    | InvalidTarget
-    | InvalidTargetMaps
-    | UnsupportedPlatformType
-    | CommonAwsError
+    AssociationAlreadyExists | AssociationLimitExceeded | InternalServerError | InvalidDocument | InvalidDocumentVersion | InvalidInstanceId | InvalidOutputLocation | InvalidParameters | InvalidSchedule | InvalidTag | InvalidTarget | InvalidTargetMaps | UnsupportedPlatformType | CommonAwsError
   >;
   createAssociationBatch(
     input: CreateAssociationBatchRequest,
   ): Effect.Effect<
     CreateAssociationBatchResult,
-    | AssociationLimitExceeded
-    | DuplicateInstanceId
-    | InternalServerError
-    | InvalidDocument
-    | InvalidDocumentVersion
-    | InvalidInstanceId
-    | InvalidOutputLocation
-    | InvalidParameters
-    | InvalidSchedule
-    | InvalidTarget
-    | InvalidTargetMaps
-    | UnsupportedPlatformType
-    | CommonAwsError
+    AssociationLimitExceeded | DuplicateInstanceId | InternalServerError | InvalidDocument | InvalidDocumentVersion | InvalidInstanceId | InvalidOutputLocation | InvalidParameters | InvalidSchedule | InvalidTarget | InvalidTargetMaps | UnsupportedPlatformType | CommonAwsError
   >;
   createDocument(
     input: CreateDocumentRequest,
   ): Effect.Effect<
     CreateDocumentResult,
-    | DocumentAlreadyExists
-    | DocumentLimitExceeded
-    | InternalServerError
-    | InvalidDocumentContent
-    | InvalidDocumentSchemaVersion
-    | MaxDocumentSizeExceeded
-    | TooManyUpdates
-    | CommonAwsError
+    DocumentAlreadyExists | DocumentLimitExceeded | InternalServerError | InvalidDocumentContent | InvalidDocumentSchemaVersion | MaxDocumentSizeExceeded | TooManyUpdates | CommonAwsError
   >;
   createMaintenanceWindow(
     input: CreateMaintenanceWindowRequest,
   ): Effect.Effect<
     CreateMaintenanceWindowResult,
-    | IdempotentParameterMismatch
-    | InternalServerError
-    | ResourceLimitExceededException
-    | CommonAwsError
+    IdempotentParameterMismatch | InternalServerError | ResourceLimitExceededException | CommonAwsError
   >;
   createOpsItem(
     input: CreateOpsItemRequest,
   ): Effect.Effect<
     CreateOpsItemResponse,
-    | InternalServerError
-    | OpsItemAccessDeniedException
-    | OpsItemAlreadyExistsException
-    | OpsItemInvalidParameterException
-    | OpsItemLimitExceededException
-    | CommonAwsError
+    InternalServerError | OpsItemAccessDeniedException | OpsItemAlreadyExistsException | OpsItemInvalidParameterException | OpsItemLimitExceededException | CommonAwsError
   >;
   createOpsMetadata(
     input: CreateOpsMetadataRequest,
   ): Effect.Effect<
     CreateOpsMetadataResult,
-    | InternalServerError
-    | OpsMetadataAlreadyExistsException
-    | OpsMetadataInvalidArgumentException
-    | OpsMetadataLimitExceededException
-    | OpsMetadataTooManyUpdatesException
-    | CommonAwsError
+    InternalServerError | OpsMetadataAlreadyExistsException | OpsMetadataInvalidArgumentException | OpsMetadataLimitExceededException | OpsMetadataTooManyUpdatesException | CommonAwsError
   >;
   createPatchBaseline(
     input: CreatePatchBaselineRequest,
   ): Effect.Effect<
     CreatePatchBaselineResult,
-    | IdempotentParameterMismatch
-    | InternalServerError
-    | ResourceLimitExceededException
-    | CommonAwsError
+    IdempotentParameterMismatch | InternalServerError | ResourceLimitExceededException | CommonAwsError
   >;
   createResourceDataSync(
     input: CreateResourceDataSyncRequest,
   ): Effect.Effect<
     CreateResourceDataSyncResult,
-    | InternalServerError
-    | ResourceDataSyncAlreadyExistsException
-    | ResourceDataSyncCountExceededException
-    | ResourceDataSyncInvalidConfigurationException
-    | CommonAwsError
+    InternalServerError | ResourceDataSyncAlreadyExistsException | ResourceDataSyncCountExceededException | ResourceDataSyncInvalidConfigurationException | CommonAwsError
   >;
   deleteActivation(
     input: DeleteActivationRequest,
   ): Effect.Effect<
     DeleteActivationResult,
-    | InternalServerError
-    | InvalidActivation
-    | InvalidActivationId
-    | TooManyUpdates
-    | CommonAwsError
+    InternalServerError | InvalidActivation | InvalidActivationId | TooManyUpdates | CommonAwsError
   >;
   deleteAssociation(
     input: DeleteAssociationRequest,
   ): Effect.Effect<
     DeleteAssociationResult,
-    | AssociationDoesNotExist
-    | InternalServerError
-    | InvalidDocument
-    | InvalidInstanceId
-    | TooManyUpdates
-    | CommonAwsError
+    AssociationDoesNotExist | InternalServerError | InvalidDocument | InvalidInstanceId | TooManyUpdates | CommonAwsError
   >;
   deleteDocument(
     input: DeleteDocumentRequest,
   ): Effect.Effect<
     DeleteDocumentResult,
-    | AssociatedInstances
-    | InternalServerError
-    | InvalidDocument
-    | InvalidDocumentOperation
-    | TooManyUpdates
-    | CommonAwsError
+    AssociatedInstances | InternalServerError | InvalidDocument | InvalidDocumentOperation | TooManyUpdates | CommonAwsError
   >;
   deleteInventory(
     input: DeleteInventoryRequest,
   ): Effect.Effect<
     DeleteInventoryResult,
-    | InternalServerError
-    | InvalidDeleteInventoryParametersException
-    | InvalidInventoryRequestException
-    | InvalidOptionException
-    | InvalidTypeNameException
-    | CommonAwsError
+    InternalServerError | InvalidDeleteInventoryParametersException | InvalidInventoryRequestException | InvalidOptionException | InvalidTypeNameException | CommonAwsError
   >;
   deleteMaintenanceWindow(
     input: DeleteMaintenanceWindowRequest,
@@ -240,10 +122,7 @@ export declare class SSM extends AWSServiceClient {
     input: DeleteOpsMetadataRequest,
   ): Effect.Effect<
     DeleteOpsMetadataResult,
-    | InternalServerError
-    | OpsMetadataInvalidArgumentException
-    | OpsMetadataNotFoundException
-    | CommonAwsError
+    InternalServerError | OpsMetadataInvalidArgumentException | OpsMetadataNotFoundException | CommonAwsError
   >;
   deleteParameter(
     input: DeleteParameterRequest,
@@ -267,22 +146,13 @@ export declare class SSM extends AWSServiceClient {
     input: DeleteResourceDataSyncRequest,
   ): Effect.Effect<
     DeleteResourceDataSyncResult,
-    | InternalServerError
-    | ResourceDataSyncInvalidConfigurationException
-    | ResourceDataSyncNotFoundException
-    | CommonAwsError
+    InternalServerError | ResourceDataSyncInvalidConfigurationException | ResourceDataSyncNotFoundException | CommonAwsError
   >;
   deleteResourcePolicy(
     input: DeleteResourcePolicyRequest,
   ): Effect.Effect<
     DeleteResourcePolicyResponse,
-    | InternalServerError
-    | MalformedResourcePolicyDocumentException
-    | ResourceNotFoundException
-    | ResourcePolicyConflictException
-    | ResourcePolicyInvalidParameterException
-    | ResourcePolicyNotFoundException
-    | CommonAwsError
+    InternalServerError | MalformedResourcePolicyDocumentException | ResourceNotFoundException | ResourcePolicyConflictException | ResourcePolicyInvalidParameterException | ResourcePolicyNotFoundException | CommonAwsError
   >;
   deregisterManagedInstance(
     input: DeregisterManagedInstanceRequest,
@@ -300,10 +170,7 @@ export declare class SSM extends AWSServiceClient {
     input: DeregisterTargetFromMaintenanceWindowRequest,
   ): Effect.Effect<
     DeregisterTargetFromMaintenanceWindowResult,
-    | DoesNotExistException
-    | InternalServerError
-    | TargetInUseException
-    | CommonAwsError
+    DoesNotExistException | InternalServerError | TargetInUseException | CommonAwsError
   >;
   deregisterTaskFromMaintenanceWindow(
     input: DeregisterTaskFromMaintenanceWindowRequest,
@@ -321,52 +188,31 @@ export declare class SSM extends AWSServiceClient {
     input: DescribeAssociationRequest,
   ): Effect.Effect<
     DescribeAssociationResult,
-    | AssociationDoesNotExist
-    | InternalServerError
-    | InvalidAssociationVersion
-    | InvalidDocument
-    | InvalidInstanceId
-    | CommonAwsError
+    AssociationDoesNotExist | InternalServerError | InvalidAssociationVersion | InvalidDocument | InvalidInstanceId | CommonAwsError
   >;
   describeAssociationExecutions(
     input: DescribeAssociationExecutionsRequest,
   ): Effect.Effect<
     DescribeAssociationExecutionsResult,
-    | AssociationDoesNotExist
-    | InternalServerError
-    | InvalidNextToken
-    | CommonAwsError
+    AssociationDoesNotExist | InternalServerError | InvalidNextToken | CommonAwsError
   >;
   describeAssociationExecutionTargets(
     input: DescribeAssociationExecutionTargetsRequest,
   ): Effect.Effect<
     DescribeAssociationExecutionTargetsResult,
-    | AssociationDoesNotExist
-    | AssociationExecutionDoesNotExist
-    | InternalServerError
-    | InvalidNextToken
-    | CommonAwsError
+    AssociationDoesNotExist | AssociationExecutionDoesNotExist | InternalServerError | InvalidNextToken | CommonAwsError
   >;
   describeAutomationExecutions(
     input: DescribeAutomationExecutionsRequest,
   ): Effect.Effect<
     DescribeAutomationExecutionsResult,
-    | InternalServerError
-    | InvalidFilterKey
-    | InvalidFilterValue
-    | InvalidNextToken
-    | CommonAwsError
+    InternalServerError | InvalidFilterKey | InvalidFilterValue | InvalidNextToken | CommonAwsError
   >;
   describeAutomationStepExecutions(
     input: DescribeAutomationStepExecutionsRequest,
   ): Effect.Effect<
     DescribeAutomationStepExecutionsResult,
-    | AutomationExecutionNotFoundException
-    | InternalServerError
-    | InvalidFilterKey
-    | InvalidFilterValue
-    | InvalidNextToken
-    | CommonAwsError
+    AutomationExecutionNotFoundException | InternalServerError | InvalidFilterKey | InvalidFilterValue | InvalidNextToken | CommonAwsError
   >;
   describeAvailablePatches(
     input: DescribeAvailablePatchesRequest,
@@ -378,21 +224,13 @@ export declare class SSM extends AWSServiceClient {
     input: DescribeDocumentRequest,
   ): Effect.Effect<
     DescribeDocumentResult,
-    | InternalServerError
-    | InvalidDocument
-    | InvalidDocumentVersion
-    | CommonAwsError
+    InternalServerError | InvalidDocument | InvalidDocumentVersion | CommonAwsError
   >;
   describeDocumentPermission(
     input: DescribeDocumentPermissionRequest,
   ): Effect.Effect<
     DescribeDocumentPermissionResponse,
-    | InternalServerError
-    | InvalidDocument
-    | InvalidDocumentOperation
-    | InvalidNextToken
-    | InvalidPermissionType
-    | CommonAwsError
+    InternalServerError | InvalidDocument | InvalidDocumentOperation | InvalidNextToken | InvalidPermissionType | CommonAwsError
   >;
   describeEffectiveInstanceAssociations(
     input: DescribeEffectiveInstanceAssociationsRequest,
@@ -404,11 +242,7 @@ export declare class SSM extends AWSServiceClient {
     input: DescribeEffectivePatchesForPatchBaselineRequest,
   ): Effect.Effect<
     DescribeEffectivePatchesForPatchBaselineResult,
-    | DoesNotExistException
-    | InternalServerError
-    | InvalidResourceId
-    | UnsupportedOperatingSystem
-    | CommonAwsError
+    DoesNotExistException | InternalServerError | InvalidResourceId | UnsupportedOperatingSystem | CommonAwsError
   >;
   describeInstanceAssociationsStatus(
     input: DescribeInstanceAssociationsStatusRequest,
@@ -420,22 +254,13 @@ export declare class SSM extends AWSServiceClient {
     input: DescribeInstanceInformationRequest,
   ): Effect.Effect<
     DescribeInstanceInformationResult,
-    | InternalServerError
-    | InvalidFilterKey
-    | InvalidInstanceId
-    | InvalidInstanceInformationFilterValue
-    | InvalidNextToken
-    | CommonAwsError
+    InternalServerError | InvalidFilterKey | InvalidInstanceId | InvalidInstanceInformationFilterValue | InvalidNextToken | CommonAwsError
   >;
   describeInstancePatches(
     input: DescribeInstancePatchesRequest,
   ): Effect.Effect<
     DescribeInstancePatchesResult,
-    | InternalServerError
-    | InvalidFilter
-    | InvalidInstanceId
-    | InvalidNextToken
-    | CommonAwsError
+    InternalServerError | InvalidFilter | InvalidInstanceId | InvalidNextToken | CommonAwsError
   >;
   describeInstancePatchStates(
     input: DescribeInstancePatchStatesRequest,
@@ -453,23 +278,13 @@ export declare class SSM extends AWSServiceClient {
     input: DescribeInstancePropertiesRequest,
   ): Effect.Effect<
     DescribeInstancePropertiesResult,
-    | InternalServerError
-    | InvalidActivationId
-    | InvalidDocument
-    | InvalidFilterKey
-    | InvalidInstanceId
-    | InvalidInstancePropertyFilterValue
-    | InvalidNextToken
-    | CommonAwsError
+    InternalServerError | InvalidActivationId | InvalidDocument | InvalidFilterKey | InvalidInstanceId | InvalidInstancePropertyFilterValue | InvalidNextToken | CommonAwsError
   >;
   describeInventoryDeletions(
     input: DescribeInventoryDeletionsRequest,
   ): Effect.Effect<
     DescribeInventoryDeletionsResult,
-    | InternalServerError
-    | InvalidDeletionIdException
-    | InvalidNextToken
-    | CommonAwsError
+    InternalServerError | InvalidDeletionIdException | InvalidNextToken | CommonAwsError
   >;
   describeMaintenanceWindowExecutions(
     input: DescribeMaintenanceWindowExecutionsRequest,
@@ -529,12 +344,7 @@ export declare class SSM extends AWSServiceClient {
     input: DescribeParametersRequest,
   ): Effect.Effect<
     DescribeParametersResult,
-    | InternalServerError
-    | InvalidFilterKey
-    | InvalidFilterOption
-    | InvalidFilterValue
-    | InvalidNextToken
-    | CommonAwsError
+    InternalServerError | InvalidFilterKey | InvalidFilterOption | InvalidFilterValue | InvalidNextToken | CommonAwsError
   >;
   describePatchBaselines(
     input: DescribePatchBaselinesRequest,
@@ -570,23 +380,13 @@ export declare class SSM extends AWSServiceClient {
     input: DisassociateOpsItemRelatedItemRequest,
   ): Effect.Effect<
     DisassociateOpsItemRelatedItemResponse,
-    | InternalServerError
-    | OpsItemConflictException
-    | OpsItemInvalidParameterException
-    | OpsItemNotFoundException
-    | OpsItemRelatedItemAssociationNotFoundException
-    | CommonAwsError
+    InternalServerError | OpsItemConflictException | OpsItemInvalidParameterException | OpsItemNotFoundException | OpsItemRelatedItemAssociationNotFoundException | CommonAwsError
   >;
   getAccessToken(
     input: GetAccessTokenRequest,
   ): Effect.Effect<
     GetAccessTokenResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getAutomationExecution(
     input: GetAutomationExecutionRequest,
@@ -598,22 +398,13 @@ export declare class SSM extends AWSServiceClient {
     input: GetCalendarStateRequest,
   ): Effect.Effect<
     GetCalendarStateResponse,
-    | InternalServerError
-    | InvalidDocument
-    | InvalidDocumentType
-    | UnsupportedCalendarException
-    | CommonAwsError
+    InternalServerError | InvalidDocument | InvalidDocumentType | UnsupportedCalendarException | CommonAwsError
   >;
   getCommandInvocation(
     input: GetCommandInvocationRequest,
   ): Effect.Effect<
     GetCommandInvocationResult,
-    | InternalServerError
-    | InvalidCommandId
-    | InvalidInstanceId
-    | InvalidPluginName
-    | InvocationDoesNotExist
-    | CommonAwsError
+    InternalServerError | InvalidCommandId | InvalidInstanceId | InvalidPluginName | InvocationDoesNotExist | CommonAwsError
   >;
   getConnectionStatus(
     input: GetConnectionStatusRequest,
@@ -631,19 +422,13 @@ export declare class SSM extends AWSServiceClient {
     input: GetDeployablePatchSnapshotForInstanceRequest,
   ): Effect.Effect<
     GetDeployablePatchSnapshotForInstanceResult,
-    | InternalServerError
-    | UnsupportedFeatureRequiredException
-    | UnsupportedOperatingSystem
-    | CommonAwsError
+    InternalServerError | UnsupportedFeatureRequiredException | UnsupportedOperatingSystem | CommonAwsError
   >;
   getDocument(
     input: GetDocumentRequest,
   ): Effect.Effect<
     GetDocumentResult,
-    | InternalServerError
-    | InvalidDocument
-    | InvalidDocumentVersion
-    | CommonAwsError
+    InternalServerError | InvalidDocument | InvalidDocumentVersion | CommonAwsError
   >;
   getExecutionPreview(
     input: GetExecutionPreviewRequest,
@@ -655,23 +440,13 @@ export declare class SSM extends AWSServiceClient {
     input: GetInventoryRequest,
   ): Effect.Effect<
     GetInventoryResult,
-    | InternalServerError
-    | InvalidAggregatorException
-    | InvalidFilter
-    | InvalidInventoryGroupException
-    | InvalidNextToken
-    | InvalidResultAttributeException
-    | InvalidTypeNameException
-    | CommonAwsError
+    InternalServerError | InvalidAggregatorException | InvalidFilter | InvalidInventoryGroupException | InvalidNextToken | InvalidResultAttributeException | InvalidTypeNameException | CommonAwsError
   >;
   getInventorySchema(
     input: GetInventorySchemaRequest,
   ): Effect.Effect<
     GetInventorySchemaResult,
-    | InternalServerError
-    | InvalidNextToken
-    | InvalidTypeNameException
-    | CommonAwsError
+    InternalServerError | InvalidNextToken | InvalidTypeNameException | CommonAwsError
   >;
   getMaintenanceWindow(
     input: GetMaintenanceWindowRequest,
@@ -707,51 +482,31 @@ export declare class SSM extends AWSServiceClient {
     input: GetOpsItemRequest,
   ): Effect.Effect<
     GetOpsItemResponse,
-    | InternalServerError
-    | OpsItemAccessDeniedException
-    | OpsItemNotFoundException
-    | CommonAwsError
+    InternalServerError | OpsItemAccessDeniedException | OpsItemNotFoundException | CommonAwsError
   >;
   getOpsMetadata(
     input: GetOpsMetadataRequest,
   ): Effect.Effect<
     GetOpsMetadataResult,
-    | InternalServerError
-    | OpsMetadataInvalidArgumentException
-    | OpsMetadataNotFoundException
-    | CommonAwsError
+    InternalServerError | OpsMetadataInvalidArgumentException | OpsMetadataNotFoundException | CommonAwsError
   >;
   getOpsSummary(
     input: GetOpsSummaryRequest,
   ): Effect.Effect<
     GetOpsSummaryResult,
-    | InternalServerError
-    | InvalidAggregatorException
-    | InvalidFilter
-    | InvalidNextToken
-    | InvalidTypeNameException
-    | ResourceDataSyncNotFoundException
-    | CommonAwsError
+    InternalServerError | InvalidAggregatorException | InvalidFilter | InvalidNextToken | InvalidTypeNameException | ResourceDataSyncNotFoundException | CommonAwsError
   >;
   getParameter(
     input: GetParameterRequest,
   ): Effect.Effect<
     GetParameterResult,
-    | InternalServerError
-    | InvalidKeyId
-    | ParameterNotFound
-    | ParameterVersionNotFound
-    | CommonAwsError
+    InternalServerError | InvalidKeyId | ParameterNotFound | ParameterVersionNotFound | CommonAwsError
   >;
   getParameterHistory(
     input: GetParameterHistoryRequest,
   ): Effect.Effect<
     GetParameterHistoryResult,
-    | InternalServerError
-    | InvalidKeyId
-    | InvalidNextToken
-    | ParameterNotFound
-    | CommonAwsError
+    InternalServerError | InvalidKeyId | InvalidNextToken | ParameterNotFound | CommonAwsError
   >;
   getParameters(
     input: GetParametersRequest,
@@ -763,22 +518,13 @@ export declare class SSM extends AWSServiceClient {
     input: GetParametersByPathRequest,
   ): Effect.Effect<
     GetParametersByPathResult,
-    | InternalServerError
-    | InvalidFilterKey
-    | InvalidFilterOption
-    | InvalidFilterValue
-    | InvalidKeyId
-    | InvalidNextToken
-    | CommonAwsError
+    InternalServerError | InvalidFilterKey | InvalidFilterOption | InvalidFilterValue | InvalidKeyId | InvalidNextToken | CommonAwsError
   >;
   getPatchBaseline(
     input: GetPatchBaselineRequest,
   ): Effect.Effect<
     GetPatchBaselineResult,
-    | DoesNotExistException
-    | InternalServerError
-    | InvalidResourceId
-    | CommonAwsError
+    DoesNotExistException | InternalServerError | InvalidResourceId | CommonAwsError
   >;
   getPatchBaselineForPatchGroup(
     input: GetPatchBaselineForPatchGroupRequest,
@@ -790,10 +536,7 @@ export declare class SSM extends AWSServiceClient {
     input: GetResourcePoliciesRequest,
   ): Effect.Effect<
     GetResourcePoliciesResponse,
-    | InternalServerError
-    | ResourceNotFoundException
-    | ResourcePolicyInvalidParameterException
-    | CommonAwsError
+    InternalServerError | ResourceNotFoundException | ResourcePolicyInvalidParameterException | CommonAwsError
   >;
   getServiceSetting(
     input: GetServiceSettingRequest,
@@ -805,12 +548,7 @@ export declare class SSM extends AWSServiceClient {
     input: LabelParameterVersionRequest,
   ): Effect.Effect<
     LabelParameterVersionResult,
-    | InternalServerError
-    | ParameterNotFound
-    | ParameterVersionLabelLimitExceeded
-    | ParameterVersionNotFound
-    | TooManyUpdates
-    | CommonAwsError
+    InternalServerError | ParameterNotFound | ParameterVersionLabelLimitExceeded | ParameterVersionNotFound | TooManyUpdates | CommonAwsError
   >;
   listAssociations(
     input: ListAssociationsRequest,
@@ -822,43 +560,25 @@ export declare class SSM extends AWSServiceClient {
     input: ListAssociationVersionsRequest,
   ): Effect.Effect<
     ListAssociationVersionsResult,
-    | AssociationDoesNotExist
-    | InternalServerError
-    | InvalidNextToken
-    | CommonAwsError
+    AssociationDoesNotExist | InternalServerError | InvalidNextToken | CommonAwsError
   >;
   listCommandInvocations(
     input: ListCommandInvocationsRequest,
   ): Effect.Effect<
     ListCommandInvocationsResult,
-    | InternalServerError
-    | InvalidCommandId
-    | InvalidFilterKey
-    | InvalidInstanceId
-    | InvalidNextToken
-    | CommonAwsError
+    InternalServerError | InvalidCommandId | InvalidFilterKey | InvalidInstanceId | InvalidNextToken | CommonAwsError
   >;
   listCommands(
     input: ListCommandsRequest,
   ): Effect.Effect<
     ListCommandsResult,
-    | InternalServerError
-    | InvalidCommandId
-    | InvalidFilterKey
-    | InvalidInstanceId
-    | InvalidNextToken
-    | CommonAwsError
+    InternalServerError | InvalidCommandId | InvalidFilterKey | InvalidInstanceId | InvalidNextToken | CommonAwsError
   >;
   listComplianceItems(
     input: ListComplianceItemsRequest,
   ): Effect.Effect<
     ListComplianceItemsResult,
-    | InternalServerError
-    | InvalidFilter
-    | InvalidNextToken
-    | InvalidResourceId
-    | InvalidResourceType
-    | CommonAwsError
+    InternalServerError | InvalidFilter | InvalidNextToken | InvalidResourceId | InvalidResourceType | CommonAwsError
   >;
   listComplianceSummaries(
     input: ListComplianceSummariesRequest,
@@ -870,11 +590,7 @@ export declare class SSM extends AWSServiceClient {
     input: ListDocumentMetadataHistoryRequest,
   ): Effect.Effect<
     ListDocumentMetadataHistoryResponse,
-    | InternalServerError
-    | InvalidDocument
-    | InvalidDocumentVersion
-    | InvalidNextToken
-    | CommonAwsError
+    InternalServerError | InvalidDocument | InvalidDocumentVersion | InvalidNextToken | CommonAwsError
   >;
   listDocuments(
     input: ListDocumentsRequest,
@@ -892,45 +608,25 @@ export declare class SSM extends AWSServiceClient {
     input: ListInventoryEntriesRequest,
   ): Effect.Effect<
     ListInventoryEntriesResult,
-    | InternalServerError
-    | InvalidFilter
-    | InvalidInstanceId
-    | InvalidNextToken
-    | InvalidTypeNameException
-    | CommonAwsError
+    InternalServerError | InvalidFilter | InvalidInstanceId | InvalidNextToken | InvalidTypeNameException | CommonAwsError
   >;
   listNodes(
     input: ListNodesRequest,
   ): Effect.Effect<
     ListNodesResult,
-    | InternalServerError
-    | InvalidFilter
-    | InvalidNextToken
-    | ResourceDataSyncNotFoundException
-    | UnsupportedOperationException
-    | CommonAwsError
+    InternalServerError | InvalidFilter | InvalidNextToken | ResourceDataSyncNotFoundException | UnsupportedOperationException | CommonAwsError
   >;
   listNodesSummary(
     input: ListNodesSummaryRequest,
   ): Effect.Effect<
     ListNodesSummaryResult,
-    | InternalServerError
-    | InvalidAggregatorException
-    | InvalidFilter
-    | InvalidNextToken
-    | ResourceDataSyncNotFoundException
-    | UnsupportedOperationException
-    | CommonAwsError
+    InternalServerError | InvalidAggregatorException | InvalidFilter | InvalidNextToken | ResourceDataSyncNotFoundException | UnsupportedOperationException | CommonAwsError
   >;
   listOpsItemEvents(
     input: ListOpsItemEventsRequest,
   ): Effect.Effect<
     ListOpsItemEventsResponse,
-    | InternalServerError
-    | OpsItemInvalidParameterException
-    | OpsItemLimitExceededException
-    | OpsItemNotFoundException
-    | CommonAwsError
+    InternalServerError | OpsItemInvalidParameterException | OpsItemLimitExceededException | OpsItemNotFoundException | CommonAwsError
   >;
   listOpsItemRelatedItems(
     input: ListOpsItemRelatedItemsRequest,
@@ -954,155 +650,79 @@ export declare class SSM extends AWSServiceClient {
     input: ListResourceDataSyncRequest,
   ): Effect.Effect<
     ListResourceDataSyncResult,
-    | InternalServerError
-    | InvalidNextToken
-    | ResourceDataSyncInvalidConfigurationException
-    | CommonAwsError
+    InternalServerError | InvalidNextToken | ResourceDataSyncInvalidConfigurationException | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResult,
-    | InternalServerError
-    | InvalidResourceId
-    | InvalidResourceType
-    | CommonAwsError
+    InternalServerError | InvalidResourceId | InvalidResourceType | CommonAwsError
   >;
   modifyDocumentPermission(
     input: ModifyDocumentPermissionRequest,
   ): Effect.Effect<
     ModifyDocumentPermissionResponse,
-    | DocumentLimitExceeded
-    | DocumentPermissionLimit
-    | InternalServerError
-    | InvalidDocument
-    | InvalidPermissionType
-    | CommonAwsError
+    DocumentLimitExceeded | DocumentPermissionLimit | InternalServerError | InvalidDocument | InvalidPermissionType | CommonAwsError
   >;
   putComplianceItems(
     input: PutComplianceItemsRequest,
   ): Effect.Effect<
     PutComplianceItemsResult,
-    | ComplianceTypeCountLimitExceededException
-    | InternalServerError
-    | InvalidItemContentException
-    | InvalidResourceId
-    | InvalidResourceType
-    | ItemSizeLimitExceededException
-    | TotalSizeLimitExceededException
-    | CommonAwsError
+    ComplianceTypeCountLimitExceededException | InternalServerError | InvalidItemContentException | InvalidResourceId | InvalidResourceType | ItemSizeLimitExceededException | TotalSizeLimitExceededException | CommonAwsError
   >;
   putInventory(
     input: PutInventoryRequest,
   ): Effect.Effect<
     PutInventoryResult,
-    | CustomSchemaCountLimitExceededException
-    | InternalServerError
-    | InvalidInstanceId
-    | InvalidInventoryItemContextException
-    | InvalidItemContentException
-    | InvalidTypeNameException
-    | ItemContentMismatchException
-    | ItemSizeLimitExceededException
-    | SubTypeCountLimitExceededException
-    | TotalSizeLimitExceededException
-    | UnsupportedInventoryItemContextException
-    | UnsupportedInventorySchemaVersionException
-    | CommonAwsError
+    CustomSchemaCountLimitExceededException | InternalServerError | InvalidInstanceId | InvalidInventoryItemContextException | InvalidItemContentException | InvalidTypeNameException | ItemContentMismatchException | ItemSizeLimitExceededException | SubTypeCountLimitExceededException | TotalSizeLimitExceededException | UnsupportedInventoryItemContextException | UnsupportedInventorySchemaVersionException | CommonAwsError
   >;
   putParameter(
     input: PutParameterRequest,
   ): Effect.Effect<
     PutParameterResult,
-    | HierarchyLevelLimitExceededException
-    | HierarchyTypeMismatchException
-    | IncompatiblePolicyException
-    | InternalServerError
-    | InvalidAllowedPatternException
-    | InvalidKeyId
-    | InvalidPolicyAttributeException
-    | InvalidPolicyTypeException
-    | ParameterAlreadyExists
-    | ParameterLimitExceeded
-    | ParameterMaxVersionLimitExceeded
-    | ParameterPatternMismatchException
-    | PoliciesLimitExceededException
-    | TooManyUpdates
-    | UnsupportedParameterType
-    | CommonAwsError
+    HierarchyLevelLimitExceededException | HierarchyTypeMismatchException | IncompatiblePolicyException | InternalServerError | InvalidAllowedPatternException | InvalidKeyId | InvalidPolicyAttributeException | InvalidPolicyTypeException | ParameterAlreadyExists | ParameterLimitExceeded | ParameterMaxVersionLimitExceeded | ParameterPatternMismatchException | PoliciesLimitExceededException | TooManyUpdates | UnsupportedParameterType | CommonAwsError
   >;
   putResourcePolicy(
     input: PutResourcePolicyRequest,
   ): Effect.Effect<
     PutResourcePolicyResponse,
-    | InternalServerError
-    | MalformedResourcePolicyDocumentException
-    | ResourceNotFoundException
-    | ResourcePolicyConflictException
-    | ResourcePolicyInvalidParameterException
-    | ResourcePolicyLimitExceededException
-    | ResourcePolicyNotFoundException
-    | CommonAwsError
+    InternalServerError | MalformedResourcePolicyDocumentException | ResourceNotFoundException | ResourcePolicyConflictException | ResourcePolicyInvalidParameterException | ResourcePolicyLimitExceededException | ResourcePolicyNotFoundException | CommonAwsError
   >;
   registerDefaultPatchBaseline(
     input: RegisterDefaultPatchBaselineRequest,
   ): Effect.Effect<
     RegisterDefaultPatchBaselineResult,
-    | DoesNotExistException
-    | InternalServerError
-    | InvalidResourceId
-    | CommonAwsError
+    DoesNotExistException | InternalServerError | InvalidResourceId | CommonAwsError
   >;
   registerPatchBaselineForPatchGroup(
     input: RegisterPatchBaselineForPatchGroupRequest,
   ): Effect.Effect<
     RegisterPatchBaselineForPatchGroupResult,
-    | AlreadyExistsException
-    | DoesNotExistException
-    | InternalServerError
-    | InvalidResourceId
-    | ResourceLimitExceededException
-    | CommonAwsError
+    AlreadyExistsException | DoesNotExistException | InternalServerError | InvalidResourceId | ResourceLimitExceededException | CommonAwsError
   >;
   registerTargetWithMaintenanceWindow(
     input: RegisterTargetWithMaintenanceWindowRequest,
   ): Effect.Effect<
     RegisterTargetWithMaintenanceWindowResult,
-    | DoesNotExistException
-    | IdempotentParameterMismatch
-    | InternalServerError
-    | ResourceLimitExceededException
-    | CommonAwsError
+    DoesNotExistException | IdempotentParameterMismatch | InternalServerError | ResourceLimitExceededException | CommonAwsError
   >;
   registerTaskWithMaintenanceWindow(
     input: RegisterTaskWithMaintenanceWindowRequest,
   ): Effect.Effect<
     RegisterTaskWithMaintenanceWindowResult,
-    | DoesNotExistException
-    | FeatureNotAvailableException
-    | IdempotentParameterMismatch
-    | InternalServerError
-    | ResourceLimitExceededException
-    | CommonAwsError
+    DoesNotExistException | FeatureNotAvailableException | IdempotentParameterMismatch | InternalServerError | ResourceLimitExceededException | CommonAwsError
   >;
   removeTagsFromResource(
     input: RemoveTagsFromResourceRequest,
   ): Effect.Effect<
     RemoveTagsFromResourceResult,
-    | InternalServerError
-    | InvalidResourceId
-    | InvalidResourceType
-    | TooManyUpdates
-    | CommonAwsError
+    InternalServerError | InvalidResourceId | InvalidResourceType | TooManyUpdates | CommonAwsError
   >;
   resetServiceSetting(
     input: ResetServiceSettingRequest,
   ): Effect.Effect<
     ResetServiceSettingResult,
-    | InternalServerError
-    | ServiceSettingNotFound
-    | TooManyUpdates
-    | CommonAwsError
+    InternalServerError | ServiceSettingNotFound | TooManyUpdates | CommonAwsError
   >;
   resumeSession(
     input: ResumeSessionRequest,
@@ -1114,40 +734,19 @@ export declare class SSM extends AWSServiceClient {
     input: SendAutomationSignalRequest,
   ): Effect.Effect<
     SendAutomationSignalResult,
-    | AutomationExecutionNotFoundException
-    | AutomationStepNotFoundException
-    | InternalServerError
-    | InvalidAutomationSignalException
-    | CommonAwsError
+    AutomationExecutionNotFoundException | AutomationStepNotFoundException | InternalServerError | InvalidAutomationSignalException | CommonAwsError
   >;
   sendCommand(
     input: SendCommandRequest,
   ): Effect.Effect<
     SendCommandResult,
-    | DuplicateInstanceId
-    | InternalServerError
-    | InvalidDocument
-    | InvalidDocumentVersion
-    | InvalidInstanceId
-    | InvalidNotificationConfig
-    | InvalidOutputFolder
-    | InvalidParameters
-    | InvalidRole
-    | MaxDocumentSizeExceeded
-    | UnsupportedPlatformType
-    | CommonAwsError
+    DuplicateInstanceId | InternalServerError | InvalidDocument | InvalidDocumentVersion | InvalidInstanceId | InvalidNotificationConfig | InvalidOutputFolder | InvalidParameters | InvalidRole | MaxDocumentSizeExceeded | UnsupportedPlatformType | CommonAwsError
   >;
   startAccessRequest(
     input: StartAccessRequestRequest,
   ): Effect.Effect<
     StartAccessRequestResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   startAssociationsOnce(
     input: StartAssociationsOnceRequest,
@@ -1159,27 +758,13 @@ export declare class SSM extends AWSServiceClient {
     input: StartAutomationExecutionRequest,
   ): Effect.Effect<
     StartAutomationExecutionResult,
-    | AutomationDefinitionNotFoundException
-    | AutomationDefinitionVersionNotFoundException
-    | AutomationExecutionLimitExceededException
-    | IdempotentParameterMismatch
-    | InternalServerError
-    | InvalidAutomationExecutionParametersException
-    | InvalidTarget
-    | CommonAwsError
+    AutomationDefinitionNotFoundException | AutomationDefinitionVersionNotFoundException | AutomationExecutionLimitExceededException | IdempotentParameterMismatch | InternalServerError | InvalidAutomationExecutionParametersException | InvalidTarget | CommonAwsError
   >;
   startChangeRequestExecution(
     input: StartChangeRequestExecutionRequest,
   ): Effect.Effect<
     StartChangeRequestExecutionResult,
-    | AutomationDefinitionNotApprovedException
-    | AutomationDefinitionNotFoundException
-    | AutomationDefinitionVersionNotFoundException
-    | AutomationExecutionLimitExceededException
-    | IdempotentParameterMismatch
-    | InternalServerError
-    | InvalidAutomationExecutionParametersException
-    | CommonAwsError
+    AutomationDefinitionNotApprovedException | AutomationDefinitionNotFoundException | AutomationDefinitionVersionNotFoundException | AutomationExecutionLimitExceededException | IdempotentParameterMismatch | InternalServerError | InvalidAutomationExecutionParametersException | CommonAwsError
   >;
   startExecutionPreview(
     input: StartExecutionPreviewRequest,
@@ -1197,10 +782,7 @@ export declare class SSM extends AWSServiceClient {
     input: StopAutomationExecutionRequest,
   ): Effect.Effect<
     StopAutomationExecutionResult,
-    | AutomationExecutionNotFoundException
-    | InternalServerError
-    | InvalidAutomationStatusUpdateException
-    | CommonAwsError
+    AutomationExecutionNotFoundException | InternalServerError | InvalidAutomationStatusUpdateException | CommonAwsError
   >;
   terminateSession(
     input: TerminateSessionRequest,
@@ -1212,79 +794,37 @@ export declare class SSM extends AWSServiceClient {
     input: UnlabelParameterVersionRequest,
   ): Effect.Effect<
     UnlabelParameterVersionResult,
-    | InternalServerError
-    | ParameterNotFound
-    | ParameterVersionNotFound
-    | TooManyUpdates
-    | CommonAwsError
+    InternalServerError | ParameterNotFound | ParameterVersionNotFound | TooManyUpdates | CommonAwsError
   >;
   updateAssociation(
     input: UpdateAssociationRequest,
   ): Effect.Effect<
     UpdateAssociationResult,
-    | AssociationDoesNotExist
-    | AssociationVersionLimitExceeded
-    | InternalServerError
-    | InvalidAssociationVersion
-    | InvalidDocument
-    | InvalidDocumentVersion
-    | InvalidOutputLocation
-    | InvalidParameters
-    | InvalidSchedule
-    | InvalidTarget
-    | InvalidTargetMaps
-    | InvalidUpdate
-    | TooManyUpdates
-    | CommonAwsError
+    AssociationDoesNotExist | AssociationVersionLimitExceeded | InternalServerError | InvalidAssociationVersion | InvalidDocument | InvalidDocumentVersion | InvalidOutputLocation | InvalidParameters | InvalidSchedule | InvalidTarget | InvalidTargetMaps | InvalidUpdate | TooManyUpdates | CommonAwsError
   >;
   updateAssociationStatus(
     input: UpdateAssociationStatusRequest,
   ): Effect.Effect<
     UpdateAssociationStatusResult,
-    | AssociationDoesNotExist
-    | InternalServerError
-    | InvalidDocument
-    | InvalidInstanceId
-    | StatusUnchanged
-    | TooManyUpdates
-    | CommonAwsError
+    AssociationDoesNotExist | InternalServerError | InvalidDocument | InvalidInstanceId | StatusUnchanged | TooManyUpdates | CommonAwsError
   >;
   updateDocument(
     input: UpdateDocumentRequest,
   ): Effect.Effect<
     UpdateDocumentResult,
-    | DocumentVersionLimitExceeded
-    | DuplicateDocumentContent
-    | DuplicateDocumentVersionName
-    | InternalServerError
-    | InvalidDocument
-    | InvalidDocumentContent
-    | InvalidDocumentOperation
-    | InvalidDocumentSchemaVersion
-    | InvalidDocumentVersion
-    | MaxDocumentSizeExceeded
-    | CommonAwsError
+    DocumentVersionLimitExceeded | DuplicateDocumentContent | DuplicateDocumentVersionName | InternalServerError | InvalidDocument | InvalidDocumentContent | InvalidDocumentOperation | InvalidDocumentSchemaVersion | InvalidDocumentVersion | MaxDocumentSizeExceeded | CommonAwsError
   >;
   updateDocumentDefaultVersion(
     input: UpdateDocumentDefaultVersionRequest,
   ): Effect.Effect<
     UpdateDocumentDefaultVersionResult,
-    | InternalServerError
-    | InvalidDocument
-    | InvalidDocumentSchemaVersion
-    | InvalidDocumentVersion
-    | CommonAwsError
+    InternalServerError | InvalidDocument | InvalidDocumentSchemaVersion | InvalidDocumentVersion | CommonAwsError
   >;
   updateDocumentMetadata(
     input: UpdateDocumentMetadataRequest,
   ): Effect.Effect<
     UpdateDocumentMetadataResponse,
-    | InternalServerError
-    | InvalidDocument
-    | InvalidDocumentOperation
-    | InvalidDocumentVersion
-    | TooManyUpdates
-    | CommonAwsError
+    InternalServerError | InvalidDocument | InvalidDocumentOperation | InvalidDocumentVersion | TooManyUpdates | CommonAwsError
   >;
   updateMaintenanceWindow(
     input: UpdateMaintenanceWindowRequest,
@@ -1314,25 +854,13 @@ export declare class SSM extends AWSServiceClient {
     input: UpdateOpsItemRequest,
   ): Effect.Effect<
     UpdateOpsItemResponse,
-    | InternalServerError
-    | OpsItemAccessDeniedException
-    | OpsItemAlreadyExistsException
-    | OpsItemConflictException
-    | OpsItemInvalidParameterException
-    | OpsItemLimitExceededException
-    | OpsItemNotFoundException
-    | CommonAwsError
+    InternalServerError | OpsItemAccessDeniedException | OpsItemAlreadyExistsException | OpsItemConflictException | OpsItemInvalidParameterException | OpsItemLimitExceededException | OpsItemNotFoundException | CommonAwsError
   >;
   updateOpsMetadata(
     input: UpdateOpsMetadataRequest,
   ): Effect.Effect<
     UpdateOpsMetadataResult,
-    | InternalServerError
-    | OpsMetadataInvalidArgumentException
-    | OpsMetadataKeyLimitExceededException
-    | OpsMetadataNotFoundException
-    | OpsMetadataTooManyUpdatesException
-    | CommonAwsError
+    InternalServerError | OpsMetadataInvalidArgumentException | OpsMetadataKeyLimitExceededException | OpsMetadataNotFoundException | OpsMetadataTooManyUpdatesException | CommonAwsError
   >;
   updatePatchBaseline(
     input: UpdatePatchBaselineRequest,
@@ -1344,20 +872,13 @@ export declare class SSM extends AWSServiceClient {
     input: UpdateResourceDataSyncRequest,
   ): Effect.Effect<
     UpdateResourceDataSyncResult,
-    | InternalServerError
-    | ResourceDataSyncConflictException
-    | ResourceDataSyncInvalidConfigurationException
-    | ResourceDataSyncNotFoundException
-    | CommonAwsError
+    InternalServerError | ResourceDataSyncConflictException | ResourceDataSyncInvalidConfigurationException | ResourceDataSyncNotFoundException | CommonAwsError
   >;
   updateServiceSetting(
     input: UpdateServiceSettingRequest,
   ): Effect.Effect<
     UpdateServiceSettingResult,
-    | InternalServerError
-    | ServiceSettingNotFound
-    | TooManyUpdates
-    | CommonAwsError
+    InternalServerError | ServiceSettingNotFound | TooManyUpdates | CommonAwsError
   >;
 }
 
@@ -1374,12 +895,7 @@ export type AccessKeySecretType = string;
 
 export type AccessRequestId = string;
 
-export type AccessRequestStatus =
-  | "Approved"
-  | "Rejected"
-  | "Revoked"
-  | "Expired"
-  | "Pending";
+export type AccessRequestStatus = "Approved" | "Rejected" | "Revoked" | "Expired" | "Pending";
 export type AccessType = "Standard" | "JustInTime";
 export type Account = string;
 
@@ -1416,7 +932,8 @@ export interface AddTagsToResourceRequest {
   ResourceId: string;
   Tags: Array<Tag>;
 }
-export interface AddTagsToResourceResult {}
+export interface AddTagsToResourceResult {
+}
 export type AgentErrorCode = string;
 
 export type AgentType = string;
@@ -1455,7 +972,8 @@ export type Architecture = string;
 
 export declare class AssociatedInstances extends EffectData.TaggedError(
   "AssociatedInstances",
-)<{}> {}
+)<{
+}> {}
 export interface AssociateOpsItemRelatedItemRequest {
   OpsItemId: string;
   AssociationType: string;
@@ -1482,13 +1000,9 @@ export interface Association {
 }
 export declare class AssociationAlreadyExists extends EffectData.TaggedError(
   "AssociationAlreadyExists",
-)<{}> {}
-export type AssociationComplianceSeverity =
-  | "CRITICAL"
-  | "HIGH"
-  | "MEDIUM"
-  | "LOW"
-  | "UNSPECIFIED";
+)<{
+}> {}
+export type AssociationComplianceSeverity = "CRITICAL" | "HIGH" | "MEDIUM" | "LOW" | "UNSPECIFIED";
 export interface AssociationDescription {
   Name?: string;
   InstanceId?: string;
@@ -1548,10 +1062,7 @@ export interface AssociationExecutionFilter {
   Value: string;
   Type: AssociationFilterOperatorType;
 }
-export type AssociationExecutionFilterKey =
-  | "ExecutionId"
-  | "Status"
-  | "CreatedTime";
+export type AssociationExecutionFilterKey = "ExecutionId" | "Status" | "CreatedTime";
 export type AssociationExecutionFilterList = Array<AssociationExecutionFilter>;
 export type AssociationExecutionFilterValue = string;
 
@@ -1573,12 +1084,8 @@ export interface AssociationExecutionTargetsFilter {
   Key: AssociationExecutionTargetsFilterKey;
   Value: string;
 }
-export type AssociationExecutionTargetsFilterKey =
-  | "Status"
-  | "ResourceId"
-  | "ResourceType";
-export type AssociationExecutionTargetsFilterList =
-  Array<AssociationExecutionTargetsFilter>;
+export type AssociationExecutionTargetsFilterKey = "Status" | "ResourceId" | "ResourceType";
+export type AssociationExecutionTargetsFilterList = Array<AssociationExecutionTargetsFilter>;
 export type AssociationExecutionTargetsFilterValue = string;
 
 export type AssociationExecutionTargetsList = Array<AssociationExecutionTarget>;
@@ -1586,20 +1093,9 @@ export interface AssociationFilter {
   key: AssociationFilterKey;
   value: string;
 }
-export type AssociationFilterKey =
-  | "InstanceId"
-  | "Name"
-  | "AssociationId"
-  | "AssociationStatusName"
-  | "LastExecutedBefore"
-  | "LastExecutedAfter"
-  | "AssociationName"
-  | "ResourceGroupName";
+export type AssociationFilterKey = "InstanceId" | "Name" | "AssociationId" | "AssociationStatusName" | "LastExecutedBefore" | "LastExecutedAfter" | "AssociationName" | "ResourceGroupName";
 export type AssociationFilterList = Array<AssociationFilter>;
-export type AssociationFilterOperatorType =
-  | "EQUAL"
-  | "LESS_THAN"
-  | "GREATER_THAN";
+export type AssociationFilterOperatorType = "EQUAL" | "LESS_THAN" | "GREATER_THAN";
 export type AssociationFilterValue = string;
 
 export type AssociationId = string;
@@ -1607,7 +1103,8 @@ export type AssociationId = string;
 export type AssociationIdList = Array<string>;
 export declare class AssociationLimitExceeded extends EffectData.TaggedError(
   "AssociationLimitExceeded",
-)<{}> {}
+)<{
+}> {}
 export type AssociationList = Array<Association>;
 export type AssociationName = string;
 
@@ -1683,10 +1180,7 @@ export interface AttachmentsSource {
   Values?: Array<string>;
   Name?: string;
 }
-export type AttachmentsSourceKey =
-  | "SourceUrl"
-  | "S3FileUrl"
-  | "AttachmentReference";
+export type AttachmentsSourceKey = "SourceUrl" | "S3FileUrl" | "AttachmentReference";
 export type AttachmentsSourceList = Array<AttachmentsSource>;
 export type AttachmentsSourceValue = string;
 
@@ -1755,19 +1249,7 @@ export interface AutomationExecutionFilter {
   Key: AutomationExecutionFilterKey;
   Values: Array<string>;
 }
-export type AutomationExecutionFilterKey =
-  | "DocumentNamePrefix"
-  | "ExecutionStatus"
-  | "ExecutionId"
-  | "ParentExecutionId"
-  | "CurrentAction"
-  | "StartTimeBefore"
-  | "StartTimeAfter"
-  | "AutomationType"
-  | "TagKey"
-  | "TargetResourceGroup"
-  | "AutomationSubtype"
-  | "OpsItemId";
+export type AutomationExecutionFilterKey = "DocumentNamePrefix" | "ExecutionStatus" | "ExecutionId" | "ParentExecutionId" | "CurrentAction" | "StartTimeBefore" | "StartTimeAfter" | "AutomationType" | "TagKey" | "TargetResourceGroup" | "AutomationSubtype" | "OpsItemId";
 export type AutomationExecutionFilterList = Array<AutomationExecutionFilter>;
 export type AutomationExecutionFilterValue = string;
 
@@ -1820,8 +1302,7 @@ export interface AutomationExecutionMetadata {
   AssociationId?: string;
   ChangeRequestName?: string;
 }
-export type AutomationExecutionMetadataList =
-  Array<AutomationExecutionMetadata>;
+export type AutomationExecutionMetadataList = Array<AutomationExecutionMetadata>;
 export declare class AutomationExecutionNotFoundException extends EffectData.TaggedError(
   "AutomationExecutionNotFoundException",
 )<{
@@ -1833,26 +1314,7 @@ export interface AutomationExecutionPreview {
   TargetPreviews?: Array<TargetPreview>;
   TotalAccounts?: number;
 }
-export type AutomationExecutionStatus =
-  | "Pending"
-  | "InProgress"
-  | "Waiting"
-  | "Success"
-  | "TimedOut"
-  | "Cancelling"
-  | "Cancelled"
-  | "Failed"
-  | "PendingApproval"
-  | "Approved"
-  | "Rejected"
-  | "Scheduled"
-  | "RunbookInProgress"
-  | "PendingChangeCalendarOverride"
-  | "ChangeCalendarOverrideApproved"
-  | "ChangeCalendarOverrideRejected"
-  | "CompletedWithSuccess"
-  | "CompletedWithFailure"
-  | "Exited";
+export type AutomationExecutionStatus = "Pending" | "InProgress" | "Waiting" | "Success" | "TimedOut" | "Cancelling" | "Cancelled" | "Failed" | "PendingApproval" | "Approved" | "Rejected" | "Scheduled" | "RunbookInProgress" | "PendingChangeCalendarOverride" | "ChangeCalendarOverrideApproved" | "ChangeCalendarOverrideRejected" | "CompletedWithSuccess" | "CompletedWithFailure" | "Exited";
 export type AutomationParameterKey = string;
 
 export type AutomationParameterMap = Record<string, Array<string>>;
@@ -1898,7 +1360,8 @@ export interface CancelCommandRequest {
   CommandId: string;
   InstanceIds?: Array<string>;
 }
-export interface CancelCommandResult {}
+export interface CancelCommandResult {
+}
 export interface CancelMaintenanceWindowExecutionRequest {
   WindowExecutionId: string;
 }
@@ -1955,12 +1418,7 @@ export interface CommandFilter {
   key: CommandFilterKey;
   value: string;
 }
-export type CommandFilterKey =
-  | "InvokedAfter"
-  | "InvokedBefore"
-  | "Status"
-  | "ExecutionStage"
-  | "DocumentName";
+export type CommandFilterKey = "InvokedAfter" | "InvokedBefore" | "Status" | "ExecutionStage" | "DocumentName";
 export type CommandFilterList = Array<CommandFilter>;
 export type CommandFilterValue = string;
 
@@ -1985,15 +1443,7 @@ export interface CommandInvocation {
   CloudWatchOutputConfig?: CloudWatchOutputConfig;
 }
 export type CommandInvocationList = Array<CommandInvocation>;
-export type CommandInvocationStatus =
-  | "Pending"
-  | "InProgress"
-  | "Delayed"
-  | "Success"
-  | "Cancelled"
-  | "TimedOut"
-  | "Failed"
-  | "Cancelling";
+export type CommandInvocationStatus = "Pending" | "InProgress" | "Delayed" | "Success" | "Cancelled" | "TimedOut" | "Failed" | "Cancelling";
 export type CommandList = Array<Command>;
 export type CommandMaxResults = number;
 
@@ -2016,21 +1466,8 @@ export type CommandPluginName = string;
 
 export type CommandPluginOutput = string;
 
-export type CommandPluginStatus =
-  | "Pending"
-  | "InProgress"
-  | "Success"
-  | "TimedOut"
-  | "Cancelled"
-  | "Failed";
-export type CommandStatus =
-  | "Pending"
-  | "InProgress"
-  | "Success"
-  | "Cancelled"
-  | "Failed"
-  | "TimedOut"
-  | "Cancelling";
+export type CommandPluginStatus = "Pending" | "InProgress" | "Success" | "TimedOut" | "Cancelled" | "Failed";
+export type CommandStatus = "Pending" | "InProgress" | "Success" | "Cancelled" | "Failed" | "TimedOut" | "Cancelling";
 export type Comment = string;
 
 export type CompletedCount = number;
@@ -2073,25 +1510,14 @@ export type ComplianceItemId = string;
 export type ComplianceItemList = Array<ComplianceItem>;
 export type ComplianceItemTitle = string;
 
-export type ComplianceQueryOperatorType =
-  | "EQUAL"
-  | "NOT_EQUAL"
-  | "BEGIN_WITH"
-  | "LESS_THAN"
-  | "GREATER_THAN";
+export type ComplianceQueryOperatorType = "EQUAL" | "NOT_EQUAL" | "BEGIN_WITH" | "LESS_THAN" | "GREATER_THAN";
 export type ComplianceResourceId = string;
 
 export type ComplianceResourceIdList = Array<string>;
 export type ComplianceResourceType = string;
 
 export type ComplianceResourceTypeList = Array<string>;
-export type ComplianceSeverity =
-  | "CRITICAL"
-  | "HIGH"
-  | "MEDIUM"
-  | "LOW"
-  | "INFORMATIONAL"
-  | "UNSPECIFIED";
+export type ComplianceSeverity = "CRITICAL" | "HIGH" | "MEDIUM" | "LOW" | "INFORMATIONAL" | "UNSPECIFIED";
 export type ComplianceStatus = "COMPLIANT" | "NON_COMPLIANT";
 export interface ComplianceStringFilter {
   Key?: string;
@@ -2143,8 +1569,7 @@ export interface CreateActivationResult {
 export interface CreateAssociationBatchRequest {
   Entries: Array<CreateAssociationBatchRequestEntry>;
 }
-export type CreateAssociationBatchRequestEntries =
-  Array<CreateAssociationBatchRequestEntry>;
+export type CreateAssociationBatchRequestEntries = Array<CreateAssociationBatchRequestEntry>;
 export interface CreateAssociationBatchRequestEntry {
   Name: string;
   InstanceId?: string;
@@ -2286,7 +1711,8 @@ export interface CreateResourceDataSyncRequest {
   SyncType?: string;
   SyncSource?: ResourceDataSyncSource;
 }
-export interface CreateResourceDataSyncResult {}
+export interface CreateResourceDataSyncResult {
+}
 export interface Credentials {
   AccessKeyId: string;
   SecretAccessKey: string;
@@ -2307,20 +1733,23 @@ export type DefaultInstanceName = string;
 export interface DeleteActivationRequest {
   ActivationId: string;
 }
-export interface DeleteActivationResult {}
+export interface DeleteActivationResult {
+}
 export interface DeleteAssociationRequest {
   Name?: string;
   InstanceId?: string;
   AssociationId?: string;
 }
-export interface DeleteAssociationResult {}
+export interface DeleteAssociationResult {
+}
 export interface DeleteDocumentRequest {
   Name: string;
   DocumentVersion?: string;
   VersionName?: string;
   Force?: boolean;
 }
-export interface DeleteDocumentResult {}
+export interface DeleteDocumentResult {
+}
 export interface DeleteInventoryRequest {
   TypeName: string;
   SchemaDeleteOption?: InventorySchemaDeleteOption;
@@ -2341,15 +1770,18 @@ export interface DeleteMaintenanceWindowResult {
 export interface DeleteOpsItemRequest {
   OpsItemId: string;
 }
-export interface DeleteOpsItemResponse {}
+export interface DeleteOpsItemResponse {
+}
 export interface DeleteOpsMetadataRequest {
   OpsMetadataArn: string;
 }
-export interface DeleteOpsMetadataResult {}
+export interface DeleteOpsMetadataResult {
+}
 export interface DeleteParameterRequest {
   Name: string;
 }
-export interface DeleteParameterResult {}
+export interface DeleteParameterResult {
+}
 export interface DeleteParametersRequest {
   Names: Array<string>;
 }
@@ -2367,19 +1799,22 @@ export interface DeleteResourceDataSyncRequest {
   SyncName: string;
   SyncType?: string;
 }
-export interface DeleteResourceDataSyncResult {}
+export interface DeleteResourceDataSyncResult {
+}
 export interface DeleteResourcePolicyRequest {
   ResourceArn: string;
   PolicyId: string;
   PolicyHash: string;
 }
-export interface DeleteResourcePolicyResponse {}
+export interface DeleteResourcePolicyResponse {
+}
 export type DeliveryTimedOutCount = number;
 
 export interface DeregisterManagedInstanceRequest {
   InstanceId: string;
 }
-export interface DeregisterManagedInstanceResult {}
+export interface DeregisterManagedInstanceResult {
+}
 export interface DeregisterPatchBaselineForPatchGroupRequest {
   BaselineId: string;
   PatchGroup: string;
@@ -2409,10 +1844,7 @@ export interface DescribeActivationsFilter {
   FilterKey?: DescribeActivationsFilterKeys;
   FilterValues?: Array<string>;
 }
-export type DescribeActivationsFilterKeys =
-  | "ActivationIds"
-  | "DefaultInstanceName"
-  | "IamRole";
+export type DescribeActivationsFilterKeys = "ActivationIds" | "DefaultInstanceName" | "IamRole";
 export type DescribeActivationsFilterList = Array<DescribeActivationsFilter>;
 export interface DescribeActivationsRequest {
   Filters?: Array<DescribeActivationsFilter>;
@@ -2753,7 +2185,8 @@ export interface DisassociateOpsItemRelatedItemRequest {
   OpsItemId: string;
   AssociationId: string;
 }
-export interface DisassociateOpsItemRelatedItemResponse {}
+export interface DisassociateOpsItemRelatedItemResponse {
+}
 export declare class DocumentAlreadyExists extends EffectData.TaggedError(
   "DocumentAlreadyExists",
 )<{
@@ -2808,11 +2241,7 @@ export interface DocumentFilter {
   key: DocumentFilterKey;
   value: string;
 }
-export type DocumentFilterKey =
-  | "Name"
-  | "Owner"
-  | "PlatformTypes"
-  | "DocumentType";
+export type DocumentFilterKey = "Name" | "Owner" | "PlatformTypes" | "DocumentType";
 export type DocumentFilterList = Array<DocumentFilter>;
 export type DocumentFilterValue = string;
 
@@ -2890,11 +2319,7 @@ export interface DocumentRequires {
   VersionName?: string;
 }
 export type DocumentRequiresList = Array<DocumentRequires>;
-export type DocumentReviewAction =
-  | "SendForReview"
-  | "UpdateReview"
-  | "Approve"
-  | "Reject";
+export type DocumentReviewAction = "SendForReview" | "UpdateReview" | "Approve" | "Reject";
 export type DocumentReviewComment = string;
 
 export type DocumentReviewCommentList = Array<DocumentReviewCommentSource>;
@@ -2903,8 +2328,7 @@ export interface DocumentReviewCommentSource {
   Content?: string;
 }
 export type DocumentReviewCommentType = "Comment";
-export type DocumentReviewerResponseList =
-  Array<DocumentReviewerResponseSource>;
+export type DocumentReviewerResponseList = Array<DocumentReviewerResponseSource>;
 export interface DocumentReviewerResponseSource {
   CreateTime?: Date | string;
   UpdatedTime?: Date | string;
@@ -2920,32 +2344,10 @@ export type DocumentSchemaVersion = string;
 
 export type DocumentSha1 = string;
 
-export type DocumentStatus =
-  | "Creating"
-  | "Active"
-  | "Updating"
-  | "Deleting"
-  | "Failed";
+export type DocumentStatus = "Creating" | "Active" | "Updating" | "Deleting" | "Failed";
 export type DocumentStatusInformation = string;
 
-export type DocumentType =
-  | "Command"
-  | "Policy"
-  | "Automation"
-  | "Session"
-  | "Package"
-  | "ApplicationConfiguration"
-  | "ApplicationConfigurationSchema"
-  | "DeploymentStrategy"
-  | "ChangeCalendar"
-  | "Automation.ChangeTemplate"
-  | "ProblemAnalysis"
-  | "ProblemAnalysisTemplate"
-  | "CloudFormation"
-  | "ConformancePackTemplate"
-  | "QuickSetup"
-  | "ManualApprovalPolicy"
-  | "AutoApprovalPolicy";
+export type DocumentType = "Command" | "Policy" | "Automation" | "Session" | "Package" | "ApplicationConfiguration" | "ApplicationConfigurationSchema" | "DeploymentStrategy" | "ChangeCalendar" | "Automation.ChangeTemplate" | "ProblemAnalysis" | "ProblemAnalysisTemplate" | "CloudFormation" | "ConformancePackTemplate" | "QuickSetup" | "ManualApprovalPolicy" | "AutoApprovalPolicy";
 export type DocumentVersion = string;
 
 export interface DocumentVersionInfo {
@@ -2989,7 +2391,8 @@ export declare class DuplicateDocumentVersionName extends EffectData.TaggedError
 }> {}
 export declare class DuplicateInstanceId extends EffectData.TaggedError(
   "DuplicateInstanceId",
-)<{}> {}
+)<{
+}> {}
 export type Duration = number;
 
 export type EffectiveInstanceAssociationMaxResults = number;
@@ -3008,24 +2411,16 @@ interface _ExecutionInputs {
   Automation?: AutomationExecutionInputs;
 }
 
-export type ExecutionInputs = _ExecutionInputs & {
-  Automation: AutomationExecutionInputs;
-};
+export type ExecutionInputs = (_ExecutionInputs & { Automation: AutomationExecutionInputs });
 export type ExecutionMode = "Auto" | "Interactive";
 interface _ExecutionPreview {
   Automation?: AutomationExecutionPreview;
 }
 
-export type ExecutionPreview = _ExecutionPreview & {
-  Automation: AutomationExecutionPreview;
-};
+export type ExecutionPreview = (_ExecutionPreview & { Automation: AutomationExecutionPreview });
 export type ExecutionPreviewId = string;
 
-export type ExecutionPreviewStatus =
-  | "Pending"
-  | "InProgress"
-  | "Success"
-  | "Failed";
+export type ExecutionPreviewStatus = "Pending" | "InProgress" | "Success" | "Failed";
 export type ExecutionRoleName = string;
 
 export type ExpirationDate = Date | string;
@@ -3214,9 +2609,7 @@ export interface GetMaintenanceWindowExecutionTaskResult {
   TaskArn?: string;
   ServiceRole?: string;
   Type?: MaintenanceWindowTaskType;
-  TaskParameters?: Array<
-    Record<string, MaintenanceWindowTaskParameterValueExpression>
-  >;
+  TaskParameters?: Array<Record<string, MaintenanceWindowTaskParameterValueExpression>>;
   Priority?: number;
   MaxConcurrency?: string;
   MaxErrors?: string;
@@ -3258,10 +2651,7 @@ export interface GetMaintenanceWindowTaskResult {
   TaskArn?: string;
   ServiceRoleArn?: string;
   TaskType?: MaintenanceWindowTaskType;
-  TaskParameters?: Record<
-    string,
-    MaintenanceWindowTaskParameterValueExpression
-  >;
+  TaskParameters?: Record<string, MaintenanceWindowTaskParameterValueExpression>;
   TaskInvocationParameters?: MaintenanceWindowTaskInvocationParameters;
   Priority?: number;
   MaxConcurrency?: string;
@@ -3381,8 +2771,7 @@ export interface GetResourcePoliciesResponse {
   NextToken?: string;
   Policies?: Array<GetResourcePoliciesResponseEntry>;
 }
-export type GetResourcePoliciesResponseEntries =
-  Array<GetResourcePoliciesResponseEntry>;
+export type GetResourcePoliciesResponseEntries = Array<GetResourcePoliciesResponseEntry>;
 export interface GetResourcePoliciesResponseEntry {
   PolicyId?: string;
   PolicyHash?: string;
@@ -3455,8 +2844,7 @@ export interface InstanceAssociationStatusInfo {
   OutputUrl?: InstanceAssociationOutputUrl;
   AssociationName?: string;
 }
-export type InstanceAssociationStatusInfos =
-  Array<InstanceAssociationStatusInfo>;
+export type InstanceAssociationStatusInfos = Array<InstanceAssociationStatusInfo>;
 export type InstanceCount = number;
 
 export type InstanceId = string;
@@ -3501,15 +2889,7 @@ export interface InstanceInformationFilter {
   key: InstanceInformationFilterKey;
   valueSet: Array<string>;
 }
-export type InstanceInformationFilterKey =
-  | "InstanceIds"
-  | "AgentVersion"
-  | "PingStatus"
-  | "PlatformTypes"
-  | "ActivationIds"
-  | "IamRole"
-  | "ResourceType"
-  | "AssociationStatus";
+export type InstanceInformationFilterKey = "InstanceIds" | "AgentVersion" | "PingStatus" | "PlatformTypes" | "ActivationIds" | "IamRole" | "ResourceType" | "AssociationStatus";
 export type InstanceInformationFilterList = Array<InstanceInformationFilter>;
 export type InstanceInformationFilterValue = string;
 
@@ -3521,8 +2901,7 @@ export interface InstanceInformationStringFilter {
 }
 export type InstanceInformationStringFilterKey = string;
 
-export type InstanceInformationStringFilterList =
-  Array<InstanceInformationStringFilter>;
+export type InstanceInformationStringFilterList = Array<InstanceInformationStringFilter>;
 export type InstanceName = string;
 
 export interface InstancePatchState {
@@ -3562,11 +2941,7 @@ export type InstancePatchStateFilterValue = string;
 
 export type InstancePatchStateFilterValues = Array<string>;
 export type InstancePatchStateList = Array<InstancePatchState>;
-export type InstancePatchStateOperatorType =
-  | "Equal"
-  | "NotEqual"
-  | "LessThan"
-  | "GreaterThan";
+export type InstancePatchStateOperatorType = "Equal" | "NotEqual" | "LessThan" | "GreaterThan";
 export type InstancePatchStatesList = Array<InstancePatchState>;
 export type InstanceProperties = Array<InstanceProperty>;
 export interface InstanceProperty {
@@ -3601,23 +2976,9 @@ export interface InstancePropertyFilter {
   key: InstancePropertyFilterKey;
   valueSet: Array<string>;
 }
-export type InstancePropertyFilterKey =
-  | "InstanceIds"
-  | "AgentVersion"
-  | "PingStatus"
-  | "PlatformTypes"
-  | "DocumentName"
-  | "ActivationIds"
-  | "IamRole"
-  | "ResourceType"
-  | "AssociationStatus";
+export type InstancePropertyFilterKey = "InstanceIds" | "AgentVersion" | "PingStatus" | "PlatformTypes" | "DocumentName" | "ActivationIds" | "IamRole" | "ResourceType" | "AssociationStatus";
 export type InstancePropertyFilterList = Array<InstancePropertyFilter>;
-export type InstancePropertyFilterOperator =
-  | "Equal"
-  | "NotEqual"
-  | "BeginWith"
-  | "LessThan"
-  | "GreaterThan";
+export type InstancePropertyFilterOperator = "Equal" | "NotEqual" | "BeginWith" | "LessThan" | "GreaterThan";
 export type InstancePropertyFilterValue = string;
 
 export type InstancePropertyFilterValueSet = Array<string>;
@@ -3628,8 +2989,7 @@ export interface InstancePropertyStringFilter {
 }
 export type InstancePropertyStringFilterKey = string;
 
-export type InstancePropertyStringFilterList =
-  Array<InstancePropertyStringFilter>;
+export type InstancePropertyStringFilterList = Array<InstancePropertyStringFilter>;
 export type InstanceRole = string;
 
 export type InstancesCount = number;
@@ -3696,7 +3056,8 @@ export declare class InvalidAutomationStatusUpdateException extends EffectData.T
 }> {}
 export declare class InvalidCommandId extends EffectData.TaggedError(
   "InvalidCommandId",
-)<{}> {}
+)<{
+}> {}
 export declare class InvalidDeleteInventoryParametersException extends EffectData.TaggedError(
   "InvalidDeleteInventoryParametersException",
 )<{
@@ -3744,7 +3105,8 @@ export declare class InvalidFilter extends EffectData.TaggedError(
 }> {}
 export declare class InvalidFilterKey extends EffectData.TaggedError(
   "InvalidFilterKey",
-)<{}> {}
+)<{
+}> {}
 export declare class InvalidFilterOption extends EffectData.TaggedError(
   "InvalidFilterOption",
 )<{
@@ -3813,10 +3175,12 @@ export declare class InvalidOptionException extends EffectData.TaggedError(
 }> {}
 export declare class InvalidOutputFolder extends EffectData.TaggedError(
   "InvalidOutputFolder",
-)<{}> {}
+)<{
+}> {}
 export declare class InvalidOutputLocation extends EffectData.TaggedError(
   "InvalidOutputLocation",
-)<{}> {}
+)<{
+}> {}
 export declare class InvalidParameters extends EffectData.TaggedError(
   "InvalidParameters",
 )<{
@@ -3829,7 +3193,8 @@ export declare class InvalidPermissionType extends EffectData.TaggedError(
 }> {}
 export declare class InvalidPluginName extends EffectData.TaggedError(
   "InvalidPluginName",
-)<{}> {}
+)<{
+}> {}
 export declare class InvalidPolicyAttributeException extends EffectData.TaggedError(
   "InvalidPolicyAttributeException",
 )<{
@@ -3842,16 +3207,20 @@ export declare class InvalidPolicyTypeException extends EffectData.TaggedError(
 }> {}
 export declare class InvalidResourceId extends EffectData.TaggedError(
   "InvalidResourceId",
-)<{}> {}
+)<{
+}> {}
 export declare class InvalidResourceType extends EffectData.TaggedError(
   "InvalidResourceType",
-)<{}> {}
+)<{
+}> {}
 export declare class InvalidResultAttributeException extends EffectData.TaggedError(
   "InvalidResultAttributeException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidRole extends EffectData.TaggedError("InvalidRole")<{
+export declare class InvalidRole extends EffectData.TaggedError(
+  "InvalidRole",
+)<{
   readonly Message?: string;
 }> {}
 export declare class InvalidSchedule extends EffectData.TaggedError(
@@ -3859,7 +3228,9 @@ export declare class InvalidSchedule extends EffectData.TaggedError(
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidTag extends EffectData.TaggedError("InvalidTag")<{
+export declare class InvalidTag extends EffectData.TaggedError(
+  "InvalidTag",
+)<{
   readonly Message?: string;
 }> {}
 export declare class InvalidTarget extends EffectData.TaggedError(
@@ -3973,13 +3344,7 @@ export type InventoryItemTypeName = string;
 
 export type InventoryItemTypeNameFilter = string;
 
-export type InventoryQueryOperatorType =
-  | "Equal"
-  | "NotEqual"
-  | "BeginWith"
-  | "LessThan"
-  | "GreaterThan"
-  | "Exists";
+export type InventoryQueryOperatorType = "Equal" | "NotEqual" | "BeginWith" | "LessThan" | "GreaterThan" | "Exists";
 export interface InventoryResultEntity {
   Id?: string;
   Data?: Record<string, InventoryResultItem>;
@@ -4002,7 +3367,8 @@ export type InventoryTypeDisplayName = string;
 
 export declare class InvocationDoesNotExist extends EffectData.TaggedError(
   "InvocationDoesNotExist",
-)<{}> {}
+)<{
+}> {}
 export type InvocationTraceOutput = string;
 
 export type IPAddress = string;
@@ -4259,15 +3625,7 @@ export interface MaintenanceWindowExecution {
 export type MaintenanceWindowExecutionId = string;
 
 export type MaintenanceWindowExecutionList = Array<MaintenanceWindowExecution>;
-export type MaintenanceWindowExecutionStatus =
-  | "PENDING"
-  | "IN_PROGRESS"
-  | "SUCCESS"
-  | "FAILED"
-  | "TIMED_OUT"
-  | "CANCELLING"
-  | "CANCELLED"
-  | "SKIPPED_OVERLAPPING";
+export type MaintenanceWindowExecutionStatus = "PENDING" | "IN_PROGRESS" | "SUCCESS" | "FAILED" | "TIMED_OUT" | "CANCELLING" | "CANCELLED" | "SKIPPED_OVERLAPPING";
 export type MaintenanceWindowExecutionStatusDetails = string;
 
 export type MaintenanceWindowExecutionTaskExecutionId = string;
@@ -4286,8 +3644,7 @@ export interface MaintenanceWindowExecutionTaskIdentity {
   AlarmConfiguration?: AlarmConfiguration;
   TriggeredAlarms?: Array<AlarmStateInformation>;
 }
-export type MaintenanceWindowExecutionTaskIdentityList =
-  Array<MaintenanceWindowExecutionTaskIdentity>;
+export type MaintenanceWindowExecutionTaskIdentityList = Array<MaintenanceWindowExecutionTaskIdentity>;
 export type MaintenanceWindowExecutionTaskIdList = Array<string>;
 export type MaintenanceWindowExecutionTaskInvocationId = string;
 
@@ -4305,8 +3662,7 @@ export interface MaintenanceWindowExecutionTaskInvocationIdentity {
   OwnerInformation?: string;
   WindowTargetId?: string;
 }
-export type MaintenanceWindowExecutionTaskInvocationIdentityList =
-  Array<MaintenanceWindowExecutionTaskInvocationIdentity>;
+export type MaintenanceWindowExecutionTaskInvocationIdentityList = Array<MaintenanceWindowExecutionTaskInvocationIdentity>;
 export type MaintenanceWindowExecutionTaskInvocationParameters = string;
 
 export interface MaintenanceWindowFilter {
@@ -4375,8 +3731,7 @@ export type MaintenanceWindowSchedule = string;
 
 export type MaintenanceWindowSearchMaxResults = number;
 
-export type MaintenanceWindowsForTargetList =
-  Array<MaintenanceWindowIdentityForTarget>;
+export type MaintenanceWindowsForTargetList = Array<MaintenanceWindowIdentityForTarget>;
 export type MaintenanceWindowStepFunctionsInput = string;
 
 export type MaintenanceWindowStepFunctionsName = string;
@@ -4405,10 +3760,7 @@ export interface MaintenanceWindowTask {
   TaskArn?: string;
   Type?: MaintenanceWindowTaskType;
   Targets?: Array<Target>;
-  TaskParameters?: Record<
-    string,
-    MaintenanceWindowTaskParameterValueExpression
-  >;
+  TaskParameters?: Record<string, MaintenanceWindowTaskParameterValueExpression>;
   Priority?: number;
   LoggingInfo?: LoggingInfo;
   ServiceRoleArn?: string;
@@ -4421,9 +3773,7 @@ export interface MaintenanceWindowTask {
 }
 export type MaintenanceWindowTaskArn = string;
 
-export type MaintenanceWindowTaskCutoffBehavior =
-  | "CONTINUE_TASK"
-  | "CANCEL_TASK";
+export type MaintenanceWindowTaskCutoffBehavior = "CONTINUE_TASK" | "CANCEL_TASK";
 export type MaintenanceWindowTaskId = string;
 
 export interface MaintenanceWindowTaskInvocationParameters {
@@ -4435,13 +3785,8 @@ export interface MaintenanceWindowTaskInvocationParameters {
 export type MaintenanceWindowTaskList = Array<MaintenanceWindowTask>;
 export type MaintenanceWindowTaskParameterName = string;
 
-export type MaintenanceWindowTaskParameters = Record<
-  string,
-  MaintenanceWindowTaskParameterValueExpression
->;
-export type MaintenanceWindowTaskParametersList = Array<
-  Record<string, MaintenanceWindowTaskParameterValueExpression>
->;
+export type MaintenanceWindowTaskParameters = Record<string, MaintenanceWindowTaskParameterValueExpression>;
+export type MaintenanceWindowTaskParametersList = Array<Record<string, MaintenanceWindowTaskParameterValueExpression>>;
 export type MaintenanceWindowTaskParameterValue = string;
 
 export interface MaintenanceWindowTaskParameterValueExpression {
@@ -4452,11 +3797,7 @@ export type MaintenanceWindowTaskPriority = number;
 
 export type MaintenanceWindowTaskTargetId = string;
 
-export type MaintenanceWindowTaskType =
-  | "RUN_COMMAND"
-  | "AUTOMATION"
-  | "STEP_FUNCTIONS"
-  | "LAMBDA";
+export type MaintenanceWindowTaskType = "RUN_COMMAND" | "AUTOMATION" | "STEP_FUNCTIONS" | "LAMBDA";
 export type MaintenanceWindowTimezone = string;
 
 export declare class MalformedResourcePolicyDocumentException extends EffectData.TaggedError(
@@ -4498,7 +3839,8 @@ export interface ModifyDocumentPermissionRequest {
   AccountIdsToRemove?: Array<string>;
   SharedDocumentVersion?: string;
 }
-export interface ModifyDocumentPermissionResponse {}
+export interface ModifyDocumentPermissionResponse {
+}
 export type NextToken = string;
 
 export interface Node {
@@ -4518,13 +3860,7 @@ export interface NodeAggregator {
 }
 export type NodeAggregatorList = Array<NodeAggregator>;
 export type NodeAggregatorType = "Count";
-export type NodeAttributeName =
-  | "AgentVersion"
-  | "PlatformName"
-  | "PlatformType"
-  | "PlatformVersion"
-  | "Region"
-  | "ResourceType";
+export type NodeAttributeName = "AgentVersion" | "PlatformName" | "PlatformType" | "PlatformVersion" | "Region" | "ResourceType";
 export type NodeCaptureTime = Date | string;
 
 export interface NodeFilter {
@@ -4532,22 +3868,7 @@ export interface NodeFilter {
   Values: Array<string>;
   Type?: NodeFilterOperatorType;
 }
-export type NodeFilterKey =
-  | "AgentType"
-  | "AgentVersion"
-  | "ComputerName"
-  | "InstanceId"
-  | "InstanceStatus"
-  | "IpAddress"
-  | "ManagedStatus"
-  | "PlatformName"
-  | "PlatformType"
-  | "PlatformVersion"
-  | "ResourceType"
-  | "OrganizationalUnitId"
-  | "OrganizationalUnitPath"
-  | "Region"
-  | "AccountId";
+export type NodeFilterKey = "AgentType" | "AgentVersion" | "ComputerName" | "InstanceId" | "InstanceStatus" | "IpAddress" | "ManagedStatus" | "PlatformName" | "PlatformType" | "PlatformVersion" | "ResourceType" | "OrganizationalUnitId" | "OrganizationalUnitPath" | "Region" | "AccountId";
 export type NodeFilterList = Array<NodeFilter>;
 export type NodeFilterOperatorType = "Equal" | "NotEqual" | "BeginWith";
 export type NodeFilterValue = string;
@@ -4573,7 +3894,7 @@ interface _NodeType {
   Instance?: InstanceInfo;
 }
 
-export type NodeType = _NodeType & { Instance: InstanceInfo };
+export type NodeType = (_NodeType & { Instance: InstanceInfo });
 export type NodeTypeName = "Instance";
 export interface NonCompliantSummary {
   NonCompliantCount?: number;
@@ -4587,31 +3908,10 @@ export interface NotificationConfig {
   NotificationEvents?: Array<NotificationEvent>;
   NotificationType?: NotificationType;
 }
-export type NotificationEvent =
-  | "All"
-  | "InProgress"
-  | "Success"
-  | "TimedOut"
-  | "Cancelled"
-  | "Failed";
+export type NotificationEvent = "All" | "InProgress" | "Success" | "TimedOut" | "Cancelled" | "Failed";
 export type NotificationEventList = Array<NotificationEvent>;
 export type NotificationType = "Command" | "Invocation";
-export type OperatingSystem =
-  | "WINDOWS"
-  | "AMAZON_LINUX"
-  | "AMAZON_LINUX_2"
-  | "AMAZON_LINUX_2022"
-  | "UBUNTU"
-  | "REDHAT_ENTERPRISE_LINUX"
-  | "SUSE"
-  | "CENTOS"
-  | "ORACLE_LINUX"
-  | "DEBIAN"
-  | "MACOS"
-  | "RASPBIAN"
-  | "ROCKY_LINUX"
-  | "ALMA_LINUX"
-  | "AMAZON_LINUX_2023";
+export type OperatingSystem = "WINDOWS" | "AMAZON_LINUX" | "AMAZON_LINUX_2" | "AMAZON_LINUX_2022" | "UBUNTU" | "REDHAT_ENTERPRISE_LINUX" | "SUSE" | "CENTOS" | "ORACLE_LINUX" | "DEBIAN" | "MACOS" | "RASPBIAN" | "ROCKY_LINUX" | "ALMA_LINUX" | "AMAZON_LINUX_2023";
 export interface OpsAggregator {
   AggregatorType?: string;
   TypeName?: string;
@@ -4658,13 +3958,7 @@ export interface OpsFilter {
 export type OpsFilterKey = string;
 
 export type OpsFilterList = Array<OpsFilter>;
-export type OpsFilterOperatorType =
-  | "Equal"
-  | "NotEqual"
-  | "BeginWith"
-  | "LessThan"
-  | "GreaterThan"
-  | "Exists";
+export type OpsFilterOperatorType = "Equal" | "NotEqual" | "BeginWith" | "LessThan" | "GreaterThan" | "Exists";
 export type OpsFilterValue = string;
 
 export type OpsFilterValueList = Array<string>;
@@ -4753,49 +4047,8 @@ export interface OpsItemFilter {
   Values: Array<string>;
   Operator: OpsItemFilterOperator;
 }
-export type OpsItemFilterKey =
-  | "Status"
-  | "CreatedBy"
-  | "Source"
-  | "Priority"
-  | "Title"
-  | "OpsItemId"
-  | "CreatedTime"
-  | "LastModifiedTime"
-  | "ActualStartTime"
-  | "ActualEndTime"
-  | "PlannedStartTime"
-  | "PlannedEndTime"
-  | "OperationalData"
-  | "OperationalDataKey"
-  | "OperationalDataValue"
-  | "ResourceId"
-  | "AutomationId"
-  | "Category"
-  | "Severity"
-  | "OpsItemType"
-  | "AccessRequestByRequesterArn"
-  | "AccessRequestByRequesterId"
-  | "AccessRequestByApproverArn"
-  | "AccessRequestByApproverId"
-  | "AccessRequestBySourceAccountId"
-  | "AccessRequestBySourceOpsItemId"
-  | "AccessRequestBySourceRegion"
-  | "AccessRequestByIsReplica"
-  | "AccessRequestByTargetResourceId"
-  | "ChangeRequestByRequesterArn"
-  | "ChangeRequestByRequesterName"
-  | "ChangeRequestByApproverArn"
-  | "ChangeRequestByApproverName"
-  | "ChangeRequestByTemplate"
-  | "ChangeRequestByTargetsResourceGroup"
-  | "InsightByType"
-  | "AccountId";
-export type OpsItemFilterOperator =
-  | "Equal"
-  | "Contains"
-  | "GreaterThan"
-  | "LessThan";
+export type OpsItemFilterKey = "Status" | "CreatedBy" | "Source" | "Priority" | "Title" | "OpsItemId" | "CreatedTime" | "LastModifiedTime" | "ActualStartTime" | "ActualEndTime" | "PlannedStartTime" | "PlannedEndTime" | "OperationalData" | "OperationalDataKey" | "OperationalDataValue" | "ResourceId" | "AutomationId" | "Category" | "Severity" | "OpsItemType" | "AccessRequestByRequesterArn" | "AccessRequestByRequesterId" | "AccessRequestByApproverArn" | "AccessRequestByApproverId" | "AccessRequestBySourceAccountId" | "AccessRequestBySourceOpsItemId" | "AccessRequestBySourceRegion" | "AccessRequestByIsReplica" | "AccessRequestByTargetResourceId" | "ChangeRequestByRequesterArn" | "ChangeRequestByRequesterName" | "ChangeRequestByApproverArn" | "ChangeRequestByApproverName" | "ChangeRequestByTemplate" | "ChangeRequestByTargetsResourceGroup" | "InsightByType" | "AccountId";
+export type OpsItemFilterOperator = "Equal" | "Contains" | "GreaterThan" | "LessThan";
 export type OpsItemFilters = Array<OpsItemFilter>;
 export type OpsItemFilterValue = string;
 
@@ -4860,10 +4113,7 @@ export interface OpsItemRelatedItemsFilter {
   Values: Array<string>;
   Operator: OpsItemRelatedItemsFilterOperator;
 }
-export type OpsItemRelatedItemsFilterKey =
-  | "ResourceType"
-  | "AssociationId"
-  | "ResourceUri";
+export type OpsItemRelatedItemsFilterKey = "ResourceType" | "AssociationId" | "ResourceUri";
 export type OpsItemRelatedItemsFilterOperator = "Equal";
 export type OpsItemRelatedItemsFilters = Array<OpsItemRelatedItemsFilter>;
 export type OpsItemRelatedItemsFilterValue = string;
@@ -4887,27 +4137,7 @@ export type OpsItemSeverity = string;
 
 export type OpsItemSource = string;
 
-export type OpsItemStatus =
-  | "Open"
-  | "InProgress"
-  | "Resolved"
-  | "Pending"
-  | "TimedOut"
-  | "Cancelling"
-  | "Cancelled"
-  | "Failed"
-  | "CompletedWithSuccess"
-  | "CompletedWithFailure"
-  | "Scheduled"
-  | "RunbookInProgress"
-  | "PendingChangeCalendarOverride"
-  | "ChangeCalendarOverrideApproved"
-  | "ChangeCalendarOverrideRejected"
-  | "PendingApproval"
-  | "Approved"
-  | "Revoked"
-  | "Rejected"
-  | "Closed";
+export type OpsItemStatus = "Open" | "InProgress" | "Resolved" | "Pending" | "TimedOut" | "Cancelling" | "Cancelled" | "Failed" | "CompletedWithSuccess" | "CompletedWithFailure" | "Scheduled" | "RunbookInProgress" | "PendingChangeCalendarOverride" | "ChangeCalendarOverrideApproved" | "ChangeCalendarOverrideRejected" | "PendingApproval" | "Approved" | "Revoked" | "Rejected" | "Closed";
 export type OpsItemSummaries = Array<OpsItemSummary>;
 export interface OpsItemSummary {
   CreatedBy?: string;
@@ -5189,22 +4419,8 @@ export interface PatchComplianceData {
   CVEIds?: string;
 }
 export type PatchComplianceDataList = Array<PatchComplianceData>;
-export type PatchComplianceDataState =
-  | "INSTALLED"
-  | "INSTALLED_OTHER"
-  | "INSTALLED_PENDING_REBOOT"
-  | "INSTALLED_REJECTED"
-  | "MISSING"
-  | "NOT_APPLICABLE"
-  | "FAILED"
-  | "AVAILABLE_SECURITY_UPDATE";
-export type PatchComplianceLevel =
-  | "CRITICAL"
-  | "HIGH"
-  | "MEDIUM"
-  | "LOW"
-  | "INFORMATIONAL"
-  | "UNSPECIFIED";
+export type PatchComplianceDataState = "INSTALLED" | "INSTALLED_OTHER" | "INSTALLED_PENDING_REBOOT" | "INSTALLED_REJECTED" | "MISSING" | "NOT_APPLICABLE" | "FAILED" | "AVAILABLE_SECURITY_UPDATE";
+export type PatchComplianceLevel = "CRITICAL" | "HIGH" | "MEDIUM" | "LOW" | "INFORMATIONAL" | "UNSPECIFIED";
 export type PatchComplianceMaxResults = number;
 
 export type PatchComplianceStatus = "COMPLIANT" | "NON_COMPLIANT";
@@ -5217,11 +4433,7 @@ export type PatchCVEId = string;
 export type PatchCVEIdList = Array<string>;
 export type PatchCVEIds = string;
 
-export type PatchDeploymentStatus =
-  | "APPROVED"
-  | "PENDING_APPROVAL"
-  | "EXPLICIT_APPROVED"
-  | "EXPLICIT_REJECTED";
+export type PatchDeploymentStatus = "APPROVED" | "PENDING_APPROVAL" | "EXPLICIT_APPROVED" | "EXPLICIT_REJECTED";
 export type PatchDescription = string;
 
 export type PatchEpoch = number;
@@ -5235,26 +4447,7 @@ export interface PatchFilter {
 export interface PatchFilterGroup {
   PatchFilters: Array<PatchFilter>;
 }
-export type PatchFilterKey =
-  | "ARCH"
-  | "ADVISORY_ID"
-  | "BUGZILLA_ID"
-  | "PATCH_SET"
-  | "PRODUCT"
-  | "PRODUCT_FAMILY"
-  | "CLASSIFICATION"
-  | "CVE_ID"
-  | "EPOCH"
-  | "MSRC_SEVERITY"
-  | "NAME"
-  | "PATCH_ID"
-  | "SECTION"
-  | "PRIORITY"
-  | "REPOSITORY"
-  | "RELEASE"
-  | "SEVERITY"
-  | "SECURITY"
-  | "VERSION";
+export type PatchFilterKey = "ARCH" | "ADVISORY_ID" | "BUGZILLA_ID" | "PATCH_SET" | "PRODUCT" | "PRODUCT_FAMILY" | "CLASSIFICATION" | "CVE_ID" | "EPOCH" | "MSRC_SEVERITY" | "NAME" | "PATCH_ID" | "SECTION" | "PRIORITY" | "REPOSITORY" | "RELEASE" | "SEVERITY" | "SECURITY" | "VERSION";
 export type PatchFilterList = Array<PatchFilter>;
 export type PatchFilterValue = string;
 
@@ -5266,8 +4459,7 @@ export interface PatchGroupPatchBaselineMapping {
   PatchGroup?: string;
   BaselineIdentity?: PatchBaselineIdentity;
 }
-export type PatchGroupPatchBaselineMappingList =
-  Array<PatchGroupPatchBaselineMapping>;
+export type PatchGroupPatchBaselineMappingList = Array<PatchGroupPatchBaselineMapping>;
 export type PatchId = string;
 
 export type PatchIdList = Array<string>;
@@ -5312,13 +4504,7 @@ export type PatchProduct = string;
 export type PatchProductFamily = string;
 
 export type PatchPropertiesList = Array<Record<string, string>>;
-export type PatchProperty =
-  | "PRODUCT"
-  | "PRODUCT_FAMILY"
-  | "CLASSIFICATION"
-  | "MSRC_SEVERITY"
-  | "PRIORITY"
-  | "SEVERITY";
+export type PatchProperty = "PRODUCT" | "PRODUCT_FAMILY" | "CLASSIFICATION" | "MSRC_SEVERITY" | "PRIORITY" | "SEVERITY";
 export type PatchPropertyEntry = Record<string, string>;
 export type PatchRelease = string;
 
@@ -5412,7 +4598,8 @@ export interface PutComplianceItemsRequest {
   ItemContentHash?: string;
   UploadType?: ComplianceUploadType;
 }
-export interface PutComplianceItemsResult {}
+export interface PutComplianceItemsResult {
+}
 export type PutInventoryMessage = string;
 
 export interface PutInventoryRequest {
@@ -5486,10 +4673,7 @@ export interface RegisterTaskWithMaintenanceWindowRequest {
   TaskArn: string;
   ServiceRoleArn?: string;
   TaskType: MaintenanceWindowTaskType;
-  TaskParameters?: Record<
-    string,
-    MaintenanceWindowTaskParameterValueExpression
-  >;
+  TaskParameters?: Record<string, MaintenanceWindowTaskParameterValueExpression>;
   TaskInvocationParameters?: MaintenanceWindowTaskInvocationParameters;
   Priority?: number;
   MaxConcurrency?: string;
@@ -5528,7 +4712,8 @@ export interface RemoveTagsFromResourceRequest {
   ResourceId: string;
   TagKeys: Array<string>;
 }
-export interface RemoveTagsFromResourceResult {}
+export interface RemoveTagsFromResourceResult {
+}
 export type RequireType = string;
 
 export interface ResetServiceSettingRequest {
@@ -5553,8 +4738,7 @@ export interface ResourceComplianceSummaryItem {
   CompliantSummary?: CompliantSummary;
   NonCompliantSummary?: NonCompliantSummary;
 }
-export type ResourceComplianceSummaryItemList =
-  Array<ResourceComplianceSummaryItem>;
+export type ResourceComplianceSummaryItemList = Array<ResourceComplianceSummaryItem>;
 export type ResourceCount = number;
 
 export type ResourceCountByStatus = string;
@@ -5625,8 +4809,7 @@ export interface ResourceDataSyncOrganizationalUnit {
 }
 export type ResourceDataSyncOrganizationalUnitId = string;
 
-export type ResourceDataSyncOrganizationalUnitList =
-  Array<ResourceDataSyncOrganizationalUnit>;
+export type ResourceDataSyncOrganizationalUnitList = Array<ResourceDataSyncOrganizationalUnit>;
 export type ResourceDataSyncOrganizationSourceType = string;
 
 export type ResourceDataSyncS3BucketName = string;
@@ -5712,16 +4895,7 @@ export declare class ResourcePolicyNotFoundException extends EffectData.TaggedEr
 }> {}
 export type ResourcePolicyParameterNamesList = Array<string>;
 export type ResourceType = "ManagedInstance" | "EC2Instance";
-export type ResourceTypeForTagging =
-  | "Document"
-  | "ManagedInstance"
-  | "MaintenanceWindow"
-  | "Parameter"
-  | "PatchBaseline"
-  | "OpsItem"
-  | "OpsMetadata"
-  | "Automation"
-  | "Association";
+export type ResourceTypeForTagging = "Document" | "ManagedInstance" | "MaintenanceWindow" | "Parameter" | "PatchBaseline" | "OpsItem" | "OpsMetadata" | "Automation" | "Association";
 export type ResponseCode = number;
 
 export interface ResultAttribute {
@@ -5786,7 +4960,8 @@ export interface SendAutomationSignalRequest {
   SignalType: SignalType;
   Payload?: Record<string, Array<string>>;
 }
-export interface SendAutomationSignalResult {}
+export interface SendAutomationSignalResult {
+}
 export interface SendCommandRequest {
   InstanceIds?: Array<string>;
   Targets?: Array<Target>;
@@ -5858,14 +5033,7 @@ export interface SessionFilter {
   key: SessionFilterKey;
   value: string;
 }
-export type SessionFilterKey =
-  | "InvokedAfter"
-  | "InvokedBefore"
-  | "Target"
-  | "Owner"
-  | "Status"
-  | "SessionId"
-  | "AccessType";
+export type SessionFilterKey = "InvokedAfter" | "InvokedBefore" | "Target" | "Owner" | "Status" | "SessionId" | "AccessType";
 export type SessionFilterList = Array<SessionFilter>;
 export type SessionFilterValue = string;
 
@@ -5893,13 +5061,7 @@ export type SessionOwner = string;
 export type SessionReason = string;
 
 export type SessionState = "Active" | "History";
-export type SessionStatus =
-  | "Connected"
-  | "Connecting"
-  | "Disconnected"
-  | "Terminated"
-  | "Terminating"
-  | "Failed";
+export type SessionStatus = "Connected" | "Connecting" | "Disconnected" | "Terminated" | "Terminating" | "Failed";
 export type SessionTarget = string;
 
 export type SessionTokenType = string;
@@ -5914,23 +5076,14 @@ export interface SeveritySummary {
 }
 export type SharedDocumentVersion = string;
 
-export type SignalType =
-  | "Approve"
-  | "Reject"
-  | "StartStep"
-  | "StopStep"
-  | "Resume"
-  | "Revoke";
+export type SignalType = "Approve" | "Reject" | "StartStep" | "StopStep" | "Resume" | "Revoke";
 export type SnapshotDownloadUrl = string;
 
 export type SnapshotId = string;
 
 export type SourceId = string;
 
-export type SourceType =
-  | "AWS::EC2::Instance"
-  | "AWS::IoT::Thing"
-  | "AWS::SSM::ManagedInstance";
+export type SourceType = "AWS::EC2::Instance" | "AWS::IoT::Thing" | "AWS::SSM::ManagedInstance";
 export type StandardErrorContent = string;
 
 export type StandardOutputContent = string;
@@ -5946,7 +5099,8 @@ export interface StartAccessRequestResponse {
 export interface StartAssociationsOnceRequest {
   AssociationIds: Array<string>;
 }
-export interface StartAssociationsOnceResult {}
+export interface StartAssociationsOnceResult {
+}
 export interface StartAutomationExecutionRequest {
   DocumentName: string;
   DocumentVersion?: string;
@@ -6011,7 +5165,8 @@ export type StatusName = string;
 
 export declare class StatusUnchanged extends EffectData.TaggedError(
   "StatusUnchanged",
-)<{}> {}
+)<{
+}> {}
 export interface StepExecution {
   StepName?: string;
   Action?: string;
@@ -6042,16 +5197,7 @@ export interface StepExecutionFilter {
   Key: StepExecutionFilterKey;
   Values: Array<string>;
 }
-export type StepExecutionFilterKey =
-  | "StartTimeBefore"
-  | "StartTimeAfter"
-  | "StepExecutionStatus"
-  | "StepExecutionId"
-  | "StepName"
-  | "Action"
-  | "ParentStepExecutionId"
-  | "ParentStepIteration"
-  | "ParentStepIteratorValue";
+export type StepExecutionFilterKey = "StartTimeBefore" | "StartTimeAfter" | "StepExecutionStatus" | "StepExecutionId" | "StepName" | "Action" | "ParentStepExecutionId" | "ParentStepIteration" | "ParentStepIteratorValue";
 export type StepExecutionFilterList = Array<StepExecutionFilter>;
 export type StepExecutionFilterValue = string;
 
@@ -6062,7 +5208,8 @@ export interface StopAutomationExecutionRequest {
   AutomationExecutionId: string;
   Type?: StopType;
 }
-export interface StopAutomationExecutionResult {}
+export interface StopAutomationExecutionResult {
+}
 export type StopType = "Complete" | "Cancel";
 export type StreamUrl = string;
 
@@ -6159,7 +5306,8 @@ export type TokenValue = string;
 
 export declare class TooManyTagsError extends EffectData.TaggedError(
   "TooManyTagsError",
-)<{}> {}
+)<{
+}> {}
 export declare class TooManyUpdates extends EffectData.TaggedError(
   "TooManyUpdates",
 )<{
@@ -6268,7 +5416,8 @@ export interface UpdateDocumentMetadataRequest {
   DocumentVersion?: string;
   DocumentReviews: DocumentReviews;
 }
-export interface UpdateDocumentMetadataResponse {}
+export interface UpdateDocumentMetadataResponse {
+}
 export interface UpdateDocumentRequest {
   Content: string;
   Attachments?: Array<AttachmentsSource>;
@@ -6334,10 +5483,7 @@ export interface UpdateMaintenanceWindowTaskRequest {
   Targets?: Array<Target>;
   TaskArn?: string;
   ServiceRoleArn?: string;
-  TaskParameters?: Record<
-    string,
-    MaintenanceWindowTaskParameterValueExpression
-  >;
+  TaskParameters?: Record<string, MaintenanceWindowTaskParameterValueExpression>;
   TaskInvocationParameters?: MaintenanceWindowTaskInvocationParameters;
   Priority?: number;
   MaxConcurrency?: string;
@@ -6355,10 +5501,7 @@ export interface UpdateMaintenanceWindowTaskResult {
   Targets?: Array<Target>;
   TaskArn?: string;
   ServiceRoleArn?: string;
-  TaskParameters?: Record<
-    string,
-    MaintenanceWindowTaskParameterValueExpression
-  >;
+  TaskParameters?: Record<string, MaintenanceWindowTaskParameterValueExpression>;
   TaskInvocationParameters?: MaintenanceWindowTaskInvocationParameters;
   Priority?: number;
   MaxConcurrency?: string;
@@ -6373,7 +5516,8 @@ export interface UpdateManagedInstanceRoleRequest {
   InstanceId: string;
   IamRole: string;
 }
-export interface UpdateManagedInstanceRoleResult {}
+export interface UpdateManagedInstanceRoleResult {
+}
 export interface UpdateOpsItemRequest {
   Description?: string;
   OperationalData?: Record<string, OpsItemDataValue>;
@@ -6392,7 +5536,8 @@ export interface UpdateOpsItemRequest {
   PlannedEndTime?: Date | string;
   OpsItemArn?: string;
 }
-export interface UpdateOpsItemResponse {}
+export interface UpdateOpsItemResponse {
+}
 export interface UpdateOpsMetadataRequest {
   OpsMetadataArn: string;
   MetadataToUpdate?: Record<string, MetadataValue>;
@@ -6438,12 +5583,14 @@ export interface UpdateResourceDataSyncRequest {
   SyncType: string;
   SyncSource: ResourceDataSyncSource;
 }
-export interface UpdateResourceDataSyncResult {}
+export interface UpdateResourceDataSyncResult {
+}
 export interface UpdateServiceSettingRequest {
   SettingId: string;
   SettingValue: string;
 }
-export interface UpdateServiceSettingResult {}
+export interface UpdateServiceSettingResult {
+}
 export type Url = string;
 
 export type UUID = string;
@@ -6507,7 +5654,10 @@ export declare namespace CancelMaintenanceWindowExecution {
 export declare namespace CreateActivation {
   export type Input = CreateActivationRequest;
   export type Output = CreateActivationResult;
-  export type Error = InternalServerError | InvalidParameters | CommonAwsError;
+  export type Error =
+    | InternalServerError
+    | InvalidParameters
+    | CommonAwsError;
 }
 
 export declare namespace CreateAssociation {
@@ -6668,7 +5818,9 @@ export declare namespace DeleteInventory {
 export declare namespace DeleteMaintenanceWindow {
   export type Input = DeleteMaintenanceWindowRequest;
   export type Output = DeleteMaintenanceWindowResult;
-  export type Error = InternalServerError | CommonAwsError;
+  export type Error =
+    | InternalServerError
+    | CommonAwsError;
 }
 
 export declare namespace DeleteOpsItem {
@@ -6693,13 +5845,18 @@ export declare namespace DeleteOpsMetadata {
 export declare namespace DeleteParameter {
   export type Input = DeleteParameterRequest;
   export type Output = DeleteParameterResult;
-  export type Error = InternalServerError | ParameterNotFound | CommonAwsError;
+  export type Error =
+    | InternalServerError
+    | ParameterNotFound
+    | CommonAwsError;
 }
 
 export declare namespace DeleteParameters {
   export type Input = DeleteParametersRequest;
   export type Output = DeleteParametersResult;
-  export type Error = InternalServerError | CommonAwsError;
+  export type Error =
+    | InternalServerError
+    | CommonAwsError;
 }
 
 export declare namespace DeletePatchBaseline {
@@ -6737,13 +5894,19 @@ export declare namespace DeleteResourcePolicy {
 export declare namespace DeregisterManagedInstance {
   export type Input = DeregisterManagedInstanceRequest;
   export type Output = DeregisterManagedInstanceResult;
-  export type Error = InternalServerError | InvalidInstanceId | CommonAwsError;
+  export type Error =
+    | InternalServerError
+    | InvalidInstanceId
+    | CommonAwsError;
 }
 
 export declare namespace DeregisterPatchBaselineForPatchGroup {
   export type Input = DeregisterPatchBaselineForPatchGroupRequest;
   export type Output = DeregisterPatchBaselineForPatchGroupResult;
-  export type Error = InternalServerError | InvalidResourceId | CommonAwsError;
+  export type Error =
+    | InternalServerError
+    | InvalidResourceId
+    | CommonAwsError;
 }
 
 export declare namespace DeregisterTargetFromMaintenanceWindow {
@@ -6834,7 +5997,9 @@ export declare namespace DescribeAutomationStepExecutions {
 export declare namespace DescribeAvailablePatches {
   export type Input = DescribeAvailablePatchesRequest;
   export type Output = DescribeAvailablePatchesResult;
-  export type Error = InternalServerError | CommonAwsError;
+  export type Error =
+    | InternalServerError
+    | CommonAwsError;
 }
 
 export declare namespace DescribeDocument {
@@ -6916,7 +6081,10 @@ export declare namespace DescribeInstancePatches {
 export declare namespace DescribeInstancePatchStates {
   export type Input = DescribeInstancePatchStatesRequest;
   export type Output = DescribeInstancePatchStatesResult;
-  export type Error = InternalServerError | InvalidNextToken | CommonAwsError;
+  export type Error =
+    | InternalServerError
+    | InvalidNextToken
+    | CommonAwsError;
 }
 
 export declare namespace DescribeInstancePatchStatesForPatchGroup {
@@ -6956,7 +6124,9 @@ export declare namespace DescribeInventoryDeletions {
 export declare namespace DescribeMaintenanceWindowExecutions {
   export type Input = DescribeMaintenanceWindowExecutionsRequest;
   export type Output = DescribeMaintenanceWindowExecutionsResult;
-  export type Error = InternalServerError | CommonAwsError;
+  export type Error =
+    | InternalServerError
+    | CommonAwsError;
 }
 
 export declare namespace DescribeMaintenanceWindowExecutionTaskInvocations {
@@ -6980,7 +6150,9 @@ export declare namespace DescribeMaintenanceWindowExecutionTasks {
 export declare namespace DescribeMaintenanceWindows {
   export type Input = DescribeMaintenanceWindowsRequest;
   export type Output = DescribeMaintenanceWindowsResult;
-  export type Error = InternalServerError | CommonAwsError;
+  export type Error =
+    | InternalServerError
+    | CommonAwsError;
 }
 
 export declare namespace DescribeMaintenanceWindowSchedule {
@@ -6995,7 +6167,9 @@ export declare namespace DescribeMaintenanceWindowSchedule {
 export declare namespace DescribeMaintenanceWindowsForTarget {
   export type Input = DescribeMaintenanceWindowsForTargetRequest;
   export type Output = DescribeMaintenanceWindowsForTargetResult;
-  export type Error = InternalServerError | CommonAwsError;
+  export type Error =
+    | InternalServerError
+    | CommonAwsError;
 }
 
 export declare namespace DescribeMaintenanceWindowTargets {
@@ -7019,7 +6193,9 @@ export declare namespace DescribeMaintenanceWindowTasks {
 export declare namespace DescribeOpsItems {
   export type Input = DescribeOpsItemsRequest;
   export type Output = DescribeOpsItemsResponse;
-  export type Error = InternalServerError | CommonAwsError;
+  export type Error =
+    | InternalServerError
+    | CommonAwsError;
 }
 
 export declare namespace DescribeParameters {
@@ -7037,25 +6213,34 @@ export declare namespace DescribeParameters {
 export declare namespace DescribePatchBaselines {
   export type Input = DescribePatchBaselinesRequest;
   export type Output = DescribePatchBaselinesResult;
-  export type Error = InternalServerError | CommonAwsError;
+  export type Error =
+    | InternalServerError
+    | CommonAwsError;
 }
 
 export declare namespace DescribePatchGroups {
   export type Input = DescribePatchGroupsRequest;
   export type Output = DescribePatchGroupsResult;
-  export type Error = InternalServerError | CommonAwsError;
+  export type Error =
+    | InternalServerError
+    | CommonAwsError;
 }
 
 export declare namespace DescribePatchGroupState {
   export type Input = DescribePatchGroupStateRequest;
   export type Output = DescribePatchGroupStateResult;
-  export type Error = InternalServerError | InvalidNextToken | CommonAwsError;
+  export type Error =
+    | InternalServerError
+    | InvalidNextToken
+    | CommonAwsError;
 }
 
 export declare namespace DescribePatchProperties {
   export type Input = DescribePatchPropertiesRequest;
   export type Output = DescribePatchPropertiesResult;
-  export type Error = InternalServerError | CommonAwsError;
+  export type Error =
+    | InternalServerError
+    | CommonAwsError;
 }
 
 export declare namespace DescribeSessions {
@@ -7127,13 +6312,17 @@ export declare namespace GetCommandInvocation {
 export declare namespace GetConnectionStatus {
   export type Input = GetConnectionStatusRequest;
   export type Output = GetConnectionStatusResponse;
-  export type Error = InternalServerError | CommonAwsError;
+  export type Error =
+    | InternalServerError
+    | CommonAwsError;
 }
 
 export declare namespace GetDefaultPatchBaseline {
   export type Input = GetDefaultPatchBaselineRequest;
   export type Output = GetDefaultPatchBaselineResult;
-  export type Error = InternalServerError | CommonAwsError;
+  export type Error =
+    | InternalServerError
+    | CommonAwsError;
 }
 
 export declare namespace GetDeployablePatchSnapshotForInstance {
@@ -7292,7 +6481,10 @@ export declare namespace GetParameterHistory {
 export declare namespace GetParameters {
   export type Input = GetParametersRequest;
   export type Output = GetParametersResult;
-  export type Error = InternalServerError | InvalidKeyId | CommonAwsError;
+  export type Error =
+    | InternalServerError
+    | InvalidKeyId
+    | CommonAwsError;
 }
 
 export declare namespace GetParametersByPath {
@@ -7321,7 +6513,9 @@ export declare namespace GetPatchBaseline {
 export declare namespace GetPatchBaselineForPatchGroup {
   export type Input = GetPatchBaselineForPatchGroupRequest;
   export type Output = GetPatchBaselineForPatchGroupResult;
-  export type Error = InternalServerError | CommonAwsError;
+  export type Error =
+    | InternalServerError
+    | CommonAwsError;
 }
 
 export declare namespace GetResourcePolicies {
@@ -7358,7 +6552,10 @@ export declare namespace LabelParameterVersion {
 export declare namespace ListAssociations {
   export type Input = ListAssociationsRequest;
   export type Output = ListAssociationsResult;
-  export type Error = InternalServerError | InvalidNextToken | CommonAwsError;
+  export type Error =
+    | InternalServerError
+    | InvalidNextToken
+    | CommonAwsError;
 }
 
 export declare namespace ListAssociationVersions {
@@ -7811,7 +7008,9 @@ export declare namespace StopAutomationExecution {
 export declare namespace TerminateSession {
   export type Input = TerminateSessionRequest;
   export type Output = TerminateSessionResponse;
-  export type Error = InternalServerError | CommonAwsError;
+  export type Error =
+    | InternalServerError
+    | CommonAwsError;
 }
 
 export declare namespace UnlabelParameterVersion {
@@ -7928,7 +7127,10 @@ export declare namespace UpdateMaintenanceWindowTask {
 export declare namespace UpdateManagedInstanceRole {
   export type Input = UpdateManagedInstanceRoleRequest;
   export type Output = UpdateManagedInstanceRoleResult;
-  export type Error = InternalServerError | InvalidInstanceId | CommonAwsError;
+  export type Error =
+    | InternalServerError
+    | InvalidInstanceId
+    | CommonAwsError;
 }
 
 export declare namespace UpdateOpsItem {
@@ -7986,3 +7188,4 @@ export declare namespace UpdateServiceSetting {
     | TooManyUpdates
     | CommonAwsError;
 }
+

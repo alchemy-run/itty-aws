@@ -5,24 +5,7 @@ import type { ConnectContactLens as _ConnectContactLensClient } from "./types.ts
 
 export * from "./types.ts";
 
-export {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-  ValidationException,
-  type CommonAwsError,
-} from "../../error.ts";
+export {ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, ValidationException, type CommonAwsError} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -32,8 +15,7 @@ const metadata = {
   sigV4ServiceName: "connect",
   endpointPrefix: "contact-lens",
   operations: {
-    ListRealtimeContactAnalysisSegments:
-      "POST /realtime-contact-analysis/analysis-segments",
+    "ListRealtimeContactAnalysisSegments": "POST /realtime-contact-analysis/analysis-segments",
   },
 } as const satisfies ServiceMetadata;
 

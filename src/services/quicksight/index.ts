@@ -5,24 +5,7 @@ import type { QuickSight as _QuickSightClient } from "./types.ts";
 
 export * from "./types.ts";
 
-export {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-  ValidationException,
-  type CommonAwsError,
-} from "../../error.ts";
+export {ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, ValidationException, type CommonAwsError} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -32,1146 +15,1133 @@ const metadata = {
   sigV4ServiceName: "quicksight",
   endpointPrefix: "quicksight",
   operations: {
-    BatchCreateTopicReviewedAnswer: {
+    "BatchCreateTopicReviewedAnswer": {
       http: "POST /accounts/{AwsAccountId}/topics/{TopicId}/batch-create-reviewed-answers",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    BatchDeleteTopicReviewedAnswer: {
+    "BatchDeleteTopicReviewedAnswer": {
       http: "POST /accounts/{AwsAccountId}/topics/{TopicId}/batch-delete-reviewed-answers",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    CancelIngestion: {
+    "CancelIngestion": {
       http: "DELETE /accounts/{AwsAccountId}/data-sets/{DataSetId}/ingestions/{IngestionId}",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    CreateAccountCustomization: {
+    "CreateAccountCustomization": {
       http: "POST /accounts/{AwsAccountId}/customizations",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    CreateAccountSubscription: {
+    "CreateAccountSubscription": {
       http: "POST /account/{AwsAccountId}",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    CreateAnalysis: {
+    "CreateAnalysis": {
       http: "POST /accounts/{AwsAccountId}/analyses/{AnalysisId}",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    CreateBrand: "POST /accounts/{AwsAccountId}/brands/{BrandId}",
-    CreateCustomPermissions: "POST /accounts/{AwsAccountId}/custom-permissions",
-    CreateDashboard: {
+    "CreateBrand": "POST /accounts/{AwsAccountId}/brands/{BrandId}",
+    "CreateCustomPermissions": "POST /accounts/{AwsAccountId}/custom-permissions",
+    "CreateDashboard": {
       http: "POST /accounts/{AwsAccountId}/dashboards/{DashboardId}",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    CreateDataSet: {
+    "CreateDataSet": {
       http: "POST /accounts/{AwsAccountId}/data-sets",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    CreateDataSource: {
+    "CreateDataSource": {
       http: "POST /accounts/{AwsAccountId}/data-sources",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    CreateFolder: {
+    "CreateFolder": {
       http: "POST /accounts/{AwsAccountId}/folders/{FolderId}",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    CreateFolderMembership:
-      "PUT /accounts/{AwsAccountId}/folders/{FolderId}/members/{MemberType}/{MemberId}",
-    CreateGroup: {
+    "CreateFolderMembership": "PUT /accounts/{AwsAccountId}/folders/{FolderId}/members/{MemberType}/{MemberId}",
+    "CreateGroup": {
       http: "POST /accounts/{AwsAccountId}/namespaces/{Namespace}/groups",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    CreateGroupMembership: {
+    "CreateGroupMembership": {
       http: "PUT /accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}/members/{MemberName}",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    CreateIAMPolicyAssignment: {
+    "CreateIAMPolicyAssignment": {
       http: "POST /accounts/{AwsAccountId}/namespaces/{Namespace}/iam-policy-assignments",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    CreateIngestion: {
+    "CreateIngestion": {
       http: "PUT /accounts/{AwsAccountId}/data-sets/{DataSetId}/ingestions/{IngestionId}",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    CreateNamespace: {
+    "CreateNamespace": {
       http: "POST /accounts/{AwsAccountId}",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    CreateRefreshSchedule: {
+    "CreateRefreshSchedule": {
       http: "POST /accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-schedules",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    CreateRoleMembership: {
+    "CreateRoleMembership": {
       http: "POST /accounts/{AwsAccountId}/namespaces/{Namespace}/roles/{Role}/members/{MemberName}",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    CreateTemplate: {
+    "CreateTemplate": {
       http: "POST /accounts/{AwsAccountId}/templates/{TemplateId}",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    CreateTemplateAlias: {
+    "CreateTemplateAlias": {
       http: "POST /accounts/{AwsAccountId}/templates/{TemplateId}/aliases/{AliasName}",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    CreateTheme: {
+    "CreateTheme": {
       http: "POST /accounts/{AwsAccountId}/themes/{ThemeId}",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    CreateThemeAlias: {
+    "CreateThemeAlias": {
       http: "POST /accounts/{AwsAccountId}/themes/{ThemeId}/aliases/{AliasName}",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    CreateTopic: {
+    "CreateTopic": {
       http: "POST /accounts/{AwsAccountId}/topics",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    CreateTopicRefreshSchedule: {
+    "CreateTopicRefreshSchedule": {
       http: "POST /accounts/{AwsAccountId}/topics/{TopicId}/schedules",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    CreateVPCConnection: {
+    "CreateVPCConnection": {
       http: "POST /accounts/{AwsAccountId}/vpc-connections",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    DeleteAccountCustomization: {
+    "DeleteAccountCustomization": {
       http: "DELETE /accounts/{AwsAccountId}/customizations",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    DeleteAccountSubscription: {
+    "DeleteAccountSubscription": {
       http: "DELETE /account/{AwsAccountId}",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    DeleteAnalysis: {
+    "DeleteAnalysis": {
       http: "DELETE /accounts/{AwsAccountId}/analyses/{AnalysisId}",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    DeleteBrand: "DELETE /accounts/{AwsAccountId}/brands/{BrandId}",
-    DeleteBrandAssignment: "DELETE /accounts/{AwsAccountId}/brandassignments",
-    DeleteCustomPermissions:
-      "DELETE /accounts/{AwsAccountId}/custom-permissions/{CustomPermissionsName}",
-    DeleteDashboard: {
+    "DeleteBrand": "DELETE /accounts/{AwsAccountId}/brands/{BrandId}",
+    "DeleteBrandAssignment": "DELETE /accounts/{AwsAccountId}/brandassignments",
+    "DeleteCustomPermissions": "DELETE /accounts/{AwsAccountId}/custom-permissions/{CustomPermissionsName}",
+    "DeleteDashboard": {
       http: "DELETE /accounts/{AwsAccountId}/dashboards/{DashboardId}",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    DeleteDataSet: {
+    "DeleteDataSet": {
       http: "DELETE /accounts/{AwsAccountId}/data-sets/{DataSetId}",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    DeleteDataSetRefreshProperties: {
+    "DeleteDataSetRefreshProperties": {
       http: "DELETE /accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-properties",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    DeleteDataSource: {
+    "DeleteDataSource": {
       http: "DELETE /accounts/{AwsAccountId}/data-sources/{DataSourceId}",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    DeleteDefaultQBusinessApplication: {
+    "DeleteDefaultQBusinessApplication": {
       http: "DELETE /accounts/{AwsAccountId}/default-qbusiness-application",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    DeleteFolder: {
+    "DeleteFolder": {
       http: "DELETE /accounts/{AwsAccountId}/folders/{FolderId}",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    DeleteFolderMembership:
-      "DELETE /accounts/{AwsAccountId}/folders/{FolderId}/members/{MemberType}/{MemberId}",
-    DeleteGroup: {
+    "DeleteFolderMembership": "DELETE /accounts/{AwsAccountId}/folders/{FolderId}/members/{MemberType}/{MemberId}",
+    "DeleteGroup": {
       http: "DELETE /accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    DeleteGroupMembership: {
+    "DeleteGroupMembership": {
       http: "DELETE /accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}/members/{MemberName}",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    DeleteIAMPolicyAssignment: {
+    "DeleteIAMPolicyAssignment": {
       http: "DELETE /accounts/{AwsAccountId}/namespace/{Namespace}/iam-policy-assignments/{AssignmentName}",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    DeleteIdentityPropagationConfig: {
+    "DeleteIdentityPropagationConfig": {
       http: "DELETE /accounts/{AwsAccountId}/identity-propagation-config/{Service}",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    DeleteNamespace: {
+    "DeleteNamespace": {
       http: "DELETE /accounts/{AwsAccountId}/namespaces/{Namespace}",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    DeleteRefreshSchedule: {
+    "DeleteRefreshSchedule": {
       http: "DELETE /accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-schedules/{ScheduleId}",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    DeleteRoleCustomPermission:
-      "DELETE /accounts/{AwsAccountId}/namespaces/{Namespace}/roles/{Role}/custom-permission",
-    DeleteRoleMembership: {
+    "DeleteRoleCustomPermission": "DELETE /accounts/{AwsAccountId}/namespaces/{Namespace}/roles/{Role}/custom-permission",
+    "DeleteRoleMembership": {
       http: "DELETE /accounts/{AwsAccountId}/namespaces/{Namespace}/roles/{Role}/members/{MemberName}",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    DeleteTemplate: {
+    "DeleteTemplate": {
       http: "DELETE /accounts/{AwsAccountId}/templates/{TemplateId}",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    DeleteTemplateAlias: {
+    "DeleteTemplateAlias": {
       http: "DELETE /accounts/{AwsAccountId}/templates/{TemplateId}/aliases/{AliasName}",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    DeleteTheme: {
+    "DeleteTheme": {
       http: "DELETE /accounts/{AwsAccountId}/themes/{ThemeId}",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    DeleteThemeAlias: {
+    "DeleteThemeAlias": {
       http: "DELETE /accounts/{AwsAccountId}/themes/{ThemeId}/aliases/{AliasName}",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    DeleteTopic: {
+    "DeleteTopic": {
       http: "DELETE /accounts/{AwsAccountId}/topics/{TopicId}",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    DeleteTopicRefreshSchedule: {
+    "DeleteTopicRefreshSchedule": {
       http: "DELETE /accounts/{AwsAccountId}/topics/{TopicId}/schedules/{DatasetId}",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    DeleteUser: {
+    "DeleteUser": {
       http: "DELETE /accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    DeleteUserByPrincipalId: {
+    "DeleteUserByPrincipalId": {
       http: "DELETE /accounts/{AwsAccountId}/namespaces/{Namespace}/user-principals/{PrincipalId}",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    DeleteUserCustomPermission: {
+    "DeleteUserCustomPermission": {
       http: "DELETE /accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}/custom-permission",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    DeleteVPCConnection: {
+    "DeleteVPCConnection": {
       http: "DELETE /accounts/{AwsAccountId}/vpc-connections/{VPCConnectionId}",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    DescribeAccountCustomization: {
+    "DescribeAccountCustomization": {
       http: "GET /accounts/{AwsAccountId}/customizations",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    DescribeAccountSettings: {
+    "DescribeAccountSettings": {
       http: "GET /accounts/{AwsAccountId}/settings",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    DescribeAccountSubscription: {
+    "DescribeAccountSubscription": {
       http: "GET /account/{AwsAccountId}",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    DescribeAnalysis: {
+    "DescribeAnalysis": {
       http: "GET /accounts/{AwsAccountId}/analyses/{AnalysisId}",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    DescribeAnalysisDefinition: {
+    "DescribeAnalysisDefinition": {
       http: "GET /accounts/{AwsAccountId}/analyses/{AnalysisId}/definition",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    DescribeAnalysisPermissions: {
+    "DescribeAnalysisPermissions": {
       http: "GET /accounts/{AwsAccountId}/analyses/{AnalysisId}/permissions",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    DescribeAssetBundleExportJob: {
+    "DescribeAssetBundleExportJob": {
       http: "GET /accounts/{AwsAccountId}/asset-bundle-export-jobs/{AssetBundleExportJobId}",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    DescribeAssetBundleImportJob: {
+    "DescribeAssetBundleImportJob": {
       http: "GET /accounts/{AwsAccountId}/asset-bundle-import-jobs/{AssetBundleImportJobId}",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    DescribeBrand: "GET /accounts/{AwsAccountId}/brands/{BrandId}",
-    DescribeBrandAssignment: "GET /accounts/{AwsAccountId}/brandassignments",
-    DescribeBrandPublishedVersion:
-      "GET /accounts/{AwsAccountId}/brands/{BrandId}/publishedversion",
-    DescribeCustomPermissions:
-      "GET /accounts/{AwsAccountId}/custom-permissions/{CustomPermissionsName}",
-    DescribeDashboard: {
+    "DescribeBrand": "GET /accounts/{AwsAccountId}/brands/{BrandId}",
+    "DescribeBrandAssignment": "GET /accounts/{AwsAccountId}/brandassignments",
+    "DescribeBrandPublishedVersion": "GET /accounts/{AwsAccountId}/brands/{BrandId}/publishedversion",
+    "DescribeCustomPermissions": "GET /accounts/{AwsAccountId}/custom-permissions/{CustomPermissionsName}",
+    "DescribeDashboard": {
       http: "GET /accounts/{AwsAccountId}/dashboards/{DashboardId}",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    DescribeDashboardDefinition: {
+    "DescribeDashboardDefinition": {
       http: "GET /accounts/{AwsAccountId}/dashboards/{DashboardId}/definition",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    DescribeDashboardPermissions: {
+    "DescribeDashboardPermissions": {
       http: "GET /accounts/{AwsAccountId}/dashboards/{DashboardId}/permissions",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    DescribeDashboardSnapshotJob:
-      "GET /accounts/{AwsAccountId}/dashboards/{DashboardId}/snapshot-jobs/{SnapshotJobId}",
-    DescribeDashboardSnapshotJobResult: {
+    "DescribeDashboardSnapshotJob": "GET /accounts/{AwsAccountId}/dashboards/{DashboardId}/snapshot-jobs/{SnapshotJobId}",
+    "DescribeDashboardSnapshotJobResult": {
       http: "GET /accounts/{AwsAccountId}/dashboards/{DashboardId}/snapshot-jobs/{SnapshotJobId}/result",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    DescribeDashboardsQAConfiguration: {
+    "DescribeDashboardsQAConfiguration": {
       http: "GET /accounts/{AwsAccountId}/dashboards-qa-configuration",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    DescribeDataSet: {
+    "DescribeDataSet": {
       http: "GET /accounts/{AwsAccountId}/data-sets/{DataSetId}",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    DescribeDataSetPermissions: {
+    "DescribeDataSetPermissions": {
       http: "GET /accounts/{AwsAccountId}/data-sets/{DataSetId}/permissions",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    DescribeDataSetRefreshProperties: {
+    "DescribeDataSetRefreshProperties": {
       http: "GET /accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-properties",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    DescribeDataSource: {
+    "DescribeDataSource": {
       http: "GET /accounts/{AwsAccountId}/data-sources/{DataSourceId}",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    DescribeDataSourcePermissions: {
+    "DescribeDataSourcePermissions": {
       http: "GET /accounts/{AwsAccountId}/data-sources/{DataSourceId}/permissions",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    DescribeDefaultQBusinessApplication: {
+    "DescribeDefaultQBusinessApplication": {
       http: "GET /accounts/{AwsAccountId}/default-qbusiness-application",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    DescribeFolder: {
+    "DescribeFolder": {
       http: "GET /accounts/{AwsAccountId}/folders/{FolderId}",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    DescribeFolderPermissions: {
+    "DescribeFolderPermissions": {
       http: "GET /accounts/{AwsAccountId}/folders/{FolderId}/permissions",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    DescribeFolderResolvedPermissions: {
+    "DescribeFolderResolvedPermissions": {
       http: "GET /accounts/{AwsAccountId}/folders/{FolderId}/resolved-permissions",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    DescribeGroup: {
+    "DescribeGroup": {
       http: "GET /accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    DescribeGroupMembership: {
+    "DescribeGroupMembership": {
       http: "GET /accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}/members/{MemberName}",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    DescribeIAMPolicyAssignment: {
+    "DescribeIAMPolicyAssignment": {
       http: "GET /accounts/{AwsAccountId}/namespaces/{Namespace}/iam-policy-assignments/{AssignmentName}",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    DescribeIngestion: {
+    "DescribeIngestion": {
       http: "GET /accounts/{AwsAccountId}/data-sets/{DataSetId}/ingestions/{IngestionId}",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    DescribeIpRestriction: {
+    "DescribeIpRestriction": {
       http: "GET /accounts/{AwsAccountId}/ip-restriction",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    DescribeKeyRegistration: "GET /accounts/{AwsAccountId}/key-registration",
-    DescribeNamespace: {
+    "DescribeKeyRegistration": "GET /accounts/{AwsAccountId}/key-registration",
+    "DescribeNamespace": {
       http: "GET /accounts/{AwsAccountId}/namespaces/{Namespace}",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    DescribeQPersonalizationConfiguration: {
+    "DescribeQPersonalizationConfiguration": {
       http: "GET /accounts/{AwsAccountId}/q-personalization-configuration",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    DescribeQuickSightQSearchConfiguration: {
+    "DescribeQuickSightQSearchConfiguration": {
       http: "GET /accounts/{AwsAccountId}/quicksight-q-search-configuration",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    DescribeRefreshSchedule: {
+    "DescribeRefreshSchedule": {
       http: "GET /accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-schedules/{ScheduleId}",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    DescribeRoleCustomPermission:
-      "GET /accounts/{AwsAccountId}/namespaces/{Namespace}/roles/{Role}/custom-permission",
-    DescribeTemplate: {
+    "DescribeRoleCustomPermission": "GET /accounts/{AwsAccountId}/namespaces/{Namespace}/roles/{Role}/custom-permission",
+    "DescribeTemplate": {
       http: "GET /accounts/{AwsAccountId}/templates/{TemplateId}",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    DescribeTemplateAlias: {
+    "DescribeTemplateAlias": {
       http: "GET /accounts/{AwsAccountId}/templates/{TemplateId}/aliases/{AliasName}",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    DescribeTemplateDefinition: {
+    "DescribeTemplateDefinition": {
       http: "GET /accounts/{AwsAccountId}/templates/{TemplateId}/definition",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    DescribeTemplatePermissions: {
+    "DescribeTemplatePermissions": {
       http: "GET /accounts/{AwsAccountId}/templates/{TemplateId}/permissions",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    DescribeTheme: {
+    "DescribeTheme": {
       http: "GET /accounts/{AwsAccountId}/themes/{ThemeId}",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    DescribeThemeAlias: {
+    "DescribeThemeAlias": {
       http: "GET /accounts/{AwsAccountId}/themes/{ThemeId}/aliases/{AliasName}",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    DescribeThemePermissions: {
+    "DescribeThemePermissions": {
       http: "GET /accounts/{AwsAccountId}/themes/{ThemeId}/permissions",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    DescribeTopic: {
+    "DescribeTopic": {
       http: "GET /accounts/{AwsAccountId}/topics/{TopicId}",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    DescribeTopicPermissions: {
+    "DescribeTopicPermissions": {
       http: "GET /accounts/{AwsAccountId}/topics/{TopicId}/permissions",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    DescribeTopicRefresh: {
+    "DescribeTopicRefresh": {
       http: "GET /accounts/{AwsAccountId}/topics/{TopicId}/refresh/{RefreshId}",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    DescribeTopicRefreshSchedule: {
+    "DescribeTopicRefreshSchedule": {
       http: "GET /accounts/{AwsAccountId}/topics/{TopicId}/schedules/{DatasetId}",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    DescribeUser: {
+    "DescribeUser": {
       http: "GET /accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    DescribeVPCConnection:
-      "GET /accounts/{AwsAccountId}/vpc-connections/{VPCConnectionId}",
-    GenerateEmbedUrlForAnonymousUser: {
+    "DescribeVPCConnection": "GET /accounts/{AwsAccountId}/vpc-connections/{VPCConnectionId}",
+    "GenerateEmbedUrlForAnonymousUser": {
       http: "POST /accounts/{AwsAccountId}/embed-url/anonymous-user",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    GenerateEmbedUrlForRegisteredUser: {
+    "GenerateEmbedUrlForRegisteredUser": {
       http: "POST /accounts/{AwsAccountId}/embed-url/registered-user",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    GenerateEmbedUrlForRegisteredUserWithIdentity: {
+    "GenerateEmbedUrlForRegisteredUserWithIdentity": {
       http: "POST /accounts/{AwsAccountId}/embed-url/registered-user-with-identity",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    GetDashboardEmbedUrl: {
+    "GetDashboardEmbedUrl": {
       http: "GET /accounts/{AwsAccountId}/dashboards/{DashboardId}/embed-url",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    GetSessionEmbedUrl: {
+    "GetSessionEmbedUrl": {
       http: "GET /accounts/{AwsAccountId}/session-embed-url",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    ListAnalyses: {
+    "ListAnalyses": {
       http: "GET /accounts/{AwsAccountId}/analyses",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    ListAssetBundleExportJobs: {
+    "ListAssetBundleExportJobs": {
       http: "GET /accounts/{AwsAccountId}/asset-bundle-export-jobs",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    ListAssetBundleImportJobs: {
+    "ListAssetBundleImportJobs": {
       http: "GET /accounts/{AwsAccountId}/asset-bundle-import-jobs",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    ListBrands: "GET /accounts/{AwsAccountId}/brands",
-    ListCustomPermissions: {
+    "ListBrands": "GET /accounts/{AwsAccountId}/brands",
+    "ListCustomPermissions": {
       http: "GET /accounts/{AwsAccountId}/custom-permissions",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    ListDashboards: {
+    "ListDashboards": {
       http: "GET /accounts/{AwsAccountId}/dashboards",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    ListDashboardVersions: {
+    "ListDashboardVersions": {
       http: "GET /accounts/{AwsAccountId}/dashboards/{DashboardId}/versions",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    ListDataSets: {
+    "ListDataSets": {
       http: "GET /accounts/{AwsAccountId}/data-sets",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    ListDataSources: {
+    "ListDataSources": {
       http: "GET /accounts/{AwsAccountId}/data-sources",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    ListFolderMembers: {
+    "ListFolderMembers": {
       http: "GET /accounts/{AwsAccountId}/folders/{FolderId}/members",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    ListFolders: {
+    "ListFolders": {
       http: "GET /accounts/{AwsAccountId}/folders",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    ListFoldersForResource: {
+    "ListFoldersForResource": {
       http: "GET /accounts/{AwsAccountId}/resource/{ResourceArn}/folders",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    ListGroupMemberships: {
+    "ListGroupMemberships": {
       http: "GET /accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}/members",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    ListGroups: {
+    "ListGroups": {
       http: "GET /accounts/{AwsAccountId}/namespaces/{Namespace}/groups",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    ListIAMPolicyAssignments: {
+    "ListIAMPolicyAssignments": {
       http: "GET /accounts/{AwsAccountId}/namespaces/{Namespace}/v2/iam-policy-assignments",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    ListIAMPolicyAssignmentsForUser: {
+    "ListIAMPolicyAssignmentsForUser": {
       http: "GET /accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}/iam-policy-assignments",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    ListIdentityPropagationConfigs: {
+    "ListIdentityPropagationConfigs": {
       http: "GET /accounts/{AwsAccountId}/identity-propagation-config",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    ListIngestions: {
+    "ListIngestions": {
       http: "GET /accounts/{AwsAccountId}/data-sets/{DataSetId}/ingestions",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    ListNamespaces: {
+    "ListNamespaces": {
       http: "GET /accounts/{AwsAccountId}/namespaces",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    ListRefreshSchedules: {
+    "ListRefreshSchedules": {
       http: "GET /accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-schedules",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    ListRoleMemberships: {
+    "ListRoleMemberships": {
       http: "GET /accounts/{AwsAccountId}/namespaces/{Namespace}/roles/{Role}/members",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    ListTagsForResource: {
+    "ListTagsForResource": {
       http: "GET /resources/{ResourceArn}/tags",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    ListTemplateAliases: {
+    "ListTemplateAliases": {
       http: "GET /accounts/{AwsAccountId}/templates/{TemplateId}/aliases",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    ListTemplates: {
+    "ListTemplates": {
       http: "GET /accounts/{AwsAccountId}/templates",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    ListTemplateVersions: {
+    "ListTemplateVersions": {
       http: "GET /accounts/{AwsAccountId}/templates/{TemplateId}/versions",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    ListThemeAliases: {
+    "ListThemeAliases": {
       http: "GET /accounts/{AwsAccountId}/themes/{ThemeId}/aliases",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    ListThemes: {
+    "ListThemes": {
       http: "GET /accounts/{AwsAccountId}/themes",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    ListThemeVersions: {
+    "ListThemeVersions": {
       http: "GET /accounts/{AwsAccountId}/themes/{ThemeId}/versions",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    ListTopicRefreshSchedules: {
+    "ListTopicRefreshSchedules": {
       http: "GET /accounts/{AwsAccountId}/topics/{TopicId}/schedules",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    ListTopicReviewedAnswers: {
+    "ListTopicReviewedAnswers": {
       http: "GET /accounts/{AwsAccountId}/topics/{TopicId}/reviewed-answers",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    ListTopics: {
+    "ListTopics": {
       http: "GET /accounts/{AwsAccountId}/topics",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    ListUserGroups: {
+    "ListUserGroups": {
       http: "GET /accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}/groups",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    ListUsers: {
+    "ListUsers": {
       http: "GET /accounts/{AwsAccountId}/namespaces/{Namespace}/users",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    ListVPCConnections: {
+    "ListVPCConnections": {
       http: "GET /accounts/{AwsAccountId}/vpc-connections",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    PredictQAResults: {
+    "PredictQAResults": {
       http: "POST /accounts/{AwsAccountId}/qa/predict",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    PutDataSetRefreshProperties: {
+    "PutDataSetRefreshProperties": {
       http: "PUT /accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-properties",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    RegisterUser: {
+    "RegisterUser": {
       http: "POST /accounts/{AwsAccountId}/namespaces/{Namespace}/users",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    RestoreAnalysis: {
+    "RestoreAnalysis": {
       http: "POST /accounts/{AwsAccountId}/restore/analyses/{AnalysisId}",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    SearchAnalyses: {
+    "SearchAnalyses": {
       http: "POST /accounts/{AwsAccountId}/search/analyses",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    SearchDashboards: {
+    "SearchDashboards": {
       http: "POST /accounts/{AwsAccountId}/search/dashboards",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    SearchDataSets: {
+    "SearchDataSets": {
       http: "POST /accounts/{AwsAccountId}/search/data-sets",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    SearchDataSources: {
+    "SearchDataSources": {
       http: "POST /accounts/{AwsAccountId}/search/data-sources",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    SearchFolders: {
+    "SearchFolders": {
       http: "POST /accounts/{AwsAccountId}/search/folders",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    SearchGroups: {
+    "SearchGroups": {
       http: "POST /accounts/{AwsAccountId}/namespaces/{Namespace}/groups-search",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    SearchTopics: {
+    "SearchTopics": {
       http: "POST /accounts/{AwsAccountId}/search/topics",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    StartAssetBundleExportJob: {
+    "StartAssetBundleExportJob": {
       http: "POST /accounts/{AwsAccountId}/asset-bundle-export-jobs/export",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    StartAssetBundleImportJob: {
+    "StartAssetBundleImportJob": {
       http: "POST /accounts/{AwsAccountId}/asset-bundle-import-jobs/import",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    StartDashboardSnapshotJob: {
+    "StartDashboardSnapshotJob": {
       http: "POST /accounts/{AwsAccountId}/dashboards/{DashboardId}/snapshot-jobs",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    StartDashboardSnapshotJobSchedule: {
+    "StartDashboardSnapshotJobSchedule": {
       http: "POST /accounts/{AwsAccountId}/dashboards/{DashboardId}/schedules/{ScheduleId}",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    TagResource: {
+    "TagResource": {
       http: "POST /resources/{ResourceArn}/tags",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    UntagResource: {
+    "UntagResource": {
       http: "DELETE /resources/{ResourceArn}/tags",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    UpdateAccountCustomization: {
+    "UpdateAccountCustomization": {
       http: "PUT /accounts/{AwsAccountId}/customizations",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    UpdateAccountSettings: {
+    "UpdateAccountSettings": {
       http: "PUT /accounts/{AwsAccountId}/settings",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    UpdateAnalysis: {
+    "UpdateAnalysis": {
       http: "PUT /accounts/{AwsAccountId}/analyses/{AnalysisId}",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    UpdateAnalysisPermissions: {
+    "UpdateAnalysisPermissions": {
       http: "PUT /accounts/{AwsAccountId}/analyses/{AnalysisId}/permissions",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    UpdateApplicationWithTokenExchangeGrant: {
+    "UpdateApplicationWithTokenExchangeGrant": {
       http: "PUT /accounts/{AwsAccountId}/application-with-token-exchange-grant",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    UpdateBrand: "PUT /accounts/{AwsAccountId}/brands/{BrandId}",
-    UpdateBrandAssignment: "PUT /accounts/{AwsAccountId}/brandassignments",
-    UpdateBrandPublishedVersion:
-      "PUT /accounts/{AwsAccountId}/brands/{BrandId}/publishedversion",
-    UpdateCustomPermissions:
-      "PUT /accounts/{AwsAccountId}/custom-permissions/{CustomPermissionsName}",
-    UpdateDashboard: "PUT /accounts/{AwsAccountId}/dashboards/{DashboardId}",
-    UpdateDashboardLinks: {
+    "UpdateBrand": "PUT /accounts/{AwsAccountId}/brands/{BrandId}",
+    "UpdateBrandAssignment": "PUT /accounts/{AwsAccountId}/brandassignments",
+    "UpdateBrandPublishedVersion": "PUT /accounts/{AwsAccountId}/brands/{BrandId}/publishedversion",
+    "UpdateCustomPermissions": "PUT /accounts/{AwsAccountId}/custom-permissions/{CustomPermissionsName}",
+    "UpdateDashboard": "PUT /accounts/{AwsAccountId}/dashboards/{DashboardId}",
+    "UpdateDashboardLinks": {
       http: "PUT /accounts/{AwsAccountId}/dashboards/{DashboardId}/linked-entities",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    UpdateDashboardPermissions: {
+    "UpdateDashboardPermissions": {
       http: "PUT /accounts/{AwsAccountId}/dashboards/{DashboardId}/permissions",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    UpdateDashboardPublishedVersion: {
+    "UpdateDashboardPublishedVersion": {
       http: "PUT /accounts/{AwsAccountId}/dashboards/{DashboardId}/versions/{VersionNumber}",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    UpdateDashboardsQAConfiguration: {
+    "UpdateDashboardsQAConfiguration": {
       http: "PUT /accounts/{AwsAccountId}/dashboards-qa-configuration",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    UpdateDataSet: {
+    "UpdateDataSet": {
       http: "PUT /accounts/{AwsAccountId}/data-sets/{DataSetId}",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    UpdateDataSetPermissions: {
+    "UpdateDataSetPermissions": {
       http: "POST /accounts/{AwsAccountId}/data-sets/{DataSetId}/permissions",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    UpdateDataSource: {
+    "UpdateDataSource": {
       http: "PUT /accounts/{AwsAccountId}/data-sources/{DataSourceId}",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    UpdateDataSourcePermissions: {
+    "UpdateDataSourcePermissions": {
       http: "POST /accounts/{AwsAccountId}/data-sources/{DataSourceId}/permissions",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    UpdateDefaultQBusinessApplication: {
+    "UpdateDefaultQBusinessApplication": {
       http: "PUT /accounts/{AwsAccountId}/default-qbusiness-application",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    UpdateFolder: {
+    "UpdateFolder": {
       http: "PUT /accounts/{AwsAccountId}/folders/{FolderId}",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    UpdateFolderPermissions:
-      "PUT /accounts/{AwsAccountId}/folders/{FolderId}/permissions",
-    UpdateGroup: {
+    "UpdateFolderPermissions": "PUT /accounts/{AwsAccountId}/folders/{FolderId}/permissions",
+    "UpdateGroup": {
       http: "PUT /accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    UpdateIAMPolicyAssignment: {
+    "UpdateIAMPolicyAssignment": {
       http: "PUT /accounts/{AwsAccountId}/namespaces/{Namespace}/iam-policy-assignments/{AssignmentName}",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    UpdateIdentityPropagationConfig: {
+    "UpdateIdentityPropagationConfig": {
       http: "POST /accounts/{AwsAccountId}/identity-propagation-config/{Service}",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    UpdateIpRestriction: {
+    "UpdateIpRestriction": {
       http: "POST /accounts/{AwsAccountId}/ip-restriction",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    UpdateKeyRegistration: "POST /accounts/{AwsAccountId}/key-registration",
-    UpdatePublicSharingSettings: {
+    "UpdateKeyRegistration": "POST /accounts/{AwsAccountId}/key-registration",
+    "UpdatePublicSharingSettings": {
       http: "PUT /accounts/{AwsAccountId}/public-sharing-settings",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    UpdateQPersonalizationConfiguration: {
+    "UpdateQPersonalizationConfiguration": {
       http: "PUT /accounts/{AwsAccountId}/q-personalization-configuration",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    UpdateQuickSightQSearchConfiguration: {
+    "UpdateQuickSightQSearchConfiguration": {
       http: "PUT /accounts/{AwsAccountId}/quicksight-q-search-configuration",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    UpdateRefreshSchedule: {
+    "UpdateRefreshSchedule": {
       http: "PUT /accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-schedules",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    UpdateRoleCustomPermission:
-      "PUT /accounts/{AwsAccountId}/namespaces/{Namespace}/roles/{Role}/custom-permission",
-    UpdateSPICECapacityConfiguration: {
+    "UpdateRoleCustomPermission": "PUT /accounts/{AwsAccountId}/namespaces/{Namespace}/roles/{Role}/custom-permission",
+    "UpdateSPICECapacityConfiguration": {
       http: "POST /accounts/{AwsAccountId}/spice-capacity-configuration",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    UpdateTemplate: {
+    "UpdateTemplate": {
       http: "PUT /accounts/{AwsAccountId}/templates/{TemplateId}",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    UpdateTemplateAlias: {
+    "UpdateTemplateAlias": {
       http: "PUT /accounts/{AwsAccountId}/templates/{TemplateId}/aliases/{AliasName}",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    UpdateTemplatePermissions: {
+    "UpdateTemplatePermissions": {
       http: "PUT /accounts/{AwsAccountId}/templates/{TemplateId}/permissions",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    UpdateTheme: {
+    "UpdateTheme": {
       http: "PUT /accounts/{AwsAccountId}/themes/{ThemeId}",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    UpdateThemeAlias: {
+    "UpdateThemeAlias": {
       http: "PUT /accounts/{AwsAccountId}/themes/{ThemeId}/aliases/{AliasName}",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    UpdateThemePermissions: {
+    "UpdateThemePermissions": {
       http: "PUT /accounts/{AwsAccountId}/themes/{ThemeId}/permissions",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    UpdateTopic: {
+    "UpdateTopic": {
       http: "PUT /accounts/{AwsAccountId}/topics/{TopicId}",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    UpdateTopicPermissions: {
+    "UpdateTopicPermissions": {
       http: "PUT /accounts/{AwsAccountId}/topics/{TopicId}/permissions",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    UpdateTopicRefreshSchedule: {
+    "UpdateTopicRefreshSchedule": {
       http: "PUT /accounts/{AwsAccountId}/topics/{TopicId}/schedules/{DatasetId}",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    UpdateUser: {
+    "UpdateUser": {
       http: "PUT /accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    UpdateUserCustomPermission: {
+    "UpdateUserCustomPermission": {
       http: "PUT /accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}/custom-permission",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
-    UpdateVPCConnection: {
+    "UpdateVPCConnection": {
       http: "PUT /accounts/{AwsAccountId}/vpc-connections/{VPCConnectionId}",
       traits: {
-        Status: "httpResponseCode",
+        "Status": "httpResponseCode",
       },
     },
   },

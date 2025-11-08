@@ -1,41 +1,7 @@
 import type { Effect, Stream, Data as EffectData } from "effect";
 import type { ResponseError } from "@effect/platform/HttpClientError";
-import type {
-  AccessDeniedException,
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-  ValidationException,
-} from "../../error.ts";
-type CommonAwsError =
-  | AccessDeniedException
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | ValidationException
-  | ThrottlingException;
+import type { AccessDeniedException, ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, ValidationException } from "../../error.ts";
+type CommonAwsError = AccessDeniedException | ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | ValidationException | ThrottlingException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class IoTAnalytics extends AWSServiceClient {
@@ -43,378 +9,205 @@ export declare class IoTAnalytics extends AWSServiceClient {
     input: BatchPutMessageRequest,
   ): Effect.Effect<
     BatchPutMessageResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   >;
   cancelPipelineReprocessing(
     input: CancelPipelineReprocessingRequest,
   ): Effect.Effect<
     CancelPipelineReprocessingResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   >;
   createChannel(
     input: CreateChannelRequest,
   ): Effect.Effect<
     CreateChannelResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceAlreadyExistsException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | LimitExceededException | ResourceAlreadyExistsException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   >;
   createDataset(
     input: CreateDatasetRequest,
   ): Effect.Effect<
     CreateDatasetResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceAlreadyExistsException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | LimitExceededException | ResourceAlreadyExistsException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   >;
   createDatasetContent(
     input: CreateDatasetContentRequest,
   ): Effect.Effect<
     CreateDatasetContentResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   >;
   createDatastore(
     input: CreateDatastoreRequest,
   ): Effect.Effect<
     CreateDatastoreResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceAlreadyExistsException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | LimitExceededException | ResourceAlreadyExistsException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   >;
   createPipeline(
     input: CreatePipelineRequest,
   ): Effect.Effect<
     CreatePipelineResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceAlreadyExistsException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | LimitExceededException | ResourceAlreadyExistsException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   >;
   deleteChannel(
     input: DeleteChannelRequest,
   ): Effect.Effect<
     {},
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   >;
   deleteDataset(
     input: DeleteDatasetRequest,
   ): Effect.Effect<
     {},
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   >;
   deleteDatasetContent(
     input: DeleteDatasetContentRequest,
   ): Effect.Effect<
     {},
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   >;
   deleteDatastore(
     input: DeleteDatastoreRequest,
   ): Effect.Effect<
     {},
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   >;
   deletePipeline(
     input: DeletePipelineRequest,
   ): Effect.Effect<
     {},
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   >;
   describeChannel(
     input: DescribeChannelRequest,
   ): Effect.Effect<
     DescribeChannelResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   >;
   describeDataset(
     input: DescribeDatasetRequest,
   ): Effect.Effect<
     DescribeDatasetResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   >;
   describeDatastore(
     input: DescribeDatastoreRequest,
   ): Effect.Effect<
     DescribeDatastoreResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   >;
   describeLoggingOptions(
     input: DescribeLoggingOptionsRequest,
   ): Effect.Effect<
     DescribeLoggingOptionsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   >;
   describePipeline(
     input: DescribePipelineRequest,
   ): Effect.Effect<
     DescribePipelineResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   >;
   getDatasetContent(
     input: GetDatasetContentRequest,
   ): Effect.Effect<
     GetDatasetContentResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   >;
   listChannels(
     input: ListChannelsRequest,
   ): Effect.Effect<
     ListChannelsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   >;
   listDatasetContents(
     input: ListDatasetContentsRequest,
   ): Effect.Effect<
     ListDatasetContentsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   >;
   listDatasets(
     input: ListDatasetsRequest,
   ): Effect.Effect<
     ListDatasetsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   >;
   listDatastores(
     input: ListDatastoresRequest,
   ): Effect.Effect<
     ListDatastoresResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   >;
   listPipelines(
     input: ListPipelinesRequest,
   ): Effect.Effect<
     ListPipelinesResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   >;
   putLoggingOptions(
     input: PutLoggingOptionsRequest,
   ): Effect.Effect<
     {},
-    | InternalFailureException
-    | InvalidRequestException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   >;
   runPipelineActivity(
     input: RunPipelineActivityRequest,
   ): Effect.Effect<
     RunPipelineActivityResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   >;
   sampleChannelData(
     input: SampleChannelDataRequest,
   ): Effect.Effect<
     SampleChannelDataResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   >;
   startPipelineReprocessing(
     input: StartPipelineReprocessingRequest,
   ): Effect.Effect<
     StartPipelineReprocessingResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceAlreadyExistsException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceAlreadyExistsException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   >;
   updateChannel(
     input: UpdateChannelRequest,
   ): Effect.Effect<
     {},
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   >;
   updateDataset(
     input: UpdateDatasetRequest,
   ): Effect.Effect<
     {},
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   >;
   updateDatastore(
     input: UpdateDatastoreRequest,
   ): Effect.Effect<
     {},
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   >;
   updatePipeline(
     input: UpdatePipelineRequest,
   ): Effect.Effect<
     {},
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   >;
 }
 
@@ -454,7 +247,8 @@ export interface CancelPipelineReprocessingRequest {
   pipelineName: string;
   reprocessingId: string;
 }
-export interface CancelPipelineReprocessingResponse {}
+export interface CancelPipelineReprocessingResponse {
+}
 export interface Channel {
   name?: string;
   storage?: ChannelStorage;
@@ -710,14 +504,7 @@ interface _DatastoreStorage {
   iotSiteWiseMultiLayerStorage?: DatastoreIotSiteWiseMultiLayerStorage;
 }
 
-export type DatastoreStorage =
-  | (_DatastoreStorage & { serviceManagedS3: ServiceManagedDatastoreS3Storage })
-  | (_DatastoreStorage & {
-      customerManagedS3: CustomerManagedDatastoreS3Storage;
-    })
-  | (_DatastoreStorage & {
-      iotSiteWiseMultiLayerStorage: DatastoreIotSiteWiseMultiLayerStorage;
-    });
+export type DatastoreStorage = (_DatastoreStorage & { serviceManagedS3: ServiceManagedDatastoreS3Storage }) | (_DatastoreStorage & { customerManagedS3: CustomerManagedDatastoreS3Storage }) | (_DatastoreStorage & { iotSiteWiseMultiLayerStorage: DatastoreIotSiteWiseMultiLayerStorage });
 export interface DatastoreStorageSummary {
   serviceManagedS3?: ServiceManagedDatastoreS3StorageSummary;
   customerManagedS3?: CustomerManagedDatastoreS3StorageSummary;
@@ -779,7 +566,8 @@ export interface DescribeDatastoreResponse {
   datastore?: Datastore;
   statistics?: DatastoreStatistics;
 }
-export interface DescribeLoggingOptionsRequest {}
+export interface DescribeLoggingOptionsRequest {
+}
 export interface DescribeLoggingOptionsResponse {
   loggingOptions?: LoggingOptions;
 }
@@ -874,7 +662,8 @@ export interface IotSiteWiseCustomerManagedDatastoreS3StorageSummary {
   bucket?: string;
   keyPrefix?: string;
 }
-export interface JsonConfiguration {}
+export interface JsonConfiguration {
+}
 export interface LambdaActivity {
   name: string;
   lambdaName: string;
@@ -1049,11 +838,7 @@ export interface RemoveAttributesActivity {
 }
 export type ReprocessingId = string;
 
-export type ReprocessingStatus =
-  | "RUNNING"
-  | "SUCCEEDED"
-  | "CANCELLED"
-  | "FAILED";
+export type ReprocessingStatus = "RUNNING" | "SUCCEEDED" | "CANCELLED" | "FAILED";
 export type ReprocessingSummaries = Array<ReprocessingSummary>;
 export interface ReprocessingSummary {
   id?: string;
@@ -1131,10 +916,14 @@ export interface SelectAttributesActivity {
   attributes: Array<string>;
   next?: string;
 }
-export interface ServiceManagedChannelS3Storage {}
-export interface ServiceManagedChannelS3StorageSummary {}
-export interface ServiceManagedDatastoreS3Storage {}
-export interface ServiceManagedDatastoreS3StorageSummary {}
+export interface ServiceManagedChannelS3Storage {
+}
+export interface ServiceManagedChannelS3StorageSummary {
+}
+export interface ServiceManagedDatastoreS3Storage {
+}
+export interface ServiceManagedDatastoreS3StorageSummary {
+}
 export declare class ServiceUnavailableException extends EffectData.TaggedError(
   "ServiceUnavailableException",
 )<{
@@ -1175,7 +964,8 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Array<Tag>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export declare class ThrottlingException extends EffectData.TaggedError(
@@ -1204,7 +994,8 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateChannelRequest {
   channelName: string;
   channelStorage?: ChannelStorage;
@@ -1655,3 +1446,4 @@ export declare namespace UpdatePipeline {
     | ThrottlingException
     | CommonAwsError;
 }
+

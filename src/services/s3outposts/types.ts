@@ -1,38 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-} from "../../error.ts";
-type CommonAwsError =
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | AccessDeniedException
-  | ThrottlingException
-  | ValidationException;
+import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
+type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class S3Outposts extends AWSServiceClient {
@@ -40,58 +8,31 @@ export declare class S3Outposts extends AWSServiceClient {
     input: CreateEndpointRequest,
   ): Effect.Effect<
     CreateEndpointResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | OutpostOfflineException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | OutpostOfflineException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteEndpoint(
     input: DeleteEndpointRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InternalServerException
-    | OutpostOfflineException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | OutpostOfflineException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listEndpoints(
     input: ListEndpointsRequest,
   ): Effect.Effect<
     ListEndpointsResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listOutpostsWithS3(
     input: ListOutpostsWithS3Request,
   ): Effect.Effect<
     ListOutpostsWithS3Result,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listSharedEndpoints(
     input: ListSharedEndpointsRequest,
   ): Effect.Effect<
     ListSharedEndpointsResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
 }
 
@@ -151,12 +92,7 @@ export type EndpointArn = string;
 export type EndpointId = string;
 
 export type Endpoints = Array<Endpoint>;
-export type EndpointStatus =
-  | "Pending"
-  | "Available"
-  | "Deleting"
-  | "Create_Failed"
-  | "Delete_Failed";
+export type EndpointStatus = "Pending" | "Available" | "Deleting" | "Create_Failed" | "Delete_Failed";
 export type ErrorCode = string;
 
 export type ErrorMessage = string;
@@ -308,3 +244,4 @@ export declare namespace ListSharedEndpoints {
     | ValidationException
     | CommonAwsError;
 }
+

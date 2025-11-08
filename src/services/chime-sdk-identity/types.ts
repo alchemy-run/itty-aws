@@ -7,389 +7,181 @@ export declare class ChimeSDKIdentity extends AWSServiceClient {
     input: CreateAppInstanceRequest,
   ): Effect.Effect<
     CreateAppInstanceResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | ResourceLimitExceededException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   createAppInstanceAdmin(
     input: CreateAppInstanceAdminRequest,
   ): Effect.Effect<
     CreateAppInstanceAdminResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | ResourceLimitExceededException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   createAppInstanceBot(
     input: CreateAppInstanceBotRequest,
   ): Effect.Effect<
     CreateAppInstanceBotResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | ResourceLimitExceededException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   createAppInstanceUser(
     input: CreateAppInstanceUserRequest,
   ): Effect.Effect<
     CreateAppInstanceUserResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | ResourceLimitExceededException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   deleteAppInstance(
     input: DeleteAppInstanceRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ForbiddenException
-    | ResourceLimitExceededException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   deleteAppInstanceAdmin(
     input: DeleteAppInstanceAdminRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | ResourceLimitExceededException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   deleteAppInstanceBot(
     input: DeleteAppInstanceBotRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | ResourceLimitExceededException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   deleteAppInstanceUser(
     input: DeleteAppInstanceUserRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | ResourceLimitExceededException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   deregisterAppInstanceUserEndpoint(
     input: DeregisterAppInstanceUserEndpointRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   describeAppInstance(
     input: DescribeAppInstanceRequest,
   ): Effect.Effect<
     DescribeAppInstanceResponse,
-    | BadRequestException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   describeAppInstanceAdmin(
     input: DescribeAppInstanceAdminRequest,
   ): Effect.Effect<
     DescribeAppInstanceAdminResponse,
-    | BadRequestException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   describeAppInstanceBot(
     input: DescribeAppInstanceBotRequest,
   ): Effect.Effect<
     DescribeAppInstanceBotResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   describeAppInstanceUser(
     input: DescribeAppInstanceUserRequest,
   ): Effect.Effect<
     DescribeAppInstanceUserResponse,
-    | BadRequestException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   describeAppInstanceUserEndpoint(
     input: DescribeAppInstanceUserEndpointRequest,
   ): Effect.Effect<
     DescribeAppInstanceUserEndpointResponse,
-    | BadRequestException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   getAppInstanceRetentionSettings(
     input: GetAppInstanceRetentionSettingsRequest,
   ): Effect.Effect<
     GetAppInstanceRetentionSettingsResponse,
-    | BadRequestException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   listAppInstanceAdmins(
     input: ListAppInstanceAdminsRequest,
   ): Effect.Effect<
     ListAppInstanceAdminsResponse,
-    | BadRequestException
-    | ForbiddenException
-    | ResourceLimitExceededException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   listAppInstanceBots(
     input: ListAppInstanceBotsRequest,
   ): Effect.Effect<
     ListAppInstanceBotsResponse,
-    | BadRequestException
-    | ForbiddenException
-    | ResourceLimitExceededException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   listAppInstances(
     input: ListAppInstancesRequest,
   ): Effect.Effect<
     ListAppInstancesResponse,
-    | BadRequestException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   listAppInstanceUserEndpoints(
     input: ListAppInstanceUserEndpointsRequest,
   ): Effect.Effect<
     ListAppInstanceUserEndpointsResponse,
-    | BadRequestException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   listAppInstanceUsers(
     input: ListAppInstanceUsersRequest,
   ): Effect.Effect<
     ListAppInstanceUsersResponse,
-    | BadRequestException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | BadRequestException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   putAppInstanceRetentionSettings(
     input: PutAppInstanceRetentionSettingsRequest,
   ): Effect.Effect<
     PutAppInstanceRetentionSettingsResponse,
-    | BadRequestException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   putAppInstanceUserExpirationSettings(
     input: PutAppInstanceUserExpirationSettingsRequest,
   ): Effect.Effect<
     PutAppInstanceUserExpirationSettingsResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   registerAppInstanceUserEndpoint(
     input: RegisterAppInstanceUserEndpointRequest,
   ): Effect.Effect<
     RegisterAppInstanceUserEndpointResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | ResourceLimitExceededException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ForbiddenException
-    | ResourceLimitExceededException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   updateAppInstance(
     input: UpdateAppInstanceRequest,
   ): Effect.Effect<
     UpdateAppInstanceResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   updateAppInstanceBot(
     input: UpdateAppInstanceBotRequest,
   ): Effect.Effect<
     UpdateAppInstanceBotResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | ResourceLimitExceededException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   updateAppInstanceUser(
     input: UpdateAppInstanceUserRequest,
   ): Effect.Effect<
     UpdateAppInstanceUserResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | ResourceLimitExceededException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   updateAppInstanceUserEndpoint(
     input: UpdateAppInstanceUserEndpointRequest,
   ): Effect.Effect<
     UpdateAppInstanceUserEndpointResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
 }
 
@@ -463,8 +255,7 @@ export interface AppInstanceUserEndpointSummary {
   AllowMessages?: AllowMessages;
   EndpointState?: EndpointState;
 }
-export type AppInstanceUserEndpointSummaryList =
-  Array<AppInstanceUserEndpointSummary>;
+export type AppInstanceUserEndpointSummaryList = Array<AppInstanceUserEndpointSummary>;
 export type AppInstanceUserEndpointType = "APNS" | "APNS_SANDBOX" | "GCM";
 export type AppInstanceUserList = Array<AppInstanceUserSummary>;
 export interface AppInstanceUserSummary {
@@ -592,25 +383,8 @@ export interface EndpointState {
   StatusReason?: EndpointStatusReason;
 }
 export type EndpointStatus = "ACTIVE" | "INACTIVE";
-export type EndpointStatusReason =
-  | "INVALID_DEVICE_TOKEN"
-  | "INVALID_PINPOINT_ARN";
-export type ErrorCode =
-  | "BadRequest"
-  | "Conflict"
-  | "Forbidden"
-  | "NotFound"
-  | "PreconditionFailed"
-  | "ResourceLimitExceeded"
-  | "ServiceFailure"
-  | "AccessDenied"
-  | "ServiceUnavailable"
-  | "Throttled"
-  | "Throttling"
-  | "Unauthorized"
-  | "Unprocessable"
-  | "VoiceConnectorGroupAssociationsExist"
-  | "PhoneNumberAssociationsExist";
+export type EndpointStatusReason = "INVALID_DEVICE_TOKEN" | "INVALID_PINPOINT_ARN";
+export type ErrorCode = "BadRequest" | "Conflict" | "Forbidden" | "NotFound" | "PreconditionFailed" | "ResourceLimitExceeded" | "ServiceFailure" | "AccessDenied" | "ServiceUnavailable" | "Throttled" | "Throttling" | "Unauthorized" | "Unprocessable" | "VoiceConnectorGroupAssociationsExist" | "PhoneNumberAssociationsExist";
 export type ExpirationCriterion = "CREATED_TIMESTAMP";
 export type ExpirationDays = number;
 
@@ -1271,3 +1045,4 @@ export declare namespace UpdateAppInstanceUserEndpoint {
     | UnauthorizedClientException
     | CommonAwsError;
 }
+

@@ -939,11 +939,20 @@ const generateServiceIndex = (
           );
           code += "      },\n";
         }
-        if ((opSpec as any).members) {
-          code += "      members: {\n";
-          Object.entries((opSpec as any).members).forEach(
-            ([fieldName, member]) => {
-              code += `        "${fieldName}": "${member}",\n`;
+        if ((opSpec as any).inputTraits) {
+          code += "      inputTraits: {\n";
+          Object.entries((opSpec as any).inputTraits).forEach(
+            ([fieldName, inputTrait]) => {
+              code += `        "${fieldName}": "${inputTrait}",\n`;
+            },
+          );
+          code += "      },\n";
+        }
+        if ((opSpec as any).outputTraits) {
+          code += "      outputTraits: {\n";
+          Object.entries((opSpec as any).outputTraits).forEach(
+            ([fieldName, outputTrait]) => {
+              code += `        "${fieldName}": "${outputTrait}",\n`;
             },
           );
           code += "      },\n";
@@ -1600,18 +1609,18 @@ const generateServiceTypes = (serviceName: string, manifest: Manifest) =>
           ? extractHttpTraits(operation.shape.output.target)
           : {};
 
-        const inputMembers = operation.shape.input
+        const inputTraits = operation.shape.input
           ? extractHttpTraits(operation.shape.input.target)
           : {};
 
         operationMappings[operation.name] = {};
 
-        if (Object.keys(inputMembers).length > 0) {
-          operationMappings[operation.name].members = inputMembers;
+        if (Object.keys(inputTraits).length > 0) {
+          operationMappings[operation.name].inputTraits = inputTraits;
         }
 
         if (Object.keys(outputTraits).length > 0) {
-          operationMappings[operation.name].traits = outputTraits;
+          operationMappings[operation.name].outputTraits = outputTraits;
         }
 
         if (httpMapping != null) {

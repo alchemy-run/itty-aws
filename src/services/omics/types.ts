@@ -1,39 +1,8 @@
 import type { Effect, Stream, Data as EffectData } from "effect";
 import type { ResponseError } from "@effect/platform/HttpClientError";
 import type { Buffer } from "node:buffer";
-import type {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-} from "../../error.ts";
-type CommonAwsError =
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | ServiceUnavailable
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | AccessDeniedException
-  | RequestTimeoutException
-  | ThrottlingException
-  | ValidationException;
+import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
+type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | RequestTimeoutException | ThrottlingException | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class Omics extends AWSServiceClient {
@@ -41,1231 +10,577 @@ export declare class Omics extends AWSServiceClient {
     input: DeleteS3AccessPolicyRequest,
   ): Effect.Effect<
     DeleteS3AccessPolicyResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | NotSupportedOperationException
-    | RequestTimeoutException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | NotSupportedOperationException | RequestTimeoutException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getS3AccessPolicy(
     input: GetS3AccessPolicyRequest,
   ): Effect.Effect<
     GetS3AccessPolicyResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | NotSupportedOperationException
-    | RequestTimeoutException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | NotSupportedOperationException | RequestTimeoutException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   putS3AccessPolicy(
     input: PutS3AccessPolicyRequest,
   ): Effect.Effect<
     PutS3AccessPolicyResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | NotSupportedOperationException
-    | RequestTimeoutException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | NotSupportedOperationException | RequestTimeoutException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   abortMultipartReadSetUpload(
     input: AbortMultipartReadSetUploadRequest,
   ): Effect.Effect<
     AbortMultipartReadSetUploadResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | NotSupportedOperationException
-    | RequestTimeoutException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | NotSupportedOperationException | RequestTimeoutException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   acceptShare(
     input: AcceptShareRequest,
   ): Effect.Effect<
     AcceptShareResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   batchDeleteReadSet(
     input: BatchDeleteReadSetRequest,
   ): Effect.Effect<
     BatchDeleteReadSetResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | RequestTimeoutException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | RequestTimeoutException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   cancelAnnotationImportJob(
     input: CancelAnnotationImportRequest,
   ): Effect.Effect<
     CancelAnnotationImportResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   cancelRun(
     input: CancelRunRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | RequestTimeoutException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | RequestTimeoutException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   cancelVariantImportJob(
     input: CancelVariantImportRequest,
   ): Effect.Effect<
     CancelVariantImportResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   completeMultipartReadSetUpload(
     input: CompleteMultipartReadSetUploadRequest,
   ): Effect.Effect<
     CompleteMultipartReadSetUploadResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | NotSupportedOperationException
-    | RequestTimeoutException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | NotSupportedOperationException | RequestTimeoutException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createAnnotationStore(
     input: CreateAnnotationStoreRequest,
   ): Effect.Effect<
     CreateAnnotationStoreResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createAnnotationStoreVersion(
     input: CreateAnnotationStoreVersionRequest,
   ): Effect.Effect<
     CreateAnnotationStoreVersionResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createMultipartReadSetUpload(
     input: CreateMultipartReadSetUploadRequest,
   ): Effect.Effect<
     CreateMultipartReadSetUploadResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | NotSupportedOperationException
-    | RequestTimeoutException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | NotSupportedOperationException | RequestTimeoutException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createReferenceStore(
     input: CreateReferenceStoreRequest,
   ): Effect.Effect<
     CreateReferenceStoreResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | RequestTimeoutException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | RequestTimeoutException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createRunCache(
     input: CreateRunCacheRequest,
   ): Effect.Effect<
     CreateRunCacheResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | RequestTimeoutException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | RequestTimeoutException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createRunGroup(
     input: CreateRunGroupRequest,
   ): Effect.Effect<
     CreateRunGroupResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | RequestTimeoutException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | RequestTimeoutException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createSequenceStore(
     input: CreateSequenceStoreRequest,
   ): Effect.Effect<
     CreateSequenceStoreResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | RequestTimeoutException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | RequestTimeoutException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createShare(
     input: CreateShareRequest,
   ): Effect.Effect<
     CreateShareResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createVariantStore(
     input: CreateVariantStoreRequest,
   ): Effect.Effect<
     CreateVariantStoreResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createWorkflow(
     input: CreateWorkflowRequest,
   ): Effect.Effect<
     CreateWorkflowResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | RequestTimeoutException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | RequestTimeoutException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createWorkflowVersion(
     input: CreateWorkflowVersionRequest,
   ): Effect.Effect<
     CreateWorkflowVersionResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | RequestTimeoutException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | RequestTimeoutException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteAnnotationStore(
     input: DeleteAnnotationStoreRequest,
   ): Effect.Effect<
     DeleteAnnotationStoreResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteAnnotationStoreVersions(
     input: DeleteAnnotationStoreVersionsRequest,
   ): Effect.Effect<
     DeleteAnnotationStoreVersionsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteReference(
     input: DeleteReferenceRequest,
   ): Effect.Effect<
     DeleteReferenceResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | RequestTimeoutException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | RequestTimeoutException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteReferenceStore(
     input: DeleteReferenceStoreRequest,
   ): Effect.Effect<
     DeleteReferenceStoreResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | RequestTimeoutException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | RequestTimeoutException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteRun(
     input: DeleteRunRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | RequestTimeoutException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | RequestTimeoutException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteRunCache(
     input: DeleteRunCacheRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | RequestTimeoutException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | RequestTimeoutException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteRunGroup(
     input: DeleteRunGroupRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | RequestTimeoutException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | RequestTimeoutException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteSequenceStore(
     input: DeleteSequenceStoreRequest,
   ): Effect.Effect<
     DeleteSequenceStoreResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | RequestTimeoutException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | RequestTimeoutException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteShare(
     input: DeleteShareRequest,
   ): Effect.Effect<
     DeleteShareResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteVariantStore(
     input: DeleteVariantStoreRequest,
   ): Effect.Effect<
     DeleteVariantStoreResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteWorkflow(
     input: DeleteWorkflowRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | RequestTimeoutException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | RequestTimeoutException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteWorkflowVersion(
     input: DeleteWorkflowVersionRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | RequestTimeoutException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | RequestTimeoutException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getAnnotationImportJob(
     input: GetAnnotationImportRequest,
   ): Effect.Effect<
     GetAnnotationImportResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getAnnotationStore(
     input: GetAnnotationStoreRequest,
   ): Effect.Effect<
     GetAnnotationStoreResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getAnnotationStoreVersion(
     input: GetAnnotationStoreVersionRequest,
   ): Effect.Effect<
     GetAnnotationStoreVersionResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getReadSet(
     input: GetReadSetRequest,
   ): Effect.Effect<
     GetReadSetResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | RangeNotSatisfiableException
-    | RequestTimeoutException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | RangeNotSatisfiableException | RequestTimeoutException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getReadSetActivationJob(
     input: GetReadSetActivationJobRequest,
   ): Effect.Effect<
     GetReadSetActivationJobResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | RequestTimeoutException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | RequestTimeoutException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getReadSetExportJob(
     input: GetReadSetExportJobRequest,
   ): Effect.Effect<
     GetReadSetExportJobResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | RequestTimeoutException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | RequestTimeoutException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getReadSetImportJob(
     input: GetReadSetImportJobRequest,
   ): Effect.Effect<
     GetReadSetImportJobResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | RequestTimeoutException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | RequestTimeoutException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getReadSetMetadata(
     input: GetReadSetMetadataRequest,
   ): Effect.Effect<
     GetReadSetMetadataResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | RequestTimeoutException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | RequestTimeoutException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getReference(
     input: GetReferenceRequest,
   ): Effect.Effect<
     GetReferenceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | RangeNotSatisfiableException
-    | RequestTimeoutException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | RangeNotSatisfiableException | RequestTimeoutException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getReferenceImportJob(
     input: GetReferenceImportJobRequest,
   ): Effect.Effect<
     GetReferenceImportJobResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | RequestTimeoutException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | RequestTimeoutException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getReferenceMetadata(
     input: GetReferenceMetadataRequest,
   ): Effect.Effect<
     GetReferenceMetadataResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | RequestTimeoutException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | RequestTimeoutException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getReferenceStore(
     input: GetReferenceStoreRequest,
   ): Effect.Effect<
     GetReferenceStoreResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | RequestTimeoutException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | RequestTimeoutException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getRun(
     input: GetRunRequest,
   ): Effect.Effect<
     GetRunResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | RequestTimeoutException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | RequestTimeoutException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getRunCache(
     input: GetRunCacheRequest,
   ): Effect.Effect<
     GetRunCacheResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | RequestTimeoutException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | RequestTimeoutException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getRunGroup(
     input: GetRunGroupRequest,
   ): Effect.Effect<
     GetRunGroupResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | RequestTimeoutException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | RequestTimeoutException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getRunTask(
     input: GetRunTaskRequest,
   ): Effect.Effect<
     GetRunTaskResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | RequestTimeoutException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | RequestTimeoutException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getSequenceStore(
     input: GetSequenceStoreRequest,
   ): Effect.Effect<
     GetSequenceStoreResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | RequestTimeoutException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | RequestTimeoutException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getShare(
     input: GetShareRequest,
   ): Effect.Effect<
     GetShareResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getVariantImportJob(
     input: GetVariantImportRequest,
   ): Effect.Effect<
     GetVariantImportResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getVariantStore(
     input: GetVariantStoreRequest,
   ): Effect.Effect<
     GetVariantStoreResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getWorkflow(
     input: GetWorkflowRequest,
   ): Effect.Effect<
     GetWorkflowResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | RequestTimeoutException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | RequestTimeoutException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getWorkflowVersion(
     input: GetWorkflowVersionRequest,
   ): Effect.Effect<
     GetWorkflowVersionResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | RequestTimeoutException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | RequestTimeoutException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listAnnotationImportJobs(
     input: ListAnnotationImportJobsRequest,
   ): Effect.Effect<
     ListAnnotationImportJobsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listAnnotationStoreVersions(
     input: ListAnnotationStoreVersionsRequest,
   ): Effect.Effect<
     ListAnnotationStoreVersionsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listAnnotationStores(
     input: ListAnnotationStoresRequest,
   ): Effect.Effect<
     ListAnnotationStoresResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listMultipartReadSetUploads(
     input: ListMultipartReadSetUploadsRequest,
   ): Effect.Effect<
     ListMultipartReadSetUploadsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | NotSupportedOperationException
-    | RequestTimeoutException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | NotSupportedOperationException | RequestTimeoutException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listReadSetActivationJobs(
     input: ListReadSetActivationJobsRequest,
   ): Effect.Effect<
     ListReadSetActivationJobsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | RequestTimeoutException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | RequestTimeoutException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listReadSetExportJobs(
     input: ListReadSetExportJobsRequest,
   ): Effect.Effect<
     ListReadSetExportJobsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | RequestTimeoutException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | RequestTimeoutException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listReadSetImportJobs(
     input: ListReadSetImportJobsRequest,
   ): Effect.Effect<
     ListReadSetImportJobsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | RequestTimeoutException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | RequestTimeoutException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listReadSetUploadParts(
     input: ListReadSetUploadPartsRequest,
   ): Effect.Effect<
     ListReadSetUploadPartsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | NotSupportedOperationException
-    | RequestTimeoutException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | NotSupportedOperationException | RequestTimeoutException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listReadSets(
     input: ListReadSetsRequest,
   ): Effect.Effect<
     ListReadSetsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | RequestTimeoutException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | RequestTimeoutException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listReferenceImportJobs(
     input: ListReferenceImportJobsRequest,
   ): Effect.Effect<
     ListReferenceImportJobsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | RequestTimeoutException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | RequestTimeoutException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listReferenceStores(
     input: ListReferenceStoresRequest,
   ): Effect.Effect<
     ListReferenceStoresResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | RequestTimeoutException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | RequestTimeoutException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listReferences(
     input: ListReferencesRequest,
   ): Effect.Effect<
     ListReferencesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | RequestTimeoutException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | RequestTimeoutException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listRunCaches(
     input: ListRunCachesRequest,
   ): Effect.Effect<
     ListRunCachesResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | RequestTimeoutException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | RequestTimeoutException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listRunGroups(
     input: ListRunGroupsRequest,
   ): Effect.Effect<
     ListRunGroupsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | RequestTimeoutException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | RequestTimeoutException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listRunTasks(
     input: ListRunTasksRequest,
   ): Effect.Effect<
     ListRunTasksResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | RequestTimeoutException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | RequestTimeoutException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listRuns(
     input: ListRunsRequest,
   ): Effect.Effect<
     ListRunsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | RequestTimeoutException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | RequestTimeoutException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listSequenceStores(
     input: ListSequenceStoresRequest,
   ): Effect.Effect<
     ListSequenceStoresResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | RequestTimeoutException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | RequestTimeoutException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listShares(
     input: ListSharesRequest,
   ): Effect.Effect<
     ListSharesResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | RequestTimeoutException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | RequestTimeoutException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listVariantImportJobs(
     input: ListVariantImportJobsRequest,
   ): Effect.Effect<
     ListVariantImportJobsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listVariantStores(
     input: ListVariantStoresRequest,
   ): Effect.Effect<
     ListVariantStoresResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listWorkflowVersions(
     input: ListWorkflowVersionsRequest,
   ): Effect.Effect<
     ListWorkflowVersionsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | RequestTimeoutException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | RequestTimeoutException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listWorkflows(
     input: ListWorkflowsRequest,
   ): Effect.Effect<
     ListWorkflowsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | RequestTimeoutException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | RequestTimeoutException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   startAnnotationImportJob(
     input: StartAnnotationImportRequest,
   ): Effect.Effect<
     StartAnnotationImportResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   startReadSetActivationJob(
     input: StartReadSetActivationJobRequest,
   ): Effect.Effect<
     StartReadSetActivationJobResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | RequestTimeoutException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | RequestTimeoutException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   startReadSetExportJob(
     input: StartReadSetExportJobRequest,
   ): Effect.Effect<
     StartReadSetExportJobResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | RequestTimeoutException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | RequestTimeoutException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   startReadSetImportJob(
     input: StartReadSetImportJobRequest,
   ): Effect.Effect<
     StartReadSetImportJobResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | RequestTimeoutException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | RequestTimeoutException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   startReferenceImportJob(
     input: StartReferenceImportJobRequest,
   ): Effect.Effect<
     StartReferenceImportJobResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | RequestTimeoutException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | RequestTimeoutException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   startRun(
     input: StartRunRequest,
   ): Effect.Effect<
     StartRunResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | RequestTimeoutException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | RequestTimeoutException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   startVariantImportJob(
     input: StartVariantImportRequest,
   ): Effect.Effect<
     StartVariantImportResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | RequestTimeoutException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | RequestTimeoutException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | RequestTimeoutException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | RequestTimeoutException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateAnnotationStore(
     input: UpdateAnnotationStoreRequest,
   ): Effect.Effect<
     UpdateAnnotationStoreResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateAnnotationStoreVersion(
     input: UpdateAnnotationStoreVersionRequest,
   ): Effect.Effect<
     UpdateAnnotationStoreVersionResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateRunCache(
     input: UpdateRunCacheRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | RequestTimeoutException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | RequestTimeoutException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateRunGroup(
     input: UpdateRunGroupRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | RequestTimeoutException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | RequestTimeoutException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateSequenceStore(
     input: UpdateSequenceStoreRequest,
   ): Effect.Effect<
     UpdateSequenceStoreResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | RequestTimeoutException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | RequestTimeoutException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateVariantStore(
     input: UpdateVariantStoreRequest,
   ): Effect.Effect<
     UpdateVariantStoreResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateWorkflow(
     input: UpdateWorkflowRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | RequestTimeoutException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | RequestTimeoutException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateWorkflowVersion(
     input: UpdateWorkflowVersionRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | RequestTimeoutException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | RequestTimeoutException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   uploadReadSetPart(
     input: UploadReadSetPartRequest,
   ): Effect.Effect<
     UploadReadSetPartResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | NotSupportedOperationException
-    | RequestTimeoutException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | NotSupportedOperationException | RequestTimeoutException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
 }
 
@@ -1273,7 +588,8 @@ export interface AbortMultipartReadSetUploadRequest {
   sequenceStoreId: string;
   uploadId: string;
 }
-export interface AbortMultipartReadSetUploadResponse {}
+export interface AbortMultipartReadSetUploadResponse {
+}
 export type Accelerators = string;
 
 export interface AcceptShareRequest {
@@ -1381,14 +697,16 @@ export type CacheBehavior = string;
 export interface CancelAnnotationImportRequest {
   jobId: string;
 }
-export interface CancelAnnotationImportResponse {}
+export interface CancelAnnotationImportResponse {
+}
 export interface CancelRunRequest {
   id: string;
 }
 export interface CancelVariantImportRequest {
   jobId: string;
 }
-export interface CancelVariantImportResponse {}
+export interface CancelVariantImportResponse {
+}
 export type ClientToken = string;
 
 export type CommentChar = string;
@@ -1401,8 +719,7 @@ export interface CompleteMultipartReadSetUploadRequest {
 export interface CompleteMultipartReadSetUploadResponse {
   readSetId: string;
 }
-export type CompleteReadSetUploadPartList =
-  Array<CompleteReadSetUploadPartListItem>;
+export type CompleteReadSetUploadPartList = Array<CompleteReadSetUploadPartListItem>;
 export interface CompleteReadSetUploadPartListItem {
   partNumber: number;
   partSource: string;
@@ -1665,11 +982,13 @@ export interface DeleteReferenceRequest {
   id: string;
   referenceStoreId: string;
 }
-export interface DeleteReferenceResponse {}
+export interface DeleteReferenceResponse {
+}
 export interface DeleteReferenceStoreRequest {
   id: string;
 }
-export interface DeleteReferenceStoreResponse {}
+export interface DeleteReferenceStoreResponse {
+}
 export interface DeleteRunCacheRequest {
   id: string;
 }
@@ -1682,11 +1001,13 @@ export interface DeleteRunRequest {
 export interface DeleteS3AccessPolicyRequest {
   s3AccessPointArn: string;
 }
-export interface DeleteS3AccessPolicyResponse {}
+export interface DeleteS3AccessPolicyResponse {
+}
 export interface DeleteSequenceStoreRequest {
   id: string;
 }
-export interface DeleteSequenceStoreResponse {}
+export interface DeleteSequenceStoreResponse {
+}
 export interface DeleteShareRequest {
   shareId: string;
 }
@@ -1777,9 +1098,7 @@ interface _FormatOptions {
   vcfOptions?: VcfOptions;
 }
 
-export type FormatOptions =
-  | (_FormatOptions & { tsvOptions: TsvOptions })
-  | (_FormatOptions & { vcfOptions: VcfOptions });
+export type FormatOptions = (_FormatOptions & { tsvOptions: TsvOptions }) | (_FormatOptions & { vcfOptions: VcfOptions });
 export type FormatToHeader = Record<string, string>;
 export type FormatToHeaderKey = string;
 
@@ -2689,7 +2008,7 @@ interface _ReferenceItem {
   referenceArn?: string;
 }
 
-export type ReferenceItem = _ReferenceItem & { referenceArn: string };
+export type ReferenceItem = (_ReferenceItem & { referenceArn: string });
 export type ReferenceList = Array<ReferenceListItem>;
 export interface ReferenceListItem {
   id: string;
@@ -2988,8 +2307,7 @@ export interface StartReadSetActivationJobResponse {
 export interface StartReadSetActivationJobSourceItem {
   readSetId: string;
 }
-export type StartReadSetActivationJobSourceList =
-  Array<StartReadSetActivationJobSourceItem>;
+export type StartReadSetActivationJobSourceList = Array<StartReadSetActivationJobSourceItem>;
 export interface StartReadSetExportJobRequest {
   sequenceStoreId: string;
   destination: string;
@@ -3028,8 +2346,7 @@ export interface StartReadSetImportJobSourceItem {
   description?: string;
   tags?: Record<string, string>;
 }
-export type StartReadSetImportJobSourceList =
-  Array<StartReadSetImportJobSourceItem>;
+export type StartReadSetImportJobSourceList = Array<StartReadSetImportJobSourceItem>;
 export interface StartReferenceImportJobRequest {
   referenceStoreId: string;
   roleArn: string;
@@ -3049,8 +2366,7 @@ export interface StartReferenceImportJobSourceItem {
   description?: string;
   tags?: Record<string, string>;
 }
-export type StartReferenceImportJobSourceList =
-  Array<StartReferenceImportJobSourceItem>;
+export type StartReferenceImportJobSourceList = Array<StartReferenceImportJobSourceItem>;
 export interface StartRunRequest {
   workflowId?: string;
   workflowType?: string;
@@ -3105,7 +2421,7 @@ interface _StoreOptions {
   tsvStoreOptions?: TsvStoreOptions;
 }
 
-export type StoreOptions = _StoreOptions & { tsvStoreOptions: TsvStoreOptions };
+export type StoreOptions = (_StoreOptions & { tsvStoreOptions: TsvStoreOptions });
 export type StoreStatus = string;
 
 export type StoreType = "SEQUENCE_STORE" | "REFERENCE_STORE";
@@ -3121,7 +2437,8 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export type TaskFailureReason = string;
@@ -3180,7 +2497,8 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateAnnotationStoreRequest {
   name: string;
   description?: string;
@@ -3353,9 +2671,7 @@ interface _VersionOptions {
   tsvVersionOptions?: TsvVersionOptions;
 }
 
-export type VersionOptions = _VersionOptions & {
-  tsvVersionOptions: TsvVersionOptions;
-};
+export type VersionOptions = (_VersionOptions & { tsvVersionOptions: TsvVersionOptions });
 export type VersionStatus = string;
 
 export type WorkflowArn = string;
@@ -4765,3 +4081,4 @@ export declare namespace UploadReadSetPart {
     | ValidationException
     | CommonAwsError;
 }
+

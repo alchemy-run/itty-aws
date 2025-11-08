@@ -1,38 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-} from "../../error.ts";
-type CommonAwsError =
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | AccessDeniedException
-  | ThrottlingException
-  | ValidationException;
+import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
+type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class BackupGateway extends AWSServiceClient {
@@ -62,7 +30,10 @@ export declare class BackupGateway extends AWSServiceClient {
   >;
   createGateway(
     input: CreateGatewayInput,
-  ): Effect.Effect<CreateGatewayOutput, CommonAwsError>;
+  ): Effect.Effect<
+    CreateGatewayOutput,
+    CommonAwsError
+  >;
   deleteGateway(
     input: DeleteGatewayInput,
   ): Effect.Effect<
@@ -73,10 +44,7 @@ export declare class BackupGateway extends AWSServiceClient {
     input: DeleteHypervisorInput,
   ): Effect.Effect<
     DeleteHypervisorOutput,
-    | AccessDeniedException
-    | ConflictException
-    | ResourceNotFoundException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | ResourceNotFoundException | CommonAwsError
   >;
   disassociateGatewayFromServer(
     input: DisassociateGatewayFromServerInput,
@@ -122,13 +90,22 @@ export declare class BackupGateway extends AWSServiceClient {
   >;
   listGateways(
     input: ListGatewaysInput,
-  ): Effect.Effect<ListGatewaysOutput, CommonAwsError>;
+  ): Effect.Effect<
+    ListGatewaysOutput,
+    CommonAwsError
+  >;
   listHypervisors(
     input: ListHypervisorsInput,
-  ): Effect.Effect<ListHypervisorsOutput, CommonAwsError>;
+  ): Effect.Effect<
+    ListHypervisorsOutput,
+    CommonAwsError
+  >;
   listVirtualMachines(
     input: ListVirtualMachinesInput,
-  ): Effect.Effect<ListVirtualMachinesOutput, CommonAwsError>;
+  ): Effect.Effect<
+    ListVirtualMachinesOutput,
+    CommonAwsError
+  >;
   putBandwidthRateLimitSchedule(
     input: PutBandwidthRateLimitScheduleInput,
   ): Effect.Effect<
@@ -139,10 +116,7 @@ export declare class BackupGateway extends AWSServiceClient {
     input: PutHypervisorPropertyMappingsInput,
   ): Effect.Effect<
     PutHypervisorPropertyMappingsOutput,
-    | AccessDeniedException
-    | ConflictException
-    | ResourceNotFoundException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | ResourceNotFoundException | CommonAwsError
   >;
   putMaintenanceStartTime(
     input: PutMaintenanceStartTimeInput,
@@ -178,10 +152,7 @@ export declare class BackupGateway extends AWSServiceClient {
     input: UpdateHypervisorInput,
   ): Effect.Effect<
     UpdateHypervisorOutput,
-    | AccessDeniedException
-    | ConflictException
-    | ResourceNotFoundException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | ResourceNotFoundException | CommonAwsError
   >;
 }
 
@@ -472,7 +443,8 @@ export interface TestHypervisorConfigurationInput {
   Username?: string;
   Password?: string;
 }
-export interface TestHypervisorConfigurationOutput {}
+export interface TestHypervisorConfigurationOutput {
+}
 export declare class ThrottlingException extends EffectData.TaggedError(
   "ThrottlingException",
 )<{
@@ -560,37 +532,48 @@ export type VpcEndpoint = string;
 export declare namespace ListTagsForResource {
   export type Input = ListTagsForResourceInput;
   export type Output = ListTagsForResourceOutput;
-  export type Error = ResourceNotFoundException | CommonAwsError;
+  export type Error =
+    | ResourceNotFoundException
+    | CommonAwsError;
 }
 
 export declare namespace TagResource {
   export type Input = TagResourceInput;
   export type Output = TagResourceOutput;
-  export type Error = ResourceNotFoundException | CommonAwsError;
+  export type Error =
+    | ResourceNotFoundException
+    | CommonAwsError;
 }
 
 export declare namespace UntagResource {
   export type Input = UntagResourceInput;
   export type Output = UntagResourceOutput;
-  export type Error = ResourceNotFoundException | CommonAwsError;
+  export type Error =
+    | ResourceNotFoundException
+    | CommonAwsError;
 }
 
 export declare namespace AssociateGatewayToServer {
   export type Input = AssociateGatewayToServerInput;
   export type Output = AssociateGatewayToServerOutput;
-  export type Error = ConflictException | CommonAwsError;
+  export type Error =
+    | ConflictException
+    | CommonAwsError;
 }
 
 export declare namespace CreateGateway {
   export type Input = CreateGatewayInput;
   export type Output = CreateGatewayOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteGateway {
   export type Input = DeleteGatewayInput;
   export type Output = DeleteGatewayOutput;
-  export type Error = ResourceNotFoundException | CommonAwsError;
+  export type Error =
+    | ResourceNotFoundException
+    | CommonAwsError;
 }
 
 export declare namespace DeleteHypervisor {
@@ -615,31 +598,41 @@ export declare namespace DisassociateGatewayFromServer {
 export declare namespace GetBandwidthRateLimitSchedule {
   export type Input = GetBandwidthRateLimitScheduleInput;
   export type Output = GetBandwidthRateLimitScheduleOutput;
-  export type Error = ResourceNotFoundException | CommonAwsError;
+  export type Error =
+    | ResourceNotFoundException
+    | CommonAwsError;
 }
 
 export declare namespace GetGateway {
   export type Input = GetGatewayInput;
   export type Output = GetGatewayOutput;
-  export type Error = ResourceNotFoundException | CommonAwsError;
+  export type Error =
+    | ResourceNotFoundException
+    | CommonAwsError;
 }
 
 export declare namespace GetHypervisor {
   export type Input = GetHypervisorInput;
   export type Output = GetHypervisorOutput;
-  export type Error = ResourceNotFoundException | CommonAwsError;
+  export type Error =
+    | ResourceNotFoundException
+    | CommonAwsError;
 }
 
 export declare namespace GetHypervisorPropertyMappings {
   export type Input = GetHypervisorPropertyMappingsInput;
   export type Output = GetHypervisorPropertyMappingsOutput;
-  export type Error = ResourceNotFoundException | CommonAwsError;
+  export type Error =
+    | ResourceNotFoundException
+    | CommonAwsError;
 }
 
 export declare namespace GetVirtualMachine {
   export type Input = GetVirtualMachineInput;
   export type Output = GetVirtualMachineOutput;
-  export type Error = ResourceNotFoundException | CommonAwsError;
+  export type Error =
+    | ResourceNotFoundException
+    | CommonAwsError;
 }
 
 export declare namespace ImportHypervisorConfiguration {
@@ -654,25 +647,30 @@ export declare namespace ImportHypervisorConfiguration {
 export declare namespace ListGateways {
   export type Input = ListGatewaysInput;
   export type Output = ListGatewaysOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ListHypervisors {
   export type Input = ListHypervisorsInput;
   export type Output = ListHypervisorsOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ListVirtualMachines {
   export type Input = ListVirtualMachinesInput;
   export type Output = ListVirtualMachinesOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace PutBandwidthRateLimitSchedule {
   export type Input = PutBandwidthRateLimitScheduleInput;
   export type Output = PutBandwidthRateLimitScheduleOutput;
-  export type Error = ResourceNotFoundException | CommonAwsError;
+  export type Error =
+    | ResourceNotFoundException
+    | CommonAwsError;
 }
 
 export declare namespace PutHypervisorPropertyMappings {
@@ -724,7 +722,9 @@ export declare namespace UpdateGatewayInformation {
 export declare namespace UpdateGatewaySoftwareNow {
   export type Input = UpdateGatewaySoftwareNowInput;
   export type Output = UpdateGatewaySoftwareNowOutput;
-  export type Error = ResourceNotFoundException | CommonAwsError;
+  export type Error =
+    | ResourceNotFoundException
+    | CommonAwsError;
 }
 
 export declare namespace UpdateHypervisor {
@@ -736,3 +736,4 @@ export declare namespace UpdateHypervisor {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+

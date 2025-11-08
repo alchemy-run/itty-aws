@@ -5,23 +5,7 @@ import type { NetworkMonitor as _NetworkMonitorClient } from "./types.ts";
 
 export * from "./types.ts";
 
-export {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-  type CommonAwsError,
-} from "../../error.ts";
+export {ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, type CommonAwsError} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -30,18 +14,18 @@ const metadata = {
   protocol: "restJson1",
   sigV4ServiceName: "networkmonitor",
   operations: {
-    ListTagsForResource: "GET /tags/{resourceArn}",
-    TagResource: "POST /tags/{resourceArn}",
-    UntagResource: "DELETE /tags/{resourceArn}",
-    CreateMonitor: "POST /monitors",
-    CreateProbe: "POST /monitors/{monitorName}/probes",
-    DeleteMonitor: "DELETE /monitors/{monitorName}",
-    DeleteProbe: "DELETE /monitors/{monitorName}/probes/{probeId}",
-    GetMonitor: "GET /monitors/{monitorName}",
-    GetProbe: "GET /monitors/{monitorName}/probes/{probeId}",
-    ListMonitors: "GET /monitors",
-    UpdateMonitor: "PATCH /monitors/{monitorName}",
-    UpdateProbe: "PATCH /monitors/{monitorName}/probes/{probeId}",
+    "ListTagsForResource": "GET /tags/{resourceArn}",
+    "TagResource": "POST /tags/{resourceArn}",
+    "UntagResource": "DELETE /tags/{resourceArn}",
+    "CreateMonitor": "POST /monitors",
+    "CreateProbe": "POST /monitors/{monitorName}/probes",
+    "DeleteMonitor": "DELETE /monitors/{monitorName}",
+    "DeleteProbe": "DELETE /monitors/{monitorName}/probes/{probeId}",
+    "GetMonitor": "GET /monitors/{monitorName}",
+    "GetProbe": "GET /monitors/{monitorName}/probes/{probeId}",
+    "ListMonitors": "GET /monitors",
+    "UpdateMonitor": "PATCH /monitors/{monitorName}",
+    "UpdateProbe": "PATCH /monitors/{monitorName}/probes/{probeId}",
   },
 } as const satisfies ServiceMetadata;
 

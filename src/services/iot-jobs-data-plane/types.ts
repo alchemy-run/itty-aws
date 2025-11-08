@@ -1,40 +1,7 @@
 import type { Effect, Stream, Data as EffectData } from "effect";
 import type { ResponseError } from "@effect/platform/HttpClientError";
-import type {
-  AccessDeniedException,
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-} from "../../error.ts";
-type CommonAwsError =
-  | AccessDeniedException
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | ThrottlingException
-  | ValidationException;
+import type { AccessDeniedException, ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
+type CommonAwsError = AccessDeniedException | ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | ThrottlingException | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class IoTJobsDataPlane extends AWSServiceClient {
@@ -42,59 +9,31 @@ export declare class IoTJobsDataPlane extends AWSServiceClient {
     input: DescribeJobExecutionRequest,
   ): Effect.Effect<
     DescribeJobExecutionResponse,
-    | CertificateValidationException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | TerminalStateException
-    | ThrottlingException
-    | CommonAwsError
+    CertificateValidationException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | TerminalStateException | ThrottlingException | CommonAwsError
   >;
   getPendingJobExecutions(
     input: GetPendingJobExecutionsRequest,
   ): Effect.Effect<
     GetPendingJobExecutionsResponse,
-    | CertificateValidationException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    CertificateValidationException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   >;
   startCommandExecution(
     input: StartCommandExecutionRequest,
   ): Effect.Effect<
     StartCommandExecutionResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   startNextPendingJobExecution(
     input: StartNextPendingJobExecutionRequest,
   ): Effect.Effect<
     StartNextPendingJobExecutionResponse,
-    | CertificateValidationException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    CertificateValidationException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   >;
   updateJobExecution(
     input: UpdateJobExecutionRequest,
   ): Effect.Effect<
     UpdateJobExecutionResponse,
-    | CertificateValidationException
-    | InvalidRequestException
-    | InvalidStateTransitionException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    CertificateValidationException | InvalidRequestException | InvalidStateTransitionException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   >;
 }
 
@@ -119,10 +58,7 @@ export type CommandArn = string;
 
 export type CommandExecutionId = string;
 
-export type CommandExecutionParameterMap = Record<
-  string,
-  CommandParameterValue
->;
+export type CommandExecutionParameterMap = Record<string, CommandParameterValue>;
 export type CommandExecutionTimeoutInSeconds = number;
 
 export type CommandParameterName = string;
@@ -214,15 +150,7 @@ export interface JobExecutionState {
   statusDetails?: Record<string, string>;
   versionNumber?: number;
 }
-export type JobExecutionStatus =
-  | "QUEUED"
-  | "IN_PROGRESS"
-  | "SUCCEEDED"
-  | "FAILED"
-  | "TIMED_OUT"
-  | "REJECTED"
-  | "REMOVED"
-  | "CANCELED";
+export type JobExecutionStatus = "QUEUED" | "IN_PROGRESS" | "SUCCEEDED" | "FAILED" | "TIMED_OUT" | "REJECTED" | "REMOVED" | "CANCELED";
 export interface JobExecutionSummary {
   jobId?: string;
   queuedAt?: number;
@@ -382,3 +310,4 @@ export declare namespace UpdateJobExecution {
     | ThrottlingException
     | CommonAwsError;
 }
+

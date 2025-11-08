@@ -7,19 +7,14 @@ export declare class QLDBSession extends AWSServiceClient {
     input: SendCommandRequest,
   ): Effect.Effect<
     SendCommandResult,
-    | BadRequestException
-    | CapacityExceededException
-    | InvalidSessionException
-    | LimitExceededException
-    | OccConflictException
-    | RateExceededException
-    | CommonAwsError
+    BadRequestException | CapacityExceededException | InvalidSessionException | LimitExceededException | OccConflictException | RateExceededException | CommonAwsError
   >;
 }
 
 export declare class QldbSession extends QLDBSession {}
 
-export interface AbortTransactionRequest {}
+export interface AbortTransactionRequest {
+}
 export interface AbortTransactionResult {
   TimingInformation?: TimingInformation;
 }
@@ -46,7 +41,8 @@ export interface CommitTransactionResult {
   TimingInformation?: TimingInformation;
   ConsumedIOs?: IOUsage;
 }
-export interface EndSessionRequest {}
+export interface EndSessionRequest {
+}
 export interface EndSessionResult {
   TimingInformation?: TimingInformation;
 }
@@ -142,7 +138,8 @@ export interface StartSessionResult {
   SessionToken?: string;
   TimingInformation?: TimingInformation;
 }
-export interface StartTransactionRequest {}
+export interface StartTransactionRequest {
+}
 export interface StartTransactionResult {
   TransactionId?: string;
   TimingInformation?: TimingInformation;
@@ -174,3 +171,4 @@ export declare namespace SendCommand {
     | RateExceededException
     | CommonAwsError;
 }
+

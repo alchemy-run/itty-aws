@@ -5,22 +5,40 @@ import { AWSServiceClient } from "../../client.ts";
 export declare class S3Control extends AWSServiceClient {
   associateAccessGrantsIdentityCenter(
     input: AssociateAccessGrantsIdentityCenterRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   createAccessGrant(
     input: CreateAccessGrantRequest,
-  ): Effect.Effect<CreateAccessGrantResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateAccessGrantResult,
+    CommonAwsError
+  >;
   createAccessGrantsInstance(
     input: CreateAccessGrantsInstanceRequest,
-  ): Effect.Effect<CreateAccessGrantsInstanceResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateAccessGrantsInstanceResult,
+    CommonAwsError
+  >;
   createAccessGrantsLocation(
     input: CreateAccessGrantsLocationRequest,
-  ): Effect.Effect<CreateAccessGrantsLocationResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateAccessGrantsLocationResult,
+    CommonAwsError
+  >;
   createAccessPoint(
     input: CreateAccessPointRequest,
-  ): Effect.Effect<CreateAccessPointResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateAccessPointResult,
+    CommonAwsError
+  >;
   createAccessPointForObjectLambda(
     input: CreateAccessPointForObjectLambdaRequest,
-  ): Effect.Effect<CreateAccessPointForObjectLambdaResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateAccessPointForObjectLambdaResult,
+    CommonAwsError
+  >;
   createBucket(
     input: CreateBucketRequest,
   ): Effect.Effect<
@@ -31,91 +49,145 @@ export declare class S3Control extends AWSServiceClient {
     input: CreateJobRequest,
   ): Effect.Effect<
     CreateJobResult,
-    | BadRequestException
-    | IdempotencyException
-    | InternalServiceException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | IdempotencyException | InternalServiceException | TooManyRequestsException | CommonAwsError
   >;
   createMultiRegionAccessPoint(
     input: CreateMultiRegionAccessPointRequest,
-  ): Effect.Effect<CreateMultiRegionAccessPointResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateMultiRegionAccessPointResult,
+    CommonAwsError
+  >;
   createStorageLensGroup(
     input: CreateStorageLensGroupRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   deleteAccessGrant(
     input: DeleteAccessGrantRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   deleteAccessGrantsInstance(
     input: DeleteAccessGrantsInstanceRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   deleteAccessGrantsInstanceResourcePolicy(
     input: DeleteAccessGrantsInstanceResourcePolicyRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   deleteAccessGrantsLocation(
     input: DeleteAccessGrantsLocationRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   deleteAccessPoint(
     input: DeleteAccessPointRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   deleteAccessPointForObjectLambda(
     input: DeleteAccessPointForObjectLambdaRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   deleteAccessPointPolicy(
     input: DeleteAccessPointPolicyRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   deleteAccessPointPolicyForObjectLambda(
     input: DeleteAccessPointPolicyForObjectLambdaRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   deleteAccessPointScope(
     input: DeleteAccessPointScopeRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
-  deleteBucket(input: DeleteBucketRequest): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
+  deleteBucket(
+    input: DeleteBucketRequest,
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   deleteBucketLifecycleConfiguration(
     input: DeleteBucketLifecycleConfigurationRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   deleteBucketPolicy(
     input: DeleteBucketPolicyRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   deleteBucketReplication(
     input: DeleteBucketReplicationRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   deleteBucketTagging(
     input: DeleteBucketTaggingRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   deleteJobTagging(
     input: DeleteJobTaggingRequest,
   ): Effect.Effect<
     DeleteJobTaggingResult,
-    | InternalServiceException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalServiceException | NotFoundException | TooManyRequestsException | CommonAwsError
   >;
   deleteMultiRegionAccessPoint(
     input: DeleteMultiRegionAccessPointRequest,
-  ): Effect.Effect<DeleteMultiRegionAccessPointResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteMultiRegionAccessPointResult,
+    CommonAwsError
+  >;
   deletePublicAccessBlock(
     input: DeletePublicAccessBlockRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   deleteStorageLensConfiguration(
     input: DeleteStorageLensConfigurationRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   deleteStorageLensConfigurationTagging(
     input: DeleteStorageLensConfigurationTaggingRequest,
-  ): Effect.Effect<DeleteStorageLensConfigurationTaggingResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteStorageLensConfigurationTaggingResult,
+    CommonAwsError
+  >;
   deleteStorageLensGroup(
     input: DeleteStorageLensGroupRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   describeJob(
     input: DescribeJobRequest,
   ): Effect.Effect<
     DescribeJobResult,
-    | BadRequestException
-    | InternalServiceException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | InternalServiceException | NotFoundException | TooManyRequestsException | CommonAwsError
   >;
   describeMultiRegionAccessPointOperation(
     input: DescribeMultiRegionAccessPointOperationRequest,
@@ -125,25 +197,46 @@ export declare class S3Control extends AWSServiceClient {
   >;
   dissociateAccessGrantsIdentityCenter(
     input: DissociateAccessGrantsIdentityCenterRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   getAccessGrant(
     input: GetAccessGrantRequest,
-  ): Effect.Effect<GetAccessGrantResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetAccessGrantResult,
+    CommonAwsError
+  >;
   getAccessGrantsInstance(
     input: GetAccessGrantsInstanceRequest,
-  ): Effect.Effect<GetAccessGrantsInstanceResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetAccessGrantsInstanceResult,
+    CommonAwsError
+  >;
   getAccessGrantsInstanceForPrefix(
     input: GetAccessGrantsInstanceForPrefixRequest,
-  ): Effect.Effect<GetAccessGrantsInstanceForPrefixResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetAccessGrantsInstanceForPrefixResult,
+    CommonAwsError
+  >;
   getAccessGrantsInstanceResourcePolicy(
     input: GetAccessGrantsInstanceResourcePolicyRequest,
-  ): Effect.Effect<GetAccessGrantsInstanceResourcePolicyResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetAccessGrantsInstanceResourcePolicyResult,
+    CommonAwsError
+  >;
   getAccessGrantsLocation(
     input: GetAccessGrantsLocationRequest,
-  ): Effect.Effect<GetAccessGrantsLocationResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetAccessGrantsLocationResult,
+    CommonAwsError
+  >;
   getAccessPoint(
     input: GetAccessPointRequest,
-  ): Effect.Effect<GetAccessPointResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetAccessPointResult,
+    CommonAwsError
+  >;
   getAccessPointConfigurationForObjectLambda(
     input: GetAccessPointConfigurationForObjectLambdaRequest,
   ): Effect.Effect<
@@ -152,16 +245,28 @@ export declare class S3Control extends AWSServiceClient {
   >;
   getAccessPointForObjectLambda(
     input: GetAccessPointForObjectLambdaRequest,
-  ): Effect.Effect<GetAccessPointForObjectLambdaResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetAccessPointForObjectLambdaResult,
+    CommonAwsError
+  >;
   getAccessPointPolicy(
     input: GetAccessPointPolicyRequest,
-  ): Effect.Effect<GetAccessPointPolicyResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetAccessPointPolicyResult,
+    CommonAwsError
+  >;
   getAccessPointPolicyForObjectLambda(
     input: GetAccessPointPolicyForObjectLambdaRequest,
-  ): Effect.Effect<GetAccessPointPolicyForObjectLambdaResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetAccessPointPolicyForObjectLambdaResult,
+    CommonAwsError
+  >;
   getAccessPointPolicyStatus(
     input: GetAccessPointPolicyStatusRequest,
-  ): Effect.Effect<GetAccessPointPolicyStatusResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetAccessPointPolicyStatusResult,
+    CommonAwsError
+  >;
   getAccessPointPolicyStatusForObjectLambda(
     input: GetAccessPointPolicyStatusForObjectLambdaRequest,
   ): Effect.Effect<
@@ -170,49 +275,82 @@ export declare class S3Control extends AWSServiceClient {
   >;
   getAccessPointScope(
     input: GetAccessPointScopeRequest,
-  ): Effect.Effect<GetAccessPointScopeResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetAccessPointScopeResult,
+    CommonAwsError
+  >;
   getBucket(
     input: GetBucketRequest,
-  ): Effect.Effect<GetBucketResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetBucketResult,
+    CommonAwsError
+  >;
   getBucketLifecycleConfiguration(
     input: GetBucketLifecycleConfigurationRequest,
-  ): Effect.Effect<GetBucketLifecycleConfigurationResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetBucketLifecycleConfigurationResult,
+    CommonAwsError
+  >;
   getBucketPolicy(
     input: GetBucketPolicyRequest,
-  ): Effect.Effect<GetBucketPolicyResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetBucketPolicyResult,
+    CommonAwsError
+  >;
   getBucketReplication(
     input: GetBucketReplicationRequest,
-  ): Effect.Effect<GetBucketReplicationResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetBucketReplicationResult,
+    CommonAwsError
+  >;
   getBucketTagging(
     input: GetBucketTaggingRequest,
-  ): Effect.Effect<GetBucketTaggingResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetBucketTaggingResult,
+    CommonAwsError
+  >;
   getBucketVersioning(
     input: GetBucketVersioningRequest,
-  ): Effect.Effect<GetBucketVersioningResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetBucketVersioningResult,
+    CommonAwsError
+  >;
   getDataAccess(
     input: GetDataAccessRequest,
-  ): Effect.Effect<GetDataAccessResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetDataAccessResult,
+    CommonAwsError
+  >;
   getJobTagging(
     input: GetJobTaggingRequest,
   ): Effect.Effect<
     GetJobTaggingResult,
-    | InternalServiceException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalServiceException | NotFoundException | TooManyRequestsException | CommonAwsError
   >;
   getMultiRegionAccessPoint(
     input: GetMultiRegionAccessPointRequest,
-  ): Effect.Effect<GetMultiRegionAccessPointResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetMultiRegionAccessPointResult,
+    CommonAwsError
+  >;
   getMultiRegionAccessPointPolicy(
     input: GetMultiRegionAccessPointPolicyRequest,
-  ): Effect.Effect<GetMultiRegionAccessPointPolicyResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetMultiRegionAccessPointPolicyResult,
+    CommonAwsError
+  >;
   getMultiRegionAccessPointPolicyStatus(
     input: GetMultiRegionAccessPointPolicyStatusRequest,
-  ): Effect.Effect<GetMultiRegionAccessPointPolicyStatusResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetMultiRegionAccessPointPolicyStatusResult,
+    CommonAwsError
+  >;
   getMultiRegionAccessPointRoutes(
     input: GetMultiRegionAccessPointRoutesRequest,
-  ): Effect.Effect<GetMultiRegionAccessPointRoutesResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetMultiRegionAccessPointRoutesResult,
+    CommonAwsError
+  >;
   getPublicAccessBlock(
     input: GetPublicAccessBlockRequest,
   ): Effect.Effect<
@@ -221,146 +359,232 @@ export declare class S3Control extends AWSServiceClient {
   >;
   getStorageLensConfiguration(
     input: GetStorageLensConfigurationRequest,
-  ): Effect.Effect<GetStorageLensConfigurationResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetStorageLensConfigurationResult,
+    CommonAwsError
+  >;
   getStorageLensConfigurationTagging(
     input: GetStorageLensConfigurationTaggingRequest,
-  ): Effect.Effect<GetStorageLensConfigurationTaggingResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetStorageLensConfigurationTaggingResult,
+    CommonAwsError
+  >;
   getStorageLensGroup(
     input: GetStorageLensGroupRequest,
-  ): Effect.Effect<GetStorageLensGroupResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetStorageLensGroupResult,
+    CommonAwsError
+  >;
   listAccessGrants(
     input: ListAccessGrantsRequest,
-  ): Effect.Effect<ListAccessGrantsResult, CommonAwsError>;
+  ): Effect.Effect<
+    ListAccessGrantsResult,
+    CommonAwsError
+  >;
   listAccessGrantsInstances(
     input: ListAccessGrantsInstancesRequest,
-  ): Effect.Effect<ListAccessGrantsInstancesResult, CommonAwsError>;
+  ): Effect.Effect<
+    ListAccessGrantsInstancesResult,
+    CommonAwsError
+  >;
   listAccessGrantsLocations(
     input: ListAccessGrantsLocationsRequest,
-  ): Effect.Effect<ListAccessGrantsLocationsResult, CommonAwsError>;
+  ): Effect.Effect<
+    ListAccessGrantsLocationsResult,
+    CommonAwsError
+  >;
   listAccessPoints(
     input: ListAccessPointsRequest,
-  ): Effect.Effect<ListAccessPointsResult, CommonAwsError>;
+  ): Effect.Effect<
+    ListAccessPointsResult,
+    CommonAwsError
+  >;
   listAccessPointsForDirectoryBuckets(
     input: ListAccessPointsForDirectoryBucketsRequest,
-  ): Effect.Effect<ListAccessPointsForDirectoryBucketsResult, CommonAwsError>;
+  ): Effect.Effect<
+    ListAccessPointsForDirectoryBucketsResult,
+    CommonAwsError
+  >;
   listAccessPointsForObjectLambda(
     input: ListAccessPointsForObjectLambdaRequest,
-  ): Effect.Effect<ListAccessPointsForObjectLambdaResult, CommonAwsError>;
+  ): Effect.Effect<
+    ListAccessPointsForObjectLambdaResult,
+    CommonAwsError
+  >;
   listCallerAccessGrants(
     input: ListCallerAccessGrantsRequest,
-  ): Effect.Effect<ListCallerAccessGrantsResult, CommonAwsError>;
+  ): Effect.Effect<
+    ListCallerAccessGrantsResult,
+    CommonAwsError
+  >;
   listJobs(
     input: ListJobsRequest,
   ): Effect.Effect<
     ListJobsResult,
-    | InternalServiceException
-    | InvalidNextTokenException
-    | InvalidRequestException
-    | CommonAwsError
+    InternalServiceException | InvalidNextTokenException | InvalidRequestException | CommonAwsError
   >;
   listMultiRegionAccessPoints(
     input: ListMultiRegionAccessPointsRequest,
-  ): Effect.Effect<ListMultiRegionAccessPointsResult, CommonAwsError>;
+  ): Effect.Effect<
+    ListMultiRegionAccessPointsResult,
+    CommonAwsError
+  >;
   listRegionalBuckets(
     input: ListRegionalBucketsRequest,
-  ): Effect.Effect<ListRegionalBucketsResult, CommonAwsError>;
+  ): Effect.Effect<
+    ListRegionalBucketsResult,
+    CommonAwsError
+  >;
   listStorageLensConfigurations(
     input: ListStorageLensConfigurationsRequest,
-  ): Effect.Effect<ListStorageLensConfigurationsResult, CommonAwsError>;
+  ): Effect.Effect<
+    ListStorageLensConfigurationsResult,
+    CommonAwsError
+  >;
   listStorageLensGroups(
     input: ListStorageLensGroupsRequest,
-  ): Effect.Effect<ListStorageLensGroupsResult, CommonAwsError>;
+  ): Effect.Effect<
+    ListStorageLensGroupsResult,
+    CommonAwsError
+  >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
-  ): Effect.Effect<ListTagsForResourceResult, CommonAwsError>;
+  ): Effect.Effect<
+    ListTagsForResourceResult,
+    CommonAwsError
+  >;
   putAccessGrantsInstanceResourcePolicy(
     input: PutAccessGrantsInstanceResourcePolicyRequest,
-  ): Effect.Effect<PutAccessGrantsInstanceResourcePolicyResult, CommonAwsError>;
+  ): Effect.Effect<
+    PutAccessGrantsInstanceResourcePolicyResult,
+    CommonAwsError
+  >;
   putAccessPointConfigurationForObjectLambda(
     input: PutAccessPointConfigurationForObjectLambdaRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   putAccessPointPolicy(
     input: PutAccessPointPolicyRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   putAccessPointPolicyForObjectLambda(
     input: PutAccessPointPolicyForObjectLambdaRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   putAccessPointScope(
     input: PutAccessPointScopeRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   putBucketLifecycleConfiguration(
     input: PutBucketLifecycleConfigurationRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   putBucketPolicy(
     input: PutBucketPolicyRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   putBucketReplication(
     input: PutBucketReplicationRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   putBucketTagging(
     input: PutBucketTaggingRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   putBucketVersioning(
     input: PutBucketVersioningRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   putJobTagging(
     input: PutJobTaggingRequest,
   ): Effect.Effect<
     PutJobTaggingResult,
-    | InternalServiceException
-    | NotFoundException
-    | TooManyRequestsException
-    | TooManyTagsException
-    | CommonAwsError
+    InternalServiceException | NotFoundException | TooManyRequestsException | TooManyTagsException | CommonAwsError
   >;
   putMultiRegionAccessPointPolicy(
     input: PutMultiRegionAccessPointPolicyRequest,
-  ): Effect.Effect<PutMultiRegionAccessPointPolicyResult, CommonAwsError>;
+  ): Effect.Effect<
+    PutMultiRegionAccessPointPolicyResult,
+    CommonAwsError
+  >;
   putPublicAccessBlock(
     input: PutPublicAccessBlockRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   putStorageLensConfiguration(
     input: PutStorageLensConfigurationRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   putStorageLensConfigurationTagging(
     input: PutStorageLensConfigurationTaggingRequest,
-  ): Effect.Effect<PutStorageLensConfigurationTaggingResult, CommonAwsError>;
+  ): Effect.Effect<
+    PutStorageLensConfigurationTaggingResult,
+    CommonAwsError
+  >;
   submitMultiRegionAccessPointRoutes(
     input: SubmitMultiRegionAccessPointRoutesRequest,
-  ): Effect.Effect<SubmitMultiRegionAccessPointRoutesResult, CommonAwsError>;
+  ): Effect.Effect<
+    SubmitMultiRegionAccessPointRoutesResult,
+    CommonAwsError
+  >;
   tagResource(
     input: TagResourceRequest,
-  ): Effect.Effect<TagResourceResult, CommonAwsError>;
+  ): Effect.Effect<
+    TagResourceResult,
+    CommonAwsError
+  >;
   untagResource(
     input: UntagResourceRequest,
-  ): Effect.Effect<UntagResourceResult, CommonAwsError>;
+  ): Effect.Effect<
+    UntagResourceResult,
+    CommonAwsError
+  >;
   updateAccessGrantsLocation(
     input: UpdateAccessGrantsLocationRequest,
-  ): Effect.Effect<UpdateAccessGrantsLocationResult, CommonAwsError>;
+  ): Effect.Effect<
+    UpdateAccessGrantsLocationResult,
+    CommonAwsError
+  >;
   updateJobPriority(
     input: UpdateJobPriorityRequest,
   ): Effect.Effect<
     UpdateJobPriorityResult,
-    | BadRequestException
-    | InternalServiceException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | InternalServiceException | NotFoundException | TooManyRequestsException | CommonAwsError
   >;
   updateJobStatus(
     input: UpdateJobStatusRequest,
   ): Effect.Effect<
     UpdateJobStatusResult,
-    | BadRequestException
-    | InternalServiceException
-    | JobStatusException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | InternalServiceException | JobStatusException | NotFoundException | TooManyRequestsException | CommonAwsError
   >;
   updateStorageLensGroup(
     input: UpdateStorageLensGroupRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
 }
 
 export interface AbortIncompleteMultipartUpload {
@@ -446,10 +670,7 @@ export interface AsyncOperation {
   RequestStatus?: string;
   ResponseDetails?: AsyncResponseDetails;
 }
-export type AsyncOperationName =
-  | "CreateMultiRegionAccessPoint"
-  | "DeleteMultiRegionAccessPoint"
-  | "PutMultiRegionAccessPointPolicy";
+export type AsyncOperationName = "CreateMultiRegionAccessPoint" | "DeleteMultiRegionAccessPoint" | "PutMultiRegionAccessPointPolicy";
 export interface AsyncRequestParameters {
   CreateMultiRegionAccessPointRequest?: CreateMultiRegionAccessPointInput;
   DeleteMultiRegionAccessPointRequest?: DeleteMultiRegionAccessPointInput;
@@ -480,15 +701,13 @@ export type S3ControlBoolean = boolean;
 
 export declare class BucketAlreadyExists extends EffectData.TaggedError(
   "BucketAlreadyExists",
-)<{}> {}
+)<{
+}> {}
 export declare class BucketAlreadyOwnedByYou extends EffectData.TaggedError(
   "BucketAlreadyOwnedByYou",
-)<{}> {}
-export type BucketCannedACL =
-  | "private"
-  | "public-read"
-  | "public-read-write"
-  | "authenticated-read";
+)<{
+}> {}
+export type BucketCannedACL = "private" | "public-read" | "public-read-write" | "authenticated-read";
 export type BucketIdentifierString = string;
 
 export interface BucketLevel {
@@ -498,18 +717,7 @@ export interface BucketLevel {
   AdvancedDataProtectionMetrics?: AdvancedDataProtectionMetrics;
   DetailedStatusCodesMetrics?: DetailedStatusCodesMetrics;
 }
-export type BucketLocationConstraint =
-  | "EU"
-  | "eu-west-1"
-  | "us-west-1"
-  | "us-west-2"
-  | "ap-south-1"
-  | "ap-southeast-1"
-  | "ap-southeast-2"
-  | "ap-northeast-1"
-  | "sa-east-1"
-  | "cn-north-1"
-  | "eu-central-1";
+export type BucketLocationConstraint = "EU" | "eu-west-1" | "us-west-1" | "us-west-2" | "ap-south-1" | "ap-southeast-1" | "ap-southeast-2" | "ap-northeast-1" | "sa-east-1" | "cn-north-1" | "eu-central-1";
 export type BucketName = string;
 
 export type Buckets = Array<string>;
@@ -727,7 +935,8 @@ export interface DeleteJobTaggingRequest {
   AccountId: string;
   JobId: string;
 }
-export interface DeleteJobTaggingResult {}
+export interface DeleteJobTaggingResult {
+}
 export interface DeleteMarkerReplication {
   Status: DeleteMarkerReplicationStatus;
 }
@@ -754,7 +963,8 @@ export interface DeleteStorageLensConfigurationTaggingRequest {
   ConfigId: string;
   AccountId: string;
 }
-export interface DeleteStorageLensConfigurationTaggingResult {}
+export interface DeleteStorageLensConfigurationTaggingResult {
+}
 export interface DeleteStorageLensGroupRequest {
   Name: string;
   AccountId: string;
@@ -1170,16 +1380,12 @@ export interface JobManifest {
 }
 export type JobManifestFieldList = Array<JobManifestFieldName>;
 export type JobManifestFieldName = "Ignore" | "Bucket" | "Key" | "VersionId";
-export type JobManifestFormat =
-  | "S3BatchOperations_CSV_20180820"
-  | "S3InventoryReport_CSV_20161130";
+export type JobManifestFormat = "S3BatchOperations_CSV_20180820" | "S3InventoryReport_CSV_20161130";
 interface _JobManifestGenerator {
   S3JobManifestGenerator?: S3JobManifestGenerator;
 }
 
-export type JobManifestGenerator = _JobManifestGenerator & {
-  S3JobManifestGenerator: S3JobManifestGenerator;
-};
+export type JobManifestGenerator = (_JobManifestGenerator & { S3JobManifestGenerator: S3JobManifestGenerator });
 export interface JobManifestGeneratorFilter {
   EligibleForReplication?: boolean;
   CreatedAfter?: Date | string;
@@ -1231,20 +1437,7 @@ export interface JobReport {
 }
 export type JobReportFormat = "Report_CSV_20180820";
 export type JobReportScope = "AllTasks" | "FailedTasksOnly";
-export type JobStatus =
-  | "Active"
-  | "Cancelled"
-  | "Cancelling"
-  | "Complete"
-  | "Completing"
-  | "Failed"
-  | "Failing"
-  | "New"
-  | "Paused"
-  | "Pausing"
-  | "Preparing"
-  | "Ready"
-  | "Suspended";
+export type JobStatus = "Active" | "Cancelled" | "Cancelling" | "Complete" | "Completing" | "Failed" | "Failing" | "New" | "Paused" | "Pausing" | "Preparing" | "Ready" | "Suspended";
 export declare class JobStatusException extends EffectData.TaggedError(
   "JobStatusException",
 )<{
@@ -1523,8 +1716,7 @@ export interface MultiRegionAccessPointRegionalResponse {
   Name?: string;
   RequestStatus?: string;
 }
-export type MultiRegionAccessPointRegionalResponseList =
-  Array<MultiRegionAccessPointRegionalResponse>;
+export type MultiRegionAccessPointRegionalResponseList = Array<MultiRegionAccessPointRegionalResponse>;
 export interface MultiRegionAccessPointReport {
   Name?: string;
   Alias?: string;
@@ -1533,8 +1725,7 @@ export interface MultiRegionAccessPointReport {
   Status?: MultiRegionAccessPointStatus;
   Regions?: Array<RegionReport>;
 }
-export type MultiRegionAccessPointReportList =
-  Array<MultiRegionAccessPointReport>;
+export type MultiRegionAccessPointReportList = Array<MultiRegionAccessPointReport>;
 export interface MultiRegionAccessPointRoute {
   Bucket?: string;
   Region?: string;
@@ -1543,13 +1734,7 @@ export interface MultiRegionAccessPointRoute {
 export interface MultiRegionAccessPointsAsyncResponse {
   Regions?: Array<MultiRegionAccessPointRegionalResponse>;
 }
-export type MultiRegionAccessPointStatus =
-  | "READY"
-  | "INCONSISTENT_ACROSS_REGIONS"
-  | "CREATING"
-  | "PARTIALLY_CREATED"
-  | "PARTIALLY_DELETED"
-  | "DELETING";
+export type MultiRegionAccessPointStatus = "READY" | "INCONSISTENT_ACROSS_REGIONS" | "CREATING" | "PARTIALLY_CREATED" | "PARTIALLY_DELETED" | "DELETING";
 export type NetworkOrigin = "Internet" | "VPC";
 export type NoncurrentVersionCount = number;
 
@@ -1561,8 +1746,7 @@ export interface NoncurrentVersionTransition {
   NoncurrentDays?: number;
   StorageClass?: TransitionStorageClass;
 }
-export type NoncurrentVersionTransitionList =
-  Array<NoncurrentVersionTransition>;
+export type NoncurrentVersionTransitionList = Array<NoncurrentVersionTransition>;
 export type NonEmptyMaxLength1024String = string;
 
 export type NonEmptyMaxLength1024StringList = Array<string>;
@@ -1605,11 +1789,7 @@ export type ObjectLambdaAccessPointArn = string;
 export type ObjectLambdaAccessPointList = Array<ObjectLambdaAccessPoint>;
 export type ObjectLambdaAccessPointName = string;
 
-export type ObjectLambdaAllowedFeature =
-  | "GetObject-Range"
-  | "GetObject-PartNumber"
-  | "HeadObject-Range"
-  | "HeadObject-PartNumber";
+export type ObjectLambdaAllowedFeature = "GetObject-Range" | "GetObject-PartNumber" | "HeadObject-Range" | "HeadObject-PartNumber";
 export type ObjectLambdaAllowedFeaturesList = Array<ObjectLambdaAllowedFeature>;
 export interface ObjectLambdaConfiguration {
   SupportingAccessPoint: string;
@@ -1621,8 +1801,7 @@ interface _ObjectLambdaContentTransformation {
   AwsLambda?: AwsLambdaTransformation;
 }
 
-export type ObjectLambdaContentTransformation =
-  _ObjectLambdaContentTransformation & { AwsLambda: AwsLambdaTransformation };
+export type ObjectLambdaContentTransformation = (_ObjectLambdaContentTransformation & { AwsLambda: AwsLambdaTransformation });
 export type ObjectLambdaPolicy = string;
 
 export type ObjectLambdaSupportingAccessPointArn = string;
@@ -1631,15 +1810,9 @@ export interface ObjectLambdaTransformationConfiguration {
   Actions: Array<ObjectLambdaTransformationConfigurationAction>;
   ContentTransformation: ObjectLambdaContentTransformation;
 }
-export type ObjectLambdaTransformationConfigurationAction =
-  | "GetObject"
-  | "HeadObject"
-  | "ListObjects"
-  | "ListObjectsV2";
-export type ObjectLambdaTransformationConfigurationActionsList =
-  Array<ObjectLambdaTransformationConfigurationAction>;
-export type ObjectLambdaTransformationConfigurationsList =
-  Array<ObjectLambdaTransformationConfiguration>;
+export type ObjectLambdaTransformationConfigurationAction = "GetObject" | "HeadObject" | "ListObjects" | "ListObjectsV2";
+export type ObjectLambdaTransformationConfigurationActionsList = Array<ObjectLambdaTransformationConfigurationAction>;
+export type ObjectLambdaTransformationConfigurationsList = Array<ObjectLambdaTransformationConfiguration>;
 export type ObjectLockEnabledForBucket = boolean;
 
 export type ObjectSizeGreaterThanBytes = number;
@@ -1648,16 +1821,7 @@ export type ObjectSizeLessThanBytes = number;
 
 export type ObjectSizeValue = number;
 
-export type OperationName =
-  | "LambdaInvoke"
-  | "S3PutObjectCopy"
-  | "S3PutObjectAcl"
-  | "S3PutObjectTagging"
-  | "S3DeleteObjectTagging"
-  | "S3InitiateRestoreObject"
-  | "S3PutObjectLegalHold"
-  | "S3PutObjectRetention"
-  | "S3ReplicateObject";
+export type OperationName = "LambdaInvoke" | "S3PutObjectCopy" | "S3PutObjectAcl" | "S3PutObjectTagging" | "S3DeleteObjectTagging" | "S3InitiateRestoreObject" | "S3PutObjectLegalHold" | "S3PutObjectRetention" | "S3ReplicateObject";
 export type Organization = string;
 
 export type OutputSchemaVersion = "V_1";
@@ -1756,7 +1920,8 @@ export interface PutJobTaggingRequest {
   JobId: string;
   Tags: Array<S3Tag>;
 }
-export interface PutJobTaggingResult {}
+export interface PutJobTaggingResult {
+}
 export interface PutMultiRegionAccessPointPolicyInput {
   Name: string;
   Policy: string;
@@ -1784,7 +1949,8 @@ export interface PutStorageLensConfigurationTaggingRequest {
   AccountId: string;
   Tags: Array<StorageLensTag>;
 }
-export interface PutStorageLensConfigurationTaggingResult {}
+export interface PutStorageLensConfigurationTaggingResult {
+}
 export interface Region {
   Bucket: string;
   BucketAccountId?: string;
@@ -1842,16 +2008,7 @@ export type ReplicationRules = Array<ReplicationRule>;
 export type ReplicationRuleStatus = "Enabled" | "Disabled";
 export type ReplicationStatus = "COMPLETED" | "FAILED" | "REPLICA" | "NONE";
 export type ReplicationStatusFilterList = Array<ReplicationStatus>;
-export type ReplicationStorageClass =
-  | "STANDARD"
-  | "REDUCED_REDUNDANCY"
-  | "STANDARD_IA"
-  | "ONEZONE_IA"
-  | "INTELLIGENT_TIERING"
-  | "GLACIER"
-  | "DEEP_ARCHIVE"
-  | "OUTPOSTS"
-  | "GLACIER_IR";
+export type ReplicationStorageClass = "STANDARD" | "REDUCED_REDUNDANCY" | "STANDARD_IA" | "ONEZONE_IA" | "INTELLIGENT_TIERING" | "GLACIER" | "DEEP_ARCHIVE" | "OUTPOSTS" | "GLACIER_IR";
 export interface ReplicationTime {
   Status: ReplicationTimeStatus;
   Time: ReplicationTimeValue;
@@ -1888,20 +2045,8 @@ export interface S3BucketDestination {
   Prefix?: string;
   Encryption?: StorageLensDataExportEncryption;
 }
-export type S3CannedAccessControlList =
-  | "private"
-  | "public-read"
-  | "public-read-write"
-  | "aws-exec-read"
-  | "authenticated-read"
-  | "bucket-owner-read"
-  | "bucket-owner-full-control";
-export type S3ChecksumAlgorithm =
-  | "CRC32"
-  | "CRC32C"
-  | "SHA1"
-  | "SHA256"
-  | "CRC64NVME";
+export type S3CannedAccessControlList = "private" | "public-read" | "public-read-write" | "aws-exec-read" | "authenticated-read" | "bucket-owner-read" | "bucket-owner-full-control";
+export type S3ChecksumAlgorithm = "CRC32" | "CRC32C" | "SHA1" | "SHA256" | "CRC64NVME";
 export type S3ContentLength = number;
 
 export interface S3CopyObjectOperation {
@@ -1924,7 +2069,8 @@ export interface S3CopyObjectOperation {
   BucketKeyEnabled?: boolean;
   ChecksumAlgorithm?: S3ChecksumAlgorithm;
 }
-export interface S3DeleteObjectTaggingOperation {}
+export interface S3DeleteObjectTaggingOperation {
+}
 export type S3ExpirationInDays = number;
 
 export interface S3GeneratedManifestDescriptor {
@@ -1989,12 +2135,7 @@ export interface S3ObjectOwner {
 }
 export type S3ObjectVersionId = string;
 
-export type S3Permission =
-  | "FULL_CONTROL"
-  | "READ"
-  | "WRITE"
-  | "READ_ACP"
-  | "WRITE_ACP";
+export type S3Permission = "FULL_CONTROL" | "READ" | "WRITE" | "READ_ACP" | "WRITE_ACP";
 export type S3Prefix = string;
 
 export type S3PrefixType = "Object";
@@ -2002,7 +2143,8 @@ export type S3RegionalBucketArn = string;
 
 export type S3RegionalOrS3ExpressBucketArnString = string;
 
-export interface S3ReplicateObjectOperation {}
+export interface S3ReplicateObjectOperation {
+}
 export type S3ResourceArn = string;
 
 export interface S3Retention {
@@ -2023,14 +2165,7 @@ export interface S3SetObjectTaggingOperation {
   TagSet?: Array<S3Tag>;
 }
 export type S3SSEAlgorithm = "AES256" | "KMS";
-export type S3StorageClass =
-  | "STANDARD"
-  | "STANDARD_IA"
-  | "ONEZONE_IA"
-  | "GLACIER"
-  | "INTELLIGENT_TIERING"
-  | "DEEP_ARCHIVE"
-  | "GLACIER_IR";
+export type S3StorageClass = "STANDARD" | "STANDARD_IA" | "ONEZONE_IA" | "GLACIER" | "INTELLIGENT_TIERING" | "DEEP_ARCHIVE" | "GLACIER_IR";
 export interface S3Tag {
   Key: string;
   Value: string;
@@ -2041,15 +2176,7 @@ export interface Scope {
   Prefixes?: Array<string>;
   Permissions?: Array<ScopePermission>;
 }
-export type ScopePermission =
-  | "GetObject"
-  | "GetObjectAttributes"
-  | "ListMultipartUploadParts"
-  | "ListBucket"
-  | "ListBucketMultipartUploads"
-  | "PutObject"
-  | "DeleteObject"
-  | "AbortMultipartUpload";
+export type ScopePermission = "GetObject" | "GetObjectAttributes" | "ListMultipartUploadParts" | "ListBucket" | "ListBucketMultipartUploads" | "PutObject" | "DeleteObject" | "AbortMultipartUpload";
 export type ScopePermissionList = Array<ScopePermission>;
 export type SecretAccessKey = string;
 
@@ -2078,8 +2205,10 @@ export interface SSEKMSEncryption {
 }
 export type SSEKMSKeyId = string;
 
-export interface SSES3 {}
-export interface SSES3Encryption {}
+export interface SSES3 {
+}
+export interface SSES3Encryption {
+}
 export type StorageClassList = Array<S3StorageClass>;
 export type StorageLensArn = string;
 
@@ -2096,8 +2225,7 @@ export interface StorageLensConfiguration {
   AwsOrg?: StorageLensAwsOrg;
   StorageLensArn?: string;
 }
-export type StorageLensConfigurationList =
-  Array<ListStorageLensConfigurationEntry>;
+export type StorageLensConfigurationList = Array<ListStorageLensConfigurationEntry>;
 export interface StorageLensDataExport {
   S3BucketDestination?: S3BucketDestination;
   CloudWatchMetrics?: CloudWatchMetrics;
@@ -2164,7 +2292,8 @@ export interface SubmitMultiRegionAccessPointRoutesRequest {
   Mrap: string;
   RouteUpdates: Array<MultiRegionAccessPointRoute>;
 }
-export interface SubmitMultiRegionAccessPointRoutesResult {}
+export interface SubmitMultiRegionAccessPointRoutesResult {
+}
 export type Suffix = string;
 
 export type SuspendedCause = string;
@@ -2187,7 +2316,8 @@ export interface TagResourceRequest {
   ResourceArn: string;
   Tags: Array<Tag>;
 }
-export interface TagResourceResult {}
+export interface TagResourceResult {
+}
 export type TagValueString = string;
 
 export type TimeStamp = Date | string;
@@ -2210,18 +2340,14 @@ export interface Transition {
   StorageClass?: TransitionStorageClass;
 }
 export type TransitionList = Array<Transition>;
-export type TransitionStorageClass =
-  | "GLACIER"
-  | "STANDARD_IA"
-  | "ONEZONE_IA"
-  | "INTELLIGENT_TIERING"
-  | "DEEP_ARCHIVE";
+export type TransitionStorageClass = "GLACIER" | "STANDARD_IA" | "ONEZONE_IA" | "INTELLIGENT_TIERING" | "DEEP_ARCHIVE";
 export interface UntagResourceRequest {
   AccountId: string;
   ResourceArn: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResult {}
+export interface UntagResourceResult {
+}
 export interface UpdateAccessGrantsLocationRequest {
   AccountId: string;
   AccessGrantsLocationId: string;
@@ -2272,37 +2398,43 @@ export type VpcId = string;
 export declare namespace AssociateAccessGrantsIdentityCenter {
   export type Input = AssociateAccessGrantsIdentityCenterRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateAccessGrant {
   export type Input = CreateAccessGrantRequest;
   export type Output = CreateAccessGrantResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateAccessGrantsInstance {
   export type Input = CreateAccessGrantsInstanceRequest;
   export type Output = CreateAccessGrantsInstanceResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateAccessGrantsLocation {
   export type Input = CreateAccessGrantsLocationRequest;
   export type Output = CreateAccessGrantsLocationResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateAccessPoint {
   export type Input = CreateAccessPointRequest;
   export type Output = CreateAccessPointResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateAccessPointForObjectLambda {
   export type Input = CreateAccessPointForObjectLambdaRequest;
   export type Output = CreateAccessPointForObjectLambdaResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateBucket {
@@ -2328,97 +2460,113 @@ export declare namespace CreateJob {
 export declare namespace CreateMultiRegionAccessPoint {
   export type Input = CreateMultiRegionAccessPointRequest;
   export type Output = CreateMultiRegionAccessPointResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateStorageLensGroup {
   export type Input = CreateStorageLensGroupRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteAccessGrant {
   export type Input = DeleteAccessGrantRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteAccessGrantsInstance {
   export type Input = DeleteAccessGrantsInstanceRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteAccessGrantsInstanceResourcePolicy {
   export type Input = DeleteAccessGrantsInstanceResourcePolicyRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteAccessGrantsLocation {
   export type Input = DeleteAccessGrantsLocationRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteAccessPoint {
   export type Input = DeleteAccessPointRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteAccessPointForObjectLambda {
   export type Input = DeleteAccessPointForObjectLambdaRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteAccessPointPolicy {
   export type Input = DeleteAccessPointPolicyRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteAccessPointPolicyForObjectLambda {
   export type Input = DeleteAccessPointPolicyForObjectLambdaRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteAccessPointScope {
   export type Input = DeleteAccessPointScopeRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteBucket {
   export type Input = DeleteBucketRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteBucketLifecycleConfiguration {
   export type Input = DeleteBucketLifecycleConfigurationRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteBucketPolicy {
   export type Input = DeleteBucketPolicyRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteBucketReplication {
   export type Input = DeleteBucketReplicationRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteBucketTagging {
   export type Input = DeleteBucketTaggingRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteJobTagging {
@@ -2434,31 +2582,36 @@ export declare namespace DeleteJobTagging {
 export declare namespace DeleteMultiRegionAccessPoint {
   export type Input = DeleteMultiRegionAccessPointRequest;
   export type Output = DeleteMultiRegionAccessPointResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeletePublicAccessBlock {
   export type Input = DeletePublicAccessBlockRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteStorageLensConfiguration {
   export type Input = DeleteStorageLensConfigurationRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteStorageLensConfigurationTagging {
   export type Input = DeleteStorageLensConfigurationTaggingRequest;
   export type Output = DeleteStorageLensConfigurationTaggingResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteStorageLensGroup {
   export type Input = DeleteStorageLensGroupRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeJob {
@@ -2475,133 +2628,155 @@ export declare namespace DescribeJob {
 export declare namespace DescribeMultiRegionAccessPointOperation {
   export type Input = DescribeMultiRegionAccessPointOperationRequest;
   export type Output = DescribeMultiRegionAccessPointOperationResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DissociateAccessGrantsIdentityCenter {
   export type Input = DissociateAccessGrantsIdentityCenterRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetAccessGrant {
   export type Input = GetAccessGrantRequest;
   export type Output = GetAccessGrantResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetAccessGrantsInstance {
   export type Input = GetAccessGrantsInstanceRequest;
   export type Output = GetAccessGrantsInstanceResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetAccessGrantsInstanceForPrefix {
   export type Input = GetAccessGrantsInstanceForPrefixRequest;
   export type Output = GetAccessGrantsInstanceForPrefixResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetAccessGrantsInstanceResourcePolicy {
   export type Input = GetAccessGrantsInstanceResourcePolicyRequest;
   export type Output = GetAccessGrantsInstanceResourcePolicyResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetAccessGrantsLocation {
   export type Input = GetAccessGrantsLocationRequest;
   export type Output = GetAccessGrantsLocationResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetAccessPoint {
   export type Input = GetAccessPointRequest;
   export type Output = GetAccessPointResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetAccessPointConfigurationForObjectLambda {
   export type Input = GetAccessPointConfigurationForObjectLambdaRequest;
   export type Output = GetAccessPointConfigurationForObjectLambdaResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetAccessPointForObjectLambda {
   export type Input = GetAccessPointForObjectLambdaRequest;
   export type Output = GetAccessPointForObjectLambdaResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetAccessPointPolicy {
   export type Input = GetAccessPointPolicyRequest;
   export type Output = GetAccessPointPolicyResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetAccessPointPolicyForObjectLambda {
   export type Input = GetAccessPointPolicyForObjectLambdaRequest;
   export type Output = GetAccessPointPolicyForObjectLambdaResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetAccessPointPolicyStatus {
   export type Input = GetAccessPointPolicyStatusRequest;
   export type Output = GetAccessPointPolicyStatusResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetAccessPointPolicyStatusForObjectLambda {
   export type Input = GetAccessPointPolicyStatusForObjectLambdaRequest;
   export type Output = GetAccessPointPolicyStatusForObjectLambdaResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetAccessPointScope {
   export type Input = GetAccessPointScopeRequest;
   export type Output = GetAccessPointScopeResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetBucket {
   export type Input = GetBucketRequest;
   export type Output = GetBucketResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetBucketLifecycleConfiguration {
   export type Input = GetBucketLifecycleConfigurationRequest;
   export type Output = GetBucketLifecycleConfigurationResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetBucketPolicy {
   export type Input = GetBucketPolicyRequest;
   export type Output = GetBucketPolicyResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetBucketReplication {
   export type Input = GetBucketReplicationRequest;
   export type Output = GetBucketReplicationResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetBucketTagging {
   export type Input = GetBucketTaggingRequest;
   export type Output = GetBucketTaggingResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetBucketVersioning {
   export type Input = GetBucketVersioningRequest;
   export type Output = GetBucketVersioningResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetDataAccess {
   export type Input = GetDataAccessRequest;
   export type Output = GetDataAccessResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetJobTagging {
@@ -2617,91 +2792,107 @@ export declare namespace GetJobTagging {
 export declare namespace GetMultiRegionAccessPoint {
   export type Input = GetMultiRegionAccessPointRequest;
   export type Output = GetMultiRegionAccessPointResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetMultiRegionAccessPointPolicy {
   export type Input = GetMultiRegionAccessPointPolicyRequest;
   export type Output = GetMultiRegionAccessPointPolicyResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetMultiRegionAccessPointPolicyStatus {
   export type Input = GetMultiRegionAccessPointPolicyStatusRequest;
   export type Output = GetMultiRegionAccessPointPolicyStatusResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetMultiRegionAccessPointRoutes {
   export type Input = GetMultiRegionAccessPointRoutesRequest;
   export type Output = GetMultiRegionAccessPointRoutesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetPublicAccessBlock {
   export type Input = GetPublicAccessBlockRequest;
   export type Output = GetPublicAccessBlockOutput;
-  export type Error = NoSuchPublicAccessBlockConfiguration | CommonAwsError;
+  export type Error =
+    | NoSuchPublicAccessBlockConfiguration
+    | CommonAwsError;
 }
 
 export declare namespace GetStorageLensConfiguration {
   export type Input = GetStorageLensConfigurationRequest;
   export type Output = GetStorageLensConfigurationResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetStorageLensConfigurationTagging {
   export type Input = GetStorageLensConfigurationTaggingRequest;
   export type Output = GetStorageLensConfigurationTaggingResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetStorageLensGroup {
   export type Input = GetStorageLensGroupRequest;
   export type Output = GetStorageLensGroupResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ListAccessGrants {
   export type Input = ListAccessGrantsRequest;
   export type Output = ListAccessGrantsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ListAccessGrantsInstances {
   export type Input = ListAccessGrantsInstancesRequest;
   export type Output = ListAccessGrantsInstancesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ListAccessGrantsLocations {
   export type Input = ListAccessGrantsLocationsRequest;
   export type Output = ListAccessGrantsLocationsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ListAccessPoints {
   export type Input = ListAccessPointsRequest;
   export type Output = ListAccessPointsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ListAccessPointsForDirectoryBuckets {
   export type Input = ListAccessPointsForDirectoryBucketsRequest;
   export type Output = ListAccessPointsForDirectoryBucketsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ListAccessPointsForObjectLambda {
   export type Input = ListAccessPointsForObjectLambdaRequest;
   export type Output = ListAccessPointsForObjectLambdaResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ListCallerAccessGrants {
   export type Input = ListCallerAccessGrantsRequest;
   export type Output = ListCallerAccessGrantsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ListJobs {
@@ -2717,91 +2908,106 @@ export declare namespace ListJobs {
 export declare namespace ListMultiRegionAccessPoints {
   export type Input = ListMultiRegionAccessPointsRequest;
   export type Output = ListMultiRegionAccessPointsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ListRegionalBuckets {
   export type Input = ListRegionalBucketsRequest;
   export type Output = ListRegionalBucketsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ListStorageLensConfigurations {
   export type Input = ListStorageLensConfigurationsRequest;
   export type Output = ListStorageLensConfigurationsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ListStorageLensGroups {
   export type Input = ListStorageLensGroupsRequest;
   export type Output = ListStorageLensGroupsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ListTagsForResource {
   export type Input = ListTagsForResourceRequest;
   export type Output = ListTagsForResourceResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace PutAccessGrantsInstanceResourcePolicy {
   export type Input = PutAccessGrantsInstanceResourcePolicyRequest;
   export type Output = PutAccessGrantsInstanceResourcePolicyResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace PutAccessPointConfigurationForObjectLambda {
   export type Input = PutAccessPointConfigurationForObjectLambdaRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace PutAccessPointPolicy {
   export type Input = PutAccessPointPolicyRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace PutAccessPointPolicyForObjectLambda {
   export type Input = PutAccessPointPolicyForObjectLambdaRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace PutAccessPointScope {
   export type Input = PutAccessPointScopeRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace PutBucketLifecycleConfiguration {
   export type Input = PutBucketLifecycleConfigurationRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace PutBucketPolicy {
   export type Input = PutBucketPolicyRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace PutBucketReplication {
   export type Input = PutBucketReplicationRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace PutBucketTagging {
   export type Input = PutBucketTaggingRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace PutBucketVersioning {
   export type Input = PutBucketVersioningRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace PutJobTagging {
@@ -2818,49 +3024,57 @@ export declare namespace PutJobTagging {
 export declare namespace PutMultiRegionAccessPointPolicy {
   export type Input = PutMultiRegionAccessPointPolicyRequest;
   export type Output = PutMultiRegionAccessPointPolicyResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace PutPublicAccessBlock {
   export type Input = PutPublicAccessBlockRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace PutStorageLensConfiguration {
   export type Input = PutStorageLensConfigurationRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace PutStorageLensConfigurationTagging {
   export type Input = PutStorageLensConfigurationTaggingRequest;
   export type Output = PutStorageLensConfigurationTaggingResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace SubmitMultiRegionAccessPointRoutes {
   export type Input = SubmitMultiRegionAccessPointRoutesRequest;
   export type Output = SubmitMultiRegionAccessPointRoutesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace TagResource {
   export type Input = TagResourceRequest;
   export type Output = TagResourceResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace UntagResource {
   export type Input = UntagResourceRequest;
   export type Output = UntagResourceResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace UpdateAccessGrantsLocation {
   export type Input = UpdateAccessGrantsLocationRequest;
   export type Output = UpdateAccessGrantsLocationResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace UpdateJobPriority {
@@ -2889,5 +3103,7 @@ export declare namespace UpdateJobStatus {
 export declare namespace UpdateStorageLensGroup {
   export type Input = UpdateStorageLensGroupRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
+

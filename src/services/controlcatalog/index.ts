@@ -5,23 +5,7 @@ import type { ControlCatalog as _ControlCatalogClient } from "./types.ts";
 
 export * from "./types.ts";
 
-export {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-  type CommonAwsError,
-} from "../../error.ts";
+export {ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, type CommonAwsError} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -30,12 +14,12 @@ const metadata = {
   protocol: "restJson1",
   sigV4ServiceName: "controlcatalog",
   operations: {
-    ListControlMappings: "POST /list-control-mappings",
-    GetControl: "POST /get-control",
-    ListCommonControls: "POST /common-controls",
-    ListControls: "POST /list-controls",
-    ListDomains: "POST /domains",
-    ListObjectives: "POST /objectives",
+    "ListControlMappings": "POST /list-control-mappings",
+    "GetControl": "POST /get-control",
+    "ListCommonControls": "POST /common-controls",
+    "ListControls": "POST /list-controls",
+    "ListDomains": "POST /domains",
+    "ListObjectives": "POST /objectives",
   },
 } as const satisfies ServiceMetadata;
 

@@ -9,29 +9,19 @@ export declare class MediaStoreData extends AWSServiceClient {
     input: DeleteObjectRequest,
   ): Effect.Effect<
     DeleteObjectResponse,
-    | ContainerNotFoundException
-    | InternalServerError
-    | ObjectNotFoundException
-    | CommonAwsError
+    ContainerNotFoundException | InternalServerError | ObjectNotFoundException | CommonAwsError
   >;
   describeObject(
     input: DescribeObjectRequest,
   ): Effect.Effect<
     DescribeObjectResponse,
-    | ContainerNotFoundException
-    | InternalServerError
-    | ObjectNotFoundException
-    | CommonAwsError
+    ContainerNotFoundException | InternalServerError | ObjectNotFoundException | CommonAwsError
   >;
   getObject(
     input: GetObjectRequest,
   ): Effect.Effect<
     GetObjectResponse,
-    | ContainerNotFoundException
-    | InternalServerError
-    | ObjectNotFoundException
-    | RequestedRangeNotSatisfiableException
-    | CommonAwsError
+    ContainerNotFoundException | InternalServerError | ObjectNotFoundException | RequestedRangeNotSatisfiableException | CommonAwsError
   >;
   listItems(
     input: ListItemsRequest,
@@ -61,7 +51,8 @@ export type ContentType = string;
 export interface DeleteObjectRequest {
   Path: string;
 }
-export interface DeleteObjectResponse {}
+export interface DeleteObjectResponse {
+}
 export interface DescribeObjectRequest {
   Path: string;
 }
@@ -211,3 +202,4 @@ export declare namespace PutObject {
     | InternalServerError
     | CommonAwsError;
 }
+

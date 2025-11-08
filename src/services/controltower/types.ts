@@ -1,38 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-} from "../../error.ts";
-type CommonAwsError =
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | AccessDeniedException
-  | ThrottlingException
-  | ValidationException;
+import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
+type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class ControlTower extends AWSServiceClient {
@@ -40,317 +8,169 @@ export declare class ControlTower extends AWSServiceClient {
     input: DisableControlInput,
   ): Effect.Effect<
     DisableControlOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createLandingZone(
     input: CreateLandingZoneInput,
   ): Effect.Effect<
     CreateLandingZoneOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteLandingZone(
     input: DeleteLandingZoneInput,
   ): Effect.Effect<
     DeleteLandingZoneOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   disableBaseline(
     input: DisableBaselineInput,
   ): Effect.Effect<
     DisableBaselineOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   enableBaseline(
     input: EnableBaselineInput,
   ): Effect.Effect<
     EnableBaselineOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   enableControl(
     input: EnableControlInput,
   ): Effect.Effect<
     EnableControlOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getBaseline(
     input: GetBaselineInput,
   ): Effect.Effect<
     GetBaselineOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getBaselineOperation(
     input: GetBaselineOperationInput,
   ): Effect.Effect<
     GetBaselineOperationOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getControlOperation(
     input: GetControlOperationInput,
   ): Effect.Effect<
     GetControlOperationOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getEnabledBaseline(
     input: GetEnabledBaselineInput,
   ): Effect.Effect<
     GetEnabledBaselineOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getEnabledControl(
     input: GetEnabledControlInput,
   ): Effect.Effect<
     GetEnabledControlOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getLandingZone(
     input: GetLandingZoneInput,
   ): Effect.Effect<
     GetLandingZoneOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getLandingZoneOperation(
     input: GetLandingZoneOperationInput,
   ): Effect.Effect<
     GetLandingZoneOperationOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listBaselines(
     input: ListBaselinesInput,
   ): Effect.Effect<
     ListBaselinesOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listControlOperations(
     input: ListControlOperationsInput,
   ): Effect.Effect<
     ListControlOperationsOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listEnabledBaselines(
     input: ListEnabledBaselinesInput,
   ): Effect.Effect<
     ListEnabledBaselinesOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listEnabledControls(
     input: ListEnabledControlsInput,
   ): Effect.Effect<
     ListEnabledControlsOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listLandingZoneOperations(
     input: ListLandingZoneOperationsInput,
   ): Effect.Effect<
     ListLandingZoneOperationsOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listLandingZones(
     input: ListLandingZonesInput,
   ): Effect.Effect<
     ListLandingZonesOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceInput,
   ): Effect.Effect<
     ListTagsForResourceOutput,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   resetEnabledBaseline(
     input: ResetEnabledBaselineInput,
   ): Effect.Effect<
     ResetEnabledBaselineOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   resetEnabledControl(
     input: ResetEnabledControlInput,
   ): Effect.Effect<
     ResetEnabledControlOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   resetLandingZone(
     input: ResetLandingZoneInput,
   ): Effect.Effect<
     ResetLandingZoneOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   tagResource(
     input: TagResourceInput,
   ): Effect.Effect<
     TagResourceOutput,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   untagResource(
     input: UntagResourceInput,
   ): Effect.Effect<
     UntagResourceOutput,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   updateEnabledBaseline(
     input: UpdateEnabledBaselineInput,
   ): Effect.Effect<
     UpdateEnabledBaselineOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateEnabledControl(
     input: UpdateEnabledControlInput,
   ): Effect.Effect<
     UpdateEnabledControlOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateLandingZone(
     input: UpdateLandingZoneInput,
   ): Effect.Effect<
     UpdateLandingZoneOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
 }
 
@@ -374,11 +194,7 @@ export interface BaselineOperation {
   statusMessage?: string;
 }
 export type BaselineOperationStatus = "SUCCEEDED" | "FAILED" | "IN_PROGRESS";
-export type BaselineOperationType =
-  | "ENABLE_BASELINE"
-  | "DISABLE_BASELINE"
-  | "UPDATE_ENABLED_BASELINE"
-  | "RESET_ENABLED_BASELINE";
+export type BaselineOperationType = "ENABLE_BASELINE" | "DISABLE_BASELINE" | "UPDATE_ENABLED_BASELINE" | "RESET_ENABLED_BASELINE";
 export type Baselines = Array<BaselineSummary>;
 export interface BaselineSummary {
   arn: string;
@@ -427,11 +243,7 @@ export interface ControlOperationSummary {
   targetIdentifier?: string;
   enabledControlIdentifier?: string;
 }
-export type ControlOperationType =
-  | "ENABLE_CONTROL"
-  | "DISABLE_CONTROL"
-  | "UPDATE_ENABLED_CONTROL"
-  | "RESET_ENABLED_CONTROL";
+export type ControlOperationType = "ENABLE_CONTROL" | "DISABLE_CONTROL" | "UPDATE_ENABLED_CONTROL" | "RESET_ENABLED_CONTROL";
 export type ControlOperationTypes = Array<ControlOperationType>;
 export interface CreateLandingZoneInput {
   version: string;
@@ -524,8 +336,7 @@ export interface EnabledBaselineParameter {
 export type EnabledBaselineParameterDocument = unknown;
 
 export type EnabledBaselineParameters = Array<EnabledBaselineParameter>;
-export type EnabledBaselineParameterSummaries =
-  Array<EnabledBaselineParameterSummary>;
+export type EnabledBaselineParameterSummaries = Array<EnabledBaselineParameterSummary>;
 export interface EnabledBaselineParameterSummary {
   key: string;
   value: unknown;
@@ -562,8 +373,7 @@ export interface EnabledControlParameter {
   value: unknown;
 }
 export type EnabledControlParameters = Array<EnabledControlParameter>;
-export type EnabledControlParameterSummaries =
-  Array<EnabledControlParameterSummary>;
+export type EnabledControlParameterSummaries = Array<EnabledControlParameterSummary>;
 export interface EnabledControlParameterSummary {
   key: string;
   value: unknown;
@@ -793,7 +603,8 @@ export interface TagResourceInput {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceOutput {}
+export interface TagResourceOutput {
+}
 export type TagValue = string;
 
 export type TargetIdentifier = string;
@@ -814,7 +625,8 @@ export interface UntagResourceInput {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceOutput {}
+export interface UntagResourceOutput {
+}
 export interface UpdateEnabledBaselineInput {
   baselineVersion: string;
   parameters?: Array<EnabledBaselineParameter>;
@@ -1186,3 +998,4 @@ export declare namespace UpdateLandingZone {
     | ValidationException
     | CommonAwsError;
 }
+

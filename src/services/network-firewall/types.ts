@@ -1,40 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  AccessDeniedException,
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-  ValidationException,
-} from "../../error.ts";
-type CommonAwsError =
-  | AccessDeniedException
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | ValidationException
-  | ThrottlingException;
+import type { AccessDeniedException, ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, ValidationException } from "../../error.ts";
+type CommonAwsError = AccessDeniedException | ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | ValidationException | ThrottlingException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class NetworkFirewall extends AWSServiceClient {
@@ -42,612 +8,343 @@ export declare class NetworkFirewall extends AWSServiceClient {
     input: AcceptNetworkFirewallTransitGatewayAttachmentRequest,
   ): Effect.Effect<
     AcceptNetworkFirewallTransitGatewayAttachmentResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   associateAvailabilityZones(
     input: AssociateAvailabilityZonesRequest,
   ): Effect.Effect<
     AssociateAvailabilityZonesResponse,
-    | InsufficientCapacityException
-    | InternalServerError
-    | InvalidOperationException
-    | InvalidRequestException
-    | InvalidTokenException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InsufficientCapacityException | InternalServerError | InvalidOperationException | InvalidRequestException | InvalidTokenException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   associateFirewallPolicy(
     input: AssociateFirewallPolicyRequest,
   ): Effect.Effect<
     AssociateFirewallPolicyResponse,
-    | InternalServerError
-    | InvalidOperationException
-    | InvalidRequestException
-    | InvalidTokenException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidOperationException | InvalidRequestException | InvalidTokenException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   associateSubnets(
     input: AssociateSubnetsRequest,
   ): Effect.Effect<
     AssociateSubnetsResponse,
-    | InsufficientCapacityException
-    | InternalServerError
-    | InvalidOperationException
-    | InvalidRequestException
-    | InvalidTokenException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InsufficientCapacityException | InternalServerError | InvalidOperationException | InvalidRequestException | InvalidTokenException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   createFirewall(
     input: CreateFirewallRequest,
   ): Effect.Effect<
     CreateFirewallResponse,
-    | InsufficientCapacityException
-    | InternalServerError
-    | InvalidOperationException
-    | InvalidRequestException
-    | LimitExceededException
-    | ThrottlingException
-    | CommonAwsError
+    InsufficientCapacityException | InternalServerError | InvalidOperationException | InvalidRequestException | LimitExceededException | ThrottlingException | CommonAwsError
   >;
   createFirewallPolicy(
     input: CreateFirewallPolicyRequest,
   ): Effect.Effect<
     CreateFirewallPolicyResponse,
-    | InsufficientCapacityException
-    | InternalServerError
-    | InvalidRequestException
-    | LimitExceededException
-    | ThrottlingException
-    | CommonAwsError
+    InsufficientCapacityException | InternalServerError | InvalidRequestException | LimitExceededException | ThrottlingException | CommonAwsError
   >;
   createRuleGroup(
     input: CreateRuleGroupRequest,
   ): Effect.Effect<
     CreateRuleGroupResponse,
-    | InsufficientCapacityException
-    | InternalServerError
-    | InvalidRequestException
-    | LimitExceededException
-    | ThrottlingException
-    | CommonAwsError
+    InsufficientCapacityException | InternalServerError | InvalidRequestException | LimitExceededException | ThrottlingException | CommonAwsError
   >;
   createTLSInspectionConfiguration(
     input: CreateTLSInspectionConfigurationRequest,
   ): Effect.Effect<
     CreateTLSInspectionConfigurationResponse,
-    | InsufficientCapacityException
-    | InternalServerError
-    | InvalidRequestException
-    | LimitExceededException
-    | ThrottlingException
-    | CommonAwsError
+    InsufficientCapacityException | InternalServerError | InvalidRequestException | LimitExceededException | ThrottlingException | CommonAwsError
   >;
   createVpcEndpointAssociation(
     input: CreateVpcEndpointAssociationRequest,
   ): Effect.Effect<
     CreateVpcEndpointAssociationResponse,
-    | InsufficientCapacityException
-    | InternalServerError
-    | InvalidOperationException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InsufficientCapacityException | InternalServerError | InvalidOperationException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   deleteFirewall(
     input: DeleteFirewallRequest,
   ): Effect.Effect<
     DeleteFirewallResponse,
-    | InternalServerError
-    | InvalidOperationException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedOperationException
-    | CommonAwsError
+    InternalServerError | InvalidOperationException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | UnsupportedOperationException | CommonAwsError
   >;
   deleteFirewallPolicy(
     input: DeleteFirewallPolicyRequest,
   ): Effect.Effect<
     DeleteFirewallPolicyResponse,
-    | InternalServerError
-    | InvalidOperationException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedOperationException
-    | CommonAwsError
+    InternalServerError | InvalidOperationException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | UnsupportedOperationException | CommonAwsError
   >;
   deleteNetworkFirewallTransitGatewayAttachment(
     input: DeleteNetworkFirewallTransitGatewayAttachmentRequest,
   ): Effect.Effect<
     DeleteNetworkFirewallTransitGatewayAttachmentResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   deleteResourcePolicy(
     input: DeleteResourcePolicyRequest,
   ): Effect.Effect<
     DeleteResourcePolicyResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | InvalidResourcePolicyException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | InvalidResourcePolicyException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   deleteRuleGroup(
     input: DeleteRuleGroupRequest,
   ): Effect.Effect<
     DeleteRuleGroupResponse,
-    | InternalServerError
-    | InvalidOperationException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedOperationException
-    | CommonAwsError
+    InternalServerError | InvalidOperationException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | UnsupportedOperationException | CommonAwsError
   >;
   deleteTLSInspectionConfiguration(
     input: DeleteTLSInspectionConfigurationRequest,
   ): Effect.Effect<
     DeleteTLSInspectionConfigurationResponse,
-    | InternalServerError
-    | InvalidOperationException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidOperationException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   deleteVpcEndpointAssociation(
     input: DeleteVpcEndpointAssociationRequest,
   ): Effect.Effect<
     DeleteVpcEndpointAssociationResponse,
-    | InternalServerError
-    | InvalidOperationException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidOperationException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   describeFirewall(
     input: DescribeFirewallRequest,
   ): Effect.Effect<
     DescribeFirewallResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   describeFirewallMetadata(
     input: DescribeFirewallMetadataRequest,
   ): Effect.Effect<
     DescribeFirewallMetadataResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   describeFirewallPolicy(
     input: DescribeFirewallPolicyRequest,
   ): Effect.Effect<
     DescribeFirewallPolicyResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   describeFlowOperation(
     input: DescribeFlowOperationRequest,
   ): Effect.Effect<
     DescribeFlowOperationResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   describeLoggingConfiguration(
     input: DescribeLoggingConfigurationRequest,
   ): Effect.Effect<
     DescribeLoggingConfigurationResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   describeResourcePolicy(
     input: DescribeResourcePolicyRequest,
   ): Effect.Effect<
     DescribeResourcePolicyResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   describeRuleGroup(
     input: DescribeRuleGroupRequest,
   ): Effect.Effect<
     DescribeRuleGroupResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   describeRuleGroupMetadata(
     input: DescribeRuleGroupMetadataRequest,
   ): Effect.Effect<
     DescribeRuleGroupMetadataResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   describeRuleGroupSummary(
     input: DescribeRuleGroupSummaryRequest,
   ): Effect.Effect<
     DescribeRuleGroupSummaryResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   describeTLSInspectionConfiguration(
     input: DescribeTLSInspectionConfigurationRequest,
   ): Effect.Effect<
     DescribeTLSInspectionConfigurationResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   describeVpcEndpointAssociation(
     input: DescribeVpcEndpointAssociationRequest,
   ): Effect.Effect<
     DescribeVpcEndpointAssociationResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   disassociateAvailabilityZones(
     input: DisassociateAvailabilityZonesRequest,
   ): Effect.Effect<
     DisassociateAvailabilityZonesResponse,
-    | InternalServerError
-    | InvalidOperationException
-    | InvalidRequestException
-    | InvalidTokenException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidOperationException | InvalidRequestException | InvalidTokenException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   disassociateSubnets(
     input: DisassociateSubnetsRequest,
   ): Effect.Effect<
     DisassociateSubnetsResponse,
-    | InternalServerError
-    | InvalidOperationException
-    | InvalidRequestException
-    | InvalidTokenException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidOperationException | InvalidRequestException | InvalidTokenException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   getAnalysisReportResults(
     input: GetAnalysisReportResultsRequest,
   ): Effect.Effect<
     GetAnalysisReportResultsResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   listAnalysisReports(
     input: ListAnalysisReportsRequest,
   ): Effect.Effect<
     ListAnalysisReportsResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   listFirewallPolicies(
     input: ListFirewallPoliciesRequest,
   ): Effect.Effect<
     ListFirewallPoliciesResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | ThrottlingException | CommonAwsError
   >;
   listFirewalls(
     input: ListFirewallsRequest,
   ): Effect.Effect<
     ListFirewallsResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | ThrottlingException | CommonAwsError
   >;
   listFlowOperationResults(
     input: ListFlowOperationResultsRequest,
   ): Effect.Effect<
     ListFlowOperationResultsResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   listFlowOperations(
     input: ListFlowOperationsRequest,
   ): Effect.Effect<
     ListFlowOperationsResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   listRuleGroups(
     input: ListRuleGroupsRequest,
   ): Effect.Effect<
     ListRuleGroupsResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | ThrottlingException | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   listTLSInspectionConfigurations(
     input: ListTLSInspectionConfigurationsRequest,
   ): Effect.Effect<
     ListTLSInspectionConfigurationsResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | ThrottlingException | CommonAwsError
   >;
   listVpcEndpointAssociations(
     input: ListVpcEndpointAssociationsRequest,
   ): Effect.Effect<
     ListVpcEndpointAssociationsResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | ThrottlingException | CommonAwsError
   >;
   putResourcePolicy(
     input: PutResourcePolicyRequest,
   ): Effect.Effect<
     PutResourcePolicyResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | InvalidResourcePolicyException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | InvalidResourcePolicyException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   rejectNetworkFirewallTransitGatewayAttachment(
     input: RejectNetworkFirewallTransitGatewayAttachmentRequest,
   ): Effect.Effect<
     RejectNetworkFirewallTransitGatewayAttachmentResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   startAnalysisReport(
     input: StartAnalysisReportRequest,
   ): Effect.Effect<
     StartAnalysisReportResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   startFlowCapture(
     input: StartFlowCaptureRequest,
   ): Effect.Effect<
     StartFlowCaptureResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   startFlowFlush(
     input: StartFlowFlushRequest,
   ): Effect.Effect<
     StartFlowFlushResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   updateAvailabilityZoneChangeProtection(
     input: UpdateAvailabilityZoneChangeProtectionRequest,
   ): Effect.Effect<
     UpdateAvailabilityZoneChangeProtectionResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | InvalidTokenException
-    | ResourceNotFoundException
-    | ResourceOwnerCheckException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | InvalidTokenException | ResourceNotFoundException | ResourceOwnerCheckException | ThrottlingException | CommonAwsError
   >;
   updateFirewallAnalysisSettings(
     input: UpdateFirewallAnalysisSettingsRequest,
   ): Effect.Effect<
     UpdateFirewallAnalysisSettingsResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   updateFirewallDeleteProtection(
     input: UpdateFirewallDeleteProtectionRequest,
   ): Effect.Effect<
     UpdateFirewallDeleteProtectionResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | InvalidTokenException
-    | ResourceNotFoundException
-    | ResourceOwnerCheckException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | InvalidTokenException | ResourceNotFoundException | ResourceOwnerCheckException | ThrottlingException | CommonAwsError
   >;
   updateFirewallDescription(
     input: UpdateFirewallDescriptionRequest,
   ): Effect.Effect<
     UpdateFirewallDescriptionResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | InvalidTokenException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | InvalidTokenException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   updateFirewallEncryptionConfiguration(
     input: UpdateFirewallEncryptionConfigurationRequest,
   ): Effect.Effect<
     UpdateFirewallEncryptionConfigurationResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | InvalidTokenException
-    | ResourceNotFoundException
-    | ResourceOwnerCheckException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | InvalidTokenException | ResourceNotFoundException | ResourceOwnerCheckException | ThrottlingException | CommonAwsError
   >;
   updateFirewallPolicy(
     input: UpdateFirewallPolicyRequest,
   ): Effect.Effect<
     UpdateFirewallPolicyResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | InvalidTokenException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | InvalidTokenException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   updateFirewallPolicyChangeProtection(
     input: UpdateFirewallPolicyChangeProtectionRequest,
   ): Effect.Effect<
     UpdateFirewallPolicyChangeProtectionResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | InvalidTokenException
-    | ResourceNotFoundException
-    | ResourceOwnerCheckException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | InvalidTokenException | ResourceNotFoundException | ResourceOwnerCheckException | ThrottlingException | CommonAwsError
   >;
   updateLoggingConfiguration(
     input: UpdateLoggingConfigurationRequest,
   ): Effect.Effect<
     UpdateLoggingConfigurationResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | InvalidTokenException
-    | LogDestinationPermissionException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | InvalidTokenException | LogDestinationPermissionException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   updateRuleGroup(
     input: UpdateRuleGroupRequest,
   ): Effect.Effect<
     UpdateRuleGroupResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | InvalidTokenException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | InvalidTokenException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   updateSubnetChangeProtection(
     input: UpdateSubnetChangeProtectionRequest,
   ): Effect.Effect<
     UpdateSubnetChangeProtectionResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | InvalidTokenException
-    | ResourceNotFoundException
-    | ResourceOwnerCheckException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | InvalidTokenException | ResourceNotFoundException | ResourceOwnerCheckException | ThrottlingException | CommonAwsError
   >;
   updateTLSInspectionConfiguration(
     input: UpdateTLSInspectionConfigurationRequest,
   ): Effect.Effect<
     UpdateTLSInspectionConfigurationResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | InvalidTokenException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | InvalidTokenException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
 }
 
@@ -742,13 +439,7 @@ export interface Attachment {
 }
 export type AttachmentId = string;
 
-export type AttachmentStatus =
-  | "CREATING"
-  | "DELETING"
-  | "FAILED"
-  | "ERROR"
-  | "SCALING"
-  | "READY";
+export type AttachmentStatus = "CREATING" | "DELETING" | "FAILED" | "ERROR" | "SCALING" | "READY";
 export type AvailabilityZone = string;
 
 export interface AvailabilityZoneMapping {
@@ -789,10 +480,7 @@ export interface CIDRSummary {
 }
 export type CollectionMember_String = string;
 
-export type ConfigurationSyncState =
-  | "PENDING"
-  | "IN_SYNC"
-  | "CAPACITY_CONSTRAINED";
+export type ConfigurationSyncState = "PENDING" | "IN_SYNC" | "CAPACITY_CONSTRAINED";
 export type Count = number;
 
 export interface CreateFirewallPolicyRequest {
@@ -899,7 +587,8 @@ export interface DeleteNetworkFirewallTransitGatewayAttachmentResponse {
 export interface DeleteResourcePolicyRequest {
   ResourceArn: string;
 }
-export interface DeleteResourcePolicyResponse {}
+export interface DeleteResourcePolicyResponse {
+}
 export interface DeleteRuleGroupRequest {
   RuleGroupName?: string;
   RuleGroupArn?: string;
@@ -1184,11 +873,7 @@ export interface FlowOperationMetadata {
   FlowOperationStatus?: FlowOperationStatus;
 }
 export type FlowOperations = Array<FlowOperationMetadata>;
-export type FlowOperationStatus =
-  | "COMPLETED"
-  | "IN_PROGRESS"
-  | "FAILED"
-  | "COMPLETED_WITH_ERRORS";
+export type FlowOperationStatus = "COMPLETED" | "IN_PROGRESS" | "FAILED" | "COMPLETED_WITH_ERRORS";
 export type FlowOperationType = "FLOW_FLUSH" | "FLOW_CAPTURE";
 export type FlowRequestTimestamp = Date | string;
 
@@ -1228,9 +913,7 @@ export interface Header {
 export interface Hits {
   Count?: number;
 }
-export type IdentifiedType =
-  | "STATELESS_RULE_FORWARDING_ASYMMETRICALLY"
-  | "STATELESS_RULE_CONTAINS_TCP_FLAGS";
+export type IdentifiedType = "STATELESS_RULE_FORWARDING_ASYMMETRICALLY" | "STATELESS_RULE_CONTAINS_TCP_FLAGS";
 export declare class InsufficientCapacityException extends EffectData.TaggedError(
   "InsufficientCapacityException",
 )<{
@@ -1401,10 +1084,7 @@ export declare class LogDestinationPermissionException extends EffectData.Tagged
 )<{
   readonly Message?: string;
 }> {}
-export type LogDestinationType =
-  | "S3"
-  | "CloudWatchLogs"
-  | "KinesisDataFirehose";
+export type LogDestinationType = "S3" | "CloudWatchLogs" | "KinesisDataFirehose";
 export interface LoggingConfiguration {
   LogDestinationConfigs: Array<LogDestinationConfig>;
 }
@@ -1430,10 +1110,7 @@ export interface PerObjectStatus {
   SyncStatus?: PerObjectSyncStatus;
   UpdateToken?: string;
 }
-export type PerObjectSyncStatus =
-  | "PENDING"
-  | "IN_SYNC"
-  | "CAPACITY_CONSTRAINED";
+export type PerObjectSyncStatus = "PENDING" | "IN_SYNC" | "CAPACITY_CONSTRAINED";
 export type PolicyString = string;
 
 export interface PolicyVariables {
@@ -1467,7 +1144,8 @@ export interface PutResourcePolicyRequest {
   ResourceArn: string;
   Policy: string;
 }
-export interface PutResourcePolicyResponse {}
+export interface PutResourcePolicyResponse {
+}
 export interface ReferenceSets {
   IPSetReferences?: Record<string, IPSetReference>;
 }
@@ -1485,10 +1163,7 @@ export type ResourceArn = string;
 export type ResourceId = string;
 
 export type ResourceManagedStatus = "MANAGED" | "ACCOUNT";
-export type ResourceManagedType =
-  | "AWS_MANAGED_THREAT_SIGNATURES"
-  | "AWS_MANAGED_DOMAIN_LISTS"
-  | "ACTIVE_THREAT_DEFENSE";
+export type ResourceManagedType = "AWS_MANAGED_THREAT_SIGNATURES" | "AWS_MANAGED_DOMAIN_LISTS" | "ACTIVE_THREAT_DEFENSE";
 export type ResourceName = string;
 
 export declare class ResourceNotFoundException extends EffectData.TaggedError(
@@ -1581,8 +1256,7 @@ export interface ServerCertificateConfiguration {
   CertificateAuthorityArn?: string;
   CheckCertificateRevocationStatus?: CheckCertificateRevocationStatusActions;
 }
-export type ServerCertificateConfigurations =
-  Array<ServerCertificateConfiguration>;
+export type ServerCertificateConfigurations = Array<ServerCertificateConfiguration>;
 export type ServerCertificates = Array<ServerCertificate>;
 export interface ServerCertificateScope {
   Sources?: Array<Address>;
@@ -1663,28 +1337,7 @@ export type StatefulRuleGroupReferences = Array<StatefulRuleGroupReference>;
 export interface StatefulRuleOptions {
   RuleOrder?: RuleOrder;
 }
-export type StatefulRuleProtocol =
-  | "IP"
-  | "TCP"
-  | "UDP"
-  | "ICMP"
-  | "HTTP"
-  | "FTP"
-  | "TLS"
-  | "SMB"
-  | "DNS"
-  | "DCERPC"
-  | "SSH"
-  | "SMTP"
-  | "IMAP"
-  | "MSN"
-  | "KRB5"
-  | "IKEV2"
-  | "TFTP"
-  | "NTP"
-  | "DHCP"
-  | "HTTP2"
-  | "QUIC";
+export type StatefulRuleProtocol = "IP" | "TCP" | "UDP" | "ICMP" | "HTTP" | "FTP" | "TLS" | "SMB" | "DNS" | "DCERPC" | "SSH" | "SMTP" | "IMAP" | "MSN" | "KRB5" | "IKEV2" | "TFTP" | "NTP" | "DHCP" | "HTTP2" | "QUIC";
 export type StatefulRules = Array<StatefulRule>;
 export type StatelessActions = Array<string>;
 export interface StatelessRule {
@@ -1721,10 +1374,7 @@ export interface SummaryConfiguration {
 }
 export type SummaryRuleOption = "SID" | "MSG" | "METADATA";
 export type SummaryRuleOptions = Array<SummaryRuleOption>;
-export type SupportedAvailabilityZones = Record<
-  string,
-  AvailabilityZoneMetadata
->;
+export type SupportedAvailabilityZones = Record<string, AvailabilityZoneMetadata>;
 export interface SyncState {
   Attachment?: Attachment;
   Config?: Record<string, PerObjectStatus>;
@@ -1743,22 +1393,15 @@ export interface TagResourceRequest {
   ResourceArn: string;
   Tags: Array<Tag>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagsPaginationMaxResults = number;
 
 export type TagValue = string;
 
 export type TargetType = "TLS_SNI" | "HTTP_HOST";
 export type TargetTypes = Array<TargetType>;
-export type TCPFlag =
-  | "FIN"
-  | "SYN"
-  | "RST"
-  | "PSH"
-  | "ACK"
-  | "URG"
-  | "ECE"
-  | "CWR";
+export type TCPFlag = "FIN" | "SYN" | "RST" | "PSH" | "ACK" | "URG" | "ECE" | "CWR";
 export interface TCPFlagField {
   Flags: Array<TCPFlag>;
   Masks?: Array<TCPFlag>;
@@ -1797,20 +1440,10 @@ export interface TLSInspectionConfigurationResponse {
   Certificates?: Array<TlsCertificateData>;
   CertificateAuthority?: TlsCertificateData;
 }
-export type TLSInspectionConfigurations =
-  Array<TLSInspectionConfigurationMetadata>;
+export type TLSInspectionConfigurations = Array<TLSInspectionConfigurationMetadata>;
 export type TransitGatewayAttachmentId = string;
 
-export type TransitGatewayAttachmentStatus =
-  | "CREATING"
-  | "DELETING"
-  | "DELETED"
-  | "FAILED"
-  | "ERROR"
-  | "READY"
-  | "PENDING_ACCEPTANCE"
-  | "REJECTING"
-  | "REJECTED";
+export type TransitGatewayAttachmentStatus = "CREATING" | "DELETING" | "DELETED" | "FAILED" | "ERROR" | "READY" | "PENDING_ACCEPTANCE" | "REJECTING" | "REJECTED";
 export interface TransitGatewayAttachmentSyncState {
   AttachmentId?: string;
   TransitGatewayAttachmentStatus?: TransitGatewayAttachmentStatus;
@@ -1832,7 +1465,8 @@ export interface UntagResourceRequest {
   ResourceArn: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateAvailabilityZoneChangeProtectionRequest {
   UpdateToken?: string;
   FirewallArn?: string;
@@ -2666,3 +2300,4 @@ export declare namespace UpdateTLSInspectionConfiguration {
     | ThrottlingException
     | CommonAwsError;
 }
+

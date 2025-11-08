@@ -1,40 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  AccessDeniedException,
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-  ValidationException,
-} from "../../error.ts";
-type CommonAwsError =
-  | AccessDeniedException
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | ValidationException
-  | ThrottlingException;
+import type { AccessDeniedException, ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, ValidationException } from "../../error.ts";
+type CommonAwsError = AccessDeniedException | ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | ValidationException | ThrottlingException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class ChimeSDKMeetings extends AWSServiceClient {
@@ -42,224 +8,97 @@ export declare class ChimeSDKMeetings extends AWSServiceClient {
     input: BatchCreateAttendeeRequest,
   ): Effect.Effect<
     BatchCreateAttendeeResponse,
-    | BadRequestException
-    | ForbiddenException
-    | LimitExceededException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | UnprocessableEntityException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | LimitExceededException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | UnprocessableEntityException | CommonAwsError
   >;
   batchUpdateAttendeeCapabilitiesExcept(
     input: BatchUpdateAttendeeCapabilitiesExceptRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   >;
   createAttendee(
     input: CreateAttendeeRequest,
   ): Effect.Effect<
     CreateAttendeeResponse,
-    | BadRequestException
-    | ForbiddenException
-    | LimitExceededException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | UnprocessableEntityException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | LimitExceededException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | UnprocessableEntityException | CommonAwsError
   >;
   createMeeting(
     input: CreateMeetingRequest,
   ): Effect.Effect<
     CreateMeetingResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | LimitExceededException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | LimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   >;
   createMeetingWithAttendees(
     input: CreateMeetingWithAttendeesRequest,
   ): Effect.Effect<
     CreateMeetingWithAttendeesResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | LimitExceededException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | LimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   >;
   deleteAttendee(
     input: DeleteAttendeeRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   >;
   deleteMeeting(
     input: DeleteMeetingRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   >;
   getAttendee(
     input: GetAttendeeRequest,
   ): Effect.Effect<
     GetAttendeeResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   >;
   getMeeting(
     input: GetMeetingRequest,
   ): Effect.Effect<
     GetMeetingResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   >;
   listAttendees(
     input: ListAttendeesRequest,
   ): Effect.Effect<
     ListAttendeesResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | BadRequestException
-    | ForbiddenException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | LimitExceededException | ResourceNotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   >;
   startMeetingTranscription(
     input: StartMeetingTranscriptionRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ForbiddenException
-    | LimitExceededException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | UnprocessableEntityException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | LimitExceededException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | UnprocessableEntityException | CommonAwsError
   >;
   stopMeetingTranscription(
     input: StopMeetingTranscriptionRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | UnprocessableEntityException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | UnprocessableEntityException | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | BadRequestException
-    | ForbiddenException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | TooManyTagsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | LimitExceededException | ResourceNotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottlingException | TooManyTagsException | UnauthorizedException | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | BadRequestException
-    | ForbiddenException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | LimitExceededException | ResourceNotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   >;
   updateAttendeeCapabilities(
     input: UpdateAttendeeCapabilitiesRequest,
   ): Effect.Effect<
     UpdateAttendeeCapabilitiesResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   >;
 }
 
@@ -373,8 +212,7 @@ export interface CreateMeetingWithAttendeesRequest {
   TenantIds?: Array<string>;
   Tags?: Array<Tag>;
 }
-export type CreateMeetingWithAttendeesRequestItemList =
-  Array<CreateAttendeeRequestItem>;
+export type CreateMeetingWithAttendeesRequestItemList = Array<CreateAttendeeRequestItem>;
 export interface CreateMeetingWithAttendeesResponse {
   Meeting?: Meeting;
   Attendees?: Array<Attendee>;
@@ -556,7 +394,8 @@ export interface TagResourceRequest {
   ResourceARN: string;
   Tags: Array<Tag>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export type TenantId = string;
@@ -579,60 +418,20 @@ export declare class TooManyTagsException extends EffectData.TaggedError(
 }> {}
 export type TranscribeContentIdentificationType = "PII";
 export type TranscribeContentRedactionType = "PII";
-export type TranscribeLanguageCode =
-  | "en-US"
-  | "en-GB"
-  | "es-US"
-  | "fr-CA"
-  | "fr-FR"
-  | "en-AU"
-  | "it-IT"
-  | "de-DE"
-  | "pt-BR"
-  | "ja-JP"
-  | "ko-KR"
-  | "zh-CN"
-  | "th-TH"
-  | "hi-IN";
+export type TranscribeLanguageCode = "en-US" | "en-GB" | "es-US" | "fr-CA" | "fr-FR" | "en-AU" | "it-IT" | "de-DE" | "pt-BR" | "ja-JP" | "ko-KR" | "zh-CN" | "th-TH" | "hi-IN";
 export type TranscribeLanguageModelName = string;
 
 export type TranscribeLanguageOptions = string;
 
 export type TranscribeMedicalContentIdentificationType = "PHI";
 export type TranscribeMedicalLanguageCode = "en-US";
-export type TranscribeMedicalRegion =
-  | "us-east-1"
-  | "us-east-2"
-  | "us-west-2"
-  | "ap-southeast-2"
-  | "ca-central-1"
-  | "eu-west-1"
-  | "auto";
-export type TranscribeMedicalSpecialty =
-  | "PRIMARYCARE"
-  | "CARDIOLOGY"
-  | "NEUROLOGY"
-  | "ONCOLOGY"
-  | "RADIOLOGY"
-  | "UROLOGY";
+export type TranscribeMedicalRegion = "us-east-1" | "us-east-2" | "us-west-2" | "ap-southeast-2" | "ca-central-1" | "eu-west-1" | "auto";
+export type TranscribeMedicalSpecialty = "PRIMARYCARE" | "CARDIOLOGY" | "NEUROLOGY" | "ONCOLOGY" | "RADIOLOGY" | "UROLOGY";
 export type TranscribeMedicalType = "CONVERSATION" | "DICTATION";
 export type TranscribePartialResultsStability = "low" | "medium" | "high";
 export type TranscribePiiEntityTypes = string;
 
-export type TranscribeRegion =
-  | "us-east-2"
-  | "us-east-1"
-  | "us-west-2"
-  | "ap-northeast-2"
-  | "ap-southeast-2"
-  | "ap-northeast-1"
-  | "ca-central-1"
-  | "eu-central-1"
-  | "eu-west-1"
-  | "eu-west-2"
-  | "sa-east-1"
-  | "auto"
-  | "us-gov-west-1";
+export type TranscribeRegion = "us-east-2" | "us-east-1" | "us-west-2" | "ap-northeast-2" | "ap-southeast-2" | "ap-northeast-1" | "ca-central-1" | "eu-central-1" | "eu-west-1" | "eu-west-2" | "sa-east-1" | "auto" | "us-gov-west-1";
 export type TranscribeVocabularyFilterMethod = "remove" | "mask" | "tag";
 export type TranscribeVocabularyNamesOrFilterNamesString = string;
 
@@ -658,7 +457,8 @@ export interface UntagResourceRequest {
   ResourceARN: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateAttendeeCapabilitiesRequest {
   MeetingId: string;
   AttendeeId: string;
@@ -909,3 +709,4 @@ export declare namespace UpdateAttendeeCapabilities {
     | UnauthorizedException
     | CommonAwsError;
 }
+

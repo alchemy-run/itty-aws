@@ -1,38 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-} from "../../error.ts";
-type CommonAwsError =
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | AccessDeniedException
-  | ThrottlingException
-  | ValidationException;
+import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
+type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
@@ -40,1031 +8,541 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: AssociateOriginationIdentityRequest,
   ): Effect.Effect<
     AssociateOriginationIdentityResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   associateProtectConfiguration(
     input: AssociateProtectConfigurationRequest,
   ): Effect.Effect<
     AssociateProtectConfigurationResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createConfigurationSet(
     input: CreateConfigurationSetRequest,
   ): Effect.Effect<
     CreateConfigurationSetResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createEventDestination(
     input: CreateEventDestinationRequest,
   ): Effect.Effect<
     CreateEventDestinationResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createOptOutList(
     input: CreateOptOutListRequest,
   ): Effect.Effect<
     CreateOptOutListResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createPool(
     input: CreatePoolRequest,
   ): Effect.Effect<
     CreatePoolResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createProtectConfiguration(
     input: CreateProtectConfigurationRequest,
   ): Effect.Effect<
     CreateProtectConfigurationResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createRegistration(
     input: CreateRegistrationRequest,
   ): Effect.Effect<
     CreateRegistrationResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createRegistrationAssociation(
     input: CreateRegistrationAssociationRequest,
   ): Effect.Effect<
     CreateRegistrationAssociationResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createRegistrationAttachment(
     input: CreateRegistrationAttachmentRequest,
   ): Effect.Effect<
     CreateRegistrationAttachmentResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createRegistrationVersion(
     input: CreateRegistrationVersionRequest,
   ): Effect.Effect<
     CreateRegistrationVersionResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createVerifiedDestinationNumber(
     input: CreateVerifiedDestinationNumberRequest,
   ): Effect.Effect<
     CreateVerifiedDestinationNumberResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteAccountDefaultProtectConfiguration(
     input: DeleteAccountDefaultProtectConfigurationRequest,
   ): Effect.Effect<
     DeleteAccountDefaultProtectConfigurationResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteConfigurationSet(
     input: DeleteConfigurationSetRequest,
   ): Effect.Effect<
     DeleteConfigurationSetResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteDefaultMessageType(
     input: DeleteDefaultMessageTypeRequest,
   ): Effect.Effect<
     DeleteDefaultMessageTypeResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteDefaultSenderId(
     input: DeleteDefaultSenderIdRequest,
   ): Effect.Effect<
     DeleteDefaultSenderIdResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteEventDestination(
     input: DeleteEventDestinationRequest,
   ): Effect.Effect<
     DeleteEventDestinationResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteKeyword(
     input: DeleteKeywordRequest,
   ): Effect.Effect<
     DeleteKeywordResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteMediaMessageSpendLimitOverride(
     input: DeleteMediaMessageSpendLimitOverrideRequest,
   ): Effect.Effect<
     DeleteMediaMessageSpendLimitOverrideResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteOptedOutNumber(
     input: DeleteOptedOutNumberRequest,
   ): Effect.Effect<
     DeleteOptedOutNumberResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteOptOutList(
     input: DeleteOptOutListRequest,
   ): Effect.Effect<
     DeleteOptOutListResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deletePool(
     input: DeletePoolRequest,
   ): Effect.Effect<
     DeletePoolResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteProtectConfiguration(
     input: DeleteProtectConfigurationRequest,
   ): Effect.Effect<
     DeleteProtectConfigurationResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteProtectConfigurationRuleSetNumberOverride(
     input: DeleteProtectConfigurationRuleSetNumberOverrideRequest,
   ): Effect.Effect<
     DeleteProtectConfigurationRuleSetNumberOverrideResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteRegistration(
     input: DeleteRegistrationRequest,
   ): Effect.Effect<
     DeleteRegistrationResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteRegistrationAttachment(
     input: DeleteRegistrationAttachmentRequest,
   ): Effect.Effect<
     DeleteRegistrationAttachmentResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteRegistrationFieldValue(
     input: DeleteRegistrationFieldValueRequest,
   ): Effect.Effect<
     DeleteRegistrationFieldValueResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteResourcePolicy(
     input: DeleteResourcePolicyRequest,
   ): Effect.Effect<
     DeleteResourcePolicyResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteTextMessageSpendLimitOverride(
     input: DeleteTextMessageSpendLimitOverrideRequest,
   ): Effect.Effect<
     DeleteTextMessageSpendLimitOverrideResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteVerifiedDestinationNumber(
     input: DeleteVerifiedDestinationNumberRequest,
   ): Effect.Effect<
     DeleteVerifiedDestinationNumberResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteVoiceMessageSpendLimitOverride(
     input: DeleteVoiceMessageSpendLimitOverrideRequest,
   ): Effect.Effect<
     DeleteVoiceMessageSpendLimitOverrideResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   describeAccountAttributes(
     input: DescribeAccountAttributesRequest,
   ): Effect.Effect<
     DescribeAccountAttributesResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   describeAccountLimits(
     input: DescribeAccountLimitsRequest,
   ): Effect.Effect<
     DescribeAccountLimitsResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   describeConfigurationSets(
     input: DescribeConfigurationSetsRequest,
   ): Effect.Effect<
     DescribeConfigurationSetsResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   describeKeywords(
     input: DescribeKeywordsRequest,
   ): Effect.Effect<
     DescribeKeywordsResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   describeOptedOutNumbers(
     input: DescribeOptedOutNumbersRequest,
   ): Effect.Effect<
     DescribeOptedOutNumbersResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   describeOptOutLists(
     input: DescribeOptOutListsRequest,
   ): Effect.Effect<
     DescribeOptOutListsResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   describePhoneNumbers(
     input: DescribePhoneNumbersRequest,
   ): Effect.Effect<
     DescribePhoneNumbersResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   describePools(
     input: DescribePoolsRequest,
   ): Effect.Effect<
     DescribePoolsResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   describeProtectConfigurations(
     input: DescribeProtectConfigurationsRequest,
   ): Effect.Effect<
     DescribeProtectConfigurationsResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   describeRegistrationAttachments(
     input: DescribeRegistrationAttachmentsRequest,
   ): Effect.Effect<
     DescribeRegistrationAttachmentsResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   describeRegistrationFieldDefinitions(
     input: DescribeRegistrationFieldDefinitionsRequest,
   ): Effect.Effect<
     DescribeRegistrationFieldDefinitionsResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   describeRegistrationFieldValues(
     input: DescribeRegistrationFieldValuesRequest,
   ): Effect.Effect<
     DescribeRegistrationFieldValuesResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   describeRegistrations(
     input: DescribeRegistrationsRequest,
   ): Effect.Effect<
     DescribeRegistrationsResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   describeRegistrationSectionDefinitions(
     input: DescribeRegistrationSectionDefinitionsRequest,
   ): Effect.Effect<
     DescribeRegistrationSectionDefinitionsResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   describeRegistrationTypeDefinitions(
     input: DescribeRegistrationTypeDefinitionsRequest,
   ): Effect.Effect<
     DescribeRegistrationTypeDefinitionsResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   describeRegistrationVersions(
     input: DescribeRegistrationVersionsRequest,
   ): Effect.Effect<
     DescribeRegistrationVersionsResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   describeSenderIds(
     input: DescribeSenderIdsRequest,
   ): Effect.Effect<
     DescribeSenderIdsResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   describeSpendLimits(
     input: DescribeSpendLimitsRequest,
   ): Effect.Effect<
     DescribeSpendLimitsResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   describeVerifiedDestinationNumbers(
     input: DescribeVerifiedDestinationNumbersRequest,
   ): Effect.Effect<
     DescribeVerifiedDestinationNumbersResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   disassociateOriginationIdentity(
     input: DisassociateOriginationIdentityRequest,
   ): Effect.Effect<
     DisassociateOriginationIdentityResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   disassociateProtectConfiguration(
     input: DisassociateProtectConfigurationRequest,
   ): Effect.Effect<
     DisassociateProtectConfigurationResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   discardRegistrationVersion(
     input: DiscardRegistrationVersionRequest,
   ): Effect.Effect<
     DiscardRegistrationVersionResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getProtectConfigurationCountryRuleSet(
     input: GetProtectConfigurationCountryRuleSetRequest,
   ): Effect.Effect<
     GetProtectConfigurationCountryRuleSetResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getResourcePolicy(
     input: GetResourcePolicyRequest,
   ): Effect.Effect<
     GetResourcePolicyResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listPoolOriginationIdentities(
     input: ListPoolOriginationIdentitiesRequest,
   ): Effect.Effect<
     ListPoolOriginationIdentitiesResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listProtectConfigurationRuleSetNumberOverrides(
     input: ListProtectConfigurationRuleSetNumberOverridesRequest,
   ): Effect.Effect<
     ListProtectConfigurationRuleSetNumberOverridesResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listRegistrationAssociations(
     input: ListRegistrationAssociationsRequest,
   ): Effect.Effect<
     ListRegistrationAssociationsResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   putKeyword(
     input: PutKeywordRequest,
   ): Effect.Effect<
     PutKeywordResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   putMessageFeedback(
     input: PutMessageFeedbackRequest,
   ): Effect.Effect<
     PutMessageFeedbackResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   putOptedOutNumber(
     input: PutOptedOutNumberRequest,
   ): Effect.Effect<
     PutOptedOutNumberResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   putProtectConfigurationRuleSetNumberOverride(
     input: PutProtectConfigurationRuleSetNumberOverrideRequest,
   ): Effect.Effect<
     PutProtectConfigurationRuleSetNumberOverrideResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   putRegistrationFieldValue(
     input: PutRegistrationFieldValueRequest,
   ): Effect.Effect<
     PutRegistrationFieldValueResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   putResourcePolicy(
     input: PutResourcePolicyRequest,
   ): Effect.Effect<
     PutResourcePolicyResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   releasePhoneNumber(
     input: ReleasePhoneNumberRequest,
   ): Effect.Effect<
     ReleasePhoneNumberResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   releaseSenderId(
     input: ReleaseSenderIdRequest,
   ): Effect.Effect<
     ReleaseSenderIdResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   requestPhoneNumber(
     input: RequestPhoneNumberRequest,
   ): Effect.Effect<
     RequestPhoneNumberResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   requestSenderId(
     input: RequestSenderIdRequest,
   ): Effect.Effect<
     RequestSenderIdResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   sendDestinationNumberVerificationCode(
     input: SendDestinationNumberVerificationCodeRequest,
   ): Effect.Effect<
     SendDestinationNumberVerificationCodeResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   sendMediaMessage(
     input: SendMediaMessageRequest,
   ): Effect.Effect<
     SendMediaMessageResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   sendTextMessage(
     input: SendTextMessageRequest,
   ): Effect.Effect<
     SendTextMessageResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   sendVoiceMessage(
     input: SendVoiceMessageRequest,
   ): Effect.Effect<
     SendVoiceMessageResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   setAccountDefaultProtectConfiguration(
     input: SetAccountDefaultProtectConfigurationRequest,
   ): Effect.Effect<
     SetAccountDefaultProtectConfigurationResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   setDefaultMessageFeedbackEnabled(
     input: SetDefaultMessageFeedbackEnabledRequest,
   ): Effect.Effect<
     SetDefaultMessageFeedbackEnabledResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   setDefaultMessageType(
     input: SetDefaultMessageTypeRequest,
   ): Effect.Effect<
     SetDefaultMessageTypeResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   setDefaultSenderId(
     input: SetDefaultSenderIdRequest,
   ): Effect.Effect<
     SetDefaultSenderIdResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   setMediaMessageSpendLimitOverride(
     input: SetMediaMessageSpendLimitOverrideRequest,
   ): Effect.Effect<
     SetMediaMessageSpendLimitOverrideResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   setTextMessageSpendLimitOverride(
     input: SetTextMessageSpendLimitOverrideRequest,
   ): Effect.Effect<
     SetTextMessageSpendLimitOverrideResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   setVoiceMessageSpendLimitOverride(
     input: SetVoiceMessageSpendLimitOverrideRequest,
   ): Effect.Effect<
     SetVoiceMessageSpendLimitOverrideResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   submitRegistrationVersion(
     input: SubmitRegistrationVersionRequest,
   ): Effect.Effect<
     SubmitRegistrationVersionResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateEventDestination(
     input: UpdateEventDestinationRequest,
   ): Effect.Effect<
     UpdateEventDestinationResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updatePhoneNumber(
     input: UpdatePhoneNumberRequest,
   ): Effect.Effect<
     UpdatePhoneNumberResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updatePool(
     input: UpdatePoolRequest,
   ): Effect.Effect<
     UpdatePoolResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateProtectConfiguration(
     input: UpdateProtectConfigurationRequest,
   ): Effect.Effect<
     UpdateProtectConfigurationResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateProtectConfigurationCountryRuleSet(
     input: UpdateProtectConfigurationCountryRuleSetRequest,
   ): Effect.Effect<
     UpdateProtectConfigurationCountryRuleSetResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateSenderId(
     input: UpdateSenderIdRequest,
   ): Effect.Effect<
     UpdateSenderIdResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   verifyDestinationNumber(
     input: VerifyDestinationNumberRequest,
   ): Effect.Effect<
     VerifyDestinationNumberResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
 }
 
@@ -1149,8 +627,7 @@ export interface ConfigurationSetInformation {
   CreatedTimestamp: Date | string;
   ProtectConfigurationId?: string;
 }
-export type ConfigurationSetInformationList =
-  Array<ConfigurationSetInformation>;
+export type ConfigurationSetInformationList = Array<ConfigurationSetInformation>;
 export type ConfigurationSetName = string;
 
 export type ConfigurationSetNameList = Array<string>;
@@ -1308,7 +785,8 @@ export interface CreateVerifiedDestinationNumberResult {
   Tags?: Array<Tag>;
   CreatedTimestamp: Date | string;
 }
-export interface DeleteAccountDefaultProtectConfigurationRequest {}
+export interface DeleteAccountDefaultProtectConfigurationRequest {
+}
 export interface DeleteAccountDefaultProtectConfigurationResult {
   DefaultProtectConfigurationArn: string;
   DefaultProtectConfigurationId: string;
@@ -1361,7 +839,8 @@ export interface DeleteKeywordResult {
   KeywordMessage?: string;
   KeywordAction?: string;
 }
-export interface DeleteMediaMessageSpendLimitOverrideRequest {}
+export interface DeleteMediaMessageSpendLimitOverrideRequest {
+}
 export interface DeleteMediaMessageSpendLimitOverrideResult {
   MonthlyLimit?: number;
 }
@@ -1468,7 +947,8 @@ export interface DeleteResourcePolicyResult {
   Policy?: string;
   CreatedTimestamp?: Date | string;
 }
-export interface DeleteTextMessageSpendLimitOverrideRequest {}
+export interface DeleteTextMessageSpendLimitOverrideRequest {
+}
 export interface DeleteTextMessageSpendLimitOverrideResult {
   MonthlyLimit?: number;
 }
@@ -1481,7 +961,8 @@ export interface DeleteVerifiedDestinationNumberResult {
   DestinationPhoneNumber: string;
   CreatedTimestamp: Date | string;
 }
-export interface DeleteVoiceMessageSpendLimitOverrideRequest {}
+export interface DeleteVoiceMessageSpendLimitOverrideRequest {
+}
 export interface DeleteVoiceMessageSpendLimitOverrideResult {
   MonthlyLimit?: number;
 }
@@ -1821,8 +1302,7 @@ export interface ListPoolOriginationIdentitiesResult {
   OriginationIdentities?: Array<OriginationIdentityMetadata>;
   NextToken?: string;
 }
-export type ListProtectConfigurationRuleSetNumberOverrideFilter =
-  Array<ProtectConfigurationRuleSetNumberOverrideFilterItem>;
+export type ListProtectConfigurationRuleSetNumberOverrideFilter = Array<ProtectConfigurationRuleSetNumberOverrideFilterItem>;
 export interface ListProtectConfigurationRuleSetNumberOverridesRequest {
   ProtectConfigurationId: string;
   Filters?: Array<ProtectConfigurationRuleSetNumberOverrideFilterItem>;
@@ -1917,8 +1397,7 @@ export interface OriginationIdentityMetadata {
   NumberCapabilities: Array<string>;
   PhoneNumber?: string;
 }
-export type OriginationIdentityMetadataList =
-  Array<OriginationIdentityMetadata>;
+export type OriginationIdentityMetadataList = Array<OriginationIdentityMetadata>;
 export type Owner = string;
 
 export type PhoneNumber = string;
@@ -1987,18 +1466,14 @@ export interface PoolOriginationIdentitiesFilter {
   Name: string;
   Values: Array<string>;
 }
-export type PoolOriginationIdentitiesFilterList =
-  Array<PoolOriginationIdentitiesFilter>;
+export type PoolOriginationIdentitiesFilterList = Array<PoolOriginationIdentitiesFilter>;
 export type PoolOriginationIdentitiesFilterName = string;
 
 export type PoolStatus = string;
 
 export type ProtectConfigurationArn = string;
 
-export type ProtectConfigurationCountryRuleSet = Record<
-  string,
-  ProtectConfigurationCountryRuleSetInformation
->;
+export type ProtectConfigurationCountryRuleSet = Record<string, ProtectConfigurationCountryRuleSetInformation>;
 export interface ProtectConfigurationCountryRuleSetInformation {
   ProtectStatus: string;
 }
@@ -2021,8 +1496,7 @@ export interface ProtectConfigurationInformation {
   AccountDefault: boolean;
   DeletionProtectionEnabled: boolean;
 }
-export type ProtectConfigurationInformationList =
-  Array<ProtectConfigurationInformation>;
+export type ProtectConfigurationInformationList = Array<ProtectConfigurationInformation>;
 export type ProtectConfigurationRuleOverrideAction = string;
 
 export interface ProtectConfigurationRuleSetNumberOverride {
@@ -2038,8 +1512,7 @@ export interface ProtectConfigurationRuleSetNumberOverrideFilterItem {
 }
 export type ProtectConfigurationRuleSetNumberOverrideFilterName = string;
 
-export type ProtectConfigurationRuleSetNumberOverrideList =
-  Array<ProtectConfigurationRuleSetNumberOverride>;
+export type ProtectConfigurationRuleSetNumberOverrideList = Array<ProtectConfigurationRuleSetNumberOverride>;
 export type ProtectStatus = string;
 
 export interface PutKeywordRequest {
@@ -2121,8 +1594,7 @@ export interface RegistrationAssociationFilter {
   Name: string;
   Values: Array<string>;
 }
-export type RegistrationAssociationFilterList =
-  Array<RegistrationAssociationFilter>;
+export type RegistrationAssociationFilterList = Array<RegistrationAssociationFilter>;
 export type RegistrationAssociationFilterName = string;
 
 export interface RegistrationAssociationMetadata {
@@ -2132,14 +1604,12 @@ export interface RegistrationAssociationMetadata {
   IsoCountryCode?: string;
   PhoneNumber?: string;
 }
-export type RegistrationAssociationMetadataList =
-  Array<RegistrationAssociationMetadata>;
+export type RegistrationAssociationMetadataList = Array<RegistrationAssociationMetadata>;
 export interface RegistrationAttachmentFilter {
   Name: string;
   Values: Array<string>;
 }
-export type RegistrationAttachmentFilterList =
-  Array<RegistrationAttachmentFilter>;
+export type RegistrationAttachmentFilterList = Array<RegistrationAttachmentFilter>;
 export type RegistrationAttachmentFilterName = string;
 
 export type RegistrationAttachmentIdList = Array<string>;
@@ -2152,8 +1622,7 @@ export interface RegistrationAttachmentsInformation {
   AttachmentUploadErrorReason?: string;
   CreatedTimestamp: Date | string;
 }
-export type RegistrationAttachmentsInformationList =
-  Array<RegistrationAttachmentsInformation>;
+export type RegistrationAttachmentsInformationList = Array<RegistrationAttachmentsInformation>;
 export interface RegistrationDeniedReasonInformation {
   Reason: string;
   ShortDescription: string;
@@ -2161,8 +1630,7 @@ export interface RegistrationDeniedReasonInformation {
   DocumentationTitle?: string;
   DocumentationLink?: string;
 }
-export type RegistrationDeniedReasonInformationList =
-  Array<RegistrationDeniedReasonInformation>;
+export type RegistrationDeniedReasonInformationList = Array<RegistrationDeniedReasonInformation>;
 export type RegistrationDisassociationBehavior = string;
 
 export interface RegistrationFieldDefinition {
@@ -2174,8 +1642,7 @@ export interface RegistrationFieldDefinition {
   TextValidation?: TextValidation;
   DisplayHints: RegistrationFieldDisplayHints;
 }
-export type RegistrationFieldDefinitionList =
-  Array<RegistrationFieldDefinition>;
+export type RegistrationFieldDefinitionList = Array<RegistrationFieldDefinition>;
 export interface RegistrationFieldDisplayHints {
   Title: string;
   ShortDescription: string;
@@ -2193,8 +1660,7 @@ export interface RegistrationFieldValueInformation {
   RegistrationAttachmentId?: string;
   DeniedReason?: string;
 }
-export type RegistrationFieldValueInformationList =
-  Array<RegistrationFieldValueInformation>;
+export type RegistrationFieldValueInformationList = Array<RegistrationFieldValueInformation>;
 export interface RegistrationFilter {
   Name: string;
   Values: Array<string>;
@@ -2221,8 +1687,7 @@ export interface RegistrationSectionDefinition {
   SectionPath: string;
   DisplayHints: RegistrationSectionDisplayHints;
 }
-export type RegistrationSectionDefinitionList =
-  Array<RegistrationSectionDefinition>;
+export type RegistrationSectionDefinitionList = Array<RegistrationSectionDefinition>;
 export interface RegistrationSectionDisplayHints {
   Title: string;
   ShortDescription: string;
@@ -2268,8 +1733,7 @@ export interface RegistrationVersionInformation {
   RegistrationVersionStatusHistory: RegistrationVersionStatusHistory;
   DeniedReasons?: Array<RegistrationDeniedReasonInformation>;
 }
-export type RegistrationVersionInformationList =
-  Array<RegistrationVersionInformation>;
+export type RegistrationVersionInformationList = Array<RegistrationVersionInformation>;
 export type RegistrationVersionNumber = number;
 
 export type RegistrationVersionNumberList = Array<number>;
@@ -2598,7 +2062,8 @@ export interface TagResourceRequest {
   ResourceArn: string;
   Tags: Array<Tag>;
 }
-export interface TagResourceResult {}
+export interface TagResourceResult {
+}
 export type TagValue = string;
 
 export type TextMessageBody = string;
@@ -2625,7 +2090,8 @@ export interface UntagResourceRequest {
   ResourceArn: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResult {}
+export interface UntagResourceResult {
+}
 export interface UpdateEventDestinationRequest {
   ConfigurationSetName: string;
   EventDestinationName: string;
@@ -2695,10 +2161,7 @@ export interface UpdatePoolResult {
 export interface UpdateProtectConfigurationCountryRuleSetRequest {
   ProtectConfigurationId: string;
   NumberCapability: string;
-  CountryRuleSetUpdates: Record<
-    string,
-    ProtectConfigurationCountryRuleSetInformation
-  >;
+  CountryRuleSetUpdates: Record<string, ProtectConfigurationCountryRuleSetInformation>;
 }
 export interface UpdateProtectConfigurationCountryRuleSetResult {
   ProtectConfigurationArn: string;
@@ -2758,8 +2221,7 @@ export interface VerifiedDestinationNumberFilter {
   Name: string;
   Values: Array<string>;
 }
-export type VerifiedDestinationNumberFilterList =
-  Array<VerifiedDestinationNumberFilter>;
+export type VerifiedDestinationNumberFilterList = Array<VerifiedDestinationNumberFilter>;
 export type VerifiedDestinationNumberFilterName = string;
 
 export type VerifiedDestinationNumberIdList = Array<string>;
@@ -2772,8 +2234,7 @@ export interface VerifiedDestinationNumberInformation {
   Status: string;
   CreatedTimestamp: Date | string;
 }
-export type VerifiedDestinationNumberInformationList =
-  Array<VerifiedDestinationNumberInformation>;
+export type VerifiedDestinationNumberInformationList = Array<VerifiedDestinationNumberInformation>;
 export interface VerifyDestinationNumberRequest {
   VerifiedDestinationNumberId: string;
   VerificationCode: string;
@@ -3912,3 +3373,4 @@ export declare namespace VerifyDestinationNumber {
     | ValidationException
     | CommonAwsError;
 }
+

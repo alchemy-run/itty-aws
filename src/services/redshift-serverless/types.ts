@@ -1,38 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-} from "../../error.ts";
-type CommonAwsError =
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | AccessDeniedException
-  | ThrottlingException
-  | ValidationException;
+import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
+type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class RedshiftServerless extends AWSServiceClient {
@@ -40,394 +8,223 @@ export declare class RedshiftServerless extends AWSServiceClient {
     input: CreateCustomDomainAssociationRequest,
   ): Effect.Effect<
     CreateCustomDomainAssociationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteCustomDomainAssociation(
     input: DeleteCustomDomainAssociationRequest,
   ): Effect.Effect<
     DeleteCustomDomainAssociationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteResourcePolicy(
     input: DeleteResourcePolicyRequest,
   ): Effect.Effect<
     DeleteResourcePolicyResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   getCredentials(
     input: GetCredentialsRequest,
   ): Effect.Effect<
     GetCredentialsResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   getCustomDomainAssociation(
     input: GetCustomDomainAssociationRequest,
   ): Effect.Effect<
     GetCustomDomainAssociationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getResourcePolicy(
     input: GetResourcePolicyRequest,
   ): Effect.Effect<
     GetResourcePolicyResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   getTrack(
     input: GetTrackRequest,
   ): Effect.Effect<
     GetTrackResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listCustomDomainAssociations(
     input: ListCustomDomainAssociationsRequest,
   ): Effect.Effect<
     ListCustomDomainAssociationsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | InvalidPaginationException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | InvalidPaginationException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listTracks(
     input: ListTracksRequest,
   ): Effect.Effect<
     ListTracksResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | InvalidPaginationException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | InvalidPaginationException | ThrottlingException | ValidationException | CommonAwsError
   >;
   putResourcePolicy(
     input: PutResourcePolicyRequest,
   ): Effect.Effect<
     PutResourcePolicyResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | TooManyTagsException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | TooManyTagsException | ValidationException | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateCustomDomainAssociation(
     input: UpdateCustomDomainAssociationRequest,
   ): Effect.Effect<
     UpdateCustomDomainAssociationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   convertRecoveryPointToSnapshot(
     input: ConvertRecoveryPointToSnapshotRequest,
   ): Effect.Effect<
     ConvertRecoveryPointToSnapshotResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | TooManyTagsException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | TooManyTagsException | ValidationException | CommonAwsError
   >;
   createEndpointAccess(
     input: CreateEndpointAccessRequest,
   ): Effect.Effect<
     CreateEndpointAccessResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   >;
   createNamespace(
     input: CreateNamespaceRequest,
   ): Effect.Effect<
     CreateNamespaceResponse,
-    | ConflictException
-    | InternalServerException
-    | TooManyTagsException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | TooManyTagsException | ValidationException | CommonAwsError
   >;
   createReservation(
     input: CreateReservationRequest,
   ): Effect.Effect<
     CreateReservationResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | TooManyTagsException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | TooManyTagsException | ValidationException | CommonAwsError
   >;
   createScheduledAction(
     input: CreateScheduledActionRequest,
   ): Effect.Effect<
     CreateScheduledActionResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   createSnapshot(
     input: CreateSnapshotRequest,
   ): Effect.Effect<
     CreateSnapshotResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | TooManyTagsException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | TooManyTagsException | ValidationException | CommonAwsError
   >;
   createSnapshotCopyConfiguration(
     input: CreateSnapshotCopyConfigurationRequest,
   ): Effect.Effect<
     CreateSnapshotCopyConfigurationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   >;
   createUsageLimit(
     input: CreateUsageLimitRequest,
   ): Effect.Effect<
     CreateUsageLimitResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   >;
   createWorkgroup(
     input: CreateWorkgroupRequest,
   ): Effect.Effect<
     CreateWorkgroupResponse,
-    | ConflictException
-    | InsufficientCapacityException
-    | InternalServerException
-    | Ipv6CidrBlockNotFoundException
-    | ResourceNotFoundException
-    | TooManyTagsException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InsufficientCapacityException | InternalServerException | Ipv6CidrBlockNotFoundException | ResourceNotFoundException | TooManyTagsException | ValidationException | CommonAwsError
   >;
   deleteEndpointAccess(
     input: DeleteEndpointAccessRequest,
   ): Effect.Effect<
     DeleteEndpointAccessResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   deleteNamespace(
     input: DeleteNamespaceRequest,
   ): Effect.Effect<
     DeleteNamespaceResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   deleteScheduledAction(
     input: DeleteScheduledActionRequest,
   ): Effect.Effect<
     DeleteScheduledActionResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   deleteSnapshot(
     input: DeleteSnapshotRequest,
   ): Effect.Effect<
     DeleteSnapshotResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   deleteSnapshotCopyConfiguration(
     input: DeleteSnapshotCopyConfigurationRequest,
   ): Effect.Effect<
     DeleteSnapshotCopyConfigurationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   deleteUsageLimit(
     input: DeleteUsageLimitRequest,
   ): Effect.Effect<
     DeleteUsageLimitResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   deleteWorkgroup(
     input: DeleteWorkgroupRequest,
   ): Effect.Effect<
     DeleteWorkgroupResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   getEndpointAccess(
     input: GetEndpointAccessRequest,
   ): Effect.Effect<
     GetEndpointAccessResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   getNamespace(
     input: GetNamespaceRequest,
   ): Effect.Effect<
     GetNamespaceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   getRecoveryPoint(
     input: GetRecoveryPointRequest,
   ): Effect.Effect<
     GetRecoveryPointResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   getReservation(
     input: GetReservationRequest,
   ): Effect.Effect<
     GetReservationResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getReservationOffering(
     input: GetReservationOfferingRequest,
   ): Effect.Effect<
     GetReservationOfferingResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getScheduledAction(
     input: GetScheduledActionRequest,
   ): Effect.Effect<
     GetScheduledActionResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   getSnapshot(
     input: GetSnapshotRequest,
   ): Effect.Effect<
     GetSnapshotResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   getTableRestoreStatus(
     input: GetTableRestoreStatusRequest,
@@ -439,30 +236,19 @@ export declare class RedshiftServerless extends AWSServiceClient {
     input: GetUsageLimitRequest,
   ): Effect.Effect<
     GetUsageLimitResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   getWorkgroup(
     input: GetWorkgroupRequest,
   ): Effect.Effect<
     GetWorkgroupResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   listEndpointAccess(
     input: ListEndpointAccessRequest,
   ): Effect.Effect<
     ListEndpointAccessResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   listManagedWorkgroups(
     input: ListManagedWorkgroupsRequest,
@@ -486,69 +272,43 @@ export declare class RedshiftServerless extends AWSServiceClient {
     input: ListReservationOfferingsRequest,
   ): Effect.Effect<
     ListReservationOfferingsResponse,
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listReservations(
     input: ListReservationsRequest,
   ): Effect.Effect<
     ListReservationsResponse,
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listScheduledActions(
     input: ListScheduledActionsRequest,
   ): Effect.Effect<
     ListScheduledActionsResponse,
-    | InternalServerException
-    | InvalidPaginationException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | InvalidPaginationException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   listSnapshotCopyConfigurations(
     input: ListSnapshotCopyConfigurationsRequest,
   ): Effect.Effect<
     ListSnapshotCopyConfigurationsResponse,
-    | ConflictException
-    | InternalServerException
-    | InvalidPaginationException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | InvalidPaginationException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   listSnapshots(
     input: ListSnapshotsRequest,
   ): Effect.Effect<
     ListSnapshotsResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   listTableRestoreStatus(
     input: ListTableRestoreStatusRequest,
   ): Effect.Effect<
     ListTableRestoreStatusResponse,
-    | InvalidPaginationException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InvalidPaginationException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   listUsageLimits(
     input: ListUsageLimitsRequest,
   ): Effect.Effect<
     ListUsageLimitsResponse,
-    | ConflictException
-    | InternalServerException
-    | InvalidPaginationException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | InvalidPaginationException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   listWorkgroups(
     input: ListWorkgroupsRequest,
@@ -560,116 +320,67 @@ export declare class RedshiftServerless extends AWSServiceClient {
     input: RestoreFromRecoveryPointRequest,
   ): Effect.Effect<
     RestoreFromRecoveryPointResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   restoreFromSnapshot(
     input: RestoreFromSnapshotRequest,
   ): Effect.Effect<
     RestoreFromSnapshotResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   >;
   restoreTableFromRecoveryPoint(
     input: RestoreTableFromRecoveryPointRequest,
   ): Effect.Effect<
     RestoreTableFromRecoveryPointResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   restoreTableFromSnapshot(
     input: RestoreTableFromSnapshotRequest,
   ): Effect.Effect<
     RestoreTableFromSnapshotResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   updateEndpointAccess(
     input: UpdateEndpointAccessRequest,
   ): Effect.Effect<
     UpdateEndpointAccessResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   updateNamespace(
     input: UpdateNamespaceRequest,
   ): Effect.Effect<
     UpdateNamespaceResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   updateScheduledAction(
     input: UpdateScheduledActionRequest,
   ): Effect.Effect<
     UpdateScheduledActionResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   updateSnapshot(
     input: UpdateSnapshotRequest,
   ): Effect.Effect<
     UpdateSnapshotResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   updateSnapshotCopyConfiguration(
     input: UpdateSnapshotCopyConfigurationRequest,
   ): Effect.Effect<
     UpdateSnapshotCopyConfigurationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   updateUsageLimit(
     input: UpdateUsageLimitRequest,
   ): Effect.Effect<
     UpdateUsageLimitResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   updateWorkgroup(
     input: UpdateWorkgroupRequest,
   ): Effect.Effect<
     UpdateWorkgroupResponse,
-    | ConflictException
-    | InsufficientCapacityException
-    | InternalServerException
-    | Ipv6CidrBlockNotFoundException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InsufficientCapacityException | InternalServerException | Ipv6CidrBlockNotFoundException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
 }
 
@@ -841,7 +552,8 @@ export interface DeleteCustomDomainAssociationRequest {
   workgroupName: string;
   customDomainName: string;
 }
-export interface DeleteCustomDomainAssociationResponse {}
+export interface DeleteCustomDomainAssociationResponse {
+}
 export interface DeleteEndpointAccessRequest {
   endpointName: string;
 }
@@ -859,7 +571,8 @@ export interface DeleteNamespaceResponse {
 export interface DeleteResourcePolicyRequest {
   resourceArn: string;
 }
-export interface DeleteResourcePolicyResponse {}
+export interface DeleteResourcePolicyResponse {
+}
 export interface DeleteScheduledActionRequest {
   scheduledActionName: string;
 }
@@ -1186,12 +899,7 @@ export interface ManagedWorkgroupListItem {
 export type ManagedWorkgroupName = string;
 
 export type ManagedWorkgroups = Array<ManagedWorkgroupListItem>;
-export type ManagedWorkgroupStatus =
-  | "CREATING"
-  | "DELETING"
-  | "MODIFYING"
-  | "AVAILABLE"
-  | "NOT_AVAILABLE";
+export type ManagedWorkgroupStatus = "CREATING" | "DELETING" | "MODIFYING" | "AVAILABLE" | "NOT_AVAILABLE";
 export interface Namespace {
   namespaceArn?: string;
   namespaceId?: string;
@@ -1348,9 +1056,7 @@ interface _Schedule {
   cron?: string;
 }
 
-export type Schedule =
-  | (_Schedule & { at: Date | string })
-  | (_Schedule & { cron: string });
+export type Schedule = (_Schedule & { at: Date | string }) | (_Schedule & { cron: string });
 export interface ScheduledActionAssociation {
   namespaceName?: string;
   scheduledActionName?: string;
@@ -1462,16 +1168,15 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Array<Tag>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 interface _TargetAction {
   createSnapshot?: CreateSnapshotScheduleActionParameters;
 }
 
-export type TargetAction = _TargetAction & {
-  createSnapshot: CreateSnapshotScheduleActionParameters;
-};
+export type TargetAction = (_TargetAction & { createSnapshot: CreateSnapshotScheduleActionParameters });
 export declare class ThrottlingException extends EffectData.TaggedError(
   "ThrottlingException",
 )<{
@@ -1491,7 +1196,8 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateCustomDomainAssociationRequest {
   workgroupName: string;
   customDomainName: string;
@@ -2356,3 +2062,4 @@ export declare namespace UpdateWorkgroup {
     | ValidationException
     | CommonAwsError;
 }
+

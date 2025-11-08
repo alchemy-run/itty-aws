@@ -5,23 +5,7 @@ import type { signer as _signerClient } from "./types.ts";
 
 export * from "./types.ts";
 
-export {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-  type CommonAwsError,
-} from "../../error.ts";
+export {ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, type CommonAwsError} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -31,26 +15,25 @@ const metadata = {
   sigV4ServiceName: "signer",
   endpointPrefix: "signer",
   operations: {
-    AddProfilePermission: "POST /signing-profiles/{profileName}/permissions",
-    CancelSigningProfile: "DELETE /signing-profiles/{profileName}",
-    DescribeSigningJob: "GET /signing-jobs/{jobId}",
-    GetRevocationStatus: "GET /revocations",
-    GetSigningPlatform: "GET /signing-platforms/{platformId}",
-    GetSigningProfile: "GET /signing-profiles/{profileName}",
-    ListProfilePermissions: "GET /signing-profiles/{profileName}/permissions",
-    ListSigningJobs: "GET /signing-jobs",
-    ListSigningPlatforms: "GET /signing-platforms",
-    ListSigningProfiles: "GET /signing-profiles",
-    ListTagsForResource: "GET /tags/{resourceArn}",
-    PutSigningProfile: "PUT /signing-profiles/{profileName}",
-    RemoveProfilePermission:
-      "DELETE /signing-profiles/{profileName}/permissions/{statementId}",
-    RevokeSignature: "PUT /signing-jobs/{jobId}/revoke",
-    RevokeSigningProfile: "PUT /signing-profiles/{profileName}/revoke",
-    SignPayload: "POST /signing-jobs/with-payload",
-    StartSigningJob: "POST /signing-jobs",
-    TagResource: "POST /tags/{resourceArn}",
-    UntagResource: "DELETE /tags/{resourceArn}",
+    "AddProfilePermission": "POST /signing-profiles/{profileName}/permissions",
+    "CancelSigningProfile": "DELETE /signing-profiles/{profileName}",
+    "DescribeSigningJob": "GET /signing-jobs/{jobId}",
+    "GetRevocationStatus": "GET /revocations",
+    "GetSigningPlatform": "GET /signing-platforms/{platformId}",
+    "GetSigningProfile": "GET /signing-profiles/{profileName}",
+    "ListProfilePermissions": "GET /signing-profiles/{profileName}/permissions",
+    "ListSigningJobs": "GET /signing-jobs",
+    "ListSigningPlatforms": "GET /signing-platforms",
+    "ListSigningProfiles": "GET /signing-profiles",
+    "ListTagsForResource": "GET /tags/{resourceArn}",
+    "PutSigningProfile": "PUT /signing-profiles/{profileName}",
+    "RemoveProfilePermission": "DELETE /signing-profiles/{profileName}/permissions/{statementId}",
+    "RevokeSignature": "PUT /signing-jobs/{jobId}/revoke",
+    "RevokeSigningProfile": "PUT /signing-profiles/{profileName}/revoke",
+    "SignPayload": "POST /signing-jobs/with-payload",
+    "StartSigningJob": "POST /signing-jobs",
+    "TagResource": "POST /tags/{resourceArn}",
+    "UntagResource": "DELETE /tags/{resourceArn}",
   },
 } as const satisfies ServiceMetadata;
 

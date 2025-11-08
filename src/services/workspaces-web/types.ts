@@ -1,39 +1,7 @@
 import type { Effect, Stream, Data as EffectData } from "effect";
 import type { ResponseError } from "@effect/platform/HttpClientError";
-import type {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-} from "../../error.ts";
-type CommonAwsError =
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | AccessDeniedException
-  | ThrottlingException
-  | ValidationException;
+import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
+type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class WorkSpacesWeb extends AWSServiceClient {
@@ -41,849 +9,451 @@ export declare class WorkSpacesWeb extends AWSServiceClient {
     input: ExpireSessionRequest,
   ): Effect.Effect<
     ExpireSessionResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getSession(
     input: GetSessionRequest,
   ): Effect.Effect<
     GetSessionResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listSessions(
     input: ListSessionsRequest,
   ): Effect.Effect<
     ListSessionsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | TooManyTagsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | TooManyTagsException | ValidationException | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   associateBrowserSettings(
     input: AssociateBrowserSettingsRequest,
   ): Effect.Effect<
     AssociateBrowserSettingsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   associateDataProtectionSettings(
     input: AssociateDataProtectionSettingsRequest,
   ): Effect.Effect<
     AssociateDataProtectionSettingsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   associateIpAccessSettings(
     input: AssociateIpAccessSettingsRequest,
   ): Effect.Effect<
     AssociateIpAccessSettingsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   associateNetworkSettings(
     input: AssociateNetworkSettingsRequest,
   ): Effect.Effect<
     AssociateNetworkSettingsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   associateSessionLogger(
     input: AssociateSessionLoggerRequest,
   ): Effect.Effect<
     AssociateSessionLoggerResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   associateTrustStore(
     input: AssociateTrustStoreRequest,
   ): Effect.Effect<
     AssociateTrustStoreResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   associateUserAccessLoggingSettings(
     input: AssociateUserAccessLoggingSettingsRequest,
   ): Effect.Effect<
     AssociateUserAccessLoggingSettingsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   associateUserSettings(
     input: AssociateUserSettingsRequest,
   ): Effect.Effect<
     AssociateUserSettingsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createBrowserSettings(
     input: CreateBrowserSettingsRequest,
   ): Effect.Effect<
     CreateBrowserSettingsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createDataProtectionSettings(
     input: CreateDataProtectionSettingsRequest,
   ): Effect.Effect<
     CreateDataProtectionSettingsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createIdentityProvider(
     input: CreateIdentityProviderRequest,
   ): Effect.Effect<
     CreateIdentityProviderResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createIpAccessSettings(
     input: CreateIpAccessSettingsRequest,
   ): Effect.Effect<
     CreateIpAccessSettingsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createNetworkSettings(
     input: CreateNetworkSettingsRequest,
   ): Effect.Effect<
     CreateNetworkSettingsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createPortal(
     input: CreatePortalRequest,
   ): Effect.Effect<
     CreatePortalResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createSessionLogger(
     input: CreateSessionLoggerRequest,
   ): Effect.Effect<
     CreateSessionLoggerResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createTrustStore(
     input: CreateTrustStoreRequest,
   ): Effect.Effect<
     CreateTrustStoreResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createUserAccessLoggingSettings(
     input: CreateUserAccessLoggingSettingsRequest,
   ): Effect.Effect<
     CreateUserAccessLoggingSettingsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createUserSettings(
     input: CreateUserSettingsRequest,
   ): Effect.Effect<
     CreateUserSettingsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteBrowserSettings(
     input: DeleteBrowserSettingsRequest,
   ): Effect.Effect<
     DeleteBrowserSettingsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteDataProtectionSettings(
     input: DeleteDataProtectionSettingsRequest,
   ): Effect.Effect<
     DeleteDataProtectionSettingsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteIdentityProvider(
     input: DeleteIdentityProviderRequest,
   ): Effect.Effect<
     DeleteIdentityProviderResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteIpAccessSettings(
     input: DeleteIpAccessSettingsRequest,
   ): Effect.Effect<
     DeleteIpAccessSettingsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteNetworkSettings(
     input: DeleteNetworkSettingsRequest,
   ): Effect.Effect<
     DeleteNetworkSettingsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deletePortal(
     input: DeletePortalRequest,
   ): Effect.Effect<
     DeletePortalResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteSessionLogger(
     input: DeleteSessionLoggerRequest,
   ): Effect.Effect<
     DeleteSessionLoggerResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteTrustStore(
     input: DeleteTrustStoreRequest,
   ): Effect.Effect<
     DeleteTrustStoreResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteUserAccessLoggingSettings(
     input: DeleteUserAccessLoggingSettingsRequest,
   ): Effect.Effect<
     DeleteUserAccessLoggingSettingsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteUserSettings(
     input: DeleteUserSettingsRequest,
   ): Effect.Effect<
     DeleteUserSettingsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   disassociateBrowserSettings(
     input: DisassociateBrowserSettingsRequest,
   ): Effect.Effect<
     DisassociateBrowserSettingsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   disassociateDataProtectionSettings(
     input: DisassociateDataProtectionSettingsRequest,
   ): Effect.Effect<
     DisassociateDataProtectionSettingsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   disassociateIpAccessSettings(
     input: DisassociateIpAccessSettingsRequest,
   ): Effect.Effect<
     DisassociateIpAccessSettingsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   disassociateNetworkSettings(
     input: DisassociateNetworkSettingsRequest,
   ): Effect.Effect<
     DisassociateNetworkSettingsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   disassociateSessionLogger(
     input: DisassociateSessionLoggerRequest,
   ): Effect.Effect<
     DisassociateSessionLoggerResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   disassociateTrustStore(
     input: DisassociateTrustStoreRequest,
   ): Effect.Effect<
     DisassociateTrustStoreResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   disassociateUserAccessLoggingSettings(
     input: DisassociateUserAccessLoggingSettingsRequest,
   ): Effect.Effect<
     DisassociateUserAccessLoggingSettingsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   disassociateUserSettings(
     input: DisassociateUserSettingsRequest,
   ): Effect.Effect<
     DisassociateUserSettingsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getBrowserSettings(
     input: GetBrowserSettingsRequest,
   ): Effect.Effect<
     GetBrowserSettingsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getDataProtectionSettings(
     input: GetDataProtectionSettingsRequest,
   ): Effect.Effect<
     GetDataProtectionSettingsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getIdentityProvider(
     input: GetIdentityProviderRequest,
   ): Effect.Effect<
     GetIdentityProviderResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getIpAccessSettings(
     input: GetIpAccessSettingsRequest,
   ): Effect.Effect<
     GetIpAccessSettingsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getNetworkSettings(
     input: GetNetworkSettingsRequest,
   ): Effect.Effect<
     GetNetworkSettingsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getPortal(
     input: GetPortalRequest,
   ): Effect.Effect<
     GetPortalResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getPortalServiceProviderMetadata(
     input: GetPortalServiceProviderMetadataRequest,
   ): Effect.Effect<
     GetPortalServiceProviderMetadataResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getSessionLogger(
     input: GetSessionLoggerRequest,
   ): Effect.Effect<
     GetSessionLoggerResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getTrustStore(
     input: GetTrustStoreRequest,
   ): Effect.Effect<
     GetTrustStoreResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getTrustStoreCertificate(
     input: GetTrustStoreCertificateRequest,
   ): Effect.Effect<
     GetTrustStoreCertificateResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getUserAccessLoggingSettings(
     input: GetUserAccessLoggingSettingsRequest,
   ): Effect.Effect<
     GetUserAccessLoggingSettingsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getUserSettings(
     input: GetUserSettingsRequest,
   ): Effect.Effect<
     GetUserSettingsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listBrowserSettings(
     input: ListBrowserSettingsRequest,
   ): Effect.Effect<
     ListBrowserSettingsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listDataProtectionSettings(
     input: ListDataProtectionSettingsRequest,
   ): Effect.Effect<
     ListDataProtectionSettingsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listIdentityProviders(
     input: ListIdentityProvidersRequest,
   ): Effect.Effect<
     ListIdentityProvidersResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listIpAccessSettings(
     input: ListIpAccessSettingsRequest,
   ): Effect.Effect<
     ListIpAccessSettingsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listNetworkSettings(
     input: ListNetworkSettingsRequest,
   ): Effect.Effect<
     ListNetworkSettingsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listPortals(
     input: ListPortalsRequest,
   ): Effect.Effect<
     ListPortalsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listSessionLoggers(
     input: ListSessionLoggersRequest,
   ): Effect.Effect<
     ListSessionLoggersResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listTrustStoreCertificates(
     input: ListTrustStoreCertificatesRequest,
   ): Effect.Effect<
     ListTrustStoreCertificatesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listTrustStores(
     input: ListTrustStoresRequest,
   ): Effect.Effect<
     ListTrustStoresResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listUserAccessLoggingSettings(
     input: ListUserAccessLoggingSettingsRequest,
   ): Effect.Effect<
     ListUserAccessLoggingSettingsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listUserSettings(
     input: ListUserSettingsRequest,
   ): Effect.Effect<
     ListUserSettingsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateBrowserSettings(
     input: UpdateBrowserSettingsRequest,
   ): Effect.Effect<
     UpdateBrowserSettingsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateDataProtectionSettings(
     input: UpdateDataProtectionSettingsRequest,
   ): Effect.Effect<
     UpdateDataProtectionSettingsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateIdentityProvider(
     input: UpdateIdentityProviderRequest,
   ): Effect.Effect<
     UpdateIdentityProviderResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateIpAccessSettings(
     input: UpdateIpAccessSettingsRequest,
   ): Effect.Effect<
     UpdateIpAccessSettingsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateNetworkSettings(
     input: UpdateNetworkSettingsRequest,
   ): Effect.Effect<
     UpdateNetworkSettingsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updatePortal(
     input: UpdatePortalRequest,
   ): Effect.Effect<
     UpdatePortalResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateSessionLogger(
     input: UpdateSessionLoggerRequest,
   ): Effect.Effect<
     UpdateSessionLoggerResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateTrustStore(
     input: UpdateTrustStoreRequest,
   ): Effect.Effect<
     UpdateTrustStoreResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateUserAccessLoggingSettings(
     input: UpdateUserAccessLoggingSettingsRequest,
   ): Effect.Effect<
     UpdateUserAccessLoggingSettingsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateUserSettings(
     input: UpdateUserSettingsRequest,
   ): Effect.Effect<
     UpdateUserSettingsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
 }
 
@@ -1173,43 +743,53 @@ export interface DataProtectionSettingsSummary {
 export interface DeleteBrowserSettingsRequest {
   browserSettingsArn: string;
 }
-export interface DeleteBrowserSettingsResponse {}
+export interface DeleteBrowserSettingsResponse {
+}
 export interface DeleteDataProtectionSettingsRequest {
   dataProtectionSettingsArn: string;
 }
-export interface DeleteDataProtectionSettingsResponse {}
+export interface DeleteDataProtectionSettingsResponse {
+}
 export interface DeleteIdentityProviderRequest {
   identityProviderArn: string;
 }
-export interface DeleteIdentityProviderResponse {}
+export interface DeleteIdentityProviderResponse {
+}
 export interface DeleteIpAccessSettingsRequest {
   ipAccessSettingsArn: string;
 }
-export interface DeleteIpAccessSettingsResponse {}
+export interface DeleteIpAccessSettingsResponse {
+}
 export interface DeleteNetworkSettingsRequest {
   networkSettingsArn: string;
 }
-export interface DeleteNetworkSettingsResponse {}
+export interface DeleteNetworkSettingsResponse {
+}
 export interface DeletePortalRequest {
   portalArn: string;
 }
-export interface DeletePortalResponse {}
+export interface DeletePortalResponse {
+}
 export interface DeleteSessionLoggerRequest {
   sessionLoggerArn: string;
 }
-export interface DeleteSessionLoggerResponse {}
+export interface DeleteSessionLoggerResponse {
+}
 export interface DeleteTrustStoreRequest {
   trustStoreArn: string;
 }
-export interface DeleteTrustStoreResponse {}
+export interface DeleteTrustStoreResponse {
+}
 export interface DeleteUserAccessLoggingSettingsRequest {
   userAccessLoggingSettingsArn: string;
 }
-export interface DeleteUserAccessLoggingSettingsResponse {}
+export interface DeleteUserAccessLoggingSettingsResponse {
+}
 export interface DeleteUserSettingsRequest {
   userSettingsArn: string;
 }
-export interface DeleteUserSettingsResponse {}
+export interface DeleteUserSettingsResponse {
+}
 export type Description = string;
 
 export type DescriptionSafe = string;
@@ -1217,35 +797,43 @@ export type DescriptionSafe = string;
 export interface DisassociateBrowserSettingsRequest {
   portalArn: string;
 }
-export interface DisassociateBrowserSettingsResponse {}
+export interface DisassociateBrowserSettingsResponse {
+}
 export interface DisassociateDataProtectionSettingsRequest {
   portalArn: string;
 }
-export interface DisassociateDataProtectionSettingsResponse {}
+export interface DisassociateDataProtectionSettingsResponse {
+}
 export interface DisassociateIpAccessSettingsRequest {
   portalArn: string;
 }
-export interface DisassociateIpAccessSettingsResponse {}
+export interface DisassociateIpAccessSettingsResponse {
+}
 export interface DisassociateNetworkSettingsRequest {
   portalArn: string;
 }
-export interface DisassociateNetworkSettingsResponse {}
+export interface DisassociateNetworkSettingsResponse {
+}
 export interface DisassociateSessionLoggerRequest {
   portalArn: string;
 }
-export interface DisassociateSessionLoggerResponse {}
+export interface DisassociateSessionLoggerResponse {
+}
 export interface DisassociateTrustStoreRequest {
   portalArn: string;
 }
-export interface DisassociateTrustStoreResponse {}
+export interface DisassociateTrustStoreResponse {
+}
 export interface DisassociateUserAccessLoggingSettingsRequest {
   portalArn: string;
 }
-export interface DisassociateUserAccessLoggingSettingsResponse {}
+export interface DisassociateUserAccessLoggingSettingsResponse {
+}
 export interface DisassociateUserSettingsRequest {
   portalArn: string;
 }
-export interface DisassociateUserSettingsResponse {}
+export interface DisassociateUserSettingsResponse {
+}
 export type DisconnectTimeoutInMinutes = number;
 
 export type DisplayName = string;
@@ -1255,31 +843,13 @@ export type DisplayNameSafe = string;
 export type EnabledType = string;
 
 export type EncryptionContextMap = Record<string, string>;
-export type Event =
-  | "WebsiteInteract"
-  | "FileDownloadFromSecureBrowserToRemoteDisk"
-  | "FileTransferFromRemoteToLocalDisk"
-  | "FileTransferFromLocalToRemoteDisk"
-  | "FileUploadFromRemoteDiskToSecureBrowser"
-  | "ContentPasteToWebsite"
-  | "ContentTransferFromLocalToRemoteClipboard"
-  | "ContentCopyFromWebsite"
-  | "UrlLoad"
-  | "TabOpen"
-  | "TabClose"
-  | "PrintJobSubmit"
-  | "SessionConnect"
-  | "SessionStart"
-  | "SessionDisconnect"
-  | "SessionEnd";
+export type Event = "WebsiteInteract" | "FileDownloadFromSecureBrowserToRemoteDisk" | "FileTransferFromRemoteToLocalDisk" | "FileTransferFromLocalToRemoteDisk" | "FileUploadFromRemoteDiskToSecureBrowser" | "ContentPasteToWebsite" | "ContentTransferFromLocalToRemoteClipboard" | "ContentCopyFromWebsite" | "UrlLoad" | "TabOpen" | "TabClose" | "PrintJobSubmit" | "SessionConnect" | "SessionStart" | "SessionDisconnect" | "SessionEnd";
 interface _EventFilter {
   all?: {};
   include?: Array<Event>;
 }
 
-export type EventFilter =
-  | (_EventFilter & { all: {} })
-  | (_EventFilter & { include: Array<Event> });
+export type EventFilter = (_EventFilter & { all: {} }) | (_EventFilter & { include: Array<Event> });
 export type Events = Array<Event>;
 export type ExceptionMessage = string;
 
@@ -1287,7 +857,8 @@ export interface ExpireSessionRequest {
   portalId: string;
   sessionId: string;
 }
-export interface ExpireSessionResponse {}
+export interface ExpireSessionResponse {
+}
 export type FieldName = string;
 
 export type FolderStructure = "Flat" | "NestedByDate";
@@ -1756,7 +1327,8 @@ export interface TagResourceRequest {
   tags: Array<Tag>;
   clientToken?: string;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export declare class ThrottlingException extends EffectData.TaggedError(
@@ -1797,7 +1369,8 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateBrowserSettingsRequest {
   browserSettingsArn: string;
   browserPolicy?: string;
@@ -1904,8 +1477,7 @@ export interface UserAccessLoggingSettings {
   associatedPortalArns?: Array<string>;
   kinesisStreamArn?: string;
 }
-export type UserAccessLoggingSettingsList =
-  Array<UserAccessLoggingSettingsSummary>;
+export type UserAccessLoggingSettingsList = Array<UserAccessLoggingSettingsSummary>;
 export interface UserAccessLoggingSettingsSummary {
   userAccessLoggingSettingsArn: string;
   kinesisStreamArn?: string;
@@ -2882,3 +2454,4 @@ export declare namespace UpdateUserSettings {
     | ValidationException
     | CommonAwsError;
 }
+

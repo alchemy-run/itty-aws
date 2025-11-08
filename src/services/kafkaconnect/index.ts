@@ -5,26 +5,7 @@ import type { KafkaConnect as _KafkaConnectClient } from "./types.ts";
 
 export * from "./types.ts";
 
-export {
-  AccessDeniedException,
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  ThrottlingException,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-  ValidationException,
-  type CommonAwsError,
-} from "../../error.ts";
+export {AccessDeniedException, ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError, ValidationException, type CommonAwsError} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -34,27 +15,24 @@ const metadata = {
   sigV4ServiceName: "kafkaconnect",
   endpointPrefix: "kafkaconnect",
   operations: {
-    CreateConnector: "POST /v1/connectors",
-    CreateCustomPlugin: "POST /v1/custom-plugins",
-    CreateWorkerConfiguration: "POST /v1/worker-configurations",
-    DeleteConnector: "DELETE /v1/connectors/{connectorArn}",
-    DeleteCustomPlugin: "DELETE /v1/custom-plugins/{customPluginArn}",
-    DeleteWorkerConfiguration:
-      "DELETE /v1/worker-configurations/{workerConfigurationArn}",
-    DescribeConnector: "GET /v1/connectors/{connectorArn}",
-    DescribeConnectorOperation:
-      "GET /v1/connectorOperations/{connectorOperationArn}",
-    DescribeCustomPlugin: "GET /v1/custom-plugins/{customPluginArn}",
-    DescribeWorkerConfiguration:
-      "GET /v1/worker-configurations/{workerConfigurationArn}",
-    ListConnectorOperations: "GET /v1/connectors/{connectorArn}/operations",
-    ListConnectors: "GET /v1/connectors",
-    ListCustomPlugins: "GET /v1/custom-plugins",
-    ListTagsForResource: "GET /v1/tags/{resourceArn}",
-    ListWorkerConfigurations: "GET /v1/worker-configurations",
-    TagResource: "POST /v1/tags/{resourceArn}",
-    UntagResource: "DELETE /v1/tags/{resourceArn}",
-    UpdateConnector: "PUT /v1/connectors/{connectorArn}",
+    "CreateConnector": "POST /v1/connectors",
+    "CreateCustomPlugin": "POST /v1/custom-plugins",
+    "CreateWorkerConfiguration": "POST /v1/worker-configurations",
+    "DeleteConnector": "DELETE /v1/connectors/{connectorArn}",
+    "DeleteCustomPlugin": "DELETE /v1/custom-plugins/{customPluginArn}",
+    "DeleteWorkerConfiguration": "DELETE /v1/worker-configurations/{workerConfigurationArn}",
+    "DescribeConnector": "GET /v1/connectors/{connectorArn}",
+    "DescribeConnectorOperation": "GET /v1/connectorOperations/{connectorOperationArn}",
+    "DescribeCustomPlugin": "GET /v1/custom-plugins/{customPluginArn}",
+    "DescribeWorkerConfiguration": "GET /v1/worker-configurations/{workerConfigurationArn}",
+    "ListConnectorOperations": "GET /v1/connectors/{connectorArn}/operations",
+    "ListConnectors": "GET /v1/connectors",
+    "ListCustomPlugins": "GET /v1/custom-plugins",
+    "ListTagsForResource": "GET /v1/tags/{resourceArn}",
+    "ListWorkerConfigurations": "GET /v1/worker-configurations",
+    "TagResource": "POST /v1/tags/{resourceArn}",
+    "UntagResource": "DELETE /v1/tags/{resourceArn}",
+    "UpdateConnector": "PUT /v1/connectors/{connectorArn}",
   },
 } as const satisfies ServiceMetadata;
 

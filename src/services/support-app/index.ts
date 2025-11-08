@@ -5,24 +5,7 @@ import type { SupportApp as _SupportAppClient } from "./types.ts";
 
 export * from "./types.ts";
 
-export {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  ThrottlingException,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-  type CommonAwsError,
-} from "../../error.ts";
+export {ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError, type CommonAwsError} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -31,23 +14,16 @@ const metadata = {
   protocol: "restJson1",
   sigV4ServiceName: "supportapp",
   operations: {
-    CreateSlackChannelConfiguration:
-      "POST /control/create-slack-channel-configuration",
-    DeleteAccountAlias: "POST /control/delete-account-alias",
-    DeleteSlackChannelConfiguration:
-      "POST /control/delete-slack-channel-configuration",
-    DeleteSlackWorkspaceConfiguration:
-      "POST /control/delete-slack-workspace-configuration",
-    GetAccountAlias: "POST /control/get-account-alias",
-    ListSlackChannelConfigurations:
-      "POST /control/list-slack-channel-configurations",
-    ListSlackWorkspaceConfigurations:
-      "POST /control/list-slack-workspace-configurations",
-    PutAccountAlias: "POST /control/put-account-alias",
-    RegisterSlackWorkspaceForOrganization:
-      "POST /control/register-slack-workspace-for-organization",
-    UpdateSlackChannelConfiguration:
-      "POST /control/update-slack-channel-configuration",
+    "CreateSlackChannelConfiguration": "POST /control/create-slack-channel-configuration",
+    "DeleteAccountAlias": "POST /control/delete-account-alias",
+    "DeleteSlackChannelConfiguration": "POST /control/delete-slack-channel-configuration",
+    "DeleteSlackWorkspaceConfiguration": "POST /control/delete-slack-workspace-configuration",
+    "GetAccountAlias": "POST /control/get-account-alias",
+    "ListSlackChannelConfigurations": "POST /control/list-slack-channel-configurations",
+    "ListSlackWorkspaceConfigurations": "POST /control/list-slack-workspace-configurations",
+    "PutAccountAlias": "POST /control/put-account-alias",
+    "RegisterSlackWorkspaceForOrganization": "POST /control/register-slack-workspace-for-organization",
+    "UpdateSlackChannelConfiguration": "POST /control/update-slack-channel-configuration",
   },
 } as const satisfies ServiceMetadata;
 

@@ -1,39 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  ThrottlingException,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-} from "../../error.ts";
-type CommonAwsError =
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | ThrottlingException
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | AccessDeniedException
-  | ValidationException;
+import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
+type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | ThrottlingException | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class LookoutMetrics extends AWSServiceClient {
@@ -41,334 +8,181 @@ export declare class LookoutMetrics extends AWSServiceClient {
     input: ActivateAnomalyDetectorRequest,
   ): Effect.Effect<
     ActivateAnomalyDetectorResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | TooManyRequestsException | ValidationException | CommonAwsError
   >;
   backTestAnomalyDetector(
     input: BackTestAnomalyDetectorRequest,
   ): Effect.Effect<
     BackTestAnomalyDetectorResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | TooManyRequestsException | ValidationException | CommonAwsError
   >;
   createAlert(
     input: CreateAlertRequest,
   ): Effect.Effect<
     CreateAlertResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | TooManyRequestsException | ValidationException | CommonAwsError
   >;
   createAnomalyDetector(
     input: CreateAnomalyDetectorRequest,
   ): Effect.Effect<
     CreateAnomalyDetectorResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | TooManyRequestsException | ValidationException | CommonAwsError
   >;
   createMetricSet(
     input: CreateMetricSetRequest,
   ): Effect.Effect<
     CreateMetricSetResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | TooManyRequestsException | ValidationException | CommonAwsError
   >;
   deactivateAnomalyDetector(
     input: DeactivateAnomalyDetectorRequest,
   ): Effect.Effect<
     DeactivateAnomalyDetectorResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | TooManyRequestsException | ValidationException | CommonAwsError
   >;
   deleteAlert(
     input: DeleteAlertRequest,
   ): Effect.Effect<
     DeleteAlertResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | TooManyRequestsException | ValidationException | CommonAwsError
   >;
   deleteAnomalyDetector(
     input: DeleteAnomalyDetectorRequest,
   ): Effect.Effect<
     DeleteAnomalyDetectorResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | TooManyRequestsException | ValidationException | CommonAwsError
   >;
   describeAlert(
     input: DescribeAlertRequest,
   ): Effect.Effect<
     DescribeAlertResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | TooManyRequestsException | ValidationException | CommonAwsError
   >;
   describeAnomalyDetectionExecutions(
     input: DescribeAnomalyDetectionExecutionsRequest,
   ): Effect.Effect<
     DescribeAnomalyDetectionExecutionsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | TooManyRequestsException | ValidationException | CommonAwsError
   >;
   describeAnomalyDetector(
     input: DescribeAnomalyDetectorRequest,
   ): Effect.Effect<
     DescribeAnomalyDetectorResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | TooManyRequestsException | ValidationException | CommonAwsError
   >;
   describeMetricSet(
     input: DescribeMetricSetRequest,
   ): Effect.Effect<
     DescribeMetricSetResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | TooManyRequestsException | ValidationException | CommonAwsError
   >;
   detectMetricSetConfig(
     input: DetectMetricSetConfigRequest,
   ): Effect.Effect<
     DetectMetricSetConfigResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | TooManyRequestsException | ValidationException | CommonAwsError
   >;
   getAnomalyGroup(
     input: GetAnomalyGroupRequest,
   ): Effect.Effect<
     GetAnomalyGroupResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | TooManyRequestsException | ValidationException | CommonAwsError
   >;
   getDataQualityMetrics(
     input: GetDataQualityMetricsRequest,
   ): Effect.Effect<
     GetDataQualityMetricsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | TooManyRequestsException | ValidationException | CommonAwsError
   >;
   getFeedback(
     input: GetFeedbackRequest,
   ): Effect.Effect<
     GetFeedbackResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | TooManyRequestsException | ValidationException | CommonAwsError
   >;
   getSampleData(
     input: GetSampleDataRequest,
   ): Effect.Effect<
     GetSampleDataResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | TooManyRequestsException | ValidationException | CommonAwsError
   >;
   listAlerts(
     input: ListAlertsRequest,
   ): Effect.Effect<
     ListAlertsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | TooManyRequestsException | ValidationException | CommonAwsError
   >;
   listAnomalyDetectors(
     input: ListAnomalyDetectorsRequest,
   ): Effect.Effect<
     ListAnomalyDetectorsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | TooManyRequestsException | ValidationException | CommonAwsError
   >;
   listAnomalyGroupRelatedMetrics(
     input: ListAnomalyGroupRelatedMetricsRequest,
   ): Effect.Effect<
     ListAnomalyGroupRelatedMetricsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | TooManyRequestsException | ValidationException | CommonAwsError
   >;
   listAnomalyGroupSummaries(
     input: ListAnomalyGroupSummariesRequest,
   ): Effect.Effect<
     ListAnomalyGroupSummariesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | TooManyRequestsException | ValidationException | CommonAwsError
   >;
   listAnomalyGroupTimeSeries(
     input: ListAnomalyGroupTimeSeriesRequest,
   ): Effect.Effect<
     ListAnomalyGroupTimeSeriesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | TooManyRequestsException | ValidationException | CommonAwsError
   >;
   listMetricSets(
     input: ListMetricSetsRequest,
   ): Effect.Effect<
     ListMetricSetsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | TooManyRequestsException | ValidationException | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   putFeedback(
     input: PutFeedbackRequest,
   ): Effect.Effect<
     PutFeedbackResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | TooManyRequestsException | ValidationException | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   updateAlert(
     input: UpdateAlertRequest,
   ): Effect.Effect<
     UpdateAlertResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | TooManyRequestsException | ValidationException | CommonAwsError
   >;
   updateAnomalyDetector(
     input: UpdateAnomalyDetectorRequest,
   ): Effect.Effect<
     UpdateAnomalyDetectorResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | TooManyRequestsException | ValidationException | CommonAwsError
   >;
   updateMetricSet(
     input: UpdateMetricSetRequest,
   ): Effect.Effect<
     UpdateMetricSetResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | TooManyRequestsException | ValidationException | CommonAwsError
   >;
 }
 
@@ -386,7 +200,8 @@ export interface Action {
 export interface ActivateAnomalyDetectorRequest {
   AnomalyDetectorArn: string;
 }
-export interface ActivateAnomalyDetectorResponse {}
+export interface ActivateAnomalyDetectorResponse {
+}
 export type AggregationFunction = "AVG" | "SUM";
 export interface Alert {
   Action?: Action;
@@ -423,12 +238,7 @@ export interface AlertSummary {
 }
 export type AlertSummaryList = Array<AlertSummary>;
 export type AlertType = "SNS" | "LAMBDA";
-export type AnomalyDetectionTaskStatus =
-  | "PENDING"
-  | "IN_PROGRESS"
-  | "COMPLETED"
-  | "FAILED"
-  | "FAILED_TO_SCHEDULE";
+export type AnomalyDetectionTaskStatus = "PENDING" | "IN_PROGRESS" | "COMPLETED" | "FAILED" | "FAILED_TO_SCHEDULE";
 export type AnomalyDetectionTaskStatusMessage = string;
 
 export interface AnomalyDetectorConfig {
@@ -441,29 +251,13 @@ export interface AnomalyDetectorDataQualityMetric {
   StartTimestamp?: Date | string;
   MetricSetDataQualityMetricList?: Array<MetricSetDataQualityMetric>;
 }
-export type AnomalyDetectorDataQualityMetricList =
-  Array<AnomalyDetectorDataQualityMetric>;
+export type AnomalyDetectorDataQualityMetricList = Array<AnomalyDetectorDataQualityMetric>;
 export type AnomalyDetectorDescription = string;
 
-export type AnomalyDetectorFailureType =
-  | "ACTIVATION_FAILURE"
-  | "BACK_TEST_ACTIVATION_FAILURE"
-  | "DELETION_FAILURE"
-  | "DEACTIVATION_FAILURE";
+export type AnomalyDetectorFailureType = "ACTIVATION_FAILURE" | "BACK_TEST_ACTIVATION_FAILURE" | "DELETION_FAILURE" | "DEACTIVATION_FAILURE";
 export type AnomalyDetectorName = string;
 
-export type AnomalyDetectorStatus =
-  | "ACTIVE"
-  | "ACTIVATING"
-  | "DELETING"
-  | "FAILED"
-  | "INACTIVE"
-  | "LEARNING"
-  | "BACK_TEST_ACTIVATING"
-  | "BACK_TEST_ACTIVE"
-  | "BACK_TEST_COMPLETE"
-  | "DEACTIVATED"
-  | "DEACTIVATING";
+export type AnomalyDetectorStatus = "ACTIVE" | "ACTIVATING" | "DELETING" | "FAILED" | "INACTIVE" | "LEARNING" | "BACK_TEST_ACTIVATING" | "BACK_TEST_ACTIVE" | "BACK_TEST_COMPLETE" | "DEACTIVATED" | "DEACTIVATING";
 export interface AnomalyDetectorSummary {
   AnomalyDetectorArn?: string;
   AnomalyDetectorName?: string;
@@ -547,7 +341,8 @@ export interface AutoDetectionS3SourceConfig {
 export interface BackTestAnomalyDetectorRequest {
   AnomalyDetectorArn: string;
 }
-export interface BackTestAnomalyDetectorResponse {}
+export interface BackTestAnomalyDetectorResponse {
+}
 export interface BackTestConfiguration {
   RunBackTestMode: boolean;
 }
@@ -638,31 +433,24 @@ export interface DataQualityMetric {
 export type DataQualityMetricDescription = string;
 
 export type DataQualityMetricList = Array<DataQualityMetric>;
-export type DataQualityMetricType =
-  | "COLUMN_COMPLETENESS"
-  | "DIMENSION_UNIQUENESS"
-  | "TIME_SERIES_COUNT"
-  | "ROWS_PROCESSED"
-  | "ROWS_PARTIAL_COMPLIANCE"
-  | "INVALID_ROWS_COMPLIANCE"
-  | "BACKTEST_TRAINING_DATA_START_TIME_STAMP"
-  | "BACKTEST_TRAINING_DATA_END_TIME_STAMP"
-  | "BACKTEST_INFERENCE_DATA_START_TIME_STAMP"
-  | "BACKTEST_INFERENCE_DATA_END_TIME_STAMP";
+export type DataQualityMetricType = "COLUMN_COMPLETENESS" | "DIMENSION_UNIQUENESS" | "TIME_SERIES_COUNT" | "ROWS_PROCESSED" | "ROWS_PARTIAL_COMPLIANCE" | "INVALID_ROWS_COMPLIANCE" | "BACKTEST_TRAINING_DATA_START_TIME_STAMP" | "BACKTEST_TRAINING_DATA_END_TIME_STAMP" | "BACKTEST_INFERENCE_DATA_START_TIME_STAMP" | "BACKTEST_INFERENCE_DATA_END_TIME_STAMP";
 export type DateTimeFormat = string;
 
 export interface DeactivateAnomalyDetectorRequest {
   AnomalyDetectorArn: string;
 }
-export interface DeactivateAnomalyDetectorResponse {}
+export interface DeactivateAnomalyDetectorResponse {
+}
 export interface DeleteAlertRequest {
   AlertArn: string;
 }
-export interface DeleteAlertResponse {}
+export interface DeleteAlertResponse {
+}
 export interface DeleteAnomalyDetectorRequest {
   AnomalyDetectorArn: string;
 }
-export interface DeleteAnomalyDetectorResponse {}
+export interface DeleteAnomalyDetectorResponse {
+}
 export type Delimiter = string;
 
 export interface DescribeAlertRequest {
@@ -1010,7 +798,8 @@ export interface PutFeedbackRequest {
   AnomalyDetectorArn: string;
   AnomalyGroupTimeSeriesFeedback: AnomalyGroupTimeSeriesFeedback;
 }
-export interface PutFeedbackResponse {}
+export interface PutFeedbackResponse {
+}
 export type QuotaCode = string;
 
 export type QuoteSymbol = string;
@@ -1045,9 +834,7 @@ export interface RedshiftSourceConfig {
 }
 export type RelatedColumnName = string;
 
-export type RelationshipType =
-  | "CAUSE_OF_INPUT_ANOMALY_GROUP"
-  | "EFFECT_OF_INPUT_ANOMALY_GROUP";
+export type RelationshipType = "CAUSE_OF_INPUT_ANOMALY_GROUP" | "EFFECT_OF_INPUT_ANOMALY_GROUP";
 export type ResourceId = string;
 
 export declare class ResourceNotFoundException extends EffectData.TaggedError(
@@ -1113,7 +900,8 @@ export interface TagResourceRequest {
   ResourceArn: string;
   Tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export type TemplatedPath = string;
@@ -1152,7 +940,8 @@ export interface UntagResourceRequest {
   ResourceArn: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateAlertRequest {
   AlertArn: string;
   AlertDescription?: string;
@@ -1200,11 +989,7 @@ export interface ValidationExceptionField {
   Message: string;
 }
 export type ValidationExceptionFieldList = Array<ValidationExceptionField>;
-export type ValidationExceptionReason =
-  | "UNKNOWN_OPERATION"
-  | "CANNOT_PARSE"
-  | "FIELD_VALIDATION_FAILED"
-  | "OTHER";
+export type ValidationExceptionReason = "UNKNOWN_OPERATION" | "CANNOT_PARSE" | "FIELD_VALIDATION_FAILED" | "OTHER";
 export interface VpcConfiguration {
   SubnetIdList: Array<string>;
   SecurityGroupIdList: Array<string>;
@@ -1571,3 +1356,4 @@ export declare namespace UpdateMetricSet {
     | ValidationException
     | CommonAwsError;
 }
+

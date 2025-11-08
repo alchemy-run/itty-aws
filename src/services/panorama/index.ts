@@ -5,24 +5,7 @@ import type { Panorama as _PanoramaClient } from "./types.ts";
 
 export * from "./types.ts";
 
-export {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  ThrottlingException,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-  type CommonAwsError,
-} from "../../error.ts";
+export {ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError, type CommonAwsError} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -31,49 +14,40 @@ const metadata = {
   protocol: "restJson1",
   sigV4ServiceName: "panorama",
   operations: {
-    CreateApplicationInstance: "POST /application-instances",
-    CreateJobForDevices: "POST /jobs",
-    CreateNodeFromTemplateJob: "POST /packages/template-job",
-    CreatePackage: "POST /packages",
-    CreatePackageImportJob: "POST /packages/import-jobs",
-    DeleteDevice: "DELETE /devices/{DeviceId}",
-    DeletePackage: "DELETE /packages/{PackageId}",
-    DeregisterPackageVersion:
-      "DELETE /packages/{PackageId}/versions/{PackageVersion}/patch/{PatchVersion}",
-    DescribeApplicationInstance:
-      "GET /application-instances/{ApplicationInstanceId}",
-    DescribeApplicationInstanceDetails:
-      "GET /application-instances/{ApplicationInstanceId}/details",
-    DescribeDevice: "GET /devices/{DeviceId}",
-    DescribeDeviceJob: "GET /jobs/{JobId}",
-    DescribeNode: "GET /nodes/{NodeId}",
-    DescribeNodeFromTemplateJob: "GET /packages/template-job/{JobId}",
-    DescribePackage: "GET /packages/metadata/{PackageId}",
-    DescribePackageImportJob: "GET /packages/import-jobs/{JobId}",
-    DescribePackageVersion:
-      "GET /packages/metadata/{PackageId}/versions/{PackageVersion}",
-    ListApplicationInstanceDependencies:
-      "GET /application-instances/{ApplicationInstanceId}/package-dependencies",
-    ListApplicationInstanceNodeInstances:
-      "GET /application-instances/{ApplicationInstanceId}/node-instances",
-    ListApplicationInstances: "GET /application-instances",
-    ListDevices: "GET /devices",
-    ListDevicesJobs: "GET /jobs",
-    ListNodeFromTemplateJobs: "GET /packages/template-job",
-    ListNodes: "GET /nodes",
-    ListPackageImportJobs: "GET /packages/import-jobs",
-    ListPackages: "GET /packages",
-    ListTagsForResource: "GET /tags/{ResourceArn}",
-    ProvisionDevice: "POST /devices",
-    RegisterPackageVersion:
-      "PUT /packages/{PackageId}/versions/{PackageVersion}/patch/{PatchVersion}",
-    RemoveApplicationInstance:
-      "DELETE /application-instances/{ApplicationInstanceId}",
-    SignalApplicationInstanceNodeInstances:
-      "PUT /application-instances/{ApplicationInstanceId}/node-signals",
-    TagResource: "POST /tags/{ResourceArn}",
-    UntagResource: "DELETE /tags/{ResourceArn}",
-    UpdateDeviceMetadata: "PUT /devices/{DeviceId}",
+    "CreateApplicationInstance": "POST /application-instances",
+    "CreateJobForDevices": "POST /jobs",
+    "CreateNodeFromTemplateJob": "POST /packages/template-job",
+    "CreatePackage": "POST /packages",
+    "CreatePackageImportJob": "POST /packages/import-jobs",
+    "DeleteDevice": "DELETE /devices/{DeviceId}",
+    "DeletePackage": "DELETE /packages/{PackageId}",
+    "DeregisterPackageVersion": "DELETE /packages/{PackageId}/versions/{PackageVersion}/patch/{PatchVersion}",
+    "DescribeApplicationInstance": "GET /application-instances/{ApplicationInstanceId}",
+    "DescribeApplicationInstanceDetails": "GET /application-instances/{ApplicationInstanceId}/details",
+    "DescribeDevice": "GET /devices/{DeviceId}",
+    "DescribeDeviceJob": "GET /jobs/{JobId}",
+    "DescribeNode": "GET /nodes/{NodeId}",
+    "DescribeNodeFromTemplateJob": "GET /packages/template-job/{JobId}",
+    "DescribePackage": "GET /packages/metadata/{PackageId}",
+    "DescribePackageImportJob": "GET /packages/import-jobs/{JobId}",
+    "DescribePackageVersion": "GET /packages/metadata/{PackageId}/versions/{PackageVersion}",
+    "ListApplicationInstanceDependencies": "GET /application-instances/{ApplicationInstanceId}/package-dependencies",
+    "ListApplicationInstanceNodeInstances": "GET /application-instances/{ApplicationInstanceId}/node-instances",
+    "ListApplicationInstances": "GET /application-instances",
+    "ListDevices": "GET /devices",
+    "ListDevicesJobs": "GET /jobs",
+    "ListNodeFromTemplateJobs": "GET /packages/template-job",
+    "ListNodes": "GET /nodes",
+    "ListPackageImportJobs": "GET /packages/import-jobs",
+    "ListPackages": "GET /packages",
+    "ListTagsForResource": "GET /tags/{ResourceArn}",
+    "ProvisionDevice": "POST /devices",
+    "RegisterPackageVersion": "PUT /packages/{PackageId}/versions/{PackageVersion}/patch/{PatchVersion}",
+    "RemoveApplicationInstance": "DELETE /application-instances/{ApplicationInstanceId}",
+    "SignalApplicationInstanceNodeInstances": "PUT /application-instances/{ApplicationInstanceId}/node-signals",
+    "TagResource": "POST /tags/{ResourceArn}",
+    "UntagResource": "DELETE /tags/{ResourceArn}",
+    "UpdateDeviceMetadata": "PUT /devices/{DeviceId}",
   },
 } as const satisfies ServiceMetadata;
 

@@ -1,40 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  ThrottlingException,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-  ValidationException,
-} from "../../error.ts";
-type CommonAwsError =
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | ThrottlingException
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | ValidationException
-  | AccessDeniedException;
+import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError, ValidationException } from "../../error.ts";
+type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | ThrottlingException | UnrecognizedClientException | UnknownOperationException | ValidationError | ValidationException | AccessDeniedException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class ChimeSDKVoice extends AWSServiceClient {
@@ -42,1292 +8,577 @@ export declare class ChimeSDKVoice extends AWSServiceClient {
     input: AssociatePhoneNumbersWithVoiceConnectorRequest,
   ): Effect.Effect<
     AssociatePhoneNumbersWithVoiceConnectorResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   associatePhoneNumbersWithVoiceConnectorGroup(
     input: AssociatePhoneNumbersWithVoiceConnectorGroupRequest,
   ): Effect.Effect<
     AssociatePhoneNumbersWithVoiceConnectorGroupResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   batchDeletePhoneNumber(
     input: BatchDeletePhoneNumberRequest,
   ): Effect.Effect<
     BatchDeletePhoneNumberResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   batchUpdatePhoneNumber(
     input: BatchUpdatePhoneNumberRequest,
   ): Effect.Effect<
     BatchUpdatePhoneNumberResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   createPhoneNumberOrder(
     input: CreatePhoneNumberOrderRequest,
   ): Effect.Effect<
     CreatePhoneNumberOrderResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | ForbiddenException
-    | ResourceLimitExceededException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ForbiddenException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   createProxySession(
     input: CreateProxySessionRequest,
   ): Effect.Effect<
     CreateProxySessionResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   createSipMediaApplication(
     input: CreateSipMediaApplicationRequest,
   ): Effect.Effect<
     CreateSipMediaApplicationResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | ResourceLimitExceededException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ConflictException | ForbiddenException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   createSipMediaApplicationCall(
     input: CreateSipMediaApplicationCallRequest,
   ): Effect.Effect<
     CreateSipMediaApplicationCallResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | ForbiddenException
-    | ResourceLimitExceededException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ForbiddenException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   createSipRule(
     input: CreateSipRuleRequest,
   ): Effect.Effect<
     CreateSipRuleResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | ResourceLimitExceededException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ConflictException | ForbiddenException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   createVoiceConnector(
     input: CreateVoiceConnectorRequest,
   ): Effect.Effect<
     CreateVoiceConnectorResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | ForbiddenException
-    | ResourceLimitExceededException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ForbiddenException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   createVoiceConnectorGroup(
     input: CreateVoiceConnectorGroupRequest,
   ): Effect.Effect<
     CreateVoiceConnectorGroupResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | ForbiddenException
-    | ResourceLimitExceededException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ForbiddenException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   createVoiceProfile(
     input: CreateVoiceProfileRequest,
   ): Effect.Effect<
     CreateVoiceProfileResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | GoneException
-    | NotFoundException
-    | ResourceLimitExceededException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ConflictException | ForbiddenException | GoneException | NotFoundException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   createVoiceProfileDomain(
     input: CreateVoiceProfileDomainRequest,
   ): Effect.Effect<
     CreateVoiceProfileDomainResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | ResourceLimitExceededException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ConflictException | ForbiddenException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   deletePhoneNumber(
     input: DeletePhoneNumberRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   deleteProxySession(
     input: DeleteProxySessionRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   deleteSipMediaApplication(
     input: DeleteSipMediaApplicationRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   deleteSipRule(
     input: DeleteSipRuleRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   deleteVoiceConnector(
     input: DeleteVoiceConnectorRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   deleteVoiceConnectorEmergencyCallingConfiguration(
     input: DeleteVoiceConnectorEmergencyCallingConfigurationRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   deleteVoiceConnectorExternalSystemsConfiguration(
     input: DeleteVoiceConnectorExternalSystemsConfigurationRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   deleteVoiceConnectorGroup(
     input: DeleteVoiceConnectorGroupRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   deleteVoiceConnectorOrigination(
     input: DeleteVoiceConnectorOriginationRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   deleteVoiceConnectorProxy(
     input: DeleteVoiceConnectorProxyRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   deleteVoiceConnectorStreamingConfiguration(
     input: DeleteVoiceConnectorStreamingConfigurationRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   deleteVoiceConnectorTermination(
     input: DeleteVoiceConnectorTerminationRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   deleteVoiceConnectorTerminationCredentials(
     input: DeleteVoiceConnectorTerminationCredentialsRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   deleteVoiceProfile(
     input: DeleteVoiceProfileRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ConflictException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   deleteVoiceProfileDomain(
     input: DeleteVoiceProfileDomainRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ConflictException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   disassociatePhoneNumbersFromVoiceConnector(
     input: DisassociatePhoneNumbersFromVoiceConnectorRequest,
   ): Effect.Effect<
     DisassociatePhoneNumbersFromVoiceConnectorResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   disassociatePhoneNumbersFromVoiceConnectorGroup(
     input: DisassociatePhoneNumbersFromVoiceConnectorGroupRequest,
   ): Effect.Effect<
     DisassociatePhoneNumbersFromVoiceConnectorGroupResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
-  getGlobalSettings(input: {}): Effect.Effect<
+  getGlobalSettings(
+    input: {},
+  ): Effect.Effect<
     GetGlobalSettingsResponse,
-    | BadRequestException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   getPhoneNumber(
     input: GetPhoneNumberRequest,
   ): Effect.Effect<
     GetPhoneNumberResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   getPhoneNumberOrder(
     input: GetPhoneNumberOrderRequest,
   ): Effect.Effect<
     GetPhoneNumberOrderResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
-  getPhoneNumberSettings(input: {}): Effect.Effect<
+  getPhoneNumberSettings(
+    input: {},
+  ): Effect.Effect<
     GetPhoneNumberSettingsResponse,
-    | BadRequestException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   getProxySession(
     input: GetProxySessionRequest,
   ): Effect.Effect<
     GetProxySessionResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   getSipMediaApplication(
     input: GetSipMediaApplicationRequest,
   ): Effect.Effect<
     GetSipMediaApplicationResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   getSipMediaApplicationAlexaSkillConfiguration(
     input: GetSipMediaApplicationAlexaSkillConfigurationRequest,
   ): Effect.Effect<
     GetSipMediaApplicationAlexaSkillConfigurationResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   getSipMediaApplicationLoggingConfiguration(
     input: GetSipMediaApplicationLoggingConfigurationRequest,
   ): Effect.Effect<
     GetSipMediaApplicationLoggingConfigurationResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   getSipRule(
     input: GetSipRuleRequest,
   ): Effect.Effect<
     GetSipRuleResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   getSpeakerSearchTask(
     input: GetSpeakerSearchTaskRequest,
   ): Effect.Effect<
     GetSpeakerSearchTaskResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ConflictException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   getVoiceConnector(
     input: GetVoiceConnectorRequest,
   ): Effect.Effect<
     GetVoiceConnectorResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   getVoiceConnectorEmergencyCallingConfiguration(
     input: GetVoiceConnectorEmergencyCallingConfigurationRequest,
   ): Effect.Effect<
     GetVoiceConnectorEmergencyCallingConfigurationResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   getVoiceConnectorExternalSystemsConfiguration(
     input: GetVoiceConnectorExternalSystemsConfigurationRequest,
   ): Effect.Effect<
     GetVoiceConnectorExternalSystemsConfigurationResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   getVoiceConnectorGroup(
     input: GetVoiceConnectorGroupRequest,
   ): Effect.Effect<
     GetVoiceConnectorGroupResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   getVoiceConnectorLoggingConfiguration(
     input: GetVoiceConnectorLoggingConfigurationRequest,
   ): Effect.Effect<
     GetVoiceConnectorLoggingConfigurationResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   getVoiceConnectorOrigination(
     input: GetVoiceConnectorOriginationRequest,
   ): Effect.Effect<
     GetVoiceConnectorOriginationResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   getVoiceConnectorProxy(
     input: GetVoiceConnectorProxyRequest,
   ): Effect.Effect<
     GetVoiceConnectorProxyResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   getVoiceConnectorStreamingConfiguration(
     input: GetVoiceConnectorStreamingConfigurationRequest,
   ): Effect.Effect<
     GetVoiceConnectorStreamingConfigurationResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   getVoiceConnectorTermination(
     input: GetVoiceConnectorTerminationRequest,
   ): Effect.Effect<
     GetVoiceConnectorTerminationResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   getVoiceConnectorTerminationHealth(
     input: GetVoiceConnectorTerminationHealthRequest,
   ): Effect.Effect<
     GetVoiceConnectorTerminationHealthResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   getVoiceProfile(
     input: GetVoiceProfileRequest,
   ): Effect.Effect<
     GetVoiceProfileResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   getVoiceProfileDomain(
     input: GetVoiceProfileDomainRequest,
   ): Effect.Effect<
     GetVoiceProfileDomainResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   getVoiceToneAnalysisTask(
     input: GetVoiceToneAnalysisTaskRequest,
   ): Effect.Effect<
     GetVoiceToneAnalysisTaskResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ConflictException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
-  listAvailableVoiceConnectorRegions(input: {}): Effect.Effect<
+  listAvailableVoiceConnectorRegions(
+    input: {},
+  ): Effect.Effect<
     ListAvailableVoiceConnectorRegionsResponse,
-    | BadRequestException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   listPhoneNumberOrders(
     input: ListPhoneNumberOrdersRequest,
   ): Effect.Effect<
     ListPhoneNumberOrdersResponse,
-    | BadRequestException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   listPhoneNumbers(
     input: ListPhoneNumbersRequest,
   ): Effect.Effect<
     ListPhoneNumbersResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   listProxySessions(
     input: ListProxySessionsRequest,
   ): Effect.Effect<
     ListProxySessionsResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   listSipMediaApplications(
     input: ListSipMediaApplicationsRequest,
   ): Effect.Effect<
     ListSipMediaApplicationsResponse,
-    | BadRequestException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   listSipRules(
     input: ListSipRulesRequest,
   ): Effect.Effect<
     ListSipRulesResponse,
-    | BadRequestException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   listSupportedPhoneNumberCountries(
     input: ListSupportedPhoneNumberCountriesRequest,
   ): Effect.Effect<
     ListSupportedPhoneNumberCountriesResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | UnauthorizedClientException | CommonAwsError
   >;
   listVoiceConnectorGroups(
     input: ListVoiceConnectorGroupsRequest,
   ): Effect.Effect<
     ListVoiceConnectorGroupsResponse,
-    | BadRequestException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   listVoiceConnectors(
     input: ListVoiceConnectorsRequest,
   ): Effect.Effect<
     ListVoiceConnectorsResponse,
-    | BadRequestException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   listVoiceConnectorTerminationCredentials(
     input: ListVoiceConnectorTerminationCredentialsRequest,
   ): Effect.Effect<
     ListVoiceConnectorTerminationCredentialsResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   listVoiceProfileDomains(
     input: ListVoiceProfileDomainsRequest,
   ): Effect.Effect<
     ListVoiceProfileDomainsResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   listVoiceProfiles(
     input: ListVoiceProfilesRequest,
   ): Effect.Effect<
     ListVoiceProfilesResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   putSipMediaApplicationAlexaSkillConfiguration(
     input: PutSipMediaApplicationAlexaSkillConfigurationRequest,
   ): Effect.Effect<
     PutSipMediaApplicationAlexaSkillConfigurationResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   putSipMediaApplicationLoggingConfiguration(
     input: PutSipMediaApplicationLoggingConfigurationRequest,
   ): Effect.Effect<
     PutSipMediaApplicationLoggingConfigurationResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   putVoiceConnectorEmergencyCallingConfiguration(
     input: PutVoiceConnectorEmergencyCallingConfigurationRequest,
   ): Effect.Effect<
     PutVoiceConnectorEmergencyCallingConfigurationResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   putVoiceConnectorExternalSystemsConfiguration(
     input: PutVoiceConnectorExternalSystemsConfigurationRequest,
   ): Effect.Effect<
     PutVoiceConnectorExternalSystemsConfigurationResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   putVoiceConnectorLoggingConfiguration(
     input: PutVoiceConnectorLoggingConfigurationRequest,
   ): Effect.Effect<
     PutVoiceConnectorLoggingConfigurationResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   putVoiceConnectorOrigination(
     input: PutVoiceConnectorOriginationRequest,
   ): Effect.Effect<
     PutVoiceConnectorOriginationResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   putVoiceConnectorProxy(
     input: PutVoiceConnectorProxyRequest,
   ): Effect.Effect<
     PutVoiceConnectorProxyResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   putVoiceConnectorStreamingConfiguration(
     input: PutVoiceConnectorStreamingConfigurationRequest,
   ): Effect.Effect<
     PutVoiceConnectorStreamingConfigurationResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   putVoiceConnectorTermination(
     input: PutVoiceConnectorTerminationRequest,
   ): Effect.Effect<
     PutVoiceConnectorTerminationResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   putVoiceConnectorTerminationCredentials(
     input: PutVoiceConnectorTerminationCredentialsRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   restorePhoneNumber(
     input: RestorePhoneNumberRequest,
   ): Effect.Effect<
     RestorePhoneNumberResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ResourceLimitExceededException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   searchAvailablePhoneNumbers(
     input: SearchAvailablePhoneNumbersRequest,
   ): Effect.Effect<
     SearchAvailablePhoneNumbersResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   startSpeakerSearchTask(
     input: StartSpeakerSearchTaskRequest,
   ): Effect.Effect<
     StartSpeakerSearchTaskResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | GoneException
-    | NotFoundException
-    | ResourceLimitExceededException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | UnprocessableEntityException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ConflictException | ForbiddenException | GoneException | NotFoundException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | UnprocessableEntityException | CommonAwsError
   >;
   startVoiceToneAnalysisTask(
     input: StartVoiceToneAnalysisTaskRequest,
   ): Effect.Effect<
     StartVoiceToneAnalysisTaskResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | GoneException
-    | NotFoundException
-    | ResourceLimitExceededException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | UnprocessableEntityException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ConflictException | ForbiddenException | GoneException | NotFoundException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | UnprocessableEntityException | CommonAwsError
   >;
   stopSpeakerSearchTask(
     input: StopSpeakerSearchTaskRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | UnprocessableEntityException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ConflictException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | UnprocessableEntityException | CommonAwsError
   >;
   stopVoiceToneAnalysisTask(
     input: StopVoiceToneAnalysisTaskRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | UnprocessableEntityException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ConflictException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | UnprocessableEntityException | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ResourceLimitExceededException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | UnauthorizedClientException | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | UnauthorizedClientException | CommonAwsError
   >;
   updateGlobalSettings(
     input: UpdateGlobalSettingsRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   updatePhoneNumber(
     input: UpdatePhoneNumberRequest,
   ): Effect.Effect<
     UpdatePhoneNumberResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   updatePhoneNumberSettings(
     input: UpdatePhoneNumberSettingsRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   updateProxySession(
     input: UpdateProxySessionRequest,
   ): Effect.Effect<
     UpdateProxySessionResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   updateSipMediaApplication(
     input: UpdateSipMediaApplicationRequest,
   ): Effect.Effect<
     UpdateSipMediaApplicationResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   updateSipMediaApplicationCall(
     input: UpdateSipMediaApplicationCallRequest,
   ): Effect.Effect<
     UpdateSipMediaApplicationCallResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ResourceLimitExceededException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   updateSipRule(
     input: UpdateSipRuleRequest,
   ): Effect.Effect<
     UpdateSipRuleResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | NotFoundException
-    | ResourceLimitExceededException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | NotFoundException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   updateVoiceConnector(
     input: UpdateVoiceConnectorRequest,
   ): Effect.Effect<
     UpdateVoiceConnectorResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   updateVoiceConnectorGroup(
     input: UpdateVoiceConnectorGroupRequest,
   ): Effect.Effect<
     UpdateVoiceConnectorGroupResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   updateVoiceProfile(
     input: UpdateVoiceProfileRequest,
   ): Effect.Effect<
     UpdateVoiceProfileResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | GoneException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ConflictException | ForbiddenException | GoneException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   updateVoiceProfileDomain(
     input: UpdateVoiceProfileDomainRequest,
   ): Effect.Effect<
     UpdateVoiceProfileDomainResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
   validateE911Address(
     input: ValidateE911AddressRequest,
   ): Effect.Effect<
     ValidateE911AddressResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   >;
 }
 
@@ -1404,11 +655,7 @@ export interface CallDetails {
 }
 export type CallingName = string;
 
-export type CallingNameStatus =
-  | "Unassigned"
-  | "UpdateInProgress"
-  | "UpdateSucceeded"
-  | "UpdateFailed";
+export type CallingNameStatus = "Unassigned" | "UpdateInProgress" | "UpdateSucceeded" | "UpdateFailed";
 export type CallingRegion = string;
 
 export type CallingRegionList = Array<string>;
@@ -1435,11 +682,7 @@ export declare class ConflictException extends EffectData.TaggedError(
   readonly Code?: ErrorCode;
   readonly Message?: string;
 }> {}
-export type ContactCenterSystemType =
-  | "GENESYS_ENGAGE_ON_PREMISES"
-  | "AVAYA_AURA_CALL_CENTER_ELITE"
-  | "AVAYA_AURA_CONTACT_CENTER"
-  | "CISCO_UNIFIED_CONTACT_CENTER_ENTERPRISE";
+export type ContactCenterSystemType = "GENESYS_ENGAGE_ON_PREMISES" | "AVAYA_AURA_CALL_CENTER_ELITE" | "AVAYA_AURA_CONTACT_CENTER" | "CISCO_UNIFIED_CONTACT_CENTER_ENTERPRISE";
 export type ContactCenterSystemTypeList = Array<ContactCenterSystemType>;
 export type Country = string;
 
@@ -1602,31 +845,14 @@ export interface DNISEmergencyCallingConfiguration {
   TestPhoneNumber?: string;
   CallingCountry: string;
 }
-export type DNISEmergencyCallingConfigurationList =
-  Array<DNISEmergencyCallingConfiguration>;
+export type DNISEmergencyCallingConfigurationList = Array<DNISEmergencyCallingConfiguration>;
 export type E164PhoneNumber = string;
 
 export type E164PhoneNumberList = Array<string>;
 export interface EmergencyCallingConfiguration {
   DNIS?: Array<DNISEmergencyCallingConfiguration>;
 }
-export type ErrorCode =
-  | "BadRequest"
-  | "Conflict"
-  | "Forbidden"
-  | "NotFound"
-  | "PreconditionFailed"
-  | "ResourceLimitExceeded"
-  | "ServiceFailure"
-  | "AccessDenied"
-  | "ServiceUnavailable"
-  | "Throttled"
-  | "Throttling"
-  | "Unauthorized"
-  | "Unprocessable"
-  | "VoiceConnectorGroupAssociationsExist"
-  | "PhoneNumberAssociationsExist"
-  | "Gone";
+export type ErrorCode = "BadRequest" | "Conflict" | "Forbidden" | "NotFound" | "PreconditionFailed" | "ResourceLimitExceeded" | "ServiceFailure" | "AccessDenied" | "ServiceUnavailable" | "Throttled" | "Throttling" | "Unauthorized" | "Unprocessable" | "VoiceConnectorGroupAssociationsExist" | "PhoneNumberAssociationsExist" | "Gone";
 export interface ExternalSystemsConfiguration {
   SessionBorderControllerTypes?: Array<SessionBorderControllerType>;
   ContactCenterSystemTypes?: Array<ContactCenterSystemType>;
@@ -1974,10 +1200,7 @@ export interface PhoneNumberAssociation {
   AssociatedTimestamp?: Date | string;
 }
 export type PhoneNumberAssociationList = Array<PhoneNumberAssociation>;
-export type PhoneNumberAssociationName =
-  | "VoiceConnectorId"
-  | "VoiceConnectorGroupId"
-  | "SipRuleId";
+export type PhoneNumberAssociationName = "VoiceConnectorId" | "VoiceConnectorGroupId" | "SipRuleId";
 export interface PhoneNumberCapabilities {
   InboundCall?: boolean;
   OutboundCall?: boolean;
@@ -2013,34 +1236,10 @@ export interface PhoneNumberOrder {
   FocDate?: Date | string;
 }
 export type PhoneNumberOrderList = Array<PhoneNumberOrder>;
-export type PhoneNumberOrderStatus =
-  | "Processing"
-  | "Successful"
-  | "Failed"
-  | "Partial"
-  | "PendingDocuments"
-  | "Submitted"
-  | "FOC"
-  | "ChangeRequested"
-  | "Exception"
-  | "CancelRequested"
-  | "Cancelled";
+export type PhoneNumberOrderStatus = "Processing" | "Successful" | "Failed" | "Partial" | "PendingDocuments" | "Submitted" | "FOC" | "ChangeRequested" | "Exception" | "CancelRequested" | "Cancelled";
 export type PhoneNumberOrderType = "New" | "Porting";
-export type PhoneNumberProductType =
-  | "VoiceConnector"
-  | "SipMediaApplicationDialIn";
-export type PhoneNumberStatus =
-  | "Cancelled"
-  | "PortinCancelRequested"
-  | "PortinInProgress"
-  | "AcquireInProgress"
-  | "AcquireFailed"
-  | "Unassigned"
-  | "Assigned"
-  | "ReleaseInProgress"
-  | "DeleteInProgress"
-  | "ReleaseFailed"
-  | "DeleteFailed";
+export type PhoneNumberProductType = "VoiceConnector" | "SipMediaApplicationDialIn";
+export type PhoneNumberStatus = "Cancelled" | "PortinCancelRequested" | "PortinInProgress" | "AcquireInProgress" | "AcquireFailed" | "Unassigned" | "Assigned" | "ReleaseInProgress" | "DeleteInProgress" | "ReleaseFailed" | "DeleteFailed";
 export type PhoneNumberType = "Local" | "TollFree";
 export type PhoneNumberTypeList = Array<PhoneNumberType>;
 export type Port = number;
@@ -2191,14 +1390,8 @@ export declare class ServiceUnavailableException extends EffectData.TaggedError(
   readonly Code?: ErrorCode;
   readonly Message?: string;
 }> {}
-export type SessionBorderControllerType =
-  | "RIBBON_SBC"
-  | "ORACLE_ACME_PACKET_SBC"
-  | "AVAYA_SBCE"
-  | "CISCO_UNIFIED_BORDER_ELEMENT"
-  | "AUDIOCODES_MEDIANT_SBC";
-export type SessionBorderControllerTypeList =
-  Array<SessionBorderControllerType>;
+export type SessionBorderControllerType = "RIBBON_SBC" | "ORACLE_ACME_PACKET_SBC" | "AVAYA_SBCE" | "CISCO_UNIFIED_BORDER_ELEMENT" | "AUDIOCODES_MEDIANT_SBC";
+export type SessionBorderControllerTypeList = Array<SessionBorderControllerType>;
 export type SipApplicationPriority = number;
 
 export type SipHeadersMap = Record<string, string>;
@@ -2221,8 +1414,7 @@ export interface SipMediaApplicationCall {
 export interface SipMediaApplicationEndpoint {
   LambdaArn?: string;
 }
-export type SipMediaApplicationEndpointList =
-  Array<SipMediaApplicationEndpoint>;
+export type SipMediaApplicationEndpointList = Array<SipMediaApplicationEndpoint>;
 export type SipMediaApplicationList = Array<SipMediaApplication>;
 export interface SipMediaApplicationLoggingConfiguration {
   EnableSipMediaApplicationMessageLogs?: boolean;
@@ -2306,8 +1498,7 @@ export interface StreamingConfiguration {
 export interface StreamingNotificationTarget {
   NotificationTarget?: NotificationTarget;
 }
-export type StreamingNotificationTargetList =
-  Array<StreamingNotificationTarget>;
+export type StreamingNotificationTargetList = Array<StreamingNotificationTarget>;
 export type ChimeSdkVoiceString = string;
 
 export type String128 = string;
@@ -2377,8 +1568,7 @@ export interface UpdatePhoneNumberRequestItem {
   CallingName?: string;
   Name?: string;
 }
-export type UpdatePhoneNumberRequestItemList =
-  Array<UpdatePhoneNumberRequestItem>;
+export type UpdatePhoneNumberRequestItemList = Array<UpdatePhoneNumberRequestItem>;
 export interface UpdatePhoneNumberResponse {
   PhoneNumber?: PhoneNumber;
 }
@@ -2478,17 +1668,7 @@ export interface VoiceConnector {
   VoiceConnectorArn?: string;
   IntegrationType?: VoiceConnectorIntegrationType;
 }
-export type VoiceConnectorAwsRegion =
-  | "us-east-1"
-  | "us-west-2"
-  | "ca-central-1"
-  | "eu-central-1"
-  | "eu-west-1"
-  | "eu-west-2"
-  | "ap-northeast-2"
-  | "ap-northeast-1"
-  | "ap-southeast-1"
-  | "ap-southeast-2";
+export type VoiceConnectorAwsRegion = "us-east-1" | "us-west-2" | "ca-central-1" | "eu-central-1" | "eu-west-1" | "eu-west-2" | "ap-northeast-2" | "ap-northeast-1" | "ap-southeast-1" | "ap-southeast-2";
 export type VoiceConnectorAwsRegionList = Array<VoiceConnectorAwsRegion>;
 export interface VoiceConnectorGroup {
   VoiceConnectorGroupId?: string;
@@ -2501,9 +1681,7 @@ export interface VoiceConnectorGroup {
 export type VoiceConnectorGroupList = Array<VoiceConnectorGroup>;
 export type VoiceConnectorGroupName = string;
 
-export type VoiceConnectorIntegrationType =
-  | "CONNECT_CALL_TRANSFER_CONNECTOR"
-  | "CONNECT_ANALYTICS_CONNECTOR";
+export type VoiceConnectorIntegrationType = "CONNECT_CALL_TRANSFER_CONNECTOR" | "CONNECT_ANALYTICS_CONNECTOR";
 export interface VoiceConnectorItem {
   VoiceConnectorId: string;
   Priority: number;
@@ -3957,3 +3135,4 @@ export declare namespace ValidateE911Address {
     | UnauthorizedClientException
     | CommonAwsError;
 }
+

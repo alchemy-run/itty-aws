@@ -1,38 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-} from "../../error.ts";
-type CommonAwsError =
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | AccessDeniedException
-  | ThrottlingException
-  | ValidationException;
+import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
+type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class NetworkFlowMonitor extends AWSServiceClient {
@@ -40,288 +8,151 @@ export declare class NetworkFlowMonitor extends AWSServiceClient {
     input: ListTagsForResourceInput,
   ): Effect.Effect<
     ListTagsForResourceOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   tagResource(
     input: TagResourceInput,
   ): Effect.Effect<
     TagResourceOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   untagResource(
     input: UntagResourceInput,
   ): Effect.Effect<
     UntagResourceOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createMonitor(
     input: CreateMonitorInput,
   ): Effect.Effect<
     CreateMonitorOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createScope(
     input: CreateScopeInput,
   ): Effect.Effect<
     CreateScopeOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteMonitor(
     input: DeleteMonitorInput,
   ): Effect.Effect<
     DeleteMonitorOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteScope(
     input: DeleteScopeInput,
   ): Effect.Effect<
     DeleteScopeOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getMonitor(
     input: GetMonitorInput,
   ): Effect.Effect<
     GetMonitorOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getQueryResultsMonitorTopContributors(
     input: GetQueryResultsMonitorTopContributorsInput,
   ): Effect.Effect<
     GetQueryResultsMonitorTopContributorsOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getQueryResultsWorkloadInsightsTopContributors(
     input: GetQueryResultsWorkloadInsightsTopContributorsInput,
   ): Effect.Effect<
     GetQueryResultsWorkloadInsightsTopContributorsOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getQueryResultsWorkloadInsightsTopContributorsData(
     input: GetQueryResultsWorkloadInsightsTopContributorsDataInput,
   ): Effect.Effect<
     GetQueryResultsWorkloadInsightsTopContributorsDataOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getQueryStatusMonitorTopContributors(
     input: GetQueryStatusMonitorTopContributorsInput,
   ): Effect.Effect<
     GetQueryStatusMonitorTopContributorsOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getQueryStatusWorkloadInsightsTopContributors(
     input: GetQueryStatusWorkloadInsightsTopContributorsInput,
   ): Effect.Effect<
     GetQueryStatusWorkloadInsightsTopContributorsOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getQueryStatusWorkloadInsightsTopContributorsData(
     input: GetQueryStatusWorkloadInsightsTopContributorsDataInput,
   ): Effect.Effect<
     GetQueryStatusWorkloadInsightsTopContributorsDataOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getScope(
     input: GetScopeInput,
   ): Effect.Effect<
     GetScopeOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listMonitors(
     input: ListMonitorsInput,
   ): Effect.Effect<
     ListMonitorsOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listScopes(
     input: ListScopesInput,
   ): Effect.Effect<
     ListScopesOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   startQueryMonitorTopContributors(
     input: StartQueryMonitorTopContributorsInput,
   ): Effect.Effect<
     StartQueryMonitorTopContributorsOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   startQueryWorkloadInsightsTopContributors(
     input: StartQueryWorkloadInsightsTopContributorsInput,
   ): Effect.Effect<
     StartQueryWorkloadInsightsTopContributorsOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   startQueryWorkloadInsightsTopContributorsData(
     input: StartQueryWorkloadInsightsTopContributorsDataInput,
   ): Effect.Effect<
     StartQueryWorkloadInsightsTopContributorsDataOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   stopQueryMonitorTopContributors(
     input: StopQueryMonitorTopContributorsInput,
   ): Effect.Effect<
     StopQueryMonitorTopContributorsOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   stopQueryWorkloadInsightsTopContributors(
     input: StopQueryWorkloadInsightsTopContributorsInput,
   ): Effect.Effect<
     StopQueryWorkloadInsightsTopContributorsOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   stopQueryWorkloadInsightsTopContributorsData(
     input: StopQueryWorkloadInsightsTopContributorsDataInput,
   ): Effect.Effect<
     StopQueryWorkloadInsightsTopContributorsDataOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateMonitor(
     input: UpdateMonitorInput,
   ): Effect.Effect<
     UpdateMonitorOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateScope(
     input: UpdateScopeInput,
   ): Effect.Effect<
     UpdateScopeOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
 }
 
@@ -381,18 +212,14 @@ export interface CreateScopeOutput {
 export interface DeleteMonitorInput {
   monitorName: string;
 }
-export interface DeleteMonitorOutput {}
+export interface DeleteMonitorOutput {
+}
 export interface DeleteScopeInput {
   scopeId: string;
 }
-export interface DeleteScopeOutput {}
-export type DestinationCategory =
-  | "INTRA_AZ"
-  | "INTER_AZ"
-  | "INTER_VPC"
-  | "UNCLASSIFIED"
-  | "AMAZON_S3"
-  | "AMAZON_DYNAMODB";
+export interface DeleteScopeOutput {
+}
+export type DestinationCategory = "INTRA_AZ" | "INTER_AZ" | "INTER_VPC" | "UNCLASSIFIED" | "AMAZON_S3" | "AMAZON_DYNAMODB";
 export interface GetMonitorInput {
   monitorName: string;
 }
@@ -515,34 +342,7 @@ export interface ListTagsForResourceOutput {
 }
 export type MaxResults = number;
 
-export type MetricUnit =
-  | "Seconds"
-  | "Microseconds"
-  | "Milliseconds"
-  | "Bytes"
-  | "Kilobytes"
-  | "Megabytes"
-  | "Gigabytes"
-  | "Terabytes"
-  | "Bits"
-  | "Kilobits"
-  | "Megabits"
-  | "Gigabits"
-  | "Terabits"
-  | "Percent"
-  | "Count"
-  | "Bytes/Second"
-  | "Kilobytes/Second"
-  | "Megabytes/Second"
-  | "Gigabytes/Second"
-  | "Terabytes/Second"
-  | "Bits/Second"
-  | "Kilobits/Second"
-  | "Megabits/Second"
-  | "Gigabits/Second"
-  | "Terabits/Second"
-  | "Count/Second"
-  | "None";
+export type MetricUnit = "Seconds" | "Microseconds" | "Milliseconds" | "Bytes" | "Kilobytes" | "Megabytes" | "Gigabytes" | "Terabytes" | "Bits" | "Kilobits" | "Megabits" | "Gigabits" | "Terabits" | "Percent" | "Count" | "Bytes/Second" | "Kilobytes/Second" | "Megabytes/Second" | "Gigabytes/Second" | "Terabytes/Second" | "Bits/Second" | "Kilobits/Second" | "Megabits/Second" | "Gigabits/Second" | "Terabits/Second" | "Count/Second" | "None";
 export type MonitorArn = string;
 
 export type MonitorList = Array<MonitorSummary>;
@@ -551,31 +351,15 @@ export interface MonitorLocalResource {
   identifier: string;
 }
 export type MonitorLocalResources = Array<MonitorLocalResource>;
-export type MonitorLocalResourceType =
-  | "AWS::EC2::VPC"
-  | "AWS::AvailabilityZone"
-  | "AWS::EC2::Subnet";
-export type MonitorMetric =
-  | "ROUND_TRIP_TIME"
-  | "TIMEOUTS"
-  | "RETRANSMISSIONS"
-  | "DATA_TRANSFERRED";
+export type MonitorLocalResourceType = "AWS::EC2::VPC" | "AWS::AvailabilityZone" | "AWS::EC2::Subnet";
+export type MonitorMetric = "ROUND_TRIP_TIME" | "TIMEOUTS" | "RETRANSMISSIONS" | "DATA_TRANSFERRED";
 export interface MonitorRemoteResource {
   type: MonitorRemoteResourceType;
   identifier: string;
 }
 export type MonitorRemoteResources = Array<MonitorRemoteResource>;
-export type MonitorRemoteResourceType =
-  | "AWS::EC2::VPC"
-  | "AWS::AvailabilityZone"
-  | "AWS::EC2::Subnet"
-  | "AWS::AWSService";
-export type MonitorStatus =
-  | "PENDING"
-  | "ACTIVE"
-  | "INACTIVE"
-  | "ERROR"
-  | "DELETING";
+export type MonitorRemoteResourceType = "AWS::EC2::VPC" | "AWS::AvailabilityZone" | "AWS::EC2::Subnet" | "AWS::AWSService";
+export type MonitorStatus = "PENDING" | "ACTIVE" | "INACTIVE" | "ERROR" | "DELETING";
 export interface MonitorSummary {
   monitorArn: string;
   monitorName: string;
@@ -609,12 +393,7 @@ export interface MonitorTopContributorsRow {
   remoteVpcArn?: string;
 }
 export type MonitorTopContributorsRowList = Array<MonitorTopContributorsRow>;
-export type QueryStatus =
-  | "QUEUED"
-  | "RUNNING"
-  | "SUCCEEDED"
-  | "FAILED"
-  | "CANCELED";
+export type QueryStatus = "QUEUED" | "RUNNING" | "SUCCEEDED" | "FAILED" | "CANCELED";
 export type ResourceName = string;
 
 export declare class ResourceNotFoundException extends EffectData.TaggedError(
@@ -624,12 +403,7 @@ export declare class ResourceNotFoundException extends EffectData.TaggedError(
 }> {}
 export type ScopeId = string;
 
-export type ScopeStatus =
-  | "SUCCEEDED"
-  | "IN_PROGRESS"
-  | "FAILED"
-  | "DEACTIVATING"
-  | "DEACTIVATED";
+export type ScopeStatus = "SUCCEEDED" | "IN_PROGRESS" | "FAILED" | "DEACTIVATING" | "DEACTIVATED";
 export interface ScopeSummary {
   scopeId: string;
   status: ScopeStatus;
@@ -677,17 +451,20 @@ export interface StopQueryMonitorTopContributorsInput {
   monitorName: string;
   queryId: string;
 }
-export interface StopQueryMonitorTopContributorsOutput {}
+export interface StopQueryMonitorTopContributorsOutput {
+}
 export interface StopQueryWorkloadInsightsTopContributorsDataInput {
   scopeId: string;
   queryId: string;
 }
-export interface StopQueryWorkloadInsightsTopContributorsDataOutput {}
+export interface StopQueryWorkloadInsightsTopContributorsDataOutput {
+}
 export interface StopQueryWorkloadInsightsTopContributorsInput {
   scopeId: string;
   queryId: string;
 }
-export interface StopQueryWorkloadInsightsTopContributorsOutput {}
+export interface StopQueryWorkloadInsightsTopContributorsOutput {
+}
 export type SubnetArn = string;
 
 export type SubnetId = string;
@@ -700,14 +477,15 @@ export interface TagResourceInput {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceOutput {}
+export interface TagResourceOutput {
+}
 export type TagValue = string;
 
 interface _TargetId {
   accountId?: string;
 }
 
-export type TargetId = _TargetId & { accountId: string };
+export type TargetId = (_TargetId & { accountId: string });
 export interface TargetIdentifier {
   targetId: TargetId;
   targetType: TargetType;
@@ -734,7 +512,8 @@ export interface UntagResourceInput {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceOutput {}
+export interface UntagResourceOutput {
+}
 export interface UpdateMonitorInput {
   monitorName: string;
   localResourcesToAdd?: Array<MonitorLocalResource>;
@@ -775,17 +554,13 @@ export type VpcArn = string;
 
 export type VpcId = string;
 
-export type WorkloadInsightsMetric =
-  | "TIMEOUTS"
-  | "RETRANSMISSIONS"
-  | "DATA_TRANSFERRED";
+export type WorkloadInsightsMetric = "TIMEOUTS" | "RETRANSMISSIONS" | "DATA_TRANSFERRED";
 export interface WorkloadInsightsTopContributorsDataPoint {
   timestamps: Array<Date | string>;
   values: Array<number>;
   label: string;
 }
-export type WorkloadInsightsTopContributorsDataPoints =
-  Array<WorkloadInsightsTopContributorsDataPoint>;
+export type WorkloadInsightsTopContributorsDataPoints = Array<WorkloadInsightsTopContributorsDataPoint>;
 export interface WorkloadInsightsTopContributorsRow {
   accountId?: string;
   localSubnetId?: string;
@@ -797,11 +572,8 @@ export interface WorkloadInsightsTopContributorsRow {
   localSubnetArn?: string;
   localVpcArn?: string;
 }
-export type WorkloadInsightsTopContributorsRowList =
-  Array<WorkloadInsightsTopContributorsRow>;
-export type WorkloadInsightsTopContributorsTimestampsList = Array<
-  Date | string
->;
+export type WorkloadInsightsTopContributorsRowList = Array<WorkloadInsightsTopContributorsRow>;
+export type WorkloadInsightsTopContributorsTimestampsList = Array<Date | string>;
 export type WorkloadInsightsTopContributorsValuesList = Array<number>;
 export declare namespace ListTagsForResource {
   export type Input = ListTagsForResourceInput;
@@ -1114,3 +886,4 @@ export declare namespace UpdateScope {
     | ValidationException
     | CommonAwsError;
 }
+

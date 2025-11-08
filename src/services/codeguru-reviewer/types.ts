@@ -1,38 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-} from "../../error.ts";
-type CommonAwsError =
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | AccessDeniedException
-  | ThrottlingException
-  | ValidationException;
+import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
+type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class CodeGuruReviewer extends AWSServiceClient {
@@ -40,148 +8,85 @@ export declare class CodeGuruReviewer extends AWSServiceClient {
     input: AssociateRepositoryRequest,
   ): Effect.Effect<
     AssociateRepositoryResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createCodeReview(
     input: CreateCodeReviewRequest,
   ): Effect.Effect<
     CreateCodeReviewResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   describeCodeReview(
     input: DescribeCodeReviewRequest,
   ): Effect.Effect<
     DescribeCodeReviewResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   describeRecommendationFeedback(
     input: DescribeRecommendationFeedbackRequest,
   ): Effect.Effect<
     DescribeRecommendationFeedbackResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   describeRepositoryAssociation(
     input: DescribeRepositoryAssociationRequest,
   ): Effect.Effect<
     DescribeRepositoryAssociationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | NotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | NotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   disassociateRepository(
     input: DisassociateRepositoryRequest,
   ): Effect.Effect<
     DisassociateRepositoryResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | NotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | NotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listCodeReviews(
     input: ListCodeReviewsRequest,
   ): Effect.Effect<
     ListCodeReviewsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listRecommendationFeedback(
     input: ListRecommendationFeedbackRequest,
   ): Effect.Effect<
     ListRecommendationFeedbackResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listRecommendations(
     input: ListRecommendationsRequest,
   ): Effect.Effect<
     ListRecommendationsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listRepositoryAssociations(
     input: ListRepositoryAssociationsRequest,
   ): Effect.Effect<
     ListRepositoryAssociationsResponse,
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   putRecommendationFeedback(
     input: PutRecommendationFeedbackRequest,
   ): Effect.Effect<
     PutRecommendationFeedbackResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
 }
 
@@ -431,12 +336,7 @@ export declare class NotFoundException extends EffectData.TaggedError(
 export type Owner = string;
 
 export type Owners = Array<string>;
-export type ProviderType =
-  | "CodeCommit"
-  | "GitHub"
-  | "Bitbucket"
-  | "GitHubEnterpriseServer"
-  | "S3Bucket";
+export type ProviderType = "CodeCommit" | "GitHub" | "Bitbucket" | "GitHubEnterpriseServer" | "S3Bucket";
 export type ProviderTypes = Array<ProviderType>;
 export type PullRequestId = string;
 
@@ -445,21 +345,11 @@ export interface PutRecommendationFeedbackRequest {
   RecommendationId: string;
   Reactions: Array<Reaction>;
 }
-export interface PutRecommendationFeedbackResponse {}
+export interface PutRecommendationFeedbackResponse {
+}
 export type Reaction = "ThumbsUp" | "ThumbsDown";
 export type Reactions = Array<Reaction>;
-export type RecommendationCategory =
-  | "AWSBestPractices"
-  | "AWSCloudFormationIssues"
-  | "DuplicateCode"
-  | "CodeMaintenanceIssues"
-  | "ConcurrencyIssues"
-  | "InputValidations"
-  | "PythonBestPractices"
-  | "JavaBestPractices"
-  | "ResourceLeaks"
-  | "SecurityIssues"
-  | "CodeInconsistencies";
+export type RecommendationCategory = "AWSBestPractices" | "AWSCloudFormationIssues" | "DuplicateCode" | "CodeMaintenanceIssues" | "ConcurrencyIssues" | "InputValidations" | "PythonBestPractices" | "JavaBestPractices" | "ResourceLeaks" | "SecurityIssues" | "CodeInconsistencies";
 export interface RecommendationFeedback {
   CodeReviewArn?: string;
   RecommendationId?: string;
@@ -468,8 +358,7 @@ export interface RecommendationFeedback {
   CreatedTimeStamp?: Date | string;
   LastUpdatedTimeStamp?: Date | string;
 }
-export type RecommendationFeedbackSummaries =
-  Array<RecommendationFeedbackSummary>;
+export type RecommendationFeedbackSummaries = Array<RecommendationFeedbackSummary>;
 export interface RecommendationFeedbackSummary {
   RecommendationId?: string;
   Reactions?: Array<Reaction>;
@@ -513,15 +402,9 @@ export interface RepositoryAssociation {
   KMSKeyDetails?: KMSKeyDetails;
   S3RepositoryDetails?: S3RepositoryDetails;
 }
-export type RepositoryAssociationState =
-  | "Associated"
-  | "Associating"
-  | "Failed"
-  | "Disassociating"
-  | "Disassociated";
+export type RepositoryAssociationState = "Associated" | "Associating" | "Failed" | "Disassociating" | "Disassociated";
 export type RepositoryAssociationStates = Array<RepositoryAssociationState>;
-export type RepositoryAssociationSummaries =
-  Array<RepositoryAssociationSummary>;
+export type RepositoryAssociationSummaries = Array<RepositoryAssociationSummary>;
 export interface RepositoryAssociationSummary {
   AssociationArn?: string;
   ConnectionArn?: string;
@@ -601,7 +484,8 @@ export interface TagResourceRequest {
   resourceArn: string;
   Tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export type Text = string;
@@ -623,7 +507,8 @@ export interface UntagResourceRequest {
   resourceArn: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export type UserId = string;
 
 export type UserIds = Array<string>;
@@ -793,3 +678,4 @@ export declare namespace UntagResource {
     | ValidationException
     | CommonAwsError;
 }
+

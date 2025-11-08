@@ -1,38 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-} from "../../error.ts";
-type CommonAwsError =
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | AccessDeniedException
-  | ThrottlingException
-  | ValidationException;
+import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
+type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class TimestreamWrite extends AWSServiceClient {
@@ -40,226 +8,115 @@ export declare class TimestreamWrite extends AWSServiceClient {
     input: CreateBatchLoadTaskRequest,
   ): Effect.Effect<
     CreateBatchLoadTaskResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | InvalidEndpointException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | InvalidEndpointException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createDatabase(
     input: CreateDatabaseRequest,
   ): Effect.Effect<
     CreateDatabaseResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | InvalidEndpointException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | InvalidEndpointException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createTable(
     input: CreateTableRequest,
   ): Effect.Effect<
     CreateTableResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | InvalidEndpointException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | InvalidEndpointException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteDatabase(
     input: DeleteDatabaseRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InternalServerException
-    | InvalidEndpointException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | InvalidEndpointException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteTable(
     input: DeleteTableRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InternalServerException
-    | InvalidEndpointException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | InvalidEndpointException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   describeBatchLoadTask(
     input: DescribeBatchLoadTaskRequest,
   ): Effect.Effect<
     DescribeBatchLoadTaskResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | InvalidEndpointException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | InvalidEndpointException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   describeDatabase(
     input: DescribeDatabaseRequest,
   ): Effect.Effect<
     DescribeDatabaseResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | InvalidEndpointException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | InvalidEndpointException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   describeEndpoints(
     input: DescribeEndpointsRequest,
   ): Effect.Effect<
     DescribeEndpointsResponse,
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   describeTable(
     input: DescribeTableRequest,
   ): Effect.Effect<
     DescribeTableResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | InvalidEndpointException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | InvalidEndpointException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listBatchLoadTasks(
     input: ListBatchLoadTasksRequest,
   ): Effect.Effect<
     ListBatchLoadTasksResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | InvalidEndpointException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | InvalidEndpointException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listDatabases(
     input: ListDatabasesRequest,
   ): Effect.Effect<
     ListDatabasesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | InvalidEndpointException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | InvalidEndpointException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listTables(
     input: ListTablesRequest,
   ): Effect.Effect<
     ListTablesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | InvalidEndpointException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | InvalidEndpointException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | InvalidEndpointException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InvalidEndpointException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   resumeBatchLoadTask(
     input: ResumeBatchLoadTaskRequest,
   ): Effect.Effect<
     ResumeBatchLoadTaskResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | InvalidEndpointException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | InvalidEndpointException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | InvalidEndpointException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InvalidEndpointException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | InvalidEndpointException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InvalidEndpointException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateDatabase(
     input: UpdateDatabaseRequest,
   ): Effect.Effect<
     UpdateDatabaseResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | InvalidEndpointException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | InvalidEndpointException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateTable(
     input: UpdateTableRequest,
   ): Effect.Effect<
     UpdateTableResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | InvalidEndpointException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | InvalidEndpointException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   writeRecords(
     input: WriteRecordsRequest,
   ): Effect.Effect<
     WriteRecordsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | InvalidEndpointException
-    | RejectedRecordsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | InvalidEndpointException | RejectedRecordsException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
 }
 
@@ -279,13 +136,7 @@ export interface BatchLoadProgressReport {
   FileFailures?: number;
   BytesMetered?: number;
 }
-export type BatchLoadStatus =
-  | "CREATED"
-  | "IN_PROGRESS"
-  | "FAILED"
-  | "SUCCEEDED"
-  | "PROGRESS_STOPPED"
-  | "PENDING_RESUME";
+export type BatchLoadStatus = "CREATED" | "IN_PROGRESS" | "FAILED" | "SUCCEEDED" | "PROGRESS_STOPPED" | "PENDING_RESUME";
 export interface BatchLoadTask {
   TaskId?: string;
   TaskStatus?: BatchLoadStatus;
@@ -415,7 +266,8 @@ export interface DescribeDatabaseRequest {
 export interface DescribeDatabaseResponse {
   Database?: Database;
 }
-export interface DescribeEndpointsRequest {}
+export interface DescribeEndpointsRequest {
+}
 export interface DescribeEndpointsResponse {
   Endpoints: Array<Endpoint>;
 }
@@ -506,13 +358,7 @@ export interface MeasureValue {
   Type: MeasureValueType;
 }
 export type MeasureValues = Array<MeasureValue>;
-export type MeasureValueType =
-  | "DOUBLE"
-  | "BIGINT"
-  | "VARCHAR"
-  | "BOOLEAN"
-  | "TIMESTAMP"
-  | "MULTI";
+export type MeasureValueType = "DOUBLE" | "BIGINT" | "VARCHAR" | "BOOLEAN" | "TIMESTAMP" | "MULTI";
 export type MemoryStoreRetentionPeriodInHours = number;
 
 export interface MixedMeasureMapping {
@@ -528,8 +374,7 @@ export interface MultiMeasureAttributeMapping {
   TargetMultiMeasureAttributeName?: string;
   MeasureValueType?: ScalarMeasureValueType;
 }
-export type MultiMeasureAttributeMappingList =
-  Array<MultiMeasureAttributeMapping>;
+export type MultiMeasureAttributeMappingList = Array<MultiMeasureAttributeMapping>;
 export interface MultiMeasureMappings {
   TargetMultiMeasureName?: string;
   MultiMeasureAttributeMappings: Array<MultiMeasureAttributeMapping>;
@@ -599,7 +444,8 @@ export declare class ResourceNotFoundException extends EffectData.TaggedError(
 export interface ResumeBatchLoadTaskRequest {
   TaskId: string;
 }
-export interface ResumeBatchLoadTaskResponse {}
+export interface ResumeBatchLoadTaskResponse {
+}
 export interface RetentionProperties {
   MemoryStoreRetentionPeriodInHours: number;
   MagneticStoreRetentionPeriodInDays: number;
@@ -617,12 +463,7 @@ export type S3ObjectKey = string;
 
 export type S3ObjectKeyPrefix = string;
 
-export type ScalarMeasureValueType =
-  | "DOUBLE"
-  | "BIGINT"
-  | "BOOLEAN"
-  | "VARCHAR"
-  | "TIMESTAMP";
+export type ScalarMeasureValueType = "DOUBLE" | "BIGINT" | "BOOLEAN" | "VARCHAR" | "TIMESTAMP";
 export interface Schema {
   CompositePartitionKey?: Array<PartitionKey>;
 }
@@ -668,7 +509,8 @@ export interface TagResourceRequest {
   ResourceARN: string;
   Tags: Array<Tag>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export declare class ThrottlingException extends EffectData.TaggedError(
@@ -676,16 +518,13 @@ export declare class ThrottlingException extends EffectData.TaggedError(
 )<{
   readonly Message: string;
 }> {}
-export type TimeUnit =
-  | "MILLISECONDS"
-  | "SECONDS"
-  | "MICROSECONDS"
-  | "NANOSECONDS";
+export type TimeUnit = "MILLISECONDS" | "SECONDS" | "MICROSECONDS" | "NANOSECONDS";
 export interface UntagResourceRequest {
   ResourceARN: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateDatabaseRequest {
   DatabaseName: string;
   KmsKeyId: string;
@@ -960,3 +799,4 @@ export declare namespace WriteRecords {
     | ValidationException
     | CommonAwsError;
 }
+

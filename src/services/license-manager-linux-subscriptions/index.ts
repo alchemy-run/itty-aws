@@ -5,24 +5,7 @@ import type { LicenseManagerLinuxSubscriptions as _LicenseManagerLinuxSubscripti
 
 export * from "./types.ts";
 
-export {
-  AccessDeniedException,
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-  type CommonAwsError,
-} from "../../error.ts";
+export {AccessDeniedException, ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, type CommonAwsError} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -31,29 +14,22 @@ const metadata = {
   protocol: "restJson1",
   sigV4ServiceName: "license-manager-linux-subscriptions",
   operations: {
-    DeregisterSubscriptionProvider:
-      "POST /subscription/DeregisterSubscriptionProvider",
-    GetRegisteredSubscriptionProvider:
-      "POST /subscription/GetRegisteredSubscriptionProvider",
-    GetServiceSettings: "POST /subscription/GetServiceSettings",
-    ListLinuxSubscriptionInstances:
-      "POST /subscription/ListLinuxSubscriptionInstances",
-    ListLinuxSubscriptions: "POST /subscription/ListLinuxSubscriptions",
-    ListRegisteredSubscriptionProviders:
-      "POST /subscription/ListRegisteredSubscriptionProviders",
-    ListTagsForResource: "GET /tags/{resourceArn}",
-    RegisterSubscriptionProvider:
-      "POST /subscription/RegisterSubscriptionProvider",
-    TagResource: "PUT /tags/{resourceArn}",
-    UntagResource: "DELETE /tags/{resourceArn}",
-    UpdateServiceSettings: "POST /subscription/UpdateServiceSettings",
+    "DeregisterSubscriptionProvider": "POST /subscription/DeregisterSubscriptionProvider",
+    "GetRegisteredSubscriptionProvider": "POST /subscription/GetRegisteredSubscriptionProvider",
+    "GetServiceSettings": "POST /subscription/GetServiceSettings",
+    "ListLinuxSubscriptionInstances": "POST /subscription/ListLinuxSubscriptionInstances",
+    "ListLinuxSubscriptions": "POST /subscription/ListLinuxSubscriptions",
+    "ListRegisteredSubscriptionProviders": "POST /subscription/ListRegisteredSubscriptionProviders",
+    "ListTagsForResource": "GET /tags/{resourceArn}",
+    "RegisterSubscriptionProvider": "POST /subscription/RegisterSubscriptionProvider",
+    "TagResource": "PUT /tags/{resourceArn}",
+    "UntagResource": "DELETE /tags/{resourceArn}",
+    "UpdateServiceSettings": "POST /subscription/UpdateServiceSettings",
   },
 } as const satisfies ServiceMetadata;
 
-export type _LicenseManagerLinuxSubscriptions =
-  _LicenseManagerLinuxSubscriptionsClient;
-export interface LicenseManagerLinuxSubscriptions
-  extends _LicenseManagerLinuxSubscriptions {}
+export type _LicenseManagerLinuxSubscriptions = _LicenseManagerLinuxSubscriptionsClient;
+export interface LicenseManagerLinuxSubscriptions extends _LicenseManagerLinuxSubscriptions {}
 export const LicenseManagerLinuxSubscriptions = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

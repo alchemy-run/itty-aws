@@ -7,13 +7,7 @@ export declare class CloudTrailData extends AWSServiceClient {
     input: PutAuditEventsRequest,
   ): Effect.Effect<
     PutAuditEventsResponse,
-    | ChannelInsufficientPermission
-    | ChannelNotFound
-    | ChannelUnsupportedSchema
-    | DuplicatedAuditEventId
-    | InvalidChannelARN
-    | UnsupportedOperationException
-    | CommonAwsError
+    ChannelInsufficientPermission | ChannelNotFound | ChannelUnsupportedSchema | DuplicatedAuditEventId | InvalidChannelARN | UnsupportedOperationException | CommonAwsError
   >;
 }
 
@@ -97,3 +91,4 @@ export declare namespace PutAuditEvents {
     | UnsupportedOperationException
     | CommonAwsError;
 }
+

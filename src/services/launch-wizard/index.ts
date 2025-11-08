@@ -5,25 +5,7 @@ import type { LaunchWizard as _LaunchWizardClient } from "./types.ts";
 
 export * from "./types.ts";
 
-export {
-  AccessDeniedException,
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  ThrottlingException,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-  type CommonAwsError,
-} from "../../error.ts";
+export {AccessDeniedException, ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError, type CommonAwsError} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -33,18 +15,18 @@ const metadata = {
   sigV4ServiceName: "launchwizard",
   endpointPrefix: "launchwizard",
   operations: {
-    ListTagsForResource: "GET /tags/{resourceArn}",
-    TagResource: "POST /tags/{resourceArn}",
-    UntagResource: "DELETE /tags/{resourceArn}",
-    CreateDeployment: "POST /createDeployment",
-    DeleteDeployment: "POST /deleteDeployment",
-    GetDeployment: "POST /getDeployment",
-    GetWorkload: "POST /getWorkload",
-    GetWorkloadDeploymentPattern: "POST /getWorkloadDeploymentPattern",
-    ListDeploymentEvents: "POST /listDeploymentEvents",
-    ListDeployments: "POST /listDeployments",
-    ListWorkloadDeploymentPatterns: "POST /listWorkloadDeploymentPatterns",
-    ListWorkloads: "POST /listWorkloads",
+    "ListTagsForResource": "GET /tags/{resourceArn}",
+    "TagResource": "POST /tags/{resourceArn}",
+    "UntagResource": "DELETE /tags/{resourceArn}",
+    "CreateDeployment": "POST /createDeployment",
+    "DeleteDeployment": "POST /deleteDeployment",
+    "GetDeployment": "POST /getDeployment",
+    "GetWorkload": "POST /getWorkload",
+    "GetWorkloadDeploymentPattern": "POST /getWorkloadDeploymentPattern",
+    "ListDeploymentEvents": "POST /listDeploymentEvents",
+    "ListDeployments": "POST /listDeployments",
+    "ListWorkloadDeploymentPatterns": "POST /listWorkloadDeploymentPatterns",
+    "ListWorkloads": "POST /listWorkloads",
   },
 } as const satisfies ServiceMetadata;
 

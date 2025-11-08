@@ -19,41 +19,25 @@ export declare class DirectConnect extends AWSServiceClient {
     input: AllocateHostedConnectionRequest,
   ): Effect.Effect<
     Connection,
-    | DirectConnectClientException
-    | DirectConnectServerException
-    | DuplicateTagKeysException
-    | TooManyTagsException
-    | CommonAwsError
+    DirectConnectClientException | DirectConnectServerException | DuplicateTagKeysException | TooManyTagsException | CommonAwsError
   >;
   allocatePrivateVirtualInterface(
     input: AllocatePrivateVirtualInterfaceRequest,
   ): Effect.Effect<
     VirtualInterface,
-    | DirectConnectClientException
-    | DirectConnectServerException
-    | DuplicateTagKeysException
-    | TooManyTagsException
-    | CommonAwsError
+    DirectConnectClientException | DirectConnectServerException | DuplicateTagKeysException | TooManyTagsException | CommonAwsError
   >;
   allocatePublicVirtualInterface(
     input: AllocatePublicVirtualInterfaceRequest,
   ): Effect.Effect<
     VirtualInterface,
-    | DirectConnectClientException
-    | DirectConnectServerException
-    | DuplicateTagKeysException
-    | TooManyTagsException
-    | CommonAwsError
+    DirectConnectClientException | DirectConnectServerException | DuplicateTagKeysException | TooManyTagsException | CommonAwsError
   >;
   allocateTransitVirtualInterface(
     input: AllocateTransitVirtualInterfaceRequest,
   ): Effect.Effect<
     AllocateTransitVirtualInterfaceResult,
-    | DirectConnectClientException
-    | DirectConnectServerException
-    | DuplicateTagKeysException
-    | TooManyTagsException
-    | CommonAwsError
+    DirectConnectClientException | DirectConnectServerException | DuplicateTagKeysException | TooManyTagsException | CommonAwsError
   >;
   associateConnectionWithLag(
     input: AssociateConnectionWithLagRequest,
@@ -119,11 +103,7 @@ export declare class DirectConnect extends AWSServiceClient {
     input: CreateConnectionRequest,
   ): Effect.Effect<
     Connection,
-    | DirectConnectClientException
-    | DirectConnectServerException
-    | DuplicateTagKeysException
-    | TooManyTagsException
-    | CommonAwsError
+    DirectConnectClientException | DirectConnectServerException | DuplicateTagKeysException | TooManyTagsException | CommonAwsError
   >;
   createDirectConnectGateway(
     input: CreateDirectConnectGatewayRequest,
@@ -147,51 +127,31 @@ export declare class DirectConnect extends AWSServiceClient {
     input: CreateInterconnectRequest,
   ): Effect.Effect<
     Interconnect,
-    | DirectConnectClientException
-    | DirectConnectServerException
-    | DuplicateTagKeysException
-    | TooManyTagsException
-    | CommonAwsError
+    DirectConnectClientException | DirectConnectServerException | DuplicateTagKeysException | TooManyTagsException | CommonAwsError
   >;
   createLag(
     input: CreateLagRequest,
   ): Effect.Effect<
     Lag,
-    | DirectConnectClientException
-    | DirectConnectServerException
-    | DuplicateTagKeysException
-    | TooManyTagsException
-    | CommonAwsError
+    DirectConnectClientException | DirectConnectServerException | DuplicateTagKeysException | TooManyTagsException | CommonAwsError
   >;
   createPrivateVirtualInterface(
     input: CreatePrivateVirtualInterfaceRequest,
   ): Effect.Effect<
     VirtualInterface,
-    | DirectConnectClientException
-    | DirectConnectServerException
-    | DuplicateTagKeysException
-    | TooManyTagsException
-    | CommonAwsError
+    DirectConnectClientException | DirectConnectServerException | DuplicateTagKeysException | TooManyTagsException | CommonAwsError
   >;
   createPublicVirtualInterface(
     input: CreatePublicVirtualInterfaceRequest,
   ): Effect.Effect<
     VirtualInterface,
-    | DirectConnectClientException
-    | DirectConnectServerException
-    | DuplicateTagKeysException
-    | TooManyTagsException
-    | CommonAwsError
+    DirectConnectClientException | DirectConnectServerException | DuplicateTagKeysException | TooManyTagsException | CommonAwsError
   >;
   createTransitVirtualInterface(
     input: CreateTransitVirtualInterfaceRequest,
   ): Effect.Effect<
     CreateTransitVirtualInterfaceResult,
-    | DirectConnectClientException
-    | DirectConnectServerException
-    | DuplicateTagKeysException
-    | TooManyTagsException
-    | CommonAwsError
+    DirectConnectClientException | DirectConnectServerException | DuplicateTagKeysException | TooManyTagsException | CommonAwsError
   >;
   deleteBGPPeer(
     input: DeleteBGPPeerRequest,
@@ -259,7 +219,9 @@ export declare class DirectConnect extends AWSServiceClient {
     Connections,
     DirectConnectClientException | DirectConnectServerException | CommonAwsError
   >;
-  describeCustomerMetadata(input: {}): Effect.Effect<
+  describeCustomerMetadata(
+    input: {},
+  ): Effect.Effect<
     DescribeCustomerMetadataResponse,
     DirectConnectClientException | DirectConnectServerException | CommonAwsError
   >;
@@ -317,7 +279,9 @@ export declare class DirectConnect extends AWSServiceClient {
     Loa,
     DirectConnectClientException | DirectConnectServerException | CommonAwsError
   >;
-  describeLocations(input: {}): Effect.Effect<
+  describeLocations(
+    input: {},
+  ): Effect.Effect<
     Locations,
     DirectConnectClientException | DirectConnectServerException | CommonAwsError
   >;
@@ -333,7 +297,9 @@ export declare class DirectConnect extends AWSServiceClient {
     DescribeTagsResponse,
     DirectConnectClientException | DirectConnectServerException | CommonAwsError
   >;
-  describeVirtualGateways(input: {}): Effect.Effect<
+  describeVirtualGateways(
+    input: {},
+  ): Effect.Effect<
     VirtualGateways,
     DirectConnectClientException | DirectConnectServerException | CommonAwsError
   >;
@@ -377,11 +343,7 @@ export declare class DirectConnect extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | DirectConnectClientException
-    | DirectConnectServerException
-    | DuplicateTagKeysException
-    | TooManyTagsException
-    | CommonAwsError
+    DirectConnectClientException | DirectConnectServerException | DuplicateTagKeysException | TooManyTagsException | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
@@ -534,12 +496,7 @@ export type BGPPeerId = string;
 
 export type BGPPeerIdList = Array<string>;
 export type BGPPeerList = Array<BGPPeer>;
-export type BGPPeerState =
-  | "verifying"
-  | "pending"
-  | "available"
-  | "deleting"
-  | "deleted";
+export type BGPPeerState = "verifying" | "pending" | "available" | "deleting" | "deleted";
 export type BGPStatus = "up" | "down" | "unknown";
 export type BooleanFlag = boolean;
 
@@ -615,16 +572,7 @@ export type ConnectionName = string;
 export interface Connections {
   connections?: Array<Connection>;
 }
-export type ConnectionState =
-  | "ordering"
-  | "requested"
-  | "pending"
-  | "available"
-  | "down"
-  | "deleting"
-  | "deleted"
-  | "rejected"
-  | "unknown";
+export type ConnectionState = "ordering" | "requested" | "pending" | "available" | "down" | "deleting" | "deleted" | "rejected" | "unknown";
 export type CoreNetworkAttachmentId = string;
 
 export type CoreNetworkIdentifier = string;
@@ -893,8 +841,7 @@ export interface DirectConnectGatewayAssociation {
 }
 export type DirectConnectGatewayAssociationId = string;
 
-export type DirectConnectGatewayAssociationList =
-  Array<DirectConnectGatewayAssociation>;
+export type DirectConnectGatewayAssociationList = Array<DirectConnectGatewayAssociation>;
 export interface DirectConnectGatewayAssociationProposal {
   proposalId?: string;
   directConnectGatewayId?: string;
@@ -906,18 +853,9 @@ export interface DirectConnectGatewayAssociationProposal {
 }
 export type DirectConnectGatewayAssociationProposalId = string;
 
-export type DirectConnectGatewayAssociationProposalList =
-  Array<DirectConnectGatewayAssociationProposal>;
-export type DirectConnectGatewayAssociationProposalState =
-  | "requested"
-  | "accepted"
-  | "deleted";
-export type DirectConnectGatewayAssociationState =
-  | "associating"
-  | "associated"
-  | "disassociating"
-  | "disassociated"
-  | "updating";
+export type DirectConnectGatewayAssociationProposalList = Array<DirectConnectGatewayAssociationProposal>;
+export type DirectConnectGatewayAssociationProposalState = "requested" | "accepted" | "deleted";
+export type DirectConnectGatewayAssociationState = "associating" | "associated" | "disassociating" | "disassociated" | "updating";
 export interface DirectConnectGatewayAttachment {
   directConnectGatewayId?: string;
   virtualInterfaceId?: string;
@@ -927,26 +865,15 @@ export interface DirectConnectGatewayAttachment {
   attachmentType?: DirectConnectGatewayAttachmentType;
   stateChangeError?: string;
 }
-export type DirectConnectGatewayAttachmentList =
-  Array<DirectConnectGatewayAttachment>;
-export type DirectConnectGatewayAttachmentState =
-  | "attaching"
-  | "attached"
-  | "detaching"
-  | "detached";
-export type DirectConnectGatewayAttachmentType =
-  | "TransitVirtualInterface"
-  | "PrivateVirtualInterface";
+export type DirectConnectGatewayAttachmentList = Array<DirectConnectGatewayAttachment>;
+export type DirectConnectGatewayAttachmentState = "attaching" | "attached" | "detaching" | "detached";
+export type DirectConnectGatewayAttachmentType = "TransitVirtualInterface" | "PrivateVirtualInterface";
 export type DirectConnectGatewayId = string;
 
 export type DirectConnectGatewayList = Array<DirectConnectGateway>;
 export type DirectConnectGatewayName = string;
 
-export type DirectConnectGatewayState =
-  | "pending"
-  | "available"
-  | "deleting"
-  | "deleted";
+export type DirectConnectGatewayState = "pending" | "available" | "deleting" | "deleted";
 export declare class DirectConnectServerException extends EffectData.TaggedError(
   "DirectConnectServerException",
 )<{
@@ -1014,14 +941,7 @@ export type InterconnectName = string;
 export interface Interconnects {
   interconnects?: Array<Interconnect>;
 }
-export type InterconnectState =
-  | "requested"
-  | "pending"
-  | "available"
-  | "down"
-  | "deleting"
-  | "deleted"
-  | "unknown";
+export type InterconnectState = "requested" | "pending" | "available" | "down" | "deleting" | "deleted" | "unknown";
 export type JumboFrameCapable = boolean;
 
 export interface Lag {
@@ -1055,14 +975,7 @@ export type LagName = string;
 export interface Lags {
   lags?: Array<Lag>;
 }
-export type LagState =
-  | "requested"
-  | "pending"
-  | "available"
-  | "down"
-  | "deleting"
-  | "deleted"
-  | "unknown";
+export type LagState = "requested" | "pending" | "available" | "down" | "deleting" | "deleted" | "unknown";
 export interface ListVirtualInterfaceTestHistoryRequest {
   testId?: string;
   virtualInterfaceId?: string;
@@ -1281,7 +1194,8 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Array<Tag>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export type TestDuration = number;
@@ -1297,7 +1211,8 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateConnectionRequest {
   connectionId: string;
   connectionName?: string;
@@ -1384,17 +1299,7 @@ export type VirtualInterfaceRegion = string;
 export interface VirtualInterfaces {
   virtualInterfaces?: Array<VirtualInterface>;
 }
-export type VirtualInterfaceState =
-  | "confirming"
-  | "verifying"
-  | "pending"
-  | "available"
-  | "down"
-  | "testing"
-  | "deleting"
-  | "deleted"
-  | "rejected"
-  | "unknown";
+export type VirtualInterfaceState = "confirming" | "verifying" | "pending" | "available" | "down" | "testing" | "deleting" | "deleted" | "rejected" | "unknown";
 export interface VirtualInterfaceTestHistory {
   testId?: string;
   virtualInterfaceId?: string;
@@ -1405,8 +1310,7 @@ export interface VirtualInterfaceTestHistory {
   startTime?: Date | string;
   endTime?: Date | string;
 }
-export type VirtualInterfaceTestHistoryList =
-  Array<VirtualInterfaceTestHistory>;
+export type VirtualInterfaceTestHistoryList = Array<VirtualInterfaceTestHistory>;
 export type VirtualInterfaceType = string;
 
 export type VLAN = number;
@@ -2003,3 +1907,4 @@ export declare namespace UpdateVirtualInterfaceAttributes {
     | DirectConnectServerException
     | CommonAwsError;
 }
+

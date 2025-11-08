@@ -5,24 +5,7 @@ import type { SSOOIDC as _SSOOIDCClient } from "./types.ts";
 
 export * from "./types.ts";
 
-export {
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  ThrottlingException,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-  ValidationException,
-  type CommonAwsError,
-} from "../../error.ts";
+export {IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError, ValidationException, type CommonAwsError} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -32,10 +15,10 @@ const metadata = {
   sigV4ServiceName: "sso-oauth",
   endpointPrefix: "oidc",
   operations: {
-    CreateToken: "POST /token",
-    CreateTokenWithIAM: "POST /token?aws_iam=t",
-    RegisterClient: "POST /client/register",
-    StartDeviceAuthorization: "POST /device_authorization",
+    "CreateToken": "POST /token",
+    "CreateTokenWithIAM": "POST /token?aws_iam=t",
+    "RegisterClient": "POST /client/register",
+    "StartDeviceAuthorization": "POST /device_authorization",
   },
 } as const satisfies ServiceMetadata;
 

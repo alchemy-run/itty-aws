@@ -1,39 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-  ValidationException,
-} from "../../error.ts";
-type CommonAwsError =
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | ValidationException
-  | AccessDeniedException
-  | ThrottlingException;
+import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, ValidationException } from "../../error.ts";
+type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | ValidationException | AccessDeniedException | ThrottlingException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class Rekognition extends AWSServiceClient {
@@ -41,1025 +8,451 @@ export declare class Rekognition extends AWSServiceClient {
     input: AssociateFacesRequest,
   ): Effect.Effect<
     AssociateFacesResponse,
-    | AccessDeniedException
-    | ConflictException
-    | IdempotentParameterMismatchException
-    | InternalServerError
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | IdempotentParameterMismatchException | InternalServerError | InvalidParameterException | ProvisionedThroughputExceededException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | CommonAwsError
   >;
   compareFaces(
     input: CompareFacesRequest,
   ): Effect.Effect<
     CompareFacesResponse,
-    | AccessDeniedException
-    | ImageTooLargeException
-    | InternalServerError
-    | InvalidImageFormatException
-    | InvalidParameterException
-    | InvalidS3ObjectException
-    | ProvisionedThroughputExceededException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ImageTooLargeException | InternalServerError | InvalidImageFormatException | InvalidParameterException | InvalidS3ObjectException | ProvisionedThroughputExceededException | ThrottlingException | CommonAwsError
   >;
   copyProjectVersion(
     input: CopyProjectVersionRequest,
   ): Effect.Effect<
     CopyProjectVersionResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidParameterException
-    | LimitExceededException
-    | ProvisionedThroughputExceededException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidParameterException | LimitExceededException | ProvisionedThroughputExceededException | ResourceInUseException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | CommonAwsError
   >;
   createCollection(
     input: CreateCollectionRequest,
   ): Effect.Effect<
     CreateCollectionResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceAlreadyExistsException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidParameterException | ProvisionedThroughputExceededException | ResourceAlreadyExistsException | ServiceQuotaExceededException | ThrottlingException | CommonAwsError
   >;
   createDataset(
     input: CreateDatasetRequest,
   ): Effect.Effect<
     CreateDatasetResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidParameterException
-    | InvalidS3ObjectException
-    | LimitExceededException
-    | ProvisionedThroughputExceededException
-    | ResourceAlreadyExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidParameterException | InvalidS3ObjectException | LimitExceededException | ProvisionedThroughputExceededException | ResourceAlreadyExistsException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   createFaceLivenessSession(
     input: CreateFaceLivenessSessionRequest,
   ): Effect.Effect<
     CreateFaceLivenessSessionResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidParameterException | ProvisionedThroughputExceededException | ThrottlingException | CommonAwsError
   >;
   createProject(
     input: CreateProjectRequest,
   ): Effect.Effect<
     CreateProjectResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidParameterException
-    | LimitExceededException
-    | ProvisionedThroughputExceededException
-    | ResourceInUseException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidParameterException | LimitExceededException | ProvisionedThroughputExceededException | ResourceInUseException | ThrottlingException | CommonAwsError
   >;
   createProjectVersion(
     input: CreateProjectVersionRequest,
   ): Effect.Effect<
     CreateProjectVersionResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidParameterException
-    | LimitExceededException
-    | ProvisionedThroughputExceededException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidParameterException | LimitExceededException | ProvisionedThroughputExceededException | ResourceInUseException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | CommonAwsError
   >;
   createStreamProcessor(
     input: CreateStreamProcessorRequest,
   ): Effect.Effect<
     CreateStreamProcessorResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidParameterException
-    | LimitExceededException
-    | ProvisionedThroughputExceededException
-    | ResourceInUseException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidParameterException | LimitExceededException | ProvisionedThroughputExceededException | ResourceInUseException | ServiceQuotaExceededException | ThrottlingException | CommonAwsError
   >;
   createUser(
     input: CreateUserRequest,
   ): Effect.Effect<
     CreateUserResponse,
-    | AccessDeniedException
-    | ConflictException
-    | IdempotentParameterMismatchException
-    | InternalServerError
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | IdempotentParameterMismatchException | InternalServerError | InvalidParameterException | ProvisionedThroughputExceededException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | CommonAwsError
   >;
   deleteCollection(
     input: DeleteCollectionRequest,
   ): Effect.Effect<
     DeleteCollectionResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidParameterException | ProvisionedThroughputExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   deleteDataset(
     input: DeleteDatasetRequest,
   ): Effect.Effect<
     DeleteDatasetResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidParameterException
-    | LimitExceededException
-    | ProvisionedThroughputExceededException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidParameterException | LimitExceededException | ProvisionedThroughputExceededException | ResourceInUseException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   deleteFaces(
     input: DeleteFacesRequest,
   ): Effect.Effect<
     DeleteFacesResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidParameterException | ProvisionedThroughputExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   deleteProject(
     input: DeleteProjectRequest,
   ): Effect.Effect<
     DeleteProjectResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidParameterException | ProvisionedThroughputExceededException | ResourceInUseException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   deleteProjectPolicy(
     input: DeleteProjectPolicyRequest,
   ): Effect.Effect<
     DeleteProjectPolicyResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidParameterException
-    | InvalidPolicyRevisionIdException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidParameterException | InvalidPolicyRevisionIdException | ProvisionedThroughputExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   deleteProjectVersion(
     input: DeleteProjectVersionRequest,
   ): Effect.Effect<
     DeleteProjectVersionResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidParameterException | ProvisionedThroughputExceededException | ResourceInUseException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   deleteStreamProcessor(
     input: DeleteStreamProcessorRequest,
   ): Effect.Effect<
     DeleteStreamProcessorResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidParameterException | ProvisionedThroughputExceededException | ResourceInUseException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   deleteUser(
     input: DeleteUserRequest,
   ): Effect.Effect<
     DeleteUserResponse,
-    | AccessDeniedException
-    | ConflictException
-    | IdempotentParameterMismatchException
-    | InternalServerError
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | IdempotentParameterMismatchException | InternalServerError | InvalidParameterException | ProvisionedThroughputExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   describeCollection(
     input: DescribeCollectionRequest,
   ): Effect.Effect<
     DescribeCollectionResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidParameterException | ProvisionedThroughputExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   describeDataset(
     input: DescribeDatasetRequest,
   ): Effect.Effect<
     DescribeDatasetResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidParameterException | ProvisionedThroughputExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   describeProjects(
     input: DescribeProjectsRequest,
   ): Effect.Effect<
     DescribeProjectsResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidPaginationTokenException
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidPaginationTokenException | InvalidParameterException | ProvisionedThroughputExceededException | ThrottlingException | CommonAwsError
   >;
   describeProjectVersions(
     input: DescribeProjectVersionsRequest,
   ): Effect.Effect<
     DescribeProjectVersionsResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidPaginationTokenException
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidPaginationTokenException | InvalidParameterException | ProvisionedThroughputExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   describeStreamProcessor(
     input: DescribeStreamProcessorRequest,
   ): Effect.Effect<
     DescribeStreamProcessorResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidParameterException | ProvisionedThroughputExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   detectCustomLabels(
     input: DetectCustomLabelsRequest,
   ): Effect.Effect<
     DetectCustomLabelsResponse,
-    | AccessDeniedException
-    | ImageTooLargeException
-    | InternalServerError
-    | InvalidImageFormatException
-    | InvalidParameterException
-    | InvalidS3ObjectException
-    | LimitExceededException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ResourceNotReadyException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ImageTooLargeException | InternalServerError | InvalidImageFormatException | InvalidParameterException | InvalidS3ObjectException | LimitExceededException | ProvisionedThroughputExceededException | ResourceNotFoundException | ResourceNotReadyException | ThrottlingException | CommonAwsError
   >;
   detectFaces(
     input: DetectFacesRequest,
   ): Effect.Effect<
     DetectFacesResponse,
-    | AccessDeniedException
-    | ImageTooLargeException
-    | InternalServerError
-    | InvalidImageFormatException
-    | InvalidParameterException
-    | InvalidS3ObjectException
-    | ProvisionedThroughputExceededException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ImageTooLargeException | InternalServerError | InvalidImageFormatException | InvalidParameterException | InvalidS3ObjectException | ProvisionedThroughputExceededException | ThrottlingException | CommonAwsError
   >;
   detectLabels(
     input: DetectLabelsRequest,
   ): Effect.Effect<
     DetectLabelsResponse,
-    | AccessDeniedException
-    | ImageTooLargeException
-    | InternalServerError
-    | InvalidImageFormatException
-    | InvalidParameterException
-    | InvalidS3ObjectException
-    | ProvisionedThroughputExceededException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ImageTooLargeException | InternalServerError | InvalidImageFormatException | InvalidParameterException | InvalidS3ObjectException | ProvisionedThroughputExceededException | ThrottlingException | CommonAwsError
   >;
   detectModerationLabels(
     input: DetectModerationLabelsRequest,
   ): Effect.Effect<
     DetectModerationLabelsResponse,
-    | AccessDeniedException
-    | HumanLoopQuotaExceededException
-    | ImageTooLargeException
-    | InternalServerError
-    | InvalidImageFormatException
-    | InvalidParameterException
-    | InvalidS3ObjectException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ResourceNotReadyException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | HumanLoopQuotaExceededException | ImageTooLargeException | InternalServerError | InvalidImageFormatException | InvalidParameterException | InvalidS3ObjectException | ProvisionedThroughputExceededException | ResourceNotFoundException | ResourceNotReadyException | ThrottlingException | CommonAwsError
   >;
   detectProtectiveEquipment(
     input: DetectProtectiveEquipmentRequest,
   ): Effect.Effect<
     DetectProtectiveEquipmentResponse,
-    | AccessDeniedException
-    | ImageTooLargeException
-    | InternalServerError
-    | InvalidImageFormatException
-    | InvalidParameterException
-    | InvalidS3ObjectException
-    | ProvisionedThroughputExceededException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ImageTooLargeException | InternalServerError | InvalidImageFormatException | InvalidParameterException | InvalidS3ObjectException | ProvisionedThroughputExceededException | ThrottlingException | CommonAwsError
   >;
   detectText(
     input: DetectTextRequest,
   ): Effect.Effect<
     DetectTextResponse,
-    | AccessDeniedException
-    | ImageTooLargeException
-    | InternalServerError
-    | InvalidImageFormatException
-    | InvalidParameterException
-    | InvalidS3ObjectException
-    | ProvisionedThroughputExceededException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ImageTooLargeException | InternalServerError | InvalidImageFormatException | InvalidParameterException | InvalidS3ObjectException | ProvisionedThroughputExceededException | ThrottlingException | CommonAwsError
   >;
   disassociateFaces(
     input: DisassociateFacesRequest,
   ): Effect.Effect<
     DisassociateFacesResponse,
-    | AccessDeniedException
-    | ConflictException
-    | IdempotentParameterMismatchException
-    | InternalServerError
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | IdempotentParameterMismatchException | InternalServerError | InvalidParameterException | ProvisionedThroughputExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   distributeDatasetEntries(
     input: DistributeDatasetEntriesRequest,
   ): Effect.Effect<
     DistributeDatasetEntriesResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ResourceNotReadyException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidParameterException | ProvisionedThroughputExceededException | ResourceNotFoundException | ResourceNotReadyException | ThrottlingException | CommonAwsError
   >;
   getCelebrityInfo(
     input: GetCelebrityInfoRequest,
   ): Effect.Effect<
     GetCelebrityInfoResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidParameterException | ProvisionedThroughputExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   getCelebrityRecognition(
     input: GetCelebrityRecognitionRequest,
   ): Effect.Effect<
     GetCelebrityRecognitionResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidPaginationTokenException
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidPaginationTokenException | InvalidParameterException | ProvisionedThroughputExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   getContentModeration(
     input: GetContentModerationRequest,
   ): Effect.Effect<
     GetContentModerationResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidPaginationTokenException
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidPaginationTokenException | InvalidParameterException | ProvisionedThroughputExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   getFaceDetection(
     input: GetFaceDetectionRequest,
   ): Effect.Effect<
     GetFaceDetectionResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidPaginationTokenException
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidPaginationTokenException | InvalidParameterException | ProvisionedThroughputExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   getFaceLivenessSessionResults(
     input: GetFaceLivenessSessionResultsRequest,
   ): Effect.Effect<
     GetFaceLivenessSessionResultsResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | SessionNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidParameterException | ProvisionedThroughputExceededException | SessionNotFoundException | ThrottlingException | CommonAwsError
   >;
   getFaceSearch(
     input: GetFaceSearchRequest,
   ): Effect.Effect<
     GetFaceSearchResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidPaginationTokenException
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidPaginationTokenException | InvalidParameterException | ProvisionedThroughputExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   getLabelDetection(
     input: GetLabelDetectionRequest,
   ): Effect.Effect<
     GetLabelDetectionResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidPaginationTokenException
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidPaginationTokenException | InvalidParameterException | ProvisionedThroughputExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   getMediaAnalysisJob(
     input: GetMediaAnalysisJobRequest,
   ): Effect.Effect<
     GetMediaAnalysisJobResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidParameterException | ProvisionedThroughputExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   getPersonTracking(
     input: GetPersonTrackingRequest,
   ): Effect.Effect<
     GetPersonTrackingResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidPaginationTokenException
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidPaginationTokenException | InvalidParameterException | ProvisionedThroughputExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   getSegmentDetection(
     input: GetSegmentDetectionRequest,
   ): Effect.Effect<
     GetSegmentDetectionResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidPaginationTokenException
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidPaginationTokenException | InvalidParameterException | ProvisionedThroughputExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   getTextDetection(
     input: GetTextDetectionRequest,
   ): Effect.Effect<
     GetTextDetectionResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidPaginationTokenException
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidPaginationTokenException | InvalidParameterException | ProvisionedThroughputExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   indexFaces(
     input: IndexFacesRequest,
   ): Effect.Effect<
     IndexFacesResponse,
-    | AccessDeniedException
-    | ImageTooLargeException
-    | InternalServerError
-    | InvalidImageFormatException
-    | InvalidParameterException
-    | InvalidS3ObjectException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ImageTooLargeException | InternalServerError | InvalidImageFormatException | InvalidParameterException | InvalidS3ObjectException | ProvisionedThroughputExceededException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | CommonAwsError
   >;
   listCollections(
     input: ListCollectionsRequest,
   ): Effect.Effect<
     ListCollectionsResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidPaginationTokenException
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidPaginationTokenException | InvalidParameterException | ProvisionedThroughputExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   listDatasetEntries(
     input: ListDatasetEntriesRequest,
   ): Effect.Effect<
     ListDatasetEntriesResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidPaginationTokenException
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | ResourceNotReadyException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidPaginationTokenException | InvalidParameterException | ProvisionedThroughputExceededException | ResourceInUseException | ResourceNotFoundException | ResourceNotReadyException | ThrottlingException | CommonAwsError
   >;
   listDatasetLabels(
     input: ListDatasetLabelsRequest,
   ): Effect.Effect<
     ListDatasetLabelsResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidPaginationTokenException
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | ResourceNotReadyException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidPaginationTokenException | InvalidParameterException | ProvisionedThroughputExceededException | ResourceInUseException | ResourceNotFoundException | ResourceNotReadyException | ThrottlingException | CommonAwsError
   >;
   listFaces(
     input: ListFacesRequest,
   ): Effect.Effect<
     ListFacesResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidPaginationTokenException
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidPaginationTokenException | InvalidParameterException | ProvisionedThroughputExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   listMediaAnalysisJobs(
     input: ListMediaAnalysisJobsRequest,
   ): Effect.Effect<
     ListMediaAnalysisJobsResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidPaginationTokenException
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidPaginationTokenException | InvalidParameterException | ProvisionedThroughputExceededException | ThrottlingException | CommonAwsError
   >;
   listProjectPolicies(
     input: ListProjectPoliciesRequest,
   ): Effect.Effect<
     ListProjectPoliciesResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidPaginationTokenException
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidPaginationTokenException | InvalidParameterException | ProvisionedThroughputExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   listStreamProcessors(
     input: ListStreamProcessorsRequest,
   ): Effect.Effect<
     ListStreamProcessorsResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidPaginationTokenException
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidPaginationTokenException | InvalidParameterException | ProvisionedThroughputExceededException | ThrottlingException | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidParameterException | ProvisionedThroughputExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   listUsers(
     input: ListUsersRequest,
   ): Effect.Effect<
     ListUsersResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidPaginationTokenException
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidPaginationTokenException | InvalidParameterException | ProvisionedThroughputExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   putProjectPolicy(
     input: PutProjectPolicyRequest,
   ): Effect.Effect<
     PutProjectPolicyResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidParameterException
-    | InvalidPolicyRevisionIdException
-    | LimitExceededException
-    | MalformedPolicyDocumentException
-    | ProvisionedThroughputExceededException
-    | ResourceAlreadyExistsException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidParameterException | InvalidPolicyRevisionIdException | LimitExceededException | MalformedPolicyDocumentException | ProvisionedThroughputExceededException | ResourceAlreadyExistsException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | CommonAwsError
   >;
   recognizeCelebrities(
     input: RecognizeCelebritiesRequest,
   ): Effect.Effect<
     RecognizeCelebritiesResponse,
-    | AccessDeniedException
-    | ImageTooLargeException
-    | InternalServerError
-    | InvalidImageFormatException
-    | InvalidParameterException
-    | InvalidS3ObjectException
-    | ProvisionedThroughputExceededException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ImageTooLargeException | InternalServerError | InvalidImageFormatException | InvalidParameterException | InvalidS3ObjectException | ProvisionedThroughputExceededException | ThrottlingException | CommonAwsError
   >;
   searchFaces(
     input: SearchFacesRequest,
   ): Effect.Effect<
     SearchFacesResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidParameterException | ProvisionedThroughputExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   searchFacesByImage(
     input: SearchFacesByImageRequest,
   ): Effect.Effect<
     SearchFacesByImageResponse,
-    | AccessDeniedException
-    | ImageTooLargeException
-    | InternalServerError
-    | InvalidImageFormatException
-    | InvalidParameterException
-    | InvalidS3ObjectException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ImageTooLargeException | InternalServerError | InvalidImageFormatException | InvalidParameterException | InvalidS3ObjectException | ProvisionedThroughputExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   searchUsers(
     input: SearchUsersRequest,
   ): Effect.Effect<
     SearchUsersResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidParameterException | ProvisionedThroughputExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   searchUsersByImage(
     input: SearchUsersByImageRequest,
   ): Effect.Effect<
     SearchUsersByImageResponse,
-    | AccessDeniedException
-    | ImageTooLargeException
-    | InternalServerError
-    | InvalidImageFormatException
-    | InvalidParameterException
-    | InvalidS3ObjectException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ImageTooLargeException | InternalServerError | InvalidImageFormatException | InvalidParameterException | InvalidS3ObjectException | ProvisionedThroughputExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   startCelebrityRecognition(
     input: StartCelebrityRecognitionRequest,
   ): Effect.Effect<
     StartCelebrityRecognitionResponse,
-    | AccessDeniedException
-    | IdempotentParameterMismatchException
-    | InternalServerError
-    | InvalidParameterException
-    | InvalidS3ObjectException
-    | LimitExceededException
-    | ProvisionedThroughputExceededException
-    | ThrottlingException
-    | VideoTooLargeException
-    | CommonAwsError
+    AccessDeniedException | IdempotentParameterMismatchException | InternalServerError | InvalidParameterException | InvalidS3ObjectException | LimitExceededException | ProvisionedThroughputExceededException | ThrottlingException | VideoTooLargeException | CommonAwsError
   >;
   startContentModeration(
     input: StartContentModerationRequest,
   ): Effect.Effect<
     StartContentModerationResponse,
-    | AccessDeniedException
-    | IdempotentParameterMismatchException
-    | InternalServerError
-    | InvalidParameterException
-    | InvalidS3ObjectException
-    | LimitExceededException
-    | ProvisionedThroughputExceededException
-    | ThrottlingException
-    | VideoTooLargeException
-    | CommonAwsError
+    AccessDeniedException | IdempotentParameterMismatchException | InternalServerError | InvalidParameterException | InvalidS3ObjectException | LimitExceededException | ProvisionedThroughputExceededException | ThrottlingException | VideoTooLargeException | CommonAwsError
   >;
   startFaceDetection(
     input: StartFaceDetectionRequest,
   ): Effect.Effect<
     StartFaceDetectionResponse,
-    | AccessDeniedException
-    | IdempotentParameterMismatchException
-    | InternalServerError
-    | InvalidParameterException
-    | InvalidS3ObjectException
-    | LimitExceededException
-    | ProvisionedThroughputExceededException
-    | ThrottlingException
-    | VideoTooLargeException
-    | CommonAwsError
+    AccessDeniedException | IdempotentParameterMismatchException | InternalServerError | InvalidParameterException | InvalidS3ObjectException | LimitExceededException | ProvisionedThroughputExceededException | ThrottlingException | VideoTooLargeException | CommonAwsError
   >;
   startFaceSearch(
     input: StartFaceSearchRequest,
   ): Effect.Effect<
     StartFaceSearchResponse,
-    | AccessDeniedException
-    | IdempotentParameterMismatchException
-    | InternalServerError
-    | InvalidParameterException
-    | InvalidS3ObjectException
-    | LimitExceededException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | VideoTooLargeException
-    | CommonAwsError
+    AccessDeniedException | IdempotentParameterMismatchException | InternalServerError | InvalidParameterException | InvalidS3ObjectException | LimitExceededException | ProvisionedThroughputExceededException | ResourceNotFoundException | ThrottlingException | VideoTooLargeException | CommonAwsError
   >;
   startLabelDetection(
     input: StartLabelDetectionRequest,
   ): Effect.Effect<
     StartLabelDetectionResponse,
-    | AccessDeniedException
-    | IdempotentParameterMismatchException
-    | InternalServerError
-    | InvalidParameterException
-    | InvalidS3ObjectException
-    | LimitExceededException
-    | ProvisionedThroughputExceededException
-    | ThrottlingException
-    | VideoTooLargeException
-    | CommonAwsError
+    AccessDeniedException | IdempotentParameterMismatchException | InternalServerError | InvalidParameterException | InvalidS3ObjectException | LimitExceededException | ProvisionedThroughputExceededException | ThrottlingException | VideoTooLargeException | CommonAwsError
   >;
   startMediaAnalysisJob(
     input: StartMediaAnalysisJobRequest,
   ): Effect.Effect<
     StartMediaAnalysisJobResponse,
-    | AccessDeniedException
-    | IdempotentParameterMismatchException
-    | InternalServerError
-    | InvalidManifestException
-    | InvalidParameterException
-    | InvalidS3ObjectException
-    | LimitExceededException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ResourceNotReadyException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | IdempotentParameterMismatchException | InternalServerError | InvalidManifestException | InvalidParameterException | InvalidS3ObjectException | LimitExceededException | ProvisionedThroughputExceededException | ResourceNotFoundException | ResourceNotReadyException | ThrottlingException | CommonAwsError
   >;
   startPersonTracking(
     input: StartPersonTrackingRequest,
   ): Effect.Effect<
     StartPersonTrackingResponse,
-    | AccessDeniedException
-    | IdempotentParameterMismatchException
-    | InternalServerError
-    | InvalidParameterException
-    | InvalidS3ObjectException
-    | LimitExceededException
-    | ProvisionedThroughputExceededException
-    | ThrottlingException
-    | VideoTooLargeException
-    | CommonAwsError
+    AccessDeniedException | IdempotentParameterMismatchException | InternalServerError | InvalidParameterException | InvalidS3ObjectException | LimitExceededException | ProvisionedThroughputExceededException | ThrottlingException | VideoTooLargeException | CommonAwsError
   >;
   startProjectVersion(
     input: StartProjectVersionRequest,
   ): Effect.Effect<
     StartProjectVersionResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidParameterException
-    | LimitExceededException
-    | ProvisionedThroughputExceededException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidParameterException | LimitExceededException | ProvisionedThroughputExceededException | ResourceInUseException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   startSegmentDetection(
     input: StartSegmentDetectionRequest,
   ): Effect.Effect<
     StartSegmentDetectionResponse,
-    | AccessDeniedException
-    | IdempotentParameterMismatchException
-    | InternalServerError
-    | InvalidParameterException
-    | InvalidS3ObjectException
-    | LimitExceededException
-    | ProvisionedThroughputExceededException
-    | ThrottlingException
-    | VideoTooLargeException
-    | CommonAwsError
+    AccessDeniedException | IdempotentParameterMismatchException | InternalServerError | InvalidParameterException | InvalidS3ObjectException | LimitExceededException | ProvisionedThroughputExceededException | ThrottlingException | VideoTooLargeException | CommonAwsError
   >;
   startStreamProcessor(
     input: StartStreamProcessorRequest,
   ): Effect.Effect<
     StartStreamProcessorResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidParameterException | ProvisionedThroughputExceededException | ResourceInUseException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   startTextDetection(
     input: StartTextDetectionRequest,
   ): Effect.Effect<
     StartTextDetectionResponse,
-    | AccessDeniedException
-    | IdempotentParameterMismatchException
-    | InternalServerError
-    | InvalidParameterException
-    | InvalidS3ObjectException
-    | LimitExceededException
-    | ProvisionedThroughputExceededException
-    | ThrottlingException
-    | VideoTooLargeException
-    | CommonAwsError
+    AccessDeniedException | IdempotentParameterMismatchException | InternalServerError | InvalidParameterException | InvalidS3ObjectException | LimitExceededException | ProvisionedThroughputExceededException | ThrottlingException | VideoTooLargeException | CommonAwsError
   >;
   stopProjectVersion(
     input: StopProjectVersionRequest,
   ): Effect.Effect<
     StopProjectVersionResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidParameterException | ProvisionedThroughputExceededException | ResourceInUseException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   stopStreamProcessor(
     input: StopStreamProcessorRequest,
   ): Effect.Effect<
     StopStreamProcessorResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidParameterException | ProvisionedThroughputExceededException | ResourceInUseException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidParameterException | ProvisionedThroughputExceededException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidParameterException | ProvisionedThroughputExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   updateDatasetEntries(
     input: UpdateDatasetEntriesRequest,
   ): Effect.Effect<
     UpdateDatasetEntriesResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidParameterException
-    | LimitExceededException
-    | ProvisionedThroughputExceededException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidParameterException | LimitExceededException | ProvisionedThroughputExceededException | ResourceInUseException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   updateStreamProcessor(
     input: UpdateStreamProcessorRequest,
   ): Effect.Effect<
     UpdateStreamProcessorResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidParameterException | ProvisionedThroughputExceededException | ResourceInUseException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
 }
 
@@ -1094,21 +487,7 @@ export interface AssociateFacesResponse {
   UnsuccessfulFaceAssociations?: Array<UnsuccessfulFaceAssociation>;
   UserStatus?: UserStatus;
 }
-export type Attribute =
-  | "DEFAULT"
-  | "ALL"
-  | "AGE_RANGE"
-  | "BEARD"
-  | "EMOTIONS"
-  | "EYE_DIRECTION"
-  | "EYEGLASSES"
-  | "EYES_OPEN"
-  | "GENDER"
-  | "MOUTH_OPEN"
-  | "MUSTACHE"
-  | "FACE_OCCLUDED"
-  | "SMILE"
-  | "SUNGLASSES";
+export type Attribute = "DEFAULT" | "ALL" | "AGE_RANGE" | "BEARD" | "EMOTIONS" | "EYE_DIRECTION" | "EYEGLASSES" | "EYES_OPEN" | "GENDER" | "MOUTH_OPEN" | "MUSTACHE" | "FACE_OCCLUDED" | "SMILE" | "SUNGLASSES";
 export type Attributes = Array<Attribute>;
 export interface AudioMetadata {
   Codec?: string;
@@ -1180,9 +559,7 @@ export interface ChallengePreference {
   Versions?: Versions;
 }
 export type ChallengePreferences = Array<ChallengePreference>;
-export type ChallengeType =
-  | "FaceMovementAndLightChallenge"
-  | "FaceMovementChallenge";
+export type ChallengeType = "FaceMovementAndLightChallenge" | "FaceMovementChallenge";
 export type ClientRequestToken = string;
 
 export type CollectionId = string;
@@ -1239,9 +616,7 @@ export interface ConnectedHomeSettingsForUpdate {
   Labels?: Array<string>;
   MinConfidence?: number;
 }
-export type ContentClassifier =
-  | "FreeOfPersonallyIdentifiableInformation"
-  | "FreeOfAdultContent";
+export type ContentClassifier = "FreeOfPersonallyIdentifiableInformation" | "FreeOfAdultContent";
 export type ContentClassifiers = Array<ContentClassifier>;
 export type ContentModerationAggregateBy = "TIMESTAMPS" | "SEGMENTS";
 export interface ContentModerationDetection {
@@ -1349,7 +724,8 @@ export interface CreateUserRequest {
   UserId: string;
   ClientRequestToken?: string;
 }
-export interface CreateUserResponse {}
+export interface CreateUserResponse {
+}
 export type CustomizationFeature = "CONTENT_MODERATION" | "CUSTOM_LABELS";
 export interface CustomizationFeatureConfig {
   ContentModeration?: CustomizationFeatureContentModerationConfig;
@@ -1411,18 +787,8 @@ export interface DatasetStats {
   TotalLabels?: number;
   ErrorEntries?: number;
 }
-export type DatasetStatus =
-  | "CREATE_IN_PROGRESS"
-  | "CREATE_COMPLETE"
-  | "CREATE_FAILED"
-  | "UPDATE_IN_PROGRESS"
-  | "UPDATE_COMPLETE"
-  | "UPDATE_FAILED"
-  | "DELETE_IN_PROGRESS";
-export type DatasetStatusMessageCode =
-  | "SUCCESS"
-  | "SERVICE_ERROR"
-  | "CLIENT_ERROR";
+export type DatasetStatus = "CREATE_IN_PROGRESS" | "CREATE_COMPLETE" | "CREATE_FAILED" | "UPDATE_IN_PROGRESS" | "UPDATE_COMPLETE" | "UPDATE_FAILED" | "DELETE_IN_PROGRESS";
+export type DatasetStatusMessageCode = "SUCCESS" | "SERVICE_ERROR" | "CLIENT_ERROR";
 export type DatasetType = "TRAIN" | "TEST";
 export type DateTime = Date | string;
 
@@ -1437,7 +803,8 @@ export interface DeleteCollectionResponse {
 export interface DeleteDatasetRequest {
   DatasetArn: string;
 }
-export interface DeleteDatasetResponse {}
+export interface DeleteDatasetResponse {
+}
 export interface DeleteFacesRequest {
   CollectionId: string;
   FaceIds: Array<string>;
@@ -1451,7 +818,8 @@ export interface DeleteProjectPolicyRequest {
   PolicyName: string;
   PolicyRevisionId?: string;
 }
-export interface DeleteProjectPolicyResponse {}
+export interface DeleteProjectPolicyResponse {
+}
 export interface DeleteProjectRequest {
   ProjectArn: string;
 }
@@ -1467,13 +835,15 @@ export interface DeleteProjectVersionResponse {
 export interface DeleteStreamProcessorRequest {
   Name: string;
 }
-export interface DeleteStreamProcessorResponse {}
+export interface DeleteStreamProcessorResponse {
+}
 export interface DeleteUserRequest {
   CollectionId: string;
   UserId: string;
   ClientRequestToken?: string;
 }
-export interface DeleteUserResponse {}
+export interface DeleteUserResponse {
+}
 export interface DescribeCollectionRequest {
   CollectionId: string;
 }
@@ -1649,7 +1019,8 @@ export interface DistributeDataset {
 export interface DistributeDatasetEntriesRequest {
   Datasets: Array<DistributeDataset>;
 }
-export interface DistributeDatasetEntriesResponse {}
+export interface DistributeDatasetEntriesResponse {
+}
 export type DistributeDatasetMetadataList = Array<DistributeDataset>;
 export interface DominantColor {
   Red?: number;
@@ -1665,16 +1036,7 @@ export interface Emotion {
   Type?: EmotionName;
   Confidence?: number;
 }
-export type EmotionName =
-  | "HAPPY"
-  | "SAD"
-  | "ANGRY"
-  | "CONFUSED"
-  | "DISGUSTED"
-  | "SURPRISED"
-  | "CALM"
-  | "UNKNOWN"
-  | "FEAR";
+export type EmotionName = "HAPPY" | "SAD" | "ANGRY" | "CONFUSED" | "DISGUSTED" | "SURPRISED" | "CALM" | "UNKNOWN" | "FEAR";
 export type Emotions = Array<Emotion>;
 export interface EquipmentDetection {
   BoundingBox?: BoundingBox;
@@ -2165,37 +1527,7 @@ export interface Landmark {
   Y?: number;
 }
 export type Landmarks = Array<Landmark>;
-export type LandmarkType =
-  | "eyeLeft"
-  | "eyeRight"
-  | "nose"
-  | "mouthLeft"
-  | "mouthRight"
-  | "leftEyeBrowLeft"
-  | "leftEyeBrowRight"
-  | "leftEyeBrowUp"
-  | "rightEyeBrowLeft"
-  | "rightEyeBrowRight"
-  | "rightEyeBrowUp"
-  | "leftEyeLeft"
-  | "leftEyeRight"
-  | "leftEyeUp"
-  | "leftEyeDown"
-  | "rightEyeLeft"
-  | "rightEyeRight"
-  | "rightEyeUp"
-  | "rightEyeDown"
-  | "noseLeft"
-  | "noseRight"
-  | "mouthUp"
-  | "mouthDown"
-  | "leftPupil"
-  | "rightPupil"
-  | "upperJawlineLeft"
-  | "midJawlineLeft"
-  | "chinBottom"
-  | "midJawlineRight"
-  | "upperJawlineRight";
+export type LandmarkType = "eyeLeft" | "eyeRight" | "nose" | "mouthLeft" | "mouthRight" | "leftEyeBrowLeft" | "leftEyeBrowRight" | "leftEyeBrowUp" | "rightEyeBrowLeft" | "rightEyeBrowRight" | "rightEyeBrowUp" | "leftEyeLeft" | "leftEyeRight" | "leftEyeUp" | "leftEyeDown" | "rightEyeLeft" | "rightEyeRight" | "rightEyeUp" | "rightEyeDown" | "noseLeft" | "noseRight" | "mouthUp" | "mouthDown" | "leftPupil" | "rightPupil" | "upperJawlineLeft" | "midJawlineLeft" | "chinBottom" | "midJawlineRight" | "upperJawlineRight";
 export declare class LimitExceededException extends EffectData.TaggedError(
   "LimitExceededException",
 )<{
@@ -2304,12 +1636,7 @@ export type LivenessS3KeyPrefix = string;
 
 export type LivenessSessionId = string;
 
-export type LivenessSessionStatus =
-  | "CREATED"
-  | "IN_PROGRESS"
-  | "SUCCEEDED"
-  | "FAILED"
-  | "EXPIRED";
+export type LivenessSessionStatus = "CREATED" | "IN_PROGRESS" | "SUCCEEDED" | "FAILED" | "EXPIRED";
 export declare class MalformedPolicyDocumentException extends EffectData.TaggedError(
   "MalformedPolicyDocumentException",
 )<{
@@ -2355,16 +1682,7 @@ export interface MediaAnalysisJobDescription {
   ManifestSummary?: MediaAnalysisManifestSummary;
 }
 export type MediaAnalysisJobDescriptions = Array<MediaAnalysisJobDescription>;
-export type MediaAnalysisJobFailureCode =
-  | "INTERNAL_ERROR"
-  | "INVALID_S3_OBJECT"
-  | "INVALID_MANIFEST"
-  | "INVALID_OUTPUT_CONFIG"
-  | "INVALID_KMS_KEY"
-  | "ACCESS_DENIED"
-  | "RESOURCE_NOT_FOUND"
-  | "RESOURCE_NOT_READY"
-  | "THROTTLED";
+export type MediaAnalysisJobFailureCode = "INTERNAL_ERROR" | "INVALID_S3_OBJECT" | "INVALID_MANIFEST" | "INVALID_OUTPUT_CONFIG" | "INVALID_KMS_KEY" | "ACCESS_DENIED" | "RESOURCE_NOT_FOUND" | "RESOURCE_NOT_READY" | "THROTTLED";
 export interface MediaAnalysisJobFailureDetails {
   Code?: MediaAnalysisJobFailureCode;
   Message?: string;
@@ -2373,12 +1691,7 @@ export type MediaAnalysisJobId = string;
 
 export type MediaAnalysisJobName = string;
 
-export type MediaAnalysisJobStatus =
-  | "CREATED"
-  | "QUEUED"
-  | "IN_PROGRESS"
-  | "SUCCEEDED"
-  | "FAILED";
+export type MediaAnalysisJobStatus = "CREATED" | "QUEUED" | "IN_PROGRESS" | "SUCCEEDED" | "FAILED";
 export interface MediaAnalysisManifestSummary {
   S3Object?: S3Object;
 }
@@ -2419,11 +1732,7 @@ export interface NotificationChannel {
   SNSTopicArn: string;
   RoleArn: string;
 }
-export type OrientationCorrection =
-  | "ROTATE_0"
-  | "ROTATE_90"
-  | "ROTATE_180"
-  | "ROTATE_270";
+export type OrientationCorrection = "ROTATE_0" | "ROTATE_90" | "ROTATE_180" | "ROTATE_270";
 export interface OutputConfig {
   S3Bucket?: string;
   S3KeyPrefix?: string;
@@ -2528,21 +1837,7 @@ export type ProjectVersionId = string;
 
 export type ProjectVersionsPageSize = number;
 
-export type ProjectVersionStatus =
-  | "TRAINING_IN_PROGRESS"
-  | "TRAINING_COMPLETED"
-  | "TRAINING_FAILED"
-  | "STARTING"
-  | "RUNNING"
-  | "FAILED"
-  | "STOPPING"
-  | "STOPPED"
-  | "DELETING"
-  | "COPYING_IN_PROGRESS"
-  | "COPYING_COMPLETED"
-  | "COPYING_FAILED"
-  | "DEPRECATED"
-  | "EXPIRED";
+export type ProjectVersionStatus = "TRAINING_IN_PROGRESS" | "TRAINING_COMPLETED" | "TRAINING_FAILED" | "STARTING" | "RUNNING" | "FAILED" | "STOPPING" | "STOPPED" | "DELETING" | "COPYING_IN_PROGRESS" | "COPYING_COMPLETED" | "COPYING_FAILED" | "DEPRECATED" | "EXPIRED";
 export interface ProtectiveEquipmentBodyPart {
   Name?: BodyPart;
   Confidence?: number;
@@ -2565,10 +1860,7 @@ export interface ProtectiveEquipmentSummary {
   PersonsWithoutRequiredEquipment?: Array<number>;
   PersonsIndeterminate?: Array<number>;
 }
-export type ProtectiveEquipmentType =
-  | "FACE_COVER"
-  | "HAND_COVER"
-  | "HEAD_COVER";
+export type ProtectiveEquipmentType = "FACE_COVER" | "HAND_COVER" | "HEAD_COVER";
 export type ProtectiveEquipmentTypes = Array<ProtectiveEquipmentType>;
 export declare class ProvisionedThroughputExceededException extends EffectData.TaggedError(
   "ProvisionedThroughputExceededException",
@@ -2589,14 +1881,7 @@ export interface PutProjectPolicyResponse {
 export type QualityFilter = "NONE" | "AUTO" | "LOW" | "MEDIUM" | "HIGH";
 export type QueryString = string;
 
-export type Reason =
-  | "EXCEEDS_MAX_FACES"
-  | "EXTREME_POSE"
-  | "LOW_BRIGHTNESS"
-  | "LOW_SHARPNESS"
-  | "LOW_CONFIDENCE"
-  | "SMALL_BOUNDING_BOX"
-  | "LOW_FACE_QUALITY";
+export type Reason = "EXCEEDS_MAX_FACES" | "EXTREME_POSE" | "LOW_BRIGHTNESS" | "LOW_SHARPNESS" | "LOW_CONFIDENCE" | "SMALL_BOUNDING_BOX" | "LOW_FACE_QUALITY";
 export type Reasons = Array<Reason>;
 export interface RecognizeCelebritiesRequest {
   Image: Image;
@@ -2906,7 +2191,8 @@ export interface StopProjectVersionResponse {
 export interface StopStreamProcessorRequest {
   Name: string;
 }
-export interface StopStreamProcessorResponse {}
+export interface StopStreamProcessorResponse {
+}
 export interface StreamProcessingStartSelector {
   KVSStreamStartSelector?: KinesisVideoStreamStartSelector;
 }
@@ -2935,11 +2221,8 @@ export interface StreamProcessorOutput {
   KinesisDataStream?: KinesisDataStream;
   S3Destination?: S3Destination;
 }
-export type StreamProcessorParametersToDelete =
-  Array<StreamProcessorParameterToDelete>;
-export type StreamProcessorParameterToDelete =
-  | "ConnectedHomeMinConfidence"
-  | "RegionsOfInterest";
+export type StreamProcessorParametersToDelete = Array<StreamProcessorParameterToDelete>;
+export type StreamProcessorParameterToDelete = "ConnectedHomeMinConfidence" | "RegionsOfInterest";
 export interface StreamProcessorSettings {
   FaceSearch?: FaceSearchSettings;
   ConnectedHome?: ConnectedHomeSettings;
@@ -2947,13 +2230,7 @@ export interface StreamProcessorSettings {
 export interface StreamProcessorSettingsForUpdate {
   ConnectedHomeForUpdate?: ConnectedHomeSettingsForUpdate;
 }
-export type StreamProcessorStatus =
-  | "STOPPED"
-  | "STARTING"
-  | "RUNNING"
-  | "FAILED"
-  | "STOPPING"
-  | "UPDATING";
+export type StreamProcessorStatus = "STOPPED" | "STARTING" | "RUNNING" | "FAILED" | "STOPPING" | "UPDATING";
 export type RekognitionString = string;
 
 export interface Summary {
@@ -2963,8 +2240,7 @@ export interface Sunglasses {
   Value?: boolean;
   Confidence?: number;
 }
-export type SynthesizedJsonHumanLoopActivationConditionsEvaluationResults =
-  string;
+export type SynthesizedJsonHumanLoopActivationConditionsEvaluationResults = string;
 
 export type TagKey = string;
 
@@ -2974,21 +2250,15 @@ export interface TagResourceRequest {
   ResourceArn: string;
   Tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export interface TechnicalCueSegment {
   Type?: TechnicalCueType;
   Confidence?: number;
 }
-export type TechnicalCueType =
-  | "ColorBars"
-  | "EndCredits"
-  | "BlackFrames"
-  | "OpeningCredits"
-  | "StudioLogo"
-  | "Slate"
-  | "Content";
+export type TechnicalCueType = "ColorBars" | "EndCredits" | "BlackFrames" | "OpeningCredits" | "StudioLogo" | "Slate" | "Content";
 export interface TestingData {
   Assets?: Array<Asset>;
   AutoCreate?: boolean;
@@ -3045,15 +2315,7 @@ export interface UnsearchedFace {
   FaceDetails?: FaceDetail;
   Reasons?: Array<UnsearchedFaceReason>;
 }
-export type UnsearchedFaceReason =
-  | "FACE_NOT_LARGEST"
-  | "EXCEEDS_MAX_FACES"
-  | "EXTREME_POSE"
-  | "LOW_BRIGHTNESS"
-  | "LOW_SHARPNESS"
-  | "LOW_CONFIDENCE"
-  | "SMALL_BOUNDING_BOX"
-  | "LOW_FACE_QUALITY";
+export type UnsearchedFaceReason = "FACE_NOT_LARGEST" | "EXCEEDS_MAX_FACES" | "EXTREME_POSE" | "LOW_BRIGHTNESS" | "LOW_SHARPNESS" | "LOW_CONFIDENCE" | "SMALL_BOUNDING_BOX" | "LOW_FACE_QUALITY";
 export type UnsearchedFaceReasons = Array<UnsearchedFaceReason>;
 export type UnsearchedFacesList = Array<UnsearchedFace>;
 export interface UnsuccessfulFaceAssociation {
@@ -3062,47 +2324,37 @@ export interface UnsuccessfulFaceAssociation {
   Confidence?: number;
   Reasons?: Array<UnsuccessfulFaceAssociationReason>;
 }
-export type UnsuccessfulFaceAssociationList =
-  Array<UnsuccessfulFaceAssociation>;
-export type UnsuccessfulFaceAssociationReason =
-  | "FACE_NOT_FOUND"
-  | "ASSOCIATED_TO_A_DIFFERENT_USER"
-  | "LOW_MATCH_CONFIDENCE";
-export type UnsuccessfulFaceAssociationReasons =
-  Array<UnsuccessfulFaceAssociationReason>;
+export type UnsuccessfulFaceAssociationList = Array<UnsuccessfulFaceAssociation>;
+export type UnsuccessfulFaceAssociationReason = "FACE_NOT_FOUND" | "ASSOCIATED_TO_A_DIFFERENT_USER" | "LOW_MATCH_CONFIDENCE";
+export type UnsuccessfulFaceAssociationReasons = Array<UnsuccessfulFaceAssociationReason>;
 export interface UnsuccessfulFaceDeletion {
   FaceId?: string;
   UserId?: string;
   Reasons?: Array<UnsuccessfulFaceDeletionReason>;
 }
-export type UnsuccessfulFaceDeletionReason =
-  | "ASSOCIATED_TO_AN_EXISTING_USER"
-  | "FACE_NOT_FOUND";
-export type UnsuccessfulFaceDeletionReasons =
-  Array<UnsuccessfulFaceDeletionReason>;
+export type UnsuccessfulFaceDeletionReason = "ASSOCIATED_TO_AN_EXISTING_USER" | "FACE_NOT_FOUND";
+export type UnsuccessfulFaceDeletionReasons = Array<UnsuccessfulFaceDeletionReason>;
 export type UnsuccessfulFaceDeletionsList = Array<UnsuccessfulFaceDeletion>;
 export interface UnsuccessfulFaceDisassociation {
   FaceId?: string;
   UserId?: string;
   Reasons?: Array<UnsuccessfulFaceDisassociationReason>;
 }
-export type UnsuccessfulFaceDisassociationList =
-  Array<UnsuccessfulFaceDisassociation>;
-export type UnsuccessfulFaceDisassociationReason =
-  | "FACE_NOT_FOUND"
-  | "ASSOCIATED_TO_A_DIFFERENT_USER";
-export type UnsuccessfulFaceDisassociationReasons =
-  Array<UnsuccessfulFaceDisassociationReason>;
+export type UnsuccessfulFaceDisassociationList = Array<UnsuccessfulFaceDisassociation>;
+export type UnsuccessfulFaceDisassociationReason = "FACE_NOT_FOUND" | "ASSOCIATED_TO_A_DIFFERENT_USER";
+export type UnsuccessfulFaceDisassociationReasons = Array<UnsuccessfulFaceDisassociationReason>;
 export interface UntagResourceRequest {
   ResourceArn: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateDatasetEntriesRequest {
   DatasetArn: string;
   Changes: DatasetChanges;
 }
-export interface UpdateDatasetEntriesResponse {}
+export interface UpdateDatasetEntriesResponse {
+}
 export interface UpdateStreamProcessorRequest {
   Name: string;
   SettingsForUpdate?: StreamProcessorSettingsForUpdate;
@@ -3110,7 +2362,8 @@ export interface UpdateStreamProcessorRequest {
   DataSharingPreferenceForUpdate?: StreamProcessorDataSharingPreference;
   ParametersToDelete?: Array<StreamProcessorParameterToDelete>;
 }
-export interface UpdateStreamProcessorResponse {}
+export interface UpdateStreamProcessorResponse {
+}
 export type Url = string;
 
 export type Urls = Array<string>;
@@ -4262,3 +3515,4 @@ export declare namespace UpdateStreamProcessor {
     | ThrottlingException
     | CommonAwsError;
 }
+

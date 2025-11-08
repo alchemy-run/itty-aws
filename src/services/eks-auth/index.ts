@@ -5,23 +5,7 @@ import type { EKSAuth as _EKSAuthClient } from "./types.ts";
 
 export * from "./types.ts";
 
-export {
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-  ValidationException,
-  type CommonAwsError,
-} from "../../error.ts";
+export {IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, ValidationException, type CommonAwsError} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -31,8 +15,7 @@ const metadata = {
   sigV4ServiceName: "eks-auth",
   endpointPrefix: "eks-auth",
   operations: {
-    AssumeRoleForPodIdentity:
-      "POST /clusters/{clusterName}/assume-role-for-pod-identity",
+    "AssumeRoleForPodIdentity": "POST /clusters/{clusterName}/assume-role-for-pod-identity",
   },
 } as const satisfies ServiceMetadata;
 

@@ -1,38 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-  ValidationException,
-} from "../../error.ts";
-type CommonAwsError =
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | ValidationException
-  | AccessDeniedException
-  | ExpiredTokenException
-  | ThrottlingException;
+import type { IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, ValidationException } from "../../error.ts";
+type CommonAwsError = IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | ValidationException | AccessDeniedException | ExpiredTokenException | ThrottlingException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class EKSAuth extends AWSServiceClient {
@@ -40,16 +8,7 @@ export declare class EKSAuth extends AWSServiceClient {
     input: AssumeRoleForPodIdentityRequest,
   ): Effect.Effect<
     AssumeRoleForPodIdentityResponse,
-    | AccessDeniedException
-    | ExpiredTokenException
-    | InternalServerException
-    | InvalidParameterException
-    | InvalidRequestException
-    | InvalidTokenException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ExpiredTokenException | InternalServerException | InvalidParameterException | InvalidRequestException | InvalidTokenException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   >;
 }
 
@@ -148,3 +107,4 @@ export declare namespace AssumeRoleForPodIdentity {
     | ThrottlingException
     | CommonAwsError;
 }
+

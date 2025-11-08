@@ -1,39 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  AccessDeniedException,
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-} from "../../error.ts";
-type CommonAwsError =
-  | AccessDeniedException
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | ThrottlingException
-  | ValidationException;
+import type { AccessDeniedException, ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
+type CommonAwsError = AccessDeniedException | ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | ThrottlingException | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class LexModelsV2 extends AWSServiceClient {
@@ -41,1134 +8,613 @@ export declare class LexModelsV2 extends AWSServiceClient {
     input: BatchCreateCustomVocabularyItemRequest,
   ): Effect.Effect<
     BatchCreateCustomVocabularyItemResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   batchDeleteCustomVocabularyItem(
     input: BatchDeleteCustomVocabularyItemRequest,
   ): Effect.Effect<
     BatchDeleteCustomVocabularyItemResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   batchUpdateCustomVocabularyItem(
     input: BatchUpdateCustomVocabularyItemRequest,
   ): Effect.Effect<
     BatchUpdateCustomVocabularyItemResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   buildBotLocale(
     input: BuildBotLocaleRequest,
   ): Effect.Effect<
     BuildBotLocaleResponse,
-    | ConflictException
-    | InternalServerException
-    | PreconditionFailedException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | PreconditionFailedException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createBot(
     input: CreateBotRequest,
   ): Effect.Effect<
     CreateBotResponse,
-    | ConflictException
-    | InternalServerException
-    | PreconditionFailedException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | PreconditionFailedException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createBotAlias(
     input: CreateBotAliasRequest,
   ): Effect.Effect<
     CreateBotAliasResponse,
-    | ConflictException
-    | InternalServerException
-    | PreconditionFailedException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | PreconditionFailedException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createBotLocale(
     input: CreateBotLocaleRequest,
   ): Effect.Effect<
     CreateBotLocaleResponse,
-    | ConflictException
-    | InternalServerException
-    | PreconditionFailedException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | PreconditionFailedException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createBotReplica(
     input: CreateBotReplicaRequest,
   ): Effect.Effect<
     CreateBotReplicaResponse,
-    | ConflictException
-    | InternalServerException
-    | PreconditionFailedException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | PreconditionFailedException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createBotVersion(
     input: CreateBotVersionRequest,
   ): Effect.Effect<
     CreateBotVersionResponse,
-    | ConflictException
-    | InternalServerException
-    | PreconditionFailedException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | PreconditionFailedException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createExport(
     input: CreateExportRequest,
   ): Effect.Effect<
     CreateExportResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createIntent(
     input: CreateIntentRequest,
   ): Effect.Effect<
     CreateIntentResponse,
-    | ConflictException
-    | InternalServerException
-    | PreconditionFailedException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | PreconditionFailedException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createResourcePolicy(
     input: CreateResourcePolicyRequest,
   ): Effect.Effect<
     CreateResourcePolicyResponse,
-    | InternalServerException
-    | PreconditionFailedException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | PreconditionFailedException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createResourcePolicyStatement(
     input: CreateResourcePolicyStatementRequest,
   ): Effect.Effect<
     CreateResourcePolicyStatementResponse,
-    | ConflictException
-    | InternalServerException
-    | PreconditionFailedException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | PreconditionFailedException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createSlot(
     input: CreateSlotRequest,
   ): Effect.Effect<
     CreateSlotResponse,
-    | ConflictException
-    | InternalServerException
-    | PreconditionFailedException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | PreconditionFailedException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createSlotType(
     input: CreateSlotTypeRequest,
   ): Effect.Effect<
     CreateSlotTypeResponse,
-    | ConflictException
-    | InternalServerException
-    | PreconditionFailedException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | PreconditionFailedException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createTestSetDiscrepancyReport(
     input: CreateTestSetDiscrepancyReportRequest,
   ): Effect.Effect<
     CreateTestSetDiscrepancyReportResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createUploadUrl(
     input: CreateUploadUrlRequest,
   ): Effect.Effect<
     CreateUploadUrlResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteBot(
     input: DeleteBotRequest,
   ): Effect.Effect<
     DeleteBotResponse,
-    | ConflictException
-    | InternalServerException
-    | PreconditionFailedException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | PreconditionFailedException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteBotAlias(
     input: DeleteBotAliasRequest,
   ): Effect.Effect<
     DeleteBotAliasResponse,
-    | ConflictException
-    | InternalServerException
-    | PreconditionFailedException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | PreconditionFailedException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteBotLocale(
     input: DeleteBotLocaleRequest,
   ): Effect.Effect<
     DeleteBotLocaleResponse,
-    | ConflictException
-    | InternalServerException
-    | PreconditionFailedException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | PreconditionFailedException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteBotReplica(
     input: DeleteBotReplicaRequest,
   ): Effect.Effect<
     DeleteBotReplicaResponse,
-    | ConflictException
-    | InternalServerException
-    | PreconditionFailedException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | PreconditionFailedException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteBotVersion(
     input: DeleteBotVersionRequest,
   ): Effect.Effect<
     DeleteBotVersionResponse,
-    | ConflictException
-    | InternalServerException
-    | PreconditionFailedException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | PreconditionFailedException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteCustomVocabulary(
     input: DeleteCustomVocabularyRequest,
   ): Effect.Effect<
     DeleteCustomVocabularyResponse,
-    | ConflictException
-    | InternalServerException
-    | PreconditionFailedException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | PreconditionFailedException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteExport(
     input: DeleteExportRequest,
   ): Effect.Effect<
     DeleteExportResponse,
-    | InternalServerException
-    | PreconditionFailedException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | PreconditionFailedException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteImport(
     input: DeleteImportRequest,
   ): Effect.Effect<
     DeleteImportResponse,
-    | InternalServerException
-    | PreconditionFailedException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | PreconditionFailedException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteIntent(
     input: DeleteIntentRequest,
   ): Effect.Effect<
     {},
-    | ConflictException
-    | InternalServerException
-    | PreconditionFailedException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | PreconditionFailedException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteResourcePolicy(
     input: DeleteResourcePolicyRequest,
   ): Effect.Effect<
     DeleteResourcePolicyResponse,
-    | InternalServerException
-    | PreconditionFailedException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerException | PreconditionFailedException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   deleteResourcePolicyStatement(
     input: DeleteResourcePolicyStatementRequest,
   ): Effect.Effect<
     DeleteResourcePolicyStatementResponse,
-    | InternalServerException
-    | PreconditionFailedException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerException | PreconditionFailedException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   deleteSlot(
     input: DeleteSlotRequest,
   ): Effect.Effect<
     {},
-    | ConflictException
-    | InternalServerException
-    | PreconditionFailedException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | PreconditionFailedException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteSlotType(
     input: DeleteSlotTypeRequest,
   ): Effect.Effect<
     {},
-    | ConflictException
-    | InternalServerException
-    | PreconditionFailedException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | PreconditionFailedException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteTestSet(
     input: DeleteTestSetRequest,
   ): Effect.Effect<
     {},
-    | ConflictException
-    | InternalServerException
-    | PreconditionFailedException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | PreconditionFailedException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteUtterances(
     input: DeleteUtterancesRequest,
   ): Effect.Effect<
     DeleteUtterancesResponse,
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   describeBot(
     input: DescribeBotRequest,
   ): Effect.Effect<
     DescribeBotResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   describeBotAlias(
     input: DescribeBotAliasRequest,
   ): Effect.Effect<
     DescribeBotAliasResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   describeBotLocale(
     input: DescribeBotLocaleRequest,
   ): Effect.Effect<
     DescribeBotLocaleResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   describeBotRecommendation(
     input: DescribeBotRecommendationRequest,
   ): Effect.Effect<
     DescribeBotRecommendationResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   describeBotReplica(
     input: DescribeBotReplicaRequest,
   ): Effect.Effect<
     DescribeBotReplicaResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   describeBotResourceGeneration(
     input: DescribeBotResourceGenerationRequest,
   ): Effect.Effect<
     DescribeBotResourceGenerationResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   describeBotVersion(
     input: DescribeBotVersionRequest,
   ): Effect.Effect<
     DescribeBotVersionResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   describeCustomVocabularyMetadata(
     input: DescribeCustomVocabularyMetadataRequest,
   ): Effect.Effect<
     DescribeCustomVocabularyMetadataResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   describeExport(
     input: DescribeExportRequest,
   ): Effect.Effect<
     DescribeExportResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   describeImport(
     input: DescribeImportRequest,
   ): Effect.Effect<
     DescribeImportResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   describeIntent(
     input: DescribeIntentRequest,
   ): Effect.Effect<
     DescribeIntentResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   describeResourcePolicy(
     input: DescribeResourcePolicyRequest,
   ): Effect.Effect<
     DescribeResourcePolicyResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   describeSlot(
     input: DescribeSlotRequest,
   ): Effect.Effect<
     DescribeSlotResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   describeSlotType(
     input: DescribeSlotTypeRequest,
   ): Effect.Effect<
     DescribeSlotTypeResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   describeTestExecution(
     input: DescribeTestExecutionRequest,
   ): Effect.Effect<
     DescribeTestExecutionResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   describeTestSet(
     input: DescribeTestSetRequest,
   ): Effect.Effect<
     DescribeTestSetResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   describeTestSetDiscrepancyReport(
     input: DescribeTestSetDiscrepancyReportRequest,
   ): Effect.Effect<
     DescribeTestSetDiscrepancyReportResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   describeTestSetGeneration(
     input: DescribeTestSetGenerationRequest,
   ): Effect.Effect<
     DescribeTestSetGenerationResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   generateBotElement(
     input: GenerateBotElementRequest,
   ): Effect.Effect<
     GenerateBotElementResponse,
-    | ConflictException
-    | InternalServerException
-    | PreconditionFailedException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | PreconditionFailedException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getTestExecutionArtifactsUrl(
     input: GetTestExecutionArtifactsUrlRequest,
   ): Effect.Effect<
     GetTestExecutionArtifactsUrlResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listAggregatedUtterances(
     input: ListAggregatedUtterancesRequest,
   ): Effect.Effect<
     ListAggregatedUtterancesResponse,
-    | InternalServerException
-    | PreconditionFailedException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | PreconditionFailedException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listBotAliases(
     input: ListBotAliasesRequest,
   ): Effect.Effect<
     ListBotAliasesResponse,
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listBotAliasReplicas(
     input: ListBotAliasReplicasRequest,
   ): Effect.Effect<
     ListBotAliasReplicasResponse,
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listBotLocales(
     input: ListBotLocalesRequest,
   ): Effect.Effect<
     ListBotLocalesResponse,
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listBotRecommendations(
     input: ListBotRecommendationsRequest,
   ): Effect.Effect<
     ListBotRecommendationsResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listBotReplicas(
     input: ListBotReplicasRequest,
   ): Effect.Effect<
     ListBotReplicasResponse,
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listBotResourceGenerations(
     input: ListBotResourceGenerationsRequest,
   ): Effect.Effect<
     ListBotResourceGenerationsResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listBots(
     input: ListBotsRequest,
   ): Effect.Effect<
     ListBotsResponse,
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listBotVersionReplicas(
     input: ListBotVersionReplicasRequest,
   ): Effect.Effect<
     ListBotVersionReplicasResponse,
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listBotVersions(
     input: ListBotVersionsRequest,
   ): Effect.Effect<
     ListBotVersionsResponse,
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listBuiltInIntents(
     input: ListBuiltInIntentsRequest,
   ): Effect.Effect<
     ListBuiltInIntentsResponse,
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listBuiltInSlotTypes(
     input: ListBuiltInSlotTypesRequest,
   ): Effect.Effect<
     ListBuiltInSlotTypesResponse,
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listCustomVocabularyItems(
     input: ListCustomVocabularyItemsRequest,
   ): Effect.Effect<
     ListCustomVocabularyItemsResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listExports(
     input: ListExportsRequest,
   ): Effect.Effect<
     ListExportsResponse,
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listImports(
     input: ListImportsRequest,
   ): Effect.Effect<
     ListImportsResponse,
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listIntentMetrics(
     input: ListIntentMetricsRequest,
   ): Effect.Effect<
     ListIntentMetricsResponse,
-    | InternalServerException
-    | PreconditionFailedException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | PreconditionFailedException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listIntentPaths(
     input: ListIntentPathsRequest,
   ): Effect.Effect<
     ListIntentPathsResponse,
-    | InternalServerException
-    | PreconditionFailedException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | PreconditionFailedException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listIntents(
     input: ListIntentsRequest,
   ): Effect.Effect<
     ListIntentsResponse,
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listIntentStageMetrics(
     input: ListIntentStageMetricsRequest,
   ): Effect.Effect<
     ListIntentStageMetricsResponse,
-    | InternalServerException
-    | PreconditionFailedException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | PreconditionFailedException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listRecommendedIntents(
     input: ListRecommendedIntentsRequest,
   ): Effect.Effect<
     ListRecommendedIntentsResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listSessionAnalyticsData(
     input: ListSessionAnalyticsDataRequest,
   ): Effect.Effect<
     ListSessionAnalyticsDataResponse,
-    | InternalServerException
-    | PreconditionFailedException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | PreconditionFailedException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listSessionMetrics(
     input: ListSessionMetricsRequest,
   ): Effect.Effect<
     ListSessionMetricsResponse,
-    | InternalServerException
-    | PreconditionFailedException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | PreconditionFailedException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listSlots(
     input: ListSlotsRequest,
   ): Effect.Effect<
     ListSlotsResponse,
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listSlotTypes(
     input: ListSlotTypesRequest,
   ): Effect.Effect<
     ListSlotTypesResponse,
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listTestExecutionResultItems(
     input: ListTestExecutionResultItemsRequest,
   ): Effect.Effect<
     ListTestExecutionResultItemsResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listTestExecutions(
     input: ListTestExecutionsRequest,
   ): Effect.Effect<
     ListTestExecutionsResponse,
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listTestSetRecords(
     input: ListTestSetRecordsRequest,
   ): Effect.Effect<
     ListTestSetRecordsResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listTestSets(
     input: ListTestSetsRequest,
   ): Effect.Effect<
     ListTestSetsResponse,
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listUtteranceAnalyticsData(
     input: ListUtteranceAnalyticsDataRequest,
   ): Effect.Effect<
     ListUtteranceAnalyticsDataResponse,
-    | InternalServerException
-    | PreconditionFailedException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | PreconditionFailedException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listUtteranceMetrics(
     input: ListUtteranceMetricsRequest,
   ): Effect.Effect<
     ListUtteranceMetricsResponse,
-    | InternalServerException
-    | PreconditionFailedException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | PreconditionFailedException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   searchAssociatedTranscripts(
     input: SearchAssociatedTranscriptsRequest,
   ): Effect.Effect<
     SearchAssociatedTranscriptsResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   startBotRecommendation(
     input: StartBotRecommendationRequest,
   ): Effect.Effect<
     StartBotRecommendationResponse,
-    | ConflictException
-    | InternalServerException
-    | PreconditionFailedException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | PreconditionFailedException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   startBotResourceGeneration(
     input: StartBotResourceGenerationRequest,
   ): Effect.Effect<
     StartBotResourceGenerationResponse,
-    | ConflictException
-    | InternalServerException
-    | PreconditionFailedException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | PreconditionFailedException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   startImport(
     input: StartImportRequest,
   ): Effect.Effect<
     StartImportResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   startTestExecution(
     input: StartTestExecutionRequest,
   ): Effect.Effect<
     StartTestExecutionResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   startTestSetGeneration(
     input: StartTestSetGenerationRequest,
   ): Effect.Effect<
     StartTestSetGenerationResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   stopBotRecommendation(
     input: StopBotRecommendationRequest,
   ): Effect.Effect<
     StopBotRecommendationResponse,
-    | ConflictException
-    | InternalServerException
-    | PreconditionFailedException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | PreconditionFailedException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateBot(
     input: UpdateBotRequest,
   ): Effect.Effect<
     UpdateBotResponse,
-    | ConflictException
-    | InternalServerException
-    | PreconditionFailedException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | PreconditionFailedException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateBotAlias(
     input: UpdateBotAliasRequest,
   ): Effect.Effect<
     UpdateBotAliasResponse,
-    | ConflictException
-    | InternalServerException
-    | PreconditionFailedException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | PreconditionFailedException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateBotLocale(
     input: UpdateBotLocaleRequest,
   ): Effect.Effect<
     UpdateBotLocaleResponse,
-    | ConflictException
-    | InternalServerException
-    | PreconditionFailedException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | PreconditionFailedException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateBotRecommendation(
     input: UpdateBotRecommendationRequest,
   ): Effect.Effect<
     UpdateBotRecommendationResponse,
-    | ConflictException
-    | InternalServerException
-    | PreconditionFailedException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | PreconditionFailedException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateExport(
     input: UpdateExportRequest,
   ): Effect.Effect<
     UpdateExportResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateIntent(
     input: UpdateIntentRequest,
   ): Effect.Effect<
     UpdateIntentResponse,
-    | ConflictException
-    | InternalServerException
-    | PreconditionFailedException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | PreconditionFailedException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateResourcePolicy(
     input: UpdateResourcePolicyRequest,
   ): Effect.Effect<
     UpdateResourcePolicyResponse,
-    | InternalServerException
-    | PreconditionFailedException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | PreconditionFailedException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateSlot(
     input: UpdateSlotRequest,
   ): Effect.Effect<
     UpdateSlotResponse,
-    | ConflictException
-    | InternalServerException
-    | PreconditionFailedException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | PreconditionFailedException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateSlotType(
     input: UpdateSlotTypeRequest,
   ): Effect.Effect<
     UpdateSlotTypeResponse,
-    | ConflictException
-    | InternalServerException
-    | PreconditionFailedException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | PreconditionFailedException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateTestSet(
     input: UpdateTestSetRequest,
   ): Effect.Effect<
     UpdateTestSetResponse,
-    | ConflictException
-    | InternalServerException
-    | PreconditionFailedException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | PreconditionFailedException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
 }
 
@@ -1212,8 +658,7 @@ export interface AggregatedUtterancesSummary {
   utteranceLastRecordedInAggregationDuration?: Date | string;
   containsDataFromDeletedResources?: boolean;
 }
-export type AggregatedUtterancesSummaryList =
-  Array<AggregatedUtterancesSummary>;
+export type AggregatedUtterancesSummaryList = Array<AggregatedUtterancesSummary>;
 export interface AllowedInputTypes {
   allowAudioInput: boolean;
   allowDTMFInput: boolean;
@@ -1236,45 +681,27 @@ export type AnalyticsBinValue = number;
 
 export type AnalyticsChannel = string;
 
-export type AnalyticsCommonFilterName =
-  | "BotAliasId"
-  | "BotVersion"
-  | "LocaleId"
-  | "Modality"
-  | "Channel";
+export type AnalyticsCommonFilterName = "BotAliasId" | "BotVersion" | "LocaleId" | "Modality" | "Channel";
 export type AnalyticsFilterOperator = "EQ" | "GT" | "LT";
 export type AnalyticsFilterValue = string;
 
 export type AnalyticsFilterValues = Array<string>;
 export type AnalyticsGroupByValue = string;
 
-export type AnalyticsIntentField =
-  | "IntentName"
-  | "IntentEndState"
-  | "IntentLevel";
+export type AnalyticsIntentField = "IntentName" | "IntentEndState" | "IntentLevel";
 export interface AnalyticsIntentFilter {
   name: AnalyticsIntentFilterName;
   operator: AnalyticsFilterOperator;
   values: Array<string>;
 }
-export type AnalyticsIntentFilterName =
-  | "BotAliasId"
-  | "BotVersion"
-  | "LocaleId"
-  | "Modality"
-  | "Channel"
-  | "SessionId"
-  | "OriginatingRequestId"
-  | "IntentName"
-  | "IntentEndState";
+export type AnalyticsIntentFilterName = "BotAliasId" | "BotVersion" | "LocaleId" | "Modality" | "Channel" | "SessionId" | "OriginatingRequestId" | "IntentName" | "IntentEndState";
 export type AnalyticsIntentFilters = Array<AnalyticsIntentFilter>;
 export interface AnalyticsIntentGroupByKey {
   name?: AnalyticsIntentField;
   value?: string;
 }
 export type AnalyticsIntentGroupByKeys = Array<AnalyticsIntentGroupByKey>;
-export type AnalyticsIntentGroupByList =
-  Array<AnalyticsIntentGroupBySpecification>;
+export type AnalyticsIntentGroupByList = Array<AnalyticsIntentGroupBySpecification>;
 export interface AnalyticsIntentGroupBySpecification {
   name: AnalyticsIntentField;
 }
@@ -1283,12 +710,7 @@ export interface AnalyticsIntentMetric {
   statistic: AnalyticsMetricStatistic;
   order?: AnalyticsSortOrder;
 }
-export type AnalyticsIntentMetricName =
-  | "Count"
-  | "Success"
-  | "Failure"
-  | "Switched"
-  | "Dropped";
+export type AnalyticsIntentMetricName = "Count" | "Success" | "Failure" | "Switched" | "Dropped";
 export interface AnalyticsIntentMetricResult {
   name?: AnalyticsIntentMetricName;
   statistic?: AnalyticsMetricStatistic;
@@ -1316,25 +738,14 @@ export interface AnalyticsIntentStageFilter {
   operator: AnalyticsFilterOperator;
   values: Array<string>;
 }
-export type AnalyticsIntentStageFilterName =
-  | "BotAliasId"
-  | "BotVersion"
-  | "LocaleId"
-  | "Modality"
-  | "Channel"
-  | "SessionId"
-  | "OriginatingRequestId"
-  | "IntentName"
-  | "IntentStageName";
+export type AnalyticsIntentStageFilterName = "BotAliasId" | "BotVersion" | "LocaleId" | "Modality" | "Channel" | "SessionId" | "OriginatingRequestId" | "IntentName" | "IntentStageName";
 export type AnalyticsIntentStageFilters = Array<AnalyticsIntentStageFilter>;
 export interface AnalyticsIntentStageGroupByKey {
   name?: AnalyticsIntentStageField;
   value?: string;
 }
-export type AnalyticsIntentStageGroupByKeys =
-  Array<AnalyticsIntentStageGroupByKey>;
-export type AnalyticsIntentStageGroupByList =
-  Array<AnalyticsIntentStageGroupBySpecification>;
+export type AnalyticsIntentStageGroupByKeys = Array<AnalyticsIntentStageGroupByKey>;
+export type AnalyticsIntentStageGroupByList = Array<AnalyticsIntentStageGroupBySpecification>;
 export interface AnalyticsIntentStageGroupBySpecification {
   name: AnalyticsIntentStageField;
 }
@@ -1343,19 +754,13 @@ export interface AnalyticsIntentStageMetric {
   statistic: AnalyticsMetricStatistic;
   order?: AnalyticsSortOrder;
 }
-export type AnalyticsIntentStageMetricName =
-  | "Count"
-  | "Success"
-  | "Failed"
-  | "Dropped"
-  | "Retry";
+export type AnalyticsIntentStageMetricName = "Count" | "Success" | "Failed" | "Dropped" | "Retry";
 export interface AnalyticsIntentStageMetricResult {
   name?: AnalyticsIntentStageMetricName;
   statistic?: AnalyticsMetricStatistic;
   value?: number;
 }
-export type AnalyticsIntentStageMetricResults =
-  Array<AnalyticsIntentStageMetricResult>;
+export type AnalyticsIntentStageMetricResults = Array<AnalyticsIntentStageMetricResult>;
 export type AnalyticsIntentStageMetrics = Array<AnalyticsIntentStageMetric>;
 export interface AnalyticsIntentStageResult {
   binKeys?: Array<AnalyticsBinKey>;
@@ -1391,25 +796,14 @@ export interface AnalyticsSessionFilter {
   operator: AnalyticsFilterOperator;
   values: Array<string>;
 }
-export type AnalyticsSessionFilterName =
-  | "BotAliasId"
-  | "BotVersion"
-  | "LocaleId"
-  | "Modality"
-  | "Channel"
-  | "Duration"
-  | "ConversationEndState"
-  | "SessionId"
-  | "OriginatingRequestId"
-  | "IntentPath";
+export type AnalyticsSessionFilterName = "BotAliasId" | "BotVersion" | "LocaleId" | "Modality" | "Channel" | "Duration" | "ConversationEndState" | "SessionId" | "OriginatingRequestId" | "IntentPath";
 export type AnalyticsSessionFilters = Array<AnalyticsSessionFilter>;
 export interface AnalyticsSessionGroupByKey {
   name?: AnalyticsSessionField;
   value?: string;
 }
 export type AnalyticsSessionGroupByKeys = Array<AnalyticsSessionGroupByKey>;
-export type AnalyticsSessionGroupByList =
-  Array<AnalyticsSessionGroupBySpecification>;
+export type AnalyticsSessionGroupByList = Array<AnalyticsSessionGroupBySpecification>;
 export interface AnalyticsSessionGroupBySpecification {
   name: AnalyticsSessionField;
 }
@@ -1420,14 +814,7 @@ export interface AnalyticsSessionMetric {
   statistic: AnalyticsMetricStatistic;
   order?: AnalyticsSortOrder;
 }
-export type AnalyticsSessionMetricName =
-  | "Count"
-  | "Success"
-  | "Failure"
-  | "Dropped"
-  | "Duration"
-  | "TurnsPerConversation"
-  | "Concurrency";
+export type AnalyticsSessionMetricName = "Count" | "Success" | "Failure" | "Dropped" | "Duration" | "TurnsPerConversation" | "Concurrency";
 export interface AnalyticsSessionMetricResult {
   name?: AnalyticsSessionMetricName;
   statistic?: AnalyticsMetricStatistic;
@@ -1441,10 +828,7 @@ export interface AnalyticsSessionResult {
   metricsResults?: Array<AnalyticsSessionMetricResult>;
 }
 export type AnalyticsSessionResults = Array<AnalyticsSessionResult>;
-export type AnalyticsSessionSortByName =
-  | "ConversationStartTime"
-  | "NumberOfTurns"
-  | "Duration";
+export type AnalyticsSessionSortByName = "ConversationStartTime" | "NumberOfTurns" | "Duration";
 export type AnalyticsSortOrder = "Ascending" | "Descending";
 export interface AnalyticsUtteranceAttribute {
   name: AnalyticsUtteranceAttributeName;
@@ -1453,8 +837,7 @@ export type AnalyticsUtteranceAttributeName = "LastUsedIntent";
 export interface AnalyticsUtteranceAttributeResult {
   lastUsedIntent?: string;
 }
-export type AnalyticsUtteranceAttributeResults =
-  Array<AnalyticsUtteranceAttributeResult>;
+export type AnalyticsUtteranceAttributeResults = Array<AnalyticsUtteranceAttributeResult>;
 export type AnalyticsUtteranceAttributes = Array<AnalyticsUtteranceAttribute>;
 export type AnalyticsUtteranceField = "UtteranceText" | "UtteranceState";
 export interface AnalyticsUtteranceFilter {
@@ -1462,24 +845,14 @@ export interface AnalyticsUtteranceFilter {
   operator: AnalyticsFilterOperator;
   values: Array<string>;
 }
-export type AnalyticsUtteranceFilterName =
-  | "BotAliasId"
-  | "BotVersion"
-  | "LocaleId"
-  | "Modality"
-  | "Channel"
-  | "SessionId"
-  | "OriginatingRequestId"
-  | "UtteranceState"
-  | "UtteranceText";
+export type AnalyticsUtteranceFilterName = "BotAliasId" | "BotVersion" | "LocaleId" | "Modality" | "Channel" | "SessionId" | "OriginatingRequestId" | "UtteranceState" | "UtteranceText";
 export type AnalyticsUtteranceFilters = Array<AnalyticsUtteranceFilter>;
 export interface AnalyticsUtteranceGroupByKey {
   name?: AnalyticsUtteranceField;
   value?: string;
 }
 export type AnalyticsUtteranceGroupByKeys = Array<AnalyticsUtteranceGroupByKey>;
-export type AnalyticsUtteranceGroupByList =
-  Array<AnalyticsUtteranceGroupBySpecification>;
+export type AnalyticsUtteranceGroupByList = Array<AnalyticsUtteranceGroupBySpecification>;
 export interface AnalyticsUtteranceGroupBySpecification {
   name: AnalyticsUtteranceField;
 }
@@ -1488,18 +861,13 @@ export interface AnalyticsUtteranceMetric {
   statistic: AnalyticsMetricStatistic;
   order?: AnalyticsSortOrder;
 }
-export type AnalyticsUtteranceMetricName =
-  | "Count"
-  | "Missed"
-  | "Detected"
-  | "UtteranceTimestamp";
+export type AnalyticsUtteranceMetricName = "Count" | "Missed" | "Detected" | "UtteranceTimestamp";
 export interface AnalyticsUtteranceMetricResult {
   name?: AnalyticsUtteranceMetricName;
   statistic?: AnalyticsMetricStatistic;
   value?: number;
 }
-export type AnalyticsUtteranceMetricResults =
-  Array<AnalyticsUtteranceMetricResult>;
+export type AnalyticsUtteranceMetricResults = Array<AnalyticsUtteranceMetricResult>;
 export type AnalyticsUtteranceMetrics = Array<AnalyticsUtteranceMetric>;
 export interface AnalyticsUtteranceResult {
   binKeys?: Array<AnalyticsBinKey>;
@@ -1640,12 +1008,7 @@ export interface BotAliasReplicaSummary {
   failureReasons?: Array<string>;
 }
 export type BotAliasReplicaSummaryList = Array<BotAliasReplicaSummary>;
-export type BotAliasReplicationStatus =
-  | "Creating"
-  | "Updating"
-  | "Available"
-  | "Deleting"
-  | "Failed";
+export type BotAliasReplicationStatus = "Creating" | "Updating" | "Available" | "Deleting" | "Failed";
 export type BotAliasStatus = "Creating" | "Available" | "Deleting" | "Failed";
 export interface BotAliasSummary {
   botAliasId?: string;
@@ -1715,16 +1078,7 @@ export interface BotLocaleSortBy {
   attribute: BotLocaleSortAttribute;
   order: SortOrder;
 }
-export type BotLocaleStatus =
-  | "Creating"
-  | "Building"
-  | "Built"
-  | "ReadyExpressTesting"
-  | "Failed"
-  | "Deleting"
-  | "NotBuilt"
-  | "Importing"
-  | "Processing";
+export type BotLocaleStatus = "Creating" | "Building" | "Built" | "ReadyExpressTesting" | "Failed" | "Deleting" | "NotBuilt" | "Importing" | "Processing";
 export interface BotLocaleSummary {
   localeId?: string;
   localeName?: string;
@@ -1751,16 +1105,7 @@ export interface BotRecommendationResultStatistics {
   intents?: IntentStatistics;
   slotTypes?: SlotTypeStatistics;
 }
-export type BotRecommendationStatus =
-  | "Processing"
-  | "Deleting"
-  | "Deleted"
-  | "Downloading"
-  | "Updating"
-  | "Available"
-  | "Failed"
-  | "Stopping"
-  | "Stopped";
+export type BotRecommendationStatus = "Processing" | "Deleting" | "Deleted" | "Downloading" | "Updating" | "Available" | "Failed" | "Stopping" | "Stopped";
 export interface BotRecommendationSummary {
   botRecommendationStatus: BotRecommendationStatus;
   botRecommendationId: string;
@@ -1781,15 +1126,7 @@ export interface BotSortBy {
   attribute: BotSortAttribute;
   order: SortOrder;
 }
-export type BotStatus =
-  | "Creating"
-  | "Available"
-  | "Inactive"
-  | "Deleting"
-  | "Failed"
-  | "Versioning"
-  | "Importing"
-  | "Updating";
+export type BotStatus = "Creating" | "Available" | "Inactive" | "Deleting" | "Failed" | "Versioning" | "Importing" | "Updating";
 export interface BotSummary {
   botId?: string;
   botName?: string;
@@ -1806,10 +1143,7 @@ export type BotVersion = string;
 export interface BotVersionLocaleDetails {
   sourceBotVersion: string;
 }
-export type BotVersionLocaleSpecification = Record<
-  string,
-  BotVersionLocaleDetails
->;
+export type BotVersionLocaleSpecification = Record<string, BotVersionLocaleDetails>;
 export type BotVersionReplicaSortAttribute = "BotVersion";
 export interface BotVersionReplicaSortBy {
   attribute: BotVersionReplicaSortAttribute;
@@ -1822,11 +1156,7 @@ export interface BotVersionReplicaSummary {
   failureReasons?: Array<string>;
 }
 export type BotVersionReplicaSummaryList = Array<BotVersionReplicaSummary>;
-export type BotVersionReplicationStatus =
-  | "Creating"
-  | "Available"
-  | "Deleting"
-  | "Failed";
+export type BotVersionReplicationStatus = "Creating" | "Available" | "Deleting" | "Failed";
 export type BotVersionSortAttribute = "BotVersion";
 export interface BotVersionSortBy {
   attribute: BotVersionSortAttribute;
@@ -1948,8 +1278,7 @@ export interface ConversationLevelIntentClassificationResultItem {
   intentName: string;
   matchResult: TestResultMatchStatus;
 }
-export type ConversationLevelIntentClassificationResults =
-  Array<ConversationLevelIntentClassificationResultItem>;
+export type ConversationLevelIntentClassificationResults = Array<ConversationLevelIntentClassificationResultItem>;
 export interface ConversationLevelResultDetail {
   endToEndResult: TestResultMatchStatus;
   speechTranscriptionResult?: TestResultMatchStatus;
@@ -1959,8 +1288,7 @@ export interface ConversationLevelSlotResolutionResultItem {
   slotName: string;
   matchResult: TestResultMatchStatus;
 }
-export type ConversationLevelSlotResolutionResults =
-  Array<ConversationLevelSlotResolutionResultItem>;
+export type ConversationLevelSlotResolutionResults = Array<ConversationLevelSlotResolutionResultItem>;
 export interface ConversationLevelTestResultItem {
   conversationId: string;
   endToEndResult: TestResultMatchStatus;
@@ -1968,8 +1296,7 @@ export interface ConversationLevelTestResultItem {
   intentClassificationResults: Array<ConversationLevelIntentClassificationResultItem>;
   slotResolutionResults: Array<ConversationLevelSlotResolutionResultItem>;
 }
-export type ConversationLevelTestResultItemList =
-  Array<ConversationLevelTestResultItem>;
+export type ConversationLevelTestResultItemList = Array<ConversationLevelTestResultItem>;
 export interface ConversationLevelTestResults {
   items: Array<ConversationLevelTestResultItem>;
 }
@@ -2227,7 +1554,8 @@ export interface CreateTestSetDiscrepancyReportResponse {
   testSetId?: string;
   target?: TestSetDiscrepancyReportResourceTarget;
 }
-export interface CreateUploadUrlRequest {}
+export interface CreateUploadUrlRequest {
+}
 export interface CreateUploadUrlResponse {
   importId?: string;
   uploadUrl?: string;
@@ -2257,12 +1585,7 @@ export interface CustomVocabularyItem {
   displayAs?: string;
 }
 export type CustomVocabularyItems = Array<CustomVocabularyItem>;
-export type CustomVocabularyStatus =
-  | "Ready"
-  | "Deleting"
-  | "Exporting"
-  | "Importing"
-  | "Creating";
+export type CustomVocabularyStatus = "Ready" | "Deleting" | "Exporting" | "Importing" | "Creating";
 export interface DataPrivacy {
   childDirected: boolean;
 }
@@ -2398,7 +1721,8 @@ export interface DeleteUtterancesRequest {
   localeId?: string;
   sessionId?: string;
 }
-export interface DeleteUtterancesResponse {}
+export interface DeleteUtterancesResponse {
+}
 export interface DescribeBotAliasRequest {
   botAliasId: string;
   botId: string;
@@ -2721,16 +2045,7 @@ export interface DialogAction {
   slotToElicit?: string;
   suppressNextMessage?: boolean;
 }
-export type DialogActionType =
-  | "ElicitIntent"
-  | "StartIntent"
-  | "ElicitSlot"
-  | "EvaluateConditional"
-  | "InvokeDialogCodeHook"
-  | "ConfirmIntent"
-  | "FulfillIntent"
-  | "CloseIntent"
-  | "EndConversation";
+export type DialogActionType = "ElicitIntent" | "StartIntent" | "ElicitSlot" | "EvaluateConditional" | "InvokeDialogCodeHook" | "ConfirmIntent" | "FulfillIntent" | "CloseIntent" | "EndConversation";
 export interface DialogCodeHookInvocationSetting {
   enableCodeHookInvocation: boolean;
   active: boolean;
@@ -2769,11 +2084,7 @@ export interface EncryptionSetting {
   botLocaleExportPassword?: string;
   associatedTranscriptsPassword?: string;
 }
-export type ErrorCode =
-  | "DUPLICATE_INPUT"
-  | "RESOURCE_DOES_NOT_EXIST"
-  | "RESOURCE_ALREADY_EXISTS"
-  | "INTERNAL_SERVER_FAILURE";
+export type ErrorCode = "DUPLICATE_INPUT" | "RESOURCE_DOES_NOT_EXIST" | "RESOURCE_ALREADY_EXISTS" | "INTERNAL_SERVER_FAILURE";
 export interface ErrorLogSettings {
   enabled: boolean;
 }
@@ -2939,11 +2250,7 @@ export interface ImportResourceSpecification {
   customVocabularyImportSpecification?: CustomVocabularyImportSpecification;
   testSetImportResourceSpecification?: TestSetImportResourceSpecification;
 }
-export type ImportResourceType =
-  | "Bot"
-  | "BotLocale"
-  | "CustomVocabulary"
-  | "TestSet";
+export type ImportResourceType = "Bot" | "BotLocale" | "CustomVocabulary" | "TestSet";
 export type ImportSortAttribute = "LastUpdatedDateTime";
 export interface ImportSortBy {
   attribute: ImportSortAttribute;
@@ -2988,8 +2295,7 @@ export interface IntentClassificationTestResultItemCounts {
   speechTranscriptionResultCounts?: { [key in TestResultMatchStatus]?: string };
   intentMatchResultCounts: { [key in TestResultMatchStatus]?: string };
 }
-export type IntentClassificationTestResultItemList =
-  Array<IntentClassificationTestResultItem>;
+export type IntentClassificationTestResultItemList = Array<IntentClassificationTestResultItem>;
 export interface IntentClassificationTestResults {
   items: Array<IntentClassificationTestResultItem>;
 }
@@ -3027,8 +2333,7 @@ export interface IntentLevelSlotResolutionTestResultItem {
   multiTurnConversation: boolean;
   slotResolutionResults: Array<SlotResolutionTestResultItem>;
 }
-export type IntentLevelSlotResolutionTestResultItemList =
-  Array<IntentLevelSlotResolutionTestResultItem>;
+export type IntentLevelSlotResolutionTestResultItemList = Array<IntentLevelSlotResolutionTestResultItem>;
 export interface IntentLevelSlotResolutionTestResults {
   items: Array<IntentLevelSlotResolutionTestResultItem>;
 }
@@ -3043,13 +2348,7 @@ export interface IntentSortBy {
   attribute: IntentSortAttribute;
   order: SortOrder;
 }
-export type IntentState =
-  | "Failed"
-  | "Fulfilled"
-  | "InProgress"
-  | "ReadyForFulfillment"
-  | "Waiting"
-  | "FulfillmentInProgress";
+export type IntentState = "Failed" | "Fulfilled" | "InProgress" | "ReadyForFulfillment" | "Waiting" | "FulfillmentInProgress";
 export interface IntentStatistics {
   discoveredIntentCount?: number;
 }
@@ -3642,23 +2941,14 @@ export type PrincipalArn = string;
 export type PrincipalList = Array<Principal>;
 export type PriorityValue = number;
 
-export type PromptAttempt =
-  | "Initial"
-  | "Retry1"
-  | "Retry2"
-  | "Retry3"
-  | "Retry4"
-  | "Retry5";
+export type PromptAttempt = "Initial" | "Retry1" | "Retry2" | "Retry3" | "Retry4" | "Retry5";
 export interface PromptAttemptSpecification {
   allowInterrupt?: boolean;
   allowedInputTypes: AllowedInputTypes;
   audioAndDTMFInputSpecification?: AudioAndDTMFInputSpecification;
   textInputSpecification?: TextInputSpecification;
 }
-export type PromptAttemptsSpecificationMap = Record<
-  PromptAttempt,
-  PromptAttemptSpecification
->;
+export type PromptAttemptsSpecificationMap = Record<PromptAttempt, PromptAttemptSpecification>;
 export type PromptMaxRetries = number;
 
 export interface PromptSpecification {
@@ -3858,10 +3148,7 @@ export interface SlotFilter {
 export type SlotFilterName = "SlotName";
 export type SlotFilterOperator = "CO" | "EQ";
 export type SlotFilters = Array<SlotFilter>;
-export type SlotHintsIntentMap = Record<
-  string,
-  Record<string, RuntimeHintDetails>
->;
+export type SlotHintsIntentMap = Record<string, Record<string, RuntimeHintDetails>>;
 export type SlotHintsSlotMap = Record<string, RuntimeHintDetails>;
 export type SlotPrioritiesList = Array<SlotPriority>;
 export interface SlotPriority {
@@ -3902,11 +3189,7 @@ export interface SlotSummary {
   lastUpdatedDateTime?: Date | string;
 }
 export type SlotSummaryList = Array<SlotSummary>;
-export type SlotTypeCategory =
-  | "Custom"
-  | "Extended"
-  | "ExternalGrammar"
-  | "Composite";
+export type SlotTypeCategory = "Custom" | "Extended" | "ExternalGrammar" | "Composite";
 export interface SlotTypeFilter {
   name: SlotTypeFilterName;
   values: Array<string>;
@@ -3960,10 +3243,7 @@ export type SlotValueOverrideMap = Record<string, SlotValueOverride>;
 export interface SlotValueRegexFilter {
   pattern: string;
 }
-export type SlotValueResolutionStrategy =
-  | "OriginalValue"
-  | "TopResolution"
-  | "Concatenation";
+export type SlotValueResolutionStrategy = "OriginalValue" | "TopResolution" | "Concatenation";
 export type SlotValues = Array<SlotValueOverride>;
 export interface SlotValueSelectionSetting {
   resolutionStrategy: SlotValueResolutionStrategy;
@@ -4111,7 +3391,8 @@ export interface TagResourceRequest {
   resourceARN: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export type TestExecutionApiMode = "Streaming" | "NonStreaming";
@@ -4132,14 +3413,7 @@ export interface TestExecutionSortBy {
   attribute: TestExecutionSortAttribute;
   order: SortOrder;
 }
-export type TestExecutionStatus =
-  | "Pending"
-  | "Waiting"
-  | "InProgress"
-  | "Completed"
-  | "Failed"
-  | "Stopping"
-  | "Stopped";
+export type TestExecutionStatus = "Pending" | "Waiting" | "InProgress" | "Completed" | "Failed" | "Stopping" | "Stopped";
 export interface TestExecutionSummary {
   testExecutionId?: string;
   creationDateTime?: Date | string;
@@ -4156,18 +3430,10 @@ export interface TestExecutionTarget {
   botAliasTarget?: BotAliasTestExecutionTarget;
 }
 export type TestResultMatchStatus = "Matched" | "Mismatched" | "ExecutionError";
-export type TestResultMatchStatusCountMap = Record<
-  TestResultMatchStatus,
-  number
->;
+export type TestResultMatchStatusCountMap = Record<TestResultMatchStatus, number>;
 export type TestResultSlotName = string;
 
-export type TestResultTypeFilter =
-  | "OverallTestResults"
-  | "ConversationLevelTestResults"
-  | "IntentClassificationTestResults"
-  | "SlotResolutionTestResults"
-  | "UtteranceLevelResults";
+export type TestResultTypeFilter = "OverallTestResults" | "ConversationLevelTestResults" | "IntentClassificationTestResults" | "SlotResolutionTestResults" | "UtteranceLevelResults";
 export type TestSetAgentPrompt = string;
 
 export type TestSetConversationId = string;
@@ -4184,21 +3450,14 @@ export interface TestSetDiscrepancyReportBotAliasTarget {
 export interface TestSetDiscrepancyReportResourceTarget {
   botAliasTarget?: TestSetDiscrepancyReportBotAliasTarget;
 }
-export type TestSetDiscrepancyReportStatus =
-  | "InProgress"
-  | "Completed"
-  | "Failed";
+export type TestSetDiscrepancyReportStatus = "InProgress" | "Completed" | "Failed";
 export interface TestSetExportSpecification {
   testSetId: string;
 }
 export interface TestSetGenerationDataSource {
   conversationLogsDataSource?: ConversationLogsDataSource;
 }
-export type TestSetGenerationStatus =
-  | "Generating"
-  | "Ready"
-  | "Failed"
-  | "Pending";
+export type TestSetGenerationStatus = "Generating" | "Ready" | "Failed" | "Pending";
 export interface TestSetImportInputLocation {
   s3BucketName: string;
   s3Path: string;
@@ -4229,12 +3488,7 @@ export interface TestSetSortBy {
   attribute: TestSetSortAttribute;
   order: SortOrder;
 }
-export type TestSetStatus =
-  | "Importing"
-  | "PendingAnnotation"
-  | "Deleting"
-  | "ValidationError"
-  | "Ready";
+export type TestSetStatus = "Importing" | "PendingAnnotation" | "Deleting" | "ValidationError" | "Ready";
 export interface TestSetStorageLocation {
   s3BucketName: string;
   s3Path: string;
@@ -4310,7 +3564,8 @@ export interface UntagResourceRequest {
   resourceARN: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateBotAliasRequest {
   botAliasId: string;
   botAliasName: string;
@@ -4592,11 +3847,7 @@ export interface UtteranceBotResponse {
   imageResponseCard?: ImageResponseCard;
 }
 export type UtteranceBotResponses = Array<UtteranceBotResponse>;
-export type UtteranceContentType =
-  | "PlainText"
-  | "CustomPayload"
-  | "SSML"
-  | "ImageResponseCard";
+export type UtteranceContentType = "PlainText" | "CustomPayload" | "SSML" | "ImageResponseCard";
 export interface UtteranceDataSortBy {
   name: AnalyticsUtteranceSortByName;
   order: AnalyticsSortOrder;
@@ -4610,8 +3861,7 @@ export interface UtteranceLevelTestResultItem {
   conversationId?: string;
   turnResult: TestSetTurnResult;
 }
-export type UtteranceLevelTestResultItemList =
-  Array<UtteranceLevelTestResultItem>;
+export type UtteranceLevelTestResultItemList = Array<UtteranceLevelTestResultItem>;
 export interface UtteranceLevelTestResults {
   items: Array<UtteranceLevelTestResultItem>;
 }
@@ -5898,3 +5148,4 @@ export declare namespace UpdateTestSet {
     | ValidationException
     | CommonAwsError;
 }
+

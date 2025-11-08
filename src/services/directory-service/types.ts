@@ -1,40 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  ThrottlingException,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-  ValidationException,
-} from "../../error.ts";
-type CommonAwsError =
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | ThrottlingException
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | ValidationException
-  | AccessDeniedException;
+import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError, ValidationException } from "../../error.ts";
+type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | ThrottlingException | UnrecognizedClientException | UnknownOperationException | ValidationError | ValidationException | AccessDeniedException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class DirectoryService extends AWSServiceClient {
@@ -42,895 +8,463 @@ export declare class DirectoryService extends AWSServiceClient {
     input: AcceptSharedDirectoryRequest,
   ): Effect.Effect<
     AcceptSharedDirectoryResult,
-    | ClientException
-    | DirectoryAlreadySharedException
-    | EntityDoesNotExistException
-    | InvalidParameterException
-    | ServiceException
-    | CommonAwsError
+    ClientException | DirectoryAlreadySharedException | EntityDoesNotExistException | InvalidParameterException | ServiceException | CommonAwsError
   >;
   addIpRoutes(
     input: AddIpRoutesRequest,
   ): Effect.Effect<
     AddIpRoutesResult,
-    | ClientException
-    | DirectoryUnavailableException
-    | EntityAlreadyExistsException
-    | EntityDoesNotExistException
-    | InvalidParameterException
-    | IpRouteLimitExceededException
-    | ServiceException
-    | CommonAwsError
+    ClientException | DirectoryUnavailableException | EntityAlreadyExistsException | EntityDoesNotExistException | InvalidParameterException | IpRouteLimitExceededException | ServiceException | CommonAwsError
   >;
   addRegion(
     input: AddRegionRequest,
   ): Effect.Effect<
     AddRegionResult,
-    | AccessDeniedException
-    | ClientException
-    | DirectoryAlreadyInRegionException
-    | DirectoryDoesNotExistException
-    | DirectoryUnavailableException
-    | EntityDoesNotExistException
-    | InvalidParameterException
-    | RegionLimitExceededException
-    | ServiceException
-    | UnsupportedOperationException
-    | CommonAwsError
+    AccessDeniedException | ClientException | DirectoryAlreadyInRegionException | DirectoryDoesNotExistException | DirectoryUnavailableException | EntityDoesNotExistException | InvalidParameterException | RegionLimitExceededException | ServiceException | UnsupportedOperationException | CommonAwsError
   >;
   addTagsToResource(
     input: AddTagsToResourceRequest,
   ): Effect.Effect<
     AddTagsToResourceResult,
-    | ClientException
-    | EntityDoesNotExistException
-    | InvalidParameterException
-    | ServiceException
-    | TagLimitExceededException
-    | CommonAwsError
+    ClientException | EntityDoesNotExistException | InvalidParameterException | ServiceException | TagLimitExceededException | CommonAwsError
   >;
   cancelSchemaExtension(
     input: CancelSchemaExtensionRequest,
   ): Effect.Effect<
     CancelSchemaExtensionResult,
-    | ClientException
-    | EntityDoesNotExistException
-    | ServiceException
-    | CommonAwsError
+    ClientException | EntityDoesNotExistException | ServiceException | CommonAwsError
   >;
   connectDirectory(
     input: ConnectDirectoryRequest,
   ): Effect.Effect<
     ConnectDirectoryResult,
-    | ClientException
-    | DirectoryLimitExceededException
-    | InvalidParameterException
-    | ServiceException
-    | CommonAwsError
+    ClientException | DirectoryLimitExceededException | InvalidParameterException | ServiceException | CommonAwsError
   >;
   createAlias(
     input: CreateAliasRequest,
   ): Effect.Effect<
     CreateAliasResult,
-    | ClientException
-    | EntityAlreadyExistsException
-    | EntityDoesNotExistException
-    | InvalidParameterException
-    | ServiceException
-    | CommonAwsError
+    ClientException | EntityAlreadyExistsException | EntityDoesNotExistException | InvalidParameterException | ServiceException | CommonAwsError
   >;
   createComputer(
     input: CreateComputerRequest,
   ): Effect.Effect<
     CreateComputerResult,
-    | AuthenticationFailedException
-    | ClientException
-    | DirectoryUnavailableException
-    | EntityAlreadyExistsException
-    | EntityDoesNotExistException
-    | InvalidParameterException
-    | ServiceException
-    | UnsupportedOperationException
-    | CommonAwsError
+    AuthenticationFailedException | ClientException | DirectoryUnavailableException | EntityAlreadyExistsException | EntityDoesNotExistException | InvalidParameterException | ServiceException | UnsupportedOperationException | CommonAwsError
   >;
   createConditionalForwarder(
     input: CreateConditionalForwarderRequest,
   ): Effect.Effect<
     CreateConditionalForwarderResult,
-    | ClientException
-    | DirectoryUnavailableException
-    | EntityAlreadyExistsException
-    | EntityDoesNotExistException
-    | InvalidParameterException
-    | ServiceException
-    | UnsupportedOperationException
-    | CommonAwsError
+    ClientException | DirectoryUnavailableException | EntityAlreadyExistsException | EntityDoesNotExistException | InvalidParameterException | ServiceException | UnsupportedOperationException | CommonAwsError
   >;
   createDirectory(
     input: CreateDirectoryRequest,
   ): Effect.Effect<
     CreateDirectoryResult,
-    | ClientException
-    | DirectoryLimitExceededException
-    | InvalidParameterException
-    | ServiceException
-    | CommonAwsError
+    ClientException | DirectoryLimitExceededException | InvalidParameterException | ServiceException | CommonAwsError
   >;
   createHybridAD(
     input: CreateHybridADRequest,
   ): Effect.Effect<
     CreateHybridADResult,
-    | ADAssessmentLimitExceededException
-    | ClientException
-    | DirectoryLimitExceededException
-    | EntityDoesNotExistException
-    | InvalidParameterException
-    | ServiceException
-    | UnsupportedOperationException
-    | CommonAwsError
+    ADAssessmentLimitExceededException | ClientException | DirectoryLimitExceededException | EntityDoesNotExistException | InvalidParameterException | ServiceException | UnsupportedOperationException | CommonAwsError
   >;
   createLogSubscription(
     input: CreateLogSubscriptionRequest,
   ): Effect.Effect<
     CreateLogSubscriptionResult,
-    | ClientException
-    | EntityAlreadyExistsException
-    | EntityDoesNotExistException
-    | InsufficientPermissionsException
-    | ServiceException
-    | UnsupportedOperationException
-    | CommonAwsError
+    ClientException | EntityAlreadyExistsException | EntityDoesNotExistException | InsufficientPermissionsException | ServiceException | UnsupportedOperationException | CommonAwsError
   >;
   createMicrosoftAD(
     input: CreateMicrosoftADRequest,
   ): Effect.Effect<
     CreateMicrosoftADResult,
-    | ClientException
-    | DirectoryLimitExceededException
-    | InvalidParameterException
-    | ServiceException
-    | UnsupportedOperationException
-    | CommonAwsError
+    ClientException | DirectoryLimitExceededException | InvalidParameterException | ServiceException | UnsupportedOperationException | CommonAwsError
   >;
   createSnapshot(
     input: CreateSnapshotRequest,
   ): Effect.Effect<
     CreateSnapshotResult,
-    | ClientException
-    | EntityDoesNotExistException
-    | InvalidParameterException
-    | ServiceException
-    | SnapshotLimitExceededException
-    | CommonAwsError
+    ClientException | EntityDoesNotExistException | InvalidParameterException | ServiceException | SnapshotLimitExceededException | CommonAwsError
   >;
   createTrust(
     input: CreateTrustRequest,
   ): Effect.Effect<
     CreateTrustResult,
-    | ClientException
-    | EntityAlreadyExistsException
-    | EntityDoesNotExistException
-    | InvalidParameterException
-    | ServiceException
-    | UnsupportedOperationException
-    | CommonAwsError
+    ClientException | EntityAlreadyExistsException | EntityDoesNotExistException | InvalidParameterException | ServiceException | UnsupportedOperationException | CommonAwsError
   >;
   deleteADAssessment(
     input: DeleteADAssessmentRequest,
   ): Effect.Effect<
     DeleteADAssessmentResult,
-    | ClientException
-    | EntityDoesNotExistException
-    | InvalidParameterException
-    | ServiceException
-    | UnsupportedOperationException
-    | CommonAwsError
+    ClientException | EntityDoesNotExistException | InvalidParameterException | ServiceException | UnsupportedOperationException | CommonAwsError
   >;
   deleteConditionalForwarder(
     input: DeleteConditionalForwarderRequest,
   ): Effect.Effect<
     DeleteConditionalForwarderResult,
-    | ClientException
-    | DirectoryUnavailableException
-    | EntityDoesNotExistException
-    | InvalidParameterException
-    | ServiceException
-    | UnsupportedOperationException
-    | CommonAwsError
+    ClientException | DirectoryUnavailableException | EntityDoesNotExistException | InvalidParameterException | ServiceException | UnsupportedOperationException | CommonAwsError
   >;
   deleteDirectory(
     input: DeleteDirectoryRequest,
   ): Effect.Effect<
     DeleteDirectoryResult,
-    | ClientException
-    | EntityDoesNotExistException
-    | ServiceException
-    | CommonAwsError
+    ClientException | EntityDoesNotExistException | ServiceException | CommonAwsError
   >;
   deleteLogSubscription(
     input: DeleteLogSubscriptionRequest,
   ): Effect.Effect<
     DeleteLogSubscriptionResult,
-    | ClientException
-    | EntityDoesNotExistException
-    | ServiceException
-    | UnsupportedOperationException
-    | CommonAwsError
+    ClientException | EntityDoesNotExistException | ServiceException | UnsupportedOperationException | CommonAwsError
   >;
   deleteSnapshot(
     input: DeleteSnapshotRequest,
   ): Effect.Effect<
     DeleteSnapshotResult,
-    | ClientException
-    | EntityDoesNotExistException
-    | InvalidParameterException
-    | ServiceException
-    | CommonAwsError
+    ClientException | EntityDoesNotExistException | InvalidParameterException | ServiceException | CommonAwsError
   >;
   deleteTrust(
     input: DeleteTrustRequest,
   ): Effect.Effect<
     DeleteTrustResult,
-    | ClientException
-    | EntityDoesNotExistException
-    | InvalidParameterException
-    | ServiceException
-    | UnsupportedOperationException
-    | CommonAwsError
+    ClientException | EntityDoesNotExistException | InvalidParameterException | ServiceException | UnsupportedOperationException | CommonAwsError
   >;
   deregisterCertificate(
     input: DeregisterCertificateRequest,
   ): Effect.Effect<
     DeregisterCertificateResult,
-    | CertificateDoesNotExistException
-    | CertificateInUseException
-    | ClientException
-    | DirectoryDoesNotExistException
-    | DirectoryUnavailableException
-    | InvalidParameterException
-    | ServiceException
-    | UnsupportedOperationException
-    | CommonAwsError
+    CertificateDoesNotExistException | CertificateInUseException | ClientException | DirectoryDoesNotExistException | DirectoryUnavailableException | InvalidParameterException | ServiceException | UnsupportedOperationException | CommonAwsError
   >;
   deregisterEventTopic(
     input: DeregisterEventTopicRequest,
   ): Effect.Effect<
     DeregisterEventTopicResult,
-    | ClientException
-    | EntityDoesNotExistException
-    | InvalidParameterException
-    | ServiceException
-    | CommonAwsError
+    ClientException | EntityDoesNotExistException | InvalidParameterException | ServiceException | CommonAwsError
   >;
   describeADAssessment(
     input: DescribeADAssessmentRequest,
   ): Effect.Effect<
     DescribeADAssessmentResult,
-    | ClientException
-    | EntityDoesNotExistException
-    | InvalidParameterException
-    | ServiceException
-    | UnsupportedOperationException
-    | CommonAwsError
+    ClientException | EntityDoesNotExistException | InvalidParameterException | ServiceException | UnsupportedOperationException | CommonAwsError
   >;
   describeCertificate(
     input: DescribeCertificateRequest,
   ): Effect.Effect<
     DescribeCertificateResult,
-    | CertificateDoesNotExistException
-    | ClientException
-    | DirectoryDoesNotExistException
-    | InvalidParameterException
-    | ServiceException
-    | UnsupportedOperationException
-    | CommonAwsError
+    CertificateDoesNotExistException | ClientException | DirectoryDoesNotExistException | InvalidParameterException | ServiceException | UnsupportedOperationException | CommonAwsError
   >;
   describeClientAuthenticationSettings(
     input: DescribeClientAuthenticationSettingsRequest,
   ): Effect.Effect<
     DescribeClientAuthenticationSettingsResult,
-    | AccessDeniedException
-    | ClientException
-    | DirectoryDoesNotExistException
-    | InvalidParameterException
-    | ServiceException
-    | UnsupportedOperationException
-    | CommonAwsError
+    AccessDeniedException | ClientException | DirectoryDoesNotExistException | InvalidParameterException | ServiceException | UnsupportedOperationException | CommonAwsError
   >;
   describeConditionalForwarders(
     input: DescribeConditionalForwardersRequest,
   ): Effect.Effect<
     DescribeConditionalForwardersResult,
-    | ClientException
-    | DirectoryUnavailableException
-    | EntityDoesNotExistException
-    | InvalidParameterException
-    | ServiceException
-    | UnsupportedOperationException
-    | CommonAwsError
+    ClientException | DirectoryUnavailableException | EntityDoesNotExistException | InvalidParameterException | ServiceException | UnsupportedOperationException | CommonAwsError
   >;
   describeDirectories(
     input: DescribeDirectoriesRequest,
   ): Effect.Effect<
     DescribeDirectoriesResult,
-    | ClientException
-    | EntityDoesNotExistException
-    | InvalidNextTokenException
-    | InvalidParameterException
-    | ServiceException
-    | CommonAwsError
+    ClientException | EntityDoesNotExistException | InvalidNextTokenException | InvalidParameterException | ServiceException | CommonAwsError
   >;
   describeDirectoryDataAccess(
     input: DescribeDirectoryDataAccessRequest,
   ): Effect.Effect<
     DescribeDirectoryDataAccessResult,
-    | AccessDeniedException
-    | ClientException
-    | DirectoryDoesNotExistException
-    | ServiceException
-    | UnsupportedOperationException
-    | CommonAwsError
+    AccessDeniedException | ClientException | DirectoryDoesNotExistException | ServiceException | UnsupportedOperationException | CommonAwsError
   >;
   describeDomainControllers(
     input: DescribeDomainControllersRequest,
   ): Effect.Effect<
     DescribeDomainControllersResult,
-    | ClientException
-    | EntityDoesNotExistException
-    | InvalidNextTokenException
-    | InvalidParameterException
-    | ServiceException
-    | UnsupportedOperationException
-    | CommonAwsError
+    ClientException | EntityDoesNotExistException | InvalidNextTokenException | InvalidParameterException | ServiceException | UnsupportedOperationException | CommonAwsError
   >;
   describeEventTopics(
     input: DescribeEventTopicsRequest,
   ): Effect.Effect<
     DescribeEventTopicsResult,
-    | ClientException
-    | EntityDoesNotExistException
-    | InvalidParameterException
-    | ServiceException
-    | CommonAwsError
+    ClientException | EntityDoesNotExistException | InvalidParameterException | ServiceException | CommonAwsError
   >;
   describeHybridADUpdate(
     input: DescribeHybridADUpdateRequest,
   ): Effect.Effect<
     DescribeHybridADUpdateResult,
-    | ClientException
-    | DirectoryDoesNotExistException
-    | InvalidNextTokenException
-    | InvalidParameterException
-    | ServiceException
-    | UnsupportedOperationException
-    | CommonAwsError
+    ClientException | DirectoryDoesNotExistException | InvalidNextTokenException | InvalidParameterException | ServiceException | UnsupportedOperationException | CommonAwsError
   >;
   describeLDAPSSettings(
     input: DescribeLDAPSSettingsRequest,
   ): Effect.Effect<
     DescribeLDAPSSettingsResult,
-    | ClientException
-    | DirectoryDoesNotExistException
-    | InvalidNextTokenException
-    | InvalidParameterException
-    | ServiceException
-    | UnsupportedOperationException
-    | CommonAwsError
+    ClientException | DirectoryDoesNotExistException | InvalidNextTokenException | InvalidParameterException | ServiceException | UnsupportedOperationException | CommonAwsError
   >;
   describeRegions(
     input: DescribeRegionsRequest,
   ): Effect.Effect<
     DescribeRegionsResult,
-    | AccessDeniedException
-    | ClientException
-    | DirectoryDoesNotExistException
-    | InvalidNextTokenException
-    | InvalidParameterException
-    | ServiceException
-    | UnsupportedOperationException
-    | CommonAwsError
+    AccessDeniedException | ClientException | DirectoryDoesNotExistException | InvalidNextTokenException | InvalidParameterException | ServiceException | UnsupportedOperationException | CommonAwsError
   >;
   describeSettings(
     input: DescribeSettingsRequest,
   ): Effect.Effect<
     DescribeSettingsResult,
-    | ClientException
-    | DirectoryDoesNotExistException
-    | InvalidNextTokenException
-    | InvalidParameterException
-    | ServiceException
-    | UnsupportedOperationException
-    | CommonAwsError
+    ClientException | DirectoryDoesNotExistException | InvalidNextTokenException | InvalidParameterException | ServiceException | UnsupportedOperationException | CommonAwsError
   >;
   describeSharedDirectories(
     input: DescribeSharedDirectoriesRequest,
   ): Effect.Effect<
     DescribeSharedDirectoriesResult,
-    | ClientException
-    | EntityDoesNotExistException
-    | InvalidNextTokenException
-    | InvalidParameterException
-    | ServiceException
-    | UnsupportedOperationException
-    | CommonAwsError
+    ClientException | EntityDoesNotExistException | InvalidNextTokenException | InvalidParameterException | ServiceException | UnsupportedOperationException | CommonAwsError
   >;
   describeSnapshots(
     input: DescribeSnapshotsRequest,
   ): Effect.Effect<
     DescribeSnapshotsResult,
-    | ClientException
-    | EntityDoesNotExistException
-    | InvalidNextTokenException
-    | InvalidParameterException
-    | ServiceException
-    | CommonAwsError
+    ClientException | EntityDoesNotExistException | InvalidNextTokenException | InvalidParameterException | ServiceException | CommonAwsError
   >;
   describeTrusts(
     input: DescribeTrustsRequest,
   ): Effect.Effect<
     DescribeTrustsResult,
-    | ClientException
-    | EntityDoesNotExistException
-    | InvalidNextTokenException
-    | InvalidParameterException
-    | ServiceException
-    | UnsupportedOperationException
-    | CommonAwsError
+    ClientException | EntityDoesNotExistException | InvalidNextTokenException | InvalidParameterException | ServiceException | UnsupportedOperationException | CommonAwsError
   >;
   describeUpdateDirectory(
     input: DescribeUpdateDirectoryRequest,
   ): Effect.Effect<
     DescribeUpdateDirectoryResult,
-    | AccessDeniedException
-    | ClientException
-    | DirectoryDoesNotExistException
-    | InvalidNextTokenException
-    | InvalidParameterException
-    | ServiceException
-    | CommonAwsError
+    AccessDeniedException | ClientException | DirectoryDoesNotExistException | InvalidNextTokenException | InvalidParameterException | ServiceException | CommonAwsError
   >;
   disableClientAuthentication(
     input: DisableClientAuthenticationRequest,
   ): Effect.Effect<
     DisableClientAuthenticationResult,
-    | AccessDeniedException
-    | ClientException
-    | DirectoryDoesNotExistException
-    | InvalidClientAuthStatusException
-    | ServiceException
-    | UnsupportedOperationException
-    | CommonAwsError
+    AccessDeniedException | ClientException | DirectoryDoesNotExistException | InvalidClientAuthStatusException | ServiceException | UnsupportedOperationException | CommonAwsError
   >;
   disableDirectoryDataAccess(
     input: DisableDirectoryDataAccessRequest,
   ): Effect.Effect<
     DisableDirectoryDataAccessResult,
-    | AccessDeniedException
-    | ClientException
-    | DirectoryDoesNotExistException
-    | DirectoryInDesiredStateException
-    | DirectoryUnavailableException
-    | ServiceException
-    | UnsupportedOperationException
-    | CommonAwsError
+    AccessDeniedException | ClientException | DirectoryDoesNotExistException | DirectoryInDesiredStateException | DirectoryUnavailableException | ServiceException | UnsupportedOperationException | CommonAwsError
   >;
   disableLDAPS(
     input: DisableLDAPSRequest,
   ): Effect.Effect<
     DisableLDAPSResult,
-    | ClientException
-    | DirectoryDoesNotExistException
-    | DirectoryUnavailableException
-    | InvalidLDAPSStatusException
-    | InvalidParameterException
-    | ServiceException
-    | UnsupportedOperationException
-    | CommonAwsError
+    ClientException | DirectoryDoesNotExistException | DirectoryUnavailableException | InvalidLDAPSStatusException | InvalidParameterException | ServiceException | UnsupportedOperationException | CommonAwsError
   >;
   disableRadius(
     input: DisableRadiusRequest,
   ): Effect.Effect<
     DisableRadiusResult,
-    | ClientException
-    | EntityDoesNotExistException
-    | ServiceException
-    | CommonAwsError
+    ClientException | EntityDoesNotExistException | ServiceException | CommonAwsError
   >;
   disableSso(
     input: DisableSsoRequest,
   ): Effect.Effect<
     DisableSsoResult,
-    | AuthenticationFailedException
-    | ClientException
-    | EntityDoesNotExistException
-    | InsufficientPermissionsException
-    | ServiceException
-    | CommonAwsError
+    AuthenticationFailedException | ClientException | EntityDoesNotExistException | InsufficientPermissionsException | ServiceException | CommonAwsError
   >;
   enableClientAuthentication(
     input: EnableClientAuthenticationRequest,
   ): Effect.Effect<
     EnableClientAuthenticationResult,
-    | AccessDeniedException
-    | ClientException
-    | DirectoryDoesNotExistException
-    | InvalidClientAuthStatusException
-    | NoAvailableCertificateException
-    | ServiceException
-    | UnsupportedOperationException
-    | CommonAwsError
+    AccessDeniedException | ClientException | DirectoryDoesNotExistException | InvalidClientAuthStatusException | NoAvailableCertificateException | ServiceException | UnsupportedOperationException | CommonAwsError
   >;
   enableDirectoryDataAccess(
     input: EnableDirectoryDataAccessRequest,
   ): Effect.Effect<
     EnableDirectoryDataAccessResult,
-    | AccessDeniedException
-    | ClientException
-    | DirectoryDoesNotExistException
-    | DirectoryInDesiredStateException
-    | DirectoryUnavailableException
-    | ServiceException
-    | UnsupportedOperationException
-    | CommonAwsError
+    AccessDeniedException | ClientException | DirectoryDoesNotExistException | DirectoryInDesiredStateException | DirectoryUnavailableException | ServiceException | UnsupportedOperationException | CommonAwsError
   >;
   enableLDAPS(
     input: EnableLDAPSRequest,
   ): Effect.Effect<
     EnableLDAPSResult,
-    | ClientException
-    | DirectoryDoesNotExistException
-    | DirectoryUnavailableException
-    | InvalidLDAPSStatusException
-    | InvalidParameterException
-    | NoAvailableCertificateException
-    | ServiceException
-    | UnsupportedOperationException
-    | CommonAwsError
+    ClientException | DirectoryDoesNotExistException | DirectoryUnavailableException | InvalidLDAPSStatusException | InvalidParameterException | NoAvailableCertificateException | ServiceException | UnsupportedOperationException | CommonAwsError
   >;
   enableRadius(
     input: EnableRadiusRequest,
   ): Effect.Effect<
     EnableRadiusResult,
-    | ClientException
-    | EntityAlreadyExistsException
-    | EntityDoesNotExistException
-    | InvalidParameterException
-    | ServiceException
-    | CommonAwsError
+    ClientException | EntityAlreadyExistsException | EntityDoesNotExistException | InvalidParameterException | ServiceException | CommonAwsError
   >;
   enableSso(
     input: EnableSsoRequest,
   ): Effect.Effect<
     EnableSsoResult,
-    | AuthenticationFailedException
-    | ClientException
-    | EntityDoesNotExistException
-    | InsufficientPermissionsException
-    | ServiceException
-    | CommonAwsError
+    AuthenticationFailedException | ClientException | EntityDoesNotExistException | InsufficientPermissionsException | ServiceException | CommonAwsError
   >;
   getDirectoryLimits(
     input: GetDirectoryLimitsRequest,
   ): Effect.Effect<
     GetDirectoryLimitsResult,
-    | ClientException
-    | EntityDoesNotExistException
-    | ServiceException
-    | CommonAwsError
+    ClientException | EntityDoesNotExistException | ServiceException | CommonAwsError
   >;
   getSnapshotLimits(
     input: GetSnapshotLimitsRequest,
   ): Effect.Effect<
     GetSnapshotLimitsResult,
-    | ClientException
-    | EntityDoesNotExistException
-    | ServiceException
-    | CommonAwsError
+    ClientException | EntityDoesNotExistException | ServiceException | CommonAwsError
   >;
   listADAssessments(
     input: ListADAssessmentsRequest,
   ): Effect.Effect<
     ListADAssessmentsResult,
-    | ClientException
-    | DirectoryDoesNotExistException
-    | InvalidParameterException
-    | ServiceException
-    | UnsupportedOperationException
-    | CommonAwsError
+    ClientException | DirectoryDoesNotExistException | InvalidParameterException | ServiceException | UnsupportedOperationException | CommonAwsError
   >;
   listCertificates(
     input: ListCertificatesRequest,
   ): Effect.Effect<
     ListCertificatesResult,
-    | ClientException
-    | DirectoryDoesNotExistException
-    | InvalidNextTokenException
-    | InvalidParameterException
-    | ServiceException
-    | UnsupportedOperationException
-    | CommonAwsError
+    ClientException | DirectoryDoesNotExistException | InvalidNextTokenException | InvalidParameterException | ServiceException | UnsupportedOperationException | CommonAwsError
   >;
   listIpRoutes(
     input: ListIpRoutesRequest,
   ): Effect.Effect<
     ListIpRoutesResult,
-    | ClientException
-    | EntityDoesNotExistException
-    | InvalidNextTokenException
-    | InvalidParameterException
-    | ServiceException
-    | CommonAwsError
+    ClientException | EntityDoesNotExistException | InvalidNextTokenException | InvalidParameterException | ServiceException | CommonAwsError
   >;
   listLogSubscriptions(
     input: ListLogSubscriptionsRequest,
   ): Effect.Effect<
     ListLogSubscriptionsResult,
-    | ClientException
-    | EntityDoesNotExistException
-    | InvalidNextTokenException
-    | ServiceException
-    | CommonAwsError
+    ClientException | EntityDoesNotExistException | InvalidNextTokenException | ServiceException | CommonAwsError
   >;
   listSchemaExtensions(
     input: ListSchemaExtensionsRequest,
   ): Effect.Effect<
     ListSchemaExtensionsResult,
-    | ClientException
-    | EntityDoesNotExistException
-    | InvalidNextTokenException
-    | ServiceException
-    | CommonAwsError
+    ClientException | EntityDoesNotExistException | InvalidNextTokenException | ServiceException | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResult,
-    | ClientException
-    | EntityDoesNotExistException
-    | InvalidNextTokenException
-    | InvalidParameterException
-    | ServiceException
-    | CommonAwsError
+    ClientException | EntityDoesNotExistException | InvalidNextTokenException | InvalidParameterException | ServiceException | CommonAwsError
   >;
   registerCertificate(
     input: RegisterCertificateRequest,
   ): Effect.Effect<
     RegisterCertificateResult,
-    | CertificateAlreadyExistsException
-    | CertificateLimitExceededException
-    | ClientException
-    | DirectoryDoesNotExistException
-    | DirectoryUnavailableException
-    | InvalidCertificateException
-    | InvalidParameterException
-    | ServiceException
-    | UnsupportedOperationException
-    | CommonAwsError
+    CertificateAlreadyExistsException | CertificateLimitExceededException | ClientException | DirectoryDoesNotExistException | DirectoryUnavailableException | InvalidCertificateException | InvalidParameterException | ServiceException | UnsupportedOperationException | CommonAwsError
   >;
   registerEventTopic(
     input: RegisterEventTopicRequest,
   ): Effect.Effect<
     RegisterEventTopicResult,
-    | ClientException
-    | EntityDoesNotExistException
-    | InvalidParameterException
-    | ServiceException
-    | CommonAwsError
+    ClientException | EntityDoesNotExistException | InvalidParameterException | ServiceException | CommonAwsError
   >;
   rejectSharedDirectory(
     input: RejectSharedDirectoryRequest,
   ): Effect.Effect<
     RejectSharedDirectoryResult,
-    | ClientException
-    | DirectoryAlreadySharedException
-    | EntityDoesNotExistException
-    | InvalidParameterException
-    | ServiceException
-    | CommonAwsError
+    ClientException | DirectoryAlreadySharedException | EntityDoesNotExistException | InvalidParameterException | ServiceException | CommonAwsError
   >;
   removeIpRoutes(
     input: RemoveIpRoutesRequest,
   ): Effect.Effect<
     RemoveIpRoutesResult,
-    | ClientException
-    | DirectoryUnavailableException
-    | EntityDoesNotExistException
-    | InvalidParameterException
-    | ServiceException
-    | CommonAwsError
+    ClientException | DirectoryUnavailableException | EntityDoesNotExistException | InvalidParameterException | ServiceException | CommonAwsError
   >;
   removeRegion(
     input: RemoveRegionRequest,
   ): Effect.Effect<
     RemoveRegionResult,
-    | AccessDeniedException
-    | ClientException
-    | DirectoryDoesNotExistException
-    | DirectoryUnavailableException
-    | ServiceException
-    | UnsupportedOperationException
-    | CommonAwsError
+    AccessDeniedException | ClientException | DirectoryDoesNotExistException | DirectoryUnavailableException | ServiceException | UnsupportedOperationException | CommonAwsError
   >;
   removeTagsFromResource(
     input: RemoveTagsFromResourceRequest,
   ): Effect.Effect<
     RemoveTagsFromResourceResult,
-    | ClientException
-    | EntityDoesNotExistException
-    | InvalidParameterException
-    | ServiceException
-    | CommonAwsError
+    ClientException | EntityDoesNotExistException | InvalidParameterException | ServiceException | CommonAwsError
   >;
   resetUserPassword(
     input: ResetUserPasswordRequest,
   ): Effect.Effect<
     ResetUserPasswordResult,
-    | ClientException
-    | DirectoryUnavailableException
-    | EntityDoesNotExistException
-    | InvalidPasswordException
-    | ServiceException
-    | UnsupportedOperationException
-    | UserDoesNotExistException
-    | CommonAwsError
+    ClientException | DirectoryUnavailableException | EntityDoesNotExistException | InvalidPasswordException | ServiceException | UnsupportedOperationException | UserDoesNotExistException | CommonAwsError
   >;
   restoreFromSnapshot(
     input: RestoreFromSnapshotRequest,
   ): Effect.Effect<
     RestoreFromSnapshotResult,
-    | ClientException
-    | EntityDoesNotExistException
-    | InvalidParameterException
-    | ServiceException
-    | CommonAwsError
+    ClientException | EntityDoesNotExistException | InvalidParameterException | ServiceException | CommonAwsError
   >;
   shareDirectory(
     input: ShareDirectoryRequest,
   ): Effect.Effect<
     ShareDirectoryResult,
-    | AccessDeniedException
-    | ClientException
-    | DirectoryAlreadySharedException
-    | EntityDoesNotExistException
-    | InvalidParameterException
-    | InvalidTargetException
-    | OrganizationsException
-    | ServiceException
-    | ShareLimitExceededException
-    | UnsupportedOperationException
-    | CommonAwsError
+    AccessDeniedException | ClientException | DirectoryAlreadySharedException | EntityDoesNotExistException | InvalidParameterException | InvalidTargetException | OrganizationsException | ServiceException | ShareLimitExceededException | UnsupportedOperationException | CommonAwsError
   >;
   startADAssessment(
     input: StartADAssessmentRequest,
   ): Effect.Effect<
     StartADAssessmentResult,
-    | ADAssessmentLimitExceededException
-    | ClientException
-    | DirectoryDoesNotExistException
-    | InvalidParameterException
-    | ServiceException
-    | UnsupportedOperationException
-    | CommonAwsError
+    ADAssessmentLimitExceededException | ClientException | DirectoryDoesNotExistException | InvalidParameterException | ServiceException | UnsupportedOperationException | CommonAwsError
   >;
   startSchemaExtension(
     input: StartSchemaExtensionRequest,
   ): Effect.Effect<
     StartSchemaExtensionResult,
-    | ClientException
-    | DirectoryUnavailableException
-    | EntityDoesNotExistException
-    | InvalidParameterException
-    | ServiceException
-    | SnapshotLimitExceededException
-    | CommonAwsError
+    ClientException | DirectoryUnavailableException | EntityDoesNotExistException | InvalidParameterException | ServiceException | SnapshotLimitExceededException | CommonAwsError
   >;
   unshareDirectory(
     input: UnshareDirectoryRequest,
   ): Effect.Effect<
     UnshareDirectoryResult,
-    | ClientException
-    | DirectoryNotSharedException
-    | EntityDoesNotExistException
-    | InvalidTargetException
-    | ServiceException
-    | CommonAwsError
+    ClientException | DirectoryNotSharedException | EntityDoesNotExistException | InvalidTargetException | ServiceException | CommonAwsError
   >;
   updateConditionalForwarder(
     input: UpdateConditionalForwarderRequest,
   ): Effect.Effect<
     UpdateConditionalForwarderResult,
-    | ClientException
-    | DirectoryUnavailableException
-    | EntityDoesNotExistException
-    | InvalidParameterException
-    | ServiceException
-    | UnsupportedOperationException
-    | CommonAwsError
+    ClientException | DirectoryUnavailableException | EntityDoesNotExistException | InvalidParameterException | ServiceException | UnsupportedOperationException | CommonAwsError
   >;
   updateDirectorySetup(
     input: UpdateDirectorySetupRequest,
   ): Effect.Effect<
     UpdateDirectorySetupResult,
-    | AccessDeniedException
-    | ClientException
-    | DirectoryDoesNotExistException
-    | DirectoryInDesiredStateException
-    | DirectoryUnavailableException
-    | InvalidParameterException
-    | ServiceException
-    | SnapshotLimitExceededException
-    | UnsupportedOperationException
-    | CommonAwsError
+    AccessDeniedException | ClientException | DirectoryDoesNotExistException | DirectoryInDesiredStateException | DirectoryUnavailableException | InvalidParameterException | ServiceException | SnapshotLimitExceededException | UnsupportedOperationException | CommonAwsError
   >;
   updateHybridAD(
     input: UpdateHybridADRequest,
   ): Effect.Effect<
     UpdateHybridADResult,
-    | ADAssessmentLimitExceededException
-    | ClientException
-    | DirectoryDoesNotExistException
-    | InvalidParameterException
-    | ServiceException
-    | UnsupportedOperationException
-    | CommonAwsError
+    ADAssessmentLimitExceededException | ClientException | DirectoryDoesNotExistException | InvalidParameterException | ServiceException | UnsupportedOperationException | CommonAwsError
   >;
   updateNumberOfDomainControllers(
     input: UpdateNumberOfDomainControllersRequest,
   ): Effect.Effect<
     UpdateNumberOfDomainControllersResult,
-    | ClientException
-    | DirectoryUnavailableException
-    | DomainControllerLimitExceededException
-    | EntityDoesNotExistException
-    | InvalidParameterException
-    | ServiceException
-    | UnsupportedOperationException
-    | CommonAwsError
+    ClientException | DirectoryUnavailableException | DomainControllerLimitExceededException | EntityDoesNotExistException | InvalidParameterException | ServiceException | UnsupportedOperationException | CommonAwsError
   >;
   updateRadius(
     input: UpdateRadiusRequest,
   ): Effect.Effect<
     UpdateRadiusResult,
-    | ClientException
-    | EntityDoesNotExistException
-    | InvalidParameterException
-    | ServiceException
-    | CommonAwsError
+    ClientException | EntityDoesNotExistException | InvalidParameterException | ServiceException | CommonAwsError
   >;
   updateSettings(
     input: UpdateSettingsRequest,
   ): Effect.Effect<
     UpdateSettingsResult,
-    | ClientException
-    | DirectoryDoesNotExistException
-    | DirectoryUnavailableException
-    | IncompatibleSettingsException
-    | InvalidParameterException
-    | ServiceException
-    | UnsupportedOperationException
-    | UnsupportedSettingsException
-    | CommonAwsError
+    ClientException | DirectoryDoesNotExistException | DirectoryUnavailableException | IncompatibleSettingsException | InvalidParameterException | ServiceException | UnsupportedOperationException | UnsupportedSettingsException | CommonAwsError
   >;
   updateTrust(
     input: UpdateTrustRequest,
   ): Effect.Effect<
     UpdateTrustResult,
-    | ClientException
-    | EntityDoesNotExistException
-    | InvalidParameterException
-    | ServiceException
-    | CommonAwsError
+    ClientException | EntityDoesNotExistException | InvalidParameterException | ServiceException | CommonAwsError
   >;
   verifyTrust(
     input: VerifyTrustRequest,
   ): Effect.Effect<
     VerifyTrustResult,
-    | ClientException
-    | EntityDoesNotExistException
-    | InvalidParameterException
-    | ServiceException
-    | UnsupportedOperationException
-    | CommonAwsError
+    ClientException | EntityDoesNotExistException | InvalidParameterException | ServiceException | UnsupportedOperationException | CommonAwsError
   >;
 }
 
@@ -961,19 +495,22 @@ export interface AddIpRoutesRequest {
   IpRoutes: Array<IpRoute>;
   UpdateSecurityGroupForDirectoryControllers?: boolean;
 }
-export interface AddIpRoutesResult {}
+export interface AddIpRoutesResult {
+}
 export type AdditionalRegions = Array<string>;
 export interface AddRegionRequest {
   DirectoryId: string;
   RegionName: string;
   VPCSettings: DirectoryVpcSettings;
 }
-export interface AddRegionResult {}
+export interface AddRegionResult {
+}
 export interface AddTagsToResourceRequest {
   ResourceId: string;
   Tags: Array<Tag>;
 }
-export interface AddTagsToResourceResult {}
+export interface AddTagsToResourceResult {
+}
 export type AliasName = string;
 
 export interface Assessment {
@@ -1079,7 +616,8 @@ export interface CancelSchemaExtensionRequest {
   DirectoryId: string;
   SchemaExtensionId: string;
 }
-export interface CancelSchemaExtensionResult {}
+export interface CancelSchemaExtensionResult {
+}
 export interface Certificate {
   CertificateId?: string;
   State?: CertificateState;
@@ -1132,13 +670,7 @@ export declare class CertificateLimitExceededException extends EffectData.Tagged
 export type CertificateRegisteredDateTime = Date | string;
 
 export type CertificatesInfo = Array<CertificateInfo>;
-export type CertificateState =
-  | "Registering"
-  | "Registered"
-  | "RegisterFailed"
-  | "Deregistering"
-  | "Deregistered"
-  | "DeregisterFailed";
+export type CertificateState = "Registering" | "Registered" | "RegisterFailed" | "Deregistering" | "Deregistered" | "DeregisterFailed";
 export type CertificateStateReason = string;
 
 export type CertificateType = "ClientCertAuth" | "ClientLDAPS";
@@ -1150,8 +682,7 @@ export interface ClientAuthenticationSettingInfo {
   Status?: ClientAuthenticationStatus;
   LastUpdatedDateTime?: Date | string;
 }
-export type ClientAuthenticationSettingsInfo =
-  Array<ClientAuthenticationSettingInfo>;
+export type ClientAuthenticationSettingsInfo = Array<ClientAuthenticationSettingInfo>;
 export type ClientAuthenticationStatus = "Enabled" | "Disabled";
 export type ClientAuthenticationType = "SmartCard" | "SmartCardOrPassword";
 export interface ClientCertAuthSettings {
@@ -1219,7 +750,8 @@ export interface CreateConditionalForwarderRequest {
   RemoteDomainName: string;
   DnsIpAddrs: Array<string>;
 }
-export interface CreateConditionalForwarderResult {}
+export interface CreateConditionalForwarderResult {
+}
 export type CreatedDateTime = Date | string;
 
 export interface CreateDirectoryRequest {
@@ -1246,7 +778,8 @@ export interface CreateLogSubscriptionRequest {
   DirectoryId: string;
   LogGroupName: string;
 }
-export interface CreateLogSubscriptionResult {}
+export interface CreateLogSubscriptionResult {
+}
 export interface CreateMicrosoftADRequest {
   Name: string;
   ShortName?: string;
@@ -1287,12 +820,7 @@ export type CustomerId = string;
 
 export type CustomerUserName = string;
 
-export type DataAccessStatus =
-  | "Disabled"
-  | "Disabling"
-  | "Enabled"
-  | "Enabling"
-  | "Failed";
+export type DataAccessStatus = "Disabled" | "Disabling" | "Enabled" | "Enabling" | "Failed";
 export interface DeleteADAssessmentRequest {
   AssessmentId: string;
 }
@@ -1305,7 +833,8 @@ export interface DeleteConditionalForwarderRequest {
   DirectoryId: string;
   RemoteDomainName: string;
 }
-export interface DeleteConditionalForwarderResult {}
+export interface DeleteConditionalForwarderResult {
+}
 export interface DeleteDirectoryRequest {
   DirectoryId: string;
 }
@@ -1315,7 +844,8 @@ export interface DeleteDirectoryResult {
 export interface DeleteLogSubscriptionRequest {
   DirectoryId: string;
 }
-export interface DeleteLogSubscriptionResult {}
+export interface DeleteLogSubscriptionResult {
+}
 export interface DeleteSnapshotRequest {
   SnapshotId: string;
 }
@@ -1333,12 +863,14 @@ export interface DeregisterCertificateRequest {
   DirectoryId: string;
   CertificateId: string;
 }
-export interface DeregisterCertificateResult {}
+export interface DeregisterCertificateResult {
+}
 export interface DeregisterEventTopicRequest {
   DirectoryId: string;
   TopicName: string;
 }
-export interface DeregisterEventTopicResult {}
+export interface DeregisterEventTopicResult {
+}
 export interface DescribeADAssessmentRequest {
   AssessmentId: string;
 }
@@ -1506,22 +1038,14 @@ export type DirectoryConfigurationSettingLastUpdatedDateTime = Date | string;
 
 export type DirectoryConfigurationSettingName = string;
 
-export type DirectoryConfigurationSettingRequestDetailedStatus = Record<
-  string,
-  DirectoryConfigurationStatus
->;
+export type DirectoryConfigurationSettingRequestDetailedStatus = Record<string, DirectoryConfigurationStatus>;
 export type DirectoryConfigurationSettingRequestStatusMessage = string;
 
 export type DirectoryConfigurationSettingType = string;
 
 export type DirectoryConfigurationSettingValue = string;
 
-export type DirectoryConfigurationStatus =
-  | "Requested"
-  | "Updating"
-  | "Updated"
-  | "Failed"
-  | "Default";
+export type DirectoryConfigurationStatus = "Requested" | "Updating" | "Updated" | "Failed" | "Default";
 export interface DirectoryConnectSettings {
   VpcId: string;
   SubnetIds: Array<string>;
@@ -1610,24 +1134,8 @@ export declare class DirectoryNotSharedException extends EffectData.TaggedError(
 export type DirectoryShortName = string;
 
 export type DirectorySize = "Small" | "Large";
-export type DirectoryStage =
-  | "Requested"
-  | "Creating"
-  | "Created"
-  | "Active"
-  | "Inoperable"
-  | "Impaired"
-  | "Restoring"
-  | "RestoreFailed"
-  | "Deleting"
-  | "Deleted"
-  | "Failed"
-  | "Updating";
-export type DirectoryType =
-  | "SimpleAD"
-  | "ADConnector"
-  | "MicrosoftAD"
-  | "SharedMicrosoftAD";
+export type DirectoryStage = "Requested" | "Creating" | "Created" | "Active" | "Inoperable" | "Impaired" | "Restoring" | "RestoreFailed" | "Deleting" | "Deleted" | "Failed" | "Updating";
+export type DirectoryType = "SimpleAD" | "ADConnector" | "MicrosoftAD" | "SharedMicrosoftAD";
 export declare class DirectoryUnavailableException extends EffectData.TaggedError(
   "DirectoryUnavailableException",
 )<{
@@ -1648,26 +1156,31 @@ export interface DisableClientAuthenticationRequest {
   DirectoryId: string;
   Type: ClientAuthenticationType;
 }
-export interface DisableClientAuthenticationResult {}
+export interface DisableClientAuthenticationResult {
+}
 export interface DisableDirectoryDataAccessRequest {
   DirectoryId: string;
 }
-export interface DisableDirectoryDataAccessResult {}
+export interface DisableDirectoryDataAccessResult {
+}
 export interface DisableLDAPSRequest {
   DirectoryId: string;
   Type: LDAPSType;
 }
-export interface DisableLDAPSResult {}
+export interface DisableLDAPSResult {
+}
 export interface DisableRadiusRequest {
   DirectoryId: string;
 }
-export interface DisableRadiusResult {}
+export interface DisableRadiusResult {
+}
 export interface DisableSsoRequest {
   DirectoryId: string;
   UserName?: string;
   Password?: string;
 }
-export interface DisableSsoResult {}
+export interface DisableSsoResult {
+}
 export type DnsIpAddrs = Array<string>;
 export interface DomainController {
   DirectoryId?: string;
@@ -1691,42 +1204,39 @@ export declare class DomainControllerLimitExceededException extends EffectData.T
   readonly RequestId?: string;
 }> {}
 export type DomainControllers = Array<DomainController>;
-export type DomainControllerStatus =
-  | "Creating"
-  | "Active"
-  | "Impaired"
-  | "Restoring"
-  | "Deleting"
-  | "Deleted"
-  | "Failed"
-  | "Updating";
+export type DomainControllerStatus = "Creating" | "Active" | "Impaired" | "Restoring" | "Deleting" | "Deleted" | "Failed" | "Updating";
 export type DomainControllerStatusReason = string;
 
 export interface EnableClientAuthenticationRequest {
   DirectoryId: string;
   Type: ClientAuthenticationType;
 }
-export interface EnableClientAuthenticationResult {}
+export interface EnableClientAuthenticationResult {
+}
 export interface EnableDirectoryDataAccessRequest {
   DirectoryId: string;
 }
-export interface EnableDirectoryDataAccessResult {}
+export interface EnableDirectoryDataAccessResult {
+}
 export interface EnableLDAPSRequest {
   DirectoryId: string;
   Type: LDAPSType;
 }
-export interface EnableLDAPSResult {}
+export interface EnableLDAPSResult {
+}
 export interface EnableRadiusRequest {
   DirectoryId: string;
   RadiusSettings: RadiusSettings;
 }
-export interface EnableRadiusResult {}
+export interface EnableRadiusResult {
+}
 export interface EnableSsoRequest {
   DirectoryId: string;
   UserName?: string;
   Password?: string;
 }
-export interface EnableSsoResult {}
+export interface EnableSsoResult {
+}
 export type EndDateTime = Date | string;
 
 export declare class EntityAlreadyExistsException extends EffectData.TaggedError(
@@ -1751,7 +1261,8 @@ export interface EventTopic {
 export type EventTopics = Array<EventTopic>;
 export type ExceptionMessage = string;
 
-export interface GetDirectoryLimitsRequest {}
+export interface GetDirectoryLimitsRequest {
+}
 export interface GetDirectoryLimitsResult {
   DirectoryLimits?: DirectoryLimits;
 }
@@ -1787,9 +1298,7 @@ export interface HybridUpdateInfoEntry {
   LastUpdatedDateTime?: Date | string;
   AssessmentId?: string;
 }
-export type HybridUpdateType =
-  | "SelfManagedInstances"
-  | "HybridAdministratorAccount";
+export type HybridUpdateType = "SelfManagedInstances" | "HybridAdministratorAccount";
 export interface HybridUpdateValue {
   InstanceIds?: Array<string>;
   DnsIps?: Array<string>;
@@ -1873,13 +1382,7 @@ export declare class IpRouteLimitExceededException extends EffectData.TaggedErro
 }> {}
 export type IpRoutes = Array<IpRoute>;
 export type IpRoutesInfo = Array<IpRouteInfo>;
-export type IpRouteStatusMsg =
-  | "Adding"
-  | "Added"
-  | "Removing"
-  | "Removed"
-  | "AddFailed"
-  | "RemoveFailed";
+export type IpRouteStatusMsg = "Adding" | "Added" | "Removing" | "Removed" | "AddFailed" | "RemoveFailed";
 export type IpRouteStatusReason = string;
 
 export type LastUpdateDateTime = Date | string;
@@ -2004,11 +1507,7 @@ export type Password = string;
 
 export type PortNumber = number;
 
-export type RadiusAuthenticationProtocol =
-  | "PAP"
-  | "CHAP"
-  | "MS-CHAPv1"
-  | "MS-CHAPv2";
+export type RadiusAuthenticationProtocol = "PAP" | "CHAP" | "MS-CHAPv1" | "MS-CHAPv2";
 export type RadiusDisplayLabel = string;
 
 export type RadiusRetries = number;
@@ -2066,7 +1565,8 @@ export interface RegisterEventTopicRequest {
   DirectoryId: string;
   TopicName: string;
 }
-export interface RegisterEventTopicResult {}
+export interface RegisterEventTopicResult {
+}
 export interface RejectSharedDirectoryRequest {
   SharedDirectoryId: string;
 }
@@ -2080,16 +1580,19 @@ export interface RemoveIpRoutesRequest {
   DirectoryId: string;
   CidrIps: Array<string>;
 }
-export interface RemoveIpRoutesResult {}
+export interface RemoveIpRoutesResult {
+}
 export interface RemoveRegionRequest {
   DirectoryId: string;
 }
-export interface RemoveRegionResult {}
+export interface RemoveRegionResult {
+}
 export interface RemoveTagsFromResourceRequest {
   ResourceId: string;
   TagKeys: Array<string>;
 }
-export interface RemoveTagsFromResourceResult {}
+export interface RemoveTagsFromResourceResult {
+}
 export type ReplicationScope = "Domain";
 export type RequestId = string;
 
@@ -2098,13 +1601,15 @@ export interface ResetUserPasswordRequest {
   UserName: string;
   NewPassword: string;
 }
-export interface ResetUserPasswordResult {}
+export interface ResetUserPasswordResult {
+}
 export type ResourceId = string;
 
 export interface RestoreFromSnapshotRequest {
   SnapshotId: string;
 }
-export interface RestoreFromSnapshotResult {}
+export interface RestoreFromSnapshotResult {
+}
 export type SchemaExtensionId = string;
 
 export interface SchemaExtensionInfo {
@@ -2117,16 +1622,7 @@ export interface SchemaExtensionInfo {
   EndDateTime?: Date | string;
 }
 export type SchemaExtensionsInfo = Array<SchemaExtensionInfo>;
-export type SchemaExtensionStatus =
-  | "Initializing"
-  | "CreatingSnapshot"
-  | "UpdatingSchema"
-  | "Replicating"
-  | "CancelInProgress"
-  | "RollbackInProgress"
-  | "Cancelled"
-  | "Failed"
-  | "Completed";
+export type SchemaExtensionStatus = "Initializing" | "CreatingSnapshot" | "UpdatingSchema" | "Replicating" | "CancelInProgress" | "RollbackInProgress" | "Cancelled" | "Failed" | "Completed";
 export type SchemaExtensionStatusReason = string;
 
 export type SecretArn = string;
@@ -2191,16 +1687,7 @@ export declare class ShareLimitExceededException extends EffectData.TaggedError(
   readonly RequestId?: string;
 }> {}
 export type ShareMethod = "ORGANIZATIONS" | "HANDSHAKE";
-export type ShareStatus =
-  | "Shared"
-  | "PendingAcceptance"
-  | "Rejected"
-  | "Rejecting"
-  | "RejectFailed"
-  | "Sharing"
-  | "ShareFailed"
-  | "Deleted"
-  | "Deleting";
+export type ShareStatus = "Shared" | "PendingAcceptance" | "Rejected" | "Rejecting" | "RejectFailed" | "Sharing" | "ShareFailed" | "Deleted" | "Deleting";
 export interface ShareTarget {
   Id: string;
   Type: TargetType;
@@ -2289,11 +1776,7 @@ export type TopicArn = string;
 export type TopicName = string;
 
 export type TopicNames = Array<string>;
-export type TopicStatus =
-  | "Registered"
-  | "Topic not found"
-  | "Failed"
-  | "Deleted";
+export type TopicStatus = "Registered" | "Topic not found" | "Failed" | "Deleted";
 export interface Trust {
   DirectoryId?: string;
   TrustId?: string;
@@ -2307,28 +1790,14 @@ export interface Trust {
   TrustStateReason?: string;
   SelectiveAuth?: SelectiveAuth;
 }
-export type TrustDirection =
-  | "One-Way: Outgoing"
-  | "One-Way: Incoming"
-  | "Two-Way";
+export type TrustDirection = "One-Way: Outgoing" | "One-Way: Incoming" | "Two-Way";
 export type TrustId = string;
 
 export type TrustIds = Array<string>;
 export type TrustPassword = string;
 
 export type Trusts = Array<Trust>;
-export type TrustState =
-  | "Creating"
-  | "Created"
-  | "Verifying"
-  | "VerifyFailed"
-  | "Verified"
-  | "Updating"
-  | "UpdateFailed"
-  | "Updated"
-  | "Deleting"
-  | "Deleted"
-  | "Failed";
+export type TrustState = "Creating" | "Created" | "Verifying" | "VerifyFailed" | "Verified" | "Updating" | "UpdateFailed" | "Updated" | "Deleting" | "Deleted" | "Failed";
 export type TrustStateReason = string;
 
 export type TrustType = "Forest" | "External";
@@ -2361,14 +1830,16 @@ export interface UpdateConditionalForwarderRequest {
   RemoteDomainName: string;
   DnsIpAddrs: Array<string>;
 }
-export interface UpdateConditionalForwarderResult {}
+export interface UpdateConditionalForwarderResult {
+}
 export interface UpdateDirectorySetupRequest {
   DirectoryId: string;
   UpdateType: UpdateType;
   OSUpdateSettings?: OSUpdateSettings;
   CreateSnapshotBeforeUpdate?: boolean;
 }
-export interface UpdateDirectorySetupResult {}
+export interface UpdateDirectorySetupResult {
+}
 export interface UpdateHybridADRequest {
   DirectoryId: string;
   HybridAdministratorAccountUpdate?: HybridAdministratorAccountUpdate;
@@ -2392,12 +1863,14 @@ export interface UpdateNumberOfDomainControllersRequest {
   DirectoryId: string;
   DesiredNumber: number;
 }
-export interface UpdateNumberOfDomainControllersResult {}
+export interface UpdateNumberOfDomainControllersResult {
+}
 export interface UpdateRadiusRequest {
   DirectoryId: string;
   RadiusSettings: RadiusSettings;
 }
-export interface UpdateRadiusResult {}
+export interface UpdateRadiusResult {
+}
 export type UpdateSecurityGroupForDirectoryControllers = boolean;
 
 export interface UpdateSettingsRequest {
@@ -3412,3 +2885,4 @@ export declare namespace VerifyTrust {
     | UnsupportedOperationException
     | CommonAwsError;
 }
+

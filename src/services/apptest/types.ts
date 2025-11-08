@@ -1,38 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-} from "../../error.ts";
-type CommonAwsError =
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | AccessDeniedException
-  | ThrottlingException
-  | ValidationException;
+import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
+type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class AppTest extends AWSServiceClient {
@@ -40,277 +8,145 @@ export declare class AppTest extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createTestCase(
     input: CreateTestCaseRequest,
   ): Effect.Effect<
     CreateTestCaseResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createTestConfiguration(
     input: CreateTestConfigurationRequest,
   ): Effect.Effect<
     CreateTestConfigurationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createTestSuite(
     input: CreateTestSuiteRequest,
   ): Effect.Effect<
     CreateTestSuiteResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteTestCase(
     input: DeleteTestCaseRequest,
   ): Effect.Effect<
     DeleteTestCaseResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteTestConfiguration(
     input: DeleteTestConfigurationRequest,
   ): Effect.Effect<
     DeleteTestConfigurationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteTestRun(
     input: DeleteTestRunRequest,
   ): Effect.Effect<
     DeleteTestRunResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteTestSuite(
     input: DeleteTestSuiteRequest,
   ): Effect.Effect<
     DeleteTestSuiteResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getTestCase(
     input: GetTestCaseRequest,
   ): Effect.Effect<
     GetTestCaseResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getTestConfiguration(
     input: GetTestConfigurationRequest,
   ): Effect.Effect<
     GetTestConfigurationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getTestRunStep(
     input: GetTestRunStepRequest,
   ): Effect.Effect<
     GetTestRunStepResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getTestSuite(
     input: GetTestSuiteRequest,
   ): Effect.Effect<
     GetTestSuiteResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listTestCases(
     input: ListTestCasesRequest,
   ): Effect.Effect<
     ListTestCasesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listTestConfigurations(
     input: ListTestConfigurationsRequest,
   ): Effect.Effect<
     ListTestConfigurationsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listTestRunSteps(
     input: ListTestRunStepsRequest,
   ): Effect.Effect<
     ListTestRunStepsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listTestRunTestCases(
     input: ListTestRunTestCasesRequest,
   ): Effect.Effect<
     ListTestRunTestCasesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listTestRuns(
     input: ListTestRunsRequest,
   ): Effect.Effect<
     ListTestRunsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listTestSuites(
     input: ListTestSuitesRequest,
   ): Effect.Effect<
     ListTestSuitesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   startTestRun(
     input: StartTestRunRequest,
   ): Effect.Effect<
     StartTestRunResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateTestCase(
     input: UpdateTestCaseRequest,
   ): Effect.Effect<
     UpdateTestCaseResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateTestConfiguration(
     input: UpdateTestConfigurationRequest,
   ): Effect.Effect<
     UpdateTestConfigurationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateTestSuite(
     input: UpdateTestSuiteRequest,
   ): Effect.Effect<
     UpdateTestSuiteResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
 }
 
@@ -360,13 +196,7 @@ interface _CloudFormationStepSummary {
   deleteCloudformation?: DeleteCloudFormationSummary;
 }
 
-export type CloudFormationStepSummary =
-  | (_CloudFormationStepSummary & {
-      createCloudformation: CreateCloudFormationSummary;
-    })
-  | (_CloudFormationStepSummary & {
-      deleteCloudformation: DeleteCloudFormationSummary;
-    });
+export type CloudFormationStepSummary = (_CloudFormationStepSummary & { createCloudformation: CreateCloudFormationSummary }) | (_CloudFormationStepSummary & { deleteCloudformation: DeleteCloudFormationSummary });
 export interface CompareAction {
   input: Input;
   output?: Output;
@@ -408,9 +238,7 @@ interface _CompareFileType {
   databaseCDC?: CompareDatabaseCDCSummary;
 }
 
-export type CompareFileType =
-  | (_CompareFileType & { datasets: CompareDataSetsSummary })
-  | (_CompareFileType & { databaseCDC: CompareDatabaseCDCSummary });
+export type CompareFileType = (_CompareFileType & { datasets: CompareDataSetsSummary }) | (_CompareFileType & { databaseCDC: CompareDatabaseCDCSummary });
 export type ComparisonStatusEnum = "Different" | "Equivalent" | "Equal";
 export declare class ConflictException extends EffectData.TaggedError(
   "ConflictException",
@@ -484,7 +312,8 @@ export type DataSetType = "PS";
 export interface DeleteCloudFormationStepInput {
   stackId: string;
 }
-export interface DeleteCloudFormationStepOutput {}
+export interface DeleteCloudFormationStepOutput {
+}
 export interface DeleteCloudFormationSummary {
   stepInput: DeleteCloudFormationStepInput;
   stepOutput?: DeleteCloudFormationStepOutput;
@@ -492,33 +321,35 @@ export interface DeleteCloudFormationSummary {
 export interface DeleteTestCaseRequest {
   testCaseId: string;
 }
-export interface DeleteTestCaseResponse {}
+export interface DeleteTestCaseResponse {
+}
 export interface DeleteTestConfigurationRequest {
   testConfigurationId: string;
 }
-export interface DeleteTestConfigurationResponse {}
+export interface DeleteTestConfigurationResponse {
+}
 export interface DeleteTestRunRequest {
   testRunId: string;
 }
-export interface DeleteTestRunResponse {}
+export interface DeleteTestRunResponse {
+}
 export interface DeleteTestSuiteRequest {
   testSuiteId: string;
 }
-export interface DeleteTestSuiteResponse {}
+export interface DeleteTestSuiteResponse {
+}
 export type ExportDataSetNames = Array<string>;
 interface _File {
   fileType?: CompareFileType;
 }
 
-export type File = _File & { fileType: CompareFileType };
+export type File = (_File & { fileType: CompareFileType });
 interface _FileMetadata {
   dataSets?: Array<DataSet>;
   databaseCDC?: DatabaseCDC;
 }
 
-export type FileMetadata =
-  | (_FileMetadata & { dataSets: Array<DataSet> })
-  | (_FileMetadata & { databaseCDC: DatabaseCDC });
+export type FileMetadata = (_FileMetadata & { dataSets: Array<DataSet> }) | (_FileMetadata & { databaseCDC: DatabaseCDC });
 export type Format = "FIXED" | "VARIABLE" | "LINE_SEQUENTIAL";
 export interface GetTestCaseRequest {
   testCaseId: string;
@@ -607,7 +438,7 @@ interface _Input {
   file?: InputFile;
 }
 
-export type Input = _Input & { file: InputFile };
+export type Input = (_Input & { file: InputFile });
 export interface InputFile {
   sourceLocation: string;
   targetLocation: string;
@@ -737,7 +568,8 @@ export interface M2NonManagedApplicationStepInput {
   webAppName?: string;
   actionType: M2NonManagedActionType;
 }
-export interface M2NonManagedApplicationStepOutput {}
+export interface M2NonManagedApplicationStepOutput {
+}
 export interface M2NonManagedApplicationStepSummary {
   stepInput: M2NonManagedApplicationStepInput;
   stepOutput?: M2NonManagedApplicationStepOutput;
@@ -762,29 +594,19 @@ interface _MainframeActionSummary {
   tn3270?: TN3270Summary;
 }
 
-export type MainframeActionSummary =
-  | (_MainframeActionSummary & { batch: BatchSummary })
-  | (_MainframeActionSummary & { tn3270: TN3270Summary });
+export type MainframeActionSummary = (_MainframeActionSummary & { batch: BatchSummary }) | (_MainframeActionSummary & { tn3270: TN3270Summary });
 interface _MainframeActionType {
   batch?: Batch;
   tn3270?: TN3270;
 }
 
-export type MainframeActionType =
-  | (_MainframeActionType & { batch: Batch })
-  | (_MainframeActionType & { tn3270: TN3270 });
+export type MainframeActionType = (_MainframeActionType & { batch: Batch }) | (_MainframeActionType & { tn3270: TN3270 });
 interface _MainframeResourceSummary {
   m2ManagedApplication?: M2ManagedApplicationSummary;
   m2NonManagedApplication?: M2NonManagedApplicationSummary;
 }
 
-export type MainframeResourceSummary =
-  | (_MainframeResourceSummary & {
-      m2ManagedApplication: M2ManagedApplicationSummary;
-    })
-  | (_MainframeResourceSummary & {
-      m2NonManagedApplication: M2NonManagedApplicationSummary;
-    });
+export type MainframeResourceSummary = (_MainframeResourceSummary & { m2ManagedApplication: M2ManagedApplicationSummary }) | (_MainframeResourceSummary & { m2NonManagedApplication: M2NonManagedApplicationSummary });
 export type MaxResults = number;
 
 export type NextToken = string;
@@ -793,7 +615,7 @@ interface _Output {
   file?: OutputFile;
 }
 
-export type Output = _Output & { file: OutputFile };
+export type Output = (_Output & { file: OutputFile });
 export interface OutputFile {
   fileLocation?: string;
 }
@@ -808,28 +630,14 @@ interface _ResourceAction {
   cloudFormationAction?: CloudFormationAction;
 }
 
-export type ResourceAction =
-  | (_ResourceAction & {
-      m2ManagedApplicationAction: M2ManagedApplicationAction;
-    })
-  | (_ResourceAction & {
-      m2NonManagedApplicationAction: M2NonManagedApplicationAction;
-    })
-  | (_ResourceAction & { cloudFormationAction: CloudFormationAction });
+export type ResourceAction = (_ResourceAction & { m2ManagedApplicationAction: M2ManagedApplicationAction }) | (_ResourceAction & { m2NonManagedApplicationAction: M2NonManagedApplicationAction }) | (_ResourceAction & { cloudFormationAction: CloudFormationAction });
 interface _ResourceActionSummary {
   cloudFormation?: CloudFormationStepSummary;
   m2ManagedApplication?: M2ManagedApplicationStepSummary;
   m2NonManagedApplication?: M2NonManagedApplicationStepSummary;
 }
 
-export type ResourceActionSummary =
-  | (_ResourceActionSummary & { cloudFormation: CloudFormationStepSummary })
-  | (_ResourceActionSummary & {
-      m2ManagedApplication: M2ManagedApplicationStepSummary;
-    })
-  | (_ResourceActionSummary & {
-      m2NonManagedApplication: M2NonManagedApplicationStepSummary;
-    });
+export type ResourceActionSummary = (_ResourceActionSummary & { cloudFormation: CloudFormationStepSummary }) | (_ResourceActionSummary & { m2ManagedApplication: M2ManagedApplicationStepSummary }) | (_ResourceActionSummary & { m2NonManagedApplication: M2NonManagedApplicationStepSummary });
 export type ResourceDescription = string;
 
 export type ResourceList = Array<Resource>;
@@ -848,10 +656,7 @@ interface _ResourceType {
   m2NonManagedApplication?: M2NonManagedApplication;
 }
 
-export type ResourceType =
-  | (_ResourceType & { cloudFormation: CloudFormation })
-  | (_ResourceType & { m2ManagedApplication: M2ManagedApplication })
-  | (_ResourceType & { m2NonManagedApplication: M2NonManagedApplication });
+export type ResourceType = (_ResourceType & { cloudFormation: CloudFormation }) | (_ResourceType & { m2ManagedApplication: M2ManagedApplication }) | (_ResourceType & { m2NonManagedApplication: M2NonManagedApplication });
 export type S3Uri = string;
 
 export interface Script {
@@ -901,10 +706,7 @@ interface _StepAction {
   compareAction?: CompareAction;
 }
 
-export type StepAction =
-  | (_StepAction & { resourceAction: ResourceAction })
-  | (_StepAction & { mainframeAction: MainframeAction })
-  | (_StepAction & { compareAction: CompareAction });
+export type StepAction = (_StepAction & { resourceAction: ResourceAction }) | (_StepAction & { mainframeAction: MainframeAction }) | (_StepAction & { compareAction: CompareAction });
 export type StepList = Array<Step>;
 export type StepRunStatus = "Success" | "Failed" | "Running";
 interface _StepRunSummary {
@@ -913,10 +715,7 @@ interface _StepRunSummary {
   resourceAction?: ResourceActionSummary;
 }
 
-export type StepRunSummary =
-  | (_StepRunSummary & { mainframeAction: MainframeActionSummary })
-  | (_StepRunSummary & { compareAction: CompareActionSummary })
-  | (_StepRunSummary & { resourceAction: ResourceActionSummary });
+export type StepRunSummary = (_StepRunSummary & { mainframeAction: MainframeActionSummary }) | (_StepRunSummary & { compareAction: CompareActionSummary }) | (_StepRunSummary & { resourceAction: ResourceActionSummary });
 export type String100 = string;
 
 export type String50 = string;
@@ -929,7 +728,8 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export type TargetDatabase = "PostgreSQL";
@@ -960,7 +760,7 @@ interface _TestCases {
   sequential?: Array<string>;
 }
 
-export type TestCases = _TestCases & { sequential: Array<string> };
+export type TestCases = (_TestCases & { sequential: Array<string> });
 export interface TestCaseSummary {
   testCaseId: string;
   testCaseArn: string;
@@ -1026,12 +826,7 @@ export interface TestSuiteLatestVersion {
   status: TestSuiteLifecycle;
   statusReason?: string;
 }
-export type TestSuiteLifecycle =
-  | "Creating"
-  | "Updating"
-  | "Active"
-  | "Failed"
-  | "Deleting";
+export type TestSuiteLifecycle = "Creating" | "Updating" | "Active" | "Failed" | "Deleting";
 export type TestSuiteList = Array<TestSuiteSummary>;
 export interface TestSuiteSummary {
   testSuiteId: string;
@@ -1075,7 +870,8 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateTestCaseRequest {
   testCaseId: string;
   description?: string;
@@ -1119,11 +915,7 @@ export interface ValidationExceptionField {
   message: string;
 }
 export type ValidationExceptionFieldList = Array<ValidationExceptionField>;
-export type ValidationExceptionReason =
-  | "unknownOperation"
-  | "cannotParse"
-  | "fieldValidationFailed"
-  | "other";
+export type ValidationExceptionReason = "unknownOperation" | "cannotParse" | "fieldValidationFailed" | "other";
 export type Variable = string;
 
 export type Version = number;
@@ -1427,3 +1219,4 @@ export declare namespace UpdateTestSuite {
     | ValidationException
     | CommonAwsError;
 }
+

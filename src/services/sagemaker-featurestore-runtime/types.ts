@@ -1,38 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  AccessDeniedException,
-  ExpiredTokenException,
-  IncompleteSignature,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ThrottlingException,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationException,
-} from "../../error.ts";
-type CommonAwsError =
-  | AccessDeniedException
-  | ExpiredTokenException
-  | IncompleteSignature
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ThrottlingException
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationException
-  | InternalFailure
-  | ServiceUnavailable
-  | ValidationError;
+import type { AccessDeniedException, ExpiredTokenException, IncompleteSignature, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationException } from "../../error.ts";
+type CommonAwsError = AccessDeniedException | ExpiredTokenException | IncompleteSignature | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ThrottlingException | UnrecognizedClientException | UnknownOperationException | ValidationException | InternalFailure | ServiceUnavailable | ValidationError;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class SageMakerFeatureStoreRuntime extends AWSServiceClient {
@@ -40,42 +8,25 @@ export declare class SageMakerFeatureStoreRuntime extends AWSServiceClient {
     input: BatchGetRecordRequest,
   ): Effect.Effect<
     BatchGetRecordResponse,
-    | AccessForbidden
-    | InternalFailure
-    | ServiceUnavailable
-    | ValidationError
-    | CommonAwsError
+    AccessForbidden | InternalFailure | ServiceUnavailable | ValidationError | CommonAwsError
   >;
   deleteRecord(
     input: DeleteRecordRequest,
   ): Effect.Effect<
     {},
-    | AccessForbidden
-    | InternalFailure
-    | ServiceUnavailable
-    | ValidationError
-    | CommonAwsError
+    AccessForbidden | InternalFailure | ServiceUnavailable | ValidationError | CommonAwsError
   >;
   getRecord(
     input: GetRecordRequest,
   ): Effect.Effect<
     GetRecordResponse,
-    | AccessForbidden
-    | InternalFailure
-    | ResourceNotFound
-    | ServiceUnavailable
-    | ValidationError
-    | CommonAwsError
+    AccessForbidden | InternalFailure | ResourceNotFound | ServiceUnavailable | ValidationError | CommonAwsError
   >;
   putRecord(
     input: PutRecordRequest,
   ): Effect.Effect<
     {},
-    | AccessForbidden
-    | InternalFailure
-    | ServiceUnavailable
-    | ValidationError
-    | CommonAwsError
+    AccessForbidden | InternalFailure | ServiceUnavailable | ValidationError | CommonAwsError
   >;
 }
 
@@ -177,12 +128,7 @@ export interface TtlDuration {
   Unit: TtlDurationUnit;
   Value: number;
 }
-export type TtlDurationUnit =
-  | "Seconds"
-  | "Minutes"
-  | "Hours"
-  | "Days"
-  | "Weeks";
+export type TtlDurationUnit = "Seconds" | "Minutes" | "Hours" | "Days" | "Weeks";
 export type TtlDurationValue = number;
 
 export type UnprocessedIdentifiers = Array<BatchGetRecordIdentifier>;
@@ -238,3 +184,4 @@ export declare namespace PutRecord {
     | ValidationError
     | CommonAwsError;
 }
+

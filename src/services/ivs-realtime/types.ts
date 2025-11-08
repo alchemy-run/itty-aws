@@ -1,39 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  ThrottlingException,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-} from "../../error.ts";
-type CommonAwsError =
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | ThrottlingException
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | AccessDeniedException
-  | ValidationException;
+import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
+type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | ThrottlingException | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class IVSRealTime extends AWSServiceClient {
@@ -41,239 +8,133 @@ export declare class IVSRealTime extends AWSServiceClient {
     input: CreateEncoderConfigurationRequest,
   ): Effect.Effect<
     CreateEncoderConfigurationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | PendingVerification
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | PendingVerification | ResourceNotFoundException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   >;
   createIngestConfiguration(
     input: CreateIngestConfigurationRequest,
   ): Effect.Effect<
     CreateIngestConfigurationResponse,
-    | AccessDeniedException
-    | PendingVerification
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | PendingVerification | ServiceQuotaExceededException | ValidationException | CommonAwsError
   >;
   createParticipantToken(
     input: CreateParticipantTokenRequest,
   ): Effect.Effect<
     CreateParticipantTokenResponse,
-    | AccessDeniedException
-    | PendingVerification
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | PendingVerification | ResourceNotFoundException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   >;
   createStage(
     input: CreateStageRequest,
   ): Effect.Effect<
     CreateStageResponse,
-    | AccessDeniedException
-    | PendingVerification
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | PendingVerification | ServiceQuotaExceededException | ValidationException | CommonAwsError
   >;
   createStorageConfiguration(
     input: CreateStorageConfigurationRequest,
   ): Effect.Effect<
     CreateStorageConfigurationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | PendingVerification
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | PendingVerification | ResourceNotFoundException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   >;
   deleteEncoderConfiguration(
     input: DeleteEncoderConfigurationRequest,
   ): Effect.Effect<
     DeleteEncoderConfigurationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   >;
   deleteIngestConfiguration(
     input: DeleteIngestConfigurationRequest,
   ): Effect.Effect<
     DeleteIngestConfigurationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | PendingVerification
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | PendingVerification | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   deletePublicKey(
     input: DeletePublicKeyRequest,
   ): Effect.Effect<
     DeletePublicKeyResponse,
-    | AccessDeniedException
-    | ConflictException
-    | PendingVerification
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | PendingVerification | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   deleteStage(
     input: DeleteStageRequest,
   ): Effect.Effect<
     DeleteStageResponse,
-    | AccessDeniedException
-    | ConflictException
-    | PendingVerification
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | PendingVerification | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   deleteStorageConfiguration(
     input: DeleteStorageConfigurationRequest,
   ): Effect.Effect<
     DeleteStorageConfigurationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   >;
   disconnectParticipant(
     input: DisconnectParticipantRequest,
   ): Effect.Effect<
     DisconnectParticipantResponse,
-    | AccessDeniedException
-    | PendingVerification
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | PendingVerification | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   getComposition(
     input: GetCompositionRequest,
   ): Effect.Effect<
     GetCompositionResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   >;
   getEncoderConfiguration(
     input: GetEncoderConfigurationRequest,
   ): Effect.Effect<
     GetEncoderConfigurationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   >;
   getIngestConfiguration(
     input: GetIngestConfigurationRequest,
   ): Effect.Effect<
     GetIngestConfigurationResponse,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   getParticipant(
     input: GetParticipantRequest,
   ): Effect.Effect<
     GetParticipantResponse,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   getPublicKey(
     input: GetPublicKeyRequest,
   ): Effect.Effect<
     GetPublicKeyResponse,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   getStage(
     input: GetStageRequest,
   ): Effect.Effect<
     GetStageResponse,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   getStageSession(
     input: GetStageSessionRequest,
   ): Effect.Effect<
     GetStageSessionResponse,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   getStorageConfiguration(
     input: GetStorageConfigurationRequest,
   ): Effect.Effect<
     GetStorageConfigurationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   >;
   importPublicKey(
     input: ImportPublicKeyRequest,
   ): Effect.Effect<
     ImportPublicKeyResponse,
-    | AccessDeniedException
-    | ConflictException
-    | PendingVerification
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | PendingVerification | ServiceQuotaExceededException | ValidationException | CommonAwsError
   >;
   listCompositions(
     input: ListCompositionsRequest,
   ): Effect.Effect<
     ListCompositionsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   >;
   listEncoderConfigurations(
     input: ListEncoderConfigurationsRequest,
   ): Effect.Effect<
     ListEncoderConfigurationsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   >;
   listIngestConfigurations(
     input: ListIngestConfigurationsRequest,
@@ -309,10 +170,7 @@ export declare class IVSRealTime extends AWSServiceClient {
     input: ListStagesRequest,
   ): Effect.Effect<
     ListStagesResponse,
-    | AccessDeniedException
-    | ConflictException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | ValidationException | CommonAwsError
   >;
   listStageSessions(
     input: ListStageSessionsRequest,
@@ -324,110 +182,61 @@ export declare class IVSRealTime extends AWSServiceClient {
     input: ListStorageConfigurationsRequest,
   ): Effect.Effect<
     ListStorageConfigurationsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   startComposition(
     input: StartCompositionRequest,
   ): Effect.Effect<
     StartCompositionResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | PendingVerification
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | PendingVerification | ResourceNotFoundException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   >;
   startParticipantReplication(
     input: StartParticipantReplicationRequest,
   ): Effect.Effect<
     StartParticipantReplicationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | PendingVerification
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | PendingVerification | ResourceNotFoundException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   >;
   stopComposition(
     input: StopCompositionRequest,
   ): Effect.Effect<
     StopCompositionResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   >;
   stopParticipantReplication(
     input: StopParticipantReplicationRequest,
   ): Effect.Effect<
     StopParticipantReplicationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   updateIngestConfiguration(
     input: UpdateIngestConfigurationRequest,
   ): Effect.Effect<
     UpdateIngestConfigurationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | PendingVerification
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | PendingVerification | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   updateStage(
     input: UpdateStageRequest,
   ): Effect.Effect<
     UpdateStageResponse,
-    | AccessDeniedException
-    | ConflictException
-    | PendingVerification
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | PendingVerification | ResourceNotFoundException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   >;
 }
 
@@ -503,8 +312,7 @@ export interface CompositionThumbnailConfiguration {
   targetIntervalSeconds?: number;
   storage?: Array<ThumbnailStorageType>;
 }
-export type CompositionThumbnailConfigurationList =
-  Array<CompositionThumbnailConfiguration>;
+export type CompositionThumbnailConfigurationList = Array<CompositionThumbnailConfiguration>;
 export declare class ConflictException extends EffectData.TaggedError(
   "ConflictException",
 )<{
@@ -569,24 +377,29 @@ export interface CreateStorageConfigurationResponse {
 export interface DeleteEncoderConfigurationRequest {
   arn: string;
 }
-export interface DeleteEncoderConfigurationResponse {}
+export interface DeleteEncoderConfigurationResponse {
+}
 export interface DeleteIngestConfigurationRequest {
   arn: string;
   force?: boolean;
 }
-export interface DeleteIngestConfigurationResponse {}
+export interface DeleteIngestConfigurationResponse {
+}
 export interface DeletePublicKeyRequest {
   arn: string;
 }
-export interface DeletePublicKeyResponse {}
+export interface DeletePublicKeyResponse {
+}
 export interface DeleteStageRequest {
   arn: string;
 }
-export interface DeleteStageResponse {}
+export interface DeleteStageResponse {
+}
 export interface DeleteStorageConfigurationRequest {
   arn: string;
 }
-export interface DeleteStorageConfigurationResponse {}
+export interface DeleteStorageConfigurationResponse {
+}
 export interface Destination {
   id: string;
   state: string;
@@ -623,7 +436,8 @@ export interface DisconnectParticipantRequest {
   participantId: string;
   reason?: string;
 }
-export interface DisconnectParticipantResponse {}
+export interface DisconnectParticipantResponse {
+}
 export interface EncoderConfiguration {
   arn: string;
   name?: string;
@@ -640,8 +454,7 @@ export interface EncoderConfigurationSummary {
   name?: string;
   tags?: Record<string, string>;
 }
-export type EncoderConfigurationSummaryList =
-  Array<EncoderConfigurationSummary>;
+export type EncoderConfigurationSummaryList = Array<EncoderConfigurationSummary>;
 export type errorMessage = string;
 
 export interface Event {
@@ -654,21 +467,7 @@ export interface Event {
   destinationSessionId?: string;
   replica?: boolean;
 }
-export type EventErrorCode =
-  | "INSUFFICIENT_CAPABILITIES"
-  | "QUOTA_EXCEEDED"
-  | "PUBLISHER_NOT_FOUND"
-  | "BITRATE_EXCEEDED"
-  | "RESOLUTION_EXCEEDED"
-  | "STREAM_DURATION_EXCEEDED"
-  | "INVALID_AUDIO_CODEC"
-  | "INVALID_VIDEO_CODEC"
-  | "INVALID_PROTOCOL"
-  | "INVALID_STREAM_KEY"
-  | "REUSE_OF_STREAM_KEY"
-  | "B_FRAME_PRESENT"
-  | "INVALID_INPUT"
-  | "INTERNAL_SERVER_EXCEPTION";
+export type EventErrorCode = "INSUFFICIENT_CAPABILITIES" | "QUOTA_EXCEEDED" | "PUBLISHER_NOT_FOUND" | "BITRATE_EXCEEDED" | "RESOLUTION_EXCEEDED" | "STREAM_DURATION_EXCEEDED" | "INVALID_AUDIO_CODEC" | "INVALID_VIDEO_CODEC" | "INVALID_PROTOCOL" | "INVALID_STREAM_KEY" | "REUSE_OF_STREAM_KEY" | "B_FRAME_PRESENT" | "INVALID_INPUT" | "INTERNAL_SERVER_EXCEPTION";
 export type EventList = Array<Event>;
 export type EventName = string;
 
@@ -954,12 +753,8 @@ export type ParticipantRecordingFilterByRecordingState = string;
 export interface ParticipantRecordingHlsConfiguration {
   targetSegmentDurationSeconds?: number;
 }
-export type ParticipantRecordingMediaType =
-  | "AUDIO_VIDEO"
-  | "AUDIO_ONLY"
-  | "NONE";
-export type ParticipantRecordingMediaTypeList =
-  Array<ParticipantRecordingMediaType>;
+export type ParticipantRecordingMediaType = "AUDIO_VIDEO" | "AUDIO_ONLY" | "NONE";
+export type ParticipantRecordingMediaTypeList = Array<ParticipantRecordingMediaType>;
 export type ParticipantRecordingReconnectWindowSeconds = number;
 
 export type ParticipantRecordingS3BucketName = string;
@@ -1017,8 +812,7 @@ export interface ParticipantTokenConfiguration {
   attributes?: Record<string, string>;
   capabilities?: Array<string>;
 }
-export type ParticipantTokenConfigurations =
-  Array<ParticipantTokenConfiguration>;
+export type ParticipantTokenConfigurations = Array<ParticipantTokenConfiguration>;
 export type ParticipantTokenDurationMinutes = number;
 
 export type ParticipantTokenExpirationTime = Date | string;
@@ -1060,11 +854,7 @@ export type PipHeight = number;
 
 export type PipOffset = number;
 
-export type PipPosition =
-  | "TOP_LEFT"
-  | "TOP_RIGHT"
-  | "BOTTOM_LEFT"
-  | "BOTTOM_RIGHT";
+export type PipPosition = "TOP_LEFT" | "TOP_RIGHT" | "BOTTOM_LEFT" | "BOTTOM_RIGHT";
 export type PipWidth = number;
 
 export interface PublicKey {
@@ -1217,7 +1007,8 @@ export interface StartParticipantReplicationResponse {
 export interface StopCompositionRequest {
   arn: string;
 }
-export interface StopCompositionResponse {}
+export interface StopCompositionResponse {
+}
 export interface StopParticipantReplicationRequest {
   sourceStageArn: string;
   destinationStageArn: string;
@@ -1248,8 +1039,7 @@ export interface StorageConfigurationSummary {
   s3?: S3StorageConfiguration;
   tags?: Record<string, string>;
 }
-export type StorageConfigurationSummaryList =
-  Array<StorageConfigurationSummary>;
+export type StorageConfigurationSummaryList = Array<StorageConfigurationSummary>;
 export type StreamKey = string;
 
 export type IvsRealtimeString = string;
@@ -1261,7 +1051,8 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type Tags = Record<string, string>;
 export type TagValue = string;
 
@@ -1276,7 +1067,8 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateIngestConfigurationRequest {
   arn: string;
   stageArn?: string;
@@ -1759,3 +1551,4 @@ export declare namespace UpdateStage {
     | ValidationException
     | CommonAwsError;
 }
+

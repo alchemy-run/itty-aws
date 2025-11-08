@@ -1,38 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-} from "../../error.ts";
-type CommonAwsError =
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | AccessDeniedException
-  | ThrottlingException
-  | ValidationException;
+import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
+type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class Location extends AWSServiceClient {
@@ -40,663 +8,361 @@ export declare class Location extends AWSServiceClient {
     input: AssociateTrackerConsumerRequest,
   ): Effect.Effect<
     AssociateTrackerConsumerResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   batchDeleteDevicePositionHistory(
     input: BatchDeleteDevicePositionHistoryRequest,
   ): Effect.Effect<
     BatchDeleteDevicePositionHistoryResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   batchDeleteGeofence(
     input: BatchDeleteGeofenceRequest,
   ): Effect.Effect<
     BatchDeleteGeofenceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   batchEvaluateGeofences(
     input: BatchEvaluateGeofencesRequest,
   ): Effect.Effect<
     BatchEvaluateGeofencesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   batchGetDevicePosition(
     input: BatchGetDevicePositionRequest,
   ): Effect.Effect<
     BatchGetDevicePositionResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   batchPutGeofence(
     input: BatchPutGeofenceRequest,
   ): Effect.Effect<
     BatchPutGeofenceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   batchUpdateDevicePosition(
     input: BatchUpdateDevicePositionRequest,
   ): Effect.Effect<
     BatchUpdateDevicePositionResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   calculateRoute(
     input: CalculateRouteRequest,
   ): Effect.Effect<
     CalculateRouteResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   calculateRouteMatrix(
     input: CalculateRouteMatrixRequest,
   ): Effect.Effect<
     CalculateRouteMatrixResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createGeofenceCollection(
     input: CreateGeofenceCollectionRequest,
   ): Effect.Effect<
     CreateGeofenceCollectionResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createKey(
     input: CreateKeyRequest,
   ): Effect.Effect<
     CreateKeyResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createMap(
     input: CreateMapRequest,
   ): Effect.Effect<
     CreateMapResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createPlaceIndex(
     input: CreatePlaceIndexRequest,
   ): Effect.Effect<
     CreatePlaceIndexResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createRouteCalculator(
     input: CreateRouteCalculatorRequest,
   ): Effect.Effect<
     CreateRouteCalculatorResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createTracker(
     input: CreateTrackerRequest,
   ): Effect.Effect<
     CreateTrackerResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteGeofenceCollection(
     input: DeleteGeofenceCollectionRequest,
   ): Effect.Effect<
     DeleteGeofenceCollectionResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteKey(
     input: DeleteKeyRequest,
   ): Effect.Effect<
     DeleteKeyResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteMap(
     input: DeleteMapRequest,
   ): Effect.Effect<
     DeleteMapResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deletePlaceIndex(
     input: DeletePlaceIndexRequest,
   ): Effect.Effect<
     DeletePlaceIndexResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteRouteCalculator(
     input: DeleteRouteCalculatorRequest,
   ): Effect.Effect<
     DeleteRouteCalculatorResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteTracker(
     input: DeleteTrackerRequest,
   ): Effect.Effect<
     DeleteTrackerResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   describeGeofenceCollection(
     input: DescribeGeofenceCollectionRequest,
   ): Effect.Effect<
     DescribeGeofenceCollectionResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   describeKey(
     input: DescribeKeyRequest,
   ): Effect.Effect<
     DescribeKeyResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   describeMap(
     input: DescribeMapRequest,
   ): Effect.Effect<
     DescribeMapResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   describePlaceIndex(
     input: DescribePlaceIndexRequest,
   ): Effect.Effect<
     DescribePlaceIndexResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   describeRouteCalculator(
     input: DescribeRouteCalculatorRequest,
   ): Effect.Effect<
     DescribeRouteCalculatorResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   describeTracker(
     input: DescribeTrackerRequest,
   ): Effect.Effect<
     DescribeTrackerResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   disassociateTrackerConsumer(
     input: DisassociateTrackerConsumerRequest,
   ): Effect.Effect<
     DisassociateTrackerConsumerResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   forecastGeofenceEvents(
     input: ForecastGeofenceEventsRequest,
   ): Effect.Effect<
     ForecastGeofenceEventsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getDevicePosition(
     input: GetDevicePositionRequest,
   ): Effect.Effect<
     GetDevicePositionResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getDevicePositionHistory(
     input: GetDevicePositionHistoryRequest,
   ): Effect.Effect<
     GetDevicePositionHistoryResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getGeofence(
     input: GetGeofenceRequest,
   ): Effect.Effect<
     GetGeofenceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getMapGlyphs(
     input: GetMapGlyphsRequest,
   ): Effect.Effect<
     GetMapGlyphsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getMapSprites(
     input: GetMapSpritesRequest,
   ): Effect.Effect<
     GetMapSpritesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getMapStyleDescriptor(
     input: GetMapStyleDescriptorRequest,
   ): Effect.Effect<
     GetMapStyleDescriptorResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getMapTile(
     input: GetMapTileRequest,
   ): Effect.Effect<
     GetMapTileResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getPlace(
     input: GetPlaceRequest,
   ): Effect.Effect<
     GetPlaceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listDevicePositions(
     input: ListDevicePositionsRequest,
   ): Effect.Effect<
     ListDevicePositionsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listGeofenceCollections(
     input: ListGeofenceCollectionsRequest,
   ): Effect.Effect<
     ListGeofenceCollectionsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listGeofences(
     input: ListGeofencesRequest,
   ): Effect.Effect<
     ListGeofencesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listKeys(
     input: ListKeysRequest,
   ): Effect.Effect<
     ListKeysResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listMaps(
     input: ListMapsRequest,
   ): Effect.Effect<
     ListMapsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listPlaceIndexes(
     input: ListPlaceIndexesRequest,
   ): Effect.Effect<
     ListPlaceIndexesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listRouteCalculators(
     input: ListRouteCalculatorsRequest,
   ): Effect.Effect<
     ListRouteCalculatorsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listTrackerConsumers(
     input: ListTrackerConsumersRequest,
   ): Effect.Effect<
     ListTrackerConsumersResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listTrackers(
     input: ListTrackersRequest,
   ): Effect.Effect<
     ListTrackersResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   putGeofence(
     input: PutGeofenceRequest,
   ): Effect.Effect<
     PutGeofenceResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   searchPlaceIndexForPosition(
     input: SearchPlaceIndexForPositionRequest,
   ): Effect.Effect<
     SearchPlaceIndexForPositionResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   searchPlaceIndexForSuggestions(
     input: SearchPlaceIndexForSuggestionsRequest,
   ): Effect.Effect<
     SearchPlaceIndexForSuggestionsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   searchPlaceIndexForText(
     input: SearchPlaceIndexForTextRequest,
   ): Effect.Effect<
     SearchPlaceIndexForTextResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateGeofenceCollection(
     input: UpdateGeofenceCollectionRequest,
   ): Effect.Effect<
     UpdateGeofenceCollectionResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateKey(
     input: UpdateKeyRequest,
   ): Effect.Effect<
     UpdateKeyResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateMap(
     input: UpdateMapRequest,
   ): Effect.Effect<
     UpdateMapResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updatePlaceIndex(
     input: UpdatePlaceIndexRequest,
   ): Effect.Effect<
     UpdatePlaceIndexResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateRouteCalculator(
     input: UpdateRouteCalculatorRequest,
   ): Effect.Effect<
     UpdateRouteCalculatorResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateTracker(
     input: UpdateTrackerRequest,
   ): Effect.Effect<
     UpdateTrackerResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   verifyDevicePosition(
     input: VerifyDevicePositionRequest,
   ): Effect.Effect<
     VerifyDevicePositionResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
 }
 
@@ -725,15 +391,15 @@ export interface AssociateTrackerConsumerRequest {
   TrackerName: string;
   ConsumerArn: string;
 }
-export interface AssociateTrackerConsumerResponse {}
+export interface AssociateTrackerConsumerResponse {
+}
 export type Base64EncodedGeobuf = Uint8Array | string;
 
 export interface BatchDeleteDevicePositionHistoryError {
   DeviceId: string;
   Error: BatchItemError;
 }
-export type BatchDeleteDevicePositionHistoryErrorList =
-  Array<BatchDeleteDevicePositionHistoryError>;
+export type BatchDeleteDevicePositionHistoryErrorList = Array<BatchDeleteDevicePositionHistoryError>;
 export interface BatchDeleteDevicePositionHistoryRequest {
   TrackerName: string;
   DeviceIds: Array<string>;
@@ -758,8 +424,7 @@ export interface BatchEvaluateGeofencesError {
   SampleTime: Date | string;
   Error: BatchItemError;
 }
-export type BatchEvaluateGeofencesErrorList =
-  Array<BatchEvaluateGeofencesError>;
+export type BatchEvaluateGeofencesErrorList = Array<BatchEvaluateGeofencesError>;
 export interface BatchEvaluateGeofencesRequest {
   CollectionName: string;
   DevicePositionUpdates: Array<DevicePositionUpdate>;
@@ -771,8 +436,7 @@ export interface BatchGetDevicePositionError {
   DeviceId: string;
   Error: BatchItemError;
 }
-export type BatchGetDevicePositionErrorList =
-  Array<BatchGetDevicePositionError>;
+export type BatchGetDevicePositionErrorList = Array<BatchGetDevicePositionError>;
 export interface BatchGetDevicePositionRequest {
   TrackerName: string;
   DeviceIds: Array<string>;
@@ -801,8 +465,7 @@ export interface BatchPutGeofenceRequestEntry {
   Geometry: GeofenceGeometry;
   GeofenceProperties?: Record<string, string>;
 }
-export type BatchPutGeofenceRequestEntryList =
-  Array<BatchPutGeofenceRequestEntry>;
+export type BatchPutGeofenceRequestEntryList = Array<BatchPutGeofenceRequestEntry>;
 export interface BatchPutGeofenceResponse {
   Successes: Array<BatchPutGeofenceSuccess>;
   Errors: Array<BatchPutGeofenceError>;
@@ -818,8 +481,7 @@ export interface BatchUpdateDevicePositionError {
   SampleTime: Date | string;
   Error: BatchItemError;
 }
-export type BatchUpdateDevicePositionErrorList =
-  Array<BatchUpdateDevicePositionError>;
+export type BatchUpdateDevicePositionErrorList = Array<BatchUpdateDevicePositionError>;
 export interface BatchUpdateDevicePositionRequest {
   TrackerName: string;
   Updates: Array<DevicePositionUpdate>;
@@ -995,28 +657,34 @@ export interface DataSourceConfiguration {
 export interface DeleteGeofenceCollectionRequest {
   CollectionName: string;
 }
-export interface DeleteGeofenceCollectionResponse {}
+export interface DeleteGeofenceCollectionResponse {
+}
 export interface DeleteKeyRequest {
   KeyName: string;
   ForceDelete?: boolean;
 }
-export interface DeleteKeyResponse {}
+export interface DeleteKeyResponse {
+}
 export interface DeleteMapRequest {
   MapName: string;
 }
-export interface DeleteMapResponse {}
+export interface DeleteMapResponse {
+}
 export interface DeletePlaceIndexRequest {
   IndexName: string;
 }
-export interface DeletePlaceIndexResponse {}
+export interface DeletePlaceIndexResponse {
+}
 export interface DeleteRouteCalculatorRequest {
   CalculatorName: string;
 }
-export interface DeleteRouteCalculatorResponse {}
+export interface DeleteRouteCalculatorResponse {
+}
 export interface DeleteTrackerRequest {
   TrackerName: string;
 }
-export interface DeleteTrackerResponse {}
+export interface DeleteTrackerResponse {
+}
 export interface DescribeGeofenceCollectionRequest {
   CollectionName: string;
 }
@@ -1137,7 +805,8 @@ export interface DisassociateTrackerConsumerRequest {
   TrackerName: string;
   ConsumerArn: string;
 }
-export interface DisassociateTrackerConsumerResponse {}
+export interface DisassociateTrackerConsumerResponse {
+}
 export type DistanceUnit = string;
 
 export type Earfcn = number;
@@ -1328,8 +997,7 @@ export interface ListDevicePositionsResponseEntry {
   Accuracy?: PositionalAccuracy;
   PositionProperties?: Record<string, string>;
 }
-export type ListDevicePositionsResponseEntryList =
-  Array<ListDevicePositionsResponseEntry>;
+export type ListDevicePositionsResponseEntryList = Array<ListDevicePositionsResponseEntry>;
 export interface ListGeofenceCollectionsRequest {
   MaxResults?: number;
   NextToken?: string;
@@ -1346,8 +1014,7 @@ export interface ListGeofenceCollectionsResponseEntry {
   CreateTime: Date | string;
   UpdateTime: Date | string;
 }
-export type ListGeofenceCollectionsResponseEntryList =
-  Array<ListGeofenceCollectionsResponseEntry>;
+export type ListGeofenceCollectionsResponseEntryList = Array<ListGeofenceCollectionsResponseEntry>;
 export interface ListGeofenceResponseEntry {
   GeofenceId: string;
   Geometry: GeofenceGeometry;
@@ -1417,8 +1084,7 @@ export interface ListPlaceIndexesResponseEntry {
   CreateTime: Date | string;
   UpdateTime: Date | string;
 }
-export type ListPlaceIndexesResponseEntryList =
-  Array<ListPlaceIndexesResponseEntry>;
+export type ListPlaceIndexesResponseEntryList = Array<ListPlaceIndexesResponseEntry>;
 export interface ListRouteCalculatorsRequest {
   MaxResults?: number;
   NextToken?: string;
@@ -1435,8 +1101,7 @@ export interface ListRouteCalculatorsResponseEntry {
   CreateTime: Date | string;
   UpdateTime: Date | string;
 }
-export type ListRouteCalculatorsResponseEntryList =
-  Array<ListRouteCalculatorsResponseEntry>;
+export type ListRouteCalculatorsResponseEntryList = Array<ListRouteCalculatorsResponseEntry>;
 export interface ListTagsForResourceRequest {
   ResourceArn: string;
 }
@@ -1712,7 +1377,8 @@ export interface TagResourceRequest {
   ResourceArn: string;
   Tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export declare class ThrottlingException extends EffectData.TaggedError(
@@ -1747,7 +1413,8 @@ export interface UntagResourceRequest {
   ResourceArn: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateGeofenceCollectionRequest {
   CollectionName: string;
   PricingPlan?: string;
@@ -2575,3 +2242,4 @@ export declare namespace VerifyDevicePosition {
     | ValidationException
     | CommonAwsError;
 }
+

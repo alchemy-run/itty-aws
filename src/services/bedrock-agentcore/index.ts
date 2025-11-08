@@ -5,23 +5,7 @@ import type { BedrockAgentCore as _BedrockAgentCoreClient } from "./types.ts";
 
 export * from "./types.ts";
 
-export {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-  type CommonAwsError,
-} from "../../error.ts";
+export {ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, type CommonAwsError} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -31,63 +15,52 @@ const metadata = {
   sigV4ServiceName: "bedrock-agentcore",
   endpointPrefix: "bedrock-agentcore",
   operations: {
-    GetResourceApiKey: "POST /identities/api-key",
-    GetResourceOauth2Token: "POST /identities/oauth2/token",
-    GetWorkloadAccessToken: "POST /identities/GetWorkloadAccessToken",
-    GetWorkloadAccessTokenForJWT:
-      "POST /identities/GetWorkloadAccessTokenForJWT",
-    GetWorkloadAccessTokenForUserId:
-      "POST /identities/GetWorkloadAccessTokenForUserId",
-    InvokeCodeInterpreter: {
+    "GetResourceApiKey": "POST /identities/api-key",
+    "GetResourceOauth2Token": "POST /identities/oauth2/token",
+    "GetWorkloadAccessToken": "POST /identities/GetWorkloadAccessToken",
+    "GetWorkloadAccessTokenForJWT": "POST /identities/GetWorkloadAccessTokenForJWT",
+    "GetWorkloadAccessTokenForUserId": "POST /identities/GetWorkloadAccessTokenForUserId",
+    "InvokeCodeInterpreter": {
       http: "POST /code-interpreters/{codeInterpreterIdentifier}/tools/invoke",
       traits: {
-        sessionId: "x-amzn-code-interpreter-session-id",
-        stream: "httpPayload",
+        "sessionId": "x-amzn-code-interpreter-session-id",
+        "stream": "httpPayload",
       },
     },
-    CreateEvent: "POST /memories/{memoryId}/events",
-    DeleteEvent:
-      "DELETE /memories/{memoryId}/actor/{actorId}/sessions/{sessionId}/events/{eventId}",
-    DeleteMemoryRecord:
-      "DELETE /memories/{memoryId}/memoryRecords/{memoryRecordId}",
-    GetBrowserSession: "GET /browsers/{browserIdentifier}/sessions/get",
-    GetCodeInterpreterSession:
-      "GET /code-interpreters/{codeInterpreterIdentifier}/sessions/get",
-    GetEvent:
-      "GET /memories/{memoryId}/actor/{actorId}/sessions/{sessionId}/events/{eventId}",
-    GetMemoryRecord: "GET /memories/{memoryId}/memoryRecord/{memoryRecordId}",
-    InvokeAgentRuntime: {
+    "CreateEvent": "POST /memories/{memoryId}/events",
+    "DeleteEvent": "DELETE /memories/{memoryId}/actor/{actorId}/sessions/{sessionId}/events/{eventId}",
+    "DeleteMemoryRecord": "DELETE /memories/{memoryId}/memoryRecords/{memoryRecordId}",
+    "GetBrowserSession": "GET /browsers/{browserIdentifier}/sessions/get",
+    "GetCodeInterpreterSession": "GET /code-interpreters/{codeInterpreterIdentifier}/sessions/get",
+    "GetEvent": "GET /memories/{memoryId}/actor/{actorId}/sessions/{sessionId}/events/{eventId}",
+    "GetMemoryRecord": "GET /memories/{memoryId}/memoryRecord/{memoryRecordId}",
+    "InvokeAgentRuntime": {
       http: "POST /runtimes/{agentRuntimeArn}/invocations",
       traits: {
-        runtimeSessionId: "X-Amzn-Bedrock-AgentCore-Runtime-Session-Id",
-        mcpSessionId: "Mcp-Session-Id",
-        mcpProtocolVersion: "Mcp-Protocol-Version",
-        traceId: "X-Amzn-Trace-Id",
-        traceParent: "traceparent",
-        traceState: "tracestate",
-        baggage: "baggage",
-        contentType: "Content-Type",
-        response: "httpStreaming",
-        statusCode: "httpResponseCode",
+        "runtimeSessionId": "X-Amzn-Bedrock-AgentCore-Runtime-Session-Id",
+        "mcpSessionId": "Mcp-Session-Id",
+        "mcpProtocolVersion": "Mcp-Protocol-Version",
+        "traceId": "X-Amzn-Trace-Id",
+        "traceParent": "traceparent",
+        "traceState": "tracestate",
+        "baggage": "baggage",
+        "contentType": "Content-Type",
+        "response": "httpStreaming",
+        "statusCode": "httpResponseCode",
       },
     },
-    ListActors: "POST /memories/{memoryId}/actors",
-    ListBrowserSessions: "POST /browsers/{browserIdentifier}/sessions/list",
-    ListCodeInterpreterSessions:
-      "POST /code-interpreters/{codeInterpreterIdentifier}/sessions/list",
-    ListEvents:
-      "POST /memories/{memoryId}/actor/{actorId}/sessions/{sessionId}",
-    ListMemoryRecords: "POST /memories/{memoryId}/memoryRecords",
-    ListSessions: "POST /memories/{memoryId}/actor/{actorId}/sessions",
-    RetrieveMemoryRecords: "POST /memories/{memoryId}/retrieve",
-    StartBrowserSession: "PUT /browsers/{browserIdentifier}/sessions/start",
-    StartCodeInterpreterSession:
-      "PUT /code-interpreters/{codeInterpreterIdentifier}/sessions/start",
-    StopBrowserSession: "PUT /browsers/{browserIdentifier}/sessions/stop",
-    StopCodeInterpreterSession:
-      "PUT /code-interpreters/{codeInterpreterIdentifier}/sessions/stop",
-    UpdateBrowserStream:
-      "PUT /browsers/{browserIdentifier}/sessions/streams/update",
+    "ListActors": "POST /memories/{memoryId}/actors",
+    "ListBrowserSessions": "POST /browsers/{browserIdentifier}/sessions/list",
+    "ListCodeInterpreterSessions": "POST /code-interpreters/{codeInterpreterIdentifier}/sessions/list",
+    "ListEvents": "POST /memories/{memoryId}/actor/{actorId}/sessions/{sessionId}",
+    "ListMemoryRecords": "POST /memories/{memoryId}/memoryRecords",
+    "ListSessions": "POST /memories/{memoryId}/actor/{actorId}/sessions",
+    "RetrieveMemoryRecords": "POST /memories/{memoryId}/retrieve",
+    "StartBrowserSession": "PUT /browsers/{browserIdentifier}/sessions/start",
+    "StartCodeInterpreterSession": "PUT /code-interpreters/{codeInterpreterIdentifier}/sessions/start",
+    "StopBrowserSession": "PUT /browsers/{browserIdentifier}/sessions/stop",
+    "StopCodeInterpreterSession": "PUT /code-interpreters/{codeInterpreterIdentifier}/sessions/stop",
+    "UpdateBrowserStream": "PUT /browsers/{browserIdentifier}/sessions/streams/update",
   },
 } as const satisfies ServiceMetadata;
 

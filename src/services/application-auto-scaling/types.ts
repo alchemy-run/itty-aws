@@ -1,40 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  AccessDeniedException,
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  ThrottlingException,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-} from "../../error.ts";
-type CommonAwsError =
-  | AccessDeniedException
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | ThrottlingException
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | ValidationException;
+import type { AccessDeniedException, ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
+type CommonAwsError = AccessDeniedException | ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | ThrottlingException | UnrecognizedClientException | UnknownOperationException | ValidationError | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class ApplicationAutoScaling extends AWSServiceClient {
@@ -42,72 +8,43 @@ export declare class ApplicationAutoScaling extends AWSServiceClient {
     input: DeleteScalingPolicyRequest,
   ): Effect.Effect<
     DeleteScalingPolicyResponse,
-    | ConcurrentUpdateException
-    | InternalServiceException
-    | ObjectNotFoundException
-    | ValidationException
-    | CommonAwsError
+    ConcurrentUpdateException | InternalServiceException | ObjectNotFoundException | ValidationException | CommonAwsError
   >;
   deleteScheduledAction(
     input: DeleteScheduledActionRequest,
   ): Effect.Effect<
     DeleteScheduledActionResponse,
-    | ConcurrentUpdateException
-    | InternalServiceException
-    | ObjectNotFoundException
-    | ValidationException
-    | CommonAwsError
+    ConcurrentUpdateException | InternalServiceException | ObjectNotFoundException | ValidationException | CommonAwsError
   >;
   deregisterScalableTarget(
     input: DeregisterScalableTargetRequest,
   ): Effect.Effect<
     DeregisterScalableTargetResponse,
-    | ConcurrentUpdateException
-    | InternalServiceException
-    | ObjectNotFoundException
-    | ValidationException
-    | CommonAwsError
+    ConcurrentUpdateException | InternalServiceException | ObjectNotFoundException | ValidationException | CommonAwsError
   >;
   describeScalableTargets(
     input: DescribeScalableTargetsRequest,
   ): Effect.Effect<
     DescribeScalableTargetsResponse,
-    | ConcurrentUpdateException
-    | InternalServiceException
-    | InvalidNextTokenException
-    | ValidationException
-    | CommonAwsError
+    ConcurrentUpdateException | InternalServiceException | InvalidNextTokenException | ValidationException | CommonAwsError
   >;
   describeScalingActivities(
     input: DescribeScalingActivitiesRequest,
   ): Effect.Effect<
     DescribeScalingActivitiesResponse,
-    | ConcurrentUpdateException
-    | InternalServiceException
-    | InvalidNextTokenException
-    | ValidationException
-    | CommonAwsError
+    ConcurrentUpdateException | InternalServiceException | InvalidNextTokenException | ValidationException | CommonAwsError
   >;
   describeScalingPolicies(
     input: DescribeScalingPoliciesRequest,
   ): Effect.Effect<
     DescribeScalingPoliciesResponse,
-    | ConcurrentUpdateException
-    | FailedResourceAccessException
-    | InternalServiceException
-    | InvalidNextTokenException
-    | ValidationException
-    | CommonAwsError
+    ConcurrentUpdateException | FailedResourceAccessException | InternalServiceException | InvalidNextTokenException | ValidationException | CommonAwsError
   >;
   describeScheduledActions(
     input: DescribeScheduledActionsRequest,
   ): Effect.Effect<
     DescribeScheduledActionsResponse,
-    | ConcurrentUpdateException
-    | InternalServiceException
-    | InvalidNextTokenException
-    | ValidationException
-    | CommonAwsError
+    ConcurrentUpdateException | InternalServiceException | InvalidNextTokenException | ValidationException | CommonAwsError
   >;
   getPredictiveScalingForecast(
     input: GetPredictiveScalingForecastRequest,
@@ -125,43 +62,25 @@ export declare class ApplicationAutoScaling extends AWSServiceClient {
     input: PutScalingPolicyRequest,
   ): Effect.Effect<
     PutScalingPolicyResponse,
-    | ConcurrentUpdateException
-    | FailedResourceAccessException
-    | InternalServiceException
-    | LimitExceededException
-    | ObjectNotFoundException
-    | ValidationException
-    | CommonAwsError
+    ConcurrentUpdateException | FailedResourceAccessException | InternalServiceException | LimitExceededException | ObjectNotFoundException | ValidationException | CommonAwsError
   >;
   putScheduledAction(
     input: PutScheduledActionRequest,
   ): Effect.Effect<
     PutScheduledActionResponse,
-    | ConcurrentUpdateException
-    | InternalServiceException
-    | LimitExceededException
-    | ObjectNotFoundException
-    | ValidationException
-    | CommonAwsError
+    ConcurrentUpdateException | InternalServiceException | LimitExceededException | ObjectNotFoundException | ValidationException | CommonAwsError
   >;
   registerScalableTarget(
     input: RegisterScalableTargetRequest,
   ): Effect.Effect<
     RegisterScalableTargetResponse,
-    | ConcurrentUpdateException
-    | InternalServiceException
-    | LimitExceededException
-    | ValidationException
-    | CommonAwsError
+    ConcurrentUpdateException | InternalServiceException | LimitExceededException | ValidationException | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | ResourceNotFoundException
-    | TooManyTagsException
-    | ValidationException
-    | CommonAwsError
+    ResourceNotFoundException | TooManyTagsException | ValidationException | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
@@ -171,10 +90,7 @@ export declare class ApplicationAutoScaling extends AWSServiceClient {
   >;
 }
 
-export type AdjustmentType =
-  | "ChangeInCapacity"
-  | "PercentChangeInCapacity"
-  | "ExactCapacity";
+export type AdjustmentType = "ChangeInCapacity" | "PercentChangeInCapacity" | "ExactCapacity";
 export interface Alarm {
   AlarmName: string;
   AlarmARN: string;
@@ -207,20 +123,23 @@ export interface DeleteScalingPolicyRequest {
   ResourceId: string;
   ScalableDimension: ScalableDimension;
 }
-export interface DeleteScalingPolicyResponse {}
+export interface DeleteScalingPolicyResponse {
+}
 export interface DeleteScheduledActionRequest {
   ServiceNamespace: ServiceNamespace;
   ScheduledActionName: string;
   ResourceId: string;
   ScalableDimension: ScalableDimension;
 }
-export interface DeleteScheduledActionResponse {}
+export interface DeleteScheduledActionResponse {
+}
 export interface DeregisterScalableTargetRequest {
   ServiceNamespace: ServiceNamespace;
   ResourceId: string;
   ScalableDimension: ScalableDimension;
 }
-export interface DeregisterScalableTargetResponse {}
+export interface DeregisterScalableTargetResponse {
+}
 export interface DescribeScalableTargetsRequest {
   ServiceNamespace: ServiceNamespace;
   ResourceIds?: Array<string>;
@@ -343,42 +262,8 @@ export type MetricNamespace = string;
 
 export type MetricScale = number;
 
-export type MetricStatistic =
-  | "Average"
-  | "Minimum"
-  | "Maximum"
-  | "SampleCount"
-  | "Sum";
-export type MetricType =
-  | "DynamoDBReadCapacityUtilization"
-  | "DynamoDBWriteCapacityUtilization"
-  | "ALBRequestCountPerTarget"
-  | "RDSReaderAverageCPUUtilization"
-  | "RDSReaderAverageDatabaseConnections"
-  | "EC2SpotFleetRequestAverageCPUUtilization"
-  | "EC2SpotFleetRequestAverageNetworkIn"
-  | "EC2SpotFleetRequestAverageNetworkOut"
-  | "SageMakerVariantInvocationsPerInstance"
-  | "ECSServiceAverageCPUUtilization"
-  | "ECSServiceAverageMemoryUtilization"
-  | "AppStreamAverageCapacityUtilization"
-  | "ComprehendInferenceUtilization"
-  | "LambdaProvisionedConcurrencyUtilization"
-  | "CassandraReadCapacityUtilization"
-  | "CassandraWriteCapacityUtilization"
-  | "KafkaBrokerStorageUtilization"
-  | "ElastiCacheEngineCPUUtilization"
-  | "ElastiCacheDatabaseMemoryUsagePercentage"
-  | "ElastiCachePrimaryEngineCPUUtilization"
-  | "ElastiCacheReplicaEngineCPUUtilization"
-  | "ElastiCacheDatabaseMemoryUsageCountedForEvictPercentage"
-  | "NeptuneReaderAverageCPUUtilization"
-  | "SageMakerVariantProvisionedConcurrencyUtilization"
-  | "ElastiCacheDatabaseCapacityUsageCountedForEvictPercentage"
-  | "SageMakerInferenceComponentInvocationsPerCopy"
-  | "WorkSpacesAverageUserSessionsCapacityUtilization"
-  | "SageMakerInferenceComponentConcurrentRequestsPerCopyHighResolution"
-  | "SageMakerVariantConcurrentRequestsPerModelHighResolution";
+export type MetricStatistic = "Average" | "Minimum" | "Maximum" | "SampleCount" | "Sum";
+export type MetricType = "DynamoDBReadCapacityUtilization" | "DynamoDBWriteCapacityUtilization" | "ALBRequestCountPerTarget" | "RDSReaderAverageCPUUtilization" | "RDSReaderAverageDatabaseConnections" | "EC2SpotFleetRequestAverageCPUUtilization" | "EC2SpotFleetRequestAverageNetworkIn" | "EC2SpotFleetRequestAverageNetworkOut" | "SageMakerVariantInvocationsPerInstance" | "ECSServiceAverageCPUUtilization" | "ECSServiceAverageMemoryUtilization" | "AppStreamAverageCapacityUtilization" | "ComprehendInferenceUtilization" | "LambdaProvisionedConcurrencyUtilization" | "CassandraReadCapacityUtilization" | "CassandraWriteCapacityUtilization" | "KafkaBrokerStorageUtilization" | "ElastiCacheEngineCPUUtilization" | "ElastiCacheDatabaseMemoryUsagePercentage" | "ElastiCachePrimaryEngineCPUUtilization" | "ElastiCacheReplicaEngineCPUUtilization" | "ElastiCacheDatabaseMemoryUsageCountedForEvictPercentage" | "NeptuneReaderAverageCPUUtilization" | "SageMakerVariantProvisionedConcurrencyUtilization" | "ElastiCacheDatabaseCapacityUsageCountedForEvictPercentage" | "SageMakerInferenceComponentInvocationsPerCopy" | "WorkSpacesAverageUserSessionsCapacityUtilization" | "SageMakerInferenceComponentConcurrentRequestsPerCopyHighResolution" | "SageMakerVariantConcurrentRequestsPerModelHighResolution";
 export type MetricUnit = string;
 
 export type MinAdjustmentMagnitude = number;
@@ -397,10 +282,7 @@ export declare class ObjectNotFoundException extends EffectData.TaggedError(
 }> {}
 export type PolicyName = string;
 
-export type PolicyType =
-  | "StepScaling"
-  | "TargetTrackingScaling"
-  | "PredictiveScaling";
+export type PolicyType = "StepScaling" | "TargetTrackingScaling" | "PredictiveScaling";
 export interface PredefinedMetricSpecification {
   PredefinedMetricType: MetricType;
   ResourceLabel?: string;
@@ -410,9 +292,7 @@ export interface PredictiveScalingCustomizedMetricSpecification {
 }
 export type PredictiveScalingForecastTimestamps = Array<Date | string>;
 export type PredictiveScalingForecastValues = Array<number>;
-export type PredictiveScalingMaxCapacityBreachBehavior =
-  | "HonorMaxCapacity"
-  | "IncreaseMaxCapacity";
+export type PredictiveScalingMaxCapacityBreachBehavior = "HonorMaxCapacity" | "IncreaseMaxCapacity";
 export type PredictiveScalingMaxCapacityBuffer = number;
 
 export interface PredictiveScalingMetric {
@@ -420,8 +300,7 @@ export interface PredictiveScalingMetric {
   MetricName?: string;
   Namespace?: string;
 }
-export type PredictiveScalingMetricDataQueries =
-  Array<PredictiveScalingMetricDataQuery>;
+export type PredictiveScalingMetricDataQueries = Array<PredictiveScalingMetricDataQuery>;
 export interface PredictiveScalingMetricDataQuery {
   Id: string;
   Expression?: string;
@@ -435,8 +314,7 @@ export interface PredictiveScalingMetricDimension {
 }
 export type PredictiveScalingMetricDimensionName = string;
 
-export type PredictiveScalingMetricDimensions =
-  Array<PredictiveScalingMetricDimension>;
+export type PredictiveScalingMetricDimensions = Array<PredictiveScalingMetricDimension>;
 export type PredictiveScalingMetricDimensionValue = string;
 
 export type PredictiveScalingMetricName = string;
@@ -452,8 +330,7 @@ export interface PredictiveScalingMetricSpecification {
   CustomizedLoadMetricSpecification?: PredictiveScalingCustomizedMetricSpecification;
   CustomizedCapacityMetricSpecification?: PredictiveScalingCustomizedMetricSpecification;
 }
-export type PredictiveScalingMetricSpecifications =
-  Array<PredictiveScalingMetricSpecification>;
+export type PredictiveScalingMetricSpecifications = Array<PredictiveScalingMetricSpecification>;
 export interface PredictiveScalingMetricStat {
   Metric: PredictiveScalingMetric;
   Stat: string;
@@ -510,7 +387,8 @@ export interface PutScheduledActionRequest {
   EndTime?: Date | string;
   ScalableTargetAction?: ScalableTargetAction;
 }
-export interface PutScheduledActionResponse {}
+export interface PutScheduledActionResponse {
+}
 export interface RegisterScalableTargetRequest {
   ServiceNamespace: ServiceNamespace;
   ResourceId: string;
@@ -541,31 +419,7 @@ export declare class ResourceNotFoundException extends EffectData.TaggedError(
 }> {}
 export type ReturnData = boolean;
 
-export type ScalableDimension =
-  | "ecs:service:DesiredCount"
-  | "ec2:spot-fleet-request:TargetCapacity"
-  | "elasticmapreduce:instancegroup:InstanceCount"
-  | "appstream:fleet:DesiredCapacity"
-  | "dynamodb:table:ReadCapacityUnits"
-  | "dynamodb:table:WriteCapacityUnits"
-  | "dynamodb:index:ReadCapacityUnits"
-  | "dynamodb:index:WriteCapacityUnits"
-  | "rds:cluster:ReadReplicaCount"
-  | "sagemaker:variant:DesiredInstanceCount"
-  | "custom-resource:ResourceType:Property"
-  | "comprehend:document-classifier-endpoint:DesiredInferenceUnits"
-  | "comprehend:entity-recognizer-endpoint:DesiredInferenceUnits"
-  | "lambda:function:ProvisionedConcurrency"
-  | "cassandra:table:ReadCapacityUnits"
-  | "cassandra:table:WriteCapacityUnits"
-  | "kafka:broker-storage:VolumeSize"
-  | "elasticache:cache-cluster:Nodes"
-  | "elasticache:replication-group:NodeGroups"
-  | "elasticache:replication-group:Replicas"
-  | "neptune:cluster:ReadReplicaCount"
-  | "sagemaker:variant:DesiredProvisionedConcurrency"
-  | "sagemaker:inference-component:DesiredCopyCount"
-  | "workspaces:workspacespool:DesiredUserSessions";
+export type ScalableDimension = "ecs:service:DesiredCount" | "ec2:spot-fleet-request:TargetCapacity" | "elasticmapreduce:instancegroup:InstanceCount" | "appstream:fleet:DesiredCapacity" | "dynamodb:table:ReadCapacityUnits" | "dynamodb:table:WriteCapacityUnits" | "dynamodb:index:ReadCapacityUnits" | "dynamodb:index:WriteCapacityUnits" | "rds:cluster:ReadReplicaCount" | "sagemaker:variant:DesiredInstanceCount" | "custom-resource:ResourceType:Property" | "comprehend:document-classifier-endpoint:DesiredInferenceUnits" | "comprehend:entity-recognizer-endpoint:DesiredInferenceUnits" | "lambda:function:ProvisionedConcurrency" | "cassandra:table:ReadCapacityUnits" | "cassandra:table:WriteCapacityUnits" | "kafka:broker-storage:VolumeSize" | "elasticache:cache-cluster:Nodes" | "elasticache:replication-group:NodeGroups" | "elasticache:replication-group:Replicas" | "neptune:cluster:ReadReplicaCount" | "sagemaker:variant:DesiredProvisionedConcurrency" | "sagemaker:inference-component:DesiredCopyCount" | "workspaces:workspacespool:DesiredUserSessions";
 export interface ScalableTarget {
   ServiceNamespace: ServiceNamespace;
   ResourceId: string;
@@ -598,13 +452,7 @@ export interface ScalingActivity {
   Details?: string;
   NotScaledReasons?: Array<NotScaledReason>;
 }
-export type ScalingActivityStatusCode =
-  | "Pending"
-  | "InProgress"
-  | "Successful"
-  | "Overridden"
-  | "Unfulfilled"
-  | "Failed";
+export type ScalingActivityStatusCode = "Pending" | "InProgress" | "Successful" | "Overridden" | "Unfulfilled" | "Failed";
 export type ScalingAdjustment = number;
 
 export type ScalingPolicies = Array<ScalingPolicy>;
@@ -639,22 +487,7 @@ export interface ScheduledAction {
 export type ScheduledActionName = string;
 
 export type ScheduledActions = Array<ScheduledAction>;
-export type ServiceNamespace =
-  | "ecs"
-  | "elasticmapreduce"
-  | "ec2"
-  | "appstream"
-  | "dynamodb"
-  | "rds"
-  | "sagemaker"
-  | "custom-resource"
-  | "comprehend"
-  | "lambda"
-  | "cassandra"
-  | "kafka"
-  | "elasticache"
-  | "neptune"
-  | "workspaces";
+export type ServiceNamespace = "ecs" | "elasticmapreduce" | "ec2" | "appstream" | "dynamodb" | "rds" | "sagemaker" | "custom-resource" | "comprehend" | "lambda" | "cassandra" | "kafka" | "elasticache" | "neptune" | "workspaces";
 export interface StepAdjustment {
   MetricIntervalLowerBound?: number;
   MetricIntervalUpperBound?: number;
@@ -681,7 +514,8 @@ export interface TagResourceRequest {
   ResourceARN: string;
   Tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export interface TargetTrackingMetric {
@@ -689,8 +523,7 @@ export interface TargetTrackingMetric {
   MetricName?: string;
   Namespace?: string;
 }
-export type TargetTrackingMetricDataQueries =
-  Array<TargetTrackingMetricDataQuery>;
+export type TargetTrackingMetricDataQueries = Array<TargetTrackingMetricDataQuery>;
 export interface TargetTrackingMetricDataQuery {
   Expression?: string;
   Id: string;
@@ -704,8 +537,7 @@ export interface TargetTrackingMetricDimension {
 }
 export type TargetTrackingMetricDimensionName = string;
 
-export type TargetTrackingMetricDimensions =
-  Array<TargetTrackingMetricDimension>;
+export type TargetTrackingMetricDimensions = Array<TargetTrackingMetricDimension>;
 export type TargetTrackingMetricDimensionValue = string;
 
 export type TargetTrackingMetricName = string;
@@ -739,7 +571,8 @@ export interface UntagResourceRequest {
   ResourceARN: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export declare class ValidationException extends EffectData.TaggedError(
   "ValidationException",
 )<{
@@ -837,7 +670,9 @@ export declare namespace GetPredictiveScalingForecast {
 export declare namespace ListTagsForResource {
   export type Input = ListTagsForResourceRequest;
   export type Output = ListTagsForResourceResponse;
-  export type Error = ResourceNotFoundException | CommonAwsError;
+  export type Error =
+    | ResourceNotFoundException
+    | CommonAwsError;
 }
 
 export declare namespace PutScalingPolicy {
@@ -894,3 +729,4 @@ export declare namespace UntagResource {
     | ValidationException
     | CommonAwsError;
 }
+

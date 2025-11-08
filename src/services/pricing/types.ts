@@ -1,39 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-  ValidationException,
-} from "../../error.ts";
-type CommonAwsError =
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | ValidationException
-  | AccessDeniedException
-  | ThrottlingException;
+import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, ValidationException } from "../../error.ts";
+type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | ValidationException | AccessDeniedException | ThrottlingException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class Pricing extends AWSServiceClient {
@@ -41,63 +8,31 @@ export declare class Pricing extends AWSServiceClient {
     input: DescribeServicesRequest,
   ): Effect.Effect<
     DescribeServicesResponse,
-    | ExpiredNextTokenException
-    | InternalErrorException
-    | InvalidNextTokenException
-    | InvalidParameterException
-    | NotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    ExpiredNextTokenException | InternalErrorException | InvalidNextTokenException | InvalidParameterException | NotFoundException | ThrottlingException | CommonAwsError
   >;
   getAttributeValues(
     input: GetAttributeValuesRequest,
   ): Effect.Effect<
     GetAttributeValuesResponse,
-    | ExpiredNextTokenException
-    | InternalErrorException
-    | InvalidNextTokenException
-    | InvalidParameterException
-    | NotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    ExpiredNextTokenException | InternalErrorException | InvalidNextTokenException | InvalidParameterException | NotFoundException | ThrottlingException | CommonAwsError
   >;
   getPriceListFileUrl(
     input: GetPriceListFileUrlRequest,
   ): Effect.Effect<
     GetPriceListFileUrlResponse,
-    | AccessDeniedException
-    | InternalErrorException
-    | InvalidParameterException
-    | NotFoundException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalErrorException | InvalidParameterException | NotFoundException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   getProducts(
     input: GetProductsRequest,
   ): Effect.Effect<
     GetProductsResponse,
-    | ExpiredNextTokenException
-    | InternalErrorException
-    | InvalidNextTokenException
-    | InvalidParameterException
-    | NotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    ExpiredNextTokenException | InternalErrorException | InvalidNextTokenException | InvalidParameterException | NotFoundException | ThrottlingException | CommonAwsError
   >;
   listPriceLists(
     input: ListPriceListsRequest,
   ): Effect.Effect<
     ListPriceListsResponse,
-    | AccessDeniedException
-    | ExpiredNextTokenException
-    | InternalErrorException
-    | InvalidNextTokenException
-    | InvalidParameterException
-    | NotFoundException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ExpiredNextTokenException | InternalErrorException | InvalidNextTokenException | InvalidParameterException | NotFoundException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
 }
 
@@ -146,12 +81,7 @@ export interface Filter {
   Value: string;
 }
 export type Filters = Array<Filter>;
-export type FilterType =
-  | "TERM_MATCH"
-  | "EQUALS"
-  | "CONTAINS"
-  | "ANY_OF"
-  | "NONE_OF";
+export type FilterType = "TERM_MATCH" | "EQUALS" | "CONTAINS" | "ANY_OF" | "NONE_OF";
 export type FormatVersion = string;
 
 export interface GetAttributeValuesRequest {
@@ -318,3 +248,4 @@ export declare namespace ListPriceLists {
     | ThrottlingException
     | CommonAwsError;
 }
+

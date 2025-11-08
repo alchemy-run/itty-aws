@@ -1,38 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-} from "../../error.ts";
-type CommonAwsError =
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | AccessDeniedException
-  | ThrottlingException
-  | ValidationException;
+import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
+type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class EntityResolution extends AWSServiceClient {
@@ -40,363 +8,199 @@ export declare class EntityResolution extends AWSServiceClient {
     input: AddPolicyStatementInput,
   ): Effect.Effect<
     AddPolicyStatementOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   batchDeleteUniqueId(
     input: BatchDeleteUniqueIdInput,
   ): Effect.Effect<
     BatchDeleteUniqueIdOutput,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   createIdMappingWorkflow(
     input: CreateIdMappingWorkflowInput,
   ): Effect.Effect<
     CreateIdMappingWorkflowOutput,
-    | AccessDeniedException
-    | ConflictException
-    | ExceedsLimitException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | ExceedsLimitException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createIdNamespace(
     input: CreateIdNamespaceInput,
   ): Effect.Effect<
     CreateIdNamespaceOutput,
-    | AccessDeniedException
-    | ConflictException
-    | ExceedsLimitException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | ExceedsLimitException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createMatchingWorkflow(
     input: CreateMatchingWorkflowInput,
   ): Effect.Effect<
     CreateMatchingWorkflowOutput,
-    | AccessDeniedException
-    | ConflictException
-    | ExceedsLimitException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | ExceedsLimitException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createSchemaMapping(
     input: CreateSchemaMappingInput,
   ): Effect.Effect<
     CreateSchemaMappingOutput,
-    | AccessDeniedException
-    | ConflictException
-    | ExceedsLimitException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | ExceedsLimitException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteIdMappingWorkflow(
     input: DeleteIdMappingWorkflowInput,
   ): Effect.Effect<
     DeleteIdMappingWorkflowOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteIdNamespace(
     input: DeleteIdNamespaceInput,
   ): Effect.Effect<
     DeleteIdNamespaceOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteMatchingWorkflow(
     input: DeleteMatchingWorkflowInput,
   ): Effect.Effect<
     DeleteMatchingWorkflowOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deletePolicyStatement(
     input: DeletePolicyStatementInput,
   ): Effect.Effect<
     DeletePolicyStatementOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteSchemaMapping(
     input: DeleteSchemaMappingInput,
   ): Effect.Effect<
     DeleteSchemaMappingOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   generateMatchId(
     input: GenerateMatchIdInput,
   ): Effect.Effect<
     GenerateMatchIdOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getIdMappingJob(
     input: GetIdMappingJobInput,
   ): Effect.Effect<
     GetIdMappingJobOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getIdMappingWorkflow(
     input: GetIdMappingWorkflowInput,
   ): Effect.Effect<
     GetIdMappingWorkflowOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getIdNamespace(
     input: GetIdNamespaceInput,
   ): Effect.Effect<
     GetIdNamespaceOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getMatchId(
     input: GetMatchIdInput,
   ): Effect.Effect<
     GetMatchIdOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getMatchingJob(
     input: GetMatchingJobInput,
   ): Effect.Effect<
     GetMatchingJobOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getMatchingWorkflow(
     input: GetMatchingWorkflowInput,
   ): Effect.Effect<
     GetMatchingWorkflowOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getPolicy(
     input: GetPolicyInput,
   ): Effect.Effect<
     GetPolicyOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getProviderService(
     input: GetProviderServiceInput,
   ): Effect.Effect<
     GetProviderServiceOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getSchemaMapping(
     input: GetSchemaMappingInput,
   ): Effect.Effect<
     GetSchemaMappingOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listIdMappingJobs(
     input: ListIdMappingJobsInput,
   ): Effect.Effect<
     ListIdMappingJobsOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listIdMappingWorkflows(
     input: ListIdMappingWorkflowsInput,
   ): Effect.Effect<
     ListIdMappingWorkflowsOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listIdNamespaces(
     input: ListIdNamespacesInput,
   ): Effect.Effect<
     ListIdNamespacesOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listMatchingJobs(
     input: ListMatchingJobsInput,
   ): Effect.Effect<
     ListMatchingJobsOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listMatchingWorkflows(
     input: ListMatchingWorkflowsInput,
   ): Effect.Effect<
     ListMatchingWorkflowsOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listProviderServices(
     input: ListProviderServicesInput,
   ): Effect.Effect<
     ListProviderServicesOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listSchemaMappings(
     input: ListSchemaMappingsInput,
   ): Effect.Effect<
     ListSchemaMappingsOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceInput,
   ): Effect.Effect<
     ListTagsForResourceOutput,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   putPolicy(
     input: PutPolicyInput,
   ): Effect.Effect<
     PutPolicyOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   startIdMappingJob(
     input: StartIdMappingJobInput,
   ): Effect.Effect<
     StartIdMappingJobOutput,
-    | AccessDeniedException
-    | ConflictException
-    | ExceedsLimitException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | ExceedsLimitException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   startMatchingJob(
     input: StartMatchingJobInput,
   ): Effect.Effect<
     StartMatchingJobOutput,
-    | AccessDeniedException
-    | ConflictException
-    | ExceedsLimitException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | ExceedsLimitException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   tagResource(
     input: TagResourceInput,
   ): Effect.Effect<
     TagResourceOutput,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   untagResource(
     input: UntagResourceInput,
@@ -408,46 +212,25 @@ export declare class EntityResolution extends AWSServiceClient {
     input: UpdateIdMappingWorkflowInput,
   ): Effect.Effect<
     UpdateIdMappingWorkflowOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateIdNamespace(
     input: UpdateIdNamespaceInput,
   ): Effect.Effect<
     UpdateIdNamespaceOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateMatchingWorkflow(
     input: UpdateMatchingWorkflowInput,
   ): Effect.Effect<
     UpdateMatchingWorkflowOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateSchemaMapping(
     input: UpdateSchemaMappingInput,
   ): Effect.Effect<
     UpdateSchemaMappingOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
 }
 
@@ -803,18 +586,15 @@ export interface IdMappingWorkflowInputSource {
   schemaName?: string;
   type?: IdNamespaceType;
 }
-export type IdMappingWorkflowInputSourceConfig =
-  Array<IdMappingWorkflowInputSource>;
+export type IdMappingWorkflowInputSourceConfig = Array<IdMappingWorkflowInputSource>;
 export type IdMappingWorkflowList = Array<IdMappingWorkflowSummary>;
 export interface IdMappingWorkflowOutputSource {
   outputS3Path: string;
   KMSArn?: string;
 }
-export type IdMappingWorkflowOutputSourceConfig =
-  Array<IdMappingWorkflowOutputSource>;
+export type IdMappingWorkflowOutputSourceConfig = Array<IdMappingWorkflowOutputSource>;
 export type IdMappingWorkflowRuleDefinitionType = "SOURCE" | "TARGET";
-export type IdMappingWorkflowRuleDefinitionTypeList =
-  Array<IdMappingWorkflowRuleDefinitionType>;
+export type IdMappingWorkflowRuleDefinitionTypeList = Array<IdMappingWorkflowRuleDefinitionType>;
 export interface IdMappingWorkflowSummary {
   workflowName: string;
   workflowArn: string;
@@ -826,15 +606,13 @@ export type IdNamespaceArn = string;
 export interface IdNamespaceIdMappingWorkflowMetadata {
   idMappingType: IdMappingType;
 }
-export type IdNamespaceIdMappingWorkflowMetadataList =
-  Array<IdNamespaceIdMappingWorkflowMetadata>;
+export type IdNamespaceIdMappingWorkflowMetadataList = Array<IdNamespaceIdMappingWorkflowMetadata>;
 export interface IdNamespaceIdMappingWorkflowProperties {
   idMappingType: IdMappingType;
   ruleBasedProperties?: NamespaceRuleBasedProperties;
   providerProperties?: NamespaceProviderProperties;
 }
-export type IdNamespaceIdMappingWorkflowPropertiesList =
-  Array<IdNamespaceIdMappingWorkflowProperties>;
+export type IdNamespaceIdMappingWorkflowPropertiesList = Array<IdNamespaceIdMappingWorkflowProperties>;
 export interface IdNamespaceInputSource {
   inputSourceARN: string;
   schemaName?: string;
@@ -1018,9 +796,7 @@ interface _ProviderEndpointConfiguration {
   marketplaceConfiguration?: ProviderMarketplaceConfiguration;
 }
 
-export type ProviderEndpointConfiguration = _ProviderEndpointConfiguration & {
-  marketplaceConfiguration: ProviderMarketplaceConfiguration;
-};
+export type ProviderEndpointConfiguration = (_ProviderEndpointConfiguration & { marketplaceConfiguration: ProviderMarketplaceConfiguration });
 export interface ProviderIdNameSpaceConfiguration {
   description?: string;
   providerTargetConfigurationDefinition?: unknown;
@@ -1078,9 +854,7 @@ export interface EntityresolutionRecord {
 export type RecordAttributeMap = Record<string, string>;
 export type RecordAttributeMapString255 = Record<string, string>;
 export type RecordList = Array<EntityresolutionRecord>;
-export type RecordMatchingModel =
-  | "ONE_SOURCE_TO_ONE_TARGET"
-  | "MANY_SOURCE_TO_ONE_TARGET";
+export type RecordMatchingModel = "ONE_SOURCE_TO_ONE_TARGET" | "MANY_SOURCE_TO_ONE_TARGET";
 export type RecordMatchingModelList = Array<RecordMatchingModel>;
 export type RequiredBucketActionsList = Array<string>;
 export interface ResolutionTechniques {
@@ -1117,30 +891,7 @@ export interface RuleConditionProperties {
 export type RuleList = Array<Rule>;
 export type S3Path = string;
 
-export type SchemaAttributeType =
-  | "NAME"
-  | "NAME_FIRST"
-  | "NAME_MIDDLE"
-  | "NAME_LAST"
-  | "ADDRESS"
-  | "ADDRESS_STREET1"
-  | "ADDRESS_STREET2"
-  | "ADDRESS_STREET3"
-  | "ADDRESS_CITY"
-  | "ADDRESS_STATE"
-  | "ADDRESS_COUNTRY"
-  | "ADDRESS_POSTALCODE"
-  | "PHONE"
-  | "PHONE_NUMBER"
-  | "PHONE_COUNTRYCODE"
-  | "EMAIL_ADDRESS"
-  | "UNIQUE_ID"
-  | "DATE"
-  | "STRING"
-  | "PROVIDER_ID"
-  | "IPV4"
-  | "IPV6"
-  | "MAID";
+export type SchemaAttributeType = "NAME" | "NAME_FIRST" | "NAME_MIDDLE" | "NAME_LAST" | "ADDRESS" | "ADDRESS_STREET1" | "ADDRESS_STREET2" | "ADDRESS_STREET3" | "ADDRESS_CITY" | "ADDRESS_STATE" | "ADDRESS_COUNTRY" | "ADDRESS_POSTALCODE" | "PHONE" | "PHONE_NUMBER" | "PHONE_COUNTRYCODE" | "EMAIL_ADDRESS" | "UNIQUE_ID" | "DATE" | "STRING" | "PROVIDER_ID" | "IPV4" | "IPV6" | "MAID";
 export interface SchemaInputAttribute {
   fieldName: string;
   type: SchemaAttributeType;
@@ -1196,7 +947,8 @@ export interface TagResourceInput {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceOutput {}
+export interface TagResourceOutput {
+}
 export type TagValue = string;
 
 export declare class ThrottlingException extends EffectData.TaggedError(
@@ -1211,7 +963,8 @@ export interface UntagResourceInput {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceOutput {}
+export interface UntagResourceOutput {
+}
 export interface UpdateIdMappingWorkflowInput {
   workflowName: string;
   description?: string;
@@ -1735,3 +1488,4 @@ export declare namespace UpdateSchemaMapping {
     | ValidationException
     | CommonAwsError;
 }
+

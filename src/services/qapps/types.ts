@@ -1,38 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-} from "../../error.ts";
-type CommonAwsError =
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | AccessDeniedException
-  | ThrottlingException
-  | ValidationException;
+import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
+type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class QApps extends AWSServiceClient {
@@ -40,442 +8,211 @@ export declare class QApps extends AWSServiceClient {
     input: AssociateLibraryItemReviewInput,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | UnauthorizedException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
   >;
   associateQAppWithUser(
     input: AssociateQAppWithUserInput,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | UnauthorizedException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
   >;
   batchCreateCategory(
     input: BatchCreateCategoryInput,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnauthorizedException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
   >;
   batchDeleteCategory(
     input: BatchDeleteCategoryInput,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnauthorizedException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
   >;
   batchUpdateCategory(
     input: BatchUpdateCategoryInput,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnauthorizedException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
   >;
   createLibraryItem(
     input: CreateLibraryItemInput,
   ): Effect.Effect<
     CreateLibraryItemOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | UnauthorizedException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
   >;
   createPresignedUrl(
     input: CreatePresignedUrlInput,
   ): Effect.Effect<
     CreatePresignedUrlOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | UnauthorizedException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
   >;
   createQApp(
     input: CreateQAppInput,
   ): Effect.Effect<
     CreateQAppOutput,
-    | AccessDeniedException
-    | ConflictException
-    | ContentTooLargeException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | UnauthorizedException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | ContentTooLargeException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
   >;
   deleteLibraryItem(
     input: DeleteLibraryItemInput,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | UnauthorizedException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
   >;
   deleteQApp(
     input: DeleteQAppInput,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnauthorizedException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
   >;
   describeQAppPermissions(
     input: DescribeQAppPermissionsInput,
   ): Effect.Effect<
     DescribeQAppPermissionsOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnauthorizedException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
   >;
   disassociateLibraryItemReview(
     input: DisassociateLibraryItemReviewInput,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | UnauthorizedException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
   >;
   disassociateQAppFromUser(
     input: DisassociateQAppFromUserInput,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnauthorizedException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
   >;
   exportQAppSessionData(
     input: ExportQAppSessionDataInput,
   ): Effect.Effect<
     ExportQAppSessionDataOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | UnauthorizedException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
   >;
   getLibraryItem(
     input: GetLibraryItemInput,
   ): Effect.Effect<
     GetLibraryItemOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnauthorizedException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
   >;
   getQApp(
     input: GetQAppInput,
   ): Effect.Effect<
     GetQAppOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnauthorizedException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
   >;
   getQAppSession(
     input: GetQAppSessionInput,
   ): Effect.Effect<
     GetQAppSessionOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | UnauthorizedException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
   >;
   getQAppSessionMetadata(
     input: GetQAppSessionMetadataInput,
   ): Effect.Effect<
     GetQAppSessionMetadataOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | UnauthorizedException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
   >;
   importDocument(
     input: ImportDocumentInput,
   ): Effect.Effect<
     ImportDocumentOutput,
-    | AccessDeniedException
-    | ContentTooLargeException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | UnauthorizedException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ContentTooLargeException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
   >;
   listCategories(
     input: ListCategoriesInput,
   ): Effect.Effect<
     ListCategoriesOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnauthorizedException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
   >;
   listLibraryItems(
     input: ListLibraryItemsInput,
   ): Effect.Effect<
     ListLibraryItemsOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnauthorizedException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
   >;
   listQApps(
     input: ListQAppsInput,
   ): Effect.Effect<
     ListQAppsOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | UnauthorizedException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
   >;
   listQAppSessionData(
     input: ListQAppSessionDataInput,
   ): Effect.Effect<
     ListQAppSessionDataOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | UnauthorizedException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   predictQApp(
     input: PredictQAppInput,
   ): Effect.Effect<
     PredictQAppOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | UnauthorizedException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
   >;
   startQAppSession(
     input: StartQAppSessionInput,
   ): Effect.Effect<
     StartQAppSessionOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | UnauthorizedException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
   >;
   stopQAppSession(
     input: StopQAppSessionInput,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | UnauthorizedException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateLibraryItem(
     input: UpdateLibraryItemInput,
   ): Effect.Effect<
     UpdateLibraryItemOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnauthorizedException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
   >;
   updateLibraryItemMetadata(
     input: UpdateLibraryItemMetadataInput,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnauthorizedException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
   >;
   updateQApp(
     input: UpdateQAppInput,
   ): Effect.Effect<
     UpdateQAppOutput,
-    | AccessDeniedException
-    | ContentTooLargeException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnauthorizedException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ContentTooLargeException | InternalServerException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
   >;
   updateQAppPermissions(
     input: UpdateQAppPermissionsInput,
   ): Effect.Effect<
     UpdateQAppPermissionsOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnauthorizedException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
   >;
   updateQAppSession(
     input: UpdateQAppSessionInput,
   ): Effect.Effect<
     UpdateQAppSessionOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | UnauthorizedException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
   >;
   updateQAppSessionMetadata(
     input: UpdateQAppSessionMetadataInput,
   ): Effect.Effect<
     UpdateQAppSessionMetadataOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | UnauthorizedException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
   >;
 }
 
@@ -503,11 +240,7 @@ export interface AppDefinitionInput {
   initialPrompt?: string;
 }
 export type AppRequiredCapabilities = Array<AppRequiredCapability>;
-export type AppRequiredCapability =
-  | "FileUpload"
-  | "CreatorMode"
-  | "RetrievalMode"
-  | "PluginMode";
+export type AppRequiredCapability = "FileUpload" | "CreatorMode" | "RetrievalMode" | "PluginMode";
 export type AppStatus = "PUBLISHED" | "DRAFT" | "DELETED";
 export type AppVersion = number;
 
@@ -541,8 +274,7 @@ export interface BatchCreateCategoryInputCategory {
   title: string;
   color?: string;
 }
-export type BatchCreateCategoryInputCategoryList =
-  Array<BatchCreateCategoryInputCategory>;
+export type BatchCreateCategoryInputCategoryList = Array<BatchCreateCategoryInputCategory>;
 export interface BatchDeleteCategoryInput {
   instanceId: string;
   categories: Array<string>;
@@ -559,12 +291,7 @@ interface _Card {
   formInput?: FormInputCard;
 }
 
-export type Card =
-  | (_Card & { textInput: TextInputCard })
-  | (_Card & { qQuery: QQueryCard })
-  | (_Card & { qPlugin: QPluginCard })
-  | (_Card & { fileUpload: FileUploadCard })
-  | (_Card & { formInput: FormInputCard });
+export type Card = (_Card & { textInput: TextInputCard }) | (_Card & { qQuery: QQueryCard }) | (_Card & { qPlugin: QPluginCard }) | (_Card & { fileUpload: FileUploadCard }) | (_Card & { formInput: FormInputCard });
 interface _CardInput {
   textInput?: TextInputCardInput;
   qQuery?: QQueryCardInput;
@@ -573,12 +300,7 @@ interface _CardInput {
   formInput?: FormInputCardInput;
 }
 
-export type CardInput =
-  | (_CardInput & { textInput: TextInputCardInput })
-  | (_CardInput & { qQuery: QQueryCardInput })
-  | (_CardInput & { qPlugin: QPluginCardInput })
-  | (_CardInput & { fileUpload: FileUploadCardInput })
-  | (_CardInput & { formInput: FormInputCardInput });
+export type CardInput = (_CardInput & { textInput: TextInputCardInput }) | (_CardInput & { qQuery: QQueryCardInput }) | (_CardInput & { qPlugin: QPluginCardInput }) | (_CardInput & { fileUpload: FileUploadCardInput }) | (_CardInput & { formInput: FormInputCardInput });
 export type CardList = Array<CardInput>;
 export type CardModelList = Array<Card>;
 export type CardOutputSource = "approved-sources" | "llm";
@@ -588,12 +310,7 @@ export interface CardStatus {
   submissions?: Array<Submission>;
 }
 export type CardStatusMap = Record<string, CardStatus>;
-export type CardType =
-  | "text-input"
-  | "q-query"
-  | "file-upload"
-  | "q-plugin"
-  | "form-input";
+export type CardType = "text-input" | "q-query" | "file-upload" | "q-plugin" | "form-input";
 export interface CardValue {
   cardId: string;
   value: string;
@@ -732,11 +449,7 @@ interface _DocumentAttributeValue {
   dateValue?: Date | string;
 }
 
-export type DocumentAttributeValue =
-  | (_DocumentAttributeValue & { stringValue: string })
-  | (_DocumentAttributeValue & { stringListValue: Array<string> })
-  | (_DocumentAttributeValue & { longValue: number })
-  | (_DocumentAttributeValue & { dateValue: Date | string });
+export type DocumentAttributeValue = (_DocumentAttributeValue & { stringValue: string }) | (_DocumentAttributeValue & { stringListValue: Array<string> }) | (_DocumentAttributeValue & { longValue: number }) | (_DocumentAttributeValue & { dateValue: Date | string });
 export type DocumentScope = "APPLICATION" | "SESSION";
 export type ExecutionStatus = "IN_PROGRESS" | "WAITING" | "COMPLETED" | "ERROR";
 export interface ExportQAppSessionDataInput {
@@ -957,23 +670,7 @@ export type PlatoString = string;
 
 export type PluginId = string;
 
-export type PluginType =
-  | "SERVICE_NOW"
-  | "SALESFORCE"
-  | "JIRA"
-  | "ZENDESK"
-  | "CUSTOM"
-  | "ASANA"
-  | "ATLASSIAN_CONFLUENCE"
-  | "GOOGLE_CALENDAR"
-  | "JIRA_CLOUD"
-  | "MICROSOFT_EXCHANGE"
-  | "MICROSOFT_TEAMS"
-  | "PAGERDUTY_ADVANCE"
-  | "SALESFORCE_CRM"
-  | "SERVICENOW_NOW_PLATFORM"
-  | "SMARTSHEET"
-  | "ZENDESK_SUITE";
+export type PluginType = "SERVICE_NOW" | "SALESFORCE" | "JIRA" | "ZENDESK" | "CUSTOM" | "ASANA" | "ATLASSIAN_CONFLUENCE" | "GOOGLE_CALENDAR" | "JIRA_CLOUD" | "MICROSOFT_EXCHANGE" | "MICROSOFT_TEAMS" | "PAGERDUTY_ADVANCE" | "SALESFORCE_CRM" | "SERVICENOW_NOW_PLATFORM" | "SMARTSHEET" | "ZENDESK_SUITE";
 export interface PredictAppDefinition {
   title: string;
   description?: string;
@@ -988,9 +685,7 @@ interface _PredictQAppInputOptions {
   problemStatement?: string;
 }
 
-export type PredictQAppInputOptions =
-  | (_PredictQAppInputOptions & { conversation: Array<ConversationMessage> })
-  | (_PredictQAppInputOptions & { problemStatement: string });
+export type PredictQAppInputOptions = (_PredictQAppInputOptions & { conversation: Array<ConversationMessage> }) | (_PredictQAppInputOptions & { problemStatement: string });
 export interface PredictQAppOutput {
   app: PredictAppDefinition;
   problemStatement: string;
@@ -1114,7 +809,8 @@ export interface TagResourceRequest {
   resourceARN: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type Tags = Record<string, string>;
 export type TagValue = string;
 
@@ -1154,7 +850,8 @@ export interface UntagResourceRequest {
   resourceARN: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateLibraryItemInput {
   instanceId: string;
   libraryItemId: string;
@@ -1733,3 +1430,4 @@ export declare namespace UpdateQAppSessionMetadata {
     | ValidationException
     | CommonAwsError;
 }
+

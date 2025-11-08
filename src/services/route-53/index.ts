@@ -5,25 +5,7 @@ import type { Route53 as _Route53Client } from "./types.ts";
 
 export * from "./types.ts";
 
-export {
-  AccessDeniedException,
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-  ValidationException,
-  type CommonAwsError,
-} from "../../error.ts";
+export {AccessDeniedException, ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, ValidationException, type CommonAwsError} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -33,241 +15,241 @@ const metadata = {
   sigV4ServiceName: "route53",
   endpointPrefix: "route53",
   operations: {
-    ActivateKeySigningKey: {
+    "ActivateKeySigningKey": {
       http: "POST /2013-04-01/keysigningkey/{HostedZoneId}/{Name}/activate",
     },
-    AssociateVPCWithHostedZone: {
+    "AssociateVPCWithHostedZone": {
       http: "POST /2013-04-01/hostedzone/{HostedZoneId}/associatevpc",
     },
-    ChangeCidrCollection: {
+    "ChangeCidrCollection": {
       http: "POST /2013-04-01/cidrcollection/{Id}",
     },
-    ChangeResourceRecordSets: {
+    "ChangeResourceRecordSets": {
       http: "POST /2013-04-01/hostedzone/{HostedZoneId}/rrset",
     },
-    ChangeTagsForResource: {
+    "ChangeTagsForResource": {
       http: "POST /2013-04-01/tags/{ResourceType}/{ResourceId}",
     },
-    CreateCidrCollection: {
+    "CreateCidrCollection": {
       http: "POST /2013-04-01/cidrcollection",
-      traits: {
-        Location: "Location",
+      outputTraits: {
+        "Location": "Location",
       },
     },
-    CreateHealthCheck: {
+    "CreateHealthCheck": {
       http: "POST /2013-04-01/healthcheck",
-      traits: {
-        Location: "Location",
+      outputTraits: {
+        "Location": "Location",
       },
     },
-    CreateHostedZone: {
+    "CreateHostedZone": {
       http: "POST /2013-04-01/hostedzone",
-      traits: {
-        Location: "Location",
+      outputTraits: {
+        "Location": "Location",
       },
     },
-    CreateKeySigningKey: {
+    "CreateKeySigningKey": {
       http: "POST /2013-04-01/keysigningkey",
-      traits: {
-        Location: "Location",
+      outputTraits: {
+        "Location": "Location",
       },
     },
-    CreateQueryLoggingConfig: {
+    "CreateQueryLoggingConfig": {
       http: "POST /2013-04-01/queryloggingconfig",
-      traits: {
-        Location: "Location",
+      outputTraits: {
+        "Location": "Location",
       },
     },
-    CreateReusableDelegationSet: {
+    "CreateReusableDelegationSet": {
       http: "POST /2013-04-01/delegationset",
-      traits: {
-        Location: "Location",
+      outputTraits: {
+        "Location": "Location",
       },
     },
-    CreateTrafficPolicy: {
+    "CreateTrafficPolicy": {
       http: "POST /2013-04-01/trafficpolicy",
-      traits: {
-        Location: "Location",
+      outputTraits: {
+        "Location": "Location",
       },
     },
-    CreateTrafficPolicyInstance: {
+    "CreateTrafficPolicyInstance": {
       http: "POST /2013-04-01/trafficpolicyinstance",
-      traits: {
-        Location: "Location",
+      outputTraits: {
+        "Location": "Location",
       },
     },
-    CreateTrafficPolicyVersion: {
+    "CreateTrafficPolicyVersion": {
       http: "POST /2013-04-01/trafficpolicy/{Id}",
-      traits: {
-        Location: "Location",
+      outputTraits: {
+        "Location": "Location",
       },
     },
-    CreateVPCAssociationAuthorization: {
+    "CreateVPCAssociationAuthorization": {
       http: "POST /2013-04-01/hostedzone/{HostedZoneId}/authorizevpcassociation",
     },
-    DeactivateKeySigningKey: {
+    "DeactivateKeySigningKey": {
       http: "POST /2013-04-01/keysigningkey/{HostedZoneId}/{Name}/deactivate",
     },
-    DeleteCidrCollection: {
+    "DeleteCidrCollection": {
       http: "DELETE /2013-04-01/cidrcollection/{Id}",
     },
-    DeleteHealthCheck: {
+    "DeleteHealthCheck": {
       http: "DELETE /2013-04-01/healthcheck/{HealthCheckId}",
     },
-    DeleteHostedZone: {
+    "DeleteHostedZone": {
       http: "DELETE /2013-04-01/hostedzone/{Id}",
     },
-    DeleteKeySigningKey: {
+    "DeleteKeySigningKey": {
       http: "DELETE /2013-04-01/keysigningkey/{HostedZoneId}/{Name}",
     },
-    DeleteQueryLoggingConfig: {
+    "DeleteQueryLoggingConfig": {
       http: "DELETE /2013-04-01/queryloggingconfig/{Id}",
     },
-    DeleteReusableDelegationSet: {
+    "DeleteReusableDelegationSet": {
       http: "DELETE /2013-04-01/delegationset/{Id}",
     },
-    DeleteTrafficPolicy: {
+    "DeleteTrafficPolicy": {
       http: "DELETE /2013-04-01/trafficpolicy/{Id}/{Version}",
     },
-    DeleteTrafficPolicyInstance: {
+    "DeleteTrafficPolicyInstance": {
       http: "DELETE /2013-04-01/trafficpolicyinstance/{Id}",
     },
-    DeleteVPCAssociationAuthorization: {
+    "DeleteVPCAssociationAuthorization": {
       http: "POST /2013-04-01/hostedzone/{HostedZoneId}/deauthorizevpcassociation",
     },
-    DisableHostedZoneDNSSEC: {
+    "DisableHostedZoneDNSSEC": {
       http: "POST /2013-04-01/hostedzone/{HostedZoneId}/disable-dnssec",
     },
-    DisassociateVPCFromHostedZone: {
+    "DisassociateVPCFromHostedZone": {
       http: "POST /2013-04-01/hostedzone/{HostedZoneId}/disassociatevpc",
     },
-    EnableHostedZoneDNSSEC: {
+    "EnableHostedZoneDNSSEC": {
       http: "POST /2013-04-01/hostedzone/{HostedZoneId}/enable-dnssec",
     },
-    GetAccountLimit: {
+    "GetAccountLimit": {
       http: "GET /2013-04-01/accountlimit/{Type}",
     },
-    GetChange: {
+    "GetChange": {
       http: "GET /2013-04-01/change/{Id}",
     },
-    GetCheckerIpRanges: {
+    "GetCheckerIpRanges": {
       http: "GET /2013-04-01/checkeripranges",
     },
-    GetDNSSEC: {
+    "GetDNSSEC": {
       http: "GET /2013-04-01/hostedzone/{HostedZoneId}/dnssec",
     },
-    GetGeoLocation: {
+    "GetGeoLocation": {
       http: "GET /2013-04-01/geolocation",
     },
-    GetHealthCheck: {
+    "GetHealthCheck": {
       http: "GET /2013-04-01/healthcheck/{HealthCheckId}",
     },
-    GetHealthCheckCount: {
+    "GetHealthCheckCount": {
       http: "GET /2013-04-01/healthcheckcount",
     },
-    GetHealthCheckLastFailureReason: {
+    "GetHealthCheckLastFailureReason": {
       http: "GET /2013-04-01/healthcheck/{HealthCheckId}/lastfailurereason",
     },
-    GetHealthCheckStatus: {
+    "GetHealthCheckStatus": {
       http: "GET /2013-04-01/healthcheck/{HealthCheckId}/status",
     },
-    GetHostedZone: {
+    "GetHostedZone": {
       http: "GET /2013-04-01/hostedzone/{Id}",
     },
-    GetHostedZoneCount: {
+    "GetHostedZoneCount": {
       http: "GET /2013-04-01/hostedzonecount",
     },
-    GetHostedZoneLimit: {
+    "GetHostedZoneLimit": {
       http: "GET /2013-04-01/hostedzonelimit/{HostedZoneId}/{Type}",
     },
-    GetQueryLoggingConfig: {
+    "GetQueryLoggingConfig": {
       http: "GET /2013-04-01/queryloggingconfig/{Id}",
     },
-    GetReusableDelegationSet: {
+    "GetReusableDelegationSet": {
       http: "GET /2013-04-01/delegationset/{Id}",
     },
-    GetReusableDelegationSetLimit: {
+    "GetReusableDelegationSetLimit": {
       http: "GET /2013-04-01/reusabledelegationsetlimit/{DelegationSetId}/{Type}",
     },
-    GetTrafficPolicy: {
+    "GetTrafficPolicy": {
       http: "GET /2013-04-01/trafficpolicy/{Id}/{Version}",
     },
-    GetTrafficPolicyInstance: {
+    "GetTrafficPolicyInstance": {
       http: "GET /2013-04-01/trafficpolicyinstance/{Id}",
     },
-    GetTrafficPolicyInstanceCount: {
+    "GetTrafficPolicyInstanceCount": {
       http: "GET /2013-04-01/trafficpolicyinstancecount",
     },
-    ListCidrBlocks: {
+    "ListCidrBlocks": {
       http: "GET /2013-04-01/cidrcollection/{CollectionId}/cidrblocks",
     },
-    ListCidrCollections: {
+    "ListCidrCollections": {
       http: "GET /2013-04-01/cidrcollection",
     },
-    ListCidrLocations: {
+    "ListCidrLocations": {
       http: "GET /2013-04-01/cidrcollection/{CollectionId}",
     },
-    ListGeoLocations: {
+    "ListGeoLocations": {
       http: "GET /2013-04-01/geolocations",
     },
-    ListHealthChecks: {
+    "ListHealthChecks": {
       http: "GET /2013-04-01/healthcheck",
     },
-    ListHostedZones: {
+    "ListHostedZones": {
       http: "GET /2013-04-01/hostedzone",
     },
-    ListHostedZonesByName: {
+    "ListHostedZonesByName": {
       http: "GET /2013-04-01/hostedzonesbyname",
     },
-    ListHostedZonesByVPC: {
+    "ListHostedZonesByVPC": {
       http: "GET /2013-04-01/hostedzonesbyvpc",
     },
-    ListQueryLoggingConfigs: {
+    "ListQueryLoggingConfigs": {
       http: "GET /2013-04-01/queryloggingconfig",
     },
-    ListResourceRecordSets: {
+    "ListResourceRecordSets": {
       http: "GET /2013-04-01/hostedzone/{HostedZoneId}/rrset",
     },
-    ListReusableDelegationSets: {
+    "ListReusableDelegationSets": {
       http: "GET /2013-04-01/delegationset",
     },
-    ListTagsForResource: {
+    "ListTagsForResource": {
       http: "GET /2013-04-01/tags/{ResourceType}/{ResourceId}",
     },
-    ListTagsForResources: {
+    "ListTagsForResources": {
       http: "POST /2013-04-01/tags/{ResourceType}",
     },
-    ListTrafficPolicies: {
+    "ListTrafficPolicies": {
       http: "GET /2013-04-01/trafficpolicies",
     },
-    ListTrafficPolicyInstances: {
+    "ListTrafficPolicyInstances": {
       http: "GET /2013-04-01/trafficpolicyinstances",
     },
-    ListTrafficPolicyInstancesByHostedZone: {
+    "ListTrafficPolicyInstancesByHostedZone": {
       http: "GET /2013-04-01/trafficpolicyinstances/hostedzone",
     },
-    ListTrafficPolicyInstancesByPolicy: {
+    "ListTrafficPolicyInstancesByPolicy": {
       http: "GET /2013-04-01/trafficpolicyinstances/trafficpolicy",
     },
-    ListTrafficPolicyVersions: {
+    "ListTrafficPolicyVersions": {
       http: "GET /2013-04-01/trafficpolicies/{Id}/versions",
     },
-    ListVPCAssociationAuthorizations: {
+    "ListVPCAssociationAuthorizations": {
       http: "GET /2013-04-01/hostedzone/{HostedZoneId}/authorizevpcassociation",
     },
-    TestDNSAnswer: {
+    "TestDNSAnswer": {
       http: "GET /2013-04-01/testdnsanswer",
     },
-    UpdateHealthCheck: {
+    "UpdateHealthCheck": {
       http: "POST /2013-04-01/healthcheck/{HealthCheckId}",
     },
-    UpdateHostedZoneComment: {
+    "UpdateHostedZoneComment": {
       http: "POST /2013-04-01/hostedzone/{Id}",
     },
-    UpdateTrafficPolicyComment: {
+    "UpdateTrafficPolicyComment": {
       http: "POST /2013-04-01/trafficpolicy/{Id}/{Version}",
     },
-    UpdateTrafficPolicyInstance: {
+    "UpdateTrafficPolicyInstance": {
       http: "POST /2013-04-01/trafficpolicyinstance/{Id}",
     },
   },

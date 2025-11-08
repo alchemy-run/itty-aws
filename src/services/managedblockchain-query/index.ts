@@ -5,23 +5,7 @@ import type { ManagedBlockchainQuery as _ManagedBlockchainQueryClient } from "./
 
 export * from "./types.ts";
 
-export {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-  type CommonAwsError,
-} from "../../error.ts";
+export {ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, type CommonAwsError} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -30,15 +14,15 @@ const metadata = {
   protocol: "restJson1",
   sigV4ServiceName: "managedblockchain-query",
   operations: {
-    BatchGetTokenBalance: "POST /batch-get-token-balance",
-    GetAssetContract: "POST /get-asset-contract",
-    GetTokenBalance: "POST /get-token-balance",
-    GetTransaction: "POST /get-transaction",
-    ListAssetContracts: "POST /list-asset-contracts",
-    ListFilteredTransactionEvents: "POST /list-filtered-transaction-events",
-    ListTokenBalances: "POST /list-token-balances",
-    ListTransactionEvents: "POST /list-transaction-events",
-    ListTransactions: "POST /list-transactions",
+    "BatchGetTokenBalance": "POST /batch-get-token-balance",
+    "GetAssetContract": "POST /get-asset-contract",
+    "GetTokenBalance": "POST /get-token-balance",
+    "GetTransaction": "POST /get-transaction",
+    "ListAssetContracts": "POST /list-asset-contracts",
+    "ListFilteredTransactionEvents": "POST /list-filtered-transaction-events",
+    "ListTokenBalances": "POST /list-token-balances",
+    "ListTransactionEvents": "POST /list-transaction-events",
+    "ListTransactions": "POST /list-transactions",
   },
 } as const satisfies ServiceMetadata;
 

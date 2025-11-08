@@ -1,38 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-} from "../../error.ts";
-type CommonAwsError =
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | AccessDeniedException
-  | ThrottlingException
-  | ValidationException;
+import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
+type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class MailManager extends AWSServiceClient {
@@ -40,127 +8,79 @@ export declare class MailManager extends AWSServiceClient {
     input: CreateAddressListImportJobRequest,
   ): Effect.Effect<
     CreateAddressListImportJobResponse,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deregisterMemberFromAddressList(
     input: DeregisterMemberFromAddressListRequest,
   ): Effect.Effect<
     DeregisterMemberFromAddressListResponse,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getAddressListImportJob(
     input: GetAddressListImportJobRequest,
   ): Effect.Effect<
     GetAddressListImportJobResponse,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getArchiveExport(
     input: GetArchiveExportRequest,
   ): Effect.Effect<
     GetArchiveExportResponse,
-    | AccessDeniedException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getArchiveMessage(
     input: GetArchiveMessageRequest,
   ): Effect.Effect<
     GetArchiveMessageResponse,
-    | AccessDeniedException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getArchiveMessageContent(
     input: GetArchiveMessageContentRequest,
   ): Effect.Effect<
     GetArchiveMessageContentResponse,
-    | AccessDeniedException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getArchiveSearch(
     input: GetArchiveSearchRequest,
   ): Effect.Effect<
     GetArchiveSearchResponse,
-    | AccessDeniedException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getArchiveSearchResults(
     input: GetArchiveSearchResultsRequest,
   ): Effect.Effect<
     GetArchiveSearchResultsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getMemberOfAddressList(
     input: GetMemberOfAddressListRequest,
   ): Effect.Effect<
     GetMemberOfAddressListResponse,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listAddressListImportJobs(
     input: ListAddressListImportJobsRequest,
   ): Effect.Effect<
     ListAddressListImportJobsResponse,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listArchiveExports(
     input: ListArchiveExportsRequest,
   ): Effect.Effect<
     ListArchiveExportsResponse,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listArchiveSearches(
     input: ListArchiveSearchesRequest,
   ): Effect.Effect<
     ListArchiveSearchesResponse,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listMembersOfAddressList(
     input: ListMembersOfAddressListRequest,
   ): Effect.Effect<
     ListMembersOfAddressListResponse,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
@@ -172,172 +92,103 @@ export declare class MailManager extends AWSServiceClient {
     input: RegisterMemberToAddressListRequest,
   ): Effect.Effect<
     RegisterMemberToAddressListResponse,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   startAddressListImportJob(
     input: StartAddressListImportJobRequest,
   ): Effect.Effect<
     StartAddressListImportJobResponse,
-    | AccessDeniedException
-    | ConflictException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   startArchiveExport(
     input: StartArchiveExportRequest,
   ): Effect.Effect<
     StartArchiveExportResponse,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   startArchiveSearch(
     input: StartArchiveSearchRequest,
   ): Effect.Effect<
     StartArchiveSearchResponse,
-    | AccessDeniedException
-    | ConflictException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   stopAddressListImportJob(
     input: StopAddressListImportJobRequest,
   ): Effect.Effect<
     StopAddressListImportJobResponse,
-    | AccessDeniedException
-    | ConflictException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   stopArchiveExport(
     input: StopArchiveExportRequest,
   ): Effect.Effect<
     StopArchiveExportResponse,
-    | AccessDeniedException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ThrottlingException | ValidationException | CommonAwsError
   >;
   stopArchiveSearch(
     input: StopArchiveSearchRequest,
   ): Effect.Effect<
     StopArchiveSearchResponse,
-    | AccessDeniedException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ThrottlingException | ValidationException | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | ConflictException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | ResourceNotFoundException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | ConflictException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   createAddonInstance(
     input: CreateAddonInstanceRequest,
   ): Effect.Effect<
     CreateAddonInstanceResponse,
-    | ConflictException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | ResourceNotFoundException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   >;
   createAddonSubscription(
     input: CreateAddonSubscriptionRequest,
   ): Effect.Effect<
     CreateAddonSubscriptionResponse,
-    | ConflictException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   >;
   createAddressList(
     input: CreateAddressListRequest,
   ): Effect.Effect<
     CreateAddressListResponse,
-    | AccessDeniedException
-    | ConflictException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createArchive(
     input: CreateArchiveRequest,
   ): Effect.Effect<
     CreateArchiveResponse,
-    | AccessDeniedException
-    | ConflictException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createIngressPoint(
     input: CreateIngressPointRequest,
   ): Effect.Effect<
     CreateIngressPointResponse,
-    | ConflictException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   >;
   createRelay(
     input: CreateRelayRequest,
   ): Effect.Effect<
     CreateRelayResponse,
-    | ConflictException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   >;
   createRuleSet(
     input: CreateRuleSetRequest,
   ): Effect.Effect<
     CreateRuleSetResponse,
-    | ConflictException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   >;
   createTrafficPolicy(
     input: CreateTrafficPolicyRequest,
   ): Effect.Effect<
     CreateTrafficPolicyResponse,
-    | ConflictException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   >;
   deleteAddonInstance(
     input: DeleteAddonInstanceRequest,
@@ -355,38 +206,25 @@ export declare class MailManager extends AWSServiceClient {
     input: DeleteAddressListRequest,
   ): Effect.Effect<
     DeleteAddressListResponse,
-    | AccessDeniedException
-    | ConflictException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | ThrottlingException | CommonAwsError
   >;
   deleteArchive(
     input: DeleteArchiveRequest,
   ): Effect.Effect<
     DeleteArchiveResponse,
-    | AccessDeniedException
-    | ConflictException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteIngressPoint(
     input: DeleteIngressPointRequest,
   ): Effect.Effect<
     DeleteIngressPointResponse,
-    | ConflictException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   deleteRelay(
     input: DeleteRelayRequest,
   ): Effect.Effect<
     DeleteRelayResponse,
-    | ConflictException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   deleteRuleSet(
     input: DeleteRuleSetRequest,
@@ -398,10 +236,7 @@ export declare class MailManager extends AWSServiceClient {
     input: DeleteTrafficPolicyRequest,
   ): Effect.Effect<
     DeleteTrafficPolicyResponse,
-    | ConflictException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   getAddonInstance(
     input: GetAddonInstanceRequest,
@@ -419,21 +254,13 @@ export declare class MailManager extends AWSServiceClient {
     input: GetAddressListRequest,
   ): Effect.Effect<
     GetAddressListResponse,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getArchive(
     input: GetArchiveRequest,
   ): Effect.Effect<
     GetArchiveResponse,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getIngressPoint(
     input: GetIngressPointRequest,
@@ -475,19 +302,13 @@ export declare class MailManager extends AWSServiceClient {
     input: ListAddressListsRequest,
   ): Effect.Effect<
     ListAddressListsResponse,
-    | AccessDeniedException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listArchives(
     input: ListArchivesRequest,
   ): Effect.Effect<
     ListArchivesResponse,
-    | AccessDeniedException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listIngressPoints(
     input: ListIngressPointsRequest,
@@ -497,10 +318,16 @@ export declare class MailManager extends AWSServiceClient {
   >;
   listRelays(
     input: ListRelaysRequest,
-  ): Effect.Effect<ListRelaysResponse, ValidationException | CommonAwsError>;
+  ): Effect.Effect<
+    ListRelaysResponse,
+    ValidationException | CommonAwsError
+  >;
   listRuleSets(
     input: ListRuleSetsRequest,
-  ): Effect.Effect<ListRuleSetsResponse, ValidationException | CommonAwsError>;
+  ): Effect.Effect<
+    ListRuleSetsResponse,
+    ValidationException | CommonAwsError
+  >;
   listTrafficPolicies(
     input: ListTrafficPoliciesRequest,
   ): Effect.Effect<
@@ -511,49 +338,31 @@ export declare class MailManager extends AWSServiceClient {
     input: UpdateArchiveRequest,
   ): Effect.Effect<
     UpdateArchiveResponse,
-    | AccessDeniedException
-    | ConflictException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateIngressPoint(
     input: UpdateIngressPointRequest,
   ): Effect.Effect<
     UpdateIngressPointResponse,
-    | ConflictException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   updateRelay(
     input: UpdateRelayRequest,
   ): Effect.Effect<
     UpdateRelayResponse,
-    | ConflictException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   updateRuleSet(
     input: UpdateRuleSetRequest,
   ): Effect.Effect<
     UpdateRuleSetResponse,
-    | ConflictException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   updateTrafficPolicy(
     input: UpdateTrafficPolicyRequest,
   ): Effect.Effect<
     UpdateTrafficPolicyResponse,
-    | ConflictException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
 }
 
@@ -646,9 +455,7 @@ interface _ArchiveBooleanToEvaluate {
   Attribute?: ArchiveBooleanEmailAttribute;
 }
 
-export type ArchiveBooleanToEvaluate = _ArchiveBooleanToEvaluate & {
-  Attribute: ArchiveBooleanEmailAttribute;
-};
+export type ArchiveBooleanToEvaluate = (_ArchiveBooleanToEvaluate & { Attribute: ArchiveBooleanEmailAttribute });
 export type ArchivedMessageId = string;
 
 interface _ArchiveFilterCondition {
@@ -656,9 +463,7 @@ interface _ArchiveFilterCondition {
   BooleanExpression?: ArchiveBooleanExpression;
 }
 
-export type ArchiveFilterCondition =
-  | (_ArchiveFilterCondition & { StringExpression: ArchiveStringExpression })
-  | (_ArchiveFilterCondition & { BooleanExpression: ArchiveBooleanExpression });
+export type ArchiveFilterCondition = (_ArchiveFilterCondition & { StringExpression: ArchiveStringExpression }) | (_ArchiveFilterCondition & { BooleanExpression: ArchiveBooleanExpression });
 export type ArchiveFilterConditions = Array<ArchiveFilterCondition>;
 export interface ArchiveFilters {
   Include?: Array<ArchiveFilterCondition>;
@@ -674,18 +479,10 @@ interface _ArchiveRetention {
   RetentionPeriod?: RetentionPeriod;
 }
 
-export type ArchiveRetention = _ArchiveRetention & {
-  RetentionPeriod: RetentionPeriod;
-};
+export type ArchiveRetention = (_ArchiveRetention & { RetentionPeriod: RetentionPeriod });
 export type ArchivesList = Array<Archive>;
 export type ArchiveState = "ACTIVE" | "PENDING_DELETION";
-export type ArchiveStringEmailAttribute =
-  | "TO"
-  | "FROM"
-  | "CC"
-  | "SUBJECT"
-  | "ENVELOPE_TO"
-  | "ENVELOPE_FROM";
+export type ArchiveStringEmailAttribute = "TO" | "FROM" | "CC" | "SUBJECT" | "ENVELOPE_TO" | "ENVELOPE_FROM";
 export interface ArchiveStringExpression {
   Evaluate: ArchiveStringToEvaluate;
   Operator: ArchiveStringOperator;
@@ -696,9 +493,7 @@ interface _ArchiveStringToEvaluate {
   Attribute?: ArchiveStringEmailAttribute;
 }
 
-export type ArchiveStringToEvaluate = _ArchiveStringToEvaluate & {
-  Attribute: ArchiveStringEmailAttribute;
-};
+export type ArchiveStringToEvaluate = (_ArchiveStringToEvaluate & { Attribute: ArchiveStringEmailAttribute });
 export declare class ConflictException extends EffectData.TaggedError(
   "ConflictException",
 )<{
@@ -795,35 +590,43 @@ export interface CreateTrafficPolicyResponse {
 export interface DeleteAddonInstanceRequest {
   AddonInstanceId: string;
 }
-export interface DeleteAddonInstanceResponse {}
+export interface DeleteAddonInstanceResponse {
+}
 export interface DeleteAddonSubscriptionRequest {
   AddonSubscriptionId: string;
 }
-export interface DeleteAddonSubscriptionResponse {}
+export interface DeleteAddonSubscriptionResponse {
+}
 export interface DeleteAddressListRequest {
   AddressListId: string;
 }
-export interface DeleteAddressListResponse {}
+export interface DeleteAddressListResponse {
+}
 export interface DeleteArchiveRequest {
   ArchiveId: string;
 }
-export interface DeleteArchiveResponse {}
+export interface DeleteArchiveResponse {
+}
 export interface DeleteIngressPointRequest {
   IngressPointId: string;
 }
-export interface DeleteIngressPointResponse {}
+export interface DeleteIngressPointResponse {
+}
 export interface DeleteRelayRequest {
   RelayId: string;
 }
-export interface DeleteRelayResponse {}
+export interface DeleteRelayResponse {
+}
 export interface DeleteRuleSetRequest {
   RuleSetId: string;
 }
-export interface DeleteRuleSetResponse {}
+export interface DeleteRuleSetResponse {
+}
 export interface DeleteTrafficPolicyRequest {
   TrafficPolicyId: string;
 }
-export interface DeleteTrafficPolicyResponse {}
+export interface DeleteTrafficPolicyResponse {
+}
 export interface DeliverToMailboxAction {
   ActionFailurePolicy?: ActionFailurePolicy;
   MailboxArn: string;
@@ -839,8 +642,10 @@ export interface DeregisterMemberFromAddressListRequest {
   AddressListId: string;
   Address: string;
 }
-export interface DeregisterMemberFromAddressListResponse {}
-export interface DropAction {}
+export interface DeregisterMemberFromAddressListResponse {
+}
+export interface DropAction {
+}
 export type EmailAddress = string;
 
 export type EmailReceivedHeadersList = Array<string>;
@@ -855,20 +660,12 @@ interface _ExportDestinationConfiguration {
   S3?: S3ExportDestinationConfiguration;
 }
 
-export type ExportDestinationConfiguration = _ExportDestinationConfiguration & {
-  S3: S3ExportDestinationConfiguration;
-};
+export type ExportDestinationConfiguration = (_ExportDestinationConfiguration & { S3: S3ExportDestinationConfiguration });
 export type ExportId = string;
 
 export type ExportMaxResults = number;
 
-export type ExportState =
-  | "QUEUED"
-  | "PREPROCESSING"
-  | "PROCESSING"
-  | "COMPLETED"
-  | "FAILED"
-  | "CANCELLED";
+export type ExportState = "QUEUED" | "PREPROCESSING" | "PROCESSING" | "COMPLETED" | "FAILED" | "CANCELLED";
 export interface ExportStatus {
   SubmissionTimestamp?: Date | string;
   CompletionTimestamp?: Date | string;
@@ -1071,12 +868,7 @@ export interface ImportJob {
   Error?: string;
 }
 export type ImportJobs = Array<ImportJob>;
-export type ImportJobStatus =
-  | "CREATED"
-  | "PROCESSING"
-  | "COMPLETED"
-  | "FAILED"
-  | "STOPPED";
+export type ImportJobStatus = "CREATED" | "PROCESSING" | "COMPLETED" | "FAILED" | "STOPPED";
 export type IngressAddressListArnList = Array<string>;
 export type IngressAddressListEmailAttribute = "RECIPIENT";
 export interface IngressAnalysis {
@@ -1093,17 +885,13 @@ interface _IngressBooleanToEvaluate {
   IsInAddressList?: IngressIsInAddressList;
 }
 
-export type IngressBooleanToEvaluate =
-  | (_IngressBooleanToEvaluate & { Analysis: IngressAnalysis })
-  | (_IngressBooleanToEvaluate & { IsInAddressList: IngressIsInAddressList });
+export type IngressBooleanToEvaluate = (_IngressBooleanToEvaluate & { Analysis: IngressAnalysis }) | (_IngressBooleanToEvaluate & { IsInAddressList: IngressIsInAddressList });
 export type IngressIpOperator = "CIDR_MATCHES" | "NOT_CIDR_MATCHES";
 interface _IngressIpToEvaluate {
   Attribute?: IngressIpv4Attribute;
 }
 
-export type IngressIpToEvaluate = _IngressIpToEvaluate & {
-  Attribute: IngressIpv4Attribute;
-};
+export type IngressIpToEvaluate = (_IngressIpToEvaluate & { Attribute: IngressIpv4Attribute });
 export type IngressIpv4Attribute = "SENDER_IP";
 export interface IngressIpv4Expression {
   Evaluate: IngressIpToEvaluate;
@@ -1120,9 +908,7 @@ interface _IngressIpv6ToEvaluate {
   Attribute?: IngressIpv6Attribute;
 }
 
-export type IngressIpv6ToEvaluate = _IngressIpv6ToEvaluate & {
-  Attribute: IngressIpv6Attribute;
-};
+export type IngressIpv6ToEvaluate = (_IngressIpv6ToEvaluate & { Attribute: IngressIpv6Attribute });
 export interface IngressIsInAddressList {
   Attribute: IngressAddressListEmailAttribute;
   AddressLists: Array<string>;
@@ -1147,9 +933,7 @@ interface _IngressPointConfiguration {
   SecretArn?: string;
 }
 
-export type IngressPointConfiguration =
-  | (_IngressPointConfiguration & { SmtpPassword: string })
-  | (_IngressPointConfiguration & { SecretArn: string });
+export type IngressPointConfiguration = (_IngressPointConfiguration & { SmtpPassword: string }) | (_IngressPointConfiguration & { SecretArn: string });
 export type IngressPointId = string;
 
 export type IngressPointName = string;
@@ -1160,13 +944,7 @@ export interface IngressPointPasswordConfiguration {
   PreviousSmtpPasswordExpiryTimestamp?: Date | string;
 }
 export type IngressPointsList = Array<IngressPoint>;
-export type IngressPointStatus =
-  | "PROVISIONING"
-  | "DEPROVISIONING"
-  | "UPDATING"
-  | "ACTIVE"
-  | "CLOSED"
-  | "FAILED";
+export type IngressPointStatus = "PROVISIONING" | "DEPROVISIONING" | "UPDATING" | "ACTIVE" | "CLOSED" | "FAILED";
 export type IngressPointStatusToUpdate = "ACTIVE" | "CLOSED";
 export type IngressPointType = "OPEN" | "AUTH";
 export type IngressStringEmailAttribute = "RECIPIENT";
@@ -1175,20 +953,13 @@ export interface IngressStringExpression {
   Operator: IngressStringOperator;
   Values: Array<string>;
 }
-export type IngressStringOperator =
-  | "EQUALS"
-  | "NOT_EQUALS"
-  | "STARTS_WITH"
-  | "ENDS_WITH"
-  | "CONTAINS";
+export type IngressStringOperator = "EQUALS" | "NOT_EQUALS" | "STARTS_WITH" | "ENDS_WITH" | "CONTAINS";
 interface _IngressStringToEvaluate {
   Attribute?: IngressStringEmailAttribute;
   Analysis?: IngressAnalysis;
 }
 
-export type IngressStringToEvaluate =
-  | (_IngressStringToEvaluate & { Attribute: IngressStringEmailAttribute })
-  | (_IngressStringToEvaluate & { Analysis: IngressAnalysis });
+export type IngressStringToEvaluate = (_IngressStringToEvaluate & { Attribute: IngressStringEmailAttribute }) | (_IngressStringToEvaluate & { Analysis: IngressAnalysis });
 export type IngressTlsAttribute = "TLS_PROTOCOL";
 export type IngressTlsProtocolAttribute = "TLS1_2" | "TLS1_3";
 export interface IngressTlsProtocolExpression {
@@ -1201,9 +972,7 @@ interface _IngressTlsProtocolToEvaluate {
   Attribute?: IngressTlsAttribute;
 }
 
-export type IngressTlsProtocolToEvaluate = _IngressTlsProtocolToEvaluate & {
-  Attribute: IngressTlsAttribute;
-};
+export type IngressTlsProtocolToEvaluate = (_IngressTlsProtocolToEvaluate & { Attribute: IngressTlsAttribute });
 export type IpType = "IPV4" | "DUAL_STACK";
 export type Ipv4Cidr = string;
 
@@ -1360,14 +1129,9 @@ interface _NetworkConfiguration {
   PrivateNetworkConfiguration?: PrivateNetworkConfiguration;
 }
 
-export type NetworkConfiguration =
-  | (_NetworkConfiguration & {
-      PublicNetworkConfiguration: PublicNetworkConfiguration;
-    })
-  | (_NetworkConfiguration & {
-      PrivateNetworkConfiguration: PrivateNetworkConfiguration;
-    });
-export interface NoAuthentication {}
+export type NetworkConfiguration = (_NetworkConfiguration & { PublicNetworkConfiguration: PublicNetworkConfiguration }) | (_NetworkConfiguration & { PrivateNetworkConfiguration: PrivateNetworkConfiguration });
+export interface NoAuthentication {
+}
 export type PageSize = number;
 
 export type PaginationToken = string;
@@ -1380,12 +1144,7 @@ interface _PolicyCondition {
   BooleanExpression?: IngressBooleanExpression;
 }
 
-export type PolicyCondition =
-  | (_PolicyCondition & { StringExpression: IngressStringExpression })
-  | (_PolicyCondition & { IpExpression: IngressIpv4Expression })
-  | (_PolicyCondition & { Ipv6Expression: IngressIpv6Expression })
-  | (_PolicyCondition & { TlsExpression: IngressTlsProtocolExpression })
-  | (_PolicyCondition & { BooleanExpression: IngressBooleanExpression });
+export type PolicyCondition = (_PolicyCondition & { StringExpression: IngressStringExpression }) | (_PolicyCondition & { IpExpression: IngressIpv4Expression }) | (_PolicyCondition & { Ipv6Expression: IngressIpv6Expression }) | (_PolicyCondition & { TlsExpression: IngressTlsProtocolExpression }) | (_PolicyCondition & { BooleanExpression: IngressBooleanExpression });
 export type PolicyConditions = Array<PolicyCondition>;
 export interface PolicyStatement {
   Conditions: Array<PolicyCondition>;
@@ -1409,7 +1168,8 @@ export interface RegisterMemberToAddressListRequest {
   AddressListId: string;
   Address: string;
 }
-export interface RegisterMemberToAddressListResponse {}
+export interface RegisterMemberToAddressListResponse {
+}
 export interface Relay {
   RelayId?: string;
   RelayName?: string;
@@ -1427,9 +1187,7 @@ interface _RelayAuthentication {
   NoAuthentication?: NoAuthentication;
 }
 
-export type RelayAuthentication =
-  | (_RelayAuthentication & { SecretArn: string })
-  | (_RelayAuthentication & { NoAuthentication: NoAuthentication });
+export type RelayAuthentication = (_RelayAuthentication & { SecretArn: string }) | (_RelayAuthentication & { NoAuthentication: NoAuthentication });
 export type RelayId = string;
 
 export type RelayName = string;
@@ -1449,23 +1207,7 @@ export declare class ResourceNotFoundException extends EffectData.TaggedError(
 }> {}
 export type ResultField = string;
 
-export type RetentionPeriod =
-  | "THREE_MONTHS"
-  | "SIX_MONTHS"
-  | "NINE_MONTHS"
-  | "ONE_YEAR"
-  | "EIGHTEEN_MONTHS"
-  | "TWO_YEARS"
-  | "THIRTY_MONTHS"
-  | "THREE_YEARS"
-  | "FOUR_YEARS"
-  | "FIVE_YEARS"
-  | "SIX_YEARS"
-  | "SEVEN_YEARS"
-  | "EIGHT_YEARS"
-  | "NINE_YEARS"
-  | "TEN_YEARS"
-  | "PERMANENT";
+export type RetentionPeriod = "THREE_MONTHS" | "SIX_MONTHS" | "NINE_MONTHS" | "ONE_YEAR" | "EIGHTEEN_MONTHS" | "TWO_YEARS" | "THIRTY_MONTHS" | "THREE_YEARS" | "FOUR_YEARS" | "FIVE_YEARS" | "SIX_YEARS" | "SEVEN_YEARS" | "EIGHT_YEARS" | "NINE_YEARS" | "TEN_YEARS" | "PERMANENT";
 export interface Row {
   ArchivedMessageId?: string;
   ReceivedTimestamp?: Date | string;
@@ -1507,30 +1249,11 @@ interface _RuleAction {
   PublishToSns?: SnsAction;
 }
 
-export type RuleAction =
-  | (_RuleAction & { Drop: DropAction })
-  | (_RuleAction & { Relay: RelayAction })
-  | (_RuleAction & { Archive: ArchiveAction })
-  | (_RuleAction & { WriteToS3: S3Action })
-  | (_RuleAction & { Send: SendAction })
-  | (_RuleAction & { AddHeader: AddHeaderAction })
-  | (_RuleAction & { ReplaceRecipient: ReplaceRecipientAction })
-  | (_RuleAction & { DeliverToMailbox: DeliverToMailboxAction })
-  | (_RuleAction & { DeliverToQBusiness: DeliverToQBusinessAction })
-  | (_RuleAction & { PublishToSns: SnsAction });
+export type RuleAction = (_RuleAction & { Drop: DropAction }) | (_RuleAction & { Relay: RelayAction }) | (_RuleAction & { Archive: ArchiveAction }) | (_RuleAction & { WriteToS3: S3Action }) | (_RuleAction & { Send: SendAction }) | (_RuleAction & { AddHeader: AddHeaderAction }) | (_RuleAction & { ReplaceRecipient: ReplaceRecipientAction }) | (_RuleAction & { DeliverToMailbox: DeliverToMailboxAction }) | (_RuleAction & { DeliverToQBusiness: DeliverToQBusinessAction }) | (_RuleAction & { PublishToSns: SnsAction });
 export type RuleActions = Array<RuleAction>;
 export type RuleAddressListArnList = Array<string>;
-export type RuleAddressListEmailAttribute =
-  | "RECIPIENT"
-  | "MAIL_FROM"
-  | "SENDER"
-  | "FROM"
-  | "TO"
-  | "CC";
-export type RuleBooleanEmailAttribute =
-  | "READ_RECEIPT_REQUESTED"
-  | "TLS"
-  | "TLS_WRAPPED";
+export type RuleAddressListEmailAttribute = "RECIPIENT" | "MAIL_FROM" | "SENDER" | "FROM" | "TO" | "CC";
+export type RuleBooleanEmailAttribute = "READ_RECEIPT_REQUESTED" | "TLS" | "TLS_WRAPPED";
 export interface RuleBooleanExpression {
   Evaluate: RuleBooleanToEvaluate;
   Operator: RuleBooleanOperator;
@@ -1542,10 +1265,7 @@ interface _RuleBooleanToEvaluate {
   IsInAddressList?: RuleIsInAddressList;
 }
 
-export type RuleBooleanToEvaluate =
-  | (_RuleBooleanToEvaluate & { Attribute: RuleBooleanEmailAttribute })
-  | (_RuleBooleanToEvaluate & { Analysis: Analysis })
-  | (_RuleBooleanToEvaluate & { IsInAddressList: RuleIsInAddressList });
+export type RuleBooleanToEvaluate = (_RuleBooleanToEvaluate & { Attribute: RuleBooleanEmailAttribute }) | (_RuleBooleanToEvaluate & { Analysis: Analysis }) | (_RuleBooleanToEvaluate & { IsInAddressList: RuleIsInAddressList });
 interface _RuleCondition {
   BooleanExpression?: RuleBooleanExpression;
   StringExpression?: RuleStringExpression;
@@ -1555,13 +1275,7 @@ interface _RuleCondition {
   DmarcExpression?: RuleDmarcExpression;
 }
 
-export type RuleCondition =
-  | (_RuleCondition & { BooleanExpression: RuleBooleanExpression })
-  | (_RuleCondition & { StringExpression: RuleStringExpression })
-  | (_RuleCondition & { NumberExpression: RuleNumberExpression })
-  | (_RuleCondition & { IpExpression: RuleIpExpression })
-  | (_RuleCondition & { VerdictExpression: RuleVerdictExpression })
-  | (_RuleCondition & { DmarcExpression: RuleDmarcExpression });
+export type RuleCondition = (_RuleCondition & { BooleanExpression: RuleBooleanExpression }) | (_RuleCondition & { StringExpression: RuleStringExpression }) | (_RuleCondition & { NumberExpression: RuleNumberExpression }) | (_RuleCondition & { IpExpression: RuleIpExpression }) | (_RuleCondition & { VerdictExpression: RuleVerdictExpression }) | (_RuleCondition & { DmarcExpression: RuleDmarcExpression });
 export type RuleConditions = Array<RuleCondition>;
 export interface RuleDmarcExpression {
   Operator: RuleDmarcOperator;
@@ -1583,9 +1297,7 @@ interface _RuleIpToEvaluate {
   Attribute?: RuleIpEmailAttribute;
 }
 
-export type RuleIpToEvaluate = _RuleIpToEvaluate & {
-  Attribute: RuleIpEmailAttribute;
-};
+export type RuleIpToEvaluate = (_RuleIpToEvaluate & { Attribute: RuleIpEmailAttribute });
 export type RuleIpValueList = Array<string>;
 export interface RuleIsInAddressList {
   Attribute: RuleAddressListEmailAttribute;
@@ -1599,20 +1311,12 @@ export interface RuleNumberExpression {
   Operator: RuleNumberOperator;
   Value: number;
 }
-export type RuleNumberOperator =
-  | "EQUALS"
-  | "NOT_EQUALS"
-  | "LESS_THAN"
-  | "GREATER_THAN"
-  | "LESS_THAN_OR_EQUAL"
-  | "GREATER_THAN_OR_EQUAL";
+export type RuleNumberOperator = "EQUALS" | "NOT_EQUALS" | "LESS_THAN" | "GREATER_THAN" | "LESS_THAN_OR_EQUAL" | "GREATER_THAN_OR_EQUAL";
 interface _RuleNumberToEvaluate {
   Attribute?: RuleNumberEmailAttribute;
 }
 
-export type RuleNumberToEvaluate = _RuleNumberToEvaluate & {
-  Attribute: RuleNumberEmailAttribute;
-};
+export type RuleNumberToEvaluate = (_RuleNumberToEvaluate & { Attribute: RuleNumberEmailAttribute });
 export type Rules = Array<Rule>;
 export interface RuleSet {
   RuleSetId?: string;
@@ -1626,37 +1330,21 @@ export type RuleSetId = string;
 export type RuleSetName = string;
 
 export type RuleSets = Array<RuleSet>;
-export type RuleStringEmailAttribute =
-  | "MAIL_FROM"
-  | "HELO"
-  | "RECIPIENT"
-  | "SENDER"
-  | "FROM"
-  | "SUBJECT"
-  | "TO"
-  | "CC";
+export type RuleStringEmailAttribute = "MAIL_FROM" | "HELO" | "RECIPIENT" | "SENDER" | "FROM" | "SUBJECT" | "TO" | "CC";
 export interface RuleStringExpression {
   Evaluate: RuleStringToEvaluate;
   Operator: RuleStringOperator;
   Values: Array<string>;
 }
 export type RuleStringList = Array<string>;
-export type RuleStringOperator =
-  | "EQUALS"
-  | "NOT_EQUALS"
-  | "STARTS_WITH"
-  | "ENDS_WITH"
-  | "CONTAINS";
+export type RuleStringOperator = "EQUALS" | "NOT_EQUALS" | "STARTS_WITH" | "ENDS_WITH" | "CONTAINS";
 interface _RuleStringToEvaluate {
   Attribute?: RuleStringEmailAttribute;
   MimeHeaderAttribute?: string;
   Analysis?: Analysis;
 }
 
-export type RuleStringToEvaluate =
-  | (_RuleStringToEvaluate & { Attribute: RuleStringEmailAttribute })
-  | (_RuleStringToEvaluate & { MimeHeaderAttribute: string })
-  | (_RuleStringToEvaluate & { Analysis: Analysis });
+export type RuleStringToEvaluate = (_RuleStringToEvaluate & { Attribute: RuleStringEmailAttribute }) | (_RuleStringToEvaluate & { MimeHeaderAttribute: string }) | (_RuleStringToEvaluate & { Analysis: Analysis });
 export type RuleStringValue = string;
 
 export type RuleVerdict = "PASS" | "FAIL" | "GRAY" | "PROCESSING_FAILED";
@@ -1672,9 +1360,7 @@ interface _RuleVerdictToEvaluate {
   Analysis?: Analysis;
 }
 
-export type RuleVerdictToEvaluate =
-  | (_RuleVerdictToEvaluate & { Attribute: RuleVerdictAttribute })
-  | (_RuleVerdictToEvaluate & { Analysis: Analysis });
+export type RuleVerdictToEvaluate = (_RuleVerdictToEvaluate & { Attribute: RuleVerdictAttribute }) | (_RuleVerdictToEvaluate & { Analysis: Analysis });
 export type RuleVerdictValueList = Array<RuleVerdict>;
 export interface S3Action {
   ActionFailurePolicy?: ActionFailurePolicy;
@@ -1703,12 +1389,7 @@ export type SearchId = string;
 
 export type SearchMaxResults = number;
 
-export type SearchState =
-  | "QUEUED"
-  | "RUNNING"
-  | "COMPLETED"
-  | "FAILED"
-  | "CANCELLED";
+export type SearchState = "QUEUED" | "RUNNING" | "COMPLETED" | "FAILED" | "CANCELLED";
 export interface SearchStatus {
   SubmissionTimestamp?: Date | string;
   CompletionTimestamp?: Date | string;
@@ -1749,7 +1430,8 @@ export type SnsTopicArn = string;
 export interface StartAddressListImportJobRequest {
   JobId: string;
 }
-export interface StartAddressListImportJobResponse {}
+export interface StartAddressListImportJobResponse {
+}
 export interface StartArchiveExportRequest {
   ArchiveId: string;
   Filters?: ArchiveFilters;
@@ -1775,15 +1457,18 @@ export interface StartArchiveSearchResponse {
 export interface StopAddressListImportJobRequest {
   JobId: string;
 }
-export interface StopAddressListImportJobResponse {}
+export interface StopAddressListImportJobResponse {
+}
 export interface StopArchiveExportRequest {
   ExportId: string;
 }
-export interface StopArchiveExportResponse {}
+export interface StopArchiveExportResponse {
+}
 export interface StopArchiveSearchRequest {
   SearchId: string;
 }
-export interface StopArchiveSearchResponse {}
+export interface StopArchiveSearchResponse {
+}
 export type StringList = Array<string>;
 export type StringValue = string;
 
@@ -1802,7 +1487,8 @@ export interface TagResourceRequest {
   ResourceArn: string;
   Tags: Array<Tag>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export declare class ThrottlingException extends EffectData.TaggedError(
@@ -1826,13 +1512,15 @@ export interface UntagResourceRequest {
   ResourceArn: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateArchiveRequest {
   ArchiveId: string;
   ArchiveName?: string;
   Retention?: ArchiveRetention;
 }
-export interface UpdateArchiveResponse {}
+export interface UpdateArchiveResponse {
+}
 export interface UpdateIngressPointRequest {
   IngressPointId: string;
   IngressPointName?: string;
@@ -1841,7 +1529,8 @@ export interface UpdateIngressPointRequest {
   TrafficPolicyId?: string;
   IngressPointConfiguration?: IngressPointConfiguration;
 }
-export interface UpdateIngressPointResponse {}
+export interface UpdateIngressPointResponse {
+}
 export interface UpdateRelayRequest {
   RelayId: string;
   RelayName?: string;
@@ -1849,13 +1538,15 @@ export interface UpdateRelayRequest {
   ServerPort?: number;
   Authentication?: RelayAuthentication;
 }
-export interface UpdateRelayResponse {}
+export interface UpdateRelayResponse {
+}
 export interface UpdateRuleSetRequest {
   RuleSetId: string;
   RuleSetName?: string;
   Rules?: Array<Rule>;
 }
-export interface UpdateRuleSetResponse {}
+export interface UpdateRuleSetResponse {
+}
 export interface UpdateTrafficPolicyRequest {
   TrafficPolicyId: string;
   TrafficPolicyName?: string;
@@ -1863,7 +1554,8 @@ export interface UpdateTrafficPolicyRequest {
   DefaultAction?: AcceptAction;
   MaxMessageSizeBytes?: number;
 }
-export interface UpdateTrafficPolicyResponse {}
+export interface UpdateTrafficPolicyResponse {
+}
 export declare class ValidationException extends EffectData.TaggedError(
   "ValidationException",
 )<{
@@ -2210,13 +1902,19 @@ export declare namespace CreateTrafficPolicy {
 export declare namespace DeleteAddonInstance {
   export type Input = DeleteAddonInstanceRequest;
   export type Output = DeleteAddonInstanceResponse;
-  export type Error = ConflictException | ValidationException | CommonAwsError;
+  export type Error =
+    | ConflictException
+    | ValidationException
+    | CommonAwsError;
 }
 
 export declare namespace DeleteAddonSubscription {
   export type Input = DeleteAddonSubscriptionRequest;
   export type Output = DeleteAddonSubscriptionResponse;
-  export type Error = ConflictException | ValidationException | CommonAwsError;
+  export type Error =
+    | ConflictException
+    | ValidationException
+    | CommonAwsError;
 }
 
 export declare namespace DeleteAddressList {
@@ -2263,7 +1961,10 @@ export declare namespace DeleteRelay {
 export declare namespace DeleteRuleSet {
   export type Input = DeleteRuleSetRequest;
   export type Output = DeleteRuleSetResponse;
-  export type Error = ConflictException | ValidationException | CommonAwsError;
+  export type Error =
+    | ConflictException
+    | ValidationException
+    | CommonAwsError;
 }
 
 export declare namespace DeleteTrafficPolicy {
@@ -2355,13 +2056,17 @@ export declare namespace GetTrafficPolicy {
 export declare namespace ListAddonInstances {
   export type Input = ListAddonInstancesRequest;
   export type Output = ListAddonInstancesResponse;
-  export type Error = ValidationException | CommonAwsError;
+  export type Error =
+    | ValidationException
+    | CommonAwsError;
 }
 
 export declare namespace ListAddonSubscriptions {
   export type Input = ListAddonSubscriptionsRequest;
   export type Output = ListAddonSubscriptionsResponse;
-  export type Error = ValidationException | CommonAwsError;
+  export type Error =
+    | ValidationException
+    | CommonAwsError;
 }
 
 export declare namespace ListAddressLists {
@@ -2387,25 +2092,33 @@ export declare namespace ListArchives {
 export declare namespace ListIngressPoints {
   export type Input = ListIngressPointsRequest;
   export type Output = ListIngressPointsResponse;
-  export type Error = ValidationException | CommonAwsError;
+  export type Error =
+    | ValidationException
+    | CommonAwsError;
 }
 
 export declare namespace ListRelays {
   export type Input = ListRelaysRequest;
   export type Output = ListRelaysResponse;
-  export type Error = ValidationException | CommonAwsError;
+  export type Error =
+    | ValidationException
+    | CommonAwsError;
 }
 
 export declare namespace ListRuleSets {
   export type Input = ListRuleSetsRequest;
   export type Output = ListRuleSetsResponse;
-  export type Error = ValidationException | CommonAwsError;
+  export type Error =
+    | ValidationException
+    | CommonAwsError;
 }
 
 export declare namespace ListTrafficPolicies {
   export type Input = ListTrafficPoliciesRequest;
   export type Output = ListTrafficPoliciesResponse;
-  export type Error = ValidationException | CommonAwsError;
+  export type Error =
+    | ValidationException
+    | CommonAwsError;
 }
 
 export declare namespace UpdateArchive {
@@ -2460,3 +2173,4 @@ export declare namespace UpdateTrafficPolicy {
     | ValidationException
     | CommonAwsError;
 }
+

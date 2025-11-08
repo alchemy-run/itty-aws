@@ -1,38 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-} from "../../error.ts";
-type CommonAwsError =
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | AccessDeniedException
-  | ThrottlingException
-  | ValidationException;
+import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
+type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class MedicalImaging extends AWSServiceClient {
@@ -40,214 +8,109 @@ export declare class MedicalImaging extends AWSServiceClient {
     input: CopyImageSetRequest,
   ): Effect.Effect<
     CopyImageSetResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteImageSet(
     input: DeleteImageSetRequest,
   ): Effect.Effect<
     DeleteImageSetResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getDICOMImportJob(
     input: GetDICOMImportJobRequest,
   ): Effect.Effect<
     GetDICOMImportJobResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getImageFrame(
     input: GetImageFrameRequest,
   ): Effect.Effect<
     GetImageFrameResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getImageSet(
     input: GetImageSetRequest,
   ): Effect.Effect<
     GetImageSetResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getImageSetMetadata(
     input: GetImageSetMetadataRequest,
   ): Effect.Effect<
     GetImageSetMetadataResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listDICOMImportJobs(
     input: ListDICOMImportJobsRequest,
   ): Effect.Effect<
     ListDICOMImportJobsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listImageSetVersions(
     input: ListImageSetVersionsRequest,
   ): Effect.Effect<
     ListImageSetVersionsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   searchImageSets(
     input: SearchImageSetsRequest,
   ): Effect.Effect<
     SearchImageSetsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   startDICOMImportJob(
     input: StartDICOMImportJobRequest,
   ): Effect.Effect<
     StartDICOMImportJobResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateImageSetMetadata(
     input: UpdateImageSetMetadataRequest,
   ): Effect.Effect<
     UpdateImageSetMetadataResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createDatastore(
     input: CreateDatastoreRequest,
   ): Effect.Effect<
     CreateDatastoreResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteDatastore(
     input: DeleteDatastoreRequest,
   ): Effect.Effect<
     DeleteDatastoreResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getDatastore(
     input: GetDatastoreRequest,
   ): Effect.Effect<
     GetDatastoreResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listDatastores(
     input: ListDatastoresRequest,
   ): Effect.Effect<
     ListDatastoresResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
 }
 
@@ -334,12 +197,7 @@ export interface DatastoreProperties {
   createdAt?: Date | string;
   updatedAt?: Date | string;
 }
-export type DatastoreStatus =
-  | "CREATING"
-  | "CREATE_FAILED"
-  | "ACTIVE"
-  | "DELETING"
-  | "DELETED";
+export type DatastoreStatus = "CREATING" | "CREATE_FAILED" | "ACTIVE" | "DELETING" | "DELETED";
 export type DatastoreSummaries = Array<DatastoreSummary>;
 export interface DatastoreSummary {
   datastoreId: string;
@@ -536,17 +394,7 @@ export interface ImageSetsMetadataSummary {
   isPrimary?: boolean;
 }
 export type ImageSetState = "ACTIVE" | "LOCKED" | "DELETED";
-export type ImageSetWorkflowStatus =
-  | "CREATED"
-  | "COPIED"
-  | "COPYING"
-  | "COPYING_WITH_READ_ONLY_ACCESS"
-  | "COPY_FAILED"
-  | "UPDATING"
-  | "UPDATED"
-  | "UPDATE_FAILED"
-  | "DELETING"
-  | "DELETED";
+export type ImageSetWorkflowStatus = "CREATED" | "COPIED" | "COPYING" | "COPYING_WITH_READ_ONLY_ACCESS" | "COPY_FAILED" | "UPDATING" | "UPDATED" | "UPDATE_FAILED" | "DELETING" | "DELETED";
 export declare class InternalServerException extends EffectData.TaggedError(
   "InternalServerException",
 )<{
@@ -604,9 +452,7 @@ interface _MetadataUpdates {
   revertToVersionId?: string;
 }
 
-export type MetadataUpdates =
-  | (_MetadataUpdates & { DICOMUpdates: DICOMUpdates })
-  | (_MetadataUpdates & { revertToVersionId: string });
+export type MetadataUpdates = (_MetadataUpdates & { DICOMUpdates: DICOMUpdates }) | (_MetadataUpdates & { revertToVersionId: string });
 export type NextToken = string;
 
 export type Operator = "EQUAL" | "BETWEEN";
@@ -636,16 +482,7 @@ interface _SearchByAttributeValue {
   isPrimary?: boolean;
 }
 
-export type SearchByAttributeValue =
-  | (_SearchByAttributeValue & { DICOMPatientId: string })
-  | (_SearchByAttributeValue & { DICOMAccessionNumber: string })
-  | (_SearchByAttributeValue & { DICOMStudyId: string })
-  | (_SearchByAttributeValue & { DICOMStudyInstanceUID: string })
-  | (_SearchByAttributeValue & { DICOMSeriesInstanceUID: string })
-  | (_SearchByAttributeValue & { createdAt: Date | string })
-  | (_SearchByAttributeValue & { updatedAt: Date | string })
-  | (_SearchByAttributeValue & { DICOMStudyDateAndTime: DICOMStudyDateAndTime })
-  | (_SearchByAttributeValue & { isPrimary: boolean });
+export type SearchByAttributeValue = (_SearchByAttributeValue & { DICOMPatientId: string }) | (_SearchByAttributeValue & { DICOMAccessionNumber: string }) | (_SearchByAttributeValue & { DICOMStudyId: string }) | (_SearchByAttributeValue & { DICOMStudyInstanceUID: string }) | (_SearchByAttributeValue & { DICOMSeriesInstanceUID: string }) | (_SearchByAttributeValue & { createdAt: Date | string }) | (_SearchByAttributeValue & { updatedAt: Date | string }) | (_SearchByAttributeValue & { DICOMStudyDateAndTime: DICOMStudyDateAndTime }) | (_SearchByAttributeValue & { isPrimary: boolean });
 export type SearchByAttributeValues = Array<SearchByAttributeValue>;
 export interface SearchCriteria {
   filters?: Array<SearchFilter>;
@@ -701,7 +538,8 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export declare class ThrottlingException extends EffectData.TaggedError(
@@ -713,7 +551,8 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateImageSetMetadataRequest {
   datastoreId: string;
   imageSetId: string;
@@ -966,3 +805,4 @@ export declare namespace ListDatastores {
     | ValidationException
     | CommonAwsError;
 }
+

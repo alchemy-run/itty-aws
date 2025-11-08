@@ -5,24 +5,7 @@ import type { neptunedata as _neptunedataClient } from "./types.ts";
 
 export * from "./types.ts";
 
-export {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-  ValidationException,
-  type CommonAwsError,
-} from "../../error.ts";
+export {ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, ValidationException, type CommonAwsError} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -31,84 +14,84 @@ const metadata = {
   protocol: "restJson1",
   sigV4ServiceName: "neptune-db",
   operations: {
-    CancelGremlinQuery: "DELETE /gremlin/status/{queryId}",
-    CancelLoaderJob: "DELETE /loader/{loadId}",
-    CancelMLDataProcessingJob: "DELETE /ml/dataprocessing/{id}",
-    CancelMLModelTrainingJob: "DELETE /ml/modeltraining/{id}",
-    CancelMLModelTransformJob: "DELETE /ml/modeltransform/{id}",
-    CancelOpenCypherQuery: "DELETE /opencypher/status/{queryId}",
-    CreateMLEndpoint: "POST /ml/endpoints",
-    DeleteMLEndpoint: "DELETE /ml/endpoints/{id}",
-    DeletePropertygraphStatistics: {
+    "CancelGremlinQuery": "DELETE /gremlin/status/{queryId}",
+    "CancelLoaderJob": "DELETE /loader/{loadId}",
+    "CancelMLDataProcessingJob": "DELETE /ml/dataprocessing/{id}",
+    "CancelMLModelTrainingJob": "DELETE /ml/modeltraining/{id}",
+    "CancelMLModelTransformJob": "DELETE /ml/modeltransform/{id}",
+    "CancelOpenCypherQuery": "DELETE /opencypher/status/{queryId}",
+    "CreateMLEndpoint": "POST /ml/endpoints",
+    "DeleteMLEndpoint": "DELETE /ml/endpoints/{id}",
+    "DeletePropertygraphStatistics": {
       http: "DELETE /propertygraph/statistics",
       traits: {
-        statusCode: "httpResponseCode",
+        "statusCode": "httpResponseCode",
       },
     },
-    DeleteSparqlStatistics: {
+    "DeleteSparqlStatistics": {
       http: "DELETE /sparql/statistics",
       traits: {
-        statusCode: "httpResponseCode",
+        "statusCode": "httpResponseCode",
       },
     },
-    ExecuteFastReset: "POST /system",
-    ExecuteGremlinExplainQuery: {
+    "ExecuteFastReset": "POST /system",
+    "ExecuteGremlinExplainQuery": {
       http: "POST /gremlin/explain",
       traits: {
-        output: "httpPayload",
+        "output": "httpPayload",
       },
     },
-    ExecuteGremlinProfileQuery: {
+    "ExecuteGremlinProfileQuery": {
       http: "POST /gremlin/profile",
       traits: {
-        output: "httpPayload",
+        "output": "httpPayload",
       },
     },
-    ExecuteGremlinQuery: "POST /gremlin",
-    ExecuteOpenCypherExplainQuery: {
+    "ExecuteGremlinQuery": "POST /gremlin",
+    "ExecuteOpenCypherExplainQuery": {
       http: "POST /opencypher/explain",
       traits: {
-        results: "httpPayload",
+        "results": "httpPayload",
       },
     },
-    ExecuteOpenCypherQuery: "POST /opencypher",
-    GetEngineStatus: "GET /status",
-    GetGremlinQueryStatus: "GET /gremlin/status/{queryId}",
-    GetLoaderJobStatus: "GET /loader/{loadId}",
-    GetMLDataProcessingJob: "GET /ml/dataprocessing/{id}",
-    GetMLEndpoint: "GET /ml/endpoints/{id}",
-    GetMLModelTrainingJob: "GET /ml/modeltraining/{id}",
-    GetMLModelTransformJob: "GET /ml/modeltransform/{id}",
-    GetOpenCypherQueryStatus: "GET /opencypher/status/{queryId}",
-    GetPropertygraphStatistics: "GET /propertygraph/statistics",
-    GetPropertygraphStream: "GET /propertygraph/stream",
-    GetPropertygraphSummary: {
+    "ExecuteOpenCypherQuery": "POST /opencypher",
+    "GetEngineStatus": "GET /status",
+    "GetGremlinQueryStatus": "GET /gremlin/status/{queryId}",
+    "GetLoaderJobStatus": "GET /loader/{loadId}",
+    "GetMLDataProcessingJob": "GET /ml/dataprocessing/{id}",
+    "GetMLEndpoint": "GET /ml/endpoints/{id}",
+    "GetMLModelTrainingJob": "GET /ml/modeltraining/{id}",
+    "GetMLModelTransformJob": "GET /ml/modeltransform/{id}",
+    "GetOpenCypherQueryStatus": "GET /opencypher/status/{queryId}",
+    "GetPropertygraphStatistics": "GET /propertygraph/statistics",
+    "GetPropertygraphStream": "GET /propertygraph/stream",
+    "GetPropertygraphSummary": {
       http: "GET /propertygraph/statistics/summary",
       traits: {
-        statusCode: "httpResponseCode",
+        "statusCode": "httpResponseCode",
       },
     },
-    GetRDFGraphSummary: {
+    "GetRDFGraphSummary": {
       http: "GET /rdf/statistics/summary",
       traits: {
-        statusCode: "httpResponseCode",
+        "statusCode": "httpResponseCode",
       },
     },
-    GetSparqlStatistics: "GET /sparql/statistics",
-    GetSparqlStream: "GET /sparql/stream",
-    ListGremlinQueries: "GET /gremlin/status",
-    ListLoaderJobs: "GET /loader",
-    ListMLDataProcessingJobs: "GET /ml/dataprocessing",
-    ListMLEndpoints: "GET /ml/endpoints",
-    ListMLModelTrainingJobs: "GET /ml/modeltraining",
-    ListMLModelTransformJobs: "GET /ml/modeltransform",
-    ListOpenCypherQueries: "GET /opencypher/status",
-    ManagePropertygraphStatistics: "POST /propertygraph/statistics",
-    ManageSparqlStatistics: "POST /sparql/statistics",
-    StartLoaderJob: "POST /loader",
-    StartMLDataProcessingJob: "POST /ml/dataprocessing",
-    StartMLModelTrainingJob: "POST /ml/modeltraining",
-    StartMLModelTransformJob: "POST /ml/modeltransform",
+    "GetSparqlStatistics": "GET /sparql/statistics",
+    "GetSparqlStream": "GET /sparql/stream",
+    "ListGremlinQueries": "GET /gremlin/status",
+    "ListLoaderJobs": "GET /loader",
+    "ListMLDataProcessingJobs": "GET /ml/dataprocessing",
+    "ListMLEndpoints": "GET /ml/endpoints",
+    "ListMLModelTrainingJobs": "GET /ml/modeltraining",
+    "ListMLModelTransformJobs": "GET /ml/modeltransform",
+    "ListOpenCypherQueries": "GET /opencypher/status",
+    "ManagePropertygraphStatistics": "POST /propertygraph/statistics",
+    "ManageSparqlStatistics": "POST /sparql/statistics",
+    "StartLoaderJob": "POST /loader",
+    "StartMLDataProcessingJob": "POST /ml/dataprocessing",
+    "StartMLModelTrainingJob": "POST /ml/modeltraining",
+    "StartMLModelTransformJob": "POST /ml/modeltransform",
   },
 } as const satisfies ServiceMetadata;
 

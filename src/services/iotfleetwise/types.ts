@@ -1,38 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-} from "../../error.ts";
-type CommonAwsError =
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | AccessDeniedException
-  | ThrottlingException
-  | ValidationException;
+import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
+type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class IoTFleetWise extends AWSServiceClient {
@@ -40,34 +8,19 @@ export declare class IoTFleetWise extends AWSServiceClient {
     input: BatchCreateVehicleRequest,
   ): Effect.Effect<
     BatchCreateVehicleResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | LimitExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | LimitExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   batchUpdateVehicle(
     input: BatchUpdateVehicleRequest,
   ): Effect.Effect<
     BatchUpdateVehicleResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | LimitExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | LimitExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getEncryptionConfiguration(
     input: GetEncryptionConfigurationRequest,
   ): Effect.Effect<
     GetEncryptionConfigurationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getLoggingOptions(
     input: GetLoggingOptionsRequest,
@@ -79,605 +32,319 @@ export declare class IoTFleetWise extends AWSServiceClient {
     input: GetRegisterAccountStatusRequest,
   ): Effect.Effect<
     GetRegisterAccountStatusResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getVehicleStatus(
     input: GetVehicleStatusRequest,
   ): Effect.Effect<
     GetVehicleStatusResponse,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   putEncryptionConfiguration(
     input: PutEncryptionConfigurationRequest,
   ): Effect.Effect<
     PutEncryptionConfigurationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   putLoggingOptions(
     input: PutLoggingOptionsRequest,
   ): Effect.Effect<
     PutLoggingOptionsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   registerAccount(
     input: RegisterAccountRequest,
   ): Effect.Effect<
     RegisterAccountResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   associateVehicleFleet(
     input: AssociateVehicleFleetRequest,
   ): Effect.Effect<
     AssociateVehicleFleetResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | LimitExceededException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createCampaign(
     input: CreateCampaignRequest,
   ): Effect.Effect<
     CreateCampaignResponse,
-    | AccessDeniedException
-    | ConflictException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | LimitExceededException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createDecoderManifest(
     input: CreateDecoderManifestRequest,
   ): Effect.Effect<
     CreateDecoderManifestResponse,
-    | AccessDeniedException
-    | ConflictException
-    | DecoderManifestValidationException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | DecoderManifestValidationException | LimitExceededException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createFleet(
     input: CreateFleetRequest,
   ): Effect.Effect<
     CreateFleetResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | LimitExceededException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createModelManifest(
     input: CreateModelManifestRequest,
   ): Effect.Effect<
     CreateModelManifestResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InvalidSignalsException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InvalidSignalsException | LimitExceededException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createSignalCatalog(
     input: CreateSignalCatalogRequest,
   ): Effect.Effect<
     CreateSignalCatalogResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InvalidNodeException
-    | InvalidSignalsException
-    | LimitExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InvalidNodeException | InvalidSignalsException | LimitExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createStateTemplate(
     input: CreateStateTemplateRequest,
   ): Effect.Effect<
     CreateStateTemplateResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | InvalidSignalsException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | InvalidSignalsException | LimitExceededException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createVehicle(
     input: CreateVehicleRequest,
   ): Effect.Effect<
     CreateVehicleResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | LimitExceededException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteCampaign(
     input: DeleteCampaignRequest,
   ): Effect.Effect<
     DeleteCampaignResponse,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteDecoderManifest(
     input: DeleteDecoderManifestRequest,
   ): Effect.Effect<
     DeleteDecoderManifestResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteFleet(
     input: DeleteFleetRequest,
   ): Effect.Effect<
     DeleteFleetResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteModelManifest(
     input: DeleteModelManifestRequest,
   ): Effect.Effect<
     DeleteModelManifestResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteSignalCatalog(
     input: DeleteSignalCatalogRequest,
   ): Effect.Effect<
     DeleteSignalCatalogResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteStateTemplate(
     input: DeleteStateTemplateRequest,
   ): Effect.Effect<
     DeleteStateTemplateResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteVehicle(
     input: DeleteVehicleRequest,
   ): Effect.Effect<
     DeleteVehicleResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   disassociateVehicleFleet(
     input: DisassociateVehicleFleetRequest,
   ): Effect.Effect<
     DisassociateVehicleFleetResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getCampaign(
     input: GetCampaignRequest,
   ): Effect.Effect<
     GetCampaignResponse,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getDecoderManifest(
     input: GetDecoderManifestRequest,
   ): Effect.Effect<
     GetDecoderManifestResponse,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getFleet(
     input: GetFleetRequest,
   ): Effect.Effect<
     GetFleetResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getModelManifest(
     input: GetModelManifestRequest,
   ): Effect.Effect<
     GetModelManifestResponse,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getSignalCatalog(
     input: GetSignalCatalogRequest,
   ): Effect.Effect<
     GetSignalCatalogResponse,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getStateTemplate(
     input: GetStateTemplateRequest,
   ): Effect.Effect<
     GetStateTemplateResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getVehicle(
     input: GetVehicleRequest,
   ): Effect.Effect<
     GetVehicleResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   importDecoderManifest(
     input: ImportDecoderManifestRequest,
   ): Effect.Effect<
     ImportDecoderManifestResponse,
-    | AccessDeniedException
-    | ConflictException
-    | DecoderManifestValidationException
-    | InvalidSignalsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | DecoderManifestValidationException | InvalidSignalsException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   importSignalCatalog(
     input: ImportSignalCatalogRequest,
   ): Effect.Effect<
     ImportSignalCatalogResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | InvalidSignalsException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | InvalidSignalsException | LimitExceededException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listCampaigns(
     input: ListCampaignsRequest,
   ): Effect.Effect<
     ListCampaignsResponse,
-    | AccessDeniedException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listDecoderManifestNetworkInterfaces(
     input: ListDecoderManifestNetworkInterfacesRequest,
   ): Effect.Effect<
     ListDecoderManifestNetworkInterfacesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listDecoderManifestSignals(
     input: ListDecoderManifestSignalsRequest,
   ): Effect.Effect<
     ListDecoderManifestSignalsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listDecoderManifests(
     input: ListDecoderManifestsRequest,
   ): Effect.Effect<
     ListDecoderManifestsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listFleets(
     input: ListFleetsRequest,
   ): Effect.Effect<
     ListFleetsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listFleetsForVehicle(
     input: ListFleetsForVehicleRequest,
   ): Effect.Effect<
     ListFleetsForVehicleResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listModelManifestNodes(
     input: ListModelManifestNodesRequest,
   ): Effect.Effect<
     ListModelManifestNodesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | LimitExceededException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listModelManifests(
     input: ListModelManifestsRequest,
   ): Effect.Effect<
     ListModelManifestsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listSignalCatalogNodes(
     input: ListSignalCatalogNodesRequest,
   ): Effect.Effect<
     ListSignalCatalogNodesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | LimitExceededException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listSignalCatalogs(
     input: ListSignalCatalogsRequest,
   ): Effect.Effect<
     ListSignalCatalogsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listStateTemplates(
     input: ListStateTemplatesRequest,
   ): Effect.Effect<
     ListStateTemplatesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listVehicles(
     input: ListVehiclesRequest,
   ): Effect.Effect<
     ListVehiclesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listVehiclesInFleet(
     input: ListVehiclesInFleetRequest,
   ): Effect.Effect<
     ListVehiclesInFleetResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateCampaign(
     input: UpdateCampaignRequest,
   ): Effect.Effect<
     UpdateCampaignResponse,
-    | AccessDeniedException
-    | ConflictException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateDecoderManifest(
     input: UpdateDecoderManifestRequest,
   ): Effect.Effect<
     UpdateDecoderManifestResponse,
-    | AccessDeniedException
-    | ConflictException
-    | DecoderManifestValidationException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | DecoderManifestValidationException | LimitExceededException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateFleet(
     input: UpdateFleetRequest,
   ): Effect.Effect<
     UpdateFleetResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateModelManifest(
     input: UpdateModelManifestRequest,
   ): Effect.Effect<
     UpdateModelManifestResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | InvalidSignalsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | InvalidSignalsException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateSignalCatalog(
     input: UpdateSignalCatalogRequest,
   ): Effect.Effect<
     UpdateSignalCatalogResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | InvalidNodeException
-    | InvalidSignalsException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | InvalidNodeException | InvalidSignalsException | LimitExceededException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateStateTemplate(
     input: UpdateStateTemplateRequest,
   ): Effect.Effect<
     UpdateStateTemplateResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | InvalidSignalsException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | InvalidSignalsException | LimitExceededException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateVehicle(
     input: UpdateVehicleRequest,
   ): Effect.Effect<
     UpdateVehicleResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | LimitExceededException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
 }
 
@@ -711,7 +378,8 @@ export interface AssociateVehicleFleetRequest {
   vehicleName: string;
   fleetId: string;
 }
-export interface AssociateVehicleFleetResponse {}
+export interface AssociateVehicleFleetResponse {
+}
 export interface Attribute {
   fullyQualifiedName: string;
   dataType: NodeDataType;
@@ -756,11 +424,7 @@ export type campaignArn = string;
 
 export type campaignName = string;
 
-export type CampaignStatus =
-  | "CREATING"
-  | "WAITING_FOR_APPROVAL"
-  | "RUNNING"
-  | "SUSPENDED";
+export type CampaignStatus = "CREATING" | "WAITING_FOR_APPROVAL" | "RUNNING" | "SUSPENDED";
 export type campaignSummaries = Array<CampaignSummary>;
 export interface CampaignSummary {
   arn?: string;
@@ -810,13 +474,7 @@ interface _CollectionScheme {
   conditionBasedCollectionScheme?: ConditionBasedCollectionScheme;
 }
 
-export type CollectionScheme =
-  | (_CollectionScheme & {
-      timeBasedCollectionScheme: TimeBasedCollectionScheme;
-    })
-  | (_CollectionScheme & {
-      conditionBasedCollectionScheme: ConditionBasedCollectionScheme;
-    });
+export type CollectionScheme = (_CollectionScheme & { timeBasedCollectionScheme: TimeBasedCollectionScheme }) | (_CollectionScheme & { conditionBasedCollectionScheme: ConditionBasedCollectionScheme });
 export type Compression = "OFF" | "SNAPPY";
 export interface ConditionBasedCollectionScheme {
   expression: string;
@@ -986,10 +644,7 @@ interface _DataDestinationConfig {
   mqttTopicConfig?: MqttTopicConfig;
 }
 
-export type DataDestinationConfig =
-  | (_DataDestinationConfig & { s3Config: S3Config })
-  | (_DataDestinationConfig & { timestreamConfig: TimestreamConfig })
-  | (_DataDestinationConfig & { mqttTopicConfig: MqttTopicConfig });
+export type DataDestinationConfig = (_DataDestinationConfig & { s3Config: S3Config }) | (_DataDestinationConfig & { timestreamConfig: TimestreamConfig }) | (_DataDestinationConfig & { mqttTopicConfig: MqttTopicConfig });
 export type DataDestinationConfigs = Array<DataDestinationConfig>;
 export type DataExtraDimensionNodePathList = Array<string>;
 export type DataFormat = "JSON" | "PARQUET";
@@ -1086,13 +741,12 @@ export interface DisassociateVehicleFleetRequest {
   vehicleName: string;
   fleetId: string;
 }
-export interface DisassociateVehicleFleetResponse {}
+export interface DisassociateVehicleFleetResponse {
+}
 export type double = number;
 
 export type EncryptionStatus = "PENDING" | "SUCCESS" | "FAILURE";
-export type EncryptionType =
-  | "KMS_BASED_ENCRYPTION"
-  | "FLEETWISE_DEFAULT_ENCRYPTION";
+export type EncryptionType = "KMS_BASED_ENCRYPTION" | "FLEETWISE_DEFAULT_ENCRYPTION";
 export type errorMessage = string;
 
 export type eventExpression = string;
@@ -1116,7 +770,7 @@ interface _FormattedVss {
   vssJson?: string;
 }
 
-export type FormattedVss = _FormattedVss & { vssJson: string };
+export type FormattedVss = (_FormattedVss & { vssJson: string });
 export type Fqns = Array<string>;
 export type FullyQualifiedName = string;
 
@@ -1159,7 +813,8 @@ export interface GetDecoderManifestResponse {
   lastModificationTime: Date | string;
   message?: string;
 }
-export interface GetEncryptionConfigurationRequest {}
+export interface GetEncryptionConfigurationRequest {
+}
 export interface GetEncryptionConfigurationResponse {
   kmsKeyId?: string;
   encryptionStatus: EncryptionStatus;
@@ -1179,7 +834,8 @@ export interface GetFleetResponse {
   creationTime: Date | string;
   lastModificationTime: Date | string;
 }
-export interface GetLoggingOptionsRequest {}
+export interface GetLoggingOptionsRequest {
+}
 export interface GetLoggingOptionsResponse {
   cloudWatchLogDelivery: CloudWatchLogDeliveryOptions;
 }
@@ -1195,7 +851,8 @@ export interface GetModelManifestResponse {
   creationTime: Date | string;
   lastModificationTime: Date | string;
 }
-export interface GetRegisterAccountStatusRequest {}
+export interface GetRegisterAccountStatusRequest {
+}
 export interface GetRegisterAccountStatusResponse {
   customerAccountId: string;
   accountStatus: RegistrationStatus;
@@ -1497,9 +1154,7 @@ interface _NetworkFileDefinition {
   canDbc?: CanDbcDefinition;
 }
 
-export type NetworkFileDefinition = _NetworkFileDefinition & {
-  canDbc: CanDbcDefinition;
-};
+export type NetworkFileDefinition = (_NetworkFileDefinition & { canDbc: CanDbcDefinition });
 export type NetworkFileDefinitions = Array<NetworkFileDefinition>;
 export type NetworkFilesList = Array<Uint8Array | string>;
 export interface NetworkInterface {
@@ -1510,21 +1165,9 @@ export interface NetworkInterface {
   vehicleMiddleware?: VehicleMiddleware;
   customDecodingInterface?: CustomDecodingInterface;
 }
-export type NetworkInterfaceFailureReason =
-  | "DUPLICATE_NETWORK_INTERFACE"
-  | "CONFLICTING_NETWORK_INTERFACE"
-  | "NETWORK_INTERFACE_TO_ADD_ALREADY_EXISTS"
-  | "CAN_NETWORK_INTERFACE_INFO_IS_NULL"
-  | "OBD_NETWORK_INTERFACE_INFO_IS_NULL"
-  | "NETWORK_INTERFACE_TO_REMOVE_ASSOCIATED_WITH_SIGNALS"
-  | "VEHICLE_MIDDLEWARE_NETWORK_INTERFACE_INFO_IS_NULL"
-  | "CUSTOM_DECODING_SIGNAL_NETWORK_INTERFACE_INFO_IS_NULL";
+export type NetworkInterfaceFailureReason = "DUPLICATE_NETWORK_INTERFACE" | "CONFLICTING_NETWORK_INTERFACE" | "NETWORK_INTERFACE_TO_ADD_ALREADY_EXISTS" | "CAN_NETWORK_INTERFACE_INFO_IS_NULL" | "OBD_NETWORK_INTERFACE_INFO_IS_NULL" | "NETWORK_INTERFACE_TO_REMOVE_ASSOCIATED_WITH_SIGNALS" | "VEHICLE_MIDDLEWARE_NETWORK_INTERFACE_INFO_IS_NULL" | "CUSTOM_DECODING_SIGNAL_NETWORK_INTERFACE_INFO_IS_NULL";
 export type NetworkInterfaces = Array<NetworkInterface>;
-export type NetworkInterfaceType =
-  | "CAN_INTERFACE"
-  | "OBD_INTERFACE"
-  | "VEHICLE_MIDDLEWARE"
-  | "CUSTOM_DECODING_INTERFACE";
+export type NetworkInterfaceType = "CAN_INTERFACE" | "OBD_INTERFACE" | "VEHICLE_MIDDLEWARE" | "CUSTOM_DECODING_INTERFACE";
 export type nextToken = string;
 
 interface _Node {
@@ -1536,13 +1179,7 @@ interface _Node {
   property?: CustomProperty;
 }
 
-export type Node =
-  | (_Node & { branch: Branch })
-  | (_Node & { sensor: Sensor })
-  | (_Node & { actuator: Actuator })
-  | (_Node & { attribute: Attribute })
-  | (_Node & { struct: CustomStruct })
-  | (_Node & { property: CustomProperty });
+export type Node = (_Node & { branch: Branch }) | (_Node & { sensor: Sensor }) | (_Node & { actuator: Actuator }) | (_Node & { attribute: Attribute }) | (_Node & { struct: CustomStruct }) | (_Node & { property: CustomProperty });
 export interface NodeCounts {
   totalNodes?: number;
   totalBranches?: number;
@@ -1553,36 +1190,7 @@ export interface NodeCounts {
   totalProperties?: number;
 }
 export type NodeDataEncoding = "BINARY" | "TYPED";
-export type NodeDataType =
-  | "INT8"
-  | "UINT8"
-  | "INT16"
-  | "UINT16"
-  | "INT32"
-  | "UINT32"
-  | "INT64"
-  | "UINT64"
-  | "BOOLEAN"
-  | "FLOAT"
-  | "DOUBLE"
-  | "STRING"
-  | "UNIX_TIMESTAMP"
-  | "INT8_ARRAY"
-  | "UINT8_ARRAY"
-  | "INT16_ARRAY"
-  | "UINT16_ARRAY"
-  | "INT32_ARRAY"
-  | "UINT32_ARRAY"
-  | "INT64_ARRAY"
-  | "UINT64_ARRAY"
-  | "BOOLEAN_ARRAY"
-  | "FLOAT_ARRAY"
-  | "DOUBLE_ARRAY"
-  | "STRING_ARRAY"
-  | "UNIX_TIMESTAMP_ARRAY"
-  | "UNKNOWN"
-  | "STRUCT"
-  | "STRUCT_ARRAY";
+export type NodeDataType = "INT8" | "UINT8" | "INT16" | "UINT16" | "INT32" | "UINT32" | "INT64" | "UINT64" | "BOOLEAN" | "FLOAT" | "DOUBLE" | "STRING" | "UNIX_TIMESTAMP" | "INT8_ARRAY" | "UINT8_ARRAY" | "INT16_ARRAY" | "UINT16_ARRAY" | "INT32_ARRAY" | "UINT32_ARRAY" | "INT64_ARRAY" | "UINT64_ARRAY" | "BOOLEAN_ARRAY" | "FLOAT_ARRAY" | "DOUBLE_ARRAY" | "STRING_ARRAY" | "UNIX_TIMESTAMP_ARRAY" | "UNKNOWN" | "STRUCT" | "STRUCT_ARRAY";
 export type NodePath = string;
 
 export type NodePaths = Array<string>;
@@ -1621,7 +1229,8 @@ export interface ObdSignal {
 }
 export type ObdStandard = string;
 
-export interface OnChangeStateTemplateUpdateStrategy {}
+export interface OnChangeStateTemplateUpdateStrategy {
+}
 export interface PeriodicStateTemplateUpdateStrategy {
   stateTemplateUpdateRate: TimePeriod;
 }
@@ -1635,9 +1244,7 @@ interface _PrimitiveMessageDefinition {
   ros2PrimitiveMessageDefinition?: ROS2PrimitiveMessageDefinition;
 }
 
-export type PrimitiveMessageDefinition = _PrimitiveMessageDefinition & {
-  ros2PrimitiveMessageDefinition: ROS2PrimitiveMessageDefinition;
-};
+export type PrimitiveMessageDefinition = (_PrimitiveMessageDefinition & { ros2PrimitiveMessageDefinition: ROS2PrimitiveMessageDefinition });
 export type priority = number;
 
 export type ProtocolName = string;
@@ -1656,7 +1263,8 @@ export interface PutEncryptionConfigurationResponse {
 export interface PutLoggingOptionsRequest {
   cloudWatchLogDelivery: CloudWatchLogDeliveryOptions;
 }
-export interface PutLoggingOptionsResponse {}
+export interface PutLoggingOptionsResponse {
+}
 export interface RegisterAccountRequest {
   timestreamResources?: TimestreamResources;
   iamResources?: IamResources;
@@ -1668,10 +1276,7 @@ export interface RegisterAccountResponse {
   creationTime: Date | string;
   lastModificationTime: Date | string;
 }
-export type RegistrationStatus =
-  | "REGISTRATION_PENDING"
-  | "REGISTRATION_SUCCESS"
-  | "REGISTRATION_FAILURE";
+export type RegistrationStatus = "REGISTRATION_PENDING" | "REGISTRATION_SUCCESS" | "REGISTRATION_FAILURE";
 export type ResourceIdentifier = string;
 
 export type resourceName = string;
@@ -1693,22 +1298,7 @@ export interface ROS2PrimitiveMessageDefinition {
   scaling?: number;
   upperBound?: number;
 }
-export type ROS2PrimitiveType =
-  | "BOOL"
-  | "BYTE"
-  | "CHAR"
-  | "FLOAT32"
-  | "FLOAT64"
-  | "INT8"
-  | "UINT8"
-  | "INT16"
-  | "UINT16"
-  | "INT32"
-  | "UINT32"
-  | "INT64"
-  | "UINT64"
-  | "STRING"
-  | "WSTRING";
+export type ROS2PrimitiveType = "BOOL" | "BYTE" | "CHAR" | "FLOAT32" | "FLOAT64" | "INT8" | "UINT8" | "INT16" | "UINT16" | "INT32" | "UINT32" | "INT64" | "UINT64" | "STRING" | "WSTRING";
 export type S3BucketArn = string;
 
 export interface S3Config {
@@ -1745,37 +1335,15 @@ export interface SignalDecoder {
   messageSignal?: MessageSignal;
   customDecodingSignal?: CustomDecodingSignal;
 }
-export type SignalDecoderFailureReason =
-  | "DUPLICATE_SIGNAL"
-  | "CONFLICTING_SIGNAL"
-  | "SIGNAL_TO_ADD_ALREADY_EXISTS"
-  | "SIGNAL_NOT_ASSOCIATED_WITH_NETWORK_INTERFACE"
-  | "NETWORK_INTERFACE_TYPE_INCOMPATIBLE_WITH_SIGNAL_DECODER_TYPE"
-  | "SIGNAL_NOT_IN_MODEL"
-  | "CAN_SIGNAL_INFO_IS_NULL"
-  | "OBD_SIGNAL_INFO_IS_NULL"
-  | "NO_DECODER_INFO_FOR_SIGNAL_IN_MODEL"
-  | "MESSAGE_SIGNAL_INFO_IS_NULL"
-  | "SIGNAL_DECODER_TYPE_INCOMPATIBLE_WITH_MESSAGE_SIGNAL_TYPE"
-  | "STRUCT_SIZE_MISMATCH"
-  | "NO_SIGNAL_IN_CATALOG_FOR_DECODER_SIGNAL"
-  | "SIGNAL_DECODER_INCOMPATIBLE_WITH_SIGNAL_CATALOG"
-  | "EMPTY_MESSAGE_SIGNAL"
-  | "CUSTOM_DECODING_SIGNAL_INFO_IS_NULL";
+export type SignalDecoderFailureReason = "DUPLICATE_SIGNAL" | "CONFLICTING_SIGNAL" | "SIGNAL_TO_ADD_ALREADY_EXISTS" | "SIGNAL_NOT_ASSOCIATED_WITH_NETWORK_INTERFACE" | "NETWORK_INTERFACE_TYPE_INCOMPATIBLE_WITH_SIGNAL_DECODER_TYPE" | "SIGNAL_NOT_IN_MODEL" | "CAN_SIGNAL_INFO_IS_NULL" | "OBD_SIGNAL_INFO_IS_NULL" | "NO_DECODER_INFO_FOR_SIGNAL_IN_MODEL" | "MESSAGE_SIGNAL_INFO_IS_NULL" | "SIGNAL_DECODER_TYPE_INCOMPATIBLE_WITH_MESSAGE_SIGNAL_TYPE" | "STRUCT_SIZE_MISMATCH" | "NO_SIGNAL_IN_CATALOG_FOR_DECODER_SIGNAL" | "SIGNAL_DECODER_INCOMPATIBLE_WITH_SIGNAL_CATALOG" | "EMPTY_MESSAGE_SIGNAL" | "CUSTOM_DECODING_SIGNAL_INFO_IS_NULL";
 export type SignalDecoders = Array<SignalDecoder>;
-export type SignalDecoderType =
-  | "CAN_SIGNAL"
-  | "OBD_SIGNAL"
-  | "MESSAGE_SIGNAL"
-  | "CUSTOM_DECODING_SIGNAL";
+export type SignalDecoderType = "CAN_SIGNAL" | "OBD_SIGNAL" | "MESSAGE_SIGNAL" | "CUSTOM_DECODING_SIGNAL";
 interface _SignalFetchConfig {
   timeBased?: TimeBasedSignalFetchConfig;
   conditionBased?: ConditionBasedSignalFetchConfig;
 }
 
-export type SignalFetchConfig =
-  | (_SignalFetchConfig & { timeBased: TimeBasedSignalFetchConfig })
-  | (_SignalFetchConfig & { conditionBased: ConditionBasedSignalFetchConfig });
+export type SignalFetchConfig = (_SignalFetchConfig & { timeBased: TimeBasedSignalFetchConfig }) | (_SignalFetchConfig & { conditionBased: ConditionBasedSignalFetchConfig });
 export interface SignalFetchInformation {
   fullyQualifiedName: string;
   signalFetchConfig: SignalFetchConfig;
@@ -1790,13 +1358,7 @@ export interface SignalInformation {
   dataPartitionId?: string;
 }
 export type SignalInformationList = Array<SignalInformation>;
-export type SignalNodeType =
-  | "SENSOR"
-  | "ACTUATOR"
-  | "ATTRIBUTE"
-  | "BRANCH"
-  | "CUSTOM_STRUCT"
-  | "CUSTOM_PROPERTY";
+export type SignalNodeType = "SENSOR" | "ACTUATOR" | "ATTRIBUTE" | "BRANCH" | "CUSTOM_STRUCT" | "CUSTOM_PROPERTY";
 export type SignalValueType = "INTEGER" | "FLOATING_POINT";
 export type SpoolingMode = "OFF" | "TO_DISK";
 export interface StateTemplateAssociation {
@@ -1823,13 +1385,7 @@ interface _StateTemplateUpdateStrategy {
   onChange?: OnChangeStateTemplateUpdateStrategy;
 }
 
-export type StateTemplateUpdateStrategy =
-  | (_StateTemplateUpdateStrategy & {
-      periodic: PeriodicStateTemplateUpdateStrategy;
-    })
-  | (_StateTemplateUpdateStrategy & {
-      onChange: OnChangeStateTemplateUpdateStrategy;
-    });
+export type StateTemplateUpdateStrategy = (_StateTemplateUpdateStrategy & { periodic: PeriodicStateTemplateUpdateStrategy }) | (_StateTemplateUpdateStrategy & { onChange: OnChangeStateTemplateUpdateStrategy });
 export type statusStr = string;
 
 export type StorageCompressionFormat = "NONE" | "GZIP";
@@ -1857,18 +1413,8 @@ interface _StructuredMessage {
   structuredMessageDefinition?: Array<StructuredMessageFieldNameAndDataTypePair>;
 }
 
-export type StructuredMessage =
-  | (_StructuredMessage & {
-      primitiveMessageDefinition: PrimitiveMessageDefinition;
-    })
-  | (_StructuredMessage & {
-      structuredMessageListDefinition: StructuredMessageListDefinition;
-    })
-  | (_StructuredMessage & {
-      structuredMessageDefinition: Array<StructuredMessageFieldNameAndDataTypePair>;
-    });
-export type StructuredMessageDefinition =
-  Array<StructuredMessageFieldNameAndDataTypePair>;
+export type StructuredMessage = (_StructuredMessage & { primitiveMessageDefinition: PrimitiveMessageDefinition }) | (_StructuredMessage & { structuredMessageListDefinition: StructuredMessageListDefinition }) | (_StructuredMessage & { structuredMessageDefinition: Array<StructuredMessageFieldNameAndDataTypePair> });
+export type StructuredMessageDefinition = Array<StructuredMessageFieldNameAndDataTypePair>;
 export interface StructuredMessageFieldNameAndDataTypePair {
   fieldName: string;
   dataType: StructuredMessage;
@@ -1879,10 +1425,7 @@ export interface StructuredMessageListDefinition {
   listType: StructuredMessageListType;
   capacity?: number;
 }
-export type StructuredMessageListType =
-  | "FIXED_CAPACITY"
-  | "DYNAMIC_UNBOUNDED_CAPACITY"
-  | "DYNAMIC_BOUNDED_CAPACITY";
+export type StructuredMessageListType = "FIXED_CAPACITY" | "DYNAMIC_UNBOUNDED_CAPACITY" | "DYNAMIC_BOUNDED_CAPACITY";
 export type StructureMessageName = string;
 
 export interface Tag {
@@ -1897,7 +1440,8 @@ export interface TagResourceRequest {
   ResourceARN: string;
   Tags: Array<Tag>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export declare class ThrottlingException extends EffectData.TaggedError(
@@ -1952,7 +1496,8 @@ export interface UntagResourceRequest {
   ResourceARN: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export type UpdateCampaignAction = "APPROVE" | "SUSPEND" | "RESUME" | "UPDATE";
 export interface UpdateCampaignRequest {
   name: string;
@@ -2073,14 +1618,8 @@ export interface ValidationExceptionField {
   message: string;
 }
 export type ValidationExceptionFieldList = Array<ValidationExceptionField>;
-export type ValidationExceptionReason =
-  | "unknownOperation"
-  | "cannotParse"
-  | "fieldValidationFailed"
-  | "other";
-export type VehicleAssociationBehavior =
-  | "CreateIotThing"
-  | "ValidateIotThingExists";
+export type ValidationExceptionReason = "unknownOperation" | "cannotParse" | "fieldValidationFailed" | "other";
+export type VehicleAssociationBehavior = "CreateIotThing" | "ValidateIotThingExists";
 export interface VehicleMiddleware {
   name: string;
   protocolName: VehicleMiddlewareProtocol;
@@ -2091,13 +1630,7 @@ export type VehicleMiddlewareProtocol = "ROS_2";
 export type vehicleName = string;
 
 export type vehicles = Array<string>;
-export type VehicleState =
-  | "CREATED"
-  | "READY"
-  | "HEALTHY"
-  | "SUSPENDED"
-  | "DELETING"
-  | "READY_FOR_CHECKIN";
+export type VehicleState = "CREATED" | "READY" | "HEALTHY" | "SUSPENDED" | "DELETING" | "READY_FOR_CHECKIN";
 export interface VehicleStatus {
   campaignName?: string;
   vehicleName?: string;
@@ -2817,3 +2350,4 @@ export declare namespace UpdateVehicle {
     | ValidationException
     | CommonAwsError;
 }
+

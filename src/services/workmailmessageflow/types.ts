@@ -13,11 +13,7 @@ export declare class WorkMailMessageFlow extends AWSServiceClient {
     input: PutRawMessageContentRequest,
   ): Effect.Effect<
     PutRawMessageContentResponse,
-    | InvalidContentLocation
-    | MessageFrozen
-    | MessageRejected
-    | ResourceNotFoundException
-    | CommonAwsError
+    InvalidContentLocation | MessageFrozen | MessageRejected | ResourceNotFoundException | CommonAwsError
   >;
 }
 
@@ -54,7 +50,8 @@ export interface PutRawMessageContentRequest {
   messageId: string;
   content: RawMessageContent;
 }
-export interface PutRawMessageContentResponse {}
+export interface PutRawMessageContentResponse {
+}
 export interface RawMessageContent {
   s3Reference: S3Reference;
 }
@@ -77,7 +74,9 @@ export type s3VersionType = string;
 export declare namespace GetRawMessageContent {
   export type Input = GetRawMessageContentRequest;
   export type Output = GetRawMessageContentResponse;
-  export type Error = ResourceNotFoundException | CommonAwsError;
+  export type Error =
+    | ResourceNotFoundException
+    | CommonAwsError;
 }
 
 export declare namespace PutRawMessageContent {
@@ -90,3 +89,4 @@ export declare namespace PutRawMessageContent {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+

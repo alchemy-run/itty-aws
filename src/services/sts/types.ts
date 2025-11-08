@@ -1,40 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  AccessDeniedException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  ThrottlingException,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-  ValidationException,
-} from "../../error.ts";
-type CommonAwsError =
-  | AccessDeniedException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | ThrottlingException
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | ValidationException
-  | ExpiredTokenException;
+import type { AccessDeniedException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError, ValidationException } from "../../error.ts";
+type CommonAwsError = AccessDeniedException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | ThrottlingException | UnrecognizedClientException | UnknownOperationException | ValidationError | ValidationException | ExpiredTokenException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class STS extends AWSServiceClient {
@@ -42,36 +8,19 @@ export declare class STS extends AWSServiceClient {
     input: AssumeRoleRequest,
   ): Effect.Effect<
     AssumeRoleResponse,
-    | ExpiredTokenException
-    | MalformedPolicyDocumentException
-    | PackedPolicyTooLargeException
-    | RegionDisabledException
-    | CommonAwsError
+    ExpiredTokenException | MalformedPolicyDocumentException | PackedPolicyTooLargeException | RegionDisabledException | CommonAwsError
   >;
   assumeRoleWithSAML(
     input: AssumeRoleWithSAMLRequest,
   ): Effect.Effect<
     AssumeRoleWithSAMLResponse,
-    | ExpiredTokenException
-    | IDPRejectedClaimException
-    | InvalidIdentityTokenException
-    | MalformedPolicyDocumentException
-    | PackedPolicyTooLargeException
-    | RegionDisabledException
-    | CommonAwsError
+    ExpiredTokenException | IDPRejectedClaimException | InvalidIdentityTokenException | MalformedPolicyDocumentException | PackedPolicyTooLargeException | RegionDisabledException | CommonAwsError
   >;
   assumeRoleWithWebIdentity(
     input: AssumeRoleWithWebIdentityRequest,
   ): Effect.Effect<
     AssumeRoleWithWebIdentityResponse,
-    | ExpiredTokenException
-    | IDPCommunicationErrorException
-    | IDPRejectedClaimException
-    | InvalidIdentityTokenException
-    | MalformedPolicyDocumentException
-    | PackedPolicyTooLargeException
-    | RegionDisabledException
-    | CommonAwsError
+    ExpiredTokenException | IDPCommunicationErrorException | IDPRejectedClaimException | InvalidIdentityTokenException | MalformedPolicyDocumentException | PackedPolicyTooLargeException | RegionDisabledException | CommonAwsError
   >;
   assumeRoot(
     input: AssumeRootRequest,
@@ -87,18 +36,21 @@ export declare class STS extends AWSServiceClient {
   >;
   getAccessKeyInfo(
     input: GetAccessKeyInfoRequest,
-  ): Effect.Effect<GetAccessKeyInfoResponse, CommonAwsError>;
+  ): Effect.Effect<
+    GetAccessKeyInfoResponse,
+    CommonAwsError
+  >;
   getCallerIdentity(
     input: GetCallerIdentityRequest,
-  ): Effect.Effect<GetCallerIdentityResponse, CommonAwsError>;
+  ): Effect.Effect<
+    GetCallerIdentityResponse,
+    CommonAwsError
+  >;
   getFederationToken(
     input: GetFederationTokenRequest,
   ): Effect.Effect<
     GetFederationTokenResponse,
-    | MalformedPolicyDocumentException
-    | PackedPolicyTooLargeException
-    | RegionDisabledException
-    | CommonAwsError
+    MalformedPolicyDocumentException | PackedPolicyTooLargeException | RegionDisabledException | CommonAwsError
   >;
   getSessionToken(
     input: GetSessionTokenRequest,
@@ -237,7 +189,8 @@ export interface GetAccessKeyInfoRequest {
 export interface GetAccessKeyInfoResponse {
   Account?: string;
 }
-export interface GetCallerIdentityRequest {}
+export interface GetCallerIdentityRequest {
+}
 export interface GetCallerIdentityResponse {
   UserId?: string;
   Account?: string;
@@ -421,19 +374,23 @@ export declare namespace AssumeRoot {
 export declare namespace DecodeAuthorizationMessage {
   export type Input = DecodeAuthorizationMessageRequest;
   export type Output = DecodeAuthorizationMessageResponse;
-  export type Error = InvalidAuthorizationMessageException | CommonAwsError;
+  export type Error =
+    | InvalidAuthorizationMessageException
+    | CommonAwsError;
 }
 
 export declare namespace GetAccessKeyInfo {
   export type Input = GetAccessKeyInfoRequest;
   export type Output = GetAccessKeyInfoResponse;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetCallerIdentity {
   export type Input = GetCallerIdentityRequest;
   export type Output = GetCallerIdentityResponse;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetFederationToken {
@@ -449,5 +406,8 @@ export declare namespace GetFederationToken {
 export declare namespace GetSessionToken {
   export type Input = GetSessionTokenRequest;
   export type Output = GetSessionTokenResponse;
-  export type Error = RegionDisabledException | CommonAwsError;
+  export type Error =
+    | RegionDisabledException
+    | CommonAwsError;
 }
+

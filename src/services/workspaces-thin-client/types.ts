@@ -1,38 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-} from "../../error.ts";
-type CommonAwsError =
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | AccessDeniedException
-  | ThrottlingException
-  | ValidationException;
+import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
+type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class WorkSpacesThinClient extends AWSServiceClient {
@@ -40,182 +8,97 @@ export declare class WorkSpacesThinClient extends AWSServiceClient {
     input: CreateEnvironmentRequest,
   ): Effect.Effect<
     CreateEnvironmentResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteDevice(
     input: DeleteDeviceRequest,
   ): Effect.Effect<
     DeleteDeviceResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteEnvironment(
     input: DeleteEnvironmentRequest,
   ): Effect.Effect<
     DeleteEnvironmentResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deregisterDevice(
     input: DeregisterDeviceRequest,
   ): Effect.Effect<
     DeregisterDeviceResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getDevice(
     input: GetDeviceRequest,
   ): Effect.Effect<
     GetDeviceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getEnvironment(
     input: GetEnvironmentRequest,
   ): Effect.Effect<
     GetEnvironmentResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getSoftwareSet(
     input: GetSoftwareSetRequest,
   ): Effect.Effect<
     GetSoftwareSetResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listDevices(
     input: ListDevicesRequest,
   ): Effect.Effect<
     ListDevicesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listEnvironments(
     input: ListEnvironmentsRequest,
   ): Effect.Effect<
     ListEnvironmentsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listSoftwareSets(
     input: ListSoftwareSetsRequest,
   ): Effect.Effect<
     ListSoftwareSetsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateDevice(
     input: UpdateDeviceRequest,
   ): Effect.Effect<
     UpdateDeviceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateEnvironment(
     input: UpdateEnvironmentRequest,
   ): Effect.Effect<
     UpdateEnvironmentResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateSoftwareSet(
     input: UpdateSoftwareSetRequest,
   ): Effect.Effect<
     UpdateSoftwareSetResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
 }
 
@@ -256,31 +139,27 @@ export interface CreateEnvironmentRequest {
 export interface CreateEnvironmentResponse {
   environment?: EnvironmentSummary;
 }
-export type DayOfWeek =
-  | "MONDAY"
-  | "TUESDAY"
-  | "WEDNESDAY"
-  | "THURSDAY"
-  | "FRIDAY"
-  | "SATURDAY"
-  | "SUNDAY";
+export type DayOfWeek = "MONDAY" | "TUESDAY" | "WEDNESDAY" | "THURSDAY" | "FRIDAY" | "SATURDAY" | "SUNDAY";
 export type DayOfWeekList = Array<DayOfWeek>;
 export interface DeleteDeviceRequest {
   id: string;
   clientToken?: string;
 }
-export interface DeleteDeviceResponse {}
+export interface DeleteDeviceResponse {
+}
 export interface DeleteEnvironmentRequest {
   id: string;
   clientToken?: string;
 }
-export interface DeleteEnvironmentResponse {}
+export interface DeleteEnvironmentResponse {
+}
 export interface DeregisterDeviceRequest {
   id: string;
   targetDeviceStatus?: TargetDeviceStatus;
   clientToken?: string;
 }
-export interface DeregisterDeviceResponse {}
+export interface DeregisterDeviceResponse {
+}
 export type DesktopEndpoint = string;
 
 export type DesktopType = "workspaces" | "appstream" | "workspaces-web";
@@ -317,15 +196,8 @@ export type DeviceId = string;
 export type DeviceList = Array<DeviceSummary>;
 export type DeviceName = string;
 
-export type DeviceSoftwareSetComplianceStatus =
-  | "NONE"
-  | "COMPLIANT"
-  | "NOT_COMPLIANT";
-export type DeviceStatus =
-  | "REGISTERED"
-  | "DEREGISTERING"
-  | "DEREGISTERED"
-  | "ARCHIVED";
+export type DeviceSoftwareSetComplianceStatus = "NONE" | "COMPLIANT" | "NOT_COMPLIANT";
+export type DeviceStatus = "REGISTERED" | "DEREGISTERING" | "DEREGISTERED" | "ARCHIVED";
 export interface DeviceSummary {
   id?: string;
   serialNumber?: string;
@@ -370,10 +242,7 @@ export type EnvironmentId = string;
 export type EnvironmentList = Array<EnvironmentSummary>;
 export type EnvironmentName = string;
 
-export type EnvironmentSoftwareSetComplianceStatus =
-  | "NO_REGISTERED_DEVICES"
-  | "COMPLIANT"
-  | "NOT_COMPLIANT";
+export type EnvironmentSoftwareSetComplianceStatus = "NO_REGISTERED_DEVICES" | "COMPLIANT" | "NOT_COMPLIANT";
 export interface EnvironmentSummary {
   id?: string;
   name?: string;
@@ -522,20 +391,16 @@ export interface SoftwareSetSummary {
   arn?: string;
 }
 export type SoftwareSetUpdateMode = "USE_LATEST" | "USE_DESIRED";
-export type SoftwareSetUpdateSchedule =
-  | "USE_MAINTENANCE_WINDOW"
-  | "APPLY_IMMEDIATELY";
-export type SoftwareSetUpdateStatus =
-  | "AVAILABLE"
-  | "IN_PROGRESS"
-  | "UP_TO_DATE";
+export type SoftwareSetUpdateSchedule = "USE_MAINTENANCE_WINDOW" | "APPLY_IMMEDIATELY";
+export type SoftwareSetUpdateStatus = "AVAILABLE" | "IN_PROGRESS" | "UP_TO_DATE";
 export type SoftwareSetValidationStatus = "VALIDATED" | "NOT_VALIDATED";
 export type TagKeys = Array<string>;
 export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagsMap = Record<string, string>;
 export type TargetDeviceStatus = "DEREGISTERED" | "ARCHIVED";
 export declare class ThrottlingException extends EffectData.TaggedError(
@@ -552,7 +417,8 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateDeviceRequest {
   id: string;
   name?: string;
@@ -580,7 +446,8 @@ export interface UpdateSoftwareSetRequest {
   id: string;
   validationStatus: SoftwareSetValidationStatus;
 }
-export interface UpdateSoftwareSetResponse {}
+export interface UpdateSoftwareSetResponse {
+}
 export type UserId = string;
 
 export declare class ValidationException extends EffectData.TaggedError(
@@ -595,11 +462,7 @@ export interface ValidationExceptionField {
   message: string;
 }
 export type ValidationExceptionFieldList = Array<ValidationExceptionField>;
-export type ValidationExceptionReason =
-  | "unknownOperation"
-  | "cannotParse"
-  | "fieldValidationFailed"
-  | "other";
+export type ValidationExceptionReason = "unknownOperation" | "cannotParse" | "fieldValidationFailed" | "other";
 export declare namespace CreateEnvironment {
   export type Input = CreateEnvironmentRequest;
   export type Output = CreateEnvironmentResponse;
@@ -796,3 +659,4 @@ export declare namespace UpdateSoftwareSet {
     | ValidationException
     | CommonAwsError;
 }
+

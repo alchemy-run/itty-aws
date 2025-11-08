@@ -7,82 +7,49 @@ export declare class PinpointSMSVoice extends AWSServiceClient {
     input: CreateConfigurationSetRequest,
   ): Effect.Effect<
     CreateConfigurationSetResponse,
-    | AlreadyExistsException
-    | BadRequestException
-    | InternalServiceErrorException
-    | LimitExceededException
-    | TooManyRequestsException
-    | CommonAwsError
+    AlreadyExistsException | BadRequestException | InternalServiceErrorException | LimitExceededException | TooManyRequestsException | CommonAwsError
   >;
   createConfigurationSetEventDestination(
     input: CreateConfigurationSetEventDestinationRequest,
   ): Effect.Effect<
     CreateConfigurationSetEventDestinationResponse,
-    | AlreadyExistsException
-    | BadRequestException
-    | InternalServiceErrorException
-    | LimitExceededException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    AlreadyExistsException | BadRequestException | InternalServiceErrorException | LimitExceededException | NotFoundException | TooManyRequestsException | CommonAwsError
   >;
   deleteConfigurationSet(
     input: DeleteConfigurationSetRequest,
   ): Effect.Effect<
     DeleteConfigurationSetResponse,
-    | BadRequestException
-    | InternalServiceErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | InternalServiceErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   >;
   deleteConfigurationSetEventDestination(
     input: DeleteConfigurationSetEventDestinationRequest,
   ): Effect.Effect<
     DeleteConfigurationSetEventDestinationResponse,
-    | BadRequestException
-    | InternalServiceErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | InternalServiceErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   >;
   getConfigurationSetEventDestinations(
     input: GetConfigurationSetEventDestinationsRequest,
   ): Effect.Effect<
     GetConfigurationSetEventDestinationsResponse,
-    | BadRequestException
-    | InternalServiceErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | InternalServiceErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   >;
   listConfigurationSets(
     input: ListConfigurationSetsRequest,
   ): Effect.Effect<
     ListConfigurationSetsResponse,
-    | BadRequestException
-    | InternalServiceErrorException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | InternalServiceErrorException | TooManyRequestsException | CommonAwsError
   >;
   sendVoiceMessage(
     input: SendVoiceMessageRequest,
   ): Effect.Effect<
     SendVoiceMessageResponse,
-    | BadRequestException
-    | InternalServiceErrorException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | InternalServiceErrorException | TooManyRequestsException | CommonAwsError
   >;
   updateConfigurationSetEventDestination(
     input: UpdateConfigurationSetEventDestinationRequest,
   ): Effect.Effect<
     UpdateConfigurationSetEventDestinationResponse,
-    | BadRequestException
-    | InternalServiceErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | InternalServiceErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   >;
 }
 
@@ -115,20 +82,24 @@ export interface CreateConfigurationSetEventDestinationRequest {
   EventDestination?: EventDestinationDefinition;
   EventDestinationName?: string;
 }
-export interface CreateConfigurationSetEventDestinationResponse {}
+export interface CreateConfigurationSetEventDestinationResponse {
+}
 export interface CreateConfigurationSetRequest {
   ConfigurationSetName?: string;
 }
-export interface CreateConfigurationSetResponse {}
+export interface CreateConfigurationSetResponse {
+}
 export interface DeleteConfigurationSetEventDestinationRequest {
   ConfigurationSetName: string;
   EventDestinationName: string;
 }
-export interface DeleteConfigurationSetEventDestinationResponse {}
+export interface DeleteConfigurationSetEventDestinationResponse {
+}
 export interface DeleteConfigurationSetRequest {
   ConfigurationSetName: string;
 }
-export interface DeleteConfigurationSetResponse {}
+export interface DeleteConfigurationSetResponse {
+}
 export interface EventDestination {
   CloudWatchLogsDestination?: CloudWatchLogsDestination;
   Enabled?: boolean;
@@ -145,14 +116,7 @@ export interface EventDestinationDefinition {
   SnsDestination?: SnsDestination;
 }
 export type EventDestinations = Array<EventDestination>;
-export type EventType =
-  | "INITIATED_CALL"
-  | "RINGING"
-  | "ANSWERED"
-  | "COMPLETED_CALL"
-  | "BUSY"
-  | "FAILED"
-  | "NO_ANSWER";
+export type EventType = "INITIATED_CALL" | "RINGING" | "ANSWERED" | "COMPLETED_CALL" | "BUSY" | "FAILED" | "NO_ANSWER";
 export type EventTypes = Array<EventType>;
 export interface GetConfigurationSetEventDestinationsRequest {
   ConfigurationSetName: string;
@@ -226,7 +190,8 @@ export interface UpdateConfigurationSetEventDestinationRequest {
   EventDestination?: EventDestinationDefinition;
   EventDestinationName: string;
 }
-export interface UpdateConfigurationSetEventDestinationResponse {}
+export interface UpdateConfigurationSetEventDestinationResponse {
+}
 export interface VoiceMessageContent {
   CallInstructionsMessage?: CallInstructionsMessageType;
   PlainTextMessage?: PlainTextMessageType;
@@ -322,3 +287,4 @@ export declare namespace UpdateConfigurationSetEventDestination {
     | TooManyRequestsException
     | CommonAwsError;
 }
+

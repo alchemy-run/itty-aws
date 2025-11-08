@@ -1,38 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-} from "../../error.ts";
-type CommonAwsError =
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | AccessDeniedException
-  | ThrottlingException
-  | ValidationException;
+import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
+type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class ACM extends AWSServiceClient {
@@ -40,26 +8,13 @@ export declare class ACM extends AWSServiceClient {
     input: AddTagsToCertificateRequest,
   ): Effect.Effect<
     {},
-    | InvalidArnException
-    | InvalidParameterException
-    | InvalidTagException
-    | ResourceNotFoundException
-    | TagPolicyException
-    | ThrottlingException
-    | TooManyTagsException
-    | CommonAwsError
+    InvalidArnException | InvalidParameterException | InvalidTagException | ResourceNotFoundException | TagPolicyException | ThrottlingException | TooManyTagsException | CommonAwsError
   >;
   deleteCertificate(
     input: DeleteCertificateRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InvalidArnException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InvalidArnException | ResourceInUseException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   describeCertificate(
     input: DescribeCertificateRequest,
@@ -71,12 +26,11 @@ export declare class ACM extends AWSServiceClient {
     input: ExportCertificateRequest,
   ): Effect.Effect<
     ExportCertificateResponse,
-    | InvalidArnException
-    | RequestInProgressException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InvalidArnException | RequestInProgressException | ResourceNotFoundException | CommonAwsError
   >;
-  getAccountConfiguration(input: {}): Effect.Effect<
+  getAccountConfiguration(
+    input: {},
+  ): Effect.Effect<
     GetAccountConfigurationResponse,
     AccessDeniedException | ThrottlingException | CommonAwsError
   >;
@@ -84,23 +38,13 @@ export declare class ACM extends AWSServiceClient {
     input: GetCertificateRequest,
   ): Effect.Effect<
     GetCertificateResponse,
-    | InvalidArnException
-    | RequestInProgressException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InvalidArnException | RequestInProgressException | ResourceNotFoundException | CommonAwsError
   >;
   importCertificate(
     input: ImportCertificateRequest,
   ): Effect.Effect<
     ImportCertificateResponse,
-    | InvalidArnException
-    | InvalidParameterException
-    | InvalidTagException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | TagPolicyException
-    | TooManyTagsException
-    | CommonAwsError
+    InvalidArnException | InvalidParameterException | InvalidTagException | LimitExceededException | ResourceNotFoundException | TagPolicyException | TooManyTagsException | CommonAwsError
   >;
   listCertificates(
     input: ListCertificatesRequest,
@@ -118,77 +62,43 @@ export declare class ACM extends AWSServiceClient {
     input: PutAccountConfigurationRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | ThrottlingException | ValidationException | CommonAwsError
   >;
   removeTagsFromCertificate(
     input: RemoveTagsFromCertificateRequest,
   ): Effect.Effect<
     {},
-    | InvalidArnException
-    | InvalidParameterException
-    | InvalidTagException
-    | ResourceNotFoundException
-    | TagPolicyException
-    | ThrottlingException
-    | CommonAwsError
+    InvalidArnException | InvalidParameterException | InvalidTagException | ResourceNotFoundException | TagPolicyException | ThrottlingException | CommonAwsError
   >;
   renewCertificate(
     input: RenewCertificateRequest,
   ): Effect.Effect<
     {},
-    | InvalidArnException
-    | RequestInProgressException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InvalidArnException | RequestInProgressException | ResourceNotFoundException | CommonAwsError
   >;
   requestCertificate(
     input: RequestCertificateRequest,
   ): Effect.Effect<
     RequestCertificateResponse,
-    | InvalidArnException
-    | InvalidDomainValidationOptionsException
-    | InvalidParameterException
-    | InvalidTagException
-    | LimitExceededException
-    | TagPolicyException
-    | TooManyTagsException
-    | CommonAwsError
+    InvalidArnException | InvalidDomainValidationOptionsException | InvalidParameterException | InvalidTagException | LimitExceededException | TagPolicyException | TooManyTagsException | CommonAwsError
   >;
   resendValidationEmail(
     input: ResendValidationEmailRequest,
   ): Effect.Effect<
     {},
-    | InvalidArnException
-    | InvalidDomainValidationOptionsException
-    | InvalidStateException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InvalidArnException | InvalidDomainValidationOptionsException | InvalidStateException | ResourceNotFoundException | CommonAwsError
   >;
   revokeCertificate(
     input: RevokeCertificateRequest,
   ): Effect.Effect<
     RevokeCertificateResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InvalidArnException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InvalidArnException | ResourceInUseException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   updateCertificateOptions(
     input: UpdateCertificateOptionsRequest,
   ): Effect.Effect<
     {},
-    | InvalidArnException
-    | InvalidStateException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InvalidArnException | InvalidStateException | LimitExceededException | ResourceNotFoundException | CommonAwsError
   >;
 }
 
@@ -250,14 +160,7 @@ export interface CertificateOptions {
   CertificateTransparencyLoggingPreference?: CertificateTransparencyLoggingPreference;
   Export?: CertificateExport;
 }
-export type CertificateStatus =
-  | "PENDING_VALIDATION"
-  | "ISSUED"
-  | "INACTIVE"
-  | "EXPIRED"
-  | "VALIDATION_TIMED_OUT"
-  | "REVOKED"
-  | "FAILED";
+export type CertificateStatus = "PENDING_VALIDATION" | "ISSUED" | "INACTIVE" | "EXPIRED" | "VALIDATION_TIMED_OUT" | "REVOKED" | "FAILED";
 export type CertificateStatuses = Array<CertificateStatus>;
 export interface CertificateSummary {
   CertificateArn?: string;
@@ -335,38 +238,9 @@ export interface ExtendedKeyUsage {
 }
 export type ExtendedKeyUsageFilterList = Array<ExtendedKeyUsageName>;
 export type ExtendedKeyUsageList = Array<ExtendedKeyUsage>;
-export type ExtendedKeyUsageName =
-  | "TLS_WEB_SERVER_AUTHENTICATION"
-  | "TLS_WEB_CLIENT_AUTHENTICATION"
-  | "CODE_SIGNING"
-  | "EMAIL_PROTECTION"
-  | "TIME_STAMPING"
-  | "OCSP_SIGNING"
-  | "IPSEC_END_SYSTEM"
-  | "IPSEC_TUNNEL"
-  | "IPSEC_USER"
-  | "ANY"
-  | "NONE"
-  | "CUSTOM";
+export type ExtendedKeyUsageName = "TLS_WEB_SERVER_AUTHENTICATION" | "TLS_WEB_CLIENT_AUTHENTICATION" | "CODE_SIGNING" | "EMAIL_PROTECTION" | "TIME_STAMPING" | "OCSP_SIGNING" | "IPSEC_END_SYSTEM" | "IPSEC_TUNNEL" | "IPSEC_USER" | "ANY" | "NONE" | "CUSTOM";
 export type ExtendedKeyUsageNames = Array<ExtendedKeyUsageName>;
-export type FailureReason =
-  | "NO_AVAILABLE_CONTACTS"
-  | "ADDITIONAL_VERIFICATION_REQUIRED"
-  | "DOMAIN_NOT_ALLOWED"
-  | "INVALID_PUBLIC_DOMAIN"
-  | "DOMAIN_VALIDATION_DENIED"
-  | "CAA_ERROR"
-  | "PCA_LIMIT_EXCEEDED"
-  | "PCA_INVALID_ARN"
-  | "PCA_INVALID_STATE"
-  | "PCA_REQUEST_FAILED"
-  | "PCA_NAME_CONSTRAINTS_VALIDATION"
-  | "PCA_RESOURCE_NOT_FOUND"
-  | "PCA_INVALID_ARGS"
-  | "PCA_INVALID_DURATION"
-  | "PCA_ACCESS_DENIED"
-  | "SLR_NOT_FOUND"
-  | "OTHER";
+export type FailureReason = "NO_AVAILABLE_CONTACTS" | "ADDITIONAL_VERIFICATION_REQUIRED" | "DOMAIN_NOT_ALLOWED" | "INVALID_PUBLIC_DOMAIN" | "DOMAIN_VALIDATION_DENIED" | "CAA_ERROR" | "PCA_LIMIT_EXCEEDED" | "PCA_INVALID_ARN" | "PCA_INVALID_STATE" | "PCA_REQUEST_FAILED" | "PCA_NAME_CONSTRAINTS_VALIDATION" | "PCA_RESOURCE_NOT_FOUND" | "PCA_INVALID_ARGS" | "PCA_INVALID_DURATION" | "PCA_ACCESS_DENIED" | "SLR_NOT_FOUND" | "OTHER";
 export interface Filters {
   extendedKeyUsage?: Array<ExtendedKeyUsageName>;
   keyUsage?: Array<KeyUsageName>;
@@ -431,32 +305,14 @@ export declare class InvalidTagException extends EffectData.TaggedError(
 )<{
   readonly message?: string;
 }> {}
-export type KeyAlgorithm =
-  | "RSA_1024"
-  | "RSA_2048"
-  | "RSA_3072"
-  | "RSA_4096"
-  | "EC_prime256v1"
-  | "EC_secp384r1"
-  | "EC_secp521r1";
+export type KeyAlgorithm = "RSA_1024" | "RSA_2048" | "RSA_3072" | "RSA_4096" | "EC_prime256v1" | "EC_secp384r1" | "EC_secp521r1";
 export type KeyAlgorithmList = Array<KeyAlgorithm>;
 export interface KeyUsage {
   Name?: KeyUsageName;
 }
 export type KeyUsageFilterList = Array<KeyUsageName>;
 export type KeyUsageList = Array<KeyUsage>;
-export type KeyUsageName =
-  | "DIGITAL_SIGNATURE"
-  | "NON_REPUDIATION"
-  | "KEY_ENCIPHERMENT"
-  | "DATA_ENCIPHERMENT"
-  | "KEY_AGREEMENT"
-  | "CERTIFICATE_SIGNING"
-  | "CRL_SIGNING"
-  | "ENCIPHER_ONLY"
-  | "DECIPHER_ONLY"
-  | "ANY"
-  | "CUSTOM";
+export type KeyUsageName = "DIGITAL_SIGNATURE" | "NON_REPUDIATION" | "KEY_ENCIPHERMENT" | "DATA_ENCIPHERMENT" | "KEY_AGREEMENT" | "CERTIFICATE_SIGNING" | "CRL_SIGNING" | "ENCIPHER_ONLY" | "DECIPHER_ONLY" | "ANY" | "CUSTOM";
 export type KeyUsageNames = Array<KeyUsageName>;
 export declare class LimitExceededException extends EffectData.TaggedError(
   "LimitExceededException",
@@ -507,11 +363,7 @@ export interface RemoveTagsFromCertificateRequest {
   Tags: Array<Tag>;
 }
 export type RenewalEligibility = "ELIGIBLE" | "INELIGIBLE";
-export type RenewalStatus =
-  | "PENDING_AUTO_RENEWAL"
-  | "PENDING_VALIDATION"
-  | "SUCCESS"
-  | "FAILED";
+export type RenewalStatus = "PENDING_AUTO_RENEWAL" | "PENDING_VALIDATION" | "SUCCESS" | "FAILED";
 export interface RenewalSummary {
   RenewalStatus: RenewalStatus;
   DomainValidationOptions: Array<DomainValidation>;
@@ -561,18 +413,7 @@ export interface ResourceRecord {
   Type: RecordType;
   Value: string;
 }
-export type RevocationReason =
-  | "UNSPECIFIED"
-  | "KEY_COMPROMISE"
-  | "CA_COMPROMISE"
-  | "AFFILIATION_CHANGED"
-  | "SUPERCEDED"
-  | "SUPERSEDED"
-  | "CESSATION_OF_OPERATION"
-  | "CERTIFICATE_HOLD"
-  | "REMOVE_FROM_CRL"
-  | "PRIVILEGE_WITHDRAWN"
-  | "A_A_COMPROMISE";
+export type RevocationReason = "UNSPECIFIED" | "KEY_COMPROMISE" | "CA_COMPROMISE" | "AFFILIATION_CHANGED" | "SUPERCEDED" | "SUPERSEDED" | "CESSATION_OF_OPERATION" | "CERTIFICATE_HOLD" | "REMOVE_FROM_CRL" | "PRIVILEGE_WITHDRAWN" | "A_A_COMPROMISE";
 export interface RevokeCertificateRequest {
   CertificateArn: string;
   RevocationReason: RevocationReason;
@@ -804,3 +645,4 @@ export declare namespace UpdateCertificateOptions {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+

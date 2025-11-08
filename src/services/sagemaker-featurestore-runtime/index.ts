@@ -5,23 +5,7 @@ import type { SageMakerFeatureStoreRuntime as _SageMakerFeatureStoreRuntimeClien
 
 export * from "./types.ts";
 
-export {
-  AccessDeniedException,
-  ExpiredTokenException,
-  IncompleteSignature,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ThrottlingException,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationException,
-  type CommonAwsError,
-} from "../../error.ts";
+export {AccessDeniedException, ExpiredTokenException, IncompleteSignature, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationException, type CommonAwsError} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -31,16 +15,15 @@ const metadata = {
   sigV4ServiceName: "sagemaker",
   endpointPrefix: "featurestore-runtime.sagemaker",
   operations: {
-    BatchGetRecord: "POST /BatchGetRecord",
-    DeleteRecord: "DELETE /FeatureGroup/{FeatureGroupName}",
-    GetRecord: "GET /FeatureGroup/{FeatureGroupName}",
-    PutRecord: "PUT /FeatureGroup/{FeatureGroupName}",
+    "BatchGetRecord": "POST /BatchGetRecord",
+    "DeleteRecord": "DELETE /FeatureGroup/{FeatureGroupName}",
+    "GetRecord": "GET /FeatureGroup/{FeatureGroupName}",
+    "PutRecord": "PUT /FeatureGroup/{FeatureGroupName}",
   },
 } as const satisfies ServiceMetadata;
 
 export type _SageMakerFeatureStoreRuntime = _SageMakerFeatureStoreRuntimeClient;
-export interface SageMakerFeatureStoreRuntime
-  extends _SageMakerFeatureStoreRuntime {}
+export interface SageMakerFeatureStoreRuntime extends _SageMakerFeatureStoreRuntime {}
 export const SageMakerFeatureStoreRuntime = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

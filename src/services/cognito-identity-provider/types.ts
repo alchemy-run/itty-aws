@@ -7,1610 +7,685 @@ export declare class CognitoIdentityProvider extends AWSServiceClient {
     input: AddCustomAttributesRequest,
   ): Effect.Effect<
     AddCustomAttributesResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UserImportInProgressException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | UserImportInProgressException | CommonAwsError
   >;
   adminAddUserToGroup(
     input: AdminAddUserToGroupRequest,
   ): Effect.Effect<
     {},
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UserNotFoundException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | UserNotFoundException | CommonAwsError
   >;
   adminConfirmSignUp(
     input: AdminConfirmSignUpRequest,
   ): Effect.Effect<
     AdminConfirmSignUpResponse,
-    | InternalErrorException
-    | InvalidLambdaResponseException
-    | InvalidParameterException
-    | LimitExceededException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyFailedAttemptsException
-    | TooManyRequestsException
-    | UnexpectedLambdaException
-    | UserLambdaValidationException
-    | UserNotFoundException
-    | CommonAwsError
+    InternalErrorException | InvalidLambdaResponseException | InvalidParameterException | LimitExceededException | NotAuthorizedException | ResourceNotFoundException | TooManyFailedAttemptsException | TooManyRequestsException | UnexpectedLambdaException | UserLambdaValidationException | UserNotFoundException | CommonAwsError
   >;
   adminCreateUser(
     input: AdminCreateUserRequest,
   ): Effect.Effect<
     AdminCreateUserResponse,
-    | CodeDeliveryFailureException
-    | InternalErrorException
-    | InvalidLambdaResponseException
-    | InvalidParameterException
-    | InvalidPasswordException
-    | InvalidSmsRoleAccessPolicyException
-    | InvalidSmsRoleTrustRelationshipException
-    | NotAuthorizedException
-    | PreconditionNotMetException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UnexpectedLambdaException
-    | UnsupportedUserStateException
-    | UserLambdaValidationException
-    | UsernameExistsException
-    | UserNotFoundException
-    | CommonAwsError
+    CodeDeliveryFailureException | InternalErrorException | InvalidLambdaResponseException | InvalidParameterException | InvalidPasswordException | InvalidSmsRoleAccessPolicyException | InvalidSmsRoleTrustRelationshipException | NotAuthorizedException | PreconditionNotMetException | ResourceNotFoundException | TooManyRequestsException | UnexpectedLambdaException | UnsupportedUserStateException | UserLambdaValidationException | UsernameExistsException | UserNotFoundException | CommonAwsError
   >;
   adminDeleteUser(
     input: AdminDeleteUserRequest,
   ): Effect.Effect<
     {},
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UserNotFoundException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | UserNotFoundException | CommonAwsError
   >;
   adminDeleteUserAttributes(
     input: AdminDeleteUserAttributesRequest,
   ): Effect.Effect<
     AdminDeleteUserAttributesResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UserNotFoundException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | UserNotFoundException | CommonAwsError
   >;
   adminDisableProviderForUser(
     input: AdminDisableProviderForUserRequest,
   ): Effect.Effect<
     AdminDisableProviderForUserResponse,
-    | AliasExistsException
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UserNotFoundException
-    | CommonAwsError
+    AliasExistsException | InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | UserNotFoundException | CommonAwsError
   >;
   adminDisableUser(
     input: AdminDisableUserRequest,
   ): Effect.Effect<
     AdminDisableUserResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UserNotFoundException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | UserNotFoundException | CommonAwsError
   >;
   adminEnableUser(
     input: AdminEnableUserRequest,
   ): Effect.Effect<
     AdminEnableUserResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UserNotFoundException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | UserNotFoundException | CommonAwsError
   >;
   adminForgetDevice(
     input: AdminForgetDeviceRequest,
   ): Effect.Effect<
     {},
-    | InternalErrorException
-    | InvalidParameterException
-    | InvalidUserPoolConfigurationException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UserNotFoundException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | InvalidUserPoolConfigurationException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | UserNotFoundException | CommonAwsError
   >;
   adminGetDevice(
     input: AdminGetDeviceRequest,
   ): Effect.Effect<
     AdminGetDeviceResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | InvalidUserPoolConfigurationException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | InvalidUserPoolConfigurationException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   >;
   adminGetUser(
     input: AdminGetUserRequest,
   ): Effect.Effect<
     AdminGetUserResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UserNotFoundException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | UserNotFoundException | CommonAwsError
   >;
   adminInitiateAuth(
     input: AdminInitiateAuthRequest,
   ): Effect.Effect<
     AdminInitiateAuthResponse,
-    | InternalErrorException
-    | InvalidEmailRoleAccessPolicyException
-    | InvalidLambdaResponseException
-    | InvalidParameterException
-    | InvalidSmsRoleAccessPolicyException
-    | InvalidSmsRoleTrustRelationshipException
-    | InvalidUserPoolConfigurationException
-    | MFAMethodNotFoundException
-    | NotAuthorizedException
-    | PasswordResetRequiredException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UnexpectedLambdaException
-    | UnsupportedOperationException
-    | UserLambdaValidationException
-    | UserNotConfirmedException
-    | UserNotFoundException
-    | CommonAwsError
+    InternalErrorException | InvalidEmailRoleAccessPolicyException | InvalidLambdaResponseException | InvalidParameterException | InvalidSmsRoleAccessPolicyException | InvalidSmsRoleTrustRelationshipException | InvalidUserPoolConfigurationException | MFAMethodNotFoundException | NotAuthorizedException | PasswordResetRequiredException | ResourceNotFoundException | TooManyRequestsException | UnexpectedLambdaException | UnsupportedOperationException | UserLambdaValidationException | UserNotConfirmedException | UserNotFoundException | CommonAwsError
   >;
   adminLinkProviderForUser(
     input: AdminLinkProviderForUserRequest,
   ): Effect.Effect<
     AdminLinkProviderForUserResponse,
-    | AliasExistsException
-    | InternalErrorException
-    | InvalidParameterException
-    | LimitExceededException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UserNotFoundException
-    | CommonAwsError
+    AliasExistsException | InternalErrorException | InvalidParameterException | LimitExceededException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | UserNotFoundException | CommonAwsError
   >;
   adminListDevices(
     input: AdminListDevicesRequest,
   ): Effect.Effect<
     AdminListDevicesResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | InvalidUserPoolConfigurationException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | InvalidUserPoolConfigurationException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   >;
   adminListGroupsForUser(
     input: AdminListGroupsForUserRequest,
   ): Effect.Effect<
     AdminListGroupsForUserResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UserNotFoundException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | UserNotFoundException | CommonAwsError
   >;
   adminListUserAuthEvents(
     input: AdminListUserAuthEventsRequest,
   ): Effect.Effect<
     AdminListUserAuthEventsResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UserNotFoundException
-    | UserPoolAddOnNotEnabledException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | UserNotFoundException | UserPoolAddOnNotEnabledException | CommonAwsError
   >;
   adminRemoveUserFromGroup(
     input: AdminRemoveUserFromGroupRequest,
   ): Effect.Effect<
     {},
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UserNotFoundException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | UserNotFoundException | CommonAwsError
   >;
   adminResetUserPassword(
     input: AdminResetUserPasswordRequest,
   ): Effect.Effect<
     AdminResetUserPasswordResponse,
-    | InternalErrorException
-    | InvalidEmailRoleAccessPolicyException
-    | InvalidLambdaResponseException
-    | InvalidParameterException
-    | InvalidSmsRoleAccessPolicyException
-    | InvalidSmsRoleTrustRelationshipException
-    | LimitExceededException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UnexpectedLambdaException
-    | UserLambdaValidationException
-    | UserNotFoundException
-    | CommonAwsError
+    InternalErrorException | InvalidEmailRoleAccessPolicyException | InvalidLambdaResponseException | InvalidParameterException | InvalidSmsRoleAccessPolicyException | InvalidSmsRoleTrustRelationshipException | LimitExceededException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | UnexpectedLambdaException | UserLambdaValidationException | UserNotFoundException | CommonAwsError
   >;
   adminRespondToAuthChallenge(
     input: AdminRespondToAuthChallengeRequest,
   ): Effect.Effect<
     AdminRespondToAuthChallengeResponse,
-    | AliasExistsException
-    | CodeMismatchException
-    | ExpiredCodeException
-    | InternalErrorException
-    | InvalidEmailRoleAccessPolicyException
-    | InvalidLambdaResponseException
-    | InvalidParameterException
-    | InvalidPasswordException
-    | InvalidSmsRoleAccessPolicyException
-    | InvalidSmsRoleTrustRelationshipException
-    | InvalidUserPoolConfigurationException
-    | MFAMethodNotFoundException
-    | NotAuthorizedException
-    | PasswordHistoryPolicyViolationException
-    | PasswordResetRequiredException
-    | ResourceNotFoundException
-    | SoftwareTokenMFANotFoundException
-    | TooManyRequestsException
-    | UnexpectedLambdaException
-    | UserLambdaValidationException
-    | UserNotConfirmedException
-    | UserNotFoundException
-    | CommonAwsError
+    AliasExistsException | CodeMismatchException | ExpiredCodeException | InternalErrorException | InvalidEmailRoleAccessPolicyException | InvalidLambdaResponseException | InvalidParameterException | InvalidPasswordException | InvalidSmsRoleAccessPolicyException | InvalidSmsRoleTrustRelationshipException | InvalidUserPoolConfigurationException | MFAMethodNotFoundException | NotAuthorizedException | PasswordHistoryPolicyViolationException | PasswordResetRequiredException | ResourceNotFoundException | SoftwareTokenMFANotFoundException | TooManyRequestsException | UnexpectedLambdaException | UserLambdaValidationException | UserNotConfirmedException | UserNotFoundException | CommonAwsError
   >;
   adminSetUserMFAPreference(
     input: AdminSetUserMFAPreferenceRequest,
   ): Effect.Effect<
     AdminSetUserMFAPreferenceResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | PasswordResetRequiredException
-    | ResourceNotFoundException
-    | UserNotConfirmedException
-    | UserNotFoundException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | PasswordResetRequiredException | ResourceNotFoundException | UserNotConfirmedException | UserNotFoundException | CommonAwsError
   >;
   adminSetUserPassword(
     input: AdminSetUserPasswordRequest,
   ): Effect.Effect<
     AdminSetUserPasswordResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | InvalidPasswordException
-    | NotAuthorizedException
-    | PasswordHistoryPolicyViolationException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UserNotFoundException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | InvalidPasswordException | NotAuthorizedException | PasswordHistoryPolicyViolationException | ResourceNotFoundException | TooManyRequestsException | UserNotFoundException | CommonAwsError
   >;
   adminSetUserSettings(
     input: AdminSetUserSettingsRequest,
   ): Effect.Effect<
     AdminSetUserSettingsResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | UserNotFoundException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | UserNotFoundException | CommonAwsError
   >;
   adminUpdateAuthEventFeedback(
     input: AdminUpdateAuthEventFeedbackRequest,
   ): Effect.Effect<
     AdminUpdateAuthEventFeedbackResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UserNotFoundException
-    | UserPoolAddOnNotEnabledException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | UserNotFoundException | UserPoolAddOnNotEnabledException | CommonAwsError
   >;
   adminUpdateDeviceStatus(
     input: AdminUpdateDeviceStatusRequest,
   ): Effect.Effect<
     AdminUpdateDeviceStatusResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | InvalidUserPoolConfigurationException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UserNotFoundException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | InvalidUserPoolConfigurationException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | UserNotFoundException | CommonAwsError
   >;
   adminUpdateUserAttributes(
     input: AdminUpdateUserAttributesRequest,
   ): Effect.Effect<
     AdminUpdateUserAttributesResponse,
-    | AliasExistsException
-    | InternalErrorException
-    | InvalidEmailRoleAccessPolicyException
-    | InvalidLambdaResponseException
-    | InvalidParameterException
-    | InvalidSmsRoleAccessPolicyException
-    | InvalidSmsRoleTrustRelationshipException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UnexpectedLambdaException
-    | UserLambdaValidationException
-    | UserNotFoundException
-    | CommonAwsError
+    AliasExistsException | InternalErrorException | InvalidEmailRoleAccessPolicyException | InvalidLambdaResponseException | InvalidParameterException | InvalidSmsRoleAccessPolicyException | InvalidSmsRoleTrustRelationshipException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | UnexpectedLambdaException | UserLambdaValidationException | UserNotFoundException | CommonAwsError
   >;
   adminUserGlobalSignOut(
     input: AdminUserGlobalSignOutRequest,
   ): Effect.Effect<
     AdminUserGlobalSignOutResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UserNotFoundException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | UserNotFoundException | CommonAwsError
   >;
   associateSoftwareToken(
     input: AssociateSoftwareTokenRequest,
   ): Effect.Effect<
     AssociateSoftwareTokenResponse,
-    | ConcurrentModificationException
-    | ForbiddenException
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | SoftwareTokenMFANotFoundException
-    | CommonAwsError
+    ConcurrentModificationException | ForbiddenException | InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | SoftwareTokenMFANotFoundException | CommonAwsError
   >;
   changePassword(
     input: ChangePasswordRequest,
   ): Effect.Effect<
     ChangePasswordResponse,
-    | ForbiddenException
-    | InternalErrorException
-    | InvalidParameterException
-    | InvalidPasswordException
-    | LimitExceededException
-    | NotAuthorizedException
-    | PasswordHistoryPolicyViolationException
-    | PasswordResetRequiredException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UserNotConfirmedException
-    | UserNotFoundException
-    | CommonAwsError
+    ForbiddenException | InternalErrorException | InvalidParameterException | InvalidPasswordException | LimitExceededException | NotAuthorizedException | PasswordHistoryPolicyViolationException | PasswordResetRequiredException | ResourceNotFoundException | TooManyRequestsException | UserNotConfirmedException | UserNotFoundException | CommonAwsError
   >;
   completeWebAuthnRegistration(
     input: CompleteWebAuthnRegistrationRequest,
   ): Effect.Effect<
     CompleteWebAuthnRegistrationResponse,
-    | ForbiddenException
-    | InternalErrorException
-    | InvalidParameterException
-    | LimitExceededException
-    | NotAuthorizedException
-    | TooManyRequestsException
-    | WebAuthnChallengeNotFoundException
-    | WebAuthnClientMismatchException
-    | WebAuthnCredentialNotSupportedException
-    | WebAuthnNotEnabledException
-    | WebAuthnOriginNotAllowedException
-    | WebAuthnRelyingPartyMismatchException
-    | CommonAwsError
+    ForbiddenException | InternalErrorException | InvalidParameterException | LimitExceededException | NotAuthorizedException | TooManyRequestsException | WebAuthnChallengeNotFoundException | WebAuthnClientMismatchException | WebAuthnCredentialNotSupportedException | WebAuthnNotEnabledException | WebAuthnOriginNotAllowedException | WebAuthnRelyingPartyMismatchException | CommonAwsError
   >;
   confirmDevice(
     input: ConfirmDeviceRequest,
   ): Effect.Effect<
     ConfirmDeviceResponse,
-    | DeviceKeyExistsException
-    | ForbiddenException
-    | InternalErrorException
-    | InvalidLambdaResponseException
-    | InvalidParameterException
-    | InvalidPasswordException
-    | InvalidUserPoolConfigurationException
-    | NotAuthorizedException
-    | PasswordResetRequiredException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UsernameExistsException
-    | UserNotConfirmedException
-    | UserNotFoundException
-    | CommonAwsError
+    DeviceKeyExistsException | ForbiddenException | InternalErrorException | InvalidLambdaResponseException | InvalidParameterException | InvalidPasswordException | InvalidUserPoolConfigurationException | NotAuthorizedException | PasswordResetRequiredException | ResourceNotFoundException | TooManyRequestsException | UsernameExistsException | UserNotConfirmedException | UserNotFoundException | CommonAwsError
   >;
   confirmForgotPassword(
     input: ConfirmForgotPasswordRequest,
   ): Effect.Effect<
     ConfirmForgotPasswordResponse,
-    | CodeMismatchException
-    | ExpiredCodeException
-    | ForbiddenException
-    | InternalErrorException
-    | InvalidLambdaResponseException
-    | InvalidParameterException
-    | InvalidPasswordException
-    | LimitExceededException
-    | NotAuthorizedException
-    | PasswordHistoryPolicyViolationException
-    | ResourceNotFoundException
-    | TooManyFailedAttemptsException
-    | TooManyRequestsException
-    | UnexpectedLambdaException
-    | UserLambdaValidationException
-    | UserNotConfirmedException
-    | UserNotFoundException
-    | CommonAwsError
+    CodeMismatchException | ExpiredCodeException | ForbiddenException | InternalErrorException | InvalidLambdaResponseException | InvalidParameterException | InvalidPasswordException | LimitExceededException | NotAuthorizedException | PasswordHistoryPolicyViolationException | ResourceNotFoundException | TooManyFailedAttemptsException | TooManyRequestsException | UnexpectedLambdaException | UserLambdaValidationException | UserNotConfirmedException | UserNotFoundException | CommonAwsError
   >;
   confirmSignUp(
     input: ConfirmSignUpRequest,
   ): Effect.Effect<
     ConfirmSignUpResponse,
-    | AliasExistsException
-    | CodeMismatchException
-    | ExpiredCodeException
-    | ForbiddenException
-    | InternalErrorException
-    | InvalidLambdaResponseException
-    | InvalidParameterException
-    | LimitExceededException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyFailedAttemptsException
-    | TooManyRequestsException
-    | UnexpectedLambdaException
-    | UserLambdaValidationException
-    | UserNotFoundException
-    | CommonAwsError
+    AliasExistsException | CodeMismatchException | ExpiredCodeException | ForbiddenException | InternalErrorException | InvalidLambdaResponseException | InvalidParameterException | LimitExceededException | NotAuthorizedException | ResourceNotFoundException | TooManyFailedAttemptsException | TooManyRequestsException | UnexpectedLambdaException | UserLambdaValidationException | UserNotFoundException | CommonAwsError
   >;
   createGroup(
     input: CreateGroupRequest,
   ): Effect.Effect<
     CreateGroupResponse,
-    | GroupExistsException
-    | InternalErrorException
-    | InvalidParameterException
-    | LimitExceededException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    GroupExistsException | InternalErrorException | InvalidParameterException | LimitExceededException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   >;
   createIdentityProvider(
     input: CreateIdentityProviderRequest,
   ): Effect.Effect<
     CreateIdentityProviderResponse,
-    | DuplicateProviderException
-    | InternalErrorException
-    | InvalidParameterException
-    | LimitExceededException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    DuplicateProviderException | InternalErrorException | InvalidParameterException | LimitExceededException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   >;
   createManagedLoginBranding(
     input: CreateManagedLoginBrandingRequest,
   ): Effect.Effect<
     CreateManagedLoginBrandingResponse,
-    | ConcurrentModificationException
-    | InternalErrorException
-    | InvalidParameterException
-    | LimitExceededException
-    | ManagedLoginBrandingExistsException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    ConcurrentModificationException | InternalErrorException | InvalidParameterException | LimitExceededException | ManagedLoginBrandingExistsException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   >;
   createResourceServer(
     input: CreateResourceServerRequest,
   ): Effect.Effect<
     CreateResourceServerResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | LimitExceededException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | LimitExceededException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   >;
   createUserImportJob(
     input: CreateUserImportJobRequest,
   ): Effect.Effect<
     CreateUserImportJobResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | LimitExceededException
-    | NotAuthorizedException
-    | PreconditionNotMetException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | LimitExceededException | NotAuthorizedException | PreconditionNotMetException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   >;
   createUserPool(
     input: CreateUserPoolRequest,
   ): Effect.Effect<
     CreateUserPoolResponse,
-    | FeatureUnavailableInTierException
-    | InternalErrorException
-    | InvalidEmailRoleAccessPolicyException
-    | InvalidParameterException
-    | InvalidSmsRoleAccessPolicyException
-    | InvalidSmsRoleTrustRelationshipException
-    | LimitExceededException
-    | NotAuthorizedException
-    | TierChangeNotAllowedException
-    | TooManyRequestsException
-    | UserPoolTaggingException
-    | CommonAwsError
+    FeatureUnavailableInTierException | InternalErrorException | InvalidEmailRoleAccessPolicyException | InvalidParameterException | InvalidSmsRoleAccessPolicyException | InvalidSmsRoleTrustRelationshipException | LimitExceededException | NotAuthorizedException | TierChangeNotAllowedException | TooManyRequestsException | UserPoolTaggingException | CommonAwsError
   >;
   createUserPoolClient(
     input: CreateUserPoolClientRequest,
   ): Effect.Effect<
     CreateUserPoolClientResponse,
-    | FeatureUnavailableInTierException
-    | InternalErrorException
-    | InvalidOAuthFlowException
-    | InvalidParameterException
-    | LimitExceededException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | ScopeDoesNotExistException
-    | TooManyRequestsException
-    | CommonAwsError
+    FeatureUnavailableInTierException | InternalErrorException | InvalidOAuthFlowException | InvalidParameterException | LimitExceededException | NotAuthorizedException | ResourceNotFoundException | ScopeDoesNotExistException | TooManyRequestsException | CommonAwsError
   >;
   createUserPoolDomain(
     input: CreateUserPoolDomainRequest,
   ): Effect.Effect<
     CreateUserPoolDomainResponse,
-    | ConcurrentModificationException
-    | FeatureUnavailableInTierException
-    | InternalErrorException
-    | InvalidParameterException
-    | LimitExceededException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | CommonAwsError
+    ConcurrentModificationException | FeatureUnavailableInTierException | InternalErrorException | InvalidParameterException | LimitExceededException | NotAuthorizedException | ResourceNotFoundException | CommonAwsError
   >;
   deleteGroup(
     input: DeleteGroupRequest,
   ): Effect.Effect<
     {},
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   >;
   deleteIdentityProvider(
     input: DeleteIdentityProviderRequest,
   ): Effect.Effect<
     {},
-    | ConcurrentModificationException
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UnsupportedIdentityProviderException
-    | CommonAwsError
+    ConcurrentModificationException | InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | UnsupportedIdentityProviderException | CommonAwsError
   >;
   deleteManagedLoginBranding(
     input: DeleteManagedLoginBrandingRequest,
   ): Effect.Effect<
     {},
-    | ConcurrentModificationException
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    ConcurrentModificationException | InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   >;
   deleteResourceServer(
     input: DeleteResourceServerRequest,
   ): Effect.Effect<
     {},
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   >;
   deleteUser(
     input: DeleteUserRequest,
   ): Effect.Effect<
     {},
-    | ForbiddenException
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | PasswordResetRequiredException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UserNotConfirmedException
-    | UserNotFoundException
-    | CommonAwsError
+    ForbiddenException | InternalErrorException | InvalidParameterException | NotAuthorizedException | PasswordResetRequiredException | ResourceNotFoundException | TooManyRequestsException | UserNotConfirmedException | UserNotFoundException | CommonAwsError
   >;
   deleteUserAttributes(
     input: DeleteUserAttributesRequest,
   ): Effect.Effect<
     DeleteUserAttributesResponse,
-    | ForbiddenException
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | PasswordResetRequiredException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UserNotConfirmedException
-    | UserNotFoundException
-    | CommonAwsError
+    ForbiddenException | InternalErrorException | InvalidParameterException | NotAuthorizedException | PasswordResetRequiredException | ResourceNotFoundException | TooManyRequestsException | UserNotConfirmedException | UserNotFoundException | CommonAwsError
   >;
   deleteUserPool(
     input: DeleteUserPoolRequest,
   ): Effect.Effect<
     {},
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UserImportInProgressException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | UserImportInProgressException | CommonAwsError
   >;
   deleteUserPoolClient(
     input: DeleteUserPoolClientRequest,
   ): Effect.Effect<
     {},
-    | ConcurrentModificationException
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    ConcurrentModificationException | InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   >;
   deleteUserPoolDomain(
     input: DeleteUserPoolDomainRequest,
   ): Effect.Effect<
     DeleteUserPoolDomainResponse,
-    | ConcurrentModificationException
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | CommonAwsError
+    ConcurrentModificationException | InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | CommonAwsError
   >;
   deleteWebAuthnCredential(
     input: DeleteWebAuthnCredentialRequest,
   ): Effect.Effect<
     DeleteWebAuthnCredentialResponse,
-    | ForbiddenException
-    | InternalErrorException
-    | InvalidParameterException
-    | LimitExceededException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    ForbiddenException | InternalErrorException | InvalidParameterException | LimitExceededException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   >;
   describeIdentityProvider(
     input: DescribeIdentityProviderRequest,
   ): Effect.Effect<
     DescribeIdentityProviderResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   >;
   describeManagedLoginBranding(
     input: DescribeManagedLoginBrandingRequest,
   ): Effect.Effect<
     DescribeManagedLoginBrandingResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   >;
   describeManagedLoginBrandingByClient(
     input: DescribeManagedLoginBrandingByClientRequest,
   ): Effect.Effect<
     DescribeManagedLoginBrandingByClientResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   >;
   describeResourceServer(
     input: DescribeResourceServerRequest,
   ): Effect.Effect<
     DescribeResourceServerResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   >;
   describeRiskConfiguration(
     input: DescribeRiskConfigurationRequest,
   ): Effect.Effect<
     DescribeRiskConfigurationResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UserPoolAddOnNotEnabledException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | UserPoolAddOnNotEnabledException | CommonAwsError
   >;
   describeUserImportJob(
     input: DescribeUserImportJobRequest,
   ): Effect.Effect<
     DescribeUserImportJobResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   >;
   describeUserPool(
     input: DescribeUserPoolRequest,
   ): Effect.Effect<
     DescribeUserPoolResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UserPoolTaggingException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | UserPoolTaggingException | CommonAwsError
   >;
   describeUserPoolClient(
     input: DescribeUserPoolClientRequest,
   ): Effect.Effect<
     DescribeUserPoolClientResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   >;
   describeUserPoolDomain(
     input: DescribeUserPoolDomainRequest,
   ): Effect.Effect<
     DescribeUserPoolDomainResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | CommonAwsError
   >;
   forgetDevice(
     input: ForgetDeviceRequest,
   ): Effect.Effect<
     {},
-    | ForbiddenException
-    | InternalErrorException
-    | InvalidParameterException
-    | InvalidUserPoolConfigurationException
-    | NotAuthorizedException
-    | PasswordResetRequiredException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UserNotConfirmedException
-    | UserNotFoundException
-    | CommonAwsError
+    ForbiddenException | InternalErrorException | InvalidParameterException | InvalidUserPoolConfigurationException | NotAuthorizedException | PasswordResetRequiredException | ResourceNotFoundException | TooManyRequestsException | UserNotConfirmedException | UserNotFoundException | CommonAwsError
   >;
   forgotPassword(
     input: ForgotPasswordRequest,
   ): Effect.Effect<
     ForgotPasswordResponse,
-    | CodeDeliveryFailureException
-    | ForbiddenException
-    | InternalErrorException
-    | InvalidEmailRoleAccessPolicyException
-    | InvalidLambdaResponseException
-    | InvalidParameterException
-    | InvalidSmsRoleAccessPolicyException
-    | InvalidSmsRoleTrustRelationshipException
-    | LimitExceededException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UnexpectedLambdaException
-    | UserLambdaValidationException
-    | UserNotFoundException
-    | CommonAwsError
+    CodeDeliveryFailureException | ForbiddenException | InternalErrorException | InvalidEmailRoleAccessPolicyException | InvalidLambdaResponseException | InvalidParameterException | InvalidSmsRoleAccessPolicyException | InvalidSmsRoleTrustRelationshipException | LimitExceededException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | UnexpectedLambdaException | UserLambdaValidationException | UserNotFoundException | CommonAwsError
   >;
   getCSVHeader(
     input: GetCSVHeaderRequest,
   ): Effect.Effect<
     GetCSVHeaderResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   >;
   getDevice(
     input: GetDeviceRequest,
   ): Effect.Effect<
     GetDeviceResponse,
-    | ForbiddenException
-    | InternalErrorException
-    | InvalidParameterException
-    | InvalidUserPoolConfigurationException
-    | NotAuthorizedException
-    | PasswordResetRequiredException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UserNotConfirmedException
-    | UserNotFoundException
-    | CommonAwsError
+    ForbiddenException | InternalErrorException | InvalidParameterException | InvalidUserPoolConfigurationException | NotAuthorizedException | PasswordResetRequiredException | ResourceNotFoundException | TooManyRequestsException | UserNotConfirmedException | UserNotFoundException | CommonAwsError
   >;
   getGroup(
     input: GetGroupRequest,
   ): Effect.Effect<
     GetGroupResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   >;
   getIdentityProviderByIdentifier(
     input: GetIdentityProviderByIdentifierRequest,
   ): Effect.Effect<
     GetIdentityProviderByIdentifierResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   >;
   getLogDeliveryConfiguration(
     input: GetLogDeliveryConfigurationRequest,
   ): Effect.Effect<
     GetLogDeliveryConfigurationResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   >;
   getSigningCertificate(
     input: GetSigningCertificateRequest,
   ): Effect.Effect<
     GetSigningCertificateResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | ResourceNotFoundException | CommonAwsError
   >;
   getTokensFromRefreshToken(
     input: GetTokensFromRefreshTokenRequest,
   ): Effect.Effect<
     GetTokensFromRefreshTokenResponse,
-    | ForbiddenException
-    | InternalErrorException
-    | InvalidLambdaResponseException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | RefreshTokenReuseException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UnexpectedLambdaException
-    | UserLambdaValidationException
-    | UserNotFoundException
-    | CommonAwsError
+    ForbiddenException | InternalErrorException | InvalidLambdaResponseException | InvalidParameterException | NotAuthorizedException | RefreshTokenReuseException | ResourceNotFoundException | TooManyRequestsException | UnexpectedLambdaException | UserLambdaValidationException | UserNotFoundException | CommonAwsError
   >;
   getUICustomization(
     input: GetUICustomizationRequest,
   ): Effect.Effect<
     GetUICustomizationResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   >;
   getUser(
     input: GetUserRequest,
   ): Effect.Effect<
     GetUserResponse,
-    | ForbiddenException
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | PasswordResetRequiredException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UserNotConfirmedException
-    | UserNotFoundException
-    | CommonAwsError
+    ForbiddenException | InternalErrorException | InvalidParameterException | NotAuthorizedException | PasswordResetRequiredException | ResourceNotFoundException | TooManyRequestsException | UserNotConfirmedException | UserNotFoundException | CommonAwsError
   >;
   getUserAttributeVerificationCode(
     input: GetUserAttributeVerificationCodeRequest,
   ): Effect.Effect<
     GetUserAttributeVerificationCodeResponse,
-    | CodeDeliveryFailureException
-    | ForbiddenException
-    | InternalErrorException
-    | InvalidEmailRoleAccessPolicyException
-    | InvalidLambdaResponseException
-    | InvalidParameterException
-    | InvalidSmsRoleAccessPolicyException
-    | InvalidSmsRoleTrustRelationshipException
-    | LimitExceededException
-    | NotAuthorizedException
-    | PasswordResetRequiredException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UnexpectedLambdaException
-    | UserLambdaValidationException
-    | UserNotConfirmedException
-    | UserNotFoundException
-    | CommonAwsError
+    CodeDeliveryFailureException | ForbiddenException | InternalErrorException | InvalidEmailRoleAccessPolicyException | InvalidLambdaResponseException | InvalidParameterException | InvalidSmsRoleAccessPolicyException | InvalidSmsRoleTrustRelationshipException | LimitExceededException | NotAuthorizedException | PasswordResetRequiredException | ResourceNotFoundException | TooManyRequestsException | UnexpectedLambdaException | UserLambdaValidationException | UserNotConfirmedException | UserNotFoundException | CommonAwsError
   >;
   getUserAuthFactors(
     input: GetUserAuthFactorsRequest,
   ): Effect.Effect<
     GetUserAuthFactorsResponse,
-    | ForbiddenException
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | PasswordResetRequiredException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UserNotConfirmedException
-    | UserNotFoundException
-    | CommonAwsError
+    ForbiddenException | InternalErrorException | InvalidParameterException | NotAuthorizedException | PasswordResetRequiredException | ResourceNotFoundException | TooManyRequestsException | UserNotConfirmedException | UserNotFoundException | CommonAwsError
   >;
   getUserPoolMfaConfig(
     input: GetUserPoolMfaConfigRequest,
   ): Effect.Effect<
     GetUserPoolMfaConfigResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   >;
   globalSignOut(
     input: GlobalSignOutRequest,
   ): Effect.Effect<
     GlobalSignOutResponse,
-    | ForbiddenException
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | PasswordResetRequiredException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UserNotConfirmedException
-    | CommonAwsError
+    ForbiddenException | InternalErrorException | InvalidParameterException | NotAuthorizedException | PasswordResetRequiredException | ResourceNotFoundException | TooManyRequestsException | UserNotConfirmedException | CommonAwsError
   >;
   initiateAuth(
     input: InitiateAuthRequest,
   ): Effect.Effect<
     InitiateAuthResponse,
-    | ForbiddenException
-    | InternalErrorException
-    | InvalidEmailRoleAccessPolicyException
-    | InvalidLambdaResponseException
-    | InvalidParameterException
-    | InvalidSmsRoleAccessPolicyException
-    | InvalidSmsRoleTrustRelationshipException
-    | InvalidUserPoolConfigurationException
-    | NotAuthorizedException
-    | PasswordResetRequiredException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UnexpectedLambdaException
-    | UnsupportedOperationException
-    | UserLambdaValidationException
-    | UserNotConfirmedException
-    | UserNotFoundException
-    | CommonAwsError
+    ForbiddenException | InternalErrorException | InvalidEmailRoleAccessPolicyException | InvalidLambdaResponseException | InvalidParameterException | InvalidSmsRoleAccessPolicyException | InvalidSmsRoleTrustRelationshipException | InvalidUserPoolConfigurationException | NotAuthorizedException | PasswordResetRequiredException | ResourceNotFoundException | TooManyRequestsException | UnexpectedLambdaException | UnsupportedOperationException | UserLambdaValidationException | UserNotConfirmedException | UserNotFoundException | CommonAwsError
   >;
   listDevices(
     input: ListDevicesRequest,
   ): Effect.Effect<
     ListDevicesResponse,
-    | ForbiddenException
-    | InternalErrorException
-    | InvalidParameterException
-    | InvalidUserPoolConfigurationException
-    | NotAuthorizedException
-    | PasswordResetRequiredException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UserNotConfirmedException
-    | UserNotFoundException
-    | CommonAwsError
+    ForbiddenException | InternalErrorException | InvalidParameterException | InvalidUserPoolConfigurationException | NotAuthorizedException | PasswordResetRequiredException | ResourceNotFoundException | TooManyRequestsException | UserNotConfirmedException | UserNotFoundException | CommonAwsError
   >;
   listGroups(
     input: ListGroupsRequest,
   ): Effect.Effect<
     ListGroupsResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   >;
   listIdentityProviders(
     input: ListIdentityProvidersRequest,
   ): Effect.Effect<
     ListIdentityProvidersResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   >;
   listResourceServers(
     input: ListResourceServersRequest,
   ): Effect.Effect<
     ListResourceServersResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   >;
   listUserImportJobs(
     input: ListUserImportJobsRequest,
   ): Effect.Effect<
     ListUserImportJobsResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   >;
   listUserPoolClients(
     input: ListUserPoolClientsRequest,
   ): Effect.Effect<
     ListUserPoolClientsResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   >;
   listUserPools(
     input: ListUserPoolsRequest,
   ): Effect.Effect<
     ListUserPoolsResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | TooManyRequestsException | CommonAwsError
   >;
   listUsers(
     input: ListUsersRequest,
   ): Effect.Effect<
     ListUsersResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   >;
   listUsersInGroup(
     input: ListUsersInGroupRequest,
   ): Effect.Effect<
     ListUsersInGroupResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   >;
   listWebAuthnCredentials(
     input: ListWebAuthnCredentialsRequest,
   ): Effect.Effect<
     ListWebAuthnCredentialsResponse,
-    | ForbiddenException
-    | InternalErrorException
-    | InvalidParameterException
-    | LimitExceededException
-    | NotAuthorizedException
-    | TooManyRequestsException
-    | CommonAwsError
+    ForbiddenException | InternalErrorException | InvalidParameterException | LimitExceededException | NotAuthorizedException | TooManyRequestsException | CommonAwsError
   >;
   resendConfirmationCode(
     input: ResendConfirmationCodeRequest,
   ): Effect.Effect<
     ResendConfirmationCodeResponse,
-    | CodeDeliveryFailureException
-    | ForbiddenException
-    | InternalErrorException
-    | InvalidEmailRoleAccessPolicyException
-    | InvalidLambdaResponseException
-    | InvalidParameterException
-    | InvalidSmsRoleAccessPolicyException
-    | InvalidSmsRoleTrustRelationshipException
-    | LimitExceededException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UnexpectedLambdaException
-    | UserLambdaValidationException
-    | UserNotFoundException
-    | CommonAwsError
+    CodeDeliveryFailureException | ForbiddenException | InternalErrorException | InvalidEmailRoleAccessPolicyException | InvalidLambdaResponseException | InvalidParameterException | InvalidSmsRoleAccessPolicyException | InvalidSmsRoleTrustRelationshipException | LimitExceededException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | UnexpectedLambdaException | UserLambdaValidationException | UserNotFoundException | CommonAwsError
   >;
   respondToAuthChallenge(
     input: RespondToAuthChallengeRequest,
   ): Effect.Effect<
     RespondToAuthChallengeResponse,
-    | AliasExistsException
-    | CodeMismatchException
-    | ExpiredCodeException
-    | ForbiddenException
-    | InternalErrorException
-    | InvalidEmailRoleAccessPolicyException
-    | InvalidLambdaResponseException
-    | InvalidParameterException
-    | InvalidPasswordException
-    | InvalidSmsRoleAccessPolicyException
-    | InvalidSmsRoleTrustRelationshipException
-    | InvalidUserPoolConfigurationException
-    | MFAMethodNotFoundException
-    | NotAuthorizedException
-    | PasswordHistoryPolicyViolationException
-    | PasswordResetRequiredException
-    | ResourceNotFoundException
-    | SoftwareTokenMFANotFoundException
-    | TooManyRequestsException
-    | UnexpectedLambdaException
-    | UserLambdaValidationException
-    | UserNotConfirmedException
-    | UserNotFoundException
-    | CommonAwsError
+    AliasExistsException | CodeMismatchException | ExpiredCodeException | ForbiddenException | InternalErrorException | InvalidEmailRoleAccessPolicyException | InvalidLambdaResponseException | InvalidParameterException | InvalidPasswordException | InvalidSmsRoleAccessPolicyException | InvalidSmsRoleTrustRelationshipException | InvalidUserPoolConfigurationException | MFAMethodNotFoundException | NotAuthorizedException | PasswordHistoryPolicyViolationException | PasswordResetRequiredException | ResourceNotFoundException | SoftwareTokenMFANotFoundException | TooManyRequestsException | UnexpectedLambdaException | UserLambdaValidationException | UserNotConfirmedException | UserNotFoundException | CommonAwsError
   >;
   revokeToken(
     input: RevokeTokenRequest,
   ): Effect.Effect<
     RevokeTokenResponse,
-    | ForbiddenException
-    | InternalErrorException
-    | InvalidParameterException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | UnsupportedOperationException
-    | UnsupportedTokenTypeException
-    | CommonAwsError
+    ForbiddenException | InternalErrorException | InvalidParameterException | TooManyRequestsException | UnauthorizedException | UnsupportedOperationException | UnsupportedTokenTypeException | CommonAwsError
   >;
   setLogDeliveryConfiguration(
     input: SetLogDeliveryConfigurationRequest,
   ): Effect.Effect<
     SetLogDeliveryConfigurationResponse,
-    | FeatureUnavailableInTierException
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    FeatureUnavailableInTierException | InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   >;
   setRiskConfiguration(
     input: SetRiskConfigurationRequest,
   ): Effect.Effect<
     SetRiskConfigurationResponse,
-    | CodeDeliveryFailureException
-    | InternalErrorException
-    | InvalidEmailRoleAccessPolicyException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UserPoolAddOnNotEnabledException
-    | CommonAwsError
+    CodeDeliveryFailureException | InternalErrorException | InvalidEmailRoleAccessPolicyException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | UserPoolAddOnNotEnabledException | CommonAwsError
   >;
   setUICustomization(
     input: SetUICustomizationRequest,
   ): Effect.Effect<
     SetUICustomizationResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   >;
   setUserMFAPreference(
     input: SetUserMFAPreferenceRequest,
   ): Effect.Effect<
     SetUserMFAPreferenceResponse,
-    | ForbiddenException
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | PasswordResetRequiredException
-    | ResourceNotFoundException
-    | UserNotConfirmedException
-    | UserNotFoundException
-    | CommonAwsError
+    ForbiddenException | InternalErrorException | InvalidParameterException | NotAuthorizedException | PasswordResetRequiredException | ResourceNotFoundException | UserNotConfirmedException | UserNotFoundException | CommonAwsError
   >;
   setUserPoolMfaConfig(
     input: SetUserPoolMfaConfigRequest,
   ): Effect.Effect<
     SetUserPoolMfaConfigResponse,
-    | ConcurrentModificationException
-    | FeatureUnavailableInTierException
-    | InternalErrorException
-    | InvalidParameterException
-    | InvalidSmsRoleAccessPolicyException
-    | InvalidSmsRoleTrustRelationshipException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    ConcurrentModificationException | FeatureUnavailableInTierException | InternalErrorException | InvalidParameterException | InvalidSmsRoleAccessPolicyException | InvalidSmsRoleTrustRelationshipException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   >;
   setUserSettings(
     input: SetUserSettingsRequest,
   ): Effect.Effect<
     SetUserSettingsResponse,
-    | ForbiddenException
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | PasswordResetRequiredException
-    | ResourceNotFoundException
-    | UserNotConfirmedException
-    | UserNotFoundException
-    | CommonAwsError
+    ForbiddenException | InternalErrorException | InvalidParameterException | NotAuthorizedException | PasswordResetRequiredException | ResourceNotFoundException | UserNotConfirmedException | UserNotFoundException | CommonAwsError
   >;
   signUp(
     input: SignUpRequest,
   ): Effect.Effect<
     SignUpResponse,
-    | CodeDeliveryFailureException
-    | ForbiddenException
-    | InternalErrorException
-    | InvalidEmailRoleAccessPolicyException
-    | InvalidLambdaResponseException
-    | InvalidParameterException
-    | InvalidPasswordException
-    | InvalidSmsRoleAccessPolicyException
-    | InvalidSmsRoleTrustRelationshipException
-    | LimitExceededException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UnexpectedLambdaException
-    | UserLambdaValidationException
-    | UsernameExistsException
-    | CommonAwsError
+    CodeDeliveryFailureException | ForbiddenException | InternalErrorException | InvalidEmailRoleAccessPolicyException | InvalidLambdaResponseException | InvalidParameterException | InvalidPasswordException | InvalidSmsRoleAccessPolicyException | InvalidSmsRoleTrustRelationshipException | LimitExceededException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | UnexpectedLambdaException | UserLambdaValidationException | UsernameExistsException | CommonAwsError
   >;
   startUserImportJob(
     input: StartUserImportJobRequest,
   ): Effect.Effect<
     StartUserImportJobResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | PreconditionNotMetException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | PreconditionNotMetException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   >;
   startWebAuthnRegistration(
     input: StartWebAuthnRegistrationRequest,
   ): Effect.Effect<
     StartWebAuthnRegistrationResponse,
-    | ForbiddenException
-    | InternalErrorException
-    | InvalidParameterException
-    | LimitExceededException
-    | NotAuthorizedException
-    | TooManyRequestsException
-    | WebAuthnConfigurationMissingException
-    | WebAuthnNotEnabledException
-    | CommonAwsError
+    ForbiddenException | InternalErrorException | InvalidParameterException | LimitExceededException | NotAuthorizedException | TooManyRequestsException | WebAuthnConfigurationMissingException | WebAuthnNotEnabledException | CommonAwsError
   >;
   stopUserImportJob(
     input: StopUserImportJobRequest,
   ): Effect.Effect<
     StopUserImportJobResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | PreconditionNotMetException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | PreconditionNotMetException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   >;
   updateAuthEventFeedback(
     input: UpdateAuthEventFeedbackRequest,
   ): Effect.Effect<
     UpdateAuthEventFeedbackResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UserNotFoundException
-    | UserPoolAddOnNotEnabledException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | UserNotFoundException | UserPoolAddOnNotEnabledException | CommonAwsError
   >;
   updateDeviceStatus(
     input: UpdateDeviceStatusRequest,
   ): Effect.Effect<
     UpdateDeviceStatusResponse,
-    | ForbiddenException
-    | InternalErrorException
-    | InvalidParameterException
-    | InvalidUserPoolConfigurationException
-    | NotAuthorizedException
-    | PasswordResetRequiredException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UserNotConfirmedException
-    | UserNotFoundException
-    | CommonAwsError
+    ForbiddenException | InternalErrorException | InvalidParameterException | InvalidUserPoolConfigurationException | NotAuthorizedException | PasswordResetRequiredException | ResourceNotFoundException | TooManyRequestsException | UserNotConfirmedException | UserNotFoundException | CommonAwsError
   >;
   updateGroup(
     input: UpdateGroupRequest,
   ): Effect.Effect<
     UpdateGroupResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   >;
   updateIdentityProvider(
     input: UpdateIdentityProviderRequest,
   ): Effect.Effect<
     UpdateIdentityProviderResponse,
-    | ConcurrentModificationException
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UnsupportedIdentityProviderException
-    | CommonAwsError
+    ConcurrentModificationException | InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | UnsupportedIdentityProviderException | CommonAwsError
   >;
   updateManagedLoginBranding(
     input: UpdateManagedLoginBrandingRequest,
   ): Effect.Effect<
     UpdateManagedLoginBrandingResponse,
-    | ConcurrentModificationException
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    ConcurrentModificationException | InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   >;
   updateResourceServer(
     input: UpdateResourceServerRequest,
   ): Effect.Effect<
     UpdateResourceServerResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   >;
   updateUserAttributes(
     input: UpdateUserAttributesRequest,
   ): Effect.Effect<
     UpdateUserAttributesResponse,
-    | AliasExistsException
-    | CodeDeliveryFailureException
-    | CodeMismatchException
-    | ExpiredCodeException
-    | ForbiddenException
-    | InternalErrorException
-    | InvalidEmailRoleAccessPolicyException
-    | InvalidLambdaResponseException
-    | InvalidParameterException
-    | InvalidSmsRoleAccessPolicyException
-    | InvalidSmsRoleTrustRelationshipException
-    | NotAuthorizedException
-    | PasswordResetRequiredException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UnexpectedLambdaException
-    | UserLambdaValidationException
-    | UserNotConfirmedException
-    | UserNotFoundException
-    | CommonAwsError
+    AliasExistsException | CodeDeliveryFailureException | CodeMismatchException | ExpiredCodeException | ForbiddenException | InternalErrorException | InvalidEmailRoleAccessPolicyException | InvalidLambdaResponseException | InvalidParameterException | InvalidSmsRoleAccessPolicyException | InvalidSmsRoleTrustRelationshipException | NotAuthorizedException | PasswordResetRequiredException | ResourceNotFoundException | TooManyRequestsException | UnexpectedLambdaException | UserLambdaValidationException | UserNotConfirmedException | UserNotFoundException | CommonAwsError
   >;
   updateUserPool(
     input: UpdateUserPoolRequest,
   ): Effect.Effect<
     UpdateUserPoolResponse,
-    | ConcurrentModificationException
-    | FeatureUnavailableInTierException
-    | InternalErrorException
-    | InvalidEmailRoleAccessPolicyException
-    | InvalidParameterException
-    | InvalidSmsRoleAccessPolicyException
-    | InvalidSmsRoleTrustRelationshipException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TierChangeNotAllowedException
-    | TooManyRequestsException
-    | UserImportInProgressException
-    | UserPoolTaggingException
-    | CommonAwsError
+    ConcurrentModificationException | FeatureUnavailableInTierException | InternalErrorException | InvalidEmailRoleAccessPolicyException | InvalidParameterException | InvalidSmsRoleAccessPolicyException | InvalidSmsRoleTrustRelationshipException | NotAuthorizedException | ResourceNotFoundException | TierChangeNotAllowedException | TooManyRequestsException | UserImportInProgressException | UserPoolTaggingException | CommonAwsError
   >;
   updateUserPoolClient(
     input: UpdateUserPoolClientRequest,
   ): Effect.Effect<
     UpdateUserPoolClientResponse,
-    | ConcurrentModificationException
-    | FeatureUnavailableInTierException
-    | InternalErrorException
-    | InvalidOAuthFlowException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | ScopeDoesNotExistException
-    | TooManyRequestsException
-    | CommonAwsError
+    ConcurrentModificationException | FeatureUnavailableInTierException | InternalErrorException | InvalidOAuthFlowException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | ScopeDoesNotExistException | TooManyRequestsException | CommonAwsError
   >;
   updateUserPoolDomain(
     input: UpdateUserPoolDomainRequest,
   ): Effect.Effect<
     UpdateUserPoolDomainResponse,
-    | ConcurrentModificationException
-    | FeatureUnavailableInTierException
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    ConcurrentModificationException | FeatureUnavailableInTierException | InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   >;
   verifySoftwareToken(
     input: VerifySoftwareTokenRequest,
   ): Effect.Effect<
     VerifySoftwareTokenResponse,
-    | CodeMismatchException
-    | EnableSoftwareTokenMFAException
-    | ForbiddenException
-    | InternalErrorException
-    | InvalidParameterException
-    | InvalidUserPoolConfigurationException
-    | NotAuthorizedException
-    | PasswordResetRequiredException
-    | ResourceNotFoundException
-    | SoftwareTokenMFANotFoundException
-    | TooManyRequestsException
-    | UserNotConfirmedException
-    | UserNotFoundException
-    | CommonAwsError
+    CodeMismatchException | EnableSoftwareTokenMFAException | ForbiddenException | InternalErrorException | InvalidParameterException | InvalidUserPoolConfigurationException | NotAuthorizedException | PasswordResetRequiredException | ResourceNotFoundException | SoftwareTokenMFANotFoundException | TooManyRequestsException | UserNotConfirmedException | UserNotFoundException | CommonAwsError
   >;
   verifyUserAttribute(
     input: VerifyUserAttributeRequest,
   ): Effect.Effect<
     VerifyUserAttributeResponse,
-    | AliasExistsException
-    | CodeMismatchException
-    | ExpiredCodeException
-    | ForbiddenException
-    | InternalErrorException
-    | InvalidParameterException
-    | LimitExceededException
-    | NotAuthorizedException
-    | PasswordResetRequiredException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UserNotConfirmedException
-    | UserNotFoundException
-    | CommonAwsError
+    AliasExistsException | CodeMismatchException | ExpiredCodeException | ForbiddenException | InternalErrorException | InvalidParameterException | LimitExceededException | NotAuthorizedException | PasswordResetRequiredException | ResourceNotFoundException | TooManyRequestsException | UserNotConfirmedException | UserNotFoundException | CommonAwsError
   >;
 }
 
@@ -1630,11 +705,7 @@ export interface AccountTakeoverActionType {
   Notify: boolean;
   EventAction: AccountTakeoverEventActionType;
 }
-export type AccountTakeoverEventActionType =
-  | "BLOCK"
-  | "MFA_IF_CONFIGURED"
-  | "MFA_REQUIRED"
-  | "NO_ACTION";
+export type AccountTakeoverEventActionType = "BLOCK" | "MFA_IF_CONFIGURED" | "MFA_REQUIRED" | "NO_ACTION";
 export interface AccountTakeoverRiskConfigurationType {
   NotifyConfiguration?: NotifyConfigurationType;
   Actions: AccountTakeoverActionsType;
@@ -1643,7 +714,8 @@ export interface AddCustomAttributesRequest {
   UserPoolId: string;
   CustomAttributes: Array<SchemaAttributeType>;
 }
-export interface AddCustomAttributesResponse {}
+export interface AddCustomAttributesResponse {
+}
 export interface AdminAddUserToGroupRequest {
   UserPoolId: string;
   Username: string;
@@ -1654,7 +726,8 @@ export interface AdminConfirmSignUpRequest {
   Username: string;
   ClientMetadata?: Record<string, string>;
 }
-export interface AdminConfirmSignUpResponse {}
+export interface AdminConfirmSignUpResponse {
+}
 export interface AdminCreateUserConfigType {
   AllowAdminCreateUserOnly?: boolean;
   UnusedAccountValidityDays?: number;
@@ -1681,7 +754,8 @@ export interface AdminDeleteUserAttributesRequest {
   Username: string;
   UserAttributeNames: Array<string>;
 }
-export interface AdminDeleteUserAttributesResponse {}
+export interface AdminDeleteUserAttributesResponse {
+}
 export interface AdminDeleteUserRequest {
   UserPoolId: string;
   Username: string;
@@ -1690,17 +764,20 @@ export interface AdminDisableProviderForUserRequest {
   UserPoolId: string;
   User: ProviderUserIdentifierType;
 }
-export interface AdminDisableProviderForUserResponse {}
+export interface AdminDisableProviderForUserResponse {
+}
 export interface AdminDisableUserRequest {
   UserPoolId: string;
   Username: string;
 }
-export interface AdminDisableUserResponse {}
+export interface AdminDisableUserResponse {
+}
 export interface AdminEnableUserRequest {
   UserPoolId: string;
   Username: string;
 }
-export interface AdminEnableUserResponse {}
+export interface AdminEnableUserResponse {
+}
 export interface AdminForgetDeviceRequest {
   UserPoolId: string;
   Username: string;
@@ -1751,7 +828,8 @@ export interface AdminLinkProviderForUserRequest {
   DestinationUser: ProviderUserIdentifierType;
   SourceUser: ProviderUserIdentifierType;
 }
-export interface AdminLinkProviderForUserResponse {}
+export interface AdminLinkProviderForUserResponse {
+}
 export interface AdminListDevicesRequest {
   UserPoolId: string;
   Username: string;
@@ -1792,7 +870,8 @@ export interface AdminResetUserPasswordRequest {
   Username: string;
   ClientMetadata?: Record<string, string>;
 }
-export interface AdminResetUserPasswordResponse {}
+export interface AdminResetUserPasswordResponse {
+}
 export interface AdminRespondToAuthChallengeRequest {
   UserPoolId: string;
   ClientId: string;
@@ -1816,56 +895,60 @@ export interface AdminSetUserMFAPreferenceRequest {
   Username: string;
   UserPoolId: string;
 }
-export interface AdminSetUserMFAPreferenceResponse {}
+export interface AdminSetUserMFAPreferenceResponse {
+}
 export interface AdminSetUserPasswordRequest {
   UserPoolId: string;
   Username: string;
   Password: string;
   Permanent?: boolean;
 }
-export interface AdminSetUserPasswordResponse {}
+export interface AdminSetUserPasswordResponse {
+}
 export interface AdminSetUserSettingsRequest {
   UserPoolId: string;
   Username: string;
   MFAOptions: Array<MFAOptionType>;
 }
-export interface AdminSetUserSettingsResponse {}
+export interface AdminSetUserSettingsResponse {
+}
 export interface AdminUpdateAuthEventFeedbackRequest {
   UserPoolId: string;
   Username: string;
   EventId: string;
   FeedbackValue: FeedbackValueType;
 }
-export interface AdminUpdateAuthEventFeedbackResponse {}
+export interface AdminUpdateAuthEventFeedbackResponse {
+}
 export interface AdminUpdateDeviceStatusRequest {
   UserPoolId: string;
   Username: string;
   DeviceKey: string;
   DeviceRememberedStatus?: DeviceRememberedStatusType;
 }
-export interface AdminUpdateDeviceStatusResponse {}
+export interface AdminUpdateDeviceStatusResponse {
+}
 export interface AdminUpdateUserAttributesRequest {
   UserPoolId: string;
   Username: string;
   UserAttributes: Array<AttributeType>;
   ClientMetadata?: Record<string, string>;
 }
-export interface AdminUpdateUserAttributesResponse {}
+export interface AdminUpdateUserAttributesResponse {
+}
 export interface AdminUserGlobalSignOutRequest {
   UserPoolId: string;
   Username: string;
 }
-export interface AdminUserGlobalSignOutResponse {}
+export interface AdminUserGlobalSignOutResponse {
+}
 export interface AdvancedSecurityAdditionalFlowsType {
   CustomAuthMode?: AdvancedSecurityEnabledModeType;
 }
 export type AdvancedSecurityEnabledModeType = "AUDIT" | "ENFORCED";
 export type AdvancedSecurityModeType = "OFF" | "AUDIT" | "ENFORCED";
 export type AliasAttributesListType = Array<AliasAttributeType>;
-export type AliasAttributeType =
-  | "phone_number"
-  | "email"
-  | "preferred_username";
+export type AliasAttributeType = "phone_number" | "email" | "preferred_username";
 export declare class AliasExistsException extends EffectData.TaggedError(
   "AliasExistsException",
 )<{
@@ -1886,22 +969,7 @@ export type ArnType = string;
 
 export type AssetBytesType = Uint8Array | string;
 
-export type AssetCategoryType =
-  | "FAVICON_ICO"
-  | "FAVICON_SVG"
-  | "EMAIL_GRAPHIC"
-  | "SMS_GRAPHIC"
-  | "AUTH_APP_GRAPHIC"
-  | "PASSWORD_GRAPHIC"
-  | "PASSKEY_GRAPHIC"
-  | "PAGE_HEADER_LOGO"
-  | "PAGE_HEADER_BACKGROUND"
-  | "PAGE_FOOTER_LOGO"
-  | "PAGE_FOOTER_BACKGROUND"
-  | "PAGE_BACKGROUND"
-  | "FORM_BACKGROUND"
-  | "FORM_LOGO"
-  | "IDP_BUTTON_ICON";
+export type AssetCategoryType = "FAVICON_ICO" | "FAVICON_SVG" | "EMAIL_GRAPHIC" | "SMS_GRAPHIC" | "AUTH_APP_GRAPHIC" | "PASSWORD_GRAPHIC" | "PASSKEY_GRAPHIC" | "PAGE_HEADER_LOGO" | "PAGE_HEADER_BACKGROUND" | "PAGE_FOOTER_LOGO" | "PAGE_FOOTER_BACKGROUND" | "PAGE_BACKGROUND" | "FORM_BACKGROUND" | "FORM_LOGO" | "IDP_BUTTON_ICON";
 export type AssetExtensionType = "ICO" | "JPEG" | "PNG" | "SVG" | "WEBP";
 export type AssetListType = Array<AssetType>;
 export interface AssetType {
@@ -1927,8 +995,7 @@ export type AttributeMappingType = Record<string, string>;
 export type AttributeNameListType = Array<string>;
 export type AttributeNameType = string;
 
-export type AttributesRequireVerificationBeforeUpdateType =
-  Array<VerifiedAttributeType>;
+export type AttributesRequireVerificationBeforeUpdateType = Array<VerifiedAttributeType>;
 export interface AttributeType {
   Name: string;
   Value?: string;
@@ -1955,15 +1022,7 @@ export interface AuthEventType {
   EventFeedback?: EventFeedbackType;
 }
 export type AuthFactorType = "PASSWORD" | "EMAIL_OTP" | "SMS_OTP" | "WEB_AUTHN";
-export type AuthFlowType =
-  | "USER_SRP_AUTH"
-  | "REFRESH_TOKEN_AUTH"
-  | "REFRESH_TOKEN"
-  | "CUSTOM_AUTH"
-  | "ADMIN_NO_SRP_AUTH"
-  | "USER_PASSWORD_AUTH"
-  | "ADMIN_USER_PASSWORD_AUTH"
-  | "USER_AUTH";
+export type AuthFlowType = "USER_SRP_AUTH" | "REFRESH_TOKEN_AUTH" | "REFRESH_TOKEN" | "CUSTOM_AUTH" | "ADMIN_NO_SRP_AUTH" | "USER_PASSWORD_AUTH" | "ADMIN_USER_PASSWORD_AUTH" | "USER_AUTH";
 export type AuthParametersType = Record<string, string>;
 export type AuthSessionValidityType = number;
 
@@ -1975,23 +1034,7 @@ export type BooleanType = boolean;
 
 export type CallbackURLsListType = Array<string>;
 export type ChallengeName = "Password" | "Mfa";
-export type ChallengeNameType =
-  | "SMS_MFA"
-  | "EMAIL_OTP"
-  | "SOFTWARE_TOKEN_MFA"
-  | "SELECT_MFA_TYPE"
-  | "MFA_SETUP"
-  | "PASSWORD_VERIFIER"
-  | "CUSTOM_CHALLENGE"
-  | "SELECT_CHALLENGE"
-  | "DEVICE_SRP_AUTH"
-  | "DEVICE_PASSWORD_VERIFIER"
-  | "ADMIN_NO_SRP_AUTH"
-  | "NEW_PASSWORD_REQUIRED"
-  | "SMS_OTP"
-  | "PASSWORD"
-  | "WEB_AUTHN"
-  | "PASSWORD_SRP";
+export type ChallengeNameType = "SMS_MFA" | "EMAIL_OTP" | "SOFTWARE_TOKEN_MFA" | "SELECT_MFA_TYPE" | "MFA_SETUP" | "PASSWORD_VERIFIER" | "CUSTOM_CHALLENGE" | "SELECT_CHALLENGE" | "DEVICE_SRP_AUTH" | "DEVICE_PASSWORD_VERIFIER" | "ADMIN_NO_SRP_AUTH" | "NEW_PASSWORD_REQUIRED" | "SMS_OTP" | "PASSWORD" | "WEB_AUTHN" | "PASSWORD_SRP";
 export type ChallengeParametersType = Record<string, string>;
 export type ChallengeResponse = "Success" | "Failure";
 export type ChallengeResponseListType = Array<ChallengeResponseType>;
@@ -2005,7 +1048,8 @@ export interface ChangePasswordRequest {
   ProposedPassword: string;
   AccessToken: string;
 }
-export interface ChangePasswordResponse {}
+export interface ChangePasswordResponse {
+}
 export type ClientIdType = string;
 
 export type ClientMetadataType = Record<string, string>;
@@ -2040,7 +1084,8 @@ export interface CompleteWebAuthnRegistrationRequest {
   AccessToken: string;
   Credential: unknown;
 }
-export interface CompleteWebAuthnRegistrationResponse {}
+export interface CompleteWebAuthnRegistrationResponse {
+}
 export type CompletionMessageType = string;
 
 export interface CompromisedCredentialsActionsType {
@@ -2078,7 +1123,8 @@ export interface ConfirmForgotPasswordRequest {
   UserContextData?: UserContextDataType;
   ClientMetadata?: Record<string, string>;
 }
-export interface ConfirmForgotPasswordResponse {}
+export interface ConfirmForgotPasswordResponse {
+}
 export interface ConfirmSignUpRequest {
   ClientId: string;
   SecretHash?: string;
@@ -2258,7 +1304,8 @@ export interface DeleteUserAttributesRequest {
   UserAttributeNames: Array<string>;
   AccessToken: string;
 }
-export interface DeleteUserAttributesResponse {}
+export interface DeleteUserAttributesResponse {
+}
 export interface DeleteUserPoolClientRequest {
   UserPoolId: string;
   ClientId: string;
@@ -2267,7 +1314,8 @@ export interface DeleteUserPoolDomainRequest {
   Domain: string;
   UserPoolId: string;
 }
-export interface DeleteUserPoolDomainResponse {}
+export interface DeleteUserPoolDomainResponse {
+}
 export interface DeleteUserPoolRequest {
   UserPoolId: string;
 }
@@ -2278,7 +1326,8 @@ export interface DeleteWebAuthnCredentialRequest {
   AccessToken: string;
   CredentialId: string;
 }
-export interface DeleteWebAuthnCredentialResponse {}
+export interface DeleteWebAuthnCredentialResponse {
+}
 export type DeletionProtectionType = "ACTIVE" | "INACTIVE";
 export type DeliveryMediumListType = Array<DeliveryMediumType>;
 export type DeliveryMediumType = "SMS" | "EMAIL";
@@ -2386,12 +1435,7 @@ export interface DomainDescriptionType {
   CustomDomainConfig?: CustomDomainConfigType;
   ManagedLoginVersion?: number;
 }
-export type DomainStatusType =
-  | "CREATING"
-  | "DELETING"
-  | "UPDATING"
-  | "ACTIVE"
-  | "FAILED";
+export type DomainStatusType = "CREATING" | "DELETING" | "UPDATING" | "ACTIVE" | "FAILED";
 export type DomainType = string;
 
 export type DomainVersionType = string;
@@ -2465,28 +1509,14 @@ export interface EventRiskType {
   CompromisedCredentialsDetected?: boolean;
 }
 export type EventSourceName = "userNotification" | "userAuthEvents";
-export type EventType =
-  | "SignIn"
-  | "SignUp"
-  | "ForgotPassword"
-  | "PasswordChange"
-  | "ResendCode";
+export type EventType = "SignIn" | "SignUp" | "ForgotPassword" | "PasswordChange" | "ResendCode";
 export declare class ExpiredCodeException extends EffectData.TaggedError(
   "ExpiredCodeException",
 )<{
   readonly message?: string;
 }> {}
 export type ExplicitAuthFlowsListType = Array<ExplicitAuthFlowsType>;
-export type ExplicitAuthFlowsType =
-  | "ADMIN_NO_SRP_AUTH"
-  | "CUSTOM_AUTH_FLOW_ONLY"
-  | "USER_PASSWORD_AUTH"
-  | "ALLOW_ADMIN_USER_PASSWORD_AUTH"
-  | "ALLOW_CUSTOM_AUTH"
-  | "ALLOW_USER_PASSWORD_AUTH"
-  | "ALLOW_USER_SRP_AUTH"
-  | "ALLOW_REFRESH_TOKEN_AUTH"
-  | "ALLOW_USER_AUTH";
+export type ExplicitAuthFlowsType = "ADMIN_NO_SRP_AUTH" | "CUSTOM_AUTH_FLOW_ONLY" | "USER_PASSWORD_AUTH" | "ALLOW_ADMIN_USER_PASSWORD_AUTH" | "ALLOW_CUSTOM_AUTH" | "ALLOW_USER_PASSWORD_AUTH" | "ALLOW_USER_SRP_AUTH" | "ALLOW_REFRESH_TOKEN_AUTH" | "ALLOW_USER_AUTH";
 export type FeatureType = "ENABLED" | "DISABLED";
 export declare class FeatureUnavailableInTierException extends EffectData.TaggedError(
   "FeatureUnavailableInTierException",
@@ -2618,7 +1648,8 @@ export interface GetUserResponse {
 export interface GlobalSignOutRequest {
   AccessToken: string;
 }
-export interface GlobalSignOutResponse {}
+export interface GlobalSignOutResponse {
+}
 export declare class GroupExistsException extends EffectData.TaggedError(
   "GroupExistsException",
 )<{
@@ -2653,13 +1684,7 @@ export interface IdentityProviderType {
   LastModifiedDate?: Date | string;
   CreationDate?: Date | string;
 }
-export type IdentityProviderTypeType =
-  | "SAML"
-  | "Facebook"
-  | "Google"
-  | "LoginWithAmazon"
-  | "SignInWithApple"
-  | "OIDC";
+export type IdentityProviderTypeType = "SAML" | "Facebook" | "Google" | "LoginWithAmazon" | "SignInWithApple" | "OIDC";
 export type IdpIdentifiersListType = Array<string>;
 export type IdpIdentifierType = string;
 
@@ -3007,10 +2032,7 @@ export type QueryLimit = number;
 export type QueryLimitType = number;
 
 export type RecoveryMechanismsType = Array<RecoveryOptionType>;
-export type RecoveryOptionNameType =
-  | "verified_email"
-  | "verified_phone_number"
-  | "admin_only";
+export type RecoveryOptionNameType = "verified_email" | "verified_phone_number" | "admin_only";
 export interface RecoveryOptionType {
   Priority: number;
   Name: RecoveryOptionNameType;
@@ -3092,7 +2114,8 @@ export interface RevokeTokenRequest {
   ClientId: string;
   ClientSecret?: string;
 }
-export interface RevokeTokenResponse {}
+export interface RevokeTokenResponse {
+}
 export interface RiskConfigurationType {
   UserPoolId?: string;
   ClientId?: string;
@@ -3175,7 +2198,8 @@ export interface SetUserMFAPreferenceRequest {
   EmailMfaSettings?: EmailMfaSettingsType;
   AccessToken: string;
 }
-export interface SetUserMFAPreferenceResponse {}
+export interface SetUserMFAPreferenceResponse {
+}
 export interface SetUserPoolMfaConfigRequest {
   UserPoolId: string;
   SmsMfaConfiguration?: SmsMfaConfigType;
@@ -3195,7 +2219,8 @@ export interface SetUserSettingsRequest {
   AccessToken: string;
   MFAOptions: Array<MFAOptionType>;
 }
-export interface SetUserSettingsResponse {}
+export interface SetUserSettingsResponse {
+}
 export interface SignInPolicyType {
   AllowedFirstAuthFactors?: Array<AuthFactorType>;
 }
@@ -3282,7 +2307,8 @@ export interface TagResourceRequest {
   ResourceArn: string;
   Tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValueType = string;
 
 export type TemporaryPasswordValidityDaysType = number;
@@ -3353,7 +2379,8 @@ export interface UntagResourceRequest {
   ResourceArn: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateAuthEventFeedbackRequest {
   UserPoolId: string;
   Username: string;
@@ -3361,13 +2388,15 @@ export interface UpdateAuthEventFeedbackRequest {
   FeedbackToken: string;
   FeedbackValue: FeedbackValueType;
 }
-export interface UpdateAuthEventFeedbackResponse {}
+export interface UpdateAuthEventFeedbackResponse {
+}
 export interface UpdateDeviceStatusRequest {
   AccessToken: string;
   DeviceKey: string;
   DeviceRememberedStatus?: DeviceRememberedStatusType;
 }
-export interface UpdateDeviceStatusResponse {}
+export interface UpdateDeviceStatusResponse {
+}
 export interface UpdateGroupRequest {
   GroupName: string;
   UserPoolId: string;
@@ -3476,7 +2505,8 @@ export interface UpdateUserPoolRequest {
   PoolName?: string;
   UserPoolTier?: UserPoolTierType;
 }
-export interface UpdateUserPoolResponse {}
+export interface UpdateUserPoolResponse {
+}
 export interface UserAttributeUpdateSettingsType {
   AttributesRequireVerificationBeforeUpdate?: Array<VerifiedAttributeType>;
 }
@@ -3496,15 +2526,7 @@ export type UserImportJobIdType = string;
 export type UserImportJobNameType = string;
 
 export type UserImportJobsListType = Array<UserImportJobType>;
-export type UserImportJobStatusType =
-  | "Created"
-  | "Pending"
-  | "InProgress"
-  | "Stopping"
-  | "Expired"
-  | "Stopped"
-  | "Failed"
-  | "Succeeded";
+export type UserImportJobStatusType = "Created" | "Pending" | "InProgress" | "Stopping" | "Expired" | "Stopped" | "Failed" | "Succeeded";
 export interface UserImportJobType {
   JobName?: string;
   JobId?: string;
@@ -3654,15 +2676,7 @@ export interface UserPoolType {
   UserPoolTier?: UserPoolTierType;
 }
 export type UsersListType = Array<UserType>;
-export type UserStatusType =
-  | "UNCONFIRMED"
-  | "CONFIRMED"
-  | "ARCHIVED"
-  | "COMPROMISED"
-  | "UNKNOWN"
-  | "RESET_REQUIRED"
-  | "FORCE_CHANGE_PASSWORD"
-  | "EXTERNAL_PROVIDER";
+export type UserStatusType = "UNCONFIRMED" | "CONFIRMED" | "ARCHIVED" | "COMPROMISED" | "UNKNOWN" | "RESET_REQUIRED" | "FORCE_CHANGE_PASSWORD" | "EXTERNAL_PROVIDER";
 export interface UserType {
   Username?: string;
   Attributes?: Array<AttributeType>;
@@ -3699,7 +2713,8 @@ export interface VerifyUserAttributeRequest {
   AttributeName: string;
   Code: string;
 }
-export interface VerifyUserAttributeResponse {}
+export interface VerifyUserAttributeResponse {
+}
 export type WebAuthnAuthenticatorAttachmentType = string;
 
 export type WebAuthnAuthenticatorTransportsList = Array<string>;
@@ -3732,8 +2747,7 @@ export interface WebAuthnCredentialDescription {
   AuthenticatorTransports: Array<string>;
   CreatedAt: Date | string;
 }
-export type WebAuthnCredentialDescriptionListType =
-  Array<WebAuthnCredentialDescription>;
+export type WebAuthnCredentialDescriptionListType = Array<WebAuthnCredentialDescription>;
 export declare class WebAuthnCredentialNotSupportedException extends EffectData.TaggedError(
   "WebAuthnCredentialNotSupportedException",
 )<{
@@ -5482,3 +4496,4 @@ export declare namespace VerifyUserAttribute {
     | UserNotFoundException
     | CommonAwsError;
 }
+

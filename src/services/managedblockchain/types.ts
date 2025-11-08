@@ -1,39 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-  ValidationException,
-} from "../../error.ts";
-type CommonAwsError =
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | ValidationException
-  | AccessDeniedException
-  | ThrottlingException;
+import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, ValidationException } from "../../error.ts";
+type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | ValidationException | AccessDeniedException | ThrottlingException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class ManagedBlockchain extends AWSServiceClient {
@@ -41,310 +8,163 @@ export declare class ManagedBlockchain extends AWSServiceClient {
     input: CreateAccessorInput,
   ): Effect.Effect<
     CreateAccessorOutput,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | InvalidRequestException
-    | ResourceAlreadyExistsException
-    | ResourceLimitExceededException
-    | ThrottlingException
-    | TooManyTagsException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | InvalidRequestException | ResourceAlreadyExistsException | ResourceLimitExceededException | ThrottlingException | TooManyTagsException | CommonAwsError
   >;
   createMember(
     input: CreateMemberInput,
   ): Effect.Effect<
     CreateMemberOutput,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | InvalidRequestException
-    | ResourceAlreadyExistsException
-    | ResourceLimitExceededException
-    | ResourceNotFoundException
-    | ResourceNotReadyException
-    | ThrottlingException
-    | TooManyTagsException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | InvalidRequestException | ResourceAlreadyExistsException | ResourceLimitExceededException | ResourceNotFoundException | ResourceNotReadyException | ThrottlingException | TooManyTagsException | CommonAwsError
   >;
   createNetwork(
     input: CreateNetworkInput,
   ): Effect.Effect<
     CreateNetworkOutput,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | InvalidRequestException
-    | ResourceAlreadyExistsException
-    | ResourceLimitExceededException
-    | ThrottlingException
-    | TooManyTagsException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | InvalidRequestException | ResourceAlreadyExistsException | ResourceLimitExceededException | ThrottlingException | TooManyTagsException | CommonAwsError
   >;
   createNode(
     input: CreateNodeInput,
   ): Effect.Effect<
     CreateNodeOutput,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | InvalidRequestException
-    | ResourceAlreadyExistsException
-    | ResourceLimitExceededException
-    | ResourceNotFoundException
-    | ResourceNotReadyException
-    | ThrottlingException
-    | TooManyTagsException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | InvalidRequestException | ResourceAlreadyExistsException | ResourceLimitExceededException | ResourceNotFoundException | ResourceNotReadyException | ThrottlingException | TooManyTagsException | CommonAwsError
   >;
   createProposal(
     input: CreateProposalInput,
   ): Effect.Effect<
     CreateProposalOutput,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ResourceNotReadyException
-    | ThrottlingException
-    | TooManyTagsException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | InvalidRequestException | ResourceNotFoundException | ResourceNotReadyException | ThrottlingException | TooManyTagsException | CommonAwsError
   >;
   deleteAccessor(
     input: DeleteAccessorInput,
   ): Effect.Effect<
     DeleteAccessorOutput,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   deleteMember(
     input: DeleteMemberInput,
   ): Effect.Effect<
     DeleteMemberOutput,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ResourceNotReadyException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | InvalidRequestException | ResourceNotFoundException | ResourceNotReadyException | ThrottlingException | CommonAwsError
   >;
   deleteNode(
     input: DeleteNodeInput,
   ): Effect.Effect<
     DeleteNodeOutput,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ResourceNotReadyException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | InvalidRequestException | ResourceNotFoundException | ResourceNotReadyException | ThrottlingException | CommonAwsError
   >;
   getAccessor(
     input: GetAccessorInput,
   ): Effect.Effect<
     GetAccessorOutput,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   getMember(
     input: GetMemberInput,
   ): Effect.Effect<
     GetMemberOutput,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   getNetwork(
     input: GetNetworkInput,
   ): Effect.Effect<
     GetNetworkOutput,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   getNode(
     input: GetNodeInput,
   ): Effect.Effect<
     GetNodeOutput,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   getProposal(
     input: GetProposalInput,
   ): Effect.Effect<
     GetProposalOutput,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   listAccessors(
     input: ListAccessorsInput,
   ): Effect.Effect<
     ListAccessorsOutput,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | InvalidRequestException | ThrottlingException | CommonAwsError
   >;
   listInvitations(
     input: ListInvitationsInput,
   ): Effect.Effect<
     ListInvitationsOutput,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | InvalidRequestException
-    | ResourceLimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | InvalidRequestException | ResourceLimitExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   listMembers(
     input: ListMembersInput,
   ): Effect.Effect<
     ListMembersOutput,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | InvalidRequestException | ThrottlingException | CommonAwsError
   >;
   listNetworks(
     input: ListNetworksInput,
   ): Effect.Effect<
     ListNetworksOutput,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | InvalidRequestException | ThrottlingException | CommonAwsError
   >;
   listNodes(
     input: ListNodesInput,
   ): Effect.Effect<
     ListNodesOutput,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | InvalidRequestException | ThrottlingException | CommonAwsError
   >;
   listProposals(
     input: ListProposalsInput,
   ): Effect.Effect<
     ListProposalsOutput,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   listProposalVotes(
     input: ListProposalVotesInput,
   ): Effect.Effect<
     ListProposalVotesOutput,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | InvalidRequestException | ThrottlingException | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | InternalServiceErrorException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ResourceNotReadyException
-    | CommonAwsError
+    InternalServiceErrorException | InvalidRequestException | ResourceNotFoundException | ResourceNotReadyException | CommonAwsError
   >;
   rejectInvitation(
     input: RejectInvitationInput,
   ): Effect.Effect<
     RejectInvitationOutput,
-    | AccessDeniedException
-    | IllegalActionException
-    | InternalServiceErrorException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | IllegalActionException | InternalServiceErrorException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | InternalServiceErrorException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ResourceNotReadyException
-    | TooManyTagsException
-    | CommonAwsError
+    InternalServiceErrorException | InvalidRequestException | ResourceNotFoundException | ResourceNotReadyException | TooManyTagsException | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | InternalServiceErrorException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ResourceNotReadyException
-    | CommonAwsError
+    InternalServiceErrorException | InvalidRequestException | ResourceNotFoundException | ResourceNotReadyException | CommonAwsError
   >;
   updateMember(
     input: UpdateMemberInput,
   ): Effect.Effect<
     UpdateMemberOutput,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   updateNode(
     input: UpdateNodeInput,
   ): Effect.Effect<
     UpdateNodeOutput,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   voteOnProposal(
     input: VoteOnProposalInput,
   ): Effect.Effect<
     VoteOnProposalOutput,
-    | AccessDeniedException
-    | IllegalActionException
-    | InternalServiceErrorException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | IllegalActionException | InternalServiceErrorException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
 }
 
@@ -369,12 +189,7 @@ export type AccessorBillingTokenString = string;
 
 export type AccessorListMaxResults = number;
 
-export type AccessorNetworkType =
-  | "ETHEREUM_GOERLI"
-  | "ETHEREUM_MAINNET"
-  | "ETHEREUM_MAINNET_AND_GOERLI"
-  | "POLYGON_MAINNET"
-  | "POLYGON_MUMBAI";
+export type AccessorNetworkType = "ETHEREUM_GOERLI" | "ETHEREUM_MAINNET" | "ETHEREUM_MAINNET_AND_GOERLI" | "POLYGON_MAINNET" | "POLYGON_MUMBAI";
 export type AccessorStatus = "AVAILABLE" | "PENDING_DELETION" | "DELETED";
 export interface AccessorSummary {
   Id?: string;
@@ -456,18 +271,21 @@ export interface CreateProposalOutput {
 export interface DeleteAccessorInput {
   AccessorId: string;
 }
-export interface DeleteAccessorOutput {}
+export interface DeleteAccessorOutput {
+}
 export interface DeleteMemberInput {
   NetworkId: string;
   MemberId: string;
 }
-export interface DeleteMemberOutput {}
+export interface DeleteMemberOutput {
+}
 export interface DeleteNodeInput {
   NetworkId: string;
   MemberId?: string;
   NodeId: string;
 }
-export interface DeleteNodeOutput {}
+export interface DeleteNodeOutput {
+}
 export type DescriptionString = string;
 
 export type Edition = "STARTER" | "STANDARD";
@@ -522,7 +340,8 @@ export type InstanceTypeString = string;
 
 export declare class InternalServiceErrorException extends EffectData.TaggedError(
   "InternalServiceErrorException",
-)<{}> {}
+)<{
+}> {}
 export declare class InvalidRequestException extends EffectData.TaggedError(
   "InvalidRequestException",
 )<{
@@ -537,12 +356,7 @@ export interface Invitation {
   Arn?: string;
 }
 export type InvitationList = Array<Invitation>;
-export type InvitationStatus =
-  | "PENDING"
-  | "ACCEPTED"
-  | "ACCEPTING"
-  | "REJECTED"
-  | "EXPIRED";
+export type InvitationStatus = "PENDING" | "ACCEPTED" | "ACCEPTING" | "REJECTED" | "EXPIRED";
 export interface InviteAction {
   Principal: string;
 }
@@ -674,14 +488,7 @@ export type MemberListMaxResults = number;
 export interface MemberLogPublishingConfiguration {
   Fabric?: MemberFabricLogPublishingConfiguration;
 }
-export type MemberStatus =
-  | "CREATING"
-  | "AVAILABLE"
-  | "CREATE_FAILED"
-  | "UPDATING"
-  | "DELETING"
-  | "DELETED"
-  | "INACCESSIBLE_ENCRYPTION_KEY";
+export type MemberStatus = "CREATING" | "AVAILABLE" | "CREATE_FAILED" | "UPDATING" | "DELETING" | "DELETED" | "INACCESSIBLE_ENCRYPTION_KEY";
 export interface MemberSummary {
   Id?: string;
   Name?: string;
@@ -729,12 +536,7 @@ export type NetworkListMaxResults = number;
 
 export type NetworkMemberNameString = string;
 
-export type NetworkStatus =
-  | "CREATING"
-  | "AVAILABLE"
-  | "CREATE_FAILED"
-  | "DELETING"
-  | "DELETED";
+export type NetworkStatus = "CREATING" | "AVAILABLE" | "CREATE_FAILED" | "DELETING" | "DELETED";
 export interface NetworkSummary {
   Id?: string;
   Name?: string;
@@ -788,16 +590,7 @@ export type NodeListMaxResults = number;
 export interface NodeLogPublishingConfiguration {
   Fabric?: NodeFabricLogPublishingConfiguration;
 }
-export type NodeStatus =
-  | "CREATING"
-  | "AVAILABLE"
-  | "UNHEALTHY"
-  | "CREATE_FAILED"
-  | "UPDATING"
-  | "DELETING"
-  | "DELETED"
-  | "FAILED"
-  | "INACCESSIBLE_ENCRYPTION_KEY";
+export type NodeStatus = "CREATING" | "AVAILABLE" | "UNHEALTHY" | "CREATE_FAILED" | "UPDATING" | "DELETING" | "DELETED" | "FAILED" | "INACCESSIBLE_ENCRYPTION_KEY";
 export interface NodeSummary {
   Id?: string;
   Status?: NodeStatus;
@@ -838,12 +631,7 @@ export type ProposalDurationInt = number;
 
 export type ProposalListMaxResults = number;
 
-export type ProposalStatus =
-  | "IN_PROGRESS"
-  | "APPROVED"
-  | "REJECTED"
-  | "EXPIRED"
-  | "ACTION_FAILED";
+export type ProposalStatus = "IN_PROGRESS" | "APPROVED" | "REJECTED" | "EXPIRED" | "ACTION_FAILED";
 export interface ProposalSummary {
   ProposalId?: string;
   Description?: string;
@@ -859,7 +647,8 @@ export type ProposalVoteList = Array<VoteSummary>;
 export interface RejectInvitationInput {
   InvitationId: string;
 }
-export interface RejectInvitationOutput {}
+export interface RejectInvitationOutput {
+}
 export interface RemoveAction {
   MemberId: string;
 }
@@ -897,7 +686,8 @@ export interface TagResourceRequest {
   ResourceArn: string;
   Tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export type ThresholdComparator = "GREATER_THAN" | "GREATER_THAN_OR_EQUAL_TO";
@@ -905,7 +695,8 @@ export type ThresholdPercentageInt = number;
 
 export declare class ThrottlingException extends EffectData.TaggedError(
   "ThrottlingException",
-)<{}> {}
+)<{
+}> {}
 export type Timestamp = Date | string;
 
 export declare class TooManyTagsException extends EffectData.TaggedError(
@@ -918,20 +709,23 @@ export interface UntagResourceRequest {
   ResourceArn: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateMemberInput {
   NetworkId: string;
   MemberId: string;
   LogPublishingConfiguration?: MemberLogPublishingConfiguration;
 }
-export interface UpdateMemberOutput {}
+export interface UpdateMemberOutput {
+}
 export interface UpdateNodeInput {
   NetworkId: string;
   MemberId?: string;
   NodeId: string;
   LogPublishingConfiguration?: NodeLogPublishingConfiguration;
 }
-export interface UpdateNodeOutput {}
+export interface UpdateNodeOutput {
+}
 export type UsernameString = string;
 
 export type VoteCount = number;
@@ -942,7 +736,8 @@ export interface VoteOnProposalInput {
   VoterMemberId: string;
   Vote: VoteValue;
 }
-export interface VoteOnProposalOutput {}
+export interface VoteOnProposalOutput {
+}
 export interface VoteSummary {
   Vote?: VoteValue;
   MemberName?: string;
@@ -1287,3 +1082,4 @@ export declare namespace VoteOnProposal {
     | ThrottlingException
     | CommonAwsError;
 }
+

@@ -13,10 +13,7 @@ export declare class XRay extends AWSServiceClient {
     input: CancelTraceRetrievalRequest,
   ): Effect.Effect<
     CancelTraceRetrievalResult,
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottledException
-    | CommonAwsError
+    InvalidRequestException | ResourceNotFoundException | ThrottledException | CommonAwsError
   >;
   createGroup(
     input: CreateGroupRequest,
@@ -28,10 +25,7 @@ export declare class XRay extends AWSServiceClient {
     input: CreateSamplingRuleRequest,
   ): Effect.Effect<
     CreateSamplingRuleResult,
-    | InvalidRequestException
-    | RuleLimitExceededException
-    | ThrottledException
-    | CommonAwsError
+    InvalidRequestException | RuleLimitExceededException | ThrottledException | CommonAwsError
   >;
   deleteGroup(
     input: DeleteGroupRequest,
@@ -43,10 +37,7 @@ export declare class XRay extends AWSServiceClient {
     input: DeleteResourcePolicyRequest,
   ): Effect.Effect<
     DeleteResourcePolicyResult,
-    | InvalidPolicyRevisionIdException
-    | InvalidRequestException
-    | ThrottledException
-    | CommonAwsError
+    InvalidPolicyRevisionIdException | InvalidRequestException | ThrottledException | CommonAwsError
   >;
   deleteSamplingRule(
     input: DeleteSamplingRuleRequest,
@@ -106,10 +97,7 @@ export declare class XRay extends AWSServiceClient {
     input: GetRetrievedTracesGraphRequest,
   ): Effect.Effect<
     GetRetrievedTracesGraphResult,
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottledException
-    | CommonAwsError
+    InvalidRequestException | ResourceNotFoundException | ThrottledException | CommonAwsError
   >;
   getSamplingRules(
     input: GetSamplingRulesRequest,
@@ -169,19 +157,13 @@ export declare class XRay extends AWSServiceClient {
     input: ListRetrievedTracesRequest,
   ): Effect.Effect<
     ListRetrievedTracesResult,
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottledException
-    | CommonAwsError
+    InvalidRequestException | ResourceNotFoundException | ThrottledException | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottledException
-    | CommonAwsError
+    InvalidRequestException | ResourceNotFoundException | ThrottledException | CommonAwsError
   >;
   putEncryptionConfig(
     input: PutEncryptionConfigRequest,
@@ -193,13 +175,7 @@ export declare class XRay extends AWSServiceClient {
     input: PutResourcePolicyRequest,
   ): Effect.Effect<
     PutResourcePolicyResult,
-    | InvalidPolicyRevisionIdException
-    | LockoutPreventionException
-    | MalformedPolicyDocumentException
-    | PolicyCountLimitExceededException
-    | PolicySizeLimitExceededException
-    | ThrottledException
-    | CommonAwsError
+    InvalidPolicyRevisionIdException | LockoutPreventionException | MalformedPolicyDocumentException | PolicyCountLimitExceededException | PolicySizeLimitExceededException | ThrottledException | CommonAwsError
   >;
   putTelemetryRecords(
     input: PutTelemetryRecordsRequest,
@@ -217,29 +193,19 @@ export declare class XRay extends AWSServiceClient {
     input: StartTraceRetrievalRequest,
   ): Effect.Effect<
     StartTraceRetrievalResult,
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottledException
-    | CommonAwsError
+    InvalidRequestException | ResourceNotFoundException | ThrottledException | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottledException
-    | TooManyTagsException
-    | CommonAwsError
+    InvalidRequestException | ResourceNotFoundException | ThrottledException | TooManyTagsException | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottledException
-    | CommonAwsError
+    InvalidRequestException | ResourceNotFoundException | ThrottledException | CommonAwsError
   >;
   updateGroup(
     input: UpdateGroupRequest,
@@ -251,10 +217,7 @@ export declare class XRay extends AWSServiceClient {
     input: UpdateIndexingRuleRequest,
   ): Effect.Effect<
     UpdateIndexingRuleResult,
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottledException
-    | CommonAwsError
+    InvalidRequestException | ResourceNotFoundException | ThrottledException | CommonAwsError
   >;
   updateSamplingRule(
     input: UpdateSamplingRuleRequest,
@@ -290,10 +253,7 @@ interface _AnnotationValue {
   StringValue?: string;
 }
 
-export type AnnotationValue =
-  | (_AnnotationValue & { NumberValue: number })
-  | (_AnnotationValue & { BooleanValue: boolean })
-  | (_AnnotationValue & { StringValue: string });
+export type AnnotationValue = (_AnnotationValue & { NumberValue: number }) | (_AnnotationValue & { BooleanValue: boolean }) | (_AnnotationValue & { StringValue: string });
 export interface AnomalousService {
   ServiceId?: ServiceId;
 }
@@ -330,7 +290,8 @@ export type BorrowCount = number;
 export interface CancelTraceRetrievalRequest {
   RetrievalToken: string;
 }
-export interface CancelTraceRetrievalResult {}
+export interface CancelTraceRetrievalResult {
+}
 export type ClientID = string;
 
 export interface CreateGroupRequest {
@@ -353,12 +314,14 @@ export interface DeleteGroupRequest {
   GroupName?: string;
   GroupARN?: string;
 }
-export interface DeleteGroupResult {}
+export interface DeleteGroupResult {
+}
 export interface DeleteResourcePolicyRequest {
   PolicyName: string;
   PolicyRevisionId?: string;
 }
-export interface DeleteResourcePolicyResult {}
+export interface DeleteResourcePolicyResult {
+}
 export interface DeleteSamplingRuleRequest {
   RuleName?: string;
   RuleARN?: string;
@@ -460,7 +423,8 @@ export interface ForecastStatistics {
   FaultCountHigh?: number;
   FaultCountLow?: number;
 }
-export interface GetEncryptionConfigRequest {}
+export interface GetEncryptionConfigRequest {
+}
 export interface GetEncryptionConfigResult {
   EncryptionConfig?: EncryptionConfig;
 }
@@ -602,7 +566,8 @@ export interface GetTraceGraphResult {
   Services?: Array<Service>;
   NextToken?: string;
 }
-export interface GetTraceSegmentDestinationRequest {}
+export interface GetTraceSegmentDestinationRequest {
+}
 export interface GetTraceSegmentDestinationResult {
   Destination?: TraceSegmentDestination;
   Status?: TraceSegmentDestinationStatus;
@@ -672,16 +637,12 @@ interface _IndexingRuleValue {
   Probabilistic?: ProbabilisticRuleValue;
 }
 
-export type IndexingRuleValue = _IndexingRuleValue & {
-  Probabilistic: ProbabilisticRuleValue;
-};
+export type IndexingRuleValue = (_IndexingRuleValue & { Probabilistic: ProbabilisticRuleValue });
 interface _IndexingRuleValueUpdate {
   Probabilistic?: ProbabilisticRuleValueUpdate;
 }
 
-export type IndexingRuleValueUpdate = _IndexingRuleValueUpdate & {
-  Probabilistic: ProbabilisticRuleValueUpdate;
-};
+export type IndexingRuleValueUpdate = (_IndexingRuleValueUpdate & { Probabilistic: ProbabilisticRuleValueUpdate });
 export interface Insight {
   InsightId?: string;
   GroupARN?: string;
@@ -852,7 +813,8 @@ export interface PutTelemetryRecordsRequest {
   Hostname?: string;
   ResourceARN?: string;
 }
-export interface PutTelemetryRecordsResult {}
+export interface PutTelemetryRecordsResult {
+}
 export interface PutTraceSegmentsRequest {
   TraceSegmentDocuments: Array<string>;
 }
@@ -897,8 +859,7 @@ export interface ResponseTimeRootCauseEntity {
   Coverage?: number;
   Remote?: boolean;
 }
-export type ResponseTimeRootCauseEntityPath =
-  Array<ResponseTimeRootCauseEntity>;
+export type ResponseTimeRootCauseEntityPath = Array<ResponseTimeRootCauseEntity>;
 export type ResponseTimeRootCauses = Array<ResponseTimeRootCause>;
 export interface ResponseTimeRootCauseService {
   Name?: string;
@@ -909,13 +870,7 @@ export interface ResponseTimeRootCauseService {
   Inferred?: boolean;
 }
 export type ResponseTimeRootCauseServices = Array<ResponseTimeRootCauseService>;
-export type RetrievalStatus =
-  | "SCHEDULED"
-  | "RUNNING"
-  | "COMPLETE"
-  | "FAILED"
-  | "CANCELLED"
-  | "TIMEOUT";
+export type RetrievalStatus = "SCHEDULED" | "RUNNING" | "COMPLETE" | "FAILED" | "CANCELLED" | "TIMEOUT";
 export type RetrievalToken = string;
 
 export interface RetrievedService {
@@ -1082,7 +1037,8 @@ export interface TagResourceRequest {
   ResourceARN: string;
   Tags: Array<Tag>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export interface TelemetryRecord {
@@ -1107,8 +1063,7 @@ export interface TimeSeriesServiceStatistics {
   ServiceForecastStatistics?: ForecastStatistics;
   ResponseTimeHistogram?: Array<HistogramEntry>;
 }
-export type TimeSeriesServiceStatisticsList =
-  Array<TimeSeriesServiceStatistics>;
+export type TimeSeriesServiceStatisticsList = Array<TimeSeriesServiceStatistics>;
 export type Timestamp = Date | string;
 
 export type Token = string;
@@ -1186,7 +1141,8 @@ export interface UntagResourceRequest {
   ResourceARN: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateGroupRequest {
   GroupName?: string;
   GroupARN?: string;
@@ -1581,3 +1537,4 @@ export declare namespace UpdateTraceSegmentDestination {
     | ThrottledException
     | CommonAwsError;
 }
+

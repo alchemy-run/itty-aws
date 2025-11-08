@@ -1,42 +1,8 @@
 import type { Effect, Stream, Data as EffectData } from "effect";
 import type { ResponseError } from "@effect/platform/HttpClientError";
 import type { Buffer } from "node:buffer";
-import type {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  ThrottlingException,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-  ValidationException,
-} from "../../error.ts";
-type CommonAwsError =
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | ThrottlingException
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | ValidationException
-  | AccessDeniedException;
+import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError, ValidationException } from "../../error.ts";
+type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | ThrottlingException | UnrecognizedClientException | UnknownOperationException | ValidationError | ValidationException | AccessDeniedException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class LexModelBuildingService extends AWSServiceClient {
@@ -44,442 +10,253 @@ export declare class LexModelBuildingService extends AWSServiceClient {
     input: CreateBotVersionRequest,
   ): Effect.Effect<
     CreateBotVersionResponse,
-    | BadRequestException
-    | ConflictException
-    | InternalFailureException
-    | LimitExceededException
-    | NotFoundException
-    | PreconditionFailedException
-    | CommonAwsError
+    BadRequestException | ConflictException | InternalFailureException | LimitExceededException | NotFoundException | PreconditionFailedException | CommonAwsError
   >;
   createIntentVersion(
     input: CreateIntentVersionRequest,
   ): Effect.Effect<
     CreateIntentVersionResponse,
-    | BadRequestException
-    | ConflictException
-    | InternalFailureException
-    | LimitExceededException
-    | NotFoundException
-    | PreconditionFailedException
-    | CommonAwsError
+    BadRequestException | ConflictException | InternalFailureException | LimitExceededException | NotFoundException | PreconditionFailedException | CommonAwsError
   >;
   createSlotTypeVersion(
     input: CreateSlotTypeVersionRequest,
   ): Effect.Effect<
     CreateSlotTypeVersionResponse,
-    | BadRequestException
-    | ConflictException
-    | InternalFailureException
-    | LimitExceededException
-    | NotFoundException
-    | PreconditionFailedException
-    | CommonAwsError
+    BadRequestException | ConflictException | InternalFailureException | LimitExceededException | NotFoundException | PreconditionFailedException | CommonAwsError
   >;
   deleteBot(
     input: DeleteBotRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ConflictException
-    | InternalFailureException
-    | LimitExceededException
-    | NotFoundException
-    | ResourceInUseException
-    | CommonAwsError
+    BadRequestException | ConflictException | InternalFailureException | LimitExceededException | NotFoundException | ResourceInUseException | CommonAwsError
   >;
   deleteBotAlias(
     input: DeleteBotAliasRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ConflictException
-    | InternalFailureException
-    | LimitExceededException
-    | NotFoundException
-    | ResourceInUseException
-    | CommonAwsError
+    BadRequestException | ConflictException | InternalFailureException | LimitExceededException | NotFoundException | ResourceInUseException | CommonAwsError
   >;
   deleteBotChannelAssociation(
     input: DeleteBotChannelAssociationRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ConflictException
-    | InternalFailureException
-    | LimitExceededException
-    | NotFoundException
-    | CommonAwsError
+    BadRequestException | ConflictException | InternalFailureException | LimitExceededException | NotFoundException | CommonAwsError
   >;
   deleteBotVersion(
     input: DeleteBotVersionRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ConflictException
-    | InternalFailureException
-    | LimitExceededException
-    | NotFoundException
-    | ResourceInUseException
-    | CommonAwsError
+    BadRequestException | ConflictException | InternalFailureException | LimitExceededException | NotFoundException | ResourceInUseException | CommonAwsError
   >;
   deleteIntent(
     input: DeleteIntentRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ConflictException
-    | InternalFailureException
-    | LimitExceededException
-    | NotFoundException
-    | ResourceInUseException
-    | CommonAwsError
+    BadRequestException | ConflictException | InternalFailureException | LimitExceededException | NotFoundException | ResourceInUseException | CommonAwsError
   >;
   deleteIntentVersion(
     input: DeleteIntentVersionRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ConflictException
-    | InternalFailureException
-    | LimitExceededException
-    | NotFoundException
-    | ResourceInUseException
-    | CommonAwsError
+    BadRequestException | ConflictException | InternalFailureException | LimitExceededException | NotFoundException | ResourceInUseException | CommonAwsError
   >;
   deleteSlotType(
     input: DeleteSlotTypeRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ConflictException
-    | InternalFailureException
-    | LimitExceededException
-    | NotFoundException
-    | ResourceInUseException
-    | CommonAwsError
+    BadRequestException | ConflictException | InternalFailureException | LimitExceededException | NotFoundException | ResourceInUseException | CommonAwsError
   >;
   deleteSlotTypeVersion(
     input: DeleteSlotTypeVersionRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ConflictException
-    | InternalFailureException
-    | LimitExceededException
-    | NotFoundException
-    | ResourceInUseException
-    | CommonAwsError
+    BadRequestException | ConflictException | InternalFailureException | LimitExceededException | NotFoundException | ResourceInUseException | CommonAwsError
   >;
   deleteUtterances(
     input: DeleteUtterancesRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | InternalFailureException
-    | LimitExceededException
-    | NotFoundException
-    | CommonAwsError
+    BadRequestException | InternalFailureException | LimitExceededException | NotFoundException | CommonAwsError
   >;
   getBot(
     input: GetBotRequest,
   ): Effect.Effect<
     GetBotResponse,
-    | BadRequestException
-    | InternalFailureException
-    | LimitExceededException
-    | NotFoundException
-    | CommonAwsError
+    BadRequestException | InternalFailureException | LimitExceededException | NotFoundException | CommonAwsError
   >;
   getBotAlias(
     input: GetBotAliasRequest,
   ): Effect.Effect<
     GetBotAliasResponse,
-    | BadRequestException
-    | InternalFailureException
-    | LimitExceededException
-    | NotFoundException
-    | CommonAwsError
+    BadRequestException | InternalFailureException | LimitExceededException | NotFoundException | CommonAwsError
   >;
   getBotAliases(
     input: GetBotAliasesRequest,
   ): Effect.Effect<
     GetBotAliasesResponse,
-    | BadRequestException
-    | InternalFailureException
-    | LimitExceededException
-    | CommonAwsError
+    BadRequestException | InternalFailureException | LimitExceededException | CommonAwsError
   >;
   getBotChannelAssociation(
     input: GetBotChannelAssociationRequest,
   ): Effect.Effect<
     GetBotChannelAssociationResponse,
-    | BadRequestException
-    | InternalFailureException
-    | LimitExceededException
-    | NotFoundException
-    | CommonAwsError
+    BadRequestException | InternalFailureException | LimitExceededException | NotFoundException | CommonAwsError
   >;
   getBotChannelAssociations(
     input: GetBotChannelAssociationsRequest,
   ): Effect.Effect<
     GetBotChannelAssociationsResponse,
-    | BadRequestException
-    | InternalFailureException
-    | LimitExceededException
-    | CommonAwsError
+    BadRequestException | InternalFailureException | LimitExceededException | CommonAwsError
   >;
   getBots(
     input: GetBotsRequest,
   ): Effect.Effect<
     GetBotsResponse,
-    | BadRequestException
-    | InternalFailureException
-    | LimitExceededException
-    | NotFoundException
-    | CommonAwsError
+    BadRequestException | InternalFailureException | LimitExceededException | NotFoundException | CommonAwsError
   >;
   getBotVersions(
     input: GetBotVersionsRequest,
   ): Effect.Effect<
     GetBotVersionsResponse,
-    | BadRequestException
-    | InternalFailureException
-    | LimitExceededException
-    | NotFoundException
-    | CommonAwsError
+    BadRequestException | InternalFailureException | LimitExceededException | NotFoundException | CommonAwsError
   >;
   getBuiltinIntent(
     input: GetBuiltinIntentRequest,
   ): Effect.Effect<
     GetBuiltinIntentResponse,
-    | BadRequestException
-    | InternalFailureException
-    | LimitExceededException
-    | NotFoundException
-    | CommonAwsError
+    BadRequestException | InternalFailureException | LimitExceededException | NotFoundException | CommonAwsError
   >;
   getBuiltinIntents(
     input: GetBuiltinIntentsRequest,
   ): Effect.Effect<
     GetBuiltinIntentsResponse,
-    | BadRequestException
-    | InternalFailureException
-    | LimitExceededException
-    | CommonAwsError
+    BadRequestException | InternalFailureException | LimitExceededException | CommonAwsError
   >;
   getBuiltinSlotTypes(
     input: GetBuiltinSlotTypesRequest,
   ): Effect.Effect<
     GetBuiltinSlotTypesResponse,
-    | BadRequestException
-    | InternalFailureException
-    | LimitExceededException
-    | CommonAwsError
+    BadRequestException | InternalFailureException | LimitExceededException | CommonAwsError
   >;
   getExport(
     input: GetExportRequest,
   ): Effect.Effect<
     GetExportResponse,
-    | BadRequestException
-    | InternalFailureException
-    | LimitExceededException
-    | NotFoundException
-    | CommonAwsError
+    BadRequestException | InternalFailureException | LimitExceededException | NotFoundException | CommonAwsError
   >;
   getImport(
     input: GetImportRequest,
   ): Effect.Effect<
     GetImportResponse,
-    | BadRequestException
-    | InternalFailureException
-    | LimitExceededException
-    | NotFoundException
-    | CommonAwsError
+    BadRequestException | InternalFailureException | LimitExceededException | NotFoundException | CommonAwsError
   >;
   getIntent(
     input: GetIntentRequest,
   ): Effect.Effect<
     GetIntentResponse,
-    | BadRequestException
-    | InternalFailureException
-    | LimitExceededException
-    | NotFoundException
-    | CommonAwsError
+    BadRequestException | InternalFailureException | LimitExceededException | NotFoundException | CommonAwsError
   >;
   getIntents(
     input: GetIntentsRequest,
   ): Effect.Effect<
     GetIntentsResponse,
-    | BadRequestException
-    | InternalFailureException
-    | LimitExceededException
-    | NotFoundException
-    | CommonAwsError
+    BadRequestException | InternalFailureException | LimitExceededException | NotFoundException | CommonAwsError
   >;
   getIntentVersions(
     input: GetIntentVersionsRequest,
   ): Effect.Effect<
     GetIntentVersionsResponse,
-    | BadRequestException
-    | InternalFailureException
-    | LimitExceededException
-    | NotFoundException
-    | CommonAwsError
+    BadRequestException | InternalFailureException | LimitExceededException | NotFoundException | CommonAwsError
   >;
   getMigration(
     input: GetMigrationRequest,
   ): Effect.Effect<
     GetMigrationResponse,
-    | BadRequestException
-    | InternalFailureException
-    | LimitExceededException
-    | NotFoundException
-    | CommonAwsError
+    BadRequestException | InternalFailureException | LimitExceededException | NotFoundException | CommonAwsError
   >;
   getMigrations(
     input: GetMigrationsRequest,
   ): Effect.Effect<
     GetMigrationsResponse,
-    | BadRequestException
-    | InternalFailureException
-    | LimitExceededException
-    | CommonAwsError
+    BadRequestException | InternalFailureException | LimitExceededException | CommonAwsError
   >;
   getSlotType(
     input: GetSlotTypeRequest,
   ): Effect.Effect<
     GetSlotTypeResponse,
-    | BadRequestException
-    | InternalFailureException
-    | LimitExceededException
-    | NotFoundException
-    | CommonAwsError
+    BadRequestException | InternalFailureException | LimitExceededException | NotFoundException | CommonAwsError
   >;
   getSlotTypes(
     input: GetSlotTypesRequest,
   ): Effect.Effect<
     GetSlotTypesResponse,
-    | BadRequestException
-    | InternalFailureException
-    | LimitExceededException
-    | NotFoundException
-    | CommonAwsError
+    BadRequestException | InternalFailureException | LimitExceededException | NotFoundException | CommonAwsError
   >;
   getSlotTypeVersions(
     input: GetSlotTypeVersionsRequest,
   ): Effect.Effect<
     GetSlotTypeVersionsResponse,
-    | BadRequestException
-    | InternalFailureException
-    | LimitExceededException
-    | NotFoundException
-    | CommonAwsError
+    BadRequestException | InternalFailureException | LimitExceededException | NotFoundException | CommonAwsError
   >;
   getUtterancesView(
     input: GetUtterancesViewRequest,
   ): Effect.Effect<
     GetUtterancesViewResponse,
-    | BadRequestException
-    | InternalFailureException
-    | LimitExceededException
-    | CommonAwsError
+    BadRequestException | InternalFailureException | LimitExceededException | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | BadRequestException
-    | InternalFailureException
-    | LimitExceededException
-    | NotFoundException
-    | CommonAwsError
+    BadRequestException | InternalFailureException | LimitExceededException | NotFoundException | CommonAwsError
   >;
   putBot(
     input: PutBotRequest,
   ): Effect.Effect<
     PutBotResponse,
-    | BadRequestException
-    | ConflictException
-    | InternalFailureException
-    | LimitExceededException
-    | PreconditionFailedException
-    | CommonAwsError
+    BadRequestException | ConflictException | InternalFailureException | LimitExceededException | PreconditionFailedException | CommonAwsError
   >;
   putBotAlias(
     input: PutBotAliasRequest,
   ): Effect.Effect<
     PutBotAliasResponse,
-    | BadRequestException
-    | ConflictException
-    | InternalFailureException
-    | LimitExceededException
-    | PreconditionFailedException
-    | CommonAwsError
+    BadRequestException | ConflictException | InternalFailureException | LimitExceededException | PreconditionFailedException | CommonAwsError
   >;
   putIntent(
     input: PutIntentRequest,
   ): Effect.Effect<
     PutIntentResponse,
-    | BadRequestException
-    | ConflictException
-    | InternalFailureException
-    | LimitExceededException
-    | PreconditionFailedException
-    | CommonAwsError
+    BadRequestException | ConflictException | InternalFailureException | LimitExceededException | PreconditionFailedException | CommonAwsError
   >;
   putSlotType(
     input: PutSlotTypeRequest,
   ): Effect.Effect<
     PutSlotTypeResponse,
-    | BadRequestException
-    | ConflictException
-    | InternalFailureException
-    | LimitExceededException
-    | PreconditionFailedException
-    | CommonAwsError
+    BadRequestException | ConflictException | InternalFailureException | LimitExceededException | PreconditionFailedException | CommonAwsError
   >;
   startImport(
     input: StartImportRequest,
   ): Effect.Effect<
     StartImportResponse,
-    | BadRequestException
-    | InternalFailureException
-    | LimitExceededException
-    | CommonAwsError
+    BadRequestException | InternalFailureException | LimitExceededException | CommonAwsError
   >;
   startMigration(
     input: StartMigrationRequest,
   ): Effect.Effect<
     StartMigrationResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalFailureException
-    | LimitExceededException
-    | NotFoundException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalFailureException | LimitExceededException | NotFoundException | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | BadRequestException
-    | ConflictException
-    | InternalFailureException
-    | LimitExceededException
-    | NotFoundException
-    | CommonAwsError
+    BadRequestException | ConflictException | InternalFailureException | LimitExceededException | NotFoundException | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | BadRequestException
-    | ConflictException
-    | InternalFailureException
-    | LimitExceededException
-    | NotFoundException
-    | CommonAwsError
+    BadRequestException | ConflictException | InternalFailureException | LimitExceededException | NotFoundException | CommonAwsError
   >;
 }
 
@@ -1024,20 +801,7 @@ export interface ListTagsForResourceRequest {
 export interface ListTagsForResourceResponse {
   tags?: Array<Tag>;
 }
-export type Locale =
-  | "de-DE"
-  | "en-AU"
-  | "en-GB"
-  | "en-IN"
-  | "en-US"
-  | "es-419"
-  | "es-ES"
-  | "es-US"
-  | "fr-FR"
-  | "fr-CA"
-  | "it-IT"
-  | "ja-JP"
-  | "ko-KR";
+export type Locale = "de-DE" | "en-AU" | "en-GB" | "en-IN" | "en-US" | "es-419" | "es-ES" | "es-US" | "fr-FR" | "fr-CA" | "it-IT" | "ja-JP" | "ko-KR";
 export type LocaleList = Array<Locale>;
 export interface LogSettingsRequest {
   logType: LogType;
@@ -1364,12 +1128,7 @@ export interface Statement {
   messages: Array<Message>;
   responseCard?: string;
 }
-export type Status =
-  | "BUILDING"
-  | "READY"
-  | "READY_BASIC_TESTING"
-  | "FAILED"
-  | "NOT_BUILT";
+export type Status = "BUILDING" | "READY" | "READY_BASIC_TESTING" | "FAILED" | "NOT_BUILT";
 export type StatusType = "Detected" | "Missed";
 export type LexModelBuildingServiceString = string;
 
@@ -1387,7 +1146,8 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Array<Tag>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export type Timestamp = Date | string;
@@ -1396,7 +1156,8 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export type UserId = string;
 
 export type Utterance = string;
@@ -1904,3 +1665,4 @@ export declare namespace UntagResource {
     | NotFoundException
     | CommonAwsError;
 }
+

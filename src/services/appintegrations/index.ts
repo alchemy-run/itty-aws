@@ -5,24 +5,7 @@ import type { AppIntegrations as _AppIntegrationsClient } from "./types.ts";
 
 export * from "./types.ts";
 
-export {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-  ValidationException,
-  type CommonAwsError,
-} from "../../error.ts";
+export {ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, ValidationException, type CommonAwsError} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -32,35 +15,29 @@ const metadata = {
   sigV4ServiceName: "app-integrations",
   endpointPrefix: "app-integrations",
   operations: {
-    CreateApplication: "POST /applications",
-    CreateDataIntegration: "POST /dataIntegrations",
-    CreateDataIntegrationAssociation:
-      "POST /dataIntegrations/{DataIntegrationIdentifier}/associations",
-    CreateEventIntegration: "POST /eventIntegrations",
-    DeleteApplication: "DELETE /applications/{Arn}",
-    DeleteDataIntegration:
-      "DELETE /dataIntegrations/{DataIntegrationIdentifier}",
-    DeleteEventIntegration: "DELETE /eventIntegrations/{Name}",
-    GetApplication: "GET /applications/{Arn}",
-    GetDataIntegration: "GET /dataIntegrations/{Identifier}",
-    GetEventIntegration: "GET /eventIntegrations/{Name}",
-    ListApplicationAssociations:
-      "GET /applications/{ApplicationId}/associations",
-    ListApplications: "GET /applications",
-    ListDataIntegrationAssociations:
-      "GET /dataIntegrations/{DataIntegrationIdentifier}/associations",
-    ListDataIntegrations: "GET /dataIntegrations",
-    ListEventIntegrationAssociations:
-      "GET /eventIntegrations/{EventIntegrationName}/associations",
-    ListEventIntegrations: "GET /eventIntegrations",
-    ListTagsForResource: "GET /tags/{resourceArn}",
-    TagResource: "POST /tags/{resourceArn}",
-    UntagResource: "DELETE /tags/{resourceArn}",
-    UpdateApplication: "PATCH /applications/{Arn}",
-    UpdateDataIntegration: "PATCH /dataIntegrations/{Identifier}",
-    UpdateDataIntegrationAssociation:
-      "PATCH /dataIntegrations/{DataIntegrationIdentifier}/associations/{DataIntegrationAssociationIdentifier}",
-    UpdateEventIntegration: "PATCH /eventIntegrations/{Name}",
+    "CreateApplication": "POST /applications",
+    "CreateDataIntegration": "POST /dataIntegrations",
+    "CreateDataIntegrationAssociation": "POST /dataIntegrations/{DataIntegrationIdentifier}/associations",
+    "CreateEventIntegration": "POST /eventIntegrations",
+    "DeleteApplication": "DELETE /applications/{Arn}",
+    "DeleteDataIntegration": "DELETE /dataIntegrations/{DataIntegrationIdentifier}",
+    "DeleteEventIntegration": "DELETE /eventIntegrations/{Name}",
+    "GetApplication": "GET /applications/{Arn}",
+    "GetDataIntegration": "GET /dataIntegrations/{Identifier}",
+    "GetEventIntegration": "GET /eventIntegrations/{Name}",
+    "ListApplicationAssociations": "GET /applications/{ApplicationId}/associations",
+    "ListApplications": "GET /applications",
+    "ListDataIntegrationAssociations": "GET /dataIntegrations/{DataIntegrationIdentifier}/associations",
+    "ListDataIntegrations": "GET /dataIntegrations",
+    "ListEventIntegrationAssociations": "GET /eventIntegrations/{EventIntegrationName}/associations",
+    "ListEventIntegrations": "GET /eventIntegrations",
+    "ListTagsForResource": "GET /tags/{resourceArn}",
+    "TagResource": "POST /tags/{resourceArn}",
+    "UntagResource": "DELETE /tags/{resourceArn}",
+    "UpdateApplication": "PATCH /applications/{Arn}",
+    "UpdateDataIntegration": "PATCH /dataIntegrations/{Identifier}",
+    "UpdateDataIntegrationAssociation": "PATCH /dataIntegrations/{DataIntegrationIdentifier}/associations/{DataIntegrationAssociationIdentifier}",
+    "UpdateEventIntegration": "PATCH /eventIntegrations/{Name}",
   },
 } as const satisfies ServiceMetadata;
 

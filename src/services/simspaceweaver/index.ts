@@ -5,24 +5,7 @@ import type { SimSpaceWeaver as _SimSpaceWeaverClient } from "./types.ts";
 
 export * from "./types.ts";
 
-export {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  ThrottlingException,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-  type CommonAwsError,
-} from "../../error.ts";
+export {ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError, type CommonAwsError} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -32,22 +15,22 @@ const metadata = {
   sigV4ServiceName: "simspaceweaver",
   endpointPrefix: "simspaceweaver",
   operations: {
-    ListTagsForResource: "GET /tags/{ResourceArn}",
-    TagResource: "POST /tags/{ResourceArn}",
-    UntagResource: "DELETE /tags/{ResourceArn}",
-    CreateSnapshot: "POST /createsnapshot",
-    DeleteApp: "DELETE /deleteapp",
-    DeleteSimulation: "DELETE /deletesimulation",
-    DescribeApp: "GET /describeapp",
-    DescribeSimulation: "GET /describesimulation",
-    ListApps: "GET /listapps",
-    ListSimulations: "GET /listsimulations",
-    StartApp: "POST /startapp",
-    StartClock: "POST /startclock",
-    StartSimulation: "POST /startsimulation",
-    StopApp: "POST /stopapp",
-    StopClock: "POST /stopclock",
-    StopSimulation: "POST /stopsimulation",
+    "ListTagsForResource": "GET /tags/{ResourceArn}",
+    "TagResource": "POST /tags/{ResourceArn}",
+    "UntagResource": "DELETE /tags/{ResourceArn}",
+    "CreateSnapshot": "POST /createsnapshot",
+    "DeleteApp": "DELETE /deleteapp",
+    "DeleteSimulation": "DELETE /deletesimulation",
+    "DescribeApp": "GET /describeapp",
+    "DescribeSimulation": "GET /describesimulation",
+    "ListApps": "GET /listapps",
+    "ListSimulations": "GET /listsimulations",
+    "StartApp": "POST /startapp",
+    "StartClock": "POST /startclock",
+    "StartSimulation": "POST /startsimulation",
+    "StopApp": "POST /stopapp",
+    "StopClock": "POST /stopclock",
+    "StopSimulation": "POST /stopsimulation",
   },
 } as const satisfies ServiceMetadata;
 

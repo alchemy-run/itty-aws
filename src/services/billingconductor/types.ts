@@ -1,38 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-} from "../../error.ts";
-type CommonAwsError =
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | AccessDeniedException
-  | ThrottlingException
-  | ValidationException;
+import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
+type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class billingconductor extends AWSServiceClient {
@@ -40,366 +8,193 @@ export declare class billingconductor extends AWSServiceClient {
     input: GetBillingGroupCostReportInput,
   ): Effect.Effect<
     GetBillingGroupCostReportOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listAccountAssociations(
     input: ListAccountAssociationsInput,
   ): Effect.Effect<
     ListAccountAssociationsOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listBillingGroupCostReports(
     input: ListBillingGroupCostReportsInput,
   ): Effect.Effect<
     ListBillingGroupCostReportsOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   associateAccounts(
     input: AssociateAccountsInput,
   ): Effect.Effect<
     AssociateAccountsOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceLimitExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceLimitExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   associatePricingRules(
     input: AssociatePricingRulesInput,
   ): Effect.Effect<
     AssociatePricingRulesOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceLimitExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceLimitExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   batchAssociateResourcesToCustomLineItem(
     input: BatchAssociateResourcesToCustomLineItemInput,
   ): Effect.Effect<
     BatchAssociateResourcesToCustomLineItemOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceLimitExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceLimitExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   batchDisassociateResourcesFromCustomLineItem(
     input: BatchDisassociateResourcesFromCustomLineItemInput,
   ): Effect.Effect<
     BatchDisassociateResourcesFromCustomLineItemOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createBillingGroup(
     input: CreateBillingGroupInput,
   ): Effect.Effect<
     CreateBillingGroupOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceLimitExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceLimitExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createCustomLineItem(
     input: CreateCustomLineItemInput,
   ): Effect.Effect<
     CreateCustomLineItemOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceLimitExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceLimitExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createPricingPlan(
     input: CreatePricingPlanInput,
   ): Effect.Effect<
     CreatePricingPlanOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceLimitExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceLimitExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createPricingRule(
     input: CreatePricingRuleInput,
   ): Effect.Effect<
     CreatePricingRuleOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceLimitExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceLimitExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteBillingGroup(
     input: DeleteBillingGroupInput,
   ): Effect.Effect<
     DeleteBillingGroupOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteCustomLineItem(
     input: DeleteCustomLineItemInput,
   ): Effect.Effect<
     DeleteCustomLineItemOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deletePricingPlan(
     input: DeletePricingPlanInput,
   ): Effect.Effect<
     DeletePricingPlanOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deletePricingRule(
     input: DeletePricingRuleInput,
   ): Effect.Effect<
     DeletePricingRuleOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   disassociateAccounts(
     input: DisassociateAccountsInput,
   ): Effect.Effect<
     DisassociateAccountsOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   disassociatePricingRules(
     input: DisassociatePricingRulesInput,
   ): Effect.Effect<
     DisassociatePricingRulesOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listBillingGroups(
     input: ListBillingGroupsInput,
   ): Effect.Effect<
     ListBillingGroupsOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listCustomLineItemVersions(
     input: ListCustomLineItemVersionsInput,
   ): Effect.Effect<
     ListCustomLineItemVersionsOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listCustomLineItems(
     input: ListCustomLineItemsInput,
   ): Effect.Effect<
     ListCustomLineItemsOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listPricingPlans(
     input: ListPricingPlansInput,
   ): Effect.Effect<
     ListPricingPlansOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listPricingPlansAssociatedWithPricingRule(
     input: ListPricingPlansAssociatedWithPricingRuleInput,
   ): Effect.Effect<
     ListPricingPlansAssociatedWithPricingRuleOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listPricingRules(
     input: ListPricingRulesInput,
   ): Effect.Effect<
     ListPricingRulesOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listPricingRulesAssociatedToPricingPlan(
     input: ListPricingRulesAssociatedToPricingPlanInput,
   ): Effect.Effect<
     ListPricingRulesAssociatedToPricingPlanOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listResourcesAssociatedToCustomLineItem(
     input: ListResourcesAssociatedToCustomLineItemInput,
   ): Effect.Effect<
     ListResourcesAssociatedToCustomLineItemOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateBillingGroup(
     input: UpdateBillingGroupInput,
   ): Effect.Effect<
     UpdateBillingGroupOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateCustomLineItem(
     input: UpdateCustomLineItemInput,
   ): Effect.Effect<
     UpdateCustomLineItemOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updatePricingPlan(
     input: UpdatePricingPlanInput,
   ): Effect.Effect<
     UpdatePricingPlanOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updatePricingRule(
     input: UpdatePricingRuleInput,
   ): Effect.Effect<
     UpdatePricingRuleOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
 }
 
@@ -455,8 +250,7 @@ export interface AssociateResourceResponseElement {
   Arn?: string;
   Error?: AssociateResourceError;
 }
-export type AssociateResourcesResponseList =
-  Array<AssociateResourceResponseElement>;
+export type AssociateResourcesResponseList = Array<AssociateResourceResponseElement>;
 export type Association = string;
 
 export interface Attribute {
@@ -507,8 +301,7 @@ export interface BillingGroupCostReportResultElement {
   Currency?: string;
   Attributes?: Array<Attribute>;
 }
-export type BillingGroupCostReportResultsList =
-  Array<BillingGroupCostReportResultElement>;
+export type BillingGroupCostReportResultsList = Array<BillingGroupCostReportResultElement>;
 export type BillingGroupDescription = string;
 
 export type BillingGroupFullArn = string;
@@ -731,8 +524,7 @@ export interface DisassociateResourceResponseElement {
   Arn?: string;
   Error?: AssociateResourceError;
 }
-export type DisassociateResourcesResponseList =
-  Array<DisassociateResourceResponseElement>;
+export type DisassociateResourcesResponseList = Array<DisassociateResourceResponseElement>;
 export interface FreeTierConfig {
   Activated: boolean;
 }
@@ -932,8 +724,7 @@ export interface ListResourcesAssociatedToCustomLineItemResponseElement {
   Relationship?: string;
   EndBillingPeriod?: string;
 }
-export type ListResourcesAssociatedToCustomLineItemResponseList =
-  Array<ListResourcesAssociatedToCustomLineItemResponseElement>;
+export type ListResourcesAssociatedToCustomLineItemResponseList = Array<ListResourcesAssociatedToCustomLineItemResponseElement>;
 export interface ListTagsForResourceRequest {
   ResourceArn: string;
 }
@@ -1048,7 +839,8 @@ export interface TagResourceRequest {
   ResourceArn: string;
   Tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export declare class ThrottlingException extends EffectData.TaggedError(
@@ -1068,7 +860,8 @@ export interface UntagResourceRequest {
   ResourceArn: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateBillingGroupAccountGrouping {
   AutoAssociate?: boolean;
 }
@@ -1572,3 +1365,4 @@ export declare namespace UpdatePricingRule {
     | ValidationException
     | CommonAwsError;
 }
+

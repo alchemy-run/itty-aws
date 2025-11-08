@@ -1,40 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  AccessDeniedException,
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  ThrottlingException,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-} from "../../error.ts";
-type CommonAwsError =
-  | AccessDeniedException
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | ThrottlingException
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | ValidationException;
+import type { AccessDeniedException, ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
+type CommonAwsError = AccessDeniedException | ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | ThrottlingException | UnrecognizedClientException | UnknownOperationException | ValidationError | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class CloudSearch extends AWSServiceClient {
@@ -42,81 +8,43 @@ export declare class CloudSearch extends AWSServiceClient {
     input: BuildSuggestersRequest,
   ): Effect.Effect<
     BuildSuggestersResponse,
-    | BaseException
-    | InternalException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    BaseException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   createDomain(
     input: CreateDomainRequest,
   ): Effect.Effect<
     CreateDomainResponse,
-    | BaseException
-    | InternalException
-    | LimitExceededException
-    | ResourceAlreadyExistsException
-    | ValidationException
-    | CommonAwsError
+    BaseException | InternalException | LimitExceededException | ResourceAlreadyExistsException | ValidationException | CommonAwsError
   >;
   defineAnalysisScheme(
     input: DefineAnalysisSchemeRequest,
   ): Effect.Effect<
     DefineAnalysisSchemeResponse,
-    | BaseException
-    | InternalException
-    | InvalidTypeException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    BaseException | InternalException | InvalidTypeException | LimitExceededException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   defineExpression(
     input: DefineExpressionRequest,
   ): Effect.Effect<
     DefineExpressionResponse,
-    | BaseException
-    | InternalException
-    | InvalidTypeException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    BaseException | InternalException | InvalidTypeException | LimitExceededException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   defineIndexField(
     input: DefineIndexFieldRequest,
   ): Effect.Effect<
     DefineIndexFieldResponse,
-    | BaseException
-    | InternalException
-    | InvalidTypeException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    BaseException | InternalException | InvalidTypeException | LimitExceededException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   defineSuggester(
     input: DefineSuggesterRequest,
   ): Effect.Effect<
     DefineSuggesterResponse,
-    | BaseException
-    | InternalException
-    | InvalidTypeException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    BaseException | InternalException | InvalidTypeException | LimitExceededException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   deleteAnalysisScheme(
     input: DeleteAnalysisSchemeRequest,
   ): Effect.Effect<
     DeleteAnalysisSchemeResponse,
-    | BaseException
-    | InternalException
-    | InvalidTypeException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    BaseException | InternalException | InvalidTypeException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   deleteDomain(
     input: DeleteDomainRequest,
@@ -128,66 +56,37 @@ export declare class CloudSearch extends AWSServiceClient {
     input: DeleteExpressionRequest,
   ): Effect.Effect<
     DeleteExpressionResponse,
-    | BaseException
-    | InternalException
-    | InvalidTypeException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    BaseException | InternalException | InvalidTypeException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   deleteIndexField(
     input: DeleteIndexFieldRequest,
   ): Effect.Effect<
     DeleteIndexFieldResponse,
-    | BaseException
-    | InternalException
-    | InvalidTypeException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    BaseException | InternalException | InvalidTypeException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   deleteSuggester(
     input: DeleteSuggesterRequest,
   ): Effect.Effect<
     DeleteSuggesterResponse,
-    | BaseException
-    | InternalException
-    | InvalidTypeException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    BaseException | InternalException | InvalidTypeException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   describeAnalysisSchemes(
     input: DescribeAnalysisSchemesRequest,
   ): Effect.Effect<
     DescribeAnalysisSchemesResponse,
-    | BaseException
-    | InternalException
-    | ResourceNotFoundException
-    | CommonAwsError
+    BaseException | InternalException | ResourceNotFoundException | CommonAwsError
   >;
   describeAvailabilityOptions(
     input: DescribeAvailabilityOptionsRequest,
   ): Effect.Effect<
     DescribeAvailabilityOptionsResponse,
-    | BaseException
-    | DisabledOperationException
-    | InternalException
-    | InvalidTypeException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | CommonAwsError
+    BaseException | DisabledOperationException | InternalException | InvalidTypeException | LimitExceededException | ResourceNotFoundException | CommonAwsError
   >;
   describeDomainEndpointOptions(
     input: DescribeDomainEndpointOptionsRequest,
   ): Effect.Effect<
     DescribeDomainEndpointOptionsResponse,
-    | BaseException
-    | DisabledOperationException
-    | InternalException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | CommonAwsError
+    BaseException | DisabledOperationException | InternalException | LimitExceededException | ResourceNotFoundException | CommonAwsError
   >;
   describeDomains(
     input: DescribeDomainsRequest,
@@ -199,58 +98,41 @@ export declare class CloudSearch extends AWSServiceClient {
     input: DescribeExpressionsRequest,
   ): Effect.Effect<
     DescribeExpressionsResponse,
-    | BaseException
-    | InternalException
-    | ResourceNotFoundException
-    | CommonAwsError
+    BaseException | InternalException | ResourceNotFoundException | CommonAwsError
   >;
   describeIndexFields(
     input: DescribeIndexFieldsRequest,
   ): Effect.Effect<
     DescribeIndexFieldsResponse,
-    | BaseException
-    | InternalException
-    | ResourceNotFoundException
-    | CommonAwsError
+    BaseException | InternalException | ResourceNotFoundException | CommonAwsError
   >;
   describeScalingParameters(
     input: DescribeScalingParametersRequest,
   ): Effect.Effect<
     DescribeScalingParametersResponse,
-    | BaseException
-    | InternalException
-    | ResourceNotFoundException
-    | CommonAwsError
+    BaseException | InternalException | ResourceNotFoundException | CommonAwsError
   >;
   describeServiceAccessPolicies(
     input: DescribeServiceAccessPoliciesRequest,
   ): Effect.Effect<
     DescribeServiceAccessPoliciesResponse,
-    | BaseException
-    | InternalException
-    | ResourceNotFoundException
-    | CommonAwsError
+    BaseException | InternalException | ResourceNotFoundException | CommonAwsError
   >;
   describeSuggesters(
     input: DescribeSuggestersRequest,
   ): Effect.Effect<
     DescribeSuggestersResponse,
-    | BaseException
-    | InternalException
-    | ResourceNotFoundException
-    | CommonAwsError
+    BaseException | InternalException | ResourceNotFoundException | CommonAwsError
   >;
   indexDocuments(
     input: IndexDocumentsRequest,
   ): Effect.Effect<
     IndexDocumentsResponse,
-    | BaseException
-    | InternalException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    BaseException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
-  listDomainNames(input: {}): Effect.Effect<
+  listDomainNames(
+    input: {},
+  ): Effect.Effect<
     ListDomainNamesResponse,
     BaseException | CommonAwsError
   >;
@@ -258,51 +140,25 @@ export declare class CloudSearch extends AWSServiceClient {
     input: UpdateAvailabilityOptionsRequest,
   ): Effect.Effect<
     UpdateAvailabilityOptionsResponse,
-    | BaseException
-    | DisabledOperationException
-    | InternalException
-    | InvalidTypeException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    BaseException | DisabledOperationException | InternalException | InvalidTypeException | LimitExceededException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   updateDomainEndpointOptions(
     input: UpdateDomainEndpointOptionsRequest,
   ): Effect.Effect<
     UpdateDomainEndpointOptionsResponse,
-    | BaseException
-    | DisabledOperationException
-    | InternalException
-    | InvalidTypeException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    BaseException | DisabledOperationException | InternalException | InvalidTypeException | LimitExceededException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   updateScalingParameters(
     input: UpdateScalingParametersRequest,
   ): Effect.Effect<
     UpdateScalingParametersResponse,
-    | BaseException
-    | InternalException
-    | InvalidTypeException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    BaseException | InternalException | InvalidTypeException | LimitExceededException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   updateServiceAccessPolicies(
     input: UpdateServiceAccessPoliciesRequest,
   ): Effect.Effect<
     UpdateServiceAccessPoliciesResponse,
-    | BaseException
-    | InternalException
-    | InvalidTypeException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    BaseException | InternalException | InvalidTypeException | LimitExceededException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
 }
 
@@ -325,42 +181,7 @@ export interface AnalysisScheme {
   AnalysisSchemeLanguage: AnalysisSchemeLanguage;
   AnalysisOptions?: AnalysisOptions;
 }
-export type AnalysisSchemeLanguage =
-  | "ar"
-  | "bg"
-  | "ca"
-  | "cs"
-  | "da"
-  | "de"
-  | "el"
-  | "en"
-  | "es"
-  | "eu"
-  | "fa"
-  | "fi"
-  | "fr"
-  | "ga"
-  | "gl"
-  | "he"
-  | "hi"
-  | "hu"
-  | "hy"
-  | "id"
-  | "it"
-  | "ja"
-  | "ko"
-  | "lv"
-  | "mul"
-  | "nl"
-  | "no"
-  | "pt"
-  | "ro"
-  | "ru"
-  | "sv"
-  | "th"
-  | "tr"
-  | "zh-Hans"
-  | "zh-Hant";
+export type AnalysisSchemeLanguage = "ar" | "bg" | "ca" | "cs" | "da" | "de" | "el" | "en" | "es" | "eu" | "fa" | "fi" | "fr" | "ga" | "gl" | "he" | "hi" | "hu" | "hy" | "id" | "it" | "ja" | "ko" | "lv" | "mul" | "nl" | "no" | "pt" | "ro" | "ru" | "sv" | "th" | "tr" | "zh-Hans" | "zh-Hant";
 export interface AnalysisSchemeStatus {
   Options: AnalysisScheme;
   Status: OptionStatus;
@@ -645,18 +466,7 @@ export interface IndexFieldStatus {
   Status: OptionStatus;
 }
 export type IndexFieldStatusList = Array<IndexFieldStatus>;
-export type IndexFieldType =
-  | "int"
-  | "double"
-  | "literal"
-  | "text"
-  | "date"
-  | "latlon"
-  | "int-array"
-  | "double-array"
-  | "literal-array"
-  | "text-array"
-  | "date-array";
+export type IndexFieldType = "int" | "double" | "literal" | "text" | "date" | "latlon" | "int-array" | "double-array" | "literal-array" | "text-array" | "date-array";
 export type InstanceCount = number;
 
 export interface IntArrayOptions {
@@ -730,11 +540,7 @@ export type MaximumReplicationCount = number;
 
 export type MultiAZ = boolean;
 
-export type OptionState =
-  | "RequiresIndexDocuments"
-  | "Processing"
-  | "Active"
-  | "FailedToValidate";
+export type OptionState = "RequiresIndexDocuments" | "Processing" | "Active" | "FailedToValidate";
 export interface OptionStatus {
   CreationDate: Date | string;
   UpdateDate: Date | string;
@@ -744,24 +550,7 @@ export interface OptionStatus {
 }
 export type PartitionCount = number;
 
-export type PartitionInstanceType =
-  | "search.m1.small"
-  | "search.m1.large"
-  | "search.m2.xlarge"
-  | "search.m2.2xlarge"
-  | "search.m3.medium"
-  | "search.m3.large"
-  | "search.m3.xlarge"
-  | "search.m3.2xlarge"
-  | "search.small"
-  | "search.medium"
-  | "search.large"
-  | "search.xlarge"
-  | "search.2xlarge"
-  | "search.previousgeneration.small"
-  | "search.previousgeneration.large"
-  | "search.previousgeneration.xlarge"
-  | "search.previousgeneration.2xlarge";
+export type PartitionInstanceType = "search.m1.small" | "search.m1.large" | "search.m2.xlarge" | "search.m2.2xlarge" | "search.m3.medium" | "search.m3.large" | "search.m3.xlarge" | "search.m3.2xlarge" | "search.small" | "search.medium" | "search.large" | "search.xlarge" | "search.2xlarge" | "search.previousgeneration.small" | "search.previousgeneration.large" | "search.previousgeneration.xlarge" | "search.previousgeneration.2xlarge";
 export type PolicyDocument = string;
 
 export declare class ResourceAlreadyExistsException extends EffectData.TaggedError(
@@ -822,9 +611,7 @@ export interface TextOptions {
   HighlightEnabled?: boolean;
   AnalysisScheme?: string;
 }
-export type TLSSecurityPolicy =
-  | "Policy-Min-TLS-1-0-2019-07"
-  | "Policy-Min-TLS-1-2-2019-07";
+export type TLSSecurityPolicy = "Policy-Min-TLS-1-0-2019-07" | "Policy-Min-TLS-1-2-2019-07";
 export type UIntValue = number;
 
 export interface UpdateAvailabilityOptionsRequest {
@@ -955,7 +742,10 @@ export declare namespace DeleteAnalysisScheme {
 export declare namespace DeleteDomain {
   export type Input = DeleteDomainRequest;
   export type Output = DeleteDomainResponse;
-  export type Error = BaseException | InternalException | CommonAwsError;
+  export type Error =
+    | BaseException
+    | InternalException
+    | CommonAwsError;
 }
 
 export declare namespace DeleteExpression {
@@ -1032,7 +822,10 @@ export declare namespace DescribeDomainEndpointOptions {
 export declare namespace DescribeDomains {
   export type Input = DescribeDomainsRequest;
   export type Output = DescribeDomainsResponse;
-  export type Error = BaseException | InternalException | CommonAwsError;
+  export type Error =
+    | BaseException
+    | InternalException
+    | CommonAwsError;
 }
 
 export declare namespace DescribeExpressions {
@@ -1099,7 +892,9 @@ export declare namespace IndexDocuments {
 export declare namespace ListDomainNames {
   export type Input = {};
   export type Output = ListDomainNamesResponse;
-  export type Error = BaseException | CommonAwsError;
+  export type Error =
+    | BaseException
+    | CommonAwsError;
 }
 
 export declare namespace UpdateAvailabilityOptions {
@@ -1155,3 +950,4 @@ export declare namespace UpdateServiceAccessPolicies {
     | ValidationException
     | CommonAwsError;
 }
+

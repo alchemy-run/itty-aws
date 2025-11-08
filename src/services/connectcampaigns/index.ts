@@ -5,23 +5,7 @@ import type { ConnectCampaigns as _ConnectCampaignsClient } from "./types.ts";
 
 export * from "./types.ts";
 
-export {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-  type CommonAwsError,
-} from "../../error.ts";
+export {ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, type CommonAwsError} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -30,34 +14,28 @@ const metadata = {
   protocol: "restJson1",
   sigV4ServiceName: "connect-campaigns",
   operations: {
-    CreateCampaign: "PUT /campaigns",
-    DeleteCampaign: "DELETE /campaigns/{id}",
-    DeleteConnectInstanceConfig:
-      "DELETE /connect-instance/{connectInstanceId}/config",
-    DeleteInstanceOnboardingJob:
-      "DELETE /connect-instance/{connectInstanceId}/onboarding",
-    DescribeCampaign: "GET /campaigns/{id}",
-    GetCampaignState: "GET /campaigns/{id}/state",
-    GetCampaignStateBatch: "POST /campaigns-state",
-    GetConnectInstanceConfig:
-      "GET /connect-instance/{connectInstanceId}/config",
-    GetInstanceOnboardingJobStatus:
-      "GET /connect-instance/{connectInstanceId}/onboarding",
-    ListCampaigns: "POST /campaigns-summary",
-    ListTagsForResource: "GET /tags/{arn}",
-    PauseCampaign: "POST /campaigns/{id}/pause",
-    PutDialRequestBatch: "PUT /campaigns/{id}/dial-requests",
-    ResumeCampaign: "POST /campaigns/{id}/resume",
-    StartCampaign: "POST /campaigns/{id}/start",
-    StartInstanceOnboardingJob:
-      "PUT /connect-instance/{connectInstanceId}/onboarding",
-    StopCampaign: "POST /campaigns/{id}/stop",
-    TagResource: "POST /tags/{arn}",
-    UntagResource: "DELETE /tags/{arn}",
-    UpdateCampaignDialerConfig: "POST /campaigns/{id}/dialer-config",
-    UpdateCampaignName: "POST /campaigns/{id}/name",
-    UpdateCampaignOutboundCallConfig:
-      "POST /campaigns/{id}/outbound-call-config",
+    "CreateCampaign": "PUT /campaigns",
+    "DeleteCampaign": "DELETE /campaigns/{id}",
+    "DeleteConnectInstanceConfig": "DELETE /connect-instance/{connectInstanceId}/config",
+    "DeleteInstanceOnboardingJob": "DELETE /connect-instance/{connectInstanceId}/onboarding",
+    "DescribeCampaign": "GET /campaigns/{id}",
+    "GetCampaignState": "GET /campaigns/{id}/state",
+    "GetCampaignStateBatch": "POST /campaigns-state",
+    "GetConnectInstanceConfig": "GET /connect-instance/{connectInstanceId}/config",
+    "GetInstanceOnboardingJobStatus": "GET /connect-instance/{connectInstanceId}/onboarding",
+    "ListCampaigns": "POST /campaigns-summary",
+    "ListTagsForResource": "GET /tags/{arn}",
+    "PauseCampaign": "POST /campaigns/{id}/pause",
+    "PutDialRequestBatch": "PUT /campaigns/{id}/dial-requests",
+    "ResumeCampaign": "POST /campaigns/{id}/resume",
+    "StartCampaign": "POST /campaigns/{id}/start",
+    "StartInstanceOnboardingJob": "PUT /connect-instance/{connectInstanceId}/onboarding",
+    "StopCampaign": "POST /campaigns/{id}/stop",
+    "TagResource": "POST /tags/{arn}",
+    "UntagResource": "DELETE /tags/{arn}",
+    "UpdateCampaignDialerConfig": "POST /campaigns/{id}/dialer-config",
+    "UpdateCampaignName": "POST /campaigns/{id}/name",
+    "UpdateCampaignOutboundCallConfig": "POST /campaigns/{id}/outbound-call-config",
   },
 } as const satisfies ServiceMetadata;
 

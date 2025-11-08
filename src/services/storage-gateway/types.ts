@@ -91,19 +91,13 @@ export declare class StorageGateway extends AWSServiceClient {
     input: CreateSnapshotInput,
   ): Effect.Effect<
     CreateSnapshotOutput,
-    | InternalServerError
-    | InvalidGatewayRequestException
-    | ServiceUnavailableError
-    | CommonAwsError
+    InternalServerError | InvalidGatewayRequestException | ServiceUnavailableError | CommonAwsError
   >;
   createSnapshotFromVolumeRecoveryPoint(
     input: CreateSnapshotFromVolumeRecoveryPointInput,
   ): Effect.Effect<
     CreateSnapshotFromVolumeRecoveryPointOutput,
-    | InternalServerError
-    | InvalidGatewayRequestException
-    | ServiceUnavailableError
-    | CommonAwsError
+    InternalServerError | InvalidGatewayRequestException | ServiceUnavailableError | CommonAwsError
   >;
   createStorediSCSIVolume(
     input: CreateStorediSCSIVolumeInput,
@@ -602,15 +596,7 @@ export interface ActivateGatewayOutput {
 }
 export type ActivationKey = string;
 
-export type ActiveDirectoryStatus =
-  | "ACCESS_DENIED"
-  | "DETACHED"
-  | "JOINED"
-  | "JOINING"
-  | "NETWORK_ERROR"
-  | "TIMEOUT"
-  | "UNKNOWN_ERROR"
-  | "INSUFFICIENT_PERMISSIONS";
+export type ActiveDirectoryStatus = "ACCESS_DENIED" | "DETACHED" | "JOINED" | "JOINING" | "NETWORK_ERROR" | "TIMEOUT" | "UNKNOWN_ERROR" | "INSUFFICIENT_PERMISSIONS";
 export interface AddCacheInput {
   GatewayARN: string;
   DiskIds: Array<string>;
@@ -680,8 +666,7 @@ export interface AutomaticTapeCreationPolicyInfo {
   AutomaticTapeCreationRules?: Array<AutomaticTapeCreationRule>;
   GatewayARN?: string;
 }
-export type AutomaticTapeCreationPolicyInfos =
-  Array<AutomaticTapeCreationPolicyInfo>;
+export type AutomaticTapeCreationPolicyInfos = Array<AutomaticTapeCreationPolicyInfo>;
 export interface AutomaticTapeCreationRule {
   TapeBarcodePrefix: string;
   PoolId: string;
@@ -759,12 +744,7 @@ export interface CacheReportInfo {
 export type CacheReportList = Array<CacheReportInfo>;
 export type CacheReportName = string;
 
-export type CacheReportStatus =
-  | "IN_PROGRESS"
-  | "COMPLETED"
-  | "CANCELED"
-  | "FAILED"
-  | "ERROR";
+export type CacheReportStatus = "IN_PROGRESS" | "COMPLETED" | "CANCELED" | "FAILED" | "ERROR";
 export type CacheStaleTimeoutInSeconds = number;
 
 export interface CancelArchivalInput {
@@ -1299,69 +1279,7 @@ export interface EndpointNetworkConfiguration {
 }
 export type EndpointType = string;
 
-export type ErrorCode =
-  | "ActivationKeyExpired"
-  | "ActivationKeyInvalid"
-  | "ActivationKeyNotFound"
-  | "GatewayInternalError"
-  | "GatewayNotConnected"
-  | "GatewayNotFound"
-  | "GatewayProxyNetworkConnectionBusy"
-  | "AuthenticationFailure"
-  | "BandwidthThrottleScheduleNotFound"
-  | "Blocked"
-  | "CannotExportSnapshot"
-  | "ChapCredentialNotFound"
-  | "DiskAlreadyAllocated"
-  | "DiskDoesNotExist"
-  | "DiskSizeGreaterThanVolumeMaxSize"
-  | "DiskSizeLessThanVolumeSize"
-  | "DiskSizeNotGigAligned"
-  | "DuplicateCertificateInfo"
-  | "DuplicateSchedule"
-  | "EndpointNotFound"
-  | "IAMNotSupported"
-  | "InitiatorInvalid"
-  | "InitiatorNotFound"
-  | "InternalError"
-  | "InvalidGateway"
-  | "InvalidEndpoint"
-  | "InvalidParameters"
-  | "InvalidSchedule"
-  | "LocalStorageLimitExceeded"
-  | "LunAlreadyAllocated "
-  | "LunInvalid"
-  | "JoinDomainInProgress"
-  | "MaximumContentLengthExceeded"
-  | "MaximumTapeCartridgeCountExceeded"
-  | "MaximumVolumeCountExceeded"
-  | "NetworkConfigurationChanged"
-  | "NoDisksAvailable"
-  | "NotImplemented"
-  | "NotSupported"
-  | "OperationAborted"
-  | "OutdatedGateway"
-  | "ParametersNotImplemented"
-  | "RegionInvalid"
-  | "RequestTimeout"
-  | "ServiceUnavailable"
-  | "SnapshotDeleted"
-  | "SnapshotIdInvalid"
-  | "SnapshotInProgress"
-  | "SnapshotNotFound"
-  | "SnapshotScheduleNotFound"
-  | "StagingAreaFull"
-  | "StorageFailure"
-  | "TapeCartridgeNotFound"
-  | "TargetAlreadyExists"
-  | "TargetInvalid"
-  | "TargetNotFound"
-  | "UnauthorizedOperation"
-  | "VolumeAlreadyExists"
-  | "VolumeIdInvalid"
-  | "VolumeInUse"
-  | "VolumeNotFound"
-  | "VolumeNotReady";
+export type ErrorCode = "ActivationKeyExpired" | "ActivationKeyInvalid" | "ActivationKeyNotFound" | "GatewayInternalError" | "GatewayNotConnected" | "GatewayNotFound" | "GatewayProxyNetworkConnectionBusy" | "AuthenticationFailure" | "BandwidthThrottleScheduleNotFound" | "Blocked" | "CannotExportSnapshot" | "ChapCredentialNotFound" | "DiskAlreadyAllocated" | "DiskDoesNotExist" | "DiskSizeGreaterThanVolumeMaxSize" | "DiskSizeLessThanVolumeSize" | "DiskSizeNotGigAligned" | "DuplicateCertificateInfo" | "DuplicateSchedule" | "EndpointNotFound" | "IAMNotSupported" | "InitiatorInvalid" | "InitiatorNotFound" | "InternalError" | "InvalidGateway" | "InvalidEndpoint" | "InvalidParameters" | "InvalidSchedule" | "LocalStorageLimitExceeded" | "LunAlreadyAllocated " | "LunInvalid" | "JoinDomainInProgress" | "MaximumContentLengthExceeded" | "MaximumTapeCartridgeCountExceeded" | "MaximumVolumeCountExceeded" | "NetworkConfigurationChanged" | "NoDisksAvailable" | "NotImplemented" | "NotSupported" | "OperationAborted" | "OutdatedGateway" | "ParametersNotImplemented" | "RegionInvalid" | "RequestTimeout" | "ServiceUnavailable" | "SnapshotDeleted" | "SnapshotIdInvalid" | "SnapshotInProgress" | "SnapshotNotFound" | "SnapshotScheduleNotFound" | "StagingAreaFull" | "StorageFailure" | "TapeCartridgeNotFound" | "TargetAlreadyExists" | "TargetInvalid" | "TargetNotFound" | "UnauthorizedOperation" | "VolumeAlreadyExists" | "VolumeIdInvalid" | "VolumeInUse" | "VolumeNotFound" | "VolumeNotReady";
 export type errorDetails = Record<string, string>;
 export interface EvictFilesFailingUploadInput {
   FileShareARN: string;
@@ -1411,16 +1329,14 @@ export type FileSystemAssociationStatus = string;
 export interface FileSystemAssociationStatusDetail {
   ErrorCode?: string;
 }
-export type FileSystemAssociationStatusDetails =
-  Array<FileSystemAssociationStatusDetail>;
+export type FileSystemAssociationStatusDetails = Array<FileSystemAssociationStatusDetail>;
 export interface FileSystemAssociationSummary {
   FileSystemAssociationId?: string;
   FileSystemAssociationARN?: string;
   FileSystemAssociationStatus?: string;
   GatewayARN?: string;
 }
-export type FileSystemAssociationSummaryList =
-  Array<FileSystemAssociationSummary>;
+export type FileSystemAssociationSummaryList = Array<FileSystemAssociationSummary>;
 export type FileSystemAssociationSyncErrorCode = string;
 
 export type FileSystemLocationARN = string;
@@ -1460,13 +1376,7 @@ export type GatewayType = string;
 
 export type Host = string;
 
-export type HostEnvironment =
-  | "VMWARE"
-  | "HYPER-V"
-  | "EC2"
-  | "KVM"
-  | "OTHER"
-  | "SNOWBALL";
+export type HostEnvironment = "VMWARE" | "HYPER-V" | "EC2" | "KVM" | "OTHER" | "SNOWBALL";
 export type HostEnvironmentId = string;
 
 export type Hosts = Array<string>;
@@ -1682,14 +1592,7 @@ export interface NotifyWhenUploadedOutput {
 }
 export type NumTapesToCreate = number;
 
-export type ObjectACL =
-  | "private"
-  | "public-read"
-  | "public-read-write"
-  | "authenticated-read"
-  | "bucket-owner-read"
-  | "bucket-owner-full-control"
-  | "aws-exec-read";
+export type ObjectACL = "private" | "public-read" | "public-read-write" | "authenticated-read" | "bucket-owner-read" | "bucket-owner-full-control" | "aws-exec-read";
 export type OrganizationalUnit = string;
 
 export type Path = string;
@@ -1830,11 +1733,7 @@ export type SMBGuestPassword = string;
 export interface SMBLocalGroups {
   GatewayAdmins?: Array<string>;
 }
-export type SMBSecurityStrategy =
-  | "ClientSpecified"
-  | "MandatorySigning"
-  | "MandatoryEncryption"
-  | "MandatoryEncryptionNoAes128";
+export type SMBSecurityStrategy = "ClientSpecified" | "MandatorySigning" | "MandatoryEncryption" | "MandatoryEncryptionNoAes128";
 export type SnapshotDescription = string;
 
 export type SnapshotId = string;
@@ -3065,3 +2964,4 @@ export declare namespace UpdateVTLDeviceType {
     | InvalidGatewayRequestException
     | CommonAwsError;
 }
+

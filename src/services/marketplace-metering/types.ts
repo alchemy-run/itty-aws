@@ -1,39 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  AccessDeniedException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-  ValidationException,
-} from "../../error.ts";
-type CommonAwsError =
-  | AccessDeniedException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | ValidationException
-  | ExpiredTokenException
-  | ThrottlingException;
+import type { AccessDeniedException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, ValidationException } from "../../error.ts";
+type CommonAwsError = AccessDeniedException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | ValidationException | ExpiredTokenException | ThrottlingException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class MarketplaceMetering extends AWSServiceClient {
@@ -41,57 +8,25 @@ export declare class MarketplaceMetering extends AWSServiceClient {
     input: BatchMeterUsageRequest,
   ): Effect.Effect<
     BatchMeterUsageResult,
-    | DisabledApiException
-    | InternalServiceErrorException
-    | InvalidCustomerIdentifierException
-    | InvalidProductCodeException
-    | InvalidTagException
-    | InvalidUsageAllocationsException
-    | InvalidUsageDimensionException
-    | ThrottlingException
-    | TimestampOutOfBoundsException
-    | CommonAwsError
+    DisabledApiException | InternalServiceErrorException | InvalidCustomerIdentifierException | InvalidProductCodeException | InvalidTagException | InvalidUsageAllocationsException | InvalidUsageDimensionException | ThrottlingException | TimestampOutOfBoundsException | CommonAwsError
   >;
   meterUsage(
     input: MeterUsageRequest,
   ): Effect.Effect<
     MeterUsageResult,
-    | CustomerNotEntitledException
-    | DuplicateRequestException
-    | InternalServiceErrorException
-    | InvalidEndpointRegionException
-    | InvalidProductCodeException
-    | InvalidTagException
-    | InvalidUsageAllocationsException
-    | InvalidUsageDimensionException
-    | ThrottlingException
-    | TimestampOutOfBoundsException
-    | CommonAwsError
+    CustomerNotEntitledException | DuplicateRequestException | InternalServiceErrorException | InvalidEndpointRegionException | InvalidProductCodeException | InvalidTagException | InvalidUsageAllocationsException | InvalidUsageDimensionException | ThrottlingException | TimestampOutOfBoundsException | CommonAwsError
   >;
   registerUsage(
     input: RegisterUsageRequest,
   ): Effect.Effect<
     RegisterUsageResult,
-    | CustomerNotEntitledException
-    | DisabledApiException
-    | InternalServiceErrorException
-    | InvalidProductCodeException
-    | InvalidPublicKeyVersionException
-    | InvalidRegionException
-    | PlatformNotSupportedException
-    | ThrottlingException
-    | CommonAwsError
+    CustomerNotEntitledException | DisabledApiException | InternalServiceErrorException | InvalidProductCodeException | InvalidPublicKeyVersionException | InvalidRegionException | PlatformNotSupportedException | ThrottlingException | CommonAwsError
   >;
   resolveCustomer(
     input: ResolveCustomerRequest,
   ): Effect.Effect<
     ResolveCustomerResult,
-    | DisabledApiException
-    | ExpiredTokenException
-    | InternalServiceErrorException
-    | InvalidTokenException
-    | ThrottlingException
-    | CommonAwsError
+    DisabledApiException | ExpiredTokenException | InternalServiceErrorException | InvalidTokenException | ThrottlingException | CommonAwsError
   >;
 }
 
@@ -269,10 +204,7 @@ export interface UsageRecordResult {
   Status?: UsageRecordResultStatus;
 }
 export type UsageRecordResultList = Array<UsageRecordResult>;
-export type UsageRecordResultStatus =
-  | "Success"
-  | "CustomerNotSubscribed"
-  | "DuplicateRecord";
+export type UsageRecordResultStatus = "Success" | "CustomerNotSubscribed" | "DuplicateRecord";
 export type VersionInteger = number;
 
 export declare namespace BatchMeterUsage {
@@ -334,3 +266,4 @@ export declare namespace ResolveCustomer {
     | ThrottlingException
     | CommonAwsError;
 }
+
