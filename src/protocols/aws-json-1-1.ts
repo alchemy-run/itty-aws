@@ -62,13 +62,14 @@ export class AwsJson11Handler implements ProtocolHandler {
     return { method: "POST", path: "/", headers, body };
   }
 
-  parseResponse(
-    responseText: string,
+  async parseResponse(
+    response: Response,
     _statusCode: number,
     _metadata?: ServiceMetadata,
     _headers?: Headers,
     _operation?: string,
   ): Promise<unknown> {
+    const responseText = await response.text();
     if (!responseText || responseText.trim() === "") return Promise.resolve({});
 
     try {
@@ -80,11 +81,12 @@ export class AwsJson11Handler implements ProtocolHandler {
     }
   }
 
-  parseError(
-    responseText: string,
+  async parseError(
+    response: Response,
     _statusCode: number,
     headers?: Headers,
-  ): ParsedError {
+  ): Promise<ParsedError> {
+    const responseText = await response.text();
     let errorData: any;
 
     try {

@@ -13,6 +13,7 @@ const STREAMING_FIELDS = new Set([
   "Body", // S3 GetObject response
   "body", // Bedrock and other services use lowercase
   "StreamingBody", // Some AWS services use this name
+  "StreamingBlob", // Some AWS services use this name
   "BlobStream", // Some services use this pattern
   "ReadSetPartStreamingBlob", // Omics service
   "ReadSetStreamingBlob", // Omics service
@@ -1538,11 +1539,24 @@ const generateServiceTypes = (serviceName: string, manifest: Manifest) =>
             const t = member?.traits;
             if (!t) return [];
 
-            if (t["smithy.api#httpPayload"]) return [[field, "httpPayload"]];
+            if (t["smithy.api#httpPayload"]) {
+              if (
+                shouldSupportStreaming(member.target.split("#")?.[1], shapeId)
+              ) {
+                return [[field, "httpStreaming"]];
+              } else {
+                return [[field, "httpPayload"]];
+              }
+            }
             if (t["smithy.api#httpResponseCode"])
               return [[field, "httpResponseCode"]];
             if (t["smithy.api#httpHeader"])
               return [[field, t["smithy.api#httpHeader"]]];
+            if (
+              field === "Body" &&
+              shouldSupportStreaming(member.target.split("#")?.[1], shapeId)
+            ) {
+            }
 
             return [];
           },
@@ -1585,24 +1599,23 @@ const generateServiceTypes = (serviceName: string, manifest: Manifest) =>
         const outputTraits = operation.shape.output
           ? extractHttpTraits(operation.shape.output.target)
           : {};
+
         const inputMembers = operation.shape.input
           ? extractHttpTraits(operation.shape.input.target)
           : {};
 
-        if (
-          Object.keys(outputTraits).length > 0 ||
-          Object.keys(inputMembers).length > 0 ||
-          httpMapping != null
-        ) {
-          operationMappings[operation.name] = {
-            members: {
-              ...inputMembers,
-            },
-            traits: {
-              ...outputTraits,
-            },
-            http: httpMapping,
-          };
+        operationMappings[operation.name] = {};
+
+        if (Object.keys(inputMembers).length > 0) {
+          operationMappings[operation.name].members = inputMembers;
+        }
+
+        if (Object.keys(outputTraits).length > 0) {
+          operationMappings[operation.name].traits = outputTraits;
+        }
+
+        if (httpMapping != null) {
+          operationMappings[operation.name].http = httpMapping;
         }
       }
     } else {

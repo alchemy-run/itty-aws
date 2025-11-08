@@ -152,7 +152,6 @@ const metadata = {
     },
     CreateBucketMetadataConfiguration: {
       http: "POST /{Bucket}?metadataConfiguration",
-      traits: {},
       members: {
         ContentMD5: "Content-MD5",
         ChecksumAlgorithm: "x-amz-sdk-checksum-algorithm",
@@ -162,7 +161,6 @@ const metadata = {
     },
     CreateBucketMetadataTableConfiguration: {
       http: "POST /{Bucket}?metadataTable",
-      traits: {},
       members: {
         ContentMD5: "Content-MD5",
         ChecksumAlgorithm: "x-amz-sdk-checksum-algorithm",
@@ -234,105 +232,90 @@ const metadata = {
     },
     DeleteBucket: {
       http: "DELETE /{Bucket}",
-      traits: {},
       members: {
         ExpectedBucketOwner: "x-amz-expected-bucket-owner",
       },
     },
     DeleteBucketAnalyticsConfiguration: {
       http: "DELETE /{Bucket}?analytics",
-      traits: {},
       members: {
         ExpectedBucketOwner: "x-amz-expected-bucket-owner",
       },
     },
     DeleteBucketCors: {
       http: "DELETE /{Bucket}?cors",
-      traits: {},
       members: {
         ExpectedBucketOwner: "x-amz-expected-bucket-owner",
       },
     },
     DeleteBucketEncryption: {
       http: "DELETE /{Bucket}?encryption",
-      traits: {},
       members: {
         ExpectedBucketOwner: "x-amz-expected-bucket-owner",
       },
     },
     DeleteBucketIntelligentTieringConfiguration: {
       http: "DELETE /{Bucket}?intelligent-tiering",
-      traits: {},
       members: {
         ExpectedBucketOwner: "x-amz-expected-bucket-owner",
       },
     },
     DeleteBucketInventoryConfiguration: {
       http: "DELETE /{Bucket}?inventory",
-      traits: {},
       members: {
         ExpectedBucketOwner: "x-amz-expected-bucket-owner",
       },
     },
     DeleteBucketLifecycle: {
       http: "DELETE /{Bucket}?lifecycle",
-      traits: {},
       members: {
         ExpectedBucketOwner: "x-amz-expected-bucket-owner",
       },
     },
     DeleteBucketMetadataConfiguration: {
       http: "DELETE /{Bucket}?metadataConfiguration",
-      traits: {},
       members: {
         ExpectedBucketOwner: "x-amz-expected-bucket-owner",
       },
     },
     DeleteBucketMetadataTableConfiguration: {
       http: "DELETE /{Bucket}?metadataTable",
-      traits: {},
       members: {
         ExpectedBucketOwner: "x-amz-expected-bucket-owner",
       },
     },
     DeleteBucketMetricsConfiguration: {
       http: "DELETE /{Bucket}?metrics",
-      traits: {},
       members: {
         ExpectedBucketOwner: "x-amz-expected-bucket-owner",
       },
     },
     DeleteBucketOwnershipControls: {
       http: "DELETE /{Bucket}?ownershipControls",
-      traits: {},
       members: {
         ExpectedBucketOwner: "x-amz-expected-bucket-owner",
       },
     },
     DeleteBucketPolicy: {
       http: "DELETE /{Bucket}?policy",
-      traits: {},
       members: {
         ExpectedBucketOwner: "x-amz-expected-bucket-owner",
       },
     },
     DeleteBucketReplication: {
       http: "DELETE /{Bucket}?replication",
-      traits: {},
       members: {
         ExpectedBucketOwner: "x-amz-expected-bucket-owner",
       },
     },
     DeleteBucketTagging: {
       http: "DELETE /{Bucket}?tagging",
-      traits: {},
       members: {
         ExpectedBucketOwner: "x-amz-expected-bucket-owner",
       },
     },
     DeleteBucketWebsite: {
       http: "DELETE /{Bucket}?website",
-      traits: {},
       members: {
         ExpectedBucketOwner: "x-amz-expected-bucket-owner",
       },
@@ -379,7 +362,6 @@ const metadata = {
     },
     DeletePublicAccessBlock: {
       http: "DELETE /{Bucket}?publicAccessBlock",
-      traits: {},
       members: {
         ExpectedBucketOwner: "x-amz-expected-bucket-owner",
       },
@@ -396,7 +378,6 @@ const metadata = {
     },
     GetBucketAcl: {
       http: "GET /{Bucket}?acl",
-      traits: {},
       members: {
         ExpectedBucketOwner: "x-amz-expected-bucket-owner",
       },
@@ -412,7 +393,6 @@ const metadata = {
     },
     GetBucketCors: {
       http: "GET /{Bucket}?cors",
-      traits: {},
       members: {
         ExpectedBucketOwner: "x-amz-expected-bucket-owner",
       },
@@ -456,14 +436,12 @@ const metadata = {
     },
     GetBucketLocation: {
       http: "GET /{Bucket}?location",
-      traits: {},
       members: {
         ExpectedBucketOwner: "x-amz-expected-bucket-owner",
       },
     },
     GetBucketLogging: {
       http: "GET /{Bucket}?logging",
-      traits: {},
       members: {
         ExpectedBucketOwner: "x-amz-expected-bucket-owner",
       },
@@ -497,7 +475,6 @@ const metadata = {
     },
     GetBucketNotificationConfiguration: {
       http: "GET /{Bucket}?notification",
-      traits: {},
       members: {
         ExpectedBucketOwner: "x-amz-expected-bucket-owner",
       },
@@ -540,28 +517,24 @@ const metadata = {
     },
     GetBucketRequestPayment: {
       http: "GET /{Bucket}?requestPayment",
-      traits: {},
       members: {
         ExpectedBucketOwner: "x-amz-expected-bucket-owner",
       },
     },
     GetBucketTagging: {
       http: "GET /{Bucket}?tagging",
-      traits: {},
       members: {
         ExpectedBucketOwner: "x-amz-expected-bucket-owner",
       },
     },
     GetBucketVersioning: {
       http: "GET /{Bucket}?versioning",
-      traits: {},
       members: {
         ExpectedBucketOwner: "x-amz-expected-bucket-owner",
       },
     },
     GetBucketWebsite: {
       http: "GET /{Bucket}?website",
-      traits: {},
       members: {
         ExpectedBucketOwner: "x-amz-expected-bucket-owner",
       },
@@ -569,7 +542,7 @@ const metadata = {
     GetObject: {
       http: "GET /{Bucket}/{Key+}?x-id=GetObject",
       traits: {
-        Body: "httpPayload",
+        Body: "httpStreaming",
         DeleteMarker: "x-amz-delete-marker",
         AcceptRanges: "accept-ranges",
         Expiration: "x-amz-expiration",
@@ -692,7 +665,7 @@ const metadata = {
     GetObjectTorrent: {
       http: "GET /{Bucket}/{Key+}?torrent",
       traits: {
-        Body: "httpPayload",
+        Body: "httpStreaming",
         RequestCharged: "x-amz-request-charged",
       },
       members: {
@@ -779,41 +752,33 @@ const metadata = {
     },
     ListBucketAnalyticsConfigurations: {
       http: "GET /{Bucket}?analytics&x-id=ListBucketAnalyticsConfigurations",
-      traits: {},
       members: {
         ExpectedBucketOwner: "x-amz-expected-bucket-owner",
       },
     },
     ListBucketIntelligentTieringConfigurations: {
       http: "GET /{Bucket}?intelligent-tiering&x-id=ListBucketIntelligentTieringConfigurations",
-      traits: {},
       members: {
         ExpectedBucketOwner: "x-amz-expected-bucket-owner",
       },
     },
     ListBucketInventoryConfigurations: {
       http: "GET /{Bucket}?inventory&x-id=ListBucketInventoryConfigurations",
-      traits: {},
       members: {
         ExpectedBucketOwner: "x-amz-expected-bucket-owner",
       },
     },
     ListBucketMetricsConfigurations: {
       http: "GET /{Bucket}?metrics&x-id=ListBucketMetricsConfigurations",
-      traits: {},
       members: {
         ExpectedBucketOwner: "x-amz-expected-bucket-owner",
       },
     },
     ListBuckets: {
       http: "GET /?x-id=ListBuckets",
-      traits: {},
-      members: {},
     },
     ListDirectoryBuckets: {
       http: "GET /?x-id=ListDirectoryBuckets",
-      traits: {},
-      members: {},
     },
     ListMultipartUploads: {
       http: "GET /{Bucket}?uploads",
@@ -875,7 +840,6 @@ const metadata = {
     },
     PutBucketAccelerateConfiguration: {
       http: "PUT /{Bucket}?accelerate",
-      traits: {},
       members: {
         AccelerateConfiguration: "httpPayload",
         ExpectedBucketOwner: "x-amz-expected-bucket-owner",
@@ -884,7 +848,6 @@ const metadata = {
     },
     PutBucketAcl: {
       http: "PUT /{Bucket}?acl",
-      traits: {},
       members: {
         ACL: "x-amz-acl",
         AccessControlPolicy: "httpPayload",
@@ -900,7 +863,6 @@ const metadata = {
     },
     PutBucketAnalyticsConfiguration: {
       http: "PUT /{Bucket}?analytics",
-      traits: {},
       members: {
         AnalyticsConfiguration: "httpPayload",
         ExpectedBucketOwner: "x-amz-expected-bucket-owner",
@@ -908,7 +870,6 @@ const metadata = {
     },
     PutBucketCors: {
       http: "PUT /{Bucket}?cors",
-      traits: {},
       members: {
         CORSConfiguration: "httpPayload",
         ContentMD5: "Content-MD5",
@@ -918,7 +879,6 @@ const metadata = {
     },
     PutBucketEncryption: {
       http: "PUT /{Bucket}?encryption",
-      traits: {},
       members: {
         ContentMD5: "Content-MD5",
         ChecksumAlgorithm: "x-amz-sdk-checksum-algorithm",
@@ -928,7 +888,6 @@ const metadata = {
     },
     PutBucketIntelligentTieringConfiguration: {
       http: "PUT /{Bucket}?intelligent-tiering",
-      traits: {},
       members: {
         ExpectedBucketOwner: "x-amz-expected-bucket-owner",
         IntelligentTieringConfiguration: "httpPayload",
@@ -936,7 +895,6 @@ const metadata = {
     },
     PutBucketInventoryConfiguration: {
       http: "PUT /{Bucket}?inventory",
-      traits: {},
       members: {
         InventoryConfiguration: "httpPayload",
         ExpectedBucketOwner: "x-amz-expected-bucket-owner",
@@ -958,7 +916,6 @@ const metadata = {
     },
     PutBucketLogging: {
       http: "PUT /{Bucket}?logging",
-      traits: {},
       members: {
         BucketLoggingStatus: "httpPayload",
         ContentMD5: "Content-MD5",
@@ -968,7 +925,6 @@ const metadata = {
     },
     PutBucketMetricsConfiguration: {
       http: "PUT /{Bucket}?metrics",
-      traits: {},
       members: {
         MetricsConfiguration: "httpPayload",
         ExpectedBucketOwner: "x-amz-expected-bucket-owner",
@@ -976,7 +932,6 @@ const metadata = {
     },
     PutBucketNotificationConfiguration: {
       http: "PUT /{Bucket}?notification",
-      traits: {},
       members: {
         NotificationConfiguration: "httpPayload",
         ExpectedBucketOwner: "x-amz-expected-bucket-owner",
@@ -985,7 +940,6 @@ const metadata = {
     },
     PutBucketOwnershipControls: {
       http: "PUT /{Bucket}?ownershipControls",
-      traits: {},
       members: {
         ContentMD5: "Content-MD5",
         ExpectedBucketOwner: "x-amz-expected-bucket-owner",
@@ -995,7 +949,6 @@ const metadata = {
     },
     PutBucketPolicy: {
       http: "PUT /{Bucket}?policy",
-      traits: {},
       members: {
         ContentMD5: "Content-MD5",
         ChecksumAlgorithm: "x-amz-sdk-checksum-algorithm",
@@ -1007,7 +960,6 @@ const metadata = {
     },
     PutBucketReplication: {
       http: "PUT /{Bucket}?replication",
-      traits: {},
       members: {
         ContentMD5: "Content-MD5",
         ChecksumAlgorithm: "x-amz-sdk-checksum-algorithm",
@@ -1018,7 +970,6 @@ const metadata = {
     },
     PutBucketRequestPayment: {
       http: "PUT /{Bucket}?requestPayment",
-      traits: {},
       members: {
         ContentMD5: "Content-MD5",
         ChecksumAlgorithm: "x-amz-sdk-checksum-algorithm",
@@ -1028,7 +979,6 @@ const metadata = {
     },
     PutBucketTagging: {
       http: "PUT /{Bucket}?tagging",
-      traits: {},
       members: {
         ContentMD5: "Content-MD5",
         ChecksumAlgorithm: "x-amz-sdk-checksum-algorithm",
@@ -1038,7 +988,6 @@ const metadata = {
     },
     PutBucketVersioning: {
       http: "PUT /{Bucket}?versioning",
-      traits: {},
       members: {
         ContentMD5: "Content-MD5",
         ChecksumAlgorithm: "x-amz-sdk-checksum-algorithm",
@@ -1049,7 +998,6 @@ const metadata = {
     },
     PutBucketWebsite: {
       http: "PUT /{Bucket}?website",
-      traits: {},
       members: {
         ContentMD5: "Content-MD5",
         ChecksumAlgorithm: "x-amz-sdk-checksum-algorithm",
@@ -1080,7 +1028,7 @@ const metadata = {
       },
       members: {
         ACL: "x-amz-acl",
-        Body: "httpPayload",
+        Body: "httpStreaming",
         CacheControl: "Cache-Control",
         ContentDisposition: "Content-Disposition",
         ContentEncoding: "Content-Encoding",
@@ -1194,7 +1142,6 @@ const metadata = {
     },
     PutPublicAccessBlock: {
       http: "PUT /{Bucket}?publicAccessBlock",
-      traits: {},
       members: {
         ContentMD5: "Content-MD5",
         ChecksumAlgorithm: "x-amz-sdk-checksum-algorithm",
@@ -1204,7 +1151,6 @@ const metadata = {
     },
     RenameObject: {
       http: "PUT /{Bucket}/{Key+}?renameObject",
-      traits: {},
       members: {
         RenameSource: "x-amz-rename-source",
         DestinationIfMatch: "If-Match",
@@ -1245,7 +1191,6 @@ const metadata = {
     },
     UpdateBucketMetadataInventoryTableConfiguration: {
       http: "PUT /{Bucket}?metadataInventoryTable",
-      traits: {},
       members: {
         ContentMD5: "Content-MD5",
         ChecksumAlgorithm: "x-amz-sdk-checksum-algorithm",
@@ -1255,7 +1200,6 @@ const metadata = {
     },
     UpdateBucketMetadataJournalTableConfiguration: {
       http: "PUT /{Bucket}?metadataJournalTable",
-      traits: {},
       members: {
         ContentMD5: "Content-MD5",
         ChecksumAlgorithm: "x-amz-sdk-checksum-algorithm",
@@ -1280,7 +1224,7 @@ const metadata = {
         RequestCharged: "x-amz-request-charged",
       },
       members: {
-        Body: "httpPayload",
+        Body: "httpStreaming",
         ContentLength: "Content-Length",
         ContentMD5: "Content-MD5",
         ChecksumAlgorithm: "x-amz-sdk-checksum-algorithm",
@@ -1331,11 +1275,10 @@ const metadata = {
     },
     WriteGetObjectResponse: {
       http: "POST /WriteGetObjectResponse",
-      traits: {},
       members: {
         RequestRoute: "x-amz-request-route",
         RequestToken: "x-amz-request-token",
-        Body: "httpPayload",
+        Body: "httpStreaming",
         StatusCode: "x-amz-fwd-status",
         ErrorCode: "x-amz-fwd-error-code",
         ErrorMessage: "x-amz-fwd-error-message",

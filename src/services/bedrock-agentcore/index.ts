@@ -67,7 +67,7 @@ const metadata = {
         traceState: "tracestate",
         baggage: "baggage",
         contentType: "Content-Type",
-        response: "httpPayload",
+        response: "httpStreaming",
         statusCode: "httpResponseCode",
       },
     },

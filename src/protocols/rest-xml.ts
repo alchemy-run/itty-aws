@@ -6,6 +6,7 @@ import type {
   ProtocolRequest,
 } from "./interface.ts";
 import { XMLBuilder, XMLParser } from "fast-xml-parser";
+import * as Stream from "effect/Stream";
 
 type Writeable<T> = { -readonly [P in keyof T]: T[P] };
 
@@ -33,7 +34,13 @@ export class RestXmlHandler implements ProtocolHandler {
     const request: Writeable<ProtocolRequest> = {
       path: urlTemplate,
       method,
-      headers: { "Content-Type": this.contentType, "User-Agent": "itty-aws" },
+      headers: {
+        "Content-Type":
+          operationMeta?.traits?.Body === "httpStreaming"
+            ? "application/octet-stream"
+            : this.contentType,
+        "User-Agent": "itty-aws",
+      },
     };
 
     let body: Record<string, unknown> = {};
@@ -57,8 +64,8 @@ export class RestXmlHandler implements ProtocolHandler {
     return Promise.resolve(request);
   }
 
-  parseResponse(
-    responseText: string,
+  async parseResponse(
+    response: Response,
     _statusCode: number,
     metadata?: ServiceMetadata,
     headers?: Headers,
@@ -72,30 +79,38 @@ export class RestXmlHandler implements ProtocolHandler {
     let headerData: Record<string, unknown> = {};
 
     for (const [key, value] of Object.entries(operationMeta.traits ?? {})) {
-      if (value === "httpPayload") {
-        continue;
-      } else {
+      if (value !== "httpPayload") {
         headerData[key] = headers?.get(value.toLowerCase());
       }
     }
 
-    if (!responseText) return Promise.resolve(headerData);
     try {
-      const parser = new XMLParser();
-      return Promise.resolve({
-        ...parser.parse(responseText),
-        ...headerData,
-      });
+      if (operationMeta?.traits?.Body === "httpStreaming") {
+        return {
+          ...headerData,
+          Body: Stream.fromReadableStream(
+            () => response.body!,
+            (error) => new Error(`Stream error: ${error}`),
+          ),
+        };
+      } else {
+        const parser = new XMLParser();
+        return {
+          ...headerData,
+          ...parser.parse(await response.text()),
+        };
+      }
     } catch {
-      return Promise.resolve({ data: responseText });
+      return { data: await response.text() };
     }
   }
 
-  parseError(
-    responseText: string,
+  async parseError(
+    response: Response,
     _statusCode: number,
     headers?: Headers,
-  ): ParsedError {
+  ): Promise<ParsedError> {
+    const responseText = await response.text();
     const parser = new XMLParser();
     const error = responseText != null ? parser.parse(responseText) : null;
     return {

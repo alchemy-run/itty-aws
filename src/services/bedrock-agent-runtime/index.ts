@@ -50,7 +50,7 @@ const metadata = {
     InvokeAgent: {
       http: "POST /agents/{agentId}/agentAliases/{agentAliasId}/sessions/{sessionId}/text",
       traits: {
-        completion: "httpPayload",
+        completion: "httpStreaming",
         contentType: "x-amzn-bedrock-agent-content-type",
         sessionId: "x-amz-bedrock-agent-session-id",
         memoryId: "x-amz-bedrock-agent-memory-id",

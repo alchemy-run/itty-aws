@@ -28,15 +28,15 @@ export interface ProtocolHandler {
 
   // Translate protocol-specific response (e.g. XML) into JSON
   parseResponse(
-    responseText: string,
+    responseText: Response,
     statusCode: number,
     metadata?: ServiceMetadata,
     headers?: Headers,
     operation?: string,
   ): Promise<unknown>;
   parseError(
-    responseText: string,
+    responseText: Response,
     statusCode: number,
     headers?: Headers,
-  ): ParsedError;
+  ): Promise<ParsedError>;
 }

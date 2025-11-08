@@ -52,7 +52,7 @@ const metadata = {
     InvokeEndpointWithResponseStream: {
       http: "POST /endpoints/{EndpointName}/invocations-response-stream",
       traits: {
-        Body: "httpPayload",
+        Body: "httpStreaming",
         ContentType: "X-Amzn-SageMaker-Content-Type",
         InvokedProductionVariant: "x-Amzn-Invoked-Production-Variant",
         CustomAttributes: "X-Amzn-SageMaker-Custom-Attributes",

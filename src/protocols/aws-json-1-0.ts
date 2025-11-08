@@ -27,23 +27,25 @@ export class AwsJson10Handler implements ProtocolHandler {
     return { method: "POST", path: "/", headers, body };
   }
 
-  parseResponse(
-    responseText: string,
+  async parseResponse(
+    response: Response,
     _statusCode: number,
     _metadata?: ServiceMetadata,
     _headers?: Headers,
     _operation?: string,
   ): Promise<unknown> {
+    const responseText = await response.text();
     // Empty response body should return empty object
     if (!responseText || responseText.trim() === "") return Promise.resolve({});
     return Promise.resolve(JSON.parse(responseText));
   }
 
-  parseError(
-    responseText: string,
+  async parseError(
+    response: Response,
     _statusCode: number,
     headers?: Headers,
-  ): ParsedError {
+  ): Promise<ParsedError> {
+    const responseText = await response.text();
     let errorBody: any;
     try {
       errorBody = JSON.parse(responseText);

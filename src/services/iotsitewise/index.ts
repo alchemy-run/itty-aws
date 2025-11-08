@@ -106,7 +106,7 @@ const metadata = {
     InvokeAssistant: {
       http: "POST /assistant/invocation",
       traits: {
-        body: "httpPayload",
+        body: "httpStreaming",
         conversationId: "x-amz-iotsitewise-assistant-conversation-id",
       },
     },

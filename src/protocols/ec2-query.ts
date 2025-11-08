@@ -229,13 +229,14 @@ export class Ec2QueryHandler implements ProtocolHandler {
   }
 
   async parseResponse(
-    responseText: string,
+    response: Response,
     statusCode: number,
     _metadata?: ServiceMetadata,
     _headers?: Headers,
     _operation?: string,
   ): Promise<unknown> {
-    if (statusCode >= 400) return this.parseError(responseText, statusCode);
+    if (statusCode >= 400) return this.parseError(response, statusCode);
+    const responseText = await response.text();
     if (!responseText) return {};
 
     const doc = safeParseXml(responseText);
@@ -260,11 +261,12 @@ export class Ec2QueryHandler implements ProtocolHandler {
     return payloadNode;
   }
 
-  parseError(
-    responseText: string,
+  async parseError(
+    response: Response,
     _statusCode: number,
     headers?: Headers,
-  ): ParsedError {
+  ): Promise<ParsedError> {
+    const responseText = await response.text();
     const doc = safeParseXml(responseText);
 
     if (!doc) {
