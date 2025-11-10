@@ -5,7 +5,24 @@ import type { IoTJobsDataPlane as _IoTJobsDataPlaneClient } from "./types.ts";
 
 export * from "./types.ts";
 
-export {AccessDeniedException, ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, type CommonAwsError} from "../../error.ts";
+export {
+  AccessDeniedException,
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+  type CommonAwsError,
+} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -15,11 +32,11 @@ const metadata = {
   sigV4ServiceName: "iot-jobs-data",
   endpointPrefix: "data.jobs.iot",
   operations: {
-    "DescribeJobExecution": "GET /things/{thingName}/jobs/{jobId}",
-    "GetPendingJobExecutions": "GET /things/{thingName}/jobs",
-    "StartCommandExecution": "POST /command-executions",
-    "StartNextPendingJobExecution": "PUT /things/{thingName}/jobs/$next",
-    "UpdateJobExecution": "POST /things/{thingName}/jobs/{jobId}",
+    DescribeJobExecution: "GET /things/{thingName}/jobs/{jobId}",
+    GetPendingJobExecutions: "GET /things/{thingName}/jobs",
+    StartCommandExecution: "POST /command-executions",
+    StartNextPendingJobExecution: "PUT /things/{thingName}/jobs/$next",
+    UpdateJobExecution: "POST /things/{thingName}/jobs/{jobId}",
   },
 } as const satisfies ServiceMetadata;
 

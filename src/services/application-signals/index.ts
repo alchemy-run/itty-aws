@@ -5,7 +5,23 @@ import type { ApplicationSignals as _ApplicationSignalsClient } from "./types.ts
 
 export * from "./types.ts";
 
-export {ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, type CommonAwsError} from "../../error.ts";
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+  type CommonAwsError,
+} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -15,23 +31,24 @@ const metadata = {
   sigV4ServiceName: "application-signals",
   endpointPrefix: "application-signals",
   operations: {
-    "BatchGetServiceLevelObjectiveBudgetReport": "POST /budget-report",
-    "BatchUpdateExclusionWindows": "PATCH /exclusion-windows",
-    "GetService": "POST /service",
-    "ListServiceDependencies": "POST /service-dependencies",
-    "ListServiceDependents": "POST /service-dependents",
-    "ListServiceLevelObjectiveExclusionWindows": "GET /slo/{Id}/exclusion-windows",
-    "ListServiceOperations": "POST /service-operations",
-    "ListServices": "GET /services",
-    "ListTagsForResource": "GET /tags",
-    "StartDiscovery": "POST /start-discovery",
-    "TagResource": "POST /tag-resource",
-    "UntagResource": "POST /untag-resource",
-    "CreateServiceLevelObjective": "POST /slo",
-    "DeleteServiceLevelObjective": "DELETE /slo/{Id}",
-    "GetServiceLevelObjective": "GET /slo/{Id}",
-    "ListServiceLevelObjectives": "POST /slos",
-    "UpdateServiceLevelObjective": "PATCH /slo/{Id}",
+    BatchGetServiceLevelObjectiveBudgetReport: "POST /budget-report",
+    BatchUpdateExclusionWindows: "PATCH /exclusion-windows",
+    GetService: "POST /service",
+    ListServiceDependencies: "POST /service-dependencies",
+    ListServiceDependents: "POST /service-dependents",
+    ListServiceLevelObjectiveExclusionWindows:
+      "GET /slo/{Id}/exclusion-windows",
+    ListServiceOperations: "POST /service-operations",
+    ListServices: "GET /services",
+    ListTagsForResource: "GET /tags",
+    StartDiscovery: "POST /start-discovery",
+    TagResource: "POST /tag-resource",
+    UntagResource: "POST /untag-resource",
+    CreateServiceLevelObjective: "POST /slo",
+    DeleteServiceLevelObjective: "DELETE /slo/{Id}",
+    GetServiceLevelObjective: "GET /slo/{Id}",
+    ListServiceLevelObjectives: "POST /slos",
+    UpdateServiceLevelObjective: "PATCH /slo/{Id}",
   },
 } as const satisfies ServiceMetadata;
 

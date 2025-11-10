@@ -1,6 +1,38 @@
 import type { Effect, Data as EffectData } from "effect";
-import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
-type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
+import type {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+type CommonAwsError =
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | AccessDeniedException
+  | ThrottlingException
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class Braket extends AWSServiceClient {
@@ -8,79 +40,142 @@ export declare class Braket extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    InternalServiceException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | InternalServiceException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    InternalServiceException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | InternalServiceException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    InternalServiceException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | InternalServiceException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   cancelJob(
     input: CancelJobRequest,
   ): Effect.Effect<
     CancelJobResponse,
-    AccessDeniedException | ConflictException | InternalServiceException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServiceException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   cancelQuantumTask(
     input: CancelQuantumTaskRequest,
   ): Effect.Effect<
     CancelQuantumTaskResponse,
-    AccessDeniedException | ConflictException | InternalServiceException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServiceException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createJob(
     input: CreateJobRequest,
   ): Effect.Effect<
     CreateJobResponse,
-    AccessDeniedException | ConflictException | DeviceOfflineException | DeviceRetiredException | InternalServiceException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | DeviceOfflineException
+    | DeviceRetiredException
+    | InternalServiceException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createQuantumTask(
     input: CreateQuantumTaskRequest,
   ): Effect.Effect<
     CreateQuantumTaskResponse,
-    AccessDeniedException | DeviceOfflineException | DeviceRetiredException | InternalServiceException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | DeviceOfflineException
+    | DeviceRetiredException
+    | InternalServiceException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getDevice(
     input: GetDeviceRequest,
   ): Effect.Effect<
     GetDeviceResponse,
-    AccessDeniedException | InternalServiceException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServiceException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getJob(
     input: GetJobRequest,
   ): Effect.Effect<
     GetJobResponse,
-    AccessDeniedException | InternalServiceException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServiceException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getQuantumTask(
     input: GetQuantumTaskRequest,
   ): Effect.Effect<
     GetQuantumTaskResponse,
-    AccessDeniedException | InternalServiceException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServiceException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   searchDevices(
     input: SearchDevicesRequest,
   ): Effect.Effect<
     SearchDevicesResponse,
-    AccessDeniedException | InternalServiceException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServiceException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   searchJobs(
     input: SearchJobsRequest,
   ): Effect.Effect<
     SearchJobsResponse,
-    AccessDeniedException | InternalServiceException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServiceException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   searchQuantumTasks(
     input: SearchQuantumTasksRequest,
   ): Effect.Effect<
     SearchQuantumTasksResponse,
-    AccessDeniedException | InternalServiceException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServiceException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
 }
 
@@ -443,8 +538,7 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {
-}
+export interface TagResourceResponse {}
 export type TagsMap = Record<string, string>;
 export declare class ThrottlingException extends EffectData.TaggedError(
   "ThrottlingException",
@@ -455,8 +549,7 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {
-}
+export interface UntagResourceResponse {}
 export type Uri = string;
 
 export declare class ValidationException extends EffectData.TaggedError(
@@ -617,4 +710,3 @@ export declare namespace SearchQuantumTasks {
     | ValidationException
     | CommonAwsError;
 }
-

@@ -1,6 +1,40 @@
 import type { Effect, Data as EffectData } from "effect";
-import type { AccessDeniedException, ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
-type CommonAwsError = AccessDeniedException | ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | ThrottlingException | UnrecognizedClientException | UnknownOperationException | ValidationError | ValidationException;
+import type {
+  AccessDeniedException,
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  ThrottlingException,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+type CommonAwsError =
+  | AccessDeniedException
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | ThrottlingException
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class ConfigService extends AWSServiceClient {
@@ -8,26 +42,30 @@ export declare class ConfigService extends AWSServiceClient {
     input: AssociateResourceTypesRequest,
   ): Effect.Effect<
     AssociateResourceTypesResponse,
-    ConflictException | NoSuchConfigurationRecorderException | ValidationException | CommonAwsError
+    | ConflictException
+    | NoSuchConfigurationRecorderException
+    | ValidationException
+    | CommonAwsError
   >;
   batchGetAggregateResourceConfig(
     input: BatchGetAggregateResourceConfigRequest,
   ): Effect.Effect<
     BatchGetAggregateResourceConfigResponse,
-    NoSuchConfigurationAggregatorException | ValidationException | CommonAwsError
+    | NoSuchConfigurationAggregatorException
+    | ValidationException
+    | CommonAwsError
   >;
   batchGetResourceConfig(
     input: BatchGetResourceConfigRequest,
   ): Effect.Effect<
     BatchGetResourceConfigResponse,
-    NoAvailableConfigurationRecorderException | ValidationException | CommonAwsError
+    | NoAvailableConfigurationRecorderException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteAggregationAuthorization(
     input: DeleteAggregationAuthorizationRequest,
-  ): Effect.Effect<
-    {},
-    InvalidParameterValueException | CommonAwsError
-  >;
+  ): Effect.Effect<{}, InvalidParameterValueException | CommonAwsError>;
   deleteConfigRule(
     input: DeleteConfigRuleRequest,
   ): Effect.Effect<
@@ -36,15 +74,14 @@ export declare class ConfigService extends AWSServiceClient {
   >;
   deleteConfigurationAggregator(
     input: DeleteConfigurationAggregatorRequest,
-  ): Effect.Effect<
-    {},
-    NoSuchConfigurationAggregatorException | CommonAwsError
-  >;
+  ): Effect.Effect<{}, NoSuchConfigurationAggregatorException | CommonAwsError>;
   deleteConfigurationRecorder(
     input: DeleteConfigurationRecorderRequest,
   ): Effect.Effect<
     {},
-    NoSuchConfigurationRecorderException | UnmodifiableEntityException | CommonAwsError
+    | NoSuchConfigurationRecorderException
+    | UnmodifiableEntityException
+    | CommonAwsError
   >;
   deleteConformancePack(
     input: DeleteConformancePackRequest,
@@ -56,7 +93,9 @@ export declare class ConfigService extends AWSServiceClient {
     input: DeleteDeliveryChannelRequest,
   ): Effect.Effect<
     {},
-    LastDeliveryChannelDeleteFailedException | NoSuchDeliveryChannelException | CommonAwsError
+    | LastDeliveryChannelDeleteFailedException
+    | NoSuchDeliveryChannelException
+    | CommonAwsError
   >;
   deleteEvaluationResults(
     input: DeleteEvaluationResultsRequest,
@@ -68,25 +107,32 @@ export declare class ConfigService extends AWSServiceClient {
     input: DeleteOrganizationConfigRuleRequest,
   ): Effect.Effect<
     {},
-    NoSuchOrganizationConfigRuleException | OrganizationAccessDeniedException | ResourceInUseException | CommonAwsError
+    | NoSuchOrganizationConfigRuleException
+    | OrganizationAccessDeniedException
+    | ResourceInUseException
+    | CommonAwsError
   >;
   deleteOrganizationConformancePack(
     input: DeleteOrganizationConformancePackRequest,
   ): Effect.Effect<
     {},
-    NoSuchOrganizationConformancePackException | OrganizationAccessDeniedException | ResourceInUseException | CommonAwsError
+    | NoSuchOrganizationConformancePackException
+    | OrganizationAccessDeniedException
+    | ResourceInUseException
+    | CommonAwsError
   >;
   deletePendingAggregationRequest(
     input: DeletePendingAggregationRequestRequest,
-  ): Effect.Effect<
-    {},
-    InvalidParameterValueException | CommonAwsError
-  >;
+  ): Effect.Effect<{}, InvalidParameterValueException | CommonAwsError>;
   deleteRemediationConfiguration(
     input: DeleteRemediationConfigurationRequest,
   ): Effect.Effect<
     DeleteRemediationConfigurationResponse,
-    InsufficientPermissionsException | InvalidParameterValueException | NoSuchRemediationConfigurationException | RemediationInProgressException | CommonAwsError
+    | InsufficientPermissionsException
+    | InvalidParameterValueException
+    | NoSuchRemediationConfigurationException
+    | RemediationInProgressException
+    | CommonAwsError
   >;
   deleteRemediationExceptions(
     input: DeleteRemediationExceptionsRequest,
@@ -98,19 +144,26 @@ export declare class ConfigService extends AWSServiceClient {
     input: DeleteResourceConfigRequest,
   ): Effect.Effect<
     {},
-    NoRunningConfigurationRecorderException | ValidationException | CommonAwsError
+    | NoRunningConfigurationRecorderException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteRetentionConfiguration(
     input: DeleteRetentionConfigurationRequest,
   ): Effect.Effect<
     {},
-    InvalidParameterValueException | NoSuchRetentionConfigurationException | CommonAwsError
+    | InvalidParameterValueException
+    | NoSuchRetentionConfigurationException
+    | CommonAwsError
   >;
   deleteServiceLinkedConfigurationRecorder(
     input: DeleteServiceLinkedConfigurationRecorderRequest,
   ): Effect.Effect<
     DeleteServiceLinkedConfigurationRecorderResponse,
-    ConflictException | NoSuchConfigurationRecorderException | ValidationException | CommonAwsError
+    | ConflictException
+    | NoSuchConfigurationRecorderException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteStoredQuery(
     input: DeleteStoredQueryRequest,
@@ -122,31 +175,48 @@ export declare class ConfigService extends AWSServiceClient {
     input: DeliverConfigSnapshotRequest,
   ): Effect.Effect<
     DeliverConfigSnapshotResponse,
-    NoAvailableConfigurationRecorderException | NoRunningConfigurationRecorderException | NoSuchDeliveryChannelException | CommonAwsError
+    | NoAvailableConfigurationRecorderException
+    | NoRunningConfigurationRecorderException
+    | NoSuchDeliveryChannelException
+    | CommonAwsError
   >;
   describeAggregateComplianceByConfigRules(
     input: DescribeAggregateComplianceByConfigRulesRequest,
   ): Effect.Effect<
     DescribeAggregateComplianceByConfigRulesResponse,
-    InvalidLimitException | InvalidNextTokenException | NoSuchConfigurationAggregatorException | ValidationException | CommonAwsError
+    | InvalidLimitException
+    | InvalidNextTokenException
+    | NoSuchConfigurationAggregatorException
+    | ValidationException
+    | CommonAwsError
   >;
   describeAggregateComplianceByConformancePacks(
     input: DescribeAggregateComplianceByConformancePacksRequest,
   ): Effect.Effect<
     DescribeAggregateComplianceByConformancePacksResponse,
-    InvalidLimitException | InvalidNextTokenException | NoSuchConfigurationAggregatorException | ValidationException | CommonAwsError
+    | InvalidLimitException
+    | InvalidNextTokenException
+    | NoSuchConfigurationAggregatorException
+    | ValidationException
+    | CommonAwsError
   >;
   describeAggregationAuthorizations(
     input: DescribeAggregationAuthorizationsRequest,
   ): Effect.Effect<
     DescribeAggregationAuthorizationsResponse,
-    InvalidLimitException | InvalidNextTokenException | InvalidParameterValueException | CommonAwsError
+    | InvalidLimitException
+    | InvalidNextTokenException
+    | InvalidParameterValueException
+    | CommonAwsError
   >;
   describeComplianceByConfigRule(
     input: DescribeComplianceByConfigRuleRequest,
   ): Effect.Effect<
     DescribeComplianceByConfigRuleResponse,
-    InvalidNextTokenException | InvalidParameterValueException | NoSuchConfigRuleException | CommonAwsError
+    | InvalidNextTokenException
+    | InvalidParameterValueException
+    | NoSuchConfigRuleException
+    | CommonAwsError
   >;
   describeComplianceByResource(
     input: DescribeComplianceByResourceRequest,
@@ -158,25 +228,39 @@ export declare class ConfigService extends AWSServiceClient {
     input: DescribeConfigRuleEvaluationStatusRequest,
   ): Effect.Effect<
     DescribeConfigRuleEvaluationStatusResponse,
-    InvalidNextTokenException | InvalidParameterValueException | NoSuchConfigRuleException | CommonAwsError
+    | InvalidNextTokenException
+    | InvalidParameterValueException
+    | NoSuchConfigRuleException
+    | CommonAwsError
   >;
   describeConfigRules(
     input: DescribeConfigRulesRequest,
   ): Effect.Effect<
     DescribeConfigRulesResponse,
-    InvalidNextTokenException | InvalidParameterValueException | NoSuchConfigRuleException | CommonAwsError
+    | InvalidNextTokenException
+    | InvalidParameterValueException
+    | NoSuchConfigRuleException
+    | CommonAwsError
   >;
   describeConfigurationAggregators(
     input: DescribeConfigurationAggregatorsRequest,
   ): Effect.Effect<
     DescribeConfigurationAggregatorsResponse,
-    InvalidLimitException | InvalidNextTokenException | InvalidParameterValueException | NoSuchConfigurationAggregatorException | CommonAwsError
+    | InvalidLimitException
+    | InvalidNextTokenException
+    | InvalidParameterValueException
+    | NoSuchConfigurationAggregatorException
+    | CommonAwsError
   >;
   describeConfigurationAggregatorSourcesStatus(
     input: DescribeConfigurationAggregatorSourcesStatusRequest,
   ): Effect.Effect<
     DescribeConfigurationAggregatorSourcesStatusResponse,
-    InvalidLimitException | InvalidNextTokenException | InvalidParameterValueException | NoSuchConfigurationAggregatorException | CommonAwsError
+    | InvalidLimitException
+    | InvalidNextTokenException
+    | InvalidParameterValueException
+    | NoSuchConfigurationAggregatorException
+    | CommonAwsError
   >;
   describeConfigurationRecorders(
     input: DescribeConfigurationRecordersRequest,
@@ -194,19 +278,31 @@ export declare class ConfigService extends AWSServiceClient {
     input: DescribeConformancePackComplianceRequest,
   ): Effect.Effect<
     DescribeConformancePackComplianceResponse,
-    InvalidLimitException | InvalidNextTokenException | InvalidParameterValueException | NoSuchConfigRuleInConformancePackException | NoSuchConformancePackException | CommonAwsError
+    | InvalidLimitException
+    | InvalidNextTokenException
+    | InvalidParameterValueException
+    | NoSuchConfigRuleInConformancePackException
+    | NoSuchConformancePackException
+    | CommonAwsError
   >;
   describeConformancePacks(
     input: DescribeConformancePacksRequest,
   ): Effect.Effect<
     DescribeConformancePacksResponse,
-    InvalidLimitException | InvalidNextTokenException | InvalidParameterValueException | NoSuchConformancePackException | CommonAwsError
+    | InvalidLimitException
+    | InvalidNextTokenException
+    | InvalidParameterValueException
+    | NoSuchConformancePackException
+    | CommonAwsError
   >;
   describeConformancePackStatus(
     input: DescribeConformancePackStatusRequest,
   ): Effect.Effect<
     DescribeConformancePackStatusResponse,
-    InvalidLimitException | InvalidNextTokenException | InvalidParameterValueException | CommonAwsError
+    | InvalidLimitException
+    | InvalidNextTokenException
+    | InvalidParameterValueException
+    | CommonAwsError
   >;
   describeDeliveryChannels(
     input: DescribeDeliveryChannelsRequest,
@@ -224,38 +320,54 @@ export declare class ConfigService extends AWSServiceClient {
     input: DescribeOrganizationConfigRulesRequest,
   ): Effect.Effect<
     DescribeOrganizationConfigRulesResponse,
-    InvalidLimitException | InvalidNextTokenException | NoSuchOrganizationConfigRuleException | OrganizationAccessDeniedException | CommonAwsError
+    | InvalidLimitException
+    | InvalidNextTokenException
+    | NoSuchOrganizationConfigRuleException
+    | OrganizationAccessDeniedException
+    | CommonAwsError
   >;
   describeOrganizationConfigRuleStatuses(
     input: DescribeOrganizationConfigRuleStatusesRequest,
   ): Effect.Effect<
     DescribeOrganizationConfigRuleStatusesResponse,
-    InvalidLimitException | InvalidNextTokenException | NoSuchOrganizationConfigRuleException | OrganizationAccessDeniedException | CommonAwsError
+    | InvalidLimitException
+    | InvalidNextTokenException
+    | NoSuchOrganizationConfigRuleException
+    | OrganizationAccessDeniedException
+    | CommonAwsError
   >;
   describeOrganizationConformancePacks(
     input: DescribeOrganizationConformancePacksRequest,
   ): Effect.Effect<
     DescribeOrganizationConformancePacksResponse,
-    InvalidLimitException | InvalidNextTokenException | NoSuchOrganizationConformancePackException | OrganizationAccessDeniedException | CommonAwsError
+    | InvalidLimitException
+    | InvalidNextTokenException
+    | NoSuchOrganizationConformancePackException
+    | OrganizationAccessDeniedException
+    | CommonAwsError
   >;
   describeOrganizationConformancePackStatuses(
     input: DescribeOrganizationConformancePackStatusesRequest,
   ): Effect.Effect<
     DescribeOrganizationConformancePackStatusesResponse,
-    InvalidLimitException | InvalidNextTokenException | NoSuchOrganizationConformancePackException | OrganizationAccessDeniedException | CommonAwsError
+    | InvalidLimitException
+    | InvalidNextTokenException
+    | NoSuchOrganizationConformancePackException
+    | OrganizationAccessDeniedException
+    | CommonAwsError
   >;
   describePendingAggregationRequests(
     input: DescribePendingAggregationRequestsRequest,
   ): Effect.Effect<
     DescribePendingAggregationRequestsResponse,
-    InvalidLimitException | InvalidNextTokenException | InvalidParameterValueException | CommonAwsError
+    | InvalidLimitException
+    | InvalidNextTokenException
+    | InvalidParameterValueException
+    | CommonAwsError
   >;
   describeRemediationConfigurations(
     input: DescribeRemediationConfigurationsRequest,
-  ): Effect.Effect<
-    DescribeRemediationConfigurationsResponse,
-    CommonAwsError
-  >;
+  ): Effect.Effect<DescribeRemediationConfigurationsResponse, CommonAwsError>;
   describeRemediationExceptions(
     input: DescribeRemediationExceptionsRequest,
   ): Effect.Effect<
@@ -266,55 +378,87 @@ export declare class ConfigService extends AWSServiceClient {
     input: DescribeRemediationExecutionStatusRequest,
   ): Effect.Effect<
     DescribeRemediationExecutionStatusResponse,
-    InvalidNextTokenException | InvalidParameterValueException | NoSuchRemediationConfigurationException | CommonAwsError
+    | InvalidNextTokenException
+    | InvalidParameterValueException
+    | NoSuchRemediationConfigurationException
+    | CommonAwsError
   >;
   describeRetentionConfigurations(
     input: DescribeRetentionConfigurationsRequest,
   ): Effect.Effect<
     DescribeRetentionConfigurationsResponse,
-    InvalidNextTokenException | InvalidParameterValueException | NoSuchRetentionConfigurationException | CommonAwsError
+    | InvalidNextTokenException
+    | InvalidParameterValueException
+    | NoSuchRetentionConfigurationException
+    | CommonAwsError
   >;
   disassociateResourceTypes(
     input: DisassociateResourceTypesRequest,
   ): Effect.Effect<
     DisassociateResourceTypesResponse,
-    ConflictException | NoSuchConfigurationRecorderException | ValidationException | CommonAwsError
+    | ConflictException
+    | NoSuchConfigurationRecorderException
+    | ValidationException
+    | CommonAwsError
   >;
   getAggregateComplianceDetailsByConfigRule(
     input: GetAggregateComplianceDetailsByConfigRuleRequest,
   ): Effect.Effect<
     GetAggregateComplianceDetailsByConfigRuleResponse,
-    InvalidLimitException | InvalidNextTokenException | NoSuchConfigurationAggregatorException | ValidationException | CommonAwsError
+    | InvalidLimitException
+    | InvalidNextTokenException
+    | NoSuchConfigurationAggregatorException
+    | ValidationException
+    | CommonAwsError
   >;
   getAggregateConfigRuleComplianceSummary(
     input: GetAggregateConfigRuleComplianceSummaryRequest,
   ): Effect.Effect<
     GetAggregateConfigRuleComplianceSummaryResponse,
-    InvalidLimitException | InvalidNextTokenException | NoSuchConfigurationAggregatorException | ValidationException | CommonAwsError
+    | InvalidLimitException
+    | InvalidNextTokenException
+    | NoSuchConfigurationAggregatorException
+    | ValidationException
+    | CommonAwsError
   >;
   getAggregateConformancePackComplianceSummary(
     input: GetAggregateConformancePackComplianceSummaryRequest,
   ): Effect.Effect<
     GetAggregateConformancePackComplianceSummaryResponse,
-    InvalidLimitException | InvalidNextTokenException | NoSuchConfigurationAggregatorException | ValidationException | CommonAwsError
+    | InvalidLimitException
+    | InvalidNextTokenException
+    | NoSuchConfigurationAggregatorException
+    | ValidationException
+    | CommonAwsError
   >;
   getAggregateDiscoveredResourceCounts(
     input: GetAggregateDiscoveredResourceCountsRequest,
   ): Effect.Effect<
     GetAggregateDiscoveredResourceCountsResponse,
-    InvalidLimitException | InvalidNextTokenException | NoSuchConfigurationAggregatorException | ValidationException | CommonAwsError
+    | InvalidLimitException
+    | InvalidNextTokenException
+    | NoSuchConfigurationAggregatorException
+    | ValidationException
+    | CommonAwsError
   >;
   getAggregateResourceConfig(
     input: GetAggregateResourceConfigRequest,
   ): Effect.Effect<
     GetAggregateResourceConfigResponse,
-    NoSuchConfigurationAggregatorException | OversizedConfigurationItemException | ResourceNotDiscoveredException | ValidationException | CommonAwsError
+    | NoSuchConfigurationAggregatorException
+    | OversizedConfigurationItemException
+    | ResourceNotDiscoveredException
+    | ValidationException
+    | CommonAwsError
   >;
   getComplianceDetailsByConfigRule(
     input: GetComplianceDetailsByConfigRuleRequest,
   ): Effect.Effect<
     GetComplianceDetailsByConfigRuleResponse,
-    InvalidNextTokenException | InvalidParameterValueException | NoSuchConfigRuleException | CommonAwsError
+    | InvalidNextTokenException
+    | InvalidParameterValueException
+    | NoSuchConfigRuleException
+    | CommonAwsError
   >;
   getComplianceDetailsByResource(
     input: GetComplianceDetailsByResourceRequest,
@@ -322,9 +466,7 @@ export declare class ConfigService extends AWSServiceClient {
     GetComplianceDetailsByResourceResponse,
     InvalidParameterValueException | CommonAwsError
   >;
-  getComplianceSummaryByConfigRule(
-    input: {},
-  ): Effect.Effect<
+  getComplianceSummaryByConfigRule(input: {}): Effect.Effect<
     GetComplianceSummaryByConfigRuleResponse,
     CommonAwsError
   >;
@@ -338,13 +480,21 @@ export declare class ConfigService extends AWSServiceClient {
     input: GetConformancePackComplianceDetailsRequest,
   ): Effect.Effect<
     GetConformancePackComplianceDetailsResponse,
-    InvalidLimitException | InvalidNextTokenException | InvalidParameterValueException | NoSuchConfigRuleInConformancePackException | NoSuchConformancePackException | CommonAwsError
+    | InvalidLimitException
+    | InvalidNextTokenException
+    | InvalidParameterValueException
+    | NoSuchConfigRuleInConformancePackException
+    | NoSuchConformancePackException
+    | CommonAwsError
   >;
   getConformancePackComplianceSummary(
     input: GetConformancePackComplianceSummaryRequest,
   ): Effect.Effect<
     GetConformancePackComplianceSummaryResponse,
-    InvalidLimitException | InvalidNextTokenException | NoSuchConformancePackException | CommonAwsError
+    | InvalidLimitException
+    | InvalidNextTokenException
+    | NoSuchConformancePackException
+    | CommonAwsError
   >;
   getCustomRulePolicy(
     input: GetCustomRulePolicyRequest,
@@ -356,31 +506,50 @@ export declare class ConfigService extends AWSServiceClient {
     input: GetDiscoveredResourceCountsRequest,
   ): Effect.Effect<
     GetDiscoveredResourceCountsResponse,
-    InvalidLimitException | InvalidNextTokenException | ValidationException | CommonAwsError
+    | InvalidLimitException
+    | InvalidNextTokenException
+    | ValidationException
+    | CommonAwsError
   >;
   getOrganizationConfigRuleDetailedStatus(
     input: GetOrganizationConfigRuleDetailedStatusRequest,
   ): Effect.Effect<
     GetOrganizationConfigRuleDetailedStatusResponse,
-    InvalidLimitException | InvalidNextTokenException | NoSuchOrganizationConfigRuleException | OrganizationAccessDeniedException | CommonAwsError
+    | InvalidLimitException
+    | InvalidNextTokenException
+    | NoSuchOrganizationConfigRuleException
+    | OrganizationAccessDeniedException
+    | CommonAwsError
   >;
   getOrganizationConformancePackDetailedStatus(
     input: GetOrganizationConformancePackDetailedStatusRequest,
   ): Effect.Effect<
     GetOrganizationConformancePackDetailedStatusResponse,
-    InvalidLimitException | InvalidNextTokenException | NoSuchOrganizationConformancePackException | OrganizationAccessDeniedException | CommonAwsError
+    | InvalidLimitException
+    | InvalidNextTokenException
+    | NoSuchOrganizationConformancePackException
+    | OrganizationAccessDeniedException
+    | CommonAwsError
   >;
   getOrganizationCustomRulePolicy(
     input: GetOrganizationCustomRulePolicyRequest,
   ): Effect.Effect<
     GetOrganizationCustomRulePolicyResponse,
-    NoSuchOrganizationConfigRuleException | OrganizationAccessDeniedException | CommonAwsError
+    | NoSuchOrganizationConfigRuleException
+    | OrganizationAccessDeniedException
+    | CommonAwsError
   >;
   getResourceConfigHistory(
     input: GetResourceConfigHistoryRequest,
   ): Effect.Effect<
     GetResourceConfigHistoryResponse,
-    InvalidLimitException | InvalidNextTokenException | InvalidTimeRangeException | NoAvailableConfigurationRecorderException | ResourceNotDiscoveredException | ValidationException | CommonAwsError
+    | InvalidLimitException
+    | InvalidNextTokenException
+    | InvalidTimeRangeException
+    | NoAvailableConfigurationRecorderException
+    | ResourceNotDiscoveredException
+    | ValidationException
+    | CommonAwsError
   >;
   getResourceEvaluationSummary(
     input: GetResourceEvaluationSummaryRequest,
@@ -398,7 +567,11 @@ export declare class ConfigService extends AWSServiceClient {
     input: ListAggregateDiscoveredResourcesRequest,
   ): Effect.Effect<
     ListAggregateDiscoveredResourcesResponse,
-    InvalidLimitException | InvalidNextTokenException | NoSuchConfigurationAggregatorException | ValidationException | CommonAwsError
+    | InvalidLimitException
+    | InvalidNextTokenException
+    | NoSuchConfigurationAggregatorException
+    | ValidationException
+    | CommonAwsError
   >;
   listConfigurationRecorders(
     input: ListConfigurationRecordersRequest,
@@ -410,19 +583,29 @@ export declare class ConfigService extends AWSServiceClient {
     input: ListConformancePackComplianceScoresRequest,
   ): Effect.Effect<
     ListConformancePackComplianceScoresResponse,
-    InvalidLimitException | InvalidNextTokenException | InvalidParameterValueException | CommonAwsError
+    | InvalidLimitException
+    | InvalidNextTokenException
+    | InvalidParameterValueException
+    | CommonAwsError
   >;
   listDiscoveredResources(
     input: ListDiscoveredResourcesRequest,
   ): Effect.Effect<
     ListDiscoveredResourcesResponse,
-    InvalidLimitException | InvalidNextTokenException | NoAvailableConfigurationRecorderException | ValidationException | CommonAwsError
+    | InvalidLimitException
+    | InvalidNextTokenException
+    | NoAvailableConfigurationRecorderException
+    | ValidationException
+    | CommonAwsError
   >;
   listResourceEvaluations(
     input: ListResourceEvaluationsRequest,
   ): Effect.Effect<
     ListResourceEvaluationsResponse,
-    InvalidNextTokenException | InvalidParameterValueException | InvalidTimeRangeException | CommonAwsError
+    | InvalidNextTokenException
+    | InvalidParameterValueException
+    | InvalidTimeRangeException
+    | CommonAwsError
   >;
   listStoredQueries(
     input: ListStoredQueriesRequest,
@@ -434,7 +617,11 @@ export declare class ConfigService extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    InvalidLimitException | InvalidNextTokenException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | InvalidLimitException
+    | InvalidNextTokenException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   putAggregationAuthorization(
     input: PutAggregationAuthorizationRequest,
@@ -446,37 +633,70 @@ export declare class ConfigService extends AWSServiceClient {
     input: PutConfigRuleRequest,
   ): Effect.Effect<
     {},
-    InsufficientPermissionsException | InvalidParameterValueException | MaxNumberOfConfigRulesExceededException | NoAvailableConfigurationRecorderException | ResourceInUseException | CommonAwsError
+    | InsufficientPermissionsException
+    | InvalidParameterValueException
+    | MaxNumberOfConfigRulesExceededException
+    | NoAvailableConfigurationRecorderException
+    | ResourceInUseException
+    | CommonAwsError
   >;
   putConfigurationAggregator(
     input: PutConfigurationAggregatorRequest,
   ): Effect.Effect<
     PutConfigurationAggregatorResponse,
-    InvalidParameterValueException | InvalidRoleException | LimitExceededException | NoAvailableOrganizationException | OrganizationAccessDeniedException | OrganizationAllFeaturesNotEnabledException | CommonAwsError
+    | InvalidParameterValueException
+    | InvalidRoleException
+    | LimitExceededException
+    | NoAvailableOrganizationException
+    | OrganizationAccessDeniedException
+    | OrganizationAllFeaturesNotEnabledException
+    | CommonAwsError
   >;
   putConfigurationRecorder(
     input: PutConfigurationRecorderRequest,
   ): Effect.Effect<
     {},
-    InvalidConfigurationRecorderNameException | InvalidRecordingGroupException | InvalidRoleException | MaxNumberOfConfigurationRecordersExceededException | UnmodifiableEntityException | ValidationException | CommonAwsError
+    | InvalidConfigurationRecorderNameException
+    | InvalidRecordingGroupException
+    | InvalidRoleException
+    | MaxNumberOfConfigurationRecordersExceededException
+    | UnmodifiableEntityException
+    | ValidationException
+    | CommonAwsError
   >;
   putConformancePack(
     input: PutConformancePackRequest,
   ): Effect.Effect<
     PutConformancePackResponse,
-    ConformancePackTemplateValidationException | InsufficientPermissionsException | InvalidParameterValueException | MaxNumberOfConformancePacksExceededException | ResourceInUseException | CommonAwsError
+    | ConformancePackTemplateValidationException
+    | InsufficientPermissionsException
+    | InvalidParameterValueException
+    | MaxNumberOfConformancePacksExceededException
+    | ResourceInUseException
+    | CommonAwsError
   >;
   putDeliveryChannel(
     input: PutDeliveryChannelRequest,
   ): Effect.Effect<
     {},
-    InsufficientDeliveryPolicyException | InvalidDeliveryChannelNameException | InvalidS3KeyPrefixException | InvalidS3KmsKeyArnException | InvalidSNSTopicARNException | MaxNumberOfDeliveryChannelsExceededException | NoAvailableConfigurationRecorderException | NoSuchBucketException | CommonAwsError
+    | InsufficientDeliveryPolicyException
+    | InvalidDeliveryChannelNameException
+    | InvalidS3KeyPrefixException
+    | InvalidS3KmsKeyArnException
+    | InvalidSNSTopicARNException
+    | MaxNumberOfDeliveryChannelsExceededException
+    | NoAvailableConfigurationRecorderException
+    | NoSuchBucketException
+    | CommonAwsError
   >;
   putEvaluations(
     input: PutEvaluationsRequest,
   ): Effect.Effect<
     PutEvaluationsResponse,
-    InvalidParameterValueException | InvalidResultTokenException | NoSuchConfigRuleException | CommonAwsError
+    | InvalidParameterValueException
+    | InvalidResultTokenException
+    | NoSuchConfigRuleException
+    | CommonAwsError
   >;
   putExternalEvaluation(
     input: PutExternalEvaluationRequest,
@@ -488,97 +708,154 @@ export declare class ConfigService extends AWSServiceClient {
     input: PutOrganizationConfigRuleRequest,
   ): Effect.Effect<
     PutOrganizationConfigRuleResponse,
-    InsufficientPermissionsException | InvalidParameterValueException | MaxNumberOfOrganizationConfigRulesExceededException | NoAvailableOrganizationException | OrganizationAccessDeniedException | OrganizationAllFeaturesNotEnabledException | ResourceInUseException | ValidationException | CommonAwsError
+    | InsufficientPermissionsException
+    | InvalidParameterValueException
+    | MaxNumberOfOrganizationConfigRulesExceededException
+    | NoAvailableOrganizationException
+    | OrganizationAccessDeniedException
+    | OrganizationAllFeaturesNotEnabledException
+    | ResourceInUseException
+    | ValidationException
+    | CommonAwsError
   >;
   putOrganizationConformancePack(
     input: PutOrganizationConformancePackRequest,
   ): Effect.Effect<
     PutOrganizationConformancePackResponse,
-    InsufficientPermissionsException | MaxNumberOfOrganizationConformancePacksExceededException | NoAvailableOrganizationException | OrganizationAccessDeniedException | OrganizationAllFeaturesNotEnabledException | OrganizationConformancePackTemplateValidationException | ResourceInUseException | ValidationException | CommonAwsError
+    | InsufficientPermissionsException
+    | MaxNumberOfOrganizationConformancePacksExceededException
+    | NoAvailableOrganizationException
+    | OrganizationAccessDeniedException
+    | OrganizationAllFeaturesNotEnabledException
+    | OrganizationConformancePackTemplateValidationException
+    | ResourceInUseException
+    | ValidationException
+    | CommonAwsError
   >;
   putRemediationConfigurations(
     input: PutRemediationConfigurationsRequest,
   ): Effect.Effect<
     PutRemediationConfigurationsResponse,
-    InsufficientPermissionsException | InvalidParameterValueException | CommonAwsError
+    | InsufficientPermissionsException
+    | InvalidParameterValueException
+    | CommonAwsError
   >;
   putRemediationExceptions(
     input: PutRemediationExceptionsRequest,
   ): Effect.Effect<
     PutRemediationExceptionsResponse,
-    InsufficientPermissionsException | InvalidParameterValueException | CommonAwsError
+    | InsufficientPermissionsException
+    | InvalidParameterValueException
+    | CommonAwsError
   >;
   putResourceConfig(
     input: PutResourceConfigRequest,
   ): Effect.Effect<
     {},
-    InsufficientPermissionsException | MaxActiveResourcesExceededException | NoRunningConfigurationRecorderException | ValidationException | CommonAwsError
+    | InsufficientPermissionsException
+    | MaxActiveResourcesExceededException
+    | NoRunningConfigurationRecorderException
+    | ValidationException
+    | CommonAwsError
   >;
   putRetentionConfiguration(
     input: PutRetentionConfigurationRequest,
   ): Effect.Effect<
     PutRetentionConfigurationResponse,
-    InvalidParameterValueException | MaxNumberOfRetentionConfigurationsExceededException | CommonAwsError
+    | InvalidParameterValueException
+    | MaxNumberOfRetentionConfigurationsExceededException
+    | CommonAwsError
   >;
   putServiceLinkedConfigurationRecorder(
     input: PutServiceLinkedConfigurationRecorderRequest,
   ): Effect.Effect<
     PutServiceLinkedConfigurationRecorderResponse,
-    ConflictException | InsufficientPermissionsException | LimitExceededException | ValidationException | CommonAwsError
+    | ConflictException
+    | InsufficientPermissionsException
+    | LimitExceededException
+    | ValidationException
+    | CommonAwsError
   >;
   putStoredQuery(
     input: PutStoredQueryRequest,
   ): Effect.Effect<
     PutStoredQueryResponse,
-    ResourceConcurrentModificationException | TooManyTagsException | ValidationException | CommonAwsError
+    | ResourceConcurrentModificationException
+    | TooManyTagsException
+    | ValidationException
+    | CommonAwsError
   >;
   selectAggregateResourceConfig(
     input: SelectAggregateResourceConfigRequest,
   ): Effect.Effect<
     SelectAggregateResourceConfigResponse,
-    InvalidExpressionException | InvalidLimitException | InvalidNextTokenException | NoSuchConfigurationAggregatorException | CommonAwsError
+    | InvalidExpressionException
+    | InvalidLimitException
+    | InvalidNextTokenException
+    | NoSuchConfigurationAggregatorException
+    | CommonAwsError
   >;
   selectResourceConfig(
     input: SelectResourceConfigRequest,
   ): Effect.Effect<
     SelectResourceConfigResponse,
-    InvalidExpressionException | InvalidLimitException | InvalidNextTokenException | CommonAwsError
+    | InvalidExpressionException
+    | InvalidLimitException
+    | InvalidNextTokenException
+    | CommonAwsError
   >;
   startConfigRulesEvaluation(
     input: StartConfigRulesEvaluationRequest,
   ): Effect.Effect<
     StartConfigRulesEvaluationResponse,
-    InvalidParameterValueException | LimitExceededException | NoSuchConfigRuleException | ResourceInUseException | CommonAwsError
+    | InvalidParameterValueException
+    | LimitExceededException
+    | NoSuchConfigRuleException
+    | ResourceInUseException
+    | CommonAwsError
   >;
   startConfigurationRecorder(
     input: StartConfigurationRecorderRequest,
   ): Effect.Effect<
     {},
-    NoAvailableDeliveryChannelException | NoSuchConfigurationRecorderException | UnmodifiableEntityException | CommonAwsError
+    | NoAvailableDeliveryChannelException
+    | NoSuchConfigurationRecorderException
+    | UnmodifiableEntityException
+    | CommonAwsError
   >;
   startRemediationExecution(
     input: StartRemediationExecutionRequest,
   ): Effect.Effect<
     StartRemediationExecutionResponse,
-    InsufficientPermissionsException | InvalidParameterValueException | NoSuchRemediationConfigurationException | CommonAwsError
+    | InsufficientPermissionsException
+    | InvalidParameterValueException
+    | NoSuchRemediationConfigurationException
+    | CommonAwsError
   >;
   startResourceEvaluation(
     input: StartResourceEvaluationRequest,
   ): Effect.Effect<
     StartResourceEvaluationResponse,
-    IdempotentParameterMismatch | InvalidParameterValueException | CommonAwsError
+    | IdempotentParameterMismatch
+    | InvalidParameterValueException
+    | CommonAwsError
   >;
   stopConfigurationRecorder(
     input: StopConfigurationRecorderRequest,
   ): Effect.Effect<
     {},
-    NoSuchConfigurationRecorderException | UnmodifiableEntityException | CommonAwsError
+    | NoSuchConfigurationRecorderException
+    | UnmodifiableEntityException
+    | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     {},
-    ResourceNotFoundException | TooManyTagsException | ValidationException | CommonAwsError
+    | ResourceNotFoundException
+    | TooManyTagsException
+    | ValidationException
+    | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
@@ -603,14 +880,16 @@ export interface AggregateComplianceByConfigRule {
   AccountId?: string;
   AwsRegion?: string;
 }
-export type AggregateComplianceByConfigRuleList = Array<AggregateComplianceByConfigRule>;
+export type AggregateComplianceByConfigRuleList =
+  Array<AggregateComplianceByConfigRule>;
 export interface AggregateComplianceByConformancePack {
   ConformancePackName?: string;
   Compliance?: AggregateConformancePackCompliance;
   AccountId?: string;
   AwsRegion?: string;
 }
-export type AggregateComplianceByConformancePackList = Array<AggregateComplianceByConformancePack>;
+export type AggregateComplianceByConformancePackList =
+  Array<AggregateComplianceByConformancePack>;
 export interface AggregateComplianceCount {
   GroupName?: string;
   ComplianceSummary?: ComplianceSummary;
@@ -640,8 +919,11 @@ export interface AggregateConformancePackComplianceSummaryFilters {
   AccountId?: string;
   AwsRegion?: string;
 }
-export type AggregateConformancePackComplianceSummaryGroupKey = "ACCOUNT_ID" | "AWS_REGION";
-export type AggregateConformancePackComplianceSummaryList = Array<AggregateConformancePackComplianceSummary>;
+export type AggregateConformancePackComplianceSummaryGroupKey =
+  | "ACCOUNT_ID"
+  | "AWS_REGION";
+export type AggregateConformancePackComplianceSummaryList =
+  Array<AggregateConformancePackComplianceSummary>;
 export interface AggregatedSourceStatus {
   SourceId?: string;
   SourceType?: AggregatedSourceType;
@@ -781,7 +1063,8 @@ export interface ComplianceContributorCount {
 export type ComplianceResourceTypes = Array<string>;
 export type ComplianceScore = string;
 
-export type ComplianceSummariesByResourceType = Array<ComplianceSummaryByResourceType>;
+export type ComplianceSummariesByResourceType =
+  Array<ComplianceSummaryByResourceType>;
 export interface ComplianceSummary {
   CompliantResourceCount?: ComplianceContributorCount;
   NonCompliantResourceCount?: ComplianceContributorCount;
@@ -791,7 +1074,11 @@ export interface ComplianceSummaryByResourceType {
   ResourceType?: string;
   ComplianceSummary?: ComplianceSummary;
 }
-export type ComplianceType = "COMPLIANT" | "NON_COMPLIANT" | "NOT_APPLICABLE" | "INSUFFICIENT_DATA";
+export type ComplianceType =
+  | "COMPLIANT"
+  | "NON_COMPLIANT"
+  | "NOT_APPLICABLE"
+  | "INSUFFICIENT_DATA";
 export type ComplianceTypes = Array<ComplianceType>;
 export interface ConfigExportDeliveryInfo {
   lastStatus?: DeliveryStatus;
@@ -847,7 +1134,11 @@ export type ConfigRuleName = string;
 
 export type ConfigRuleNames = Array<string>;
 export type ConfigRules = Array<ConfigRule>;
-export type ConfigRuleState = "ACTIVE" | "DELETING" | "DELETING_RESULTS" | "EVALUATING";
+export type ConfigRuleState =
+  | "ACTIVE"
+  | "DELETING"
+  | "DELETING_RESULTS"
+  | "EVALUATING";
 export interface ConfigSnapshotDeliveryProperties {
   deliveryFrequency?: MaximumExecutionFrequency;
 }
@@ -904,7 +1195,12 @@ export type ConfigurationItemDeliveryTime = Date | string;
 export type ConfigurationItemList = Array<ConfigurationItem>;
 export type ConfigurationItemMD5Hash = string;
 
-export type ConfigurationItemStatus = "OK" | "ResourceDiscovered" | "ResourceNotRecorded" | "ResourceDeleted" | "ResourceDeletedNotRecorded";
+export type ConfigurationItemStatus =
+  | "OK"
+  | "ResourceDiscovered"
+  | "ResourceNotRecorded"
+  | "ResourceDeleted"
+  | "ResourceDeletedNotRecorded";
 export interface ConfigurationRecorder {
   arn?: string;
   name?: string;
@@ -918,7 +1214,8 @@ export interface ConfigurationRecorderFilter {
   filterName?: ConfigurationRecorderFilterName;
   filterValue?: Array<string>;
 }
-export type ConfigurationRecorderFilterList = Array<ConfigurationRecorderFilter>;
+export type ConfigurationRecorderFilterList =
+  Array<ConfigurationRecorderFilter>;
 export type ConfigurationRecorderFilterName = "recordingScope";
 export type ConfigurationRecorderFilterValue = string;
 
@@ -937,8 +1234,10 @@ export interface ConfigurationRecorderStatus {
   lastStatusChangeTime?: Date | string;
   servicePrincipal?: string;
 }
-export type ConfigurationRecorderStatusList = Array<ConfigurationRecorderStatus>;
-export type ConfigurationRecorderSummaries = Array<ConfigurationRecorderSummary>;
+export type ConfigurationRecorderStatusList =
+  Array<ConfigurationRecorderStatus>;
+export type ConfigurationRecorderSummaries =
+  Array<ConfigurationRecorderSummary>;
 export interface ConfigurationRecorderSummary {
   arn: string;
   name: string;
@@ -964,7 +1263,8 @@ export interface ConformancePackComplianceScore {
   ConformancePackName?: string;
   LastUpdatedTime?: Date | string;
 }
-export type ConformancePackComplianceScores = Array<ConformancePackComplianceScore>;
+export type ConformancePackComplianceScores =
+  Array<ConformancePackComplianceScore>;
 export interface ConformancePackComplianceScoresFilters {
   ConformancePackNames: Array<string>;
 }
@@ -972,8 +1272,12 @@ export interface ConformancePackComplianceSummary {
   ConformancePackName: string;
   ConformancePackComplianceStatus: ConformancePackComplianceType;
 }
-export type ConformancePackComplianceSummaryList = Array<ConformancePackComplianceSummary>;
-export type ConformancePackComplianceType = "COMPLIANT" | "NON_COMPLIANT" | "INSUFFICIENT_DATA";
+export type ConformancePackComplianceSummaryList =
+  Array<ConformancePackComplianceSummary>;
+export type ConformancePackComplianceType =
+  | "COMPLIANT"
+  | "NON_COMPLIANT"
+  | "INSUFFICIENT_DATA";
 export type ConformancePackConfigRuleNames = Array<string>;
 export interface ConformancePackDetail {
   ConformancePackName: string;
@@ -1006,7 +1310,8 @@ export interface ConformancePackInputParameter {
   ParameterName: string;
   ParameterValue: string;
 }
-export type ConformancePackInputParameters = Array<ConformancePackInputParameter>;
+export type ConformancePackInputParameters =
+  Array<ConformancePackInputParameter>;
 export type ConformancePackName = string;
 
 export type ConformancePackNameFilter = Array<string>;
@@ -1017,9 +1322,16 @@ export interface ConformancePackRuleCompliance {
   ComplianceType?: ConformancePackComplianceType;
   Controls?: Array<string>;
 }
-export type ConformancePackRuleComplianceList = Array<ConformancePackRuleCompliance>;
-export type ConformancePackRuleEvaluationResultsList = Array<ConformancePackEvaluationResult>;
-export type ConformancePackState = "CREATE_IN_PROGRESS" | "CREATE_COMPLETE" | "CREATE_FAILED" | "DELETE_IN_PROGRESS" | "DELETE_FAILED";
+export type ConformancePackRuleComplianceList =
+  Array<ConformancePackRuleCompliance>;
+export type ConformancePackRuleEvaluationResultsList =
+  Array<ConformancePackEvaluationResult>;
+export type ConformancePackState =
+  | "CREATE_IN_PROGRESS"
+  | "CREATE_COMPLETE"
+  | "CREATE_FAILED"
+  | "DELETE_IN_PROGRESS"
+  | "DELETE_FAILED";
 export interface ConformancePackStatusDetail {
   ConformancePackName: string;
   ConformancePackId: string;
@@ -1030,7 +1342,8 @@ export interface ConformancePackStatusDetail {
   LastUpdateRequestedTime: Date | string;
   LastUpdateCompletedTime?: Date | string;
 }
-export type ConformancePackStatusDetailsList = Array<ConformancePackStatusDetail>;
+export type ConformancePackStatusDetailsList =
+  Array<ConformancePackStatusDetail>;
 export type ConformancePackStatusReason = string;
 
 export declare class ConformancePackTemplateValidationException extends EffectData.TaggedError(
@@ -1071,8 +1384,7 @@ export interface DeleteDeliveryChannelRequest {
 export interface DeleteEvaluationResultsRequest {
   ConfigRuleName: string;
 }
-export interface DeleteEvaluationResultsResponse {
-}
+export interface DeleteEvaluationResultsResponse {}
 export interface DeleteOrganizationConfigRuleRequest {
   OrganizationConfigRuleName: string;
 }
@@ -1087,8 +1399,7 @@ export interface DeleteRemediationConfigurationRequest {
   ConfigRuleName: string;
   ResourceType?: string;
 }
-export interface DeleteRemediationConfigurationResponse {
-}
+export interface DeleteRemediationConfigurationResponse {}
 export interface DeleteRemediationExceptionsRequest {
   ConfigRuleName: string;
   ResourceKeys: Array<RemediationExceptionResourceKey>;
@@ -1113,8 +1424,7 @@ export interface DeleteServiceLinkedConfigurationRecorderResponse {
 export interface DeleteStoredQueryRequest {
   QueryName: string;
 }
-export interface DeleteStoredQueryResponse {
-}
+export interface DeleteStoredQueryResponse {}
 export interface DeliverConfigSnapshotRequest {
   deliveryChannelName: string;
 }
@@ -1379,7 +1689,8 @@ export interface DisassociateResourceTypesRequest {
 export interface DisassociateResourceTypesResponse {
   ConfigurationRecorder: ConfigurationRecorder;
 }
-export type DiscoveredResourceIdentifierList = Array<AggregateResourceIdentifier>;
+export type DiscoveredResourceIdentifierList =
+  Array<AggregateResourceIdentifier>;
 export type EarlierTime = Date | string;
 
 export type EmptiableStringWithCharLimit256 = string;
@@ -1451,7 +1762,8 @@ export interface FailedDeleteRemediationExceptionsBatch {
   FailureMessage?: string;
   FailedItems?: Array<RemediationExceptionResourceKey>;
 }
-export type FailedDeleteRemediationExceptionsBatches = Array<FailedDeleteRemediationExceptionsBatch>;
+export type FailedDeleteRemediationExceptionsBatches =
+  Array<FailedDeleteRemediationExceptionsBatch>;
 export interface FailedRemediationBatch {
   FailureMessage?: string;
   FailedItems?: Array<RemediationConfiguration>;
@@ -1461,7 +1773,8 @@ export interface FailedRemediationExceptionBatch {
   FailureMessage?: string;
   FailedItems?: Array<RemediationException>;
 }
-export type FailedRemediationExceptionBatches = Array<FailedRemediationExceptionBatch>;
+export type FailedRemediationExceptionBatches =
+  Array<FailedRemediationExceptionBatch>;
 export interface FieldInfo {
   Name?: string;
 }
@@ -1835,7 +2148,12 @@ export declare class MaxActiveResourcesExceededException extends EffectData.Tagg
 )<{
   readonly message?: string;
 }> {}
-export type MaximumExecutionFrequency = "One_Hour" | "Three_Hours" | "Six_Hours" | "Twelve_Hours" | "TwentyFour_Hours";
+export type MaximumExecutionFrequency =
+  | "One_Hour"
+  | "Three_Hours"
+  | "Six_Hours"
+  | "Twelve_Hours"
+  | "TwentyFour_Hours";
 export declare class MaxNumberOfConfigRulesExceededException extends EffectData.TaggedError(
   "MaxNumberOfConfigRulesExceededException",
 )<{
@@ -1873,7 +2191,16 @@ export declare class MaxNumberOfRetentionConfigurationsExceededException extends
 }> {}
 export type MaxResults = number;
 
-export type MemberAccountRuleStatus = "CREATE_SUCCESSFUL" | "CREATE_IN_PROGRESS" | "CREATE_FAILED" | "DELETE_SUCCESSFUL" | "DELETE_FAILED" | "DELETE_IN_PROGRESS" | "UPDATE_SUCCESSFUL" | "UPDATE_IN_PROGRESS" | "UPDATE_FAILED";
+export type MemberAccountRuleStatus =
+  | "CREATE_SUCCESSFUL"
+  | "CREATE_IN_PROGRESS"
+  | "CREATE_FAILED"
+  | "DELETE_SUCCESSFUL"
+  | "DELETE_FAILED"
+  | "DELETE_IN_PROGRESS"
+  | "UPDATE_SUCCESSFUL"
+  | "UPDATE_IN_PROGRESS"
+  | "UPDATE_FAILED";
 export interface MemberAccountStatus {
   AccountId: string;
   ConfigRuleName: string;
@@ -1882,7 +2209,11 @@ export interface MemberAccountStatus {
   ErrorMessage?: string;
   LastUpdateTime?: Date | string;
 }
-export type MessageType = "ConfigurationItemChangeNotification" | "ConfigurationSnapshotDeliveryCompleted" | "ScheduledNotification" | "OversizedConfigurationItemChangeNotification";
+export type MessageType =
+  | "ConfigurationItemChangeNotification"
+  | "ConfigurationSnapshotDeliveryCompleted"
+  | "ScheduledNotification"
+  | "OversizedConfigurationItemChangeNotification";
 export type Name = string;
 
 export type NextToken = string;
@@ -2005,11 +2336,19 @@ export interface OrganizationConfigRuleStatus {
   ErrorMessage?: string;
   LastUpdateTime?: Date | string;
 }
-export type OrganizationConfigRuleStatuses = Array<OrganizationConfigRuleStatus>;
-export type OrganizationConfigRuleTriggerType = "ConfigurationItemChangeNotification" | "OversizedConfigurationItemChangeNotification" | "ScheduledNotification";
-export type OrganizationConfigRuleTriggerTypeNoSN = "ConfigurationItemChangeNotification" | "OversizedConfigurationItemChangeNotification";
-export type OrganizationConfigRuleTriggerTypeNoSNs = Array<OrganizationConfigRuleTriggerTypeNoSN>;
-export type OrganizationConfigRuleTriggerTypes = Array<OrganizationConfigRuleTriggerType>;
+export type OrganizationConfigRuleStatuses =
+  Array<OrganizationConfigRuleStatus>;
+export type OrganizationConfigRuleTriggerType =
+  | "ConfigurationItemChangeNotification"
+  | "OversizedConfigurationItemChangeNotification"
+  | "ScheduledNotification";
+export type OrganizationConfigRuleTriggerTypeNoSN =
+  | "ConfigurationItemChangeNotification"
+  | "OversizedConfigurationItemChangeNotification";
+export type OrganizationConfigRuleTriggerTypeNoSNs =
+  Array<OrganizationConfigRuleTriggerTypeNoSN>;
+export type OrganizationConfigRuleTriggerTypes =
+  Array<OrganizationConfigRuleTriggerType>;
 export interface OrganizationConformancePack {
   OrganizationConformancePackName: string;
   OrganizationConformancePackArn: string;
@@ -2027,7 +2366,8 @@ export interface OrganizationConformancePackDetailedStatus {
   ErrorMessage?: string;
   LastUpdateTime?: Date | string;
 }
-export type OrganizationConformancePackDetailedStatuses = Array<OrganizationConformancePackDetailedStatus>;
+export type OrganizationConformancePackDetailedStatuses =
+  Array<OrganizationConformancePackDetailedStatus>;
 export type OrganizationConformancePackName = string;
 
 export type OrganizationConformancePackNames = Array<string>;
@@ -2039,7 +2379,8 @@ export interface OrganizationConformancePackStatus {
   ErrorMessage?: string;
   LastUpdateTime?: Date | string;
 }
-export type OrganizationConformancePackStatuses = Array<OrganizationConformancePackStatus>;
+export type OrganizationConformancePackStatuses =
+  Array<OrganizationConformancePackStatus>;
 export declare class OrganizationConformancePackTemplateValidationException extends EffectData.TaggedError(
   "OrganizationConformancePackTemplateValidationException",
 )<{
@@ -2091,13 +2432,40 @@ export interface OrganizationManagedRuleMetadata {
   TagKeyScope?: string;
   TagValueScope?: string;
 }
-export type OrganizationResourceDetailedStatus = "CREATE_SUCCESSFUL" | "CREATE_IN_PROGRESS" | "CREATE_FAILED" | "DELETE_SUCCESSFUL" | "DELETE_FAILED" | "DELETE_IN_PROGRESS" | "UPDATE_SUCCESSFUL" | "UPDATE_IN_PROGRESS" | "UPDATE_FAILED";
+export type OrganizationResourceDetailedStatus =
+  | "CREATE_SUCCESSFUL"
+  | "CREATE_IN_PROGRESS"
+  | "CREATE_FAILED"
+  | "DELETE_SUCCESSFUL"
+  | "DELETE_FAILED"
+  | "DELETE_IN_PROGRESS"
+  | "UPDATE_SUCCESSFUL"
+  | "UPDATE_IN_PROGRESS"
+  | "UPDATE_FAILED";
 export interface OrganizationResourceDetailedStatusFilters {
   AccountId?: string;
   Status?: OrganizationResourceDetailedStatus;
 }
-export type OrganizationResourceStatus = "CREATE_SUCCESSFUL" | "CREATE_IN_PROGRESS" | "CREATE_FAILED" | "DELETE_SUCCESSFUL" | "DELETE_FAILED" | "DELETE_IN_PROGRESS" | "UPDATE_SUCCESSFUL" | "UPDATE_IN_PROGRESS" | "UPDATE_FAILED";
-export type OrganizationRuleStatus = "CREATE_SUCCESSFUL" | "CREATE_IN_PROGRESS" | "CREATE_FAILED" | "DELETE_SUCCESSFUL" | "DELETE_FAILED" | "DELETE_IN_PROGRESS" | "UPDATE_SUCCESSFUL" | "UPDATE_IN_PROGRESS" | "UPDATE_FAILED";
+export type OrganizationResourceStatus =
+  | "CREATE_SUCCESSFUL"
+  | "CREATE_IN_PROGRESS"
+  | "CREATE_FAILED"
+  | "DELETE_SUCCESSFUL"
+  | "DELETE_FAILED"
+  | "DELETE_IN_PROGRESS"
+  | "UPDATE_SUCCESSFUL"
+  | "UPDATE_IN_PROGRESS"
+  | "UPDATE_FAILED";
+export type OrganizationRuleStatus =
+  | "CREATE_SUCCESSFUL"
+  | "CREATE_IN_PROGRESS"
+  | "CREATE_FAILED"
+  | "DELETE_SUCCESSFUL"
+  | "DELETE_FAILED"
+  | "DELETE_IN_PROGRESS"
+  | "UPDATE_SUCCESSFUL"
+  | "UPDATE_IN_PROGRESS"
+  | "UPDATE_FAILED";
 export declare class OversizedConfigurationItemException extends EffectData.TaggedError(
   "OversizedConfigurationItemException",
 )<{
@@ -2174,8 +2542,7 @@ export interface PutExternalEvaluationRequest {
   ConfigRuleName: string;
   ExternalEvaluation: ExternalEvaluation;
 }
-export interface PutExternalEvaluationResponse {
-}
+export interface PutExternalEvaluationResponse {}
 export interface PutOrganizationConfigRuleRequest {
   OrganizationConfigRuleName: string;
   OrganizationManagedRuleMetadata?: OrganizationManagedRuleMetadata;
@@ -2257,7 +2624,11 @@ export type QueryName = string;
 
 export type RecorderName = string;
 
-export type RecorderStatus = "Pending" | "Success" | "Failure" | "NotApplicable";
+export type RecorderStatus =
+  | "Pending"
+  | "Success"
+  | "Failure"
+  | "NotApplicable";
 export type RecordingFrequency = "CONTINUOUS" | "DAILY";
 export interface RecordingGroup {
   allSupported?: boolean;
@@ -2281,7 +2652,10 @@ export type RecordingScope = "INTERNAL" | "PAID";
 export interface RecordingStrategy {
   useOnly?: RecordingStrategyType;
 }
-export type RecordingStrategyType = "ALL_SUPPORTED_RESOURCE_TYPES" | "INCLUSION_BY_RESOURCE_TYPES" | "EXCLUSION_BY_RESOURCE_TYPES";
+export type RecordingStrategyType =
+  | "ALL_SUPPORTED_RESOURCE_TYPES"
+  | "INCLUSION_BY_RESOURCE_TYPES"
+  | "EXCLUSION_BY_RESOURCE_TYPES";
 export type ReevaluateConfigRuleNames = Array<string>;
 export type RelatedEvent = string;
 
@@ -2321,9 +2695,14 @@ export interface RemediationExceptionResourceKey {
   ResourceType?: string;
   ResourceId?: string;
 }
-export type RemediationExceptionResourceKeys = Array<RemediationExceptionResourceKey>;
+export type RemediationExceptionResourceKeys =
+  Array<RemediationExceptionResourceKey>;
 export type RemediationExceptions = Array<RemediationException>;
-export type RemediationExecutionState = "QUEUED" | "IN_PROGRESS" | "SUCCEEDED" | "FAILED";
+export type RemediationExecutionState =
+  | "QUEUED"
+  | "IN_PROGRESS"
+  | "SUCCEEDED"
+  | "FAILED";
 export interface RemediationExecutionStatus {
   ResourceKey?: ResourceKey;
   State?: RemediationExecutionState;
@@ -2369,7 +2748,10 @@ export interface ResourceCountFilters {
   AccountId?: string;
   Region?: string;
 }
-export type ResourceCountGroupKey = "RESOURCE_TYPE" | "ACCOUNT_ID" | "AWS_REGION";
+export type ResourceCountGroupKey =
+  | "RESOURCE_TYPE"
+  | "ACCOUNT_ID"
+  | "AWS_REGION";
 export type ResourceCounts = Array<ResourceCount>;
 export type ResourceCreationTime = Date | string;
 
@@ -2434,7 +2816,449 @@ export declare class ResourceNotFoundException extends EffectData.TaggedError(
 )<{
   readonly message?: string;
 }> {}
-export type ResourceType = "AWS::EC2::CustomerGateway" | "AWS::EC2::EIP" | "AWS::EC2::Host" | "AWS::EC2::Instance" | "AWS::EC2::InternetGateway" | "AWS::EC2::NetworkAcl" | "AWS::EC2::NetworkInterface" | "AWS::EC2::RouteTable" | "AWS::EC2::SecurityGroup" | "AWS::EC2::Subnet" | "AWS::CloudTrail::Trail" | "AWS::EC2::Volume" | "AWS::EC2::VPC" | "AWS::EC2::VPNConnection" | "AWS::EC2::VPNGateway" | "AWS::EC2::RegisteredHAInstance" | "AWS::EC2::NatGateway" | "AWS::EC2::EgressOnlyInternetGateway" | "AWS::EC2::VPCEndpoint" | "AWS::EC2::VPCEndpointService" | "AWS::EC2::FlowLog" | "AWS::EC2::VPCPeeringConnection" | "AWS::Elasticsearch::Domain" | "AWS::IAM::Group" | "AWS::IAM::Policy" | "AWS::IAM::Role" | "AWS::IAM::User" | "AWS::ElasticLoadBalancingV2::LoadBalancer" | "AWS::ACM::Certificate" | "AWS::RDS::DBInstance" | "AWS::RDS::DBSubnetGroup" | "AWS::RDS::DBSecurityGroup" | "AWS::RDS::DBSnapshot" | "AWS::RDS::DBCluster" | "AWS::RDS::DBClusterSnapshot" | "AWS::RDS::EventSubscription" | "AWS::S3::Bucket" | "AWS::S3::AccountPublicAccessBlock" | "AWS::Redshift::Cluster" | "AWS::Redshift::ClusterSnapshot" | "AWS::Redshift::ClusterParameterGroup" | "AWS::Redshift::ClusterSecurityGroup" | "AWS::Redshift::ClusterSubnetGroup" | "AWS::Redshift::EventSubscription" | "AWS::SSM::ManagedInstanceInventory" | "AWS::CloudWatch::Alarm" | "AWS::CloudFormation::Stack" | "AWS::ElasticLoadBalancing::LoadBalancer" | "AWS::AutoScaling::AutoScalingGroup" | "AWS::AutoScaling::LaunchConfiguration" | "AWS::AutoScaling::ScalingPolicy" | "AWS::AutoScaling::ScheduledAction" | "AWS::DynamoDB::Table" | "AWS::CodeBuild::Project" | "AWS::WAF::RateBasedRule" | "AWS::WAF::Rule" | "AWS::WAF::RuleGroup" | "AWS::WAF::WebACL" | "AWS::WAFRegional::RateBasedRule" | "AWS::WAFRegional::Rule" | "AWS::WAFRegional::RuleGroup" | "AWS::WAFRegional::WebACL" | "AWS::CloudFront::Distribution" | "AWS::CloudFront::StreamingDistribution" | "AWS::Lambda::Function" | "AWS::NetworkFirewall::Firewall" | "AWS::NetworkFirewall::FirewallPolicy" | "AWS::NetworkFirewall::RuleGroup" | "AWS::ElasticBeanstalk::Application" | "AWS::ElasticBeanstalk::ApplicationVersion" | "AWS::ElasticBeanstalk::Environment" | "AWS::WAFv2::WebACL" | "AWS::WAFv2::RuleGroup" | "AWS::WAFv2::IPSet" | "AWS::WAFv2::RegexPatternSet" | "AWS::WAFv2::ManagedRuleSet" | "AWS::XRay::EncryptionConfig" | "AWS::SSM::AssociationCompliance" | "AWS::SSM::PatchCompliance" | "AWS::Shield::Protection" | "AWS::ShieldRegional::Protection" | "AWS::Config::ConformancePackCompliance" | "AWS::Config::ResourceCompliance" | "AWS::ApiGateway::Stage" | "AWS::ApiGateway::RestApi" | "AWS::ApiGatewayV2::Stage" | "AWS::ApiGatewayV2::Api" | "AWS::CodePipeline::Pipeline" | "AWS::ServiceCatalog::CloudFormationProvisionedProduct" | "AWS::ServiceCatalog::CloudFormationProduct" | "AWS::ServiceCatalog::Portfolio" | "AWS::SQS::Queue" | "AWS::KMS::Key" | "AWS::QLDB::Ledger" | "AWS::SecretsManager::Secret" | "AWS::SNS::Topic" | "AWS::SSM::FileData" | "AWS::Backup::BackupPlan" | "AWS::Backup::BackupSelection" | "AWS::Backup::BackupVault" | "AWS::Backup::RecoveryPoint" | "AWS::ECR::Repository" | "AWS::ECS::Cluster" | "AWS::ECS::Service" | "AWS::ECS::TaskDefinition" | "AWS::EFS::AccessPoint" | "AWS::EFS::FileSystem" | "AWS::EKS::Cluster" | "AWS::OpenSearch::Domain" | "AWS::EC2::TransitGateway" | "AWS::Kinesis::Stream" | "AWS::Kinesis::StreamConsumer" | "AWS::CodeDeploy::Application" | "AWS::CodeDeploy::DeploymentConfig" | "AWS::CodeDeploy::DeploymentGroup" | "AWS::EC2::LaunchTemplate" | "AWS::ECR::PublicRepository" | "AWS::GuardDuty::Detector" | "AWS::EMR::SecurityConfiguration" | "AWS::SageMaker::CodeRepository" | "AWS::Route53Resolver::ResolverEndpoint" | "AWS::Route53Resolver::ResolverRule" | "AWS::Route53Resolver::ResolverRuleAssociation" | "AWS::DMS::ReplicationSubnetGroup" | "AWS::DMS::EventSubscription" | "AWS::MSK::Cluster" | "AWS::StepFunctions::Activity" | "AWS::WorkSpaces::Workspace" | "AWS::WorkSpaces::ConnectionAlias" | "AWS::SageMaker::Model" | "AWS::ElasticLoadBalancingV2::Listener" | "AWS::StepFunctions::StateMachine" | "AWS::Batch::JobQueue" | "AWS::Batch::ComputeEnvironment" | "AWS::AccessAnalyzer::Analyzer" | "AWS::Athena::WorkGroup" | "AWS::Athena::DataCatalog" | "AWS::Detective::Graph" | "AWS::GlobalAccelerator::Accelerator" | "AWS::GlobalAccelerator::EndpointGroup" | "AWS::GlobalAccelerator::Listener" | "AWS::EC2::TransitGatewayAttachment" | "AWS::EC2::TransitGatewayRouteTable" | "AWS::DMS::Certificate" | "AWS::AppConfig::Application" | "AWS::AppSync::GraphQLApi" | "AWS::DataSync::LocationSMB" | "AWS::DataSync::LocationFSxLustre" | "AWS::DataSync::LocationS3" | "AWS::DataSync::LocationEFS" | "AWS::DataSync::Task" | "AWS::DataSync::LocationNFS" | "AWS::EC2::NetworkInsightsAccessScopeAnalysis" | "AWS::EKS::FargateProfile" | "AWS::Glue::Job" | "AWS::GuardDuty::ThreatIntelSet" | "AWS::GuardDuty::IPSet" | "AWS::SageMaker::Workteam" | "AWS::SageMaker::NotebookInstanceLifecycleConfig" | "AWS::ServiceDiscovery::Service" | "AWS::ServiceDiscovery::PublicDnsNamespace" | "AWS::SES::ContactList" | "AWS::SES::ConfigurationSet" | "AWS::Route53::HostedZone" | "AWS::IoTEvents::Input" | "AWS::IoTEvents::DetectorModel" | "AWS::IoTEvents::AlarmModel" | "AWS::ServiceDiscovery::HttpNamespace" | "AWS::Events::EventBus" | "AWS::ImageBuilder::ContainerRecipe" | "AWS::ImageBuilder::DistributionConfiguration" | "AWS::ImageBuilder::InfrastructureConfiguration" | "AWS::DataSync::LocationObjectStorage" | "AWS::DataSync::LocationHDFS" | "AWS::Glue::Classifier" | "AWS::Route53RecoveryReadiness::Cell" | "AWS::Route53RecoveryReadiness::ReadinessCheck" | "AWS::ECR::RegistryPolicy" | "AWS::Backup::ReportPlan" | "AWS::Lightsail::Certificate" | "AWS::RUM::AppMonitor" | "AWS::Events::Endpoint" | "AWS::SES::ReceiptRuleSet" | "AWS::Events::Archive" | "AWS::Events::ApiDestination" | "AWS::Lightsail::Disk" | "AWS::FIS::ExperimentTemplate" | "AWS::DataSync::LocationFSxWindows" | "AWS::SES::ReceiptFilter" | "AWS::GuardDuty::Filter" | "AWS::SES::Template" | "AWS::AmazonMQ::Broker" | "AWS::AppConfig::Environment" | "AWS::AppConfig::ConfigurationProfile" | "AWS::Cloud9::EnvironmentEC2" | "AWS::EventSchemas::Registry" | "AWS::EventSchemas::RegistryPolicy" | "AWS::EventSchemas::Discoverer" | "AWS::FraudDetector::Label" | "AWS::FraudDetector::EntityType" | "AWS::FraudDetector::Variable" | "AWS::FraudDetector::Outcome" | "AWS::IoT::Authorizer" | "AWS::IoT::SecurityProfile" | "AWS::IoT::RoleAlias" | "AWS::IoT::Dimension" | "AWS::IoTAnalytics::Datastore" | "AWS::Lightsail::Bucket" | "AWS::Lightsail::StaticIp" | "AWS::MediaPackage::PackagingGroup" | "AWS::Route53RecoveryReadiness::RecoveryGroup" | "AWS::ResilienceHub::ResiliencyPolicy" | "AWS::Transfer::Workflow" | "AWS::EKS::IdentityProviderConfig" | "AWS::EKS::Addon" | "AWS::Glue::MLTransform" | "AWS::IoT::Policy" | "AWS::IoT::MitigationAction" | "AWS::IoTTwinMaker::Workspace" | "AWS::IoTTwinMaker::Entity" | "AWS::IoTAnalytics::Dataset" | "AWS::IoTAnalytics::Pipeline" | "AWS::IoTAnalytics::Channel" | "AWS::IoTSiteWise::Dashboard" | "AWS::IoTSiteWise::Project" | "AWS::IoTSiteWise::Portal" | "AWS::IoTSiteWise::AssetModel" | "AWS::IVS::Channel" | "AWS::IVS::RecordingConfiguration" | "AWS::IVS::PlaybackKeyPair" | "AWS::KinesisAnalyticsV2::Application" | "AWS::RDS::GlobalCluster" | "AWS::S3::MultiRegionAccessPoint" | "AWS::DeviceFarm::TestGridProject" | "AWS::Budgets::BudgetsAction" | "AWS::Lex::Bot" | "AWS::CodeGuruReviewer::RepositoryAssociation" | "AWS::IoT::CustomMetric" | "AWS::Route53Resolver::FirewallDomainList" | "AWS::RoboMaker::RobotApplicationVersion" | "AWS::EC2::TrafficMirrorSession" | "AWS::IoTSiteWise::Gateway" | "AWS::Lex::BotAlias" | "AWS::LookoutMetrics::Alert" | "AWS::IoT::AccountAuditConfiguration" | "AWS::EC2::TrafficMirrorTarget" | "AWS::S3::StorageLens" | "AWS::IoT::ScheduledAudit" | "AWS::Events::Connection" | "AWS::EventSchemas::Schema" | "AWS::MediaPackage::PackagingConfiguration" | "AWS::KinesisVideo::SignalingChannel" | "AWS::AppStream::DirectoryConfig" | "AWS::LookoutVision::Project" | "AWS::Route53RecoveryControl::Cluster" | "AWS::Route53RecoveryControl::SafetyRule" | "AWS::Route53RecoveryControl::ControlPanel" | "AWS::Route53RecoveryControl::RoutingControl" | "AWS::Route53RecoveryReadiness::ResourceSet" | "AWS::RoboMaker::SimulationApplication" | "AWS::RoboMaker::RobotApplication" | "AWS::HealthLake::FHIRDatastore" | "AWS::Pinpoint::Segment" | "AWS::Pinpoint::ApplicationSettings" | "AWS::Events::Rule" | "AWS::EC2::DHCPOptions" | "AWS::EC2::NetworkInsightsPath" | "AWS::EC2::TrafficMirrorFilter" | "AWS::EC2::IPAM" | "AWS::IoTTwinMaker::Scene" | "AWS::NetworkManager::TransitGatewayRegistration" | "AWS::CustomerProfiles::Domain" | "AWS::AutoScaling::WarmPool" | "AWS::Connect::PhoneNumber" | "AWS::AppConfig::DeploymentStrategy" | "AWS::AppFlow::Flow" | "AWS::AuditManager::Assessment" | "AWS::CloudWatch::MetricStream" | "AWS::DeviceFarm::InstanceProfile" | "AWS::DeviceFarm::Project" | "AWS::EC2::EC2Fleet" | "AWS::EC2::SubnetRouteTableAssociation" | "AWS::ECR::PullThroughCacheRule" | "AWS::GroundStation::Config" | "AWS::ImageBuilder::ImagePipeline" | "AWS::IoT::FleetMetric" | "AWS::IoTWireless::ServiceProfile" | "AWS::NetworkManager::Device" | "AWS::NetworkManager::GlobalNetwork" | "AWS::NetworkManager::Link" | "AWS::NetworkManager::Site" | "AWS::Panorama::Package" | "AWS::Pinpoint::App" | "AWS::Redshift::ScheduledAction" | "AWS::Route53Resolver::FirewallRuleGroupAssociation" | "AWS::SageMaker::AppImageConfig" | "AWS::SageMaker::Image" | "AWS::ECS::TaskSet" | "AWS::Cassandra::Keyspace" | "AWS::Signer::SigningProfile" | "AWS::Amplify::App" | "AWS::AppMesh::VirtualNode" | "AWS::AppMesh::VirtualService" | "AWS::AppRunner::VpcConnector" | "AWS::AppStream::Application" | "AWS::CodeArtifact::Repository" | "AWS::EC2::PrefixList" | "AWS::EC2::SpotFleet" | "AWS::Evidently::Project" | "AWS::Forecast::Dataset" | "AWS::IAM::SAMLProvider" | "AWS::IAM::ServerCertificate" | "AWS::Pinpoint::Campaign" | "AWS::Pinpoint::InAppTemplate" | "AWS::SageMaker::Domain" | "AWS::Transfer::Agreement" | "AWS::Transfer::Connector" | "AWS::KinesisFirehose::DeliveryStream" | "AWS::Amplify::Branch" | "AWS::AppIntegrations::EventIntegration" | "AWS::AppMesh::Route" | "AWS::Athena::PreparedStatement" | "AWS::EC2::IPAMScope" | "AWS::Evidently::Launch" | "AWS::Forecast::DatasetGroup" | "AWS::GreengrassV2::ComponentVersion" | "AWS::GroundStation::MissionProfile" | "AWS::MediaConnect::FlowEntitlement" | "AWS::MediaConnect::FlowVpcInterface" | "AWS::MediaTailor::PlaybackConfiguration" | "AWS::MSK::Configuration" | "AWS::Personalize::Dataset" | "AWS::Personalize::Schema" | "AWS::Personalize::Solution" | "AWS::Pinpoint::EmailTemplate" | "AWS::Pinpoint::EventStream" | "AWS::ResilienceHub::App" | "AWS::ACMPCA::CertificateAuthority" | "AWS::AppConfig::HostedConfigurationVersion" | "AWS::AppMesh::VirtualGateway" | "AWS::AppMesh::VirtualRouter" | "AWS::AppRunner::Service" | "AWS::CustomerProfiles::ObjectType" | "AWS::DMS::Endpoint" | "AWS::EC2::CapacityReservation" | "AWS::EC2::ClientVpnEndpoint" | "AWS::Kendra::Index" | "AWS::KinesisVideo::Stream" | "AWS::Logs::Destination" | "AWS::Pinpoint::EmailChannel" | "AWS::S3::AccessPoint" | "AWS::NetworkManager::CustomerGatewayAssociation" | "AWS::NetworkManager::LinkAssociation" | "AWS::IoTWireless::MulticastGroup" | "AWS::Personalize::DatasetGroup" | "AWS::IoTTwinMaker::ComponentType" | "AWS::CodeBuild::ReportGroup" | "AWS::SageMaker::FeatureGroup" | "AWS::MSK::BatchScramSecret" | "AWS::AppStream::Stack" | "AWS::IoT::JobTemplate" | "AWS::IoTWireless::FuotaTask" | "AWS::IoT::ProvisioningTemplate" | "AWS::InspectorV2::Filter" | "AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation" | "AWS::ServiceDiscovery::Instance" | "AWS::Transfer::Certificate" | "AWS::MediaConnect::FlowSource" | "AWS::APS::RuleGroupsNamespace" | "AWS::CodeGuruProfiler::ProfilingGroup" | "AWS::Route53Resolver::ResolverQueryLoggingConfig" | "AWS::Batch::SchedulingPolicy" | "AWS::ACMPCA::CertificateAuthorityActivation" | "AWS::AppMesh::GatewayRoute" | "AWS::AppMesh::Mesh" | "AWS::Connect::Instance" | "AWS::Connect::QuickConnect" | "AWS::EC2::CarrierGateway" | "AWS::EC2::IPAMPool" | "AWS::EC2::TransitGatewayConnect" | "AWS::EC2::TransitGatewayMulticastDomain" | "AWS::ECS::CapacityProvider" | "AWS::IAM::InstanceProfile" | "AWS::IoT::CACertificate" | "AWS::IoTTwinMaker::SyncJob" | "AWS::KafkaConnect::Connector" | "AWS::Lambda::CodeSigningConfig" | "AWS::NetworkManager::ConnectPeer" | "AWS::ResourceExplorer2::Index" | "AWS::AppStream::Fleet" | "AWS::Cognito::UserPool" | "AWS::Cognito::UserPoolClient" | "AWS::Cognito::UserPoolGroup" | "AWS::EC2::NetworkInsightsAccessScope" | "AWS::EC2::NetworkInsightsAnalysis" | "AWS::Grafana::Workspace" | "AWS::GroundStation::DataflowEndpointGroup" | "AWS::ImageBuilder::ImageRecipe" | "AWS::KMS::Alias" | "AWS::M2::Environment" | "AWS::QuickSight::DataSource" | "AWS::QuickSight::Template" | "AWS::QuickSight::Theme" | "AWS::RDS::OptionGroup" | "AWS::Redshift::EndpointAccess" | "AWS::Route53Resolver::FirewallRuleGroup" | "AWS::SSM::Document" | "AWS::AppConfig::ExtensionAssociation" | "AWS::AppIntegrations::Application" | "AWS::AppSync::ApiCache" | "AWS::Bedrock::Guardrail" | "AWS::Bedrock::KnowledgeBase" | "AWS::Cognito::IdentityPool" | "AWS::Connect::Rule" | "AWS::Connect::User" | "AWS::EC2::ClientVpnTargetNetworkAssociation" | "AWS::EC2::EIPAssociation" | "AWS::EC2::IPAMResourceDiscovery" | "AWS::EC2::IPAMResourceDiscoveryAssociation" | "AWS::EC2::InstanceConnectEndpoint" | "AWS::EC2::SnapshotBlockPublicAccess" | "AWS::EC2::VPCBlockPublicAccessExclusion" | "AWS::EC2::VPCBlockPublicAccessOptions" | "AWS::EC2::VPCEndpointConnectionNotification" | "AWS::EC2::VPNConnectionRoute" | "AWS::Evidently::Segment" | "AWS::IAM::OIDCProvider" | "AWS::InspectorV2::Activation" | "AWS::MSK::ClusterPolicy" | "AWS::MSK::VpcConnection" | "AWS::MediaConnect::Gateway" | "AWS::MemoryDB::SubnetGroup" | "AWS::OpenSearchServerless::Collection" | "AWS::OpenSearchServerless::VpcEndpoint" | "AWS::Redshift::EndpointAuthorization" | "AWS::Route53Profiles::Profile" | "AWS::S3::StorageLensGroup" | "AWS::S3Express::BucketPolicy" | "AWS::S3Express::DirectoryBucket" | "AWS::SageMaker::InferenceExperiment" | "AWS::SecurityHub::Standard" | "AWS::Transfer::Profile";
+export type ResourceType =
+  | "AWS::EC2::CustomerGateway"
+  | "AWS::EC2::EIP"
+  | "AWS::EC2::Host"
+  | "AWS::EC2::Instance"
+  | "AWS::EC2::InternetGateway"
+  | "AWS::EC2::NetworkAcl"
+  | "AWS::EC2::NetworkInterface"
+  | "AWS::EC2::RouteTable"
+  | "AWS::EC2::SecurityGroup"
+  | "AWS::EC2::Subnet"
+  | "AWS::CloudTrail::Trail"
+  | "AWS::EC2::Volume"
+  | "AWS::EC2::VPC"
+  | "AWS::EC2::VPNConnection"
+  | "AWS::EC2::VPNGateway"
+  | "AWS::EC2::RegisteredHAInstance"
+  | "AWS::EC2::NatGateway"
+  | "AWS::EC2::EgressOnlyInternetGateway"
+  | "AWS::EC2::VPCEndpoint"
+  | "AWS::EC2::VPCEndpointService"
+  | "AWS::EC2::FlowLog"
+  | "AWS::EC2::VPCPeeringConnection"
+  | "AWS::Elasticsearch::Domain"
+  | "AWS::IAM::Group"
+  | "AWS::IAM::Policy"
+  | "AWS::IAM::Role"
+  | "AWS::IAM::User"
+  | "AWS::ElasticLoadBalancingV2::LoadBalancer"
+  | "AWS::ACM::Certificate"
+  | "AWS::RDS::DBInstance"
+  | "AWS::RDS::DBSubnetGroup"
+  | "AWS::RDS::DBSecurityGroup"
+  | "AWS::RDS::DBSnapshot"
+  | "AWS::RDS::DBCluster"
+  | "AWS::RDS::DBClusterSnapshot"
+  | "AWS::RDS::EventSubscription"
+  | "AWS::S3::Bucket"
+  | "AWS::S3::AccountPublicAccessBlock"
+  | "AWS::Redshift::Cluster"
+  | "AWS::Redshift::ClusterSnapshot"
+  | "AWS::Redshift::ClusterParameterGroup"
+  | "AWS::Redshift::ClusterSecurityGroup"
+  | "AWS::Redshift::ClusterSubnetGroup"
+  | "AWS::Redshift::EventSubscription"
+  | "AWS::SSM::ManagedInstanceInventory"
+  | "AWS::CloudWatch::Alarm"
+  | "AWS::CloudFormation::Stack"
+  | "AWS::ElasticLoadBalancing::LoadBalancer"
+  | "AWS::AutoScaling::AutoScalingGroup"
+  | "AWS::AutoScaling::LaunchConfiguration"
+  | "AWS::AutoScaling::ScalingPolicy"
+  | "AWS::AutoScaling::ScheduledAction"
+  | "AWS::DynamoDB::Table"
+  | "AWS::CodeBuild::Project"
+  | "AWS::WAF::RateBasedRule"
+  | "AWS::WAF::Rule"
+  | "AWS::WAF::RuleGroup"
+  | "AWS::WAF::WebACL"
+  | "AWS::WAFRegional::RateBasedRule"
+  | "AWS::WAFRegional::Rule"
+  | "AWS::WAFRegional::RuleGroup"
+  | "AWS::WAFRegional::WebACL"
+  | "AWS::CloudFront::Distribution"
+  | "AWS::CloudFront::StreamingDistribution"
+  | "AWS::Lambda::Function"
+  | "AWS::NetworkFirewall::Firewall"
+  | "AWS::NetworkFirewall::FirewallPolicy"
+  | "AWS::NetworkFirewall::RuleGroup"
+  | "AWS::ElasticBeanstalk::Application"
+  | "AWS::ElasticBeanstalk::ApplicationVersion"
+  | "AWS::ElasticBeanstalk::Environment"
+  | "AWS::WAFv2::WebACL"
+  | "AWS::WAFv2::RuleGroup"
+  | "AWS::WAFv2::IPSet"
+  | "AWS::WAFv2::RegexPatternSet"
+  | "AWS::WAFv2::ManagedRuleSet"
+  | "AWS::XRay::EncryptionConfig"
+  | "AWS::SSM::AssociationCompliance"
+  | "AWS::SSM::PatchCompliance"
+  | "AWS::Shield::Protection"
+  | "AWS::ShieldRegional::Protection"
+  | "AWS::Config::ConformancePackCompliance"
+  | "AWS::Config::ResourceCompliance"
+  | "AWS::ApiGateway::Stage"
+  | "AWS::ApiGateway::RestApi"
+  | "AWS::ApiGatewayV2::Stage"
+  | "AWS::ApiGatewayV2::Api"
+  | "AWS::CodePipeline::Pipeline"
+  | "AWS::ServiceCatalog::CloudFormationProvisionedProduct"
+  | "AWS::ServiceCatalog::CloudFormationProduct"
+  | "AWS::ServiceCatalog::Portfolio"
+  | "AWS::SQS::Queue"
+  | "AWS::KMS::Key"
+  | "AWS::QLDB::Ledger"
+  | "AWS::SecretsManager::Secret"
+  | "AWS::SNS::Topic"
+  | "AWS::SSM::FileData"
+  | "AWS::Backup::BackupPlan"
+  | "AWS::Backup::BackupSelection"
+  | "AWS::Backup::BackupVault"
+  | "AWS::Backup::RecoveryPoint"
+  | "AWS::ECR::Repository"
+  | "AWS::ECS::Cluster"
+  | "AWS::ECS::Service"
+  | "AWS::ECS::TaskDefinition"
+  | "AWS::EFS::AccessPoint"
+  | "AWS::EFS::FileSystem"
+  | "AWS::EKS::Cluster"
+  | "AWS::OpenSearch::Domain"
+  | "AWS::EC2::TransitGateway"
+  | "AWS::Kinesis::Stream"
+  | "AWS::Kinesis::StreamConsumer"
+  | "AWS::CodeDeploy::Application"
+  | "AWS::CodeDeploy::DeploymentConfig"
+  | "AWS::CodeDeploy::DeploymentGroup"
+  | "AWS::EC2::LaunchTemplate"
+  | "AWS::ECR::PublicRepository"
+  | "AWS::GuardDuty::Detector"
+  | "AWS::EMR::SecurityConfiguration"
+  | "AWS::SageMaker::CodeRepository"
+  | "AWS::Route53Resolver::ResolverEndpoint"
+  | "AWS::Route53Resolver::ResolverRule"
+  | "AWS::Route53Resolver::ResolverRuleAssociation"
+  | "AWS::DMS::ReplicationSubnetGroup"
+  | "AWS::DMS::EventSubscription"
+  | "AWS::MSK::Cluster"
+  | "AWS::StepFunctions::Activity"
+  | "AWS::WorkSpaces::Workspace"
+  | "AWS::WorkSpaces::ConnectionAlias"
+  | "AWS::SageMaker::Model"
+  | "AWS::ElasticLoadBalancingV2::Listener"
+  | "AWS::StepFunctions::StateMachine"
+  | "AWS::Batch::JobQueue"
+  | "AWS::Batch::ComputeEnvironment"
+  | "AWS::AccessAnalyzer::Analyzer"
+  | "AWS::Athena::WorkGroup"
+  | "AWS::Athena::DataCatalog"
+  | "AWS::Detective::Graph"
+  | "AWS::GlobalAccelerator::Accelerator"
+  | "AWS::GlobalAccelerator::EndpointGroup"
+  | "AWS::GlobalAccelerator::Listener"
+  | "AWS::EC2::TransitGatewayAttachment"
+  | "AWS::EC2::TransitGatewayRouteTable"
+  | "AWS::DMS::Certificate"
+  | "AWS::AppConfig::Application"
+  | "AWS::AppSync::GraphQLApi"
+  | "AWS::DataSync::LocationSMB"
+  | "AWS::DataSync::LocationFSxLustre"
+  | "AWS::DataSync::LocationS3"
+  | "AWS::DataSync::LocationEFS"
+  | "AWS::DataSync::Task"
+  | "AWS::DataSync::LocationNFS"
+  | "AWS::EC2::NetworkInsightsAccessScopeAnalysis"
+  | "AWS::EKS::FargateProfile"
+  | "AWS::Glue::Job"
+  | "AWS::GuardDuty::ThreatIntelSet"
+  | "AWS::GuardDuty::IPSet"
+  | "AWS::SageMaker::Workteam"
+  | "AWS::SageMaker::NotebookInstanceLifecycleConfig"
+  | "AWS::ServiceDiscovery::Service"
+  | "AWS::ServiceDiscovery::PublicDnsNamespace"
+  | "AWS::SES::ContactList"
+  | "AWS::SES::ConfigurationSet"
+  | "AWS::Route53::HostedZone"
+  | "AWS::IoTEvents::Input"
+  | "AWS::IoTEvents::DetectorModel"
+  | "AWS::IoTEvents::AlarmModel"
+  | "AWS::ServiceDiscovery::HttpNamespace"
+  | "AWS::Events::EventBus"
+  | "AWS::ImageBuilder::ContainerRecipe"
+  | "AWS::ImageBuilder::DistributionConfiguration"
+  | "AWS::ImageBuilder::InfrastructureConfiguration"
+  | "AWS::DataSync::LocationObjectStorage"
+  | "AWS::DataSync::LocationHDFS"
+  | "AWS::Glue::Classifier"
+  | "AWS::Route53RecoveryReadiness::Cell"
+  | "AWS::Route53RecoveryReadiness::ReadinessCheck"
+  | "AWS::ECR::RegistryPolicy"
+  | "AWS::Backup::ReportPlan"
+  | "AWS::Lightsail::Certificate"
+  | "AWS::RUM::AppMonitor"
+  | "AWS::Events::Endpoint"
+  | "AWS::SES::ReceiptRuleSet"
+  | "AWS::Events::Archive"
+  | "AWS::Events::ApiDestination"
+  | "AWS::Lightsail::Disk"
+  | "AWS::FIS::ExperimentTemplate"
+  | "AWS::DataSync::LocationFSxWindows"
+  | "AWS::SES::ReceiptFilter"
+  | "AWS::GuardDuty::Filter"
+  | "AWS::SES::Template"
+  | "AWS::AmazonMQ::Broker"
+  | "AWS::AppConfig::Environment"
+  | "AWS::AppConfig::ConfigurationProfile"
+  | "AWS::Cloud9::EnvironmentEC2"
+  | "AWS::EventSchemas::Registry"
+  | "AWS::EventSchemas::RegistryPolicy"
+  | "AWS::EventSchemas::Discoverer"
+  | "AWS::FraudDetector::Label"
+  | "AWS::FraudDetector::EntityType"
+  | "AWS::FraudDetector::Variable"
+  | "AWS::FraudDetector::Outcome"
+  | "AWS::IoT::Authorizer"
+  | "AWS::IoT::SecurityProfile"
+  | "AWS::IoT::RoleAlias"
+  | "AWS::IoT::Dimension"
+  | "AWS::IoTAnalytics::Datastore"
+  | "AWS::Lightsail::Bucket"
+  | "AWS::Lightsail::StaticIp"
+  | "AWS::MediaPackage::PackagingGroup"
+  | "AWS::Route53RecoveryReadiness::RecoveryGroup"
+  | "AWS::ResilienceHub::ResiliencyPolicy"
+  | "AWS::Transfer::Workflow"
+  | "AWS::EKS::IdentityProviderConfig"
+  | "AWS::EKS::Addon"
+  | "AWS::Glue::MLTransform"
+  | "AWS::IoT::Policy"
+  | "AWS::IoT::MitigationAction"
+  | "AWS::IoTTwinMaker::Workspace"
+  | "AWS::IoTTwinMaker::Entity"
+  | "AWS::IoTAnalytics::Dataset"
+  | "AWS::IoTAnalytics::Pipeline"
+  | "AWS::IoTAnalytics::Channel"
+  | "AWS::IoTSiteWise::Dashboard"
+  | "AWS::IoTSiteWise::Project"
+  | "AWS::IoTSiteWise::Portal"
+  | "AWS::IoTSiteWise::AssetModel"
+  | "AWS::IVS::Channel"
+  | "AWS::IVS::RecordingConfiguration"
+  | "AWS::IVS::PlaybackKeyPair"
+  | "AWS::KinesisAnalyticsV2::Application"
+  | "AWS::RDS::GlobalCluster"
+  | "AWS::S3::MultiRegionAccessPoint"
+  | "AWS::DeviceFarm::TestGridProject"
+  | "AWS::Budgets::BudgetsAction"
+  | "AWS::Lex::Bot"
+  | "AWS::CodeGuruReviewer::RepositoryAssociation"
+  | "AWS::IoT::CustomMetric"
+  | "AWS::Route53Resolver::FirewallDomainList"
+  | "AWS::RoboMaker::RobotApplicationVersion"
+  | "AWS::EC2::TrafficMirrorSession"
+  | "AWS::IoTSiteWise::Gateway"
+  | "AWS::Lex::BotAlias"
+  | "AWS::LookoutMetrics::Alert"
+  | "AWS::IoT::AccountAuditConfiguration"
+  | "AWS::EC2::TrafficMirrorTarget"
+  | "AWS::S3::StorageLens"
+  | "AWS::IoT::ScheduledAudit"
+  | "AWS::Events::Connection"
+  | "AWS::EventSchemas::Schema"
+  | "AWS::MediaPackage::PackagingConfiguration"
+  | "AWS::KinesisVideo::SignalingChannel"
+  | "AWS::AppStream::DirectoryConfig"
+  | "AWS::LookoutVision::Project"
+  | "AWS::Route53RecoveryControl::Cluster"
+  | "AWS::Route53RecoveryControl::SafetyRule"
+  | "AWS::Route53RecoveryControl::ControlPanel"
+  | "AWS::Route53RecoveryControl::RoutingControl"
+  | "AWS::Route53RecoveryReadiness::ResourceSet"
+  | "AWS::RoboMaker::SimulationApplication"
+  | "AWS::RoboMaker::RobotApplication"
+  | "AWS::HealthLake::FHIRDatastore"
+  | "AWS::Pinpoint::Segment"
+  | "AWS::Pinpoint::ApplicationSettings"
+  | "AWS::Events::Rule"
+  | "AWS::EC2::DHCPOptions"
+  | "AWS::EC2::NetworkInsightsPath"
+  | "AWS::EC2::TrafficMirrorFilter"
+  | "AWS::EC2::IPAM"
+  | "AWS::IoTTwinMaker::Scene"
+  | "AWS::NetworkManager::TransitGatewayRegistration"
+  | "AWS::CustomerProfiles::Domain"
+  | "AWS::AutoScaling::WarmPool"
+  | "AWS::Connect::PhoneNumber"
+  | "AWS::AppConfig::DeploymentStrategy"
+  | "AWS::AppFlow::Flow"
+  | "AWS::AuditManager::Assessment"
+  | "AWS::CloudWatch::MetricStream"
+  | "AWS::DeviceFarm::InstanceProfile"
+  | "AWS::DeviceFarm::Project"
+  | "AWS::EC2::EC2Fleet"
+  | "AWS::EC2::SubnetRouteTableAssociation"
+  | "AWS::ECR::PullThroughCacheRule"
+  | "AWS::GroundStation::Config"
+  | "AWS::ImageBuilder::ImagePipeline"
+  | "AWS::IoT::FleetMetric"
+  | "AWS::IoTWireless::ServiceProfile"
+  | "AWS::NetworkManager::Device"
+  | "AWS::NetworkManager::GlobalNetwork"
+  | "AWS::NetworkManager::Link"
+  | "AWS::NetworkManager::Site"
+  | "AWS::Panorama::Package"
+  | "AWS::Pinpoint::App"
+  | "AWS::Redshift::ScheduledAction"
+  | "AWS::Route53Resolver::FirewallRuleGroupAssociation"
+  | "AWS::SageMaker::AppImageConfig"
+  | "AWS::SageMaker::Image"
+  | "AWS::ECS::TaskSet"
+  | "AWS::Cassandra::Keyspace"
+  | "AWS::Signer::SigningProfile"
+  | "AWS::Amplify::App"
+  | "AWS::AppMesh::VirtualNode"
+  | "AWS::AppMesh::VirtualService"
+  | "AWS::AppRunner::VpcConnector"
+  | "AWS::AppStream::Application"
+  | "AWS::CodeArtifact::Repository"
+  | "AWS::EC2::PrefixList"
+  | "AWS::EC2::SpotFleet"
+  | "AWS::Evidently::Project"
+  | "AWS::Forecast::Dataset"
+  | "AWS::IAM::SAMLProvider"
+  | "AWS::IAM::ServerCertificate"
+  | "AWS::Pinpoint::Campaign"
+  | "AWS::Pinpoint::InAppTemplate"
+  | "AWS::SageMaker::Domain"
+  | "AWS::Transfer::Agreement"
+  | "AWS::Transfer::Connector"
+  | "AWS::KinesisFirehose::DeliveryStream"
+  | "AWS::Amplify::Branch"
+  | "AWS::AppIntegrations::EventIntegration"
+  | "AWS::AppMesh::Route"
+  | "AWS::Athena::PreparedStatement"
+  | "AWS::EC2::IPAMScope"
+  | "AWS::Evidently::Launch"
+  | "AWS::Forecast::DatasetGroup"
+  | "AWS::GreengrassV2::ComponentVersion"
+  | "AWS::GroundStation::MissionProfile"
+  | "AWS::MediaConnect::FlowEntitlement"
+  | "AWS::MediaConnect::FlowVpcInterface"
+  | "AWS::MediaTailor::PlaybackConfiguration"
+  | "AWS::MSK::Configuration"
+  | "AWS::Personalize::Dataset"
+  | "AWS::Personalize::Schema"
+  | "AWS::Personalize::Solution"
+  | "AWS::Pinpoint::EmailTemplate"
+  | "AWS::Pinpoint::EventStream"
+  | "AWS::ResilienceHub::App"
+  | "AWS::ACMPCA::CertificateAuthority"
+  | "AWS::AppConfig::HostedConfigurationVersion"
+  | "AWS::AppMesh::VirtualGateway"
+  | "AWS::AppMesh::VirtualRouter"
+  | "AWS::AppRunner::Service"
+  | "AWS::CustomerProfiles::ObjectType"
+  | "AWS::DMS::Endpoint"
+  | "AWS::EC2::CapacityReservation"
+  | "AWS::EC2::ClientVpnEndpoint"
+  | "AWS::Kendra::Index"
+  | "AWS::KinesisVideo::Stream"
+  | "AWS::Logs::Destination"
+  | "AWS::Pinpoint::EmailChannel"
+  | "AWS::S3::AccessPoint"
+  | "AWS::NetworkManager::CustomerGatewayAssociation"
+  | "AWS::NetworkManager::LinkAssociation"
+  | "AWS::IoTWireless::MulticastGroup"
+  | "AWS::Personalize::DatasetGroup"
+  | "AWS::IoTTwinMaker::ComponentType"
+  | "AWS::CodeBuild::ReportGroup"
+  | "AWS::SageMaker::FeatureGroup"
+  | "AWS::MSK::BatchScramSecret"
+  | "AWS::AppStream::Stack"
+  | "AWS::IoT::JobTemplate"
+  | "AWS::IoTWireless::FuotaTask"
+  | "AWS::IoT::ProvisioningTemplate"
+  | "AWS::InspectorV2::Filter"
+  | "AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation"
+  | "AWS::ServiceDiscovery::Instance"
+  | "AWS::Transfer::Certificate"
+  | "AWS::MediaConnect::FlowSource"
+  | "AWS::APS::RuleGroupsNamespace"
+  | "AWS::CodeGuruProfiler::ProfilingGroup"
+  | "AWS::Route53Resolver::ResolverQueryLoggingConfig"
+  | "AWS::Batch::SchedulingPolicy"
+  | "AWS::ACMPCA::CertificateAuthorityActivation"
+  | "AWS::AppMesh::GatewayRoute"
+  | "AWS::AppMesh::Mesh"
+  | "AWS::Connect::Instance"
+  | "AWS::Connect::QuickConnect"
+  | "AWS::EC2::CarrierGateway"
+  | "AWS::EC2::IPAMPool"
+  | "AWS::EC2::TransitGatewayConnect"
+  | "AWS::EC2::TransitGatewayMulticastDomain"
+  | "AWS::ECS::CapacityProvider"
+  | "AWS::IAM::InstanceProfile"
+  | "AWS::IoT::CACertificate"
+  | "AWS::IoTTwinMaker::SyncJob"
+  | "AWS::KafkaConnect::Connector"
+  | "AWS::Lambda::CodeSigningConfig"
+  | "AWS::NetworkManager::ConnectPeer"
+  | "AWS::ResourceExplorer2::Index"
+  | "AWS::AppStream::Fleet"
+  | "AWS::Cognito::UserPool"
+  | "AWS::Cognito::UserPoolClient"
+  | "AWS::Cognito::UserPoolGroup"
+  | "AWS::EC2::NetworkInsightsAccessScope"
+  | "AWS::EC2::NetworkInsightsAnalysis"
+  | "AWS::Grafana::Workspace"
+  | "AWS::GroundStation::DataflowEndpointGroup"
+  | "AWS::ImageBuilder::ImageRecipe"
+  | "AWS::KMS::Alias"
+  | "AWS::M2::Environment"
+  | "AWS::QuickSight::DataSource"
+  | "AWS::QuickSight::Template"
+  | "AWS::QuickSight::Theme"
+  | "AWS::RDS::OptionGroup"
+  | "AWS::Redshift::EndpointAccess"
+  | "AWS::Route53Resolver::FirewallRuleGroup"
+  | "AWS::SSM::Document"
+  | "AWS::AppConfig::ExtensionAssociation"
+  | "AWS::AppIntegrations::Application"
+  | "AWS::AppSync::ApiCache"
+  | "AWS::Bedrock::Guardrail"
+  | "AWS::Bedrock::KnowledgeBase"
+  | "AWS::Cognito::IdentityPool"
+  | "AWS::Connect::Rule"
+  | "AWS::Connect::User"
+  | "AWS::EC2::ClientVpnTargetNetworkAssociation"
+  | "AWS::EC2::EIPAssociation"
+  | "AWS::EC2::IPAMResourceDiscovery"
+  | "AWS::EC2::IPAMResourceDiscoveryAssociation"
+  | "AWS::EC2::InstanceConnectEndpoint"
+  | "AWS::EC2::SnapshotBlockPublicAccess"
+  | "AWS::EC2::VPCBlockPublicAccessExclusion"
+  | "AWS::EC2::VPCBlockPublicAccessOptions"
+  | "AWS::EC2::VPCEndpointConnectionNotification"
+  | "AWS::EC2::VPNConnectionRoute"
+  | "AWS::Evidently::Segment"
+  | "AWS::IAM::OIDCProvider"
+  | "AWS::InspectorV2::Activation"
+  | "AWS::MSK::ClusterPolicy"
+  | "AWS::MSK::VpcConnection"
+  | "AWS::MediaConnect::Gateway"
+  | "AWS::MemoryDB::SubnetGroup"
+  | "AWS::OpenSearchServerless::Collection"
+  | "AWS::OpenSearchServerless::VpcEndpoint"
+  | "AWS::Redshift::EndpointAuthorization"
+  | "AWS::Route53Profiles::Profile"
+  | "AWS::S3::StorageLensGroup"
+  | "AWS::S3Express::BucketPolicy"
+  | "AWS::S3Express::DirectoryBucket"
+  | "AWS::SageMaker::InferenceExperiment"
+  | "AWS::SecurityHub::Standard"
+  | "AWS::Transfer::Profile";
 export type ResourceTypeList = Array<ResourceType>;
 export type ResourceTypes = Array<string>;
 export type ResourceTypesScope = Array<string>;
@@ -2522,8 +3346,7 @@ export type StackArn = string;
 export interface StartConfigRulesEvaluationRequest {
   ConfigRuleNames?: Array<string>;
 }
-export interface StartConfigRulesEvaluationResponse {
-}
+export interface StartConfigRulesEvaluationResponse {}
 export interface StartConfigurationRecorderRequest {
   ConfigurationRecorderName: string;
 }
@@ -2629,7 +3452,8 @@ export declare class UnmodifiableEntityException extends EffectData.TaggedError(
 )<{
   readonly message?: string;
 }> {}
-export type UnprocessedResourceIdentifierList = Array<AggregateResourceIdentifier>;
+export type UnprocessedResourceIdentifierList =
+  Array<AggregateResourceIdentifier>;
 export interface UntagResourceRequest {
   ResourceArn: string;
   TagKeys: Array<string>;
@@ -2674,9 +3498,7 @@ export declare namespace BatchGetResourceConfig {
 export declare namespace DeleteAggregationAuthorization {
   export type Input = DeleteAggregationAuthorizationRequest;
   export type Output = {};
-  export type Error =
-    | InvalidParameterValueException
-    | CommonAwsError;
+  export type Error = InvalidParameterValueException | CommonAwsError;
 }
 
 export declare namespace DeleteConfigRule {
@@ -2691,9 +3513,7 @@ export declare namespace DeleteConfigRule {
 export declare namespace DeleteConfigurationAggregator {
   export type Input = DeleteConfigurationAggregatorRequest;
   export type Output = {};
-  export type Error =
-    | NoSuchConfigurationAggregatorException
-    | CommonAwsError;
+  export type Error = NoSuchConfigurationAggregatorException | CommonAwsError;
 }
 
 export declare namespace DeleteConfigurationRecorder {
@@ -2755,9 +3575,7 @@ export declare namespace DeleteOrganizationConformancePack {
 export declare namespace DeletePendingAggregationRequest {
   export type Input = DeletePendingAggregationRequestRequest;
   export type Output = {};
-  export type Error =
-    | InvalidParameterValueException
-    | CommonAwsError;
+  export type Error = InvalidParameterValueException | CommonAwsError;
 }
 
 export declare namespace DeleteRemediationConfiguration {
@@ -2774,9 +3592,7 @@ export declare namespace DeleteRemediationConfiguration {
 export declare namespace DeleteRemediationExceptions {
   export type Input = DeleteRemediationExceptionsRequest;
   export type Output = DeleteRemediationExceptionsResponse;
-  export type Error =
-    | NoSuchRemediationExceptionException
-    | CommonAwsError;
+  export type Error = NoSuchRemediationExceptionException | CommonAwsError;
 }
 
 export declare namespace DeleteResourceConfig {
@@ -2973,17 +3789,13 @@ export declare namespace DescribeConformancePackStatus {
 export declare namespace DescribeDeliveryChannels {
   export type Input = DescribeDeliveryChannelsRequest;
   export type Output = DescribeDeliveryChannelsResponse;
-  export type Error =
-    | NoSuchDeliveryChannelException
-    | CommonAwsError;
+  export type Error = NoSuchDeliveryChannelException | CommonAwsError;
 }
 
 export declare namespace DescribeDeliveryChannelStatus {
   export type Input = DescribeDeliveryChannelStatusRequest;
   export type Output = DescribeDeliveryChannelStatusResponse;
-  export type Error =
-    | NoSuchDeliveryChannelException
-    | CommonAwsError;
+  export type Error = NoSuchDeliveryChannelException | CommonAwsError;
 }
 
 export declare namespace DescribeOrganizationConfigRules {
@@ -3043,8 +3855,7 @@ export declare namespace DescribePendingAggregationRequests {
 export declare namespace DescribeRemediationConfigurations {
   export type Input = DescribeRemediationConfigurationsRequest;
   export type Output = DescribeRemediationConfigurationsResponse;
-  export type Error =
-    | CommonAwsError;
+  export type Error = CommonAwsError;
 }
 
 export declare namespace DescribeRemediationExceptions {
@@ -3154,24 +3965,19 @@ export declare namespace GetComplianceDetailsByConfigRule {
 export declare namespace GetComplianceDetailsByResource {
   export type Input = GetComplianceDetailsByResourceRequest;
   export type Output = GetComplianceDetailsByResourceResponse;
-  export type Error =
-    | InvalidParameterValueException
-    | CommonAwsError;
+  export type Error = InvalidParameterValueException | CommonAwsError;
 }
 
 export declare namespace GetComplianceSummaryByConfigRule {
   export type Input = {};
   export type Output = GetComplianceSummaryByConfigRuleResponse;
-  export type Error =
-    | CommonAwsError;
+  export type Error = CommonAwsError;
 }
 
 export declare namespace GetComplianceSummaryByResourceType {
   export type Input = GetComplianceSummaryByResourceTypeRequest;
   export type Output = GetComplianceSummaryByResourceTypeResponse;
-  export type Error =
-    | InvalidParameterValueException
-    | CommonAwsError;
+  export type Error = InvalidParameterValueException | CommonAwsError;
 }
 
 export declare namespace GetConformancePackComplianceDetails {
@@ -3199,9 +4005,7 @@ export declare namespace GetConformancePackComplianceSummary {
 export declare namespace GetCustomRulePolicy {
   export type Input = GetCustomRulePolicyRequest;
   export type Output = GetCustomRulePolicyResponse;
-  export type Error =
-    | NoSuchConfigRuleException
-    | CommonAwsError;
+  export type Error = NoSuchConfigRuleException | CommonAwsError;
 }
 
 export declare namespace GetDiscoveredResourceCounts {
@@ -3261,9 +4065,7 @@ export declare namespace GetResourceConfigHistory {
 export declare namespace GetResourceEvaluationSummary {
   export type Input = GetResourceEvaluationSummaryRequest;
   export type Output = GetResourceEvaluationSummaryResponse;
-  export type Error =
-    | ResourceNotFoundException
-    | CommonAwsError;
+  export type Error = ResourceNotFoundException | CommonAwsError;
 }
 
 export declare namespace GetStoredQuery {
@@ -3289,9 +4091,7 @@ export declare namespace ListAggregateDiscoveredResources {
 export declare namespace ListConfigurationRecorders {
   export type Input = ListConfigurationRecordersRequest;
   export type Output = ListConfigurationRecordersResponse;
-  export type Error =
-    | ValidationException
-    | CommonAwsError;
+  export type Error = ValidationException | CommonAwsError;
 }
 
 export declare namespace ListConformancePackComplianceScores {
@@ -3348,9 +4148,7 @@ export declare namespace ListTagsForResource {
 export declare namespace PutAggregationAuthorization {
   export type Input = PutAggregationAuthorizationRequest;
   export type Output = PutAggregationAuthorizationResponse;
-  export type Error =
-    | InvalidParameterValueException
-    | CommonAwsError;
+  export type Error = InvalidParameterValueException | CommonAwsError;
 }
 
 export declare namespace PutConfigRule {
@@ -3614,4 +4412,3 @@ export declare namespace UntagResource {
     | ValidationException
     | CommonAwsError;
 }
-

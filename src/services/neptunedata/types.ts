@@ -1,6 +1,39 @@
 import type { Effect, Data as EffectData } from "effect";
-import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, ValidationException } from "../../error.ts";
-type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | ValidationException | AccessDeniedException | ThrottlingException;
+import type {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+  ValidationException,
+} from "../../error.ts";
+type CommonAwsError =
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | ValidationException
+  | AccessDeniedException
+  | ThrottlingException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class neptunedata extends AWSServiceClient {
@@ -8,259 +41,823 @@ export declare class neptunedata extends AWSServiceClient {
     input: CancelGremlinQueryInput,
   ): Effect.Effect<
     CancelGremlinQueryOutput,
-    BadRequestException | ClientTimeoutException | ConcurrentModificationException | ConstraintViolationException | FailureByQueryException | IllegalArgumentException | InvalidArgumentException | InvalidParameterException | MissingParameterException | ParsingException | PreconditionsFailedException | TimeLimitExceededException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
+    | BadRequestException
+    | ClientTimeoutException
+    | ConcurrentModificationException
+    | ConstraintViolationException
+    | FailureByQueryException
+    | IllegalArgumentException
+    | InvalidArgumentException
+    | InvalidParameterException
+    | MissingParameterException
+    | ParsingException
+    | PreconditionsFailedException
+    | TimeLimitExceededException
+    | TooManyRequestsException
+    | UnsupportedOperationException
+    | CommonAwsError
   >;
   cancelLoaderJob(
     input: CancelLoaderJobInput,
   ): Effect.Effect<
     CancelLoaderJobOutput,
-    BadRequestException | BulkLoadIdNotFoundException | ClientTimeoutException | ConstraintViolationException | IllegalArgumentException | InternalFailureException | InvalidArgumentException | InvalidParameterException | LoadUrlAccessDeniedException | MissingParameterException | PreconditionsFailedException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
+    | BadRequestException
+    | BulkLoadIdNotFoundException
+    | ClientTimeoutException
+    | ConstraintViolationException
+    | IllegalArgumentException
+    | InternalFailureException
+    | InvalidArgumentException
+    | InvalidParameterException
+    | LoadUrlAccessDeniedException
+    | MissingParameterException
+    | PreconditionsFailedException
+    | TooManyRequestsException
+    | UnsupportedOperationException
+    | CommonAwsError
   >;
   cancelMLDataProcessingJob(
     input: CancelMLDataProcessingJobInput,
   ): Effect.Effect<
     CancelMLDataProcessingJobOutput,
-    BadRequestException | ClientTimeoutException | ConstraintViolationException | IllegalArgumentException | InvalidArgumentException | InvalidParameterException | MissingParameterException | MLResourceNotFoundException | PreconditionsFailedException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
+    | BadRequestException
+    | ClientTimeoutException
+    | ConstraintViolationException
+    | IllegalArgumentException
+    | InvalidArgumentException
+    | InvalidParameterException
+    | MissingParameterException
+    | MLResourceNotFoundException
+    | PreconditionsFailedException
+    | TooManyRequestsException
+    | UnsupportedOperationException
+    | CommonAwsError
   >;
   cancelMLModelTrainingJob(
     input: CancelMLModelTrainingJobInput,
   ): Effect.Effect<
     CancelMLModelTrainingJobOutput,
-    BadRequestException | ClientTimeoutException | ConstraintViolationException | IllegalArgumentException | InvalidArgumentException | InvalidParameterException | MissingParameterException | MLResourceNotFoundException | PreconditionsFailedException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
+    | BadRequestException
+    | ClientTimeoutException
+    | ConstraintViolationException
+    | IllegalArgumentException
+    | InvalidArgumentException
+    | InvalidParameterException
+    | MissingParameterException
+    | MLResourceNotFoundException
+    | PreconditionsFailedException
+    | TooManyRequestsException
+    | UnsupportedOperationException
+    | CommonAwsError
   >;
   cancelMLModelTransformJob(
     input: CancelMLModelTransformJobInput,
   ): Effect.Effect<
     CancelMLModelTransformJobOutput,
-    BadRequestException | ClientTimeoutException | ConstraintViolationException | IllegalArgumentException | InvalidArgumentException | InvalidParameterException | MissingParameterException | MLResourceNotFoundException | PreconditionsFailedException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
+    | BadRequestException
+    | ClientTimeoutException
+    | ConstraintViolationException
+    | IllegalArgumentException
+    | InvalidArgumentException
+    | InvalidParameterException
+    | MissingParameterException
+    | MLResourceNotFoundException
+    | PreconditionsFailedException
+    | TooManyRequestsException
+    | UnsupportedOperationException
+    | CommonAwsError
   >;
   cancelOpenCypherQuery(
     input: CancelOpenCypherQueryInput,
   ): Effect.Effect<
     CancelOpenCypherQueryOutput,
-    BadRequestException | ClientTimeoutException | ConcurrentModificationException | ConstraintViolationException | FailureByQueryException | IllegalArgumentException | InvalidArgumentException | InvalidNumericDataException | InvalidParameterException | MissingParameterException | ParsingException | PreconditionsFailedException | TimeLimitExceededException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
+    | BadRequestException
+    | ClientTimeoutException
+    | ConcurrentModificationException
+    | ConstraintViolationException
+    | FailureByQueryException
+    | IllegalArgumentException
+    | InvalidArgumentException
+    | InvalidNumericDataException
+    | InvalidParameterException
+    | MissingParameterException
+    | ParsingException
+    | PreconditionsFailedException
+    | TimeLimitExceededException
+    | TooManyRequestsException
+    | UnsupportedOperationException
+    | CommonAwsError
   >;
   createMLEndpoint(
     input: CreateMLEndpointInput,
   ): Effect.Effect<
     CreateMLEndpointOutput,
-    BadRequestException | ClientTimeoutException | ConstraintViolationException | IllegalArgumentException | InvalidArgumentException | InvalidParameterException | MissingParameterException | MLResourceNotFoundException | PreconditionsFailedException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
+    | BadRequestException
+    | ClientTimeoutException
+    | ConstraintViolationException
+    | IllegalArgumentException
+    | InvalidArgumentException
+    | InvalidParameterException
+    | MissingParameterException
+    | MLResourceNotFoundException
+    | PreconditionsFailedException
+    | TooManyRequestsException
+    | UnsupportedOperationException
+    | CommonAwsError
   >;
   deleteMLEndpoint(
     input: DeleteMLEndpointInput,
   ): Effect.Effect<
     DeleteMLEndpointOutput,
-    BadRequestException | ClientTimeoutException | ConstraintViolationException | IllegalArgumentException | InvalidArgumentException | InvalidParameterException | MissingParameterException | MLResourceNotFoundException | PreconditionsFailedException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
+    | BadRequestException
+    | ClientTimeoutException
+    | ConstraintViolationException
+    | IllegalArgumentException
+    | InvalidArgumentException
+    | InvalidParameterException
+    | MissingParameterException
+    | MLResourceNotFoundException
+    | PreconditionsFailedException
+    | TooManyRequestsException
+    | UnsupportedOperationException
+    | CommonAwsError
   >;
-  deletePropertygraphStatistics(
-    input: {},
-  ): Effect.Effect<
+  deletePropertygraphStatistics(input: {}): Effect.Effect<
     DeletePropertygraphStatisticsOutput,
-    AccessDeniedException | BadRequestException | ClientTimeoutException | ConstraintViolationException | IllegalArgumentException | InvalidArgumentException | InvalidParameterException | MissingParameterException | PreconditionsFailedException | ReadOnlyViolationException | StatisticsNotAvailableException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
+    | AccessDeniedException
+    | BadRequestException
+    | ClientTimeoutException
+    | ConstraintViolationException
+    | IllegalArgumentException
+    | InvalidArgumentException
+    | InvalidParameterException
+    | MissingParameterException
+    | PreconditionsFailedException
+    | ReadOnlyViolationException
+    | StatisticsNotAvailableException
+    | TooManyRequestsException
+    | UnsupportedOperationException
+    | CommonAwsError
   >;
-  deleteSparqlStatistics(
-    input: {},
-  ): Effect.Effect<
+  deleteSparqlStatistics(input: {}): Effect.Effect<
     DeleteSparqlStatisticsOutput,
-    AccessDeniedException | BadRequestException | ClientTimeoutException | ConstraintViolationException | IllegalArgumentException | InvalidArgumentException | InvalidParameterException | MissingParameterException | PreconditionsFailedException | ReadOnlyViolationException | StatisticsNotAvailableException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
+    | AccessDeniedException
+    | BadRequestException
+    | ClientTimeoutException
+    | ConstraintViolationException
+    | IllegalArgumentException
+    | InvalidArgumentException
+    | InvalidParameterException
+    | MissingParameterException
+    | PreconditionsFailedException
+    | ReadOnlyViolationException
+    | StatisticsNotAvailableException
+    | TooManyRequestsException
+    | UnsupportedOperationException
+    | CommonAwsError
   >;
   executeFastReset(
     input: ExecuteFastResetInput,
   ): Effect.Effect<
     ExecuteFastResetOutput,
-    AccessDeniedException | ClientTimeoutException | ConstraintViolationException | IllegalArgumentException | InvalidArgumentException | InvalidParameterException | MethodNotAllowedException | MissingParameterException | PreconditionsFailedException | ReadOnlyViolationException | ServerShutdownException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
+    | AccessDeniedException
+    | ClientTimeoutException
+    | ConstraintViolationException
+    | IllegalArgumentException
+    | InvalidArgumentException
+    | InvalidParameterException
+    | MethodNotAllowedException
+    | MissingParameterException
+    | PreconditionsFailedException
+    | ReadOnlyViolationException
+    | ServerShutdownException
+    | TooManyRequestsException
+    | UnsupportedOperationException
+    | CommonAwsError
   >;
   executeGremlinExplainQuery(
     input: ExecuteGremlinExplainQueryInput,
   ): Effect.Effect<
     ExecuteGremlinExplainQueryOutput,
-    BadRequestException | CancelledByUserException | ClientTimeoutException | ConcurrentModificationException | ConstraintViolationException | FailureByQueryException | IllegalArgumentException | InvalidArgumentException | InvalidParameterException | MalformedQueryException | MemoryLimitExceededException | MissingParameterException | ParsingException | PreconditionsFailedException | QueryLimitExceededException | QueryLimitException | QueryTooLargeException | TimeLimitExceededException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
+    | BadRequestException
+    | CancelledByUserException
+    | ClientTimeoutException
+    | ConcurrentModificationException
+    | ConstraintViolationException
+    | FailureByQueryException
+    | IllegalArgumentException
+    | InvalidArgumentException
+    | InvalidParameterException
+    | MalformedQueryException
+    | MemoryLimitExceededException
+    | MissingParameterException
+    | ParsingException
+    | PreconditionsFailedException
+    | QueryLimitExceededException
+    | QueryLimitException
+    | QueryTooLargeException
+    | TimeLimitExceededException
+    | TooManyRequestsException
+    | UnsupportedOperationException
+    | CommonAwsError
   >;
   executeGremlinProfileQuery(
     input: ExecuteGremlinProfileQueryInput,
   ): Effect.Effect<
     ExecuteGremlinProfileQueryOutput,
-    BadRequestException | CancelledByUserException | ClientTimeoutException | ConcurrentModificationException | ConstraintViolationException | FailureByQueryException | IllegalArgumentException | InvalidArgumentException | InvalidParameterException | MalformedQueryException | MemoryLimitExceededException | MissingParameterException | ParsingException | PreconditionsFailedException | QueryLimitExceededException | QueryLimitException | QueryTooLargeException | TimeLimitExceededException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
+    | BadRequestException
+    | CancelledByUserException
+    | ClientTimeoutException
+    | ConcurrentModificationException
+    | ConstraintViolationException
+    | FailureByQueryException
+    | IllegalArgumentException
+    | InvalidArgumentException
+    | InvalidParameterException
+    | MalformedQueryException
+    | MemoryLimitExceededException
+    | MissingParameterException
+    | ParsingException
+    | PreconditionsFailedException
+    | QueryLimitExceededException
+    | QueryLimitException
+    | QueryTooLargeException
+    | TimeLimitExceededException
+    | TooManyRequestsException
+    | UnsupportedOperationException
+    | CommonAwsError
   >;
   executeGremlinQuery(
     input: ExecuteGremlinQueryInput,
   ): Effect.Effect<
     ExecuteGremlinQueryOutput,
-    BadRequestException | CancelledByUserException | ClientTimeoutException | ConcurrentModificationException | ConstraintViolationException | FailureByQueryException | IllegalArgumentException | InvalidArgumentException | InvalidParameterException | MalformedQueryException | MemoryLimitExceededException | MissingParameterException | ParsingException | PreconditionsFailedException | QueryLimitExceededException | QueryLimitException | QueryTooLargeException | TimeLimitExceededException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
+    | BadRequestException
+    | CancelledByUserException
+    | ClientTimeoutException
+    | ConcurrentModificationException
+    | ConstraintViolationException
+    | FailureByQueryException
+    | IllegalArgumentException
+    | InvalidArgumentException
+    | InvalidParameterException
+    | MalformedQueryException
+    | MemoryLimitExceededException
+    | MissingParameterException
+    | ParsingException
+    | PreconditionsFailedException
+    | QueryLimitExceededException
+    | QueryLimitException
+    | QueryTooLargeException
+    | TimeLimitExceededException
+    | TooManyRequestsException
+    | UnsupportedOperationException
+    | CommonAwsError
   >;
   executeOpenCypherExplainQuery(
     input: ExecuteOpenCypherExplainQueryInput,
   ): Effect.Effect<
     ExecuteOpenCypherExplainQueryOutput,
-    BadRequestException | CancelledByUserException | ClientTimeoutException | ConcurrentModificationException | ConstraintViolationException | FailureByQueryException | IllegalArgumentException | InvalidArgumentException | InvalidNumericDataException | InvalidParameterException | MalformedQueryException | MemoryLimitExceededException | MissingParameterException | ParsingException | PreconditionsFailedException | QueryLimitExceededException | QueryLimitException | QueryTooLargeException | TimeLimitExceededException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
+    | BadRequestException
+    | CancelledByUserException
+    | ClientTimeoutException
+    | ConcurrentModificationException
+    | ConstraintViolationException
+    | FailureByQueryException
+    | IllegalArgumentException
+    | InvalidArgumentException
+    | InvalidNumericDataException
+    | InvalidParameterException
+    | MalformedQueryException
+    | MemoryLimitExceededException
+    | MissingParameterException
+    | ParsingException
+    | PreconditionsFailedException
+    | QueryLimitExceededException
+    | QueryLimitException
+    | QueryTooLargeException
+    | TimeLimitExceededException
+    | TooManyRequestsException
+    | UnsupportedOperationException
+    | CommonAwsError
   >;
   executeOpenCypherQuery(
     input: ExecuteOpenCypherQueryInput,
   ): Effect.Effect<
     ExecuteOpenCypherQueryOutput,
-    BadRequestException | CancelledByUserException | ClientTimeoutException | ConcurrentModificationException | ConstraintViolationException | FailureByQueryException | IllegalArgumentException | InvalidArgumentException | InvalidNumericDataException | InvalidParameterException | MalformedQueryException | MemoryLimitExceededException | MissingParameterException | ParsingException | PreconditionsFailedException | QueryLimitExceededException | QueryLimitException | QueryTooLargeException | TimeLimitExceededException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
+    | BadRequestException
+    | CancelledByUserException
+    | ClientTimeoutException
+    | ConcurrentModificationException
+    | ConstraintViolationException
+    | FailureByQueryException
+    | IllegalArgumentException
+    | InvalidArgumentException
+    | InvalidNumericDataException
+    | InvalidParameterException
+    | MalformedQueryException
+    | MemoryLimitExceededException
+    | MissingParameterException
+    | ParsingException
+    | PreconditionsFailedException
+    | QueryLimitExceededException
+    | QueryLimitException
+    | QueryTooLargeException
+    | TimeLimitExceededException
+    | TooManyRequestsException
+    | UnsupportedOperationException
+    | CommonAwsError
   >;
-  getEngineStatus(
-    input: {},
-  ): Effect.Effect<
+  getEngineStatus(input: {}): Effect.Effect<
     GetEngineStatusOutput,
-    ClientTimeoutException | ConstraintViolationException | IllegalArgumentException | InternalFailureException | InvalidArgumentException | PreconditionsFailedException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
+    | ClientTimeoutException
+    | ConstraintViolationException
+    | IllegalArgumentException
+    | InternalFailureException
+    | InvalidArgumentException
+    | PreconditionsFailedException
+    | TooManyRequestsException
+    | UnsupportedOperationException
+    | CommonAwsError
   >;
   getGremlinQueryStatus(
     input: GetGremlinQueryStatusInput,
   ): Effect.Effect<
     GetGremlinQueryStatusOutput,
-    AccessDeniedException | BadRequestException | ClientTimeoutException | ConcurrentModificationException | ConstraintViolationException | FailureByQueryException | IllegalArgumentException | InvalidArgumentException | InvalidParameterException | MissingParameterException | ParsingException | PreconditionsFailedException | ReadOnlyViolationException | TimeLimitExceededException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
+    | AccessDeniedException
+    | BadRequestException
+    | ClientTimeoutException
+    | ConcurrentModificationException
+    | ConstraintViolationException
+    | FailureByQueryException
+    | IllegalArgumentException
+    | InvalidArgumentException
+    | InvalidParameterException
+    | MissingParameterException
+    | ParsingException
+    | PreconditionsFailedException
+    | ReadOnlyViolationException
+    | TimeLimitExceededException
+    | TooManyRequestsException
+    | UnsupportedOperationException
+    | CommonAwsError
   >;
   getLoaderJobStatus(
     input: GetLoaderJobStatusInput,
   ): Effect.Effect<
     GetLoaderJobStatusOutput,
-    BadRequestException | BulkLoadIdNotFoundException | ClientTimeoutException | ConstraintViolationException | IllegalArgumentException | InternalFailureException | InvalidArgumentException | InvalidParameterException | LoadUrlAccessDeniedException | MissingParameterException | PreconditionsFailedException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
+    | BadRequestException
+    | BulkLoadIdNotFoundException
+    | ClientTimeoutException
+    | ConstraintViolationException
+    | IllegalArgumentException
+    | InternalFailureException
+    | InvalidArgumentException
+    | InvalidParameterException
+    | LoadUrlAccessDeniedException
+    | MissingParameterException
+    | PreconditionsFailedException
+    | TooManyRequestsException
+    | UnsupportedOperationException
+    | CommonAwsError
   >;
   getMLDataProcessingJob(
     input: GetMLDataProcessingJobInput,
   ): Effect.Effect<
     GetMLDataProcessingJobOutput,
-    BadRequestException | ClientTimeoutException | ConstraintViolationException | IllegalArgumentException | InvalidArgumentException | InvalidParameterException | MissingParameterException | MLResourceNotFoundException | PreconditionsFailedException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
+    | BadRequestException
+    | ClientTimeoutException
+    | ConstraintViolationException
+    | IllegalArgumentException
+    | InvalidArgumentException
+    | InvalidParameterException
+    | MissingParameterException
+    | MLResourceNotFoundException
+    | PreconditionsFailedException
+    | TooManyRequestsException
+    | UnsupportedOperationException
+    | CommonAwsError
   >;
   getMLEndpoint(
     input: GetMLEndpointInput,
   ): Effect.Effect<
     GetMLEndpointOutput,
-    BadRequestException | ClientTimeoutException | ConstraintViolationException | IllegalArgumentException | InvalidArgumentException | InvalidParameterException | MissingParameterException | MLResourceNotFoundException | PreconditionsFailedException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
+    | BadRequestException
+    | ClientTimeoutException
+    | ConstraintViolationException
+    | IllegalArgumentException
+    | InvalidArgumentException
+    | InvalidParameterException
+    | MissingParameterException
+    | MLResourceNotFoundException
+    | PreconditionsFailedException
+    | TooManyRequestsException
+    | UnsupportedOperationException
+    | CommonAwsError
   >;
   getMLModelTrainingJob(
     input: GetMLModelTrainingJobInput,
   ): Effect.Effect<
     GetMLModelTrainingJobOutput,
-    BadRequestException | ClientTimeoutException | ConstraintViolationException | IllegalArgumentException | InvalidArgumentException | InvalidParameterException | MissingParameterException | MLResourceNotFoundException | PreconditionsFailedException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
+    | BadRequestException
+    | ClientTimeoutException
+    | ConstraintViolationException
+    | IllegalArgumentException
+    | InvalidArgumentException
+    | InvalidParameterException
+    | MissingParameterException
+    | MLResourceNotFoundException
+    | PreconditionsFailedException
+    | TooManyRequestsException
+    | UnsupportedOperationException
+    | CommonAwsError
   >;
   getMLModelTransformJob(
     input: GetMLModelTransformJobInput,
   ): Effect.Effect<
     GetMLModelTransformJobOutput,
-    BadRequestException | ClientTimeoutException | ConstraintViolationException | IllegalArgumentException | InvalidArgumentException | InvalidParameterException | MissingParameterException | MLResourceNotFoundException | PreconditionsFailedException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
+    | BadRequestException
+    | ClientTimeoutException
+    | ConstraintViolationException
+    | IllegalArgumentException
+    | InvalidArgumentException
+    | InvalidParameterException
+    | MissingParameterException
+    | MLResourceNotFoundException
+    | PreconditionsFailedException
+    | TooManyRequestsException
+    | UnsupportedOperationException
+    | CommonAwsError
   >;
   getOpenCypherQueryStatus(
     input: GetOpenCypherQueryStatusInput,
   ): Effect.Effect<
     GetOpenCypherQueryStatusOutput,
-    AccessDeniedException | BadRequestException | ClientTimeoutException | ConcurrentModificationException | ConstraintViolationException | FailureByQueryException | IllegalArgumentException | InvalidArgumentException | InvalidNumericDataException | InvalidParameterException | MissingParameterException | ParsingException | PreconditionsFailedException | ReadOnlyViolationException | TimeLimitExceededException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
+    | AccessDeniedException
+    | BadRequestException
+    | ClientTimeoutException
+    | ConcurrentModificationException
+    | ConstraintViolationException
+    | FailureByQueryException
+    | IllegalArgumentException
+    | InvalidArgumentException
+    | InvalidNumericDataException
+    | InvalidParameterException
+    | MissingParameterException
+    | ParsingException
+    | PreconditionsFailedException
+    | ReadOnlyViolationException
+    | TimeLimitExceededException
+    | TooManyRequestsException
+    | UnsupportedOperationException
+    | CommonAwsError
   >;
-  getPropertygraphStatistics(
-    input: {},
-  ): Effect.Effect<
+  getPropertygraphStatistics(input: {}): Effect.Effect<
     GetPropertygraphStatisticsOutput,
-    AccessDeniedException | BadRequestException | ClientTimeoutException | ConstraintViolationException | IllegalArgumentException | InvalidArgumentException | InvalidParameterException | MissingParameterException | PreconditionsFailedException | ReadOnlyViolationException | StatisticsNotAvailableException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
+    | AccessDeniedException
+    | BadRequestException
+    | ClientTimeoutException
+    | ConstraintViolationException
+    | IllegalArgumentException
+    | InvalidArgumentException
+    | InvalidParameterException
+    | MissingParameterException
+    | PreconditionsFailedException
+    | ReadOnlyViolationException
+    | StatisticsNotAvailableException
+    | TooManyRequestsException
+    | UnsupportedOperationException
+    | CommonAwsError
   >;
   getPropertygraphStream(
     input: GetPropertygraphStreamInput,
   ): Effect.Effect<
     GetPropertygraphStreamOutput,
-    ClientTimeoutException | ConstraintViolationException | ExpiredStreamException | IllegalArgumentException | InvalidArgumentException | InvalidParameterException | MemoryLimitExceededException | PreconditionsFailedException | StreamRecordsNotFoundException | ThrottlingException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
+    | ClientTimeoutException
+    | ConstraintViolationException
+    | ExpiredStreamException
+    | IllegalArgumentException
+    | InvalidArgumentException
+    | InvalidParameterException
+    | MemoryLimitExceededException
+    | PreconditionsFailedException
+    | StreamRecordsNotFoundException
+    | ThrottlingException
+    | TooManyRequestsException
+    | UnsupportedOperationException
+    | CommonAwsError
   >;
   getPropertygraphSummary(
     input: GetPropertygraphSummaryInput,
   ): Effect.Effect<
     GetPropertygraphSummaryOutput,
-    AccessDeniedException | BadRequestException | ClientTimeoutException | ConstraintViolationException | IllegalArgumentException | InvalidArgumentException | InvalidParameterException | MissingParameterException | PreconditionsFailedException | ReadOnlyViolationException | StatisticsNotAvailableException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
+    | AccessDeniedException
+    | BadRequestException
+    | ClientTimeoutException
+    | ConstraintViolationException
+    | IllegalArgumentException
+    | InvalidArgumentException
+    | InvalidParameterException
+    | MissingParameterException
+    | PreconditionsFailedException
+    | ReadOnlyViolationException
+    | StatisticsNotAvailableException
+    | TooManyRequestsException
+    | UnsupportedOperationException
+    | CommonAwsError
   >;
   getRDFGraphSummary(
     input: GetRDFGraphSummaryInput,
   ): Effect.Effect<
     GetRDFGraphSummaryOutput,
-    AccessDeniedException | BadRequestException | ClientTimeoutException | ConstraintViolationException | IllegalArgumentException | InvalidArgumentException | InvalidParameterException | MissingParameterException | PreconditionsFailedException | ReadOnlyViolationException | StatisticsNotAvailableException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
+    | AccessDeniedException
+    | BadRequestException
+    | ClientTimeoutException
+    | ConstraintViolationException
+    | IllegalArgumentException
+    | InvalidArgumentException
+    | InvalidParameterException
+    | MissingParameterException
+    | PreconditionsFailedException
+    | ReadOnlyViolationException
+    | StatisticsNotAvailableException
+    | TooManyRequestsException
+    | UnsupportedOperationException
+    | CommonAwsError
   >;
-  getSparqlStatistics(
-    input: {},
-  ): Effect.Effect<
+  getSparqlStatistics(input: {}): Effect.Effect<
     GetSparqlStatisticsOutput,
-    AccessDeniedException | BadRequestException | ClientTimeoutException | ConstraintViolationException | IllegalArgumentException | InvalidArgumentException | InvalidParameterException | MissingParameterException | PreconditionsFailedException | ReadOnlyViolationException | StatisticsNotAvailableException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
+    | AccessDeniedException
+    | BadRequestException
+    | ClientTimeoutException
+    | ConstraintViolationException
+    | IllegalArgumentException
+    | InvalidArgumentException
+    | InvalidParameterException
+    | MissingParameterException
+    | PreconditionsFailedException
+    | ReadOnlyViolationException
+    | StatisticsNotAvailableException
+    | TooManyRequestsException
+    | UnsupportedOperationException
+    | CommonAwsError
   >;
   getSparqlStream(
     input: GetSparqlStreamInput,
   ): Effect.Effect<
     GetSparqlStreamOutput,
-    ClientTimeoutException | ConstraintViolationException | ExpiredStreamException | IllegalArgumentException | InvalidArgumentException | InvalidParameterException | MemoryLimitExceededException | PreconditionsFailedException | StreamRecordsNotFoundException | ThrottlingException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
+    | ClientTimeoutException
+    | ConstraintViolationException
+    | ExpiredStreamException
+    | IllegalArgumentException
+    | InvalidArgumentException
+    | InvalidParameterException
+    | MemoryLimitExceededException
+    | PreconditionsFailedException
+    | StreamRecordsNotFoundException
+    | ThrottlingException
+    | TooManyRequestsException
+    | UnsupportedOperationException
+    | CommonAwsError
   >;
   listGremlinQueries(
     input: ListGremlinQueriesInput,
   ): Effect.Effect<
     ListGremlinQueriesOutput,
-    AccessDeniedException | BadRequestException | ClientTimeoutException | ConcurrentModificationException | ConstraintViolationException | FailureByQueryException | IllegalArgumentException | InvalidArgumentException | InvalidParameterException | MissingParameterException | ParsingException | PreconditionsFailedException | ReadOnlyViolationException | TimeLimitExceededException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
+    | AccessDeniedException
+    | BadRequestException
+    | ClientTimeoutException
+    | ConcurrentModificationException
+    | ConstraintViolationException
+    | FailureByQueryException
+    | IllegalArgumentException
+    | InvalidArgumentException
+    | InvalidParameterException
+    | MissingParameterException
+    | ParsingException
+    | PreconditionsFailedException
+    | ReadOnlyViolationException
+    | TimeLimitExceededException
+    | TooManyRequestsException
+    | UnsupportedOperationException
+    | CommonAwsError
   >;
   listLoaderJobs(
     input: ListLoaderJobsInput,
   ): Effect.Effect<
     ListLoaderJobsOutput,
-    BadRequestException | BulkLoadIdNotFoundException | ClientTimeoutException | ConstraintViolationException | IllegalArgumentException | InternalFailureException | InvalidArgumentException | InvalidParameterException | LoadUrlAccessDeniedException | PreconditionsFailedException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
+    | BadRequestException
+    | BulkLoadIdNotFoundException
+    | ClientTimeoutException
+    | ConstraintViolationException
+    | IllegalArgumentException
+    | InternalFailureException
+    | InvalidArgumentException
+    | InvalidParameterException
+    | LoadUrlAccessDeniedException
+    | PreconditionsFailedException
+    | TooManyRequestsException
+    | UnsupportedOperationException
+    | CommonAwsError
   >;
   listMLDataProcessingJobs(
     input: ListMLDataProcessingJobsInput,
   ): Effect.Effect<
     ListMLDataProcessingJobsOutput,
-    BadRequestException | ClientTimeoutException | ConstraintViolationException | IllegalArgumentException | InvalidArgumentException | InvalidParameterException | MissingParameterException | MLResourceNotFoundException | PreconditionsFailedException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
+    | BadRequestException
+    | ClientTimeoutException
+    | ConstraintViolationException
+    | IllegalArgumentException
+    | InvalidArgumentException
+    | InvalidParameterException
+    | MissingParameterException
+    | MLResourceNotFoundException
+    | PreconditionsFailedException
+    | TooManyRequestsException
+    | UnsupportedOperationException
+    | CommonAwsError
   >;
   listMLEndpoints(
     input: ListMLEndpointsInput,
   ): Effect.Effect<
     ListMLEndpointsOutput,
-    BadRequestException | ClientTimeoutException | ConstraintViolationException | IllegalArgumentException | InvalidArgumentException | InvalidParameterException | MissingParameterException | MLResourceNotFoundException | PreconditionsFailedException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
+    | BadRequestException
+    | ClientTimeoutException
+    | ConstraintViolationException
+    | IllegalArgumentException
+    | InvalidArgumentException
+    | InvalidParameterException
+    | MissingParameterException
+    | MLResourceNotFoundException
+    | PreconditionsFailedException
+    | TooManyRequestsException
+    | UnsupportedOperationException
+    | CommonAwsError
   >;
   listMLModelTrainingJobs(
     input: ListMLModelTrainingJobsInput,
   ): Effect.Effect<
     ListMLModelTrainingJobsOutput,
-    BadRequestException | ClientTimeoutException | ConstraintViolationException | IllegalArgumentException | InvalidArgumentException | InvalidParameterException | MissingParameterException | MLResourceNotFoundException | PreconditionsFailedException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
+    | BadRequestException
+    | ClientTimeoutException
+    | ConstraintViolationException
+    | IllegalArgumentException
+    | InvalidArgumentException
+    | InvalidParameterException
+    | MissingParameterException
+    | MLResourceNotFoundException
+    | PreconditionsFailedException
+    | TooManyRequestsException
+    | UnsupportedOperationException
+    | CommonAwsError
   >;
   listMLModelTransformJobs(
     input: ListMLModelTransformJobsInput,
   ): Effect.Effect<
     ListMLModelTransformJobsOutput,
-    BadRequestException | ClientTimeoutException | ConstraintViolationException | IllegalArgumentException | InvalidArgumentException | InvalidParameterException | MissingParameterException | MLResourceNotFoundException | PreconditionsFailedException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
+    | BadRequestException
+    | ClientTimeoutException
+    | ConstraintViolationException
+    | IllegalArgumentException
+    | InvalidArgumentException
+    | InvalidParameterException
+    | MissingParameterException
+    | MLResourceNotFoundException
+    | PreconditionsFailedException
+    | TooManyRequestsException
+    | UnsupportedOperationException
+    | CommonAwsError
   >;
   listOpenCypherQueries(
     input: ListOpenCypherQueriesInput,
   ): Effect.Effect<
     ListOpenCypherQueriesOutput,
-    AccessDeniedException | BadRequestException | ClientTimeoutException | ConcurrentModificationException | ConstraintViolationException | FailureByQueryException | IllegalArgumentException | InvalidArgumentException | InvalidNumericDataException | InvalidParameterException | MissingParameterException | ParsingException | PreconditionsFailedException | ReadOnlyViolationException | TimeLimitExceededException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
+    | AccessDeniedException
+    | BadRequestException
+    | ClientTimeoutException
+    | ConcurrentModificationException
+    | ConstraintViolationException
+    | FailureByQueryException
+    | IllegalArgumentException
+    | InvalidArgumentException
+    | InvalidNumericDataException
+    | InvalidParameterException
+    | MissingParameterException
+    | ParsingException
+    | PreconditionsFailedException
+    | ReadOnlyViolationException
+    | TimeLimitExceededException
+    | TooManyRequestsException
+    | UnsupportedOperationException
+    | CommonAwsError
   >;
   managePropertygraphStatistics(
     input: ManagePropertygraphStatisticsInput,
   ): Effect.Effect<
     ManagePropertygraphStatisticsOutput,
-    AccessDeniedException | BadRequestException | ClientTimeoutException | ConstraintViolationException | IllegalArgumentException | InvalidArgumentException | InvalidParameterException | MissingParameterException | PreconditionsFailedException | ReadOnlyViolationException | StatisticsNotAvailableException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
+    | AccessDeniedException
+    | BadRequestException
+    | ClientTimeoutException
+    | ConstraintViolationException
+    | IllegalArgumentException
+    | InvalidArgumentException
+    | InvalidParameterException
+    | MissingParameterException
+    | PreconditionsFailedException
+    | ReadOnlyViolationException
+    | StatisticsNotAvailableException
+    | TooManyRequestsException
+    | UnsupportedOperationException
+    | CommonAwsError
   >;
   manageSparqlStatistics(
     input: ManageSparqlStatisticsInput,
   ): Effect.Effect<
     ManageSparqlStatisticsOutput,
-    AccessDeniedException | BadRequestException | ClientTimeoutException | ConstraintViolationException | IllegalArgumentException | InvalidArgumentException | InvalidParameterException | MissingParameterException | PreconditionsFailedException | ReadOnlyViolationException | StatisticsNotAvailableException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
+    | AccessDeniedException
+    | BadRequestException
+    | ClientTimeoutException
+    | ConstraintViolationException
+    | IllegalArgumentException
+    | InvalidArgumentException
+    | InvalidParameterException
+    | MissingParameterException
+    | PreconditionsFailedException
+    | ReadOnlyViolationException
+    | StatisticsNotAvailableException
+    | TooManyRequestsException
+    | UnsupportedOperationException
+    | CommonAwsError
   >;
   startLoaderJob(
     input: StartLoaderJobInput,
   ): Effect.Effect<
     StartLoaderJobOutput,
-    BadRequestException | BulkLoadIdNotFoundException | ClientTimeoutException | ConstraintViolationException | IllegalArgumentException | InternalFailureException | InvalidArgumentException | InvalidParameterException | LoadUrlAccessDeniedException | MissingParameterException | PreconditionsFailedException | S3Exception | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
+    | BadRequestException
+    | BulkLoadIdNotFoundException
+    | ClientTimeoutException
+    | ConstraintViolationException
+    | IllegalArgumentException
+    | InternalFailureException
+    | InvalidArgumentException
+    | InvalidParameterException
+    | LoadUrlAccessDeniedException
+    | MissingParameterException
+    | PreconditionsFailedException
+    | S3Exception
+    | TooManyRequestsException
+    | UnsupportedOperationException
+    | CommonAwsError
   >;
   startMLDataProcessingJob(
     input: StartMLDataProcessingJobInput,
   ): Effect.Effect<
     StartMLDataProcessingJobOutput,
-    BadRequestException | ClientTimeoutException | ConstraintViolationException | IllegalArgumentException | InvalidArgumentException | InvalidParameterException | MissingParameterException | MLResourceNotFoundException | PreconditionsFailedException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
+    | BadRequestException
+    | ClientTimeoutException
+    | ConstraintViolationException
+    | IllegalArgumentException
+    | InvalidArgumentException
+    | InvalidParameterException
+    | MissingParameterException
+    | MLResourceNotFoundException
+    | PreconditionsFailedException
+    | TooManyRequestsException
+    | UnsupportedOperationException
+    | CommonAwsError
   >;
   startMLModelTrainingJob(
     input: StartMLModelTrainingJobInput,
   ): Effect.Effect<
     StartMLModelTrainingJobOutput,
-    BadRequestException | ClientTimeoutException | ConstraintViolationException | IllegalArgumentException | InvalidArgumentException | InvalidParameterException | MissingParameterException | MLResourceNotFoundException | PreconditionsFailedException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
+    | BadRequestException
+    | ClientTimeoutException
+    | ConstraintViolationException
+    | IllegalArgumentException
+    | InvalidArgumentException
+    | InvalidParameterException
+    | MissingParameterException
+    | MLResourceNotFoundException
+    | PreconditionsFailedException
+    | TooManyRequestsException
+    | UnsupportedOperationException
+    | CommonAwsError
   >;
   startMLModelTransformJob(
     input: StartMLModelTransformJobInput,
   ): Effect.Effect<
     StartMLModelTransformJobOutput,
-    BadRequestException | ClientTimeoutException | ConstraintViolationException | IllegalArgumentException | InvalidArgumentException | InvalidParameterException | MissingParameterException | MLResourceNotFoundException | PreconditionsFailedException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
+    | BadRequestException
+    | ClientTimeoutException
+    | ConstraintViolationException
+    | IllegalArgumentException
+    | InvalidArgumentException
+    | InvalidParameterException
+    | MissingParameterException
+    | MLResourceNotFoundException
+    | PreconditionsFailedException
+    | TooManyRequestsException
+    | UnsupportedOperationException
+    | CommonAwsError
   >;
 }
 
@@ -483,7 +1080,13 @@ export declare class FailureByQueryException extends EffectData.TaggedError(
 export interface FastResetToken {
   token?: string;
 }
-export type Format = "csv" | "opencypher" | "ntriples" | "nquads" | "rdfxml" | "turtle";
+export type Format =
+  | "csv"
+  | "opencypher"
+  | "ntriples"
+  | "nquads"
+  | "rdfxml"
+  | "turtle";
 export interface GetEngineStatusOutput {
   status?: string;
   startTime?: string;
@@ -665,7 +1268,11 @@ export declare class InvalidParameterException extends EffectData.TaggedError(
   readonly requestId: string;
   readonly code: string;
 }> {}
-export type IteratorType = "AT_SEQUENCE_NUMBER" | "AFTER_SEQUENCE_NUMBER" | "TRIM_HORIZON" | "LATEST";
+export type IteratorType =
+  | "AT_SEQUENCE_NUMBER"
+  | "AFTER_SEQUENCE_NUMBER"
+  | "TRIM_HORIZON"
+  | "LATEST";
 export interface ListGremlinQueriesInput {
   includeWaiting?: boolean;
 }
@@ -916,10 +1523,44 @@ export interface RefreshStatisticsIdMap {
 }
 export type ReportAsText = Uint8Array | string;
 
-export type S3BucketRegion = "us-east-1" | "us-east-2" | "us-west-1" | "us-west-2" | "ca-central-1" | "sa-east-1" | "eu-north-1" | "eu-west-1" | "eu-west-2" | "eu-west-3" | "eu-central-1" | "me-south-1" | "af-south-1" | "ap-east-1" | "ap-northeast-1" | "ap-northeast-2" | "ap-southeast-1" | "ap-southeast-2" | "ap-south-1" | "cn-north-1" | "cn-northwest-1" | "us-gov-west-1" | "us-gov-east-1" | "ca-west-1" | "eu-south-2" | "il-central-1" | "me-central-1" | "ap-northeast-3" | "ap-southeast-3" | "ap-southeast-4" | "ap-southeast-5" | "ap-southeast-7" | "mx-central-1" | "ap-east-2" | "ap-south-2" | "eu-central-2";
-export declare class S3Exception extends EffectData.TaggedError(
-  "S3Exception",
-)<{
+export type S3BucketRegion =
+  | "us-east-1"
+  | "us-east-2"
+  | "us-west-1"
+  | "us-west-2"
+  | "ca-central-1"
+  | "sa-east-1"
+  | "eu-north-1"
+  | "eu-west-1"
+  | "eu-west-2"
+  | "eu-west-3"
+  | "eu-central-1"
+  | "me-south-1"
+  | "af-south-1"
+  | "ap-east-1"
+  | "ap-northeast-1"
+  | "ap-northeast-2"
+  | "ap-southeast-1"
+  | "ap-southeast-2"
+  | "ap-south-1"
+  | "cn-north-1"
+  | "cn-northwest-1"
+  | "us-gov-west-1"
+  | "us-gov-east-1"
+  | "ca-west-1"
+  | "eu-south-2"
+  | "il-central-1"
+  | "me-central-1"
+  | "ap-northeast-3"
+  | "ap-southeast-3"
+  | "ap-southeast-4"
+  | "ap-southeast-5"
+  | "ap-southeast-7"
+  | "mx-central-1"
+  | "ap-east-2"
+  | "ap-south-2"
+  | "eu-central-2";
+export declare class S3Exception extends EffectData.TaggedError("S3Exception")<{
   readonly detailedMessage: string;
   readonly requestId: string;
   readonly code: string;
@@ -1036,7 +1677,10 @@ export interface Statistics {
   note?: string;
   signatureInfo?: StatisticsSummary;
 }
-export type StatisticsAutoGenerationMode = "disableAutoCompute" | "enableAutoCompute" | "refresh";
+export type StatisticsAutoGenerationMode =
+  | "disableAutoCompute"
+  | "enableAutoCompute"
+  | "refresh";
 export declare class StatisticsNotAvailableException extends EffectData.TaggedError(
   "StatisticsNotAvailableException",
 )<{
@@ -1965,4 +2609,3 @@ export declare namespace StartMLModelTransformJob {
     | UnsupportedOperationException
     | CommonAwsError;
 }
-

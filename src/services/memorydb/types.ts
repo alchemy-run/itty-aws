@@ -13,91 +13,186 @@ export declare class MemoryDB extends AWSServiceClient {
     input: CopySnapshotRequest,
   ): Effect.Effect<
     CopySnapshotResponse,
-    InvalidParameterCombinationException | InvalidParameterValueException | InvalidSnapshotStateFault | ServiceLinkedRoleNotFoundFault | SnapshotAlreadyExistsFault | SnapshotNotFoundFault | SnapshotQuotaExceededFault | TagQuotaPerResourceExceeded | CommonAwsError
+    | InvalidParameterCombinationException
+    | InvalidParameterValueException
+    | InvalidSnapshotStateFault
+    | ServiceLinkedRoleNotFoundFault
+    | SnapshotAlreadyExistsFault
+    | SnapshotNotFoundFault
+    | SnapshotQuotaExceededFault
+    | TagQuotaPerResourceExceeded
+    | CommonAwsError
   >;
   createACL(
     input: CreateACLRequest,
   ): Effect.Effect<
     CreateACLResponse,
-    ACLAlreadyExistsFault | ACLQuotaExceededFault | DefaultUserRequired | DuplicateUserNameFault | InvalidParameterValueException | TagQuotaPerResourceExceeded | UserNotFoundFault | CommonAwsError
+    | ACLAlreadyExistsFault
+    | ACLQuotaExceededFault
+    | DefaultUserRequired
+    | DuplicateUserNameFault
+    | InvalidParameterValueException
+    | TagQuotaPerResourceExceeded
+    | UserNotFoundFault
+    | CommonAwsError
   >;
   createCluster(
     input: CreateClusterRequest,
   ): Effect.Effect<
     CreateClusterResponse,
-    ACLNotFoundFault | ClusterAlreadyExistsFault | ClusterQuotaForCustomerExceededFault | InsufficientClusterCapacityFault | InvalidACLStateFault | InvalidCredentialsException | InvalidMultiRegionClusterStateFault | InvalidParameterCombinationException | InvalidParameterValueException | InvalidVPCNetworkStateFault | MultiRegionClusterNotFoundFault | NodeQuotaForClusterExceededFault | NodeQuotaForCustomerExceededFault | ParameterGroupNotFoundFault | ServiceLinkedRoleNotFoundFault | ShardsPerClusterQuotaExceededFault | SubnetGroupNotFoundFault | TagQuotaPerResourceExceeded | CommonAwsError
+    | ACLNotFoundFault
+    | ClusterAlreadyExistsFault
+    | ClusterQuotaForCustomerExceededFault
+    | InsufficientClusterCapacityFault
+    | InvalidACLStateFault
+    | InvalidCredentialsException
+    | InvalidMultiRegionClusterStateFault
+    | InvalidParameterCombinationException
+    | InvalidParameterValueException
+    | InvalidVPCNetworkStateFault
+    | MultiRegionClusterNotFoundFault
+    | NodeQuotaForClusterExceededFault
+    | NodeQuotaForCustomerExceededFault
+    | ParameterGroupNotFoundFault
+    | ServiceLinkedRoleNotFoundFault
+    | ShardsPerClusterQuotaExceededFault
+    | SubnetGroupNotFoundFault
+    | TagQuotaPerResourceExceeded
+    | CommonAwsError
   >;
   createMultiRegionCluster(
     input: CreateMultiRegionClusterRequest,
   ): Effect.Effect<
     CreateMultiRegionClusterResponse,
-    ClusterQuotaForCustomerExceededFault | InvalidParameterCombinationException | InvalidParameterValueException | MultiRegionClusterAlreadyExistsFault | MultiRegionParameterGroupNotFoundFault | TagQuotaPerResourceExceeded | CommonAwsError
+    | ClusterQuotaForCustomerExceededFault
+    | InvalidParameterCombinationException
+    | InvalidParameterValueException
+    | MultiRegionClusterAlreadyExistsFault
+    | MultiRegionParameterGroupNotFoundFault
+    | TagQuotaPerResourceExceeded
+    | CommonAwsError
   >;
   createParameterGroup(
     input: CreateParameterGroupRequest,
   ): Effect.Effect<
     CreateParameterGroupResponse,
-    InvalidParameterCombinationException | InvalidParameterGroupStateFault | InvalidParameterValueException | ParameterGroupAlreadyExistsFault | ParameterGroupQuotaExceededFault | ServiceLinkedRoleNotFoundFault | TagQuotaPerResourceExceeded | CommonAwsError
+    | InvalidParameterCombinationException
+    | InvalidParameterGroupStateFault
+    | InvalidParameterValueException
+    | ParameterGroupAlreadyExistsFault
+    | ParameterGroupQuotaExceededFault
+    | ServiceLinkedRoleNotFoundFault
+    | TagQuotaPerResourceExceeded
+    | CommonAwsError
   >;
   createSnapshot(
     input: CreateSnapshotRequest,
   ): Effect.Effect<
     CreateSnapshotResponse,
-    ClusterNotFoundFault | InvalidClusterStateFault | InvalidParameterCombinationException | InvalidParameterValueException | ServiceLinkedRoleNotFoundFault | SnapshotAlreadyExistsFault | SnapshotQuotaExceededFault | TagQuotaPerResourceExceeded | CommonAwsError
+    | ClusterNotFoundFault
+    | InvalidClusterStateFault
+    | InvalidParameterCombinationException
+    | InvalidParameterValueException
+    | ServiceLinkedRoleNotFoundFault
+    | SnapshotAlreadyExistsFault
+    | SnapshotQuotaExceededFault
+    | TagQuotaPerResourceExceeded
+    | CommonAwsError
   >;
   createSubnetGroup(
     input: CreateSubnetGroupRequest,
   ): Effect.Effect<
     CreateSubnetGroupResponse,
-    InvalidSubnet | ServiceLinkedRoleNotFoundFault | SubnetGroupAlreadyExistsFault | SubnetGroupQuotaExceededFault | SubnetNotAllowedFault | SubnetQuotaExceededFault | TagQuotaPerResourceExceeded | CommonAwsError
+    | InvalidSubnet
+    | ServiceLinkedRoleNotFoundFault
+    | SubnetGroupAlreadyExistsFault
+    | SubnetGroupQuotaExceededFault
+    | SubnetNotAllowedFault
+    | SubnetQuotaExceededFault
+    | TagQuotaPerResourceExceeded
+    | CommonAwsError
   >;
   createUser(
     input: CreateUserRequest,
   ): Effect.Effect<
     CreateUserResponse,
-    DuplicateUserNameFault | InvalidParameterCombinationException | InvalidParameterValueException | TagQuotaPerResourceExceeded | UserAlreadyExistsFault | UserQuotaExceededFault | CommonAwsError
+    | DuplicateUserNameFault
+    | InvalidParameterCombinationException
+    | InvalidParameterValueException
+    | TagQuotaPerResourceExceeded
+    | UserAlreadyExistsFault
+    | UserQuotaExceededFault
+    | CommonAwsError
   >;
   deleteACL(
     input: DeleteACLRequest,
   ): Effect.Effect<
     DeleteACLResponse,
-    ACLNotFoundFault | InvalidACLStateFault | InvalidParameterValueException | CommonAwsError
+    | ACLNotFoundFault
+    | InvalidACLStateFault
+    | InvalidParameterValueException
+    | CommonAwsError
   >;
   deleteCluster(
     input: DeleteClusterRequest,
   ): Effect.Effect<
     DeleteClusterResponse,
-    ClusterNotFoundFault | InvalidClusterStateFault | InvalidParameterCombinationException | InvalidParameterValueException | ServiceLinkedRoleNotFoundFault | SnapshotAlreadyExistsFault | CommonAwsError
+    | ClusterNotFoundFault
+    | InvalidClusterStateFault
+    | InvalidParameterCombinationException
+    | InvalidParameterValueException
+    | ServiceLinkedRoleNotFoundFault
+    | SnapshotAlreadyExistsFault
+    | CommonAwsError
   >;
   deleteMultiRegionCluster(
     input: DeleteMultiRegionClusterRequest,
   ): Effect.Effect<
     DeleteMultiRegionClusterResponse,
-    InvalidMultiRegionClusterStateFault | InvalidParameterValueException | MultiRegionClusterNotFoundFault | CommonAwsError
+    | InvalidMultiRegionClusterStateFault
+    | InvalidParameterValueException
+    | MultiRegionClusterNotFoundFault
+    | CommonAwsError
   >;
   deleteParameterGroup(
     input: DeleteParameterGroupRequest,
   ): Effect.Effect<
     DeleteParameterGroupResponse,
-    InvalidParameterCombinationException | InvalidParameterGroupStateFault | InvalidParameterValueException | ParameterGroupNotFoundFault | ServiceLinkedRoleNotFoundFault | CommonAwsError
+    | InvalidParameterCombinationException
+    | InvalidParameterGroupStateFault
+    | InvalidParameterValueException
+    | ParameterGroupNotFoundFault
+    | ServiceLinkedRoleNotFoundFault
+    | CommonAwsError
   >;
   deleteSnapshot(
     input: DeleteSnapshotRequest,
   ): Effect.Effect<
     DeleteSnapshotResponse,
-    InvalidParameterCombinationException | InvalidParameterValueException | InvalidSnapshotStateFault | ServiceLinkedRoleNotFoundFault | SnapshotNotFoundFault | CommonAwsError
+    | InvalidParameterCombinationException
+    | InvalidParameterValueException
+    | InvalidSnapshotStateFault
+    | ServiceLinkedRoleNotFoundFault
+    | SnapshotNotFoundFault
+    | CommonAwsError
   >;
   deleteSubnetGroup(
     input: DeleteSubnetGroupRequest,
   ): Effect.Effect<
     DeleteSubnetGroupResponse,
-    ServiceLinkedRoleNotFoundFault | SubnetGroupInUseFault | SubnetGroupNotFoundFault | CommonAwsError
+    | ServiceLinkedRoleNotFoundFault
+    | SubnetGroupInUseFault
+    | SubnetGroupNotFoundFault
+    | CommonAwsError
   >;
   deleteUser(
     input: DeleteUserRequest,
   ): Effect.Effect<
     DeleteUserResponse,
-    InvalidParameterValueException | InvalidUserStateFault | UserNotFoundFault | CommonAwsError
+    | InvalidParameterValueException
+    | InvalidUserStateFault
+    | UserNotFoundFault
+    | CommonAwsError
   >;
   describeACLs(
     input: DescribeACLsRequest,
@@ -109,61 +204,97 @@ export declare class MemoryDB extends AWSServiceClient {
     input: DescribeClustersRequest,
   ): Effect.Effect<
     DescribeClustersResponse,
-    ClusterNotFoundFault | InvalidParameterCombinationException | InvalidParameterValueException | ServiceLinkedRoleNotFoundFault | CommonAwsError
+    | ClusterNotFoundFault
+    | InvalidParameterCombinationException
+    | InvalidParameterValueException
+    | ServiceLinkedRoleNotFoundFault
+    | CommonAwsError
   >;
   describeEngineVersions(
     input: DescribeEngineVersionsRequest,
   ): Effect.Effect<
     DescribeEngineVersionsResponse,
-    InvalidParameterCombinationException | InvalidParameterValueException | ServiceLinkedRoleNotFoundFault | CommonAwsError
+    | InvalidParameterCombinationException
+    | InvalidParameterValueException
+    | ServiceLinkedRoleNotFoundFault
+    | CommonAwsError
   >;
   describeEvents(
     input: DescribeEventsRequest,
   ): Effect.Effect<
     DescribeEventsResponse,
-    InvalidParameterCombinationException | InvalidParameterValueException | ServiceLinkedRoleNotFoundFault | CommonAwsError
+    | InvalidParameterCombinationException
+    | InvalidParameterValueException
+    | ServiceLinkedRoleNotFoundFault
+    | CommonAwsError
   >;
   describeMultiRegionClusters(
     input: DescribeMultiRegionClustersRequest,
   ): Effect.Effect<
     DescribeMultiRegionClustersResponse,
-    ClusterNotFoundFault | InvalidParameterCombinationException | InvalidParameterValueException | MultiRegionClusterNotFoundFault | CommonAwsError
+    | ClusterNotFoundFault
+    | InvalidParameterCombinationException
+    | InvalidParameterValueException
+    | MultiRegionClusterNotFoundFault
+    | CommonAwsError
   >;
   describeParameterGroups(
     input: DescribeParameterGroupsRequest,
   ): Effect.Effect<
     DescribeParameterGroupsResponse,
-    InvalidParameterCombinationException | InvalidParameterValueException | ParameterGroupNotFoundFault | ServiceLinkedRoleNotFoundFault | CommonAwsError
+    | InvalidParameterCombinationException
+    | InvalidParameterValueException
+    | ParameterGroupNotFoundFault
+    | ServiceLinkedRoleNotFoundFault
+    | CommonAwsError
   >;
   describeParameters(
     input: DescribeParametersRequest,
   ): Effect.Effect<
     DescribeParametersResponse,
-    InvalidParameterCombinationException | InvalidParameterValueException | ParameterGroupNotFoundFault | ServiceLinkedRoleNotFoundFault | CommonAwsError
+    | InvalidParameterCombinationException
+    | InvalidParameterValueException
+    | ParameterGroupNotFoundFault
+    | ServiceLinkedRoleNotFoundFault
+    | CommonAwsError
   >;
   describeReservedNodes(
     input: DescribeReservedNodesRequest,
   ): Effect.Effect<
     DescribeReservedNodesResponse,
-    InvalidParameterCombinationException | InvalidParameterValueException | ReservedNodeNotFoundFault | ServiceLinkedRoleNotFoundFault | CommonAwsError
+    | InvalidParameterCombinationException
+    | InvalidParameterValueException
+    | ReservedNodeNotFoundFault
+    | ServiceLinkedRoleNotFoundFault
+    | CommonAwsError
   >;
   describeReservedNodesOfferings(
     input: DescribeReservedNodesOfferingsRequest,
   ): Effect.Effect<
     DescribeReservedNodesOfferingsResponse,
-    InvalidParameterCombinationException | InvalidParameterValueException | ReservedNodesOfferingNotFoundFault | ServiceLinkedRoleNotFoundFault | CommonAwsError
+    | InvalidParameterCombinationException
+    | InvalidParameterValueException
+    | ReservedNodesOfferingNotFoundFault
+    | ServiceLinkedRoleNotFoundFault
+    | CommonAwsError
   >;
   describeServiceUpdates(
     input: DescribeServiceUpdatesRequest,
   ): Effect.Effect<
     DescribeServiceUpdatesResponse,
-    InvalidParameterCombinationException | InvalidParameterValueException | CommonAwsError
+    | InvalidParameterCombinationException
+    | InvalidParameterValueException
+    | CommonAwsError
   >;
   describeSnapshots(
     input: DescribeSnapshotsRequest,
   ): Effect.Effect<
     DescribeSnapshotsResponse,
-    InvalidParameterCombinationException | InvalidParameterValueException | ServiceLinkedRoleNotFoundFault | SnapshotNotFoundFault | CommonAwsError
+    | InvalidParameterCombinationException
+    | InvalidParameterValueException
+    | ServiceLinkedRoleNotFoundFault
+    | SnapshotNotFoundFault
+    | CommonAwsError
   >;
   describeSubnetGroups(
     input: DescribeSubnetGroupsRequest,
@@ -181,85 +312,192 @@ export declare class MemoryDB extends AWSServiceClient {
     input: FailoverShardRequest,
   ): Effect.Effect<
     FailoverShardResponse,
-    APICallRateForCustomerExceededFault | ClusterNotFoundFault | InvalidClusterStateFault | InvalidKMSKeyFault | InvalidParameterCombinationException | InvalidParameterValueException | ShardNotFoundFault | TestFailoverNotAvailableFault | CommonAwsError
+    | APICallRateForCustomerExceededFault
+    | ClusterNotFoundFault
+    | InvalidClusterStateFault
+    | InvalidKMSKeyFault
+    | InvalidParameterCombinationException
+    | InvalidParameterValueException
+    | ShardNotFoundFault
+    | TestFailoverNotAvailableFault
+    | CommonAwsError
   >;
   listAllowedMultiRegionClusterUpdates(
     input: ListAllowedMultiRegionClusterUpdatesRequest,
   ): Effect.Effect<
     ListAllowedMultiRegionClusterUpdatesResponse,
-    InvalidParameterCombinationException | InvalidParameterValueException | MultiRegionClusterNotFoundFault | CommonAwsError
+    | InvalidParameterCombinationException
+    | InvalidParameterValueException
+    | MultiRegionClusterNotFoundFault
+    | CommonAwsError
   >;
   listAllowedNodeTypeUpdates(
     input: ListAllowedNodeTypeUpdatesRequest,
   ): Effect.Effect<
     ListAllowedNodeTypeUpdatesResponse,
-    ClusterNotFoundFault | InvalidParameterCombinationException | InvalidParameterValueException | ServiceLinkedRoleNotFoundFault | CommonAwsError
+    | ClusterNotFoundFault
+    | InvalidParameterCombinationException
+    | InvalidParameterValueException
+    | ServiceLinkedRoleNotFoundFault
+    | CommonAwsError
   >;
   listTags(
     input: ListTagsRequest,
   ): Effect.Effect<
     ListTagsResponse,
-    ACLNotFoundFault | ClusterNotFoundFault | InvalidARNFault | InvalidClusterStateFault | MultiRegionClusterNotFoundFault | MultiRegionParameterGroupNotFoundFault | ParameterGroupNotFoundFault | ServiceLinkedRoleNotFoundFault | SnapshotNotFoundFault | SubnetGroupNotFoundFault | UserNotFoundFault | CommonAwsError
+    | ACLNotFoundFault
+    | ClusterNotFoundFault
+    | InvalidARNFault
+    | InvalidClusterStateFault
+    | MultiRegionClusterNotFoundFault
+    | MultiRegionParameterGroupNotFoundFault
+    | ParameterGroupNotFoundFault
+    | ServiceLinkedRoleNotFoundFault
+    | SnapshotNotFoundFault
+    | SubnetGroupNotFoundFault
+    | UserNotFoundFault
+    | CommonAwsError
   >;
   purchaseReservedNodesOffering(
     input: PurchaseReservedNodesOfferingRequest,
   ): Effect.Effect<
     PurchaseReservedNodesOfferingResponse,
-    InvalidParameterCombinationException | InvalidParameterValueException | ReservedNodeAlreadyExistsFault | ReservedNodeQuotaExceededFault | ReservedNodesOfferingNotFoundFault | ServiceLinkedRoleNotFoundFault | TagQuotaPerResourceExceeded | CommonAwsError
+    | InvalidParameterCombinationException
+    | InvalidParameterValueException
+    | ReservedNodeAlreadyExistsFault
+    | ReservedNodeQuotaExceededFault
+    | ReservedNodesOfferingNotFoundFault
+    | ServiceLinkedRoleNotFoundFault
+    | TagQuotaPerResourceExceeded
+    | CommonAwsError
   >;
   resetParameterGroup(
     input: ResetParameterGroupRequest,
   ): Effect.Effect<
     ResetParameterGroupResponse,
-    InvalidParameterCombinationException | InvalidParameterGroupStateFault | InvalidParameterValueException | ParameterGroupNotFoundFault | ServiceLinkedRoleNotFoundFault | CommonAwsError
+    | InvalidParameterCombinationException
+    | InvalidParameterGroupStateFault
+    | InvalidParameterValueException
+    | ParameterGroupNotFoundFault
+    | ServiceLinkedRoleNotFoundFault
+    | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    ACLNotFoundFault | ClusterNotFoundFault | InvalidARNFault | InvalidClusterStateFault | InvalidParameterValueException | MultiRegionClusterNotFoundFault | MultiRegionParameterGroupNotFoundFault | ParameterGroupNotFoundFault | ServiceLinkedRoleNotFoundFault | SnapshotNotFoundFault | SubnetGroupNotFoundFault | TagQuotaPerResourceExceeded | UserNotFoundFault | CommonAwsError
+    | ACLNotFoundFault
+    | ClusterNotFoundFault
+    | InvalidARNFault
+    | InvalidClusterStateFault
+    | InvalidParameterValueException
+    | MultiRegionClusterNotFoundFault
+    | MultiRegionParameterGroupNotFoundFault
+    | ParameterGroupNotFoundFault
+    | ServiceLinkedRoleNotFoundFault
+    | SnapshotNotFoundFault
+    | SubnetGroupNotFoundFault
+    | TagQuotaPerResourceExceeded
+    | UserNotFoundFault
+    | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    ACLNotFoundFault | ClusterNotFoundFault | InvalidARNFault | InvalidClusterStateFault | InvalidParameterValueException | MultiRegionClusterNotFoundFault | MultiRegionParameterGroupNotFoundFault | ParameterGroupNotFoundFault | ServiceLinkedRoleNotFoundFault | SnapshotNotFoundFault | SubnetGroupNotFoundFault | TagNotFoundFault | UserNotFoundFault | CommonAwsError
+    | ACLNotFoundFault
+    | ClusterNotFoundFault
+    | InvalidARNFault
+    | InvalidClusterStateFault
+    | InvalidParameterValueException
+    | MultiRegionClusterNotFoundFault
+    | MultiRegionParameterGroupNotFoundFault
+    | ParameterGroupNotFoundFault
+    | ServiceLinkedRoleNotFoundFault
+    | SnapshotNotFoundFault
+    | SubnetGroupNotFoundFault
+    | TagNotFoundFault
+    | UserNotFoundFault
+    | CommonAwsError
   >;
   updateACL(
     input: UpdateACLRequest,
   ): Effect.Effect<
     UpdateACLResponse,
-    ACLNotFoundFault | DefaultUserRequired | DuplicateUserNameFault | InvalidACLStateFault | InvalidParameterCombinationException | InvalidParameterValueException | UserNotFoundFault | CommonAwsError
+    | ACLNotFoundFault
+    | DefaultUserRequired
+    | DuplicateUserNameFault
+    | InvalidACLStateFault
+    | InvalidParameterCombinationException
+    | InvalidParameterValueException
+    | UserNotFoundFault
+    | CommonAwsError
   >;
   updateCluster(
     input: UpdateClusterRequest,
   ): Effect.Effect<
     UpdateClusterResponse,
-    ACLNotFoundFault | ClusterNotFoundFault | ClusterQuotaForCustomerExceededFault | InvalidACLStateFault | InvalidClusterStateFault | InvalidKMSKeyFault | InvalidNodeStateFault | InvalidParameterCombinationException | InvalidParameterValueException | InvalidVPCNetworkStateFault | NodeQuotaForClusterExceededFault | NodeQuotaForCustomerExceededFault | NoOperationFault | ParameterGroupNotFoundFault | ServiceLinkedRoleNotFoundFault | ShardsPerClusterQuotaExceededFault | CommonAwsError
+    | ACLNotFoundFault
+    | ClusterNotFoundFault
+    | ClusterQuotaForCustomerExceededFault
+    | InvalidACLStateFault
+    | InvalidClusterStateFault
+    | InvalidKMSKeyFault
+    | InvalidNodeStateFault
+    | InvalidParameterCombinationException
+    | InvalidParameterValueException
+    | InvalidVPCNetworkStateFault
+    | NodeQuotaForClusterExceededFault
+    | NodeQuotaForCustomerExceededFault
+    | NoOperationFault
+    | ParameterGroupNotFoundFault
+    | ServiceLinkedRoleNotFoundFault
+    | ShardsPerClusterQuotaExceededFault
+    | CommonAwsError
   >;
   updateMultiRegionCluster(
     input: UpdateMultiRegionClusterRequest,
   ): Effect.Effect<
     UpdateMultiRegionClusterResponse,
-    InvalidMultiRegionClusterStateFault | InvalidParameterCombinationException | InvalidParameterValueException | MultiRegionClusterNotFoundFault | MultiRegionParameterGroupNotFoundFault | CommonAwsError
+    | InvalidMultiRegionClusterStateFault
+    | InvalidParameterCombinationException
+    | InvalidParameterValueException
+    | MultiRegionClusterNotFoundFault
+    | MultiRegionParameterGroupNotFoundFault
+    | CommonAwsError
   >;
   updateParameterGroup(
     input: UpdateParameterGroupRequest,
   ): Effect.Effect<
     UpdateParameterGroupResponse,
-    InvalidParameterCombinationException | InvalidParameterGroupStateFault | InvalidParameterValueException | ParameterGroupNotFoundFault | ServiceLinkedRoleNotFoundFault | CommonAwsError
+    | InvalidParameterCombinationException
+    | InvalidParameterGroupStateFault
+    | InvalidParameterValueException
+    | ParameterGroupNotFoundFault
+    | ServiceLinkedRoleNotFoundFault
+    | CommonAwsError
   >;
   updateSubnetGroup(
     input: UpdateSubnetGroupRequest,
   ): Effect.Effect<
     UpdateSubnetGroupResponse,
-    InvalidSubnet | ServiceLinkedRoleNotFoundFault | SubnetGroupNotFoundFault | SubnetInUse | SubnetNotAllowedFault | SubnetQuotaExceededFault | CommonAwsError
+    | InvalidSubnet
+    | ServiceLinkedRoleNotFoundFault
+    | SubnetGroupNotFoundFault
+    | SubnetInUse
+    | SubnetNotAllowedFault
+    | SubnetQuotaExceededFault
+    | CommonAwsError
   >;
   updateUser(
     input: UpdateUserRequest,
   ): Effect.Effect<
     UpdateUserResponse,
-    InvalidParameterCombinationException | InvalidParameterValueException | InvalidUserStateFault | UserNotFoundFault | CommonAwsError
+    | InvalidParameterCombinationException
+    | InvalidParameterValueException
+    | InvalidUserStateFault
+    | UserNotFoundFault
+    | CommonAwsError
   >;
 }
 
@@ -941,7 +1179,8 @@ export interface PendingModifiedServiceUpdate {
   ServiceUpdateName?: string;
   Status?: ServiceUpdateStatus;
 }
-export type PendingModifiedServiceUpdateList = Array<PendingModifiedServiceUpdate>;
+export type PendingModifiedServiceUpdateList =
+  Array<PendingModifiedServiceUpdate>;
 export interface PurchaseReservedNodesOfferingRequest {
   ReservedNodesOfferingId: string;
   ReservationId?: string;
@@ -1051,7 +1290,11 @@ export declare class ServiceUpdateNotFoundFault extends EffectData.TaggedError(
 export interface ServiceUpdateRequest {
   ServiceUpdateNameToApply?: string;
 }
-export type ServiceUpdateStatus = "available" | "in-progress" | "complete" | "scheduled";
+export type ServiceUpdateStatus =
+  | "available"
+  | "in-progress"
+  | "complete"
+  | "scheduled";
 export type ServiceUpdateStatusList = Array<ServiceUpdateStatus>;
 export type ServiceUpdateType = "security-update";
 export interface Shard {
@@ -1115,7 +1358,13 @@ export declare class SnapshotQuotaExceededFault extends EffectData.TaggedError(
 )<{
   readonly message?: string;
 }> {}
-export type SourceType = "node" | "parameter-group" | "subnet-group" | "cluster" | "user" | "acl";
+export type SourceType =
+  | "node"
+  | "parameter-group"
+  | "subnet-group"
+  | "cluster"
+  | "user"
+  | "acl";
 export type MemorydbString = string;
 
 export interface Subnet {
@@ -1153,9 +1402,7 @@ export declare class SubnetGroupQuotaExceededFault extends EffectData.TaggedErro
   readonly message?: string;
 }> {}
 export type SubnetIdentifierList = Array<string>;
-export declare class SubnetInUse extends EffectData.TaggedError(
-  "SubnetInUse",
-)<{
+export declare class SubnetInUse extends EffectData.TaggedError("SubnetInUse")<{
   readonly message?: string;
 }> {}
 export type SubnetList = Array<Subnet>;
@@ -1853,4 +2100,3 @@ export declare namespace UpdateUser {
     | UserNotFoundFault
     | CommonAwsError;
 }
-

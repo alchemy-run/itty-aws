@@ -5,7 +5,24 @@ import type { CodeGuruProfiler as _CodeGuruProfilerClient } from "./types.ts";
 
 export * from "./types.ts";
 
-export {AccessDeniedException, ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, type CommonAwsError} from "../../error.ts";
+export {
+  AccessDeniedException,
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+  type CommonAwsError,
+} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -15,54 +32,63 @@ const metadata = {
   sigV4ServiceName: "codeguru-profiler",
   endpointPrefix: "codeguru-profiler",
   operations: {
-    "GetFindingsReportAccountSummary": "GET /internal/findingsReports",
-    "ListTagsForResource": "GET /tags/{resourceArn}",
-    "TagResource": "POST /tags/{resourceArn}",
-    "UntagResource": "DELETE /tags/{resourceArn}",
-    "AddNotificationChannels": "POST /profilingGroups/{profilingGroupName}/notificationConfiguration",
-    "BatchGetFrameMetricData": "POST /profilingGroups/{profilingGroupName}/frames/-/metrics",
-    "ConfigureAgent": {
+    GetFindingsReportAccountSummary: "GET /internal/findingsReports",
+    ListTagsForResource: "GET /tags/{resourceArn}",
+    TagResource: "POST /tags/{resourceArn}",
+    UntagResource: "DELETE /tags/{resourceArn}",
+    AddNotificationChannels:
+      "POST /profilingGroups/{profilingGroupName}/notificationConfiguration",
+    BatchGetFrameMetricData:
+      "POST /profilingGroups/{profilingGroupName}/frames/-/metrics",
+    ConfigureAgent: {
       http: "POST /profilingGroups/{profilingGroupName}/configureAgent",
       traits: {
-        "configuration": "httpPayload",
+        configuration: "httpPayload",
       },
     },
-    "CreateProfilingGroup": {
+    CreateProfilingGroup: {
       http: "POST /profilingGroups",
       traits: {
-        "profilingGroup": "httpPayload",
+        profilingGroup: "httpPayload",
       },
     },
-    "DeleteProfilingGroup": "DELETE /profilingGroups/{profilingGroupName}",
-    "DescribeProfilingGroup": {
+    DeleteProfilingGroup: "DELETE /profilingGroups/{profilingGroupName}",
+    DescribeProfilingGroup: {
       http: "GET /profilingGroups/{profilingGroupName}",
       traits: {
-        "profilingGroup": "httpPayload",
+        profilingGroup: "httpPayload",
       },
     },
-    "GetNotificationConfiguration": "GET /profilingGroups/{profilingGroupName}/notificationConfiguration",
-    "GetPolicy": "GET /profilingGroups/{profilingGroupName}/policy",
-    "GetProfile": {
+    GetNotificationConfiguration:
+      "GET /profilingGroups/{profilingGroupName}/notificationConfiguration",
+    GetPolicy: "GET /profilingGroups/{profilingGroupName}/policy",
+    GetProfile: {
       http: "GET /profilingGroups/{profilingGroupName}/profile",
       traits: {
-        "profile": "httpPayload",
-        "contentType": "Content-Type",
-        "contentEncoding": "Content-Encoding",
+        profile: "httpPayload",
+        contentType: "Content-Type",
+        contentEncoding: "Content-Encoding",
       },
     },
-    "GetRecommendations": "GET /internal/profilingGroups/{profilingGroupName}/recommendations",
-    "ListFindingsReports": "GET /internal/profilingGroups/{profilingGroupName}/findingsReports",
-    "ListProfileTimes": "GET /profilingGroups/{profilingGroupName}/profileTimes",
-    "ListProfilingGroups": "GET /profilingGroups",
-    "PostAgentProfile": "POST /profilingGroups/{profilingGroupName}/agentProfile",
-    "PutPermission": "PUT /profilingGroups/{profilingGroupName}/policy/{actionGroup}",
-    "RemoveNotificationChannel": "DELETE /profilingGroups/{profilingGroupName}/notificationConfiguration/{channelId}",
-    "RemovePermission": "DELETE /profilingGroups/{profilingGroupName}/policy/{actionGroup}",
-    "SubmitFeedback": "POST /internal/profilingGroups/{profilingGroupName}/anomalies/{anomalyInstanceId}/feedback",
-    "UpdateProfilingGroup": {
+    GetRecommendations:
+      "GET /internal/profilingGroups/{profilingGroupName}/recommendations",
+    ListFindingsReports:
+      "GET /internal/profilingGroups/{profilingGroupName}/findingsReports",
+    ListProfileTimes: "GET /profilingGroups/{profilingGroupName}/profileTimes",
+    ListProfilingGroups: "GET /profilingGroups",
+    PostAgentProfile: "POST /profilingGroups/{profilingGroupName}/agentProfile",
+    PutPermission:
+      "PUT /profilingGroups/{profilingGroupName}/policy/{actionGroup}",
+    RemoveNotificationChannel:
+      "DELETE /profilingGroups/{profilingGroupName}/notificationConfiguration/{channelId}",
+    RemovePermission:
+      "DELETE /profilingGroups/{profilingGroupName}/policy/{actionGroup}",
+    SubmitFeedback:
+      "POST /internal/profilingGroups/{profilingGroupName}/anomalies/{anomalyInstanceId}/feedback",
+    UpdateProfilingGroup: {
       http: "PUT /profilingGroups/{profilingGroupName}",
       traits: {
-        "profilingGroup": "httpPayload",
+        profilingGroup: "httpPayload",
       },
     },
   },

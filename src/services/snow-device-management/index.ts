@@ -5,7 +5,23 @@ import type { SnowDeviceManagement as _SnowDeviceManagementClient } from "./type
 
 export * from "./types.ts";
 
-export {ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, type CommonAwsError} from "../../error.ts";
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+  type CommonAwsError,
+} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -14,19 +30,20 @@ const metadata = {
   protocol: "restJson1",
   sigV4ServiceName: "snow-device-management",
   operations: {
-    "ListTagsForResource": "GET /tags/{resourceArn}",
-    "TagResource": "POST /tags/{resourceArn}",
-    "UntagResource": "DELETE /tags/{resourceArn}",
-    "CancelTask": "POST /task/{taskId}/cancel",
-    "CreateTask": "POST /task",
-    "DescribeDevice": "POST /managed-device/{managedDeviceId}/describe",
-    "DescribeDeviceEc2Instances": "POST /managed-device/{managedDeviceId}/resources/ec2/describe",
-    "DescribeExecution": "POST /task/{taskId}/execution/{managedDeviceId}",
-    "DescribeTask": "POST /task/{taskId}",
-    "ListDeviceResources": "GET /managed-device/{managedDeviceId}/resources",
-    "ListDevices": "GET /managed-devices",
-    "ListExecutions": "GET /executions",
-    "ListTasks": "GET /tasks",
+    ListTagsForResource: "GET /tags/{resourceArn}",
+    TagResource: "POST /tags/{resourceArn}",
+    UntagResource: "DELETE /tags/{resourceArn}",
+    CancelTask: "POST /task/{taskId}/cancel",
+    CreateTask: "POST /task",
+    DescribeDevice: "POST /managed-device/{managedDeviceId}/describe",
+    DescribeDeviceEc2Instances:
+      "POST /managed-device/{managedDeviceId}/resources/ec2/describe",
+    DescribeExecution: "POST /task/{taskId}/execution/{managedDeviceId}",
+    DescribeTask: "POST /task/{taskId}",
+    ListDeviceResources: "GET /managed-device/{managedDeviceId}/resources",
+    ListDevices: "GET /managed-devices",
+    ListExecutions: "GET /executions",
+    ListTasks: "GET /tasks",
   },
 } as const satisfies ServiceMetadata;
 

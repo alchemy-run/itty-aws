@@ -1,6 +1,38 @@
 import type { Effect, Data as EffectData } from "effect";
-import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
-type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
+import type {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+type CommonAwsError =
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | AccessDeniedException
+  | ThrottlingException
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class LookoutEquipment extends AWSServiceClient {
@@ -8,295 +40,567 @@ export declare class LookoutEquipment extends AWSServiceClient {
     input: CreateDatasetRequest,
   ): Effect.Effect<
     CreateDatasetResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createInferenceScheduler(
     input: CreateInferenceSchedulerRequest,
   ): Effect.Effect<
     CreateInferenceSchedulerResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createLabel(
     input: CreateLabelRequest,
   ): Effect.Effect<
     CreateLabelResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createLabelGroup(
     input: CreateLabelGroupRequest,
   ): Effect.Effect<
     CreateLabelGroupResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createModel(
     input: CreateModelRequest,
   ): Effect.Effect<
     CreateModelResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createRetrainingScheduler(
     input: CreateRetrainingSchedulerRequest,
   ): Effect.Effect<
     CreateRetrainingSchedulerResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteDataset(
     input: DeleteDatasetRequest,
   ): Effect.Effect<
     {},
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteInferenceScheduler(
     input: DeleteInferenceSchedulerRequest,
   ): Effect.Effect<
     {},
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteLabel(
     input: DeleteLabelRequest,
   ): Effect.Effect<
     {},
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteLabelGroup(
     input: DeleteLabelGroupRequest,
   ): Effect.Effect<
     {},
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteModel(
     input: DeleteModelRequest,
   ): Effect.Effect<
     {},
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteResourcePolicy(
     input: DeleteResourcePolicyRequest,
   ): Effect.Effect<
     {},
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteRetrainingScheduler(
     input: DeleteRetrainingSchedulerRequest,
   ): Effect.Effect<
     {},
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   describeDataIngestionJob(
     input: DescribeDataIngestionJobRequest,
   ): Effect.Effect<
     DescribeDataIngestionJobResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   describeDataset(
     input: DescribeDatasetRequest,
   ): Effect.Effect<
     DescribeDatasetResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   describeInferenceScheduler(
     input: DescribeInferenceSchedulerRequest,
   ): Effect.Effect<
     DescribeInferenceSchedulerResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   describeLabel(
     input: DescribeLabelRequest,
   ): Effect.Effect<
     DescribeLabelResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   describeLabelGroup(
     input: DescribeLabelGroupRequest,
   ): Effect.Effect<
     DescribeLabelGroupResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   describeModel(
     input: DescribeModelRequest,
   ): Effect.Effect<
     DescribeModelResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   describeModelVersion(
     input: DescribeModelVersionRequest,
   ): Effect.Effect<
     DescribeModelVersionResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   describeResourcePolicy(
     input: DescribeResourcePolicyRequest,
   ): Effect.Effect<
     DescribeResourcePolicyResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   describeRetrainingScheduler(
     input: DescribeRetrainingSchedulerRequest,
   ): Effect.Effect<
     DescribeRetrainingSchedulerResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   importDataset(
     input: ImportDatasetRequest,
   ): Effect.Effect<
     ImportDatasetResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   importModelVersion(
     input: ImportModelVersionRequest,
   ): Effect.Effect<
     ImportModelVersionResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listDataIngestionJobs(
     input: ListDataIngestionJobsRequest,
   ): Effect.Effect<
     ListDataIngestionJobsResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listDatasets(
     input: ListDatasetsRequest,
   ): Effect.Effect<
     ListDatasetsResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listInferenceEvents(
     input: ListInferenceEventsRequest,
   ): Effect.Effect<
     ListInferenceEventsResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listInferenceExecutions(
     input: ListInferenceExecutionsRequest,
   ): Effect.Effect<
     ListInferenceExecutionsResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listInferenceSchedulers(
     input: ListInferenceSchedulersRequest,
   ): Effect.Effect<
     ListInferenceSchedulersResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listLabelGroups(
     input: ListLabelGroupsRequest,
   ): Effect.Effect<
     ListLabelGroupsResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listLabels(
     input: ListLabelsRequest,
   ): Effect.Effect<
     ListLabelsResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listModels(
     input: ListModelsRequest,
   ): Effect.Effect<
     ListModelsResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listModelVersions(
     input: ListModelVersionsRequest,
   ): Effect.Effect<
     ListModelVersionsResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listRetrainingSchedulers(
     input: ListRetrainingSchedulersRequest,
   ): Effect.Effect<
     ListRetrainingSchedulersResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listSensorStatistics(
     input: ListSensorStatisticsRequest,
   ): Effect.Effect<
     ListSensorStatisticsResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   putResourcePolicy(
     input: PutResourcePolicyRequest,
   ): Effect.Effect<
     PutResourcePolicyResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   startDataIngestionJob(
     input: StartDataIngestionJobRequest,
   ): Effect.Effect<
     StartDataIngestionJobResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   startInferenceScheduler(
     input: StartInferenceSchedulerRequest,
   ): Effect.Effect<
     StartInferenceSchedulerResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   startRetrainingScheduler(
     input: StartRetrainingSchedulerRequest,
   ): Effect.Effect<
     StartRetrainingSchedulerResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   stopInferenceScheduler(
     input: StopInferenceSchedulerRequest,
   ): Effect.Effect<
     StopInferenceSchedulerResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   stopRetrainingScheduler(
     input: StopRetrainingSchedulerRequest,
   ): Effect.Effect<
     StopRetrainingSchedulerResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateActiveModelVersion(
     input: UpdateActiveModelVersionRequest,
   ): Effect.Effect<
     UpdateActiveModelVersionResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateInferenceScheduler(
     input: UpdateInferenceSchedulerRequest,
   ): Effect.Effect<
     {},
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateLabelGroup(
     input: UpdateLabelGroupRequest,
   ): Effect.Effect<
     {},
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateModel(
     input: UpdateModelRequest,
   ): Effect.Effect<
     {},
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateRetrainingScheduler(
     input: UpdateRetrainingSchedulerRequest,
   ): Effect.Effect<
     {},
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
 }
 
@@ -309,7 +613,12 @@ export declare class AccessDeniedException extends EffectData.TaggedError(
 }> {}
 export type AmazonResourceArn = string;
 
-export type AutoPromotionResult = "MODEL_PROMOTED" | "MODEL_NOT_PROMOTED" | "RETRAINING_INTERNAL_ERROR" | "RETRAINING_CUSTOMER_ERROR" | "RETRAINING_CANCELLED";
+export type AutoPromotionResult =
+  | "MODEL_PROMOTED"
+  | "MODEL_NOT_PROMOTED"
+  | "RETRAINING_INTERNAL_ERROR"
+  | "RETRAINING_CUSTOMER_ERROR"
+  | "RETRAINING_CANCELLED";
 export type AutoPromotionResultReason = string;
 
 export type LookoutequipmentBoolean = boolean;
@@ -451,7 +760,11 @@ export type DatasetName = string;
 export interface DatasetSchema {
   InlineDataSchema?: string;
 }
-export type DatasetStatus = "CREATED" | "INGESTION_IN_PROGRESS" | "ACTIVE" | "IMPORT_IN_PROGRESS";
+export type DatasetStatus =
+  | "CREATED"
+  | "INGESTION_IN_PROGRESS"
+  | "ACTIVE"
+  | "IMPORT_IN_PROGRESS";
 export type DatasetSummaries = Array<DatasetSummary>;
 export interface DatasetSummary {
   DatasetName?: string;
@@ -727,7 +1040,10 @@ export interface ImportModelVersionResponse {
   ModelVersion?: number;
   Status?: ModelVersionStatus;
 }
-export type InferenceDataImportStrategy = "NO_IMPORT" | "ADD_WHEN_EMPTY" | "OVERWRITE";
+export type InferenceDataImportStrategy =
+  | "NO_IMPORT"
+  | "ADD_WHEN_EMPTY"
+  | "OVERWRITE";
 export type InferenceEventSummaries = Array<InferenceEventSummary>;
 export interface InferenceEventSummary {
   InferenceSchedulerArn?: string;
@@ -782,7 +1098,11 @@ export type InferenceSchedulerIdentifier = string;
 
 export type InferenceSchedulerName = string;
 
-export type InferenceSchedulerStatus = "PENDING" | "RUNNING" | "STOPPING" | "STOPPED";
+export type InferenceSchedulerStatus =
+  | "PENDING"
+  | "RUNNING"
+  | "STOPPING"
+  | "STOPPED";
 export type InferenceSchedulerSummaries = Array<InferenceSchedulerSummary>;
 export interface InferenceSchedulerSummary {
   ModelName?: string;
@@ -804,7 +1124,11 @@ export interface IngestionInputConfiguration {
 }
 export type IngestionJobId = string;
 
-export type IngestionJobStatus = "IN_PROGRESS" | "SUCCESS" | "FAILED" | "IMPORT_IN_PROGRESS";
+export type IngestionJobStatus =
+  | "IN_PROGRESS"
+  | "SUCCESS"
+  | "FAILED"
+  | "IMPORT_IN_PROGRESS";
 export interface IngestionS3InputConfiguration {
   Bucket: string;
   Prefix?: string;
@@ -1025,8 +1349,15 @@ export type ModelMetrics = string;
 export type ModelName = string;
 
 export type ModelPromoteMode = "MANAGED" | "MANUAL";
-export type ModelQuality = "QUALITY_THRESHOLD_MET" | "CANNOT_DETERMINE_QUALITY" | "POOR_QUALITY_DETECTED";
-export type ModelStatus = "IN_PROGRESS" | "SUCCESS" | "FAILED" | "IMPORT_IN_PROGRESS";
+export type ModelQuality =
+  | "QUALITY_THRESHOLD_MET"
+  | "CANNOT_DETERMINE_QUALITY"
+  | "POOR_QUALITY_DETECTED";
+export type ModelStatus =
+  | "IN_PROGRESS"
+  | "SUCCESS"
+  | "FAILED"
+  | "IMPORT_IN_PROGRESS";
 export type ModelSummaries = Array<ModelSummary>;
 export interface ModelSummary {
   ModelName?: string;
@@ -1050,7 +1381,12 @@ export type ModelVersion = number;
 export type ModelVersionArn = string;
 
 export type ModelVersionSourceType = "TRAINING" | "RETRAINING" | "IMPORT";
-export type ModelVersionStatus = "IN_PROGRESS" | "SUCCESS" | "FAILED" | "IMPORT_IN_PROGRESS" | "CANCELED";
+export type ModelVersionStatus =
+  | "IN_PROGRESS"
+  | "SUCCESS"
+  | "FAILED"
+  | "IMPORT_IN_PROGRESS"
+  | "CANCELED";
 export type ModelVersionSummaries = Array<ModelVersionSummary>;
 export interface ModelVersionSummary {
   ModelName?: string;
@@ -1099,7 +1435,11 @@ export declare class ResourceNotFoundException extends EffectData.TaggedError(
 }> {}
 export type RetrainingFrequency = string;
 
-export type RetrainingSchedulerStatus = "PENDING" | "RUNNING" | "STOPPING" | "STOPPED";
+export type RetrainingSchedulerStatus =
+  | "PENDING"
+  | "RUNNING"
+  | "STOPPING"
+  | "STOPPED";
 export type RetrainingSchedulerSummaries = Array<RetrainingSchedulerSummary>;
 export interface RetrainingSchedulerSummary {
   ModelName?: string;
@@ -1173,7 +1513,9 @@ export interface StartRetrainingSchedulerResponse {
   ModelArn?: string;
   Status?: RetrainingSchedulerStatus;
 }
-export type StatisticalIssueStatus = "POTENTIAL_ISSUE_DETECTED" | "NO_ISSUE_DETECTED";
+export type StatisticalIssueStatus =
+  | "POTENTIAL_ISSUE_DETECTED"
+  | "NO_ISSUE_DETECTED";
 export interface StopInferenceSchedulerRequest {
   InferenceSchedulerName: string;
 }
@@ -1208,11 +1550,21 @@ export interface TagResourceRequest {
   ResourceArn: string;
   Tags: Array<Tag>;
 }
-export interface TagResourceResponse {
-}
+export interface TagResourceResponse {}
 export type TagValue = string;
 
-export type TargetSamplingRate = "PT1S" | "PT5S" | "PT10S" | "PT15S" | "PT30S" | "PT1M" | "PT5M" | "PT10M" | "PT15M" | "PT30M" | "PT1H";
+export type TargetSamplingRate =
+  | "PT1S"
+  | "PT5S"
+  | "PT10S"
+  | "PT15S"
+  | "PT30S"
+  | "PT1M"
+  | "PT5M"
+  | "PT10M"
+  | "PT15M"
+  | "PT30M"
+  | "PT1H";
 export declare class ThrottlingException extends EffectData.TaggedError(
   "ThrottlingException",
 )<{
@@ -1229,8 +1581,7 @@ export interface UntagResourceRequest {
   ResourceArn: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {
-}
+export interface UntagResourceResponse {}
 export interface UpdateActiveModelVersionRequest {
   ModelName: string;
   ModelVersion: number;
@@ -1887,4 +2238,3 @@ export declare namespace UpdateRetrainingScheduler {
     | ValidationException
     | CommonAwsError;
 }
-

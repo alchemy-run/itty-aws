@@ -1,6 +1,38 @@
 import type { Effect, Data as EffectData } from "effect";
-import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
-type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
+import type {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+type CommonAwsError =
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | AccessDeniedException
+  | ThrottlingException
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class ConnectCases extends AWSServiceClient {
@@ -8,247 +40,474 @@ export declare class ConnectCases extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     {},
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     {},
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   batchGetCaseRule(
     input: BatchGetCaseRuleRequest,
   ): Effect.Effect<
     BatchGetCaseRuleResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   batchGetField(
     input: BatchGetFieldRequest,
   ): Effect.Effect<
     BatchGetFieldResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   batchPutFieldOptions(
     input: BatchPutFieldOptionsRequest,
   ): Effect.Effect<
     BatchPutFieldOptionsResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createCase(
     input: CreateCaseRequest,
   ): Effect.Effect<
     CreateCaseResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createCaseRule(
     input: CreateCaseRuleRequest,
   ): Effect.Effect<
     CreateCaseRuleResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createDomain(
     input: CreateDomainRequest,
   ): Effect.Effect<
     CreateDomainResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createField(
     input: CreateFieldRequest,
   ): Effect.Effect<
     CreateFieldResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createLayout(
     input: CreateLayoutRequest,
   ): Effect.Effect<
     CreateLayoutResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createRelatedItem(
     input: CreateRelatedItemRequest,
   ): Effect.Effect<
     CreateRelatedItemResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createTemplate(
     input: CreateTemplateRequest,
   ): Effect.Effect<
     CreateTemplateResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteCase(
     input: DeleteCaseRequest,
   ): Effect.Effect<
     DeleteCaseResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteCaseRule(
     input: DeleteCaseRuleRequest,
   ): Effect.Effect<
     DeleteCaseRuleResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   deleteDomain(
     input: DeleteDomainRequest,
   ): Effect.Effect<
     DeleteDomainResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteField(
     input: DeleteFieldRequest,
   ): Effect.Effect<
     DeleteFieldResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteLayout(
     input: DeleteLayoutRequest,
   ): Effect.Effect<
     DeleteLayoutResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteRelatedItem(
     input: DeleteRelatedItemRequest,
   ): Effect.Effect<
     DeleteRelatedItemResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteTemplate(
     input: DeleteTemplateRequest,
   ): Effect.Effect<
     DeleteTemplateResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getCase(
     input: GetCaseRequest,
   ): Effect.Effect<
     GetCaseResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getCaseAuditEvents(
     input: GetCaseAuditEventsRequest,
   ): Effect.Effect<
     GetCaseAuditEventsResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getCaseEventConfiguration(
     input: GetCaseEventConfigurationRequest,
   ): Effect.Effect<
     GetCaseEventConfigurationResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getDomain(
     input: GetDomainRequest,
   ): Effect.Effect<
     GetDomainResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getLayout(
     input: GetLayoutRequest,
   ): Effect.Effect<
     GetLayoutResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getTemplate(
     input: GetTemplateRequest,
   ): Effect.Effect<
     GetTemplateResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listCaseRules(
     input: ListCaseRulesRequest,
   ): Effect.Effect<
     ListCaseRulesResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listCasesForContact(
     input: ListCasesForContactRequest,
   ): Effect.Effect<
     ListCasesForContactResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listDomains(
     input: ListDomainsRequest,
   ): Effect.Effect<
     ListDomainsResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listFieldOptions(
     input: ListFieldOptionsRequest,
   ): Effect.Effect<
     ListFieldOptionsResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listFields(
     input: ListFieldsRequest,
   ): Effect.Effect<
     ListFieldsResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listLayouts(
     input: ListLayoutsRequest,
   ): Effect.Effect<
     ListLayoutsResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listTemplates(
     input: ListTemplatesRequest,
   ): Effect.Effect<
     ListTemplatesResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   putCaseEventConfiguration(
     input: PutCaseEventConfigurationRequest,
   ): Effect.Effect<
     PutCaseEventConfigurationResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   searchCases(
     input: SearchCasesRequest,
   ): Effect.Effect<
     SearchCasesResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   searchRelatedItems(
     input: SearchRelatedItemsRequest,
   ): Effect.Effect<
     SearchRelatedItemsResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateCase(
     input: UpdateCaseRequest,
   ): Effect.Effect<
     UpdateCaseResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateCaseRule(
     input: UpdateCaseRuleRequest,
   ): Effect.Effect<
     UpdateCaseRuleResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateField(
     input: UpdateFieldRequest,
   ): Effect.Effect<
     UpdateFieldResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateLayout(
     input: UpdateLayoutRequest,
   ): Effect.Effect<
     UpdateLayoutResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateTemplate(
     input: UpdateTemplateRequest,
   ): Effect.Effect<
     UpdateTemplateResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
 }
 
@@ -289,7 +548,12 @@ interface _AuditEventFieldValueUnion {
   userArnValue?: string;
 }
 
-export type AuditEventFieldValueUnion = (_AuditEventFieldValueUnion & { stringValue: string }) | (_AuditEventFieldValueUnion & { doubleValue: number }) | (_AuditEventFieldValueUnion & { booleanValue: boolean }) | (_AuditEventFieldValueUnion & { emptyValue: EmptyFieldValue }) | (_AuditEventFieldValueUnion & { userArnValue: string });
+export type AuditEventFieldValueUnion =
+  | (_AuditEventFieldValueUnion & { stringValue: string })
+  | (_AuditEventFieldValueUnion & { doubleValue: number })
+  | (_AuditEventFieldValueUnion & { booleanValue: boolean })
+  | (_AuditEventFieldValueUnion & { emptyValue: EmptyFieldValue })
+  | (_AuditEventFieldValueUnion & { userArnValue: string });
 export type AuditEventId = string;
 
 export interface AuditEventPerformedBy {
@@ -337,7 +601,9 @@ interface _BooleanCondition {
   notEqualTo?: BooleanOperands;
 }
 
-export type BooleanCondition = (_BooleanCondition & { equalTo: BooleanOperands }) | (_BooleanCondition & { notEqualTo: BooleanOperands });
+export type BooleanCondition =
+  | (_BooleanCondition & { equalTo: BooleanOperands })
+  | (_BooleanCondition & { notEqualTo: BooleanOperands });
 export type BooleanConditionList = Array<BooleanCondition>;
 export interface BooleanOperands {
   operandOne: OperandOne;
@@ -356,7 +622,11 @@ interface _CaseFilter {
   orAll?: Array<CaseFilter>;
 }
 
-export type CaseFilter = (_CaseFilter & { field: FieldFilter }) | (_CaseFilter & { not: CaseFilter }) | (_CaseFilter & { andAll: Array<CaseFilter> }) | (_CaseFilter & { orAll: Array<CaseFilter> });
+export type CaseFilter =
+  | (_CaseFilter & { field: FieldFilter })
+  | (_CaseFilter & { not: CaseFilter })
+  | (_CaseFilter & { andAll: Array<CaseFilter> })
+  | (_CaseFilter & { orAll: Array<CaseFilter> });
 export type CaseFilterList = Array<CaseFilter>;
 export type CaseId = string;
 
@@ -368,7 +638,7 @@ interface _CaseRuleDetails {
   required?: RequiredCaseRule;
 }
 
-export type CaseRuleDetails = (_CaseRuleDetails & { required: RequiredCaseRule });
+export type CaseRuleDetails = _CaseRuleDetails & { required: RequiredCaseRule };
 export interface CaseRuleError {
   id: string;
   errorCode: string;
@@ -406,8 +676,7 @@ export interface CommentContent {
   body: string;
   contentType: string;
 }
-export interface CommentFilter {
-}
+export interface CommentFilter {}
 export declare class ConflictException extends EffectData.TaggedError(
   "ConflictException",
 )<{
@@ -509,46 +778,39 @@ export interface DeleteCaseRequest {
   domainId: string;
   caseId: string;
 }
-export interface DeleteCaseResponse {
-}
+export interface DeleteCaseResponse {}
 export interface DeleteCaseRuleRequest {
   domainId: string;
   caseRuleId: string;
 }
-export interface DeleteCaseRuleResponse {
-}
+export interface DeleteCaseRuleResponse {}
 export type Deleted = boolean;
 
 export interface DeleteDomainRequest {
   domainId: string;
 }
-export interface DeleteDomainResponse {
-}
+export interface DeleteDomainResponse {}
 export interface DeleteFieldRequest {
   domainId: string;
   fieldId: string;
 }
-export interface DeleteFieldResponse {
-}
+export interface DeleteFieldResponse {}
 export interface DeleteLayoutRequest {
   domainId: string;
   layoutId: string;
 }
-export interface DeleteLayoutResponse {
-}
+export interface DeleteLayoutResponse {}
 export interface DeleteRelatedItemRequest {
   domainId: string;
   caseId: string;
   relatedItemId: string;
 }
-export interface DeleteRelatedItemResponse {
-}
+export interface DeleteRelatedItemResponse {}
 export interface DeleteTemplateRequest {
   domainId: string;
   templateId: string;
 }
-export interface DeleteTemplateResponse {
-}
+export interface DeleteTemplateResponse {}
 export type DomainArn = string;
 
 export type DomainId = string;
@@ -563,10 +825,8 @@ export interface DomainSummary {
   name: string;
 }
 export type DomainSummaryList = Array<DomainSummary>;
-export interface EmptyFieldValue {
-}
-export interface EmptyOperandValue {
-}
+export interface EmptyFieldValue {}
+export interface EmptyOperandValue {}
 export interface EventBridgeConfiguration {
   enabled: boolean;
   includedData?: EventIncludedData;
@@ -593,7 +853,13 @@ interface _FieldFilter {
   lessThanOrEqualTo?: FieldValue;
 }
 
-export type FieldFilter = (_FieldFilter & { equalTo: FieldValue }) | (_FieldFilter & { contains: FieldValue }) | (_FieldFilter & { greaterThan: FieldValue }) | (_FieldFilter & { greaterThanOrEqualTo: FieldValue }) | (_FieldFilter & { lessThan: FieldValue }) | (_FieldFilter & { lessThanOrEqualTo: FieldValue });
+export type FieldFilter =
+  | (_FieldFilter & { equalTo: FieldValue })
+  | (_FieldFilter & { contains: FieldValue })
+  | (_FieldFilter & { greaterThan: FieldValue })
+  | (_FieldFilter & { greaterThanOrEqualTo: FieldValue })
+  | (_FieldFilter & { lessThan: FieldValue })
+  | (_FieldFilter & { lessThanOrEqualTo: FieldValue });
 export interface FieldGroup {
   name?: string;
   fields: Array<FieldItem>;
@@ -651,7 +917,12 @@ interface _FieldValueUnion {
   userArnValue?: string;
 }
 
-export type FieldValueUnion = (_FieldValueUnion & { stringValue: string }) | (_FieldValueUnion & { doubleValue: number }) | (_FieldValueUnion & { booleanValue: boolean }) | (_FieldValueUnion & { emptyValue: EmptyFieldValue }) | (_FieldValueUnion & { userArnValue: string });
+export type FieldValueUnion =
+  | (_FieldValueUnion & { stringValue: string })
+  | (_FieldValueUnion & { doubleValue: number })
+  | (_FieldValueUnion & { booleanValue: boolean })
+  | (_FieldValueUnion & { emptyValue: EmptyFieldValue })
+  | (_FieldValueUnion & { userArnValue: string });
 export type FileArn = string;
 
 export interface FileContent {
@@ -773,7 +1044,7 @@ interface _LayoutContent {
   basic?: BasicLayout;
 }
 
-export type LayoutContent = (_LayoutContent & { basic: BasicLayout });
+export type LayoutContent = _LayoutContent & { basic: BasicLayout };
 export type LayoutId = string;
 
 export type LayoutName = string;
@@ -867,7 +1138,7 @@ interface _OperandOne {
   fieldId?: string;
 }
 
-export type OperandOne = (_OperandOne & { fieldId: string });
+export type OperandOne = _OperandOne & { fieldId: string };
 interface _OperandTwo {
   stringValue?: string;
   booleanValue?: boolean;
@@ -875,15 +1146,18 @@ interface _OperandTwo {
   emptyValue?: EmptyOperandValue;
 }
 
-export type OperandTwo = (_OperandTwo & { stringValue: string }) | (_OperandTwo & { booleanValue: boolean }) | (_OperandTwo & { doubleValue: number }) | (_OperandTwo & { emptyValue: EmptyOperandValue });
+export type OperandTwo =
+  | (_OperandTwo & { stringValue: string })
+  | (_OperandTwo & { booleanValue: boolean })
+  | (_OperandTwo & { doubleValue: number })
+  | (_OperandTwo & { emptyValue: EmptyOperandValue });
 export type Order = string;
 
 export interface PutCaseEventConfigurationRequest {
   domainId: string;
   eventBridge: EventBridgeConfiguration;
 }
-export interface PutCaseEventConfigurationResponse {
-}
+export interface PutCaseEventConfigurationResponse {}
 export type RelatedItemArn = string;
 
 interface _RelatedItemContent {
@@ -893,7 +1167,11 @@ interface _RelatedItemContent {
   sla?: SlaContent;
 }
 
-export type RelatedItemContent = (_RelatedItemContent & { contact: ContactContent }) | (_RelatedItemContent & { comment: CommentContent }) | (_RelatedItemContent & { file: FileContent }) | (_RelatedItemContent & { sla: SlaContent });
+export type RelatedItemContent =
+  | (_RelatedItemContent & { contact: ContactContent })
+  | (_RelatedItemContent & { comment: CommentContent })
+  | (_RelatedItemContent & { file: FileContent })
+  | (_RelatedItemContent & { sla: SlaContent });
 export interface RelatedItemEventIncludedData {
   includeContent: boolean;
 }
@@ -907,7 +1185,11 @@ interface _RelatedItemInputContent {
   sla?: SlaInputContent;
 }
 
-export type RelatedItemInputContent = (_RelatedItemInputContent & { contact: Contact }) | (_RelatedItemInputContent & { comment: CommentContent }) | (_RelatedItemInputContent & { file: FileContent }) | (_RelatedItemInputContent & { sla: SlaInputContent });
+export type RelatedItemInputContent =
+  | (_RelatedItemInputContent & { contact: Contact })
+  | (_RelatedItemInputContent & { comment: CommentContent })
+  | (_RelatedItemInputContent & { file: FileContent })
+  | (_RelatedItemInputContent & { sla: SlaInputContent });
 export type RelatedItemType = string;
 
 interface _RelatedItemTypeFilter {
@@ -917,7 +1199,11 @@ interface _RelatedItemTypeFilter {
   sla?: SlaFilter;
 }
 
-export type RelatedItemTypeFilter = (_RelatedItemTypeFilter & { contact: ContactFilter }) | (_RelatedItemTypeFilter & { comment: CommentFilter }) | (_RelatedItemTypeFilter & { file: FileFilter }) | (_RelatedItemTypeFilter & { sla: SlaFilter });
+export type RelatedItemTypeFilter =
+  | (_RelatedItemTypeFilter & { contact: ContactFilter })
+  | (_RelatedItemTypeFilter & { comment: CommentFilter })
+  | (_RelatedItemTypeFilter & { file: FileFilter })
+  | (_RelatedItemTypeFilter & { sla: SlaFilter });
 export interface RequiredCaseRule {
   defaultValue: boolean;
   conditions: Array<BooleanCondition>;
@@ -974,12 +1260,13 @@ export interface SearchRelatedItemsResponseItem {
   tags?: Record<string, string>;
   performedBy?: UserUnion;
 }
-export type SearchRelatedItemsResponseItemList = Array<SearchRelatedItemsResponseItem>;
+export type SearchRelatedItemsResponseItemList =
+  Array<SearchRelatedItemsResponseItem>;
 interface _Section {
   fieldGroup?: FieldGroup;
 }
 
-export type Section = (_Section & { fieldGroup: FieldGroup });
+export type Section = _Section & { fieldGroup: FieldGroup };
 export type SectionsList = Array<Section>;
 export declare class ServiceQuotaExceededException extends EffectData.TaggedError(
   "ServiceQuotaExceededException",
@@ -1016,7 +1303,9 @@ interface _SlaInputContent {
   slaInputConfiguration?: SlaInputConfiguration;
 }
 
-export type SlaInputContent = (_SlaInputContent & { slaInputConfiguration: SlaInputConfiguration });
+export type SlaInputContent = _SlaInputContent & {
+  slaInputConfiguration: SlaInputConfiguration;
+};
 export type SlaName = string;
 
 export type SlaStatus = string;
@@ -1078,8 +1367,7 @@ export interface UpdateCaseRequest {
   fields: Array<FieldValue>;
   performedBy?: UserUnion;
 }
-export interface UpdateCaseResponse {
-}
+export interface UpdateCaseResponse {}
 export interface UpdateCaseRuleRequest {
   domainId: string;
   caseRuleId: string;
@@ -1087,24 +1375,21 @@ export interface UpdateCaseRuleRequest {
   description?: string;
   rule?: CaseRuleDetails;
 }
-export interface UpdateCaseRuleResponse {
-}
+export interface UpdateCaseRuleResponse {}
 export interface UpdateFieldRequest {
   domainId: string;
   fieldId: string;
   name?: string;
   description?: string;
 }
-export interface UpdateFieldResponse {
-}
+export interface UpdateFieldResponse {}
 export interface UpdateLayoutRequest {
   domainId: string;
   layoutId: string;
   name?: string;
   content?: LayoutContent;
 }
-export interface UpdateLayoutResponse {
-}
+export interface UpdateLayoutResponse {}
 export interface UpdateTemplateRequest {
   domainId: string;
   templateId: string;
@@ -1115,8 +1400,7 @@ export interface UpdateTemplateRequest {
   status?: string;
   rules?: Array<TemplateRule>;
 }
-export interface UpdateTemplateResponse {
-}
+export interface UpdateTemplateResponse {}
 export type UserArn = string;
 
 interface _UserUnion {
@@ -1124,7 +1408,9 @@ interface _UserUnion {
   customEntity?: string;
 }
 
-export type UserUnion = (_UserUnion & { userArn: string }) | (_UserUnion & { customEntity: string });
+export type UserUnion =
+  | (_UserUnion & { userArn: string })
+  | (_UserUnion & { customEntity: string });
 export declare class ValidationException extends EffectData.TaggedError(
   "ValidationException",
 )<{
@@ -1646,4 +1932,3 @@ export declare namespace UpdateTemplate {
     | ValidationException
     | CommonAwsError;
 }
-

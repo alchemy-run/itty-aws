@@ -5,7 +5,24 @@ import type { CloudFrontKeyValueStore as _CloudFrontKeyValueStoreClient } from "
 
 export * from "./types.ts";
 
-export {ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError, type CommonAwsError} from "../../error.ts";
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  ThrottlingException,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+  type CommonAwsError,
+} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -15,30 +32,30 @@ const metadata = {
   sigV4ServiceName: "cloudfront-keyvaluestore",
   endpointPrefix: "cloudfront-keyvaluestore",
   operations: {
-    "DeleteKey": {
+    DeleteKey: {
       http: "DELETE /key-value-stores/{KvsARN}/keys/{Key}",
       traits: {
-        "ETag": "ETag",
+        ETag: "ETag",
       },
     },
-    "DescribeKeyValueStore": {
+    DescribeKeyValueStore: {
       http: "GET /key-value-stores/{KvsARN}",
       traits: {
-        "ETag": "ETag",
+        ETag: "ETag",
       },
     },
-    "GetKey": "GET /key-value-stores/{KvsARN}/keys/{Key}",
-    "ListKeys": "GET /key-value-stores/{KvsARN}/keys",
-    "PutKey": {
+    GetKey: "GET /key-value-stores/{KvsARN}/keys/{Key}",
+    ListKeys: "GET /key-value-stores/{KvsARN}/keys",
+    PutKey: {
       http: "PUT /key-value-stores/{KvsARN}/keys/{Key}",
       traits: {
-        "ETag": "ETag",
+        ETag: "ETag",
       },
     },
-    "UpdateKeys": {
+    UpdateKeys: {
       http: "POST /key-value-stores/{KvsARN}/keys",
       traits: {
-        "ETag": "ETag",
+        ETag: "ETag",
       },
     },
   },

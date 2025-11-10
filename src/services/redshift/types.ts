@@ -7,13 +7,24 @@ export declare class Redshift extends AWSServiceClient {
     input: AcceptReservedNodeExchangeInputMessage,
   ): Effect.Effect<
     AcceptReservedNodeExchangeOutputMessage,
-    DependentServiceUnavailableFault | InvalidReservedNodeStateFault | ReservedNodeAlreadyExistsFault | ReservedNodeAlreadyMigratedFault | ReservedNodeNotFoundFault | ReservedNodeOfferingNotFoundFault | UnsupportedOperationFault | CommonAwsError
+    | DependentServiceUnavailableFault
+    | InvalidReservedNodeStateFault
+    | ReservedNodeAlreadyExistsFault
+    | ReservedNodeAlreadyMigratedFault
+    | ReservedNodeNotFoundFault
+    | ReservedNodeOfferingNotFoundFault
+    | UnsupportedOperationFault
+    | CommonAwsError
   >;
   addPartner(
     input: PartnerIntegrationInputMessage,
   ): Effect.Effect<
     PartnerIntegrationOutputMessage,
-    ClusterNotFoundFault | PartnerNotFoundFault | UnauthorizedPartnerIntegrationFault | UnsupportedOperationFault | CommonAwsError
+    | ClusterNotFoundFault
+    | PartnerNotFoundFault
+    | UnauthorizedPartnerIntegrationFault
+    | UnsupportedOperationFault
+    | CommonAwsError
   >;
   associateDataShareConsumer(
     input: AssociateDataShareConsumerMessage,
@@ -25,25 +36,39 @@ export declare class Redshift extends AWSServiceClient {
     input: AuthorizeClusterSecurityGroupIngressMessage,
   ): Effect.Effect<
     AuthorizeClusterSecurityGroupIngressResult,
-    AuthorizationAlreadyExistsFault | AuthorizationQuotaExceededFault | ClusterSecurityGroupNotFoundFault | InvalidClusterSecurityGroupStateFault | CommonAwsError
+    | AuthorizationAlreadyExistsFault
+    | AuthorizationQuotaExceededFault
+    | ClusterSecurityGroupNotFoundFault
+    | InvalidClusterSecurityGroupStateFault
+    | CommonAwsError
   >;
   authorizeDataShare(
     input: AuthorizeDataShareMessage,
-  ): Effect.Effect<
-    DataShare,
-    InvalidDataShareFault | CommonAwsError
-  >;
+  ): Effect.Effect<DataShare, InvalidDataShareFault | CommonAwsError>;
   authorizeEndpointAccess(
     input: AuthorizeEndpointAccessMessage,
   ): Effect.Effect<
     EndpointAuthorization,
-    ClusterNotFoundFault | EndpointAuthorizationAlreadyExistsFault | EndpointAuthorizationsPerClusterLimitExceededFault | InvalidAuthorizationStateFault | InvalidClusterStateFault | UnsupportedOperationFault | CommonAwsError
+    | ClusterNotFoundFault
+    | EndpointAuthorizationAlreadyExistsFault
+    | EndpointAuthorizationsPerClusterLimitExceededFault
+    | InvalidAuthorizationStateFault
+    | InvalidClusterStateFault
+    | UnsupportedOperationFault
+    | CommonAwsError
   >;
   authorizeSnapshotAccess(
     input: AuthorizeSnapshotAccessMessage,
   ): Effect.Effect<
     AuthorizeSnapshotAccessResult,
-    AuthorizationAlreadyExistsFault | AuthorizationQuotaExceededFault | ClusterSnapshotNotFoundFault | DependentServiceRequestThrottlingFault | InvalidClusterSnapshotStateFault | LimitExceededFault | UnsupportedOperationFault | CommonAwsError
+    | AuthorizationAlreadyExistsFault
+    | AuthorizationQuotaExceededFault
+    | ClusterSnapshotNotFoundFault
+    | DependentServiceRequestThrottlingFault
+    | InvalidClusterSnapshotStateFault
+    | LimitExceededFault
+    | UnsupportedOperationFault
+    | CommonAwsError
   >;
   batchDeleteClusterSnapshots(
     input: BatchDeleteClusterSnapshotsRequest,
@@ -55,181 +80,343 @@ export declare class Redshift extends AWSServiceClient {
     input: BatchModifyClusterSnapshotsMessage,
   ): Effect.Effect<
     BatchModifyClusterSnapshotsOutputMessage,
-    BatchModifyClusterSnapshotsLimitExceededFault | InvalidRetentionPeriodFault | CommonAwsError
+    | BatchModifyClusterSnapshotsLimitExceededFault
+    | InvalidRetentionPeriodFault
+    | CommonAwsError
   >;
   cancelResize(
     input: CancelResizeMessage,
   ): Effect.Effect<
     ResizeProgressMessage,
-    ClusterNotFoundFault | InvalidClusterStateFault | ResizeNotFoundFault | UnsupportedOperationFault | CommonAwsError
+    | ClusterNotFoundFault
+    | InvalidClusterStateFault
+    | ResizeNotFoundFault
+    | UnsupportedOperationFault
+    | CommonAwsError
   >;
   copyClusterSnapshot(
     input: CopyClusterSnapshotMessage,
   ): Effect.Effect<
     CopyClusterSnapshotResult,
-    ClusterNotFoundFault | ClusterSnapshotAlreadyExistsFault | ClusterSnapshotNotFoundFault | ClusterSnapshotQuotaExceededFault | InvalidClusterSnapshotStateFault | InvalidRetentionPeriodFault | CommonAwsError
+    | ClusterNotFoundFault
+    | ClusterSnapshotAlreadyExistsFault
+    | ClusterSnapshotNotFoundFault
+    | ClusterSnapshotQuotaExceededFault
+    | InvalidClusterSnapshotStateFault
+    | InvalidRetentionPeriodFault
+    | CommonAwsError
   >;
   createAuthenticationProfile(
     input: CreateAuthenticationProfileMessage,
   ): Effect.Effect<
     CreateAuthenticationProfileResult,
-    AuthenticationProfileAlreadyExistsFault | AuthenticationProfileQuotaExceededFault | InvalidAuthenticationProfileRequestFault | CommonAwsError
+    | AuthenticationProfileAlreadyExistsFault
+    | AuthenticationProfileQuotaExceededFault
+    | InvalidAuthenticationProfileRequestFault
+    | CommonAwsError
   >;
   createCluster(
     input: CreateClusterMessage,
   ): Effect.Effect<
     CreateClusterResult,
-    ClusterAlreadyExistsFault | ClusterParameterGroupNotFoundFault | ClusterQuotaExceededFault | ClusterSecurityGroupNotFoundFault | ClusterSubnetGroupNotFoundFault | DependentServiceRequestThrottlingFault | HsmClientCertificateNotFoundFault | HsmConfigurationNotFoundFault | InsufficientClusterCapacityFault | InvalidClusterSubnetGroupStateFault | InvalidClusterTrackFault | InvalidElasticIpFault | InvalidRetentionPeriodFault | InvalidSubnet | InvalidTagFault | InvalidVPCNetworkStateFault | Ipv6CidrBlockNotFoundFault | LimitExceededFault | NumberOfNodesPerClusterLimitExceededFault | NumberOfNodesQuotaExceededFault | RedshiftIdcApplicationNotExistsFault | SnapshotScheduleNotFoundFault | TagLimitExceededFault | UnauthorizedOperation | UnsupportedOperationFault | CommonAwsError
+    | ClusterAlreadyExistsFault
+    | ClusterParameterGroupNotFoundFault
+    | ClusterQuotaExceededFault
+    | ClusterSecurityGroupNotFoundFault
+    | ClusterSubnetGroupNotFoundFault
+    | DependentServiceRequestThrottlingFault
+    | HsmClientCertificateNotFoundFault
+    | HsmConfigurationNotFoundFault
+    | InsufficientClusterCapacityFault
+    | InvalidClusterSubnetGroupStateFault
+    | InvalidClusterTrackFault
+    | InvalidElasticIpFault
+    | InvalidRetentionPeriodFault
+    | InvalidSubnet
+    | InvalidTagFault
+    | InvalidVPCNetworkStateFault
+    | Ipv6CidrBlockNotFoundFault
+    | LimitExceededFault
+    | NumberOfNodesPerClusterLimitExceededFault
+    | NumberOfNodesQuotaExceededFault
+    | RedshiftIdcApplicationNotExistsFault
+    | SnapshotScheduleNotFoundFault
+    | TagLimitExceededFault
+    | UnauthorizedOperation
+    | UnsupportedOperationFault
+    | CommonAwsError
   >;
   createClusterParameterGroup(
     input: CreateClusterParameterGroupMessage,
   ): Effect.Effect<
     CreateClusterParameterGroupResult,
-    ClusterParameterGroupAlreadyExistsFault | ClusterParameterGroupQuotaExceededFault | InvalidTagFault | TagLimitExceededFault | CommonAwsError
+    | ClusterParameterGroupAlreadyExistsFault
+    | ClusterParameterGroupQuotaExceededFault
+    | InvalidTagFault
+    | TagLimitExceededFault
+    | CommonAwsError
   >;
   createClusterSecurityGroup(
     input: CreateClusterSecurityGroupMessage,
   ): Effect.Effect<
     CreateClusterSecurityGroupResult,
-    ClusterSecurityGroupAlreadyExistsFault | ClusterSecurityGroupQuotaExceededFault | InvalidTagFault | TagLimitExceededFault | CommonAwsError
+    | ClusterSecurityGroupAlreadyExistsFault
+    | ClusterSecurityGroupQuotaExceededFault
+    | InvalidTagFault
+    | TagLimitExceededFault
+    | CommonAwsError
   >;
   createClusterSnapshot(
     input: CreateClusterSnapshotMessage,
   ): Effect.Effect<
     CreateClusterSnapshotResult,
-    ClusterNotFoundFault | ClusterSnapshotAlreadyExistsFault | ClusterSnapshotQuotaExceededFault | InvalidClusterStateFault | InvalidRetentionPeriodFault | InvalidTagFault | TagLimitExceededFault | CommonAwsError
+    | ClusterNotFoundFault
+    | ClusterSnapshotAlreadyExistsFault
+    | ClusterSnapshotQuotaExceededFault
+    | InvalidClusterStateFault
+    | InvalidRetentionPeriodFault
+    | InvalidTagFault
+    | TagLimitExceededFault
+    | CommonAwsError
   >;
   createClusterSubnetGroup(
     input: CreateClusterSubnetGroupMessage,
   ): Effect.Effect<
     CreateClusterSubnetGroupResult,
-    ClusterSubnetGroupAlreadyExistsFault | ClusterSubnetGroupQuotaExceededFault | ClusterSubnetQuotaExceededFault | DependentServiceRequestThrottlingFault | InvalidSubnet | InvalidTagFault | TagLimitExceededFault | UnauthorizedOperation | CommonAwsError
+    | ClusterSubnetGroupAlreadyExistsFault
+    | ClusterSubnetGroupQuotaExceededFault
+    | ClusterSubnetQuotaExceededFault
+    | DependentServiceRequestThrottlingFault
+    | InvalidSubnet
+    | InvalidTagFault
+    | TagLimitExceededFault
+    | UnauthorizedOperation
+    | CommonAwsError
   >;
   createCustomDomainAssociation(
     input: CreateCustomDomainAssociationMessage,
   ): Effect.Effect<
     CreateCustomDomainAssociationResult,
-    ClusterNotFoundFault | CustomCnameAssociationFault | UnsupportedOperationFault | CommonAwsError
+    | ClusterNotFoundFault
+    | CustomCnameAssociationFault
+    | UnsupportedOperationFault
+    | CommonAwsError
   >;
   createEndpointAccess(
     input: CreateEndpointAccessMessage,
   ): Effect.Effect<
     EndpointAccess,
-    AccessToClusterDeniedFault | ClusterNotFoundFault | ClusterSubnetGroupNotFoundFault | EndpointAlreadyExistsFault | EndpointsPerAuthorizationLimitExceededFault | EndpointsPerClusterLimitExceededFault | InvalidClusterSecurityGroupStateFault | InvalidClusterStateFault | UnauthorizedOperation | UnsupportedOperationFault | CommonAwsError
+    | AccessToClusterDeniedFault
+    | ClusterNotFoundFault
+    | ClusterSubnetGroupNotFoundFault
+    | EndpointAlreadyExistsFault
+    | EndpointsPerAuthorizationLimitExceededFault
+    | EndpointsPerClusterLimitExceededFault
+    | InvalidClusterSecurityGroupStateFault
+    | InvalidClusterStateFault
+    | UnauthorizedOperation
+    | UnsupportedOperationFault
+    | CommonAwsError
   >;
   createEventSubscription(
     input: CreateEventSubscriptionMessage,
   ): Effect.Effect<
     CreateEventSubscriptionResult,
-    EventSubscriptionQuotaExceededFault | InvalidTagFault | SNSInvalidTopicFault | SNSNoAuthorizationFault | SNSTopicArnNotFoundFault | SourceNotFoundFault | SubscriptionAlreadyExistFault | SubscriptionCategoryNotFoundFault | SubscriptionEventIdNotFoundFault | SubscriptionSeverityNotFoundFault | TagLimitExceededFault | CommonAwsError
+    | EventSubscriptionQuotaExceededFault
+    | InvalidTagFault
+    | SNSInvalidTopicFault
+    | SNSNoAuthorizationFault
+    | SNSTopicArnNotFoundFault
+    | SourceNotFoundFault
+    | SubscriptionAlreadyExistFault
+    | SubscriptionCategoryNotFoundFault
+    | SubscriptionEventIdNotFoundFault
+    | SubscriptionSeverityNotFoundFault
+    | TagLimitExceededFault
+    | CommonAwsError
   >;
   createHsmClientCertificate(
     input: CreateHsmClientCertificateMessage,
   ): Effect.Effect<
     CreateHsmClientCertificateResult,
-    HsmClientCertificateAlreadyExistsFault | HsmClientCertificateQuotaExceededFault | InvalidTagFault | TagLimitExceededFault | CommonAwsError
+    | HsmClientCertificateAlreadyExistsFault
+    | HsmClientCertificateQuotaExceededFault
+    | InvalidTagFault
+    | TagLimitExceededFault
+    | CommonAwsError
   >;
   createHsmConfiguration(
     input: CreateHsmConfigurationMessage,
   ): Effect.Effect<
     CreateHsmConfigurationResult,
-    HsmConfigurationAlreadyExistsFault | HsmConfigurationQuotaExceededFault | InvalidTagFault | TagLimitExceededFault | CommonAwsError
+    | HsmConfigurationAlreadyExistsFault
+    | HsmConfigurationQuotaExceededFault
+    | InvalidTagFault
+    | TagLimitExceededFault
+    | CommonAwsError
   >;
   createIntegration(
     input: CreateIntegrationMessage,
   ): Effect.Effect<
     Integration,
-    IntegrationAlreadyExistsFault | IntegrationConflictOperationFault | IntegrationQuotaExceededFault | IntegrationSourceNotFoundFault | IntegrationTargetNotFoundFault | InvalidClusterStateFault | InvalidTagFault | TagLimitExceededFault | UnsupportedOperationFault | CommonAwsError
+    | IntegrationAlreadyExistsFault
+    | IntegrationConflictOperationFault
+    | IntegrationQuotaExceededFault
+    | IntegrationSourceNotFoundFault
+    | IntegrationTargetNotFoundFault
+    | InvalidClusterStateFault
+    | InvalidTagFault
+    | TagLimitExceededFault
+    | UnsupportedOperationFault
+    | CommonAwsError
   >;
   createRedshiftIdcApplication(
     input: CreateRedshiftIdcApplicationMessage,
   ): Effect.Effect<
     CreateRedshiftIdcApplicationResult,
-    DependentServiceAccessDeniedFault | DependentServiceUnavailableFault | RedshiftIdcApplicationAlreadyExistsFault | RedshiftIdcApplicationQuotaExceededFault | UnsupportedOperationFault | CommonAwsError
+    | DependentServiceAccessDeniedFault
+    | DependentServiceUnavailableFault
+    | RedshiftIdcApplicationAlreadyExistsFault
+    | RedshiftIdcApplicationQuotaExceededFault
+    | UnsupportedOperationFault
+    | CommonAwsError
   >;
   createScheduledAction(
     input: CreateScheduledActionMessage,
   ): Effect.Effect<
     ScheduledAction,
-    ClusterNotFoundFault | InvalidScheduledActionFault | InvalidScheduleFault | ScheduledActionAlreadyExistsFault | ScheduledActionQuotaExceededFault | ScheduledActionTypeUnsupportedFault | UnauthorizedOperation | UnsupportedOperationFault | CommonAwsError
+    | ClusterNotFoundFault
+    | InvalidScheduledActionFault
+    | InvalidScheduleFault
+    | ScheduledActionAlreadyExistsFault
+    | ScheduledActionQuotaExceededFault
+    | ScheduledActionTypeUnsupportedFault
+    | UnauthorizedOperation
+    | UnsupportedOperationFault
+    | CommonAwsError
   >;
   createSnapshotCopyGrant(
     input: CreateSnapshotCopyGrantMessage,
   ): Effect.Effect<
     CreateSnapshotCopyGrantResult,
-    DependentServiceRequestThrottlingFault | InvalidTagFault | LimitExceededFault | SnapshotCopyGrantAlreadyExistsFault | SnapshotCopyGrantQuotaExceededFault | TagLimitExceededFault | CommonAwsError
+    | DependentServiceRequestThrottlingFault
+    | InvalidTagFault
+    | LimitExceededFault
+    | SnapshotCopyGrantAlreadyExistsFault
+    | SnapshotCopyGrantQuotaExceededFault
+    | TagLimitExceededFault
+    | CommonAwsError
   >;
   createSnapshotSchedule(
     input: CreateSnapshotScheduleMessage,
   ): Effect.Effect<
     SnapshotSchedule,
-    InvalidScheduleFault | InvalidTagFault | ScheduleDefinitionTypeUnsupportedFault | SnapshotScheduleAlreadyExistsFault | SnapshotScheduleQuotaExceededFault | TagLimitExceededFault | CommonAwsError
+    | InvalidScheduleFault
+    | InvalidTagFault
+    | ScheduleDefinitionTypeUnsupportedFault
+    | SnapshotScheduleAlreadyExistsFault
+    | SnapshotScheduleQuotaExceededFault
+    | TagLimitExceededFault
+    | CommonAwsError
   >;
   createTags(
     input: CreateTagsMessage,
   ): Effect.Effect<
     {},
-    InvalidClusterStateFault | InvalidTagFault | ResourceNotFoundFault | TagLimitExceededFault | CommonAwsError
+    | InvalidClusterStateFault
+    | InvalidTagFault
+    | ResourceNotFoundFault
+    | TagLimitExceededFault
+    | CommonAwsError
   >;
   createUsageLimit(
     input: CreateUsageLimitMessage,
   ): Effect.Effect<
     UsageLimit,
-    ClusterNotFoundFault | InvalidClusterStateFault | InvalidUsageLimitFault | LimitExceededFault | TagLimitExceededFault | UnsupportedOperationFault | UsageLimitAlreadyExistsFault | CommonAwsError
+    | ClusterNotFoundFault
+    | InvalidClusterStateFault
+    | InvalidUsageLimitFault
+    | LimitExceededFault
+    | TagLimitExceededFault
+    | UnsupportedOperationFault
+    | UsageLimitAlreadyExistsFault
+    | CommonAwsError
   >;
   deauthorizeDataShare(
     input: DeauthorizeDataShareMessage,
-  ): Effect.Effect<
-    DataShare,
-    InvalidDataShareFault | CommonAwsError
-  >;
+  ): Effect.Effect<DataShare, InvalidDataShareFault | CommonAwsError>;
   deleteAuthenticationProfile(
     input: DeleteAuthenticationProfileMessage,
   ): Effect.Effect<
     DeleteAuthenticationProfileResult,
-    AuthenticationProfileNotFoundFault | InvalidAuthenticationProfileRequestFault | CommonAwsError
+    | AuthenticationProfileNotFoundFault
+    | InvalidAuthenticationProfileRequestFault
+    | CommonAwsError
   >;
   deleteCluster(
     input: DeleteClusterMessage,
   ): Effect.Effect<
     DeleteClusterResult,
-    ClusterNotFoundFault | ClusterSnapshotAlreadyExistsFault | ClusterSnapshotQuotaExceededFault | InvalidClusterStateFault | InvalidRetentionPeriodFault | CommonAwsError
+    | ClusterNotFoundFault
+    | ClusterSnapshotAlreadyExistsFault
+    | ClusterSnapshotQuotaExceededFault
+    | InvalidClusterStateFault
+    | InvalidRetentionPeriodFault
+    | CommonAwsError
   >;
   deleteClusterParameterGroup(
     input: DeleteClusterParameterGroupMessage,
   ): Effect.Effect<
     {},
-    ClusterParameterGroupNotFoundFault | InvalidClusterParameterGroupStateFault | CommonAwsError
+    | ClusterParameterGroupNotFoundFault
+    | InvalidClusterParameterGroupStateFault
+    | CommonAwsError
   >;
   deleteClusterSecurityGroup(
     input: DeleteClusterSecurityGroupMessage,
   ): Effect.Effect<
     {},
-    ClusterSecurityGroupNotFoundFault | InvalidClusterSecurityGroupStateFault | CommonAwsError
+    | ClusterSecurityGroupNotFoundFault
+    | InvalidClusterSecurityGroupStateFault
+    | CommonAwsError
   >;
   deleteClusterSnapshot(
     input: DeleteClusterSnapshotMessage,
   ): Effect.Effect<
     DeleteClusterSnapshotResult,
-    ClusterSnapshotNotFoundFault | InvalidClusterSnapshotStateFault | CommonAwsError
+    | ClusterSnapshotNotFoundFault
+    | InvalidClusterSnapshotStateFault
+    | CommonAwsError
   >;
   deleteClusterSubnetGroup(
     input: DeleteClusterSubnetGroupMessage,
   ): Effect.Effect<
     {},
-    ClusterSubnetGroupNotFoundFault | InvalidClusterSubnetGroupStateFault | InvalidClusterSubnetStateFault | CommonAwsError
+    | ClusterSubnetGroupNotFoundFault
+    | InvalidClusterSubnetGroupStateFault
+    | InvalidClusterSubnetStateFault
+    | CommonAwsError
   >;
   deleteCustomDomainAssociation(
     input: DeleteCustomDomainAssociationMessage,
   ): Effect.Effect<
     {},
-    ClusterNotFoundFault | CustomCnameAssociationFault | CustomDomainAssociationNotFoundFault | UnsupportedOperationFault | CommonAwsError
+    | ClusterNotFoundFault
+    | CustomCnameAssociationFault
+    | CustomDomainAssociationNotFoundFault
+    | UnsupportedOperationFault
+    | CommonAwsError
   >;
   deleteEndpointAccess(
     input: DeleteEndpointAccessMessage,
   ): Effect.Effect<
     EndpointAccess,
-    ClusterNotFoundFault | EndpointNotFoundFault | InvalidClusterSecurityGroupStateFault | InvalidClusterStateFault | InvalidEndpointStateFault | CommonAwsError
+    | ClusterNotFoundFault
+    | EndpointNotFoundFault
+    | InvalidClusterSecurityGroupStateFault
+    | InvalidClusterStateFault
+    | InvalidEndpointStateFault
+    | CommonAwsError
   >;
   deleteEventSubscription(
     input: DeleteEventSubscriptionMessage,
@@ -241,31 +428,47 @@ export declare class Redshift extends AWSServiceClient {
     input: DeleteHsmClientCertificateMessage,
   ): Effect.Effect<
     {},
-    HsmClientCertificateNotFoundFault | InvalidHsmClientCertificateStateFault | CommonAwsError
+    | HsmClientCertificateNotFoundFault
+    | InvalidHsmClientCertificateStateFault
+    | CommonAwsError
   >;
   deleteHsmConfiguration(
     input: DeleteHsmConfigurationMessage,
   ): Effect.Effect<
     {},
-    HsmConfigurationNotFoundFault | InvalidHsmConfigurationStateFault | CommonAwsError
+    | HsmConfigurationNotFoundFault
+    | InvalidHsmConfigurationStateFault
+    | CommonAwsError
   >;
   deleteIntegration(
     input: DeleteIntegrationMessage,
   ): Effect.Effect<
     Integration,
-    IntegrationConflictOperationFault | IntegrationConflictStateFault | IntegrationNotFoundFault | UnsupportedOperationFault | CommonAwsError
+    | IntegrationConflictOperationFault
+    | IntegrationConflictStateFault
+    | IntegrationNotFoundFault
+    | UnsupportedOperationFault
+    | CommonAwsError
   >;
   deletePartner(
     input: PartnerIntegrationInputMessage,
   ): Effect.Effect<
     PartnerIntegrationOutputMessage,
-    ClusterNotFoundFault | PartnerNotFoundFault | UnauthorizedPartnerIntegrationFault | UnsupportedOperationFault | CommonAwsError
+    | ClusterNotFoundFault
+    | PartnerNotFoundFault
+    | UnauthorizedPartnerIntegrationFault
+    | UnsupportedOperationFault
+    | CommonAwsError
   >;
   deleteRedshiftIdcApplication(
     input: DeleteRedshiftIdcApplicationMessage,
   ): Effect.Effect<
     {},
-    DependentServiceAccessDeniedFault | DependentServiceUnavailableFault | RedshiftIdcApplicationNotExistsFault | UnsupportedOperationFault | CommonAwsError
+    | DependentServiceAccessDeniedFault
+    | DependentServiceUnavailableFault
+    | RedshiftIdcApplicationNotExistsFault
+    | UnsupportedOperationFault
+    | CommonAwsError
   >;
   deleteResourcePolicy(
     input: DeleteResourcePolicyMessage,
@@ -283,13 +486,17 @@ export declare class Redshift extends AWSServiceClient {
     input: DeleteSnapshotCopyGrantMessage,
   ): Effect.Effect<
     {},
-    InvalidSnapshotCopyGrantStateFault | SnapshotCopyGrantNotFoundFault | CommonAwsError
+    | InvalidSnapshotCopyGrantStateFault
+    | SnapshotCopyGrantNotFoundFault
+    | CommonAwsError
   >;
   deleteSnapshotSchedule(
     input: DeleteSnapshotScheduleMessage,
   ): Effect.Effect<
     {},
-    InvalidClusterSnapshotScheduleStateFault | SnapshotScheduleNotFoundFault | CommonAwsError
+    | InvalidClusterSnapshotScheduleStateFault
+    | SnapshotScheduleNotFoundFault
+    | CommonAwsError
   >;
   deleteTags(
     input: DeleteTagsMessage,
@@ -307,19 +514,21 @@ export declare class Redshift extends AWSServiceClient {
     input: DeregisterNamespaceInputMessage,
   ): Effect.Effect<
     DeregisterNamespaceOutputMessage,
-    ClusterNotFoundFault | InvalidClusterStateFault | InvalidNamespaceFault | CommonAwsError
+    | ClusterNotFoundFault
+    | InvalidClusterStateFault
+    | InvalidNamespaceFault
+    | CommonAwsError
   >;
   describeAccountAttributes(
     input: DescribeAccountAttributesMessage,
-  ): Effect.Effect<
-    AccountAttributeList,
-    CommonAwsError
-  >;
+  ): Effect.Effect<AccountAttributeList, CommonAwsError>;
   describeAuthenticationProfiles(
     input: DescribeAuthenticationProfilesMessage,
   ): Effect.Effect<
     DescribeAuthenticationProfilesResult,
-    AuthenticationProfileNotFoundFault | InvalidAuthenticationProfileRequestFault | CommonAwsError
+    | AuthenticationProfileNotFoundFault
+    | InvalidAuthenticationProfileRequestFault
+    | CommonAwsError
   >;
   describeClusterDbRevisions(
     input: DescribeClusterDbRevisionsMessage,
@@ -355,7 +564,11 @@ export declare class Redshift extends AWSServiceClient {
     input: DescribeClusterSnapshotsMessage,
   ): Effect.Effect<
     SnapshotMessage,
-    ClusterNotFoundFault | ClusterSnapshotNotFoundFault | InvalidTagFault | UnsupportedOperationFault | CommonAwsError
+    | ClusterNotFoundFault
+    | ClusterSnapshotNotFoundFault
+    | InvalidTagFault
+    | UnsupportedOperationFault
+    | CommonAwsError
   >;
   describeClusterSubnetGroups(
     input: DescribeClusterSubnetGroupsMessage,
@@ -371,15 +584,14 @@ export declare class Redshift extends AWSServiceClient {
   >;
   describeClusterVersions(
     input: DescribeClusterVersionsMessage,
-  ): Effect.Effect<
-    ClusterVersionsMessage,
-    CommonAwsError
-  >;
+  ): Effect.Effect<ClusterVersionsMessage, CommonAwsError>;
   describeCustomDomainAssociations(
     input: DescribeCustomDomainAssociationsMessage,
   ): Effect.Effect<
     CustomDomainAssociationsMessage,
-    CustomDomainAssociationNotFoundFault | UnsupportedOperationFault | CommonAwsError
+    | CustomDomainAssociationNotFoundFault
+    | UnsupportedOperationFault
+    | CommonAwsError
   >;
   describeDataShares(
     input: DescribeDataSharesMessage,
@@ -401,15 +613,15 @@ export declare class Redshift extends AWSServiceClient {
   >;
   describeDefaultClusterParameters(
     input: DescribeDefaultClusterParametersMessage,
-  ): Effect.Effect<
-    DescribeDefaultClusterParametersResult,
-    CommonAwsError
-  >;
+  ): Effect.Effect<DescribeDefaultClusterParametersResult, CommonAwsError>;
   describeEndpointAccess(
     input: DescribeEndpointAccessMessage,
   ): Effect.Effect<
     EndpointAccessList,
-    ClusterNotFoundFault | EndpointNotFoundFault | InvalidClusterStateFault | CommonAwsError
+    | ClusterNotFoundFault
+    | EndpointNotFoundFault
+    | InvalidClusterStateFault
+    | CommonAwsError
   >;
   describeEndpointAuthorization(
     input: DescribeEndpointAuthorizationMessage,
@@ -419,16 +631,10 @@ export declare class Redshift extends AWSServiceClient {
   >;
   describeEventCategories(
     input: DescribeEventCategoriesMessage,
-  ): Effect.Effect<
-    EventCategoriesMessage,
-    CommonAwsError
-  >;
+  ): Effect.Effect<EventCategoriesMessage, CommonAwsError>;
   describeEvents(
     input: DescribeEventsMessage,
-  ): Effect.Effect<
-    EventsMessage,
-    CommonAwsError
-  >;
+  ): Effect.Effect<EventsMessage, CommonAwsError>;
   describeEventSubscriptions(
     input: DescribeEventSubscriptionsMessage,
   ): Effect.Effect<
@@ -451,7 +657,10 @@ export declare class Redshift extends AWSServiceClient {
     input: DescribeInboundIntegrationsMessage,
   ): Effect.Effect<
     InboundIntegrationsMessage,
-    IntegrationNotFoundFault | InvalidNamespaceFault | UnsupportedOperationFault | CommonAwsError
+    | IntegrationNotFoundFault
+    | InvalidNamespaceFault
+    | UnsupportedOperationFault
+    | CommonAwsError
   >;
   describeIntegrations(
     input: DescribeIntegrationsMessage,
@@ -469,49 +678,69 @@ export declare class Redshift extends AWSServiceClient {
     input: DescribeNodeConfigurationOptionsMessage,
   ): Effect.Effect<
     NodeConfigurationOptionsMessage,
-    AccessToSnapshotDeniedFault | ClusterNotFoundFault | ClusterSnapshotNotFoundFault | InvalidClusterSnapshotStateFault | UnsupportedOperationFault | CommonAwsError
+    | AccessToSnapshotDeniedFault
+    | ClusterNotFoundFault
+    | ClusterSnapshotNotFoundFault
+    | InvalidClusterSnapshotStateFault
+    | UnsupportedOperationFault
+    | CommonAwsError
   >;
   describeOrderableClusterOptions(
     input: DescribeOrderableClusterOptionsMessage,
-  ): Effect.Effect<
-    OrderableClusterOptionsMessage,
-    CommonAwsError
-  >;
+  ): Effect.Effect<OrderableClusterOptionsMessage, CommonAwsError>;
   describePartners(
     input: DescribePartnersInputMessage,
   ): Effect.Effect<
     DescribePartnersOutputMessage,
-    ClusterNotFoundFault | UnauthorizedPartnerIntegrationFault | UnsupportedOperationFault | CommonAwsError
+    | ClusterNotFoundFault
+    | UnauthorizedPartnerIntegrationFault
+    | UnsupportedOperationFault
+    | CommonAwsError
   >;
   describeRedshiftIdcApplications(
     input: DescribeRedshiftIdcApplicationsMessage,
   ): Effect.Effect<
     DescribeRedshiftIdcApplicationsResult,
-    DependentServiceAccessDeniedFault | DependentServiceUnavailableFault | RedshiftIdcApplicationNotExistsFault | UnsupportedOperationFault | CommonAwsError
+    | DependentServiceAccessDeniedFault
+    | DependentServiceUnavailableFault
+    | RedshiftIdcApplicationNotExistsFault
+    | UnsupportedOperationFault
+    | CommonAwsError
   >;
   describeReservedNodeExchangeStatus(
     input: DescribeReservedNodeExchangeStatusInputMessage,
   ): Effect.Effect<
     DescribeReservedNodeExchangeStatusOutputMessage,
-    ReservedNodeExchangeNotFoundFault | ReservedNodeNotFoundFault | UnsupportedOperationFault | CommonAwsError
+    | ReservedNodeExchangeNotFoundFault
+    | ReservedNodeNotFoundFault
+    | UnsupportedOperationFault
+    | CommonAwsError
   >;
   describeReservedNodeOfferings(
     input: DescribeReservedNodeOfferingsMessage,
   ): Effect.Effect<
     ReservedNodeOfferingsMessage,
-    DependentServiceUnavailableFault | ReservedNodeOfferingNotFoundFault | UnsupportedOperationFault | CommonAwsError
+    | DependentServiceUnavailableFault
+    | ReservedNodeOfferingNotFoundFault
+    | UnsupportedOperationFault
+    | CommonAwsError
   >;
   describeReservedNodes(
     input: DescribeReservedNodesMessage,
   ): Effect.Effect<
     ReservedNodesMessage,
-    DependentServiceUnavailableFault | ReservedNodeNotFoundFault | CommonAwsError
+    | DependentServiceUnavailableFault
+    | ReservedNodeNotFoundFault
+    | CommonAwsError
   >;
   describeResize(
     input: DescribeResizeMessage,
   ): Effect.Effect<
     ResizeProgressMessage,
-    ClusterNotFoundFault | ResizeNotFoundFault | UnsupportedOperationFault | CommonAwsError
+    | ClusterNotFoundFault
+    | ResizeNotFoundFault
+    | UnsupportedOperationFault
+    | CommonAwsError
   >;
   describeScheduledActions(
     input: DescribeScheduledActionsMessage,
@@ -527,13 +756,8 @@ export declare class Redshift extends AWSServiceClient {
   >;
   describeSnapshotSchedules(
     input: DescribeSnapshotSchedulesMessage,
-  ): Effect.Effect<
-    DescribeSnapshotSchedulesOutputMessage,
-    CommonAwsError
-  >;
-  describeStorage(
-    input: {},
-  ): Effect.Effect<
+  ): Effect.Effect<DescribeSnapshotSchedulesOutputMessage, CommonAwsError>;
+  describeStorage(input: {}): Effect.Effect<
     CustomerStorageMessage,
     CommonAwsError
   >;
@@ -559,13 +783,21 @@ export declare class Redshift extends AWSServiceClient {
     input: DisableLoggingMessage,
   ): Effect.Effect<
     LoggingStatus,
-    ClusterNotFoundFault | InvalidClusterStateFault | UnsupportedOperationFault | CommonAwsError
+    | ClusterNotFoundFault
+    | InvalidClusterStateFault
+    | UnsupportedOperationFault
+    | CommonAwsError
   >;
   disableSnapshotCopy(
     input: DisableSnapshotCopyMessage,
   ): Effect.Effect<
     DisableSnapshotCopyResult,
-    ClusterNotFoundFault | InvalidClusterStateFault | SnapshotCopyAlreadyDisabledFault | UnauthorizedOperation | UnsupportedOperationFault | CommonAwsError
+    | ClusterNotFoundFault
+    | InvalidClusterStateFault
+    | SnapshotCopyAlreadyDisabledFault
+    | UnauthorizedOperation
+    | UnsupportedOperationFault
+    | CommonAwsError
   >;
   disassociateDataShareConsumer(
     input: DisassociateDataShareConsumerMessage,
@@ -577,19 +809,41 @@ export declare class Redshift extends AWSServiceClient {
     input: EnableLoggingMessage,
   ): Effect.Effect<
     LoggingStatus,
-    BucketNotFoundFault | ClusterNotFoundFault | InsufficientS3BucketPolicyFault | InvalidClusterStateFault | InvalidS3BucketNameFault | InvalidS3KeyPrefixFault | UnsupportedOperationFault | CommonAwsError
+    | BucketNotFoundFault
+    | ClusterNotFoundFault
+    | InsufficientS3BucketPolicyFault
+    | InvalidClusterStateFault
+    | InvalidS3BucketNameFault
+    | InvalidS3KeyPrefixFault
+    | UnsupportedOperationFault
+    | CommonAwsError
   >;
   enableSnapshotCopy(
     input: EnableSnapshotCopyMessage,
   ): Effect.Effect<
     EnableSnapshotCopyResult,
-    ClusterNotFoundFault | CopyToRegionDisabledFault | DependentServiceRequestThrottlingFault | IncompatibleOrderableOptions | InvalidClusterStateFault | InvalidRetentionPeriodFault | LimitExceededFault | SnapshotCopyAlreadyEnabledFault | SnapshotCopyGrantNotFoundFault | UnauthorizedOperation | UnknownSnapshotCopyRegionFault | CommonAwsError
+    | ClusterNotFoundFault
+    | CopyToRegionDisabledFault
+    | DependentServiceRequestThrottlingFault
+    | IncompatibleOrderableOptions
+    | InvalidClusterStateFault
+    | InvalidRetentionPeriodFault
+    | LimitExceededFault
+    | SnapshotCopyAlreadyEnabledFault
+    | SnapshotCopyGrantNotFoundFault
+    | UnauthorizedOperation
+    | UnknownSnapshotCopyRegionFault
+    | CommonAwsError
   >;
   failoverPrimaryCompute(
     input: FailoverPrimaryComputeInputMessage,
   ): Effect.Effect<
     FailoverPrimaryComputeResult,
-    ClusterNotFoundFault | InvalidClusterStateFault | UnauthorizedOperation | UnsupportedOperationFault | CommonAwsError
+    | ClusterNotFoundFault
+    | InvalidClusterStateFault
+    | UnauthorizedOperation
+    | UnsupportedOperationFault
+    | CommonAwsError
   >;
   getClusterCredentials(
     input: GetClusterCredentialsMessage,
@@ -607,19 +861,36 @@ export declare class Redshift extends AWSServiceClient {
     input: GetReservedNodeExchangeConfigurationOptionsInputMessage,
   ): Effect.Effect<
     GetReservedNodeExchangeConfigurationOptionsOutputMessage,
-    ClusterNotFoundFault | ClusterSnapshotNotFoundFault | DependentServiceUnavailableFault | InvalidReservedNodeStateFault | ReservedNodeAlreadyMigratedFault | ReservedNodeNotFoundFault | ReservedNodeOfferingNotFoundFault | UnsupportedOperationFault | CommonAwsError
+    | ClusterNotFoundFault
+    | ClusterSnapshotNotFoundFault
+    | DependentServiceUnavailableFault
+    | InvalidReservedNodeStateFault
+    | ReservedNodeAlreadyMigratedFault
+    | ReservedNodeNotFoundFault
+    | ReservedNodeOfferingNotFoundFault
+    | UnsupportedOperationFault
+    | CommonAwsError
   >;
   getReservedNodeExchangeOfferings(
     input: GetReservedNodeExchangeOfferingsInputMessage,
   ): Effect.Effect<
     GetReservedNodeExchangeOfferingsOutputMessage,
-    DependentServiceUnavailableFault | InvalidReservedNodeStateFault | ReservedNodeAlreadyMigratedFault | ReservedNodeNotFoundFault | ReservedNodeOfferingNotFoundFault | UnsupportedOperationFault | CommonAwsError
+    | DependentServiceUnavailableFault
+    | InvalidReservedNodeStateFault
+    | ReservedNodeAlreadyMigratedFault
+    | ReservedNodeNotFoundFault
+    | ReservedNodeOfferingNotFoundFault
+    | UnsupportedOperationFault
+    | CommonAwsError
   >;
   getResourcePolicy(
     input: GetResourcePolicyMessage,
   ): Effect.Effect<
     GetResourcePolicyResult,
-    InvalidPolicyFault | ResourceNotFoundFault | UnsupportedOperationFault | CommonAwsError
+    | InvalidPolicyFault
+    | ResourceNotFoundFault
+    | UnsupportedOperationFault
+    | CommonAwsError
   >;
   listRecommendations(
     input: ListRecommendationsMessage,
@@ -631,25 +902,57 @@ export declare class Redshift extends AWSServiceClient {
     input: ModifyAquaInputMessage,
   ): Effect.Effect<
     ModifyAquaOutputMessage,
-    ClusterNotFoundFault | InvalidClusterStateFault | UnsupportedOperationFault | CommonAwsError
+    | ClusterNotFoundFault
+    | InvalidClusterStateFault
+    | UnsupportedOperationFault
+    | CommonAwsError
   >;
   modifyAuthenticationProfile(
     input: ModifyAuthenticationProfileMessage,
   ): Effect.Effect<
     ModifyAuthenticationProfileResult,
-    AuthenticationProfileNotFoundFault | AuthenticationProfileQuotaExceededFault | InvalidAuthenticationProfileRequestFault | CommonAwsError
+    | AuthenticationProfileNotFoundFault
+    | AuthenticationProfileQuotaExceededFault
+    | InvalidAuthenticationProfileRequestFault
+    | CommonAwsError
   >;
   modifyCluster(
     input: ModifyClusterMessage,
   ): Effect.Effect<
     ModifyClusterResult,
-    ClusterAlreadyExistsFault | ClusterNotFoundFault | ClusterParameterGroupNotFoundFault | ClusterSecurityGroupNotFoundFault | CustomCnameAssociationFault | DependentServiceRequestThrottlingFault | HsmClientCertificateNotFoundFault | HsmConfigurationNotFoundFault | InsufficientClusterCapacityFault | InvalidClusterSecurityGroupStateFault | InvalidClusterStateFault | InvalidClusterTrackFault | InvalidElasticIpFault | InvalidRetentionPeriodFault | Ipv6CidrBlockNotFoundFault | LimitExceededFault | NumberOfNodesPerClusterLimitExceededFault | NumberOfNodesQuotaExceededFault | TableLimitExceededFault | UnauthorizedOperation | UnsupportedOperationFault | UnsupportedOptionFault | CommonAwsError
+    | ClusterAlreadyExistsFault
+    | ClusterNotFoundFault
+    | ClusterParameterGroupNotFoundFault
+    | ClusterSecurityGroupNotFoundFault
+    | CustomCnameAssociationFault
+    | DependentServiceRequestThrottlingFault
+    | HsmClientCertificateNotFoundFault
+    | HsmConfigurationNotFoundFault
+    | InsufficientClusterCapacityFault
+    | InvalidClusterSecurityGroupStateFault
+    | InvalidClusterStateFault
+    | InvalidClusterTrackFault
+    | InvalidElasticIpFault
+    | InvalidRetentionPeriodFault
+    | Ipv6CidrBlockNotFoundFault
+    | LimitExceededFault
+    | NumberOfNodesPerClusterLimitExceededFault
+    | NumberOfNodesQuotaExceededFault
+    | TableLimitExceededFault
+    | UnauthorizedOperation
+    | UnsupportedOperationFault
+    | UnsupportedOptionFault
+    | CommonAwsError
   >;
   modifyClusterDbRevision(
     input: ModifyClusterDbRevisionMessage,
   ): Effect.Effect<
     ModifyClusterDbRevisionResult,
-    ClusterNotFoundFault | ClusterOnLatestRevisionFault | InvalidClusterStateFault | UnsupportedOperationFault | CommonAwsError
+    | ClusterNotFoundFault
+    | ClusterOnLatestRevisionFault
+    | InvalidClusterStateFault
+    | UnsupportedOperationFault
+    | CommonAwsError
   >;
   modifyClusterIamRoles(
     input: ModifyClusterIamRolesMessage,
@@ -667,97 +970,168 @@ export declare class Redshift extends AWSServiceClient {
     input: ModifyClusterParameterGroupMessage,
   ): Effect.Effect<
     ClusterParameterGroupNameMessage,
-    ClusterParameterGroupNotFoundFault | InvalidClusterParameterGroupStateFault | CommonAwsError
+    | ClusterParameterGroupNotFoundFault
+    | InvalidClusterParameterGroupStateFault
+    | CommonAwsError
   >;
   modifyClusterSnapshot(
     input: ModifyClusterSnapshotMessage,
   ): Effect.Effect<
     ModifyClusterSnapshotResult,
-    ClusterSnapshotNotFoundFault | InvalidClusterSnapshotStateFault | InvalidRetentionPeriodFault | CommonAwsError
+    | ClusterSnapshotNotFoundFault
+    | InvalidClusterSnapshotStateFault
+    | InvalidRetentionPeriodFault
+    | CommonAwsError
   >;
   modifyClusterSnapshotSchedule(
     input: ModifyClusterSnapshotScheduleMessage,
   ): Effect.Effect<
     {},
-    ClusterNotFoundFault | InvalidClusterSnapshotScheduleStateFault | SnapshotScheduleNotFoundFault | CommonAwsError
+    | ClusterNotFoundFault
+    | InvalidClusterSnapshotScheduleStateFault
+    | SnapshotScheduleNotFoundFault
+    | CommonAwsError
   >;
   modifyClusterSubnetGroup(
     input: ModifyClusterSubnetGroupMessage,
   ): Effect.Effect<
     ModifyClusterSubnetGroupResult,
-    ClusterSubnetGroupNotFoundFault | ClusterSubnetQuotaExceededFault | DependentServiceRequestThrottlingFault | InvalidSubnet | SubnetAlreadyInUse | UnauthorizedOperation | CommonAwsError
+    | ClusterSubnetGroupNotFoundFault
+    | ClusterSubnetQuotaExceededFault
+    | DependentServiceRequestThrottlingFault
+    | InvalidSubnet
+    | SubnetAlreadyInUse
+    | UnauthorizedOperation
+    | CommonAwsError
   >;
   modifyCustomDomainAssociation(
     input: ModifyCustomDomainAssociationMessage,
   ): Effect.Effect<
     ModifyCustomDomainAssociationResult,
-    ClusterNotFoundFault | CustomCnameAssociationFault | CustomDomainAssociationNotFoundFault | UnsupportedOperationFault | CommonAwsError
+    | ClusterNotFoundFault
+    | CustomCnameAssociationFault
+    | CustomDomainAssociationNotFoundFault
+    | UnsupportedOperationFault
+    | CommonAwsError
   >;
   modifyEndpointAccess(
     input: ModifyEndpointAccessMessage,
   ): Effect.Effect<
     EndpointAccess,
-    ClusterNotFoundFault | EndpointNotFoundFault | InvalidClusterSecurityGroupStateFault | InvalidClusterStateFault | InvalidEndpointStateFault | UnauthorizedOperation | CommonAwsError
+    | ClusterNotFoundFault
+    | EndpointNotFoundFault
+    | InvalidClusterSecurityGroupStateFault
+    | InvalidClusterStateFault
+    | InvalidEndpointStateFault
+    | UnauthorizedOperation
+    | CommonAwsError
   >;
   modifyEventSubscription(
     input: ModifyEventSubscriptionMessage,
   ): Effect.Effect<
     ModifyEventSubscriptionResult,
-    InvalidSubscriptionStateFault | SNSInvalidTopicFault | SNSNoAuthorizationFault | SNSTopicArnNotFoundFault | SourceNotFoundFault | SubscriptionCategoryNotFoundFault | SubscriptionEventIdNotFoundFault | SubscriptionNotFoundFault | SubscriptionSeverityNotFoundFault | CommonAwsError
+    | InvalidSubscriptionStateFault
+    | SNSInvalidTopicFault
+    | SNSNoAuthorizationFault
+    | SNSTopicArnNotFoundFault
+    | SourceNotFoundFault
+    | SubscriptionCategoryNotFoundFault
+    | SubscriptionEventIdNotFoundFault
+    | SubscriptionNotFoundFault
+    | SubscriptionSeverityNotFoundFault
+    | CommonAwsError
   >;
   modifyIntegration(
     input: ModifyIntegrationMessage,
   ): Effect.Effect<
     Integration,
-    IntegrationAlreadyExistsFault | IntegrationConflictOperationFault | IntegrationConflictStateFault | IntegrationNotFoundFault | UnsupportedOperationFault | CommonAwsError
+    | IntegrationAlreadyExistsFault
+    | IntegrationConflictOperationFault
+    | IntegrationConflictStateFault
+    | IntegrationNotFoundFault
+    | UnsupportedOperationFault
+    | CommonAwsError
   >;
   modifyRedshiftIdcApplication(
     input: ModifyRedshiftIdcApplicationMessage,
   ): Effect.Effect<
     ModifyRedshiftIdcApplicationResult,
-    DependentServiceAccessDeniedFault | DependentServiceUnavailableFault | RedshiftIdcApplicationNotExistsFault | UnsupportedOperationFault | CommonAwsError
+    | DependentServiceAccessDeniedFault
+    | DependentServiceUnavailableFault
+    | RedshiftIdcApplicationNotExistsFault
+    | UnsupportedOperationFault
+    | CommonAwsError
   >;
   modifyScheduledAction(
     input: ModifyScheduledActionMessage,
   ): Effect.Effect<
     ScheduledAction,
-    ClusterNotFoundFault | InvalidScheduledActionFault | InvalidScheduleFault | ScheduledActionNotFoundFault | ScheduledActionTypeUnsupportedFault | UnauthorizedOperation | UnsupportedOperationFault | CommonAwsError
+    | ClusterNotFoundFault
+    | InvalidScheduledActionFault
+    | InvalidScheduleFault
+    | ScheduledActionNotFoundFault
+    | ScheduledActionTypeUnsupportedFault
+    | UnauthorizedOperation
+    | UnsupportedOperationFault
+    | CommonAwsError
   >;
   modifySnapshotCopyRetentionPeriod(
     input: ModifySnapshotCopyRetentionPeriodMessage,
   ): Effect.Effect<
     ModifySnapshotCopyRetentionPeriodResult,
-    ClusterNotFoundFault | InvalidClusterStateFault | InvalidRetentionPeriodFault | SnapshotCopyDisabledFault | UnauthorizedOperation | CommonAwsError
+    | ClusterNotFoundFault
+    | InvalidClusterStateFault
+    | InvalidRetentionPeriodFault
+    | SnapshotCopyDisabledFault
+    | UnauthorizedOperation
+    | CommonAwsError
   >;
   modifySnapshotSchedule(
     input: ModifySnapshotScheduleMessage,
   ): Effect.Effect<
     SnapshotSchedule,
-    InvalidScheduleFault | SnapshotScheduleNotFoundFault | SnapshotScheduleUpdateInProgressFault | CommonAwsError
+    | InvalidScheduleFault
+    | SnapshotScheduleNotFoundFault
+    | SnapshotScheduleUpdateInProgressFault
+    | CommonAwsError
   >;
   modifyUsageLimit(
     input: ModifyUsageLimitMessage,
   ): Effect.Effect<
     UsageLimit,
-    InvalidUsageLimitFault | UnsupportedOperationFault | UsageLimitNotFoundFault | CommonAwsError
+    | InvalidUsageLimitFault
+    | UnsupportedOperationFault
+    | UsageLimitNotFoundFault
+    | CommonAwsError
   >;
   pauseCluster(
     input: PauseClusterMessage,
   ): Effect.Effect<
     PauseClusterResult,
-    ClusterNotFoundFault | InvalidClusterStateFault | UnsupportedOperationFault | CommonAwsError
+    | ClusterNotFoundFault
+    | InvalidClusterStateFault
+    | UnsupportedOperationFault
+    | CommonAwsError
   >;
   purchaseReservedNodeOffering(
     input: PurchaseReservedNodeOfferingMessage,
   ): Effect.Effect<
     PurchaseReservedNodeOfferingResult,
-    ReservedNodeAlreadyExistsFault | ReservedNodeOfferingNotFoundFault | ReservedNodeQuotaExceededFault | UnsupportedOperationFault | CommonAwsError
+    | ReservedNodeAlreadyExistsFault
+    | ReservedNodeOfferingNotFoundFault
+    | ReservedNodeQuotaExceededFault
+    | UnsupportedOperationFault
+    | CommonAwsError
   >;
   putResourcePolicy(
     input: PutResourcePolicyMessage,
   ): Effect.Effect<
     PutResourcePolicyResult,
-    ConflictPolicyUpdateFault | InvalidPolicyFault | ResourceNotFoundFault | UnsupportedOperationFault | CommonAwsError
+    | ConflictPolicyUpdateFault
+    | InvalidPolicyFault
+    | ResourceNotFoundFault
+    | UnsupportedOperationFault
+    | CommonAwsError
   >;
   rebootCluster(
     input: RebootClusterMessage,
@@ -769,73 +1143,156 @@ export declare class Redshift extends AWSServiceClient {
     input: RegisterNamespaceInputMessage,
   ): Effect.Effect<
     RegisterNamespaceOutputMessage,
-    ClusterNotFoundFault | InvalidClusterStateFault | InvalidNamespaceFault | CommonAwsError
+    | ClusterNotFoundFault
+    | InvalidClusterStateFault
+    | InvalidNamespaceFault
+    | CommonAwsError
   >;
   rejectDataShare(
     input: RejectDataShareMessage,
-  ): Effect.Effect<
-    DataShare,
-    InvalidDataShareFault | CommonAwsError
-  >;
+  ): Effect.Effect<DataShare, InvalidDataShareFault | CommonAwsError>;
   resetClusterParameterGroup(
     input: ResetClusterParameterGroupMessage,
   ): Effect.Effect<
     ClusterParameterGroupNameMessage,
-    ClusterParameterGroupNotFoundFault | InvalidClusterParameterGroupStateFault | CommonAwsError
+    | ClusterParameterGroupNotFoundFault
+    | InvalidClusterParameterGroupStateFault
+    | CommonAwsError
   >;
   resizeCluster(
     input: ResizeClusterMessage,
   ): Effect.Effect<
     ResizeClusterResult,
-    ClusterNotFoundFault | DependentServiceUnavailableFault | InsufficientClusterCapacityFault | InvalidClusterStateFault | InvalidReservedNodeStateFault | LimitExceededFault | NumberOfNodesPerClusterLimitExceededFault | NumberOfNodesQuotaExceededFault | ReservedNodeAlreadyExistsFault | ReservedNodeAlreadyMigratedFault | ReservedNodeNotFoundFault | ReservedNodeOfferingNotFoundFault | UnauthorizedOperation | UnsupportedOperationFault | UnsupportedOptionFault | CommonAwsError
+    | ClusterNotFoundFault
+    | DependentServiceUnavailableFault
+    | InsufficientClusterCapacityFault
+    | InvalidClusterStateFault
+    | InvalidReservedNodeStateFault
+    | LimitExceededFault
+    | NumberOfNodesPerClusterLimitExceededFault
+    | NumberOfNodesQuotaExceededFault
+    | ReservedNodeAlreadyExistsFault
+    | ReservedNodeAlreadyMigratedFault
+    | ReservedNodeNotFoundFault
+    | ReservedNodeOfferingNotFoundFault
+    | UnauthorizedOperation
+    | UnsupportedOperationFault
+    | UnsupportedOptionFault
+    | CommonAwsError
   >;
   restoreFromClusterSnapshot(
     input: RestoreFromClusterSnapshotMessage,
   ): Effect.Effect<
     RestoreFromClusterSnapshotResult,
-    AccessToSnapshotDeniedFault | ClusterAlreadyExistsFault | ClusterParameterGroupNotFoundFault | ClusterQuotaExceededFault | ClusterSecurityGroupNotFoundFault | ClusterSnapshotNotFoundFault | ClusterSubnetGroupNotFoundFault | DependentServiceRequestThrottlingFault | DependentServiceUnavailableFault | HsmClientCertificateNotFoundFault | HsmConfigurationNotFoundFault | InsufficientClusterCapacityFault | InvalidClusterSnapshotStateFault | InvalidClusterSubnetGroupStateFault | InvalidClusterTrackFault | InvalidElasticIpFault | InvalidReservedNodeStateFault | InvalidRestoreFault | InvalidSubnet | InvalidTagFault | InvalidVPCNetworkStateFault | Ipv6CidrBlockNotFoundFault | LimitExceededFault | NumberOfNodesPerClusterLimitExceededFault | NumberOfNodesQuotaExceededFault | ReservedNodeAlreadyExistsFault | ReservedNodeAlreadyMigratedFault | ReservedNodeNotFoundFault | ReservedNodeOfferingNotFoundFault | SnapshotScheduleNotFoundFault | TagLimitExceededFault | UnauthorizedOperation | UnsupportedOperationFault | CommonAwsError
+    | AccessToSnapshotDeniedFault
+    | ClusterAlreadyExistsFault
+    | ClusterParameterGroupNotFoundFault
+    | ClusterQuotaExceededFault
+    | ClusterSecurityGroupNotFoundFault
+    | ClusterSnapshotNotFoundFault
+    | ClusterSubnetGroupNotFoundFault
+    | DependentServiceRequestThrottlingFault
+    | DependentServiceUnavailableFault
+    | HsmClientCertificateNotFoundFault
+    | HsmConfigurationNotFoundFault
+    | InsufficientClusterCapacityFault
+    | InvalidClusterSnapshotStateFault
+    | InvalidClusterSubnetGroupStateFault
+    | InvalidClusterTrackFault
+    | InvalidElasticIpFault
+    | InvalidReservedNodeStateFault
+    | InvalidRestoreFault
+    | InvalidSubnet
+    | InvalidTagFault
+    | InvalidVPCNetworkStateFault
+    | Ipv6CidrBlockNotFoundFault
+    | LimitExceededFault
+    | NumberOfNodesPerClusterLimitExceededFault
+    | NumberOfNodesQuotaExceededFault
+    | ReservedNodeAlreadyExistsFault
+    | ReservedNodeAlreadyMigratedFault
+    | ReservedNodeNotFoundFault
+    | ReservedNodeOfferingNotFoundFault
+    | SnapshotScheduleNotFoundFault
+    | TagLimitExceededFault
+    | UnauthorizedOperation
+    | UnsupportedOperationFault
+    | CommonAwsError
   >;
   restoreTableFromClusterSnapshot(
     input: RestoreTableFromClusterSnapshotMessage,
   ): Effect.Effect<
     RestoreTableFromClusterSnapshotResult,
-    ClusterNotFoundFault | ClusterSnapshotNotFoundFault | InProgressTableRestoreQuotaExceededFault | InvalidClusterSnapshotStateFault | InvalidClusterStateFault | InvalidTableRestoreArgumentFault | UnsupportedOperationFault | CommonAwsError
+    | ClusterNotFoundFault
+    | ClusterSnapshotNotFoundFault
+    | InProgressTableRestoreQuotaExceededFault
+    | InvalidClusterSnapshotStateFault
+    | InvalidClusterStateFault
+    | InvalidTableRestoreArgumentFault
+    | UnsupportedOperationFault
+    | CommonAwsError
   >;
   resumeCluster(
     input: ResumeClusterMessage,
   ): Effect.Effect<
     ResumeClusterResult,
-    ClusterNotFoundFault | InsufficientClusterCapacityFault | InvalidClusterStateFault | UnsupportedOperationFault | CommonAwsError
+    | ClusterNotFoundFault
+    | InsufficientClusterCapacityFault
+    | InvalidClusterStateFault
+    | UnsupportedOperationFault
+    | CommonAwsError
   >;
   revokeClusterSecurityGroupIngress(
     input: RevokeClusterSecurityGroupIngressMessage,
   ): Effect.Effect<
     RevokeClusterSecurityGroupIngressResult,
-    AuthorizationNotFoundFault | ClusterSecurityGroupNotFoundFault | InvalidClusterSecurityGroupStateFault | CommonAwsError
+    | AuthorizationNotFoundFault
+    | ClusterSecurityGroupNotFoundFault
+    | InvalidClusterSecurityGroupStateFault
+    | CommonAwsError
   >;
   revokeEndpointAccess(
     input: RevokeEndpointAccessMessage,
   ): Effect.Effect<
     EndpointAuthorization,
-    ClusterNotFoundFault | EndpointAuthorizationNotFoundFault | EndpointNotFoundFault | InvalidAuthorizationStateFault | InvalidClusterSecurityGroupStateFault | InvalidClusterStateFault | InvalidEndpointStateFault | CommonAwsError
+    | ClusterNotFoundFault
+    | EndpointAuthorizationNotFoundFault
+    | EndpointNotFoundFault
+    | InvalidAuthorizationStateFault
+    | InvalidClusterSecurityGroupStateFault
+    | InvalidClusterStateFault
+    | InvalidEndpointStateFault
+    | CommonAwsError
   >;
   revokeSnapshotAccess(
     input: RevokeSnapshotAccessMessage,
   ): Effect.Effect<
     RevokeSnapshotAccessResult,
-    AccessToSnapshotDeniedFault | AuthorizationNotFoundFault | ClusterSnapshotNotFoundFault | UnsupportedOperationFault | CommonAwsError
+    | AccessToSnapshotDeniedFault
+    | AuthorizationNotFoundFault
+    | ClusterSnapshotNotFoundFault
+    | UnsupportedOperationFault
+    | CommonAwsError
   >;
   rotateEncryptionKey(
     input: RotateEncryptionKeyMessage,
   ): Effect.Effect<
     RotateEncryptionKeyResult,
-    ClusterNotFoundFault | DependentServiceRequestThrottlingFault | InvalidClusterStateFault | UnsupportedOperationFault | CommonAwsError
+    | ClusterNotFoundFault
+    | DependentServiceRequestThrottlingFault
+    | InvalidClusterStateFault
+    | UnsupportedOperationFault
+    | CommonAwsError
   >;
   updatePartnerStatus(
     input: UpdatePartnerStatusInputMessage,
   ): Effect.Effect<
     PartnerIntegrationOutputMessage,
-    ClusterNotFoundFault | PartnerNotFoundFault | UnauthorizedPartnerIntegrationFault | UnsupportedOperationFault | CommonAwsError
+    | ClusterNotFoundFault
+    | PartnerNotFoundFault
+    | UnauthorizedPartnerIntegrationFault
+    | UnsupportedOperationFault
+    | CommonAwsError
   >;
 }
 
@@ -868,7 +1325,10 @@ export interface AccountWithRestoreAccess {
   AccountId?: string;
   AccountAlias?: string;
 }
-export type ActionType = "restore-cluster" | "recommend-node-config" | "resize-cluster";
+export type ActionType =
+  | "restore-cluster"
+  | "recommend-node-config"
+  | "resize-cluster";
 export interface AquaConfiguration {
   AquaStatus?: AquaStatus;
   AquaConfigurationStatus?: AquaConfigurationStatus;
@@ -1170,7 +1630,8 @@ export interface ClusterParameterGroupStatus {
   ParameterApplyStatus?: string;
   ClusterParameterStatusList?: Array<ClusterParameterStatus>;
 }
-export type ClusterParameterGroupStatusList = Array<ClusterParameterGroupStatus>;
+export type ClusterParameterGroupStatusList =
+  Array<ClusterParameterGroupStatus>;
 export interface ClusterParameterStatus {
   ParameterName?: string;
   ParameterApplyStatus?: string;
@@ -1198,7 +1659,8 @@ export interface ClusterSecurityGroupMembership {
   ClusterSecurityGroupName?: string;
   Status?: string;
 }
-export type ClusterSecurityGroupMembershipList = Array<ClusterSecurityGroupMembership>;
+export type ClusterSecurityGroupMembershipList =
+  Array<ClusterSecurityGroupMembership>;
 export interface ClusterSecurityGroupMessage {
   Marker?: string;
   ClusterSecurityGroups?: Array<ClusterSecurityGroup>;
@@ -1542,9 +2004,20 @@ export interface DataShareAssociation {
 }
 export type DataShareAssociationList = Array<DataShareAssociation>;
 export type DataShareList = Array<DataShare>;
-export type DataShareStatus = "ACTIVE" | "PENDING_AUTHORIZATION" | "AUTHORIZED" | "DEAUTHORIZED" | "REJECTED" | "AVAILABLE";
+export type DataShareStatus =
+  | "ACTIVE"
+  | "PENDING_AUTHORIZATION"
+  | "AUTHORIZED"
+  | "DEAUTHORIZED"
+  | "REJECTED"
+  | "AVAILABLE";
 export type DataShareStatusForConsumer = "ACTIVE" | "AVAILABLE";
-export type DataShareStatusForProducer = "ACTIVE" | "AUTHORIZED" | "PENDING_AUTHORIZATION" | "DEAUTHORIZED" | "REJECTED";
+export type DataShareStatusForProducer =
+  | "ACTIVE"
+  | "AUTHORIZED"
+  | "PENDING_AUTHORIZATION"
+  | "DEAUTHORIZED"
+  | "REJECTED";
 export type DataShareType = "INTERNAL";
 export interface DataTransferProgress {
   Status?: string;
@@ -1595,7 +2068,8 @@ export interface DeleteClusterSnapshotMessage {
   SnapshotIdentifier: string;
   SnapshotClusterIdentifier?: string;
 }
-export type DeleteClusterSnapshotMessageList = Array<DeleteClusterSnapshotMessage>;
+export type DeleteClusterSnapshotMessageList =
+  Array<DeleteClusterSnapshotMessage>;
 export interface DeleteClusterSnapshotResult {
   Snapshot?: Snapshot;
 }
@@ -1841,7 +2315,11 @@ export interface DescribeIntegrationsFilter {
   Values: Array<string>;
 }
 export type DescribeIntegrationsFilterList = Array<DescribeIntegrationsFilter>;
-export type DescribeIntegrationsFilterName = "integration-arn" | "source-arn" | "source-types" | "status";
+export type DescribeIntegrationsFilterName =
+  | "integration-arn"
+  | "source-arn"
+  | "source-types"
+  | "status";
 export type DescribeIntegrationsFilterValueList = Array<string>;
 export interface DescribeIntegrationsMessage {
   IntegrationArn?: string;
@@ -2529,7 +3007,9 @@ interface _LakeFormationScopeUnion {
   LakeFormationQuery?: LakeFormationQuery;
 }
 
-export type LakeFormationScopeUnion = (_LakeFormationScopeUnion & { LakeFormationQuery: LakeFormationQuery });
+export type LakeFormationScopeUnion = _LakeFormationScopeUnion & {
+  LakeFormationQuery: LakeFormationQuery;
+};
 export type LakeFormationServiceIntegrations = Array<LakeFormationScopeUnion>;
 export declare class LimitExceededFault extends EffectData.TaggedError(
   "LimitExceededFault",
@@ -2744,7 +3224,11 @@ interface _NamespaceIdentifierUnion {
   ProvisionedIdentifier?: ProvisionedIdentifier;
 }
 
-export type NamespaceIdentifierUnion = (_NamespaceIdentifierUnion & { ServerlessIdentifier: ServerlessIdentifier }) | (_NamespaceIdentifierUnion & { ProvisionedIdentifier: ProvisionedIdentifier });
+export type NamespaceIdentifierUnion =
+  | (_NamespaceIdentifierUnion & { ServerlessIdentifier: ServerlessIdentifier })
+  | (_NamespaceIdentifierUnion & {
+      ProvisionedIdentifier: ProvisionedIdentifier;
+    });
 export type NamespaceRegistrationStatus = "Registering" | "Deregistering";
 export interface NetworkInterface {
   NetworkInterfaceId?: string;
@@ -2766,8 +3250,13 @@ export interface NodeConfigurationOptionsFilter {
   Operator?: OperatorType;
   Values?: Array<string>;
 }
-export type NodeConfigurationOptionsFilterList = Array<NodeConfigurationOptionsFilter>;
-export type NodeConfigurationOptionsFilterName = "NodeType" | "NumberOfNodes" | "EstimatedDiskUtilizationPercent" | "Mode";
+export type NodeConfigurationOptionsFilterList =
+  Array<NodeConfigurationOptionsFilter>;
+export type NodeConfigurationOptionsFilterName =
+  | "NodeType"
+  | "NumberOfNodes"
+  | "EstimatedDiskUtilizationPercent"
+  | "Mode";
 export interface NodeConfigurationOptionsMessage {
   NodeConfigurationOptionList?: Array<NodeConfigurationOption>;
   Marker?: string;
@@ -2835,7 +3324,11 @@ export interface PartnerIntegrationOutputMessage {
 }
 export type PartnerIntegrationPartnerName = string;
 
-export type PartnerIntegrationStatus = "Active" | "Inactive" | "RuntimeFailure" | "ConnectionFailure";
+export type PartnerIntegrationStatus =
+  | "Active"
+  | "Inactive"
+  | "RuntimeFailure"
+  | "ConnectionFailure";
 export type PartnerIntegrationStatusMessage = string;
 
 export declare class PartnerNotFoundFault extends EffectData.TaggedError(
@@ -2992,8 +3485,11 @@ export interface ReservedNodeConfigurationOption {
   TargetReservedNodeCount?: number;
   TargetReservedNodeOffering?: ReservedNodeOffering;
 }
-export type ReservedNodeConfigurationOptionList = Array<ReservedNodeConfigurationOption>;
-export type ReservedNodeExchangeActionType = "restore-cluster" | "resize-cluster";
+export type ReservedNodeConfigurationOptionList =
+  Array<ReservedNodeConfigurationOption>;
+export type ReservedNodeExchangeActionType =
+  | "restore-cluster"
+  | "resize-cluster";
 export declare class ReservedNodeExchangeNotFoundFault extends EffectData.TaggedError(
   "ReservedNodeExchangeNotFoundFault",
 )<{
@@ -3011,7 +3507,13 @@ export interface ReservedNodeExchangeStatus {
   TargetReservedNodeCount?: number;
 }
 export type ReservedNodeExchangeStatusList = Array<ReservedNodeExchangeStatus>;
-export type ReservedNodeExchangeStatusType = "REQUESTED" | "PENDING" | "IN_PROGRESS" | "RETRYING" | "SUCCEEDED" | "FAILED";
+export type ReservedNodeExchangeStatusType =
+  | "REQUESTED"
+  | "PENDING"
+  | "IN_PROGRESS"
+  | "RETRYING"
+  | "SUCCEEDED"
+  | "FAILED";
 export type ReservedNodeList = Array<ReservedNode>;
 export declare class ReservedNodeNotFoundFault extends EffectData.TaggedError(
   "ReservedNodeNotFoundFault",
@@ -3213,7 +3715,9 @@ interface _S3AccessGrantsScopeUnion {
   ReadWriteAccess?: ReadWriteAccess;
 }
 
-export type S3AccessGrantsScopeUnion = (_S3AccessGrantsScopeUnion & { ReadWriteAccess: ReadWriteAccess });
+export type S3AccessGrantsScopeUnion = _S3AccessGrantsScopeUnion & {
+  ReadWriteAccess: ReadWriteAccess;
+};
 export type S3AccessGrantsServiceIntegrations = Array<S3AccessGrantsScopeUnion>;
 export type S3KeyPrefixValue = string;
 
@@ -3266,7 +3770,10 @@ export declare class ScheduledActionTypeUnsupportedFault extends EffectData.Tagg
 )<{
   readonly message?: string;
 }> {}
-export type ScheduledActionTypeValues = "ResizeCluster" | "PauseCluster" | "ResumeCluster";
+export type ScheduledActionTypeValues =
+  | "ResizeCluster"
+  | "PauseCluster"
+  | "ResumeCluster";
 export type ScheduleDefinitionList = Array<string>;
 export declare class ScheduleDefinitionTypeUnsupportedFault extends EffectData.TaggedError(
   "ScheduleDefinitionTypeUnsupportedFault",
@@ -3292,7 +3799,13 @@ interface _ServiceIntegrationsUnion {
   S3AccessGrants?: Array<S3AccessGrantsScopeUnion>;
 }
 
-export type ServiceIntegrationsUnion = (_ServiceIntegrationsUnion & { LakeFormation: Array<LakeFormationScopeUnion> }) | (_ServiceIntegrationsUnion & { S3AccessGrants: Array<S3AccessGrantsScopeUnion> });
+export type ServiceIntegrationsUnion =
+  | (_ServiceIntegrationsUnion & {
+      LakeFormation: Array<LakeFormationScopeUnion>;
+    })
+  | (_ServiceIntegrationsUnion & {
+      S3AccessGrants: Array<S3AccessGrantsScopeUnion>;
+    });
 export interface Snapshot {
   SnapshotIdentifier?: string;
   ClusterIdentifier?: string;
@@ -3332,7 +3845,10 @@ export interface Snapshot {
   MasterPasswordSecretKmsKeyId?: string;
   SnapshotArn?: string;
 }
-export type SnapshotAttributeToSortBy = "SOURCE_TYPE" | "TOTAL_SIZE" | "CREATE_TIME";
+export type SnapshotAttributeToSortBy =
+  | "SOURCE_TYPE"
+  | "TOTAL_SIZE"
+  | "CREATE_TIME";
 export declare class SnapshotCopyAlreadyDisabledFault extends EffectData.TaggedError(
   "SnapshotCopyAlreadyDisabledFault",
 )<{
@@ -3444,7 +3960,12 @@ export declare class SourceNotFoundFault extends EffectData.TaggedError(
 )<{
   readonly message?: string;
 }> {}
-export type SourceType = "cluster" | "cluster-parameter-group" | "cluster-security-group" | "cluster-snapshot" | "scheduled-action";
+export type SourceType =
+  | "cluster"
+  | "cluster-parameter-group"
+  | "cluster-security-group"
+  | "cluster-snapshot"
+  | "scheduled-action";
 export type RedshiftString = string;
 
 export interface Subnet {
@@ -3523,7 +4044,12 @@ export interface TableRestoreStatusMessage {
   TableRestoreStatusDetails?: Array<TableRestoreStatus>;
   Marker?: string;
 }
-export type TableRestoreStatusType = "PENDING" | "IN_PROGRESS" | "SUCCEEDED" | "FAILED" | "CANCELED";
+export type TableRestoreStatusType =
+  | "PENDING"
+  | "IN_PROGRESS"
+  | "SUCCEEDED"
+  | "FAILED"
+  | "CANCELED";
 export interface Tag {
   Key?: string;
   Value?: string;
@@ -3609,7 +4135,10 @@ export declare class UsageLimitAlreadyExistsFault extends EffectData.TaggedError
   readonly message?: string;
 }> {}
 export type UsageLimitBreachAction = "log" | "emit-metric" | "disable";
-export type UsageLimitFeatureType = "spectrum" | "concurrency-scaling" | "cross-region-datasharing";
+export type UsageLimitFeatureType =
+  | "spectrum"
+  | "concurrency-scaling"
+  | "cross-region-datasharing";
 export type UsageLimitLimitType = "time" | "data-scanned";
 export interface UsageLimitList {
   UsageLimits?: Array<UsageLimit>;
@@ -3636,7 +4165,14 @@ export interface VpcSecurityGroupMembership {
   Status?: string;
 }
 export type VpcSecurityGroupMembershipList = Array<VpcSecurityGroupMembership>;
-export type ZeroETLIntegrationStatus = "creating" | "active" | "modifying" | "failed" | "deleting" | "syncing" | "needs_attention";
+export type ZeroETLIntegrationStatus =
+  | "creating"
+  | "active"
+  | "modifying"
+  | "failed"
+  | "deleting"
+  | "syncing"
+  | "needs_attention";
 export declare namespace AcceptReservedNodeExchange {
   export type Input = AcceptReservedNodeExchangeInputMessage;
   export type Output = AcceptReservedNodeExchangeOutputMessage;
@@ -3685,9 +4221,7 @@ export declare namespace AuthorizeClusterSecurityGroupIngress {
 export declare namespace AuthorizeDataShare {
   export type Input = AuthorizeDataShareMessage;
   export type Output = DataShare;
-  export type Error =
-    | InvalidDataShareFault
-    | CommonAwsError;
+  export type Error = InvalidDataShareFault | CommonAwsError;
 }
 
 export declare namespace AuthorizeEndpointAccess {
@@ -3720,9 +4254,7 @@ export declare namespace AuthorizeSnapshotAccess {
 export declare namespace BatchDeleteClusterSnapshots {
   export type Input = BatchDeleteClusterSnapshotsRequest;
   export type Output = BatchDeleteClusterSnapshotsResult;
-  export type Error =
-    | BatchDeleteRequestSizeExceededFault
-    | CommonAwsError;
+  export type Error = BatchDeleteRequestSizeExceededFault | CommonAwsError;
 }
 
 export declare namespace BatchModifyClusterSnapshots {
@@ -4015,9 +4547,7 @@ export declare namespace CreateUsageLimit {
 export declare namespace DeauthorizeDataShare {
   export type Input = DeauthorizeDataShareMessage;
   export type Output = DataShare;
-  export type Error =
-    | InvalidDataShareFault
-    | CommonAwsError;
+  export type Error = InvalidDataShareFault | CommonAwsError;
 }
 
 export declare namespace DeleteAuthenticationProfile {
@@ -4200,10 +4730,7 @@ export declare namespace DeleteSnapshotSchedule {
 export declare namespace DeleteTags {
   export type Input = DeleteTagsMessage;
   export type Output = {};
-  export type Error =
-    | InvalidTagFault
-    | ResourceNotFoundFault
-    | CommonAwsError;
+  export type Error = InvalidTagFault | ResourceNotFoundFault | CommonAwsError;
 }
 
 export declare namespace DeleteUsageLimit {
@@ -4228,8 +4755,7 @@ export declare namespace DeregisterNamespace {
 export declare namespace DescribeAccountAttributes {
   export type Input = DescribeAccountAttributesMessage;
   export type Output = AccountAttributeList;
-  export type Error =
-    | CommonAwsError;
+  export type Error = CommonAwsError;
 }
 
 export declare namespace DescribeAuthenticationProfiles {
@@ -4262,18 +4788,13 @@ export declare namespace DescribeClusterParameterGroups {
 export declare namespace DescribeClusterParameters {
   export type Input = DescribeClusterParametersMessage;
   export type Output = ClusterParameterGroupDetails;
-  export type Error =
-    | ClusterParameterGroupNotFoundFault
-    | CommonAwsError;
+  export type Error = ClusterParameterGroupNotFoundFault | CommonAwsError;
 }
 
 export declare namespace DescribeClusters {
   export type Input = DescribeClustersMessage;
   export type Output = ClustersMessage;
-  export type Error =
-    | ClusterNotFoundFault
-    | InvalidTagFault
-    | CommonAwsError;
+  export type Error = ClusterNotFoundFault | InvalidTagFault | CommonAwsError;
 }
 
 export declare namespace DescribeClusterSecurityGroups {
@@ -4317,8 +4838,7 @@ export declare namespace DescribeClusterTracks {
 export declare namespace DescribeClusterVersions {
   export type Input = DescribeClusterVersionsMessage;
   export type Output = ClusterVersionsMessage;
-  export type Error =
-    | CommonAwsError;
+  export type Error = CommonAwsError;
 }
 
 export declare namespace DescribeCustomDomainAssociations {
@@ -4333,32 +4853,25 @@ export declare namespace DescribeCustomDomainAssociations {
 export declare namespace DescribeDataShares {
   export type Input = DescribeDataSharesMessage;
   export type Output = DescribeDataSharesResult;
-  export type Error =
-    | InvalidDataShareFault
-    | CommonAwsError;
+  export type Error = InvalidDataShareFault | CommonAwsError;
 }
 
 export declare namespace DescribeDataSharesForConsumer {
   export type Input = DescribeDataSharesForConsumerMessage;
   export type Output = DescribeDataSharesForConsumerResult;
-  export type Error =
-    | InvalidNamespaceFault
-    | CommonAwsError;
+  export type Error = InvalidNamespaceFault | CommonAwsError;
 }
 
 export declare namespace DescribeDataSharesForProducer {
   export type Input = DescribeDataSharesForProducerMessage;
   export type Output = DescribeDataSharesForProducerResult;
-  export type Error =
-    | InvalidNamespaceFault
-    | CommonAwsError;
+  export type Error = InvalidNamespaceFault | CommonAwsError;
 }
 
 export declare namespace DescribeDefaultClusterParameters {
   export type Input = DescribeDefaultClusterParametersMessage;
   export type Output = DescribeDefaultClusterParametersResult;
-  export type Error =
-    | CommonAwsError;
+  export type Error = CommonAwsError;
 }
 
 export declare namespace DescribeEndpointAccess {
@@ -4383,15 +4896,13 @@ export declare namespace DescribeEndpointAuthorization {
 export declare namespace DescribeEventCategories {
   export type Input = DescribeEventCategoriesMessage;
   export type Output = EventCategoriesMessage;
-  export type Error =
-    | CommonAwsError;
+  export type Error = CommonAwsError;
 }
 
 export declare namespace DescribeEvents {
   export type Input = DescribeEventsMessage;
   export type Output = EventsMessage;
-  export type Error =
-    | CommonAwsError;
+  export type Error = CommonAwsError;
 }
 
 export declare namespace DescribeEventSubscriptions {
@@ -4464,8 +4975,7 @@ export declare namespace DescribeNodeConfigurationOptions {
 export declare namespace DescribeOrderableClusterOptions {
   export type Input = DescribeOrderableClusterOptionsMessage;
   export type Output = OrderableClusterOptionsMessage;
-  export type Error =
-    | CommonAwsError;
+  export type Error = CommonAwsError;
 }
 
 export declare namespace DescribePartners {
@@ -4549,15 +5059,13 @@ export declare namespace DescribeSnapshotCopyGrants {
 export declare namespace DescribeSnapshotSchedules {
   export type Input = DescribeSnapshotSchedulesMessage;
   export type Output = DescribeSnapshotSchedulesOutputMessage;
-  export type Error =
-    | CommonAwsError;
+  export type Error = CommonAwsError;
 }
 
 export declare namespace DescribeStorage {
   export type Input = {};
   export type Output = CustomerStorageMessage;
-  export type Error =
-    | CommonAwsError;
+  export type Error = CommonAwsError;
 }
 
 export declare namespace DescribeTableRestoreStatus {
@@ -4572,10 +5080,7 @@ export declare namespace DescribeTableRestoreStatus {
 export declare namespace DescribeTags {
   export type Input = DescribeTagsMessage;
   export type Output = TaggedResourceListMessage;
-  export type Error =
-    | InvalidTagFault
-    | ResourceNotFoundFault
-    | CommonAwsError;
+  export type Error = InvalidTagFault | ResourceNotFoundFault | CommonAwsError;
 }
 
 export declare namespace DescribeUsageLimits {
@@ -5009,9 +5514,7 @@ export declare namespace RegisterNamespace {
 export declare namespace RejectDataShare {
   export type Input = RejectDataShareMessage;
   export type Output = DataShare;
-  export type Error =
-    | InvalidDataShareFault
-    | CommonAwsError;
+  export type Error = InvalidDataShareFault | CommonAwsError;
 }
 
 export declare namespace ResetClusterParameterGroup {
@@ -5166,4 +5669,3 @@ export declare namespace UpdatePartnerStatus {
     | UnsupportedOperationFault
     | CommonAwsError;
 }
-

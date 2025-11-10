@@ -1,6 +1,38 @@
 import type { Effect, Data as EffectData } from "effect";
-import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
-type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
+import type {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+type CommonAwsError =
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | AccessDeniedException
+  | ThrottlingException
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class SecurityIR extends AWSServiceClient {
@@ -8,134 +40,86 @@ export declare class SecurityIR extends AWSServiceClient {
     input: ListTagsForResourceInput,
   ): Effect.Effect<
     ListTagsForResourceOutput,
-    AccessDeniedException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   tagResource(
     input: TagResourceInput,
   ): Effect.Effect<
     TagResourceOutput,
-    AccessDeniedException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   untagResource(
     input: UntagResourceInput,
   ): Effect.Effect<
     UntagResourceOutput,
-    AccessDeniedException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   batchGetMemberAccountDetails(
     input: BatchGetMemberAccountDetailsRequest,
-  ): Effect.Effect<
-    BatchGetMemberAccountDetailsResponse,
-    CommonAwsError
-  >;
+  ): Effect.Effect<BatchGetMemberAccountDetailsResponse, CommonAwsError>;
   cancelMembership(
     input: CancelMembershipRequest,
-  ): Effect.Effect<
-    CancelMembershipResponse,
-    CommonAwsError
-  >;
+  ): Effect.Effect<CancelMembershipResponse, CommonAwsError>;
   closeCase(
     input: CloseCaseRequest,
-  ): Effect.Effect<
-    CloseCaseResponse,
-    CommonAwsError
-  >;
+  ): Effect.Effect<CloseCaseResponse, CommonAwsError>;
   createCase(
     input: CreateCaseRequest,
-  ): Effect.Effect<
-    CreateCaseResponse,
-    CommonAwsError
-  >;
+  ): Effect.Effect<CreateCaseResponse, CommonAwsError>;
   createCaseComment(
     input: CreateCaseCommentRequest,
-  ): Effect.Effect<
-    CreateCaseCommentResponse,
-    CommonAwsError
-  >;
+  ): Effect.Effect<CreateCaseCommentResponse, CommonAwsError>;
   createMembership(
     input: CreateMembershipRequest,
-  ): Effect.Effect<
-    CreateMembershipResponse,
-    CommonAwsError
-  >;
+  ): Effect.Effect<CreateMembershipResponse, CommonAwsError>;
   getCase(
     input: GetCaseRequest,
-  ): Effect.Effect<
-    GetCaseResponse,
-    CommonAwsError
-  >;
+  ): Effect.Effect<GetCaseResponse, CommonAwsError>;
   getCaseAttachmentDownloadUrl(
     input: GetCaseAttachmentDownloadUrlRequest,
-  ): Effect.Effect<
-    GetCaseAttachmentDownloadUrlResponse,
-    CommonAwsError
-  >;
+  ): Effect.Effect<GetCaseAttachmentDownloadUrlResponse, CommonAwsError>;
   getCaseAttachmentUploadUrl(
     input: GetCaseAttachmentUploadUrlRequest,
-  ): Effect.Effect<
-    GetCaseAttachmentUploadUrlResponse,
-    CommonAwsError
-  >;
+  ): Effect.Effect<GetCaseAttachmentUploadUrlResponse, CommonAwsError>;
   getMembership(
     input: GetMembershipRequest,
-  ): Effect.Effect<
-    GetMembershipResponse,
-    CommonAwsError
-  >;
+  ): Effect.Effect<GetMembershipResponse, CommonAwsError>;
   listCaseEdits(
     input: ListCaseEditsRequest,
-  ): Effect.Effect<
-    ListCaseEditsResponse,
-    CommonAwsError
-  >;
+  ): Effect.Effect<ListCaseEditsResponse, CommonAwsError>;
   listCases(
     input: ListCasesRequest,
-  ): Effect.Effect<
-    ListCasesResponse,
-    CommonAwsError
-  >;
+  ): Effect.Effect<ListCasesResponse, CommonAwsError>;
   listComments(
     input: ListCommentsRequest,
-  ): Effect.Effect<
-    ListCommentsResponse,
-    CommonAwsError
-  >;
+  ): Effect.Effect<ListCommentsResponse, CommonAwsError>;
   listMemberships(
     input: ListMembershipsRequest,
-  ): Effect.Effect<
-    ListMembershipsResponse,
-    CommonAwsError
-  >;
+  ): Effect.Effect<ListMembershipsResponse, CommonAwsError>;
   updateCase(
     input: UpdateCaseRequest,
-  ): Effect.Effect<
-    UpdateCaseResponse,
-    CommonAwsError
-  >;
+  ): Effect.Effect<UpdateCaseResponse, CommonAwsError>;
   updateCaseComment(
     input: UpdateCaseCommentRequest,
-  ): Effect.Effect<
-    UpdateCaseCommentResponse,
-    CommonAwsError
-  >;
+  ): Effect.Effect<UpdateCaseCommentResponse, CommonAwsError>;
   updateCaseStatus(
     input: UpdateCaseStatusRequest,
-  ): Effect.Effect<
-    UpdateCaseStatusResponse,
-    CommonAwsError
-  >;
+  ): Effect.Effect<UpdateCaseStatusResponse, CommonAwsError>;
   updateMembership(
     input: UpdateMembershipRequest,
-  ): Effect.Effect<
-    UpdateMembershipResponse,
-    CommonAwsError
-  >;
+  ): Effect.Effect<UpdateMembershipResponse, CommonAwsError>;
   updateResolverType(
     input: UpdateResolverTypeRequest,
-  ): Effect.Effect<
-    UpdateResolverTypeResponse,
-    CommonAwsError
-  >;
+  ): Effect.Effect<UpdateResolverTypeResponse, CommonAwsError>;
 }
 
 export declare class SecurityIr extends SecurityIR {}
@@ -152,7 +136,41 @@ export type AttachmentId = string;
 export type AWSAccountId = string;
 
 export type AWSAccountIds = Array<string>;
-export type AwsRegion = "af-south-1" | "ap-east-1" | "ap-northeast-1" | "ap-northeast-2" | "ap-northeast-3" | "ap-south-1" | "ap-south-2" | "ap-southeast-1" | "ap-southeast-2" | "ap-southeast-3" | "ap-southeast-4" | "ap-southeast-5" | "ap-southeast-7" | "ca-central-1" | "ca-west-1" | "cn-north-1" | "cn-northwest-1" | "eu-central-1" | "eu-central-2" | "eu-north-1" | "eu-south-1" | "eu-south-2" | "eu-west-1" | "eu-west-2" | "eu-west-3" | "il-central-1" | "me-central-1" | "me-south-1" | "mx-central-1" | "sa-east-1" | "us-east-1" | "us-east-2" | "us-west-1" | "us-west-2";
+export type AwsRegion =
+  | "af-south-1"
+  | "ap-east-1"
+  | "ap-northeast-1"
+  | "ap-northeast-2"
+  | "ap-northeast-3"
+  | "ap-south-1"
+  | "ap-south-2"
+  | "ap-southeast-1"
+  | "ap-southeast-2"
+  | "ap-southeast-3"
+  | "ap-southeast-4"
+  | "ap-southeast-5"
+  | "ap-southeast-7"
+  | "ca-central-1"
+  | "ca-west-1"
+  | "cn-north-1"
+  | "cn-northwest-1"
+  | "eu-central-1"
+  | "eu-central-2"
+  | "eu-north-1"
+  | "eu-south-1"
+  | "eu-south-2"
+  | "eu-west-1"
+  | "eu-west-2"
+  | "eu-west-3"
+  | "il-central-1"
+  | "me-central-1"
+  | "me-south-1"
+  | "mx-central-1"
+  | "sa-east-1"
+  | "us-east-1"
+  | "us-east-2"
+  | "us-west-1"
+  | "us-west-2";
 export type AwsService = string;
 
 export interface BatchGetMemberAccountDetailsRequest {
@@ -195,7 +213,14 @@ export type CaseEditMessage = string;
 
 export type CaseId = string;
 
-export type CaseStatus = "Submitted" | "Acknowledged" | "Detection and Analysis" | "Containment, Eradication and Recovery" | "Post-incident Activities" | "Ready to Close" | "Closed";
+export type CaseStatus =
+  | "Submitted"
+  | "Acknowledged"
+  | "Detection and Analysis"
+  | "Containment, Eradication and Recovery"
+  | "Post-incident Activities"
+  | "Ready to Close"
+  | "Closed";
 export type CaseTitle = string;
 
 export interface CloseCaseRequest {
@@ -205,7 +230,11 @@ export interface CloseCaseResponse {
   caseStatus?: CaseStatus;
   closedDate?: Date | string;
 }
-export type ClosureCode = "Investigation Completed" | "Not Resolved" | "False Positive" | "Duplicate";
+export type ClosureCode =
+  | "Investigation Completed"
+  | "Not Resolved"
+  | "False Positive"
+  | "Duplicate";
 export type CommentBody = string;
 
 export type CommentId = string;
@@ -305,13 +334,15 @@ export interface GetMembershipAccountDetailError {
   error: string;
   message: string;
 }
-export type GetMembershipAccountDetailErrors = Array<GetMembershipAccountDetailError>;
+export type GetMembershipAccountDetailErrors =
+  Array<GetMembershipAccountDetailError>;
 export interface GetMembershipAccountDetailItem {
   accountId?: string;
   relationshipStatus?: MembershipAccountRelationshipStatus;
   relationshipType?: MembershipAccountRelationshipType;
 }
-export type GetMembershipAccountDetailItems = Array<GetMembershipAccountDetailItem>;
+export type GetMembershipAccountDetailItems =
+  Array<GetMembershipAccountDetailItem>;
 export interface GetMembershipRequest {
   membershipId: string;
 }
@@ -431,7 +462,9 @@ export interface ListTagsForResourceInput {
 export interface ListTagsForResourceOutput {
   tags: Record<string, string>;
 }
-export type MembershipAccountRelationshipStatus = "Associated" | "Disassociated";
+export type MembershipAccountRelationshipStatus =
+  | "Associated"
+  | "Disassociated";
 export type MembershipAccountRelationshipType = "Organization";
 export type MembershipArn = string;
 
@@ -462,7 +495,11 @@ export declare class SecurityIncidentResponseNotActiveException extends EffectDa
 )<{
   readonly message: string;
 }> {}
-export type SelfManagedCaseStatus = "Submitted" | "Detection and Analysis" | "Containment, Eradication and Recovery" | "Post-incident Activities";
+export type SelfManagedCaseStatus =
+  | "Submitted"
+  | "Detection and Analysis"
+  | "Containment, Eradication and Recovery"
+  | "Post-incident Activities";
 export declare class ServiceQuotaExceededException extends EffectData.TaggedError(
   "ServiceQuotaExceededException",
 )<{
@@ -480,8 +517,7 @@ export interface TagResourceInput {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceOutput {
-}
+export interface TagResourceOutput {}
 export type TagValue = string;
 
 export interface ThreatActorIp {
@@ -501,8 +537,7 @@ export interface UntagResourceInput {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceOutput {
-}
+export interface UntagResourceOutput {}
 export interface UpdateCaseCommentRequest {
   caseId: string;
   commentId: string;
@@ -530,8 +565,7 @@ export interface UpdateCaseRequest {
   impactedAccountsToAdd?: Array<string>;
   impactedAccountsToDelete?: Array<string>;
 }
-export interface UpdateCaseResponse {
-}
+export interface UpdateCaseResponse {}
 export interface UpdateCaseStatusRequest {
   caseId: string;
   caseStatus: SelfManagedCaseStatus;
@@ -545,8 +579,7 @@ export interface UpdateMembershipRequest {
   incidentResponseTeam?: Array<IncidentResponder>;
   optInFeatures?: Array<OptInFeature>;
 }
-export interface UpdateMembershipResponse {
-}
+export interface UpdateMembershipResponse {}
 export interface UpdateResolverTypeRequest {
   caseId: string;
   resolverType: ResolverType;
@@ -572,7 +605,11 @@ export interface ValidationExceptionField {
   message: string;
 }
 export type ValidationExceptionFieldList = Array<ValidationExceptionField>;
-export type ValidationExceptionReason = "UNKNOWN_OPERATION" | "CANNOT_PARSE" | "FIELD_VALIDATION_FAILED" | "OTHER";
+export type ValidationExceptionReason =
+  | "UNKNOWN_OPERATION"
+  | "CANNOT_PARSE"
+  | "FIELD_VALIDATION_FAILED"
+  | "OTHER";
 export interface Watcher {
   email: string;
   name?: string;
@@ -612,133 +649,113 @@ export declare namespace UntagResource {
 export declare namespace BatchGetMemberAccountDetails {
   export type Input = BatchGetMemberAccountDetailsRequest;
   export type Output = BatchGetMemberAccountDetailsResponse;
-  export type Error =
-    | CommonAwsError;
+  export type Error = CommonAwsError;
 }
 
 export declare namespace CancelMembership {
   export type Input = CancelMembershipRequest;
   export type Output = CancelMembershipResponse;
-  export type Error =
-    | CommonAwsError;
+  export type Error = CommonAwsError;
 }
 
 export declare namespace CloseCase {
   export type Input = CloseCaseRequest;
   export type Output = CloseCaseResponse;
-  export type Error =
-    | CommonAwsError;
+  export type Error = CommonAwsError;
 }
 
 export declare namespace CreateCase {
   export type Input = CreateCaseRequest;
   export type Output = CreateCaseResponse;
-  export type Error =
-    | CommonAwsError;
+  export type Error = CommonAwsError;
 }
 
 export declare namespace CreateCaseComment {
   export type Input = CreateCaseCommentRequest;
   export type Output = CreateCaseCommentResponse;
-  export type Error =
-    | CommonAwsError;
+  export type Error = CommonAwsError;
 }
 
 export declare namespace CreateMembership {
   export type Input = CreateMembershipRequest;
   export type Output = CreateMembershipResponse;
-  export type Error =
-    | CommonAwsError;
+  export type Error = CommonAwsError;
 }
 
 export declare namespace GetCase {
   export type Input = GetCaseRequest;
   export type Output = GetCaseResponse;
-  export type Error =
-    | CommonAwsError;
+  export type Error = CommonAwsError;
 }
 
 export declare namespace GetCaseAttachmentDownloadUrl {
   export type Input = GetCaseAttachmentDownloadUrlRequest;
   export type Output = GetCaseAttachmentDownloadUrlResponse;
-  export type Error =
-    | CommonAwsError;
+  export type Error = CommonAwsError;
 }
 
 export declare namespace GetCaseAttachmentUploadUrl {
   export type Input = GetCaseAttachmentUploadUrlRequest;
   export type Output = GetCaseAttachmentUploadUrlResponse;
-  export type Error =
-    | CommonAwsError;
+  export type Error = CommonAwsError;
 }
 
 export declare namespace GetMembership {
   export type Input = GetMembershipRequest;
   export type Output = GetMembershipResponse;
-  export type Error =
-    | CommonAwsError;
+  export type Error = CommonAwsError;
 }
 
 export declare namespace ListCaseEdits {
   export type Input = ListCaseEditsRequest;
   export type Output = ListCaseEditsResponse;
-  export type Error =
-    | CommonAwsError;
+  export type Error = CommonAwsError;
 }
 
 export declare namespace ListCases {
   export type Input = ListCasesRequest;
   export type Output = ListCasesResponse;
-  export type Error =
-    | CommonAwsError;
+  export type Error = CommonAwsError;
 }
 
 export declare namespace ListComments {
   export type Input = ListCommentsRequest;
   export type Output = ListCommentsResponse;
-  export type Error =
-    | CommonAwsError;
+  export type Error = CommonAwsError;
 }
 
 export declare namespace ListMemberships {
   export type Input = ListMembershipsRequest;
   export type Output = ListMembershipsResponse;
-  export type Error =
-    | CommonAwsError;
+  export type Error = CommonAwsError;
 }
 
 export declare namespace UpdateCase {
   export type Input = UpdateCaseRequest;
   export type Output = UpdateCaseResponse;
-  export type Error =
-    | CommonAwsError;
+  export type Error = CommonAwsError;
 }
 
 export declare namespace UpdateCaseComment {
   export type Input = UpdateCaseCommentRequest;
   export type Output = UpdateCaseCommentResponse;
-  export type Error =
-    | CommonAwsError;
+  export type Error = CommonAwsError;
 }
 
 export declare namespace UpdateCaseStatus {
   export type Input = UpdateCaseStatusRequest;
   export type Output = UpdateCaseStatusResponse;
-  export type Error =
-    | CommonAwsError;
+  export type Error = CommonAwsError;
 }
 
 export declare namespace UpdateMembership {
   export type Input = UpdateMembershipRequest;
   export type Output = UpdateMembershipResponse;
-  export type Error =
-    | CommonAwsError;
+  export type Error = CommonAwsError;
 }
 
 export declare namespace UpdateResolverType {
   export type Input = UpdateResolverTypeRequest;
   export type Output = UpdateResolverTypeResponse;
-  export type Error =
-    | CommonAwsError;
+  export type Error = CommonAwsError;
 }
-

@@ -19,7 +19,11 @@ export declare class ApiGatewayManagementApi extends AWSServiceClient {
     input: PostToConnectionRequest,
   ): Effect.Effect<
     {},
-    ForbiddenException | GoneException | LimitExceededException | PayloadTooLargeException | CommonAwsError
+    | ForbiddenException
+    | GoneException
+    | LimitExceededException
+    | PayloadTooLargeException
+    | CommonAwsError
   >;
 }
 
@@ -36,8 +40,7 @@ export interface DeleteConnectionRequest {
 }
 export declare class ForbiddenException extends EffectData.TaggedError(
   "ForbiddenException",
-)<{
-}> {}
+)<{}> {}
 export interface GetConnectionRequest {
   ConnectionId: string;
 }
@@ -48,16 +51,14 @@ export interface GetConnectionResponse {
 }
 export declare class GoneException extends EffectData.TaggedError(
   "GoneException",
-)<{
-}> {}
+)<{}> {}
 export interface Identity {
   SourceIp: string;
   UserAgent: string;
 }
 export declare class LimitExceededException extends EffectData.TaggedError(
   "LimitExceededException",
-)<{
-}> {}
+)<{}> {}
 export declare class PayloadTooLargeException extends EffectData.TaggedError(
   "PayloadTooLargeException",
 )<{
@@ -97,4 +98,3 @@ export declare namespace PostToConnection {
     | PayloadTooLargeException
     | CommonAwsError;
 }
-

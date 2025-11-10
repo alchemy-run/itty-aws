@@ -5,7 +5,25 @@ import type { IoTFleetHub as _IoTFleetHubClient } from "./types.ts";
 
 export * from "./types.ts";
 
-export {AccessDeniedException, ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, ValidationException, type CommonAwsError} from "../../error.ts";
+export {
+  AccessDeniedException,
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+  ValidationException,
+  type CommonAwsError,
+} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -15,14 +33,14 @@ const metadata = {
   sigV4ServiceName: "iotfleethub",
   endpointPrefix: "api.fleethub.iot",
   operations: {
-    "CreateApplication": "POST /applications",
-    "DeleteApplication": "DELETE /applications/{applicationId}",
-    "DescribeApplication": "GET /applications/{applicationId}",
-    "ListApplications": "GET /applications",
-    "ListTagsForResource": "GET /tags/{resourceArn}",
-    "TagResource": "POST /tags/{resourceArn}",
-    "UntagResource": "DELETE /tags/{resourceArn}",
-    "UpdateApplication": "PATCH /applications/{applicationId}",
+    CreateApplication: "POST /applications",
+    DeleteApplication: "DELETE /applications/{applicationId}",
+    DescribeApplication: "GET /applications/{applicationId}",
+    ListApplications: "GET /applications",
+    ListTagsForResource: "GET /tags/{resourceArn}",
+    TagResource: "POST /tags/{resourceArn}",
+    UntagResource: "DELETE /tags/{resourceArn}",
+    UpdateApplication: "PATCH /applications/{applicationId}",
   },
 } as const satisfies ServiceMetadata;
 

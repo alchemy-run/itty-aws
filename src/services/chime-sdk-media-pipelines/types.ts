@@ -7,187 +7,418 @@ export declare class ChimeSDKMediaPipelines extends AWSServiceClient {
     input: CreateMediaCapturePipelineRequest,
   ): Effect.Effect<
     CreateMediaCapturePipelineResponse,
-    BadRequestException | ForbiddenException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
+    | BadRequestException
+    | ForbiddenException
+    | ResourceLimitExceededException
+    | ServiceFailureException
+    | ServiceUnavailableException
+    | ThrottledClientException
+    | UnauthorizedClientException
+    | CommonAwsError
   >;
   createMediaConcatenationPipeline(
     input: CreateMediaConcatenationPipelineRequest,
   ): Effect.Effect<
     CreateMediaConcatenationPipelineResponse,
-    BadRequestException | ForbiddenException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
+    | BadRequestException
+    | ForbiddenException
+    | ResourceLimitExceededException
+    | ServiceFailureException
+    | ServiceUnavailableException
+    | ThrottledClientException
+    | UnauthorizedClientException
+    | CommonAwsError
   >;
   createMediaInsightsPipeline(
     input: CreateMediaInsightsPipelineRequest,
   ): Effect.Effect<
     CreateMediaInsightsPipelineResponse,
-    BadRequestException | ForbiddenException | NotFoundException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
+    | BadRequestException
+    | ForbiddenException
+    | NotFoundException
+    | ResourceLimitExceededException
+    | ServiceFailureException
+    | ServiceUnavailableException
+    | ThrottledClientException
+    | UnauthorizedClientException
+    | CommonAwsError
   >;
   createMediaInsightsPipelineConfiguration(
     input: CreateMediaInsightsPipelineConfigurationRequest,
   ): Effect.Effect<
     CreateMediaInsightsPipelineConfigurationResponse,
-    BadRequestException | ForbiddenException | NotFoundException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
+    | BadRequestException
+    | ForbiddenException
+    | NotFoundException
+    | ResourceLimitExceededException
+    | ServiceFailureException
+    | ServiceUnavailableException
+    | ThrottledClientException
+    | UnauthorizedClientException
+    | CommonAwsError
   >;
   createMediaLiveConnectorPipeline(
     input: CreateMediaLiveConnectorPipelineRequest,
   ): Effect.Effect<
     CreateMediaLiveConnectorPipelineResponse,
-    BadRequestException | ForbiddenException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
+    | BadRequestException
+    | ForbiddenException
+    | ResourceLimitExceededException
+    | ServiceFailureException
+    | ServiceUnavailableException
+    | ThrottledClientException
+    | UnauthorizedClientException
+    | CommonAwsError
   >;
   createMediaPipelineKinesisVideoStreamPool(
     input: CreateMediaPipelineKinesisVideoStreamPoolRequest,
   ): Effect.Effect<
     CreateMediaPipelineKinesisVideoStreamPoolResponse,
-    BadRequestException | ConflictException | ForbiddenException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | ResourceLimitExceededException
+    | ServiceFailureException
+    | ServiceUnavailableException
+    | ThrottledClientException
+    | UnauthorizedClientException
+    | CommonAwsError
   >;
   createMediaStreamPipeline(
     input: CreateMediaStreamPipelineRequest,
   ): Effect.Effect<
     CreateMediaStreamPipelineResponse,
-    BadRequestException | ForbiddenException | NotFoundException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
+    | BadRequestException
+    | ForbiddenException
+    | NotFoundException
+    | ResourceLimitExceededException
+    | ServiceFailureException
+    | ServiceUnavailableException
+    | ThrottledClientException
+    | UnauthorizedClientException
+    | CommonAwsError
   >;
   deleteMediaCapturePipeline(
     input: DeleteMediaCapturePipelineRequest,
   ): Effect.Effect<
     {},
-    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
+    | BadRequestException
+    | ForbiddenException
+    | NotFoundException
+    | ServiceFailureException
+    | ServiceUnavailableException
+    | ThrottledClientException
+    | UnauthorizedClientException
+    | CommonAwsError
   >;
   deleteMediaInsightsPipelineConfiguration(
     input: DeleteMediaInsightsPipelineConfigurationRequest,
   ): Effect.Effect<
     {},
-    BadRequestException | ConflictException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | NotFoundException
+    | ServiceFailureException
+    | ServiceUnavailableException
+    | ThrottledClientException
+    | UnauthorizedClientException
+    | CommonAwsError
   >;
   deleteMediaPipeline(
     input: DeleteMediaPipelineRequest,
   ): Effect.Effect<
     {},
-    BadRequestException | ConflictException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | NotFoundException
+    | ServiceFailureException
+    | ServiceUnavailableException
+    | ThrottledClientException
+    | UnauthorizedClientException
+    | CommonAwsError
   >;
   deleteMediaPipelineKinesisVideoStreamPool(
     input: DeleteMediaPipelineKinesisVideoStreamPoolRequest,
   ): Effect.Effect<
     {},
-    BadRequestException | ConflictException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | NotFoundException
+    | ServiceFailureException
+    | ServiceUnavailableException
+    | ThrottledClientException
+    | UnauthorizedClientException
+    | CommonAwsError
   >;
   getMediaCapturePipeline(
     input: GetMediaCapturePipelineRequest,
   ): Effect.Effect<
     GetMediaCapturePipelineResponse,
-    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
+    | BadRequestException
+    | ForbiddenException
+    | NotFoundException
+    | ServiceFailureException
+    | ServiceUnavailableException
+    | ThrottledClientException
+    | UnauthorizedClientException
+    | CommonAwsError
   >;
   getMediaInsightsPipelineConfiguration(
     input: GetMediaInsightsPipelineConfigurationRequest,
   ): Effect.Effect<
     GetMediaInsightsPipelineConfigurationResponse,
-    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
+    | BadRequestException
+    | ForbiddenException
+    | NotFoundException
+    | ServiceFailureException
+    | ServiceUnavailableException
+    | ThrottledClientException
+    | UnauthorizedClientException
+    | CommonAwsError
   >;
   getMediaPipeline(
     input: GetMediaPipelineRequest,
   ): Effect.Effect<
     GetMediaPipelineResponse,
-    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
+    | BadRequestException
+    | ForbiddenException
+    | NotFoundException
+    | ServiceFailureException
+    | ServiceUnavailableException
+    | ThrottledClientException
+    | UnauthorizedClientException
+    | CommonAwsError
   >;
   getMediaPipelineKinesisVideoStreamPool(
     input: GetMediaPipelineKinesisVideoStreamPoolRequest,
   ): Effect.Effect<
     GetMediaPipelineKinesisVideoStreamPoolResponse,
-    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
+    | BadRequestException
+    | ForbiddenException
+    | NotFoundException
+    | ServiceFailureException
+    | ServiceUnavailableException
+    | ThrottledClientException
+    | UnauthorizedClientException
+    | CommonAwsError
   >;
   getSpeakerSearchTask(
     input: GetSpeakerSearchTaskRequest,
   ): Effect.Effect<
     GetSpeakerSearchTaskResponse,
-    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
+    | BadRequestException
+    | ForbiddenException
+    | NotFoundException
+    | ServiceFailureException
+    | ServiceUnavailableException
+    | ThrottledClientException
+    | UnauthorizedClientException
+    | CommonAwsError
   >;
   getVoiceToneAnalysisTask(
     input: GetVoiceToneAnalysisTaskRequest,
   ): Effect.Effect<
     GetVoiceToneAnalysisTaskResponse,
-    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
+    | BadRequestException
+    | ForbiddenException
+    | NotFoundException
+    | ServiceFailureException
+    | ServiceUnavailableException
+    | ThrottledClientException
+    | UnauthorizedClientException
+    | CommonAwsError
   >;
   listMediaCapturePipelines(
     input: ListMediaCapturePipelinesRequest,
   ): Effect.Effect<
     ListMediaCapturePipelinesResponse,
-    BadRequestException | ForbiddenException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
+    | BadRequestException
+    | ForbiddenException
+    | ResourceLimitExceededException
+    | ServiceFailureException
+    | ServiceUnavailableException
+    | ThrottledClientException
+    | UnauthorizedClientException
+    | CommonAwsError
   >;
   listMediaInsightsPipelineConfigurations(
     input: ListMediaInsightsPipelineConfigurationsRequest,
   ): Effect.Effect<
     ListMediaInsightsPipelineConfigurationsResponse,
-    BadRequestException | ForbiddenException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
+    | BadRequestException
+    | ForbiddenException
+    | ResourceLimitExceededException
+    | ServiceFailureException
+    | ServiceUnavailableException
+    | ThrottledClientException
+    | UnauthorizedClientException
+    | CommonAwsError
   >;
   listMediaPipelineKinesisVideoStreamPools(
     input: ListMediaPipelineKinesisVideoStreamPoolsRequest,
   ): Effect.Effect<
     ListMediaPipelineKinesisVideoStreamPoolsResponse,
-    BadRequestException | ForbiddenException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
+    | BadRequestException
+    | ForbiddenException
+    | ResourceLimitExceededException
+    | ServiceFailureException
+    | ServiceUnavailableException
+    | ThrottledClientException
+    | UnauthorizedClientException
+    | CommonAwsError
   >;
   listMediaPipelines(
     input: ListMediaPipelinesRequest,
   ): Effect.Effect<
     ListMediaPipelinesResponse,
-    BadRequestException | ForbiddenException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
+    | BadRequestException
+    | ForbiddenException
+    | ResourceLimitExceededException
+    | ServiceFailureException
+    | ServiceUnavailableException
+    | ThrottledClientException
+    | UnauthorizedClientException
+    | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
+    | BadRequestException
+    | ForbiddenException
+    | NotFoundException
+    | ServiceFailureException
+    | ServiceUnavailableException
+    | ThrottledClientException
+    | UnauthorizedClientException
+    | CommonAwsError
   >;
   startSpeakerSearchTask(
     input: StartSpeakerSearchTaskRequest,
   ): Effect.Effect<
     StartSpeakerSearchTaskResponse,
-    BadRequestException | ConflictException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | NotFoundException
+    | ServiceFailureException
+    | ServiceUnavailableException
+    | ThrottledClientException
+    | UnauthorizedClientException
+    | CommonAwsError
   >;
   startVoiceToneAnalysisTask(
     input: StartVoiceToneAnalysisTaskRequest,
   ): Effect.Effect<
     StartVoiceToneAnalysisTaskResponse,
-    BadRequestException | ConflictException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | NotFoundException
+    | ServiceFailureException
+    | ServiceUnavailableException
+    | ThrottledClientException
+    | UnauthorizedClientException
+    | CommonAwsError
   >;
   stopSpeakerSearchTask(
     input: StopSpeakerSearchTaskRequest,
   ): Effect.Effect<
     {},
-    BadRequestException | ConflictException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | NotFoundException
+    | ServiceFailureException
+    | ServiceUnavailableException
+    | ThrottledClientException
+    | UnauthorizedClientException
+    | CommonAwsError
   >;
   stopVoiceToneAnalysisTask(
     input: StopVoiceToneAnalysisTaskRequest,
   ): Effect.Effect<
     {},
-    BadRequestException | ConflictException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | NotFoundException
+    | ServiceFailureException
+    | ServiceUnavailableException
+    | ThrottledClientException
+    | UnauthorizedClientException
+    | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
+    | BadRequestException
+    | ForbiddenException
+    | NotFoundException
+    | ServiceFailureException
+    | ServiceUnavailableException
+    | ThrottledClientException
+    | UnauthorizedClientException
+    | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
+    | BadRequestException
+    | ForbiddenException
+    | NotFoundException
+    | ServiceFailureException
+    | ServiceUnavailableException
+    | ThrottledClientException
+    | UnauthorizedClientException
+    | CommonAwsError
   >;
   updateMediaInsightsPipelineConfiguration(
     input: UpdateMediaInsightsPipelineConfigurationRequest,
   ): Effect.Effect<
     UpdateMediaInsightsPipelineConfigurationResponse,
-    BadRequestException | ConflictException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | NotFoundException
+    | ServiceFailureException
+    | ServiceUnavailableException
+    | ThrottledClientException
+    | UnauthorizedClientException
+    | CommonAwsError
   >;
   updateMediaInsightsPipelineStatus(
     input: UpdateMediaInsightsPipelineStatusRequest,
   ): Effect.Effect<
     {},
-    BadRequestException | ConflictException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | NotFoundException
+    | ServiceFailureException
+    | ServiceUnavailableException
+    | ThrottledClientException
+    | UnauthorizedClientException
+    | CommonAwsError
   >;
   updateMediaPipelineKinesisVideoStreamPool(
     input: UpdateMediaPipelineKinesisVideoStreamPoolRequest,
   ): Effect.Effect<
     UpdateMediaPipelineKinesisVideoStreamPoolResponse,
-    BadRequestException | ConflictException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | NotFoundException
+    | ServiceFailureException
+    | ServiceUnavailableException
+    | ThrottledClientException
+    | UnauthorizedClientException
+    | CommonAwsError
   >;
 }
 
@@ -196,7 +427,11 @@ export declare class ChimeSdkMediaPipelines extends ChimeSDKMediaPipelines {}
 export interface ActiveSpeakerOnlyConfiguration {
   ActiveSpeakerPosition?: ActiveSpeakerPosition;
 }
-export type ActiveSpeakerPosition = "TopLeft" | "TopRight" | "BottomLeft" | "BottomRight";
+export type ActiveSpeakerPosition =
+  | "TopLeft"
+  | "TopRight"
+  | "BottomLeft"
+  | "BottomRight";
 export type AmazonResourceName = string;
 
 export interface AmazonTranscribeCallAnalyticsProcessorConfiguration {
@@ -262,7 +497,10 @@ export type AudioChannelsOption = "Stereo" | "Mono";
 export interface AudioConcatenationConfiguration {
   State: AudioArtifactsConcatenationState;
 }
-export type AudioMuxType = "AudioOnly" | "AudioWithActiveSpeakerVideo" | "AudioWithCompositedVideo";
+export type AudioMuxType =
+  | "AudioOnly"
+  | "AudioWithActiveSpeakerVideo"
+  | "AudioWithCompositedVideo";
 export type AudioSampleRateOption = string;
 
 export type AwsRegion = string;
@@ -276,10 +514,25 @@ export declare class BadRequestException extends EffectData.TaggedError(
 }> {}
 export type ChimeSdkMediaPipelinesBoolean = boolean;
 
-export type BorderColor = "Black" | "Blue" | "Red" | "Green" | "White" | "Yellow";
+export type BorderColor =
+  | "Black"
+  | "Blue"
+  | "Red"
+  | "Green"
+  | "White"
+  | "Yellow";
 export type BorderThickness = number;
 
-export type CallAnalyticsLanguageCode = "en-US" | "en-GB" | "es-US" | "fr-CA" | "fr-FR" | "en-AU" | "it-IT" | "de-DE" | "pt-BR";
+export type CallAnalyticsLanguageCode =
+  | "en-US"
+  | "en-GB"
+  | "es-US"
+  | "fr-CA"
+  | "fr-FR"
+  | "en-AU"
+  | "it-IT"
+  | "de-DE"
+  | "pt-BR";
 export type CanvasOrientation = "Landscape" | "Portrait";
 export type CategoryName = string;
 
@@ -342,7 +595,11 @@ export interface ContentConcatenationConfiguration {
 }
 export type ContentMuxType = "ContentOnly";
 export type ContentRedactionOutput = "redacted" | "redacted_and_unredacted";
-export type ContentShareLayoutOption = "PresenterOnly" | "Horizontal" | "Vertical" | "ActiveSpeakerOnly";
+export type ContentShareLayoutOption =
+  | "PresenterOnly"
+  | "Horizontal"
+  | "Vertical"
+  | "ActiveSpeakerOnly";
 export type ContentType = "PII";
 export type CornerRadius = number;
 
@@ -438,7 +695,14 @@ export interface DeleteMediaPipelineKinesisVideoStreamPoolRequest {
 export interface DeleteMediaPipelineRequest {
   MediaPipelineId: string;
 }
-export type ErrorCode = "BadRequest" | "Forbidden" | "NotFound" | "ResourceLimitExceeded" | "ServiceFailure" | "ServiceUnavailable" | "Throttling";
+export type ErrorCode =
+  | "BadRequest"
+  | "Forbidden"
+  | "NotFound"
+  | "ResourceLimitExceeded"
+  | "ServiceFailure"
+  | "ServiceUnavailable"
+  | "Throttling";
 export type ExternalUserIdList = Array<string>;
 export type ExternalUserIdType = string;
 
@@ -505,7 +769,13 @@ export interface GridViewConfiguration {
 }
 export type GuidString = string;
 
-export type HighlightColor = "Black" | "Blue" | "Red" | "Green" | "White" | "Yellow";
+export type HighlightColor =
+  | "Black"
+  | "Blue"
+  | "Red"
+  | "Green"
+  | "White"
+  | "Yellow";
 export interface HorizontalLayoutConfiguration {
   TileOrder?: TileOrder;
   TilePosition?: HorizontalTilePosition;
@@ -554,13 +824,19 @@ export type KinesisVideoStreamPoolName = string;
 
 export type KinesisVideoStreamPoolSize = number;
 
-export type KinesisVideoStreamPoolStatus = "CREATING" | "ACTIVE" | "UPDATING" | "DELETING" | "FAILED";
+export type KinesisVideoStreamPoolStatus =
+  | "CREATING"
+  | "ACTIVE"
+  | "UPDATING"
+  | "DELETING"
+  | "FAILED";
 export interface KinesisVideoStreamPoolSummary {
   PoolName?: string;
   PoolId?: string;
   PoolArn?: string;
 }
-export type KinesisVideoStreamPoolSummaryList = Array<KinesisVideoStreamPoolSummary>;
+export type KinesisVideoStreamPoolSummaryList =
+  Array<KinesisVideoStreamPoolSummary>;
 export interface KinesisVideoStreamRecordingSourceRuntimeConfiguration {
   Streams: Array<RecordingStreamConfiguration>;
   FragmentSelector: FragmentSelector;
@@ -619,7 +895,9 @@ export interface ListTagsForResourceRequest {
 export interface ListTagsForResourceResponse {
   Tags?: Array<Tag>;
 }
-export type LiveConnectorMuxType = "AudioWithCompositedVideo" | "AudioWithActiveSpeakerVideo";
+export type LiveConnectorMuxType =
+  | "AudioWithCompositedVideo"
+  | "AudioWithActiveSpeakerVideo";
 export interface LiveConnectorRTMPConfiguration {
   Url: string;
   AudioChannels?: AudioChannelsOption;
@@ -659,7 +937,8 @@ export interface MediaCapturePipelineSummary {
   MediaPipelineId?: string;
   MediaPipelineArn?: string;
 }
-export type MediaCapturePipelineSummaryList = Array<MediaCapturePipelineSummary>;
+export type MediaCapturePipelineSummaryList =
+  Array<MediaCapturePipelineSummary>;
 export interface MediaConcatenationPipeline {
   MediaPipelineId?: string;
   MediaPipelineArn?: string;
@@ -704,8 +983,18 @@ export interface MediaInsightsPipelineConfigurationElement {
   SnsTopicSinkConfiguration?: SnsTopicSinkConfiguration;
   VoiceEnhancementSinkConfiguration?: VoiceEnhancementSinkConfiguration;
 }
-export type MediaInsightsPipelineConfigurationElements = Array<MediaInsightsPipelineConfigurationElement>;
-export type MediaInsightsPipelineConfigurationElementType = "AmazonTranscribeCallAnalyticsProcessor" | "VoiceAnalyticsProcessor" | "AmazonTranscribeProcessor" | "KinesisDataStreamSink" | "LambdaFunctionSink" | "SqsQueueSink" | "SnsTopicSink" | "S3RecordingSink" | "VoiceEnhancementSink";
+export type MediaInsightsPipelineConfigurationElements =
+  Array<MediaInsightsPipelineConfigurationElement>;
+export type MediaInsightsPipelineConfigurationElementType =
+  | "AmazonTranscribeCallAnalyticsProcessor"
+  | "VoiceAnalyticsProcessor"
+  | "AmazonTranscribeProcessor"
+  | "KinesisDataStreamSink"
+  | "LambdaFunctionSink"
+  | "SqsQueueSink"
+  | "SnsTopicSink"
+  | "S3RecordingSink"
+  | "VoiceEnhancementSink";
 export type MediaInsightsPipelineConfigurationNameString = string;
 
 export interface MediaInsightsPipelineConfigurationSummary {
@@ -713,12 +1002,14 @@ export interface MediaInsightsPipelineConfigurationSummary {
   MediaInsightsPipelineConfigurationId?: string;
   MediaInsightsPipelineConfigurationArn?: string;
 }
-export type MediaInsightsPipelineConfigurationSummaryList = Array<MediaInsightsPipelineConfigurationSummary>;
+export type MediaInsightsPipelineConfigurationSummaryList =
+  Array<MediaInsightsPipelineConfigurationSummary>;
 export interface MediaInsightsPipelineElementStatus {
   Type?: MediaInsightsPipelineConfigurationElementType;
   Status?: MediaPipelineElementStatus;
 }
-export type MediaInsightsPipelineElementStatuses = Array<MediaInsightsPipelineElementStatus>;
+export type MediaInsightsPipelineElementStatuses =
+  Array<MediaInsightsPipelineElementStatus>;
 export type MediaInsightsRuntimeMetadata = Record<string, string>;
 export interface MediaLiveConnectorPipeline {
   Sources?: Array<LiveConnectorSourceConfiguration>;
@@ -736,17 +1027,38 @@ export interface MediaPipeline {
   MediaInsightsPipeline?: MediaInsightsPipeline;
   MediaStreamPipeline?: MediaStreamPipeline;
 }
-export type MediaPipelineElementStatus = "NotStarted" | "NotSupported" | "Initializing" | "InProgress" | "Failed" | "Stopping" | "Stopped" | "Paused";
+export type MediaPipelineElementStatus =
+  | "NotStarted"
+  | "NotSupported"
+  | "Initializing"
+  | "InProgress"
+  | "Failed"
+  | "Stopping"
+  | "Stopped"
+  | "Paused";
 export type MediaPipelineList = Array<MediaPipelineSummary>;
 export type MediaPipelineSinkType = "S3Bucket";
 export type MediaPipelineSourceType = "ChimeSdkMeeting";
-export type MediaPipelineStatus = "Initializing" | "InProgress" | "Failed" | "Stopping" | "Stopped" | "Paused" | "NotStarted";
+export type MediaPipelineStatus =
+  | "Initializing"
+  | "InProgress"
+  | "Failed"
+  | "Stopping"
+  | "Stopped"
+  | "Paused"
+  | "NotStarted";
 export type MediaPipelineStatusUpdate = "Pause" | "Resume";
 export interface MediaPipelineSummary {
   MediaPipelineId?: string;
   MediaPipelineArn?: string;
 }
-export type MediaPipelineTaskStatus = "NotStarted" | "Initializing" | "InProgress" | "Failed" | "Stopping" | "Stopped";
+export type MediaPipelineTaskStatus =
+  | "NotStarted"
+  | "Initializing"
+  | "InProgress"
+  | "Failed"
+  | "Stopping"
+  | "Stopped";
 export type MediaSampleRateHertz = number;
 
 export interface MediaStreamPipeline {
@@ -801,7 +1113,11 @@ export interface PostCallAnalyticsSettings {
 export interface PresenterOnlyConfiguration {
   PresenterPosition?: PresenterPosition;
 }
-export type PresenterPosition = "TopLeft" | "TopRight" | "BottomLeft" | "BottomRight";
+export type PresenterPosition =
+  | "TopLeft"
+  | "TopRight"
+  | "BottomLeft"
+  | "BottomRight";
 export interface RealTimeAlertConfiguration {
   Disabled?: boolean;
   Rules?: Array<RealTimeAlertRule>;
@@ -813,7 +1129,10 @@ export interface RealTimeAlertRule {
   IssueDetectionConfiguration?: IssueDetectionConfiguration;
 }
 export type RealTimeAlertRuleList = Array<RealTimeAlertRule>;
-export type RealTimeAlertRuleType = "KeywordMatch" | "Sentiment" | "IssueDetection";
+export type RealTimeAlertRuleType =
+  | "KeywordMatch"
+  | "Sentiment"
+  | "IssueDetection";
 export type RecordingFileFormat = "Wav" | "Opus";
 export interface RecordingStreamConfiguration {
   StreamArn?: string;
@@ -941,8 +1260,7 @@ export interface TagResourceRequest {
   ResourceARN: string;
   Tags: Array<Tag>;
 }
-export interface TagResourceResponse {
-}
+export interface TagResourceResponse {}
 export type TagValue = string;
 
 export declare class ThrottledClientException extends EffectData.TaggedError(
@@ -977,8 +1295,7 @@ export interface UntagResourceRequest {
   ResourceARN: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {
-}
+export interface UntagResourceResponse {}
 export interface UpdateMediaInsightsPipelineConfigurationRequest {
   Identifier: string;
   ResourceAccessRoleArn: string;
@@ -1491,4 +1808,3 @@ export declare namespace UpdateMediaPipelineKinesisVideoStreamPool {
     | UnauthorizedClientException
     | CommonAwsError;
 }
-

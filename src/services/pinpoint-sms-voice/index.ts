@@ -5,7 +5,26 @@ import type { PinpointSMSVoice as _PinpointSMSVoiceClient } from "./types.ts";
 
 export * from "./types.ts";
 
-export {AccessDeniedException, ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError, ValidationException, type CommonAwsError} from "../../error.ts";
+export {
+  AccessDeniedException,
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  ThrottlingException,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+  ValidationException,
+  type CommonAwsError,
+} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -15,14 +34,19 @@ const metadata = {
   sigV4ServiceName: "sms-voice",
   endpointPrefix: "sms-voice.pinpoint",
   operations: {
-    "CreateConfigurationSet": "POST /v1/sms-voice/configuration-sets",
-    "CreateConfigurationSetEventDestination": "POST /v1/sms-voice/configuration-sets/{ConfigurationSetName}/event-destinations",
-    "DeleteConfigurationSet": "DELETE /v1/sms-voice/configuration-sets/{ConfigurationSetName}",
-    "DeleteConfigurationSetEventDestination": "DELETE /v1/sms-voice/configuration-sets/{ConfigurationSetName}/event-destinations/{EventDestinationName}",
-    "GetConfigurationSetEventDestinations": "GET /v1/sms-voice/configuration-sets/{ConfigurationSetName}/event-destinations",
-    "ListConfigurationSets": "GET /v1/sms-voice/configuration-sets",
-    "SendVoiceMessage": "POST /v1/sms-voice/voice/message",
-    "UpdateConfigurationSetEventDestination": "PUT /v1/sms-voice/configuration-sets/{ConfigurationSetName}/event-destinations/{EventDestinationName}",
+    CreateConfigurationSet: "POST /v1/sms-voice/configuration-sets",
+    CreateConfigurationSetEventDestination:
+      "POST /v1/sms-voice/configuration-sets/{ConfigurationSetName}/event-destinations",
+    DeleteConfigurationSet:
+      "DELETE /v1/sms-voice/configuration-sets/{ConfigurationSetName}",
+    DeleteConfigurationSetEventDestination:
+      "DELETE /v1/sms-voice/configuration-sets/{ConfigurationSetName}/event-destinations/{EventDestinationName}",
+    GetConfigurationSetEventDestinations:
+      "GET /v1/sms-voice/configuration-sets/{ConfigurationSetName}/event-destinations",
+    ListConfigurationSets: "GET /v1/sms-voice/configuration-sets",
+    SendVoiceMessage: "POST /v1/sms-voice/voice/message",
+    UpdateConfigurationSetEventDestination:
+      "PUT /v1/sms-voice/configuration-sets/{ConfigurationSetName}/event-destinations/{EventDestinationName}",
   },
 } as const satisfies ServiceMetadata;
 

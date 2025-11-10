@@ -7,139 +7,252 @@ export declare class SecretsManager extends AWSServiceClient {
     input: BatchGetSecretValueRequest,
   ): Effect.Effect<
     BatchGetSecretValueResponse,
-    DecryptionFailure | InternalServiceError | InvalidNextTokenException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | CommonAwsError
+    | DecryptionFailure
+    | InternalServiceError
+    | InvalidNextTokenException
+    | InvalidParameterException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   cancelRotateSecret(
     input: CancelRotateSecretRequest,
   ): Effect.Effect<
     CancelRotateSecretResponse,
-    InternalServiceError | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | CommonAwsError
+    | InternalServiceError
+    | InvalidParameterException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   createSecret(
     input: CreateSecretRequest,
   ): Effect.Effect<
     CreateSecretResponse,
-    DecryptionFailure | EncryptionFailure | InternalServiceError | InvalidParameterException | InvalidRequestException | LimitExceededException | MalformedPolicyDocumentException | PreconditionNotMetException | ResourceExistsException | ResourceNotFoundException | CommonAwsError
+    | DecryptionFailure
+    | EncryptionFailure
+    | InternalServiceError
+    | InvalidParameterException
+    | InvalidRequestException
+    | LimitExceededException
+    | MalformedPolicyDocumentException
+    | PreconditionNotMetException
+    | ResourceExistsException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   deleteResourcePolicy(
     input: DeleteResourcePolicyRequest,
   ): Effect.Effect<
     DeleteResourcePolicyResponse,
-    InternalServiceError | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | CommonAwsError
+    | InternalServiceError
+    | InvalidParameterException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   deleteSecret(
     input: DeleteSecretRequest,
   ): Effect.Effect<
     DeleteSecretResponse,
-    InternalServiceError | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | CommonAwsError
+    | InternalServiceError
+    | InvalidParameterException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   describeSecret(
     input: DescribeSecretRequest,
   ): Effect.Effect<
     DescribeSecretResponse,
-    InternalServiceError | InvalidParameterException | ResourceNotFoundException | CommonAwsError
+    | InternalServiceError
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   getRandomPassword(
     input: GetRandomPasswordRequest,
   ): Effect.Effect<
     GetRandomPasswordResponse,
-    InternalServiceError | InvalidParameterException | InvalidRequestException | CommonAwsError
+    | InternalServiceError
+    | InvalidParameterException
+    | InvalidRequestException
+    | CommonAwsError
   >;
   getResourcePolicy(
     input: GetResourcePolicyRequest,
   ): Effect.Effect<
     GetResourcePolicyResponse,
-    InternalServiceError | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | CommonAwsError
+    | InternalServiceError
+    | InvalidParameterException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   getSecretValue(
     input: GetSecretValueRequest,
   ): Effect.Effect<
     GetSecretValueResponse,
-    DecryptionFailure | InternalServiceError | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | CommonAwsError
+    | DecryptionFailure
+    | InternalServiceError
+    | InvalidParameterException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   listSecrets(
     input: ListSecretsRequest,
   ): Effect.Effect<
     ListSecretsResponse,
-    InternalServiceError | InvalidNextTokenException | InvalidParameterException | InvalidRequestException | CommonAwsError
+    | InternalServiceError
+    | InvalidNextTokenException
+    | InvalidParameterException
+    | InvalidRequestException
+    | CommonAwsError
   >;
   listSecretVersionIds(
     input: ListSecretVersionIdsRequest,
   ): Effect.Effect<
     ListSecretVersionIdsResponse,
-    InternalServiceError | InvalidNextTokenException | InvalidParameterException | ResourceNotFoundException | CommonAwsError
+    | InternalServiceError
+    | InvalidNextTokenException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   putResourcePolicy(
     input: PutResourcePolicyRequest,
   ): Effect.Effect<
     PutResourcePolicyResponse,
-    InternalServiceError | InvalidParameterException | InvalidRequestException | MalformedPolicyDocumentException | PublicPolicyException | ResourceNotFoundException | CommonAwsError
+    | InternalServiceError
+    | InvalidParameterException
+    | InvalidRequestException
+    | MalformedPolicyDocumentException
+    | PublicPolicyException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   putSecretValue(
     input: PutSecretValueRequest,
   ): Effect.Effect<
     PutSecretValueResponse,
-    DecryptionFailure | EncryptionFailure | InternalServiceError | InvalidParameterException | InvalidRequestException | LimitExceededException | ResourceExistsException | ResourceNotFoundException | CommonAwsError
+    | DecryptionFailure
+    | EncryptionFailure
+    | InternalServiceError
+    | InvalidParameterException
+    | InvalidRequestException
+    | LimitExceededException
+    | ResourceExistsException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   removeRegionsFromReplication(
     input: RemoveRegionsFromReplicationRequest,
   ): Effect.Effect<
     RemoveRegionsFromReplicationResponse,
-    InternalServiceError | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | CommonAwsError
+    | InternalServiceError
+    | InvalidParameterException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   replicateSecretToRegions(
     input: ReplicateSecretToRegionsRequest,
   ): Effect.Effect<
     ReplicateSecretToRegionsResponse,
-    InternalServiceError | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | CommonAwsError
+    | InternalServiceError
+    | InvalidParameterException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   restoreSecret(
     input: RestoreSecretRequest,
   ): Effect.Effect<
     RestoreSecretResponse,
-    InternalServiceError | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | CommonAwsError
+    | InternalServiceError
+    | InvalidParameterException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   rotateSecret(
     input: RotateSecretRequest,
   ): Effect.Effect<
     RotateSecretResponse,
-    InternalServiceError | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | CommonAwsError
+    | InternalServiceError
+    | InvalidParameterException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   stopReplicationToReplica(
     input: StopReplicationToReplicaRequest,
   ): Effect.Effect<
     StopReplicationToReplicaResponse,
-    InternalServiceError | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | CommonAwsError
+    | InternalServiceError
+    | InvalidParameterException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     {},
-    InternalServiceError | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | CommonAwsError
+    | InternalServiceError
+    | InvalidParameterException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     {},
-    InternalServiceError | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | CommonAwsError
+    | InternalServiceError
+    | InvalidParameterException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   updateSecret(
     input: UpdateSecretRequest,
   ): Effect.Effect<
     UpdateSecretResponse,
-    DecryptionFailure | EncryptionFailure | InternalServiceError | InvalidParameterException | InvalidRequestException | LimitExceededException | MalformedPolicyDocumentException | PreconditionNotMetException | ResourceExistsException | ResourceNotFoundException | CommonAwsError
+    | DecryptionFailure
+    | EncryptionFailure
+    | InternalServiceError
+    | InvalidParameterException
+    | InvalidRequestException
+    | LimitExceededException
+    | MalformedPolicyDocumentException
+    | PreconditionNotMetException
+    | ResourceExistsException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   updateSecretVersionStage(
     input: UpdateSecretVersionStageRequest,
   ): Effect.Effect<
     UpdateSecretVersionStageResponse,
-    InternalServiceError | InvalidParameterException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | CommonAwsError
+    | InternalServiceError
+    | InvalidParameterException
+    | InvalidRequestException
+    | LimitExceededException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   validateResourcePolicy(
     input: ValidateResourcePolicyRequest,
   ): Effect.Effect<
     ValidateResourcePolicyResponse,
-    InternalServiceError | InvalidParameterException | InvalidRequestException | MalformedPolicyDocumentException | ResourceNotFoundException | CommonAwsError
+    | InternalServiceError
+    | InvalidParameterException
+    | InvalidRequestException
+    | MalformedPolicyDocumentException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
 }
 
@@ -270,7 +383,14 @@ export interface Filter {
   Key?: FilterNameStringType;
   Values?: Array<string>;
 }
-export type FilterNameStringType = "description" | "name" | "tag-key" | "tag-value" | "primary-region" | "owning-service" | "all";
+export type FilterNameStringType =
+  | "description"
+  | "name"
+  | "tag-key"
+  | "tag-value"
+  | "primary-region"
+  | "owning-service"
+  | "all";
 export type FiltersListType = Array<Filter>;
 export type FilterValuesStringList = Array<string>;
 export type FilterValueStringType = string;
@@ -897,4 +1017,3 @@ export declare namespace ValidateResourcePolicy {
     | ResourceNotFoundException
     | CommonAwsError;
 }
-

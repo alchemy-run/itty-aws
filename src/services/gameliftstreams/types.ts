@@ -1,6 +1,38 @@
 import type { Effect, Data as EffectData } from "effect";
-import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
-type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
+import type {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+type CommonAwsError =
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | AccessDeniedException
+  | ThrottlingException
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class GameLiftStreams extends AWSServiceClient {
@@ -8,145 +40,270 @@ export declare class GameLiftStreams extends AWSServiceClient {
     input: AddStreamGroupLocationsInput,
   ): Effect.Effect<
     AddStreamGroupLocationsOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   associateApplications(
     input: AssociateApplicationsInput,
   ): Effect.Effect<
     AssociateApplicationsOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createStreamSessionConnection(
     input: CreateStreamSessionConnectionInput,
   ): Effect.Effect<
     CreateStreamSessionConnectionOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   disassociateApplications(
     input: DisassociateApplicationsInput,
   ): Effect.Effect<
     DisassociateApplicationsOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   exportStreamSessionFiles(
     input: ExportStreamSessionFilesInput,
   ): Effect.Effect<
     ExportStreamSessionFilesOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getStreamSession(
     input: GetStreamSessionInput,
   ): Effect.Effect<
     GetStreamSessionOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listStreamSessions(
     input: ListStreamSessionsInput,
   ): Effect.Effect<
     ListStreamSessionsOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listStreamSessionsByAccount(
     input: ListStreamSessionsByAccountInput,
   ): Effect.Effect<
     ListStreamSessionsByAccountOutput,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   removeStreamGroupLocations(
     input: RemoveStreamGroupLocationsInput,
   ): Effect.Effect<
     {},
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   startStreamSession(
     input: StartStreamSessionInput,
   ): Effect.Effect<
     StartStreamSessionOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   terminateStreamSession(
     input: TerminateStreamSessionInput,
   ): Effect.Effect<
     {},
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createApplication(
     input: CreateApplicationInput,
   ): Effect.Effect<
     CreateApplicationOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createStreamGroup(
     input: CreateStreamGroupInput,
   ): Effect.Effect<
     CreateStreamGroupOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteApplication(
     input: DeleteApplicationInput,
   ): Effect.Effect<
     {},
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteStreamGroup(
     input: DeleteStreamGroupInput,
   ): Effect.Effect<
     {},
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getApplication(
     input: GetApplicationInput,
   ): Effect.Effect<
     GetApplicationOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getStreamGroup(
     input: GetStreamGroupInput,
   ): Effect.Effect<
     GetStreamGroupOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listApplications(
     input: ListApplicationsInput,
   ): Effect.Effect<
     ListApplicationsOutput,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listStreamGroups(
     input: ListStreamGroupsInput,
   ): Effect.Effect<
     ListStreamGroupsOutput,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateApplication(
     input: UpdateApplicationInput,
   ): Effect.Effect<
     UpdateApplicationOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateStreamGroup(
     input: UpdateStreamGroupInput,
   ): Effect.Effect<
     UpdateStreamGroupOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
 }
 
@@ -171,7 +328,12 @@ export type ApplicationLogOutputUri = string;
 
 export type ApplicationSourceUri = string;
 
-export type ApplicationStatus = "INITIALIZED" | "PROCESSING" | "READY" | "DELETING" | "ERROR";
+export type ApplicationStatus =
+  | "INITIALIZED"
+  | "PROCESSING"
+  | "READY"
+  | "DELETING"
+  | "ERROR";
 export type ApplicationStatusReason = "internalError" | "accessDenied";
 export interface ApplicationSummary {
   Arn: string;
@@ -297,8 +459,7 @@ export interface ExportStreamSessionFilesInput {
   StreamSessionIdentifier: string;
   OutputUri: string;
 }
-export interface ExportStreamSessionFilesOutput {
-}
+export interface ExportStreamSessionFilesOutput {}
 export type FileLocationUri = string;
 
 export type FilePath = string;
@@ -517,9 +678,25 @@ export interface StartStreamSessionOutput {
   ApplicationArn?: string;
   ExportFilesMetadata?: ExportFilesMetadata;
 }
-export type StreamClass = "gen4n_high" | "gen4n_ultra" | "gen4n_win2022" | "gen5n_high" | "gen5n_ultra" | "gen5n_win2022";
-export type StreamGroupLocationStatus = "ACTIVATING" | "ACTIVE" | "ERROR" | "REMOVING";
-export type StreamGroupStatus = "ACTIVATING" | "UPDATING_LOCATIONS" | "ACTIVE" | "ACTIVE_WITH_ERRORS" | "ERROR" | "DELETING";
+export type StreamClass =
+  | "gen4n_high"
+  | "gen4n_ultra"
+  | "gen4n_win2022"
+  | "gen5n_high"
+  | "gen5n_ultra"
+  | "gen5n_win2022";
+export type StreamGroupLocationStatus =
+  | "ACTIVATING"
+  | "ACTIVE"
+  | "ERROR"
+  | "REMOVING";
+export type StreamGroupStatus =
+  | "ACTIVATING"
+  | "UPDATING_LOCATIONS"
+  | "ACTIVE"
+  | "ACTIVE_WITH_ERRORS"
+  | "ERROR"
+  | "DELETING";
 export type StreamGroupStatusReason = "internalError" | "noAvailableInstances";
 export interface StreamGroupSummary {
   Arn: string;
@@ -532,8 +709,20 @@ export interface StreamGroupSummary {
   LastUpdatedAt?: Date | string;
 }
 export type StreamGroupSummaryList = Array<StreamGroupSummary>;
-export type StreamSessionStatus = "ACTIVATING" | "ACTIVE" | "CONNECTED" | "PENDING_CLIENT_RECONNECTION" | "RECONNECTING" | "TERMINATING" | "TERMINATED" | "ERROR";
-export type StreamSessionStatusReason = "internalError" | "invalidSignalRequest" | "placementTimeout" | "applicationLogS3DestinationError";
+export type StreamSessionStatus =
+  | "ACTIVATING"
+  | "ACTIVE"
+  | "CONNECTED"
+  | "PENDING_CLIENT_RECONNECTION"
+  | "RECONNECTING"
+  | "TERMINATING"
+  | "TERMINATED"
+  | "ERROR";
+export type StreamSessionStatusReason =
+  | "internalError"
+  | "invalidSignalRequest"
+  | "placementTimeout"
+  | "applicationLogS3DestinationError";
 export interface StreamSessionSummary {
   Arn?: string;
   UserId?: string;
@@ -553,8 +742,7 @@ export interface TagResourceRequest {
   ResourceArn: string;
   Tags: Record<string, string>;
 }
-export interface TagResourceResponse {
-}
+export interface TagResourceResponse {}
 export type Tags = Record<string, string>;
 export type TagValue = string;
 
@@ -571,8 +759,7 @@ export interface UntagResourceRequest {
   ResourceArn: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {
-}
+export interface UntagResourceResponse {}
 export interface UpdateApplicationInput {
   Identifier: string;
   Description?: string;
@@ -914,4 +1101,3 @@ export declare namespace UpdateStreamGroup {
     | ValidationException
     | CommonAwsError;
 }
-

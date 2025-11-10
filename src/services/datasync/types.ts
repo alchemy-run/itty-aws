@@ -358,8 +358,7 @@ export type BytesPerSecond = number;
 export interface CancelTaskExecutionRequest {
   TaskExecutionArn: string;
 }
-export interface CancelTaskExecutionResponse {
-}
+export interface CancelTaskExecutionResponse {}
 export interface CmkSecretConfig {
   SecretArn?: string;
   KmsKeyArn?: string;
@@ -541,18 +540,15 @@ export interface CustomSecretConfig {
 export interface DeleteAgentRequest {
   AgentArn: string;
 }
-export interface DeleteAgentResponse {
-}
+export interface DeleteAgentResponse {}
 export interface DeleteLocationRequest {
   LocationArn: string;
 }
-export interface DeleteLocationResponse {
-}
+export interface DeleteLocationResponse {}
 export interface DeleteTaskRequest {
   TaskArn: string;
 }
-export interface DeleteTaskResponse {
-}
+export interface DeleteTaskResponse {}
 export interface DescribeAgentRequest {
   AgentArn: string;
 }
@@ -831,7 +827,11 @@ export type Gid = "NONE" | "INT_VALUE" | "NAME" | "BOTH";
 export type HdfsAuthenticationType = "SIMPLE" | "KERBEROS";
 export type HdfsBlockSize = number;
 
-export type HdfsDataTransferProtection = "DISABLED" | "AUTHENTICATION" | "INTEGRITY" | "PRIVACY";
+export type HdfsDataTransferProtection =
+  | "DISABLED"
+  | "AUTHENTICATION"
+  | "INTEGRITY"
+  | "PRIVACY";
 export interface HdfsNameNode {
   Hostname: string;
   Port: number;
@@ -839,7 +839,11 @@ export interface HdfsNameNode {
 export type HdfsNameNodeList = Array<HdfsNameNode>;
 export type HdfsReplicationFactor = number;
 
-export type HdfsRpcProtection = "DISABLED" | "AUTHENTICATION" | "INTEGRITY" | "PRIVACY";
+export type HdfsRpcProtection =
+  | "DISABLED"
+  | "AUTHENTICATION"
+  | "INTEGRITY"
+  | "PRIVACY";
 export type HdfsServerHostname = string;
 
 export type HdfsServerPort = number;
@@ -927,7 +931,10 @@ export interface LocationFilter {
   Values: Array<string>;
   Operator: Operator;
 }
-export type LocationFilterName = "LocationUri" | "LocationType" | "CreationTime";
+export type LocationFilterName =
+  | "LocationUri"
+  | "LocationType"
+  | "CreationTime";
 export type LocationFilters = Array<LocationFilter>;
 export type LocationList = Array<LocationListEntry>;
 export interface LocationListEntry {
@@ -980,7 +987,17 @@ export type ObjectVersionIds = "INCLUDE" | "NONE";
 export interface OnPremConfig {
   AgentArns: Array<string>;
 }
-export type Operator = "Equals" | "NotEquals" | "In" | "LessThanOrEqual" | "LessThan" | "GreaterThanOrEqual" | "GreaterThan" | "Contains" | "NotContains" | "BeginsWith";
+export type Operator =
+  | "Equals"
+  | "NotEquals"
+  | "In"
+  | "LessThanOrEqual"
+  | "LessThan"
+  | "GreaterThanOrEqual"
+  | "GreaterThan"
+  | "Contains"
+  | "NotContains"
+  | "BeginsWith";
 export interface Options {
   VerifyMode?: VerifyMode;
   OverwriteMode?: OverwriteMode;
@@ -1056,7 +1073,15 @@ export interface S3ManifestConfig {
 }
 export type S3ObjectVersionId = string;
 
-export type S3StorageClass = "STANDARD" | "STANDARD_IA" | "ONEZONE_IA" | "INTELLIGENT_TIERING" | "GLACIER" | "DEEP_ARCHIVE" | "OUTPOSTS" | "GLACIER_INSTANT_RETRIEVAL";
+export type S3StorageClass =
+  | "STANDARD"
+  | "STANDARD_IA"
+  | "ONEZONE_IA"
+  | "INTELLIGENT_TIERING"
+  | "GLACIER"
+  | "DEEP_ARCHIVE"
+  | "OUTPOSTS"
+  | "GLACIER_INSTANT_RETRIEVAL";
 export type S3Subdirectory = string;
 
 export type ScheduleDisabledBy = "USER" | "SERVICE";
@@ -1079,7 +1104,10 @@ export interface SmbMountOptions {
 }
 export type SmbPassword = string;
 
-export type SmbSecurityDescriptorCopyFlags = "NONE" | "OWNER_DACL" | "OWNER_DACL_SACL";
+export type SmbSecurityDescriptorCopyFlags =
+  | "NONE"
+  | "OWNER_DACL"
+  | "OWNER_DACL_SACL";
 export type SmbSubdirectory = string;
 
 export type SmbUser = string;
@@ -1118,8 +1146,7 @@ export interface TagResourceRequest {
   ResourceArn: string;
   Tags: Array<TagListEntry>;
 }
-export interface TagResourceResponse {
-}
+export interface TagResourceResponse {}
 export type TagValue = string;
 
 export type TaskArn = string;
@@ -1153,7 +1180,15 @@ export interface TaskExecutionResultDetail {
   ErrorCode?: string;
   ErrorDetail?: string;
 }
-export type TaskExecutionStatus = "QUEUED" | "CANCELLING" | "LAUNCHING" | "PREPARING" | "TRANSFERRING" | "VERIFYING" | "SUCCESS" | "ERROR";
+export type TaskExecutionStatus =
+  | "QUEUED"
+  | "CANCELLING"
+  | "LAUNCHING"
+  | "PREPARING"
+  | "TRANSFERRING"
+  | "VERIFYING"
+  | "SUCCESS"
+  | "ERROR";
 export interface TaskFilter {
   Name: TaskFilterName;
   Values: Array<string>;
@@ -1186,7 +1221,12 @@ export interface TaskScheduleDetails {
   DisabledReason?: string;
   DisabledBy?: ScheduleDisabledBy;
 }
-export type TaskStatus = "AVAILABLE" | "CREATING" | "QUEUED" | "RUNNING" | "UNAVAILABLE";
+export type TaskStatus =
+  | "AVAILABLE"
+  | "CREATING"
+  | "QUEUED"
+  | "RUNNING"
+  | "UNAVAILABLE";
 export type Time = Date | string;
 
 export type TransferMode = "CHANGED" | "ALL";
@@ -1195,14 +1235,12 @@ export interface UntagResourceRequest {
   ResourceArn: string;
   Keys: Array<string>;
 }
-export interface UntagResourceResponse {
-}
+export interface UntagResourceResponse {}
 export interface UpdateAgentRequest {
   AgentArn: string;
   Name?: string;
 }
-export interface UpdateAgentResponse {
-}
+export interface UpdateAgentResponse {}
 export type UpdatedEfsAccessPointArn = string;
 
 export type UpdatedEfsIamRoleArn = string;
@@ -1218,8 +1256,7 @@ export interface UpdateLocationAzureBlobRequest {
   CmkSecretConfig?: CmkSecretConfig;
   CustomSecretConfig?: CustomSecretConfig;
 }
-export interface UpdateLocationAzureBlobResponse {
-}
+export interface UpdateLocationAzureBlobResponse {}
 export interface UpdateLocationEfsRequest {
   LocationArn: string;
   Subdirectory?: string;
@@ -1227,28 +1264,24 @@ export interface UpdateLocationEfsRequest {
   FileSystemAccessRoleArn?: string;
   InTransitEncryption?: EfsInTransitEncryption;
 }
-export interface UpdateLocationEfsResponse {
-}
+export interface UpdateLocationEfsResponse {}
 export interface UpdateLocationFsxLustreRequest {
   LocationArn: string;
   Subdirectory?: string;
 }
-export interface UpdateLocationFsxLustreResponse {
-}
+export interface UpdateLocationFsxLustreResponse {}
 export interface UpdateLocationFsxOntapRequest {
   LocationArn: string;
   Protocol?: FsxUpdateProtocol;
   Subdirectory?: string;
 }
-export interface UpdateLocationFsxOntapResponse {
-}
+export interface UpdateLocationFsxOntapResponse {}
 export interface UpdateLocationFsxOpenZfsRequest {
   LocationArn: string;
   Protocol?: FsxProtocol;
   Subdirectory?: string;
 }
-export interface UpdateLocationFsxOpenZfsResponse {
-}
+export interface UpdateLocationFsxOpenZfsResponse {}
 export interface UpdateLocationFsxWindowsRequest {
   LocationArn: string;
   Subdirectory?: string;
@@ -1256,8 +1289,7 @@ export interface UpdateLocationFsxWindowsRequest {
   User?: string;
   Password?: string;
 }
-export interface UpdateLocationFsxWindowsResponse {
-}
+export interface UpdateLocationFsxWindowsResponse {}
 export interface UpdateLocationHdfsRequest {
   LocationArn: string;
   Subdirectory?: string;
@@ -1273,8 +1305,7 @@ export interface UpdateLocationHdfsRequest {
   KerberosKrb5Conf?: Uint8Array | string;
   AgentArns?: Array<string>;
 }
-export interface UpdateLocationHdfsResponse {
-}
+export interface UpdateLocationHdfsResponse {}
 export interface UpdateLocationNfsRequest {
   LocationArn: string;
   Subdirectory?: string;
@@ -1282,8 +1313,7 @@ export interface UpdateLocationNfsRequest {
   OnPremConfig?: OnPremConfig;
   MountOptions?: NfsMountOptions;
 }
-export interface UpdateLocationNfsResponse {
-}
+export interface UpdateLocationNfsResponse {}
 export interface UpdateLocationObjectStorageRequest {
   LocationArn: string;
   ServerPort?: number;
@@ -1297,16 +1327,14 @@ export interface UpdateLocationObjectStorageRequest {
   CmkSecretConfig?: CmkSecretConfig;
   CustomSecretConfig?: CustomSecretConfig;
 }
-export interface UpdateLocationObjectStorageResponse {
-}
+export interface UpdateLocationObjectStorageResponse {}
 export interface UpdateLocationS3Request {
   LocationArn: string;
   Subdirectory?: string;
   S3StorageClass?: S3StorageClass;
   S3Config?: S3Config;
 }
-export interface UpdateLocationS3Response {
-}
+export interface UpdateLocationS3Response {}
 export interface UpdateLocationSmbRequest {
   LocationArn: string;
   Subdirectory?: string;
@@ -1322,16 +1350,14 @@ export interface UpdateLocationSmbRequest {
   KerberosKeytab?: Uint8Array | string;
   KerberosKrb5Conf?: Uint8Array | string;
 }
-export interface UpdateLocationSmbResponse {
-}
+export interface UpdateLocationSmbResponse {}
 export type UpdateSmbDomain = string;
 
 export interface UpdateTaskExecutionRequest {
   TaskExecutionArn: string;
   Options: Options;
 }
-export interface UpdateTaskExecutionResponse {
-}
+export interface UpdateTaskExecutionResponse {}
 export interface UpdateTaskRequest {
   TaskArn: string;
   Options?: Options;
@@ -1343,9 +1369,11 @@ export interface UpdateTaskRequest {
   ManifestConfig?: ManifestConfig;
   TaskReportConfig?: TaskReportConfig;
 }
-export interface UpdateTaskResponse {
-}
-export type VerifyMode = "POINT_IN_TIME_CONSISTENT" | "ONLY_FILES_TRANSFERRED" | "NONE";
+export interface UpdateTaskResponse {}
+export type VerifyMode =
+  | "POINT_IN_TIME_CONSISTENT"
+  | "ONLY_FILES_TRANSFERRED"
+  | "NONE";
 export type VpcEndpointId = string;
 
 export declare namespace CancelTaskExecution {
@@ -1824,4 +1852,3 @@ export declare namespace UpdateTaskExecution {
     | InvalidRequestException
     | CommonAwsError;
 }
-

@@ -5,7 +5,23 @@ import type { BedrockAgentCoreControl as _BedrockAgentCoreControlClient } from "
 
 export * from "./types.ts";
 
-export {ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, type CommonAwsError} from "../../error.ts";
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+  type CommonAwsError,
+} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -15,57 +31,72 @@ const metadata = {
   sigV4ServiceName: "bedrock-agentcore",
   endpointPrefix: "bedrock-agentcore-control",
   operations: {
-    "GetTokenVault": "POST /identities/get-token-vault",
-    "SetTokenVaultCMK": "POST /identities/set-token-vault-cmk",
-    "CreateAgentRuntime": "PUT /runtimes/",
-    "CreateAgentRuntimeEndpoint": "PUT /runtimes/{agentRuntimeId}/runtime-endpoints/",
-    "CreateApiKeyCredentialProvider": "POST /identities/CreateApiKeyCredentialProvider",
-    "CreateBrowser": "PUT /browsers",
-    "CreateCodeInterpreter": "PUT /code-interpreters",
-    "CreateGateway": "POST /gateways/",
-    "CreateGatewayTarget": "POST /gateways/{gatewayIdentifier}/targets/",
-    "CreateMemory": "POST /memories/create",
-    "CreateOauth2CredentialProvider": "POST /identities/CreateOauth2CredentialProvider",
-    "CreateWorkloadIdentity": "POST /identities/CreateWorkloadIdentity",
-    "DeleteAgentRuntime": "DELETE /runtimes/{agentRuntimeId}/",
-    "DeleteAgentRuntimeEndpoint": "DELETE /runtimes/{agentRuntimeId}/runtime-endpoints/{endpointName}/",
-    "DeleteApiKeyCredentialProvider": "POST /identities/DeleteApiKeyCredentialProvider",
-    "DeleteBrowser": "DELETE /browsers/{browserId}",
-    "DeleteCodeInterpreter": "DELETE /code-interpreters/{codeInterpreterId}",
-    "DeleteGateway": "DELETE /gateways/{gatewayIdentifier}/",
-    "DeleteGatewayTarget": "DELETE /gateways/{gatewayIdentifier}/targets/{targetId}/",
-    "DeleteMemory": "DELETE /memories/{memoryId}/delete",
-    "DeleteOauth2CredentialProvider": "POST /identities/DeleteOauth2CredentialProvider",
-    "DeleteWorkloadIdentity": "POST /identities/DeleteWorkloadIdentity",
-    "GetAgentRuntime": "GET /runtimes/{agentRuntimeId}/",
-    "GetAgentRuntimeEndpoint": "GET /runtimes/{agentRuntimeId}/runtime-endpoints/{endpointName}/",
-    "GetApiKeyCredentialProvider": "POST /identities/GetApiKeyCredentialProvider",
-    "GetBrowser": "GET /browsers/{browserId}",
-    "GetCodeInterpreter": "GET /code-interpreters/{codeInterpreterId}",
-    "GetGateway": "GET /gateways/{gatewayIdentifier}/",
-    "GetGatewayTarget": "GET /gateways/{gatewayIdentifier}/targets/{targetId}/",
-    "GetMemory": "GET /memories/{memoryId}/details",
-    "GetOauth2CredentialProvider": "POST /identities/GetOauth2CredentialProvider",
-    "GetWorkloadIdentity": "POST /identities/GetWorkloadIdentity",
-    "ListAgentRuntimeEndpoints": "POST /runtimes/{agentRuntimeId}/runtime-endpoints/",
-    "ListAgentRuntimeVersions": "POST /runtimes/{agentRuntimeId}/versions/",
-    "ListAgentRuntimes": "POST /runtimes/",
-    "ListApiKeyCredentialProviders": "POST /identities/ListApiKeyCredentialProviders",
-    "ListBrowsers": "POST /browsers",
-    "ListCodeInterpreters": "POST /code-interpreters",
-    "ListGatewayTargets": "GET /gateways/{gatewayIdentifier}/targets/",
-    "ListGateways": "GET /gateways/",
-    "ListMemories": "POST /memories/",
-    "ListOauth2CredentialProviders": "POST /identities/ListOauth2CredentialProviders",
-    "ListWorkloadIdentities": "POST /identities/ListWorkloadIdentities",
-    "UpdateAgentRuntime": "PUT /runtimes/{agentRuntimeId}/",
-    "UpdateAgentRuntimeEndpoint": "PUT /runtimes/{agentRuntimeId}/runtime-endpoints/{endpointName}/",
-    "UpdateApiKeyCredentialProvider": "POST /identities/UpdateApiKeyCredentialProvider",
-    "UpdateGateway": "PUT /gateways/{gatewayIdentifier}/",
-    "UpdateGatewayTarget": "PUT /gateways/{gatewayIdentifier}/targets/{targetId}/",
-    "UpdateMemory": "PUT /memories/{memoryId}/update",
-    "UpdateOauth2CredentialProvider": "POST /identities/UpdateOauth2CredentialProvider",
-    "UpdateWorkloadIdentity": "POST /identities/UpdateWorkloadIdentity",
+    GetTokenVault: "POST /identities/get-token-vault",
+    SetTokenVaultCMK: "POST /identities/set-token-vault-cmk",
+    CreateAgentRuntime: "PUT /runtimes/",
+    CreateAgentRuntimeEndpoint:
+      "PUT /runtimes/{agentRuntimeId}/runtime-endpoints/",
+    CreateApiKeyCredentialProvider:
+      "POST /identities/CreateApiKeyCredentialProvider",
+    CreateBrowser: "PUT /browsers",
+    CreateCodeInterpreter: "PUT /code-interpreters",
+    CreateGateway: "POST /gateways/",
+    CreateGatewayTarget: "POST /gateways/{gatewayIdentifier}/targets/",
+    CreateMemory: "POST /memories/create",
+    CreateOauth2CredentialProvider:
+      "POST /identities/CreateOauth2CredentialProvider",
+    CreateWorkloadIdentity: "POST /identities/CreateWorkloadIdentity",
+    DeleteAgentRuntime: "DELETE /runtimes/{agentRuntimeId}/",
+    DeleteAgentRuntimeEndpoint:
+      "DELETE /runtimes/{agentRuntimeId}/runtime-endpoints/{endpointName}/",
+    DeleteApiKeyCredentialProvider:
+      "POST /identities/DeleteApiKeyCredentialProvider",
+    DeleteBrowser: "DELETE /browsers/{browserId}",
+    DeleteCodeInterpreter: "DELETE /code-interpreters/{codeInterpreterId}",
+    DeleteGateway: "DELETE /gateways/{gatewayIdentifier}/",
+    DeleteGatewayTarget:
+      "DELETE /gateways/{gatewayIdentifier}/targets/{targetId}/",
+    DeleteMemory: "DELETE /memories/{memoryId}/delete",
+    DeleteOauth2CredentialProvider:
+      "POST /identities/DeleteOauth2CredentialProvider",
+    DeleteWorkloadIdentity: "POST /identities/DeleteWorkloadIdentity",
+    GetAgentRuntime: "GET /runtimes/{agentRuntimeId}/",
+    GetAgentRuntimeEndpoint:
+      "GET /runtimes/{agentRuntimeId}/runtime-endpoints/{endpointName}/",
+    GetApiKeyCredentialProvider: "POST /identities/GetApiKeyCredentialProvider",
+    GetBrowser: "GET /browsers/{browserId}",
+    GetCodeInterpreter: "GET /code-interpreters/{codeInterpreterId}",
+    GetGateway: "GET /gateways/{gatewayIdentifier}/",
+    GetGatewayTarget: "GET /gateways/{gatewayIdentifier}/targets/{targetId}/",
+    GetMemory: "GET /memories/{memoryId}/details",
+    GetOauth2CredentialProvider: "POST /identities/GetOauth2CredentialProvider",
+    GetWorkloadIdentity: "POST /identities/GetWorkloadIdentity",
+    ListAgentRuntimeEndpoints:
+      "POST /runtimes/{agentRuntimeId}/runtime-endpoints/",
+    ListAgentRuntimeVersions: "POST /runtimes/{agentRuntimeId}/versions/",
+    ListAgentRuntimes: "POST /runtimes/",
+    ListApiKeyCredentialProviders:
+      "POST /identities/ListApiKeyCredentialProviders",
+    ListBrowsers: "POST /browsers",
+    ListCodeInterpreters: "POST /code-interpreters",
+    ListGatewayTargets: "GET /gateways/{gatewayIdentifier}/targets/",
+    ListGateways: "GET /gateways/",
+    ListMemories: "POST /memories/",
+    ListOauth2CredentialProviders:
+      "POST /identities/ListOauth2CredentialProviders",
+    ListWorkloadIdentities: "POST /identities/ListWorkloadIdentities",
+    UpdateAgentRuntime: "PUT /runtimes/{agentRuntimeId}/",
+    UpdateAgentRuntimeEndpoint:
+      "PUT /runtimes/{agentRuntimeId}/runtime-endpoints/{endpointName}/",
+    UpdateApiKeyCredentialProvider:
+      "POST /identities/UpdateApiKeyCredentialProvider",
+    UpdateGateway: "PUT /gateways/{gatewayIdentifier}/",
+    UpdateGatewayTarget:
+      "PUT /gateways/{gatewayIdentifier}/targets/{targetId}/",
+    UpdateMemory: "PUT /memories/{memoryId}/update",
+    UpdateOauth2CredentialProvider:
+      "POST /identities/UpdateOauth2CredentialProvider",
+    UpdateWorkloadIdentity: "POST /identities/UpdateWorkloadIdentity",
   },
 } as const satisfies ServiceMetadata;
 

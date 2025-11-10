@@ -1,6 +1,38 @@
 import type { Effect, Data as EffectData } from "effect";
-import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
-type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
+import type {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+type CommonAwsError =
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | AccessDeniedException
+  | ThrottlingException
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class Evidently extends AWSServiceClient {
@@ -8,229 +40,392 @@ export declare class Evidently extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    ConflictException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | ConflictException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    ConflictException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | ConflictException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   testSegmentPattern(
     input: TestSegmentPatternRequest,
   ): Effect.Effect<
     TestSegmentPatternResponse,
-    AccessDeniedException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    ConflictException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | ConflictException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   batchEvaluateFeature(
     input: BatchEvaluateFeatureRequest,
   ): Effect.Effect<
     BatchEvaluateFeatureResponse,
-    AccessDeniedException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createExperiment(
     input: CreateExperimentRequest,
   ): Effect.Effect<
     CreateExperimentResponse,
-    AccessDeniedException | ConflictException | ResourceNotFoundException | ServiceQuotaExceededException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ValidationException
+    | CommonAwsError
   >;
   createFeature(
     input: CreateFeatureRequest,
   ): Effect.Effect<
     CreateFeatureResponse,
-    AccessDeniedException | ConflictException | ResourceNotFoundException | ServiceQuotaExceededException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ValidationException
+    | CommonAwsError
   >;
   createLaunch(
     input: CreateLaunchRequest,
   ): Effect.Effect<
     CreateLaunchResponse,
-    AccessDeniedException | ConflictException | ResourceNotFoundException | ServiceQuotaExceededException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ValidationException
+    | CommonAwsError
   >;
   createProject(
     input: CreateProjectRequest,
   ): Effect.Effect<
     CreateProjectResponse,
-    AccessDeniedException | ConflictException | ServiceQuotaExceededException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | ServiceQuotaExceededException
+    | ValidationException
+    | CommonAwsError
   >;
   createSegment(
     input: CreateSegmentRequest,
   ): Effect.Effect<
     CreateSegmentResponse,
-    AccessDeniedException | ConflictException | ServiceQuotaExceededException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | ServiceQuotaExceededException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteExperiment(
     input: DeleteExperimentRequest,
   ): Effect.Effect<
     DeleteExperimentResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceUnavailableException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteFeature(
     input: DeleteFeatureRequest,
   ): Effect.Effect<
     DeleteFeatureResponse,
-    AccessDeniedException | ConflictException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteLaunch(
     input: DeleteLaunchRequest,
   ): Effect.Effect<
     DeleteLaunchResponse,
-    AccessDeniedException | ConflictException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteProject(
     input: DeleteProjectRequest,
   ): Effect.Effect<
     DeleteProjectResponse,
-    AccessDeniedException | ConflictException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteSegment(
     input: DeleteSegmentRequest,
   ): Effect.Effect<
     DeleteSegmentResponse,
-    AccessDeniedException | ConflictException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   evaluateFeature(
     input: EvaluateFeatureRequest,
   ): Effect.Effect<
     EvaluateFeatureResponse,
-    AccessDeniedException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getExperiment(
     input: GetExperimentRequest,
   ): Effect.Effect<
     GetExperimentResponse,
-    AccessDeniedException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getExperimentResults(
     input: GetExperimentResultsRequest,
   ): Effect.Effect<
     GetExperimentResultsResponse,
-    AccessDeniedException | ConflictException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getFeature(
     input: GetFeatureRequest,
   ): Effect.Effect<
     GetFeatureResponse,
-    AccessDeniedException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getLaunch(
     input: GetLaunchRequest,
   ): Effect.Effect<
     GetLaunchResponse,
-    AccessDeniedException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getProject(
     input: GetProjectRequest,
   ): Effect.Effect<
     GetProjectResponse,
-    AccessDeniedException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getSegment(
     input: GetSegmentRequest,
   ): Effect.Effect<
     GetSegmentResponse,
-    AccessDeniedException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listExperiments(
     input: ListExperimentsRequest,
   ): Effect.Effect<
     ListExperimentsResponse,
-    AccessDeniedException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   listFeatures(
     input: ListFeaturesRequest,
   ): Effect.Effect<
     ListFeaturesResponse,
-    AccessDeniedException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listLaunches(
     input: ListLaunchesRequest,
   ): Effect.Effect<
     ListLaunchesResponse,
-    AccessDeniedException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listProjects(
     input: ListProjectsRequest,
   ): Effect.Effect<
     ListProjectsResponse,
-    AccessDeniedException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listSegmentReferences(
     input: ListSegmentReferencesRequest,
   ): Effect.Effect<
     ListSegmentReferencesResponse,
-    AccessDeniedException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listSegments(
     input: ListSegmentsRequest,
   ): Effect.Effect<
     ListSegmentsResponse,
-    AccessDeniedException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   putProjectEvents(
     input: PutProjectEventsRequest,
   ): Effect.Effect<
     PutProjectEventsResponse,
-    AccessDeniedException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   startExperiment(
     input: StartExperimentRequest,
   ): Effect.Effect<
     StartExperimentResponse,
-    AccessDeniedException | ConflictException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   startLaunch(
     input: StartLaunchRequest,
   ): Effect.Effect<
     StartLaunchResponse,
-    AccessDeniedException | ConflictException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   stopExperiment(
     input: StopExperimentRequest,
   ): Effect.Effect<
     StopExperimentResponse,
-    AccessDeniedException | ConflictException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   stopLaunch(
     input: StopLaunchRequest,
   ): Effect.Effect<
     StopLaunchResponse,
-    AccessDeniedException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateExperiment(
     input: UpdateExperimentRequest,
   ): Effect.Effect<
     UpdateExperimentResponse,
-    AccessDeniedException | ConflictException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   updateFeature(
     input: UpdateFeatureRequest,
   ): Effect.Effect<
     UpdateFeatureResponse,
-    AccessDeniedException | ConflictException | ResourceNotFoundException | ServiceQuotaExceededException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ValidationException
+    | CommonAwsError
   >;
   updateLaunch(
     input: UpdateLaunchRequest,
   ): Effect.Effect<
     UpdateLaunchResponse,
-    AccessDeniedException | ConflictException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   updateProject(
     input: UpdateProjectRequest,
   ): Effect.Effect<
     UpdateProjectResponse,
-    AccessDeniedException | ConflictException | ResourceNotFoundException | ServiceQuotaExceededException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ValidationException
+    | CommonAwsError
   >;
   updateProjectDataDelivery(
     input: UpdateProjectDataDeliveryRequest,
   ): Effect.Effect<
     UpdateProjectDataDeliveryResponse,
-    AccessDeniedException | ConflictException | ResourceNotFoundException | ServiceQuotaExceededException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ValidationException
+    | CommonAwsError
   >;
 }
 
@@ -333,30 +528,25 @@ export interface DeleteExperimentRequest {
   project: string;
   experiment: string;
 }
-export interface DeleteExperimentResponse {
-}
+export interface DeleteExperimentResponse {}
 export interface DeleteFeatureRequest {
   project: string;
   feature: string;
 }
-export interface DeleteFeatureResponse {
-}
+export interface DeleteFeatureResponse {}
 export interface DeleteLaunchRequest {
   project: string;
   launch: string;
 }
-export interface DeleteLaunchResponse {
-}
+export interface DeleteLaunchResponse {}
 export interface DeleteProjectRequest {
   project: string;
 }
-export interface DeleteProjectResponse {
-}
+export interface DeleteProjectResponse {}
 export interface DeleteSegmentRequest {
   segment: string;
 }
-export interface DeleteSegmentResponse {
-}
+export interface DeleteSegmentResponse {}
 export type Description = string;
 
 export type DoubleValueList = Array<number>;
@@ -803,7 +993,8 @@ export interface PutProjectEventsResultEntry {
   errorCode?: string;
   errorMessage?: string;
 }
-export type PutProjectEventsResultEntryList = Array<PutProjectEventsResultEntry>;
+export type PutProjectEventsResultEntryList =
+  Array<PutProjectEventsResultEntry>;
 export type RandomizationSalt = string;
 
 export interface RefResource {
@@ -944,8 +1135,7 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {
-}
+export interface TagResourceResponse {}
 export type TagValue = string;
 
 export interface TestSegmentPatternRequest {
@@ -984,8 +1174,7 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {
-}
+export interface UntagResourceResponse {}
 export interface UpdateExperimentRequest {
   project: string;
   experiment: string;
@@ -1065,7 +1254,11 @@ interface _VariableValue {
   doubleValue?: number;
 }
 
-export type VariableValue = (_VariableValue & { boolValue: boolean }) | (_VariableValue & { stringValue: string }) | (_VariableValue & { longValue: number }) | (_VariableValue & { doubleValue: number });
+export type VariableValue =
+  | (_VariableValue & { boolValue: boolean })
+  | (_VariableValue & { stringValue: string })
+  | (_VariableValue & { longValue: number })
+  | (_VariableValue & { doubleValue: number });
 export interface Variation {
   name?: string;
   value?: VariableValue;
@@ -1509,4 +1702,3 @@ export declare namespace UpdateProjectDataDelivery {
     | ValidationException
     | CommonAwsError;
 }
-

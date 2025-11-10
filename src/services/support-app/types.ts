@@ -1,6 +1,39 @@
 import type { Effect, Data as EffectData } from "effect";
-import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
-type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | ThrottlingException | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ValidationException;
+import type {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  ThrottlingException,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+type CommonAwsError =
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | ThrottlingException
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | AccessDeniedException
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class SupportApp extends AWSServiceClient {
@@ -8,25 +41,43 @@ export declare class SupportApp extends AWSServiceClient {
     input: CreateSlackChannelConfigurationRequest,
   ): Effect.Effect<
     CreateSlackChannelConfigurationResult,
-    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteAccountAlias(
     input: DeleteAccountAliasRequest,
   ): Effect.Effect<
     DeleteAccountAliasResult,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   deleteSlackChannelConfiguration(
     input: DeleteSlackChannelConfigurationRequest,
   ): Effect.Effect<
     DeleteSlackChannelConfigurationResult,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteSlackWorkspaceConfiguration(
     input: DeleteSlackWorkspaceConfigurationRequest,
   ): Effect.Effect<
     DeleteSlackWorkspaceConfigurationResult,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   getAccountAlias(
     input: GetAccountAliasRequest,
@@ -50,19 +101,32 @@ export declare class SupportApp extends AWSServiceClient {
     input: PutAccountAliasRequest,
   ): Effect.Effect<
     PutAccountAliasResult,
-    AccessDeniedException | InternalServerException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ValidationException
+    | CommonAwsError
   >;
   registerSlackWorkspaceForOrganization(
     input: RegisterSlackWorkspaceForOrganizationRequest,
   ): Effect.Effect<
     RegisterSlackWorkspaceForOrganizationResult,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   updateSlackChannelConfiguration(
     input: UpdateSlackChannelConfigurationRequest,
   ): Effect.Effect<
     UpdateSlackChannelConfigurationResult,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
 }
 
@@ -96,27 +160,21 @@ export interface CreateSlackChannelConfigurationRequest {
   notifyOnCaseSeverity: string;
   channelRoleArn: string;
 }
-export interface CreateSlackChannelConfigurationResult {
-}
-export interface DeleteAccountAliasRequest {
-}
-export interface DeleteAccountAliasResult {
-}
+export interface CreateSlackChannelConfigurationResult {}
+export interface DeleteAccountAliasRequest {}
+export interface DeleteAccountAliasResult {}
 export interface DeleteSlackChannelConfigurationRequest {
   teamId: string;
   channelId: string;
 }
-export interface DeleteSlackChannelConfigurationResult {
-}
+export interface DeleteSlackChannelConfigurationResult {}
 export interface DeleteSlackWorkspaceConfigurationRequest {
   teamId: string;
 }
-export interface DeleteSlackWorkspaceConfigurationResult {
-}
+export interface DeleteSlackWorkspaceConfigurationResult {}
 export type errorMessage = string;
 
-export interface GetAccountAliasRequest {
-}
+export interface GetAccountAliasRequest {}
 export interface GetAccountAliasResult {
   accountAlias?: string;
 }
@@ -146,8 +204,7 @@ export type paginationToken = string;
 export interface PutAccountAliasRequest {
   accountAlias: string;
 }
-export interface PutAccountAliasResult {
-}
+export interface PutAccountAliasResult {}
 export interface RegisterSlackWorkspaceForOrganizationRequest {
   teamId: string;
 }
@@ -184,7 +241,8 @@ export interface SlackWorkspaceConfiguration {
   teamName?: string;
   allowOrganizationMemberAccount?: boolean;
 }
-export type SlackWorkspaceConfigurationList = Array<SlackWorkspaceConfiguration>;
+export type SlackWorkspaceConfigurationList =
+  Array<SlackWorkspaceConfiguration>;
 export type teamId = string;
 
 export type teamName = string;
@@ -263,9 +321,7 @@ export declare namespace DeleteSlackWorkspaceConfiguration {
 export declare namespace GetAccountAlias {
   export type Input = GetAccountAliasRequest;
   export type Output = GetAccountAliasResult;
-  export type Error =
-    | InternalServerException
-    | CommonAwsError;
+  export type Error = InternalServerException | CommonAwsError;
 }
 
 export declare namespace ListSlackChannelConfigurations {
@@ -319,4 +375,3 @@ export declare namespace UpdateSlackChannelConfiguration {
     | ValidationException
     | CommonAwsError;
 }
-

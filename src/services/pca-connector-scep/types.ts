@@ -1,6 +1,38 @@
 import type { Effect, Data as EffectData } from "effect";
-import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
-type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
+import type {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+type CommonAwsError =
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | AccessDeniedException
+  | ThrottlingException
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class PcaConnectorScep extends AWSServiceClient {
@@ -8,73 +40,139 @@ export declare class PcaConnectorScep extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     {},
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     {},
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createChallenge(
     input: CreateChallengeRequest,
   ): Effect.Effect<
     CreateChallengeResponse,
-    AccessDeniedException | BadRequestException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | BadRequestException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createConnector(
     input: CreateConnectorRequest,
   ): Effect.Effect<
     CreateConnectorResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteChallenge(
     input: DeleteChallengeRequest,
   ): Effect.Effect<
     {},
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteConnector(
     input: DeleteConnectorRequest,
   ): Effect.Effect<
     {},
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getChallengeMetadata(
     input: GetChallengeMetadataRequest,
   ): Effect.Effect<
     GetChallengeMetadataResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getChallengePassword(
     input: GetChallengePasswordRequest,
   ): Effect.Effect<
     GetChallengePasswordResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getConnector(
     input: GetConnectorRequest,
   ): Effect.Effect<
     GetConnectorResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listChallengeMetadata(
     input: ListChallengeMetadataRequest,
   ): Effect.Effect<
     ListChallengeMetadataResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listConnectors(
     input: ListConnectorsRequest,
   ): Effect.Effect<
     ListConnectorsResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
 }
 
@@ -141,7 +239,11 @@ export type ConnectorArn = string;
 
 export type ConnectorList = Array<ConnectorSummary>;
 export type ConnectorStatus = "CREATING" | "ACTIVE" | "DELETING" | "FAILED";
-export type ConnectorStatusReason = "INTERNAL_FAILURE" | "PRIVATECA_ACCESS_DENIED" | "PRIVATECA_INVALID_STATE" | "PRIVATECA_RESOURCE_NOT_FOUND";
+export type ConnectorStatusReason =
+  | "INTERNAL_FAILURE"
+  | "PRIVATECA_ACCESS_DENIED"
+  | "PRIVATECA_INVALID_STATE"
+  | "PRIVATECA_RESOURCE_NOT_FOUND";
 export interface ConnectorSummary {
   Arn?: string;
   CertificateAuthorityArn?: string;
@@ -234,7 +336,9 @@ interface _MobileDeviceManagement {
   Intune?: IntuneConfiguration;
 }
 
-export type MobileDeviceManagement = (_MobileDeviceManagement & { Intune: IntuneConfiguration });
+export type MobileDeviceManagement = _MobileDeviceManagement & {
+  Intune: IntuneConfiguration;
+};
 export type NextToken = string;
 
 export interface OpenIdConfiguration {
@@ -280,7 +384,14 @@ export declare class ValidationException extends EffectData.TaggedError(
   readonly Message: string;
   readonly Reason?: ValidationExceptionReason;
 }> {}
-export type ValidationExceptionReason = "CA_CERT_VALIDITY_TOO_SHORT" | "INVALID_CA_USAGE_MODE" | "INVALID_CONNECTOR_TYPE" | "INVALID_STATE" | "NO_CLIENT_TOKEN" | "UNKNOWN_OPERATION" | "OTHER";
+export type ValidationExceptionReason =
+  | "CA_CERT_VALIDITY_TOO_SHORT"
+  | "INVALID_CA_USAGE_MODE"
+  | "INVALID_CONNECTOR_TYPE"
+  | "INVALID_STATE"
+  | "NO_CLIENT_TOKEN"
+  | "UNKNOWN_OPERATION"
+  | "OTHER";
 export declare namespace ListTagsForResource {
   export type Input = ListTagsForResourceRequest;
   export type Output = ListTagsForResourceResponse;
@@ -430,4 +541,3 @@ export declare namespace ListConnectors {
     | ValidationException
     | CommonAwsError;
 }
-

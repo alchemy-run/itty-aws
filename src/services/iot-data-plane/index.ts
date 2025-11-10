@@ -5,7 +5,24 @@ import type { IoTDataPlane as _IoTDataPlaneClient } from "./types.ts";
 
 export * from "./types.ts";
 
-export {AccessDeniedException, ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, ValidationException, type CommonAwsError} from "../../error.ts";
+export {
+  AccessDeniedException,
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+  ValidationException,
+  type CommonAwsError,
+} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -15,26 +32,27 @@ const metadata = {
   sigV4ServiceName: "iotdata",
   endpointPrefix: "data-ats.iot",
   operations: {
-    "DeleteThingShadow": {
+    DeleteThingShadow: {
       http: "DELETE /things/{thingName}/shadow",
       traits: {
-        "payload": "httpPayload",
+        payload: "httpPayload",
       },
     },
-    "GetRetainedMessage": "GET /retainedMessage/{topic}",
-    "GetThingShadow": {
+    GetRetainedMessage: "GET /retainedMessage/{topic}",
+    GetThingShadow: {
       http: "GET /things/{thingName}/shadow",
       traits: {
-        "payload": "httpPayload",
+        payload: "httpPayload",
       },
     },
-    "ListNamedShadowsForThing": "GET /api/things/shadow/ListNamedShadowsForThing/{thingName}",
-    "ListRetainedMessages": "GET /retainedMessage",
-    "Publish": "POST /topics/{topic}",
-    "UpdateThingShadow": {
+    ListNamedShadowsForThing:
+      "GET /api/things/shadow/ListNamedShadowsForThing/{thingName}",
+    ListRetainedMessages: "GET /retainedMessage",
+    Publish: "POST /topics/{topic}",
+    UpdateThingShadow: {
       http: "POST /things/{thingName}/shadow",
       traits: {
-        "payload": "httpPayload",
+        payload: "httpPayload",
       },
     },
   },

@@ -5,7 +5,23 @@ import type { BedrockAgentRuntime as _BedrockAgentRuntimeClient } from "./types.
 
 export * from "./types.ts";
 
-export {ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, type CommonAwsError} from "../../error.ts";
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+  type CommonAwsError,
+} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -15,69 +31,77 @@ const metadata = {
   sigV4ServiceName: "bedrock",
   endpointPrefix: "bedrock-agent-runtime",
   operations: {
-    "CreateInvocation": "PUT /sessions/{sessionIdentifier}/invocations/",
-    "CreateSession": "PUT /sessions/",
-    "DeleteAgentMemory": "DELETE /agents/{agentId}/agentAliases/{agentAliasId}/memories",
-    "DeleteSession": "DELETE /sessions/{sessionIdentifier}/",
-    "EndSession": "PATCH /sessions/{sessionIdentifier}",
-    "GenerateQuery": "POST /generateQuery",
-    "GetAgentMemory": "GET /agents/{agentId}/agentAliases/{agentAliasId}/memories",
-    "GetExecutionFlowSnapshot": "GET /flows/{flowIdentifier}/aliases/{flowAliasIdentifier}/executions/{executionIdentifier}/flowsnapshot",
-    "GetFlowExecution": "GET /flows/{flowIdentifier}/aliases/{flowAliasIdentifier}/executions/{executionIdentifier}",
-    "GetInvocationStep": "POST /sessions/{sessionIdentifier}/invocationSteps/{invocationStepId}",
-    "GetSession": "GET /sessions/{sessionIdentifier}/",
-    "InvokeAgent": {
+    CreateInvocation: "PUT /sessions/{sessionIdentifier}/invocations/",
+    CreateSession: "PUT /sessions/",
+    DeleteAgentMemory:
+      "DELETE /agents/{agentId}/agentAliases/{agentAliasId}/memories",
+    DeleteSession: "DELETE /sessions/{sessionIdentifier}/",
+    EndSession: "PATCH /sessions/{sessionIdentifier}",
+    GenerateQuery: "POST /generateQuery",
+    GetAgentMemory:
+      "GET /agents/{agentId}/agentAliases/{agentAliasId}/memories",
+    GetExecutionFlowSnapshot:
+      "GET /flows/{flowIdentifier}/aliases/{flowAliasIdentifier}/executions/{executionIdentifier}/flowsnapshot",
+    GetFlowExecution:
+      "GET /flows/{flowIdentifier}/aliases/{flowAliasIdentifier}/executions/{executionIdentifier}",
+    GetInvocationStep:
+      "POST /sessions/{sessionIdentifier}/invocationSteps/{invocationStepId}",
+    GetSession: "GET /sessions/{sessionIdentifier}/",
+    InvokeAgent: {
       http: "POST /agents/{agentId}/agentAliases/{agentAliasId}/sessions/{sessionId}/text",
       traits: {
-        "completion": "httpStreaming",
-        "contentType": "x-amzn-bedrock-agent-content-type",
-        "sessionId": "x-amz-bedrock-agent-session-id",
-        "memoryId": "x-amz-bedrock-agent-memory-id",
+        completion: "httpStreaming",
+        contentType: "x-amzn-bedrock-agent-content-type",
+        sessionId: "x-amz-bedrock-agent-session-id",
+        memoryId: "x-amz-bedrock-agent-memory-id",
       },
     },
-    "InvokeFlow": {
+    InvokeFlow: {
       http: "POST /flows/{flowIdentifier}/aliases/{flowAliasIdentifier}",
       traits: {
-        "responseStream": "httpPayload",
-        "executionId": "x-amz-bedrock-flow-execution-id",
+        responseStream: "httpPayload",
+        executionId: "x-amz-bedrock-flow-execution-id",
       },
     },
-    "InvokeInlineAgent": {
+    InvokeInlineAgent: {
       http: "POST /agents/{sessionId}",
       traits: {
-        "completion": "httpPayload",
-        "contentType": "x-amzn-bedrock-agent-content-type",
-        "sessionId": "x-amz-bedrock-agent-session-id",
+        completion: "httpPayload",
+        contentType: "x-amzn-bedrock-agent-content-type",
+        sessionId: "x-amz-bedrock-agent-session-id",
       },
     },
-    "ListFlowExecutionEvents": "GET /flows/{flowIdentifier}/aliases/{flowAliasIdentifier}/executions/{executionIdentifier}/events",
-    "ListFlowExecutions": "GET /flows/{flowIdentifier}/executions",
-    "ListInvocationSteps": "POST /sessions/{sessionIdentifier}/invocationSteps/",
-    "ListInvocations": "POST /sessions/{sessionIdentifier}/invocations/",
-    "ListSessions": "POST /sessions/",
-    "ListTagsForResource": "GET /tags/{resourceArn}",
-    "OptimizePrompt": {
+    ListFlowExecutionEvents:
+      "GET /flows/{flowIdentifier}/aliases/{flowAliasIdentifier}/executions/{executionIdentifier}/events",
+    ListFlowExecutions: "GET /flows/{flowIdentifier}/executions",
+    ListInvocationSteps: "POST /sessions/{sessionIdentifier}/invocationSteps/",
+    ListInvocations: "POST /sessions/{sessionIdentifier}/invocations/",
+    ListSessions: "POST /sessions/",
+    ListTagsForResource: "GET /tags/{resourceArn}",
+    OptimizePrompt: {
       http: "POST /optimize-prompt",
       traits: {
-        "optimizedPrompt": "httpPayload",
+        optimizedPrompt: "httpPayload",
       },
     },
-    "PutInvocationStep": "PUT /sessions/{sessionIdentifier}/invocationSteps/",
-    "Rerank": "POST /rerank",
-    "Retrieve": "POST /knowledgebases/{knowledgeBaseId}/retrieve",
-    "RetrieveAndGenerate": "POST /retrieveAndGenerate",
-    "RetrieveAndGenerateStream": {
+    PutInvocationStep: "PUT /sessions/{sessionIdentifier}/invocationSteps/",
+    Rerank: "POST /rerank",
+    Retrieve: "POST /knowledgebases/{knowledgeBaseId}/retrieve",
+    RetrieveAndGenerate: "POST /retrieveAndGenerate",
+    RetrieveAndGenerateStream: {
       http: "POST /retrieveAndGenerateStream",
       traits: {
-        "stream": "httpPayload",
-        "sessionId": "x-amzn-bedrock-knowledge-base-session-id",
+        stream: "httpPayload",
+        sessionId: "x-amzn-bedrock-knowledge-base-session-id",
       },
     },
-    "StartFlowExecution": "POST /flows/{flowIdentifier}/aliases/{flowAliasIdentifier}/executions",
-    "StopFlowExecution": "POST /flows/{flowIdentifier}/aliases/{flowAliasIdentifier}/executions/{executionIdentifier}/stop",
-    "TagResource": "POST /tags/{resourceArn}",
-    "UntagResource": "DELETE /tags/{resourceArn}",
-    "UpdateSession": "PUT /sessions/{sessionIdentifier}/",
+    StartFlowExecution:
+      "POST /flows/{flowIdentifier}/aliases/{flowAliasIdentifier}/executions",
+    StopFlowExecution:
+      "POST /flows/{flowIdentifier}/aliases/{flowAliasIdentifier}/executions/{executionIdentifier}/stop",
+    TagResource: "POST /tags/{resourceArn}",
+    UntagResource: "DELETE /tags/{resourceArn}",
+    UpdateSession: "PUT /sessions/{sessionIdentifier}/",
   },
 } as const satisfies ServiceMetadata;
 

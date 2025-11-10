@@ -5,7 +5,23 @@ import type { GeoPlaces as _GeoPlacesClient } from "./types.ts";
 
 export * from "./types.ts";
 
-export {ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, type CommonAwsError} from "../../error.ts";
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+  type CommonAwsError,
+} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -14,46 +30,46 @@ const metadata = {
   protocol: "restJson1",
   sigV4ServiceName: "geo-places",
   operations: {
-    "Autocomplete": {
+    Autocomplete: {
       http: "POST /autocomplete",
       traits: {
-        "PricingBucket": "x-amz-geo-pricing-bucket",
+        PricingBucket: "x-amz-geo-pricing-bucket",
       },
     },
-    "Geocode": {
+    Geocode: {
       http: "POST /geocode",
       traits: {
-        "PricingBucket": "x-amz-geo-pricing-bucket",
+        PricingBucket: "x-amz-geo-pricing-bucket",
       },
     },
-    "GetPlace": {
+    GetPlace: {
       http: "GET /place/{PlaceId}",
       traits: {
-        "PricingBucket": "x-amz-geo-pricing-bucket",
+        PricingBucket: "x-amz-geo-pricing-bucket",
       },
     },
-    "ReverseGeocode": {
+    ReverseGeocode: {
       http: "POST /reverse-geocode",
       traits: {
-        "PricingBucket": "x-amz-geo-pricing-bucket",
+        PricingBucket: "x-amz-geo-pricing-bucket",
       },
     },
-    "SearchNearby": {
+    SearchNearby: {
       http: "POST /search-nearby",
       traits: {
-        "PricingBucket": "x-amz-geo-pricing-bucket",
+        PricingBucket: "x-amz-geo-pricing-bucket",
       },
     },
-    "SearchText": {
+    SearchText: {
       http: "POST /search-text",
       traits: {
-        "PricingBucket": "x-amz-geo-pricing-bucket",
+        PricingBucket: "x-amz-geo-pricing-bucket",
       },
     },
-    "Suggest": {
+    Suggest: {
       http: "POST /suggest",
       traits: {
-        "PricingBucket": "x-amz-geo-pricing-bucket",
+        PricingBucket: "x-amz-geo-pricing-bucket",
       },
     },
   },

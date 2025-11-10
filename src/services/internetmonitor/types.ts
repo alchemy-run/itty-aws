@@ -1,6 +1,38 @@
 import type { Effect, Data as EffectData } from "effect";
-import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
-type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
+import type {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+type CommonAwsError =
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | AccessDeniedException
+  | ThrottlingException
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class InternetMonitor extends AWSServiceClient {
@@ -8,97 +40,172 @@ export declare class InternetMonitor extends AWSServiceClient {
     input: ListTagsForResourceInput,
   ): Effect.Effect<
     ListTagsForResourceOutput,
-    AccessDeniedException | BadRequestException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
+    | AccessDeniedException
+    | BadRequestException
+    | InternalServerErrorException
+    | NotFoundException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   tagResource(
     input: TagResourceInput,
   ): Effect.Effect<
     TagResourceOutput,
-    AccessDeniedException | BadRequestException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
+    | AccessDeniedException
+    | BadRequestException
+    | InternalServerErrorException
+    | NotFoundException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   untagResource(
     input: UntagResourceInput,
   ): Effect.Effect<
     UntagResourceOutput,
-    AccessDeniedException | BadRequestException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
+    | AccessDeniedException
+    | BadRequestException
+    | InternalServerErrorException
+    | NotFoundException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   createMonitor(
     input: CreateMonitorInput,
   ): Effect.Effect<
     CreateMonitorOutput,
-    AccessDeniedException | ConflictException | InternalServerException | LimitExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | LimitExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteMonitor(
     input: DeleteMonitorInput,
   ): Effect.Effect<
     DeleteMonitorOutput,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getHealthEvent(
     input: GetHealthEventInput,
   ): Effect.Effect<
     GetHealthEventOutput,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getInternetEvent(
     input: GetInternetEventInput,
   ): Effect.Effect<
     GetInternetEventOutput,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getMonitor(
     input: GetMonitorInput,
   ): Effect.Effect<
     GetMonitorOutput,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getQueryResults(
     input: GetQueryResultsInput,
   ): Effect.Effect<
     GetQueryResultsOutput,
-    AccessDeniedException | InternalServerException | LimitExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | LimitExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getQueryStatus(
     input: GetQueryStatusInput,
   ): Effect.Effect<
     GetQueryStatusOutput,
-    AccessDeniedException | InternalServerException | LimitExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | LimitExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listHealthEvents(
     input: ListHealthEventsInput,
   ): Effect.Effect<
     ListHealthEventsOutput,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listInternetEvents(
     input: ListInternetEventsInput,
   ): Effect.Effect<
     ListInternetEventsOutput,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listMonitors(
     input: ListMonitorsInput,
   ): Effect.Effect<
     ListMonitorsOutput,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   startQuery(
     input: StartQueryInput,
   ): Effect.Effect<
     StartQueryOutput,
-    AccessDeniedException | InternalServerException | LimitExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | LimitExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   stopQuery(
     input: StopQueryInput,
   ): Effect.Effect<
     StopQueryOutput,
-    AccessDeniedException | InternalServerException | LimitExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | LimitExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateMonitor(
     input: UpdateMonitorInput,
   ): Effect.Effect<
     UpdateMonitorOutput,
-    AccessDeniedException | InternalServerException | LimitExceededException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | LimitExceededException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
 }
 
@@ -155,8 +262,7 @@ export interface CreateMonitorOutput {
 export interface DeleteMonitorInput {
   MonitorName: string;
 }
-export interface DeleteMonitorOutput {
-}
+export interface DeleteMonitorOutput {}
 export type FilterList = Array<string>;
 export interface FilterParameter {
   Field?: string;
@@ -454,8 +560,7 @@ export interface StopQueryInput {
   MonitorName: string;
   QueryId: string;
 }
-export interface StopQueryOutput {
-}
+export interface StopQueryOutput {}
 export type TagKey = string;
 
 export type TagKeys = Array<string>;
@@ -464,8 +569,7 @@ export interface TagResourceInput {
   ResourceArn: string;
   Tags: Record<string, string>;
 }
-export interface TagResourceOutput {
-}
+export interface TagResourceOutput {}
 export type TagValue = string;
 
 export declare class ThrottlingException extends EffectData.TaggedError(
@@ -486,8 +590,7 @@ export interface UntagResourceInput {
   ResourceArn: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceOutput {
-}
+export interface UntagResourceOutput {}
 export interface UpdateMonitorInput {
   MonitorName: string;
   ResourcesToAdd?: Array<string>;
@@ -694,4 +797,3 @@ export declare namespace UpdateMonitor {
     | ValidationException
     | CommonAwsError;
 }
-

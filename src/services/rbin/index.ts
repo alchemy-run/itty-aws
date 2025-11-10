@@ -5,7 +5,25 @@ import type { rbin as _rbinClient } from "./types.ts";
 
 export * from "./types.ts";
 
-export {AccessDeniedException, ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError, type CommonAwsError} from "../../error.ts";
+export {
+  AccessDeniedException,
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  ThrottlingException,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+  type CommonAwsError,
+} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -15,16 +33,16 @@ const metadata = {
   sigV4ServiceName: "rbin",
   endpointPrefix: "rbin",
   operations: {
-    "CreateRule": "POST /rules",
-    "DeleteRule": "DELETE /rules/{Identifier}",
-    "GetRule": "GET /rules/{Identifier}",
-    "ListRules": "POST /list-rules",
-    "ListTagsForResource": "GET /tags/{ResourceArn}",
-    "LockRule": "PATCH /rules/{Identifier}/lock",
-    "TagResource": "POST /tags/{ResourceArn}",
-    "UnlockRule": "PATCH /rules/{Identifier}/unlock",
-    "UntagResource": "DELETE /tags/{ResourceArn}",
-    "UpdateRule": "PATCH /rules/{Identifier}",
+    CreateRule: "POST /rules",
+    DeleteRule: "DELETE /rules/{Identifier}",
+    GetRule: "GET /rules/{Identifier}",
+    ListRules: "POST /list-rules",
+    ListTagsForResource: "GET /tags/{ResourceArn}",
+    LockRule: "PATCH /rules/{Identifier}/lock",
+    TagResource: "POST /tags/{ResourceArn}",
+    UnlockRule: "PATCH /rules/{Identifier}/unlock",
+    UntagResource: "DELETE /tags/{ResourceArn}",
+    UpdateRule: "PATCH /rules/{Identifier}",
   },
 } as const satisfies ServiceMetadata;
 

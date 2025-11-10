@@ -5,7 +5,26 @@ import type { SSO as _SSOClient } from "./types.ts";
 
 export * from "./types.ts";
 
-export {AccessDeniedException, ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError, ValidationException, type CommonAwsError} from "../../error.ts";
+export {
+  AccessDeniedException,
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  ThrottlingException,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+  ValidationException,
+  type CommonAwsError,
+} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -15,10 +34,10 @@ const metadata = {
   sigV4ServiceName: "awsssoportal",
   endpointPrefix: "portal.sso",
   operations: {
-    "GetRoleCredentials": "GET /federation/credentials",
-    "ListAccountRoles": "GET /assignment/roles",
-    "ListAccounts": "GET /assignment/accounts",
-    "Logout": "POST /logout",
+    GetRoleCredentials: "GET /federation/credentials",
+    ListAccountRoles: "GET /assignment/roles",
+    ListAccounts: "GET /assignment/accounts",
+    Logout: "POST /logout",
   },
 } as const satisfies ServiceMetadata;
 

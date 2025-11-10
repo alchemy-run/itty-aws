@@ -7,37 +7,75 @@ export declare class KinesisVideoArchivedMedia extends AWSServiceClient {
     input: GetClipInput,
   ): Effect.Effect<
     GetClipOutput,
-    ClientLimitExceededException | InvalidArgumentException | InvalidCodecPrivateDataException | InvalidMediaFrameException | MissingCodecPrivateDataException | NoDataRetentionException | NotAuthorizedException | ResourceNotFoundException | UnsupportedStreamMediaTypeException | CommonAwsError
+    | ClientLimitExceededException
+    | InvalidArgumentException
+    | InvalidCodecPrivateDataException
+    | InvalidMediaFrameException
+    | MissingCodecPrivateDataException
+    | NoDataRetentionException
+    | NotAuthorizedException
+    | ResourceNotFoundException
+    | UnsupportedStreamMediaTypeException
+    | CommonAwsError
   >;
   getDASHStreamingSessionURL(
     input: GetDASHStreamingSessionURLInput,
   ): Effect.Effect<
     GetDASHStreamingSessionURLOutput,
-    ClientLimitExceededException | InvalidArgumentException | InvalidCodecPrivateDataException | MissingCodecPrivateDataException | NoDataRetentionException | NotAuthorizedException | ResourceNotFoundException | UnsupportedStreamMediaTypeException | CommonAwsError
+    | ClientLimitExceededException
+    | InvalidArgumentException
+    | InvalidCodecPrivateDataException
+    | MissingCodecPrivateDataException
+    | NoDataRetentionException
+    | NotAuthorizedException
+    | ResourceNotFoundException
+    | UnsupportedStreamMediaTypeException
+    | CommonAwsError
   >;
   getHLSStreamingSessionURL(
     input: GetHLSStreamingSessionURLInput,
   ): Effect.Effect<
     GetHLSStreamingSessionURLOutput,
-    ClientLimitExceededException | InvalidArgumentException | InvalidCodecPrivateDataException | MissingCodecPrivateDataException | NoDataRetentionException | NotAuthorizedException | ResourceNotFoundException | UnsupportedStreamMediaTypeException | CommonAwsError
+    | ClientLimitExceededException
+    | InvalidArgumentException
+    | InvalidCodecPrivateDataException
+    | MissingCodecPrivateDataException
+    | NoDataRetentionException
+    | NotAuthorizedException
+    | ResourceNotFoundException
+    | UnsupportedStreamMediaTypeException
+    | CommonAwsError
   >;
   getImages(
     input: GetImagesInput,
   ): Effect.Effect<
     GetImagesOutput,
-    ClientLimitExceededException | InvalidArgumentException | NoDataRetentionException | NotAuthorizedException | ResourceNotFoundException | CommonAwsError
+    | ClientLimitExceededException
+    | InvalidArgumentException
+    | NoDataRetentionException
+    | NotAuthorizedException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   getMediaForFragmentList(
     input: GetMediaForFragmentListInput,
   ): Effect.Effect<
     GetMediaForFragmentListOutput,
-    ClientLimitExceededException | InvalidArgumentException | NotAuthorizedException | ResourceNotFoundException | CommonAwsError
+    | ClientLimitExceededException
+    | InvalidArgumentException
+    | NotAuthorizedException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   listFragments(
     input: ListFragmentsInput,
   ): Effect.Effect<
     ListFragmentsOutput,
-    ClientLimitExceededException | InvalidArgumentException | NotAuthorizedException | ResourceNotFoundException | CommonAwsError
+    | ClientLimitExceededException
+    | InvalidArgumentException
+    | NotAuthorizedException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
 }
 
@@ -50,7 +88,9 @@ export interface ClipFragmentSelector {
   FragmentSelectorType: ClipFragmentSelectorType;
   TimestampRange: ClipTimestampRange;
 }
-export type ClipFragmentSelectorType = "PRODUCER_TIMESTAMP" | "SERVER_TIMESTAMP";
+export type ClipFragmentSelectorType =
+  | "PRODUCER_TIMESTAMP"
+  | "SERVER_TIMESTAMP";
 export interface ClipTimestampRange {
   StartTimestamp: Date | string;
   EndTimestamp: Date | string;
@@ -64,7 +104,9 @@ export interface DASHFragmentSelector {
   FragmentSelectorType?: DASHFragmentSelectorType;
   TimestampRange?: DASHTimestampRange;
 }
-export type DASHFragmentSelectorType = "PRODUCER_TIMESTAMP" | "SERVER_TIMESTAMP";
+export type DASHFragmentSelectorType =
+  | "PRODUCER_TIMESTAMP"
+  | "SERVER_TIMESTAMP";
 export type DASHMaxResults = number;
 
 export type DASHPlaybackMode = "LIVE" | "LIVE_REPLAY" | "ON_DEMAND";
@@ -344,4 +386,3 @@ export declare namespace ListFragments {
     | ResourceNotFoundException
     | CommonAwsError;
 }
-

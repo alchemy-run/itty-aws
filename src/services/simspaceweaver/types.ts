@@ -1,6 +1,39 @@
 import type { Effect, Data as EffectData } from "effect";
-import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
-type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | ThrottlingException | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ValidationException;
+import type {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  ThrottlingException,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+type CommonAwsError =
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | ThrottlingException
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | AccessDeniedException
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class SimSpaceWeaver extends AWSServiceClient {
@@ -14,7 +47,10 @@ export declare class SimSpaceWeaver extends AWSServiceClient {
     input: TagResourceInput,
   ): Effect.Effect<
     TagResourceOutput,
-    ResourceNotFoundException | TooManyTagsException | ValidationException | CommonAwsError
+    | ResourceNotFoundException
+    | TooManyTagsException
+    | ValidationException
+    | CommonAwsError
   >;
   untagResource(
     input: UntagResourceInput,
@@ -26,79 +62,139 @@ export declare class SimSpaceWeaver extends AWSServiceClient {
     input: CreateSnapshotInput,
   ): Effect.Effect<
     CreateSnapshotOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteApp(
     input: DeleteAppInput,
   ): Effect.Effect<
     DeleteAppOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteSimulation(
     input: DeleteSimulationInput,
   ): Effect.Effect<
     DeleteSimulationOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   describeApp(
     input: DescribeAppInput,
   ): Effect.Effect<
     DescribeAppOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   describeSimulation(
     input: DescribeSimulationInput,
   ): Effect.Effect<
     DescribeSimulationOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   listApps(
     input: ListAppsInput,
   ): Effect.Effect<
     ListAppsOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   listSimulations(
     input: ListSimulationsInput,
   ): Effect.Effect<
     ListSimulationsOutput,
-    AccessDeniedException | InternalServerException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ValidationException
+    | CommonAwsError
   >;
   startApp(
     input: StartAppInput,
   ): Effect.Effect<
     StartAppOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ValidationException
+    | CommonAwsError
   >;
   startClock(
     input: StartClockInput,
   ): Effect.Effect<
     StartClockOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   startSimulation(
     input: StartSimulationInput,
   ): Effect.Effect<
     StartSimulationOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ValidationException
+    | CommonAwsError
   >;
   stopApp(
     input: StopAppInput,
   ): Effect.Effect<
     StopAppOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   stopClock(
     input: StopClockInput,
   ): Effect.Effect<
     StopClockOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   stopSimulation(
     input: StopSimulationInput,
   ): Effect.Effect<
     StopSimulationOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
 }
 
@@ -130,20 +226,17 @@ export interface CreateSnapshotInput {
   Simulation: string;
   Destination: S3Destination;
 }
-export interface CreateSnapshotOutput {
-}
+export interface CreateSnapshotOutput {}
 export interface DeleteAppInput {
   Simulation: string;
   Domain: string;
   App: string;
 }
-export interface DeleteAppOutput {
-}
+export interface DeleteAppOutput {}
 export interface DeleteSimulationInput {
   Simulation: string;
 }
-export interface DeleteSimulationOutput {
-}
+export interface DeleteSimulationOutput {}
 export interface DescribeAppInput {
   Simulation: string;
   Domain: string;
@@ -325,8 +418,7 @@ export interface StartAppOutput {
 export interface StartClockInput {
   Simulation: string;
 }
-export interface StartClockOutput {
-}
+export interface StartClockOutput {}
 export interface StartSimulationInput {
   ClientToken?: string;
   Name: string;
@@ -347,18 +439,15 @@ export interface StopAppInput {
   Domain: string;
   App: string;
 }
-export interface StopAppOutput {
-}
+export interface StopAppOutput {}
 export interface StopClockInput {
   Simulation: string;
 }
-export interface StopClockOutput {
-}
+export interface StopClockOutput {}
 export interface StopSimulationInput {
   Simulation: string;
 }
-export interface StopSimulationOutput {
-}
+export interface StopSimulationOutput {}
 export type TagKey = string;
 
 export type TagKeyList = Array<string>;
@@ -367,8 +456,7 @@ export interface TagResourceInput {
   ResourceArn: string;
   Tags: Record<string, string>;
 }
-export interface TagResourceOutput {
-}
+export interface TagResourceOutput {}
 export type TagValue = string;
 
 export type Timestamp = Date | string;
@@ -384,8 +472,7 @@ export interface UntagResourceInput {
   ResourceArn: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceOutput {
-}
+export interface UntagResourceOutput {}
 export type UUID = string;
 
 export declare class ValidationException extends EffectData.TaggedError(
@@ -571,4 +658,3 @@ export declare namespace StopSimulation {
     | ValidationException
     | CommonAwsError;
 }
-

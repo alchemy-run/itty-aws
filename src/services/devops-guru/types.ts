@@ -1,6 +1,38 @@
 import type { Effect, Data as EffectData } from "effect";
-import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
-type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
+import type {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+type CommonAwsError =
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | AccessDeniedException
+  | ThrottlingException
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class DevOpsGuru extends AWSServiceClient {
@@ -8,187 +40,334 @@ export declare class DevOpsGuru extends AWSServiceClient {
     input: AddNotificationChannelRequest,
   ): Effect.Effect<
     AddNotificationChannelResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteInsight(
     input: DeleteInsightRequest,
   ): Effect.Effect<
     DeleteInsightResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   describeAccountHealth(
     input: DescribeAccountHealthRequest,
   ): Effect.Effect<
     DescribeAccountHealthResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   describeAccountOverview(
     input: DescribeAccountOverviewRequest,
   ): Effect.Effect<
     DescribeAccountOverviewResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   describeAnomaly(
     input: DescribeAnomalyRequest,
   ): Effect.Effect<
     DescribeAnomalyResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   describeEventSourcesConfig(
     input: DescribeEventSourcesConfigRequest,
   ): Effect.Effect<
     DescribeEventSourcesConfigResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   describeFeedback(
     input: DescribeFeedbackRequest,
   ): Effect.Effect<
     DescribeFeedbackResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   describeInsight(
     input: DescribeInsightRequest,
   ): Effect.Effect<
     DescribeInsightResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   describeOrganizationHealth(
     input: DescribeOrganizationHealthRequest,
   ): Effect.Effect<
     DescribeOrganizationHealthResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   describeOrganizationOverview(
     input: DescribeOrganizationOverviewRequest,
   ): Effect.Effect<
     DescribeOrganizationOverviewResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   describeOrganizationResourceCollectionHealth(
     input: DescribeOrganizationResourceCollectionHealthRequest,
   ): Effect.Effect<
     DescribeOrganizationResourceCollectionHealthResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   describeResourceCollectionHealth(
     input: DescribeResourceCollectionHealthRequest,
   ): Effect.Effect<
     DescribeResourceCollectionHealthResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   describeServiceIntegration(
     input: DescribeServiceIntegrationRequest,
   ): Effect.Effect<
     DescribeServiceIntegrationResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getCostEstimation(
     input: GetCostEstimationRequest,
   ): Effect.Effect<
     GetCostEstimationResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getResourceCollection(
     input: GetResourceCollectionRequest,
   ): Effect.Effect<
     GetResourceCollectionResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listAnomaliesForInsight(
     input: ListAnomaliesForInsightRequest,
   ): Effect.Effect<
     ListAnomaliesForInsightResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listAnomalousLogGroups(
     input: ListAnomalousLogGroupsRequest,
   ): Effect.Effect<
     ListAnomalousLogGroupsResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listEvents(
     input: ListEventsRequest,
   ): Effect.Effect<
     ListEventsResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listInsights(
     input: ListInsightsRequest,
   ): Effect.Effect<
     ListInsightsResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listMonitoredResources(
     input: ListMonitoredResourcesRequest,
   ): Effect.Effect<
     ListMonitoredResourcesResponse,
-    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listNotificationChannels(
     input: ListNotificationChannelsRequest,
   ): Effect.Effect<
     ListNotificationChannelsResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listOrganizationInsights(
     input: ListOrganizationInsightsRequest,
   ): Effect.Effect<
     ListOrganizationInsightsResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listRecommendations(
     input: ListRecommendationsRequest,
   ): Effect.Effect<
     ListRecommendationsResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   putFeedback(
     input: PutFeedbackRequest,
   ): Effect.Effect<
     PutFeedbackResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   removeNotificationChannel(
     input: RemoveNotificationChannelRequest,
   ): Effect.Effect<
     RemoveNotificationChannelResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   searchInsights(
     input: SearchInsightsRequest,
   ): Effect.Effect<
     SearchInsightsResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   searchOrganizationInsights(
     input: SearchOrganizationInsightsRequest,
   ): Effect.Effect<
     SearchOrganizationInsightsResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   startCostEstimation(
     input: StartCostEstimationRequest,
   ): Effect.Effect<
     StartCostEstimationResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateEventSourcesConfig(
     input: UpdateEventSourcesConfigRequest,
   ): Effect.Effect<
     UpdateEventSourcesConfigResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateResourceCollection(
     input: UpdateResourceCollectionRequest,
   ): Effect.Effect<
     UpdateResourceCollectionResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateServiceIntegration(
     input: UpdateServiceIntegrationRequest,
   ): Effect.Effect<
     UpdateServiceIntegrationResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
 }
 
@@ -286,7 +465,10 @@ export interface CloudFormationHealth {
   AnalyzedResourceCount?: number;
 }
 export type CloudFormationHealths = Array<CloudFormationHealth>;
-export type CloudWatchMetricDataStatusCode = "Complete" | "InternalError" | "PartialData";
+export type CloudWatchMetricDataStatusCode =
+  | "Complete"
+  | "InternalError"
+  | "PartialData";
 export interface CloudWatchMetricsDataSummary {
   TimestampMetricValuePairList?: Array<TimestampMetricValuePair>;
   StatusCode?: CloudWatchMetricDataStatusCode;
@@ -316,7 +498,15 @@ export type CloudWatchMetricsNamespace = string;
 
 export type CloudWatchMetricsPeriod = number;
 
-export type CloudWatchMetricsStat = "Sum" | "Average" | "SampleCount" | "Minimum" | "Maximum" | "p99" | "p90" | "p50";
+export type CloudWatchMetricsStat =
+  | "Sum"
+  | "Average"
+  | "SampleCount"
+  | "Minimum"
+  | "Maximum"
+  | "p99"
+  | "p90"
+  | "p50";
 export type CloudWatchMetricsUnit = string;
 
 export declare class ConflictException extends EffectData.TaggedError(
@@ -345,10 +535,8 @@ export interface CostEstimationTimeRange {
 export interface DeleteInsightRequest {
   Id: string;
 }
-export interface DeleteInsightResponse {
-}
-export interface DescribeAccountHealthRequest {
-}
+export interface DeleteInsightResponse {}
+export interface DescribeAccountHealthRequest {}
 export interface DescribeAccountHealthResponse {
   OpenReactiveInsights: number;
   OpenProactiveInsights: number;
@@ -373,8 +561,7 @@ export interface DescribeAnomalyResponse {
   ProactiveAnomaly?: ProactiveAnomaly;
   ReactiveAnomaly?: ReactiveAnomaly;
 }
-export interface DescribeEventSourcesConfigRequest {
-}
+export interface DescribeEventSourcesConfigRequest {}
 export interface DescribeEventSourcesConfigResponse {
   EventSources?: EventSourcesConfig;
 }
@@ -436,8 +623,7 @@ export interface DescribeResourceCollectionHealthResponse {
   NextToken?: string;
   Tags?: Array<TagHealth>;
 }
-export interface DescribeServiceIntegrationRequest {
-}
+export interface DescribeServiceIntegrationRequest {}
 export interface DescribeServiceIntegrationResponse {
   ServiceIntegration?: ServiceIntegrationConfig;
 }
@@ -463,7 +649,12 @@ export interface Event {
   EventClass?: EventClass;
   Resources?: Array<EventResource>;
 }
-export type EventClass = "INFRASTRUCTURE" | "DEPLOYMENT" | "SECURITY_CHANGE" | "CONFIG_CHANGE" | "SCHEMA_CHANGE";
+export type EventClass =
+  | "INFRASTRUCTURE"
+  | "DEPLOYMENT"
+  | "SECURITY_CHANGE"
+  | "CONFIG_CHANGE"
+  | "SCHEMA_CHANGE";
 export type EventDataSource = "AWS_CLOUD_TRAIL" | "AWS_CODE_DEPLOY";
 export type EventId = string;
 
@@ -519,7 +710,12 @@ export interface InsightFeedback {
   Id?: string;
   Feedback?: InsightFeedbackOption;
 }
-export type InsightFeedbackOption = "VALID_COLLECTION" | "RECOMMENDATION_USEFUL" | "ALERT_TOO_SENSITIVE" | "DATA_NOISY_ANOMALY" | "DATA_INCORRECT";
+export type InsightFeedbackOption =
+  | "VALID_COLLECTION"
+  | "RECOMMENDATION_USEFUL"
+  | "ALERT_TOO_SENSITIVE"
+  | "DATA_NOISY_ANOMALY"
+  | "DATA_INCORRECT";
 export interface InsightHealth {
   OpenProactiveInsights?: number;
   OpenReactiveInsights?: number;
@@ -680,7 +876,18 @@ export interface ListRecommendationsResponse {
   Recommendations?: Array<Recommendation>;
   NextToken?: string;
 }
-export type Locale = "DE_DE" | "EN_US" | "EN_GB" | "ES_ES" | "FR_FR" | "IT_IT" | "JA_JP" | "KO_KR" | "PT_BR" | "ZH_CN" | "ZH_TW";
+export type Locale =
+  | "DE_DE"
+  | "EN_US"
+  | "EN_GB"
+  | "ES_ES"
+  | "FR_FR"
+  | "IT_IT"
+  | "JA_JP"
+  | "KO_KR"
+  | "PT_BR"
+  | "ZH_CN"
+  | "ZH_TW";
 export interface LogAnomalyClass {
   LogStreamName?: string;
   LogAnomalyType?: LogAnomalyType;
@@ -697,7 +904,15 @@ export interface LogAnomalyShowcase {
 export type LogAnomalyShowcases = Array<LogAnomalyShowcase>;
 export type LogAnomalyToken = string;
 
-export type LogAnomalyType = "KEYWORD" | "KEYWORD_TOKEN" | "FORMAT" | "HTTP_CODE" | "BLOCK_FORMAT" | "NUMERICAL_POINT" | "NUMERICAL_NAN" | "NEW_FIELD_NAME";
+export type LogAnomalyType =
+  | "KEYWORD"
+  | "KEYWORD_TOKEN"
+  | "FORMAT"
+  | "HTTP_CODE"
+  | "BLOCK_FORMAT"
+  | "NUMERICAL_POINT"
+  | "NUMERICAL_NAN"
+  | "NEW_FIELD_NAME";
 export type LogEventId = string;
 
 export type LogGroupName = string;
@@ -738,7 +953,12 @@ export interface NotificationFilterConfig {
   Severities?: Array<InsightSeverity>;
   MessageTypes?: Array<NotificationMessageType>;
 }
-export type NotificationMessageType = "NEW_INSIGHT" | "CLOSED_INSIGHT" | "NEW_ASSOCIATION" | "SEVERITY_UPGRADED" | "NEW_RECOMMENDATION";
+export type NotificationMessageType =
+  | "NEW_INSIGHT"
+  | "CLOSED_INSIGHT"
+  | "NEW_ASSOCIATION"
+  | "SEVERITY_UPGRADED"
+  | "NEW_RECOMMENDATION";
 export type NotificationMessageTypes = Array<NotificationMessageType>;
 export type NumberOfLogLinesOccurrences = number;
 
@@ -766,7 +986,11 @@ export type OrganizationalUnitId = string;
 export type OrganizationalUnitIdList = Array<string>;
 export type OrganizationResourceCollectionMaxResults = number;
 
-export type OrganizationResourceCollectionType = "AWS_CLOUD_FORMATION" | "AWS_SERVICE" | "AWS_ACCOUNT" | "AWS_TAGS";
+export type OrganizationResourceCollectionType =
+  | "AWS_CLOUD_FORMATION"
+  | "AWS_SERVICE"
+  | "AWS_ACCOUNT"
+  | "AWS_TAGS";
 export type PerformanceInsightsMetricDimension = string;
 
 export interface PerformanceInsightsMetricDimensionGroup {
@@ -801,7 +1025,8 @@ export interface PerformanceInsightsMetricsDetail {
   StatsAtAnomaly?: Array<PerformanceInsightsStat>;
   StatsAtBaseline?: Array<PerformanceInsightsStat>;
 }
-export type PerformanceInsightsMetricsDetails = Array<PerformanceInsightsMetricsDetail>;
+export type PerformanceInsightsMetricsDetails =
+  Array<PerformanceInsightsMetricsDetail>;
 export type PerformanceInsightsMetricUnit = string;
 
 export interface PerformanceInsightsReferenceComparisonValues {
@@ -812,7 +1037,8 @@ export interface PerformanceInsightsReferenceData {
   Name?: string;
   ComparisonValues?: PerformanceInsightsReferenceComparisonValues;
 }
-export type PerformanceInsightsReferenceDataList = Array<PerformanceInsightsReferenceData>;
+export type PerformanceInsightsReferenceDataList =
+  Array<PerformanceInsightsReferenceData>;
 export interface PerformanceInsightsReferenceMetric {
   MetricQuery?: PerformanceInsightsMetricQuery;
 }
@@ -890,7 +1116,8 @@ export interface ProactiveInsightSummary {
   ServiceCollection?: ServiceCollection;
   AssociatedResourceArns?: Array<string>;
 }
-export type ProactiveOrganizationInsights = Array<ProactiveOrganizationInsightSummary>;
+export type ProactiveOrganizationInsights =
+  Array<ProactiveOrganizationInsightSummary>;
 export interface ProactiveOrganizationInsightSummary {
   Id?: string;
   AccountId?: string;
@@ -906,8 +1133,7 @@ export interface ProactiveOrganizationInsightSummary {
 export interface PutFeedbackRequest {
   InsightFeedback?: InsightFeedback;
 }
-export interface PutFeedbackResponse {
-}
+export interface PutFeedbackResponse {}
 export type ReactiveAnomalies = Array<ReactiveAnomalySummary>;
 export interface ReactiveAnomaly {
   Id?: string;
@@ -960,7 +1186,8 @@ export interface ReactiveInsightSummary {
   ServiceCollection?: ServiceCollection;
   AssociatedResourceArns?: Array<string>;
 }
-export type ReactiveOrganizationInsights = Array<ReactiveOrganizationInsightSummary>;
+export type ReactiveOrganizationInsights =
+  Array<ReactiveOrganizationInsightSummary>;
 export interface ReactiveOrganizationInsightSummary {
   Id?: string;
   AccountId?: string;
@@ -991,7 +1218,8 @@ export type RecommendationName = string;
 
 export type RecommendationReason = string;
 
-export type RecommendationRelatedAnomalies = Array<RecommendationRelatedAnomaly>;
+export type RecommendationRelatedAnomalies =
+  Array<RecommendationRelatedAnomaly>;
 export interface RecommendationRelatedAnomaly {
   Resources?: Array<RecommendationRelatedAnomalyResource>;
   SourceDetails?: Array<RecommendationRelatedAnomalySourceDetail>;
@@ -1003,7 +1231,8 @@ export interface RecommendationRelatedAnomalyResource {
 }
 export type RecommendationRelatedAnomalyResourceName = string;
 
-export type RecommendationRelatedAnomalyResources = Array<RecommendationRelatedAnomalyResource>;
+export type RecommendationRelatedAnomalyResources =
+  Array<RecommendationRelatedAnomalyResource>;
 export type RecommendationRelatedAnomalyResourceType = string;
 
 export interface RecommendationRelatedAnomalySourceDetail {
@@ -1013,7 +1242,8 @@ export interface RecommendationRelatedCloudWatchMetricsSourceDetail {
   MetricName?: string;
   Namespace?: string;
 }
-export type RecommendationRelatedCloudWatchMetricsSourceDetails = Array<RecommendationRelatedCloudWatchMetricsSourceDetail>;
+export type RecommendationRelatedCloudWatchMetricsSourceDetails =
+  Array<RecommendationRelatedCloudWatchMetricsSourceDetail>;
 export type RecommendationRelatedCloudWatchMetricsSourceMetricName = string;
 
 export type RecommendationRelatedCloudWatchMetricsSourceNamespace = string;
@@ -1030,17 +1260,18 @@ export interface RecommendationRelatedEventResource {
 }
 export type RecommendationRelatedEventResourceName = string;
 
-export type RecommendationRelatedEventResources = Array<RecommendationRelatedEventResource>;
+export type RecommendationRelatedEventResources =
+  Array<RecommendationRelatedEventResource>;
 export type RecommendationRelatedEventResourceType = string;
 
 export type RecommendationRelatedEvents = Array<RecommendationRelatedEvent>;
 export type Recommendations = Array<Recommendation>;
-export type RelatedAnomalySourceDetails = Array<RecommendationRelatedAnomalySourceDetail>;
+export type RelatedAnomalySourceDetails =
+  Array<RecommendationRelatedAnomalySourceDetail>;
 export interface RemoveNotificationChannelRequest {
   Id: string;
 }
-export interface RemoveNotificationChannelResponse {
-}
+export interface RemoveNotificationChannelResponse {}
 export type ResourceArn = string;
 
 export interface ResourceCollection {
@@ -1051,7 +1282,10 @@ export interface ResourceCollectionFilter {
   CloudFormation?: CloudFormationCollectionFilter;
   Tags?: Array<TagCollectionFilter>;
 }
-export type ResourceCollectionType = "AWS_CLOUD_FORMATION" | "AWS_SERVICE" | "AWS_TAGS";
+export type ResourceCollectionType =
+  | "AWS_CLOUD_FORMATION"
+  | "AWS_SERVICE"
+  | "AWS_TAGS";
 export type ResourceHours = number;
 
 export type ResourceIdString = string;
@@ -1070,7 +1304,34 @@ export declare class ResourceNotFoundException extends EffectData.TaggedError(
 export type ResourcePermission = "FULL_PERMISSION" | "MISSING_PERMISSION";
 export type ResourceType = string;
 
-export type ResourceTypeFilter = "LOG_GROUPS" | "CLOUDFRONT_DISTRIBUTION" | "DYNAMODB_TABLE" | "EC2_NAT_GATEWAY" | "ECS_CLUSTER" | "ECS_SERVICE" | "EKS_CLUSTER" | "ELASTIC_BEANSTALK_ENVIRONMENT" | "ELASTIC_LOAD_BALANCER_LOAD_BALANCER" | "ELASTIC_LOAD_BALANCING_V2_LOAD_BALANCER" | "ELASTIC_LOAD_BALANCING_V2_TARGET_GROUP" | "ELASTICACHE_CACHE_CLUSTER" | "ELASTICSEARCH_DOMAIN" | "KINESIS_STREAM" | "LAMBDA_FUNCTION" | "OPEN_SEARCH_SERVICE_DOMAIN" | "RDS_DB_INSTANCE" | "RDS_DB_CLUSTER" | "REDSHIFT_CLUSTER" | "ROUTE53_HOSTED_ZONE" | "ROUTE53_HEALTH_CHECK" | "S3_BUCKET" | "SAGEMAKER_ENDPOINT" | "SNS_TOPIC" | "SQS_QUEUE" | "STEP_FUNCTIONS_ACTIVITY" | "STEP_FUNCTIONS_STATE_MACHINE";
+export type ResourceTypeFilter =
+  | "LOG_GROUPS"
+  | "CLOUDFRONT_DISTRIBUTION"
+  | "DYNAMODB_TABLE"
+  | "EC2_NAT_GATEWAY"
+  | "ECS_CLUSTER"
+  | "ECS_SERVICE"
+  | "EKS_CLUSTER"
+  | "ELASTIC_BEANSTALK_ENVIRONMENT"
+  | "ELASTIC_LOAD_BALANCER_LOAD_BALANCER"
+  | "ELASTIC_LOAD_BALANCING_V2_LOAD_BALANCER"
+  | "ELASTIC_LOAD_BALANCING_V2_TARGET_GROUP"
+  | "ELASTICACHE_CACHE_CLUSTER"
+  | "ELASTICSEARCH_DOMAIN"
+  | "KINESIS_STREAM"
+  | "LAMBDA_FUNCTION"
+  | "OPEN_SEARCH_SERVICE_DOMAIN"
+  | "RDS_DB_INSTANCE"
+  | "RDS_DB_CLUSTER"
+  | "REDSHIFT_CLUSTER"
+  | "ROUTE53_HOSTED_ZONE"
+  | "ROUTE53_HEALTH_CHECK"
+  | "S3_BUCKET"
+  | "SAGEMAKER_ENDPOINT"
+  | "SNS_TOPIC"
+  | "SQS_QUEUE"
+  | "STEP_FUNCTIONS_ACTIVITY"
+  | "STEP_FUNCTIONS_STATE_MACHINE";
 export type ResourceTypeFilters = Array<ResourceTypeFilter>;
 export type RetryAfterSeconds = number;
 
@@ -1116,7 +1377,9 @@ export interface SearchOrganizationInsightsResponse {
   ReactiveInsights?: Array<ReactiveInsightSummary>;
   NextToken?: string;
 }
-export type ServerSideEncryptionType = "CUSTOMER_MANAGED_KEY" | "AWS_OWNED_KMS_KEY";
+export type ServerSideEncryptionType =
+  | "CUSTOMER_MANAGED_KEY"
+  | "AWS_OWNED_KMS_KEY";
 export interface ServiceCollection {
   ServiceNames?: Array<ServiceName>;
 }
@@ -1135,7 +1398,32 @@ export interface ServiceIntegrationConfig {
   LogsAnomalyDetection?: LogsAnomalyDetectionIntegration;
   KMSServerSideEncryption?: KMSServerSideEncryptionIntegration;
 }
-export type ServiceName = "API_GATEWAY" | "APPLICATION_ELB" | "AUTO_SCALING_GROUP" | "CLOUD_FRONT" | "DYNAMO_DB" | "EC2" | "ECS" | "EKS" | "ELASTIC_BEANSTALK" | "ELASTI_CACHE" | "ELB" | "ES" | "KINESIS" | "LAMBDA" | "NAT_GATEWAY" | "NETWORK_ELB" | "RDS" | "REDSHIFT" | "ROUTE_53" | "S3" | "SAGE_MAKER" | "SNS" | "SQS" | "STEP_FUNCTIONS" | "SWF";
+export type ServiceName =
+  | "API_GATEWAY"
+  | "APPLICATION_ELB"
+  | "AUTO_SCALING_GROUP"
+  | "CLOUD_FRONT"
+  | "DYNAMO_DB"
+  | "EC2"
+  | "ECS"
+  | "EKS"
+  | "ELASTIC_BEANSTALK"
+  | "ELASTI_CACHE"
+  | "ELB"
+  | "ES"
+  | "KINESIS"
+  | "LAMBDA"
+  | "NAT_GATEWAY"
+  | "NETWORK_ELB"
+  | "RDS"
+  | "REDSHIFT"
+  | "ROUTE_53"
+  | "S3"
+  | "SAGE_MAKER"
+  | "SNS"
+  | "SQS"
+  | "STEP_FUNCTIONS"
+  | "SWF";
 export type ServiceNames = Array<ServiceName>;
 export declare class ServiceQuotaExceededException extends EffectData.TaggedError(
   "ServiceQuotaExceededException",
@@ -1162,8 +1450,7 @@ export interface StartCostEstimationRequest {
   ResourceCollection: CostEstimationResourceCollectionFilter;
   ClientToken?: string;
 }
-export interface StartCostEstimationResponse {
-}
+export interface StartCostEstimationResponse {}
 export interface StartTimeRange {
   FromTime?: Date | string;
   ToTime?: Date | string;
@@ -1182,7 +1469,8 @@ export interface TagCostEstimationResourceCollectionFilter {
   AppBoundaryKey: string;
   TagValues: Array<string>;
 }
-export type TagCostEstimationResourceCollectionFilters = Array<TagCostEstimationResourceCollectionFilter>;
+export type TagCostEstimationResourceCollectionFilters =
+  Array<TagCostEstimationResourceCollectionFilter>;
 export interface TagHealth {
   AppBoundaryKey?: string;
   TagValue?: string;
@@ -1216,8 +1504,7 @@ export interface UpdateCloudFormationCollectionFilter {
 export interface UpdateEventSourcesConfigRequest {
   EventSources?: EventSourcesConfig;
 }
-export interface UpdateEventSourcesConfigResponse {
-}
+export interface UpdateEventSourcesConfigResponse {}
 export type UpdateResourceCollectionAction = "ADD" | "REMOVE";
 export interface UpdateResourceCollectionFilter {
   CloudFormation?: UpdateCloudFormationCollectionFilter;
@@ -1227,8 +1514,7 @@ export interface UpdateResourceCollectionRequest {
   Action: UpdateResourceCollectionAction;
   ResourceCollection: UpdateResourceCollectionFilter;
 }
-export interface UpdateResourceCollectionResponse {
-}
+export interface UpdateResourceCollectionResponse {}
 export interface UpdateServiceIntegrationConfig {
   OpsCenter?: OpsCenterIntegrationConfig;
   LogsAnomalyDetection?: LogsAnomalyDetectionIntegrationConfig;
@@ -1237,8 +1523,7 @@ export interface UpdateServiceIntegrationConfig {
 export interface UpdateServiceIntegrationRequest {
   ServiceIntegration: UpdateServiceIntegrationConfig;
 }
-export interface UpdateServiceIntegrationResponse {
-}
+export interface UpdateServiceIntegrationResponse {}
 export type UpdateStackNames = Array<string>;
 export interface UpdateTagCollectionFilter {
   AppBoundaryKey: string;
@@ -1260,7 +1545,13 @@ export interface ValidationExceptionField {
   Message: string;
 }
 export type ValidationExceptionFields = Array<ValidationExceptionField>;
-export type ValidationExceptionReason = "UNKNOWN_OPERATION" | "CANNOT_PARSE" | "FIELD_VALIDATION_FAILED" | "OTHER" | "INVALID_PARAMETER_COMBINATION" | "PARAMETER_INCONSISTENT_WITH_SERVICE_STATE";
+export type ValidationExceptionReason =
+  | "UNKNOWN_OPERATION"
+  | "CANNOT_PARSE"
+  | "FIELD_VALIDATION_FAILED"
+  | "OTHER"
+  | "INVALID_PARAMETER_COMBINATION"
+  | "PARAMETER_INCONSISTENT_WITH_SERVICE_STATE";
 export declare namespace AddNotificationChannel {
   export type Input = AddNotificationChannelRequest;
   export type Output = AddNotificationChannelResponse;
@@ -1624,4 +1915,3 @@ export declare namespace UpdateServiceIntegration {
     | ValidationException
     | CommonAwsError;
 }
-

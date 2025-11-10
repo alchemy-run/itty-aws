@@ -1,6 +1,38 @@
 import type { Effect, Data as EffectData } from "effect";
-import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
-type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
+import type {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+type CommonAwsError =
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | AccessDeniedException
+  | ThrottlingException
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class Route53RecoveryCluster extends AWSServiceClient {
@@ -8,25 +40,52 @@ export declare class Route53RecoveryCluster extends AWSServiceClient {
     input: GetRoutingControlStateRequest,
   ): Effect.Effect<
     GetRoutingControlStateResponse,
-    AccessDeniedException | EndpointTemporarilyUnavailableException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | EndpointTemporarilyUnavailableException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listRoutingControls(
     input: ListRoutingControlsRequest,
   ): Effect.Effect<
     ListRoutingControlsResponse,
-    AccessDeniedException | EndpointTemporarilyUnavailableException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | EndpointTemporarilyUnavailableException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateRoutingControlState(
     input: UpdateRoutingControlStateRequest,
   ): Effect.Effect<
     UpdateRoutingControlStateResponse,
-    AccessDeniedException | ConflictException | EndpointTemporarilyUnavailableException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | EndpointTemporarilyUnavailableException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateRoutingControlStates(
     input: UpdateRoutingControlStatesRequest,
   ): Effect.Effect<
     UpdateRoutingControlStatesResponse,
-    AccessDeniedException | ConflictException | EndpointTemporarilyUnavailableException | InternalServerException | ResourceNotFoundException | ServiceLimitExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | EndpointTemporarilyUnavailableException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceLimitExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
 }
 
@@ -119,7 +178,8 @@ export declare class ThrottlingException extends EffectData.TaggedError(
   readonly message: string;
   readonly retryAfterSeconds?: number;
 }> {}
-export type UpdateRoutingControlStateEntries = Array<UpdateRoutingControlStateEntry>;
+export type UpdateRoutingControlStateEntries =
+  Array<UpdateRoutingControlStateEntry>;
 export interface UpdateRoutingControlStateEntry {
   RoutingControlArn: string;
   RoutingControlState: RoutingControlState;
@@ -129,14 +189,12 @@ export interface UpdateRoutingControlStateRequest {
   RoutingControlState: RoutingControlState;
   SafetyRulesToOverride?: Array<string>;
 }
-export interface UpdateRoutingControlStateResponse {
-}
+export interface UpdateRoutingControlStateResponse {}
 export interface UpdateRoutingControlStatesRequest {
   UpdateRoutingControlStateEntries: Array<UpdateRoutingControlStateEntry>;
   SafetyRulesToOverride?: Array<string>;
 }
-export interface UpdateRoutingControlStatesResponse {
-}
+export interface UpdateRoutingControlStatesResponse {}
 export declare class ValidationException extends EffectData.TaggedError(
   "ValidationException",
 )<{
@@ -149,7 +207,11 @@ export interface ValidationExceptionField {
   message: string;
 }
 export type ValidationExceptionFieldList = Array<ValidationExceptionField>;
-export type ValidationExceptionReason = "unknownOperation" | "cannotParse" | "fieldValidationFailed" | "other";
+export type ValidationExceptionReason =
+  | "unknownOperation"
+  | "cannotParse"
+  | "fieldValidationFailed"
+  | "other";
 export declare namespace GetRoutingControlState {
   export type Input = GetRoutingControlStateRequest;
   export type Output = GetRoutingControlStateResponse;
@@ -204,4 +266,3 @@ export declare namespace UpdateRoutingControlStates {
     | ValidationException
     | CommonAwsError;
 }
-

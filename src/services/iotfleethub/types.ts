@@ -1,6 +1,40 @@
 import type { Effect, Data as EffectData } from "effect";
-import type { AccessDeniedException, ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, ValidationException } from "../../error.ts";
-type CommonAwsError = AccessDeniedException | ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | ValidationException | ThrottlingException;
+import type {
+  AccessDeniedException,
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+  ValidationException,
+} from "../../error.ts";
+type CommonAwsError =
+  | AccessDeniedException
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | ValidationException
+  | ThrottlingException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class IoTFleetHub extends AWSServiceClient {
@@ -8,55 +42,89 @@ export declare class IoTFleetHub extends AWSServiceClient {
     input: CreateApplicationRequest,
   ): Effect.Effect<
     CreateApplicationResponse,
-    InternalFailureException | InvalidRequestException | LimitExceededException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | LimitExceededException
+    | ThrottlingException
+    | CommonAwsError
   >;
   deleteApplication(
     input: DeleteApplicationRequest,
   ): Effect.Effect<
     DeleteApplicationResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   describeApplication(
     input: DescribeApplicationRequest,
   ): Effect.Effect<
     DescribeApplicationResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   listApplications(
     input: ListApplicationsRequest,
   ): Effect.Effect<
     ListApplicationsResponse,
-    InternalFailureException | InvalidRequestException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ThrottlingException
+    | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   updateApplication(
     input: UpdateApplicationRequest,
   ): Effect.Effect<
     UpdateApplicationResponse,
-    ConflictException | InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | ConflictException
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
 }
 
 export declare class Iotfleethub extends IoTFleetHub {}
 
-export type ApplicationState = "CREATING" | "DELETING" | "ACTIVE" | "CREATE_FAILED" | "DELETE_FAILED";
+export type ApplicationState =
+  | "CREATING"
+  | "DELETING"
+  | "ACTIVE"
+  | "CREATE_FAILED"
+  | "DELETE_FAILED";
 export type ApplicationSummaries = Array<ApplicationSummary>;
 export interface ApplicationSummary {
   applicationId: string;
@@ -91,8 +159,7 @@ export interface DeleteApplicationRequest {
   applicationId: string;
   clientToken?: string;
 }
-export interface DeleteApplicationResponse {
-}
+export interface DeleteApplicationResponse {}
 export interface DescribeApplicationRequest {
   applicationId: string;
 }
@@ -165,8 +232,7 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {
-}
+export interface TagResourceResponse {}
 export type TagValue = string;
 
 export declare class ThrottlingException extends EffectData.TaggedError(
@@ -180,16 +246,14 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {
-}
+export interface UntagResourceResponse {}
 export interface UpdateApplicationRequest {
   applicationId: string;
   applicationName?: string;
   applicationDescription?: string;
   clientToken?: string;
 }
-export interface UpdateApplicationResponse {
-}
+export interface UpdateApplicationResponse {}
 export type Url = string;
 
 export declare namespace CreateApplication {
@@ -276,4 +340,3 @@ export declare namespace UpdateApplication {
     | ThrottlingException
     | CommonAwsError;
 }
-

@@ -5,7 +5,25 @@ import type { MarketplaceReporting as _MarketplaceReportingClient } from "./type
 
 export * from "./types.ts";
 
-export {ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError, ValidationException, type CommonAwsError} from "../../error.ts";
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  ThrottlingException,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+  ValidationException,
+  type CommonAwsError,
+} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -15,7 +33,7 @@ const metadata = {
   sigV4ServiceName: "aws-marketplace",
   endpointPrefix: "reporting-marketplace",
   operations: {
-    "GetBuyerDashboard": "POST /getBuyerDashboard",
+    GetBuyerDashboard: "POST /getBuyerDashboard",
   },
 } as const satisfies ServiceMetadata;
 

@@ -5,16 +5,10 @@ import { AWSServiceClient } from "../../client.ts";
 export declare class CloudSearchDomain extends AWSServiceClient {
   search(
     input: SearchRequest,
-  ): Effect.Effect<
-    SearchResponse,
-    SearchException | CommonAwsError
-  >;
+  ): Effect.Effect<SearchResponse, SearchException | CommonAwsError>;
   suggest(
     input: SuggestRequest,
-  ): Effect.Effect<
-    SuggestResponse,
-    SearchException | CommonAwsError
-  >;
+  ): Effect.Effect<SuggestResponse, SearchException | CommonAwsError>;
   uploadDocuments(
     input: UploadDocumentsRequest,
   ): Effect.Effect<
@@ -184,24 +178,17 @@ export interface UploadDocumentsResponse {
 export declare namespace Search {
   export type Input = SearchRequest;
   export type Output = SearchResponse;
-  export type Error =
-    | SearchException
-    | CommonAwsError;
+  export type Error = SearchException | CommonAwsError;
 }
 
 export declare namespace Suggest {
   export type Input = SuggestRequest;
   export type Output = SuggestResponse;
-  export type Error =
-    | SearchException
-    | CommonAwsError;
+  export type Error = SearchException | CommonAwsError;
 }
 
 export declare namespace UploadDocuments {
   export type Input = UploadDocumentsRequest;
   export type Output = UploadDocumentsResponse;
-  export type Error =
-    | DocumentServiceException
-    | CommonAwsError;
+  export type Error = DocumentServiceException | CommonAwsError;
 }
-

@@ -1,6 +1,40 @@
 import type { Effect, Data as EffectData } from "effect";
-import type { AccessDeniedException, ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
-type CommonAwsError = AccessDeniedException | ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | ThrottlingException | UnrecognizedClientException | UnknownOperationException | ValidationError | ValidationException;
+import type {
+  AccessDeniedException,
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  ThrottlingException,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+type CommonAwsError =
+  | AccessDeniedException
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | ThrottlingException
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class OpsWorksCM extends AWSServiceClient {
@@ -8,49 +42,69 @@ export declare class OpsWorksCM extends AWSServiceClient {
     input: AssociateNodeRequest,
   ): Effect.Effect<
     AssociateNodeResponse,
-    InvalidStateException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | InvalidStateException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   createBackup(
     input: CreateBackupRequest,
   ): Effect.Effect<
     CreateBackupResponse,
-    InvalidStateException | LimitExceededException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | InvalidStateException
+    | LimitExceededException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   createServer(
     input: CreateServerRequest,
   ): Effect.Effect<
     CreateServerResponse,
-    LimitExceededException | ResourceAlreadyExistsException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | LimitExceededException
+    | ResourceAlreadyExistsException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteBackup(
     input: DeleteBackupRequest,
   ): Effect.Effect<
     DeleteBackupResponse,
-    InvalidStateException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | InvalidStateException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteServer(
     input: DeleteServerRequest,
   ): Effect.Effect<
     DeleteServerResponse,
-    InvalidStateException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | InvalidStateException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   describeAccountAttributes(
     input: DescribeAccountAttributesRequest,
-  ): Effect.Effect<
-    DescribeAccountAttributesResponse,
-    CommonAwsError
-  >;
+  ): Effect.Effect<DescribeAccountAttributesResponse, CommonAwsError>;
   describeBackups(
     input: DescribeBackupsRequest,
   ): Effect.Effect<
     DescribeBackupsResponse,
-    InvalidNextTokenException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | InvalidNextTokenException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   describeEvents(
     input: DescribeEventsRequest,
   ): Effect.Effect<
     DescribeEventsResponse,
-    InvalidNextTokenException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | InvalidNextTokenException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   describeNodeAssociationStatus(
     input: DescribeNodeAssociationStatusRequest,
@@ -62,19 +116,28 @@ export declare class OpsWorksCM extends AWSServiceClient {
     input: DescribeServersRequest,
   ): Effect.Effect<
     DescribeServersResponse,
-    InvalidNextTokenException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | InvalidNextTokenException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   disassociateNode(
     input: DisassociateNodeRequest,
   ): Effect.Effect<
     DisassociateNodeResponse,
-    InvalidStateException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | InvalidStateException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   exportServerEngineAttribute(
     input: ExportServerEngineAttributeRequest,
   ): Effect.Effect<
     ExportServerEngineAttributeResponse,
-    InvalidStateException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | InvalidStateException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
@@ -86,37 +149,55 @@ export declare class OpsWorksCM extends AWSServiceClient {
     input: RestoreServerRequest,
   ): Effect.Effect<
     RestoreServerResponse,
-    InvalidStateException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | InvalidStateException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   startMaintenance(
     input: StartMaintenanceRequest,
   ): Effect.Effect<
     StartMaintenanceResponse,
-    InvalidStateException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | InvalidStateException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    InvalidStateException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | InvalidStateException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    InvalidStateException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | InvalidStateException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   updateServer(
     input: UpdateServerRequest,
   ): Effect.Effect<
     UpdateServerResponse,
-    InvalidStateException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | InvalidStateException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   updateServerEngineAttributes(
     input: UpdateServerEngineAttributesRequest,
   ): Effect.Effect<
     UpdateServerEngineAttributesResponse,
-    InvalidStateException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | InvalidStateException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
 }
 
@@ -220,15 +301,12 @@ export type CustomPrivateKey = string;
 export interface DeleteBackupRequest {
   BackupId: string;
 }
-export interface DeleteBackupResponse {
-}
+export interface DeleteBackupResponse {}
 export interface DeleteServerRequest {
   ServerName: string;
 }
-export interface DeleteServerResponse {
-}
-export interface DescribeAccountAttributesRequest {
-}
+export interface DeleteServerResponse {}
+export interface DescribeAccountAttributesRequest {}
 export interface DescribeAccountAttributesResponse {
   Attributes?: Array<AccountAttribute>;
 }
@@ -389,7 +467,20 @@ export type ServerEvents = Array<ServerEvent>;
 export type ServerName = string;
 
 export type Servers = Array<Server>;
-export type ServerStatus = "BACKING_UP" | "CONNECTION_LOST" | "CREATING" | "DELETING" | "MODIFYING" | "FAILED" | "HEALTHY" | "RUNNING" | "RESTORING" | "SETUP" | "UNDER_MAINTENANCE" | "UNHEALTHY" | "TERMINATED";
+export type ServerStatus =
+  | "BACKING_UP"
+  | "CONNECTION_LOST"
+  | "CREATING"
+  | "DELETING"
+  | "MODIFYING"
+  | "FAILED"
+  | "HEALTHY"
+  | "RUNNING"
+  | "RESTORING"
+  | "SETUP"
+  | "UNDER_MAINTENANCE"
+  | "UNHEALTHY"
+  | "TERMINATED";
 export type ServiceRoleArn = string;
 
 export interface StartMaintenanceRequest {
@@ -414,8 +505,7 @@ export interface TagResourceRequest {
   ResourceArn: string;
   Tags: Array<Tag>;
 }
-export interface TagResourceResponse {
-}
+export interface TagResourceResponse {}
 export type TagValue = string;
 
 export type Timestamp = Date | string;
@@ -426,8 +516,7 @@ export interface UntagResourceRequest {
   ResourceArn: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {
-}
+export interface UntagResourceResponse {}
 export interface UpdateServerEngineAttributesRequest {
   ServerName: string;
   AttributeName: string;
@@ -506,8 +595,7 @@ export declare namespace DeleteServer {
 export declare namespace DescribeAccountAttributes {
   export type Input = DescribeAccountAttributesRequest;
   export type Output = DescribeAccountAttributesResponse;
-  export type Error =
-    | CommonAwsError;
+  export type Error = CommonAwsError;
 }
 
 export declare namespace DescribeBackups {
@@ -637,4 +725,3 @@ export declare namespace UpdateServerEngineAttributes {
     | ValidationException
     | CommonAwsError;
 }
-

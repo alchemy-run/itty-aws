@@ -7,37 +7,59 @@ export declare class MediaStore extends AWSServiceClient {
     input: CreateContainerInput,
   ): Effect.Effect<
     CreateContainerOutput,
-    ContainerInUseException | InternalServerError | LimitExceededException | CommonAwsError
+    | ContainerInUseException
+    | InternalServerError
+    | LimitExceededException
+    | CommonAwsError
   >;
   deleteContainer(
     input: DeleteContainerInput,
   ): Effect.Effect<
     DeleteContainerOutput,
-    ContainerInUseException | ContainerNotFoundException | InternalServerError | CommonAwsError
+    | ContainerInUseException
+    | ContainerNotFoundException
+    | InternalServerError
+    | CommonAwsError
   >;
   deleteContainerPolicy(
     input: DeleteContainerPolicyInput,
   ): Effect.Effect<
     DeleteContainerPolicyOutput,
-    ContainerInUseException | ContainerNotFoundException | InternalServerError | PolicyNotFoundException | CommonAwsError
+    | ContainerInUseException
+    | ContainerNotFoundException
+    | InternalServerError
+    | PolicyNotFoundException
+    | CommonAwsError
   >;
   deleteCorsPolicy(
     input: DeleteCorsPolicyInput,
   ): Effect.Effect<
     DeleteCorsPolicyOutput,
-    ContainerInUseException | ContainerNotFoundException | CorsPolicyNotFoundException | InternalServerError | CommonAwsError
+    | ContainerInUseException
+    | ContainerNotFoundException
+    | CorsPolicyNotFoundException
+    | InternalServerError
+    | CommonAwsError
   >;
   deleteLifecyclePolicy(
     input: DeleteLifecyclePolicyInput,
   ): Effect.Effect<
     DeleteLifecyclePolicyOutput,
-    ContainerInUseException | ContainerNotFoundException | InternalServerError | PolicyNotFoundException | CommonAwsError
+    | ContainerInUseException
+    | ContainerNotFoundException
+    | InternalServerError
+    | PolicyNotFoundException
+    | CommonAwsError
   >;
   deleteMetricPolicy(
     input: DeleteMetricPolicyInput,
   ): Effect.Effect<
     DeleteMetricPolicyOutput,
-    ContainerInUseException | ContainerNotFoundException | InternalServerError | PolicyNotFoundException | CommonAwsError
+    | ContainerInUseException
+    | ContainerNotFoundException
+    | InternalServerError
+    | PolicyNotFoundException
+    | CommonAwsError
   >;
   describeContainer(
     input: DescribeContainerInput,
@@ -49,85 +71,125 @@ export declare class MediaStore extends AWSServiceClient {
     input: GetContainerPolicyInput,
   ): Effect.Effect<
     GetContainerPolicyOutput,
-    ContainerInUseException | ContainerNotFoundException | InternalServerError | PolicyNotFoundException | CommonAwsError
+    | ContainerInUseException
+    | ContainerNotFoundException
+    | InternalServerError
+    | PolicyNotFoundException
+    | CommonAwsError
   >;
   getCorsPolicy(
     input: GetCorsPolicyInput,
   ): Effect.Effect<
     GetCorsPolicyOutput,
-    ContainerInUseException | ContainerNotFoundException | CorsPolicyNotFoundException | InternalServerError | CommonAwsError
+    | ContainerInUseException
+    | ContainerNotFoundException
+    | CorsPolicyNotFoundException
+    | InternalServerError
+    | CommonAwsError
   >;
   getLifecyclePolicy(
     input: GetLifecyclePolicyInput,
   ): Effect.Effect<
     GetLifecyclePolicyOutput,
-    ContainerInUseException | ContainerNotFoundException | InternalServerError | PolicyNotFoundException | CommonAwsError
+    | ContainerInUseException
+    | ContainerNotFoundException
+    | InternalServerError
+    | PolicyNotFoundException
+    | CommonAwsError
   >;
   getMetricPolicy(
     input: GetMetricPolicyInput,
   ): Effect.Effect<
     GetMetricPolicyOutput,
-    ContainerInUseException | ContainerNotFoundException | InternalServerError | PolicyNotFoundException | CommonAwsError
+    | ContainerInUseException
+    | ContainerNotFoundException
+    | InternalServerError
+    | PolicyNotFoundException
+    | CommonAwsError
   >;
   listContainers(
     input: ListContainersInput,
-  ): Effect.Effect<
-    ListContainersOutput,
-    InternalServerError | CommonAwsError
-  >;
+  ): Effect.Effect<ListContainersOutput, InternalServerError | CommonAwsError>;
   listTagsForResource(
     input: ListTagsForResourceInput,
   ): Effect.Effect<
     ListTagsForResourceOutput,
-    ContainerInUseException | ContainerNotFoundException | InternalServerError | CommonAwsError
+    | ContainerInUseException
+    | ContainerNotFoundException
+    | InternalServerError
+    | CommonAwsError
   >;
   putContainerPolicy(
     input: PutContainerPolicyInput,
   ): Effect.Effect<
     PutContainerPolicyOutput,
-    ContainerInUseException | ContainerNotFoundException | InternalServerError | CommonAwsError
+    | ContainerInUseException
+    | ContainerNotFoundException
+    | InternalServerError
+    | CommonAwsError
   >;
   putCorsPolicy(
     input: PutCorsPolicyInput,
   ): Effect.Effect<
     PutCorsPolicyOutput,
-    ContainerInUseException | ContainerNotFoundException | InternalServerError | CommonAwsError
+    | ContainerInUseException
+    | ContainerNotFoundException
+    | InternalServerError
+    | CommonAwsError
   >;
   putLifecyclePolicy(
     input: PutLifecyclePolicyInput,
   ): Effect.Effect<
     PutLifecyclePolicyOutput,
-    ContainerInUseException | ContainerNotFoundException | InternalServerError | CommonAwsError
+    | ContainerInUseException
+    | ContainerNotFoundException
+    | InternalServerError
+    | CommonAwsError
   >;
   putMetricPolicy(
     input: PutMetricPolicyInput,
   ): Effect.Effect<
     PutMetricPolicyOutput,
-    ContainerInUseException | ContainerNotFoundException | InternalServerError | CommonAwsError
+    | ContainerInUseException
+    | ContainerNotFoundException
+    | InternalServerError
+    | CommonAwsError
   >;
   startAccessLogging(
     input: StartAccessLoggingInput,
   ): Effect.Effect<
     StartAccessLoggingOutput,
-    ContainerInUseException | ContainerNotFoundException | InternalServerError | CommonAwsError
+    | ContainerInUseException
+    | ContainerNotFoundException
+    | InternalServerError
+    | CommonAwsError
   >;
   stopAccessLogging(
     input: StopAccessLoggingInput,
   ): Effect.Effect<
     StopAccessLoggingOutput,
-    ContainerInUseException | ContainerNotFoundException | InternalServerError | CommonAwsError
+    | ContainerInUseException
+    | ContainerNotFoundException
+    | InternalServerError
+    | CommonAwsError
   >;
   tagResource(
     input: TagResourceInput,
   ): Effect.Effect<
     TagResourceOutput,
-    ContainerInUseException | ContainerNotFoundException | InternalServerError | CommonAwsError
+    | ContainerInUseException
+    | ContainerNotFoundException
+    | InternalServerError
+    | CommonAwsError
   >;
   untagResource(
     input: UntagResourceInput,
   ): Effect.Effect<
     UntagResourceOutput,
-    ContainerInUseException | ContainerNotFoundException | InternalServerError | CommonAwsError
+    | ContainerInUseException
+    | ContainerNotFoundException
+    | InternalServerError
+    | CommonAwsError
   >;
 }
 
@@ -190,28 +252,23 @@ export interface CreateContainerOutput {
 export interface DeleteContainerInput {
   ContainerName: string;
 }
-export interface DeleteContainerOutput {
-}
+export interface DeleteContainerOutput {}
 export interface DeleteContainerPolicyInput {
   ContainerName: string;
 }
-export interface DeleteContainerPolicyOutput {
-}
+export interface DeleteContainerPolicyOutput {}
 export interface DeleteCorsPolicyInput {
   ContainerName: string;
 }
-export interface DeleteCorsPolicyOutput {
-}
+export interface DeleteCorsPolicyOutput {}
 export interface DeleteLifecyclePolicyInput {
   ContainerName: string;
 }
-export interface DeleteLifecyclePolicyOutput {
-}
+export interface DeleteLifecyclePolicyOutput {}
 export interface DeleteMetricPolicyInput {
   ContainerName: string;
 }
-export interface DeleteMetricPolicyOutput {
-}
+export interface DeleteMetricPolicyOutput {}
 export interface DescribeContainerInput {
   ContainerName?: string;
 }
@@ -304,36 +361,30 @@ export interface PutContainerPolicyInput {
   ContainerName: string;
   Policy: string;
 }
-export interface PutContainerPolicyOutput {
-}
+export interface PutContainerPolicyOutput {}
 export interface PutCorsPolicyInput {
   ContainerName: string;
   CorsPolicy: Array<CorsRule>;
 }
-export interface PutCorsPolicyOutput {
-}
+export interface PutCorsPolicyOutput {}
 export interface PutLifecyclePolicyInput {
   ContainerName: string;
   LifecyclePolicy: string;
 }
-export interface PutLifecyclePolicyOutput {
-}
+export interface PutLifecyclePolicyOutput {}
 export interface PutMetricPolicyInput {
   ContainerName: string;
   MetricPolicy: MetricPolicy;
 }
-export interface PutMetricPolicyOutput {
-}
+export interface PutMetricPolicyOutput {}
 export interface StartAccessLoggingInput {
   ContainerName: string;
 }
-export interface StartAccessLoggingOutput {
-}
+export interface StartAccessLoggingOutput {}
 export interface StopAccessLoggingInput {
   ContainerName: string;
 }
-export interface StopAccessLoggingOutput {
-}
+export interface StopAccessLoggingOutput {}
 export interface Tag {
   Key: string;
   Value?: string;
@@ -346,8 +397,7 @@ export interface TagResourceInput {
   Resource: string;
   Tags: Array<Tag>;
 }
-export interface TagResourceOutput {
-}
+export interface TagResourceOutput {}
 export type TagValue = string;
 
 export type TimeStamp = Date | string;
@@ -356,8 +406,7 @@ export interface UntagResourceInput {
   Resource: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceOutput {
-}
+export interface UntagResourceOutput {}
 export declare namespace CreateContainer {
   export type Input = CreateContainerInput;
   export type Output = CreateContainerOutput;
@@ -478,9 +527,7 @@ export declare namespace GetMetricPolicy {
 export declare namespace ListContainers {
   export type Input = ListContainersInput;
   export type Output = ListContainersOutput;
-  export type Error =
-    | InternalServerError
-    | CommonAwsError;
+  export type Error = InternalServerError | CommonAwsError;
 }
 
 export declare namespace ListTagsForResource {
@@ -572,4 +619,3 @@ export declare namespace UntagResource {
     | InternalServerError
     | CommonAwsError;
 }
-

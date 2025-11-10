@@ -1,6 +1,38 @@
 import type { Effect, Data as EffectData } from "effect";
-import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
-type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
+import type {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+type CommonAwsError =
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | AccessDeniedException
+  | ThrottlingException
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class CleanRooms extends AWSServiceClient {
@@ -26,487 +58,923 @@ export declare class CleanRooms extends AWSServiceClient {
     input: BatchGetCollaborationAnalysisTemplateInput,
   ): Effect.Effect<
     BatchGetCollaborationAnalysisTemplateOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   batchGetSchema(
     input: BatchGetSchemaInput,
   ): Effect.Effect<
     BatchGetSchemaOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   batchGetSchemaAnalysisRule(
     input: BatchGetSchemaAnalysisRuleInput,
   ): Effect.Effect<
     BatchGetSchemaAnalysisRuleOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createAnalysisTemplate(
     input: CreateAnalysisTemplateInput,
   ): Effect.Effect<
     CreateAnalysisTemplateOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createCollaboration(
     input: CreateCollaborationInput,
   ): Effect.Effect<
     CreateCollaborationOutput,
-    AccessDeniedException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createConfiguredAudienceModelAssociation(
     input: CreateConfiguredAudienceModelAssociationInput,
   ): Effect.Effect<
     CreateConfiguredAudienceModelAssociationOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createConfiguredTable(
     input: CreateConfiguredTableInput,
   ): Effect.Effect<
     CreateConfiguredTableOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createConfiguredTableAnalysisRule(
     input: CreateConfiguredTableAnalysisRuleInput,
   ): Effect.Effect<
     CreateConfiguredTableAnalysisRuleOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createConfiguredTableAssociation(
     input: CreateConfiguredTableAssociationInput,
   ): Effect.Effect<
     CreateConfiguredTableAssociationOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createConfiguredTableAssociationAnalysisRule(
     input: CreateConfiguredTableAssociationAnalysisRuleInput,
   ): Effect.Effect<
     CreateConfiguredTableAssociationAnalysisRuleOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createIdMappingTable(
     input: CreateIdMappingTableInput,
   ): Effect.Effect<
     CreateIdMappingTableOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createIdNamespaceAssociation(
     input: CreateIdNamespaceAssociationInput,
   ): Effect.Effect<
     CreateIdNamespaceAssociationOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createMembership(
     input: CreateMembershipInput,
   ): Effect.Effect<
     CreateMembershipOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createPrivacyBudgetTemplate(
     input: CreatePrivacyBudgetTemplateInput,
   ): Effect.Effect<
     CreatePrivacyBudgetTemplateOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteAnalysisTemplate(
     input: DeleteAnalysisTemplateInput,
   ): Effect.Effect<
     DeleteAnalysisTemplateOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteCollaboration(
     input: DeleteCollaborationInput,
   ): Effect.Effect<
     DeleteCollaborationOutput,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteConfiguredAudienceModelAssociation(
     input: DeleteConfiguredAudienceModelAssociationInput,
   ): Effect.Effect<
     DeleteConfiguredAudienceModelAssociationOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteConfiguredTable(
     input: DeleteConfiguredTableInput,
   ): Effect.Effect<
     DeleteConfiguredTableOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteConfiguredTableAnalysisRule(
     input: DeleteConfiguredTableAnalysisRuleInput,
   ): Effect.Effect<
     DeleteConfiguredTableAnalysisRuleOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteConfiguredTableAssociation(
     input: DeleteConfiguredTableAssociationInput,
   ): Effect.Effect<
     DeleteConfiguredTableAssociationOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteConfiguredTableAssociationAnalysisRule(
     input: DeleteConfiguredTableAssociationAnalysisRuleInput,
   ): Effect.Effect<
     DeleteConfiguredTableAssociationAnalysisRuleOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteIdMappingTable(
     input: DeleteIdMappingTableInput,
   ): Effect.Effect<
     DeleteIdMappingTableOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteIdNamespaceAssociation(
     input: DeleteIdNamespaceAssociationInput,
   ): Effect.Effect<
     DeleteIdNamespaceAssociationOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteMember(
     input: DeleteMemberInput,
   ): Effect.Effect<
     DeleteMemberOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteMembership(
     input: DeleteMembershipInput,
   ): Effect.Effect<
     DeleteMembershipOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deletePrivacyBudgetTemplate(
     input: DeletePrivacyBudgetTemplateInput,
   ): Effect.Effect<
     DeletePrivacyBudgetTemplateOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getAnalysisTemplate(
     input: GetAnalysisTemplateInput,
   ): Effect.Effect<
     GetAnalysisTemplateOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getCollaboration(
     input: GetCollaborationInput,
   ): Effect.Effect<
     GetCollaborationOutput,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getCollaborationAnalysisTemplate(
     input: GetCollaborationAnalysisTemplateInput,
   ): Effect.Effect<
     GetCollaborationAnalysisTemplateOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getCollaborationConfiguredAudienceModelAssociation(
     input: GetCollaborationConfiguredAudienceModelAssociationInput,
   ): Effect.Effect<
     GetCollaborationConfiguredAudienceModelAssociationOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getCollaborationIdNamespaceAssociation(
     input: GetCollaborationIdNamespaceAssociationInput,
   ): Effect.Effect<
     GetCollaborationIdNamespaceAssociationOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getCollaborationPrivacyBudgetTemplate(
     input: GetCollaborationPrivacyBudgetTemplateInput,
   ): Effect.Effect<
     GetCollaborationPrivacyBudgetTemplateOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getConfiguredAudienceModelAssociation(
     input: GetConfiguredAudienceModelAssociationInput,
   ): Effect.Effect<
     GetConfiguredAudienceModelAssociationOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getConfiguredTable(
     input: GetConfiguredTableInput,
   ): Effect.Effect<
     GetConfiguredTableOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getConfiguredTableAnalysisRule(
     input: GetConfiguredTableAnalysisRuleInput,
   ): Effect.Effect<
     GetConfiguredTableAnalysisRuleOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getConfiguredTableAssociation(
     input: GetConfiguredTableAssociationInput,
   ): Effect.Effect<
     GetConfiguredTableAssociationOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getConfiguredTableAssociationAnalysisRule(
     input: GetConfiguredTableAssociationAnalysisRuleInput,
   ): Effect.Effect<
     GetConfiguredTableAssociationAnalysisRuleOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getIdMappingTable(
     input: GetIdMappingTableInput,
   ): Effect.Effect<
     GetIdMappingTableOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getIdNamespaceAssociation(
     input: GetIdNamespaceAssociationInput,
   ): Effect.Effect<
     GetIdNamespaceAssociationOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getMembership(
     input: GetMembershipInput,
   ): Effect.Effect<
     GetMembershipOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getPrivacyBudgetTemplate(
     input: GetPrivacyBudgetTemplateInput,
   ): Effect.Effect<
     GetPrivacyBudgetTemplateOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getProtectedJob(
     input: GetProtectedJobInput,
   ): Effect.Effect<
     GetProtectedJobOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getProtectedQuery(
     input: GetProtectedQueryInput,
   ): Effect.Effect<
     GetProtectedQueryOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getSchema(
     input: GetSchemaInput,
   ): Effect.Effect<
     GetSchemaOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getSchemaAnalysisRule(
     input: GetSchemaAnalysisRuleInput,
   ): Effect.Effect<
     GetSchemaAnalysisRuleOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listAnalysisTemplates(
     input: ListAnalysisTemplatesInput,
   ): Effect.Effect<
     ListAnalysisTemplatesOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listCollaborationAnalysisTemplates(
     input: ListCollaborationAnalysisTemplatesInput,
   ): Effect.Effect<
     ListCollaborationAnalysisTemplatesOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listCollaborationConfiguredAudienceModelAssociations(
     input: ListCollaborationConfiguredAudienceModelAssociationsInput,
   ): Effect.Effect<
     ListCollaborationConfiguredAudienceModelAssociationsOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listCollaborationIdNamespaceAssociations(
     input: ListCollaborationIdNamespaceAssociationsInput,
   ): Effect.Effect<
     ListCollaborationIdNamespaceAssociationsOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listCollaborationPrivacyBudgetTemplates(
     input: ListCollaborationPrivacyBudgetTemplatesInput,
   ): Effect.Effect<
     ListCollaborationPrivacyBudgetTemplatesOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listCollaborationPrivacyBudgets(
     input: ListCollaborationPrivacyBudgetsInput,
   ): Effect.Effect<
     ListCollaborationPrivacyBudgetsOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listCollaborations(
     input: ListCollaborationsInput,
   ): Effect.Effect<
     ListCollaborationsOutput,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listConfiguredAudienceModelAssociations(
     input: ListConfiguredAudienceModelAssociationsInput,
   ): Effect.Effect<
     ListConfiguredAudienceModelAssociationsOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listConfiguredTableAssociations(
     input: ListConfiguredTableAssociationsInput,
   ): Effect.Effect<
     ListConfiguredTableAssociationsOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listConfiguredTables(
     input: ListConfiguredTablesInput,
   ): Effect.Effect<
     ListConfiguredTablesOutput,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listIdMappingTables(
     input: ListIdMappingTablesInput,
   ): Effect.Effect<
     ListIdMappingTablesOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listIdNamespaceAssociations(
     input: ListIdNamespaceAssociationsInput,
   ): Effect.Effect<
     ListIdNamespaceAssociationsOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listMembers(
     input: ListMembersInput,
   ): Effect.Effect<
     ListMembersOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listMemberships(
     input: ListMembershipsInput,
   ): Effect.Effect<
     ListMembershipsOutput,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listPrivacyBudgetTemplates(
     input: ListPrivacyBudgetTemplatesInput,
   ): Effect.Effect<
     ListPrivacyBudgetTemplatesOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listPrivacyBudgets(
     input: ListPrivacyBudgetsInput,
   ): Effect.Effect<
     ListPrivacyBudgetsOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listProtectedJobs(
     input: ListProtectedJobsInput,
   ): Effect.Effect<
     ListProtectedJobsOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listProtectedQueries(
     input: ListProtectedQueriesInput,
   ): Effect.Effect<
     ListProtectedQueriesOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listSchemas(
     input: ListSchemasInput,
   ): Effect.Effect<
     ListSchemasOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   populateIdMappingTable(
     input: PopulateIdMappingTableInput,
   ): Effect.Effect<
     PopulateIdMappingTableOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   previewPrivacyImpact(
     input: PreviewPrivacyImpactInput,
   ): Effect.Effect<
     PreviewPrivacyImpactOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   startProtectedJob(
     input: StartProtectedJobInput,
   ): Effect.Effect<
     StartProtectedJobOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   startProtectedQuery(
     input: StartProtectedQueryInput,
   ): Effect.Effect<
     StartProtectedQueryOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateAnalysisTemplate(
     input: UpdateAnalysisTemplateInput,
   ): Effect.Effect<
     UpdateAnalysisTemplateOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateCollaboration(
     input: UpdateCollaborationInput,
   ): Effect.Effect<
     UpdateCollaborationOutput,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateConfiguredAudienceModelAssociation(
     input: UpdateConfiguredAudienceModelAssociationInput,
   ): Effect.Effect<
     UpdateConfiguredAudienceModelAssociationOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateConfiguredTable(
     input: UpdateConfiguredTableInput,
   ): Effect.Effect<
     UpdateConfiguredTableOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateConfiguredTableAnalysisRule(
     input: UpdateConfiguredTableAnalysisRuleInput,
   ): Effect.Effect<
     UpdateConfiguredTableAnalysisRuleOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateConfiguredTableAssociation(
     input: UpdateConfiguredTableAssociationInput,
   ): Effect.Effect<
     UpdateConfiguredTableAssociationOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateConfiguredTableAssociationAnalysisRule(
     input: UpdateConfiguredTableAssociationAnalysisRuleInput,
   ): Effect.Effect<
     UpdateConfiguredTableAssociationAnalysisRuleOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateIdMappingTable(
     input: UpdateIdMappingTableInput,
   ): Effect.Effect<
     UpdateIdMappingTableOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateIdNamespaceAssociation(
     input: UpdateIdNamespaceAssociationInput,
   ): Effect.Effect<
     UpdateIdNamespaceAssociationOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateMembership(
     input: UpdateMembershipInput,
   ): Effect.Effect<
     UpdateMembershipOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updatePrivacyBudgetTemplate(
     input: UpdatePrivacyBudgetTemplateInput,
   ): Effect.Effect<
     UpdatePrivacyBudgetTemplateOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateProtectedJob(
     input: UpdateProtectedJobInput,
   ): Effect.Effect<
     UpdateProtectedJobOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateProtectedQuery(
     input: UpdateProtectedQueryInput,
   ): Effect.Effect<
     UpdateProtectedQueryOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
 }
 
@@ -599,7 +1067,9 @@ interface _AnalysisRulePolicy {
   v1?: AnalysisRulePolicyV1;
 }
 
-export type AnalysisRulePolicy = (_AnalysisRulePolicy & { v1: AnalysisRulePolicyV1 });
+export type AnalysisRulePolicy = _AnalysisRulePolicy & {
+  v1: AnalysisRulePolicyV1;
+};
 interface _AnalysisRulePolicyV1 {
   list?: AnalysisRuleList;
   aggregation?: AnalysisRuleAggregation;
@@ -607,8 +1077,16 @@ interface _AnalysisRulePolicyV1 {
   idMappingTable?: AnalysisRuleIdMappingTable;
 }
 
-export type AnalysisRulePolicyV1 = (_AnalysisRulePolicyV1 & { list: AnalysisRuleList }) | (_AnalysisRulePolicyV1 & { aggregation: AnalysisRuleAggregation }) | (_AnalysisRulePolicyV1 & { custom: AnalysisRuleCustom }) | (_AnalysisRulePolicyV1 & { idMappingTable: AnalysisRuleIdMappingTable });
-export type AnalysisRuleType = "AGGREGATION" | "LIST" | "CUSTOM" | "ID_MAPPING_TABLE";
+export type AnalysisRulePolicyV1 =
+  | (_AnalysisRulePolicyV1 & { list: AnalysisRuleList })
+  | (_AnalysisRulePolicyV1 & { aggregation: AnalysisRuleAggregation })
+  | (_AnalysisRulePolicyV1 & { custom: AnalysisRuleCustom })
+  | (_AnalysisRulePolicyV1 & { idMappingTable: AnalysisRuleIdMappingTable });
+export type AnalysisRuleType =
+  | "AGGREGATION"
+  | "LIST"
+  | "CUSTOM"
+  | "ID_MAPPING_TABLE";
 export type AnalysisRuleTypeList = Array<AnalysisRuleType>;
 export interface AnalysisSchema {
   referencedTables?: Array<string>;
@@ -618,12 +1096,16 @@ interface _AnalysisSource {
   artifacts?: AnalysisTemplateArtifacts;
 }
 
-export type AnalysisSource = (_AnalysisSource & { text: string }) | (_AnalysisSource & { artifacts: AnalysisTemplateArtifacts });
+export type AnalysisSource =
+  | (_AnalysisSource & { text: string })
+  | (_AnalysisSource & { artifacts: AnalysisTemplateArtifacts });
 interface _AnalysisSourceMetadata {
   artifacts?: AnalysisTemplateArtifactMetadata;
 }
 
-export type AnalysisSourceMetadata = (_AnalysisSourceMetadata & { artifacts: AnalysisTemplateArtifactMetadata });
+export type AnalysisSourceMetadata = _AnalysisSourceMetadata & {
+  artifacts: AnalysisTemplateArtifactMetadata;
+};
 export interface AnalysisTemplate {
   id: string;
   arn: string;
@@ -677,17 +1159,22 @@ export interface AnalysisTemplateSummary {
 export type AnalysisTemplateSummaryList = Array<AnalysisTemplateSummary>;
 export type AnalysisTemplateText = string;
 
-export type AnalysisTemplateValidationStatus = "VALID" | "INVALID" | "UNABLE_TO_VALIDATE";
+export type AnalysisTemplateValidationStatus =
+  | "VALID"
+  | "INVALID"
+  | "UNABLE_TO_VALIDATE";
 export interface AnalysisTemplateValidationStatusDetail {
   type: AnalysisTemplateValidationType;
   status: AnalysisTemplateValidationStatus;
   reasons?: Array<AnalysisTemplateValidationStatusReason>;
 }
-export type AnalysisTemplateValidationStatusDetailList = Array<AnalysisTemplateValidationStatusDetail>;
+export type AnalysisTemplateValidationStatusDetailList =
+  Array<AnalysisTemplateValidationStatusDetail>;
 export interface AnalysisTemplateValidationStatusReason {
   message: string;
 }
-export type AnalysisTemplateValidationStatusReasonList = Array<AnalysisTemplateValidationStatusReason>;
+export type AnalysisTemplateValidationStatusReasonList =
+  Array<AnalysisTemplateValidationStatusReason>;
 export type AnalysisTemplateValidationType = "DIFFERENTIAL_PRIVACY";
 export type AnalysisType = "DIRECT_ANALYSIS" | "ADDITIONAL_ANALYSIS";
 export type AnalyticsEngine = "SPARK" | "CLEAN_ROOMS_SQL";
@@ -710,7 +1197,8 @@ export interface BatchGetCollaborationAnalysisTemplateError {
   code: string;
   message: string;
 }
-export type BatchGetCollaborationAnalysisTemplateErrorList = Array<BatchGetCollaborationAnalysisTemplateError>;
+export type BatchGetCollaborationAnalysisTemplateErrorList =
+  Array<BatchGetCollaborationAnalysisTemplateError>;
 export interface BatchGetCollaborationAnalysisTemplateInput {
   collaborationIdentifier: string;
   analysisTemplateArns: Array<string>;
@@ -725,7 +1213,8 @@ export interface BatchGetSchemaAnalysisRuleError {
   code: string;
   message: string;
 }
-export type BatchGetSchemaAnalysisRuleErrorList = Array<BatchGetSchemaAnalysisRuleError>;
+export type BatchGetSchemaAnalysisRuleErrorList =
+  Array<BatchGetSchemaAnalysisRuleError>;
 export interface BatchGetSchemaAnalysisRuleInput {
   collaborationIdentifier: string;
   schemaAnalysisRuleRequests: Array<SchemaAnalysisRuleRequest>;
@@ -790,7 +1279,8 @@ export interface CollaborationAnalysisTemplate {
   analysisParameters?: Array<AnalysisParameter>;
   validations?: Array<AnalysisTemplateValidationStatusDetail>;
 }
-export type CollaborationAnalysisTemplateList = Array<CollaborationAnalysisTemplate>;
+export type CollaborationAnalysisTemplateList =
+  Array<CollaborationAnalysisTemplate>;
 export interface CollaborationAnalysisTemplateSummary {
   arn: string;
   createTime: Date | string;
@@ -802,7 +1292,8 @@ export interface CollaborationAnalysisTemplateSummary {
   creatorAccountId: string;
   description?: string;
 }
-export type CollaborationAnalysisTemplateSummaryList = Array<CollaborationAnalysisTemplateSummary>;
+export type CollaborationAnalysisTemplateSummaryList =
+  Array<CollaborationAnalysisTemplateSummary>;
 export type CollaborationArn = string;
 
 export interface CollaborationConfiguredAudienceModelAssociation {
@@ -828,7 +1319,8 @@ export interface CollaborationConfiguredAudienceModelAssociationSummary {
   creatorAccountId: string;
   description?: string;
 }
-export type CollaborationConfiguredAudienceModelAssociationSummaryList = Array<CollaborationConfiguredAudienceModelAssociationSummary>;
+export type CollaborationConfiguredAudienceModelAssociationSummaryList =
+  Array<CollaborationConfiguredAudienceModelAssociationSummary>;
 export type CollaborationDescription = string;
 
 export type CollaborationIdentifier = string;
@@ -860,7 +1352,8 @@ export interface CollaborationIdNamespaceAssociationSummary {
   description?: string;
   inputReferenceProperties: IdNamespaceAssociationInputReferencePropertiesSummary;
 }
-export type CollaborationIdNamespaceAssociationSummaryList = Array<CollaborationIdNamespaceAssociationSummary>;
+export type CollaborationIdNamespaceAssociationSummaryList =
+  Array<CollaborationIdNamespaceAssociationSummary>;
 export type CollaborationJobLogStatus = "ENABLED" | "DISABLED";
 export type CollaborationName = string;
 
@@ -876,7 +1369,8 @@ export interface CollaborationPrivacyBudgetSummary {
   updateTime: Date | string;
   budget: PrivacyBudget;
 }
-export type CollaborationPrivacyBudgetSummaryList = Array<CollaborationPrivacyBudgetSummary>;
+export type CollaborationPrivacyBudgetSummaryList =
+  Array<CollaborationPrivacyBudgetSummary>;
 export interface CollaborationPrivacyBudgetTemplate {
   id: string;
   arn: string;
@@ -899,7 +1393,8 @@ export interface CollaborationPrivacyBudgetTemplateSummary {
   createTime: Date | string;
   updateTime: Date | string;
 }
-export type CollaborationPrivacyBudgetTemplateSummaryList = Array<CollaborationPrivacyBudgetTemplateSummary>;
+export type CollaborationPrivacyBudgetTemplateSummaryList =
+  Array<CollaborationPrivacyBudgetTemplateSummary>;
 export type CollaborationQueryLogStatus = "ENABLED" | "DISABLED";
 export interface CollaborationSummary {
   id: string;
@@ -928,12 +1423,16 @@ interface _ComputeConfiguration {
   worker?: WorkerComputeConfiguration;
 }
 
-export type ComputeConfiguration = (_ComputeConfiguration & { worker: WorkerComputeConfiguration });
+export type ComputeConfiguration = _ComputeConfiguration & {
+  worker: WorkerComputeConfiguration;
+};
 interface _ConfigurationDetails {
   directAnalysisConfigurationDetails?: DirectAnalysisConfigurationDetails;
 }
 
-export type ConfigurationDetails = (_ConfigurationDetails & { directAnalysisConfigurationDetails: DirectAnalysisConfigurationDetails });
+export type ConfigurationDetails = _ConfigurationDetails & {
+  directAnalysisConfigurationDetails: DirectAnalysisConfigurationDetails;
+};
 export type ConfiguredAudienceModelArn = string;
 
 export interface ConfiguredAudienceModelAssociation {
@@ -969,7 +1468,8 @@ export interface ConfiguredAudienceModelAssociationSummary {
   configuredAudienceModelArn: string;
   description?: string;
 }
-export type ConfiguredAudienceModelAssociationSummaryList = Array<ConfiguredAudienceModelAssociationSummary>;
+export type ConfiguredAudienceModelAssociationSummaryList =
+  Array<ConfiguredAudienceModelAssociationSummary>;
 export interface ConfiguredTable {
   id: string;
   arn: string;
@@ -995,16 +1495,25 @@ interface _ConfiguredTableAnalysisRulePolicy {
   v1?: ConfiguredTableAnalysisRulePolicyV1;
 }
 
-export type ConfiguredTableAnalysisRulePolicy = (_ConfiguredTableAnalysisRulePolicy & { v1: ConfiguredTableAnalysisRulePolicyV1 });
+export type ConfiguredTableAnalysisRulePolicy =
+  _ConfiguredTableAnalysisRulePolicy & {
+    v1: ConfiguredTableAnalysisRulePolicyV1;
+  };
 interface _ConfiguredTableAnalysisRulePolicyV1 {
   list?: AnalysisRuleList;
   aggregation?: AnalysisRuleAggregation;
   custom?: AnalysisRuleCustom;
 }
 
-export type ConfiguredTableAnalysisRulePolicyV1 = (_ConfiguredTableAnalysisRulePolicyV1 & { list: AnalysisRuleList }) | (_ConfiguredTableAnalysisRulePolicyV1 & { aggregation: AnalysisRuleAggregation }) | (_ConfiguredTableAnalysisRulePolicyV1 & { custom: AnalysisRuleCustom });
+export type ConfiguredTableAnalysisRulePolicyV1 =
+  | (_ConfiguredTableAnalysisRulePolicyV1 & { list: AnalysisRuleList })
+  | (_ConfiguredTableAnalysisRulePolicyV1 & {
+      aggregation: AnalysisRuleAggregation;
+    })
+  | (_ConfiguredTableAnalysisRulePolicyV1 & { custom: AnalysisRuleCustom });
 export type ConfiguredTableAnalysisRuleType = "AGGREGATION" | "LIST" | "CUSTOM";
-export type ConfiguredTableAnalysisRuleTypeList = Array<ConfiguredTableAnalysisRuleType>;
+export type ConfiguredTableAnalysisRuleTypeList =
+  Array<ConfiguredTableAnalysisRuleType>;
 export type ConfiguredTableArn = string;
 
 export interface ConfiguredTableAssociation {
@@ -1046,16 +1555,32 @@ interface _ConfiguredTableAssociationAnalysisRulePolicy {
   v1?: ConfiguredTableAssociationAnalysisRulePolicyV1;
 }
 
-export type ConfiguredTableAssociationAnalysisRulePolicy = (_ConfiguredTableAssociationAnalysisRulePolicy & { v1: ConfiguredTableAssociationAnalysisRulePolicyV1 });
+export type ConfiguredTableAssociationAnalysisRulePolicy =
+  _ConfiguredTableAssociationAnalysisRulePolicy & {
+    v1: ConfiguredTableAssociationAnalysisRulePolicyV1;
+  };
 interface _ConfiguredTableAssociationAnalysisRulePolicyV1 {
   list?: ConfiguredTableAssociationAnalysisRuleList;
   aggregation?: ConfiguredTableAssociationAnalysisRuleAggregation;
   custom?: ConfiguredTableAssociationAnalysisRuleCustom;
 }
 
-export type ConfiguredTableAssociationAnalysisRulePolicyV1 = (_ConfiguredTableAssociationAnalysisRulePolicyV1 & { list: ConfiguredTableAssociationAnalysisRuleList }) | (_ConfiguredTableAssociationAnalysisRulePolicyV1 & { aggregation: ConfiguredTableAssociationAnalysisRuleAggregation }) | (_ConfiguredTableAssociationAnalysisRulePolicyV1 & { custom: ConfiguredTableAssociationAnalysisRuleCustom });
-export type ConfiguredTableAssociationAnalysisRuleType = "AGGREGATION" | "LIST" | "CUSTOM";
-export type ConfiguredTableAssociationAnalysisRuleTypeList = Array<ConfiguredTableAssociationAnalysisRuleType>;
+export type ConfiguredTableAssociationAnalysisRulePolicyV1 =
+  | (_ConfiguredTableAssociationAnalysisRulePolicyV1 & {
+      list: ConfiguredTableAssociationAnalysisRuleList;
+    })
+  | (_ConfiguredTableAssociationAnalysisRulePolicyV1 & {
+      aggregation: ConfiguredTableAssociationAnalysisRuleAggregation;
+    })
+  | (_ConfiguredTableAssociationAnalysisRulePolicyV1 & {
+      custom: ConfiguredTableAssociationAnalysisRuleCustom;
+    });
+export type ConfiguredTableAssociationAnalysisRuleType =
+  | "AGGREGATION"
+  | "LIST"
+  | "CUSTOM";
+export type ConfiguredTableAssociationAnalysisRuleTypeList =
+  Array<ConfiguredTableAssociationAnalysisRuleType>;
 export type ConfiguredTableAssociationArn = string;
 
 export type ConfiguredTableAssociationIdentifier = string;
@@ -1071,7 +1596,8 @@ export interface ConfiguredTableAssociationSummary {
   arn: string;
   analysisRuleTypes?: Array<ConfiguredTableAssociationAnalysisRuleType>;
 }
-export type ConfiguredTableAssociationSummaryList = Array<ConfiguredTableAssociationSummary>;
+export type ConfiguredTableAssociationSummaryList =
+  Array<ConfiguredTableAssociationSummary>;
 export type ConfiguredTableIdentifier = string;
 
 export interface ConfiguredTableSummary {
@@ -1099,7 +1625,9 @@ interface _ConsolidatedPolicy {
   v1?: ConsolidatedPolicyV1;
 }
 
-export type ConsolidatedPolicy = (_ConsolidatedPolicy & { v1: ConsolidatedPolicyV1 });
+export type ConsolidatedPolicy = _ConsolidatedPolicy & {
+  v1: ConsolidatedPolicyV1;
+};
 export interface ConsolidatedPolicyAggregation {
   aggregateColumns: Array<AggregateColumn>;
   joinColumns: Array<string>;
@@ -1135,7 +1663,10 @@ interface _ConsolidatedPolicyV1 {
   custom?: ConsolidatedPolicyCustom;
 }
 
-export type ConsolidatedPolicyV1 = (_ConsolidatedPolicyV1 & { list: ConsolidatedPolicyList }) | (_ConsolidatedPolicyV1 & { aggregation: ConsolidatedPolicyAggregation }) | (_ConsolidatedPolicyV1 & { custom: ConsolidatedPolicyCustom });
+export type ConsolidatedPolicyV1 =
+  | (_ConsolidatedPolicyV1 & { list: ConsolidatedPolicyList })
+  | (_ConsolidatedPolicyV1 & { aggregation: ConsolidatedPolicyAggregation })
+  | (_ConsolidatedPolicyV1 & { custom: ConsolidatedPolicyCustom });
 export interface CreateAnalysisTemplateInput {
   description?: string;
   membershipIdentifier: string;
@@ -1262,7 +1793,9 @@ export interface CreatePrivacyBudgetTemplateOutput {
   privacyBudgetTemplate: PrivacyBudgetTemplate;
 }
 export type CustomMLMemberAbilities = Array<CustomMLMemberAbility>;
-export type CustomMLMemberAbility = "CAN_RECEIVE_MODEL_OUTPUT" | "CAN_RECEIVE_INFERENCE_OUTPUT";
+export type CustomMLMemberAbility =
+  | "CAN_RECEIVE_MODEL_OUTPUT"
+  | "CAN_RECEIVE_INFERENCE_OUTPUT";
 export interface DataEncryptionMetadata {
   allowCleartext: boolean;
   allowDuplicates: boolean;
@@ -1273,75 +1806,68 @@ export interface DeleteAnalysisTemplateInput {
   membershipIdentifier: string;
   analysisTemplateIdentifier: string;
 }
-export interface DeleteAnalysisTemplateOutput {
-}
+export interface DeleteAnalysisTemplateOutput {}
 export interface DeleteCollaborationInput {
   collaborationIdentifier: string;
 }
-export interface DeleteCollaborationOutput {
-}
+export interface DeleteCollaborationOutput {}
 export interface DeleteConfiguredAudienceModelAssociationInput {
   configuredAudienceModelAssociationIdentifier: string;
   membershipIdentifier: string;
 }
-export interface DeleteConfiguredAudienceModelAssociationOutput {
-}
+export interface DeleteConfiguredAudienceModelAssociationOutput {}
 export interface DeleteConfiguredTableAnalysisRuleInput {
   configuredTableIdentifier: string;
   analysisRuleType: ConfiguredTableAnalysisRuleType;
 }
-export interface DeleteConfiguredTableAnalysisRuleOutput {
-}
+export interface DeleteConfiguredTableAnalysisRuleOutput {}
 export interface DeleteConfiguredTableAssociationAnalysisRuleInput {
   membershipIdentifier: string;
   configuredTableAssociationIdentifier: string;
   analysisRuleType: ConfiguredTableAssociationAnalysisRuleType;
 }
-export interface DeleteConfiguredTableAssociationAnalysisRuleOutput {
-}
+export interface DeleteConfiguredTableAssociationAnalysisRuleOutput {}
 export interface DeleteConfiguredTableAssociationInput {
   configuredTableAssociationIdentifier: string;
   membershipIdentifier: string;
 }
-export interface DeleteConfiguredTableAssociationOutput {
-}
+export interface DeleteConfiguredTableAssociationOutput {}
 export interface DeleteConfiguredTableInput {
   configuredTableIdentifier: string;
 }
-export interface DeleteConfiguredTableOutput {
-}
+export interface DeleteConfiguredTableOutput {}
 export interface DeleteIdMappingTableInput {
   idMappingTableIdentifier: string;
   membershipIdentifier: string;
 }
-export interface DeleteIdMappingTableOutput {
-}
+export interface DeleteIdMappingTableOutput {}
 export interface DeleteIdNamespaceAssociationInput {
   idNamespaceAssociationIdentifier: string;
   membershipIdentifier: string;
 }
-export interface DeleteIdNamespaceAssociationOutput {
-}
+export interface DeleteIdNamespaceAssociationOutput {}
 export interface DeleteMemberInput {
   collaborationIdentifier: string;
   accountId: string;
 }
-export interface DeleteMemberOutput {
-}
+export interface DeleteMemberOutput {}
 export interface DeleteMembershipInput {
   membershipIdentifier: string;
 }
-export interface DeleteMembershipOutput {
-}
+export interface DeleteMembershipOutput {}
 export interface DeletePrivacyBudgetTemplateInput {
   membershipIdentifier: string;
   privacyBudgetTemplateIdentifier: string;
 }
-export interface DeletePrivacyBudgetTemplateOutput {
-}
+export interface DeletePrivacyBudgetTemplateOutput {}
 export type DifferentialPrivacyAggregationExpression = string;
 
-export type DifferentialPrivacyAggregationType = "AVG" | "COUNT" | "COUNT_DISTINCT" | "SUM" | "STDDEV";
+export type DifferentialPrivacyAggregationType =
+  | "AVG"
+  | "COUNT"
+  | "COUNT_DISTINCT"
+  | "SUM"
+  | "STDDEV";
 export interface DifferentialPrivacyColumn {
   name: string;
 }
@@ -1356,7 +1882,8 @@ export interface DifferentialPrivacyPreviewAggregation {
   type: DifferentialPrivacyAggregationType;
   maxCount: number;
 }
-export type DifferentialPrivacyPreviewAggregationList = Array<DifferentialPrivacyPreviewAggregation>;
+export type DifferentialPrivacyPreviewAggregationList =
+  Array<DifferentialPrivacyPreviewAggregation>;
 export interface DifferentialPrivacyPreviewParametersInput {
   epsilon: number;
   usersNoisePerQuery: number;
@@ -1370,7 +1897,8 @@ export interface DifferentialPrivacyPrivacyBudgetAggregation {
   maxCount: number;
   remainingCount: number;
 }
-export type DifferentialPrivacyPrivacyBudgetAggregationList = Array<DifferentialPrivacyPrivacyBudgetAggregation>;
+export type DifferentialPrivacyPrivacyBudgetAggregationList =
+  Array<DifferentialPrivacyPrivacyBudgetAggregation>;
 export interface DifferentialPrivacyPrivacyImpact {
   aggregations: Array<DifferentialPrivacyPreviewAggregation>;
 }
@@ -1381,7 +1909,8 @@ export interface DifferentialPrivacySensitivityParameters {
   minColumnValue?: number;
   maxColumnValue?: number;
 }
-export type DifferentialPrivacySensitivityParametersList = Array<DifferentialPrivacySensitivityParameters>;
+export type DifferentialPrivacySensitivityParametersList =
+  Array<DifferentialPrivacySensitivityParameters>;
 export interface DifferentialPrivacyTemplateParametersInput {
   epsilon: number;
   usersNoisePerQuery: number;
@@ -1647,7 +2176,8 @@ export interface IdNamespaceAssociationSummary {
   description?: string;
   inputReferenceProperties: IdNamespaceAssociationInputReferencePropertiesSummary;
 }
-export type IdNamespaceAssociationSummaryList = Array<IdNamespaceAssociationSummary>;
+export type IdNamespaceAssociationSummaryList =
+  Array<IdNamespaceAssociationSummary>;
 export type IdNamespaceType = "SOURCE" | "TARGET";
 export declare class InternalServerException extends EffectData.TaggedError(
   "InternalServerException",
@@ -1898,7 +2428,10 @@ interface _MembershipProtectedJobOutputConfiguration {
   s3?: ProtectedJobS3OutputConfigurationInput;
 }
 
-export type MembershipProtectedJobOutputConfiguration = (_MembershipProtectedJobOutputConfiguration & { s3: ProtectedJobS3OutputConfigurationInput });
+export type MembershipProtectedJobOutputConfiguration =
+  _MembershipProtectedJobOutputConfiguration & {
+    s3: ProtectedJobS3OutputConfigurationInput;
+  };
 export interface MembershipProtectedJobResultConfiguration {
   outputConfiguration: MembershipProtectedJobOutputConfiguration;
   roleArn: string;
@@ -1907,7 +2440,10 @@ interface _MembershipProtectedQueryOutputConfiguration {
   s3?: ProtectedQueryS3OutputConfiguration;
 }
 
-export type MembershipProtectedQueryOutputConfiguration = (_MembershipProtectedQueryOutputConfiguration & { s3: ProtectedQueryS3OutputConfiguration });
+export type MembershipProtectedQueryOutputConfiguration =
+  _MembershipProtectedQueryOutputConfiguration & {
+    s3: ProtectedQueryS3OutputConfiguration;
+  };
 export interface MembershipProtectedQueryResultConfiguration {
   outputConfiguration: MembershipProtectedQueryOutputConfiguration;
   roleArn?: string;
@@ -1974,7 +2510,35 @@ export type PaginationToken = string;
 export type ParameterMap = Record<string, string>;
 export type ParameterName = string;
 
-export type ParameterType = "SMALLINT" | "INTEGER" | "BIGINT" | "DECIMAL" | "REAL" | "DOUBLE_PRECISION" | "BOOLEAN" | "CHAR" | "VARCHAR" | "DATE" | "TIMESTAMP" | "TIMESTAMPTZ" | "TIME" | "TIMETZ" | "VARBYTE" | "BINARY" | "BYTE" | "CHARACTER" | "DOUBLE" | "FLOAT" | "INT" | "LONG" | "NUMERIC" | "SHORT" | "STRING" | "TIMESTAMP_LTZ" | "TIMESTAMP_NTZ" | "TINYINT";
+export type ParameterType =
+  | "SMALLINT"
+  | "INTEGER"
+  | "BIGINT"
+  | "DECIMAL"
+  | "REAL"
+  | "DOUBLE_PRECISION"
+  | "BOOLEAN"
+  | "CHAR"
+  | "VARCHAR"
+  | "DATE"
+  | "TIMESTAMP"
+  | "TIMESTAMPTZ"
+  | "TIME"
+  | "TIMETZ"
+  | "VARBYTE"
+  | "BINARY"
+  | "BYTE"
+  | "CHARACTER"
+  | "DOUBLE"
+  | "FLOAT"
+  | "INT"
+  | "LONG"
+  | "NUMERIC"
+  | "SHORT"
+  | "STRING"
+  | "TIMESTAMP_LTZ"
+  | "TIMESTAMP_NTZ"
+  | "TINYINT";
 export type ParameterValue = string;
 
 export interface PaymentConfiguration {
@@ -2000,12 +2564,17 @@ interface _PreviewPrivacyImpactParametersInput {
   differentialPrivacy?: DifferentialPrivacyPreviewParametersInput;
 }
 
-export type PreviewPrivacyImpactParametersInput = (_PreviewPrivacyImpactParametersInput & { differentialPrivacy: DifferentialPrivacyPreviewParametersInput });
+export type PreviewPrivacyImpactParametersInput =
+  _PreviewPrivacyImpactParametersInput & {
+    differentialPrivacy: DifferentialPrivacyPreviewParametersInput;
+  };
 interface _PrivacyBudget {
   differentialPrivacy?: DifferentialPrivacyPrivacyBudget;
 }
 
-export type PrivacyBudget = (_PrivacyBudget & { differentialPrivacy: DifferentialPrivacyPrivacyBudget });
+export type PrivacyBudget = _PrivacyBudget & {
+  differentialPrivacy: DifferentialPrivacyPrivacyBudget;
+};
 export interface PrivacyBudgetSummary {
   id: string;
   privacyBudgetTemplateId: string;
@@ -2042,12 +2611,18 @@ interface _PrivacyBudgetTemplateParametersInput {
   differentialPrivacy?: DifferentialPrivacyTemplateParametersInput;
 }
 
-export type PrivacyBudgetTemplateParametersInput = (_PrivacyBudgetTemplateParametersInput & { differentialPrivacy: DifferentialPrivacyTemplateParametersInput });
+export type PrivacyBudgetTemplateParametersInput =
+  _PrivacyBudgetTemplateParametersInput & {
+    differentialPrivacy: DifferentialPrivacyTemplateParametersInput;
+  };
 interface _PrivacyBudgetTemplateParametersOutput {
   differentialPrivacy?: DifferentialPrivacyTemplateParametersOutput;
 }
 
-export type PrivacyBudgetTemplateParametersOutput = (_PrivacyBudgetTemplateParametersOutput & { differentialPrivacy: DifferentialPrivacyTemplateParametersOutput });
+export type PrivacyBudgetTemplateParametersOutput =
+  _PrivacyBudgetTemplateParametersOutput & {
+    differentialPrivacy: DifferentialPrivacyTemplateParametersOutput;
+  };
 export interface PrivacyBudgetTemplateSummary {
   id: string;
   arn: string;
@@ -2059,18 +2634,24 @@ export interface PrivacyBudgetTemplateSummary {
   createTime: Date | string;
   updateTime: Date | string;
 }
-export type PrivacyBudgetTemplateSummaryList = Array<PrivacyBudgetTemplateSummary>;
+export type PrivacyBudgetTemplateSummaryList =
+  Array<PrivacyBudgetTemplateSummary>;
 interface _PrivacyBudgetTemplateUpdateParameters {
   differentialPrivacy?: DifferentialPrivacyTemplateUpdateParameters;
 }
 
-export type PrivacyBudgetTemplateUpdateParameters = (_PrivacyBudgetTemplateUpdateParameters & { differentialPrivacy: DifferentialPrivacyTemplateUpdateParameters });
+export type PrivacyBudgetTemplateUpdateParameters =
+  _PrivacyBudgetTemplateUpdateParameters & {
+    differentialPrivacy: DifferentialPrivacyTemplateUpdateParameters;
+  };
 export type PrivacyBudgetType = "DIFFERENTIAL_PRIVACY";
 interface _PrivacyImpact {
   differentialPrivacy?: DifferentialPrivacyPrivacyImpact;
 }
 
-export type PrivacyImpact = (_PrivacyImpact & { differentialPrivacy: DifferentialPrivacyPrivacyImpact });
+export type PrivacyImpact = _PrivacyImpact & {
+  differentialPrivacy: DifferentialPrivacyPrivacyImpact;
+};
 export interface ProtectedJob {
   id: string;
   membershipId: string;
@@ -2088,7 +2669,10 @@ interface _ProtectedJobConfigurationDetails {
   directAnalysisConfigurationDetails?: ProtectedJobDirectAnalysisConfigurationDetails;
 }
 
-export type ProtectedJobConfigurationDetails = (_ProtectedJobConfigurationDetails & { directAnalysisConfigurationDetails: ProtectedJobDirectAnalysisConfigurationDetails });
+export type ProtectedJobConfigurationDetails =
+  _ProtectedJobConfigurationDetails & {
+    directAnalysisConfigurationDetails: ProtectedJobDirectAnalysisConfigurationDetails;
+  };
 export interface ProtectedJobDirectAnalysisConfigurationDetails {
   receiverAccountIds?: Array<string>;
 }
@@ -2104,24 +2688,38 @@ export interface ProtectedJobMemberOutputConfigurationInput {
 export interface ProtectedJobMemberOutputConfigurationOutput {
   accountId: string;
 }
-export type ProtectedJobMemberOutputList = Array<ProtectedJobSingleMemberOutput>;
+export type ProtectedJobMemberOutputList =
+  Array<ProtectedJobSingleMemberOutput>;
 interface _ProtectedJobOutput {
   s3?: ProtectedJobS3Output;
   memberList?: Array<ProtectedJobSingleMemberOutput>;
 }
 
-export type ProtectedJobOutput = (_ProtectedJobOutput & { s3: ProtectedJobS3Output }) | (_ProtectedJobOutput & { memberList: Array<ProtectedJobSingleMemberOutput> });
+export type ProtectedJobOutput =
+  | (_ProtectedJobOutput & { s3: ProtectedJobS3Output })
+  | (_ProtectedJobOutput & {
+      memberList: Array<ProtectedJobSingleMemberOutput>;
+    });
 interface _ProtectedJobOutputConfigurationInput {
   member?: ProtectedJobMemberOutputConfigurationInput;
 }
 
-export type ProtectedJobOutputConfigurationInput = (_ProtectedJobOutputConfigurationInput & { member: ProtectedJobMemberOutputConfigurationInput });
+export type ProtectedJobOutputConfigurationInput =
+  _ProtectedJobOutputConfigurationInput & {
+    member: ProtectedJobMemberOutputConfigurationInput;
+  };
 interface _ProtectedJobOutputConfigurationOutput {
   s3?: ProtectedJobS3OutputConfigurationOutput;
   member?: ProtectedJobMemberOutputConfigurationOutput;
 }
 
-export type ProtectedJobOutputConfigurationOutput = (_ProtectedJobOutputConfigurationOutput & { s3: ProtectedJobS3OutputConfigurationOutput }) | (_ProtectedJobOutputConfigurationOutput & { member: ProtectedJobMemberOutputConfigurationOutput });
+export type ProtectedJobOutputConfigurationOutput =
+  | (_ProtectedJobOutputConfigurationOutput & {
+      s3: ProtectedJobS3OutputConfigurationOutput;
+    })
+  | (_ProtectedJobOutputConfigurationOutput & {
+      member: ProtectedJobMemberOutputConfigurationOutput;
+    });
 export interface ProtectedJobParameters {
   analysisTemplateArn?: string;
 }
@@ -2130,7 +2728,8 @@ export interface ProtectedJobReceiverConfiguration {
   analysisType: ProtectedJobAnalysisType;
   configurationDetails?: ProtectedJobConfigurationDetails;
 }
-export type ProtectedJobReceiverConfigurations = Array<ProtectedJobReceiverConfiguration>;
+export type ProtectedJobReceiverConfigurations =
+  Array<ProtectedJobReceiverConfiguration>;
 export interface ProtectedJobResult {
   output: ProtectedJobOutput;
 }
@@ -2158,7 +2757,13 @@ export interface ProtectedJobStatistics {
   totalDurationInMillis?: number;
   billedResourceUtilization?: BilledJobResourceUtilization;
 }
-export type ProtectedJobStatus = "SUBMITTED" | "STARTED" | "CANCELLED" | "CANCELLING" | "FAILED" | "SUCCESS";
+export type ProtectedJobStatus =
+  | "SUBMITTED"
+  | "STARTED"
+  | "CANCELLED"
+  | "CANCELLING"
+  | "FAILED"
+  | "SUCCESS";
 export interface ProtectedJobSummary {
   id: string;
   membershipId: string;
@@ -2195,8 +2800,15 @@ interface _ProtectedQueryDistributeOutputConfigurationLocation {
   member?: ProtectedQueryMemberOutputConfiguration;
 }
 
-export type ProtectedQueryDistributeOutputConfigurationLocation = (_ProtectedQueryDistributeOutputConfigurationLocation & { s3: ProtectedQueryS3OutputConfiguration }) | (_ProtectedQueryDistributeOutputConfigurationLocation & { member: ProtectedQueryMemberOutputConfiguration });
-export type ProtectedQueryDistributeOutputConfigurationLocations = Array<ProtectedQueryDistributeOutputConfigurationLocation>;
+export type ProtectedQueryDistributeOutputConfigurationLocation =
+  | (_ProtectedQueryDistributeOutputConfigurationLocation & {
+      s3: ProtectedQueryS3OutputConfiguration;
+    })
+  | (_ProtectedQueryDistributeOutputConfigurationLocation & {
+      member: ProtectedQueryMemberOutputConfiguration;
+    });
+export type ProtectedQueryDistributeOutputConfigurationLocations =
+  Array<ProtectedQueryDistributeOutputConfigurationLocation>;
 export interface ProtectedQueryError {
   message: string;
   code: string;
@@ -2206,21 +2818,36 @@ export type ProtectedQueryIdentifier = string;
 export interface ProtectedQueryMemberOutputConfiguration {
   accountId: string;
 }
-export type ProtectedQueryMemberOutputList = Array<ProtectedQuerySingleMemberOutput>;
+export type ProtectedQueryMemberOutputList =
+  Array<ProtectedQuerySingleMemberOutput>;
 interface _ProtectedQueryOutput {
   s3?: ProtectedQueryS3Output;
   memberList?: Array<ProtectedQuerySingleMemberOutput>;
   distribute?: ProtectedQueryDistributeOutput;
 }
 
-export type ProtectedQueryOutput = (_ProtectedQueryOutput & { s3: ProtectedQueryS3Output }) | (_ProtectedQueryOutput & { memberList: Array<ProtectedQuerySingleMemberOutput> }) | (_ProtectedQueryOutput & { distribute: ProtectedQueryDistributeOutput });
+export type ProtectedQueryOutput =
+  | (_ProtectedQueryOutput & { s3: ProtectedQueryS3Output })
+  | (_ProtectedQueryOutput & {
+      memberList: Array<ProtectedQuerySingleMemberOutput>;
+    })
+  | (_ProtectedQueryOutput & { distribute: ProtectedQueryDistributeOutput });
 interface _ProtectedQueryOutputConfiguration {
   s3?: ProtectedQueryS3OutputConfiguration;
   member?: ProtectedQueryMemberOutputConfiguration;
   distribute?: ProtectedQueryDistributeOutputConfiguration;
 }
 
-export type ProtectedQueryOutputConfiguration = (_ProtectedQueryOutputConfiguration & { s3: ProtectedQueryS3OutputConfiguration }) | (_ProtectedQueryOutputConfiguration & { member: ProtectedQueryMemberOutputConfiguration }) | (_ProtectedQueryOutputConfiguration & { distribute: ProtectedQueryDistributeOutputConfiguration });
+export type ProtectedQueryOutputConfiguration =
+  | (_ProtectedQueryOutputConfiguration & {
+      s3: ProtectedQueryS3OutputConfiguration;
+    })
+  | (_ProtectedQueryOutputConfiguration & {
+      member: ProtectedQueryMemberOutputConfiguration;
+    })
+  | (_ProtectedQueryOutputConfiguration & {
+      distribute: ProtectedQueryDistributeOutputConfiguration;
+    });
 export interface ProtectedQueryResult {
   output: ProtectedQueryOutput;
 }
@@ -2268,7 +2895,9 @@ interface _QueryConstraint {
   requireOverlap?: QueryConstraintRequireOverlap;
 }
 
-export type QueryConstraint = (_QueryConstraint & { requireOverlap: QueryConstraintRequireOverlap });
+export type QueryConstraint = _QueryConstraint & {
+  requireOverlap: QueryConstraintRequireOverlap;
+};
 export type QueryConstraintList = Array<QueryConstraint>;
 export interface QueryConstraintRequireOverlap {
   columns?: Array<string>;
@@ -2343,7 +2972,18 @@ export interface SchemaStatusReason {
   code: SchemaStatusReasonCode;
   message: string;
 }
-export type SchemaStatusReasonCode = "ANALYSIS_RULE_MISSING" | "ANALYSIS_TEMPLATES_NOT_CONFIGURED" | "ANALYSIS_PROVIDERS_NOT_CONFIGURED" | "DIFFERENTIAL_PRIVACY_POLICY_NOT_CONFIGURED" | "ID_MAPPING_TABLE_NOT_POPULATED" | "COLLABORATION_ANALYSIS_RULE_NOT_CONFIGURED" | "ADDITIONAL_ANALYSES_NOT_CONFIGURED" | "RESULT_RECEIVERS_NOT_CONFIGURED" | "ADDITIONAL_ANALYSES_NOT_ALLOWED" | "RESULT_RECEIVERS_NOT_ALLOWED" | "ANALYSIS_RULE_TYPES_NOT_COMPATIBLE";
+export type SchemaStatusReasonCode =
+  | "ANALYSIS_RULE_MISSING"
+  | "ANALYSIS_TEMPLATES_NOT_CONFIGURED"
+  | "ANALYSIS_PROVIDERS_NOT_CONFIGURED"
+  | "DIFFERENTIAL_PRIVACY_POLICY_NOT_CONFIGURED"
+  | "ID_MAPPING_TABLE_NOT_POPULATED"
+  | "COLLABORATION_ANALYSIS_RULE_NOT_CONFIGURED"
+  | "ADDITIONAL_ANALYSES_NOT_CONFIGURED"
+  | "RESULT_RECEIVERS_NOT_CONFIGURED"
+  | "ADDITIONAL_ANALYSES_NOT_ALLOWED"
+  | "RESULT_RECEIVERS_NOT_ALLOWED"
+  | "ANALYSIS_RULE_TYPES_NOT_COMPATIBLE";
 export type SchemaStatusReasonList = Array<SchemaStatusReason>;
 export interface SchemaSummary {
   name: string;
@@ -2363,7 +3003,9 @@ interface _SchemaTypeProperties {
   idMappingTable?: IdMappingTableSchemaTypeProperties;
 }
 
-export type SchemaTypeProperties = (_SchemaTypeProperties & { idMappingTable: IdMappingTableSchemaTypeProperties });
+export type SchemaTypeProperties = _SchemaTypeProperties & {
+  idMappingTable: IdMappingTableSchemaTypeProperties;
+};
 export type SecretsManagerArn = string;
 
 export type SelectedAnalysisMethod = "DIRECT_QUERY" | "DIRECT_JOB";
@@ -2395,7 +3037,9 @@ interface _SnowflakeTableSchema {
   v1?: Array<SnowflakeTableSchemaV1>;
 }
 
-export type SnowflakeTableSchema = (_SnowflakeTableSchema & { v1: Array<SnowflakeTableSchemaV1> });
+export type SnowflakeTableSchema = _SnowflakeTableSchema & {
+  v1: Array<SnowflakeTableSchemaV1>;
+};
 export type SnowflakeTableSchemaList = Array<SnowflakeTableSchemaV1>;
 export interface SnowflakeTableSchemaV1 {
   columnName: string;
@@ -2431,7 +3075,10 @@ interface _TableReference {
   athena?: AthenaTableReference;
 }
 
-export type TableReference = (_TableReference & { glue: GlueTableReference }) | (_TableReference & { snowflake: SnowflakeTableReference }) | (_TableReference & { athena: AthenaTableReference });
+export type TableReference =
+  | (_TableReference & { glue: GlueTableReference })
+  | (_TableReference & { snowflake: SnowflakeTableReference })
+  | (_TableReference & { athena: AthenaTableReference });
 export type TagKey = string;
 
 export type TagKeys = Array<string>;
@@ -2440,8 +3087,7 @@ export interface TagResourceInput {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceOutput {
-}
+export interface TagResourceOutput {}
 export type TagValue = string;
 
 export type TargetProtectedJobStatus = "CANCELLED";
@@ -2456,8 +3102,7 @@ export interface UntagResourceInput {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceOutput {
-}
+export interface UntagResourceOutput {}
 export interface UpdateAnalysisTemplateInput {
   membershipIdentifier: string;
   analysisTemplateIdentifier: string;
@@ -3214,7 +3859,8 @@ export declare namespace ListCollaborationAnalysisTemplates {
 
 export declare namespace ListCollaborationConfiguredAudienceModelAssociations {
   export type Input = ListCollaborationConfiguredAudienceModelAssociationsInput;
-  export type Output = ListCollaborationConfiguredAudienceModelAssociationsOutput;
+  export type Output =
+    ListCollaborationConfiguredAudienceModelAssociationsOutput;
   export type Error =
     | AccessDeniedException
     | InternalServerException
@@ -3628,4 +4274,3 @@ export declare namespace UpdateProtectedQuery {
     | ValidationException
     | CommonAwsError;
 }
-

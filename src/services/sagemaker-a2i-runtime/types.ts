@@ -1,6 +1,39 @@
 import type { Effect, Data as EffectData } from "effect";
-import type { AccessDeniedException, ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
-type CommonAwsError = AccessDeniedException | ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | ThrottlingException | ValidationException;
+import type {
+  AccessDeniedException,
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+type CommonAwsError =
+  | AccessDeniedException
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | ThrottlingException
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class SageMakerA2IRuntime extends AWSServiceClient {
@@ -8,31 +41,52 @@ export declare class SageMakerA2IRuntime extends AWSServiceClient {
     input: DeleteHumanLoopRequest,
   ): Effect.Effect<
     DeleteHumanLoopResponse,
-    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   describeHumanLoop(
     input: DescribeHumanLoopRequest,
   ): Effect.Effect<
     DescribeHumanLoopResponse,
-    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listHumanLoops(
     input: ListHumanLoopsRequest,
   ): Effect.Effect<
     ListHumanLoopsResponse,
-    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   startHumanLoop(
     input: StartHumanLoopRequest,
   ): Effect.Effect<
     StartHumanLoopResponse,
-    ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   stopHumanLoop(
     input: StopHumanLoopRequest,
   ): Effect.Effect<
     StopHumanLoopResponse,
-    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
 }
 
@@ -43,13 +97,14 @@ export declare class ConflictException extends EffectData.TaggedError(
 )<{
   readonly Message?: string;
 }> {}
-export type ContentClassifier = "FreeOfPersonallyIdentifiableInformation" | "FreeOfAdultContent";
+export type ContentClassifier =
+  | "FreeOfPersonallyIdentifiableInformation"
+  | "FreeOfAdultContent";
 export type ContentClassifiers = Array<ContentClassifier>;
 export interface DeleteHumanLoopRequest {
   HumanLoopName: string;
 }
-export interface DeleteHumanLoopResponse {
-}
+export interface DeleteHumanLoopResponse {}
 export interface DescribeHumanLoopRequest {
   HumanLoopName: string;
 }
@@ -80,7 +135,12 @@ export type HumanLoopName = string;
 export interface HumanLoopOutput {
   OutputS3Uri: string;
 }
-export type HumanLoopStatus = "InProgress" | "Failed" | "Completed" | "Stopped" | "Stopping";
+export type HumanLoopStatus =
+  | "InProgress"
+  | "Failed"
+  | "Completed"
+  | "Stopped"
+  | "Stopping";
 export type HumanLoopSummaries = Array<HumanLoopSummary>;
 export interface HumanLoopSummary {
   HumanLoopName?: string;
@@ -135,8 +195,7 @@ export interface StartHumanLoopResponse {
 export interface StopHumanLoopRequest {
   HumanLoopName: string;
 }
-export interface StopHumanLoopResponse {
-}
+export interface StopHumanLoopResponse {}
 export type SagemakerA2iRuntimeString = string;
 
 export declare class ThrottlingException extends EffectData.TaggedError(
@@ -206,4 +265,3 @@ export declare namespace StopHumanLoop {
     | ValidationException
     | CommonAwsError;
 }
-

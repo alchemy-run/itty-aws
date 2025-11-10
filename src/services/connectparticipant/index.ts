@@ -5,7 +5,23 @@ import type { ConnectParticipant as _ConnectParticipantClient } from "./types.ts
 
 export * from "./types.ts";
 
-export {ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, type CommonAwsError} from "../../error.ts";
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+  type CommonAwsError,
+} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -15,17 +31,17 @@ const metadata = {
   sigV4ServiceName: "execute-api",
   endpointPrefix: "participant.connect",
   operations: {
-    "CancelParticipantAuthentication": "POST /participant/cancel-authentication",
-    "CompleteAttachmentUpload": "POST /participant/complete-attachment-upload",
-    "CreateParticipantConnection": "POST /participant/connection",
-    "DescribeView": "GET /participant/views/{ViewToken}",
-    "DisconnectParticipant": "POST /participant/disconnect",
-    "GetAttachment": "POST /participant/attachment",
-    "GetAuthenticationUrl": "POST /participant/authentication-url",
-    "GetTranscript": "POST /participant/transcript",
-    "SendEvent": "POST /participant/event",
-    "SendMessage": "POST /participant/message",
-    "StartAttachmentUpload": "POST /participant/start-attachment-upload",
+    CancelParticipantAuthentication: "POST /participant/cancel-authentication",
+    CompleteAttachmentUpload: "POST /participant/complete-attachment-upload",
+    CreateParticipantConnection: "POST /participant/connection",
+    DescribeView: "GET /participant/views/{ViewToken}",
+    DisconnectParticipant: "POST /participant/disconnect",
+    GetAttachment: "POST /participant/attachment",
+    GetAuthenticationUrl: "POST /participant/authentication-url",
+    GetTranscript: "POST /participant/transcript",
+    SendEvent: "POST /participant/event",
+    SendMessage: "POST /participant/message",
+    StartAttachmentUpload: "POST /participant/start-attachment-upload",
   },
 } as const satisfies ServiceMetadata;
 

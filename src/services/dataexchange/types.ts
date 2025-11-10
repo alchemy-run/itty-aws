@@ -1,6 +1,38 @@
 import type { Effect, Data as EffectData } from "effect";
-import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
-type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
+import type {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+type CommonAwsError =
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | AccessDeniedException
+  | ThrottlingException
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class DataExchange extends AWSServiceClient {
@@ -8,223 +40,380 @@ export declare class DataExchange extends AWSServiceClient {
     input: AcceptDataGrantRequest,
   ): Effect.Effect<
     AcceptDataGrantResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   cancelJob(
     input: CancelJobRequest,
   ): Effect.Effect<
     {},
-    ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createDataGrant(
     input: CreateDataGrantRequest,
   ): Effect.Effect<
     CreateDataGrantResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceLimitExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceLimitExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createDataSet(
     input: CreateDataSetRequest,
   ): Effect.Effect<
     CreateDataSetResponse,
-    AccessDeniedException | InternalServerException | ServiceLimitExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ServiceLimitExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createEventAction(
     input: CreateEventActionRequest,
   ): Effect.Effect<
     CreateEventActionResponse,
-    AccessDeniedException | InternalServerException | ServiceLimitExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ServiceLimitExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createJob(
     input: CreateJobRequest,
   ): Effect.Effect<
     CreateJobResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createRevision(
     input: CreateRevisionRequest,
   ): Effect.Effect<
     CreateRevisionResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteAsset(
     input: DeleteAssetRequest,
   ): Effect.Effect<
     {},
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteDataGrant(
     input: DeleteDataGrantRequest,
   ): Effect.Effect<
     {},
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteDataSet(
     input: DeleteDataSetRequest,
   ): Effect.Effect<
     {},
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteEventAction(
     input: DeleteEventActionRequest,
   ): Effect.Effect<
     {},
-    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteRevision(
     input: DeleteRevisionRequest,
   ): Effect.Effect<
     {},
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getAsset(
     input: GetAssetRequest,
   ): Effect.Effect<
     GetAssetResponse,
-    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getDataGrant(
     input: GetDataGrantRequest,
   ): Effect.Effect<
     GetDataGrantResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getDataSet(
     input: GetDataSetRequest,
   ): Effect.Effect<
     GetDataSetResponse,
-    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getEventAction(
     input: GetEventActionRequest,
   ): Effect.Effect<
     GetEventActionResponse,
-    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getJob(
     input: GetJobRequest,
   ): Effect.Effect<
     GetJobResponse,
-    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getReceivedDataGrant(
     input: GetReceivedDataGrantRequest,
   ): Effect.Effect<
     GetReceivedDataGrantResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getRevision(
     input: GetRevisionRequest,
   ): Effect.Effect<
     GetRevisionResponse,
-    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listDataGrants(
     input: ListDataGrantsRequest,
   ): Effect.Effect<
     ListDataGrantsResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listDataSetRevisions(
     input: ListDataSetRevisionsRequest,
   ): Effect.Effect<
     ListDataSetRevisionsResponse,
-    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listDataSets(
     input: ListDataSetsRequest,
   ): Effect.Effect<
     ListDataSetsResponse,
-    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listEventActions(
     input: ListEventActionsRequest,
   ): Effect.Effect<
     ListEventActionsResponse,
-    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listJobs(
     input: ListJobsRequest,
   ): Effect.Effect<
     ListJobsResponse,
-    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listReceivedDataGrants(
     input: ListReceivedDataGrantsRequest,
   ): Effect.Effect<
     ListReceivedDataGrantsResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listRevisionAssets(
     input: ListRevisionAssetsRequest,
   ): Effect.Effect<
     ListRevisionAssetsResponse,
-    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
-  ): Effect.Effect<
-    ListTagsForResourceResponse,
-    CommonAwsError
-  >;
+  ): Effect.Effect<ListTagsForResourceResponse, CommonAwsError>;
   revokeRevision(
     input: RevokeRevisionRequest,
   ): Effect.Effect<
     RevokeRevisionResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   sendApiAsset(
     input: SendApiAssetRequest,
   ): Effect.Effect<
     SendApiAssetResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   sendDataSetNotification(
     input: SendDataSetNotificationRequest,
   ): Effect.Effect<
     SendDataSetNotificationResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   startJob(
     input: StartJobRequest,
   ): Effect.Effect<
     StartJobResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
-  tagResource(
-    input: TagResourceRequest,
-  ): Effect.Effect<
-    {},
-    CommonAwsError
-  >;
-  untagResource(
-    input: UntagResourceRequest,
-  ): Effect.Effect<
-    {},
-    CommonAwsError
-  >;
+  tagResource(input: TagResourceRequest): Effect.Effect<{}, CommonAwsError>;
+  untagResource(input: UntagResourceRequest): Effect.Effect<{}, CommonAwsError>;
   updateAsset(
     input: UpdateAssetRequest,
   ): Effect.Effect<
     UpdateAssetResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateDataSet(
     input: UpdateDataSetRequest,
   ): Effect.Effect<
     UpdateDataSetResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateEventAction(
     input: UpdateEventActionRequest,
   ): Effect.Effect<
     UpdateEventActionResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateRevision(
     input: UpdateRevisionRequest,
   ): Effect.Effect<
     UpdateRevisionResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
 }
 
@@ -893,12 +1082,15 @@ export type ListOfEventActionEntry = Array<EventActionEntry>;
 export type ListOfJobEntry = Array<JobEntry>;
 export type ListOfJobError = Array<JobError>;
 export type ListOfKmsKeysToGrant = Array<KmsKeyToGrant>;
-export type ListOfLakeFormationTagPolicies = Array<LakeFormationTagPolicyDetails>;
+export type ListOfLakeFormationTagPolicies =
+  Array<LakeFormationTagPolicyDetails>;
 export type ListOfLFPermissions = Array<string>;
 export type ListOfLFTags = Array<LFTag>;
 export type ListOfLFTagValues = Array<string>;
-export type ListOfReceivedDataGrantSummariesEntry = Array<ReceivedDataGrantSummariesEntry>;
-export type ListOfRedshiftDataShareAssetSourceEntry = Array<RedshiftDataShareAssetSourceEntry>;
+export type ListOfReceivedDataGrantSummariesEntry =
+  Array<ReceivedDataGrantSummariesEntry>;
+export type ListOfRedshiftDataShareAssetSourceEntry =
+  Array<RedshiftDataShareAssetSourceEntry>;
 export type ListOfRedshiftDataShares = Array<RedshiftDataShareDetails>;
 export type ListOfRevisionDestinationEntry = Array<RevisionDestinationEntry>;
 export type ListOfRevisionEntry = Array<RevisionEntry>;
@@ -1112,8 +1304,7 @@ export interface SendDataSetNotificationRequest {
   Details?: NotificationDetails;
   Type: string;
 }
-export interface SendDataSetNotificationResponse {
-}
+export interface SendDataSetNotificationResponse {}
 export type SenderPrincipal = string;
 
 export type ServerSideEncryptionTypes = string;
@@ -1128,8 +1319,7 @@ export declare class ServiceLimitExceededException extends EffectData.TaggedErro
 export interface StartJobRequest {
   JobId: string;
 }
-export interface StartJobResponse {
-}
+export interface StartJobResponse {}
 export type State = string;
 
 export interface TableLFTagPolicy {
@@ -1540,8 +1730,7 @@ export declare namespace ListRevisionAssets {
 export declare namespace ListTagsForResource {
   export type Input = ListTagsForResourceRequest;
   export type Output = ListTagsForResourceResponse;
-  export type Error =
-    | CommonAwsError;
+  export type Error = CommonAwsError;
 }
 
 export declare namespace RevokeRevision {
@@ -1598,15 +1787,13 @@ export declare namespace StartJob {
 export declare namespace TagResource {
   export type Input = TagResourceRequest;
   export type Output = {};
-  export type Error =
-    | CommonAwsError;
+  export type Error = CommonAwsError;
 }
 
 export declare namespace UntagResource {
   export type Input = UntagResourceRequest;
   export type Output = {};
-  export type Error =
-    | CommonAwsError;
+  export type Error = CommonAwsError;
 }
 
 export declare namespace UpdateAsset {
@@ -1658,4 +1845,3 @@ export declare namespace UpdateRevision {
     | ValidationException
     | CommonAwsError;
 }
-

@@ -1,6 +1,38 @@
 import type { Effect, Data as EffectData } from "effect";
-import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
-type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
+import type {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+type CommonAwsError =
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | AccessDeniedException
+  | ThrottlingException
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class SupplyChain extends AWSServiceClient {
@@ -8,181 +40,334 @@ export declare class SupplyChain extends AWSServiceClient {
     input: GetDataIntegrationEventRequest,
   ): Effect.Effect<
     GetDataIntegrationEventResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getDataIntegrationFlowExecution(
     input: GetDataIntegrationFlowExecutionRequest,
   ): Effect.Effect<
     GetDataIntegrationFlowExecutionResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listDataIntegrationEvents(
     input: ListDataIntegrationEventsRequest,
   ): Effect.Effect<
     ListDataIntegrationEventsResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listDataIntegrationFlowExecutions(
     input: ListDataIntegrationFlowExecutionsRequest,
   ): Effect.Effect<
     ListDataIntegrationFlowExecutionsResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   sendDataIntegrationEvent(
     input: SendDataIntegrationEventRequest,
   ): Effect.Effect<
     SendDataIntegrationEventResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createBillOfMaterialsImportJob(
     input: CreateBillOfMaterialsImportJobRequest,
   ): Effect.Effect<
     CreateBillOfMaterialsImportJobResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createDataIntegrationFlow(
     input: CreateDataIntegrationFlowRequest,
   ): Effect.Effect<
     CreateDataIntegrationFlowResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createDataLakeDataset(
     input: CreateDataLakeDatasetRequest,
   ): Effect.Effect<
     CreateDataLakeDatasetResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createDataLakeNamespace(
     input: CreateDataLakeNamespaceRequest,
   ): Effect.Effect<
     CreateDataLakeNamespaceResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createInstance(
     input: CreateInstanceRequest,
   ): Effect.Effect<
     CreateInstanceResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteDataIntegrationFlow(
     input: DeleteDataIntegrationFlowRequest,
   ): Effect.Effect<
     DeleteDataIntegrationFlowResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   deleteDataLakeDataset(
     input: DeleteDataLakeDatasetRequest,
   ): Effect.Effect<
     DeleteDataLakeDatasetResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteDataLakeNamespace(
     input: DeleteDataLakeNamespaceRequest,
   ): Effect.Effect<
     DeleteDataLakeNamespaceResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteInstance(
     input: DeleteInstanceRequest,
   ): Effect.Effect<
     DeleteInstanceResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getBillOfMaterialsImportJob(
     input: GetBillOfMaterialsImportJobRequest,
   ): Effect.Effect<
     GetBillOfMaterialsImportJobResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getDataIntegrationFlow(
     input: GetDataIntegrationFlowRequest,
   ): Effect.Effect<
     GetDataIntegrationFlowResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getDataLakeDataset(
     input: GetDataLakeDatasetRequest,
   ): Effect.Effect<
     GetDataLakeDatasetResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getDataLakeNamespace(
     input: GetDataLakeNamespaceRequest,
   ): Effect.Effect<
     GetDataLakeNamespaceResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getInstance(
     input: GetInstanceRequest,
   ): Effect.Effect<
     GetInstanceResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listDataIntegrationFlows(
     input: ListDataIntegrationFlowsRequest,
   ): Effect.Effect<
     ListDataIntegrationFlowsResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listDataLakeDatasets(
     input: ListDataLakeDatasetsRequest,
   ): Effect.Effect<
     ListDataLakeDatasetsResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listDataLakeNamespaces(
     input: ListDataLakeNamespacesRequest,
   ): Effect.Effect<
     ListDataLakeNamespacesResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listInstances(
     input: ListInstancesRequest,
   ): Effect.Effect<
     ListInstancesResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateDataIntegrationFlow(
     input: UpdateDataIntegrationFlowRequest,
   ): Effect.Effect<
     UpdateDataIntegrationFlowResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateDataLakeDataset(
     input: UpdateDataLakeDatasetRequest,
   ): Effect.Effect<
     UpdateDataLakeDatasetResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateDataLakeNamespace(
     input: UpdateDataLakeNamespaceRequest,
   ): Effect.Effect<
     UpdateDataLakeNamespaceResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateInstance(
     input: UpdateInstanceRequest,
   ): Effect.Effect<
     UpdateInstanceResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
 }
 
@@ -206,7 +391,12 @@ export interface BillOfMaterialsImportJob {
 }
 export type ClientToken = string;
 
-export type ConfigurationJobStatus = "NEW" | "FAILED" | "IN_PROGRESS" | "QUEUED" | "SUCCESS";
+export type ConfigurationJobStatus =
+  | "NEW"
+  | "FAILED"
+  | "IN_PROGRESS"
+  | "QUEUED"
+  | "SUCCESS";
 export type ConfigurationS3Uri = string;
 
 export declare class ConflictException extends EffectData.TaggedError(
@@ -282,8 +472,14 @@ export interface DataIntegrationEventDatasetLoadExecutionDetails {
   status: DataIntegrationEventDatasetLoadStatus;
   message?: string;
 }
-export type DataIntegrationEventDatasetLoadStatus = "SUCCEEDED" | "IN_PROGRESS" | "FAILED";
-export type DataIntegrationEventDatasetOperationType = "APPEND" | "UPSERT" | "DELETE";
+export type DataIntegrationEventDatasetLoadStatus =
+  | "SUCCEEDED"
+  | "IN_PROGRESS"
+  | "FAILED";
+export type DataIntegrationEventDatasetOperationType =
+  | "APPEND"
+  | "UPSERT"
+  | "DELETE";
 export interface DataIntegrationEventDatasetTargetConfiguration {
   datasetIdentifier: string;
   operationType: DataIntegrationEventDatasetOperationType;
@@ -300,7 +496,23 @@ export type DataIntegrationEventMaxResults = number;
 
 export type DataIntegrationEventNextToken = string;
 
-export type DataIntegrationEventType = "scn.data.forecast" | "scn.data.inventorylevel" | "scn.data.inboundorder" | "scn.data.inboundorderline" | "scn.data.inboundorderlineschedule" | "scn.data.outboundorderline" | "scn.data.outboundshipment" | "scn.data.processheader" | "scn.data.processoperation" | "scn.data.processproduct" | "scn.data.reservation" | "scn.data.shipment" | "scn.data.shipmentstop" | "scn.data.shipmentstoporder" | "scn.data.supplyplan" | "scn.data.dataset";
+export type DataIntegrationEventType =
+  | "scn.data.forecast"
+  | "scn.data.inventorylevel"
+  | "scn.data.inboundorder"
+  | "scn.data.inboundorderline"
+  | "scn.data.inboundorderlineschedule"
+  | "scn.data.outboundorderline"
+  | "scn.data.outboundshipment"
+  | "scn.data.processheader"
+  | "scn.data.processoperation"
+  | "scn.data.processproduct"
+  | "scn.data.reservation"
+  | "scn.data.shipment"
+  | "scn.data.shipmentstop"
+  | "scn.data.shipmentstoporder"
+  | "scn.data.supplyplan"
+  | "scn.data.dataset";
 export interface DataIntegrationFlow {
   instanceId: string;
   name: string;
@@ -344,7 +556,8 @@ export interface DataIntegrationFlowExecution {
 }
 export type DataIntegrationFlowExecutionDiagnosticReportsRootS3URI = string;
 
-export type DataIntegrationFlowExecutionList = Array<DataIntegrationFlowExecution>;
+export type DataIntegrationFlowExecutionList =
+  Array<DataIntegrationFlowExecution>;
 export type DataIntegrationFlowExecutionMaxResults = number;
 
 export type DataIntegrationFlowExecutionNextToken = string;
@@ -357,12 +570,16 @@ export interface DataIntegrationFlowExecutionSourceInfo {
   s3Source?: DataIntegrationFlowS3Source;
   datasetSource?: DataIntegrationFlowDatasetSource;
 }
-export type DataIntegrationFlowExecutionStatus = "SUCCEEDED" | "IN_PROGRESS" | "FAILED";
+export type DataIntegrationFlowExecutionStatus =
+  | "SUCCEEDED"
+  | "IN_PROGRESS"
+  | "FAILED";
 export interface DataIntegrationFlowFieldPriorityDedupeField {
   name: string;
   sortOrder: DataIntegrationFlowFieldPriorityDedupeSortOrder;
 }
-export type DataIntegrationFlowFieldPriorityDedupeFieldList = Array<DataIntegrationFlowFieldPriorityDedupeField>;
+export type DataIntegrationFlowFieldPriorityDedupeFieldList =
+  Array<DataIntegrationFlowFieldPriorityDedupeField>;
 export type DataIntegrationFlowFieldPriorityDedupeFieldName = string;
 
 export type DataIntegrationFlowFieldPriorityDedupeSortOrder = "ASC" | "DESC";
@@ -449,18 +666,25 @@ export interface DataLakeDatasetPartitionField {
   name: string;
   transform: DataLakeDatasetPartitionFieldTransform;
 }
-export type DataLakeDatasetPartitionFieldList = Array<DataLakeDatasetPartitionField>;
+export type DataLakeDatasetPartitionFieldList =
+  Array<DataLakeDatasetPartitionField>;
 export interface DataLakeDatasetPartitionFieldTransform {
   type: DataLakeDatasetPartitionTransformType;
 }
 export interface DataLakeDatasetPartitionSpec {
   fields: Array<DataLakeDatasetPartitionField>;
 }
-export type DataLakeDatasetPartitionTransformType = "YEAR" | "MONTH" | "DAY" | "HOUR" | "IDENTITY";
+export type DataLakeDatasetPartitionTransformType =
+  | "YEAR"
+  | "MONTH"
+  | "DAY"
+  | "HOUR"
+  | "IDENTITY";
 export interface DataLakeDatasetPrimaryKeyField {
   name: string;
 }
-export type DataLakeDatasetPrimaryKeyFieldList = Array<DataLakeDatasetPrimaryKeyField>;
+export type DataLakeDatasetPrimaryKeyFieldList =
+  Array<DataLakeDatasetPrimaryKeyField>;
 export interface DataLakeDatasetSchema {
   name: string;
   fields: Array<DataLakeDatasetSchemaField>;
@@ -474,7 +698,12 @@ export interface DataLakeDatasetSchemaField {
 export type DataLakeDatasetSchemaFieldList = Array<DataLakeDatasetSchemaField>;
 export type DataLakeDatasetSchemaFieldName = string;
 
-export type DataLakeDatasetSchemaFieldType = "INT" | "DOUBLE" | "STRING" | "TIMESTAMP" | "LONG";
+export type DataLakeDatasetSchemaFieldType =
+  | "INT"
+  | "DOUBLE"
+  | "STRING"
+  | "TIMESTAMP"
+  | "LONG";
 export type DataLakeDatasetSchemaName = string;
 
 export interface DataLakeNamespace {
@@ -601,7 +830,13 @@ export type InstanceName = string;
 export type InstanceNameList = Array<string>;
 export type InstanceNextToken = string;
 
-export type InstanceState = "Initializing" | "Active" | "CreateFailed" | "DeleteFailed" | "Deleting" | "Deleted";
+export type InstanceState =
+  | "Initializing"
+  | "Active"
+  | "CreateFailed"
+  | "DeleteFailed"
+  | "Deleting"
+  | "Deleted";
 export type InstanceStateList = Array<InstanceState>;
 export type InstanceWebAppDnsDomain = string;
 
@@ -708,8 +943,7 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {
-}
+export interface TagResourceResponse {}
 export type TagValue = string;
 
 export declare class ThrottlingException extends EffectData.TaggedError(
@@ -721,8 +955,7 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {
-}
+export interface UntagResourceResponse {}
 export interface UpdateDataIntegrationFlowRequest {
   instanceId: string;
   name: string;
@@ -1127,4 +1360,3 @@ export declare namespace UpdateInstance {
     | ValidationException
     | CommonAwsError;
 }
-

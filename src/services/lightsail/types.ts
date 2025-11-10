@@ -1,6 +1,40 @@
 import type { Effect, Data as EffectData } from "effect";
-import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError, ValidationException } from "../../error.ts";
-type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | ThrottlingException | UnrecognizedClientException | UnknownOperationException | ValidationError | ValidationException | AccessDeniedException;
+import type {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  ThrottlingException,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+  ValidationException,
+} from "../../error.ts";
+type CommonAwsError =
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | ThrottlingException
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | ValidationException
+  | AccessDeniedException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class Lightsail extends AWSServiceClient {
@@ -8,967 +42,2147 @@ export declare class Lightsail extends AWSServiceClient {
     input: AllocateStaticIpRequest,
   ): Effect.Effect<
     AllocateStaticIpResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   attachCertificateToDistribution(
     input: AttachCertificateToDistributionRequest,
   ): Effect.Effect<
     AttachCertificateToDistributionResult,
-    AccessDeniedException | InvalidInputException | NotFoundException | OperationFailureException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   attachDisk(
     input: AttachDiskRequest,
   ): Effect.Effect<
     AttachDiskResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   attachInstancesToLoadBalancer(
     input: AttachInstancesToLoadBalancerRequest,
   ): Effect.Effect<
     AttachInstancesToLoadBalancerResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   attachLoadBalancerTlsCertificate(
     input: AttachLoadBalancerTlsCertificateRequest,
   ): Effect.Effect<
     AttachLoadBalancerTlsCertificateResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   attachStaticIp(
     input: AttachStaticIpRequest,
   ): Effect.Effect<
     AttachStaticIpResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   closeInstancePublicPorts(
     input: CloseInstancePublicPortsRequest,
   ): Effect.Effect<
     CloseInstancePublicPortsResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   copySnapshot(
     input: CopySnapshotRequest,
   ): Effect.Effect<
     CopySnapshotResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   createBucket(
     input: CreateBucketRequest,
   ): Effect.Effect<
     CreateBucketResult,
-    AccessDeniedException | InvalidInputException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | InvalidInputException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   createBucketAccessKey(
     input: CreateBucketAccessKeyRequest,
   ): Effect.Effect<
     CreateBucketAccessKeyResult,
-    AccessDeniedException | InvalidInputException | NotFoundException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | InvalidInputException
+    | NotFoundException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   createCertificate(
     input: CreateCertificateRequest,
   ): Effect.Effect<
     CreateCertificateResult,
-    AccessDeniedException | InvalidInputException | NotFoundException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | InvalidInputException
+    | NotFoundException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   createCloudFormationStack(
     input: CreateCloudFormationStackRequest,
   ): Effect.Effect<
     CreateCloudFormationStackResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   createContactMethod(
     input: CreateContactMethodRequest,
   ): Effect.Effect<
     CreateContactMethodResult,
-    AccessDeniedException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   createContainerService(
     input: CreateContainerServiceRequest,
   ): Effect.Effect<
     CreateContainerServiceResult,
-    AccessDeniedException | InvalidInputException | NotFoundException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | InvalidInputException
+    | NotFoundException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   createContainerServiceDeployment(
     input: CreateContainerServiceDeploymentRequest,
   ): Effect.Effect<
     CreateContainerServiceDeploymentResult,
-    AccessDeniedException | InvalidInputException | NotFoundException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | InvalidInputException
+    | NotFoundException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   createContainerServiceRegistryLogin(
     input: CreateContainerServiceRegistryLoginRequest,
   ): Effect.Effect<
     CreateContainerServiceRegistryLoginResult,
-    AccessDeniedException | InvalidInputException | NotFoundException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | InvalidInputException
+    | NotFoundException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   createDisk(
     input: CreateDiskRequest,
   ): Effect.Effect<
     CreateDiskResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   createDiskFromSnapshot(
     input: CreateDiskFromSnapshotRequest,
   ): Effect.Effect<
     CreateDiskFromSnapshotResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   createDiskSnapshot(
     input: CreateDiskSnapshotRequest,
   ): Effect.Effect<
     CreateDiskSnapshotResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   createDistribution(
     input: CreateDistributionRequest,
   ): Effect.Effect<
     CreateDistributionResult,
-    AccessDeniedException | InvalidInputException | NotFoundException | OperationFailureException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   createDomain(
     input: CreateDomainRequest,
   ): Effect.Effect<
     CreateDomainResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   createDomainEntry(
     input: CreateDomainEntryRequest,
   ): Effect.Effect<
     CreateDomainEntryResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   createGUISessionAccessDetails(
     input: CreateGUISessionAccessDetailsRequest,
   ): Effect.Effect<
     CreateGUISessionAccessDetailsResult,
-    AccessDeniedException | InvalidInputException | NotFoundException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | InvalidInputException
+    | NotFoundException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   createInstances(
     input: CreateInstancesRequest,
   ): Effect.Effect<
     CreateInstancesResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   createInstancesFromSnapshot(
     input: CreateInstancesFromSnapshotRequest,
   ): Effect.Effect<
     CreateInstancesFromSnapshotResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   createInstanceSnapshot(
     input: CreateInstanceSnapshotRequest,
   ): Effect.Effect<
     CreateInstanceSnapshotResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   createKeyPair(
     input: CreateKeyPairRequest,
   ): Effect.Effect<
     CreateKeyPairResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   createLoadBalancer(
     input: CreateLoadBalancerRequest,
   ): Effect.Effect<
     CreateLoadBalancerResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   createLoadBalancerTlsCertificate(
     input: CreateLoadBalancerTlsCertificateRequest,
   ): Effect.Effect<
     CreateLoadBalancerTlsCertificateResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   createRelationalDatabase(
     input: CreateRelationalDatabaseRequest,
   ): Effect.Effect<
     CreateRelationalDatabaseResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   createRelationalDatabaseFromSnapshot(
     input: CreateRelationalDatabaseFromSnapshotRequest,
   ): Effect.Effect<
     CreateRelationalDatabaseFromSnapshotResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   createRelationalDatabaseSnapshot(
     input: CreateRelationalDatabaseSnapshotRequest,
   ): Effect.Effect<
     CreateRelationalDatabaseSnapshotResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   deleteAlarm(
     input: DeleteAlarmRequest,
   ): Effect.Effect<
     DeleteAlarmResult,
-    AccessDeniedException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   deleteAutoSnapshot(
     input: DeleteAutoSnapshotRequest,
   ): Effect.Effect<
     DeleteAutoSnapshotResult,
-    AccessDeniedException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   deleteBucket(
     input: DeleteBucketRequest,
   ): Effect.Effect<
     DeleteBucketResult,
-    AccessDeniedException | InvalidInputException | NotFoundException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | InvalidInputException
+    | NotFoundException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   deleteBucketAccessKey(
     input: DeleteBucketAccessKeyRequest,
   ): Effect.Effect<
     DeleteBucketAccessKeyResult,
-    AccessDeniedException | InvalidInputException | NotFoundException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | InvalidInputException
+    | NotFoundException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   deleteCertificate(
     input: DeleteCertificateRequest,
   ): Effect.Effect<
     DeleteCertificateResult,
-    AccessDeniedException | InvalidInputException | NotFoundException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | InvalidInputException
+    | NotFoundException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   deleteContactMethod(
     input: DeleteContactMethodRequest,
   ): Effect.Effect<
     DeleteContactMethodResult,
-    AccessDeniedException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   deleteContainerImage(
     input: DeleteContainerImageRequest,
   ): Effect.Effect<
     DeleteContainerImageResult,
-    AccessDeniedException | InvalidInputException | NotFoundException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | InvalidInputException
+    | NotFoundException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   deleteContainerService(
     input: DeleteContainerServiceRequest,
   ): Effect.Effect<
     DeleteContainerServiceResult,
-    AccessDeniedException | InvalidInputException | NotFoundException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | InvalidInputException
+    | NotFoundException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   deleteDisk(
     input: DeleteDiskRequest,
   ): Effect.Effect<
     DeleteDiskResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   deleteDiskSnapshot(
     input: DeleteDiskSnapshotRequest,
   ): Effect.Effect<
     DeleteDiskSnapshotResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   deleteDistribution(
     input: DeleteDistributionRequest,
   ): Effect.Effect<
     DeleteDistributionResult,
-    AccessDeniedException | InvalidInputException | NotFoundException | OperationFailureException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   deleteDomain(
     input: DeleteDomainRequest,
   ): Effect.Effect<
     DeleteDomainResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   deleteDomainEntry(
     input: DeleteDomainEntryRequest,
   ): Effect.Effect<
     DeleteDomainEntryResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   deleteInstance(
     input: DeleteInstanceRequest,
   ): Effect.Effect<
     DeleteInstanceResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   deleteInstanceSnapshot(
     input: DeleteInstanceSnapshotRequest,
   ): Effect.Effect<
     DeleteInstanceSnapshotResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   deleteKeyPair(
     input: DeleteKeyPairRequest,
   ): Effect.Effect<
     DeleteKeyPairResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   deleteKnownHostKeys(
     input: DeleteKnownHostKeysRequest,
   ): Effect.Effect<
     DeleteKnownHostKeysResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   deleteLoadBalancer(
     input: DeleteLoadBalancerRequest,
   ): Effect.Effect<
     DeleteLoadBalancerResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   deleteLoadBalancerTlsCertificate(
     input: DeleteLoadBalancerTlsCertificateRequest,
   ): Effect.Effect<
     DeleteLoadBalancerTlsCertificateResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   deleteRelationalDatabase(
     input: DeleteRelationalDatabaseRequest,
   ): Effect.Effect<
     DeleteRelationalDatabaseResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   deleteRelationalDatabaseSnapshot(
     input: DeleteRelationalDatabaseSnapshotRequest,
   ): Effect.Effect<
     DeleteRelationalDatabaseSnapshotResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   detachCertificateFromDistribution(
     input: DetachCertificateFromDistributionRequest,
   ): Effect.Effect<
     DetachCertificateFromDistributionResult,
-    AccessDeniedException | InvalidInputException | NotFoundException | OperationFailureException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   detachDisk(
     input: DetachDiskRequest,
   ): Effect.Effect<
     DetachDiskResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   detachInstancesFromLoadBalancer(
     input: DetachInstancesFromLoadBalancerRequest,
   ): Effect.Effect<
     DetachInstancesFromLoadBalancerResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   detachStaticIp(
     input: DetachStaticIpRequest,
   ): Effect.Effect<
     DetachStaticIpResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   disableAddOn(
     input: DisableAddOnRequest,
   ): Effect.Effect<
     DisableAddOnResult,
-    AccessDeniedException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   downloadDefaultKeyPair(
     input: DownloadDefaultKeyPairRequest,
   ): Effect.Effect<
     DownloadDefaultKeyPairResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   enableAddOn(
     input: EnableAddOnRequest,
   ): Effect.Effect<
     EnableAddOnResult,
-    AccessDeniedException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   exportSnapshot(
     input: ExportSnapshotRequest,
   ): Effect.Effect<
     ExportSnapshotResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   getActiveNames(
     input: GetActiveNamesRequest,
   ): Effect.Effect<
     GetActiveNamesResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   getAlarms(
     input: GetAlarmsRequest,
   ): Effect.Effect<
     GetAlarmsResult,
-    AccessDeniedException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   getAutoSnapshots(
     input: GetAutoSnapshotsRequest,
   ): Effect.Effect<
     GetAutoSnapshotsResult,
-    AccessDeniedException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   getBlueprints(
     input: GetBlueprintsRequest,
   ): Effect.Effect<
     GetBlueprintsResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   getBucketAccessKeys(
     input: GetBucketAccessKeysRequest,
   ): Effect.Effect<
     GetBucketAccessKeysResult,
-    AccessDeniedException | InvalidInputException | NotFoundException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | InvalidInputException
+    | NotFoundException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   getBucketBundles(
     input: GetBucketBundlesRequest,
   ): Effect.Effect<
     GetBucketBundlesResult,
-    AccessDeniedException | InvalidInputException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | InvalidInputException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   getBucketMetricData(
     input: GetBucketMetricDataRequest,
   ): Effect.Effect<
     GetBucketMetricDataResult,
-    AccessDeniedException | InvalidInputException | NotFoundException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | InvalidInputException
+    | NotFoundException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   getBuckets(
     input: GetBucketsRequest,
   ): Effect.Effect<
     GetBucketsResult,
-    AccessDeniedException | InvalidInputException | NotFoundException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | InvalidInputException
+    | NotFoundException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   getBundles(
     input: GetBundlesRequest,
   ): Effect.Effect<
     GetBundlesResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   getCertificates(
     input: GetCertificatesRequest,
   ): Effect.Effect<
     GetCertificatesResult,
-    AccessDeniedException | InvalidInputException | NotFoundException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | InvalidInputException
+    | NotFoundException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   getCloudFormationStackRecords(
     input: GetCloudFormationStackRecordsRequest,
   ): Effect.Effect<
     GetCloudFormationStackRecordsResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   getContactMethods(
     input: GetContactMethodsRequest,
   ): Effect.Effect<
     GetContactMethodsResult,
-    AccessDeniedException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   getContainerAPIMetadata(
     input: GetContainerAPIMetadataRequest,
   ): Effect.Effect<
     GetContainerAPIMetadataResult,
-    AccessDeniedException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   getContainerImages(
     input: GetContainerImagesRequest,
   ): Effect.Effect<
     GetContainerImagesResult,
-    AccessDeniedException | InvalidInputException | NotFoundException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | InvalidInputException
+    | NotFoundException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   getContainerLog(
     input: GetContainerLogRequest,
   ): Effect.Effect<
     GetContainerLogResult,
-    AccessDeniedException | InvalidInputException | NotFoundException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | InvalidInputException
+    | NotFoundException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   getContainerServiceDeployments(
     input: GetContainerServiceDeploymentsRequest,
   ): Effect.Effect<
     GetContainerServiceDeploymentsResult,
-    AccessDeniedException | InvalidInputException | NotFoundException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | InvalidInputException
+    | NotFoundException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   getContainerServiceMetricData(
     input: GetContainerServiceMetricDataRequest,
   ): Effect.Effect<
     GetContainerServiceMetricDataResult,
-    AccessDeniedException | InvalidInputException | NotFoundException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | InvalidInputException
+    | NotFoundException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   getContainerServicePowers(
     input: GetContainerServicePowersRequest,
   ): Effect.Effect<
     GetContainerServicePowersResult,
-    AccessDeniedException | InvalidInputException | NotFoundException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | InvalidInputException
+    | NotFoundException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   getContainerServices(
     input: GetContainerServicesRequest,
   ): Effect.Effect<
     ContainerServicesListResult,
-    AccessDeniedException | InvalidInputException | NotFoundException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | InvalidInputException
+    | NotFoundException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   getCostEstimate(
     input: GetCostEstimateRequest,
   ): Effect.Effect<
     GetCostEstimateResult,
-    AccessDeniedException | InvalidInputException | NotFoundException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | InvalidInputException
+    | NotFoundException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   getDisk(
     input: GetDiskRequest,
   ): Effect.Effect<
     GetDiskResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   getDisks(
     input: GetDisksRequest,
   ): Effect.Effect<
     GetDisksResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   getDiskSnapshot(
     input: GetDiskSnapshotRequest,
   ): Effect.Effect<
     GetDiskSnapshotResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   getDiskSnapshots(
     input: GetDiskSnapshotsRequest,
   ): Effect.Effect<
     GetDiskSnapshotsResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   getDistributionBundles(
     input: GetDistributionBundlesRequest,
   ): Effect.Effect<
     GetDistributionBundlesResult,
-    AccessDeniedException | InvalidInputException | NotFoundException | OperationFailureException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   getDistributionLatestCacheReset(
     input: GetDistributionLatestCacheResetRequest,
   ): Effect.Effect<
     GetDistributionLatestCacheResetResult,
-    AccessDeniedException | InvalidInputException | NotFoundException | OperationFailureException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   getDistributionMetricData(
     input: GetDistributionMetricDataRequest,
   ): Effect.Effect<
     GetDistributionMetricDataResult,
-    AccessDeniedException | InvalidInputException | NotFoundException | OperationFailureException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   getDistributions(
     input: GetDistributionsRequest,
   ): Effect.Effect<
     GetDistributionsResult,
-    AccessDeniedException | InvalidInputException | NotFoundException | OperationFailureException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   getDomain(
     input: GetDomainRequest,
   ): Effect.Effect<
     GetDomainResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   getDomains(
     input: GetDomainsRequest,
   ): Effect.Effect<
     GetDomainsResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   getExportSnapshotRecords(
     input: GetExportSnapshotRecordsRequest,
   ): Effect.Effect<
     GetExportSnapshotRecordsResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   getInstance(
     input: GetInstanceRequest,
   ): Effect.Effect<
     GetInstanceResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   getInstanceAccessDetails(
     input: GetInstanceAccessDetailsRequest,
   ): Effect.Effect<
     GetInstanceAccessDetailsResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   getInstanceMetricData(
     input: GetInstanceMetricDataRequest,
   ): Effect.Effect<
     GetInstanceMetricDataResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   getInstancePortStates(
     input: GetInstancePortStatesRequest,
   ): Effect.Effect<
     GetInstancePortStatesResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   getInstances(
     input: GetInstancesRequest,
   ): Effect.Effect<
     GetInstancesResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   getInstanceSnapshot(
     input: GetInstanceSnapshotRequest,
   ): Effect.Effect<
     GetInstanceSnapshotResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   getInstanceSnapshots(
     input: GetInstanceSnapshotsRequest,
   ): Effect.Effect<
     GetInstanceSnapshotsResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   getInstanceState(
     input: GetInstanceStateRequest,
   ): Effect.Effect<
     GetInstanceStateResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   getKeyPair(
     input: GetKeyPairRequest,
   ): Effect.Effect<
     GetKeyPairResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   getKeyPairs(
     input: GetKeyPairsRequest,
   ): Effect.Effect<
     GetKeyPairsResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   getLoadBalancer(
     input: GetLoadBalancerRequest,
   ): Effect.Effect<
     GetLoadBalancerResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   getLoadBalancerMetricData(
     input: GetLoadBalancerMetricDataRequest,
   ): Effect.Effect<
     GetLoadBalancerMetricDataResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   getLoadBalancers(
     input: GetLoadBalancersRequest,
   ): Effect.Effect<
     GetLoadBalancersResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   getLoadBalancerTlsCertificates(
     input: GetLoadBalancerTlsCertificatesRequest,
   ): Effect.Effect<
     GetLoadBalancerTlsCertificatesResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   getLoadBalancerTlsPolicies(
     input: GetLoadBalancerTlsPoliciesRequest,
   ): Effect.Effect<
     GetLoadBalancerTlsPoliciesResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   getOperation(
     input: GetOperationRequest,
   ): Effect.Effect<
     GetOperationResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   getOperations(
     input: GetOperationsRequest,
   ): Effect.Effect<
     GetOperationsResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   getOperationsForResource(
     input: GetOperationsForResourceRequest,
   ): Effect.Effect<
     GetOperationsForResourceResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   getRegions(
     input: GetRegionsRequest,
   ): Effect.Effect<
     GetRegionsResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   getRelationalDatabase(
     input: GetRelationalDatabaseRequest,
   ): Effect.Effect<
     GetRelationalDatabaseResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   getRelationalDatabaseBlueprints(
     input: GetRelationalDatabaseBlueprintsRequest,
   ): Effect.Effect<
     GetRelationalDatabaseBlueprintsResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   getRelationalDatabaseBundles(
     input: GetRelationalDatabaseBundlesRequest,
   ): Effect.Effect<
     GetRelationalDatabaseBundlesResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   getRelationalDatabaseEvents(
     input: GetRelationalDatabaseEventsRequest,
   ): Effect.Effect<
     GetRelationalDatabaseEventsResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   getRelationalDatabaseLogEvents(
     input: GetRelationalDatabaseLogEventsRequest,
   ): Effect.Effect<
     GetRelationalDatabaseLogEventsResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   getRelationalDatabaseLogStreams(
     input: GetRelationalDatabaseLogStreamsRequest,
   ): Effect.Effect<
     GetRelationalDatabaseLogStreamsResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   getRelationalDatabaseMasterUserPassword(
     input: GetRelationalDatabaseMasterUserPasswordRequest,
   ): Effect.Effect<
     GetRelationalDatabaseMasterUserPasswordResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   getRelationalDatabaseMetricData(
     input: GetRelationalDatabaseMetricDataRequest,
   ): Effect.Effect<
     GetRelationalDatabaseMetricDataResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   getRelationalDatabaseParameters(
     input: GetRelationalDatabaseParametersRequest,
   ): Effect.Effect<
     GetRelationalDatabaseParametersResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   getRelationalDatabases(
     input: GetRelationalDatabasesRequest,
   ): Effect.Effect<
     GetRelationalDatabasesResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   getRelationalDatabaseSnapshot(
     input: GetRelationalDatabaseSnapshotRequest,
   ): Effect.Effect<
     GetRelationalDatabaseSnapshotResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   getRelationalDatabaseSnapshots(
     input: GetRelationalDatabaseSnapshotsRequest,
   ): Effect.Effect<
     GetRelationalDatabaseSnapshotsResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   getSetupHistory(
     input: GetSetupHistoryRequest,
   ): Effect.Effect<
     GetSetupHistoryResult,
-    AccessDeniedException | InvalidInputException | NotFoundException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | InvalidInputException
+    | NotFoundException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   getStaticIp(
     input: GetStaticIpRequest,
   ): Effect.Effect<
     GetStaticIpResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   getStaticIps(
     input: GetStaticIpsRequest,
   ): Effect.Effect<
     GetStaticIpsResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   importKeyPair(
     input: ImportKeyPairRequest,
   ): Effect.Effect<
     ImportKeyPairResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   isVpcPeered(
     input: IsVpcPeeredRequest,
   ): Effect.Effect<
     IsVpcPeeredResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   openInstancePublicPorts(
     input: OpenInstancePublicPortsRequest,
   ): Effect.Effect<
     OpenInstancePublicPortsResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   peerVpc(
     input: PeerVpcRequest,
   ): Effect.Effect<
     PeerVpcResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   putAlarm(
     input: PutAlarmRequest,
   ): Effect.Effect<
     PutAlarmResult,
-    AccessDeniedException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   putInstancePublicPorts(
     input: PutInstancePublicPortsRequest,
   ): Effect.Effect<
     PutInstancePublicPortsResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   rebootInstance(
     input: RebootInstanceRequest,
   ): Effect.Effect<
     RebootInstanceResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   rebootRelationalDatabase(
     input: RebootRelationalDatabaseRequest,
   ): Effect.Effect<
     RebootRelationalDatabaseResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   registerContainerImage(
     input: RegisterContainerImageRequest,
   ): Effect.Effect<
     RegisterContainerImageResult,
-    AccessDeniedException | InvalidInputException | NotFoundException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | InvalidInputException
+    | NotFoundException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   releaseStaticIp(
     input: ReleaseStaticIpRequest,
   ): Effect.Effect<
     ReleaseStaticIpResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   resetDistributionCache(
     input: ResetDistributionCacheRequest,
   ): Effect.Effect<
     ResetDistributionCacheResult,
-    AccessDeniedException | InvalidInputException | NotFoundException | OperationFailureException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   sendContactMethodVerification(
     input: SendContactMethodVerificationRequest,
   ): Effect.Effect<
     SendContactMethodVerificationResult,
-    AccessDeniedException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   setIpAddressType(
     input: SetIpAddressTypeRequest,
   ): Effect.Effect<
     SetIpAddressTypeResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   setResourceAccessForBucket(
     input: SetResourceAccessForBucketRequest,
   ): Effect.Effect<
     SetResourceAccessForBucketResult,
-    AccessDeniedException | InvalidInputException | NotFoundException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | InvalidInputException
+    | NotFoundException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   setupInstanceHttps(
     input: SetupInstanceHttpsRequest,
   ): Effect.Effect<
     SetupInstanceHttpsResult,
-    AccessDeniedException | InvalidInputException | NotFoundException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | InvalidInputException
+    | NotFoundException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   startGUISession(
     input: StartGUISessionRequest,
   ): Effect.Effect<
     StartGUISessionResult,
-    AccessDeniedException | InvalidInputException | NotFoundException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | InvalidInputException
+    | NotFoundException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   startInstance(
     input: StartInstanceRequest,
   ): Effect.Effect<
     StartInstanceResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   startRelationalDatabase(
     input: StartRelationalDatabaseRequest,
   ): Effect.Effect<
     StartRelationalDatabaseResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   stopGUISession(
     input: StopGUISessionRequest,
   ): Effect.Effect<
     StopGUISessionResult,
-    AccessDeniedException | InvalidInputException | NotFoundException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | InvalidInputException
+    | NotFoundException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   stopInstance(
     input: StopInstanceRequest,
   ): Effect.Effect<
     StopInstanceResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   stopRelationalDatabase(
     input: StopRelationalDatabaseRequest,
   ): Effect.Effect<
     StopRelationalDatabaseResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   testAlarm(
     input: TestAlarmRequest,
   ): Effect.Effect<
     TestAlarmResult,
-    AccessDeniedException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   unpeerVpc(
     input: UnpeerVpcRequest,
   ): Effect.Effect<
     UnpeerVpcResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   updateBucket(
     input: UpdateBucketRequest,
   ): Effect.Effect<
     UpdateBucketResult,
-    AccessDeniedException | InvalidInputException | NotFoundException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | InvalidInputException
+    | NotFoundException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   updateBucketBundle(
     input: UpdateBucketBundleRequest,
   ): Effect.Effect<
     UpdateBucketBundleResult,
-    AccessDeniedException | InvalidInputException | NotFoundException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | InvalidInputException
+    | NotFoundException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   updateContainerService(
     input: UpdateContainerServiceRequest,
   ): Effect.Effect<
     UpdateContainerServiceResult,
-    AccessDeniedException | InvalidInputException | NotFoundException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | InvalidInputException
+    | NotFoundException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   updateDistribution(
     input: UpdateDistributionRequest,
   ): Effect.Effect<
     UpdateDistributionResult,
-    AccessDeniedException | InvalidInputException | NotFoundException | OperationFailureException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   updateDistributionBundle(
     input: UpdateDistributionBundleRequest,
   ): Effect.Effect<
     UpdateDistributionBundleResult,
-    AccessDeniedException | InvalidInputException | NotFoundException | OperationFailureException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   updateDomainEntry(
     input: UpdateDomainEntryRequest,
   ): Effect.Effect<
     UpdateDomainEntryResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   updateInstanceMetadataOptions(
     input: UpdateInstanceMetadataOptionsRequest,
   ): Effect.Effect<
     UpdateInstanceMetadataOptionsResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   updateLoadBalancerAttribute(
     input: UpdateLoadBalancerAttributeRequest,
   ): Effect.Effect<
     UpdateLoadBalancerAttributeResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   updateRelationalDatabase(
     input: UpdateRelationalDatabaseRequest,
   ): Effect.Effect<
     UpdateRelationalDatabaseResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
   updateRelationalDatabaseParameters(
     input: UpdateRelationalDatabaseParametersRequest,
   ): Effect.Effect<
     UpdateRelationalDatabaseParametersResult,
-    AccessDeniedException | AccountSetupInProgressException | InvalidInputException | NotFoundException | OperationFailureException | RegionSetupInProgressException | ServiceException | UnauthenticatedException | CommonAwsError
+    | AccessDeniedException
+    | AccountSetupInProgressException
+    | InvalidInputException
+    | NotFoundException
+    | OperationFailureException
+    | RegionSetupInProgressException
+    | ServiceException
+    | UnauthenticatedException
+    | CommonAwsError
   >;
 }
 
@@ -1006,7 +2220,11 @@ export interface AccountLevelBpaSync {
   message?: BPAStatusMessage;
   bpaImpactsLightsail?: boolean;
 }
-export type AccountLevelBpaSyncStatus = "InSync" | "Failed" | "NeverSynced" | "Defaulted";
+export type AccountLevelBpaSyncStatus =
+  | "InSync"
+  | "Failed"
+  | "NeverSynced"
+  | "Defaulted";
 export declare class AccountSetupInProgressException extends EffectData.TaggedError(
   "AccountSetupInProgressException",
 )<{
@@ -1119,7 +2337,11 @@ export interface AutoSnapshotDetails {
   fromAttachedDisks?: Array<AttachedDisk>;
 }
 export type AutoSnapshotDetailsList = Array<AutoSnapshotDetails>;
-export type AutoSnapshotStatus = "Success" | "Failed" | "InProgress" | "NotFound";
+export type AutoSnapshotStatus =
+  | "Success"
+  | "Failed"
+  | "InProgress"
+  | "NotFound";
 export interface AvailabilityZone {
   zoneName?: string;
   state?: string;
@@ -1147,7 +2369,11 @@ export type BlueprintList = Array<Blueprint>;
 export type BlueprintType = "os" | "app";
 export type Lightsailboolean = boolean;
 
-export type BPAStatusMessage = "DEFAULTED_FOR_SLR_MISSING" | "SYNC_ON_HOLD" | "DEFAULTED_FOR_SLR_MISSING_ON_HOLD" | "Unknown";
+export type BPAStatusMessage =
+  | "DEFAULTED_FOR_SLR_MISSING"
+  | "SYNC_ON_HOLD"
+  | "DEFAULTED_FOR_SLR_MISSING_ON_HOLD"
+  | "Unknown";
 export interface Bucket {
   resourceType?: string;
   accessRules?: AccessRules;
@@ -1247,11 +2473,21 @@ export interface Certificate {
   tags?: Array<Tag>;
   supportCode?: string;
 }
-export type CertificateDomainValidationStatus = "PENDING_VALIDATION" | "FAILED" | "SUCCESS";
+export type CertificateDomainValidationStatus =
+  | "PENDING_VALIDATION"
+  | "FAILED"
+  | "SUCCESS";
 export type CertificateName = string;
 
 export type CertificateProvider = "LetsEncrypt";
-export type CertificateStatus = "PENDING_VALIDATION" | "ISSUED" | "INACTIVE" | "EXPIRED" | "VALIDATION_TIMED_OUT" | "REVOKED" | "FAILED";
+export type CertificateStatus =
+  | "PENDING_VALIDATION"
+  | "ISSUED"
+  | "INACTIVE"
+  | "EXPIRED"
+  | "VALIDATION_TIMED_OUT"
+  | "REVOKED"
+  | "FAILED";
 export type CertificateStatusList = Array<CertificateStatus>;
 export interface CertificateSummary {
   certificateArn?: string;
@@ -1284,9 +2520,14 @@ export interface CloudFormationStackRecordSourceInfo {
   name?: string;
   arn?: string;
 }
-export type CloudFormationStackRecordSourceInfoList = Array<CloudFormationStackRecordSourceInfo>;
+export type CloudFormationStackRecordSourceInfoList =
+  Array<CloudFormationStackRecordSourceInfo>;
 export type CloudFormationStackRecordSourceType = "ExportSnapshotRecord";
-export type ComparisonOperator = "GreaterThanOrEqualToThreshold" | "GreaterThanThreshold" | "LessThanThreshold" | "LessThanOrEqualToThreshold";
+export type ComparisonOperator =
+  | "GreaterThanOrEqualToThreshold"
+  | "GreaterThanThreshold"
+  | "LessThanThreshold"
+  | "LessThanOrEqualToThreshold";
 export interface ContactMethod {
   contactEndpoint?: string;
   status?: ContactMethodStatus;
@@ -1353,7 +2594,11 @@ export interface ContainerServiceDeploymentRequest {
   containers?: Record<string, Container>;
   publicEndpoint?: EndpointRequest;
 }
-export type ContainerServiceDeploymentState = "ACTIVATING" | "ACTIVE" | "INACTIVE" | "FAILED";
+export type ContainerServiceDeploymentState =
+  | "ACTIVATING"
+  | "ACTIVE"
+  | "INACTIVE"
+  | "FAILED";
 export interface ContainerServiceECRImagePullerRole {
   isActive?: boolean;
   principalArn?: string;
@@ -1394,7 +2639,13 @@ export interface ContainerServicePower {
   isActive?: boolean;
 }
 export type ContainerServicePowerList = Array<ContainerServicePower>;
-export type ContainerServicePowerName = "nano" | "micro" | "small" | "medium" | "large" | "xlarge";
+export type ContainerServicePowerName =
+  | "nano"
+  | "micro"
+  | "small"
+  | "medium"
+  | "large"
+  | "xlarge";
 export type ContainerServiceProtocol = "HTTP" | "HTTPS" | "TCP" | "UDP";
 export type ContainerServicePublicDomains = Record<string, Array<string>>;
 export type ContainerServicePublicDomainsList = Array<string>;
@@ -1409,12 +2660,28 @@ export type ContainerServiceScale = number;
 export interface ContainerServicesListResult {
   containerServices?: Array<ContainerService>;
 }
-export type ContainerServiceState = "PENDING" | "READY" | "RUNNING" | "UPDATING" | "DELETING" | "DISABLED" | "DEPLOYING";
+export type ContainerServiceState =
+  | "PENDING"
+  | "READY"
+  | "RUNNING"
+  | "UPDATING"
+  | "DELETING"
+  | "DISABLED"
+  | "DEPLOYING";
 export interface ContainerServiceStateDetail {
   code?: ContainerServiceStateDetailCode;
   message?: string;
 }
-export type ContainerServiceStateDetailCode = "CREATING_SYSTEM_RESOURCES" | "CREATING_NETWORK_INFRASTRUCTURE" | "PROVISIONING_CERTIFICATE" | "PROVISIONING_SERVICE" | "CREATING_DEPLOYMENT" | "EVALUATING_HEALTH_CHECK" | "ACTIVATING_DEPLOYMENT" | "CERTIFICATE_LIMIT_EXCEEDED" | "UNKNOWN_ERROR";
+export type ContainerServiceStateDetailCode =
+  | "CREATING_SYSTEM_RESOURCES"
+  | "CREATING_NETWORK_INFRASTRUCTURE"
+  | "PROVISIONING_CERTIFICATE"
+  | "PROVISIONING_SERVICE"
+  | "CREATING_DEPLOYMENT"
+  | "EVALUATING_HEALTH_CHECK"
+  | "ACTIVATING_DEPLOYMENT"
+  | "CERTIFICATE_LIMIT_EXCEEDED"
+  | "UNKNOWN_ERROR";
 export interface CookieObject {
   option?: ForwardValues;
   cookiesAllowList?: Array<string>;
@@ -1483,8 +2750,7 @@ export interface CreateContainerServiceDeploymentRequest {
 export interface CreateContainerServiceDeploymentResult {
   containerService?: ContainerService;
 }
-export interface CreateContainerServiceRegistryLoginRequest {
-}
+export interface CreateContainerServiceRegistryLoginRequest {}
 export interface CreateContainerServiceRegistryLoginResult {
   registryLogin?: ContainerServiceRegistryLogin;
 }
@@ -1730,13 +2996,11 @@ export interface DeleteContainerImageRequest {
   serviceName: string;
   image: string;
 }
-export interface DeleteContainerImageResult {
-}
+export interface DeleteContainerImageResult {}
 export interface DeleteContainerServiceRequest {
   serviceName: string;
 }
-export interface DeleteContainerServiceResult {
-}
+export interface DeleteContainerServiceResult {}
 export interface DeleteDiskRequest {
   diskName: string;
   forceDeleteAddOns?: boolean;
@@ -1914,7 +3178,12 @@ export interface DiskSnapshotInfo {
 }
 export type DiskSnapshotList = Array<DiskSnapshot>;
 export type DiskSnapshotState = "pending" | "completed" | "error" | "unknown";
-export type DiskState = "pending" | "error" | "available" | "in-use" | "unknown";
+export type DiskState =
+  | "pending"
+  | "error"
+  | "available"
+  | "in-use"
+  | "unknown";
 export interface DistributionBundle {
   bundleId?: string;
   name?: string;
@@ -1924,7 +3193,13 @@ export interface DistributionBundle {
 }
 export type DistributionBundleList = Array<DistributionBundle>;
 export type DistributionList = Array<LightsailDistribution>;
-export type DistributionMetricName = "Requests" | "BytesDownloaded" | "BytesUploaded" | "TotalErrorRate" | "Http4xxErrorRate" | "Http5xxErrorRate";
+export type DistributionMetricName =
+  | "Requests"
+  | "BytesDownloaded"
+  | "BytesUploaded"
+  | "TotalErrorRate"
+  | "Http4xxErrorRate"
+  | "Http5xxErrorRate";
 export interface DnsRecordCreationState {
   code?: DnsRecordCreationStateCode;
   message?: string;
@@ -1968,8 +3243,7 @@ export interface DomainValidationRecord {
 export type DomainValidationRecordList = Array<DomainValidationRecord>;
 export type double = number;
 
-export interface DownloadDefaultKeyPairRequest {
-}
+export interface DownloadDefaultKeyPairRequest {}
 export interface DownloadDefaultKeyPairResult {
   publicKeyBase64?: string;
   privateKeyBase64?: string;
@@ -2021,7 +3295,9 @@ export interface ExportSnapshotRecordSourceInfo {
   instanceSnapshotInfo?: InstanceSnapshotInfo;
   diskSnapshotInfo?: DiskSnapshotInfo;
 }
-export type ExportSnapshotRecordSourceType = "InstanceSnapshot" | "DiskSnapshot";
+export type ExportSnapshotRecordSourceType =
+  | "InstanceSnapshot"
+  | "DiskSnapshot";
 export interface ExportSnapshotRequest {
   sourceSnapshotName: string;
 }
@@ -2131,8 +3407,7 @@ export interface GetContactMethodsRequest {
 export interface GetContactMethodsResult {
   contactMethods?: Array<ContactMethod>;
 }
-export interface GetContainerAPIMetadataRequest {
-}
+export interface GetContainerAPIMetadataRequest {}
 export interface GetContainerAPIMetadataResult {
   metadata?: Array<Record<string, string>>;
 }
@@ -2172,8 +3447,7 @@ export interface GetContainerServiceMetricDataResult {
   metricName?: ContainerServiceMetricName;
   metricData?: Array<MetricDatapoint>;
 }
-export interface GetContainerServicePowersRequest {
-}
+export interface GetContainerServicePowersRequest {}
 export interface GetContainerServicePowersResult {
   powers?: Array<ContainerServicePower>;
 }
@@ -2214,8 +3488,7 @@ export interface GetDisksResult {
   disks?: Array<Disk>;
   nextPageToken?: string;
 }
-export interface GetDistributionBundlesRequest {
-}
+export interface GetDistributionBundlesRequest {}
 export interface GetDistributionBundlesResult {
   bundles?: Array<DistributionBundle>;
 }
@@ -2526,7 +3799,22 @@ export interface GetStaticIpsResult {
   staticIps?: Array<StaticIp>;
   nextPageToken?: string;
 }
-export type HeaderEnum = "Accept" | "Accept-Charset" | "Accept-Datetime" | "Accept-Encoding" | "Accept-Language" | "Authorization" | "CloudFront-Forwarded-Proto" | "CloudFront-Is-Desktop-Viewer" | "CloudFront-Is-Mobile-Viewer" | "CloudFront-Is-SmartTV-Viewer" | "CloudFront-Is-Tablet-Viewer" | "CloudFront-Viewer-Country" | "Host" | "Origin" | "Referer";
+export type HeaderEnum =
+  | "Accept"
+  | "Accept-Charset"
+  | "Accept-Datetime"
+  | "Accept-Encoding"
+  | "Accept-Language"
+  | "Authorization"
+  | "CloudFront-Forwarded-Proto"
+  | "CloudFront-Is-Desktop-Viewer"
+  | "CloudFront-Is-Mobile-Viewer"
+  | "CloudFront-Is-SmartTV-Viewer"
+  | "CloudFront-Is-Tablet-Viewer"
+  | "CloudFront-Viewer-Country"
+  | "Host"
+  | "Origin"
+  | "Referer";
 export type HeaderForwardList = Array<HeaderEnum>;
 export interface HeaderObject {
   option?: ForwardValues;
@@ -2613,8 +3901,25 @@ export interface InstanceHardware {
   disks?: Array<Disk>;
   ramSizeInGb?: number;
 }
-export type InstanceHealthReason = "Lb.RegistrationInProgress" | "Lb.InitialHealthChecking" | "Lb.InternalError" | "Instance.ResponseCodeMismatch" | "Instance.Timeout" | "Instance.FailedHealthChecks" | "Instance.NotRegistered" | "Instance.NotInUse" | "Instance.DeregistrationInProgress" | "Instance.InvalidState" | "Instance.IpUnusable";
-export type InstanceHealthState = "initial" | "healthy" | "unhealthy" | "unused" | "draining" | "unavailable";
+export type InstanceHealthReason =
+  | "Lb.RegistrationInProgress"
+  | "Lb.InitialHealthChecking"
+  | "Lb.InternalError"
+  | "Instance.ResponseCodeMismatch"
+  | "Instance.Timeout"
+  | "Instance.FailedHealthChecks"
+  | "Instance.NotRegistered"
+  | "Instance.NotInUse"
+  | "Instance.DeregistrationInProgress"
+  | "Instance.InvalidState"
+  | "Instance.IpUnusable";
+export type InstanceHealthState =
+  | "initial"
+  | "healthy"
+  | "unhealthy"
+  | "unused"
+  | "draining"
+  | "unavailable";
 export interface InstanceHealthSummary {
   instanceName?: string;
   instanceHealth?: InstanceHealthState;
@@ -2630,7 +3935,16 @@ export interface InstanceMetadataOptions {
   httpProtocolIpv6?: HttpProtocolIpv6;
 }
 export type InstanceMetadataState = "pending" | "applied";
-export type InstanceMetricName = "CPUUtilization" | "NetworkIn" | "NetworkOut" | "StatusCheckFailed" | "StatusCheckFailed_Instance" | "StatusCheckFailed_System" | "BurstCapacityTime" | "BurstCapacityPercentage" | "MetadataNoToken";
+export type InstanceMetricName =
+  | "CPUUtilization"
+  | "NetworkIn"
+  | "NetworkOut"
+  | "StatusCheckFailed"
+  | "StatusCheckFailed_Instance"
+  | "StatusCheckFailed_System"
+  | "BurstCapacityTime"
+  | "BurstCapacityPercentage"
+  | "MetadataNoToken";
 export interface InstanceNetworking {
   monthlyTransfer?: MonthlyTransfer;
   ports?: Array<InstancePortInfo>;
@@ -2711,8 +4025,7 @@ export type IsoDate = Date | string;
 
 export type IssuerCA = string;
 
-export interface IsVpcPeeredRequest {
-}
+export interface IsVpcPeeredRequest {}
 export interface IsVpcPeeredResult {
   isPeered?: boolean;
 }
@@ -2773,12 +4086,37 @@ export interface LoadBalancer {
   httpsRedirectionEnabled?: boolean;
   tlsPolicyName?: string;
 }
-export type LoadBalancerAttributeName = "HealthCheckPath" | "SessionStickinessEnabled" | "SessionStickiness_LB_CookieDurationSeconds" | "HttpsRedirectionEnabled" | "TlsPolicyName";
-export type LoadBalancerConfigurationOptions = Record<LoadBalancerAttributeName, string>;
+export type LoadBalancerAttributeName =
+  | "HealthCheckPath"
+  | "SessionStickinessEnabled"
+  | "SessionStickiness_LB_CookieDurationSeconds"
+  | "HttpsRedirectionEnabled"
+  | "TlsPolicyName";
+export type LoadBalancerConfigurationOptions = Record<
+  LoadBalancerAttributeName,
+  string
+>;
 export type LoadBalancerList = Array<LoadBalancer>;
-export type LoadBalancerMetricName = "ClientTLSNegotiationErrorCount" | "HealthyHostCount" | "UnhealthyHostCount" | "HTTPCode_LB_4XX_Count" | "HTTPCode_LB_5XX_Count" | "HTTPCode_Instance_2XX_Count" | "HTTPCode_Instance_3XX_Count" | "HTTPCode_Instance_4XX_Count" | "HTTPCode_Instance_5XX_Count" | "InstanceResponseTime" | "RejectedConnectionCount" | "RequestCount";
+export type LoadBalancerMetricName =
+  | "ClientTLSNegotiationErrorCount"
+  | "HealthyHostCount"
+  | "UnhealthyHostCount"
+  | "HTTPCode_LB_4XX_Count"
+  | "HTTPCode_LB_5XX_Count"
+  | "HTTPCode_Instance_2XX_Count"
+  | "HTTPCode_Instance_3XX_Count"
+  | "HTTPCode_Instance_4XX_Count"
+  | "HTTPCode_Instance_5XX_Count"
+  | "InstanceResponseTime"
+  | "RejectedConnectionCount"
+  | "RequestCount";
 export type LoadBalancerProtocol = "HTTP_HTTPS" | "HTTP";
-export type LoadBalancerState = "active" | "provisioning" | "active_impaired" | "failed" | "unknown";
+export type LoadBalancerState =
+  | "active"
+  | "provisioning"
+  | "active_impaired"
+  | "failed"
+  | "unknown";
 export interface LoadBalancerTlsCertificate {
   name?: string;
   arn?: string;
@@ -2810,13 +4148,20 @@ export interface LoadBalancerTlsCertificateDnsRecordCreationState {
   code?: LoadBalancerTlsCertificateDnsRecordCreationStateCode;
   message?: string;
 }
-export type LoadBalancerTlsCertificateDnsRecordCreationStateCode = "SUCCEEDED" | "STARTED" | "FAILED";
-export type LoadBalancerTlsCertificateDomainStatus = "PENDING_VALIDATION" | "FAILED" | "SUCCESS";
+export type LoadBalancerTlsCertificateDnsRecordCreationStateCode =
+  | "SUCCEEDED"
+  | "STARTED"
+  | "FAILED";
+export type LoadBalancerTlsCertificateDomainStatus =
+  | "PENDING_VALIDATION"
+  | "FAILED"
+  | "SUCCESS";
 export interface LoadBalancerTlsCertificateDomainValidationOption {
   domainName?: string;
   validationStatus?: LoadBalancerTlsCertificateDomainStatus;
 }
-export type LoadBalancerTlsCertificateDomainValidationOptionList = Array<LoadBalancerTlsCertificateDomainValidationOption>;
+export type LoadBalancerTlsCertificateDomainValidationOptionList =
+  Array<LoadBalancerTlsCertificateDomainValidationOption>;
 export interface LoadBalancerTlsCertificateDomainValidationRecord {
   name?: string;
   type?: string;
@@ -2825,21 +4170,50 @@ export interface LoadBalancerTlsCertificateDomainValidationRecord {
   domainName?: string;
   dnsRecordCreationState?: LoadBalancerTlsCertificateDnsRecordCreationState;
 }
-export type LoadBalancerTlsCertificateDomainValidationRecordList = Array<LoadBalancerTlsCertificateDomainValidationRecord>;
-export type LoadBalancerTlsCertificateFailureReason = "NO_AVAILABLE_CONTACTS" | "ADDITIONAL_VERIFICATION_REQUIRED" | "DOMAIN_NOT_ALLOWED" | "INVALID_PUBLIC_DOMAIN" | "OTHER";
+export type LoadBalancerTlsCertificateDomainValidationRecordList =
+  Array<LoadBalancerTlsCertificateDomainValidationRecord>;
+export type LoadBalancerTlsCertificateFailureReason =
+  | "NO_AVAILABLE_CONTACTS"
+  | "ADDITIONAL_VERIFICATION_REQUIRED"
+  | "DOMAIN_NOT_ALLOWED"
+  | "INVALID_PUBLIC_DOMAIN"
+  | "OTHER";
 export type LoadBalancerTlsCertificateList = Array<LoadBalancerTlsCertificate>;
-export type LoadBalancerTlsCertificateRenewalStatus = "PENDING_AUTO_RENEWAL" | "PENDING_VALIDATION" | "SUCCESS" | "FAILED";
+export type LoadBalancerTlsCertificateRenewalStatus =
+  | "PENDING_AUTO_RENEWAL"
+  | "PENDING_VALIDATION"
+  | "SUCCESS"
+  | "FAILED";
 export interface LoadBalancerTlsCertificateRenewalSummary {
   renewalStatus?: LoadBalancerTlsCertificateRenewalStatus;
   domainValidationOptions?: Array<LoadBalancerTlsCertificateDomainValidationOption>;
 }
-export type LoadBalancerTlsCertificateRevocationReason = "UNSPECIFIED" | "KEY_COMPROMISE" | "CA_COMPROMISE" | "AFFILIATION_CHANGED" | "SUPERCEDED" | "CESSATION_OF_OPERATION" | "CERTIFICATE_HOLD" | "REMOVE_FROM_CRL" | "PRIVILEGE_WITHDRAWN" | "A_A_COMPROMISE";
-export type LoadBalancerTlsCertificateStatus = "PENDING_VALIDATION" | "ISSUED" | "INACTIVE" | "EXPIRED" | "VALIDATION_TIMED_OUT" | "REVOKED" | "FAILED" | "UNKNOWN";
+export type LoadBalancerTlsCertificateRevocationReason =
+  | "UNSPECIFIED"
+  | "KEY_COMPROMISE"
+  | "CA_COMPROMISE"
+  | "AFFILIATION_CHANGED"
+  | "SUPERCEDED"
+  | "CESSATION_OF_OPERATION"
+  | "CERTIFICATE_HOLD"
+  | "REMOVE_FROM_CRL"
+  | "PRIVILEGE_WITHDRAWN"
+  | "A_A_COMPROMISE";
+export type LoadBalancerTlsCertificateStatus =
+  | "PENDING_VALIDATION"
+  | "ISSUED"
+  | "INACTIVE"
+  | "EXPIRED"
+  | "VALIDATION_TIMED_OUT"
+  | "REVOKED"
+  | "FAILED"
+  | "UNKNOWN";
 export interface LoadBalancerTlsCertificateSummary {
   name?: string;
   isAttached?: boolean;
 }
-export type LoadBalancerTlsCertificateSummaryList = Array<LoadBalancerTlsCertificateSummary>;
+export type LoadBalancerTlsCertificateSummaryList =
+  Array<LoadBalancerTlsCertificateSummary>;
 export interface LoadBalancerTlsPolicy {
   name?: string;
   isDefault?: boolean;
@@ -2865,12 +4239,69 @@ export interface MetricDatapoint {
   unit?: MetricUnit;
 }
 export type MetricDatapointList = Array<MetricDatapoint>;
-export type MetricName = "CPUUtilization" | "NetworkIn" | "NetworkOut" | "StatusCheckFailed" | "StatusCheckFailed_Instance" | "StatusCheckFailed_System" | "ClientTLSNegotiationErrorCount" | "HealthyHostCount" | "UnhealthyHostCount" | "HTTPCode_LB_4XX_Count" | "HTTPCode_LB_5XX_Count" | "HTTPCode_Instance_2XX_Count" | "HTTPCode_Instance_3XX_Count" | "HTTPCode_Instance_4XX_Count" | "HTTPCode_Instance_5XX_Count" | "InstanceResponseTime" | "RejectedConnectionCount" | "RequestCount" | "DatabaseConnections" | "DiskQueueDepth" | "FreeStorageSpace" | "NetworkReceiveThroughput" | "NetworkTransmitThroughput" | "BurstCapacityTime" | "BurstCapacityPercentage";
+export type MetricName =
+  | "CPUUtilization"
+  | "NetworkIn"
+  | "NetworkOut"
+  | "StatusCheckFailed"
+  | "StatusCheckFailed_Instance"
+  | "StatusCheckFailed_System"
+  | "ClientTLSNegotiationErrorCount"
+  | "HealthyHostCount"
+  | "UnhealthyHostCount"
+  | "HTTPCode_LB_4XX_Count"
+  | "HTTPCode_LB_5XX_Count"
+  | "HTTPCode_Instance_2XX_Count"
+  | "HTTPCode_Instance_3XX_Count"
+  | "HTTPCode_Instance_4XX_Count"
+  | "HTTPCode_Instance_5XX_Count"
+  | "InstanceResponseTime"
+  | "RejectedConnectionCount"
+  | "RequestCount"
+  | "DatabaseConnections"
+  | "DiskQueueDepth"
+  | "FreeStorageSpace"
+  | "NetworkReceiveThroughput"
+  | "NetworkTransmitThroughput"
+  | "BurstCapacityTime"
+  | "BurstCapacityPercentage";
 export type MetricPeriod = number;
 
-export type MetricStatistic = "Minimum" | "Maximum" | "Sum" | "Average" | "SampleCount";
+export type MetricStatistic =
+  | "Minimum"
+  | "Maximum"
+  | "Sum"
+  | "Average"
+  | "SampleCount";
 export type MetricStatisticList = Array<MetricStatistic>;
-export type MetricUnit = "Seconds" | "Microseconds" | "Milliseconds" | "Bytes" | "Kilobytes" | "Megabytes" | "Gigabytes" | "Terabytes" | "Bits" | "Kilobits" | "Megabits" | "Gigabits" | "Terabits" | "Percent" | "Count" | "Bytes/Second" | "Kilobytes/Second" | "Megabytes/Second" | "Gigabytes/Second" | "Terabytes/Second" | "Bits/Second" | "Kilobits/Second" | "Megabits/Second" | "Gigabits/Second" | "Terabits/Second" | "Count/Second" | "None";
+export type MetricUnit =
+  | "Seconds"
+  | "Microseconds"
+  | "Milliseconds"
+  | "Bytes"
+  | "Kilobytes"
+  | "Megabytes"
+  | "Gigabytes"
+  | "Terabytes"
+  | "Bits"
+  | "Kilobits"
+  | "Megabits"
+  | "Gigabits"
+  | "Terabits"
+  | "Percent"
+  | "Count"
+  | "Bytes/Second"
+  | "Kilobytes/Second"
+  | "Megabytes/Second"
+  | "Gigabytes/Second"
+  | "Terabytes/Second"
+  | "Bits/Second"
+  | "Kilobits/Second"
+  | "Megabits/Second"
+  | "Gigabits/Second"
+  | "Terabits/Second"
+  | "Count/Second"
+  | "None";
 export interface MonitoredResourceInfo {
   arn?: string;
   name?: string;
@@ -2883,7 +4314,11 @@ export interface NameServersUpdateState {
   code?: NameServersUpdateStateCode;
   message?: string;
 }
-export type NameServersUpdateStateCode = "SUCCEEDED" | "PENDING" | "FAILED" | "STARTED";
+export type NameServersUpdateStateCode =
+  | "SUCCEEDED"
+  | "PENDING"
+  | "FAILED"
+  | "STARTED";
 export type NetworkProtocol = "tcp" | "all" | "udp" | "icmp" | "icmpv6";
 export type NonEmptyString = string;
 
@@ -2926,8 +4361,96 @@ export declare class OperationFailureException extends EffectData.TaggedError(
   readonly tip?: string;
 }> {}
 export type OperationList = Array<Operation>;
-export type OperationStatus = "NotStarted" | "Started" | "Failed" | "Completed" | "Succeeded";
-export type OperationType = "DeleteKnownHostKeys" | "DeleteInstance" | "CreateInstance" | "StopInstance" | "StartInstance" | "RebootInstance" | "OpenInstancePublicPorts" | "PutInstancePublicPorts" | "CloseInstancePublicPorts" | "AllocateStaticIp" | "ReleaseStaticIp" | "AttachStaticIp" | "DetachStaticIp" | "UpdateDomainEntry" | "DeleteDomainEntry" | "CreateDomain" | "DeleteDomain" | "CreateInstanceSnapshot" | "DeleteInstanceSnapshot" | "CreateInstancesFromSnapshot" | "CreateLoadBalancer" | "DeleteLoadBalancer" | "AttachInstancesToLoadBalancer" | "DetachInstancesFromLoadBalancer" | "UpdateLoadBalancerAttribute" | "CreateLoadBalancerTlsCertificate" | "DeleteLoadBalancerTlsCertificate" | "AttachLoadBalancerTlsCertificate" | "CreateDisk" | "DeleteDisk" | "AttachDisk" | "DetachDisk" | "CreateDiskSnapshot" | "DeleteDiskSnapshot" | "CreateDiskFromSnapshot" | "CreateRelationalDatabase" | "UpdateRelationalDatabase" | "DeleteRelationalDatabase" | "CreateRelationalDatabaseFromSnapshot" | "CreateRelationalDatabaseSnapshot" | "DeleteRelationalDatabaseSnapshot" | "UpdateRelationalDatabaseParameters" | "StartRelationalDatabase" | "RebootRelationalDatabase" | "StopRelationalDatabase" | "EnableAddOn" | "DisableAddOn" | "PutAlarm" | "GetAlarms" | "DeleteAlarm" | "TestAlarm" | "CreateContactMethod" | "GetContactMethods" | "SendContactMethodVerification" | "DeleteContactMethod" | "CreateDistribution" | "UpdateDistribution" | "DeleteDistribution" | "ResetDistributionCache" | "AttachCertificateToDistribution" | "DetachCertificateFromDistribution" | "UpdateDistributionBundle" | "SetIpAddressType" | "CreateCertificate" | "DeleteCertificate" | "CreateContainerService" | "UpdateContainerService" | "DeleteContainerService" | "CreateContainerServiceDeployment" | "CreateContainerServiceRegistryLogin" | "RegisterContainerImage" | "DeleteContainerImage" | "CreateBucket" | "DeleteBucket" | "CreateBucketAccessKey" | "DeleteBucketAccessKey" | "UpdateBucketBundle" | "UpdateBucket" | "SetResourceAccessForBucket" | "UpdateInstanceMetadataOptions" | "StartGUISession" | "StopGUISession" | "SetupInstanceHttps";
+export type OperationStatus =
+  | "NotStarted"
+  | "Started"
+  | "Failed"
+  | "Completed"
+  | "Succeeded";
+export type OperationType =
+  | "DeleteKnownHostKeys"
+  | "DeleteInstance"
+  | "CreateInstance"
+  | "StopInstance"
+  | "StartInstance"
+  | "RebootInstance"
+  | "OpenInstancePublicPorts"
+  | "PutInstancePublicPorts"
+  | "CloseInstancePublicPorts"
+  | "AllocateStaticIp"
+  | "ReleaseStaticIp"
+  | "AttachStaticIp"
+  | "DetachStaticIp"
+  | "UpdateDomainEntry"
+  | "DeleteDomainEntry"
+  | "CreateDomain"
+  | "DeleteDomain"
+  | "CreateInstanceSnapshot"
+  | "DeleteInstanceSnapshot"
+  | "CreateInstancesFromSnapshot"
+  | "CreateLoadBalancer"
+  | "DeleteLoadBalancer"
+  | "AttachInstancesToLoadBalancer"
+  | "DetachInstancesFromLoadBalancer"
+  | "UpdateLoadBalancerAttribute"
+  | "CreateLoadBalancerTlsCertificate"
+  | "DeleteLoadBalancerTlsCertificate"
+  | "AttachLoadBalancerTlsCertificate"
+  | "CreateDisk"
+  | "DeleteDisk"
+  | "AttachDisk"
+  | "DetachDisk"
+  | "CreateDiskSnapshot"
+  | "DeleteDiskSnapshot"
+  | "CreateDiskFromSnapshot"
+  | "CreateRelationalDatabase"
+  | "UpdateRelationalDatabase"
+  | "DeleteRelationalDatabase"
+  | "CreateRelationalDatabaseFromSnapshot"
+  | "CreateRelationalDatabaseSnapshot"
+  | "DeleteRelationalDatabaseSnapshot"
+  | "UpdateRelationalDatabaseParameters"
+  | "StartRelationalDatabase"
+  | "RebootRelationalDatabase"
+  | "StopRelationalDatabase"
+  | "EnableAddOn"
+  | "DisableAddOn"
+  | "PutAlarm"
+  | "GetAlarms"
+  | "DeleteAlarm"
+  | "TestAlarm"
+  | "CreateContactMethod"
+  | "GetContactMethods"
+  | "SendContactMethodVerification"
+  | "DeleteContactMethod"
+  | "CreateDistribution"
+  | "UpdateDistribution"
+  | "DeleteDistribution"
+  | "ResetDistributionCache"
+  | "AttachCertificateToDistribution"
+  | "DetachCertificateFromDistribution"
+  | "UpdateDistributionBundle"
+  | "SetIpAddressType"
+  | "CreateCertificate"
+  | "DeleteCertificate"
+  | "CreateContainerService"
+  | "UpdateContainerService"
+  | "DeleteContainerService"
+  | "CreateContainerServiceDeployment"
+  | "CreateContainerServiceRegistryLogin"
+  | "RegisterContainerImage"
+  | "DeleteContainerImage"
+  | "CreateBucket"
+  | "DeleteBucket"
+  | "CreateBucketAccessKey"
+  | "DeleteBucketAccessKey"
+  | "UpdateBucketBundle"
+  | "UpdateBucket"
+  | "SetResourceAccessForBucket"
+  | "UpdateInstanceMetadataOptions"
+  | "StartGUISession"
+  | "StopGUISession"
+  | "SetupInstanceHttps";
 export interface Origin {
   name?: string;
   resourceType?: ResourceType;
@@ -2941,8 +4464,7 @@ export interface PasswordData {
   ciphertext?: string;
   keyPairName?: string;
 }
-export interface PeerVpcRequest {
-}
+export interface PeerVpcRequest {}
 export interface PeerVpcResult {
   operation?: Operation;
 }
@@ -3011,7 +4533,11 @@ export interface R53HostedZoneDeletionState {
   code?: R53HostedZoneDeletionStateCode;
   message?: string;
 }
-export type R53HostedZoneDeletionStateCode = "SUCCEEDED" | "PENDING" | "FAILED" | "STARTED";
+export type R53HostedZoneDeletionStateCode =
+  | "SUCCEEDED"
+  | "PENDING"
+  | "FAILED"
+  | "STARTED";
 export interface RebootInstanceRequest {
   instanceName: string;
 }
@@ -3034,7 +4560,23 @@ export interface Region {
   relationalDatabaseAvailabilityZones?: Array<AvailabilityZone>;
 }
 export type RegionList = Array<Region>;
-export type RegionName = "us-east-1" | "us-east-2" | "us-west-1" | "us-west-2" | "eu-west-1" | "eu-west-2" | "eu-west-3" | "eu-central-1" | "ca-central-1" | "ap-south-1" | "ap-southeast-1" | "ap-southeast-2" | "ap-northeast-1" | "ap-northeast-2" | "eu-north-1" | "ap-southeast-3";
+export type RegionName =
+  | "us-east-1"
+  | "us-east-2"
+  | "us-west-1"
+  | "us-west-2"
+  | "eu-west-1"
+  | "eu-west-2"
+  | "eu-west-3"
+  | "eu-central-1"
+  | "ca-central-1"
+  | "ap-south-1"
+  | "ap-southeast-1"
+  | "ap-southeast-2"
+  | "ap-northeast-1"
+  | "ap-northeast-2"
+  | "eu-north-1"
+  | "ap-southeast-3";
 export declare class RegionSetupInProgressException extends EffectData.TaggedError(
   "RegionSetupInProgressException",
 )<{
@@ -3091,7 +4633,8 @@ export interface RelationalDatabaseBlueprint {
   engineVersionDescription?: string;
   isEngineDefault?: boolean;
 }
-export type RelationalDatabaseBlueprintList = Array<RelationalDatabaseBlueprint>;
+export type RelationalDatabaseBlueprintList =
+  Array<RelationalDatabaseBlueprint>;
 export interface RelationalDatabaseBundle {
   bundleId?: string;
   name?: string;
@@ -3122,7 +4665,13 @@ export interface RelationalDatabaseHardware {
   ramSizeInGb?: number;
 }
 export type RelationalDatabaseList = Array<RelationalDatabase>;
-export type RelationalDatabaseMetricName = "CPUUtilization" | "DatabaseConnections" | "DiskQueueDepth" | "FreeStorageSpace" | "NetworkReceiveThroughput" | "NetworkTransmitThroughput";
+export type RelationalDatabaseMetricName =
+  | "CPUUtilization"
+  | "DatabaseConnections"
+  | "DiskQueueDepth"
+  | "FreeStorageSpace"
+  | "NetworkReceiveThroughput"
+  | "NetworkTransmitThroughput";
 export interface RelationalDatabaseParameter {
   allowedValues?: string;
   applyMethod?: string;
@@ -3133,8 +4682,12 @@ export interface RelationalDatabaseParameter {
   parameterName?: string;
   parameterValue?: string;
 }
-export type RelationalDatabaseParameterList = Array<RelationalDatabaseParameter>;
-export type RelationalDatabasePasswordVersion = "CURRENT" | "PREVIOUS" | "PENDING";
+export type RelationalDatabaseParameterList =
+  Array<RelationalDatabaseParameter>;
+export type RelationalDatabasePasswordVersion =
+  | "CURRENT"
+  | "PREVIOUS"
+  | "PENDING";
 export interface RelationalDatabaseSnapshot {
   name?: string;
   arn?: string;
@@ -3159,7 +4712,11 @@ export interface ReleaseStaticIpRequest {
 export interface ReleaseStaticIpResult {
   operations?: Array<Operation>;
 }
-export type RenewalStatus = "PendingAutoRenewal" | "PendingValidation" | "Success" | "Failed";
+export type RenewalStatus =
+  | "PendingAutoRenewal"
+  | "PendingValidation"
+  | "Success"
+  | "Failed";
 export type RenewalStatusReason = string;
 
 export interface RenewalSummary {
@@ -3205,7 +4762,27 @@ export interface ResourceRecord {
   value?: string;
 }
 export type ResourcesBudgetEstimate = Array<ResourceBudgetEstimate>;
-export type ResourceType = "ContainerService" | "Instance" | "StaticIp" | "KeyPair" | "InstanceSnapshot" | "Domain" | "PeeredVpc" | "LoadBalancer" | "LoadBalancerTlsCertificate" | "Disk" | "DiskSnapshot" | "RelationalDatabase" | "RelationalDatabaseSnapshot" | "ExportSnapshotRecord" | "CloudFormationStackRecord" | "Alarm" | "ContactMethod" | "Distribution" | "Certificate" | "Bucket";
+export type ResourceType =
+  | "ContainerService"
+  | "Instance"
+  | "StaticIp"
+  | "KeyPair"
+  | "InstanceSnapshot"
+  | "Domain"
+  | "PeeredVpc"
+  | "LoadBalancer"
+  | "LoadBalancerTlsCertificate"
+  | "Disk"
+  | "DiskSnapshot"
+  | "RelationalDatabase"
+  | "RelationalDatabaseSnapshot"
+  | "ExportSnapshotRecord"
+  | "CloudFormationStackRecord"
+  | "Alarm"
+  | "ContactMethod"
+  | "Distribution"
+  | "Certificate"
+  | "Bucket";
 export type RevocationReason = string;
 
 export interface SendContactMethodVerificationRequest {
@@ -3326,7 +4903,17 @@ export interface StaticIp {
   isAttached?: boolean;
 }
 export type StaticIpList = Array<StaticIp>;
-export type Status = "startExpired" | "notStarted" | "started" | "starting" | "stopped" | "stopping" | "settingUpInstance" | "failedInstanceCreation" | "failedStartingGUISession" | "failedStoppingGUISession";
+export type Status =
+  | "startExpired"
+  | "notStarted"
+  | "started"
+  | "starting"
+  | "stopped"
+  | "stopping"
+  | "settingUpInstance"
+  | "failedInstanceCreation"
+  | "failedStartingGUISession"
+  | "failedStoppingGUISession";
 export type StatusType = "Active" | "Inactive";
 export interface StopGUISessionRequest {
   resourceName: string;
@@ -3391,7 +4978,11 @@ export interface TimePeriod {
 }
 export type timestamp = Date | string;
 
-export type TreatMissingData = "breaching" | "notBreaching" | "ignore" | "missing";
+export type TreatMissingData =
+  | "breaching"
+  | "notBreaching"
+  | "ignore"
+  | "missing";
 export declare class UnauthenticatedException extends EffectData.TaggedError(
   "UnauthenticatedException",
 )<{
@@ -3400,8 +4991,7 @@ export declare class UnauthenticatedException extends EffectData.TaggedError(
   readonly message?: string;
   readonly tip?: string;
 }> {}
-export interface UnpeerVpcRequest {
-}
+export interface UnpeerVpcRequest {}
 export interface UnpeerVpcResult {
   operation?: Operation;
 }
@@ -3511,7 +5101,11 @@ export interface UpdateRelationalDatabaseRequest {
 export interface UpdateRelationalDatabaseResult {
   operations?: Array<Operation>;
 }
-export type ViewerMinimumTlsProtocolVersionEnum = "TLSv1.1_2016" | "TLSv1.2_2018" | "TLSv1.2_2019" | "TLSv1.2_2021";
+export type ViewerMinimumTlsProtocolVersionEnum =
+  | "TLSv1.1_2016"
+  | "TLSv1.2_2018"
+  | "TLSv1.2_2019"
+  | "TLSv1.2_2021";
 export declare namespace AllocateStaticIp {
   export type Input = AllocateStaticIpRequest;
   export type Output = AllocateStaticIpResult;
@@ -5818,4 +7412,3 @@ export declare namespace UpdateRelationalDatabaseParameters {
     | UnauthenticatedException
     | CommonAwsError;
 }
-

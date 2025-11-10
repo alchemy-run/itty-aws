@@ -1,6 +1,40 @@
 import type { Effect, Data as EffectData } from "effect";
-import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError, ValidationException } from "../../error.ts";
-type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | ThrottlingException | UnrecognizedClientException | UnknownOperationException | ValidationError | ValidationException | AccessDeniedException;
+import type {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  ThrottlingException,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+  ValidationException,
+} from "../../error.ts";
+type CommonAwsError =
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | ThrottlingException
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | ValidationException
+  | AccessDeniedException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class ServiceQuotas extends AWSServiceClient {
@@ -8,121 +42,259 @@ export declare class ServiceQuotas extends AWSServiceClient {
     input: AssociateServiceQuotaTemplateRequest,
   ): Effect.Effect<
     AssociateServiceQuotaTemplateResponse,
-    AccessDeniedException | AWSServiceAccessNotEnabledException | DependencyAccessDeniedException | NoAvailableOrganizationException | OrganizationNotInAllFeaturesModeException | ServiceException | TemplatesNotAvailableInRegionException | TooManyRequestsException | CommonAwsError
+    | AccessDeniedException
+    | AWSServiceAccessNotEnabledException
+    | DependencyAccessDeniedException
+    | NoAvailableOrganizationException
+    | OrganizationNotInAllFeaturesModeException
+    | ServiceException
+    | TemplatesNotAvailableInRegionException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   createSupportCase(
     input: CreateSupportCaseRequest,
   ): Effect.Effect<
     CreateSupportCaseResponse,
-    AccessDeniedException | DependencyAccessDeniedException | IllegalArgumentException | InvalidResourceStateException | NoSuchResourceException | ResourceAlreadyExistsException | ServiceException | TooManyRequestsException | CommonAwsError
+    | AccessDeniedException
+    | DependencyAccessDeniedException
+    | IllegalArgumentException
+    | InvalidResourceStateException
+    | NoSuchResourceException
+    | ResourceAlreadyExistsException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   deleteServiceQuotaIncreaseRequestFromTemplate(
     input: DeleteServiceQuotaIncreaseRequestFromTemplateRequest,
   ): Effect.Effect<
     DeleteServiceQuotaIncreaseRequestFromTemplateResponse,
-    AccessDeniedException | AWSServiceAccessNotEnabledException | DependencyAccessDeniedException | IllegalArgumentException | NoAvailableOrganizationException | NoSuchResourceException | ServiceException | TemplatesNotAvailableInRegionException | TooManyRequestsException | CommonAwsError
+    | AccessDeniedException
+    | AWSServiceAccessNotEnabledException
+    | DependencyAccessDeniedException
+    | IllegalArgumentException
+    | NoAvailableOrganizationException
+    | NoSuchResourceException
+    | ServiceException
+    | TemplatesNotAvailableInRegionException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   disassociateServiceQuotaTemplate(
     input: DisassociateServiceQuotaTemplateRequest,
   ): Effect.Effect<
     DisassociateServiceQuotaTemplateResponse,
-    AccessDeniedException | AWSServiceAccessNotEnabledException | DependencyAccessDeniedException | NoAvailableOrganizationException | ServiceException | ServiceQuotaTemplateNotInUseException | TemplatesNotAvailableInRegionException | TooManyRequestsException | CommonAwsError
+    | AccessDeniedException
+    | AWSServiceAccessNotEnabledException
+    | DependencyAccessDeniedException
+    | NoAvailableOrganizationException
+    | ServiceException
+    | ServiceQuotaTemplateNotInUseException
+    | TemplatesNotAvailableInRegionException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   getAssociationForServiceQuotaTemplate(
     input: GetAssociationForServiceQuotaTemplateRequest,
   ): Effect.Effect<
     GetAssociationForServiceQuotaTemplateResponse,
-    AccessDeniedException | AWSServiceAccessNotEnabledException | DependencyAccessDeniedException | NoAvailableOrganizationException | ServiceException | ServiceQuotaTemplateNotInUseException | TemplatesNotAvailableInRegionException | TooManyRequestsException | CommonAwsError
+    | AccessDeniedException
+    | AWSServiceAccessNotEnabledException
+    | DependencyAccessDeniedException
+    | NoAvailableOrganizationException
+    | ServiceException
+    | ServiceQuotaTemplateNotInUseException
+    | TemplatesNotAvailableInRegionException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   getAWSDefaultServiceQuota(
     input: GetAWSDefaultServiceQuotaRequest,
   ): Effect.Effect<
     GetAWSDefaultServiceQuotaResponse,
-    AccessDeniedException | IllegalArgumentException | NoSuchResourceException | ServiceException | TooManyRequestsException | CommonAwsError
+    | AccessDeniedException
+    | IllegalArgumentException
+    | NoSuchResourceException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   getRequestedServiceQuotaChange(
     input: GetRequestedServiceQuotaChangeRequest,
   ): Effect.Effect<
     GetRequestedServiceQuotaChangeResponse,
-    AccessDeniedException | IllegalArgumentException | NoSuchResourceException | ServiceException | TooManyRequestsException | CommonAwsError
+    | AccessDeniedException
+    | IllegalArgumentException
+    | NoSuchResourceException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   getServiceQuota(
     input: GetServiceQuotaRequest,
   ): Effect.Effect<
     GetServiceQuotaResponse,
-    AccessDeniedException | IllegalArgumentException | NoSuchResourceException | ServiceException | TooManyRequestsException | CommonAwsError
+    | AccessDeniedException
+    | IllegalArgumentException
+    | NoSuchResourceException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   getServiceQuotaIncreaseRequestFromTemplate(
     input: GetServiceQuotaIncreaseRequestFromTemplateRequest,
   ): Effect.Effect<
     GetServiceQuotaIncreaseRequestFromTemplateResponse,
-    AccessDeniedException | AWSServiceAccessNotEnabledException | DependencyAccessDeniedException | IllegalArgumentException | NoAvailableOrganizationException | NoSuchResourceException | ServiceException | TemplatesNotAvailableInRegionException | TooManyRequestsException | CommonAwsError
+    | AccessDeniedException
+    | AWSServiceAccessNotEnabledException
+    | DependencyAccessDeniedException
+    | IllegalArgumentException
+    | NoAvailableOrganizationException
+    | NoSuchResourceException
+    | ServiceException
+    | TemplatesNotAvailableInRegionException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   listAWSDefaultServiceQuotas(
     input: ListAWSDefaultServiceQuotasRequest,
   ): Effect.Effect<
     ListAWSDefaultServiceQuotasResponse,
-    AccessDeniedException | IllegalArgumentException | InvalidPaginationTokenException | NoSuchResourceException | ServiceException | TooManyRequestsException | CommonAwsError
+    | AccessDeniedException
+    | IllegalArgumentException
+    | InvalidPaginationTokenException
+    | NoSuchResourceException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   listRequestedServiceQuotaChangeHistory(
     input: ListRequestedServiceQuotaChangeHistoryRequest,
   ): Effect.Effect<
     ListRequestedServiceQuotaChangeHistoryResponse,
-    AccessDeniedException | IllegalArgumentException | InvalidPaginationTokenException | NoSuchResourceException | ServiceException | TooManyRequestsException | CommonAwsError
+    | AccessDeniedException
+    | IllegalArgumentException
+    | InvalidPaginationTokenException
+    | NoSuchResourceException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   listRequestedServiceQuotaChangeHistoryByQuota(
     input: ListRequestedServiceQuotaChangeHistoryByQuotaRequest,
   ): Effect.Effect<
     ListRequestedServiceQuotaChangeHistoryByQuotaResponse,
-    AccessDeniedException | IllegalArgumentException | InvalidPaginationTokenException | NoSuchResourceException | ServiceException | TooManyRequestsException | CommonAwsError
+    | AccessDeniedException
+    | IllegalArgumentException
+    | InvalidPaginationTokenException
+    | NoSuchResourceException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   listServiceQuotaIncreaseRequestsInTemplate(
     input: ListServiceQuotaIncreaseRequestsInTemplateRequest,
   ): Effect.Effect<
     ListServiceQuotaIncreaseRequestsInTemplateResponse,
-    AccessDeniedException | AWSServiceAccessNotEnabledException | DependencyAccessDeniedException | IllegalArgumentException | NoAvailableOrganizationException | ServiceException | TemplatesNotAvailableInRegionException | TooManyRequestsException | CommonAwsError
+    | AccessDeniedException
+    | AWSServiceAccessNotEnabledException
+    | DependencyAccessDeniedException
+    | IllegalArgumentException
+    | NoAvailableOrganizationException
+    | ServiceException
+    | TemplatesNotAvailableInRegionException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   listServiceQuotas(
     input: ListServiceQuotasRequest,
   ): Effect.Effect<
     ListServiceQuotasResponse,
-    AccessDeniedException | IllegalArgumentException | InvalidPaginationTokenException | NoSuchResourceException | ServiceException | TooManyRequestsException | CommonAwsError
+    | AccessDeniedException
+    | IllegalArgumentException
+    | InvalidPaginationTokenException
+    | NoSuchResourceException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   listServices(
     input: ListServicesRequest,
   ): Effect.Effect<
     ListServicesResponse,
-    AccessDeniedException | IllegalArgumentException | InvalidPaginationTokenException | ServiceException | TooManyRequestsException | CommonAwsError
+    | AccessDeniedException
+    | IllegalArgumentException
+    | InvalidPaginationTokenException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    AccessDeniedException | IllegalArgumentException | NoSuchResourceException | ServiceException | TooManyRequestsException | CommonAwsError
+    | AccessDeniedException
+    | IllegalArgumentException
+    | NoSuchResourceException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   putServiceQuotaIncreaseRequestIntoTemplate(
     input: PutServiceQuotaIncreaseRequestIntoTemplateRequest,
   ): Effect.Effect<
     PutServiceQuotaIncreaseRequestIntoTemplateResponse,
-    AccessDeniedException | AWSServiceAccessNotEnabledException | DependencyAccessDeniedException | IllegalArgumentException | NoAvailableOrganizationException | NoSuchResourceException | QuotaExceededException | ServiceException | TemplatesNotAvailableInRegionException | TooManyRequestsException | CommonAwsError
+    | AccessDeniedException
+    | AWSServiceAccessNotEnabledException
+    | DependencyAccessDeniedException
+    | IllegalArgumentException
+    | NoAvailableOrganizationException
+    | NoSuchResourceException
+    | QuotaExceededException
+    | ServiceException
+    | TemplatesNotAvailableInRegionException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   requestServiceQuotaIncrease(
     input: RequestServiceQuotaIncreaseRequest,
   ): Effect.Effect<
     RequestServiceQuotaIncreaseResponse,
-    AccessDeniedException | DependencyAccessDeniedException | IllegalArgumentException | InvalidResourceStateException | NoSuchResourceException | QuotaExceededException | ResourceAlreadyExistsException | ServiceException | TooManyRequestsException | CommonAwsError
+    | AccessDeniedException
+    | DependencyAccessDeniedException
+    | IllegalArgumentException
+    | InvalidResourceStateException
+    | NoSuchResourceException
+    | QuotaExceededException
+    | ResourceAlreadyExistsException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    AccessDeniedException | IllegalArgumentException | NoSuchResourceException | ServiceException | TagPolicyViolationException | TooManyRequestsException | TooManyTagsException | CommonAwsError
+    | AccessDeniedException
+    | IllegalArgumentException
+    | NoSuchResourceException
+    | ServiceException
+    | TagPolicyViolationException
+    | TooManyRequestsException
+    | TooManyTagsException
+    | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    AccessDeniedException | IllegalArgumentException | NoSuchResourceException | ServiceException | TooManyRequestsException | CommonAwsError
+    | AccessDeniedException
+    | IllegalArgumentException
+    | NoSuchResourceException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
 }
 
@@ -134,10 +306,8 @@ export declare class AccessDeniedException extends EffectData.TaggedError(
 export type AmazonResourceName = string;
 
 export type AppliedLevelEnum = "ACCOUNT" | "RESOURCE" | "ALL";
-export interface AssociateServiceQuotaTemplateRequest {
-}
-export interface AssociateServiceQuotaTemplateResponse {
-}
+export interface AssociateServiceQuotaTemplateRequest {}
+export interface AssociateServiceQuotaTemplateResponse {}
 export type AwsRegion = string;
 
 export declare class AWSServiceAccessNotEnabledException extends EffectData.TaggedError(
@@ -148,8 +318,7 @@ export declare class AWSServiceAccessNotEnabledException extends EffectData.Tagg
 export interface CreateSupportCaseRequest {
   RequestId: string;
 }
-export interface CreateSupportCaseResponse {
-}
+export interface CreateSupportCaseResponse {}
 export type CustomerServiceEngagementId = string;
 
 export type DateTime = Date | string;
@@ -159,18 +328,19 @@ export interface DeleteServiceQuotaIncreaseRequestFromTemplateRequest {
   QuotaCode: string;
   AwsRegion: string;
 }
-export interface DeleteServiceQuotaIncreaseRequestFromTemplateResponse {
-}
+export interface DeleteServiceQuotaIncreaseRequestFromTemplateResponse {}
 export declare class DependencyAccessDeniedException extends EffectData.TaggedError(
   "DependencyAccessDeniedException",
 )<{
   readonly Message?: string;
 }> {}
-export interface DisassociateServiceQuotaTemplateRequest {
-}
-export interface DisassociateServiceQuotaTemplateResponse {
-}
-export type ErrorCode = "DEPENDENCY_ACCESS_DENIED_ERROR" | "DEPENDENCY_THROTTLING_ERROR" | "DEPENDENCY_SERVICE_ERROR" | "SERVICE_QUOTA_NOT_AVAILABLE_ERROR";
+export interface DisassociateServiceQuotaTemplateRequest {}
+export interface DisassociateServiceQuotaTemplateResponse {}
+export type ErrorCode =
+  | "DEPENDENCY_ACCESS_DENIED_ERROR"
+  | "DEPENDENCY_THROTTLING_ERROR"
+  | "DEPENDENCY_SERVICE_ERROR"
+  | "SERVICE_QUOTA_NOT_AVAILABLE_ERROR";
 export type ErrorMessage = string;
 
 export interface ErrorReason {
@@ -179,8 +349,7 @@ export interface ErrorReason {
 }
 export type ExceptionMessage = string;
 
-export interface GetAssociationForServiceQuotaTemplateRequest {
-}
+export interface GetAssociationForServiceQuotaTemplateRequest {}
 export interface GetAssociationForServiceQuotaTemplateResponse {
   ServiceQuotaTemplateAssociationStatus?: ServiceQuotaTemplateAssociationStatus;
 }
@@ -330,7 +499,14 @@ export declare class OrganizationNotInAllFeaturesModeException extends EffectDat
   readonly Message?: string;
 }> {}
 export type OutputTags = Array<Tag>;
-export type PeriodUnit = "MICROSECOND" | "MILLISECOND" | "SECOND" | "MINUTE" | "HOUR" | "DAY" | "WEEK";
+export type PeriodUnit =
+  | "MICROSECOND"
+  | "MILLISECOND"
+  | "SECOND"
+  | "MINUTE"
+  | "HOUR"
+  | "DAY"
+  | "WEEK";
 export type PeriodValue = number;
 
 export interface PutServiceQuotaIncreaseRequestIntoTemplateRequest {
@@ -397,7 +573,8 @@ export interface RequestedServiceQuotaChange {
   QuotaRequestedAtLevel?: AppliedLevelEnum;
   QuotaContext?: QuotaContextInfo;
 }
-export type RequestedServiceQuotaChangeHistoryListDefinition = Array<RequestedServiceQuotaChange>;
+export type RequestedServiceQuotaChangeHistoryListDefinition =
+  Array<RequestedServiceQuotaChange>;
 export type Requester = string;
 
 export type RequestId = string;
@@ -412,7 +589,14 @@ export interface RequestServiceQuotaIncreaseRequest {
 export interface RequestServiceQuotaIncreaseResponse {
   RequestedQuota?: RequestedServiceQuotaChange;
 }
-export type RequestStatus = "PENDING" | "CASE_OPENED" | "APPROVED" | "DENIED" | "CASE_CLOSED" | "NOT_APPROVED" | "INVALID_REQUEST";
+export type RequestStatus =
+  | "PENDING"
+  | "CASE_OPENED"
+  | "APPROVED"
+  | "DENIED"
+  | "CASE_CLOSED"
+  | "NOT_APPROVED"
+  | "INVALID_REQUEST";
 export declare class ResourceAlreadyExistsException extends EffectData.TaggedError(
   "ResourceAlreadyExistsException",
 )<{
@@ -459,9 +643,12 @@ export interface ServiceQuotaIncreaseRequestInTemplate {
   Unit?: string;
   GlobalQuota?: boolean;
 }
-export type ServiceQuotaIncreaseRequestInTemplateList = Array<ServiceQuotaIncreaseRequestInTemplate>;
+export type ServiceQuotaIncreaseRequestInTemplateList =
+  Array<ServiceQuotaIncreaseRequestInTemplate>;
 export type ServiceQuotaListDefinition = Array<ServiceQuota>;
-export type ServiceQuotaTemplateAssociationStatus = "ASSOCIATED" | "DISASSOCIATED";
+export type ServiceQuotaTemplateAssociationStatus =
+  | "ASSOCIATED"
+  | "DISASSOCIATED";
 export declare class ServiceQuotaTemplateNotInUseException extends EffectData.TaggedError(
   "ServiceQuotaTemplateNotInUseException",
 )<{
@@ -486,8 +673,7 @@ export interface TagResourceRequest {
   ResourceARN: string;
   Tags: Array<Tag>;
 }
-export interface TagResourceResponse {
-}
+export interface TagResourceResponse {}
 export type TagValue = string;
 
 export declare class TemplatesNotAvailableInRegionException extends EffectData.TaggedError(
@@ -509,8 +695,7 @@ export interface UntagResourceRequest {
   ResourceARN: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {
-}
+export interface UntagResourceResponse {}
 export declare namespace AssociateServiceQuotaTemplate {
   export type Input = AssociateServiceQuotaTemplateRequest;
   export type Output = AssociateServiceQuotaTemplateResponse;
@@ -788,4 +973,3 @@ export declare namespace UntagResource {
     | TooManyRequestsException
     | CommonAwsError;
 }
-

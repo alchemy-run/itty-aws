@@ -1,6 +1,38 @@
 import type { Effect, Data as EffectData } from "effect";
-import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
-type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
+import type {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+type CommonAwsError =
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | AccessDeniedException
+  | ThrottlingException
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class FreeTier extends AWSServiceClient {
@@ -8,31 +40,51 @@ export declare class FreeTier extends AWSServiceClient {
     input: GetAccountActivityRequest,
   ): Effect.Effect<
     GetAccountActivityResponse,
-    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getAccountPlanState(
     input: GetAccountPlanStateRequest,
   ): Effect.Effect<
     GetAccountPlanStateResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getFreeTierUsage(
     input: GetFreeTierUsageRequest,
   ): Effect.Effect<
     GetFreeTierUsageResponse,
-    InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listAccountActivities(
     input: ListAccountActivitiesRequest,
   ): Effect.Effect<
     ListAccountActivitiesResponse,
-    InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   upgradeAccountPlan(
     input: UpgradeAccountPlanRequest,
   ): Effect.Effect<
     UpgradeAccountPlanResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
 }
 
@@ -54,8 +106,12 @@ interface _ActivityReward {
   credit?: MonetaryAmount;
 }
 
-export type ActivityReward = (_ActivityReward & { credit: MonetaryAmount });
-export type ActivityStatus = "NOT_STARTED" | "IN_PROGRESS" | "COMPLETED" | "EXPIRING";
+export type ActivityReward = _ActivityReward & { credit: MonetaryAmount };
+export type ActivityStatus =
+  | "NOT_STARTED"
+  | "IN_PROGRESS"
+  | "COMPLETED"
+  | "EXPIRING";
 export interface ActivitySummary {
   activityId: string;
   title: string;
@@ -63,7 +119,14 @@ export interface ActivitySummary {
   status: ActivityStatus;
 }
 export type CurrencyCode = "USD";
-export type Dimension = "SERVICE" | "OPERATION" | "USAGE_TYPE" | "REGION" | "FREE_TIER_TYPE" | "DESCRIPTION" | "USAGE_PERCENTAGE";
+export type Dimension =
+  | "SERVICE"
+  | "OPERATION"
+  | "USAGE_TYPE"
+  | "REGION"
+  | "FREE_TIER_TYPE"
+  | "DESCRIPTION"
+  | "USAGE_PERCENTAGE";
 export interface DimensionValues {
   Key: Dimension;
   Values: Array<string>;
@@ -110,8 +173,7 @@ export interface GetAccountActivityResponse {
   startedAt?: Date | string;
   completedAt?: Date | string;
 }
-export interface GetAccountPlanStateRequest {
-}
+export interface GetAccountPlanStateRequest {}
 export interface GetAccountPlanStateResponse {
   accountId: string;
   accountPlanType: AccountPlanType;
@@ -133,7 +195,20 @@ export declare class InternalServerException extends EffectData.TaggedError(
 )<{
   readonly message: string;
 }> {}
-export type LanguageCode = "en-US" | "en-GB" | "id-ID" | "de-DE" | "es-ES" | "fr-FR" | "ja-JP" | "it-IT" | "pt-PT" | "ko-KR" | "zh-CN" | "zh-TW" | "tr-TR";
+export type LanguageCode =
+  | "en-US"
+  | "en-GB"
+  | "id-ID"
+  | "de-DE"
+  | "es-ES"
+  | "fr-FR"
+  | "ja-JP"
+  | "it-IT"
+  | "pt-PT"
+  | "ko-KR"
+  | "zh-CN"
+  | "zh-TW"
+  | "tr-TR";
 export interface ListAccountActivitiesRequest {
   filterActivityStatuses?: Array<ActivityStatus>;
   nextToken?: string;
@@ -144,7 +219,12 @@ export interface ListAccountActivitiesResponse {
   activities: Array<ActivitySummary>;
   nextToken?: string;
 }
-export type MatchOption = "EQUALS" | "STARTS_WITH" | "ENDS_WITH" | "CONTAINS" | "GREATER_THAN_OR_EQUAL";
+export type MatchOption =
+  | "EQUALS"
+  | "STARTS_WITH"
+  | "ENDS_WITH"
+  | "CONTAINS"
+  | "GREATER_THAN_OR_EQUAL";
 export type MatchOptions = Array<MatchOption>;
 export type MaxResults = number;
 
@@ -234,4 +314,3 @@ export declare namespace UpgradeAccountPlan {
     | ValidationException
     | CommonAwsError;
 }
-

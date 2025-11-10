@@ -1,6 +1,40 @@
 import type { Effect, Data as EffectData } from "effect";
-import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError, ValidationException } from "../../error.ts";
-type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | ThrottlingException | UnrecognizedClientException | UnknownOperationException | ValidationError | ValidationException | AccessDeniedException;
+import type {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  ThrottlingException,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+  ValidationException,
+} from "../../error.ts";
+type CommonAwsError =
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | ThrottlingException
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | ValidationException
+  | AccessDeniedException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class KinesisVideoWebRTCStorage extends AWSServiceClient {
@@ -8,13 +42,21 @@ export declare class KinesisVideoWebRTCStorage extends AWSServiceClient {
     input: JoinStorageSessionInput,
   ): Effect.Effect<
     {},
-    AccessDeniedException | ClientLimitExceededException | InvalidArgumentException | ResourceNotFoundException | CommonAwsError
+    | AccessDeniedException
+    | ClientLimitExceededException
+    | InvalidArgumentException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   joinStorageSessionAsViewer(
     input: JoinStorageSessionAsViewerInput,
   ): Effect.Effect<
     {},
-    AccessDeniedException | ClientLimitExceededException | InvalidArgumentException | ResourceNotFoundException | CommonAwsError
+    | AccessDeniedException
+    | ClientLimitExceededException
+    | InvalidArgumentException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
 }
 
@@ -72,4 +114,3 @@ export declare namespace JoinStorageSessionAsViewer {
     | ResourceNotFoundException
     | CommonAwsError;
 }
-

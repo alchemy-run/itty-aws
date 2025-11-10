@@ -5,7 +5,23 @@ import type { amp as _ampClient } from "./types.ts";
 
 export * from "./types.ts";
 
-export {ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, type CommonAwsError} from "../../error.ts";
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+  type CommonAwsError,
+} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -14,39 +30,54 @@ const metadata = {
   protocol: "restJson1",
   sigV4ServiceName: "aps",
   operations: {
-    "GetDefaultScraperConfiguration": "GET /scraperconfiguration",
-    "ListTagsForResource": "GET /tags/{resourceArn}",
-    "TagResource": "POST /tags/{resourceArn}",
-    "UntagResource": "DELETE /tags/{resourceArn}",
-    "CreateAlertManagerDefinition": "POST /workspaces/{workspaceId}/alertmanager/definition",
-    "CreateLoggingConfiguration": "POST /workspaces/{workspaceId}/logging",
-    "CreateQueryLoggingConfiguration": "POST /workspaces/{workspaceId}/logging/query",
-    "CreateRuleGroupsNamespace": "POST /workspaces/{workspaceId}/rulegroupsnamespaces",
-    "CreateScraper": "POST /scrapers",
-    "CreateWorkspace": "POST /workspaces",
-    "DeleteAlertManagerDefinition": "DELETE /workspaces/{workspaceId}/alertmanager/definition",
-    "DeleteLoggingConfiguration": "DELETE /workspaces/{workspaceId}/logging",
-    "DeleteQueryLoggingConfiguration": "DELETE /workspaces/{workspaceId}/logging/query",
-    "DeleteRuleGroupsNamespace": "DELETE /workspaces/{workspaceId}/rulegroupsnamespaces/{name}",
-    "DeleteScraper": "DELETE /scrapers/{scraperId}",
-    "DeleteWorkspace": "DELETE /workspaces/{workspaceId}",
-    "DescribeAlertManagerDefinition": "GET /workspaces/{workspaceId}/alertmanager/definition",
-    "DescribeLoggingConfiguration": "GET /workspaces/{workspaceId}/logging",
-    "DescribeQueryLoggingConfiguration": "GET /workspaces/{workspaceId}/logging/query",
-    "DescribeRuleGroupsNamespace": "GET /workspaces/{workspaceId}/rulegroupsnamespaces/{name}",
-    "DescribeScraper": "GET /scrapers/{scraperId}",
-    "DescribeWorkspace": "GET /workspaces/{workspaceId}",
-    "DescribeWorkspaceConfiguration": "GET /workspaces/{workspaceId}/configuration",
-    "ListRuleGroupsNamespaces": "GET /workspaces/{workspaceId}/rulegroupsnamespaces",
-    "ListScrapers": "GET /scrapers",
-    "ListWorkspaces": "GET /workspaces",
-    "PutAlertManagerDefinition": "PUT /workspaces/{workspaceId}/alertmanager/definition",
-    "PutRuleGroupsNamespace": "PUT /workspaces/{workspaceId}/rulegroupsnamespaces/{name}",
-    "UpdateLoggingConfiguration": "PUT /workspaces/{workspaceId}/logging",
-    "UpdateQueryLoggingConfiguration": "PUT /workspaces/{workspaceId}/logging/query",
-    "UpdateScraper": "PUT /scrapers/{scraperId}",
-    "UpdateWorkspaceAlias": "POST /workspaces/{workspaceId}/alias",
-    "UpdateWorkspaceConfiguration": "PATCH /workspaces/{workspaceId}/configuration",
+    GetDefaultScraperConfiguration: "GET /scraperconfiguration",
+    ListTagsForResource: "GET /tags/{resourceArn}",
+    TagResource: "POST /tags/{resourceArn}",
+    UntagResource: "DELETE /tags/{resourceArn}",
+    CreateAlertManagerDefinition:
+      "POST /workspaces/{workspaceId}/alertmanager/definition",
+    CreateLoggingConfiguration: "POST /workspaces/{workspaceId}/logging",
+    CreateQueryLoggingConfiguration:
+      "POST /workspaces/{workspaceId}/logging/query",
+    CreateRuleGroupsNamespace:
+      "POST /workspaces/{workspaceId}/rulegroupsnamespaces",
+    CreateScraper: "POST /scrapers",
+    CreateWorkspace: "POST /workspaces",
+    DeleteAlertManagerDefinition:
+      "DELETE /workspaces/{workspaceId}/alertmanager/definition",
+    DeleteLoggingConfiguration: "DELETE /workspaces/{workspaceId}/logging",
+    DeleteQueryLoggingConfiguration:
+      "DELETE /workspaces/{workspaceId}/logging/query",
+    DeleteRuleGroupsNamespace:
+      "DELETE /workspaces/{workspaceId}/rulegroupsnamespaces/{name}",
+    DeleteScraper: "DELETE /scrapers/{scraperId}",
+    DeleteWorkspace: "DELETE /workspaces/{workspaceId}",
+    DescribeAlertManagerDefinition:
+      "GET /workspaces/{workspaceId}/alertmanager/definition",
+    DescribeLoggingConfiguration: "GET /workspaces/{workspaceId}/logging",
+    DescribeQueryLoggingConfiguration:
+      "GET /workspaces/{workspaceId}/logging/query",
+    DescribeRuleGroupsNamespace:
+      "GET /workspaces/{workspaceId}/rulegroupsnamespaces/{name}",
+    DescribeScraper: "GET /scrapers/{scraperId}",
+    DescribeWorkspace: "GET /workspaces/{workspaceId}",
+    DescribeWorkspaceConfiguration:
+      "GET /workspaces/{workspaceId}/configuration",
+    ListRuleGroupsNamespaces:
+      "GET /workspaces/{workspaceId}/rulegroupsnamespaces",
+    ListScrapers: "GET /scrapers",
+    ListWorkspaces: "GET /workspaces",
+    PutAlertManagerDefinition:
+      "PUT /workspaces/{workspaceId}/alertmanager/definition",
+    PutRuleGroupsNamespace:
+      "PUT /workspaces/{workspaceId}/rulegroupsnamespaces/{name}",
+    UpdateLoggingConfiguration: "PUT /workspaces/{workspaceId}/logging",
+    UpdateQueryLoggingConfiguration:
+      "PUT /workspaces/{workspaceId}/logging/query",
+    UpdateScraper: "PUT /scrapers/{scraperId}",
+    UpdateWorkspaceAlias: "POST /workspaces/{workspaceId}/alias",
+    UpdateWorkspaceConfiguration:
+      "PATCH /workspaces/{workspaceId}/configuration",
   },
 } as const satisfies ServiceMetadata;
 

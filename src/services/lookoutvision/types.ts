@@ -1,8 +1,40 @@
 import type { Effect, Stream, Data as EffectData } from "effect";
 import type { ResponseError } from "@effect/platform/HttpClientError";
 import type { Buffer } from "node:buffer";
-import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
-type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
+import type {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+type CommonAwsError =
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | AccessDeniedException
+  | ThrottlingException
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class LookoutVision extends AWSServiceClient {
@@ -10,133 +42,269 @@ export declare class LookoutVision extends AWSServiceClient {
     input: CreateDatasetRequest,
   ): Effect.Effect<
     CreateDatasetResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createModel(
     input: CreateModelRequest,
   ): Effect.Effect<
     CreateModelResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createProject(
     input: CreateProjectRequest,
   ): Effect.Effect<
     CreateProjectResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteDataset(
     input: DeleteDatasetRequest,
   ): Effect.Effect<
     DeleteDatasetResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteModel(
     input: DeleteModelRequest,
   ): Effect.Effect<
     DeleteModelResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteProject(
     input: DeleteProjectRequest,
   ): Effect.Effect<
     DeleteProjectResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   describeDataset(
     input: DescribeDatasetRequest,
   ): Effect.Effect<
     DescribeDatasetResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   describeModel(
     input: DescribeModelRequest,
   ): Effect.Effect<
     DescribeModelResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   describeModelPackagingJob(
     input: DescribeModelPackagingJobRequest,
   ): Effect.Effect<
     DescribeModelPackagingJobResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   describeProject(
     input: DescribeProjectRequest,
   ): Effect.Effect<
     DescribeProjectResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   detectAnomalies(
     input: DetectAnomaliesRequest,
   ): Effect.Effect<
     DetectAnomaliesResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listDatasetEntries(
     input: ListDatasetEntriesRequest,
   ): Effect.Effect<
     ListDatasetEntriesResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listModelPackagingJobs(
     input: ListModelPackagingJobsRequest,
   ): Effect.Effect<
     ListModelPackagingJobsResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listModels(
     input: ListModelsRequest,
   ): Effect.Effect<
     ListModelsResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listProjects(
     input: ListProjectsRequest,
   ): Effect.Effect<
     ListProjectsResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   startModel(
     input: StartModelRequest,
   ): Effect.Effect<
     StartModelResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   startModelPackagingJob(
     input: StartModelPackagingJobRequest,
   ): Effect.Effect<
     StartModelPackagingJobResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   stopModel(
     input: StopModelRequest,
   ): Effect.Effect<
     StopModelResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateDatasetEntries(
     input: UpdateDatasetEntriesRequest,
   ): Effect.Effect<
     UpdateDatasetEntriesResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
 }
 
@@ -243,7 +411,17 @@ export type DatasetMetadataList = Array<DatasetMetadata>;
 export interface DatasetSource {
   GroundTruthManifest?: DatasetGroundTruthManifest;
 }
-export type DatasetStatus = "CREATE_IN_PROGRESS" | "CREATE_COMPLETE" | "CREATE_FAILED" | "UPDATE_IN_PROGRESS" | "UPDATE_COMPLETE" | "UPDATE_FAILED_ROLLBACK_IN_PROGRESS" | "UPDATE_FAILED_ROLLBACK_COMPLETE" | "DELETE_IN_PROGRESS" | "DELETE_COMPLETE" | "DELETE_FAILED";
+export type DatasetStatus =
+  | "CREATE_IN_PROGRESS"
+  | "CREATE_COMPLETE"
+  | "CREATE_FAILED"
+  | "UPDATE_IN_PROGRESS"
+  | "UPDATE_COMPLETE"
+  | "UPDATE_FAILED_ROLLBACK_IN_PROGRESS"
+  | "UPDATE_FAILED_ROLLBACK_COMPLETE"
+  | "DELETE_IN_PROGRESS"
+  | "DELETE_COMPLETE"
+  | "DELETE_FAILED";
 export type DatasetStatusMessage = string;
 
 export type DatasetType = string;
@@ -255,8 +433,7 @@ export interface DeleteDatasetRequest {
   DatasetType: string;
   ClientToken?: string;
 }
-export interface DeleteDatasetResponse {
-}
+export interface DeleteDatasetResponse {}
 export interface DeleteModelRequest {
   ProjectName: string;
   ModelVersion: string;
@@ -425,7 +602,12 @@ export interface ModelDescription {
 }
 export type ModelDescriptionMessage = string;
 
-export type ModelHostingStatus = "STARTING_HOSTING" | "HOSTED" | "HOSTING_FAILED" | "STOPPING_HOSTING" | "SYSTEM_UPDATING";
+export type ModelHostingStatus =
+  | "STARTING_HOSTING"
+  | "HOSTED"
+  | "HOSTING_FAILED"
+  | "STOPPING_HOSTING"
+  | "SYSTEM_UPDATING";
 export interface ModelMetadata {
   CreationTimestamp?: Date | string;
   ModelVersion?: string;
@@ -468,7 +650,11 @@ export interface ModelPackagingJobMetadata {
 export type ModelPackagingJobName = string;
 
 export type ModelPackagingJobsList = Array<ModelPackagingJobMetadata>;
-export type ModelPackagingJobStatus = "CREATED" | "RUNNING" | "SUCCEEDED" | "FAILED";
+export type ModelPackagingJobStatus =
+  | "CREATED"
+  | "RUNNING"
+  | "SUCCEEDED"
+  | "FAILED";
 export type ModelPackagingMethod = string;
 
 export interface ModelPackagingOutputDetails {
@@ -481,7 +667,16 @@ export interface ModelPerformance {
   Recall?: number;
   Precision?: number;
 }
-export type ModelStatus = "TRAINING" | "TRAINED" | "TRAINING_FAILED" | "STARTING_HOSTING" | "HOSTED" | "HOSTING_FAILED" | "STOPPING_HOSTING" | "SYSTEM_UPDATING" | "DELETING";
+export type ModelStatus =
+  | "TRAINING"
+  | "TRAINED"
+  | "TRAINING_FAILED"
+  | "STARTING_HOSTING"
+  | "HOSTED"
+  | "HOSTING_FAILED"
+  | "STOPPING_HOSTING"
+  | "SYSTEM_UPDATING"
+  | "DELETING";
 export type ModelStatusMessage = string;
 
 export type ModelVersion = string;
@@ -528,7 +723,12 @@ export declare class ResourceNotFoundException extends EffectData.TaggedError(
   readonly ResourceId: string;
   readonly ResourceType: ResourceType;
 }> {}
-export type ResourceType = "PROJECT" | "DATASET" | "MODEL" | "TRIAL" | "MODEL_PACKAGE_JOB";
+export type ResourceType =
+  | "PROJECT"
+  | "DATASET"
+  | "MODEL"
+  | "TRIAL"
+  | "MODEL_PACKAGE_JOB";
 export type RetryAfterSeconds = number;
 
 export type S3BucketName = string;
@@ -597,8 +797,7 @@ export interface TagResourceRequest {
   ResourceArn: string;
   Tags: Array<Tag>;
 }
-export interface TagResourceResponse {
-}
+export interface TagResourceResponse {}
 export type TagValue = string;
 
 export type TargetDevice = "jetson_xavier";
@@ -622,8 +821,7 @@ export interface UntagResourceRequest {
   ResourceArn: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {
-}
+export interface UntagResourceResponse {}
 export interface UpdateDatasetEntriesRequest {
   ProjectName: string;
   DatasetType: string;
@@ -927,4 +1125,3 @@ export declare namespace UpdateDatasetEntries {
     | ValidationException
     | CommonAwsError;
 }
-

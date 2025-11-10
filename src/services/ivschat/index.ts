@@ -5,7 +5,23 @@ import type { ivschat as _ivschatClient } from "./types.ts";
 
 export * from "./types.ts";
 
-export {ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, type CommonAwsError} from "../../error.ts";
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+  type CommonAwsError,
+} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -14,23 +30,23 @@ const metadata = {
   protocol: "restJson1",
   sigV4ServiceName: "ivschat",
   operations: {
-    "CreateChatToken": "POST /CreateChatToken",
-    "CreateLoggingConfiguration": "POST /CreateLoggingConfiguration",
-    "CreateRoom": "POST /CreateRoom",
-    "DeleteLoggingConfiguration": "POST /DeleteLoggingConfiguration",
-    "DeleteMessage": "POST /DeleteMessage",
-    "DeleteRoom": "POST /DeleteRoom",
-    "DisconnectUser": "POST /DisconnectUser",
-    "GetLoggingConfiguration": "POST /GetLoggingConfiguration",
-    "GetRoom": "POST /GetRoom",
-    "ListLoggingConfigurations": "POST /ListLoggingConfigurations",
-    "ListRooms": "POST /ListRooms",
-    "ListTagsForResource": "GET /tags/{resourceArn}",
-    "SendEvent": "POST /SendEvent",
-    "TagResource": "POST /tags/{resourceArn}",
-    "UntagResource": "DELETE /tags/{resourceArn}",
-    "UpdateLoggingConfiguration": "POST /UpdateLoggingConfiguration",
-    "UpdateRoom": "POST /UpdateRoom",
+    CreateChatToken: "POST /CreateChatToken",
+    CreateLoggingConfiguration: "POST /CreateLoggingConfiguration",
+    CreateRoom: "POST /CreateRoom",
+    DeleteLoggingConfiguration: "POST /DeleteLoggingConfiguration",
+    DeleteMessage: "POST /DeleteMessage",
+    DeleteRoom: "POST /DeleteRoom",
+    DisconnectUser: "POST /DisconnectUser",
+    GetLoggingConfiguration: "POST /GetLoggingConfiguration",
+    GetRoom: "POST /GetRoom",
+    ListLoggingConfigurations: "POST /ListLoggingConfigurations",
+    ListRooms: "POST /ListRooms",
+    ListTagsForResource: "GET /tags/{resourceArn}",
+    SendEvent: "POST /SendEvent",
+    TagResource: "POST /tags/{resourceArn}",
+    UntagResource: "DELETE /tags/{resourceArn}",
+    UpdateLoggingConfiguration: "POST /UpdateLoggingConfiguration",
+    UpdateRoom: "POST /UpdateRoom",
   },
 } as const satisfies ServiceMetadata;
 

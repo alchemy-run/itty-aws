@@ -7,73 +7,136 @@ export declare class DAX extends AWSServiceClient {
     input: CreateClusterRequest,
   ): Effect.Effect<
     CreateClusterResponse,
-    ClusterAlreadyExistsFault | ClusterQuotaForCustomerExceededFault | InsufficientClusterCapacityFault | InvalidClusterStateFault | InvalidParameterCombinationException | InvalidParameterGroupStateFault | InvalidParameterValueException | InvalidVPCNetworkStateFault | NodeQuotaForClusterExceededFault | NodeQuotaForCustomerExceededFault | ParameterGroupNotFoundFault | ServiceLinkedRoleNotFoundFault | ServiceQuotaExceededException | SubnetGroupNotFoundFault | TagQuotaPerResourceExceeded | CommonAwsError
+    | ClusterAlreadyExistsFault
+    | ClusterQuotaForCustomerExceededFault
+    | InsufficientClusterCapacityFault
+    | InvalidClusterStateFault
+    | InvalidParameterCombinationException
+    | InvalidParameterGroupStateFault
+    | InvalidParameterValueException
+    | InvalidVPCNetworkStateFault
+    | NodeQuotaForClusterExceededFault
+    | NodeQuotaForCustomerExceededFault
+    | ParameterGroupNotFoundFault
+    | ServiceLinkedRoleNotFoundFault
+    | ServiceQuotaExceededException
+    | SubnetGroupNotFoundFault
+    | TagQuotaPerResourceExceeded
+    | CommonAwsError
   >;
   createParameterGroup(
     input: CreateParameterGroupRequest,
   ): Effect.Effect<
     CreateParameterGroupResponse,
-    InvalidParameterCombinationException | InvalidParameterGroupStateFault | InvalidParameterValueException | ParameterGroupAlreadyExistsFault | ParameterGroupQuotaExceededFault | ServiceLinkedRoleNotFoundFault | CommonAwsError
+    | InvalidParameterCombinationException
+    | InvalidParameterGroupStateFault
+    | InvalidParameterValueException
+    | ParameterGroupAlreadyExistsFault
+    | ParameterGroupQuotaExceededFault
+    | ServiceLinkedRoleNotFoundFault
+    | CommonAwsError
   >;
   createSubnetGroup(
     input: CreateSubnetGroupRequest,
   ): Effect.Effect<
     CreateSubnetGroupResponse,
-    InvalidSubnet | ServiceLinkedRoleNotFoundFault | SubnetGroupAlreadyExistsFault | SubnetGroupQuotaExceededFault | SubnetQuotaExceededFault | CommonAwsError
+    | InvalidSubnet
+    | ServiceLinkedRoleNotFoundFault
+    | SubnetGroupAlreadyExistsFault
+    | SubnetGroupQuotaExceededFault
+    | SubnetQuotaExceededFault
+    | CommonAwsError
   >;
   decreaseReplicationFactor(
     input: DecreaseReplicationFactorRequest,
   ): Effect.Effect<
     DecreaseReplicationFactorResponse,
-    ClusterNotFoundFault | InvalidClusterStateFault | InvalidParameterCombinationException | InvalidParameterValueException | NodeNotFoundFault | ServiceLinkedRoleNotFoundFault | CommonAwsError
+    | ClusterNotFoundFault
+    | InvalidClusterStateFault
+    | InvalidParameterCombinationException
+    | InvalidParameterValueException
+    | NodeNotFoundFault
+    | ServiceLinkedRoleNotFoundFault
+    | CommonAwsError
   >;
   deleteCluster(
     input: DeleteClusterRequest,
   ): Effect.Effect<
     DeleteClusterResponse,
-    ClusterNotFoundFault | InvalidClusterStateFault | InvalidParameterCombinationException | InvalidParameterValueException | ServiceLinkedRoleNotFoundFault | CommonAwsError
+    | ClusterNotFoundFault
+    | InvalidClusterStateFault
+    | InvalidParameterCombinationException
+    | InvalidParameterValueException
+    | ServiceLinkedRoleNotFoundFault
+    | CommonAwsError
   >;
   deleteParameterGroup(
     input: DeleteParameterGroupRequest,
   ): Effect.Effect<
     DeleteParameterGroupResponse,
-    InvalidParameterCombinationException | InvalidParameterGroupStateFault | InvalidParameterValueException | ParameterGroupNotFoundFault | ServiceLinkedRoleNotFoundFault | CommonAwsError
+    | InvalidParameterCombinationException
+    | InvalidParameterGroupStateFault
+    | InvalidParameterValueException
+    | ParameterGroupNotFoundFault
+    | ServiceLinkedRoleNotFoundFault
+    | CommonAwsError
   >;
   deleteSubnetGroup(
     input: DeleteSubnetGroupRequest,
   ): Effect.Effect<
     DeleteSubnetGroupResponse,
-    ServiceLinkedRoleNotFoundFault | SubnetGroupInUseFault | SubnetGroupNotFoundFault | CommonAwsError
+    | ServiceLinkedRoleNotFoundFault
+    | SubnetGroupInUseFault
+    | SubnetGroupNotFoundFault
+    | CommonAwsError
   >;
   describeClusters(
     input: DescribeClustersRequest,
   ): Effect.Effect<
     DescribeClustersResponse,
-    ClusterNotFoundFault | InvalidParameterCombinationException | InvalidParameterValueException | ServiceLinkedRoleNotFoundFault | CommonAwsError
+    | ClusterNotFoundFault
+    | InvalidParameterCombinationException
+    | InvalidParameterValueException
+    | ServiceLinkedRoleNotFoundFault
+    | CommonAwsError
   >;
   describeDefaultParameters(
     input: DescribeDefaultParametersRequest,
   ): Effect.Effect<
     DescribeDefaultParametersResponse,
-    InvalidParameterCombinationException | InvalidParameterValueException | ServiceLinkedRoleNotFoundFault | CommonAwsError
+    | InvalidParameterCombinationException
+    | InvalidParameterValueException
+    | ServiceLinkedRoleNotFoundFault
+    | CommonAwsError
   >;
   describeEvents(
     input: DescribeEventsRequest,
   ): Effect.Effect<
     DescribeEventsResponse,
-    InvalidParameterCombinationException | InvalidParameterValueException | ServiceLinkedRoleNotFoundFault | CommonAwsError
+    | InvalidParameterCombinationException
+    | InvalidParameterValueException
+    | ServiceLinkedRoleNotFoundFault
+    | CommonAwsError
   >;
   describeParameterGroups(
     input: DescribeParameterGroupsRequest,
   ): Effect.Effect<
     DescribeParameterGroupsResponse,
-    InvalidParameterCombinationException | InvalidParameterValueException | ParameterGroupNotFoundFault | ServiceLinkedRoleNotFoundFault | CommonAwsError
+    | InvalidParameterCombinationException
+    | InvalidParameterValueException
+    | ParameterGroupNotFoundFault
+    | ServiceLinkedRoleNotFoundFault
+    | CommonAwsError
   >;
   describeParameters(
     input: DescribeParametersRequest,
   ): Effect.Effect<
     DescribeParametersResponse,
-    InvalidParameterCombinationException | InvalidParameterValueException | ParameterGroupNotFoundFault | ServiceLinkedRoleNotFoundFault | CommonAwsError
+    | InvalidParameterCombinationException
+    | InvalidParameterValueException
+    | ParameterGroupNotFoundFault
+    | ServiceLinkedRoleNotFoundFault
+    | CommonAwsError
   >;
   describeSubnetGroups(
     input: DescribeSubnetGroupsRequest,
@@ -85,49 +148,101 @@ export declare class DAX extends AWSServiceClient {
     input: IncreaseReplicationFactorRequest,
   ): Effect.Effect<
     IncreaseReplicationFactorResponse,
-    ClusterNotFoundFault | InsufficientClusterCapacityFault | InvalidClusterStateFault | InvalidParameterCombinationException | InvalidParameterValueException | InvalidVPCNetworkStateFault | NodeQuotaForClusterExceededFault | NodeQuotaForCustomerExceededFault | ServiceLinkedRoleNotFoundFault | CommonAwsError
+    | ClusterNotFoundFault
+    | InsufficientClusterCapacityFault
+    | InvalidClusterStateFault
+    | InvalidParameterCombinationException
+    | InvalidParameterValueException
+    | InvalidVPCNetworkStateFault
+    | NodeQuotaForClusterExceededFault
+    | NodeQuotaForCustomerExceededFault
+    | ServiceLinkedRoleNotFoundFault
+    | CommonAwsError
   >;
   listTags(
     input: ListTagsRequest,
   ): Effect.Effect<
     ListTagsResponse,
-    ClusterNotFoundFault | InvalidARNFault | InvalidClusterStateFault | InvalidParameterCombinationException | InvalidParameterValueException | ServiceLinkedRoleNotFoundFault | CommonAwsError
+    | ClusterNotFoundFault
+    | InvalidARNFault
+    | InvalidClusterStateFault
+    | InvalidParameterCombinationException
+    | InvalidParameterValueException
+    | ServiceLinkedRoleNotFoundFault
+    | CommonAwsError
   >;
   rebootNode(
     input: RebootNodeRequest,
   ): Effect.Effect<
     RebootNodeResponse,
-    ClusterNotFoundFault | InvalidClusterStateFault | InvalidParameterCombinationException | InvalidParameterValueException | NodeNotFoundFault | ServiceLinkedRoleNotFoundFault | CommonAwsError
+    | ClusterNotFoundFault
+    | InvalidClusterStateFault
+    | InvalidParameterCombinationException
+    | InvalidParameterValueException
+    | NodeNotFoundFault
+    | ServiceLinkedRoleNotFoundFault
+    | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    ClusterNotFoundFault | InvalidARNFault | InvalidClusterStateFault | InvalidParameterCombinationException | InvalidParameterValueException | ServiceLinkedRoleNotFoundFault | TagQuotaPerResourceExceeded | CommonAwsError
+    | ClusterNotFoundFault
+    | InvalidARNFault
+    | InvalidClusterStateFault
+    | InvalidParameterCombinationException
+    | InvalidParameterValueException
+    | ServiceLinkedRoleNotFoundFault
+    | TagQuotaPerResourceExceeded
+    | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    ClusterNotFoundFault | InvalidARNFault | InvalidClusterStateFault | InvalidParameterCombinationException | InvalidParameterValueException | ServiceLinkedRoleNotFoundFault | TagNotFoundFault | CommonAwsError
+    | ClusterNotFoundFault
+    | InvalidARNFault
+    | InvalidClusterStateFault
+    | InvalidParameterCombinationException
+    | InvalidParameterValueException
+    | ServiceLinkedRoleNotFoundFault
+    | TagNotFoundFault
+    | CommonAwsError
   >;
   updateCluster(
     input: UpdateClusterRequest,
   ): Effect.Effect<
     UpdateClusterResponse,
-    ClusterNotFoundFault | InvalidClusterStateFault | InvalidParameterCombinationException | InvalidParameterGroupStateFault | InvalidParameterValueException | ParameterGroupNotFoundFault | ServiceLinkedRoleNotFoundFault | CommonAwsError
+    | ClusterNotFoundFault
+    | InvalidClusterStateFault
+    | InvalidParameterCombinationException
+    | InvalidParameterGroupStateFault
+    | InvalidParameterValueException
+    | ParameterGroupNotFoundFault
+    | ServiceLinkedRoleNotFoundFault
+    | CommonAwsError
   >;
   updateParameterGroup(
     input: UpdateParameterGroupRequest,
   ): Effect.Effect<
     UpdateParameterGroupResponse,
-    InvalidParameterCombinationException | InvalidParameterGroupStateFault | InvalidParameterValueException | ParameterGroupNotFoundFault | ServiceLinkedRoleNotFoundFault | CommonAwsError
+    | InvalidParameterCombinationException
+    | InvalidParameterGroupStateFault
+    | InvalidParameterValueException
+    | ParameterGroupNotFoundFault
+    | ServiceLinkedRoleNotFoundFault
+    | CommonAwsError
   >;
   updateSubnetGroup(
     input: UpdateSubnetGroupRequest,
   ): Effect.Effect<
     UpdateSubnetGroupResponse,
-    InvalidSubnet | ServiceLinkedRoleNotFoundFault | SubnetGroupNotFoundFault | SubnetInUse | SubnetQuotaExceededFault | CommonAwsError
+    | InvalidSubnet
+    | ServiceLinkedRoleNotFoundFault
+    | SubnetGroupNotFoundFault
+    | SubnetInUse
+    | SubnetQuotaExceededFault
+    | CommonAwsError
   >;
 }
 
@@ -469,8 +584,7 @@ export declare class ServiceLinkedRoleNotFoundFault extends EffectData.TaggedErr
 }> {}
 export declare class ServiceQuotaExceededException extends EffectData.TaggedError(
   "ServiceQuotaExceededException",
-)<{
-}> {}
+)<{}> {}
 export type SourceType = "CLUSTER" | "PARAMETER_GROUP" | "SUBNET_GROUP";
 export interface SSEDescription {
   Status?: SSEStatus;
@@ -516,9 +630,7 @@ export declare class SubnetGroupQuotaExceededFault extends EffectData.TaggedErro
   readonly message?: string;
 }> {}
 export type SubnetIdentifierList = Array<string>;
-export declare class SubnetInUse extends EffectData.TaggedError(
-  "SubnetInUse",
-)<{
+export declare class SubnetInUse extends EffectData.TaggedError("SubnetInUse")<{
   readonly message?: string;
 }> {}
 export type SubnetList = Array<Subnet>;
@@ -848,4 +960,3 @@ export declare namespace UpdateSubnetGroup {
     | SubnetQuotaExceededFault
     | CommonAwsError;
 }
-

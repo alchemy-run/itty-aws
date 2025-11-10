@@ -1,6 +1,40 @@
 import type { Effect, Data as EffectData } from "effect";
-import type { AccessDeniedException, ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
-type CommonAwsError = AccessDeniedException | ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | ThrottlingException | UnrecognizedClientException | UnknownOperationException | ValidationError | ValidationException;
+import type {
+  AccessDeniedException,
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  ThrottlingException,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+type CommonAwsError =
+  | AccessDeniedException
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | ThrottlingException
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class AutoScalingPlans extends AWSServiceClient {
@@ -8,25 +42,41 @@ export declare class AutoScalingPlans extends AWSServiceClient {
     input: CreateScalingPlanRequest,
   ): Effect.Effect<
     CreateScalingPlanResponse,
-    ConcurrentUpdateException | InternalServiceException | LimitExceededException | ValidationException | CommonAwsError
+    | ConcurrentUpdateException
+    | InternalServiceException
+    | LimitExceededException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteScalingPlan(
     input: DeleteScalingPlanRequest,
   ): Effect.Effect<
     DeleteScalingPlanResponse,
-    ConcurrentUpdateException | InternalServiceException | ObjectNotFoundException | ValidationException | CommonAwsError
+    | ConcurrentUpdateException
+    | InternalServiceException
+    | ObjectNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   describeScalingPlanResources(
     input: DescribeScalingPlanResourcesRequest,
   ): Effect.Effect<
     DescribeScalingPlanResourcesResponse,
-    ConcurrentUpdateException | InternalServiceException | InvalidNextTokenException | ValidationException | CommonAwsError
+    | ConcurrentUpdateException
+    | InternalServiceException
+    | InvalidNextTokenException
+    | ValidationException
+    | CommonAwsError
   >;
   describeScalingPlans(
     input: DescribeScalingPlansRequest,
   ): Effect.Effect<
     DescribeScalingPlansResponse,
-    ConcurrentUpdateException | InternalServiceException | InvalidNextTokenException | ValidationException | CommonAwsError
+    | ConcurrentUpdateException
+    | InternalServiceException
+    | InvalidNextTokenException
+    | ValidationException
+    | CommonAwsError
   >;
   getScalingPlanResourceForecastData(
     input: GetScalingPlanResourceForecastDataRequest,
@@ -38,7 +88,11 @@ export declare class AutoScalingPlans extends AWSServiceClient {
     input: UpdateScalingPlanRequest,
   ): Effect.Effect<
     UpdateScalingPlanResponse,
-    ConcurrentUpdateException | InternalServiceException | ObjectNotFoundException | ValidationException | CommonAwsError
+    | ConcurrentUpdateException
+    | InternalServiceException
+    | ObjectNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
 }
 
@@ -85,8 +139,7 @@ export interface DeleteScalingPlanRequest {
   ScalingPlanName: string;
   ScalingPlanVersion: number;
 }
-export interface DeleteScalingPlanResponse {
-}
+export interface DeleteScalingPlanResponse {}
 export interface DescribeScalingPlanResourcesRequest {
   ScalingPlanName: string;
   ScalingPlanVersion: number;
@@ -114,7 +167,11 @@ export type DisableScaleIn = boolean;
 
 export type ErrorMessage = string;
 
-export type ForecastDataType = "CapacityForecast" | "LoadForecast" | "ScheduledActionMinCapacity" | "ScheduledActionMaxCapacity";
+export type ForecastDataType =
+  | "CapacityForecast"
+  | "LoadForecast"
+  | "ScheduledActionMinCapacity"
+  | "ScheduledActionMaxCapacity";
 export interface GetScalingPlanResourceForecastDataRequest {
   ScalingPlanName: string;
   ScalingPlanVersion: number;
@@ -143,7 +200,11 @@ export declare class LimitExceededException extends EffectData.TaggedError(
 )<{
   readonly Message?: string;
 }> {}
-export type LoadMetricType = "ASGTotalCPUUtilization" | "ASGTotalNetworkIn" | "ASGTotalNetworkOut" | "ALBTargetGroupRequestCount";
+export type LoadMetricType =
+  | "ASGTotalCPUUtilization"
+  | "ASGTotalNetworkIn"
+  | "ASGTotalNetworkOut"
+  | "ALBTargetGroupRequestCount";
 export type MaxResults = number;
 
 export interface MetricDimension {
@@ -161,7 +222,12 @@ export type MetricNamespace = string;
 
 export type MetricScale = number;
 
-export type MetricStatistic = "Average" | "Minimum" | "Maximum" | "SampleCount" | "Sum";
+export type MetricStatistic =
+  | "Average"
+  | "Minimum"
+  | "Maximum"
+  | "SampleCount"
+  | "Sum";
 export type MetricUnit = string;
 
 export type NextToken = string;
@@ -182,7 +248,10 @@ export interface PredefinedScalingMetricSpecification {
   PredefinedScalingMetricType: ScalingMetricType;
   ResourceLabel?: string;
 }
-export type PredictiveScalingMaxCapacityBehavior = "SetForecastCapacityToMaxCapacity" | "SetMaxCapacityToForecastCapacity" | "SetMaxCapacityAboveForecastCapacity";
+export type PredictiveScalingMaxCapacityBehavior =
+  | "SetForecastCapacityToMaxCapacity"
+  | "SetMaxCapacityToForecastCapacity"
+  | "SetMaxCapacityAboveForecastCapacity";
 export type PredictiveScalingMode = "ForecastAndScale" | "ForecastOnly";
 export type ResourceCapacity = number;
 
@@ -190,7 +259,15 @@ export type ResourceIdMaxLen1600 = string;
 
 export type ResourceLabel = string;
 
-export type ScalableDimension = "autoscaling:autoScalingGroup:DesiredCapacity" | "ecs:service:DesiredCount" | "ec2:spot-fleet-request:TargetCapacity" | "rds:cluster:ReadReplicaCount" | "dynamodb:table:ReadCapacityUnits" | "dynamodb:table:WriteCapacityUnits" | "dynamodb:index:ReadCapacityUnits" | "dynamodb:index:WriteCapacityUnits";
+export type ScalableDimension =
+  | "autoscaling:autoScalingGroup:DesiredCapacity"
+  | "ecs:service:DesiredCount"
+  | "ec2:spot-fleet-request:TargetCapacity"
+  | "rds:cluster:ReadReplicaCount"
+  | "dynamodb:table:ReadCapacityUnits"
+  | "dynamodb:table:WriteCapacityUnits"
+  | "dynamodb:index:ReadCapacityUnits"
+  | "dynamodb:index:WriteCapacityUnits";
 export interface ScalingInstruction {
   ServiceNamespace: ServiceNamespace;
   ResourceId: string;
@@ -208,7 +285,20 @@ export interface ScalingInstruction {
   DisableDynamicScaling?: boolean;
 }
 export type ScalingInstructions = Array<ScalingInstruction>;
-export type ScalingMetricType = "ASGAverageCPUUtilization" | "ASGAverageNetworkIn" | "ASGAverageNetworkOut" | "DynamoDBReadCapacityUtilization" | "DynamoDBWriteCapacityUtilization" | "ECSServiceAverageCPUUtilization" | "ECSServiceAverageMemoryUtilization" | "ALBRequestCountPerTarget" | "RDSReaderAverageCPUUtilization" | "RDSReaderAverageDatabaseConnections" | "EC2SpotFleetRequestAverageCPUUtilization" | "EC2SpotFleetRequestAverageNetworkIn" | "EC2SpotFleetRequestAverageNetworkOut";
+export type ScalingMetricType =
+  | "ASGAverageCPUUtilization"
+  | "ASGAverageNetworkIn"
+  | "ASGAverageNetworkOut"
+  | "DynamoDBReadCapacityUtilization"
+  | "DynamoDBWriteCapacityUtilization"
+  | "ECSServiceAverageCPUUtilization"
+  | "ECSServiceAverageMemoryUtilization"
+  | "ALBRequestCountPerTarget"
+  | "RDSReaderAverageCPUUtilization"
+  | "RDSReaderAverageDatabaseConnections"
+  | "EC2SpotFleetRequestAverageCPUUtilization"
+  | "EC2SpotFleetRequestAverageNetworkIn"
+  | "EC2SpotFleetRequestAverageNetworkOut";
 export interface ScalingPlan {
   ScalingPlanName: string;
   ScalingPlanVersion: number;
@@ -234,7 +324,15 @@ export interface ScalingPlanResource {
 }
 export type ScalingPlanResources = Array<ScalingPlanResource>;
 export type ScalingPlans = Array<ScalingPlan>;
-export type ScalingPlanStatusCode = "Active" | "ActiveWithProblems" | "CreationInProgress" | "CreationFailed" | "DeletionInProgress" | "DeletionFailed" | "UpdateInProgress" | "UpdateFailed";
+export type ScalingPlanStatusCode =
+  | "Active"
+  | "ActiveWithProblems"
+  | "CreationInProgress"
+  | "CreationFailed"
+  | "DeletionInProgress"
+  | "DeletionFailed"
+  | "UpdateInProgress"
+  | "UpdateFailed";
 export type ScalingPlanVersion = number;
 
 export type ScalingPolicies = Array<ScalingPolicy>;
@@ -243,11 +341,18 @@ export interface ScalingPolicy {
   PolicyType: PolicyType;
   TargetTrackingConfiguration?: TargetTrackingConfiguration;
 }
-export type ScalingPolicyUpdateBehavior = "KeepExternalPolicies" | "ReplaceExternalPolicies";
+export type ScalingPolicyUpdateBehavior =
+  | "KeepExternalPolicies"
+  | "ReplaceExternalPolicies";
 export type ScalingStatusCode = "Inactive" | "PartiallyActive" | "Active";
 export type ScheduledActionBufferTime = number;
 
-export type ServiceNamespace = "autoscaling" | "ecs" | "ec2" | "rds" | "dynamodb";
+export type ServiceNamespace =
+  | "autoscaling"
+  | "ecs"
+  | "ec2"
+  | "rds"
+  | "dynamodb";
 export interface TagFilter {
   Key?: string;
   Values?: Array<string>;
@@ -272,8 +377,7 @@ export interface UpdateScalingPlanRequest {
   ApplicationSource?: ApplicationSource;
   ScalingInstructions?: Array<ScalingInstruction>;
 }
-export interface UpdateScalingPlanResponse {
-}
+export interface UpdateScalingPlanResponse {}
 export declare class ValidationException extends EffectData.TaggedError(
   "ValidationException",
 )<{
@@ -348,4 +452,3 @@ export declare namespace UpdateScalingPlan {
     | ValidationException
     | CommonAwsError;
 }
-

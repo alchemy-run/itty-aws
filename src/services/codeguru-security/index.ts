@@ -5,7 +5,23 @@ import type { CodeGuruSecurity as _CodeGuruSecurityClient } from "./types.ts";
 
 export * from "./types.ts";
 
-export {ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, type CommonAwsError} from "../../error.ts";
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+  type CommonAwsError,
+} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -14,19 +30,19 @@ const metadata = {
   protocol: "restJson1",
   sigV4ServiceName: "codeguru-security",
   operations: {
-    "BatchGetFindings": "POST /batchGetFindings",
-    "CreateScan": "POST /scans",
-    "CreateUploadUrl": "POST /uploadUrl",
-    "GetAccountConfiguration": "GET /accountConfiguration/get",
-    "GetFindings": "GET /findings/{scanName}",
-    "GetMetricsSummary": "GET /metrics/summary",
-    "GetScan": "GET /scans/{scanName}",
-    "ListFindingsMetrics": "GET /metrics/findings",
-    "ListScans": "GET /scans",
-    "ListTagsForResource": "GET /tags/{resourceArn}",
-    "TagResource": "POST /tags/{resourceArn}",
-    "UntagResource": "DELETE /tags/{resourceArn}",
-    "UpdateAccountConfiguration": "PUT /updateAccountConfiguration",
+    BatchGetFindings: "POST /batchGetFindings",
+    CreateScan: "POST /scans",
+    CreateUploadUrl: "POST /uploadUrl",
+    GetAccountConfiguration: "GET /accountConfiguration/get",
+    GetFindings: "GET /findings/{scanName}",
+    GetMetricsSummary: "GET /metrics/summary",
+    GetScan: "GET /scans/{scanName}",
+    ListFindingsMetrics: "GET /metrics/findings",
+    ListScans: "GET /scans",
+    ListTagsForResource: "GET /tags/{resourceArn}",
+    TagResource: "POST /tags/{resourceArn}",
+    UntagResource: "DELETE /tags/{resourceArn}",
+    UpdateAccountConfiguration: "PUT /updateAccountConfiguration",
   },
 } as const satisfies ServiceMetadata;
 

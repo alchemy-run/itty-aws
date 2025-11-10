@@ -5,7 +5,26 @@ import type { KinesisVideoArchivedMedia as _KinesisVideoArchivedMediaClient } fr
 
 export * from "./types.ts";
 
-export {AccessDeniedException, ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError, ValidationException, type CommonAwsError} from "../../error.ts";
+export {
+  AccessDeniedException,
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  ThrottlingException,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+  ValidationException,
+  type CommonAwsError,
+} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -15,24 +34,24 @@ const metadata = {
   sigV4ServiceName: "kinesisvideo",
   endpointPrefix: "kinesisvideo",
   operations: {
-    "GetClip": {
+    GetClip: {
       http: "POST /getClip",
       traits: {
-        "ContentType": "Content-Type",
-        "Payload": "httpPayload",
+        ContentType: "Content-Type",
+        Payload: "httpPayload",
       },
     },
-    "GetDASHStreamingSessionURL": "POST /getDASHStreamingSessionURL",
-    "GetHLSStreamingSessionURL": "POST /getHLSStreamingSessionURL",
-    "GetImages": "POST /getImages",
-    "GetMediaForFragmentList": {
+    GetDASHStreamingSessionURL: "POST /getDASHStreamingSessionURL",
+    GetHLSStreamingSessionURL: "POST /getHLSStreamingSessionURL",
+    GetImages: "POST /getImages",
+    GetMediaForFragmentList: {
       http: "POST /getMediaForFragmentList",
       traits: {
-        "ContentType": "Content-Type",
-        "Payload": "httpPayload",
+        ContentType: "Content-Type",
+        Payload: "httpPayload",
       },
     },
-    "ListFragments": "POST /listFragments",
+    ListFragments: "POST /listFragments",
   },
 } as const satisfies ServiceMetadata;
 

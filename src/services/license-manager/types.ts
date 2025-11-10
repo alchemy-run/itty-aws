@@ -1,6 +1,39 @@
 import type { Effect, Data as EffectData } from "effect";
-import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
-type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | ThrottlingException | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ValidationException;
+import type {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  ThrottlingException,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+type CommonAwsError =
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | ThrottlingException
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | AccessDeniedException
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class LicenseManager extends AWSServiceClient {
@@ -8,301 +41,631 @@ export declare class LicenseManager extends AWSServiceClient {
     input: AcceptGrantRequest,
   ): Effect.Effect<
     AcceptGrantResponse,
-    AccessDeniedException | AuthorizationException | InvalidParameterValueException | RateLimitExceededException | ResourceLimitExceededException | ServerInternalException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | AuthorizationException
+    | InvalidParameterValueException
+    | RateLimitExceededException
+    | ResourceLimitExceededException
+    | ServerInternalException
+    | ValidationException
+    | CommonAwsError
   >;
   checkInLicense(
     input: CheckInLicenseRequest,
   ): Effect.Effect<
     CheckInLicenseResponse,
-    AccessDeniedException | AuthorizationException | ConflictException | InvalidParameterValueException | RateLimitExceededException | ResourceNotFoundException | ServerInternalException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | AuthorizationException
+    | ConflictException
+    | InvalidParameterValueException
+    | RateLimitExceededException
+    | ResourceNotFoundException
+    | ServerInternalException
+    | ValidationException
+    | CommonAwsError
   >;
   checkoutBorrowLicense(
     input: CheckoutBorrowLicenseRequest,
   ): Effect.Effect<
     CheckoutBorrowLicenseResponse,
-    AccessDeniedException | AuthorizationException | EntitlementNotAllowedException | InvalidParameterValueException | NoEntitlementsAllowedException | RateLimitExceededException | RedirectException | ResourceNotFoundException | ServerInternalException | UnsupportedDigitalSignatureMethodException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | AuthorizationException
+    | EntitlementNotAllowedException
+    | InvalidParameterValueException
+    | NoEntitlementsAllowedException
+    | RateLimitExceededException
+    | RedirectException
+    | ResourceNotFoundException
+    | ServerInternalException
+    | UnsupportedDigitalSignatureMethodException
+    | ValidationException
+    | CommonAwsError
   >;
   checkoutLicense(
     input: CheckoutLicenseRequest,
   ): Effect.Effect<
     CheckoutLicenseResponse,
-    AccessDeniedException | AuthorizationException | InvalidParameterValueException | NoEntitlementsAllowedException | RateLimitExceededException | RedirectException | ResourceNotFoundException | ServerInternalException | UnsupportedDigitalSignatureMethodException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | AuthorizationException
+    | InvalidParameterValueException
+    | NoEntitlementsAllowedException
+    | RateLimitExceededException
+    | RedirectException
+    | ResourceNotFoundException
+    | ServerInternalException
+    | UnsupportedDigitalSignatureMethodException
+    | ValidationException
+    | CommonAwsError
   >;
   createGrant(
     input: CreateGrantRequest,
   ): Effect.Effect<
     CreateGrantResponse,
-    AccessDeniedException | AuthorizationException | InvalidParameterValueException | RateLimitExceededException | ResourceLimitExceededException | ServerInternalException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | AuthorizationException
+    | InvalidParameterValueException
+    | RateLimitExceededException
+    | ResourceLimitExceededException
+    | ServerInternalException
+    | ValidationException
+    | CommonAwsError
   >;
   createGrantVersion(
     input: CreateGrantVersionRequest,
   ): Effect.Effect<
     CreateGrantVersionResponse,
-    AccessDeniedException | AuthorizationException | InvalidParameterValueException | RateLimitExceededException | ResourceLimitExceededException | ServerInternalException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | AuthorizationException
+    | InvalidParameterValueException
+    | RateLimitExceededException
+    | ResourceLimitExceededException
+    | ServerInternalException
+    | ValidationException
+    | CommonAwsError
   >;
   createLicense(
     input: CreateLicenseRequest,
   ): Effect.Effect<
     CreateLicenseResponse,
-    AccessDeniedException | AuthorizationException | InvalidParameterValueException | RateLimitExceededException | RedirectException | ServerInternalException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | AuthorizationException
+    | InvalidParameterValueException
+    | RateLimitExceededException
+    | RedirectException
+    | ServerInternalException
+    | ValidationException
+    | CommonAwsError
   >;
   createLicenseConfiguration(
     input: CreateLicenseConfigurationRequest,
   ): Effect.Effect<
     CreateLicenseConfigurationResponse,
-    AccessDeniedException | AuthorizationException | InvalidParameterValueException | RateLimitExceededException | ResourceLimitExceededException | ServerInternalException | CommonAwsError
+    | AccessDeniedException
+    | AuthorizationException
+    | InvalidParameterValueException
+    | RateLimitExceededException
+    | ResourceLimitExceededException
+    | ServerInternalException
+    | CommonAwsError
   >;
   createLicenseConversionTaskForResource(
     input: CreateLicenseConversionTaskForResourceRequest,
   ): Effect.Effect<
     CreateLicenseConversionTaskForResourceResponse,
-    AccessDeniedException | AuthorizationException | InvalidParameterValueException | RateLimitExceededException | ServerInternalException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | AuthorizationException
+    | InvalidParameterValueException
+    | RateLimitExceededException
+    | ServerInternalException
+    | ValidationException
+    | CommonAwsError
   >;
   createLicenseManagerReportGenerator(
     input: CreateLicenseManagerReportGeneratorRequest,
   ): Effect.Effect<
     CreateLicenseManagerReportGeneratorResponse,
-    AccessDeniedException | AuthorizationException | InvalidParameterValueException | RateLimitExceededException | ResourceLimitExceededException | ResourceNotFoundException | ServerInternalException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | AuthorizationException
+    | InvalidParameterValueException
+    | RateLimitExceededException
+    | ResourceLimitExceededException
+    | ResourceNotFoundException
+    | ServerInternalException
+    | ValidationException
+    | CommonAwsError
   >;
   createLicenseVersion(
     input: CreateLicenseVersionRequest,
   ): Effect.Effect<
     CreateLicenseVersionResponse,
-    AccessDeniedException | AuthorizationException | ConflictException | RateLimitExceededException | RedirectException | ResourceNotFoundException | ServerInternalException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | AuthorizationException
+    | ConflictException
+    | RateLimitExceededException
+    | RedirectException
+    | ResourceNotFoundException
+    | ServerInternalException
+    | ValidationException
+    | CommonAwsError
   >;
   createToken(
     input: CreateTokenRequest,
   ): Effect.Effect<
     CreateTokenResponse,
-    AccessDeniedException | AuthorizationException | RateLimitExceededException | RedirectException | ResourceLimitExceededException | ResourceNotFoundException | ServerInternalException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | AuthorizationException
+    | RateLimitExceededException
+    | RedirectException
+    | ResourceLimitExceededException
+    | ResourceNotFoundException
+    | ServerInternalException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteGrant(
     input: DeleteGrantRequest,
   ): Effect.Effect<
     DeleteGrantResponse,
-    AccessDeniedException | AuthorizationException | InvalidParameterValueException | RateLimitExceededException | ResourceLimitExceededException | ServerInternalException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | AuthorizationException
+    | InvalidParameterValueException
+    | RateLimitExceededException
+    | ResourceLimitExceededException
+    | ServerInternalException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteLicense(
     input: DeleteLicenseRequest,
   ): Effect.Effect<
     DeleteLicenseResponse,
-    AccessDeniedException | AuthorizationException | ConflictException | InvalidParameterValueException | RateLimitExceededException | RedirectException | ServerInternalException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | AuthorizationException
+    | ConflictException
+    | InvalidParameterValueException
+    | RateLimitExceededException
+    | RedirectException
+    | ServerInternalException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteLicenseConfiguration(
     input: DeleteLicenseConfigurationRequest,
   ): Effect.Effect<
     DeleteLicenseConfigurationResponse,
-    AccessDeniedException | AuthorizationException | InvalidParameterValueException | RateLimitExceededException | ServerInternalException | CommonAwsError
+    | AccessDeniedException
+    | AuthorizationException
+    | InvalidParameterValueException
+    | RateLimitExceededException
+    | ServerInternalException
+    | CommonAwsError
   >;
   deleteLicenseManagerReportGenerator(
     input: DeleteLicenseManagerReportGeneratorRequest,
   ): Effect.Effect<
     DeleteLicenseManagerReportGeneratorResponse,
-    AccessDeniedException | AuthorizationException | InvalidParameterValueException | RateLimitExceededException | ResourceLimitExceededException | ResourceNotFoundException | ServerInternalException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | AuthorizationException
+    | InvalidParameterValueException
+    | RateLimitExceededException
+    | ResourceLimitExceededException
+    | ResourceNotFoundException
+    | ServerInternalException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteToken(
     input: DeleteTokenRequest,
   ): Effect.Effect<
     DeleteTokenResponse,
-    AccessDeniedException | AuthorizationException | RateLimitExceededException | RedirectException | ResourceNotFoundException | ServerInternalException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | AuthorizationException
+    | RateLimitExceededException
+    | RedirectException
+    | ResourceNotFoundException
+    | ServerInternalException
+    | ValidationException
+    | CommonAwsError
   >;
   extendLicenseConsumption(
     input: ExtendLicenseConsumptionRequest,
   ): Effect.Effect<
     ExtendLicenseConsumptionResponse,
-    AccessDeniedException | AuthorizationException | InvalidParameterValueException | RateLimitExceededException | ResourceNotFoundException | ServerInternalException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | AuthorizationException
+    | InvalidParameterValueException
+    | RateLimitExceededException
+    | ResourceNotFoundException
+    | ServerInternalException
+    | ValidationException
+    | CommonAwsError
   >;
   getAccessToken(
     input: GetAccessTokenRequest,
   ): Effect.Effect<
     GetAccessTokenResponse,
-    AccessDeniedException | AuthorizationException | RateLimitExceededException | ServerInternalException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | AuthorizationException
+    | RateLimitExceededException
+    | ServerInternalException
+    | ValidationException
+    | CommonAwsError
   >;
   getGrant(
     input: GetGrantRequest,
   ): Effect.Effect<
     GetGrantResponse,
-    AccessDeniedException | AuthorizationException | InvalidParameterValueException | RateLimitExceededException | ResourceLimitExceededException | ServerInternalException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | AuthorizationException
+    | InvalidParameterValueException
+    | RateLimitExceededException
+    | ResourceLimitExceededException
+    | ServerInternalException
+    | ValidationException
+    | CommonAwsError
   >;
   getLicense(
     input: GetLicenseRequest,
   ): Effect.Effect<
     GetLicenseResponse,
-    AccessDeniedException | AuthorizationException | InvalidParameterValueException | RateLimitExceededException | ServerInternalException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | AuthorizationException
+    | InvalidParameterValueException
+    | RateLimitExceededException
+    | ServerInternalException
+    | ValidationException
+    | CommonAwsError
   >;
   getLicenseConfiguration(
     input: GetLicenseConfigurationRequest,
   ): Effect.Effect<
     GetLicenseConfigurationResponse,
-    AccessDeniedException | AuthorizationException | InvalidParameterValueException | RateLimitExceededException | ServerInternalException | CommonAwsError
+    | AccessDeniedException
+    | AuthorizationException
+    | InvalidParameterValueException
+    | RateLimitExceededException
+    | ServerInternalException
+    | CommonAwsError
   >;
   getLicenseConversionTask(
     input: GetLicenseConversionTaskRequest,
   ): Effect.Effect<
     GetLicenseConversionTaskResponse,
-    AccessDeniedException | AuthorizationException | InvalidParameterValueException | RateLimitExceededException | ServerInternalException | CommonAwsError
+    | AccessDeniedException
+    | AuthorizationException
+    | InvalidParameterValueException
+    | RateLimitExceededException
+    | ServerInternalException
+    | CommonAwsError
   >;
   getLicenseManagerReportGenerator(
     input: GetLicenseManagerReportGeneratorRequest,
   ): Effect.Effect<
     GetLicenseManagerReportGeneratorResponse,
-    AccessDeniedException | AuthorizationException | InvalidParameterValueException | RateLimitExceededException | ResourceLimitExceededException | ResourceNotFoundException | ServerInternalException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | AuthorizationException
+    | InvalidParameterValueException
+    | RateLimitExceededException
+    | ResourceLimitExceededException
+    | ResourceNotFoundException
+    | ServerInternalException
+    | ValidationException
+    | CommonAwsError
   >;
   getLicenseUsage(
     input: GetLicenseUsageRequest,
   ): Effect.Effect<
     GetLicenseUsageResponse,
-    AccessDeniedException | AuthorizationException | InvalidParameterValueException | RateLimitExceededException | ServerInternalException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | AuthorizationException
+    | InvalidParameterValueException
+    | RateLimitExceededException
+    | ServerInternalException
+    | ValidationException
+    | CommonAwsError
   >;
   getServiceSettings(
     input: GetServiceSettingsRequest,
   ): Effect.Effect<
     GetServiceSettingsResponse,
-    AccessDeniedException | AuthorizationException | RateLimitExceededException | ServerInternalException | CommonAwsError
+    | AccessDeniedException
+    | AuthorizationException
+    | RateLimitExceededException
+    | ServerInternalException
+    | CommonAwsError
   >;
   listAssociationsForLicenseConfiguration(
     input: ListAssociationsForLicenseConfigurationRequest,
   ): Effect.Effect<
     ListAssociationsForLicenseConfigurationResponse,
-    AccessDeniedException | AuthorizationException | FilterLimitExceededException | InvalidParameterValueException | RateLimitExceededException | ServerInternalException | CommonAwsError
+    | AccessDeniedException
+    | AuthorizationException
+    | FilterLimitExceededException
+    | InvalidParameterValueException
+    | RateLimitExceededException
+    | ServerInternalException
+    | CommonAwsError
   >;
   listDistributedGrants(
     input: ListDistributedGrantsRequest,
   ): Effect.Effect<
     ListDistributedGrantsResponse,
-    AccessDeniedException | AuthorizationException | InvalidParameterValueException | RateLimitExceededException | ResourceLimitExceededException | ServerInternalException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | AuthorizationException
+    | InvalidParameterValueException
+    | RateLimitExceededException
+    | ResourceLimitExceededException
+    | ServerInternalException
+    | ValidationException
+    | CommonAwsError
   >;
   listFailuresForLicenseConfigurationOperations(
     input: ListFailuresForLicenseConfigurationOperationsRequest,
   ): Effect.Effect<
     ListFailuresForLicenseConfigurationOperationsResponse,
-    AccessDeniedException | AuthorizationException | InvalidParameterValueException | RateLimitExceededException | ServerInternalException | CommonAwsError
+    | AccessDeniedException
+    | AuthorizationException
+    | InvalidParameterValueException
+    | RateLimitExceededException
+    | ServerInternalException
+    | CommonAwsError
   >;
   listLicenseConfigurations(
     input: ListLicenseConfigurationsRequest,
   ): Effect.Effect<
     ListLicenseConfigurationsResponse,
-    AccessDeniedException | AuthorizationException | FilterLimitExceededException | InvalidParameterValueException | RateLimitExceededException | ServerInternalException | CommonAwsError
+    | AccessDeniedException
+    | AuthorizationException
+    | FilterLimitExceededException
+    | InvalidParameterValueException
+    | RateLimitExceededException
+    | ServerInternalException
+    | CommonAwsError
   >;
   listLicenseConversionTasks(
     input: ListLicenseConversionTasksRequest,
   ): Effect.Effect<
     ListLicenseConversionTasksResponse,
-    AccessDeniedException | AuthorizationException | InvalidParameterValueException | RateLimitExceededException | ServerInternalException | CommonAwsError
+    | AccessDeniedException
+    | AuthorizationException
+    | InvalidParameterValueException
+    | RateLimitExceededException
+    | ServerInternalException
+    | CommonAwsError
   >;
   listLicenseManagerReportGenerators(
     input: ListLicenseManagerReportGeneratorsRequest,
   ): Effect.Effect<
     ListLicenseManagerReportGeneratorsResponse,
-    AccessDeniedException | AuthorizationException | InvalidParameterValueException | RateLimitExceededException | ResourceLimitExceededException | ResourceNotFoundException | ServerInternalException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | AuthorizationException
+    | InvalidParameterValueException
+    | RateLimitExceededException
+    | ResourceLimitExceededException
+    | ResourceNotFoundException
+    | ServerInternalException
+    | ValidationException
+    | CommonAwsError
   >;
   listLicenses(
     input: ListLicensesRequest,
   ): Effect.Effect<
     ListLicensesResponse,
-    AccessDeniedException | AuthorizationException | InvalidParameterValueException | RateLimitExceededException | ServerInternalException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | AuthorizationException
+    | InvalidParameterValueException
+    | RateLimitExceededException
+    | ServerInternalException
+    | ValidationException
+    | CommonAwsError
   >;
   listLicenseSpecificationsForResource(
     input: ListLicenseSpecificationsForResourceRequest,
   ): Effect.Effect<
     ListLicenseSpecificationsForResourceResponse,
-    AccessDeniedException | AuthorizationException | InvalidParameterValueException | RateLimitExceededException | ServerInternalException | CommonAwsError
+    | AccessDeniedException
+    | AuthorizationException
+    | InvalidParameterValueException
+    | RateLimitExceededException
+    | ServerInternalException
+    | CommonAwsError
   >;
   listLicenseVersions(
     input: ListLicenseVersionsRequest,
   ): Effect.Effect<
     ListLicenseVersionsResponse,
-    AccessDeniedException | AuthorizationException | InvalidParameterValueException | RateLimitExceededException | ServerInternalException | CommonAwsError
+    | AccessDeniedException
+    | AuthorizationException
+    | InvalidParameterValueException
+    | RateLimitExceededException
+    | ServerInternalException
+    | CommonAwsError
   >;
   listReceivedGrants(
     input: ListReceivedGrantsRequest,
   ): Effect.Effect<
     ListReceivedGrantsResponse,
-    AccessDeniedException | AuthorizationException | InvalidParameterValueException | RateLimitExceededException | ResourceLimitExceededException | ServerInternalException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | AuthorizationException
+    | InvalidParameterValueException
+    | RateLimitExceededException
+    | ResourceLimitExceededException
+    | ServerInternalException
+    | ValidationException
+    | CommonAwsError
   >;
   listReceivedGrantsForOrganization(
     input: ListReceivedGrantsForOrganizationRequest,
   ): Effect.Effect<
     ListReceivedGrantsForOrganizationResponse,
-    AccessDeniedException | AuthorizationException | InvalidParameterValueException | RateLimitExceededException | ResourceLimitExceededException | ServerInternalException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | AuthorizationException
+    | InvalidParameterValueException
+    | RateLimitExceededException
+    | ResourceLimitExceededException
+    | ServerInternalException
+    | ValidationException
+    | CommonAwsError
   >;
   listReceivedLicenses(
     input: ListReceivedLicensesRequest,
   ): Effect.Effect<
     ListReceivedLicensesResponse,
-    AccessDeniedException | AuthorizationException | InvalidParameterValueException | RateLimitExceededException | ResourceLimitExceededException | ServerInternalException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | AuthorizationException
+    | InvalidParameterValueException
+    | RateLimitExceededException
+    | ResourceLimitExceededException
+    | ServerInternalException
+    | ValidationException
+    | CommonAwsError
   >;
   listReceivedLicensesForOrganization(
     input: ListReceivedLicensesForOrganizationRequest,
   ): Effect.Effect<
     ListReceivedLicensesForOrganizationResponse,
-    AccessDeniedException | AuthorizationException | InvalidParameterValueException | RateLimitExceededException | ResourceLimitExceededException | ServerInternalException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | AuthorizationException
+    | InvalidParameterValueException
+    | RateLimitExceededException
+    | ResourceLimitExceededException
+    | ServerInternalException
+    | ValidationException
+    | CommonAwsError
   >;
   listResourceInventory(
     input: ListResourceInventoryRequest,
   ): Effect.Effect<
     ListResourceInventoryResponse,
-    AccessDeniedException | AuthorizationException | FailedDependencyException | FilterLimitExceededException | InvalidParameterValueException | RateLimitExceededException | ServerInternalException | CommonAwsError
+    | AccessDeniedException
+    | AuthorizationException
+    | FailedDependencyException
+    | FilterLimitExceededException
+    | InvalidParameterValueException
+    | RateLimitExceededException
+    | ServerInternalException
+    | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    AccessDeniedException | AuthorizationException | InvalidParameterValueException | RateLimitExceededException | ServerInternalException | CommonAwsError
+    | AccessDeniedException
+    | AuthorizationException
+    | InvalidParameterValueException
+    | RateLimitExceededException
+    | ServerInternalException
+    | CommonAwsError
   >;
   listTokens(
     input: ListTokensRequest,
   ): Effect.Effect<
     ListTokensResponse,
-    AccessDeniedException | AuthorizationException | RateLimitExceededException | ServerInternalException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | AuthorizationException
+    | RateLimitExceededException
+    | ServerInternalException
+    | ValidationException
+    | CommonAwsError
   >;
   listUsageForLicenseConfiguration(
     input: ListUsageForLicenseConfigurationRequest,
   ): Effect.Effect<
     ListUsageForLicenseConfigurationResponse,
-    AccessDeniedException | AuthorizationException | FilterLimitExceededException | InvalidParameterValueException | RateLimitExceededException | ServerInternalException | CommonAwsError
+    | AccessDeniedException
+    | AuthorizationException
+    | FilterLimitExceededException
+    | InvalidParameterValueException
+    | RateLimitExceededException
+    | ServerInternalException
+    | CommonAwsError
   >;
   rejectGrant(
     input: RejectGrantRequest,
   ): Effect.Effect<
     RejectGrantResponse,
-    AccessDeniedException | AuthorizationException | InvalidParameterValueException | RateLimitExceededException | ResourceLimitExceededException | ServerInternalException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | AuthorizationException
+    | InvalidParameterValueException
+    | RateLimitExceededException
+    | ResourceLimitExceededException
+    | ServerInternalException
+    | ValidationException
+    | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    AccessDeniedException | AuthorizationException | InvalidParameterValueException | RateLimitExceededException | ServerInternalException | CommonAwsError
+    | AccessDeniedException
+    | AuthorizationException
+    | InvalidParameterValueException
+    | RateLimitExceededException
+    | ServerInternalException
+    | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    AccessDeniedException | AuthorizationException | InvalidParameterValueException | RateLimitExceededException | ServerInternalException | CommonAwsError
+    | AccessDeniedException
+    | AuthorizationException
+    | InvalidParameterValueException
+    | RateLimitExceededException
+    | ServerInternalException
+    | CommonAwsError
   >;
   updateLicenseConfiguration(
     input: UpdateLicenseConfigurationRequest,
   ): Effect.Effect<
     UpdateLicenseConfigurationResponse,
-    AccessDeniedException | AuthorizationException | ConflictException | InvalidParameterValueException | RateLimitExceededException | ResourceLimitExceededException | ServerInternalException | CommonAwsError
+    | AccessDeniedException
+    | AuthorizationException
+    | ConflictException
+    | InvalidParameterValueException
+    | RateLimitExceededException
+    | ResourceLimitExceededException
+    | ServerInternalException
+    | CommonAwsError
   >;
   updateLicenseManagerReportGenerator(
     input: UpdateLicenseManagerReportGeneratorRequest,
   ): Effect.Effect<
     UpdateLicenseManagerReportGeneratorResponse,
-    AccessDeniedException | AuthorizationException | InvalidParameterValueException | RateLimitExceededException | ResourceLimitExceededException | ResourceNotFoundException | ServerInternalException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | AuthorizationException
+    | InvalidParameterValueException
+    | RateLimitExceededException
+    | ResourceLimitExceededException
+    | ResourceNotFoundException
+    | ServerInternalException
+    | ValidationException
+    | CommonAwsError
   >;
   updateLicenseSpecificationsForResource(
     input: UpdateLicenseSpecificationsForResourceRequest,
   ): Effect.Effect<
     UpdateLicenseSpecificationsForResourceResponse,
-    AccessDeniedException | AuthorizationException | ConflictException | InvalidParameterValueException | InvalidResourceStateException | LicenseUsageException | RateLimitExceededException | ServerInternalException | CommonAwsError
+    | AccessDeniedException
+    | AuthorizationException
+    | ConflictException
+    | InvalidParameterValueException
+    | InvalidResourceStateException
+    | LicenseUsageException
+    | RateLimitExceededException
+    | ServerInternalException
+    | CommonAwsError
   >;
   updateServiceSettings(
     input: UpdateServiceSettingsRequest,
   ): Effect.Effect<
     UpdateServiceSettingsResponse,
-    AccessDeniedException | AuthorizationException | InvalidParameterValueException | RateLimitExceededException | ServerInternalException | CommonAwsError
+    | AccessDeniedException
+    | AuthorizationException
+    | InvalidParameterValueException
+    | RateLimitExceededException
+    | ServerInternalException
+    | CommonAwsError
   >;
 }
 
@@ -319,8 +682,17 @@ export declare class AccessDeniedException extends EffectData.TaggedError(
 )<{
   readonly Message?: string;
 }> {}
-export type ActivationOverrideBehavior = "DISTRIBUTED_GRANTS_ONLY" | "ALL_GRANTS_PERMITTED_BY_ISSUER";
-export type AllowedOperation = "CreateGrant" | "CheckoutLicense" | "CheckoutBorrowLicense" | "CheckInLicense" | "ExtendConsumptionLicense" | "ListPurchasedLicenses" | "CreateToken";
+export type ActivationOverrideBehavior =
+  | "DISTRIBUTED_GRANTS_ONLY"
+  | "ALL_GRANTS_PERMITTED_BY_ISSUER";
+export type AllowedOperation =
+  | "CreateGrant"
+  | "CheckoutLicense"
+  | "CheckoutBorrowLicense"
+  | "CheckInLicense"
+  | "ExtendConsumptionLicense"
+  | "ListPurchasedLicenses"
+  | "CreateToken";
 export type AllowedOperationList = Array<AllowedOperation>;
 export type Arn = string;
 
@@ -349,8 +721,7 @@ export interface CheckInLicenseRequest {
   LicenseConsumptionToken: string;
   Beneficiary?: string;
 }
-export interface CheckInLicenseResponse {
-}
+export interface CheckInLicenseResponse {}
 export interface CheckoutBorrowLicenseRequest {
   LicenseArn: string;
   Entitlements: Array<EntitlementData>;
@@ -540,13 +911,11 @@ export interface DeleteGrantResponse {
 export interface DeleteLicenseConfigurationRequest {
   LicenseConfigurationArn: string;
 }
-export interface DeleteLicenseConfigurationResponse {
-}
+export interface DeleteLicenseConfigurationResponse {}
 export interface DeleteLicenseManagerReportGeneratorRequest {
   LicenseManagerReportGeneratorArn: string;
 }
-export interface DeleteLicenseManagerReportGeneratorResponse {
-}
+export interface DeleteLicenseManagerReportGeneratorResponse {}
 export interface DeleteLicenseRequest {
   LicenseArn: string;
   SourceVersion: string;
@@ -558,8 +927,7 @@ export interface DeleteLicenseResponse {
 export interface DeleteTokenRequest {
   TokenId: string;
 }
-export interface DeleteTokenResponse {
-}
+export interface DeleteTokenResponse {}
 export type DigitalSignatureMethod = "JWT_PS384";
 export interface Entitlement {
   Name: string;
@@ -575,14 +943,68 @@ export interface EntitlementData {
   Unit: EntitlementDataUnit;
 }
 export type EntitlementDataList = Array<EntitlementData>;
-export type EntitlementDataUnit = "Count" | "None" | "Seconds" | "Microseconds" | "Milliseconds" | "Bytes" | "Kilobytes" | "Megabytes" | "Gigabytes" | "Terabytes" | "Bits" | "Kilobits" | "Megabits" | "Gigabits" | "Terabits" | "Percent" | "Bytes/Second" | "Kilobytes/Second" | "Megabytes/Second" | "Gigabytes/Second" | "Terabytes/Second" | "Bits/Second" | "Kilobits/Second" | "Megabits/Second" | "Gigabits/Second" | "Terabits/Second" | "Count/Second";
+export type EntitlementDataUnit =
+  | "Count"
+  | "None"
+  | "Seconds"
+  | "Microseconds"
+  | "Milliseconds"
+  | "Bytes"
+  | "Kilobytes"
+  | "Megabytes"
+  | "Gigabytes"
+  | "Terabytes"
+  | "Bits"
+  | "Kilobits"
+  | "Megabits"
+  | "Gigabits"
+  | "Terabits"
+  | "Percent"
+  | "Bytes/Second"
+  | "Kilobytes/Second"
+  | "Megabytes/Second"
+  | "Gigabytes/Second"
+  | "Terabytes/Second"
+  | "Bits/Second"
+  | "Kilobits/Second"
+  | "Megabits/Second"
+  | "Gigabits/Second"
+  | "Terabits/Second"
+  | "Count/Second";
 export type EntitlementList = Array<Entitlement>;
 export declare class EntitlementNotAllowedException extends EffectData.TaggedError(
   "EntitlementNotAllowedException",
 )<{
   readonly Message?: string;
 }> {}
-export type EntitlementUnit = "Count" | "None" | "Seconds" | "Microseconds" | "Milliseconds" | "Bytes" | "Kilobytes" | "Megabytes" | "Gigabytes" | "Terabytes" | "Bits" | "Kilobits" | "Megabits" | "Gigabits" | "Terabits" | "Percent" | "Bytes/Second" | "Kilobytes/Second" | "Megabytes/Second" | "Gigabytes/Second" | "Terabytes/Second" | "Bits/Second" | "Kilobits/Second" | "Megabits/Second" | "Gigabits/Second" | "Terabits/Second" | "Count/Second";
+export type EntitlementUnit =
+  | "Count"
+  | "None"
+  | "Seconds"
+  | "Microseconds"
+  | "Milliseconds"
+  | "Bytes"
+  | "Kilobytes"
+  | "Megabytes"
+  | "Gigabytes"
+  | "Terabytes"
+  | "Bits"
+  | "Kilobits"
+  | "Megabits"
+  | "Gigabits"
+  | "Terabits"
+  | "Percent"
+  | "Bytes/Second"
+  | "Kilobytes/Second"
+  | "Megabytes/Second"
+  | "Gigabytes/Second"
+  | "Terabytes/Second"
+  | "Bits/Second"
+  | "Kilobits/Second"
+  | "Megabits/Second"
+  | "Gigabits/Second"
+  | "Terabits/Second"
+  | "Count/Second";
 export interface EntitlementUsage {
   Name: string;
   ConsumedValue: string;
@@ -689,8 +1111,7 @@ export interface GetLicenseUsageRequest {
 export interface GetLicenseUsageResponse {
   LicenseUsage?: LicenseUsage;
 }
-export interface GetServiceSettingsRequest {
-}
+export interface GetServiceSettingsRequest {}
 export interface GetServiceSettingsResponse {
   S3BucketArn?: string;
   SnsTopicArn?: string;
@@ -730,7 +1151,16 @@ export interface GrantedLicense {
 }
 export type GrantedLicenseList = Array<GrantedLicense>;
 export type GrantList = Array<Grant>;
-export type GrantStatus = "PENDING_WORKFLOW" | "PENDING_ACCEPT" | "REJECTED" | "ACTIVE" | "FAILED_WORKFLOW" | "DELETED" | "PENDING_DELETE" | "DISABLED" | "WORKFLOW_COMPLETED";
+export type GrantStatus =
+  | "PENDING_WORKFLOW"
+  | "PENDING_ACCEPT"
+  | "REJECTED"
+  | "ACTIVE"
+  | "FAILED_WORKFLOW"
+  | "DELETED"
+  | "PENDING_DELETE"
+  | "DISABLED"
+  | "WORKFLOW_COMPLETED";
 export type Integer = number;
 
 export declare class InvalidParameterValueException extends EffectData.TaggedError(
@@ -748,7 +1178,11 @@ export interface InventoryFilter {
   Condition: InventoryFilterCondition;
   Value?: string;
 }
-export type InventoryFilterCondition = "EQUALS" | "NOT_EQUALS" | "BEGINS_WITH" | "CONTAINS";
+export type InventoryFilterCondition =
+  | "EQUALS"
+  | "NOT_EQUALS"
+  | "BEGINS_WITH"
+  | "CONTAINS";
 export type InventoryFilterList = Array<InventoryFilter>;
 export type ISO8601DateTime = string;
 
@@ -802,7 +1236,8 @@ export interface LicenseConfigurationAssociation {
   AssociationTime?: Date | string;
   AmiAssociationScope?: string;
 }
-export type LicenseConfigurationAssociations = Array<LicenseConfigurationAssociation>;
+export type LicenseConfigurationAssociations =
+  Array<LicenseConfigurationAssociation>;
 export type LicenseConfigurations = Array<LicenseConfiguration>;
 export type LicenseConfigurationStatus = "AVAILABLE" | "DISABLED";
 export interface LicenseConfigurationUsage {
@@ -832,7 +1267,10 @@ export interface LicenseConversionTask {
 export type LicenseConversionTaskId = string;
 
 export type LicenseConversionTasks = Array<LicenseConversionTask>;
-export type LicenseConversionTaskStatus = "IN_PROGRESS" | "SUCCEEDED" | "FAILED";
+export type LicenseConversionTaskStatus =
+  | "IN_PROGRESS"
+  | "SUCCEEDED"
+  | "FAILED";
 export type LicenseCountingType = "vCPU" | "Instance" | "Core" | "Socket";
 export type LicenseDeletionStatus = "PENDING_DELETE" | "DELETED";
 export type LicenseList = Array<License>;
@@ -852,7 +1290,14 @@ export interface LicenseSpecification {
   AmiAssociationScope?: string;
 }
 export type LicenseSpecifications = Array<LicenseSpecification>;
-export type LicenseStatus = "AVAILABLE" | "PENDING_AVAILABLE" | "DEACTIVATED" | "SUSPENDED" | "EXPIRED" | "PENDING_DELETE" | "DELETED";
+export type LicenseStatus =
+  | "AVAILABLE"
+  | "PENDING_AVAILABLE"
+  | "DEACTIVATED"
+  | "SUSPENDED"
+  | "EXPIRED"
+  | "PENDING_DELETE"
+  | "DELETED";
 export interface LicenseUsage {
   EntitlementUsages?: Array<EntitlementUsage>;
 }
@@ -1082,7 +1527,15 @@ export interface ReceivedMetadata {
   ReceivedStatusReason?: string;
   AllowedOperations?: Array<AllowedOperation>;
 }
-export type ReceivedStatus = "PENDING_WORKFLOW" | "PENDING_ACCEPT" | "REJECTED" | "ACTIVE" | "FAILED_WORKFLOW" | "DELETED" | "DISABLED" | "WORKFLOW_COMPLETED";
+export type ReceivedStatus =
+  | "PENDING_WORKFLOW"
+  | "PENDING_ACCEPT"
+  | "REJECTED"
+  | "ACTIVE"
+  | "FAILED_WORKFLOW"
+  | "DELETED"
+  | "DISABLED"
+  | "WORKFLOW_COMPLETED";
 export declare class RedirectException extends EffectData.TaggedError(
   "RedirectException",
 )<{
@@ -1124,7 +1577,9 @@ export interface ReportGenerator {
 export type ReportGeneratorList = Array<ReportGenerator>;
 export type ReportGeneratorName = string;
 
-export type ReportType = "LicenseConfigurationSummaryReport" | "LicenseConfigurationUsageReport";
+export type ReportType =
+  | "LicenseConfigurationSummaryReport"
+  | "LicenseConfigurationUsageReport";
 export type ReportTypeList = Array<ReportType>;
 export interface ResourceInventory {
   ResourceId?: string;
@@ -1145,7 +1600,12 @@ export declare class ResourceNotFoundException extends EffectData.TaggedError(
 )<{
   readonly Message?: string;
 }> {}
-export type ResourceType = "EC2_INSTANCE" | "EC2_HOST" | "EC2_AMI" | "RDS" | "SYSTEMS_MANAGER_MANAGED_INSTANCE";
+export type ResourceType =
+  | "EC2_INSTANCE"
+  | "EC2_HOST"
+  | "EC2_AMI"
+  | "RDS"
+  | "SYSTEMS_MANAGER_MANAGED_INSTANCE";
 export interface S3Location {
   bucket?: string;
   keyPrefix?: string;
@@ -1172,8 +1632,7 @@ export interface TagResourceRequest {
   ResourceArn: string;
   Tags: Array<Tag>;
 }
-export interface TagResourceResponse {
-}
+export interface TagResourceResponse {}
 export interface TokenData {
   TokenId?: string;
   TokenType?: string;
@@ -1196,8 +1655,7 @@ export interface UntagResourceRequest {
   ResourceArn: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {
-}
+export interface UntagResourceResponse {}
 export interface UpdateLicenseConfigurationRequest {
   LicenseConfigurationArn: string;
   LicenseConfigurationStatus?: LicenseConfigurationStatus;
@@ -1209,8 +1667,7 @@ export interface UpdateLicenseConfigurationRequest {
   ProductInformationList?: Array<ProductInformation>;
   DisassociateWhenNotFound?: boolean;
 }
-export interface UpdateLicenseConfigurationResponse {
-}
+export interface UpdateLicenseConfigurationResponse {}
 export interface UpdateLicenseManagerReportGeneratorRequest {
   LicenseManagerReportGeneratorArn: string;
   ReportGeneratorName: string;
@@ -1220,23 +1677,20 @@ export interface UpdateLicenseManagerReportGeneratorRequest {
   ClientToken: string;
   Description?: string;
 }
-export interface UpdateLicenseManagerReportGeneratorResponse {
-}
+export interface UpdateLicenseManagerReportGeneratorResponse {}
 export interface UpdateLicenseSpecificationsForResourceRequest {
   ResourceArn: string;
   AddLicenseSpecifications?: Array<LicenseSpecification>;
   RemoveLicenseSpecifications?: Array<LicenseSpecification>;
 }
-export interface UpdateLicenseSpecificationsForResourceResponse {
-}
+export interface UpdateLicenseSpecificationsForResourceResponse {}
 export interface UpdateServiceSettingsRequest {
   S3BucketArn?: string;
   SnsTopicArn?: string;
   OrganizationConfiguration?: OrganizationConfiguration;
   EnableCrossAccountsDiscovery?: boolean;
 }
-export interface UpdateServiceSettingsResponse {
-}
+export interface UpdateServiceSettingsResponse {}
 export type UsageOperation = string;
 
 export declare class ValidationException extends EffectData.TaggedError(
@@ -1923,4 +2377,3 @@ export declare namespace UpdateServiceSettings {
     | ServerInternalException
     | CommonAwsError;
 }
-

@@ -1,8 +1,40 @@
 import type { Effect, Stream, Data as EffectData } from "effect";
 import type { ResponseError } from "@effect/platform/HttpClientError";
 import type { Buffer } from "node:buffer";
-import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
-type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
+import type {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+type CommonAwsError =
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | AccessDeniedException
+  | ThrottlingException
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class LexRuntimeV2 extends AWSServiceClient {
@@ -10,37 +42,76 @@ export declare class LexRuntimeV2 extends AWSServiceClient {
     input: DeleteSessionRequest,
   ): Effect.Effect<
     DeleteSessionResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getSession(
     input: GetSessionRequest,
   ): Effect.Effect<
     GetSessionResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   putSession(
     input: PutSessionRequest,
   ): Effect.Effect<
     PutSessionResponse,
-    AccessDeniedException | BadGatewayException | ConflictException | DependencyFailedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | BadGatewayException
+    | ConflictException
+    | DependencyFailedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   recognizeText(
     input: RecognizeTextRequest,
   ): Effect.Effect<
     RecognizeTextResponse,
-    AccessDeniedException | BadGatewayException | ConflictException | DependencyFailedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | BadGatewayException
+    | ConflictException
+    | DependencyFailedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   recognizeUtterance(
     input: RecognizeUtteranceRequest,
   ): Effect.Effect<
     RecognizeUtteranceResponse,
-    AccessDeniedException | BadGatewayException | ConflictException | DependencyFailedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | BadGatewayException
+    | ConflictException
+    | DependencyFailedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   startConversation(
     input: StartConversationRequest,
   ): Effect.Effect<
     StartConversationResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
 }
 
@@ -147,7 +218,13 @@ export interface DialogAction {
   slotElicitationStyle?: StyleType;
   subSlotToElicit?: ElicitSubSlot;
 }
-export type DialogActionType = "Close" | "ConfirmIntent" | "Delegate" | "ElicitIntent" | "ElicitSlot" | "None";
+export type DialogActionType =
+  | "Close"
+  | "ConfirmIntent"
+  | "Delegate"
+  | "ElicitIntent"
+  | "ElicitSlot"
+  | "None";
 export interface DisconnectionEvent {
   eventId?: string;
   clientTimestampMillis?: number;
@@ -206,7 +283,13 @@ export interface IntentResultEvent {
   eventId?: string;
   recognizedBotMember?: RecognizedBotMember;
 }
-export type IntentState = "Failed" | "Fulfilled" | "InProgress" | "ReadyForFulfillment" | "Waiting" | "FulfillmentInProgress";
+export type IntentState =
+  | "Failed"
+  | "Fulfilled"
+  | "InProgress"
+  | "ReadyForFulfillment"
+  | "Waiting"
+  | "FulfillmentInProgress";
 export declare class InternalServerException extends EffectData.TaggedError(
   "InternalServerException",
 )<{
@@ -227,7 +310,11 @@ export interface Message {
   contentType: MessageContentType;
   imageResponseCard?: ImageResponseCard;
 }
-export type MessageContentType = "CustomPayload" | "ImageResponseCard" | "PlainText" | "SSML";
+export type MessageContentType =
+  | "CustomPayload"
+  | "ImageResponseCard"
+  | "PlainText"
+  | "SSML";
 export type Messages = Array<Message>;
 export type Name = string;
 
@@ -244,7 +331,10 @@ export interface PlaybackInterruptionEvent {
   causedByEventId?: string;
   eventId?: string;
 }
-export type PlaybackInterruptionReason = "DTMF_START_DETECTED" | "TEXT_DETECTED" | "VOICE_START_DETECTED";
+export type PlaybackInterruptionReason =
+  | "DTMF_START_DETECTED"
+  | "TEXT_DETECTED"
+  | "VOICE_START_DETECTED";
 export interface PutSessionRequest {
   botId: string;
   botAliasId: string;
@@ -355,7 +445,10 @@ export interface Slot {
   values?: Array<Slot>;
   subSlots?: Record<string, Slot>;
 }
-export type SlotHintsIntentMap = Record<string, Record<string, RuntimeHintDetails>>;
+export type SlotHintsIntentMap = Record<
+  string,
+  Record<string, RuntimeHintDetails>
+>;
 export type SlotHintsSlotMap = Record<string, RuntimeHintDetails>;
 export type Slots = Record<string, Slot>;
 export interface StartConversationRequest {
@@ -375,7 +468,21 @@ interface _StartConversationRequestEventStream {
   DisconnectionEvent?: DisconnectionEvent;
 }
 
-export type StartConversationRequestEventStream = (_StartConversationRequestEventStream & { ConfigurationEvent: ConfigurationEvent }) | (_StartConversationRequestEventStream & { AudioInputEvent: AudioInputEvent }) | (_StartConversationRequestEventStream & { DTMFInputEvent: DTMFInputEvent }) | (_StartConversationRequestEventStream & { TextInputEvent: TextInputEvent }) | (_StartConversationRequestEventStream & { PlaybackCompletionEvent: PlaybackCompletionEvent }) | (_StartConversationRequestEventStream & { DisconnectionEvent: DisconnectionEvent });
+export type StartConversationRequestEventStream =
+  | (_StartConversationRequestEventStream & {
+      ConfigurationEvent: ConfigurationEvent;
+    })
+  | (_StartConversationRequestEventStream & {
+      AudioInputEvent: AudioInputEvent;
+    })
+  | (_StartConversationRequestEventStream & { DTMFInputEvent: DTMFInputEvent })
+  | (_StartConversationRequestEventStream & { TextInputEvent: TextInputEvent })
+  | (_StartConversationRequestEventStream & {
+      PlaybackCompletionEvent: PlaybackCompletionEvent;
+    })
+  | (_StartConversationRequestEventStream & {
+      DisconnectionEvent: DisconnectionEvent;
+    });
 export interface StartConversationResponse {
   responseEventStream?: StartConversationResponseEventStream;
 }
@@ -396,7 +503,47 @@ interface _StartConversationResponseEventStream {
   BadGatewayException?: BadGatewayException;
 }
 
-export type StartConversationResponseEventStream = (_StartConversationResponseEventStream & { PlaybackInterruptionEvent: PlaybackInterruptionEvent }) | (_StartConversationResponseEventStream & { TranscriptEvent: TranscriptEvent }) | (_StartConversationResponseEventStream & { IntentResultEvent: IntentResultEvent }) | (_StartConversationResponseEventStream & { TextResponseEvent: TextResponseEvent }) | (_StartConversationResponseEventStream & { AudioResponseEvent: AudioResponseEvent }) | (_StartConversationResponseEventStream & { HeartbeatEvent: HeartbeatEvent }) | (_StartConversationResponseEventStream & { AccessDeniedException: AccessDeniedException }) | (_StartConversationResponseEventStream & { ResourceNotFoundException: ResourceNotFoundException }) | (_StartConversationResponseEventStream & { ValidationException: ValidationException }) | (_StartConversationResponseEventStream & { ThrottlingException: ThrottlingException }) | (_StartConversationResponseEventStream & { InternalServerException: InternalServerException }) | (_StartConversationResponseEventStream & { ConflictException: ConflictException }) | (_StartConversationResponseEventStream & { DependencyFailedException: DependencyFailedException }) | (_StartConversationResponseEventStream & { BadGatewayException: BadGatewayException });
+export type StartConversationResponseEventStream =
+  | (_StartConversationResponseEventStream & {
+      PlaybackInterruptionEvent: PlaybackInterruptionEvent;
+    })
+  | (_StartConversationResponseEventStream & {
+      TranscriptEvent: TranscriptEvent;
+    })
+  | (_StartConversationResponseEventStream & {
+      IntentResultEvent: IntentResultEvent;
+    })
+  | (_StartConversationResponseEventStream & {
+      TextResponseEvent: TextResponseEvent;
+    })
+  | (_StartConversationResponseEventStream & {
+      AudioResponseEvent: AudioResponseEvent;
+    })
+  | (_StartConversationResponseEventStream & { HeartbeatEvent: HeartbeatEvent })
+  | (_StartConversationResponseEventStream & {
+      AccessDeniedException: AccessDeniedException;
+    })
+  | (_StartConversationResponseEventStream & {
+      ResourceNotFoundException: ResourceNotFoundException;
+    })
+  | (_StartConversationResponseEventStream & {
+      ValidationException: ValidationException;
+    })
+  | (_StartConversationResponseEventStream & {
+      ThrottlingException: ThrottlingException;
+    })
+  | (_StartConversationResponseEventStream & {
+      InternalServerException: InternalServerException;
+    })
+  | (_StartConversationResponseEventStream & {
+      ConflictException: ConflictException;
+    })
+  | (_StartConversationResponseEventStream & {
+      DependencyFailedException: DependencyFailedException;
+    })
+  | (_StartConversationResponseEventStream & {
+      BadGatewayException: BadGatewayException;
+    });
 export type LexRuntimeV2String = string;
 
 export type StringList = Array<string>;
@@ -513,4 +660,3 @@ export declare namespace StartConversation {
     | ValidationException
     | CommonAwsError;
 }
-

@@ -1,6 +1,38 @@
 import type { Effect, Data as EffectData } from "effect";
-import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
-type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
+import type {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+type CommonAwsError =
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | AccessDeniedException
+  | ThrottlingException
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class BedrockDataAutomation extends AWSServiceClient {
@@ -8,85 +40,162 @@ export declare class BedrockDataAutomation extends AWSServiceClient {
     input: CreateBlueprintVersionRequest,
   ): Effect.Effect<
     CreateBlueprintVersionResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createBlueprint(
     input: CreateBlueprintRequest,
   ): Effect.Effect<
     CreateBlueprintResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createDataAutomationProject(
     input: CreateDataAutomationProjectRequest,
   ): Effect.Effect<
     CreateDataAutomationProjectResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteBlueprint(
     input: DeleteBlueprintRequest,
   ): Effect.Effect<
     DeleteBlueprintResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteDataAutomationProject(
     input: DeleteDataAutomationProjectRequest,
   ): Effect.Effect<
     DeleteDataAutomationProjectResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getBlueprint(
     input: GetBlueprintRequest,
   ): Effect.Effect<
     GetBlueprintResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getDataAutomationProject(
     input: GetDataAutomationProjectRequest,
   ): Effect.Effect<
     GetDataAutomationProjectResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listBlueprints(
     input: ListBlueprintsRequest,
   ): Effect.Effect<
     ListBlueprintsResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listDataAutomationProjects(
     input: ListDataAutomationProjectsRequest,
   ): Effect.Effect<
     ListDataAutomationProjectsResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateBlueprint(
     input: UpdateBlueprintRequest,
   ): Effect.Effect<
     UpdateBlueprintResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateDataAutomationProject(
     input: UpdateDataAutomationProjectRequest,
   ): Effect.Effect<
     UpdateDataAutomationProjectResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
 }
 
@@ -99,7 +208,10 @@ export interface AudioExtractionCategory {
   state: State;
   types?: Array<AudioExtractionCategoryType>;
 }
-export type AudioExtractionCategoryType = "AUDIO_CONTENT_MODERATION" | "TRANSCRIPT" | "TOPIC_CONTENT_MODERATION";
+export type AudioExtractionCategoryType =
+  | "AUDIO_CONTENT_MODERATION"
+  | "TRANSCRIPT"
+  | "TOPIC_CONTENT_MODERATION";
 export type AudioExtractionCategoryTypes = Array<AudioExtractionCategoryType>;
 export interface AudioOverrideConfiguration {
   modalityProcessing?: ModalityProcessingConfiguration;
@@ -111,8 +223,12 @@ export interface AudioStandardGenerativeField {
   state: State;
   types?: Array<AudioStandardGenerativeFieldType>;
 }
-export type AudioStandardGenerativeFieldType = "AUDIO_SUMMARY" | "IAB" | "TOPIC_SUMMARY";
-export type AudioStandardGenerativeFieldTypes = Array<AudioStandardGenerativeFieldType>;
+export type AudioStandardGenerativeFieldType =
+  | "AUDIO_SUMMARY"
+  | "IAB"
+  | "TOPIC_SUMMARY";
+export type AudioStandardGenerativeFieldTypes =
+  Array<AudioStandardGenerativeFieldType>;
 export interface AudioStandardOutputConfiguration {
   extraction?: AudioStandardExtraction;
   generativeField?: AudioStandardGenerativeField;
@@ -230,8 +346,12 @@ export type DataAutomationProjectName = string;
 
 export type DataAutomationProjectStage = "DEVELOPMENT" | "LIVE";
 export type DataAutomationProjectStageFilter = "DEVELOPMENT" | "LIVE" | "ALL";
-export type DataAutomationProjectStatus = "COMPLETED" | "IN_PROGRESS" | "FAILED";
-export type DataAutomationProjectSummaries = Array<DataAutomationProjectSummary>;
+export type DataAutomationProjectStatus =
+  | "COMPLETED"
+  | "IN_PROGRESS"
+  | "FAILED";
+export type DataAutomationProjectSummaries =
+  Array<DataAutomationProjectSummary>;
 export interface DataAutomationProjectSummary {
   projectArn: string;
   projectStage?: DataAutomationProjectStage;
@@ -244,8 +364,7 @@ export interface DeleteBlueprintRequest {
   blueprintArn: string;
   blueprintVersion?: string;
 }
-export interface DeleteBlueprintResponse {
-}
+export interface DeleteBlueprintResponse {}
 export interface DeleteDataAutomationProjectRequest {
   projectArn: string;
 }
@@ -260,8 +379,14 @@ export interface DocumentBoundingBox {
 export interface DocumentExtractionGranularity {
   types?: Array<DocumentExtractionGranularityType>;
 }
-export type DocumentExtractionGranularityType = "DOCUMENT" | "PAGE" | "ELEMENT" | "WORD" | "LINE";
-export type DocumentExtractionGranularityTypes = Array<DocumentExtractionGranularityType>;
+export type DocumentExtractionGranularityType =
+  | "DOCUMENT"
+  | "PAGE"
+  | "ELEMENT"
+  | "WORD"
+  | "LINE";
+export type DocumentExtractionGranularityTypes =
+  Array<DocumentExtractionGranularityType>;
 export interface DocumentOutputAdditionalFileFormat {
   state: State;
 }
@@ -272,7 +397,11 @@ export interface DocumentOutputFormat {
 export interface DocumentOutputTextFormat {
   types?: Array<DocumentOutputTextFormatType>;
 }
-export type DocumentOutputTextFormatType = "PLAIN_TEXT" | "MARKDOWN" | "HTML" | "CSV";
+export type DocumentOutputTextFormatType =
+  | "PLAIN_TEXT"
+  | "MARKDOWN"
+  | "HTML"
+  | "CSV";
 export type DocumentOutputTextFormatTypes = Array<DocumentOutputTextFormatType>;
 export interface DocumentOverrideConfiguration {
   splitter?: SplitterConfiguration;
@@ -320,7 +449,10 @@ export interface ImageExtractionCategory {
   state: State;
   types?: Array<ImageExtractionCategoryType>;
 }
-export type ImageExtractionCategoryType = "CONTENT_MODERATION" | "TEXT_DETECTION" | "LOGOS";
+export type ImageExtractionCategoryType =
+  | "CONTENT_MODERATION"
+  | "TEXT_DETECTION"
+  | "LOGOS";
 export type ImageExtractionCategoryTypes = Array<ImageExtractionCategoryType>;
 export interface ImageOverrideConfiguration {
   modalityProcessing?: ModalityProcessingConfiguration;
@@ -334,7 +466,8 @@ export interface ImageStandardGenerativeField {
   types?: Array<ImageStandardGenerativeFieldType>;
 }
 export type ImageStandardGenerativeFieldType = "IMAGE_SUMMARY" | "IAB";
-export type ImageStandardGenerativeFieldTypes = Array<ImageStandardGenerativeFieldType>;
+export type ImageStandardGenerativeFieldTypes =
+  Array<ImageStandardGenerativeFieldType>;
 export interface ImageStandardOutputConfiguration {
   extraction?: ImageStandardExtraction;
   generativeField?: ImageStandardGenerativeField;
@@ -433,8 +566,7 @@ export interface TagResourceRequest {
   resourceARN: string;
   tags: Array<Tag>;
 }
-export interface TagResourceResponse {
-}
+export interface TagResourceResponse {}
 export type TagValue = string;
 
 export declare class ThrottlingException extends EffectData.TaggedError(
@@ -447,8 +579,7 @@ export interface UntagResourceRequest {
   resourceARN: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {
-}
+export interface UntagResourceResponse {}
 export interface UpdateBlueprintRequest {
   blueprintArn: string;
   schema: string;
@@ -490,7 +621,11 @@ export interface VideoExtractionCategory {
   state: State;
   types?: Array<VideoExtractionCategoryType>;
 }
-export type VideoExtractionCategoryType = "CONTENT_MODERATION" | "TEXT_DETECTION" | "TRANSCRIPT" | "LOGOS";
+export type VideoExtractionCategoryType =
+  | "CONTENT_MODERATION"
+  | "TEXT_DETECTION"
+  | "TRANSCRIPT"
+  | "LOGOS";
 export type VideoExtractionCategoryTypes = Array<VideoExtractionCategoryType>;
 export interface VideoOverrideConfiguration {
   modalityProcessing?: ModalityProcessingConfiguration;
@@ -503,8 +638,12 @@ export interface VideoStandardGenerativeField {
   state: State;
   types?: Array<VideoStandardGenerativeFieldType>;
 }
-export type VideoStandardGenerativeFieldType = "VIDEO_SUMMARY" | "IAB" | "CHAPTER_SUMMARY";
-export type VideoStandardGenerativeFieldTypes = Array<VideoStandardGenerativeFieldType>;
+export type VideoStandardGenerativeFieldType =
+  | "VIDEO_SUMMARY"
+  | "IAB"
+  | "CHAPTER_SUMMARY";
+export type VideoStandardGenerativeFieldTypes =
+  Array<VideoStandardGenerativeFieldType>;
 export interface VideoStandardOutputConfiguration {
   extraction?: VideoStandardExtraction;
   generativeField?: VideoStandardGenerativeField;
@@ -683,4 +822,3 @@ export declare namespace UpdateDataAutomationProject {
     | ValidationException
     | CommonAwsError;
 }
-

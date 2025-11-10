@@ -1,6 +1,38 @@
 import type { Effect, Data as EffectData } from "effect";
-import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
-type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
+import type {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+type CommonAwsError =
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | AccessDeniedException
+  | ThrottlingException
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class DataZone extends AWSServiceClient {
@@ -8,541 +40,1007 @@ export declare class DataZone extends AWSServiceClient {
     input: AcceptPredictionsInput,
   ): Effect.Effect<
     AcceptPredictionsOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   acceptSubscriptionRequest(
     input: AcceptSubscriptionRequestInput,
   ): Effect.Effect<
     AcceptSubscriptionRequestOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   addEntityOwner(
     input: AddEntityOwnerInput,
   ): Effect.Effect<
     AddEntityOwnerOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   addPolicyGrant(
     input: AddPolicyGrantInput,
   ): Effect.Effect<
     AddPolicyGrantOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   associateEnvironmentRole(
     input: AssociateEnvironmentRoleInput,
   ): Effect.Effect<
     AssociateEnvironmentRoleOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   cancelSubscription(
     input: CancelSubscriptionInput,
   ): Effect.Effect<
     CancelSubscriptionOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createAssetFilter(
     input: CreateAssetFilterInput,
   ): Effect.Effect<
     CreateAssetFilterOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createConnection(
     input: CreateConnectionInput,
   ): Effect.Effect<
     CreateConnectionOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createEnvironment(
     input: CreateEnvironmentInput,
   ): Effect.Effect<
     CreateEnvironmentOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createEnvironmentAction(
     input: CreateEnvironmentActionInput,
   ): Effect.Effect<
     CreateEnvironmentActionOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createEnvironmentProfile(
     input: CreateEnvironmentProfileInput,
   ): Effect.Effect<
     CreateEnvironmentProfileOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createGroupProfile(
     input: CreateGroupProfileInput,
   ): Effect.Effect<
     CreateGroupProfileOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   createListingChangeSet(
     input: CreateListingChangeSetInput,
   ): Effect.Effect<
     CreateListingChangeSetOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createProject(
     input: CreateProjectInput,
   ): Effect.Effect<
     CreateProjectOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createProjectMembership(
     input: CreateProjectMembershipInput,
   ): Effect.Effect<
     CreateProjectMembershipOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   createProjectProfile(
     input: CreateProjectProfileInput,
   ): Effect.Effect<
     CreateProjectProfileOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createSubscriptionGrant(
     input: CreateSubscriptionGrantInput,
   ): Effect.Effect<
     CreateSubscriptionGrantOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createSubscriptionRequest(
     input: CreateSubscriptionRequestInput,
   ): Effect.Effect<
     CreateSubscriptionRequestOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createSubscriptionTarget(
     input: CreateSubscriptionTargetInput,
   ): Effect.Effect<
     CreateSubscriptionTargetOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createUserProfile(
     input: CreateUserProfileInput,
   ): Effect.Effect<
     CreateUserProfileOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteAssetFilter(
     input: DeleteAssetFilterInput,
   ): Effect.Effect<
     {},
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteConnection(
     input: DeleteConnectionInput,
   ): Effect.Effect<
     DeleteConnectionOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteEnvironment(
     input: DeleteEnvironmentInput,
   ): Effect.Effect<
     {},
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteEnvironmentAction(
     input: DeleteEnvironmentActionInput,
   ): Effect.Effect<
     {},
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteEnvironmentProfile(
     input: DeleteEnvironmentProfileInput,
   ): Effect.Effect<
     {},
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteProject(
     input: DeleteProjectInput,
   ): Effect.Effect<
     DeleteProjectOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteProjectMembership(
     input: DeleteProjectMembershipInput,
   ): Effect.Effect<
     DeleteProjectMembershipOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteProjectProfile(
     input: DeleteProjectProfileInput,
   ): Effect.Effect<
     DeleteProjectProfileOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteSubscriptionGrant(
     input: DeleteSubscriptionGrantInput,
   ): Effect.Effect<
     DeleteSubscriptionGrantOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteSubscriptionRequest(
     input: DeleteSubscriptionRequestInput,
   ): Effect.Effect<
     {},
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteSubscriptionTarget(
     input: DeleteSubscriptionTargetInput,
   ): Effect.Effect<
     {},
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteTimeSeriesDataPoints(
     input: DeleteTimeSeriesDataPointsInput,
   ): Effect.Effect<
     DeleteTimeSeriesDataPointsOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   disassociateEnvironmentRole(
     input: DisassociateEnvironmentRoleInput,
   ): Effect.Effect<
     DisassociateEnvironmentRoleOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getAssetFilter(
     input: GetAssetFilterInput,
   ): Effect.Effect<
     GetAssetFilterOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getConnection(
     input: GetConnectionInput,
   ): Effect.Effect<
     GetConnectionOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getEnvironment(
     input: GetEnvironmentInput,
   ): Effect.Effect<
     GetEnvironmentOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getEnvironmentAction(
     input: GetEnvironmentActionInput,
   ): Effect.Effect<
     GetEnvironmentActionOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getEnvironmentBlueprint(
     input: GetEnvironmentBlueprintInput,
   ): Effect.Effect<
     GetEnvironmentBlueprintOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getEnvironmentCredentials(
     input: GetEnvironmentCredentialsInput,
   ): Effect.Effect<
     GetEnvironmentCredentialsOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getEnvironmentProfile(
     input: GetEnvironmentProfileInput,
   ): Effect.Effect<
     GetEnvironmentProfileOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getGroupProfile(
     input: GetGroupProfileInput,
   ): Effect.Effect<
     GetGroupProfileOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   getIamPortalLoginUrl(
     input: GetIamPortalLoginUrlInput,
   ): Effect.Effect<
     GetIamPortalLoginUrlOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getJobRun(
     input: GetJobRunInput,
   ): Effect.Effect<
     GetJobRunOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getLineageEvent(
     input: GetLineageEventInput,
   ): Effect.Effect<
     GetLineageEventOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getLineageNode(
     input: GetLineageNodeInput,
   ): Effect.Effect<
     GetLineageNodeOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getProject(
     input: GetProjectInput,
   ): Effect.Effect<
     GetProjectOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getProjectProfile(
     input: GetProjectProfileInput,
   ): Effect.Effect<
     GetProjectProfileOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getSubscription(
     input: GetSubscriptionInput,
   ): Effect.Effect<
     GetSubscriptionOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getSubscriptionGrant(
     input: GetSubscriptionGrantInput,
   ): Effect.Effect<
     GetSubscriptionGrantOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getSubscriptionRequestDetails(
     input: GetSubscriptionRequestDetailsInput,
   ): Effect.Effect<
     GetSubscriptionRequestDetailsOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getSubscriptionTarget(
     input: GetSubscriptionTargetInput,
   ): Effect.Effect<
     GetSubscriptionTargetOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getTimeSeriesDataPoint(
     input: GetTimeSeriesDataPointInput,
   ): Effect.Effect<
     GetTimeSeriesDataPointOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getUserProfile(
     input: GetUserProfileInput,
   ): Effect.Effect<
     GetUserProfileOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   listAssetFilters(
     input: ListAssetFiltersInput,
   ): Effect.Effect<
     ListAssetFiltersOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listAssetRevisions(
     input: ListAssetRevisionsInput,
   ): Effect.Effect<
     ListAssetRevisionsOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listConnections(
     input: ListConnectionsInput,
   ): Effect.Effect<
     ListConnectionsOutput,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listDataProductRevisions(
     input: ListDataProductRevisionsInput,
   ): Effect.Effect<
     ListDataProductRevisionsOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listDataSourceRunActivities(
     input: ListDataSourceRunActivitiesInput,
   ): Effect.Effect<
     ListDataSourceRunActivitiesOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listEntityOwners(
     input: ListEntityOwnersInput,
   ): Effect.Effect<
     ListEntityOwnersOutput,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listEnvironmentActions(
     input: ListEnvironmentActionsInput,
   ): Effect.Effect<
     ListEnvironmentActionsOutput,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listEnvironmentBlueprints(
     input: ListEnvironmentBlueprintsInput,
   ): Effect.Effect<
     ListEnvironmentBlueprintsOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listEnvironmentProfiles(
     input: ListEnvironmentProfilesInput,
   ): Effect.Effect<
     ListEnvironmentProfilesOutput,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listEnvironments(
     input: ListEnvironmentsInput,
   ): Effect.Effect<
     ListEnvironmentsOutput,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listJobRuns(
     input: ListJobRunsInput,
   ): Effect.Effect<
     ListJobRunsOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listLineageEvents(
     input: ListLineageEventsInput,
   ): Effect.Effect<
     ListLineageEventsOutput,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listLineageNodeHistory(
     input: ListLineageNodeHistoryInput,
   ): Effect.Effect<
     ListLineageNodeHistoryOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listNotifications(
     input: ListNotificationsInput,
   ): Effect.Effect<
     ListNotificationsOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   listPolicyGrants(
     input: ListPolicyGrantsInput,
   ): Effect.Effect<
     ListPolicyGrantsOutput,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listProjectMemberships(
     input: ListProjectMembershipsInput,
   ): Effect.Effect<
     ListProjectMembershipsOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listProjectProfiles(
     input: ListProjectProfilesInput,
   ): Effect.Effect<
     ListProjectProfilesOutput,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listProjects(
     input: ListProjectsInput,
   ): Effect.Effect<
     ListProjectsOutput,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listSubscriptionGrants(
     input: ListSubscriptionGrantsInput,
   ): Effect.Effect<
     ListSubscriptionGrantsOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listSubscriptionRequests(
     input: ListSubscriptionRequestsInput,
   ): Effect.Effect<
     ListSubscriptionRequestsOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listSubscriptions(
     input: ListSubscriptionsInput,
   ): Effect.Effect<
     ListSubscriptionsOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listSubscriptionTargets(
     input: ListSubscriptionTargetsInput,
   ): Effect.Effect<
     ListSubscriptionTargetsOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   listTimeSeriesDataPoints(
     input: ListTimeSeriesDataPointsInput,
   ): Effect.Effect<
     ListTimeSeriesDataPointsOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   postLineageEvent(
     input: PostLineageEventInput,
   ): Effect.Effect<
     PostLineageEventOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   postTimeSeriesDataPoints(
     input: PostTimeSeriesDataPointsInput,
   ): Effect.Effect<
     PostTimeSeriesDataPointsOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   rejectPredictions(
     input: RejectPredictionsInput,
   ): Effect.Effect<
     RejectPredictionsOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   rejectSubscriptionRequest(
     input: RejectSubscriptionRequestInput,
   ): Effect.Effect<
     RejectSubscriptionRequestOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   removeEntityOwner(
     input: RemoveEntityOwnerInput,
   ): Effect.Effect<
     RemoveEntityOwnerOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   removePolicyGrant(
     input: RemovePolicyGrantInput,
   ): Effect.Effect<
     RemovePolicyGrantOutput,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   revokeSubscription(
     input: RevokeSubscriptionInput,
   ): Effect.Effect<
     RevokeSubscriptionOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   search(
     input: SearchInput,
   ): Effect.Effect<
     SearchOutput,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   searchGroupProfiles(
     input: SearchGroupProfilesInput,
   ): Effect.Effect<
     SearchGroupProfilesOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   searchListings(
     input: SearchListingsInput,
   ): Effect.Effect<
     SearchListingsOutput,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   searchTypes(
     input: SearchTypesInput,
   ): Effect.Effect<
     SearchTypesOutput,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   searchUserProfiles(
     input: SearchUserProfilesInput,
   ): Effect.Effect<
     SearchUserProfilesOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
@@ -554,403 +1052,800 @@ export declare class DataZone extends AWSServiceClient {
     input: UpdateAssetFilterInput,
   ): Effect.Effect<
     UpdateAssetFilterOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateConnection(
     input: UpdateConnectionInput,
   ): Effect.Effect<
     UpdateConnectionOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateEnvironment(
     input: UpdateEnvironmentInput,
   ): Effect.Effect<
     UpdateEnvironmentOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateEnvironmentAction(
     input: UpdateEnvironmentActionInput,
   ): Effect.Effect<
     UpdateEnvironmentActionOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateEnvironmentProfile(
     input: UpdateEnvironmentProfileInput,
   ): Effect.Effect<
     UpdateEnvironmentProfileOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateGroupProfile(
     input: UpdateGroupProfileInput,
   ): Effect.Effect<
     UpdateGroupProfileOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   updateProject(
     input: UpdateProjectInput,
   ): Effect.Effect<
     UpdateProjectOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateProjectProfile(
     input: UpdateProjectProfileInput,
   ): Effect.Effect<
     UpdateProjectProfileOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateSubscriptionGrantStatus(
     input: UpdateSubscriptionGrantStatusInput,
   ): Effect.Effect<
     UpdateSubscriptionGrantStatusOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateSubscriptionRequest(
     input: UpdateSubscriptionRequestInput,
   ): Effect.Effect<
     UpdateSubscriptionRequestOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateSubscriptionTarget(
     input: UpdateSubscriptionTargetInput,
   ): Effect.Effect<
     UpdateSubscriptionTargetOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateUserProfile(
     input: UpdateUserProfileInput,
   ): Effect.Effect<
     UpdateUserProfileOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   cancelMetadataGenerationRun(
     input: CancelMetadataGenerationRunInput,
   ): Effect.Effect<
     CancelMetadataGenerationRunOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createAsset(
     input: CreateAssetInput,
   ): Effect.Effect<
     CreateAssetOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createAssetRevision(
     input: CreateAssetRevisionInput,
   ): Effect.Effect<
     CreateAssetRevisionOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createAssetType(
     input: CreateAssetTypeInput,
   ): Effect.Effect<
     CreateAssetTypeOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createDataProduct(
     input: CreateDataProductInput,
   ): Effect.Effect<
     CreateDataProductOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createDataProductRevision(
     input: CreateDataProductRevisionInput,
   ): Effect.Effect<
     CreateDataProductRevisionOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createDataSource(
     input: CreateDataSourceInput,
   ): Effect.Effect<
     CreateDataSourceOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createDomain(
     input: CreateDomainInput,
   ): Effect.Effect<
     CreateDomainOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createDomainUnit(
     input: CreateDomainUnitInput,
   ): Effect.Effect<
     CreateDomainUnitOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createFormType(
     input: CreateFormTypeInput,
   ): Effect.Effect<
     CreateFormTypeOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createGlossary(
     input: CreateGlossaryInput,
   ): Effect.Effect<
     CreateGlossaryOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createGlossaryTerm(
     input: CreateGlossaryTermInput,
   ): Effect.Effect<
     CreateGlossaryTermOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createRule(
     input: CreateRuleInput,
   ): Effect.Effect<
     CreateRuleOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteAsset(
     input: DeleteAssetInput,
   ): Effect.Effect<
     DeleteAssetOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteAssetType(
     input: DeleteAssetTypeInput,
   ): Effect.Effect<
     DeleteAssetTypeOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteDataProduct(
     input: DeleteDataProductInput,
   ): Effect.Effect<
     DeleteDataProductOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteDataSource(
     input: DeleteDataSourceInput,
   ): Effect.Effect<
     DeleteDataSourceOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteDomain(
     input: DeleteDomainInput,
   ): Effect.Effect<
     DeleteDomainOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteDomainUnit(
     input: DeleteDomainUnitInput,
   ): Effect.Effect<
     DeleteDomainUnitOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteEnvironmentBlueprintConfiguration(
     input: DeleteEnvironmentBlueprintConfigurationInput,
   ): Effect.Effect<
     DeleteEnvironmentBlueprintConfigurationOutput,
-    AccessDeniedException | InternalServerException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteFormType(
     input: DeleteFormTypeInput,
   ): Effect.Effect<
     DeleteFormTypeOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteGlossary(
     input: DeleteGlossaryInput,
   ): Effect.Effect<
     DeleteGlossaryOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteGlossaryTerm(
     input: DeleteGlossaryTermInput,
   ): Effect.Effect<
     DeleteGlossaryTermOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteListing(
     input: DeleteListingInput,
   ): Effect.Effect<
     DeleteListingOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteRule(
     input: DeleteRuleInput,
   ): Effect.Effect<
     DeleteRuleOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getAsset(
     input: GetAssetInput,
   ): Effect.Effect<
     GetAssetOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getAssetType(
     input: GetAssetTypeInput,
   ): Effect.Effect<
     GetAssetTypeOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getDataProduct(
     input: GetDataProductInput,
   ): Effect.Effect<
     GetDataProductOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getDataSource(
     input: GetDataSourceInput,
   ): Effect.Effect<
     GetDataSourceOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getDataSourceRun(
     input: GetDataSourceRunInput,
   ): Effect.Effect<
     GetDataSourceRunOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getDomain(
     input: GetDomainInput,
   ): Effect.Effect<
     GetDomainOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getDomainUnit(
     input: GetDomainUnitInput,
   ): Effect.Effect<
     GetDomainUnitOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getEnvironmentBlueprintConfiguration(
     input: GetEnvironmentBlueprintConfigurationInput,
   ): Effect.Effect<
     GetEnvironmentBlueprintConfigurationOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   getFormType(
     input: GetFormTypeInput,
   ): Effect.Effect<
     GetFormTypeOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getGlossary(
     input: GetGlossaryInput,
   ): Effect.Effect<
     GetGlossaryOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getGlossaryTerm(
     input: GetGlossaryTermInput,
   ): Effect.Effect<
     GetGlossaryTermOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getListing(
     input: GetListingInput,
   ): Effect.Effect<
     GetListingOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getMetadataGenerationRun(
     input: GetMetadataGenerationRunInput,
   ): Effect.Effect<
     GetMetadataGenerationRunOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getRule(
     input: GetRuleInput,
   ): Effect.Effect<
     GetRuleOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listDataSourceRuns(
     input: ListDataSourceRunsInput,
   ): Effect.Effect<
     ListDataSourceRunsOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listDataSources(
     input: ListDataSourcesInput,
   ): Effect.Effect<
     ListDataSourcesOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listDomainUnitsForParent(
     input: ListDomainUnitsForParentInput,
   ): Effect.Effect<
     ListDomainUnitsForParentOutput,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listDomains(
     input: ListDomainsInput,
   ): Effect.Effect<
     ListDomainsOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listEnvironmentBlueprintConfigurations(
     input: ListEnvironmentBlueprintConfigurationsInput,
   ): Effect.Effect<
     ListEnvironmentBlueprintConfigurationsOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   listMetadataGenerationRuns(
     input: ListMetadataGenerationRunsInput,
   ): Effect.Effect<
     ListMetadataGenerationRunsOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listRules(
     input: ListRulesInput,
   ): Effect.Effect<
     ListRulesOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   putEnvironmentBlueprintConfiguration(
     input: PutEnvironmentBlueprintConfigurationInput,
   ): Effect.Effect<
     PutEnvironmentBlueprintConfigurationOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   startDataSourceRun(
     input: StartDataSourceRunInput,
   ): Effect.Effect<
     StartDataSourceRunOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   startMetadataGenerationRun(
     input: StartMetadataGenerationRunInput,
   ): Effect.Effect<
     StartMetadataGenerationRunOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateDataSource(
     input: UpdateDataSourceInput,
   ): Effect.Effect<
     UpdateDataSourceOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateDomain(
     input: UpdateDomainInput,
   ): Effect.Effect<
     UpdateDomainOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateDomainUnit(
     input: UpdateDomainUnitInput,
   ): Effect.Effect<
     UpdateDomainUnitOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateGlossary(
     input: UpdateGlossaryInput,
   ): Effect.Effect<
     UpdateGlossaryOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateGlossaryTerm(
     input: UpdateGlossaryTermInput,
   ): Effect.Effect<
     UpdateGlossaryTermOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateRule(
     input: UpdateRuleInput,
   ): Effect.Effect<
     UpdateRuleOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
 }
 
@@ -1018,7 +1913,9 @@ interface _ActionParameters {
   awsConsoleLink?: AwsConsoleLinkParameters;
 }
 
-export type ActionParameters = (_ActionParameters & { awsConsoleLink: AwsConsoleLinkParameters });
+export type ActionParameters = _ActionParameters & {
+  awsConsoleLink: AwsConsoleLinkParameters;
+};
 export interface AddEntityOwnerInput {
   domainIdentifier: string;
   entityType: DataZoneEntityType;
@@ -1026,8 +1923,7 @@ export interface AddEntityOwnerInput {
   owner: OwnerProperties;
   clientToken?: string;
 }
-export interface AddEntityOwnerOutput {
-}
+export interface AddEntityOwnerOutput {}
 export interface AddPolicyGrantInput {
   domainIdentifier: string;
   entityType: TargetEntityType;
@@ -1037,8 +1933,7 @@ export interface AddPolicyGrantInput {
   detail: PolicyGrantDetail;
   clientToken?: string;
 }
-export interface AddPolicyGrantOutput {
-}
+export interface AddPolicyGrantOutput {}
 export interface AddToProjectMemberPoolPolicyGrantDetail {
   includeChildDomainUnits?: boolean;
 }
@@ -1065,17 +1960,19 @@ export interface AggregationOutputItem {
 }
 export type AggregationOutputItems = Array<AggregationOutputItem>;
 export type AggregationOutputList = Array<AggregationOutput>;
-export interface AllDomainUnitsGrantFilter {
-}
-export interface AllUsersGrantFilter {
-}
+export interface AllDomainUnitsGrantFilter {}
+export interface AllUsersGrantFilter {}
 export type ApplicableAssetTypes = Array<string>;
 interface _AssetFilterConfiguration {
   columnConfiguration?: ColumnFilterConfiguration;
   rowConfiguration?: RowFilterConfiguration;
 }
 
-export type AssetFilterConfiguration = (_AssetFilterConfiguration & { columnConfiguration: ColumnFilterConfiguration }) | (_AssetFilterConfiguration & { rowConfiguration: RowFilterConfiguration });
+export type AssetFilterConfiguration =
+  | (_AssetFilterConfiguration & {
+      columnConfiguration: ColumnFilterConfiguration;
+    })
+  | (_AssetFilterConfiguration & { rowConfiguration: RowFilterConfiguration });
 export type AssetFilters = Array<AssetFilterSummary>;
 export interface AssetFilterSummary {
   id: string;
@@ -1098,7 +1995,8 @@ export interface AssetInDataProductListingItem {
   entityRevision?: string;
   entityType?: string;
 }
-export type AssetInDataProductListingItems = Array<AssetInDataProductListingItem>;
+export type AssetInDataProductListingItems =
+  Array<AssetInDataProductListingItem>;
 export interface AssetItem {
   domainId: string;
   identifier: string;
@@ -1202,8 +2100,7 @@ export interface AssociateEnvironmentRoleInput {
   environmentIdentifier: string;
   environmentRoleArn: string;
 }
-export interface AssociateEnvironmentRoleOutput {
-}
+export interface AssociateEnvironmentRoleOutput {}
 export interface AthenaPropertiesInput {
   workgroupName?: string;
 }
@@ -1246,7 +2143,9 @@ interface _AwsAccount {
   awsAccountIdPath?: string;
 }
 
-export type AwsAccount = (_AwsAccount & { awsAccountId: string }) | (_AwsAccount & { awsAccountIdPath: string });
+export type AwsAccount =
+  | (_AwsAccount & { awsAccountId: string })
+  | (_AwsAccount & { awsAccountIdPath: string });
 export type AwsAccountId = string;
 
 export interface AwsConsoleLinkParameters {
@@ -1271,8 +2170,7 @@ export interface CancelMetadataGenerationRunInput {
   domainIdentifier: string;
   identifier: string;
 }
-export interface CancelMetadataGenerationRunOutput {
-}
+export interface CancelMetadataGenerationRunOutput {}
 export interface CancelSubscriptionInput {
   domainIdentifier: string;
   identifier: string;
@@ -1306,7 +2204,8 @@ export interface ConfigurableActionParameter {
   key?: string;
   value?: string;
 }
-export type ConfigurableActionParameterList = Array<ConfigurableActionParameter>;
+export type ConfigurableActionParameterList =
+  Array<ConfigurableActionParameter>;
 export type ConfigurableActionTypeAuthorization = "IAM" | "HTTPS";
 export interface ConfigurableEnvironmentAction {
   type: string;
@@ -1340,7 +2239,23 @@ interface _ConnectionPropertiesInput {
   s3Properties?: S3PropertiesInput;
 }
 
-export type ConnectionPropertiesInput = (_ConnectionPropertiesInput & { athenaProperties: AthenaPropertiesInput }) | (_ConnectionPropertiesInput & { glueProperties: GluePropertiesInput }) | (_ConnectionPropertiesInput & { hyperPodProperties: HyperPodPropertiesInput }) | (_ConnectionPropertiesInput & { iamProperties: IamPropertiesInput }) | (_ConnectionPropertiesInput & { redshiftProperties: RedshiftPropertiesInput }) | (_ConnectionPropertiesInput & { sparkEmrProperties: SparkEmrPropertiesInput }) | (_ConnectionPropertiesInput & { sparkGlueProperties: SparkGluePropertiesInput }) | (_ConnectionPropertiesInput & { s3Properties: S3PropertiesInput });
+export type ConnectionPropertiesInput =
+  | (_ConnectionPropertiesInput & { athenaProperties: AthenaPropertiesInput })
+  | (_ConnectionPropertiesInput & { glueProperties: GluePropertiesInput })
+  | (_ConnectionPropertiesInput & {
+      hyperPodProperties: HyperPodPropertiesInput;
+    })
+  | (_ConnectionPropertiesInput & { iamProperties: IamPropertiesInput })
+  | (_ConnectionPropertiesInput & {
+      redshiftProperties: RedshiftPropertiesInput;
+    })
+  | (_ConnectionPropertiesInput & {
+      sparkEmrProperties: SparkEmrPropertiesInput;
+    })
+  | (_ConnectionPropertiesInput & {
+      sparkGlueProperties: SparkGluePropertiesInput;
+    })
+  | (_ConnectionPropertiesInput & { s3Properties: S3PropertiesInput });
 interface _ConnectionPropertiesOutput {
   athenaProperties?: AthenaPropertiesOutput;
   glueProperties?: GluePropertiesOutput;
@@ -1352,7 +2267,23 @@ interface _ConnectionPropertiesOutput {
   s3Properties?: S3PropertiesOutput;
 }
 
-export type ConnectionPropertiesOutput = (_ConnectionPropertiesOutput & { athenaProperties: AthenaPropertiesOutput }) | (_ConnectionPropertiesOutput & { glueProperties: GluePropertiesOutput }) | (_ConnectionPropertiesOutput & { hyperPodProperties: HyperPodPropertiesOutput }) | (_ConnectionPropertiesOutput & { iamProperties: IamPropertiesOutput }) | (_ConnectionPropertiesOutput & { redshiftProperties: RedshiftPropertiesOutput }) | (_ConnectionPropertiesOutput & { sparkEmrProperties: SparkEmrPropertiesOutput }) | (_ConnectionPropertiesOutput & { sparkGlueProperties: SparkGluePropertiesOutput }) | (_ConnectionPropertiesOutput & { s3Properties: S3PropertiesOutput });
+export type ConnectionPropertiesOutput =
+  | (_ConnectionPropertiesOutput & { athenaProperties: AthenaPropertiesOutput })
+  | (_ConnectionPropertiesOutput & { glueProperties: GluePropertiesOutput })
+  | (_ConnectionPropertiesOutput & {
+      hyperPodProperties: HyperPodPropertiesOutput;
+    })
+  | (_ConnectionPropertiesOutput & { iamProperties: IamPropertiesOutput })
+  | (_ConnectionPropertiesOutput & {
+      redshiftProperties: RedshiftPropertiesOutput;
+    })
+  | (_ConnectionPropertiesOutput & {
+      sparkEmrProperties: SparkEmrPropertiesOutput;
+    })
+  | (_ConnectionPropertiesOutput & {
+      sparkGlueProperties: SparkGluePropertiesOutput;
+    })
+  | (_ConnectionPropertiesOutput & { s3Properties: S3PropertiesOutput });
 interface _ConnectionPropertiesPatch {
   athenaProperties?: AthenaPropertiesPatch;
   glueProperties?: GluePropertiesPatch;
@@ -1362,8 +2293,26 @@ interface _ConnectionPropertiesPatch {
   s3Properties?: S3PropertiesPatch;
 }
 
-export type ConnectionPropertiesPatch = (_ConnectionPropertiesPatch & { athenaProperties: AthenaPropertiesPatch }) | (_ConnectionPropertiesPatch & { glueProperties: GluePropertiesPatch }) | (_ConnectionPropertiesPatch & { iamProperties: IamPropertiesPatch }) | (_ConnectionPropertiesPatch & { redshiftProperties: RedshiftPropertiesPatch }) | (_ConnectionPropertiesPatch & { sparkEmrProperties: SparkEmrPropertiesPatch }) | (_ConnectionPropertiesPatch & { s3Properties: S3PropertiesPatch });
-export type ConnectionStatus = "CREATING" | "CREATE_FAILED" | "DELETING" | "DELETE_FAILED" | "READY" | "UPDATING" | "UPDATE_FAILED" | "DELETED";
+export type ConnectionPropertiesPatch =
+  | (_ConnectionPropertiesPatch & { athenaProperties: AthenaPropertiesPatch })
+  | (_ConnectionPropertiesPatch & { glueProperties: GluePropertiesPatch })
+  | (_ConnectionPropertiesPatch & { iamProperties: IamPropertiesPatch })
+  | (_ConnectionPropertiesPatch & {
+      redshiftProperties: RedshiftPropertiesPatch;
+    })
+  | (_ConnectionPropertiesPatch & {
+      sparkEmrProperties: SparkEmrPropertiesPatch;
+    })
+  | (_ConnectionPropertiesPatch & { s3Properties: S3PropertiesPatch });
+export type ConnectionStatus =
+  | "CREATING"
+  | "CREATE_FAILED"
+  | "DELETING"
+  | "DELETE_FAILED"
+  | "READY"
+  | "UPDATING"
+  | "UPDATE_FAILED"
+  | "DELETED";
 export type ConnectionSummaries = Array<ConnectionSummary>;
 export interface ConnectionSummary {
   connectionId: string;
@@ -1376,7 +2325,27 @@ export interface ConnectionSummary {
   props?: ConnectionPropertiesOutput;
   type: ConnectionType;
 }
-export type ConnectionType = "ATHENA" | "BIGQUERY" | "DATABRICKS" | "DOCUMENTDB" | "DYNAMODB" | "HYPERPOD" | "IAM" | "MYSQL" | "OPENSEARCH" | "ORACLE" | "POSTGRESQL" | "REDSHIFT" | "S3" | "SAPHANA" | "SNOWFLAKE" | "SPARK" | "SQLSERVER" | "TERADATA" | "VERTICA" | "WORKFLOWS_MWAA";
+export type ConnectionType =
+  | "ATHENA"
+  | "BIGQUERY"
+  | "DATABRICKS"
+  | "DOCUMENTDB"
+  | "DYNAMODB"
+  | "HYPERPOD"
+  | "IAM"
+  | "MYSQL"
+  | "OPENSEARCH"
+  | "ORACLE"
+  | "POSTGRESQL"
+  | "REDSHIFT"
+  | "S3"
+  | "SAPHANA"
+  | "SNOWFLAKE"
+  | "SPARK"
+  | "SQLSERVER"
+  | "TERADATA"
+  | "VERTICA"
+  | "WORKFLOWS_MWAA";
 export interface CreateAssetFilterInput {
   domainIdentifier: string;
   assetIdentifier: string;
@@ -1833,8 +2802,7 @@ export interface CreateProjectMembershipInput {
   member: Member;
   designation: UserDesignation;
 }
-export interface CreateProjectMembershipOutput {
-}
+export interface CreateProjectMembershipOutput {}
 export interface CreateProjectOutput {
   domainId: string;
   id: string;
@@ -1996,7 +2964,15 @@ export interface CustomParameter {
   isOptional?: boolean;
 }
 export type CustomParameterList = Array<CustomParameter>;
-export type DataAssetActivityStatus = "FAILED" | "PUBLISHING_FAILED" | "SUCCEEDED_CREATED" | "SUCCEEDED_UPDATED" | "SKIPPED_ALREADY_IMPORTED" | "SKIPPED_ARCHIVED" | "SKIPPED_NO_ACCESS" | "UNCHANGED";
+export type DataAssetActivityStatus =
+  | "FAILED"
+  | "PUBLISHING_FAILED"
+  | "SUCCEEDED_CREATED"
+  | "SUCCEEDED_UPDATED"
+  | "SKIPPED_ALREADY_IMPORTED"
+  | "SKIPPED_ARCHIVED"
+  | "SKIPPED_NO_ACCESS"
+  | "UNCHANGED";
 export type DataPointIdentifier = string;
 
 export type DataProductDescription = string;
@@ -2072,19 +3048,44 @@ interface _DataSourceConfigurationInput {
   sageMakerRunConfiguration?: SageMakerRunConfigurationInput;
 }
 
-export type DataSourceConfigurationInput = (_DataSourceConfigurationInput & { glueRunConfiguration: GlueRunConfigurationInput }) | (_DataSourceConfigurationInput & { redshiftRunConfiguration: RedshiftRunConfigurationInput }) | (_DataSourceConfigurationInput & { sageMakerRunConfiguration: SageMakerRunConfigurationInput });
+export type DataSourceConfigurationInput =
+  | (_DataSourceConfigurationInput & {
+      glueRunConfiguration: GlueRunConfigurationInput;
+    })
+  | (_DataSourceConfigurationInput & {
+      redshiftRunConfiguration: RedshiftRunConfigurationInput;
+    })
+  | (_DataSourceConfigurationInput & {
+      sageMakerRunConfiguration: SageMakerRunConfigurationInput;
+    });
 interface _DataSourceConfigurationOutput {
   glueRunConfiguration?: GlueRunConfigurationOutput;
   redshiftRunConfiguration?: RedshiftRunConfigurationOutput;
   sageMakerRunConfiguration?: SageMakerRunConfigurationOutput;
 }
 
-export type DataSourceConfigurationOutput = (_DataSourceConfigurationOutput & { glueRunConfiguration: GlueRunConfigurationOutput }) | (_DataSourceConfigurationOutput & { redshiftRunConfiguration: RedshiftRunConfigurationOutput }) | (_DataSourceConfigurationOutput & { sageMakerRunConfiguration: SageMakerRunConfigurationOutput });
+export type DataSourceConfigurationOutput =
+  | (_DataSourceConfigurationOutput & {
+      glueRunConfiguration: GlueRunConfigurationOutput;
+    })
+  | (_DataSourceConfigurationOutput & {
+      redshiftRunConfiguration: RedshiftRunConfigurationOutput;
+    })
+  | (_DataSourceConfigurationOutput & {
+      sageMakerRunConfiguration: SageMakerRunConfigurationOutput;
+    });
 export interface DataSourceErrorMessage {
   errorType: DataSourceErrorType;
   errorDetail?: string;
 }
-export type DataSourceErrorType = "ACCESS_DENIED_EXCEPTION" | "CONFLICT_EXCEPTION" | "INTERNAL_SERVER_EXCEPTION" | "RESOURCE_NOT_FOUND_EXCEPTION" | "SERVICE_QUOTA_EXCEEDED_EXCEPTION" | "THROTTLING_EXCEPTION" | "VALIDATION_EXCEPTION";
+export type DataSourceErrorType =
+  | "ACCESS_DENIED_EXCEPTION"
+  | "CONFLICT_EXCEPTION"
+  | "INTERNAL_SERVER_EXCEPTION"
+  | "RESOURCE_NOT_FOUND_EXCEPTION"
+  | "SERVICE_QUOTA_EXCEEDED_EXCEPTION"
+  | "THROTTLING_EXCEPTION"
+  | "VALIDATION_EXCEPTION";
 export type DataSourceId = string;
 
 export type DataSourceRunActivities = Array<DataSourceRunActivity>;
@@ -2106,7 +3107,12 @@ export type DataSourceRunId = string;
 export interface DataSourceRunLineageSummary {
   importStatus?: LineageImportStatus;
 }
-export type DataSourceRunStatus = "REQUESTED" | "RUNNING" | "FAILED" | "PARTIALLY_SUCCEEDED" | "SUCCESS";
+export type DataSourceRunStatus =
+  | "REQUESTED"
+  | "RUNNING"
+  | "FAILED"
+  | "PARTIALLY_SUCCEEDED"
+  | "SUCCESS";
 export type DataSourceRunSummaries = Array<DataSourceRunSummary>;
 export interface DataSourceRunSummary {
   id: string;
@@ -2123,7 +3129,15 @@ export interface DataSourceRunSummary {
   lineageSummary?: DataSourceRunLineageSummary;
 }
 export type DataSourceRunType = "PRIORITIZED" | "SCHEDULED";
-export type DataSourceStatus = "CREATING" | "FAILED_CREATION" | "READY" | "UPDATING" | "FAILED_UPDATE" | "RUNNING" | "DELETING" | "FAILED_DELETION";
+export type DataSourceStatus =
+  | "CREATING"
+  | "FAILED_CREATION"
+  | "READY"
+  | "UPDATING"
+  | "FAILED_UPDATE"
+  | "RUNNING"
+  | "DELETING"
+  | "FAILED_DELETION";
 export type DataSourceSummaries = Array<DataSourceSummary>;
 export interface DataSourceSummary {
   domainId: string;
@@ -2159,14 +3173,12 @@ export interface DeleteAssetInput {
   domainIdentifier: string;
   identifier: string;
 }
-export interface DeleteAssetOutput {
-}
+export interface DeleteAssetOutput {}
 export interface DeleteAssetTypeInput {
   domainIdentifier: string;
   identifier: string;
 }
-export interface DeleteAssetTypeOutput {
-}
+export interface DeleteAssetTypeOutput {}
 export interface DeleteConnectionInput {
   domainIdentifier: string;
   identifier: string;
@@ -2178,8 +3190,7 @@ export interface DeleteDataProductInput {
   domainIdentifier: string;
   identifier: string;
 }
-export interface DeleteDataProductOutput {
-}
+export interface DeleteDataProductOutput {}
 export interface DeleteDataSourceInput {
   domainIdentifier: string;
   identifier: string;
@@ -2222,8 +3233,7 @@ export interface DeleteDomainUnitInput {
   domainIdentifier: string;
   identifier: string;
 }
-export interface DeleteDomainUnitOutput {
-}
+export interface DeleteDomainUnitOutput {}
 export interface DeleteEnvironmentActionInput {
   domainIdentifier: string;
   environmentIdentifier: string;
@@ -2233,8 +3243,7 @@ export interface DeleteEnvironmentBlueprintConfigurationInput {
   domainIdentifier: string;
   environmentBlueprintIdentifier: string;
 }
-export interface DeleteEnvironmentBlueprintConfigurationOutput {
-}
+export interface DeleteEnvironmentBlueprintConfigurationOutput {}
 export interface DeleteEnvironmentInput {
   domainIdentifier: string;
   identifier: string;
@@ -2247,26 +3256,22 @@ export interface DeleteFormTypeInput {
   domainIdentifier: string;
   formTypeIdentifier: string;
 }
-export interface DeleteFormTypeOutput {
-}
+export interface DeleteFormTypeOutput {}
 export interface DeleteGlossaryInput {
   domainIdentifier: string;
   identifier: string;
 }
-export interface DeleteGlossaryOutput {
-}
+export interface DeleteGlossaryOutput {}
 export interface DeleteGlossaryTermInput {
   domainIdentifier: string;
   identifier: string;
 }
-export interface DeleteGlossaryTermOutput {
-}
+export interface DeleteGlossaryTermOutput {}
 export interface DeleteListingInput {
   domainIdentifier: string;
   identifier: string;
 }
-export interface DeleteListingOutput {
-}
+export interface DeleteListingOutput {}
 export interface DeleteProjectInput {
   domainIdentifier: string;
   identifier: string;
@@ -2277,22 +3282,18 @@ export interface DeleteProjectMembershipInput {
   projectIdentifier: string;
   member: Member;
 }
-export interface DeleteProjectMembershipOutput {
-}
-export interface DeleteProjectOutput {
-}
+export interface DeleteProjectMembershipOutput {}
+export interface DeleteProjectOutput {}
 export interface DeleteProjectProfileInput {
   domainIdentifier: string;
   identifier: string;
 }
-export interface DeleteProjectProfileOutput {
-}
+export interface DeleteProjectProfileOutput {}
 export interface DeleteRuleInput {
   domainIdentifier: string;
   identifier: string;
 }
-export interface DeleteRuleOutput {
-}
+export interface DeleteRuleOutput {}
 export interface DeleteSubscriptionGrantInput {
   domainIdentifier: string;
   identifier: string;
@@ -2326,8 +3327,7 @@ export interface DeleteTimeSeriesDataPointsInput {
   formName: string;
   clientToken?: string;
 }
-export interface DeleteTimeSeriesDataPointsOutput {
-}
+export interface DeleteTimeSeriesDataPointsOutput {}
 export interface Deployment {
   deploymentId?: string;
   deploymentType?: DeploymentType;
@@ -2346,7 +3346,11 @@ export interface DeploymentProperties {
   startTimeoutMinutes?: number;
   endTimeoutMinutes?: number;
 }
-export type DeploymentStatus = "IN_PROGRESS" | "SUCCESSFUL" | "FAILED" | "PENDING_DEPLOYMENT";
+export type DeploymentStatus =
+  | "IN_PROGRESS"
+  | "SUCCESSFUL"
+  | "FAILED"
+  | "PENDING_DEPLOYMENT";
 export type DeploymentType = "CREATE" | "UPDATE" | "DELETE";
 export type Description = string;
 
@@ -2360,15 +3364,20 @@ export interface DisassociateEnvironmentRoleInput {
   environmentIdentifier: string;
   environmentRoleArn: string;
 }
-export interface DisassociateEnvironmentRoleOutput {
-}
+export interface DisassociateEnvironmentRoleOutput {}
 export type DomainDescription = string;
 
 export type DomainId = string;
 
 export type DomainName = string;
 
-export type DomainStatus = "CREATING" | "AVAILABLE" | "CREATION_FAILED" | "DELETING" | "DELETED" | "DELETION_FAILED";
+export type DomainStatus =
+  | "CREATING"
+  | "AVAILABLE"
+  | "CREATION_FAILED"
+  | "DELETING"
+  | "DELETED"
+  | "DELETION_FAILED";
 export type DomainSummaries = Array<DomainSummary>;
 export interface DomainSummary {
   id: string;
@@ -2393,7 +3402,9 @@ interface _DomainUnitGrantFilter {
   allDomainUnitsGrantFilter?: AllDomainUnitsGrantFilter;
 }
 
-export type DomainUnitGrantFilter = (_DomainUnitGrantFilter & { allDomainUnitsGrantFilter: AllDomainUnitsGrantFilter });
+export type DomainUnitGrantFilter = _DomainUnitGrantFilter & {
+  allDomainUnitsGrantFilter: AllDomainUnitsGrantFilter;
+};
 export interface DomainUnitGroupProperties {
   groupId?: string;
 }
@@ -2407,7 +3418,9 @@ interface _DomainUnitOwnerProperties {
   group?: DomainUnitGroupProperties;
 }
 
-export type DomainUnitOwnerProperties = (_DomainUnitOwnerProperties & { user: DomainUnitUserProperties }) | (_DomainUnitOwnerProperties & { group: DomainUnitGroupProperties });
+export type DomainUnitOwnerProperties =
+  | (_DomainUnitOwnerProperties & { user: DomainUnitUserProperties })
+  | (_DomainUnitOwnerProperties & { group: DomainUnitGroupProperties });
 export type DomainUnitOwners = Array<DomainUnitOwnerProperties>;
 export interface DomainUnitPolicyGrantPrincipal {
   domainUnitDesignation: DomainUnitDesignation;
@@ -2461,7 +3474,8 @@ export interface EnvironmentBlueprintConfigurationItem {
   updatedAt?: Date | string;
   provisioningConfigurations?: Array<ProvisioningConfiguration>;
 }
-export type EnvironmentBlueprintConfigurations = Array<EnvironmentBlueprintConfigurationItem>;
+export type EnvironmentBlueprintConfigurations =
+  Array<EnvironmentBlueprintConfigurationItem>;
 export type EnvironmentBlueprintId = string;
 
 export type EnvironmentBlueprintName = string;
@@ -2503,14 +3517,16 @@ export interface EnvironmentConfigurationParametersDetails {
   parameterOverrides?: Array<EnvironmentConfigurationParameter>;
   resolvedParameters?: Array<EnvironmentConfigurationParameter>;
 }
-export type EnvironmentConfigurationParametersList = Array<EnvironmentConfigurationParameter>;
+export type EnvironmentConfigurationParametersList =
+  Array<EnvironmentConfigurationParameter>;
 export type EnvironmentConfigurationsList = Array<EnvironmentConfiguration>;
 export interface EnvironmentConfigurationUserParameter {
   environmentId?: string;
   environmentConfigurationName?: string;
   environmentParameters?: Array<EnvironmentParameter>;
 }
-export type EnvironmentConfigurationUserParametersList = Array<EnvironmentConfigurationUserParameter>;
+export type EnvironmentConfigurationUserParametersList =
+  Array<EnvironmentConfigurationUserParameter>;
 export interface EnvironmentDeploymentDetails {
   overallDeploymentStatus?: OverallDeploymentStatus;
   environmentFailureReasons?: Record<string, Array<EnvironmentError>>;
@@ -2548,7 +3564,20 @@ export interface EnvironmentProfileSummary {
   environmentBlueprintId: string;
   projectId?: string;
 }
-export type EnvironmentStatus = "ACTIVE" | "CREATING" | "UPDATING" | "DELETING" | "CREATE_FAILED" | "UPDATE_FAILED" | "DELETE_FAILED" | "VALIDATION_FAILED" | "SUSPENDED" | "DISABLED" | "EXPIRED" | "DELETED" | "INACCESSIBLE";
+export type EnvironmentStatus =
+  | "ACTIVE"
+  | "CREATING"
+  | "UPDATING"
+  | "DELETING"
+  | "CREATE_FAILED"
+  | "UPDATE_FAILED"
+  | "DELETE_FAILED"
+  | "VALIDATION_FAILED"
+  | "SUSPENDED"
+  | "DISABLED"
+  | "EXPIRED"
+  | "DELETED"
+  | "INACCESSIBLE";
 export type EnvironmentSummaries = Array<EnvironmentSummary>;
 export interface EnvironmentSummary {
   projectId: string;
@@ -2576,7 +3605,9 @@ interface _EventSummary {
   openLineageRunEventSummary?: OpenLineageRunEventSummary;
 }
 
-export type EventSummary = (_EventSummary & { openLineageRunEventSummary: OpenLineageRunEventSummary });
+export type EventSummary = _EventSummary & {
+  openLineageRunEventSummary: OpenLineageRunEventSummary;
+};
 export type ExternalIdentifier = string;
 
 export type FailedQueryProcessingErrorMessages = Array<string>;
@@ -2594,7 +3625,10 @@ interface _FilterClause {
   or?: Array<FilterClause>;
 }
 
-export type FilterClause = (_FilterClause & { filter: Filter }) | (_FilterClause & { and: Array<FilterClause> }) | (_FilterClause & { or: Array<FilterClause> });
+export type FilterClause =
+  | (_FilterClause & { filter: Filter })
+  | (_FilterClause & { and: Array<FilterClause> })
+  | (_FilterClause & { or: Array<FilterClause> });
 export interface FilterExpression {
   type: FilterExpressionType;
   expression: string;
@@ -3347,7 +4381,20 @@ export interface GlueConnectionPatch {
   connectionProperties?: Record<string, string>;
   authenticationConfiguration?: AuthenticationConfigurationPatch;
 }
-export type GlueConnectionType = "SNOWFLAKE" | "BIGQUERY" | "DOCUMENTDB" | "DYNAMODB" | "MYSQL" | "OPENSEARCH" | "ORACLE" | "POSTGRESQL" | "REDSHIFT" | "SAPHANA" | "SQLSERVER" | "TERADATA" | "VERTICA";
+export type GlueConnectionType =
+  | "SNOWFLAKE"
+  | "BIGQUERY"
+  | "DOCUMENTDB"
+  | "DYNAMODB"
+  | "MYSQL"
+  | "OPENSEARCH"
+  | "ORACLE"
+  | "POSTGRESQL"
+  | "REDSHIFT"
+  | "SAPHANA"
+  | "SQLSERVER"
+  | "TERADATA"
+  | "VERTICA";
 export interface GlueOAuth2Credentials {
   userManagedClientApplicationClientSecret?: string;
   accessToken?: string;
@@ -3386,12 +4433,14 @@ interface _GrantedEntity {
   listing?: ListingRevision;
 }
 
-export type GrantedEntity = (_GrantedEntity & { listing: ListingRevision });
+export type GrantedEntity = _GrantedEntity & { listing: ListingRevision };
 interface _GrantedEntityInput {
   listing?: ListingRevisionInput;
 }
 
-export type GrantedEntityInput = (_GrantedEntityInput & { listing: ListingRevisionInput });
+export type GrantedEntityInput = _GrantedEntityInput & {
+  listing: ListingRevisionInput;
+};
 export interface GreaterThanExpression {
   columnName: string;
   value: string;
@@ -3409,7 +4458,9 @@ interface _GroupPolicyGrantPrincipal {
   groupIdentifier?: string;
 }
 
-export type GroupPolicyGrantPrincipal = (_GroupPolicyGrantPrincipal & { groupIdentifier: string });
+export type GroupPolicyGrantPrincipal = _GroupPolicyGrantPrincipal & {
+  groupIdentifier: string;
+};
 export type GroupProfileId = string;
 
 export type GroupProfileName = string;
@@ -3463,7 +4514,11 @@ export declare class InternalServerException extends EffectData.TaggedError(
 )<{
   readonly message: string;
 }> {}
-export type InventorySearchScope = "ASSET" | "GLOSSARY" | "GLOSSARY_TERM" | "DATA_PRODUCT";
+export type InventorySearchScope =
+  | "ASSET"
+  | "GLOSSARY"
+  | "GLOSSARY_TERM"
+  | "DATA_PRODUCT";
 export interface IsNotNullExpression {
   columnName: string;
 }
@@ -3475,12 +4530,22 @@ interface _JobRunDetails {
   lineageRunDetails?: LineageRunDetails;
 }
 
-export type JobRunDetails = (_JobRunDetails & { lineageRunDetails: LineageRunDetails });
+export type JobRunDetails = _JobRunDetails & {
+  lineageRunDetails: LineageRunDetails;
+};
 export interface JobRunError {
   message: string;
 }
 export type JobRunMode = "SCHEDULED" | "ON_DEMAND";
-export type JobRunStatus = "SCHEDULED" | "IN_PROGRESS" | "SUCCESS" | "PARTIALLY_SUCCEEDED" | "FAILED" | "ABORTED" | "TIMED_OUT" | "CANCELED";
+export type JobRunStatus =
+  | "SCHEDULED"
+  | "IN_PROGRESS"
+  | "SUCCESS"
+  | "PARTIALLY_SUCCEEDED"
+  | "FAILED"
+  | "ABORTED"
+  | "TIMED_OUT"
+  | "CANCELED";
 export type JobRunSummaries = Array<JobRunSummary>;
 export interface JobRunSummary {
   domainId?: string;
@@ -3522,7 +4587,11 @@ export type LineageEventErrorMessage = string;
 
 export type LineageEventIdentifier = string;
 
-export type LineageEventProcessingStatus = "REQUESTED" | "PROCESSING" | "SUCCESS" | "FAILED";
+export type LineageEventProcessingStatus =
+  | "REQUESTED"
+  | "PROCESSING"
+  | "SUCCESS"
+  | "FAILED";
 export type LineageEventSummaries = Array<LineageEventSummary>;
 export interface LineageEventSummary {
   id?: string;
@@ -3533,7 +4602,11 @@ export interface LineageEventSummary {
   createdBy?: string;
   createdAt?: Date | string;
 }
-export type LineageImportStatus = "IN_PROGRESS" | "SUCCESS" | "FAILED" | "PARTIALLY_SUCCEEDED";
+export type LineageImportStatus =
+  | "IN_PROGRESS"
+  | "SUCCESS"
+  | "FAILED"
+  | "PARTIALLY_SUCCEEDED";
 export interface LineageInfo {
   eventId?: string;
   eventStatus?: LineageEventProcessingStatus;
@@ -3769,7 +4842,9 @@ interface _ListingItem {
   dataProductListing?: DataProductListing;
 }
 
-export type ListingItem = (_ListingItem & { assetListing: AssetListing }) | (_ListingItem & { dataProductListing: DataProductListing });
+export type ListingItem =
+  | (_ListingItem & { assetListing: AssetListing })
+  | (_ListingItem & { dataProductListing: DataProductListing });
 export type ListingName = string;
 
 export interface ListingRevision {
@@ -4003,7 +5078,21 @@ export interface ListTimeSeriesDataPointsOutput {
 }
 export type LongDescription = string;
 
-export type ManagedPolicyType = "CREATE_DOMAIN_UNIT" | "OVERRIDE_DOMAIN_UNIT_OWNERS" | "ADD_TO_PROJECT_MEMBER_POOL" | "OVERRIDE_PROJECT_OWNERS" | "CREATE_GLOSSARY" | "CREATE_FORM_TYPE" | "CREATE_ASSET_TYPE" | "CREATE_PROJECT" | "CREATE_ENVIRONMENT_PROFILE" | "DELEGATE_CREATE_ENVIRONMENT_PROFILE" | "CREATE_ENVIRONMENT" | "CREATE_ENVIRONMENT_FROM_BLUEPRINT" | "CREATE_PROJECT_FROM_PROJECT_PROFILE" | "USE_ASSET_TYPE";
+export type ManagedPolicyType =
+  | "CREATE_DOMAIN_UNIT"
+  | "OVERRIDE_DOMAIN_UNIT_OWNERS"
+  | "ADD_TO_PROJECT_MEMBER_POOL"
+  | "OVERRIDE_PROJECT_OWNERS"
+  | "CREATE_GLOSSARY"
+  | "CREATE_FORM_TYPE"
+  | "CREATE_ASSET_TYPE"
+  | "CREATE_PROJECT"
+  | "CREATE_ENVIRONMENT_PROFILE"
+  | "DELEGATE_CREATE_ENVIRONMENT_PROFILE"
+  | "CREATE_ENVIRONMENT"
+  | "CREATE_ENVIRONMENT_FROM_BLUEPRINT"
+  | "CREATE_PROJECT_FROM_PROJECT_PROFILE"
+  | "USE_ASSET_TYPE";
 export type MatchCriteria = Array<string>;
 export interface MatchOffset {
   startOffset?: number;
@@ -4015,7 +5104,9 @@ interface _MatchRationaleItem {
   textMatches?: Array<TextMatchItem>;
 }
 
-export type MatchRationaleItem = (_MatchRationaleItem & { textMatches: Array<TextMatchItem> });
+export type MatchRationaleItem = _MatchRationaleItem & {
+  textMatches: Array<TextMatchItem>;
+};
 export type MaxResults = number;
 
 export type MaxResultsForListDomains = number;
@@ -4025,13 +5116,17 @@ interface _Member {
   groupIdentifier?: string;
 }
 
-export type Member = (_Member & { userIdentifier: string }) | (_Member & { groupIdentifier: string });
+export type Member =
+  | (_Member & { userIdentifier: string })
+  | (_Member & { groupIdentifier: string });
 interface _MemberDetails {
   user?: UserDetails;
   group?: GroupDetails;
 }
 
-export type MemberDetails = (_MemberDetails & { user: UserDetails }) | (_MemberDetails & { group: GroupDetails });
+export type MemberDetails =
+  | (_MemberDetails & { user: UserDetails })
+  | (_MemberDetails & { group: GroupDetails });
 export type Message = string;
 
 export interface MetadataFormEnforcementDetail {
@@ -4062,7 +5157,12 @@ export interface MetadataGenerationRunItem {
   owningProjectId: string;
 }
 export type MetadataGenerationRuns = Array<MetadataGenerationRunItem>;
-export type MetadataGenerationRunStatus = "SUBMITTED" | "IN_PROGRESS" | "CANCELED" | "SUCCEEDED" | "FAILED";
+export type MetadataGenerationRunStatus =
+  | "SUBMITTED"
+  | "IN_PROGRESS"
+  | "CANCELED"
+  | "SUCCEEDED"
+  | "FAILED";
 export interface MetadataGenerationRunTarget {
   type: MetadataGenerationTargetType;
   identifier: string;
@@ -4075,7 +5175,7 @@ interface _Model {
   smithy?: string;
 }
 
-export type Model = (_Model & { smithy: string });
+export type Model = _Model & { smithy: string };
 export type Name = string;
 
 export interface NameIdentifier {
@@ -4106,7 +5206,12 @@ export interface NotificationResource {
   name?: string;
 }
 export type NotificationResourceType = "PROJECT";
-export type NotificationRole = "PROJECT_OWNER" | "PROJECT_CONTRIBUTOR" | "PROJECT_VIEWER" | "DOMAIN_OWNER" | "PROJECT_SUBSCRIBER";
+export type NotificationRole =
+  | "PROJECT_OWNER"
+  | "PROJECT_CONTRIBUTOR"
+  | "PROJECT_VIEWER"
+  | "DOMAIN_OWNER"
+  | "PROJECT_SUBSCRIBER";
 export type NotificationsList = Array<NotificationOutput>;
 export type NotificationSubjects = Array<string>;
 export type NotificationType = "TASK" | "EVENT";
@@ -4122,7 +5227,10 @@ export interface OAuth2ClientApplication {
   userManagedClientApplicationClientId?: string;
   aWSManagedClientApplicationReference?: string;
 }
-export type OAuth2GrantType = "AUTHORIZATION_CODE" | "CLIENT_CREDENTIALS" | "JWT_BEARER";
+export type OAuth2GrantType =
+  | "AUTHORIZATION_CODE"
+  | "CLIENT_CREDENTIALS"
+  | "JWT_BEARER";
 export interface OAuth2Properties {
   oAuth2GrantType?: OAuth2GrantType;
   oAuth2ClientApplication?: OAuth2ClientApplication;
@@ -4138,8 +5246,19 @@ export interface OpenLineageRunEventSummary {
   inputs?: Array<NameIdentifier>;
   outputs?: Array<NameIdentifier>;
 }
-export type OpenLineageRunState = "START" | "RUNNING" | "COMPLETE" | "ABORT" | "FAIL" | "OTHER";
-export type OverallDeploymentStatus = "PENDING_DEPLOYMENT" | "IN_PROGRESS" | "SUCCESSFUL" | "FAILED_VALIDATION" | "FAILED_DEPLOYMENT";
+export type OpenLineageRunState =
+  | "START"
+  | "RUNNING"
+  | "COMPLETE"
+  | "ABORT"
+  | "FAIL"
+  | "OTHER";
+export type OverallDeploymentStatus =
+  | "PENDING_DEPLOYMENT"
+  | "IN_PROGRESS"
+  | "SUCCESSFUL"
+  | "FAILED_VALIDATION"
+  | "FAILED_DEPLOYMENT";
 export interface OverrideDomainUnitOwnersPolicyGrantDetail {
   includeChildDomainUnits?: boolean;
 }
@@ -4157,13 +5276,17 @@ interface _OwnerProperties {
   group?: OwnerGroupProperties;
 }
 
-export type OwnerProperties = (_OwnerProperties & { user: OwnerUserProperties }) | (_OwnerProperties & { group: OwnerGroupProperties });
+export type OwnerProperties =
+  | (_OwnerProperties & { user: OwnerUserProperties })
+  | (_OwnerProperties & { group: OwnerGroupProperties });
 interface _OwnerPropertiesOutput {
   user?: OwnerUserPropertiesOutput;
   group?: OwnerGroupPropertiesOutput;
 }
 
-export type OwnerPropertiesOutput = (_OwnerPropertiesOutput & { user: OwnerUserPropertiesOutput }) | (_OwnerPropertiesOutput & { group: OwnerGroupPropertiesOutput });
+export type OwnerPropertiesOutput =
+  | (_OwnerPropertiesOutput & { user: OwnerUserPropertiesOutput })
+  | (_OwnerPropertiesOutput & { group: OwnerGroupPropertiesOutput });
 export interface OwnerUserProperties {
   userIdentifier: string;
 }
@@ -4211,7 +5334,33 @@ interface _PolicyGrantDetail {
   useAssetType?: UseAssetTypePolicyGrantDetail;
 }
 
-export type PolicyGrantDetail = (_PolicyGrantDetail & { createDomainUnit: CreateDomainUnitPolicyGrantDetail }) | (_PolicyGrantDetail & { overrideDomainUnitOwners: OverrideDomainUnitOwnersPolicyGrantDetail }) | (_PolicyGrantDetail & { addToProjectMemberPool: AddToProjectMemberPoolPolicyGrantDetail }) | (_PolicyGrantDetail & { overrideProjectOwners: OverrideProjectOwnersPolicyGrantDetail }) | (_PolicyGrantDetail & { createGlossary: CreateGlossaryPolicyGrantDetail }) | (_PolicyGrantDetail & { createFormType: CreateFormTypePolicyGrantDetail }) | (_PolicyGrantDetail & { createAssetType: CreateAssetTypePolicyGrantDetail }) | (_PolicyGrantDetail & { createProject: CreateProjectPolicyGrantDetail }) | (_PolicyGrantDetail & { createEnvironmentProfile: CreateEnvironmentProfilePolicyGrantDetail }) | (_PolicyGrantDetail & { delegateCreateEnvironmentProfile: Unit }) | (_PolicyGrantDetail & { createEnvironment: Unit }) | (_PolicyGrantDetail & { createEnvironmentFromBlueprint: Unit }) | (_PolicyGrantDetail & { createProjectFromProjectProfile: CreateProjectFromProjectProfilePolicyGrantDetail }) | (_PolicyGrantDetail & { useAssetType: UseAssetTypePolicyGrantDetail });
+export type PolicyGrantDetail =
+  | (_PolicyGrantDetail & {
+      createDomainUnit: CreateDomainUnitPolicyGrantDetail;
+    })
+  | (_PolicyGrantDetail & {
+      overrideDomainUnitOwners: OverrideDomainUnitOwnersPolicyGrantDetail;
+    })
+  | (_PolicyGrantDetail & {
+      addToProjectMemberPool: AddToProjectMemberPoolPolicyGrantDetail;
+    })
+  | (_PolicyGrantDetail & {
+      overrideProjectOwners: OverrideProjectOwnersPolicyGrantDetail;
+    })
+  | (_PolicyGrantDetail & { createGlossary: CreateGlossaryPolicyGrantDetail })
+  | (_PolicyGrantDetail & { createFormType: CreateFormTypePolicyGrantDetail })
+  | (_PolicyGrantDetail & { createAssetType: CreateAssetTypePolicyGrantDetail })
+  | (_PolicyGrantDetail & { createProject: CreateProjectPolicyGrantDetail })
+  | (_PolicyGrantDetail & {
+      createEnvironmentProfile: CreateEnvironmentProfilePolicyGrantDetail;
+    })
+  | (_PolicyGrantDetail & { delegateCreateEnvironmentProfile: Unit })
+  | (_PolicyGrantDetail & { createEnvironment: Unit })
+  | (_PolicyGrantDetail & { createEnvironmentFromBlueprint: Unit })
+  | (_PolicyGrantDetail & {
+      createProjectFromProjectProfile: CreateProjectFromProjectProfilePolicyGrantDetail;
+    })
+  | (_PolicyGrantDetail & { useAssetType: UseAssetTypePolicyGrantDetail });
 export type PolicyGrantList = Array<PolicyGrantMember>;
 export interface PolicyGrantMember {
   principal?: PolicyGrantPrincipal;
@@ -4226,7 +5375,11 @@ interface _PolicyGrantPrincipal {
   domainUnit?: DomainUnitPolicyGrantPrincipal;
 }
 
-export type PolicyGrantPrincipal = (_PolicyGrantPrincipal & { user: UserPolicyGrantPrincipal }) | (_PolicyGrantPrincipal & { group: GroupPolicyGrantPrincipal }) | (_PolicyGrantPrincipal & { project: ProjectPolicyGrantPrincipal }) | (_PolicyGrantPrincipal & { domainUnit: DomainUnitPolicyGrantPrincipal });
+export type PolicyGrantPrincipal =
+  | (_PolicyGrantPrincipal & { user: UserPolicyGrantPrincipal })
+  | (_PolicyGrantPrincipal & { group: GroupPolicyGrantPrincipal })
+  | (_PolicyGrantPrincipal & { project: ProjectPolicyGrantPrincipal })
+  | (_PolicyGrantPrincipal & { domainUnit: DomainUnitPolicyGrantPrincipal });
 export interface PostLineageEventInput {
   domainIdentifier: string;
   event: Uint8Array | string;
@@ -4257,12 +5410,17 @@ export interface ProjectDeletionError {
   code?: string;
   message?: string;
 }
-export type ProjectDesignation = "OWNER" | "CONTRIBUTOR" | "PROJECT_CATALOG_STEWARD";
+export type ProjectDesignation =
+  | "OWNER"
+  | "CONTRIBUTOR"
+  | "PROJECT_CATALOG_STEWARD";
 interface _ProjectGrantFilter {
   domainUnitFilter?: DomainUnitFilterForProject;
 }
 
-export type ProjectGrantFilter = (_ProjectGrantFilter & { domainUnitFilter: DomainUnitFilterForProject });
+export type ProjectGrantFilter = _ProjectGrantFilter & {
+  domainUnitFilter: DomainUnitFilterForProject;
+};
 export type ProjectId = string;
 
 export type ProjectIds = Array<string>;
@@ -4299,7 +5457,12 @@ export interface ProjectsForRule {
   selectionMode: RuleScopeSelectionMode;
   specificProjects?: Array<string>;
 }
-export type ProjectStatus = "ACTIVE" | "DELETING" | "DELETE_FAILED" | "UPDATING" | "UPDATE_FAILED";
+export type ProjectStatus =
+  | "ACTIVE"
+  | "DELETING"
+  | "DELETE_FAILED"
+  | "UPDATING"
+  | "UPDATE_FAILED";
 export type ProjectSummaries = Array<ProjectSummary>;
 export interface ProjectSummary {
   domainId: string;
@@ -4314,18 +5477,29 @@ export interface ProjectSummary {
   domainUnitId?: string;
 }
 export type PropertyMap = Record<string, string>;
-export type Protocol = "ATHENA" | "GLUE_INTERACTIVE_SESSION" | "HTTPS" | "JDBC" | "LIVY" | "ODBC" | "PRISM";
+export type Protocol =
+  | "ATHENA"
+  | "GLUE_INTERACTIVE_SESSION"
+  | "HTTPS"
+  | "JDBC"
+  | "LIVY"
+  | "ODBC"
+  | "PRISM";
 interface _ProvisioningConfiguration {
   lakeFormationConfiguration?: LakeFormationConfiguration;
 }
 
-export type ProvisioningConfiguration = (_ProvisioningConfiguration & { lakeFormationConfiguration: LakeFormationConfiguration });
+export type ProvisioningConfiguration = _ProvisioningConfiguration & {
+  lakeFormationConfiguration: LakeFormationConfiguration;
+};
 export type ProvisioningConfigurationList = Array<ProvisioningConfiguration>;
 interface _ProvisioningProperties {
   cloudFormation?: CloudFormationProperties;
 }
 
-export type ProvisioningProperties = (_ProvisioningProperties & { cloudFormation: CloudFormationProperties });
+export type ProvisioningProperties = _ProvisioningProperties & {
+  cloudFormation: CloudFormationProperties;
+};
 export interface PutEnvironmentBlueprintConfigurationInput {
   domainIdentifier: string;
   environmentBlueprintIdentifier: string;
@@ -4362,7 +5536,9 @@ interface _RedshiftCredentials {
   usernamePassword?: UsernamePassword;
 }
 
-export type RedshiftCredentials = (_RedshiftCredentials & { secretArn: string }) | (_RedshiftCredentials & { usernamePassword: UsernamePassword });
+export type RedshiftCredentials =
+  | (_RedshiftCredentials & { secretArn: string })
+  | (_RedshiftCredentials & { usernamePassword: UsernamePassword });
 export interface RedshiftLineageSyncConfigurationInput {
   enabled?: boolean;
   schedule?: LineageSyncSchedule;
@@ -4424,19 +5600,27 @@ interface _RedshiftStorage {
   redshiftServerlessSource?: RedshiftServerlessStorage;
 }
 
-export type RedshiftStorage = (_RedshiftStorage & { redshiftClusterSource: RedshiftClusterStorage }) | (_RedshiftStorage & { redshiftServerlessSource: RedshiftServerlessStorage });
+export type RedshiftStorage =
+  | (_RedshiftStorage & { redshiftClusterSource: RedshiftClusterStorage })
+  | (_RedshiftStorage & {
+      redshiftServerlessSource: RedshiftServerlessStorage;
+    });
 interface _RedshiftStorageProperties {
   clusterName?: string;
   workgroupName?: string;
 }
 
-export type RedshiftStorageProperties = (_RedshiftStorageProperties & { clusterName: string }) | (_RedshiftStorageProperties & { workgroupName: string });
+export type RedshiftStorageProperties =
+  | (_RedshiftStorageProperties & { clusterName: string })
+  | (_RedshiftStorageProperties & { workgroupName: string });
 interface _Region {
   regionName?: string;
   regionNamePath?: string;
 }
 
-export type Region = (_Region & { regionName: string }) | (_Region & { regionNamePath: string });
+export type Region =
+  | (_Region & { regionName: string })
+  | (_Region & { regionNamePath: string });
 export type RegionalParameter = Record<string, string>;
 export type RegionalParameterMap = Record<string, Record<string, string>>;
 export type RegionName = string;
@@ -4490,7 +5674,8 @@ export interface RelationalFilterConfiguration {
   schemaName?: string;
   filterExpressions?: Array<FilterExpression>;
 }
-export type RelationalFilterConfigurations = Array<RelationalFilterConfiguration>;
+export type RelationalFilterConfigurations =
+  Array<RelationalFilterConfiguration>;
 export interface RemoveEntityOwnerInput {
   domainIdentifier: string;
   entityType: DataZoneEntityType;
@@ -4498,8 +5683,7 @@ export interface RemoveEntityOwnerInput {
   owner: OwnerProperties;
   clientToken?: string;
 }
-export interface RemoveEntityOwnerOutput {
-}
+export interface RemoveEntityOwnerOutput {}
 export interface RemovePolicyGrantInput {
   domainIdentifier: string;
   entityType: TargetEntityType;
@@ -4508,8 +5692,7 @@ export interface RemovePolicyGrantInput {
   principal: PolicyGrantPrincipal;
   clientToken?: string;
 }
-export interface RemovePolicyGrantOutput {
-}
+export interface RemovePolicyGrantOutput {}
 export type RequestReason = string;
 
 export type RequiredMetadataFormList = Array<MetadataFormReference>;
@@ -4555,7 +5738,10 @@ interface _RowFilter {
   or?: Array<RowFilter>;
 }
 
-export type RowFilter = (_RowFilter & { expression: RowFilterExpression }) | (_RowFilter & { and: Array<RowFilter> }) | (_RowFilter & { or: Array<RowFilter> });
+export type RowFilter =
+  | (_RowFilter & { expression: RowFilterExpression })
+  | (_RowFilter & { and: Array<RowFilter> })
+  | (_RowFilter & { or: Array<RowFilter> });
 export interface RowFilterConfiguration {
   rowFilter: RowFilter;
   sensitive?: boolean;
@@ -4575,15 +5761,33 @@ interface _RowFilterExpression {
   notLike?: NotLikeExpression;
 }
 
-export type RowFilterExpression = (_RowFilterExpression & { equalTo: EqualToExpression }) | (_RowFilterExpression & { notEqualTo: NotEqualToExpression }) | (_RowFilterExpression & { greaterThan: GreaterThanExpression }) | (_RowFilterExpression & { lessThan: LessThanExpression }) | (_RowFilterExpression & { greaterThanOrEqualTo: GreaterThanOrEqualToExpression }) | (_RowFilterExpression & { lessThanOrEqualTo: LessThanOrEqualToExpression }) | (_RowFilterExpression & { isNull: IsNullExpression }) | (_RowFilterExpression & { isNotNull: IsNotNullExpression }) | (_RowFilterExpression & { in: InExpression }) | (_RowFilterExpression & { notIn: NotInExpression }) | (_RowFilterExpression & { like: LikeExpression }) | (_RowFilterExpression & { notLike: NotLikeExpression });
+export type RowFilterExpression =
+  | (_RowFilterExpression & { equalTo: EqualToExpression })
+  | (_RowFilterExpression & { notEqualTo: NotEqualToExpression })
+  | (_RowFilterExpression & { greaterThan: GreaterThanExpression })
+  | (_RowFilterExpression & { lessThan: LessThanExpression })
+  | (_RowFilterExpression & {
+      greaterThanOrEqualTo: GreaterThanOrEqualToExpression;
+    })
+  | (_RowFilterExpression & { lessThanOrEqualTo: LessThanOrEqualToExpression })
+  | (_RowFilterExpression & { isNull: IsNullExpression })
+  | (_RowFilterExpression & { isNotNull: IsNotNullExpression })
+  | (_RowFilterExpression & { in: InExpression })
+  | (_RowFilterExpression & { notIn: NotInExpression })
+  | (_RowFilterExpression & { like: LikeExpression })
+  | (_RowFilterExpression & { notLike: NotLikeExpression });
 export type RowFilterList = Array<RowFilter>;
-export type RuleAction = "CREATE_LISTING_CHANGE_SET" | "CREATE_SUBSCRIPTION_REQUEST";
+export type RuleAction =
+  | "CREATE_LISTING_CHANGE_SET"
+  | "CREATE_SUBSCRIPTION_REQUEST";
 export type RuleAssetTypeList = Array<string>;
 interface _RuleDetail {
   metadataFormEnforcementDetail?: MetadataFormEnforcementDetail;
 }
 
-export type RuleDetail = (_RuleDetail & { metadataFormEnforcementDetail: MetadataFormEnforcementDetail });
+export type RuleDetail = _RuleDetail & {
+  metadataFormEnforcementDetail: MetadataFormEnforcementDetail;
+};
 export type RuleId = string;
 
 export type RuleName = string;
@@ -4612,7 +5816,7 @@ interface _RuleTarget {
   domainUnitTarget?: DomainUnitTarget;
 }
 
-export type RuleTarget = (_RuleTarget & { domainUnitTarget: DomainUnitTarget });
+export type RuleTarget = _RuleTarget & { domainUnitTarget: DomainUnitTarget };
 export type RuleTargetType = "DOMAIN_UNIT";
 export type RuleType = "METADATA_FORM_ENFORCEMENT";
 export type RunIdentifier = string;
@@ -4695,7 +5899,11 @@ interface _SearchInventoryResultItem {
   dataProductItem?: DataProductResultItem;
 }
 
-export type SearchInventoryResultItem = (_SearchInventoryResultItem & { glossaryItem: GlossaryItem }) | (_SearchInventoryResultItem & { glossaryTermItem: GlossaryTermItem }) | (_SearchInventoryResultItem & { assetItem: AssetItem }) | (_SearchInventoryResultItem & { dataProductItem: DataProductResultItem });
+export type SearchInventoryResultItem =
+  | (_SearchInventoryResultItem & { glossaryItem: GlossaryItem })
+  | (_SearchInventoryResultItem & { glossaryTermItem: GlossaryTermItem })
+  | (_SearchInventoryResultItem & { assetItem: AssetItem })
+  | (_SearchInventoryResultItem & { dataProductItem: DataProductResultItem });
 export type SearchInventoryResultItems = Array<SearchInventoryResultItem>;
 export interface SearchListingsInput {
   domainIdentifier: string;
@@ -4719,14 +5927,20 @@ export interface SearchOutput {
   nextToken?: string;
   totalMatchCount?: number;
 }
-export type SearchOutputAdditionalAttribute = "FORMS" | "TIME_SERIES_DATA_POINT_FORMS" | "TEXT_MATCH_RATIONALE";
-export type SearchOutputAdditionalAttributes = Array<SearchOutputAdditionalAttribute>;
+export type SearchOutputAdditionalAttribute =
+  | "FORMS"
+  | "TIME_SERIES_DATA_POINT_FORMS"
+  | "TEXT_MATCH_RATIONALE";
+export type SearchOutputAdditionalAttributes =
+  Array<SearchOutputAdditionalAttribute>;
 interface _SearchResultItem {
   assetListing?: AssetListingItem;
   dataProductListing?: DataProductListingItem;
 }
 
-export type SearchResultItem = (_SearchResultItem & { assetListing: AssetListingItem }) | (_SearchResultItem & { dataProductListing: DataProductListingItem });
+export type SearchResultItem =
+  | (_SearchResultItem & { assetListing: AssetListingItem })
+  | (_SearchResultItem & { dataProductListing: DataProductListingItem });
 export type SearchResultItems = Array<SearchResultItem>;
 export interface SearchSort {
   attribute: string;
@@ -4756,7 +5970,10 @@ interface _SearchTypesResultItem {
   lineageNodeTypeItem?: LineageNodeTypeItem;
 }
 
-export type SearchTypesResultItem = (_SearchTypesResultItem & { assetTypeItem: AssetTypeItem }) | (_SearchTypesResultItem & { formTypeItem: FormTypeData }) | (_SearchTypesResultItem & { lineageNodeTypeItem: LineageNodeTypeItem });
+export type SearchTypesResultItem =
+  | (_SearchTypesResultItem & { assetTypeItem: AssetTypeItem })
+  | (_SearchTypesResultItem & { formTypeItem: FormTypeData })
+  | (_SearchTypesResultItem & { lineageNodeTypeItem: LineageNodeTypeItem });
 export type SearchTypesResultItems = Array<SearchTypesResultItem>;
 export interface SearchUserProfilesInput {
   domainIdentifier: string;
@@ -4770,7 +5987,14 @@ export interface SearchUserProfilesOutput {
   nextToken?: string;
 }
 export type SecurityGroupIdList = Array<string>;
-export type SelfGrantStatus = "GRANT_PENDING" | "REVOKE_PENDING" | "GRANT_IN_PROGRESS" | "REVOKE_IN_PROGRESS" | "GRANTED" | "GRANT_FAILED" | "REVOKE_FAILED";
+export type SelfGrantStatus =
+  | "GRANT_PENDING"
+  | "REVOKE_PENDING"
+  | "GRANT_IN_PROGRESS"
+  | "REVOKE_IN_PROGRESS"
+  | "GRANTED"
+  | "GRANT_FAILED"
+  | "REVOKE_FAILED";
 export interface SelfGrantStatusDetail {
   databaseName: string;
   schemaName?: string;
@@ -4783,7 +6007,13 @@ interface _SelfGrantStatusOutput {
   redshiftSelfGrantStatus?: RedshiftSelfGrantStatusOutput;
 }
 
-export type SelfGrantStatusOutput = (_SelfGrantStatusOutput & { glueSelfGrantStatus: GlueSelfGrantStatusOutput }) | (_SelfGrantStatusOutput & { redshiftSelfGrantStatus: RedshiftSelfGrantStatusOutput });
+export type SelfGrantStatusOutput =
+  | (_SelfGrantStatusOutput & {
+      glueSelfGrantStatus: GlueSelfGrantStatusOutput;
+    })
+  | (_SelfGrantStatusOutput & {
+      redshiftSelfGrantStatus: RedshiftSelfGrantStatusOutput;
+    });
 export declare class ServiceQuotaExceededException extends EffectData.TaggedError(
   "ServiceQuotaExceededException",
 )<{
@@ -4939,18 +6169,24 @@ interface _SubscribedListingItem {
   productListing?: SubscribedProductListing;
 }
 
-export type SubscribedListingItem = (_SubscribedListingItem & { assetListing: SubscribedAssetListing }) | (_SubscribedListingItem & { productListing: SubscribedProductListing });
+export type SubscribedListingItem =
+  | (_SubscribedListingItem & { assetListing: SubscribedAssetListing })
+  | (_SubscribedListingItem & { productListing: SubscribedProductListing });
 export type SubscribedListings = Array<SubscribedListing>;
 interface _SubscribedPrincipal {
   project?: SubscribedProject;
 }
 
-export type SubscribedPrincipal = (_SubscribedPrincipal & { project: SubscribedProject });
+export type SubscribedPrincipal = _SubscribedPrincipal & {
+  project: SubscribedProject;
+};
 interface _SubscribedPrincipalInput {
   project?: SubscribedProjectInput;
 }
 
-export type SubscribedPrincipalInput = (_SubscribedPrincipalInput & { project: SubscribedProjectInput });
+export type SubscribedPrincipalInput = _SubscribedPrincipalInput & {
+  project: SubscribedProjectInput;
+};
 export type SubscribedPrincipalInputs = Array<SubscribedPrincipalInput>;
 export type SubscribedPrincipals = Array<SubscribedPrincipal>;
 export interface SubscribedProductListing {
@@ -4970,9 +6206,24 @@ export interface SubscribedProjectInput {
 }
 export type SubscriptionGrantId = string;
 
-export type SubscriptionGrantOverallStatus = "PENDING" | "IN_PROGRESS" | "GRANT_FAILED" | "REVOKE_FAILED" | "GRANT_AND_REVOKE_FAILED" | "COMPLETED" | "INACCESSIBLE";
+export type SubscriptionGrantOverallStatus =
+  | "PENDING"
+  | "IN_PROGRESS"
+  | "GRANT_FAILED"
+  | "REVOKE_FAILED"
+  | "GRANT_AND_REVOKE_FAILED"
+  | "COMPLETED"
+  | "INACCESSIBLE";
 export type SubscriptionGrants = Array<SubscriptionGrantSummary>;
-export type SubscriptionGrantStatus = "GRANT_PENDING" | "REVOKE_PENDING" | "GRANT_IN_PROGRESS" | "REVOKE_IN_PROGRESS" | "GRANTED" | "REVOKED" | "GRANT_FAILED" | "REVOKE_FAILED";
+export type SubscriptionGrantStatus =
+  | "GRANT_PENDING"
+  | "REVOKE_PENDING"
+  | "GRANT_IN_PROGRESS"
+  | "REVOKE_IN_PROGRESS"
+  | "GRANTED"
+  | "REVOKED"
+  | "GRANT_FAILED"
+  | "REVOKE_FAILED";
 export interface SubscriptionGrantSummary {
   id: string;
   createdBy: string;
@@ -5057,12 +6308,15 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {
-}
+export interface TagResourceResponse {}
 export type Tags = Record<string, string>;
 export type TagValue = string;
 
-export type TargetEntityType = "DOMAIN_UNIT" | "ENVIRONMENT_BLUEPRINT_CONFIGURATION" | "ENVIRONMENT_PROFILE" | "ASSET_TYPE";
+export type TargetEntityType =
+  | "DOMAIN_UNIT"
+  | "ENVIRONMENT_BLUEPRINT_CONFIGURATION"
+  | "ENVIRONMENT_PROFILE"
+  | "ASSET_TYPE";
 export type TaskId = string;
 
 export type TaskStatus = "ACTIVE" | "INACTIVE";
@@ -5088,7 +6342,8 @@ export interface TimeSeriesDataPointFormInput {
   timestamp: Date | string;
   content?: string;
 }
-export type TimeSeriesDataPointFormInputList = Array<TimeSeriesDataPointFormInput>;
+export type TimeSeriesDataPointFormInputList =
+  Array<TimeSeriesDataPointFormInput>;
 export interface TimeSeriesDataPointFormOutput {
   formName: string;
   typeIdentifier: string;
@@ -5097,7 +6352,8 @@ export interface TimeSeriesDataPointFormOutput {
   content?: string;
   id?: string;
 }
-export type TimeSeriesDataPointFormOutputList = Array<TimeSeriesDataPointFormOutput>;
+export type TimeSeriesDataPointFormOutputList =
+  Array<TimeSeriesDataPointFormOutput>;
 export type TimeSeriesDataPointIdentifier = string;
 
 export interface TimeSeriesDataPointSummaryFormOutput {
@@ -5108,11 +6364,76 @@ export interface TimeSeriesDataPointSummaryFormOutput {
   contentSummary?: string;
   id?: string;
 }
-export type TimeSeriesDataPointSummaryFormOutputList = Array<TimeSeriesDataPointSummaryFormOutput>;
+export type TimeSeriesDataPointSummaryFormOutputList =
+  Array<TimeSeriesDataPointSummaryFormOutput>;
 export type TimeSeriesEntityType = "ASSET" | "LISTING";
 export type TimeSeriesFormName = string;
 
-export type Timezone = "UTC" | "AFRICA_JOHANNESBURG" | "AMERICA_MONTREAL" | "AMERICA_SAO_PAULO" | "ASIA_BAHRAIN" | "ASIA_BANGKOK" | "ASIA_CALCUTTA" | "ASIA_DUBAI" | "ASIA_HONG_KONG" | "ASIA_JAKARTA" | "ASIA_KUALA_LUMPUR" | "ASIA_SEOUL" | "ASIA_SHANGHAI" | "ASIA_SINGAPORE" | "ASIA_TAIPEI" | "ASIA_TOKYO" | "AUSTRALIA_MELBOURNE" | "AUSTRALIA_SYDNEY" | "CANADA_CENTRAL" | "CET" | "CST6CDT" | "ETC_GMT" | "ETC_GMT0" | "ETC_GMT_ADD_0" | "ETC_GMT_ADD_1" | "ETC_GMT_ADD_10" | "ETC_GMT_ADD_11" | "ETC_GMT_ADD_12" | "ETC_GMT_ADD_2" | "ETC_GMT_ADD_3" | "ETC_GMT_ADD_4" | "ETC_GMT_ADD_5" | "ETC_GMT_ADD_6" | "ETC_GMT_ADD_7" | "ETC_GMT_ADD_8" | "ETC_GMT_ADD_9" | "ETC_GMT_NEG_0" | "ETC_GMT_NEG_1" | "ETC_GMT_NEG_10" | "ETC_GMT_NEG_11" | "ETC_GMT_NEG_12" | "ETC_GMT_NEG_13" | "ETC_GMT_NEG_14" | "ETC_GMT_NEG_2" | "ETC_GMT_NEG_3" | "ETC_GMT_NEG_4" | "ETC_GMT_NEG_5" | "ETC_GMT_NEG_6" | "ETC_GMT_NEG_7" | "ETC_GMT_NEG_8" | "ETC_GMT_NEG_9" | "EUROPE_DUBLIN" | "EUROPE_LONDON" | "EUROPE_PARIS" | "EUROPE_STOCKHOLM" | "EUROPE_ZURICH" | "ISRAEL" | "MEXICO_GENERAL" | "MST7MDT" | "PACIFIC_AUCKLAND" | "US_CENTRAL" | "US_EASTERN" | "US_MOUNTAIN" | "US_PACIFIC";
+export type Timezone =
+  | "UTC"
+  | "AFRICA_JOHANNESBURG"
+  | "AMERICA_MONTREAL"
+  | "AMERICA_SAO_PAULO"
+  | "ASIA_BAHRAIN"
+  | "ASIA_BANGKOK"
+  | "ASIA_CALCUTTA"
+  | "ASIA_DUBAI"
+  | "ASIA_HONG_KONG"
+  | "ASIA_JAKARTA"
+  | "ASIA_KUALA_LUMPUR"
+  | "ASIA_SEOUL"
+  | "ASIA_SHANGHAI"
+  | "ASIA_SINGAPORE"
+  | "ASIA_TAIPEI"
+  | "ASIA_TOKYO"
+  | "AUSTRALIA_MELBOURNE"
+  | "AUSTRALIA_SYDNEY"
+  | "CANADA_CENTRAL"
+  | "CET"
+  | "CST6CDT"
+  | "ETC_GMT"
+  | "ETC_GMT0"
+  | "ETC_GMT_ADD_0"
+  | "ETC_GMT_ADD_1"
+  | "ETC_GMT_ADD_10"
+  | "ETC_GMT_ADD_11"
+  | "ETC_GMT_ADD_12"
+  | "ETC_GMT_ADD_2"
+  | "ETC_GMT_ADD_3"
+  | "ETC_GMT_ADD_4"
+  | "ETC_GMT_ADD_5"
+  | "ETC_GMT_ADD_6"
+  | "ETC_GMT_ADD_7"
+  | "ETC_GMT_ADD_8"
+  | "ETC_GMT_ADD_9"
+  | "ETC_GMT_NEG_0"
+  | "ETC_GMT_NEG_1"
+  | "ETC_GMT_NEG_10"
+  | "ETC_GMT_NEG_11"
+  | "ETC_GMT_NEG_12"
+  | "ETC_GMT_NEG_13"
+  | "ETC_GMT_NEG_14"
+  | "ETC_GMT_NEG_2"
+  | "ETC_GMT_NEG_3"
+  | "ETC_GMT_NEG_4"
+  | "ETC_GMT_NEG_5"
+  | "ETC_GMT_NEG_6"
+  | "ETC_GMT_NEG_7"
+  | "ETC_GMT_NEG_8"
+  | "ETC_GMT_NEG_9"
+  | "EUROPE_DUBLIN"
+  | "EUROPE_LONDON"
+  | "EUROPE_PARIS"
+  | "EUROPE_STOCKHOLM"
+  | "EUROPE_ZURICH"
+  | "ISRAEL"
+  | "MEXICO_GENERAL"
+  | "MST7MDT"
+  | "PACIFIC_AUCKLAND"
+  | "US_CENTRAL"
+  | "US_EASTERN"
+  | "US_MOUNTAIN"
+  | "US_PACIFIC";
 export type Title = string;
 
 export type TokenUrlParametersMap = Record<string, string>;
@@ -5131,14 +6452,12 @@ export declare class UnauthorizedException extends EffectData.TaggedError(
 )<{
   readonly message: string;
 }> {}
-export interface Unit {
-}
+export interface Unit {}
 export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {
-}
+export interface UntagResourceResponse {}
 export interface UpdateAssetFilterInput {
   domainIdentifier: string;
   assetIdentifier: string;
@@ -5536,7 +6855,12 @@ export interface UseAssetTypePolicyGrantDetail {
   domainUnitId?: string;
 }
 export type UserAssignment = "AUTOMATIC" | "MANUAL";
-export type UserDesignation = "PROJECT_OWNER" | "PROJECT_CONTRIBUTOR" | "PROJECT_CATALOG_VIEWER" | "PROJECT_CATALOG_CONSUMER" | "PROJECT_CATALOG_STEWARD";
+export type UserDesignation =
+  | "PROJECT_OWNER"
+  | "PROJECT_CONTRIBUTOR"
+  | "PROJECT_CATALOG_VIEWER"
+  | "PROJECT_CATALOG_CONSUMER"
+  | "PROJECT_CATALOG_STEWARD";
 export interface UserDetails {
   userId: string;
 }
@@ -5553,18 +6877,26 @@ interface _UserPolicyGrantPrincipal {
   allUsersGrantFilter?: AllUsersGrantFilter;
 }
 
-export type UserPolicyGrantPrincipal = (_UserPolicyGrantPrincipal & { userIdentifier: string }) | (_UserPolicyGrantPrincipal & { allUsersGrantFilter: AllUsersGrantFilter });
+export type UserPolicyGrantPrincipal =
+  | (_UserPolicyGrantPrincipal & { userIdentifier: string })
+  | (_UserPolicyGrantPrincipal & { allUsersGrantFilter: AllUsersGrantFilter });
 interface _UserProfileDetails {
   iam?: IamUserProfileDetails;
   sso?: SsoUserProfileDetails;
 }
 
-export type UserProfileDetails = (_UserProfileDetails & { iam: IamUserProfileDetails }) | (_UserProfileDetails & { sso: SsoUserProfileDetails });
+export type UserProfileDetails =
+  | (_UserProfileDetails & { iam: IamUserProfileDetails })
+  | (_UserProfileDetails & { sso: SsoUserProfileDetails });
 export type UserProfileId = string;
 
 export type UserProfileName = string;
 
-export type UserProfileStatus = "ASSIGNED" | "NOT_ASSIGNED" | "ACTIVATED" | "DEACTIVATED";
+export type UserProfileStatus =
+  | "ASSIGNED"
+  | "NOT_ASSIGNED"
+  | "ACTIVATED"
+  | "DEACTIVATED";
 export type UserProfileSummaries = Array<UserProfileSummary>;
 export interface UserProfileSummary {
   domainId?: string;
@@ -5576,7 +6908,11 @@ export interface UserProfileSummary {
 export type UserProfileType = "IAM" | "SSO";
 export type UserSearchText = string;
 
-export type UserSearchType = "SSO_USER" | "DATAZONE_USER" | "DATAZONE_SSO_USER" | "DATAZONE_IAM_USER";
+export type UserSearchType =
+  | "SSO_USER"
+  | "DATAZONE_USER"
+  | "DATAZONE_SSO_USER"
+  | "DATAZONE_IAM_USER";
 export type UserType = "IAM_USER" | "IAM_ROLE" | "SSO_USER";
 export declare class ValidationException extends EffectData.TaggedError(
   "ValidationException",
@@ -7553,4 +8889,3 @@ export declare namespace UpdateRule {
     | ValidationException
     | CommonAwsError;
 }
-

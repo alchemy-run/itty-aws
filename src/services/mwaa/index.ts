@@ -5,7 +5,24 @@ import type { MWAA as _MWAAClient } from "./types.ts";
 
 export * from "./types.ts";
 
-export {ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError, type CommonAwsError} from "../../error.ts";
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  ThrottlingException,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+  type CommonAwsError,
+} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -14,18 +31,18 @@ const metadata = {
   protocol: "restJson1",
   sigV4ServiceName: "airflow",
   operations: {
-    "CreateCliToken": "POST /clitoken/{Name}",
-    "CreateEnvironment": "PUT /environments/{Name}",
-    "CreateWebLoginToken": "POST /webtoken/{Name}",
-    "DeleteEnvironment": "DELETE /environments/{Name}",
-    "GetEnvironment": "GET /environments/{Name}",
-    "InvokeRestApi": "POST /restapi/{Name}",
-    "ListEnvironments": "GET /environments",
-    "ListTagsForResource": "GET /tags/{ResourceArn}",
-    "PublishMetrics": "POST /metrics/environments/{EnvironmentName}",
-    "TagResource": "POST /tags/{ResourceArn}",
-    "UntagResource": "DELETE /tags/{ResourceArn}",
-    "UpdateEnvironment": "PATCH /environments/{Name}",
+    CreateCliToken: "POST /clitoken/{Name}",
+    CreateEnvironment: "PUT /environments/{Name}",
+    CreateWebLoginToken: "POST /webtoken/{Name}",
+    DeleteEnvironment: "DELETE /environments/{Name}",
+    GetEnvironment: "GET /environments/{Name}",
+    InvokeRestApi: "POST /restapi/{Name}",
+    ListEnvironments: "GET /environments",
+    ListTagsForResource: "GET /tags/{ResourceArn}",
+    PublishMetrics: "POST /metrics/environments/{EnvironmentName}",
+    TagResource: "POST /tags/{ResourceArn}",
+    UntagResource: "DELETE /tags/{ResourceArn}",
+    UpdateEnvironment: "PATCH /environments/{Name}",
   },
 } as const satisfies ServiceMetadata;
 

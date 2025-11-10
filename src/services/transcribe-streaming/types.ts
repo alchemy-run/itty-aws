@@ -7,31 +7,55 @@ export declare class TranscribeStreaming extends AWSServiceClient {
     input: GetMedicalScribeStreamRequest,
   ): Effect.Effect<
     GetMedicalScribeStreamResponse,
-    BadRequestException | InternalFailureException | LimitExceededException | ResourceNotFoundException | CommonAwsError
+    | BadRequestException
+    | InternalFailureException
+    | LimitExceededException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   startCallAnalyticsStreamTranscription(
     input: StartCallAnalyticsStreamTranscriptionRequest,
   ): Effect.Effect<
     StartCallAnalyticsStreamTranscriptionResponse,
-    BadRequestException | ConflictException | InternalFailureException | LimitExceededException | ServiceUnavailableException | CommonAwsError
+    | BadRequestException
+    | ConflictException
+    | InternalFailureException
+    | LimitExceededException
+    | ServiceUnavailableException
+    | CommonAwsError
   >;
   startMedicalScribeStream(
     input: StartMedicalScribeStreamRequest,
   ): Effect.Effect<
     StartMedicalScribeStreamResponse,
-    BadRequestException | ConflictException | InternalFailureException | LimitExceededException | ServiceUnavailableException | CommonAwsError
+    | BadRequestException
+    | ConflictException
+    | InternalFailureException
+    | LimitExceededException
+    | ServiceUnavailableException
+    | CommonAwsError
   >;
   startMedicalStreamTranscription(
     input: StartMedicalStreamTranscriptionRequest,
   ): Effect.Effect<
     StartMedicalStreamTranscriptionResponse,
-    BadRequestException | ConflictException | InternalFailureException | LimitExceededException | ServiceUnavailableException | CommonAwsError
+    | BadRequestException
+    | ConflictException
+    | InternalFailureException
+    | LimitExceededException
+    | ServiceUnavailableException
+    | CommonAwsError
   >;
   startStreamTranscription(
     input: StartStreamTranscriptionRequest,
   ): Effect.Effect<
     StartStreamTranscriptionResponse,
-    BadRequestException | ConflictException | InternalFailureException | LimitExceededException | ServiceUnavailableException | CommonAwsError
+    | BadRequestException
+    | ConflictException
+    | InternalFailureException
+    | LimitExceededException
+    | ServiceUnavailableException
+    | CommonAwsError
   >;
 }
 
@@ -51,7 +75,9 @@ interface _AudioStream {
   ConfigurationEvent?: ConfigurationEvent;
 }
 
-export type AudioStream = (_AudioStream & { AudioEvent: AudioEvent }) | (_AudioStream & { ConfigurationEvent: ConfigurationEvent });
+export type AudioStream =
+  | (_AudioStream & { AudioEvent: AudioEvent })
+  | (_AudioStream & { ConfigurationEvent: ConfigurationEvent });
 export declare class BadRequestException extends EffectData.TaggedError(
   "BadRequestException",
 )<{
@@ -80,7 +106,16 @@ export interface CallAnalyticsItem {
   Stable?: boolean;
 }
 export type CallAnalyticsItemList = Array<CallAnalyticsItem>;
-export type CallAnalyticsLanguageCode = "en-US" | "en-GB" | "es-US" | "fr-CA" | "fr-FR" | "en-AU" | "it-IT" | "de-DE" | "pt-BR";
+export type CallAnalyticsLanguageCode =
+  | "en-US"
+  | "en-GB"
+  | "es-US"
+  | "fr-CA"
+  | "fr-FR"
+  | "en-AU"
+  | "it-IT"
+  | "de-DE"
+  | "pt-BR";
 interface _CallAnalyticsTranscriptResultStream {
   UtteranceEvent?: UtteranceEvent;
   CategoryEvent?: CategoryEvent;
@@ -91,7 +126,24 @@ interface _CallAnalyticsTranscriptResultStream {
   ServiceUnavailableException?: ServiceUnavailableException;
 }
 
-export type CallAnalyticsTranscriptResultStream = (_CallAnalyticsTranscriptResultStream & { UtteranceEvent: UtteranceEvent }) | (_CallAnalyticsTranscriptResultStream & { CategoryEvent: CategoryEvent }) | (_CallAnalyticsTranscriptResultStream & { BadRequestException: BadRequestException }) | (_CallAnalyticsTranscriptResultStream & { LimitExceededException: LimitExceededException }) | (_CallAnalyticsTranscriptResultStream & { InternalFailureException: InternalFailureException }) | (_CallAnalyticsTranscriptResultStream & { ConflictException: ConflictException }) | (_CallAnalyticsTranscriptResultStream & { ServiceUnavailableException: ServiceUnavailableException });
+export type CallAnalyticsTranscriptResultStream =
+  | (_CallAnalyticsTranscriptResultStream & { UtteranceEvent: UtteranceEvent })
+  | (_CallAnalyticsTranscriptResultStream & { CategoryEvent: CategoryEvent })
+  | (_CallAnalyticsTranscriptResultStream & {
+      BadRequestException: BadRequestException;
+    })
+  | (_CallAnalyticsTranscriptResultStream & {
+      LimitExceededException: LimitExceededException;
+    })
+  | (_CallAnalyticsTranscriptResultStream & {
+      InternalFailureException: InternalFailureException;
+    })
+  | (_CallAnalyticsTranscriptResultStream & {
+      ConflictException: ConflictException;
+    })
+  | (_CallAnalyticsTranscriptResultStream & {
+      ServiceUnavailableException: ServiceUnavailableException;
+    });
 export interface CategoryEvent {
   MatchedCategories?: Array<string>;
   MatchedDetails?: Record<string, PointsOfInterest>;
@@ -117,7 +169,10 @@ export interface ClinicalNoteGenerationSettings {
   OutputBucketName: string;
   NoteTemplate?: MedicalScribeNoteTemplate;
 }
-export type ClinicalNoteGenerationStatus = "IN_PROGRESS" | "FAILED" | "COMPLETED";
+export type ClinicalNoteGenerationStatus =
+  | "IN_PROGRESS"
+  | "FAILED"
+  | "COMPLETED";
 export type Confidence = number;
 
 export interface ConfigurationEvent {
@@ -179,7 +234,61 @@ export type ItemType = "pronunciation" | "punctuation";
 export type KMSEncryptionContextMap = Record<string, string>;
 export type KMSKeyId = string;
 
-export type LanguageCode = "en-US" | "en-GB" | "es-US" | "fr-CA" | "fr-FR" | "en-AU" | "it-IT" | "de-DE" | "pt-BR" | "ja-JP" | "ko-KR" | "zh-CN" | "th-TH" | "es-ES" | "ar-SA" | "pt-PT" | "ca-ES" | "ar-AE" | "hi-IN" | "zh-HK" | "nl-NL" | "no-NO" | "sv-SE" | "pl-PL" | "fi-FI" | "zh-TW" | "en-IN" | "en-IE" | "en-NZ" | "en-AB" | "en-ZA" | "en-WL" | "de-CH" | "af-ZA" | "eu-ES" | "hr-HR" | "cs-CZ" | "da-DK" | "fa-IR" | "gl-ES" | "el-GR" | "he-IL" | "id-ID" | "lv-LV" | "ms-MY" | "ro-RO" | "ru-RU" | "sr-RS" | "sk-SK" | "so-SO" | "tl-PH" | "uk-UA" | "vi-VN" | "zu-ZA";
+export type LanguageCode =
+  | "en-US"
+  | "en-GB"
+  | "es-US"
+  | "fr-CA"
+  | "fr-FR"
+  | "en-AU"
+  | "it-IT"
+  | "de-DE"
+  | "pt-BR"
+  | "ja-JP"
+  | "ko-KR"
+  | "zh-CN"
+  | "th-TH"
+  | "es-ES"
+  | "ar-SA"
+  | "pt-PT"
+  | "ca-ES"
+  | "ar-AE"
+  | "hi-IN"
+  | "zh-HK"
+  | "nl-NL"
+  | "no-NO"
+  | "sv-SE"
+  | "pl-PL"
+  | "fi-FI"
+  | "zh-TW"
+  | "en-IN"
+  | "en-IE"
+  | "en-NZ"
+  | "en-AB"
+  | "en-ZA"
+  | "en-WL"
+  | "de-CH"
+  | "af-ZA"
+  | "eu-ES"
+  | "hr-HR"
+  | "cs-CZ"
+  | "da-DK"
+  | "fa-IR"
+  | "gl-ES"
+  | "el-GR"
+  | "he-IL"
+  | "id-ID"
+  | "lv-LV"
+  | "ms-MY"
+  | "ro-RO"
+  | "ru-RU"
+  | "sr-RS"
+  | "sk-SK"
+  | "so-SO"
+  | "tl-PH"
+  | "uk-UA"
+  | "vi-VN"
+  | "zu-ZA";
 export type LanguageIdentification = Array<LanguageWithScore>;
 export type LanguageOptions = string;
 
@@ -238,7 +347,8 @@ export interface MedicalScribeChannelDefinition {
   ChannelId: number;
   ParticipantRole: MedicalScribeParticipantRole;
 }
-export type MedicalScribeChannelDefinitions = Array<MedicalScribeChannelDefinition>;
+export type MedicalScribeChannelDefinitions =
+  Array<MedicalScribeChannelDefinition>;
 export type MedicalScribeChannelId = number;
 
 export interface MedicalScribeConfigurationEvent {
@@ -260,12 +370,26 @@ interface _MedicalScribeInputStream {
   ConfigurationEvent?: MedicalScribeConfigurationEvent;
 }
 
-export type MedicalScribeInputStream = (_MedicalScribeInputStream & { AudioEvent: MedicalScribeAudioEvent }) | (_MedicalScribeInputStream & { SessionControlEvent: MedicalScribeSessionControlEvent }) | (_MedicalScribeInputStream & { ConfigurationEvent: MedicalScribeConfigurationEvent });
+export type MedicalScribeInputStream =
+  | (_MedicalScribeInputStream & { AudioEvent: MedicalScribeAudioEvent })
+  | (_MedicalScribeInputStream & {
+      SessionControlEvent: MedicalScribeSessionControlEvent;
+    })
+  | (_MedicalScribeInputStream & {
+      ConfigurationEvent: MedicalScribeConfigurationEvent;
+    });
 export type MedicalScribeLanguageCode = "en-US";
 export type MedicalScribeMediaEncoding = "pcm" | "ogg-opus" | "flac";
 export type MedicalScribeMediaSampleRateHertz = number;
 
-export type MedicalScribeNoteTemplate = "HISTORY_AND_PHYSICAL" | "GIRPP" | "DAP" | "SIRP" | "BIRP" | "BEHAVIORAL_SOAP" | "PHYSICAL_SOAP";
+export type MedicalScribeNoteTemplate =
+  | "HISTORY_AND_PHYSICAL"
+  | "GIRPP"
+  | "DAP"
+  | "SIRP"
+  | "BIRP"
+  | "BEHAVIORAL_SOAP"
+  | "PHYSICAL_SOAP";
 export type MedicalScribeParticipantRole = "PATIENT" | "CLINICIAN";
 export interface MedicalScribePostStreamAnalyticsResult {
   ClinicalNoteGenerationResult?: ClinicalNoteGenerationResult;
@@ -282,7 +406,21 @@ interface _MedicalScribeResultStream {
   ServiceUnavailableException?: ServiceUnavailableException;
 }
 
-export type MedicalScribeResultStream = (_MedicalScribeResultStream & { TranscriptEvent: MedicalScribeTranscriptEvent }) | (_MedicalScribeResultStream & { BadRequestException: BadRequestException }) | (_MedicalScribeResultStream & { LimitExceededException: LimitExceededException }) | (_MedicalScribeResultStream & { InternalFailureException: InternalFailureException }) | (_MedicalScribeResultStream & { ConflictException: ConflictException }) | (_MedicalScribeResultStream & { ServiceUnavailableException: ServiceUnavailableException });
+export type MedicalScribeResultStream =
+  | (_MedicalScribeResultStream & {
+      TranscriptEvent: MedicalScribeTranscriptEvent;
+    })
+  | (_MedicalScribeResultStream & { BadRequestException: BadRequestException })
+  | (_MedicalScribeResultStream & {
+      LimitExceededException: LimitExceededException;
+    })
+  | (_MedicalScribeResultStream & {
+      InternalFailureException: InternalFailureException;
+    })
+  | (_MedicalScribeResultStream & { ConflictException: ConflictException })
+  | (_MedicalScribeResultStream & {
+      ServiceUnavailableException: ServiceUnavailableException;
+    });
 export interface MedicalScribeSessionControlEvent {
   Type: MedicalScribeSessionControlEventType;
 }
@@ -304,7 +442,11 @@ export interface MedicalScribeStreamDetails {
   PostStreamAnalyticsSettings?: MedicalScribePostStreamAnalyticsSettings;
   PostStreamAnalyticsResult?: MedicalScribePostStreamAnalyticsResult;
 }
-export type MedicalScribeStreamStatus = "IN_PROGRESS" | "PAUSED" | "FAILED" | "COMPLETED";
+export type MedicalScribeStreamStatus =
+  | "IN_PROGRESS"
+  | "PAUSED"
+  | "FAILED"
+  | "COMPLETED";
 export interface MedicalScribeTranscriptEvent {
   TranscriptSegment?: MedicalScribeTranscriptSegment;
 }
@@ -316,7 +458,8 @@ export interface MedicalScribeTranscriptItem {
   Content?: string;
   VocabularyFilterMatch?: boolean;
 }
-export type MedicalScribeTranscriptItemList = Array<MedicalScribeTranscriptItem>;
+export type MedicalScribeTranscriptItemList =
+  Array<MedicalScribeTranscriptItem>;
 export type MedicalScribeTranscriptItemType = "pronunciation" | "punctuation";
 export interface MedicalScribeTranscriptSegment {
   SegmentId?: string;
@@ -343,7 +486,23 @@ interface _MedicalTranscriptResultStream {
   ServiceUnavailableException?: ServiceUnavailableException;
 }
 
-export type MedicalTranscriptResultStream = (_MedicalTranscriptResultStream & { TranscriptEvent: MedicalTranscriptEvent }) | (_MedicalTranscriptResultStream & { BadRequestException: BadRequestException }) | (_MedicalTranscriptResultStream & { LimitExceededException: LimitExceededException }) | (_MedicalTranscriptResultStream & { InternalFailureException: InternalFailureException }) | (_MedicalTranscriptResultStream & { ConflictException: ConflictException }) | (_MedicalTranscriptResultStream & { ServiceUnavailableException: ServiceUnavailableException });
+export type MedicalTranscriptResultStream =
+  | (_MedicalTranscriptResultStream & {
+      TranscriptEvent: MedicalTranscriptEvent;
+    })
+  | (_MedicalTranscriptResultStream & {
+      BadRequestException: BadRequestException;
+    })
+  | (_MedicalTranscriptResultStream & {
+      LimitExceededException: LimitExceededException;
+    })
+  | (_MedicalTranscriptResultStream & {
+      InternalFailureException: InternalFailureException;
+    })
+  | (_MedicalTranscriptResultStream & { ConflictException: ConflictException })
+  | (_MedicalTranscriptResultStream & {
+      ServiceUnavailableException: ServiceUnavailableException;
+    });
 export type ModelName = string;
 
 export type NonEmptyString = string;
@@ -391,7 +550,13 @@ export declare class ServiceUnavailableException extends EffectData.TaggedError(
 }> {}
 export type SessionId = string;
 
-export type Specialty = "PRIMARYCARE" | "CARDIOLOGY" | "NEUROLOGY" | "ONCOLOGY" | "RADIOLOGY" | "UROLOGY";
+export type Specialty =
+  | "PRIMARYCARE"
+  | "CARDIOLOGY"
+  | "NEUROLOGY"
+  | "ONCOLOGY"
+  | "RADIOLOGY"
+  | "UROLOGY";
 export type Stable = boolean;
 
 export interface StartCallAnalyticsStreamTranscriptionRequest {
@@ -545,7 +710,19 @@ interface _TranscriptResultStream {
   ServiceUnavailableException?: ServiceUnavailableException;
 }
 
-export type TranscriptResultStream = (_TranscriptResultStream & { TranscriptEvent: TranscriptEvent }) | (_TranscriptResultStream & { BadRequestException: BadRequestException }) | (_TranscriptResultStream & { LimitExceededException: LimitExceededException }) | (_TranscriptResultStream & { InternalFailureException: InternalFailureException }) | (_TranscriptResultStream & { ConflictException: ConflictException }) | (_TranscriptResultStream & { ServiceUnavailableException: ServiceUnavailableException });
+export type TranscriptResultStream =
+  | (_TranscriptResultStream & { TranscriptEvent: TranscriptEvent })
+  | (_TranscriptResultStream & { BadRequestException: BadRequestException })
+  | (_TranscriptResultStream & {
+      LimitExceededException: LimitExceededException;
+    })
+  | (_TranscriptResultStream & {
+      InternalFailureException: InternalFailureException;
+    })
+  | (_TranscriptResultStream & { ConflictException: ConflictException })
+  | (_TranscriptResultStream & {
+      ServiceUnavailableException: ServiceUnavailableException;
+    });
 export type Type = "CONVERSATION" | "DICTATION";
 export type Uri = string;
 
@@ -628,4 +805,3 @@ export declare namespace StartStreamTranscription {
     | ServiceUnavailableException
     | CommonAwsError;
 }
-

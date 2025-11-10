@@ -5,7 +5,25 @@ import type { Glacier as _GlacierClient } from "./types.ts";
 
 export * from "./types.ts";
 
-export {AccessDeniedException, ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError, ValidationException, type CommonAwsError} from "../../error.ts";
+export {
+  AccessDeniedException,
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  ServiceUnavailable,
+  ThrottlingException,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+  ValidationException,
+  type CommonAwsError,
+} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -15,105 +33,114 @@ const metadata = {
   sigV4ServiceName: "glacier",
   endpointPrefix: "glacier",
   operations: {
-    "AbortMultipartUpload": "DELETE /{accountId}/vaults/{vaultName}/multipart-uploads/{uploadId}",
-    "AbortVaultLock": "DELETE /{accountId}/vaults/{vaultName}/lock-policy",
-    "AddTagsToVault": "POST /{accountId}/vaults/{vaultName}/tags?operation=add",
-    "CompleteMultipartUpload": {
+    AbortMultipartUpload:
+      "DELETE /{accountId}/vaults/{vaultName}/multipart-uploads/{uploadId}",
+    AbortVaultLock: "DELETE /{accountId}/vaults/{vaultName}/lock-policy",
+    AddTagsToVault: "POST /{accountId}/vaults/{vaultName}/tags?operation=add",
+    CompleteMultipartUpload: {
       http: "POST /{accountId}/vaults/{vaultName}/multipart-uploads/{uploadId}",
       traits: {
-        "location": "Location",
-        "checksum": "x-amz-sha256-tree-hash",
-        "archiveId": "x-amz-archive-id",
+        location: "Location",
+        checksum: "x-amz-sha256-tree-hash",
+        archiveId: "x-amz-archive-id",
       },
     },
-    "CompleteVaultLock": "POST /{accountId}/vaults/{vaultName}/lock-policy/{lockId}",
-    "CreateVault": {
+    CompleteVaultLock:
+      "POST /{accountId}/vaults/{vaultName}/lock-policy/{lockId}",
+    CreateVault: {
       http: "PUT /{accountId}/vaults/{vaultName}",
       traits: {
-        "location": "Location",
+        location: "Location",
       },
     },
-    "DeleteArchive": "DELETE /{accountId}/vaults/{vaultName}/archives/{archiveId}",
-    "DeleteVault": "DELETE /{accountId}/vaults/{vaultName}",
-    "DeleteVaultAccessPolicy": "DELETE /{accountId}/vaults/{vaultName}/access-policy",
-    "DeleteVaultNotifications": "DELETE /{accountId}/vaults/{vaultName}/notification-configuration",
-    "DescribeJob": "GET /{accountId}/vaults/{vaultName}/jobs/{jobId}",
-    "DescribeVault": "GET /{accountId}/vaults/{vaultName}",
-    "GetDataRetrievalPolicy": "GET /{accountId}/policies/data-retrieval",
-    "GetJobOutput": {
+    DeleteArchive:
+      "DELETE /{accountId}/vaults/{vaultName}/archives/{archiveId}",
+    DeleteVault: "DELETE /{accountId}/vaults/{vaultName}",
+    DeleteVaultAccessPolicy:
+      "DELETE /{accountId}/vaults/{vaultName}/access-policy",
+    DeleteVaultNotifications:
+      "DELETE /{accountId}/vaults/{vaultName}/notification-configuration",
+    DescribeJob: "GET /{accountId}/vaults/{vaultName}/jobs/{jobId}",
+    DescribeVault: "GET /{accountId}/vaults/{vaultName}",
+    GetDataRetrievalPolicy: "GET /{accountId}/policies/data-retrieval",
+    GetJobOutput: {
       http: "GET /{accountId}/vaults/{vaultName}/jobs/{jobId}/output",
       traits: {
-        "body": "httpPayload",
-        "checksum": "x-amz-sha256-tree-hash",
-        "status": "httpResponseCode",
-        "contentRange": "Content-Range",
-        "acceptRanges": "Accept-Ranges",
-        "contentType": "Content-Type",
-        "archiveDescription": "x-amz-archive-description",
+        body: "httpPayload",
+        checksum: "x-amz-sha256-tree-hash",
+        status: "httpResponseCode",
+        contentRange: "Content-Range",
+        acceptRanges: "Accept-Ranges",
+        contentType: "Content-Type",
+        archiveDescription: "x-amz-archive-description",
       },
     },
-    "GetVaultAccessPolicy": {
+    GetVaultAccessPolicy: {
       http: "GET /{accountId}/vaults/{vaultName}/access-policy",
       traits: {
-        "policy": "httpPayload",
+        policy: "httpPayload",
       },
     },
-    "GetVaultLock": "GET /{accountId}/vaults/{vaultName}/lock-policy",
-    "GetVaultNotifications": {
+    GetVaultLock: "GET /{accountId}/vaults/{vaultName}/lock-policy",
+    GetVaultNotifications: {
       http: "GET /{accountId}/vaults/{vaultName}/notification-configuration",
       traits: {
-        "vaultNotificationConfig": "httpPayload",
+        vaultNotificationConfig: "httpPayload",
       },
     },
-    "InitiateJob": {
+    InitiateJob: {
       http: "POST /{accountId}/vaults/{vaultName}/jobs",
       traits: {
-        "location": "Location",
-        "jobId": "x-amz-job-id",
-        "jobOutputPath": "x-amz-job-output-path",
+        location: "Location",
+        jobId: "x-amz-job-id",
+        jobOutputPath: "x-amz-job-output-path",
       },
     },
-    "InitiateMultipartUpload": {
+    InitiateMultipartUpload: {
       http: "POST /{accountId}/vaults/{vaultName}/multipart-uploads",
       traits: {
-        "location": "Location",
-        "uploadId": "x-amz-multipart-upload-id",
+        location: "Location",
+        uploadId: "x-amz-multipart-upload-id",
       },
     },
-    "InitiateVaultLock": {
+    InitiateVaultLock: {
       http: "POST /{accountId}/vaults/{vaultName}/lock-policy",
       traits: {
-        "lockId": "x-amz-lock-id",
+        lockId: "x-amz-lock-id",
       },
     },
-    "ListJobs": "GET /{accountId}/vaults/{vaultName}/jobs",
-    "ListMultipartUploads": "GET /{accountId}/vaults/{vaultName}/multipart-uploads",
-    "ListParts": "GET /{accountId}/vaults/{vaultName}/multipart-uploads/{uploadId}",
-    "ListProvisionedCapacity": "GET /{accountId}/provisioned-capacity",
-    "ListTagsForVault": "GET /{accountId}/vaults/{vaultName}/tags",
-    "ListVaults": "GET /{accountId}/vaults",
-    "PurchaseProvisionedCapacity": {
+    ListJobs: "GET /{accountId}/vaults/{vaultName}/jobs",
+    ListMultipartUploads:
+      "GET /{accountId}/vaults/{vaultName}/multipart-uploads",
+    ListParts:
+      "GET /{accountId}/vaults/{vaultName}/multipart-uploads/{uploadId}",
+    ListProvisionedCapacity: "GET /{accountId}/provisioned-capacity",
+    ListTagsForVault: "GET /{accountId}/vaults/{vaultName}/tags",
+    ListVaults: "GET /{accountId}/vaults",
+    PurchaseProvisionedCapacity: {
       http: "POST /{accountId}/provisioned-capacity",
       traits: {
-        "capacityId": "x-amz-capacity-id",
+        capacityId: "x-amz-capacity-id",
       },
     },
-    "RemoveTagsFromVault": "POST /{accountId}/vaults/{vaultName}/tags?operation=remove",
-    "SetDataRetrievalPolicy": "PUT /{accountId}/policies/data-retrieval",
-    "SetVaultAccessPolicy": "PUT /{accountId}/vaults/{vaultName}/access-policy",
-    "SetVaultNotifications": "PUT /{accountId}/vaults/{vaultName}/notification-configuration",
-    "UploadArchive": {
+    RemoveTagsFromVault:
+      "POST /{accountId}/vaults/{vaultName}/tags?operation=remove",
+    SetDataRetrievalPolicy: "PUT /{accountId}/policies/data-retrieval",
+    SetVaultAccessPolicy: "PUT /{accountId}/vaults/{vaultName}/access-policy",
+    SetVaultNotifications:
+      "PUT /{accountId}/vaults/{vaultName}/notification-configuration",
+    UploadArchive: {
       http: "POST /{accountId}/vaults/{vaultName}/archives",
       traits: {
-        "location": "Location",
-        "checksum": "x-amz-sha256-tree-hash",
-        "archiveId": "x-amz-archive-id",
+        location: "Location",
+        checksum: "x-amz-sha256-tree-hash",
+        archiveId: "x-amz-archive-id",
       },
     },
-    "UploadMultipartPart": {
+    UploadMultipartPart: {
       http: "PUT /{accountId}/vaults/{vaultName}/multipart-uploads/{uploadId}",
       traits: {
-        "checksum": "x-amz-sha256-tree-hash",
+        checksum: "x-amz-sha256-tree-hash",
       },
     },
   },

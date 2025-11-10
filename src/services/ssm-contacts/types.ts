@@ -1,6 +1,38 @@
 import type { Effect, Data as EffectData } from "effect";
-import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
-type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
+import type {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+type CommonAwsError =
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | AccessDeniedException
+  | ThrottlingException
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class SSMContacts extends AWSServiceClient {
@@ -8,235 +40,450 @@ export declare class SSMContacts extends AWSServiceClient {
     input: AcceptPageRequest,
   ): Effect.Effect<
     AcceptPageResult,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   activateContactChannel(
     input: ActivateContactChannelRequest,
   ): Effect.Effect<
     ActivateContactChannelResult,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createContact(
     input: CreateContactRequest,
   ): Effect.Effect<
     CreateContactResult,
-    AccessDeniedException | ConflictException | DataEncryptionException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | DataEncryptionException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createContactChannel(
     input: CreateContactChannelRequest,
   ): Effect.Effect<
     CreateContactChannelResult,
-    AccessDeniedException | ConflictException | DataEncryptionException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | DataEncryptionException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createRotation(
     input: CreateRotationRequest,
   ): Effect.Effect<
     CreateRotationResult,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createRotationOverride(
     input: CreateRotationOverrideRequest,
   ): Effect.Effect<
     CreateRotationOverrideResult,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deactivateContactChannel(
     input: DeactivateContactChannelRequest,
   ): Effect.Effect<
     DeactivateContactChannelResult,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteContact(
     input: DeleteContactRequest,
   ): Effect.Effect<
     DeleteContactResult,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteContactChannel(
     input: DeleteContactChannelRequest,
   ): Effect.Effect<
     DeleteContactChannelResult,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteRotation(
     input: DeleteRotationRequest,
   ): Effect.Effect<
     DeleteRotationResult,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteRotationOverride(
     input: DeleteRotationOverrideRequest,
   ): Effect.Effect<
     DeleteRotationOverrideResult,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   describeEngagement(
     input: DescribeEngagementRequest,
   ): Effect.Effect<
     DescribeEngagementResult,
-    AccessDeniedException | DataEncryptionException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | DataEncryptionException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   describePage(
     input: DescribePageRequest,
   ): Effect.Effect<
     DescribePageResult,
-    AccessDeniedException | DataEncryptionException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | DataEncryptionException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getContact(
     input: GetContactRequest,
   ): Effect.Effect<
     GetContactResult,
-    AccessDeniedException | DataEncryptionException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | DataEncryptionException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getContactChannel(
     input: GetContactChannelRequest,
   ): Effect.Effect<
     GetContactChannelResult,
-    AccessDeniedException | DataEncryptionException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | DataEncryptionException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getContactPolicy(
     input: GetContactPolicyRequest,
   ): Effect.Effect<
     GetContactPolicyResult,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getRotation(
     input: GetRotationRequest,
   ): Effect.Effect<
     GetRotationResult,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getRotationOverride(
     input: GetRotationOverrideRequest,
   ): Effect.Effect<
     GetRotationOverrideResult,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listContactChannels(
     input: ListContactChannelsRequest,
   ): Effect.Effect<
     ListContactChannelsResult,
-    AccessDeniedException | DataEncryptionException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | DataEncryptionException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listContacts(
     input: ListContactsRequest,
   ): Effect.Effect<
     ListContactsResult,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listEngagements(
     input: ListEngagementsRequest,
   ): Effect.Effect<
     ListEngagementsResult,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listPageReceipts(
     input: ListPageReceiptsRequest,
   ): Effect.Effect<
     ListPageReceiptsResult,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listPageResolutions(
     input: ListPageResolutionsRequest,
   ): Effect.Effect<
     ListPageResolutionsResult,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listPagesByContact(
     input: ListPagesByContactRequest,
   ): Effect.Effect<
     ListPagesByContactResult,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listPagesByEngagement(
     input: ListPagesByEngagementRequest,
   ): Effect.Effect<
     ListPagesByEngagementResult,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listPreviewRotationShifts(
     input: ListPreviewRotationShiftsRequest,
   ): Effect.Effect<
     ListPreviewRotationShiftsResult,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listRotationOverrides(
     input: ListRotationOverridesRequest,
   ): Effect.Effect<
     ListRotationOverridesResult,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listRotations(
     input: ListRotationsRequest,
   ): Effect.Effect<
     ListRotationsResult,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listRotationShifts(
     input: ListRotationShiftsRequest,
   ): Effect.Effect<
     ListRotationShiftsResult,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResult,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   putContactPolicy(
     input: PutContactPolicyRequest,
   ): Effect.Effect<
     PutContactPolicyResult,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   sendActivationCode(
     input: SendActivationCodeRequest,
   ): Effect.Effect<
     SendActivationCodeResult,
-    AccessDeniedException | DataEncryptionException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | DataEncryptionException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   startEngagement(
     input: StartEngagementRequest,
   ): Effect.Effect<
     StartEngagementResult,
-    AccessDeniedException | DataEncryptionException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | DataEncryptionException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   stopEngagement(
     input: StopEngagementRequest,
   ): Effect.Effect<
     StopEngagementResult,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResult,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResult,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateContact(
     input: UpdateContactRequest,
   ): Effect.Effect<
     UpdateContactResult,
-    AccessDeniedException | DataEncryptionException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | DataEncryptionException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateContactChannel(
     input: UpdateContactChannelRequest,
   ): Effect.Effect<
     UpdateContactChannelResult,
-    AccessDeniedException | ConflictException | DataEncryptionException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | DataEncryptionException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateRotation(
     input: UpdateRotationRequest,
   ): Effect.Effect<
     UpdateRotationResult,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
 }
 
@@ -253,8 +500,7 @@ export interface AcceptPageRequest {
   AcceptCode: string;
   AcceptCodeValidation?: AcceptCodeValidation;
 }
-export interface AcceptPageResult {
-}
+export interface AcceptPageResult {}
 export type AcceptType = "DELIVERED" | "READ";
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",
@@ -265,8 +511,7 @@ export interface ActivateContactChannelRequest {
   ContactChannelId: string;
   ActivationCode: string;
 }
-export interface ActivateContactChannelResult {
-}
+export interface ActivateContactChannelResult {}
 export type ActivationCode = string;
 
 export type ActivationStatus = "ACTIVATED" | "NOT_ACTIVATED";
@@ -380,31 +625,26 @@ export type DayOfWeek = "MON" | "TUE" | "WED" | "THU" | "FRI" | "SAT" | "SUN";
 export interface DeactivateContactChannelRequest {
   ContactChannelId: string;
 }
-export interface DeactivateContactChannelResult {
-}
+export interface DeactivateContactChannelResult {}
 export type DeferActivation = boolean;
 
 export interface DeleteContactChannelRequest {
   ContactChannelId: string;
 }
-export interface DeleteContactChannelResult {
-}
+export interface DeleteContactChannelResult {}
 export interface DeleteContactRequest {
   ContactId: string;
 }
-export interface DeleteContactResult {
-}
+export interface DeleteContactResult {}
 export interface DeleteRotationOverrideRequest {
   RotationId: string;
   RotationOverrideId: string;
 }
-export interface DeleteRotationOverrideResult {
-}
+export interface DeleteRotationOverrideResult {}
 export interface DeleteRotationRequest {
   RotationId: string;
 }
-export interface DeleteRotationResult {
-}
+export interface DeleteRotationResult {}
 export interface DependentEntity {
   RelationType: string;
   DependentResourceIds: Array<string>;
@@ -682,8 +922,7 @@ export interface PutContactPolicyRequest {
   ContactArn: string;
   Policy: string;
 }
-export interface PutContactPolicyResult {
-}
+export interface PutContactPolicyResult {}
 export interface Receipt {
   ContactChannelArn?: string;
   ReceiptType: ReceiptType;
@@ -755,8 +994,7 @@ export type RotationShifts = Array<RotationShift>;
 export interface SendActivationCodeRequest {
   ContactChannelId: string;
 }
-export interface SendActivationCodeResult {
-}
+export interface SendActivationCodeResult {}
 export type Sender = string;
 
 export declare class ServiceQuotaExceededException extends EffectData.TaggedError(
@@ -804,8 +1042,7 @@ export interface StopEngagementRequest {
   EngagementId: string;
   Reason?: string;
 }
-export interface StopEngagementResult {
-}
+export interface StopEngagementResult {}
 export type StopReason = string;
 
 export type SsmContactsString = string;
@@ -823,8 +1060,7 @@ export interface TagResourceRequest {
   ResourceARN: string;
   Tags: Array<Tag>;
 }
-export interface TagResourceResult {
-}
+export interface TagResourceResult {}
 export type TagsList = Array<Tag>;
 export type TagValue = string;
 
@@ -851,22 +1087,19 @@ export interface UntagResourceRequest {
   ResourceARN: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResult {
-}
+export interface UntagResourceResult {}
 export interface UpdateContactChannelRequest {
   ContactChannelId: string;
   Name?: string;
   DeliveryAddress?: ContactChannelAddress;
 }
-export interface UpdateContactChannelResult {
-}
+export interface UpdateContactChannelResult {}
 export interface UpdateContactRequest {
   ContactId: string;
   DisplayName?: string;
   Plan?: Plan;
 }
-export interface UpdateContactResult {
-}
+export interface UpdateContactResult {}
 export interface UpdateRotationRequest {
   RotationId: string;
   ContactIds?: Array<string>;
@@ -874,8 +1107,7 @@ export interface UpdateRotationRequest {
   TimeZoneId?: string;
   Recurrence: RecurrenceSettings;
 }
-export interface UpdateRotationResult {
-}
+export interface UpdateRotationResult {}
 export type Uuid = string;
 
 export declare class ValidationException extends EffectData.TaggedError(
@@ -890,7 +1122,11 @@ export interface ValidationExceptionField {
   Message: string;
 }
 export type ValidationExceptionFieldList = Array<ValidationExceptionField>;
-export type ValidationExceptionReason = "UNKNOWN_OPERATION" | "CANNOT_PARSE" | "FIELD_VALIDATION_FAILED" | "OTHER";
+export type ValidationExceptionReason =
+  | "UNKNOWN_OPERATION"
+  | "CANNOT_PARSE"
+  | "FIELD_VALIDATION_FAILED"
+  | "OTHER";
 export interface WeeklySetting {
   DayOfWeek: DayOfWeek;
   HandOffTime: HandOffTime;
@@ -1383,4 +1619,3 @@ export declare namespace UpdateRotation {
     | ValidationException
     | CommonAwsError;
 }
-

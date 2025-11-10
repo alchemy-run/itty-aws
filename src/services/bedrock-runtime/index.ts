@@ -5,7 +5,23 @@ import type { BedrockRuntime as _BedrockRuntimeClient } from "./types.ts";
 
 export * from "./types.ts";
 
-export {ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, type CommonAwsError} from "../../error.ts";
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+  type CommonAwsError,
+} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -15,39 +31,40 @@ const metadata = {
   sigV4ServiceName: "bedrock",
   endpointPrefix: "bedrock-runtime",
   operations: {
-    "ApplyGuardrail": "POST /guardrail/{guardrailIdentifier}/version/{guardrailVersion}/apply",
-    "Converse": "POST /model/{modelId}/converse",
-    "ConverseStream": {
+    ApplyGuardrail:
+      "POST /guardrail/{guardrailIdentifier}/version/{guardrailVersion}/apply",
+    Converse: "POST /model/{modelId}/converse",
+    ConverseStream: {
       http: "POST /model/{modelId}/converse-stream",
       traits: {
-        "stream": "httpPayload",
+        stream: "httpPayload",
       },
     },
-    "GetAsyncInvoke": "GET /async-invoke/{invocationArn}",
-    "InvokeModel": {
+    GetAsyncInvoke: "GET /async-invoke/{invocationArn}",
+    InvokeModel: {
       http: "POST /model/{modelId}/invoke",
       traits: {
-        "body": "httpStreaming",
-        "contentType": "Content-Type",
-        "performanceConfigLatency": "X-Amzn-Bedrock-PerformanceConfig-Latency",
+        body: "httpStreaming",
+        contentType: "Content-Type",
+        performanceConfigLatency: "X-Amzn-Bedrock-PerformanceConfig-Latency",
       },
     },
-    "InvokeModelWithBidirectionalStream": {
+    InvokeModelWithBidirectionalStream: {
       http: "POST /model/{modelId}/invoke-with-bidirectional-stream",
       traits: {
-        "body": "httpPayload",
+        body: "httpPayload",
       },
     },
-    "InvokeModelWithResponseStream": {
+    InvokeModelWithResponseStream: {
       http: "POST /model/{modelId}/invoke-with-response-stream",
       traits: {
-        "body": "httpStreaming",
-        "contentType": "X-Amzn-Bedrock-Content-Type",
-        "performanceConfigLatency": "X-Amzn-Bedrock-PerformanceConfig-Latency",
+        body: "httpStreaming",
+        contentType: "X-Amzn-Bedrock-Content-Type",
+        performanceConfigLatency: "X-Amzn-Bedrock-PerformanceConfig-Latency",
       },
     },
-    "ListAsyncInvokes": "GET /async-invoke",
-    "StartAsyncInvoke": "POST /async-invoke",
+    ListAsyncInvokes: "GET /async-invoke",
+    StartAsyncInvoke: "POST /async-invoke",
   },
 } as const satisfies ServiceMetadata;
 

@@ -5,7 +5,26 @@ import type { SagemakerEdge as _SagemakerEdgeClient } from "./types.ts";
 
 export * from "./types.ts";
 
-export {AccessDeniedException, ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError, ValidationException, type CommonAwsError} from "../../error.ts";
+export {
+  AccessDeniedException,
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  ThrottlingException,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+  ValidationException,
+  type CommonAwsError,
+} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -15,9 +34,9 @@ const metadata = {
   sigV4ServiceName: "sagemaker",
   endpointPrefix: "edge.sagemaker",
   operations: {
-    "GetDeployments": "POST /GetDeployments",
-    "GetDeviceRegistration": "POST /GetDeviceRegistration",
-    "SendHeartbeat": "POST /SendHeartbeat",
+    GetDeployments: "POST /GetDeployments",
+    GetDeviceRegistration: "POST /GetDeviceRegistration",
+    SendHeartbeat: "POST /SendHeartbeat",
   },
 } as const satisfies ServiceMetadata;
 

@@ -5,7 +5,25 @@ import type { AppConfigData as _AppConfigDataClient } from "./types.ts";
 
 export * from "./types.ts";
 
-export {AccessDeniedException, ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, ValidationException, type CommonAwsError} from "../../error.ts";
+export {
+  AccessDeniedException,
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+  ValidationException,
+  type CommonAwsError,
+} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -15,17 +33,17 @@ const metadata = {
   sigV4ServiceName: "appconfig",
   endpointPrefix: "appconfigdata",
   operations: {
-    "GetLatestConfiguration": {
+    GetLatestConfiguration: {
       http: "GET /configuration",
       traits: {
-        "NextPollConfigurationToken": "Next-Poll-Configuration-Token",
-        "NextPollIntervalInSeconds": "Next-Poll-Interval-In-Seconds",
-        "ContentType": "Content-Type",
-        "Configuration": "httpPayload",
-        "VersionLabel": "Version-Label",
+        NextPollConfigurationToken: "Next-Poll-Configuration-Token",
+        NextPollIntervalInSeconds: "Next-Poll-Interval-In-Seconds",
+        ContentType: "Content-Type",
+        Configuration: "httpPayload",
+        VersionLabel: "Version-Label",
       },
     },
-    "StartConfigurationSession": "POST /configurationsessions",
+    StartConfigurationSession: "POST /configurationsessions",
   },
 } as const satisfies ServiceMetadata;
 

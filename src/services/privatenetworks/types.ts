@@ -1,6 +1,38 @@
 import type { Effect, Data as EffectData } from "effect";
-import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
-type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
+import type {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+type CommonAwsError =
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | AccessDeniedException
+  | ThrottlingException
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class PrivateNetworks extends AWSServiceClient {
@@ -8,125 +40,187 @@ export declare class PrivateNetworks extends AWSServiceClient {
     input: AcknowledgeOrderReceiptRequest,
   ): Effect.Effect<
     AcknowledgeOrderReceiptResponse,
-    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   activateDeviceIdentifier(
     input: ActivateDeviceIdentifierRequest,
   ): Effect.Effect<
     ActivateDeviceIdentifierResponse,
-    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   activateNetworkSite(
     input: ActivateNetworkSiteRequest,
   ): Effect.Effect<
     ActivateNetworkSiteResponse,
-    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   configureAccessPoint(
     input: ConfigureAccessPointRequest,
   ): Effect.Effect<
     ConfigureAccessPointResponse,
-    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   createNetwork(
     input: CreateNetworkRequest,
   ): Effect.Effect<
     CreateNetworkResponse,
-    InternalServerException | LimitExceededException | ValidationException | CommonAwsError
+    | InternalServerException
+    | LimitExceededException
+    | ValidationException
+    | CommonAwsError
   >;
   createNetworkSite(
     input: CreateNetworkSiteRequest,
   ): Effect.Effect<
     CreateNetworkSiteResponse,
-    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   deactivateDeviceIdentifier(
     input: DeactivateDeviceIdentifierRequest,
   ): Effect.Effect<
     DeactivateDeviceIdentifierResponse,
-    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteNetwork(
     input: DeleteNetworkRequest,
   ): Effect.Effect<
     DeleteNetworkResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteNetworkSite(
     input: DeleteNetworkSiteRequest,
   ): Effect.Effect<
     DeleteNetworkSiteResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   getDeviceIdentifier(
     input: GetDeviceIdentifierRequest,
   ): Effect.Effect<
     GetDeviceIdentifierResponse,
-    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   getNetwork(
     input: GetNetworkRequest,
   ): Effect.Effect<
     GetNetworkResponse,
-    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   getNetworkResource(
     input: GetNetworkResourceRequest,
   ): Effect.Effect<
     GetNetworkResourceResponse,
-    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   getNetworkSite(
     input: GetNetworkSiteRequest,
   ): Effect.Effect<
     GetNetworkSiteResponse,
-    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   getOrder(
     input: GetOrderRequest,
   ): Effect.Effect<
     GetOrderResponse,
-    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   listDeviceIdentifiers(
     input: ListDeviceIdentifiersRequest,
   ): Effect.Effect<
     ListDeviceIdentifiersResponse,
-    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   listNetworkResources(
     input: ListNetworkResourcesRequest,
   ): Effect.Effect<
     ListNetworkResourcesResponse,
-    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   listNetworks(
     input: ListNetworksRequest,
   ): Effect.Effect<
     ListNetworksResponse,
-    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   listNetworkSites(
     input: ListNetworkSitesRequest,
   ): Effect.Effect<
     ListNetworkSitesResponse,
-    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   listOrders(
     input: ListOrdersRequest,
   ): Effect.Effect<
     ListOrdersResponse,
-    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
-  ping(
-    input: {},
-  ): Effect.Effect<
+  ping(input: {}): Effect.Effect<
     PingResponse,
     InternalServerException | CommonAwsError
   >;
@@ -134,31 +228,50 @@ export declare class PrivateNetworks extends AWSServiceClient {
     input: StartNetworkResourceUpdateRequest,
   ): Effect.Effect<
     StartNetworkResourceUpdateResponse,
-    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateNetworkSite(
     input: UpdateNetworkSiteRequest,
   ): Effect.Effect<
     UpdateNetworkSiteResponse,
-    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   updateNetworkSitePlan(
     input: UpdateNetworkSitePlanRequest,
   ): Effect.Effect<
     UpdateNetworkSiteResponse,
-    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
 }
 
@@ -556,8 +669,7 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {
-}
+export interface TagResourceResponse {}
 export type TagValue = string;
 
 export declare class ThrottlingException extends EffectData.TaggedError(
@@ -575,8 +687,7 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {
-}
+export interface UntagResourceResponse {}
 export interface UpdateNetworkSitePlanRequest {
   networkSiteArn: string;
   pendingPlan: SitePlan;
@@ -814,9 +925,7 @@ export declare namespace ListTagsForResource {
 export declare namespace Ping {
   export type Input = {};
   export type Output = PingResponse;
-  export type Error =
-    | InternalServerException
-    | CommonAwsError;
+  export type Error = InternalServerException | CommonAwsError;
 }
 
 export declare namespace StartNetworkResourceUpdate {
@@ -872,4 +981,3 @@ export declare namespace UpdateNetworkSitePlan {
     | ValidationException
     | CommonAwsError;
 }
-

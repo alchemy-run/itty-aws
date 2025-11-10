@@ -5,7 +5,24 @@ import type { SocialMessaging as _SocialMessagingClient } from "./types.ts";
 
 export * from "./types.ts";
 
-export {ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError, type CommonAwsError} from "../../error.ts";
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  ThrottlingException,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+  type CommonAwsError,
+} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -15,27 +32,31 @@ const metadata = {
   sigV4ServiceName: "social-messaging",
   endpointPrefix: "social-messaging",
   operations: {
-    "CreateWhatsAppMessageTemplate": "POST /v1/whatsapp/template/put",
-    "CreateWhatsAppMessageTemplateFromLibrary": "POST /v1/whatsapp/template/create",
-    "CreateWhatsAppMessageTemplateMedia": "POST /v1/whatsapp/template/media",
-    "DeleteWhatsAppMessageTemplate": "DELETE /v1/whatsapp/template",
-    "GetWhatsAppMessageTemplate": "GET /v1/whatsapp/template",
-    "ListTagsForResource": "GET /v1/tags/list",
-    "ListWhatsAppMessageTemplates": "GET /v1/whatsapp/template/list",
-    "ListWhatsAppTemplateLibrary": "POST /v1/whatsapp/template/library",
-    "TagResource": "POST /v1/tags/tag-resource",
-    "UntagResource": "POST /v1/tags/untag-resource",
-    "UpdateWhatsAppMessageTemplate": "POST /v1/whatsapp/template",
-    "AssociateWhatsAppBusinessAccount": "POST /v1/whatsapp/signup",
-    "DeleteWhatsAppMessageMedia": "DELETE /v1/whatsapp/media",
-    "DisassociateWhatsAppBusinessAccount": "DELETE /v1/whatsapp/waba/disassociate",
-    "GetLinkedWhatsAppBusinessAccount": "GET /v1/whatsapp/waba/details",
-    "GetLinkedWhatsAppBusinessAccountPhoneNumber": "GET /v1/whatsapp/waba/phone/details",
-    "GetWhatsAppMessageMedia": "POST /v1/whatsapp/media/get",
-    "ListLinkedWhatsAppBusinessAccounts": "GET /v1/whatsapp/waba/list",
-    "PostWhatsAppMessageMedia": "POST /v1/whatsapp/media",
-    "PutWhatsAppBusinessAccountEventDestinations": "PUT /v1/whatsapp/waba/eventdestinations",
-    "SendWhatsAppMessage": "POST /v1/whatsapp/send",
+    CreateWhatsAppMessageTemplate: "POST /v1/whatsapp/template/put",
+    CreateWhatsAppMessageTemplateFromLibrary:
+      "POST /v1/whatsapp/template/create",
+    CreateWhatsAppMessageTemplateMedia: "POST /v1/whatsapp/template/media",
+    DeleteWhatsAppMessageTemplate: "DELETE /v1/whatsapp/template",
+    GetWhatsAppMessageTemplate: "GET /v1/whatsapp/template",
+    ListTagsForResource: "GET /v1/tags/list",
+    ListWhatsAppMessageTemplates: "GET /v1/whatsapp/template/list",
+    ListWhatsAppTemplateLibrary: "POST /v1/whatsapp/template/library",
+    TagResource: "POST /v1/tags/tag-resource",
+    UntagResource: "POST /v1/tags/untag-resource",
+    UpdateWhatsAppMessageTemplate: "POST /v1/whatsapp/template",
+    AssociateWhatsAppBusinessAccount: "POST /v1/whatsapp/signup",
+    DeleteWhatsAppMessageMedia: "DELETE /v1/whatsapp/media",
+    DisassociateWhatsAppBusinessAccount:
+      "DELETE /v1/whatsapp/waba/disassociate",
+    GetLinkedWhatsAppBusinessAccount: "GET /v1/whatsapp/waba/details",
+    GetLinkedWhatsAppBusinessAccountPhoneNumber:
+      "GET /v1/whatsapp/waba/phone/details",
+    GetWhatsAppMessageMedia: "POST /v1/whatsapp/media/get",
+    ListLinkedWhatsAppBusinessAccounts: "GET /v1/whatsapp/waba/list",
+    PostWhatsAppMessageMedia: "POST /v1/whatsapp/media",
+    PutWhatsAppBusinessAccountEventDestinations:
+      "PUT /v1/whatsapp/waba/eventdestinations",
+    SendWhatsAppMessage: "POST /v1/whatsapp/send",
   },
 } as const satisfies ServiceMetadata;
 

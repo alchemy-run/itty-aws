@@ -1,6 +1,38 @@
 import type { Effect, Data as EffectData } from "effect";
-import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
-type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
+import type {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+type CommonAwsError =
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | AccessDeniedException
+  | ThrottlingException
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class GeoPlaces extends AWSServiceClient {
@@ -8,43 +40,71 @@ export declare class GeoPlaces extends AWSServiceClient {
     input: AutocompleteRequest,
   ): Effect.Effect<
     AutocompleteResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   geocode(
     input: GeocodeRequest,
   ): Effect.Effect<
     GeocodeResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getPlace(
     input: GetPlaceRequest,
   ): Effect.Effect<
     GetPlaceResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   reverseGeocode(
     input: ReverseGeocodeRequest,
   ): Effect.Effect<
     ReverseGeocodeResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   searchNearby(
     input: SearchNearbyRequest,
   ): Effect.Effect<
     SearchNearbyResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   searchText(
     input: SearchTextRequest,
   ): Effect.Effect<
     SearchTextResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   suggest(
     input: SuggestRequest,
   ): Effect.Effect<
     SuggestResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
 }
 
@@ -411,7 +471,8 @@ export interface ParsedQuerySecondaryAddressComponent {
   Number: string;
   Designator: string;
 }
-export type ParsedQuerySecondaryAddressComponentList = Array<ParsedQuerySecondaryAddressComponent>;
+export type ParsedQuerySecondaryAddressComponentList =
+  Array<ParsedQuerySecondaryAddressComponent>;
 export interface PhonemeDetails {
   Title?: Array<PhonemeTranscription>;
   Address?: AddressComponentPhonemes;
@@ -620,7 +681,8 @@ export type SecondaryAddressComponentList = Array<SecondaryAddressComponent>;
 export interface SecondaryAddressComponentMatchScore {
   Number?: number;
 }
-export type SecondaryAddressComponentMatchScoreList = Array<SecondaryAddressComponentMatchScore>;
+export type SecondaryAddressComponentMatchScoreList =
+  Array<SecondaryAddressComponentMatchScore>;
 export type SensitiveBoolean = boolean;
 
 export type SensitiveString = string;
@@ -822,4 +884,3 @@ export declare namespace Suggest {
     | ValidationException
     | CommonAwsError;
 }
-

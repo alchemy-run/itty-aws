@@ -1,6 +1,38 @@
 import type { Effect, Data as EffectData } from "effect";
-import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
-type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
+import type {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+type CommonAwsError =
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | AccessDeniedException
+  | ThrottlingException
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class CostOptimizationHub extends AWSServiceClient {
@@ -8,43 +40,72 @@ export declare class CostOptimizationHub extends AWSServiceClient {
     input: GetPreferencesRequest,
   ): Effect.Effect<
     GetPreferencesResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getRecommendation(
     input: GetRecommendationRequest,
   ): Effect.Effect<
     GetRecommendationResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listEnrollmentStatuses(
     input: ListEnrollmentStatusesRequest,
   ): Effect.Effect<
     ListEnrollmentStatusesResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listRecommendations(
     input: ListRecommendationsRequest,
   ): Effect.Effect<
     ListRecommendationsResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listRecommendationSummaries(
     input: ListRecommendationSummariesRequest,
   ): Effect.Effect<
     ListRecommendationSummariesResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateEnrollmentStatus(
     input: UpdateEnrollmentStatusRequest,
   ): Effect.Effect<
     UpdateEnrollmentStatusResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updatePreferences(
     input: UpdatePreferencesRequest,
   ): Effect.Effect<
     UpdatePreferencesResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
 }
 
@@ -63,7 +124,15 @@ export type AccountEnrollmentStatuses = Array<AccountEnrollmentStatus>;
 export type AccountId = string;
 
 export type AccountIdList = Array<string>;
-export type ActionType = "Rightsize" | "Stop" | "Upgrade" | "PurchaseSavingsPlans" | "PurchaseReservedInstances" | "MigrateToGraviton" | "Delete" | "ScaleIn";
+export type ActionType =
+  | "Rightsize"
+  | "Stop"
+  | "Upgrade"
+  | "PurchaseSavingsPlans"
+  | "PurchaseReservedInstances"
+  | "MigrateToGraviton"
+  | "Delete"
+  | "ScaleIn";
 export type ActionTypeList = Array<ActionType>;
 export type AllocationStrategy = "Prioritized" | "LowestPrice";
 export interface AuroraDbClusterStorage {
@@ -132,7 +201,9 @@ export interface Ec2AutoScalingGroupConfiguration {
   type?: Ec2AutoScalingGroupType;
   allocationStrategy?: AllocationStrategy;
 }
-export type Ec2AutoScalingGroupType = "SingleInstanceType" | "MixedInstanceTypes";
+export type Ec2AutoScalingGroupType =
+  | "SingleInstanceType"
+  | "MixedInstanceTypes";
 export interface Ec2Instance {
   configuration?: Ec2InstanceConfiguration;
   costCalculation?: ResourceCostCalculation;
@@ -219,8 +290,7 @@ export interface Filter {
   resourceArns?: Array<string>;
   recommendationIds?: Array<string>;
 }
-export interface GetPreferencesRequest {
-}
+export interface GetPreferencesRequest {}
 export interface GetPreferencesResponse {
   savingsEstimationMode?: SavingsEstimationMode;
   memberAccountDiscountVisibility?: MemberAccountDiscountVisibility;
@@ -254,7 +324,12 @@ export interface GetRecommendationResponse {
   recommendedResourceDetails?: ResourceDetails;
   tags?: Array<Tag>;
 }
-export type ImplementationEffort = "VeryLow" | "Low" | "Medium" | "High" | "VeryHigh";
+export type ImplementationEffort =
+  | "VeryLow"
+  | "Low"
+  | "Medium"
+  | "High"
+  | "VeryHigh";
 export type ImplementationEffortList = Array<ImplementationEffort>;
 export interface InstanceConfiguration {
   type?: string;
@@ -488,7 +563,33 @@ interface _ResourceDetails {
   memoryDbReservedInstances?: MemoryDbReservedInstances;
 }
 
-export type ResourceDetails = (_ResourceDetails & { lambdaFunction: LambdaFunction }) | (_ResourceDetails & { ecsService: EcsService }) | (_ResourceDetails & { ec2Instance: Ec2Instance }) | (_ResourceDetails & { ebsVolume: EbsVolume }) | (_ResourceDetails & { ec2AutoScalingGroup: Ec2AutoScalingGroup }) | (_ResourceDetails & { ec2ReservedInstances: Ec2ReservedInstances }) | (_ResourceDetails & { rdsReservedInstances: RdsReservedInstances }) | (_ResourceDetails & { elastiCacheReservedInstances: ElastiCacheReservedInstances }) | (_ResourceDetails & { openSearchReservedInstances: OpenSearchReservedInstances }) | (_ResourceDetails & { redshiftReservedInstances: RedshiftReservedInstances }) | (_ResourceDetails & { ec2InstanceSavingsPlans: Ec2InstanceSavingsPlans }) | (_ResourceDetails & { computeSavingsPlans: ComputeSavingsPlans }) | (_ResourceDetails & { sageMakerSavingsPlans: SageMakerSavingsPlans }) | (_ResourceDetails & { rdsDbInstance: RdsDbInstance }) | (_ResourceDetails & { rdsDbInstanceStorage: RdsDbInstanceStorage }) | (_ResourceDetails & { auroraDbClusterStorage: AuroraDbClusterStorage }) | (_ResourceDetails & { dynamoDbReservedCapacity: DynamoDbReservedCapacity }) | (_ResourceDetails & { memoryDbReservedInstances: MemoryDbReservedInstances });
+export type ResourceDetails =
+  | (_ResourceDetails & { lambdaFunction: LambdaFunction })
+  | (_ResourceDetails & { ecsService: EcsService })
+  | (_ResourceDetails & { ec2Instance: Ec2Instance })
+  | (_ResourceDetails & { ebsVolume: EbsVolume })
+  | (_ResourceDetails & { ec2AutoScalingGroup: Ec2AutoScalingGroup })
+  | (_ResourceDetails & { ec2ReservedInstances: Ec2ReservedInstances })
+  | (_ResourceDetails & { rdsReservedInstances: RdsReservedInstances })
+  | (_ResourceDetails & {
+      elastiCacheReservedInstances: ElastiCacheReservedInstances;
+    })
+  | (_ResourceDetails & {
+      openSearchReservedInstances: OpenSearchReservedInstances;
+    })
+  | (_ResourceDetails & {
+      redshiftReservedInstances: RedshiftReservedInstances;
+    })
+  | (_ResourceDetails & { ec2InstanceSavingsPlans: Ec2InstanceSavingsPlans })
+  | (_ResourceDetails & { computeSavingsPlans: ComputeSavingsPlans })
+  | (_ResourceDetails & { sageMakerSavingsPlans: SageMakerSavingsPlans })
+  | (_ResourceDetails & { rdsDbInstance: RdsDbInstance })
+  | (_ResourceDetails & { rdsDbInstanceStorage: RdsDbInstanceStorage })
+  | (_ResourceDetails & { auroraDbClusterStorage: AuroraDbClusterStorage })
+  | (_ResourceDetails & { dynamoDbReservedCapacity: DynamoDbReservedCapacity })
+  | (_ResourceDetails & {
+      memoryDbReservedInstances: MemoryDbReservedInstances;
+    });
 export type ResourceIdList = Array<string>;
 export declare class ResourceNotFoundException extends EffectData.TaggedError(
   "ResourceNotFoundException",
@@ -502,7 +603,25 @@ export interface ResourcePricing {
   estimatedDiscounts?: EstimatedDiscounts;
   estimatedCostAfterDiscounts?: number;
 }
-export type ResourceType = "Ec2Instance" | "LambdaFunction" | "EbsVolume" | "EcsService" | "Ec2AutoScalingGroup" | "Ec2InstanceSavingsPlans" | "ComputeSavingsPlans" | "SageMakerSavingsPlans" | "Ec2ReservedInstances" | "RdsReservedInstances" | "OpenSearchReservedInstances" | "RedshiftReservedInstances" | "ElastiCacheReservedInstances" | "RdsDbInstanceStorage" | "RdsDbInstance" | "AuroraDbClusterStorage" | "DynamoDbReservedCapacity" | "MemoryDbReservedInstances";
+export type ResourceType =
+  | "Ec2Instance"
+  | "LambdaFunction"
+  | "EbsVolume"
+  | "EcsService"
+  | "Ec2AutoScalingGroup"
+  | "Ec2InstanceSavingsPlans"
+  | "ComputeSavingsPlans"
+  | "SageMakerSavingsPlans"
+  | "Ec2ReservedInstances"
+  | "RdsReservedInstances"
+  | "OpenSearchReservedInstances"
+  | "RedshiftReservedInstances"
+  | "ElastiCacheReservedInstances"
+  | "RdsDbInstanceStorage"
+  | "RdsDbInstance"
+  | "AuroraDbClusterStorage"
+  | "DynamoDbReservedCapacity"
+  | "MemoryDbReservedInstances";
 export type ResourceTypeList = Array<ResourceType>;
 export interface SageMakerSavingsPlans {
   configuration?: SageMakerSavingsPlansConfiguration;
@@ -660,4 +779,3 @@ export declare namespace UpdatePreferences {
     | ValidationException
     | CommonAwsError;
 }
-

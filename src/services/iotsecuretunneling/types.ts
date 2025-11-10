@@ -23,16 +23,10 @@ export declare class IoTSecureTunneling extends AWSServiceClient {
   >;
   listTunnels(
     input: ListTunnelsRequest,
-  ): Effect.Effect<
-    ListTunnelsResponse,
-    CommonAwsError
-  >;
+  ): Effect.Effect<ListTunnelsResponse, CommonAwsError>;
   openTunnel(
     input: OpenTunnelRequest,
-  ): Effect.Effect<
-    OpenTunnelResponse,
-    LimitExceededException | CommonAwsError
-  >;
+  ): Effect.Effect<OpenTunnelResponse, LimitExceededException | CommonAwsError>;
   rotateTunnelAccessToken(
     input: RotateTunnelAccessTokenRequest,
   ): Effect.Effect<
@@ -64,8 +58,7 @@ export interface CloseTunnelRequest {
   tunnelId: string;
   delete?: boolean;
 }
-export interface CloseTunnelResponse {
-}
+export interface CloseTunnelResponse {}
 export interface ConnectionState {
   status?: ConnectionStatus;
   lastUpdatedAt?: Date | string;
@@ -155,8 +148,7 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Array<Tag>;
 }
-export interface TagResourceResponse {
-}
+export interface TagResourceResponse {}
 export type TagValue = string;
 
 export type ThingName = string;
@@ -197,68 +189,51 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {
-}
+export interface UntagResourceResponse {}
 export declare namespace CloseTunnel {
   export type Input = CloseTunnelRequest;
   export type Output = CloseTunnelResponse;
-  export type Error =
-    | ResourceNotFoundException
-    | CommonAwsError;
+  export type Error = ResourceNotFoundException | CommonAwsError;
 }
 
 export declare namespace DescribeTunnel {
   export type Input = DescribeTunnelRequest;
   export type Output = DescribeTunnelResponse;
-  export type Error =
-    | ResourceNotFoundException
-    | CommonAwsError;
+  export type Error = ResourceNotFoundException | CommonAwsError;
 }
 
 export declare namespace ListTagsForResource {
   export type Input = ListTagsForResourceRequest;
   export type Output = ListTagsForResourceResponse;
-  export type Error =
-    | ResourceNotFoundException
-    | CommonAwsError;
+  export type Error = ResourceNotFoundException | CommonAwsError;
 }
 
 export declare namespace ListTunnels {
   export type Input = ListTunnelsRequest;
   export type Output = ListTunnelsResponse;
-  export type Error =
-    | CommonAwsError;
+  export type Error = CommonAwsError;
 }
 
 export declare namespace OpenTunnel {
   export type Input = OpenTunnelRequest;
   export type Output = OpenTunnelResponse;
-  export type Error =
-    | LimitExceededException
-    | CommonAwsError;
+  export type Error = LimitExceededException | CommonAwsError;
 }
 
 export declare namespace RotateTunnelAccessToken {
   export type Input = RotateTunnelAccessTokenRequest;
   export type Output = RotateTunnelAccessTokenResponse;
-  export type Error =
-    | ResourceNotFoundException
-    | CommonAwsError;
+  export type Error = ResourceNotFoundException | CommonAwsError;
 }
 
 export declare namespace TagResource {
   export type Input = TagResourceRequest;
   export type Output = TagResourceResponse;
-  export type Error =
-    | ResourceNotFoundException
-    | CommonAwsError;
+  export type Error = ResourceNotFoundException | CommonAwsError;
 }
 
 export declare namespace UntagResource {
   export type Input = UntagResourceRequest;
   export type Output = UntagResourceResponse;
-  export type Error =
-    | ResourceNotFoundException
-    | CommonAwsError;
+  export type Error = ResourceNotFoundException | CommonAwsError;
 }
-

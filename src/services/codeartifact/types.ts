@@ -1,6 +1,38 @@
 import type { Effect, Data as EffectData } from "effect";
-import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
-type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
+import type {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+type CommonAwsError =
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | AccessDeniedException
+  | ThrottlingException
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class codeartifact extends AWSServiceClient {
@@ -8,289 +40,557 @@ export declare class codeartifact extends AWSServiceClient {
     input: AssociateExternalConnectionRequest,
   ): Effect.Effect<
     AssociateExternalConnectionResult,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   copyPackageVersions(
     input: CopyPackageVersionsRequest,
   ): Effect.Effect<
     CopyPackageVersionsResult,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createDomain(
     input: CreateDomainRequest,
   ): Effect.Effect<
     CreateDomainResult,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createPackageGroup(
     input: CreatePackageGroupRequest,
   ): Effect.Effect<
     CreatePackageGroupResult,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createRepository(
     input: CreateRepositoryRequest,
   ): Effect.Effect<
     CreateRepositoryResult,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteDomain(
     input: DeleteDomainRequest,
   ): Effect.Effect<
     DeleteDomainResult,
-    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteDomainPermissionsPolicy(
     input: DeleteDomainPermissionsPolicyRequest,
   ): Effect.Effect<
     DeleteDomainPermissionsPolicyResult,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deletePackage(
     input: DeletePackageRequest,
   ): Effect.Effect<
     DeletePackageResult,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deletePackageGroup(
     input: DeletePackageGroupRequest,
   ): Effect.Effect<
     DeletePackageGroupResult,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deletePackageVersions(
     input: DeletePackageVersionsRequest,
   ): Effect.Effect<
     DeletePackageVersionsResult,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteRepository(
     input: DeleteRepositoryRequest,
   ): Effect.Effect<
     DeleteRepositoryResult,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteRepositoryPermissionsPolicy(
     input: DeleteRepositoryPermissionsPolicyRequest,
   ): Effect.Effect<
     DeleteRepositoryPermissionsPolicyResult,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   describeDomain(
     input: DescribeDomainRequest,
   ): Effect.Effect<
     DescribeDomainResult,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   describePackage(
     input: DescribePackageRequest,
   ): Effect.Effect<
     DescribePackageResult,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   describePackageGroup(
     input: DescribePackageGroupRequest,
   ): Effect.Effect<
     DescribePackageGroupResult,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   describePackageVersion(
     input: DescribePackageVersionRequest,
   ): Effect.Effect<
     DescribePackageVersionResult,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   describeRepository(
     input: DescribeRepositoryRequest,
   ): Effect.Effect<
     DescribeRepositoryResult,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   disassociateExternalConnection(
     input: DisassociateExternalConnectionRequest,
   ): Effect.Effect<
     DisassociateExternalConnectionResult,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   disposePackageVersions(
     input: DisposePackageVersionsRequest,
   ): Effect.Effect<
     DisposePackageVersionsResult,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getAssociatedPackageGroup(
     input: GetAssociatedPackageGroupRequest,
   ): Effect.Effect<
     GetAssociatedPackageGroupResult,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   getAuthorizationToken(
     input: GetAuthorizationTokenRequest,
   ): Effect.Effect<
     GetAuthorizationTokenResult,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getDomainPermissionsPolicy(
     input: GetDomainPermissionsPolicyRequest,
   ): Effect.Effect<
     GetDomainPermissionsPolicyResult,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getPackageVersionAsset(
     input: GetPackageVersionAssetRequest,
   ): Effect.Effect<
     GetPackageVersionAssetResult,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getPackageVersionReadme(
     input: GetPackageVersionReadmeRequest,
   ): Effect.Effect<
     GetPackageVersionReadmeResult,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getRepositoryEndpoint(
     input: GetRepositoryEndpointRequest,
   ): Effect.Effect<
     GetRepositoryEndpointResult,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getRepositoryPermissionsPolicy(
     input: GetRepositoryPermissionsPolicyRequest,
   ): Effect.Effect<
     GetRepositoryPermissionsPolicyResult,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listAllowedRepositoriesForGroup(
     input: ListAllowedRepositoriesForGroupRequest,
   ): Effect.Effect<
     ListAllowedRepositoriesForGroupResult,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listAssociatedPackages(
     input: ListAssociatedPackagesRequest,
   ): Effect.Effect<
     ListAssociatedPackagesResult,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   listDomains(
     input: ListDomainsRequest,
   ): Effect.Effect<
     ListDomainsResult,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listPackageGroups(
     input: ListPackageGroupsRequest,
   ): Effect.Effect<
     ListPackageGroupsResult,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listPackages(
     input: ListPackagesRequest,
   ): Effect.Effect<
     ListPackagesResult,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listPackageVersionAssets(
     input: ListPackageVersionAssetsRequest,
   ): Effect.Effect<
     ListPackageVersionAssetsResult,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listPackageVersionDependencies(
     input: ListPackageVersionDependenciesRequest,
   ): Effect.Effect<
     ListPackageVersionDependenciesResult,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listPackageVersions(
     input: ListPackageVersionsRequest,
   ): Effect.Effect<
     ListPackageVersionsResult,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listRepositories(
     input: ListRepositoriesRequest,
   ): Effect.Effect<
     ListRepositoriesResult,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listRepositoriesInDomain(
     input: ListRepositoriesInDomainRequest,
   ): Effect.Effect<
     ListRepositoriesInDomainResult,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listSubPackageGroups(
     input: ListSubPackageGroupsRequest,
   ): Effect.Effect<
     ListSubPackageGroupsResult,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResult,
-    AccessDeniedException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   publishPackageVersion(
     input: PublishPackageVersionRequest,
   ): Effect.Effect<
     PublishPackageVersionResult,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   putDomainPermissionsPolicy(
     input: PutDomainPermissionsPolicyRequest,
   ): Effect.Effect<
     PutDomainPermissionsPolicyResult,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   putPackageOriginConfiguration(
     input: PutPackageOriginConfigurationRequest,
   ): Effect.Effect<
     PutPackageOriginConfigurationResult,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   putRepositoryPermissionsPolicy(
     input: PutRepositoryPermissionsPolicyRequest,
   ): Effect.Effect<
     PutRepositoryPermissionsPolicyResult,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResult,
-    AccessDeniedException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResult,
-    AccessDeniedException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updatePackageGroup(
     input: UpdatePackageGroupRequest,
   ): Effect.Effect<
     UpdatePackageGroupResult,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updatePackageGroupOriginConfiguration(
     input: UpdatePackageGroupOriginConfigurationRequest,
   ): Effect.Effect<
     UpdatePackageGroupOriginConfigurationResult,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updatePackageVersionsStatus(
     input: UpdatePackageVersionsStatusRequest,
   ): Effect.Effect<
     UpdatePackageVersionsStatusResult,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateRepository(
     input: UpdateRepositoryRequest,
   ): Effect.Effect<
     UpdateRepositoryResult,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
 }
 
@@ -833,7 +1133,10 @@ export type Long = number;
 
 export type LongOptional = number;
 
-export type OriginRestrictions = Record<PackageGroupOriginRestrictionType, PackageGroupOriginRestrictionMode>;
+export type OriginRestrictions = Record<
+  PackageGroupOriginRestrictionType,
+  PackageGroupOriginRestrictionMode
+>;
 export interface PackageDependency {
   namespace?: string;
   package?: string;
@@ -847,14 +1150,29 @@ export interface PackageDescription {
   name?: string;
   originConfiguration?: PackageOriginConfiguration;
 }
-export type PackageFormat = "npm" | "pypi" | "maven" | "nuget" | "generic" | "ruby" | "swift" | "cargo";
+export type PackageFormat =
+  | "npm"
+  | "pypi"
+  | "maven"
+  | "nuget"
+  | "generic"
+  | "ruby"
+  | "swift"
+  | "cargo";
 export interface PackageGroupAllowedRepository {
   repositoryName?: string;
   originRestrictionType?: PackageGroupOriginRestrictionType;
 }
-export type PackageGroupAllowedRepositoryList = Array<PackageGroupAllowedRepository>;
-export type PackageGroupAllowedRepositoryUpdate = Record<PackageGroupAllowedRepositoryUpdateType, Array<string>>;
-export type PackageGroupAllowedRepositoryUpdates = Record<PackageGroupOriginRestrictionType, { [key in PackageGroupAllowedRepositoryUpdateType]?: string }>;
+export type PackageGroupAllowedRepositoryList =
+  Array<PackageGroupAllowedRepository>;
+export type PackageGroupAllowedRepositoryUpdate = Record<
+  PackageGroupAllowedRepositoryUpdateType,
+  Array<string>
+>;
+export type PackageGroupAllowedRepositoryUpdates = Record<
+  PackageGroupOriginRestrictionType,
+  { [key in PackageGroupAllowedRepositoryUpdateType]?: string }
+>;
 export type PackageGroupAllowedRepositoryUpdateType = "ADDED" | "REMOVED";
 export type PackageGroupAssociationType = "STRONG" | "WEAK";
 export type PackageGroupContactInfo = string;
@@ -879,9 +1197,19 @@ export interface PackageGroupOriginRestriction {
   inheritedFrom?: PackageGroupReference;
   repositoriesCount?: number;
 }
-export type PackageGroupOriginRestrictionMode = "ALLOW" | "ALLOW_SPECIFIC_REPOSITORIES" | "BLOCK" | "INHERIT";
-export type PackageGroupOriginRestrictions = Record<PackageGroupOriginRestrictionType, PackageGroupOriginRestriction>;
-export type PackageGroupOriginRestrictionType = "EXTERNAL_UPSTREAM" | "INTERNAL_UPSTREAM" | "PUBLISH";
+export type PackageGroupOriginRestrictionMode =
+  | "ALLOW"
+  | "ALLOW_SPECIFIC_REPOSITORIES"
+  | "BLOCK"
+  | "INHERIT";
+export type PackageGroupOriginRestrictions = Record<
+  PackageGroupOriginRestrictionType,
+  PackageGroupOriginRestriction
+>;
+export type PackageGroupOriginRestrictionType =
+  | "EXTERNAL_UPSTREAM"
+  | "INTERNAL_UPSTREAM"
+  | "PUBLISH";
 export type PackageGroupPattern = string;
 
 export type PackageGroupPatternPrefix = string;
@@ -941,7 +1269,13 @@ export interface PackageVersionError {
   errorCode?: PackageVersionErrorCode;
   errorMessage?: string;
 }
-export type PackageVersionErrorCode = "ALREADY_EXISTS" | "MISMATCHED_REVISION" | "MISMATCHED_STATUS" | "NOT_ALLOWED" | "NOT_FOUND" | "SKIPPED";
+export type PackageVersionErrorCode =
+  | "ALREADY_EXISTS"
+  | "MISMATCHED_REVISION"
+  | "MISMATCHED_STATUS"
+  | "NOT_ALLOWED"
+  | "NOT_FOUND"
+  | "SKIPPED";
 export type PackageVersionErrorMap = Record<string, PackageVersionError>;
 export type PackageVersionList = Array<string>;
 export interface PackageVersionOrigin {
@@ -953,7 +1287,13 @@ export type PackageVersionRevision = string;
 
 export type PackageVersionRevisionMap = Record<string, string>;
 export type PackageVersionSortType = "PUBLISHED_TIME";
-export type PackageVersionStatus = "Published" | "Unfinished" | "Unlisted" | "Archived" | "Disposed" | "Deleted";
+export type PackageVersionStatus =
+  | "Published"
+  | "Unfinished"
+  | "Unlisted"
+  | "Archived"
+  | "Disposed"
+  | "Deleted";
 export interface PackageVersionSummary {
   version: string;
   revision?: string;
@@ -1036,7 +1376,8 @@ export interface RepositoryExternalConnectionInfo {
   packageFormat?: PackageFormat;
   status?: ExternalConnectionStatus;
 }
-export type RepositoryExternalConnectionInfoList = Array<RepositoryExternalConnectionInfo>;
+export type RepositoryExternalConnectionInfoList =
+  Array<RepositoryExternalConnectionInfo>;
 export type RepositoryName = string;
 
 export type RepositoryNameList = Array<string>;
@@ -1062,7 +1403,12 @@ export interface ResourcePolicy {
   revision?: string;
   document?: string;
 }
-export type ResourceType = "domain" | "repository" | "package" | "package-version" | "asset";
+export type ResourceType =
+  | "domain"
+  | "repository"
+  | "package"
+  | "package-version"
+  | "asset";
 export type RetryAfterSeconds = number;
 
 export declare class ServiceQuotaExceededException extends EffectData.TaggedError(
@@ -1082,7 +1428,10 @@ export interface SuccessfulPackageVersionInfo {
   revision?: string;
   status?: PackageVersionStatus;
 }
-export type SuccessfulPackageVersionInfoMap = Record<string, SuccessfulPackageVersionInfo>;
+export type SuccessfulPackageVersionInfoMap = Record<
+  string,
+  SuccessfulPackageVersionInfo
+>;
 export interface Tag {
   key: string;
   value: string;
@@ -1095,8 +1444,7 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Array<Tag>;
 }
-export interface TagResourceResult {
-}
+export interface TagResourceResult {}
 export type TagValue = string;
 
 export declare class ThrottlingException extends EffectData.TaggedError(
@@ -1111,8 +1459,7 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResult {
-}
+export interface UntagResourceResult {}
 export interface UpdatePackageGroupOriginConfigurationRequest {
   domain: string;
   domainOwner?: string;
@@ -1123,7 +1470,9 @@ export interface UpdatePackageGroupOriginConfigurationRequest {
 }
 export interface UpdatePackageGroupOriginConfigurationResult {
   packageGroup?: PackageGroupDescription;
-  allowedRepositoryUpdates?: { [key in PackageGroupOriginRestrictionType]?: string };
+  allowedRepositoryUpdates?: {
+    [key in PackageGroupOriginRestrictionType]?: string;
+  };
 }
 export interface UpdatePackageGroupRequest {
   domain: string;
@@ -1175,7 +1524,12 @@ export declare class ValidationException extends EffectData.TaggedError(
   readonly message: string;
   readonly reason?: ValidationExceptionReason;
 }> {}
-export type ValidationExceptionReason = "CANNOT_PARSE" | "ENCRYPTION_KEY_ERROR" | "FIELD_VALIDATION_FAILED" | "UNKNOWN_OPERATION" | "OTHER";
+export type ValidationExceptionReason =
+  | "CANNOT_PARSE"
+  | "ENCRYPTION_KEY_ERROR"
+  | "FIELD_VALIDATION_FAILED"
+  | "UNKNOWN_OPERATION"
+  | "OTHER";
 export declare namespace AssociateExternalConnection {
   export type Input = AssociateExternalConnectionRequest;
   export type Output = AssociateExternalConnectionResult;
@@ -1779,4 +2133,3 @@ export declare namespace UpdateRepository {
     | ValidationException
     | CommonAwsError;
 }
-

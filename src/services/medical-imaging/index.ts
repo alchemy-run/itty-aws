@@ -5,7 +5,23 @@ import type { MedicalImaging as _MedicalImagingClient } from "./types.ts";
 
 export * from "./types.ts";
 
-export {ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, type CommonAwsError} from "../../error.ts";
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+  type CommonAwsError,
+} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -15,37 +31,43 @@ const metadata = {
   sigV4ServiceName: "medical-imaging",
   endpointPrefix: "medical-imaging",
   operations: {
-    "CopyImageSet": "POST /datastore/{datastoreId}/imageSet/{sourceImageSetId}/copyImageSet",
-    "DeleteImageSet": "POST /datastore/{datastoreId}/imageSet/{imageSetId}/deleteImageSet",
-    "GetDICOMImportJob": "GET /getDICOMImportJob/datastore/{datastoreId}/job/{jobId}",
-    "GetImageFrame": {
+    CopyImageSet:
+      "POST /datastore/{datastoreId}/imageSet/{sourceImageSetId}/copyImageSet",
+    DeleteImageSet:
+      "POST /datastore/{datastoreId}/imageSet/{imageSetId}/deleteImageSet",
+    GetDICOMImportJob:
+      "GET /getDICOMImportJob/datastore/{datastoreId}/job/{jobId}",
+    GetImageFrame: {
       http: "POST /datastore/{datastoreId}/imageSet/{imageSetId}/getImageFrame",
       traits: {
-        "imageFrameBlob": "httpPayload",
-        "contentType": "Content-Type",
+        imageFrameBlob: "httpPayload",
+        contentType: "Content-Type",
       },
     },
-    "GetImageSet": "POST /datastore/{datastoreId}/imageSet/{imageSetId}/getImageSet",
-    "GetImageSetMetadata": {
+    GetImageSet:
+      "POST /datastore/{datastoreId}/imageSet/{imageSetId}/getImageSet",
+    GetImageSetMetadata: {
       http: "POST /datastore/{datastoreId}/imageSet/{imageSetId}/getImageSetMetadata",
       traits: {
-        "imageSetMetadataBlob": "httpPayload",
-        "contentType": "Content-Type",
-        "contentEncoding": "Content-Encoding",
+        imageSetMetadataBlob: "httpPayload",
+        contentType: "Content-Type",
+        contentEncoding: "Content-Encoding",
       },
     },
-    "ListDICOMImportJobs": "GET /listDICOMImportJobs/datastore/{datastoreId}",
-    "ListImageSetVersions": "POST /datastore/{datastoreId}/imageSet/{imageSetId}/listImageSetVersions",
-    "ListTagsForResource": "GET /tags/{resourceArn}",
-    "SearchImageSets": "POST /datastore/{datastoreId}/searchImageSets",
-    "StartDICOMImportJob": "POST /startDICOMImportJob/datastore/{datastoreId}",
-    "TagResource": "POST /tags/{resourceArn}",
-    "UntagResource": "DELETE /tags/{resourceArn}",
-    "UpdateImageSetMetadata": "POST /datastore/{datastoreId}/imageSet/{imageSetId}/updateImageSetMetadata",
-    "CreateDatastore": "POST /datastore",
-    "DeleteDatastore": "DELETE /datastore/{datastoreId}",
-    "GetDatastore": "GET /datastore/{datastoreId}",
-    "ListDatastores": "GET /datastore",
+    ListDICOMImportJobs: "GET /listDICOMImportJobs/datastore/{datastoreId}",
+    ListImageSetVersions:
+      "POST /datastore/{datastoreId}/imageSet/{imageSetId}/listImageSetVersions",
+    ListTagsForResource: "GET /tags/{resourceArn}",
+    SearchImageSets: "POST /datastore/{datastoreId}/searchImageSets",
+    StartDICOMImportJob: "POST /startDICOMImportJob/datastore/{datastoreId}",
+    TagResource: "POST /tags/{resourceArn}",
+    UntagResource: "DELETE /tags/{resourceArn}",
+    UpdateImageSetMetadata:
+      "POST /datastore/{datastoreId}/imageSet/{imageSetId}/updateImageSetMetadata",
+    CreateDatastore: "POST /datastore",
+    DeleteDatastore: "DELETE /datastore/{datastoreId}",
+    GetDatastore: "GET /datastore/{datastoreId}",
+    ListDatastores: "GET /datastore",
   },
 } as const satisfies ServiceMetadata;
 

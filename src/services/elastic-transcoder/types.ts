@@ -1,6 +1,39 @@
 import type { Effect, Data as EffectData } from "effect";
-import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
-type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | ThrottlingException | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ValidationException;
+import type {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  ThrottlingException,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+type CommonAwsError =
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | ThrottlingException
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | AccessDeniedException
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class ElasticTranscoder extends AWSServiceClient {
@@ -8,103 +41,193 @@ export declare class ElasticTranscoder extends AWSServiceClient {
     input: CancelJobRequest,
   ): Effect.Effect<
     CancelJobResponse,
-    AccessDeniedException | IncompatibleVersionException | InternalServiceException | ResourceInUseException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | IncompatibleVersionException
+    | InternalServiceException
+    | ResourceInUseException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   createJob(
     input: CreateJobRequest,
   ): Effect.Effect<
     CreateJobResponse,
-    AccessDeniedException | IncompatibleVersionException | InternalServiceException | LimitExceededException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | IncompatibleVersionException
+    | InternalServiceException
+    | LimitExceededException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   createPipeline(
     input: CreatePipelineRequest,
   ): Effect.Effect<
     CreatePipelineResponse,
-    AccessDeniedException | IncompatibleVersionException | InternalServiceException | LimitExceededException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | IncompatibleVersionException
+    | InternalServiceException
+    | LimitExceededException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   createPreset(
     input: CreatePresetRequest,
   ): Effect.Effect<
     CreatePresetResponse,
-    AccessDeniedException | IncompatibleVersionException | InternalServiceException | LimitExceededException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | IncompatibleVersionException
+    | InternalServiceException
+    | LimitExceededException
+    | ValidationException
+    | CommonAwsError
   >;
   deletePipeline(
     input: DeletePipelineRequest,
   ): Effect.Effect<
     DeletePipelineResponse,
-    AccessDeniedException | IncompatibleVersionException | InternalServiceException | ResourceInUseException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | IncompatibleVersionException
+    | InternalServiceException
+    | ResourceInUseException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   deletePreset(
     input: DeletePresetRequest,
   ): Effect.Effect<
     DeletePresetResponse,
-    AccessDeniedException | IncompatibleVersionException | InternalServiceException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | IncompatibleVersionException
+    | InternalServiceException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   listJobsByPipeline(
     input: ListJobsByPipelineRequest,
   ): Effect.Effect<
     ListJobsByPipelineResponse,
-    AccessDeniedException | IncompatibleVersionException | InternalServiceException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | IncompatibleVersionException
+    | InternalServiceException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   listJobsByStatus(
     input: ListJobsByStatusRequest,
   ): Effect.Effect<
     ListJobsByStatusResponse,
-    AccessDeniedException | IncompatibleVersionException | InternalServiceException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | IncompatibleVersionException
+    | InternalServiceException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   listPipelines(
     input: ListPipelinesRequest,
   ): Effect.Effect<
     ListPipelinesResponse,
-    AccessDeniedException | IncompatibleVersionException | InternalServiceException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | IncompatibleVersionException
+    | InternalServiceException
+    | ValidationException
+    | CommonAwsError
   >;
   listPresets(
     input: ListPresetsRequest,
   ): Effect.Effect<
     ListPresetsResponse,
-    AccessDeniedException | IncompatibleVersionException | InternalServiceException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | IncompatibleVersionException
+    | InternalServiceException
+    | ValidationException
+    | CommonAwsError
   >;
   readJob(
     input: ReadJobRequest,
   ): Effect.Effect<
     ReadJobResponse,
-    AccessDeniedException | IncompatibleVersionException | InternalServiceException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | IncompatibleVersionException
+    | InternalServiceException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   readPipeline(
     input: ReadPipelineRequest,
   ): Effect.Effect<
     ReadPipelineResponse,
-    AccessDeniedException | IncompatibleVersionException | InternalServiceException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | IncompatibleVersionException
+    | InternalServiceException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   readPreset(
     input: ReadPresetRequest,
   ): Effect.Effect<
     ReadPresetResponse,
-    AccessDeniedException | IncompatibleVersionException | InternalServiceException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | IncompatibleVersionException
+    | InternalServiceException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   testRole(
     input: TestRoleRequest,
   ): Effect.Effect<
     TestRoleResponse,
-    AccessDeniedException | IncompatibleVersionException | InternalServiceException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | IncompatibleVersionException
+    | InternalServiceException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   updatePipeline(
     input: UpdatePipelineRequest,
   ): Effect.Effect<
     UpdatePipelineResponse,
-    AccessDeniedException | IncompatibleVersionException | InternalServiceException | ResourceInUseException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | IncompatibleVersionException
+    | InternalServiceException
+    | ResourceInUseException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   updatePipelineNotifications(
     input: UpdatePipelineNotificationsRequest,
   ): Effect.Effect<
     UpdatePipelineNotificationsResponse,
-    AccessDeniedException | IncompatibleVersionException | InternalServiceException | ResourceInUseException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | IncompatibleVersionException
+    | InternalServiceException
+    | ResourceInUseException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   updatePipelineStatus(
     input: UpdatePipelineStatusRequest,
   ): Effect.Effect<
     UpdatePipelineStatusResponse,
-    AccessDeniedException | IncompatibleVersionException | InternalServiceException | ResourceInUseException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | IncompatibleVersionException
+    | InternalServiceException
+    | ResourceInUseException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
 }
 
@@ -169,8 +292,7 @@ export type BucketName = string;
 export interface CancelJobRequest {
   Id: string;
 }
-export interface CancelJobResponse {
-}
+export interface CancelJobResponse {}
 export interface CaptionFormat {
   Format?: string;
   Pattern?: string;
@@ -267,13 +389,11 @@ export interface CreatePresetResponse {
 export interface DeletePipelineRequest {
   Id: string;
 }
-export interface DeletePipelineResponse {
-}
+export interface DeletePipelineResponse {}
 export interface DeletePresetRequest {
   Id: string;
 }
-export interface DeletePresetResponse {
-}
+export interface DeletePresetResponse {}
 export type Description = string;
 
 export interface DetectedProperties {
@@ -929,4 +1049,3 @@ export declare namespace UpdatePipelineStatus {
     | ValidationException
     | CommonAwsError;
 }
-

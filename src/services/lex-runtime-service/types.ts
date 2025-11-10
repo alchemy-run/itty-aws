@@ -1,8 +1,42 @@
 import type { Effect, Stream, Data as EffectData } from "effect";
 import type { ResponseError } from "@effect/platform/HttpClientError";
 import type { Buffer } from "node:buffer";
-import type { AccessDeniedException, ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError, ValidationException } from "../../error.ts";
-type CommonAwsError = AccessDeniedException | ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | ServiceUnavailable | ThrottlingException | UnrecognizedClientException | UnknownOperationException | ValidationError | ValidationException | RequestTimeoutException;
+import type {
+  AccessDeniedException,
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  ServiceUnavailable,
+  ThrottlingException,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+  ValidationException,
+} from "../../error.ts";
+type CommonAwsError =
+  | AccessDeniedException
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | ServiceUnavailable
+  | ThrottlingException
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | ValidationException
+  | RequestTimeoutException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class LexRuntimeService extends AWSServiceClient {
@@ -10,31 +44,67 @@ export declare class LexRuntimeService extends AWSServiceClient {
     input: DeleteSessionRequest,
   ): Effect.Effect<
     DeleteSessionResponse,
-    BadRequestException | ConflictException | InternalFailureException | LimitExceededException | NotFoundException | CommonAwsError
+    | BadRequestException
+    | ConflictException
+    | InternalFailureException
+    | LimitExceededException
+    | NotFoundException
+    | CommonAwsError
   >;
   getSession(
     input: GetSessionRequest,
   ): Effect.Effect<
     GetSessionResponse,
-    BadRequestException | InternalFailureException | LimitExceededException | NotFoundException | CommonAwsError
+    | BadRequestException
+    | InternalFailureException
+    | LimitExceededException
+    | NotFoundException
+    | CommonAwsError
   >;
   postContent(
     input: PostContentRequest,
   ): Effect.Effect<
     PostContentResponse,
-    BadGatewayException | BadRequestException | ConflictException | DependencyFailedException | InternalFailureException | LimitExceededException | LoopDetectedException | NotAcceptableException | NotFoundException | RequestTimeoutException | UnsupportedMediaTypeException | CommonAwsError
+    | BadGatewayException
+    | BadRequestException
+    | ConflictException
+    | DependencyFailedException
+    | InternalFailureException
+    | LimitExceededException
+    | LoopDetectedException
+    | NotAcceptableException
+    | NotFoundException
+    | RequestTimeoutException
+    | UnsupportedMediaTypeException
+    | CommonAwsError
   >;
   postText(
     input: PostTextRequest,
   ): Effect.Effect<
     PostTextResponse,
-    BadGatewayException | BadRequestException | ConflictException | DependencyFailedException | InternalFailureException | LimitExceededException | LoopDetectedException | NotFoundException | CommonAwsError
+    | BadGatewayException
+    | BadRequestException
+    | ConflictException
+    | DependencyFailedException
+    | InternalFailureException
+    | LimitExceededException
+    | LoopDetectedException
+    | NotFoundException
+    | CommonAwsError
   >;
   putSession(
     input: PutSessionRequest,
   ): Effect.Effect<
     PutSessionResponse,
-    BadGatewayException | BadRequestException | ConflictException | DependencyFailedException | InternalFailureException | LimitExceededException | NotAcceptableException | NotFoundException | CommonAwsError
+    | BadGatewayException
+    | BadRequestException
+    | ConflictException
+    | DependencyFailedException
+    | InternalFailureException
+    | LimitExceededException
+    | NotAcceptableException
+    | NotFoundException
+    | CommonAwsError
   >;
 }
 
@@ -115,8 +185,19 @@ export interface DialogAction {
   message?: string;
   messageFormat?: MessageFormatType;
 }
-export type DialogActionType = "ElicitIntent" | "ConfirmIntent" | "ElicitSlot" | "Close" | "Delegate";
-export type DialogState = "ElicitIntent" | "ConfirmIntent" | "ElicitSlot" | "Fulfilled" | "ReadyForFulfillment" | "Failed";
+export type DialogActionType =
+  | "ElicitIntent"
+  | "ConfirmIntent"
+  | "ElicitSlot"
+  | "Close"
+  | "Delegate";
+export type DialogState =
+  | "ElicitIntent"
+  | "ConfirmIntent"
+  | "ElicitSlot"
+  | "Fulfilled"
+  | "ReadyForFulfillment"
+  | "Failed";
 export type Double = number;
 
 export type ErrorMessage = string;
@@ -180,7 +261,11 @@ export declare class LoopDetectedException extends EffectData.TaggedError(
 )<{
   readonly Message?: string;
 }> {}
-export type MessageFormatType = "PlainText" | "CustomPayload" | "SSML" | "Composite";
+export type MessageFormatType =
+  | "PlainText"
+  | "CustomPayload"
+  | "SSML"
+  | "Composite";
 export declare class NotAcceptableException extends EffectData.TaggedError(
   "NotAcceptableException",
 )<{
@@ -392,4 +477,3 @@ export declare namespace PutSession {
     | NotFoundException
     | CommonAwsError;
 }
-

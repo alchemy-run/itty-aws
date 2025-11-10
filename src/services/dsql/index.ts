@@ -5,7 +5,23 @@ import type { DSQL as _DSQLClient } from "./types.ts";
 
 export * from "./types.ts";
 
-export {ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, type CommonAwsError} from "../../error.ts";
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+  type CommonAwsError,
+} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -15,15 +31,16 @@ const metadata = {
   sigV4ServiceName: "dsql",
   endpointPrefix: "dsql",
   operations: {
-    "ListTagsForResource": "GET /tags/{resourceArn}",
-    "TagResource": "POST /tags/{resourceArn}",
-    "UntagResource": "DELETE /tags/{resourceArn}",
-    "CreateCluster": "POST /cluster",
-    "DeleteCluster": "DELETE /cluster/{identifier}",
-    "GetCluster": "GET /cluster/{identifier}",
-    "GetVpcEndpointServiceName": "GET /clusters/{identifier}/vpc-endpoint-service-name",
-    "ListClusters": "GET /cluster",
-    "UpdateCluster": "POST /cluster/{identifier}",
+    ListTagsForResource: "GET /tags/{resourceArn}",
+    TagResource: "POST /tags/{resourceArn}",
+    UntagResource: "DELETE /tags/{resourceArn}",
+    CreateCluster: "POST /cluster",
+    DeleteCluster: "DELETE /cluster/{identifier}",
+    GetCluster: "GET /cluster/{identifier}",
+    GetVpcEndpointServiceName:
+      "GET /clusters/{identifier}/vpc-endpoint-service-name",
+    ListClusters: "GET /cluster",
+    UpdateCluster: "POST /cluster/{identifier}",
   },
 } as const satisfies ServiceMetadata;
 

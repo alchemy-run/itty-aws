@@ -1,6 +1,38 @@
 import type { Effect, Data as EffectData } from "effect";
-import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
-type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
+import type {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+type CommonAwsError =
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | AccessDeniedException
+  | ThrottlingException
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class PCS extends AWSServiceClient {
@@ -18,81 +50,152 @@ export declare class PCS extends AWSServiceClient {
   >;
   untagResource(
     input: UntagResourceRequest,
-  ): Effect.Effect<
-    {},
-    ResourceNotFoundException | CommonAwsError
-  >;
+  ): Effect.Effect<{}, ResourceNotFoundException | CommonAwsError>;
   createCluster(
     input: CreateClusterRequest,
   ): Effect.Effect<
     CreateClusterResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createComputeNodeGroup(
     input: CreateComputeNodeGroupRequest,
   ): Effect.Effect<
     CreateComputeNodeGroupResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createQueue(
     input: CreateQueueRequest,
   ): Effect.Effect<
     CreateQueueResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteCluster(
     input: DeleteClusterRequest,
   ): Effect.Effect<
     DeleteClusterResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteComputeNodeGroup(
     input: DeleteComputeNodeGroupRequest,
   ): Effect.Effect<
     DeleteComputeNodeGroupResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteQueue(
     input: DeleteQueueRequest,
   ): Effect.Effect<
     DeleteQueueResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getCluster(
     input: GetClusterRequest,
   ): Effect.Effect<
     GetClusterResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getComputeNodeGroup(
     input: GetComputeNodeGroupRequest,
   ): Effect.Effect<
     GetComputeNodeGroupResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getQueue(
     input: GetQueueRequest,
   ): Effect.Effect<
     GetQueueResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listClusters(
     input: ListClustersRequest,
   ): Effect.Effect<
     ListClustersResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listComputeNodeGroups(
     input: ListComputeNodeGroupsRequest,
   ): Effect.Effect<
     ListComputeNodeGroupsResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listQueues(
     input: ListQueuesRequest,
   ): Effect.Effect<
     ListQueuesResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   registerComputeNodeGroupInstance(
     input: RegisterComputeNodeGroupInstanceRequest,
@@ -104,13 +207,27 @@ export declare class PCS extends AWSServiceClient {
     input: UpdateComputeNodeGroupRequest,
   ): Effect.Effect<
     UpdateComputeNodeGroupResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateQueue(
     input: UpdateQueueRequest,
   ): Effect.Effect<
     UpdateQueueResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
 }
 
@@ -166,7 +283,16 @@ export interface ClusterSlurmConfigurationRequest {
   slurmCustomSettings?: Array<SlurmCustomSetting>;
   accounting?: AccountingRequest;
 }
-export type ClusterStatus = "CREATING" | "ACTIVE" | "UPDATING" | "DELETING" | "CREATE_FAILED" | "DELETE_FAILED" | "UPDATE_FAILED" | "SUSPENDING" | "SUSPENDED";
+export type ClusterStatus =
+  | "CREATING"
+  | "ACTIVE"
+  | "UPDATING"
+  | "DELETING"
+  | "CREATE_FAILED"
+  | "DELETE_FAILED"
+  | "UPDATE_FAILED"
+  | "SUSPENDING"
+  | "SUSPENDED";
 export interface ClusterSummary {
   name: string;
   id: string;
@@ -197,7 +323,8 @@ export interface ComputeNodeGroup {
 export interface ComputeNodeGroupConfiguration {
   computeNodeGroupId?: string;
 }
-export type ComputeNodeGroupConfigurationList = Array<ComputeNodeGroupConfiguration>;
+export type ComputeNodeGroupConfigurationList =
+  Array<ComputeNodeGroupConfiguration>;
 export type ComputeNodeGroupIdentifier = string;
 
 export type ComputeNodeGroupList = Array<ComputeNodeGroupSummary>;
@@ -209,7 +336,17 @@ export interface ComputeNodeGroupSlurmConfiguration {
 export interface ComputeNodeGroupSlurmConfigurationRequest {
   slurmCustomSettings?: Array<SlurmCustomSetting>;
 }
-export type ComputeNodeGroupStatus = "CREATING" | "ACTIVE" | "UPDATING" | "DELETING" | "CREATE_FAILED" | "DELETE_FAILED" | "UPDATE_FAILED" | "DELETED" | "SUSPENDING" | "SUSPENDED";
+export type ComputeNodeGroupStatus =
+  | "CREATING"
+  | "ACTIVE"
+  | "UPDATING"
+  | "DELETING"
+  | "CREATE_FAILED"
+  | "DELETE_FAILED"
+  | "UPDATE_FAILED"
+  | "DELETED"
+  | "SUSPENDING"
+  | "SUSPENDED";
 export interface ComputeNodeGroupSummary {
   name: string;
   id: string;
@@ -274,22 +411,19 @@ export interface DeleteClusterRequest {
   clusterIdentifier: string;
   clientToken?: string;
 }
-export interface DeleteClusterResponse {
-}
+export interface DeleteClusterResponse {}
 export interface DeleteComputeNodeGroupRequest {
   clusterIdentifier: string;
   computeNodeGroupIdentifier: string;
   clientToken?: string;
 }
-export interface DeleteComputeNodeGroupResponse {
-}
+export interface DeleteComputeNodeGroupResponse {}
 export interface DeleteQueueRequest {
   clusterIdentifier: string;
   queueIdentifier: string;
   clientToken?: string;
 }
-export interface DeleteQueueResponse {
-}
+export interface DeleteQueueResponse {}
 export interface Endpoint {
   type: EndpointType;
   privateIpAddress: string;
@@ -397,7 +531,16 @@ export type QueueIdentifier = string;
 export type QueueList = Array<QueueSummary>;
 export type QueueName = string;
 
-export type QueueStatus = "CREATING" | "ACTIVE" | "UPDATING" | "DELETING" | "CREATE_FAILED" | "DELETE_FAILED" | "UPDATE_FAILED" | "SUSPENDING" | "SUSPENDED";
+export type QueueStatus =
+  | "CREATING"
+  | "ACTIVE"
+  | "UPDATING"
+  | "DELETING"
+  | "CREATE_FAILED"
+  | "DELETE_FAILED"
+  | "UPDATE_FAILED"
+  | "SUSPENDING"
+  | "SUSPENDED";
 export interface QueueSummary {
   name: string;
   id: string;
@@ -468,7 +611,10 @@ export interface SlurmCustomSetting {
   parameterValue: string;
 }
 export type SlurmCustomSettings = Array<SlurmCustomSetting>;
-export type SpotAllocationStrategy = "lowest-price" | "capacity-optimized" | "price-capacity-optimized";
+export type SpotAllocationStrategy =
+  | "lowest-price"
+  | "capacity-optimized"
+  | "price-capacity-optimized";
 export interface SpotOptions {
   allocationStrategy?: SpotAllocationStrategy;
 }
@@ -535,13 +681,15 @@ export interface ValidationExceptionField {
   message: string;
 }
 export type ValidationExceptionFieldList = Array<ValidationExceptionField>;
-export type ValidationExceptionReason = "unknownOperation" | "cannotParse" | "fieldValidationFailed" | "other";
+export type ValidationExceptionReason =
+  | "unknownOperation"
+  | "cannotParse"
+  | "fieldValidationFailed"
+  | "other";
 export declare namespace ListTagsForResource {
   export type Input = ListTagsForResourceRequest;
   export type Output = ListTagsForResourceResponse;
-  export type Error =
-    | ResourceNotFoundException
-    | CommonAwsError;
+  export type Error = ResourceNotFoundException | CommonAwsError;
 }
 
 export declare namespace TagResource {
@@ -556,9 +704,7 @@ export declare namespace TagResource {
 export declare namespace UntagResource {
   export type Input = UntagResourceRequest;
   export type Output = {};
-  export type Error =
-    | ResourceNotFoundException
-    | CommonAwsError;
+  export type Error = ResourceNotFoundException | CommonAwsError;
 }
 
 export declare namespace CreateCluster {
@@ -755,4 +901,3 @@ export declare namespace UpdateQueue {
     | ValidationException
     | CommonAwsError;
 }
-

@@ -1,6 +1,39 @@
 import type { Effect, Data as EffectData } from "effect";
-import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
-type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | ThrottlingException | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ValidationException;
+import type {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  ThrottlingException,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+type CommonAwsError =
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | ThrottlingException
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | AccessDeniedException
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class S3Vectors extends AWSServiceClient {
@@ -8,7 +41,10 @@ export declare class S3Vectors extends AWSServiceClient {
     input: CreateIndexInput,
   ): Effect.Effect<
     CreateIndexOutput,
-    ConflictException | NotFoundException | ServiceUnavailableException | CommonAwsError
+    | ConflictException
+    | NotFoundException
+    | ServiceUnavailableException
+    | CommonAwsError
   >;
   createVectorBucket(
     input: CreateVectorBucketInput,
@@ -38,7 +74,14 @@ export declare class S3Vectors extends AWSServiceClient {
     input: DeleteVectorsInput,
   ): Effect.Effect<
     DeleteVectorsOutput,
-    AccessDeniedException | KmsDisabledException | KmsInvalidKeyUsageException | KmsInvalidStateException | KmsNotFoundException | NotFoundException | ServiceUnavailableException | CommonAwsError
+    | AccessDeniedException
+    | KmsDisabledException
+    | KmsInvalidKeyUsageException
+    | KmsInvalidStateException
+    | KmsNotFoundException
+    | NotFoundException
+    | ServiceUnavailableException
+    | CommonAwsError
   >;
   getIndex(
     input: GetIndexInput,
@@ -62,7 +105,13 @@ export declare class S3Vectors extends AWSServiceClient {
     input: GetVectorsInput,
   ): Effect.Effect<
     GetVectorsOutput,
-    KmsDisabledException | KmsInvalidKeyUsageException | KmsInvalidStateException | KmsNotFoundException | NotFoundException | ServiceUnavailableException | CommonAwsError
+    | KmsDisabledException
+    | KmsInvalidKeyUsageException
+    | KmsInvalidStateException
+    | KmsNotFoundException
+    | NotFoundException
+    | ServiceUnavailableException
+    | CommonAwsError
   >;
   listIndexes(
     input: ListIndexesInput,
@@ -80,7 +129,10 @@ export declare class S3Vectors extends AWSServiceClient {
     input: ListVectorsInput,
   ): Effect.Effect<
     ListVectorsOutput,
-    AccessDeniedException | NotFoundException | ServiceUnavailableException | CommonAwsError
+    | AccessDeniedException
+    | NotFoundException
+    | ServiceUnavailableException
+    | CommonAwsError
   >;
   putVectorBucketPolicy(
     input: PutVectorBucketPolicyInput,
@@ -92,13 +144,26 @@ export declare class S3Vectors extends AWSServiceClient {
     input: PutVectorsInput,
   ): Effect.Effect<
     PutVectorsOutput,
-    AccessDeniedException | KmsDisabledException | KmsInvalidKeyUsageException | KmsInvalidStateException | KmsNotFoundException | NotFoundException | ServiceUnavailableException | CommonAwsError
+    | AccessDeniedException
+    | KmsDisabledException
+    | KmsInvalidKeyUsageException
+    | KmsInvalidStateException
+    | KmsNotFoundException
+    | NotFoundException
+    | ServiceUnavailableException
+    | CommonAwsError
   >;
   queryVectors(
     input: QueryVectorsInput,
   ): Effect.Effect<
     QueryVectorsOutput,
-    KmsDisabledException | KmsInvalidKeyUsageException | KmsInvalidStateException | KmsNotFoundException | NotFoundException | ServiceUnavailableException | CommonAwsError
+    | KmsDisabledException
+    | KmsInvalidKeyUsageException
+    | KmsInvalidStateException
+    | KmsNotFoundException
+    | NotFoundException
+    | ServiceUnavailableException
+    | CommonAwsError
   >;
 }
 
@@ -123,34 +188,29 @@ export interface CreateIndexInput {
   distanceMetric: DistanceMetric;
   metadataConfiguration?: MetadataConfiguration;
 }
-export interface CreateIndexOutput {
-}
+export interface CreateIndexOutput {}
 export interface CreateVectorBucketInput {
   vectorBucketName: string;
   encryptionConfiguration?: EncryptionConfiguration;
 }
-export interface CreateVectorBucketOutput {
-}
+export interface CreateVectorBucketOutput {}
 export type DataType = "float32";
 export interface DeleteIndexInput {
   vectorBucketName?: string;
   indexName?: string;
   indexArn?: string;
 }
-export interface DeleteIndexOutput {
-}
+export interface DeleteIndexOutput {}
 export interface DeleteVectorBucketInput {
   vectorBucketName?: string;
   vectorBucketArn?: string;
 }
-export interface DeleteVectorBucketOutput {
-}
+export interface DeleteVectorBucketOutput {}
 export interface DeleteVectorBucketPolicyInput {
   vectorBucketName?: string;
   vectorBucketArn?: string;
 }
-export interface DeleteVectorBucketPolicyOutput {
-}
+export interface DeleteVectorBucketPolicyOutput {}
 export interface DeleteVectorsInput {
   vectorBucketName?: string;
   indexName?: string;
@@ -158,8 +218,7 @@ export interface DeleteVectorsInput {
   keys: Array<string>;
 }
 export type DeleteVectorsInputList = Array<string>;
-export interface DeleteVectorsOutput {
-}
+export interface DeleteVectorsOutput {}
 export type Dimension = number;
 
 export type DistanceMetric = "euclidean" | "cosine";
@@ -341,8 +400,7 @@ export interface PutVectorBucketPolicyInput {
   vectorBucketArn?: string;
   policy: string;
 }
-export interface PutVectorBucketPolicyOutput {
-}
+export interface PutVectorBucketPolicyOutput {}
 export interface PutVectorsInput {
   vectorBucketName?: string;
   indexName?: string;
@@ -350,8 +408,7 @@ export interface PutVectorsInput {
   vectors: Array<PutInputVector>;
 }
 export type PutVectorsInputList = Array<PutInputVector>;
-export interface PutVectorsOutput {
-}
+export interface PutVectorsOutput {}
 export interface QueryOutputVector {
   key: string;
   data?: VectorData;
@@ -422,7 +479,7 @@ interface _VectorData {
   float32?: Array<number>;
 }
 
-export type VectorData = (_VectorData & { float32: Array<number> });
+export type VectorData = _VectorData & { float32: Array<number> };
 export type VectorKey = string;
 
 export type VectorMetadata = unknown;
@@ -449,9 +506,7 @@ export declare namespace CreateVectorBucket {
 export declare namespace DeleteIndex {
   export type Input = DeleteIndexInput;
   export type Output = DeleteIndexOutput;
-  export type Error =
-    | ServiceUnavailableException
-    | CommonAwsError;
+  export type Error = ServiceUnavailableException | CommonAwsError;
 }
 
 export declare namespace DeleteVectorBucket {
@@ -538,9 +593,7 @@ export declare namespace ListIndexes {
 export declare namespace ListVectorBuckets {
   export type Input = ListVectorBucketsInput;
   export type Output = ListVectorBucketsOutput;
-  export type Error =
-    | ServiceUnavailableException
-    | CommonAwsError;
+  export type Error = ServiceUnavailableException | CommonAwsError;
 }
 
 export declare namespace ListVectors {
@@ -588,4 +641,3 @@ export declare namespace QueryVectors {
     | ServiceUnavailableException
     | CommonAwsError;
 }
-

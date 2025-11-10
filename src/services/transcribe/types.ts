@@ -7,259 +7,422 @@ export declare class Transcribe extends AWSServiceClient {
     input: CreateCallAnalyticsCategoryRequest,
   ): Effect.Effect<
     CreateCallAnalyticsCategoryResponse,
-    BadRequestException | ConflictException | InternalFailureException | LimitExceededException | CommonAwsError
+    | BadRequestException
+    | ConflictException
+    | InternalFailureException
+    | LimitExceededException
+    | CommonAwsError
   >;
   createLanguageModel(
     input: CreateLanguageModelRequest,
   ): Effect.Effect<
     CreateLanguageModelResponse,
-    BadRequestException | ConflictException | InternalFailureException | LimitExceededException | CommonAwsError
+    | BadRequestException
+    | ConflictException
+    | InternalFailureException
+    | LimitExceededException
+    | CommonAwsError
   >;
   createMedicalVocabulary(
     input: CreateMedicalVocabularyRequest,
   ): Effect.Effect<
     CreateMedicalVocabularyResponse,
-    BadRequestException | ConflictException | InternalFailureException | LimitExceededException | CommonAwsError
+    | BadRequestException
+    | ConflictException
+    | InternalFailureException
+    | LimitExceededException
+    | CommonAwsError
   >;
   createVocabulary(
     input: CreateVocabularyRequest,
   ): Effect.Effect<
     CreateVocabularyResponse,
-    BadRequestException | ConflictException | InternalFailureException | LimitExceededException | CommonAwsError
+    | BadRequestException
+    | ConflictException
+    | InternalFailureException
+    | LimitExceededException
+    | CommonAwsError
   >;
   createVocabularyFilter(
     input: CreateVocabularyFilterRequest,
   ): Effect.Effect<
     CreateVocabularyFilterResponse,
-    BadRequestException | ConflictException | InternalFailureException | LimitExceededException | CommonAwsError
+    | BadRequestException
+    | ConflictException
+    | InternalFailureException
+    | LimitExceededException
+    | CommonAwsError
   >;
   deleteCallAnalyticsCategory(
     input: DeleteCallAnalyticsCategoryRequest,
   ): Effect.Effect<
     DeleteCallAnalyticsCategoryResponse,
-    BadRequestException | InternalFailureException | LimitExceededException | NotFoundException | CommonAwsError
+    | BadRequestException
+    | InternalFailureException
+    | LimitExceededException
+    | NotFoundException
+    | CommonAwsError
   >;
   deleteCallAnalyticsJob(
     input: DeleteCallAnalyticsJobRequest,
   ): Effect.Effect<
     DeleteCallAnalyticsJobResponse,
-    BadRequestException | InternalFailureException | LimitExceededException | CommonAwsError
+    | BadRequestException
+    | InternalFailureException
+    | LimitExceededException
+    | CommonAwsError
   >;
   deleteLanguageModel(
     input: DeleteLanguageModelRequest,
   ): Effect.Effect<
     {},
-    BadRequestException | InternalFailureException | LimitExceededException | CommonAwsError
+    | BadRequestException
+    | InternalFailureException
+    | LimitExceededException
+    | CommonAwsError
   >;
   deleteMedicalScribeJob(
     input: DeleteMedicalScribeJobRequest,
   ): Effect.Effect<
     {},
-    BadRequestException | InternalFailureException | LimitExceededException | CommonAwsError
+    | BadRequestException
+    | InternalFailureException
+    | LimitExceededException
+    | CommonAwsError
   >;
   deleteMedicalTranscriptionJob(
     input: DeleteMedicalTranscriptionJobRequest,
   ): Effect.Effect<
     {},
-    BadRequestException | InternalFailureException | LimitExceededException | CommonAwsError
+    | BadRequestException
+    | InternalFailureException
+    | LimitExceededException
+    | CommonAwsError
   >;
   deleteMedicalVocabulary(
     input: DeleteMedicalVocabularyRequest,
   ): Effect.Effect<
     {},
-    BadRequestException | InternalFailureException | LimitExceededException | NotFoundException | CommonAwsError
+    | BadRequestException
+    | InternalFailureException
+    | LimitExceededException
+    | NotFoundException
+    | CommonAwsError
   >;
   deleteTranscriptionJob(
     input: DeleteTranscriptionJobRequest,
   ): Effect.Effect<
     {},
-    BadRequestException | InternalFailureException | LimitExceededException | CommonAwsError
+    | BadRequestException
+    | InternalFailureException
+    | LimitExceededException
+    | CommonAwsError
   >;
   deleteVocabulary(
     input: DeleteVocabularyRequest,
   ): Effect.Effect<
     {},
-    BadRequestException | InternalFailureException | LimitExceededException | NotFoundException | CommonAwsError
+    | BadRequestException
+    | InternalFailureException
+    | LimitExceededException
+    | NotFoundException
+    | CommonAwsError
   >;
   deleteVocabularyFilter(
     input: DeleteVocabularyFilterRequest,
   ): Effect.Effect<
     {},
-    BadRequestException | InternalFailureException | LimitExceededException | NotFoundException | CommonAwsError
+    | BadRequestException
+    | InternalFailureException
+    | LimitExceededException
+    | NotFoundException
+    | CommonAwsError
   >;
   describeLanguageModel(
     input: DescribeLanguageModelRequest,
   ): Effect.Effect<
     DescribeLanguageModelResponse,
-    BadRequestException | InternalFailureException | LimitExceededException | NotFoundException | CommonAwsError
+    | BadRequestException
+    | InternalFailureException
+    | LimitExceededException
+    | NotFoundException
+    | CommonAwsError
   >;
   getCallAnalyticsCategory(
     input: GetCallAnalyticsCategoryRequest,
   ): Effect.Effect<
     GetCallAnalyticsCategoryResponse,
-    BadRequestException | InternalFailureException | LimitExceededException | NotFoundException | CommonAwsError
+    | BadRequestException
+    | InternalFailureException
+    | LimitExceededException
+    | NotFoundException
+    | CommonAwsError
   >;
   getCallAnalyticsJob(
     input: GetCallAnalyticsJobRequest,
   ): Effect.Effect<
     GetCallAnalyticsJobResponse,
-    BadRequestException | InternalFailureException | LimitExceededException | NotFoundException | CommonAwsError
+    | BadRequestException
+    | InternalFailureException
+    | LimitExceededException
+    | NotFoundException
+    | CommonAwsError
   >;
   getMedicalScribeJob(
     input: GetMedicalScribeJobRequest,
   ): Effect.Effect<
     GetMedicalScribeJobResponse,
-    BadRequestException | InternalFailureException | LimitExceededException | NotFoundException | CommonAwsError
+    | BadRequestException
+    | InternalFailureException
+    | LimitExceededException
+    | NotFoundException
+    | CommonAwsError
   >;
   getMedicalTranscriptionJob(
     input: GetMedicalTranscriptionJobRequest,
   ): Effect.Effect<
     GetMedicalTranscriptionJobResponse,
-    BadRequestException | InternalFailureException | LimitExceededException | NotFoundException | CommonAwsError
+    | BadRequestException
+    | InternalFailureException
+    | LimitExceededException
+    | NotFoundException
+    | CommonAwsError
   >;
   getMedicalVocabulary(
     input: GetMedicalVocabularyRequest,
   ): Effect.Effect<
     GetMedicalVocabularyResponse,
-    BadRequestException | InternalFailureException | LimitExceededException | NotFoundException | CommonAwsError
+    | BadRequestException
+    | InternalFailureException
+    | LimitExceededException
+    | NotFoundException
+    | CommonAwsError
   >;
   getTranscriptionJob(
     input: GetTranscriptionJobRequest,
   ): Effect.Effect<
     GetTranscriptionJobResponse,
-    BadRequestException | InternalFailureException | LimitExceededException | NotFoundException | CommonAwsError
+    | BadRequestException
+    | InternalFailureException
+    | LimitExceededException
+    | NotFoundException
+    | CommonAwsError
   >;
   getVocabulary(
     input: GetVocabularyRequest,
   ): Effect.Effect<
     GetVocabularyResponse,
-    BadRequestException | InternalFailureException | LimitExceededException | NotFoundException | CommonAwsError
+    | BadRequestException
+    | InternalFailureException
+    | LimitExceededException
+    | NotFoundException
+    | CommonAwsError
   >;
   getVocabularyFilter(
     input: GetVocabularyFilterRequest,
   ): Effect.Effect<
     GetVocabularyFilterResponse,
-    BadRequestException | InternalFailureException | LimitExceededException | NotFoundException | CommonAwsError
+    | BadRequestException
+    | InternalFailureException
+    | LimitExceededException
+    | NotFoundException
+    | CommonAwsError
   >;
   listCallAnalyticsCategories(
     input: ListCallAnalyticsCategoriesRequest,
   ): Effect.Effect<
     ListCallAnalyticsCategoriesResponse,
-    BadRequestException | InternalFailureException | LimitExceededException | CommonAwsError
+    | BadRequestException
+    | InternalFailureException
+    | LimitExceededException
+    | CommonAwsError
   >;
   listCallAnalyticsJobs(
     input: ListCallAnalyticsJobsRequest,
   ): Effect.Effect<
     ListCallAnalyticsJobsResponse,
-    BadRequestException | InternalFailureException | LimitExceededException | CommonAwsError
+    | BadRequestException
+    | InternalFailureException
+    | LimitExceededException
+    | CommonAwsError
   >;
   listLanguageModels(
     input: ListLanguageModelsRequest,
   ): Effect.Effect<
     ListLanguageModelsResponse,
-    BadRequestException | InternalFailureException | LimitExceededException | CommonAwsError
+    | BadRequestException
+    | InternalFailureException
+    | LimitExceededException
+    | CommonAwsError
   >;
   listMedicalScribeJobs(
     input: ListMedicalScribeJobsRequest,
   ): Effect.Effect<
     ListMedicalScribeJobsResponse,
-    BadRequestException | InternalFailureException | LimitExceededException | CommonAwsError
+    | BadRequestException
+    | InternalFailureException
+    | LimitExceededException
+    | CommonAwsError
   >;
   listMedicalTranscriptionJobs(
     input: ListMedicalTranscriptionJobsRequest,
   ): Effect.Effect<
     ListMedicalTranscriptionJobsResponse,
-    BadRequestException | InternalFailureException | LimitExceededException | CommonAwsError
+    | BadRequestException
+    | InternalFailureException
+    | LimitExceededException
+    | CommonAwsError
   >;
   listMedicalVocabularies(
     input: ListMedicalVocabulariesRequest,
   ): Effect.Effect<
     ListMedicalVocabulariesResponse,
-    BadRequestException | InternalFailureException | LimitExceededException | CommonAwsError
+    | BadRequestException
+    | InternalFailureException
+    | LimitExceededException
+    | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    BadRequestException | InternalFailureException | LimitExceededException | NotFoundException | CommonAwsError
+    | BadRequestException
+    | InternalFailureException
+    | LimitExceededException
+    | NotFoundException
+    | CommonAwsError
   >;
   listTranscriptionJobs(
     input: ListTranscriptionJobsRequest,
   ): Effect.Effect<
     ListTranscriptionJobsResponse,
-    BadRequestException | InternalFailureException | LimitExceededException | CommonAwsError
+    | BadRequestException
+    | InternalFailureException
+    | LimitExceededException
+    | CommonAwsError
   >;
   listVocabularies(
     input: ListVocabulariesRequest,
   ): Effect.Effect<
     ListVocabulariesResponse,
-    BadRequestException | InternalFailureException | LimitExceededException | CommonAwsError
+    | BadRequestException
+    | InternalFailureException
+    | LimitExceededException
+    | CommonAwsError
   >;
   listVocabularyFilters(
     input: ListVocabularyFiltersRequest,
   ): Effect.Effect<
     ListVocabularyFiltersResponse,
-    BadRequestException | InternalFailureException | LimitExceededException | CommonAwsError
+    | BadRequestException
+    | InternalFailureException
+    | LimitExceededException
+    | CommonAwsError
   >;
   startCallAnalyticsJob(
     input: StartCallAnalyticsJobRequest,
   ): Effect.Effect<
     StartCallAnalyticsJobResponse,
-    BadRequestException | ConflictException | InternalFailureException | LimitExceededException | CommonAwsError
+    | BadRequestException
+    | ConflictException
+    | InternalFailureException
+    | LimitExceededException
+    | CommonAwsError
   >;
   startMedicalScribeJob(
     input: StartMedicalScribeJobRequest,
   ): Effect.Effect<
     StartMedicalScribeJobResponse,
-    BadRequestException | ConflictException | InternalFailureException | LimitExceededException | CommonAwsError
+    | BadRequestException
+    | ConflictException
+    | InternalFailureException
+    | LimitExceededException
+    | CommonAwsError
   >;
   startMedicalTranscriptionJob(
     input: StartMedicalTranscriptionJobRequest,
   ): Effect.Effect<
     StartMedicalTranscriptionJobResponse,
-    BadRequestException | ConflictException | InternalFailureException | LimitExceededException | CommonAwsError
+    | BadRequestException
+    | ConflictException
+    | InternalFailureException
+    | LimitExceededException
+    | CommonAwsError
   >;
   startTranscriptionJob(
     input: StartTranscriptionJobRequest,
   ): Effect.Effect<
     StartTranscriptionJobResponse,
-    BadRequestException | ConflictException | InternalFailureException | LimitExceededException | CommonAwsError
+    | BadRequestException
+    | ConflictException
+    | InternalFailureException
+    | LimitExceededException
+    | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    BadRequestException | ConflictException | InternalFailureException | LimitExceededException | NotFoundException | CommonAwsError
+    | BadRequestException
+    | ConflictException
+    | InternalFailureException
+    | LimitExceededException
+    | NotFoundException
+    | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    BadRequestException | ConflictException | InternalFailureException | LimitExceededException | NotFoundException | CommonAwsError
+    | BadRequestException
+    | ConflictException
+    | InternalFailureException
+    | LimitExceededException
+    | NotFoundException
+    | CommonAwsError
   >;
   updateCallAnalyticsCategory(
     input: UpdateCallAnalyticsCategoryRequest,
   ): Effect.Effect<
     UpdateCallAnalyticsCategoryResponse,
-    BadRequestException | ConflictException | InternalFailureException | LimitExceededException | NotFoundException | CommonAwsError
+    | BadRequestException
+    | ConflictException
+    | InternalFailureException
+    | LimitExceededException
+    | NotFoundException
+    | CommonAwsError
   >;
   updateMedicalVocabulary(
     input: UpdateMedicalVocabularyRequest,
   ): Effect.Effect<
     UpdateMedicalVocabularyResponse,
-    BadRequestException | ConflictException | InternalFailureException | LimitExceededException | NotFoundException | CommonAwsError
+    | BadRequestException
+    | ConflictException
+    | InternalFailureException
+    | LimitExceededException
+    | NotFoundException
+    | CommonAwsError
   >;
   updateVocabulary(
     input: UpdateVocabularyRequest,
   ): Effect.Effect<
     UpdateVocabularyResponse,
-    BadRequestException | ConflictException | InternalFailureException | LimitExceededException | NotFoundException | CommonAwsError
+    | BadRequestException
+    | ConflictException
+    | InternalFailureException
+    | LimitExceededException
+    | NotFoundException
+    | CommonAwsError
   >;
   updateVocabularyFilter(
     input: UpdateVocabularyFilterRequest,
   ): Effect.Effect<
     UpdateVocabularyFilterResponse,
-    BadRequestException | InternalFailureException | LimitExceededException | NotFoundException | CommonAwsError
+    | BadRequestException
+    | InternalFailureException
+    | LimitExceededException
+    | NotFoundException
+    | CommonAwsError
   >;
 }
 
@@ -312,7 +475,11 @@ export interface CallAnalyticsJobSettings {
   LanguageIdSettings?: { [key in LanguageCode]?: string };
   Summarization?: Summarization;
 }
-export type CallAnalyticsJobStatus = "QUEUED" | "IN_PROGRESS" | "FAILED" | "COMPLETED";
+export type CallAnalyticsJobStatus =
+  | "QUEUED"
+  | "IN_PROGRESS"
+  | "FAILED"
+  | "COMPLETED";
 export type CallAnalyticsJobSummaries = Array<CallAnalyticsJobSummary>;
 export interface CallAnalyticsJobSummary {
   CallAnalyticsJobName?: string;
@@ -329,8 +496,11 @@ export interface CallAnalyticsSkippedFeature {
   ReasonCode?: CallAnalyticsSkippedReasonCode;
   Message?: string;
 }
-export type CallAnalyticsSkippedFeatureList = Array<CallAnalyticsSkippedFeature>;
-export type CallAnalyticsSkippedReasonCode = "INSUFFICIENT_CONVERSATION_CONTENT" | "FAILED_SAFETY_GUIDELINES";
+export type CallAnalyticsSkippedFeatureList =
+  Array<CallAnalyticsSkippedFeature>;
+export type CallAnalyticsSkippedReasonCode =
+  | "INSUFFICIENT_CONVERSATION_CONTENT"
+  | "FAILED_SAFETY_GUIDELINES";
 export type CategoryName = string;
 
 export interface CategoryProperties {
@@ -352,7 +522,14 @@ export type ChannelId = number;
 export interface ClinicalNoteGenerationSettings {
   NoteTemplate?: MedicalScribeNoteTemplate;
 }
-export type CLMLanguageCode = "en-US" | "hi-IN" | "es-US" | "en-GB" | "en-AU" | "de-DE" | "ja-JP";
+export type CLMLanguageCode =
+  | "en-US"
+  | "hi-IN"
+  | "es-US"
+  | "en-GB"
+  | "en-AU"
+  | "de-DE"
+  | "ja-JP";
 export declare class ConflictException extends EffectData.TaggedError(
   "ConflictException",
 )<{
@@ -434,13 +611,11 @@ export type DateTime = Date | string;
 export interface DeleteCallAnalyticsCategoryRequest {
   CategoryName: string;
 }
-export interface DeleteCallAnalyticsCategoryResponse {
-}
+export interface DeleteCallAnalyticsCategoryResponse {}
 export interface DeleteCallAnalyticsJobRequest {
   CallAnalyticsJobName: string;
 }
-export interface DeleteCallAnalyticsJobResponse {
-}
+export interface DeleteCallAnalyticsJobResponse {}
 export interface DeleteLanguageModelRequest {
   ModelName: string;
 }
@@ -560,7 +735,112 @@ export interface JobExecutionSettings {
 export type KMSEncryptionContextMap = Record<string, string>;
 export type KMSKeyId = string;
 
-export type LanguageCode = "af-ZA" | "ar-AE" | "ar-SA" | "da-DK" | "de-CH" | "de-DE" | "en-AB" | "en-AU" | "en-GB" | "en-IE" | "en-IN" | "en-US" | "en-WL" | "es-ES" | "es-US" | "fa-IR" | "fr-CA" | "fr-FR" | "he-IL" | "hi-IN" | "id-ID" | "it-IT" | "ja-JP" | "ko-KR" | "ms-MY" | "nl-NL" | "pt-BR" | "pt-PT" | "ru-RU" | "ta-IN" | "te-IN" | "tr-TR" | "zh-CN" | "zh-TW" | "th-TH" | "en-ZA" | "en-NZ" | "vi-VN" | "sv-SE" | "ab-GE" | "ast-ES" | "az-AZ" | "ba-RU" | "be-BY" | "bg-BG" | "bn-IN" | "bs-BA" | "ca-ES" | "ckb-IQ" | "ckb-IR" | "cs-CZ" | "cy-WL" | "el-GR" | "et-EE" | "et-ET" | "eu-ES" | "fi-FI" | "gl-ES" | "gu-IN" | "ha-NG" | "hr-HR" | "hu-HU" | "hy-AM" | "is-IS" | "ka-GE" | "kab-DZ" | "kk-KZ" | "kn-IN" | "ky-KG" | "lg-IN" | "lt-LT" | "lv-LV" | "mhr-RU" | "mi-NZ" | "mk-MK" | "ml-IN" | "mn-MN" | "mr-IN" | "mt-MT" | "no-NO" | "or-IN" | "pa-IN" | "pl-PL" | "ps-AF" | "ro-RO" | "rw-RW" | "si-LK" | "sk-SK" | "sl-SI" | "so-SO" | "sr-RS" | "su-ID" | "sw-BI" | "sw-KE" | "sw-RW" | "sw-TZ" | "sw-UG" | "tl-PH" | "tt-RU" | "ug-CN" | "uk-UA" | "uz-UZ" | "wo-SN" | "zh-HK" | "zu-ZA";
+export type LanguageCode =
+  | "af-ZA"
+  | "ar-AE"
+  | "ar-SA"
+  | "da-DK"
+  | "de-CH"
+  | "de-DE"
+  | "en-AB"
+  | "en-AU"
+  | "en-GB"
+  | "en-IE"
+  | "en-IN"
+  | "en-US"
+  | "en-WL"
+  | "es-ES"
+  | "es-US"
+  | "fa-IR"
+  | "fr-CA"
+  | "fr-FR"
+  | "he-IL"
+  | "hi-IN"
+  | "id-ID"
+  | "it-IT"
+  | "ja-JP"
+  | "ko-KR"
+  | "ms-MY"
+  | "nl-NL"
+  | "pt-BR"
+  | "pt-PT"
+  | "ru-RU"
+  | "ta-IN"
+  | "te-IN"
+  | "tr-TR"
+  | "zh-CN"
+  | "zh-TW"
+  | "th-TH"
+  | "en-ZA"
+  | "en-NZ"
+  | "vi-VN"
+  | "sv-SE"
+  | "ab-GE"
+  | "ast-ES"
+  | "az-AZ"
+  | "ba-RU"
+  | "be-BY"
+  | "bg-BG"
+  | "bn-IN"
+  | "bs-BA"
+  | "ca-ES"
+  | "ckb-IQ"
+  | "ckb-IR"
+  | "cs-CZ"
+  | "cy-WL"
+  | "el-GR"
+  | "et-EE"
+  | "et-ET"
+  | "eu-ES"
+  | "fi-FI"
+  | "gl-ES"
+  | "gu-IN"
+  | "ha-NG"
+  | "hr-HR"
+  | "hu-HU"
+  | "hy-AM"
+  | "is-IS"
+  | "ka-GE"
+  | "kab-DZ"
+  | "kk-KZ"
+  | "kn-IN"
+  | "ky-KG"
+  | "lg-IN"
+  | "lt-LT"
+  | "lv-LV"
+  | "mhr-RU"
+  | "mi-NZ"
+  | "mk-MK"
+  | "ml-IN"
+  | "mn-MN"
+  | "mr-IN"
+  | "mt-MT"
+  | "no-NO"
+  | "or-IN"
+  | "pa-IN"
+  | "pl-PL"
+  | "ps-AF"
+  | "ro-RO"
+  | "rw-RW"
+  | "si-LK"
+  | "sk-SK"
+  | "sl-SI"
+  | "so-SO"
+  | "sr-RS"
+  | "su-ID"
+  | "sw-BI"
+  | "sw-KE"
+  | "sw-RW"
+  | "sw-TZ"
+  | "sw-UG"
+  | "tl-PH"
+  | "tt-RU"
+  | "ug-CN"
+  | "uk-UA"
+  | "uz-UZ"
+  | "wo-SN"
+  | "zh-HK"
+  | "zu-ZA";
 export interface LanguageCodeItem {
   LanguageCode?: LanguageCode;
   DurationInSeconds?: number;
@@ -699,7 +979,15 @@ export interface Media {
   MediaFileUri?: string;
   RedactedMediaFileUri?: string;
 }
-export type MediaFormat = "mp3" | "mp4" | "wav" | "flac" | "ogg" | "amr" | "webm" | "m4a";
+export type MediaFormat =
+  | "mp3"
+  | "mp4"
+  | "wav"
+  | "flac"
+  | "ogg"
+  | "amr"
+  | "webm"
+  | "m4a";
 export type MediaSampleRateHertz = number;
 
 export type MedicalContentIdentificationType = "PHI";
@@ -709,7 +997,8 @@ export interface MedicalScribeChannelDefinition {
   ChannelId: number;
   ParticipantRole: MedicalScribeParticipantRole;
 }
-export type MedicalScribeChannelDefinitions = Array<MedicalScribeChannelDefinition>;
+export type MedicalScribeChannelDefinitions =
+  Array<MedicalScribeChannelDefinition>;
 export type MedicalScribeChannelId = number;
 
 export interface MedicalScribeJob {
@@ -727,7 +1016,11 @@ export interface MedicalScribeJob {
   ChannelDefinitions?: Array<MedicalScribeChannelDefinition>;
   Tags?: Array<Tag>;
 }
-export type MedicalScribeJobStatus = "QUEUED" | "IN_PROGRESS" | "FAILED" | "COMPLETED";
+export type MedicalScribeJobStatus =
+  | "QUEUED"
+  | "IN_PROGRESS"
+  | "FAILED"
+  | "COMPLETED";
 export type MedicalScribeJobSummaries = Array<MedicalScribeJobSummary>;
 export interface MedicalScribeJobSummary {
   MedicalScribeJobName?: string;
@@ -739,7 +1032,14 @@ export interface MedicalScribeJobSummary {
   FailureReason?: string;
 }
 export type MedicalScribeLanguageCode = "en-US";
-export type MedicalScribeNoteTemplate = "HISTORY_AND_PHYSICAL" | "GIRPP" | "BIRP" | "SIRP" | "DAP" | "BEHAVIORAL_SOAP" | "PHYSICAL_SOAP";
+export type MedicalScribeNoteTemplate =
+  | "HISTORY_AND_PHYSICAL"
+  | "GIRPP"
+  | "BIRP"
+  | "SIRP"
+  | "DAP"
+  | "BEHAVIORAL_SOAP"
+  | "PHYSICAL_SOAP";
 export interface MedicalScribeOutput {
   TranscriptFileUri: string;
   ClinicalDocumentUri: string;
@@ -775,7 +1075,8 @@ export interface MedicalTranscriptionJob {
   Type?: Type;
   Tags?: Array<Tag>;
 }
-export type MedicalTranscriptionJobSummaries = Array<MedicalTranscriptionJobSummary>;
+export type MedicalTranscriptionJobSummaries =
+  Array<MedicalTranscriptionJobSummary>;
 export interface MedicalTranscriptionJobSummary {
   MedicalTranscriptionJobName?: string;
   CreationTime?: Date | string;
@@ -830,7 +1131,19 @@ export type Percentage = number;
 export type Phrase = string;
 
 export type Phrases = Array<string>;
-export type PiiEntityType = "BANK_ACCOUNT_NUMBER" | "BANK_ROUTING" | "CREDIT_DEBIT_NUMBER" | "CREDIT_DEBIT_CVV" | "CREDIT_DEBIT_EXPIRY" | "PIN" | "EMAIL" | "ADDRESS" | "NAME" | "PHONE" | "SSN" | "ALL";
+export type PiiEntityType =
+  | "BANK_ACCOUNT_NUMBER"
+  | "BANK_ROUTING"
+  | "CREDIT_DEBIT_NUMBER"
+  | "CREDIT_DEBIT_CVV"
+  | "CREDIT_DEBIT_EXPIRY"
+  | "PIN"
+  | "EMAIL"
+  | "ADDRESS"
+  | "NAME"
+  | "PHONE"
+  | "SSN"
+  | "ALL";
 export type PiiEntityTypes = Array<PiiEntityType>;
 export type RedactionOutput = "redacted" | "redacted_and_unredacted";
 export type RedactionType = "PII";
@@ -847,7 +1160,11 @@ interface _Rule {
   SentimentFilter?: SentimentFilter;
 }
 
-export type Rule = (_Rule & { NonTalkTimeFilter: NonTalkTimeFilter }) | (_Rule & { InterruptionFilter: InterruptionFilter }) | (_Rule & { TranscriptFilter: TranscriptFilter }) | (_Rule & { SentimentFilter: SentimentFilter });
+export type Rule =
+  | (_Rule & { NonTalkTimeFilter: NonTalkTimeFilter })
+  | (_Rule & { InterruptionFilter: InterruptionFilter })
+  | (_Rule & { TranscriptFilter: TranscriptFilter })
+  | (_Rule & { SentimentFilter: SentimentFilter });
 export type RuleList = Array<Rule>;
 export interface SentimentFilter {
   Sentiments: Array<SentimentValue>;
@@ -972,8 +1289,7 @@ export interface TagResourceRequest {
   ResourceArn: string;
   Tags: Array<Tag>;
 }
-export interface TagResourceResponse {
-}
+export interface TagResourceResponse {}
 export type TagValue = string;
 
 export type TimestampMilliseconds = number;
@@ -1027,7 +1343,11 @@ export interface TranscriptionJob {
 }
 export type TranscriptionJobName = string;
 
-export type TranscriptionJobStatus = "QUEUED" | "IN_PROGRESS" | "FAILED" | "COMPLETED";
+export type TranscriptionJobStatus =
+  | "QUEUED"
+  | "IN_PROGRESS"
+  | "FAILED"
+  | "COMPLETED";
 export type TranscriptionJobSummaries = Array<TranscriptionJobSummary>;
 export interface TranscriptionJobSummary {
   TranscriptionJobName?: string;
@@ -1051,8 +1371,7 @@ export interface UntagResourceRequest {
   ResourceArn: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {
-}
+export interface UntagResourceResponse {}
 export interface UpdateCallAnalyticsCategoryRequest {
   CategoryName: string;
   Rules: Array<Rule>;
@@ -1583,4 +1902,3 @@ export declare namespace UpdateVocabularyFilter {
     | NotFoundException
     | CommonAwsError;
 }
-

@@ -1,6 +1,40 @@
 import type { Effect, Data as EffectData } from "effect";
-import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError, ValidationException } from "../../error.ts";
-type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | ThrottlingException | UnrecognizedClientException | UnknownOperationException | ValidationError | ValidationException | AccessDeniedException;
+import type {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  ThrottlingException,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+  ValidationException,
+} from "../../error.ts";
+type CommonAwsError =
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | ThrottlingException
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | ValidationException
+  | AccessDeniedException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class S3Tables extends AWSServiceClient {
@@ -8,181 +42,366 @@ export declare class S3Tables extends AWSServiceClient {
     input: CreateNamespaceRequest,
   ): Effect.Effect<
     CreateNamespaceResponse,
-    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   createTable(
     input: CreateTableRequest,
   ): Effect.Effect<
     CreateTableResponse,
-    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   createTableBucket(
     input: CreateTableBucketRequest,
   ): Effect.Effect<
     CreateTableBucketResponse,
-    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   deleteNamespace(
     input: DeleteNamespaceRequest,
   ): Effect.Effect<
     {},
-    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   deleteTable(
     input: DeleteTableRequest,
   ): Effect.Effect<
     {},
-    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   deleteTableBucket(
     input: DeleteTableBucketRequest,
   ): Effect.Effect<
     {},
-    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   deleteTableBucketEncryption(
     input: DeleteTableBucketEncryptionRequest,
   ): Effect.Effect<
     {},
-    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   deleteTableBucketPolicy(
     input: DeleteTableBucketPolicyRequest,
   ): Effect.Effect<
     {},
-    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   deleteTablePolicy(
     input: DeleteTablePolicyRequest,
   ): Effect.Effect<
     {},
-    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   getNamespace(
     input: GetNamespaceRequest,
   ): Effect.Effect<
     GetNamespaceResponse,
-    AccessDeniedException | BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
+    | AccessDeniedException
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   getTable(
     input: GetTableRequest,
   ): Effect.Effect<
     GetTableResponse,
-    AccessDeniedException | BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
+    | AccessDeniedException
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   getTableBucket(
     input: GetTableBucketRequest,
   ): Effect.Effect<
     GetTableBucketResponse,
-    AccessDeniedException | BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
+    | AccessDeniedException
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   getTableBucketEncryption(
     input: GetTableBucketEncryptionRequest,
   ): Effect.Effect<
     GetTableBucketEncryptionResponse,
-    AccessDeniedException | BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
+    | AccessDeniedException
+    | BadRequestException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   getTableBucketMaintenanceConfiguration(
     input: GetTableBucketMaintenanceConfigurationRequest,
   ): Effect.Effect<
     GetTableBucketMaintenanceConfigurationResponse,
-    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   getTableBucketPolicy(
     input: GetTableBucketPolicyRequest,
   ): Effect.Effect<
     GetTableBucketPolicyResponse,
-    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   getTableEncryption(
     input: GetTableEncryptionRequest,
   ): Effect.Effect<
     GetTableEncryptionResponse,
-    AccessDeniedException | BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
+    | AccessDeniedException
+    | BadRequestException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   getTableMaintenanceConfiguration(
     input: GetTableMaintenanceConfigurationRequest,
   ): Effect.Effect<
     GetTableMaintenanceConfigurationResponse,
-    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   getTableMaintenanceJobStatus(
     input: GetTableMaintenanceJobStatusRequest,
   ): Effect.Effect<
     GetTableMaintenanceJobStatusResponse,
-    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   getTableMetadataLocation(
     input: GetTableMetadataLocationRequest,
   ): Effect.Effect<
     GetTableMetadataLocationResponse,
-    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   getTablePolicy(
     input: GetTablePolicyRequest,
   ): Effect.Effect<
     GetTablePolicyResponse,
-    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   listNamespaces(
     input: ListNamespacesRequest,
   ): Effect.Effect<
     ListNamespacesResponse,
-    AccessDeniedException | BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
+    | AccessDeniedException
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   listTableBuckets(
     input: ListTableBucketsRequest,
   ): Effect.Effect<
     ListTableBucketsResponse,
-    AccessDeniedException | BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
+    | AccessDeniedException
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   listTables(
     input: ListTablesRequest,
   ): Effect.Effect<
     ListTablesResponse,
-    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   putTableBucketEncryption(
     input: PutTableBucketEncryptionRequest,
   ): Effect.Effect<
     {},
-    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   putTableBucketMaintenanceConfiguration(
     input: PutTableBucketMaintenanceConfigurationRequest,
   ): Effect.Effect<
     {},
-    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   putTableBucketPolicy(
     input: PutTableBucketPolicyRequest,
   ): Effect.Effect<
     {},
-    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   putTableMaintenanceConfiguration(
     input: PutTableMaintenanceConfigurationRequest,
   ): Effect.Effect<
     {},
-    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   putTablePolicy(
     input: PutTablePolicyRequest,
   ): Effect.Effect<
     {},
-    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   renameTable(
     input: RenameTableRequest,
   ): Effect.Effect<
     {},
-    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   updateTableMetadataLocation(
     input: UpdateTableMetadataLocationRequest,
   ): Effect.Effect<
     UpdateTableMetadataLocationResponse,
-    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
 }
 
@@ -515,7 +734,10 @@ export type TableBucketARN = string;
 
 export type TableBucketId = string;
 
-export type TableBucketMaintenanceConfiguration = Record<TableBucketMaintenanceType, TableBucketMaintenanceConfigurationValue>;
+export type TableBucketMaintenanceConfiguration = Record<
+  TableBucketMaintenanceType,
+  TableBucketMaintenanceConfigurationValue
+>;
 export interface TableBucketMaintenanceConfigurationValue {
   status?: MaintenanceStatus;
   settings?: TableBucketMaintenanceSettings;
@@ -524,7 +746,9 @@ interface _TableBucketMaintenanceSettings {
   icebergUnreferencedFileRemoval?: IcebergUnreferencedFileRemovalSettings;
 }
 
-export type TableBucketMaintenanceSettings = (_TableBucketMaintenanceSettings & { icebergUnreferencedFileRemoval: IcebergUnreferencedFileRemovalSettings });
+export type TableBucketMaintenanceSettings = _TableBucketMaintenanceSettings & {
+  icebergUnreferencedFileRemoval: IcebergUnreferencedFileRemovalSettings;
+};
 export type TableBucketMaintenanceType = "icebergUnreferencedFileRemoval";
 export type TableBucketName = string;
 
@@ -538,30 +762,47 @@ export interface TableBucketSummary {
 }
 export type TableBucketSummaryList = Array<TableBucketSummary>;
 export type TableBucketType = "customer" | "aws";
-export type TableMaintenanceConfiguration = Record<TableMaintenanceType, TableMaintenanceConfigurationValue>;
+export type TableMaintenanceConfiguration = Record<
+  TableMaintenanceType,
+  TableMaintenanceConfigurationValue
+>;
 export interface TableMaintenanceConfigurationValue {
   status?: MaintenanceStatus;
   settings?: TableMaintenanceSettings;
 }
-export type TableMaintenanceJobStatus = Record<TableMaintenanceJobType, TableMaintenanceJobStatusValue>;
+export type TableMaintenanceJobStatus = Record<
+  TableMaintenanceJobType,
+  TableMaintenanceJobStatusValue
+>;
 export interface TableMaintenanceJobStatusValue {
   status: JobStatus;
   lastRunTimestamp?: Date | string;
   failureMessage?: string;
 }
-export type TableMaintenanceJobType = "icebergCompaction" | "icebergSnapshotManagement" | "icebergUnreferencedFileRemoval";
+export type TableMaintenanceJobType =
+  | "icebergCompaction"
+  | "icebergSnapshotManagement"
+  | "icebergUnreferencedFileRemoval";
 interface _TableMaintenanceSettings {
   icebergCompaction?: IcebergCompactionSettings;
   icebergSnapshotManagement?: IcebergSnapshotManagementSettings;
 }
 
-export type TableMaintenanceSettings = (_TableMaintenanceSettings & { icebergCompaction: IcebergCompactionSettings }) | (_TableMaintenanceSettings & { icebergSnapshotManagement: IcebergSnapshotManagementSettings });
-export type TableMaintenanceType = "icebergCompaction" | "icebergSnapshotManagement";
+export type TableMaintenanceSettings =
+  | (_TableMaintenanceSettings & {
+      icebergCompaction: IcebergCompactionSettings;
+    })
+  | (_TableMaintenanceSettings & {
+      icebergSnapshotManagement: IcebergSnapshotManagementSettings;
+    });
+export type TableMaintenanceType =
+  | "icebergCompaction"
+  | "icebergSnapshotManagement";
 interface _TableMetadata {
   iceberg?: IcebergMetadata;
 }
 
-export type TableMetadata = (_TableMetadata & { iceberg: IcebergMetadata });
+export type TableMetadata = _TableMetadata & { iceberg: IcebergMetadata };
 export type TableName = string;
 
 export interface TableSummary {
@@ -993,4 +1234,3 @@ export declare namespace UpdateTableMetadataLocation {
     | TooManyRequestsException
     | CommonAwsError;
 }
-

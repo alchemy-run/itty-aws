@@ -5,7 +5,23 @@ import type { S3Outposts as _S3OutpostsClient } from "./types.ts";
 
 export * from "./types.ts";
 
-export {ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, type CommonAwsError} from "../../error.ts";
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+  type CommonAwsError,
+} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -15,11 +31,11 @@ const metadata = {
   sigV4ServiceName: "s3-outposts",
   endpointPrefix: "s3-outposts",
   operations: {
-    "CreateEndpoint": "POST /S3Outposts/CreateEndpoint",
-    "DeleteEndpoint": "DELETE /S3Outposts/DeleteEndpoint",
-    "ListEndpoints": "GET /S3Outposts/ListEndpoints",
-    "ListOutpostsWithS3": "GET /S3Outposts/ListOutpostsWithS3",
-    "ListSharedEndpoints": "GET /S3Outposts/ListSharedEndpoints",
+    CreateEndpoint: "POST /S3Outposts/CreateEndpoint",
+    DeleteEndpoint: "DELETE /S3Outposts/DeleteEndpoint",
+    ListEndpoints: "GET /S3Outposts/ListEndpoints",
+    ListOutpostsWithS3: "GET /S3Outposts/ListOutpostsWithS3",
+    ListSharedEndpoints: "GET /S3Outposts/ListSharedEndpoints",
   },
 } as const satisfies ServiceMetadata;
 

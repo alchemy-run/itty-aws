@@ -1,6 +1,39 @@
 import type { Effect, Data as EffectData } from "effect";
-import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
-type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | ThrottlingException | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ValidationException;
+import type {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  ThrottlingException,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+type CommonAwsError =
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | ThrottlingException
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | AccessDeniedException
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class ObservabilityAdmin extends AWSServiceClient {
@@ -8,127 +41,214 @@ export declare class ObservabilityAdmin extends AWSServiceClient {
     input: CreateTelemetryRuleInput,
   ): Effect.Effect<
     CreateTelemetryRuleOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | TooManyRequestsException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | TooManyRequestsException
+    | ValidationException
+    | CommonAwsError
   >;
   createTelemetryRuleForOrganization(
     input: CreateTelemetryRuleForOrganizationInput,
   ): Effect.Effect<
     CreateTelemetryRuleForOrganizationOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | TooManyRequestsException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | TooManyRequestsException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteTelemetryRule(
     input: DeleteTelemetryRuleInput,
   ): Effect.Effect<
     {},
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | TooManyRequestsException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | TooManyRequestsException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteTelemetryRuleForOrganization(
     input: DeleteTelemetryRuleForOrganizationInput,
   ): Effect.Effect<
     {},
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | TooManyRequestsException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | TooManyRequestsException
+    | ValidationException
+    | CommonAwsError
   >;
-  getTelemetryEvaluationStatus(
-    input: {},
-  ): Effect.Effect<
+  getTelemetryEvaluationStatus(input: {}): Effect.Effect<
     GetTelemetryEvaluationStatusOutput,
-    AccessDeniedException | InternalServerException | TooManyRequestsException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
-  getTelemetryEvaluationStatusForOrganization(
-    input: {},
-  ): Effect.Effect<
+  getTelemetryEvaluationStatusForOrganization(input: {}): Effect.Effect<
     GetTelemetryEvaluationStatusForOrganizationOutput,
-    AccessDeniedException | InternalServerException | TooManyRequestsException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | TooManyRequestsException
+    | ValidationException
+    | CommonAwsError
   >;
   getTelemetryRule(
     input: GetTelemetryRuleInput,
   ): Effect.Effect<
     GetTelemetryRuleOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | TooManyRequestsException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | TooManyRequestsException
+    | ValidationException
+    | CommonAwsError
   >;
   getTelemetryRuleForOrganization(
     input: GetTelemetryRuleForOrganizationInput,
   ): Effect.Effect<
     GetTelemetryRuleForOrganizationOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | TooManyRequestsException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | TooManyRequestsException
+    | ValidationException
+    | CommonAwsError
   >;
   listResourceTelemetry(
     input: ListResourceTelemetryInput,
   ): Effect.Effect<
     ListResourceTelemetryOutput,
-    AccessDeniedException | InternalServerException | TooManyRequestsException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | TooManyRequestsException
+    | ValidationException
+    | CommonAwsError
   >;
   listResourceTelemetryForOrganization(
     input: ListResourceTelemetryForOrganizationInput,
   ): Effect.Effect<
     ListResourceTelemetryForOrganizationOutput,
-    AccessDeniedException | InternalServerException | TooManyRequestsException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | TooManyRequestsException
+    | ValidationException
+    | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceInput,
   ): Effect.Effect<
     ListTagsForResourceOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | TooManyRequestsException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | TooManyRequestsException
+    | ValidationException
+    | CommonAwsError
   >;
   listTelemetryRules(
     input: ListTelemetryRulesInput,
   ): Effect.Effect<
     ListTelemetryRulesOutput,
-    AccessDeniedException | InternalServerException | TooManyRequestsException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | TooManyRequestsException
+    | ValidationException
+    | CommonAwsError
   >;
   listTelemetryRulesForOrganization(
     input: ListTelemetryRulesForOrganizationInput,
   ): Effect.Effect<
     ListTelemetryRulesForOrganizationOutput,
-    AccessDeniedException | InternalServerException | TooManyRequestsException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | TooManyRequestsException
+    | ValidationException
+    | CommonAwsError
   >;
-  startTelemetryEvaluation(
-    input: {},
-  ): Effect.Effect<
+  startTelemetryEvaluation(input: {}): Effect.Effect<
     {},
-    AccessDeniedException | InternalServerException | TooManyRequestsException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | TooManyRequestsException
+    | ValidationException
+    | CommonAwsError
   >;
-  startTelemetryEvaluationForOrganization(
-    input: {},
-  ): Effect.Effect<
+  startTelemetryEvaluationForOrganization(input: {}): Effect.Effect<
     {},
-    AccessDeniedException | InternalServerException | TooManyRequestsException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | TooManyRequestsException
+    | ValidationException
+    | CommonAwsError
   >;
-  stopTelemetryEvaluation(
-    input: {},
-  ): Effect.Effect<
+  stopTelemetryEvaluation(input: {}): Effect.Effect<
     {},
-    AccessDeniedException | InternalServerException | TooManyRequestsException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | TooManyRequestsException
+    | ValidationException
+    | CommonAwsError
   >;
-  stopTelemetryEvaluationForOrganization(
-    input: {},
-  ): Effect.Effect<
+  stopTelemetryEvaluationForOrganization(input: {}): Effect.Effect<
     {},
-    AccessDeniedException | InternalServerException | TooManyRequestsException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | TooManyRequestsException
+    | ValidationException
+    | CommonAwsError
   >;
   tagResource(
     input: TagResourceInput,
   ): Effect.Effect<
     {},
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | TooManyRequestsException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | TooManyRequestsException
+    | ValidationException
+    | CommonAwsError
   >;
   untagResource(
     input: UntagResourceInput,
   ): Effect.Effect<
     {},
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | TooManyRequestsException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | TooManyRequestsException
+    | ValidationException
+    | CommonAwsError
   >;
   updateTelemetryRule(
     input: UpdateTelemetryRuleInput,
   ): Effect.Effect<
     UpdateTelemetryRuleOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | TooManyRequestsException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | TooManyRequestsException
+    | ValidationException
+    | CommonAwsError
   >;
   updateTelemetryRuleForOrganization(
     input: UpdateTelemetryRuleForOrganizationInput,
   ): Effect.Effect<
     UpdateTelemetryRuleForOrganizationOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | TooManyRequestsException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | TooManyRequestsException
+    | ValidationException
+    | CommonAwsError
   >;
 }
 
@@ -282,7 +402,10 @@ export declare class ResourceNotFoundException extends EffectData.TaggedError(
 )<{
   readonly Message?: string;
 }> {}
-export type ResourceType = "AWS::EC2::Instance" | "AWS::EC2::VPC" | "AWS::Lambda::Function";
+export type ResourceType =
+  | "AWS::EC2::Instance"
+  | "AWS::EC2::VPC"
+  | "AWS::Lambda::Function";
 export type ResourceTypes = Array<ResourceType>;
 export type RetentionPeriodInDays = number;
 
@@ -296,7 +419,14 @@ export declare class ServiceQuotaExceededException extends EffectData.TaggedErro
   readonly Message?: string;
   readonly amznErrorType?: string;
 }> {}
-export type Status = "NOT_STARTED" | "STARTING" | "FAILED_START" | "RUNNING" | "STOPPING" | "FAILED_STOP" | "STOPPED";
+export type Status =
+  | "NOT_STARTED"
+  | "STARTING"
+  | "FAILED_START"
+  | "RUNNING"
+  | "STOPPING"
+  | "FAILED_STOP"
+  | "STOPPED";
 export type TagKey = string;
 
 export type TagKeyList = Array<string>;
@@ -620,4 +750,3 @@ export declare namespace UpdateTelemetryRuleForOrganization {
     | ValidationException
     | CommonAwsError;
 }
-

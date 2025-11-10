@@ -1,6 +1,38 @@
 import type { Effect, Data as EffectData } from "effect";
-import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
-type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
+import type {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+type CommonAwsError =
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | AccessDeniedException
+  | ThrottlingException
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class ConnectParticipant extends AWSServiceClient {
@@ -8,67 +40,116 @@ export declare class ConnectParticipant extends AWSServiceClient {
     input: CancelParticipantAuthenticationRequest,
   ): Effect.Effect<
     CancelParticipantAuthenticationResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   completeAttachmentUpload(
     input: CompleteAttachmentUploadRequest,
   ): Effect.Effect<
     CompleteAttachmentUploadResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createParticipantConnection(
     input: CreateParticipantConnectionRequest,
   ): Effect.Effect<
     CreateParticipantConnectionResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   describeView(
     input: DescribeViewRequest,
   ): Effect.Effect<
     DescribeViewResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   disconnectParticipant(
     input: DisconnectParticipantRequest,
   ): Effect.Effect<
     DisconnectParticipantResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getAttachment(
     input: GetAttachmentRequest,
   ): Effect.Effect<
     GetAttachmentResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getAuthenticationUrl(
     input: GetAuthenticationUrlRequest,
   ): Effect.Effect<
     GetAuthenticationUrlResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getTranscript(
     input: GetTranscriptRequest,
   ): Effect.Effect<
     GetTranscriptResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   sendEvent(
     input: SendEventRequest,
   ): Effect.Effect<
     SendEventResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   sendMessage(
     input: SendMessageRequest,
   ): Effect.Effect<
     SendMessageResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   startAttachmentUpload(
     input: StartAttachmentUploadRequest,
   ): Effect.Effect<
     StartAttachmentUploadResponse,
-    AccessDeniedException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
 }
 
@@ -104,15 +185,26 @@ export interface CancelParticipantAuthenticationRequest {
   SessionId: string;
   ConnectionToken: string;
 }
-export interface CancelParticipantAuthenticationResponse {
-}
+export interface CancelParticipantAuthenticationResponse {}
 export type ChatContent = string;
 
 export type ChatContentType = string;
 
 export type ChatItemId = string;
 
-export type ChatItemType = "TYPING" | "PARTICIPANT_JOINED" | "PARTICIPANT_LEFT" | "CHAT_ENDED" | "TRANSFER_SUCCEEDED" | "TRANSFER_FAILED" | "MESSAGE" | "EVENT" | "ATTACHMENT" | "CONNECTION_ACK" | "MESSAGE_DELIVERED" | "MESSAGE_READ";
+export type ChatItemType =
+  | "TYPING"
+  | "PARTICIPANT_JOINED"
+  | "PARTICIPANT_LEFT"
+  | "CHAT_ENDED"
+  | "TRANSFER_SUCCEEDED"
+  | "TRANSFER_FAILED"
+  | "MESSAGE"
+  | "EVENT"
+  | "ATTACHMENT"
+  | "CONNECTION_ACK"
+  | "MESSAGE_DELIVERED"
+  | "MESSAGE_READ";
 export type ClientToken = string;
 
 export interface CompleteAttachmentUploadRequest {
@@ -120,8 +212,7 @@ export interface CompleteAttachmentUploadRequest {
   ClientToken: string;
   ConnectionToken: string;
 }
-export interface CompleteAttachmentUploadResponse {
-}
+export interface CompleteAttachmentUploadResponse {}
 export declare class ConflictException extends EffectData.TaggedError(
   "ConflictException",
 )<{
@@ -157,8 +248,7 @@ export interface DisconnectParticipantRequest {
   ClientToken?: string;
   ConnectionToken: string;
 }
-export interface DisconnectParticipantResponse {
-}
+export interface DisconnectParticipantResponse {}
 export type DisplayName = string;
 
 export interface GetAttachmentRequest {
@@ -232,7 +322,12 @@ export type NonEmptyClientToken = string;
 
 export type ParticipantId = string;
 
-export type ParticipantRole = "AGENT" | "CUSTOMER" | "SYSTEM" | "CUSTOM_BOT" | "SUPERVISOR";
+export type ParticipantRole =
+  | "AGENT"
+  | "CUSTOMER"
+  | "SYSTEM"
+  | "CUSTOM_BOT"
+  | "SUPERVISOR";
 export type ParticipantToken = string;
 
 export type PreSignedAttachmentUrl = string;
@@ -258,7 +353,15 @@ export declare class ResourceNotFoundException extends EffectData.TaggedError(
   readonly ResourceId?: string;
   readonly ResourceType?: ResourceType;
 }> {}
-export type ResourceType = "CONTACT" | "CONTACT_FLOW" | "INSTANCE" | "PARTICIPANT" | "HIERARCHY_LEVEL" | "HIERARCHY_GROUP" | "USER" | "PHONE_NUMBER";
+export type ResourceType =
+  | "CONTACT"
+  | "CONTACT_FLOW"
+  | "INSTANCE"
+  | "PARTICIPANT"
+  | "HIERARCHY_LEVEL"
+  | "HIERARCHY_GROUP"
+  | "USER"
+  | "PHONE_NUMBER";
 export type ScanDirection = "FORWARD" | "BACKWARD";
 export interface SendEventRequest {
   ContentType: string;
@@ -485,4 +588,3 @@ export declare namespace StartAttachmentUpload {
     | ValidationException
     | CommonAwsError;
 }
-

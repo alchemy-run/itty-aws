@@ -5,7 +5,23 @@ import type { BackupSearch as _BackupSearchClient } from "./types.ts";
 
 export * from "./types.ts";
 
-export {ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, type CommonAwsError} from "../../error.ts";
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+  type CommonAwsError,
+} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -15,18 +31,19 @@ const metadata = {
   sigV4ServiceName: "backup-search",
   endpointPrefix: "backup-search",
   operations: {
-    "ListSearchJobBackups": "GET /search-jobs/{SearchJobIdentifier}/backups",
-    "ListSearchJobResults": "GET /search-jobs/{SearchJobIdentifier}/search-results",
-    "ListTagsForResource": "GET /tags/{ResourceArn}",
-    "TagResource": "POST /tags/{ResourceArn}",
-    "UntagResource": "DELETE /tags/{ResourceArn}",
-    "GetSearchJob": "GET /search-jobs/{SearchJobIdentifier}",
-    "GetSearchResultExportJob": "GET /export-search-jobs/{ExportJobIdentifier}",
-    "ListSearchJobs": "GET /search-jobs",
-    "ListSearchResultExportJobs": "GET /export-search-jobs",
-    "StartSearchJob": "PUT /search-jobs",
-    "StartSearchResultExportJob": "PUT /export-search-jobs",
-    "StopSearchJob": "PUT /search-jobs/{SearchJobIdentifier}/actions/cancel",
+    ListSearchJobBackups: "GET /search-jobs/{SearchJobIdentifier}/backups",
+    ListSearchJobResults:
+      "GET /search-jobs/{SearchJobIdentifier}/search-results",
+    ListTagsForResource: "GET /tags/{ResourceArn}",
+    TagResource: "POST /tags/{ResourceArn}",
+    UntagResource: "DELETE /tags/{ResourceArn}",
+    GetSearchJob: "GET /search-jobs/{SearchJobIdentifier}",
+    GetSearchResultExportJob: "GET /export-search-jobs/{ExportJobIdentifier}",
+    ListSearchJobs: "GET /search-jobs",
+    ListSearchResultExportJobs: "GET /export-search-jobs",
+    StartSearchJob: "PUT /search-jobs",
+    StartSearchResultExportJob: "PUT /export-search-jobs",
+    StopSearchJob: "PUT /search-jobs/{SearchJobIdentifier}/actions/cancel",
   },
 } as const satisfies ServiceMetadata;
 

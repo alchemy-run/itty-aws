@@ -1,6 +1,39 @@
 import type { Effect, Data as EffectData } from "effect";
-import type { AccessDeniedException, ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
-type CommonAwsError = AccessDeniedException | ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | ThrottlingException | ValidationException;
+import type {
+  AccessDeniedException,
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+type CommonAwsError =
+  | AccessDeniedException
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | ThrottlingException
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class LicenseManagerLinuxSubscriptions extends AWSServiceClient {
@@ -8,55 +41,84 @@ export declare class LicenseManagerLinuxSubscriptions extends AWSServiceClient {
     input: DeregisterSubscriptionProviderRequest,
   ): Effect.Effect<
     DeregisterSubscriptionProviderResponse,
-    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getRegisteredSubscriptionProvider(
     input: GetRegisteredSubscriptionProviderRequest,
   ): Effect.Effect<
     GetRegisteredSubscriptionProviderResponse,
-    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getServiceSettings(
     input: GetServiceSettingsRequest,
   ): Effect.Effect<
     GetServiceSettingsResponse,
-    InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listLinuxSubscriptionInstances(
     input: ListLinuxSubscriptionInstancesRequest,
   ): Effect.Effect<
     ListLinuxSubscriptionInstancesResponse,
-    InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listLinuxSubscriptions(
     input: ListLinuxSubscriptionsRequest,
   ): Effect.Effect<
     ListLinuxSubscriptionsResponse,
-    InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listRegisteredSubscriptionProviders(
     input: ListRegisteredSubscriptionProvidersRequest,
   ): Effect.Effect<
     ListRegisteredSubscriptionProvidersResponse,
-    InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   registerSubscriptionProvider(
     input: RegisterSubscriptionProviderRequest,
   ): Effect.Effect<
     RegisterSubscriptionProviderResponse,
-    InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
@@ -68,7 +130,10 @@ export declare class LicenseManagerLinuxSubscriptions extends AWSServiceClient {
     input: UpdateServiceSettingsRequest,
   ): Effect.Effect<
     UpdateServiceSettingsResponse,
-    InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
 }
 
@@ -79,8 +144,7 @@ export type BoxLong = number;
 export interface DeregisterSubscriptionProviderRequest {
   SubscriptionProviderArn: string;
 }
-export interface DeregisterSubscriptionProviderResponse {
-}
+export interface DeregisterSubscriptionProviderResponse {}
 export interface Filter {
   Name?: string;
   Values?: Array<string>;
@@ -98,8 +162,7 @@ export interface GetRegisteredSubscriptionProviderResponse {
   SubscriptionProviderStatusMessage?: string;
   LastSuccessfulDataRetrievalTime?: string;
 }
-export interface GetServiceSettingsRequest {
-}
+export interface GetServiceSettingsRequest {}
 export interface GetServiceSettingsResponse {
   LinuxSubscriptionsDiscovery?: string;
   LinuxSubscriptionsDiscoverySettings?: LinuxSubscriptionsDiscoverySettings;
@@ -182,7 +245,8 @@ export interface RegisteredSubscriptionProvider {
   SubscriptionProviderStatusMessage?: string;
   LastSuccessfulDataRetrievalTime?: string;
 }
-export type RegisteredSubscriptionProviderList = Array<RegisteredSubscriptionProvider>;
+export type RegisteredSubscriptionProviderList =
+  Array<RegisteredSubscriptionProvider>;
 export interface RegisterSubscriptionProviderRequest {
   SubscriptionProviderSource: string;
   SecretArn: string;
@@ -222,8 +286,7 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {
-}
+export interface TagResourceResponse {}
 export type Tags = Record<string, string>;
 export declare class ThrottlingException extends EffectData.TaggedError(
   "ThrottlingException",
@@ -234,8 +297,7 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {
-}
+export interface UntagResourceResponse {}
 export interface UpdateServiceSettingsRequest {
   LinuxSubscriptionsDiscovery: string;
   LinuxSubscriptionsDiscoverySettings: LinuxSubscriptionsDiscoverySettings;
@@ -363,4 +425,3 @@ export declare namespace UpdateServiceSettings {
     | ValidationException
     | CommonAwsError;
 }
-

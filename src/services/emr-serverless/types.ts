@@ -1,6 +1,40 @@
 import type { Effect, Data as EffectData } from "effect";
-import type { AccessDeniedException, ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
-type CommonAwsError = AccessDeniedException | ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | ThrottlingException | UnrecognizedClientException | UnknownOperationException | ValidationError | ValidationException;
+import type {
+  AccessDeniedException,
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  ThrottlingException,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+type CommonAwsError =
+  | AccessDeniedException
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | ThrottlingException
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class EMRServerless extends AWSServiceClient {
@@ -8,55 +42,83 @@ export declare class EMRServerless extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   cancelJobRun(
     input: CancelJobRunRequest,
   ): Effect.Effect<
     CancelJobRunResponse,
-    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   createApplication(
     input: CreateApplicationRequest,
   ): Effect.Effect<
     CreateApplicationResponse,
-    ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteApplication(
     input: DeleteApplicationRequest,
   ): Effect.Effect<
     DeleteApplicationResponse,
-    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   getApplication(
     input: GetApplicationRequest,
   ): Effect.Effect<
     GetApplicationResponse,
-    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   getDashboardForJobRun(
     input: GetDashboardForJobRunRequest,
   ): Effect.Effect<
     GetDashboardForJobRunResponse,
-    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   getJobRun(
     input: GetJobRunRequest,
   ): Effect.Effect<
     GetJobRunResponse,
-    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   listApplications(
     input: ListApplicationsRequest,
@@ -68,7 +130,10 @@ export declare class EMRServerless extends AWSServiceClient {
     input: ListJobRunAttemptsRequest,
   ): Effect.Effect<
     ListJobRunAttemptsResponse,
-    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   listJobRuns(
     input: ListJobRunsRequest,
@@ -80,25 +145,39 @@ export declare class EMRServerless extends AWSServiceClient {
     input: StartApplicationRequest,
   ): Effect.Effect<
     StartApplicationResponse,
-    InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ValidationException
+    | CommonAwsError
   >;
   startJobRun(
     input: StartJobRunRequest,
   ): Effect.Effect<
     StartJobRunResponse,
-    ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   stopApplication(
     input: StopApplicationRequest,
   ): Effect.Effect<
     StopApplicationResponse,
-    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   updateApplication(
     input: UpdateApplicationRequest,
   ): Effect.Effect<
     UpdateApplicationResponse,
-    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
 }
 
@@ -233,8 +312,7 @@ export type EmrServerlessDate = Date | string;
 export interface DeleteApplicationRequest {
   applicationId: string;
 }
-export interface DeleteApplicationResponse {
-}
+export interface DeleteApplicationResponse {}
 export type DiskSize = string;
 
 export type DiskType = string;
@@ -327,7 +405,9 @@ interface _JobDriver {
   hive?: Hive;
 }
 
-export type JobDriver = (_JobDriver & { sparkSubmit: SparkSubmit }) | (_JobDriver & { hive: Hive });
+export type JobDriver =
+  | (_JobDriver & { sparkSubmit: SparkSubmit })
+  | (_JobDriver & { hive: Hive });
 export interface JobRun {
   applicationId: string;
   jobRunId: string;
@@ -536,8 +616,7 @@ export type SparkSubmitParameters = string;
 export interface StartApplicationRequest {
   applicationId: string;
 }
-export interface StartApplicationResponse {
-}
+export interface StartApplicationResponse {}
 export interface StartJobRunRequest {
   applicationId: string;
   clientToken: string;
@@ -559,8 +638,7 @@ export interface StartJobRunResponse {
 export interface StopApplicationRequest {
   applicationId: string;
 }
-export interface StopApplicationResponse {
-}
+export interface StopApplicationResponse {}
 export type String1024 = string;
 
 export type String256 = string;
@@ -576,8 +654,7 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {
-}
+export interface TagResourceResponse {}
 export type TagValue = string;
 
 export interface TotalResourceUtilization {
@@ -589,8 +666,7 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {
-}
+export interface UntagResourceResponse {}
 export interface UpdateApplicationRequest {
   applicationId: string;
   clientToken: string;
@@ -635,8 +711,14 @@ export interface WorkerTypeSpecification {
 export interface WorkerTypeSpecificationInput {
   imageConfiguration?: ImageConfigurationInput;
 }
-export type WorkerTypeSpecificationInputMap = Record<string, WorkerTypeSpecificationInput>;
-export type WorkerTypeSpecificationMap = Record<string, WorkerTypeSpecification>;
+export type WorkerTypeSpecificationInputMap = Record<
+  string,
+  WorkerTypeSpecificationInput
+>;
+export type WorkerTypeSpecificationMap = Record<
+  string,
+  WorkerTypeSpecification
+>;
 export type WorkerTypeString = string;
 
 export declare namespace ListTagsForResource {
@@ -799,4 +881,3 @@ export declare namespace UpdateApplication {
     | ValidationException
     | CommonAwsError;
 }
-

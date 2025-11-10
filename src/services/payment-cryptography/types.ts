@@ -1,6 +1,38 @@
 import type { Effect, Data as EffectData } from "effect";
-import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
-type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
+import type {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+type CommonAwsError =
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | AccessDeniedException
+  | ThrottlingException
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class PaymentCryptography extends AWSServiceClient {
@@ -8,121 +40,264 @@ export declare class PaymentCryptography extends AWSServiceClient {
     input: ExportKeyInput,
   ): Effect.Effect<
     ExportKeyOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getParametersForExport(
     input: GetParametersForExportInput,
   ): Effect.Effect<
     GetParametersForExportOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ServiceUnavailableException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getParametersForImport(
     input: GetParametersForImportInput,
   ): Effect.Effect<
     GetParametersForImportOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ServiceUnavailableException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getPublicKeyCertificate(
     input: GetPublicKeyCertificateInput,
   ): Effect.Effect<
     GetPublicKeyCertificateOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   importKey(
     input: ImportKeyInput,
   ): Effect.Effect<
     ImportKeyOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ServiceUnavailableException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceInput,
   ): Effect.Effect<
     ListTagsForResourceOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   tagResource(
     input: TagResourceInput,
   ): Effect.Effect<
     TagResourceOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ServiceUnavailableException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   untagResource(
     input: UntagResourceInput,
   ): Effect.Effect<
     UntagResourceOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createAlias(
     input: CreateAliasInput,
   ): Effect.Effect<
     CreateAliasOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ServiceUnavailableException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createKey(
     input: CreateKeyInput,
   ): Effect.Effect<
     CreateKeyOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ServiceUnavailableException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteAlias(
     input: DeleteAliasInput,
   ): Effect.Effect<
     DeleteAliasOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteKey(
     input: DeleteKeyInput,
   ): Effect.Effect<
     DeleteKeyOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getAlias(
     input: GetAliasInput,
   ): Effect.Effect<
     GetAliasOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getKey(
     input: GetKeyInput,
   ): Effect.Effect<
     GetKeyOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listAliases(
     input: ListAliasesInput,
   ): Effect.Effect<
     ListAliasesOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listKeys(
     input: ListKeysInput,
   ): Effect.Effect<
     ListKeysOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   restoreKey(
     input: RestoreKeyInput,
   ): Effect.Effect<
     RestoreKeyOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ServiceUnavailableException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   startKeyUsage(
     input: StartKeyUsageInput,
   ): Effect.Effect<
     StartKeyUsageOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ServiceUnavailableException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   stopKeyUsage(
     input: StopKeyUsageInput,
   ): Effect.Effect<
     StopKeyUsageOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ServiceUnavailableException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateAlias(
     input: UpdateAliasInput,
   ): Effect.Effect<
     UpdateAliasOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
 }
 
@@ -166,8 +341,7 @@ export interface CreateKeyOutput {
 export interface DeleteAliasInput {
   AliasName: string;
 }
-export interface DeleteAliasOutput {
-}
+export interface DeleteAliasOutput {}
 export interface DeleteKeyInput {
   KeyIdentifier: string;
   DeleteKeyInDays?: number;
@@ -181,7 +355,9 @@ interface _DiffieHellmanDerivationData {
   SharedInformation?: string;
 }
 
-export type DiffieHellmanDerivationData = (_DiffieHellmanDerivationData & { SharedInformation: string });
+export type DiffieHellmanDerivationData = _DiffieHellmanDerivationData & {
+  SharedInformation: string;
+};
 export type EvenHexLengthBetween16And32 = string;
 
 export interface ExportAttributes {
@@ -218,7 +394,13 @@ interface _ExportKeyMaterial {
   DiffieHellmanTr31KeyBlock?: ExportDiffieHellmanTr31KeyBlock;
 }
 
-export type ExportKeyMaterial = (_ExportKeyMaterial & { Tr31KeyBlock: ExportTr31KeyBlock }) | (_ExportKeyMaterial & { Tr34KeyBlock: ExportTr34KeyBlock }) | (_ExportKeyMaterial & { KeyCryptogram: ExportKeyCryptogram }) | (_ExportKeyMaterial & { DiffieHellmanTr31KeyBlock: ExportDiffieHellmanTr31KeyBlock });
+export type ExportKeyMaterial =
+  | (_ExportKeyMaterial & { Tr31KeyBlock: ExportTr31KeyBlock })
+  | (_ExportKeyMaterial & { Tr34KeyBlock: ExportTr34KeyBlock })
+  | (_ExportKeyMaterial & { KeyCryptogram: ExportKeyCryptogram })
+  | (_ExportKeyMaterial & {
+      DiffieHellmanTr31KeyBlock: ExportDiffieHellmanTr31KeyBlock;
+    });
 export interface ExportKeyOutput {
   WrappedKey?: WrappedKey;
 }
@@ -311,7 +493,19 @@ interface _ImportKeyMaterial {
   DiffieHellmanTr31KeyBlock?: ImportDiffieHellmanTr31KeyBlock;
 }
 
-export type ImportKeyMaterial = (_ImportKeyMaterial & { RootCertificatePublicKey: RootCertificatePublicKey }) | (_ImportKeyMaterial & { TrustedCertificatePublicKey: TrustedCertificatePublicKey }) | (_ImportKeyMaterial & { Tr31KeyBlock: ImportTr31KeyBlock }) | (_ImportKeyMaterial & { Tr34KeyBlock: ImportTr34KeyBlock }) | (_ImportKeyMaterial & { KeyCryptogram: ImportKeyCryptogram }) | (_ImportKeyMaterial & { DiffieHellmanTr31KeyBlock: ImportDiffieHellmanTr31KeyBlock });
+export type ImportKeyMaterial =
+  | (_ImportKeyMaterial & {
+      RootCertificatePublicKey: RootCertificatePublicKey;
+    })
+  | (_ImportKeyMaterial & {
+      TrustedCertificatePublicKey: TrustedCertificatePublicKey;
+    })
+  | (_ImportKeyMaterial & { Tr31KeyBlock: ImportTr31KeyBlock })
+  | (_ImportKeyMaterial & { Tr34KeyBlock: ImportTr34KeyBlock })
+  | (_ImportKeyMaterial & { KeyCryptogram: ImportKeyCryptogram })
+  | (_ImportKeyMaterial & {
+      DiffieHellmanTr31KeyBlock: ImportDiffieHellmanTr31KeyBlock;
+    });
 export interface ImportKeyOutput {
   Key: Key;
 }
@@ -487,7 +681,16 @@ export interface StopKeyUsageInput {
 export interface StopKeyUsageOutput {
   Key: Key;
 }
-export type SymmetricKeyAlgorithm = "TDES_2KEY" | "TDES_3KEY" | "AES_128" | "AES_192" | "AES_256" | "HMAC_SHA256" | "HMAC_SHA384" | "HMAC_SHA512" | "HMAC_SHA224";
+export type SymmetricKeyAlgorithm =
+  | "TDES_2KEY"
+  | "TDES_3KEY"
+  | "AES_128"
+  | "AES_192"
+  | "AES_256"
+  | "HMAC_SHA256"
+  | "HMAC_SHA384"
+  | "HMAC_SHA512"
+  | "HMAC_SHA224";
 export interface Tag {
   Key: string;
   Value: string;
@@ -499,8 +702,7 @@ export interface TagResourceInput {
   ResourceArn: string;
   Tags: Array<Tag>;
 }
-export interface TagResourceOutput {
-}
+export interface TagResourceOutput {}
 export type Tags = Array<Tag>;
 export type TagValue = string;
 
@@ -526,8 +728,7 @@ export interface UntagResourceInput {
   ResourceArn: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceOutput {
-}
+export interface UntagResourceOutput {}
 export interface UpdateAliasInput {
   AliasName: string;
   KeyArn?: string;
@@ -835,4 +1036,3 @@ export declare namespace UpdateAlias {
     | ValidationException
     | CommonAwsError;
 }
-

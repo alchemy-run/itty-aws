@@ -1,6 +1,38 @@
 import type { Effect, Data as EffectData } from "effect";
-import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
-type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
+import type {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+type CommonAwsError =
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | AccessDeniedException
+  | ThrottlingException
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class ARCZonalShift extends AWSServiceClient {
@@ -8,91 +40,169 @@ export declare class ARCZonalShift extends AWSServiceClient {
     input: CancelPracticeRunRequest,
   ): Effect.Effect<
     CancelPracticeRunResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   cancelZonalShift(
     input: CancelZonalShiftRequest,
   ): Effect.Effect<
     ZonalShift,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createPracticeRunConfiguration(
     input: CreatePracticeRunConfigurationRequest,
   ): Effect.Effect<
     CreatePracticeRunConfigurationResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deletePracticeRunConfiguration(
     input: DeletePracticeRunConfigurationRequest,
   ): Effect.Effect<
     DeletePracticeRunConfigurationResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getAutoshiftObserverNotificationStatus(
     input: GetAutoshiftObserverNotificationStatusRequest,
   ): Effect.Effect<
     GetAutoshiftObserverNotificationStatusResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | CommonAwsError
   >;
   getManagedResource(
     input: GetManagedResourceRequest,
   ): Effect.Effect<
     GetManagedResourceResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listAutoshifts(
     input: ListAutoshiftsRequest,
   ): Effect.Effect<
     ListAutoshiftsResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listManagedResources(
     input: ListManagedResourcesRequest,
   ): Effect.Effect<
     ListManagedResourcesResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listZonalShifts(
     input: ListZonalShiftsRequest,
   ): Effect.Effect<
     ListZonalShiftsResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   startPracticeRun(
     input: StartPracticeRunRequest,
   ): Effect.Effect<
     StartPracticeRunResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   startZonalShift(
     input: StartZonalShiftRequest,
   ): Effect.Effect<
     ZonalShift,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateAutoshiftObserverNotificationStatus(
     input: UpdateAutoshiftObserverNotificationStatusRequest,
   ): Effect.Effect<
     UpdateAutoshiftObserverNotificationStatusResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updatePracticeRunConfiguration(
     input: UpdatePracticeRunConfigurationRequest,
   ): Effect.Effect<
     UpdatePracticeRunConfigurationResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateZonalAutoshiftConfiguration(
     input: UpdateZonalAutoshiftConfigurationRequest,
   ): Effect.Effect<
     UpdateZonalAutoshiftConfigurationResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateZonalShift(
     input: UpdateZonalShiftRequest,
   ): Effect.Effect<
     ZonalShift,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
 }
 
@@ -152,7 +262,18 @@ export declare class ConflictException extends EffectData.TaggedError(
   readonly reason: ConflictExceptionReason;
   readonly zonalShiftId?: string;
 }> {}
-export type ConflictExceptionReason = "ZonalShiftAlreadyExists" | "ZonalShiftStatusNotActive" | "SimultaneousZonalShiftsConflict" | "PracticeConfigurationAlreadyExists" | "AutoShiftEnabled" | "PracticeConfigurationDoesNotExist" | "ZonalAutoshiftActive" | "PracticeOutcomeAlarmsRed" | "PracticeBlockingAlarmsRed" | "PracticeInBlockedDates" | "PracticeInBlockedWindows";
+export type ConflictExceptionReason =
+  | "ZonalShiftAlreadyExists"
+  | "ZonalShiftStatusNotActive"
+  | "SimultaneousZonalShiftsConflict"
+  | "PracticeConfigurationAlreadyExists"
+  | "AutoShiftEnabled"
+  | "PracticeConfigurationDoesNotExist"
+  | "ZonalAutoshiftActive"
+  | "PracticeOutcomeAlarmsRed"
+  | "PracticeBlockingAlarmsRed"
+  | "PracticeInBlockedDates"
+  | "PracticeInBlockedWindows";
 export interface ControlCondition {
   type: ControlConditionType;
   alarmIdentifier: string;
@@ -184,8 +305,7 @@ export type ExpiresIn = string;
 
 export type ExpiryTime = Date | string;
 
-export interface GetAutoshiftObserverNotificationStatusRequest {
-}
+export interface GetAutoshiftObserverNotificationStatusRequest {}
 export interface GetAutoshiftObserverNotificationStatusResponse {
   status: AutoshiftObserverNotificationStatus;
 }
@@ -254,7 +374,12 @@ export interface PracticeRunConfiguration {
   blockedWindows?: Array<string>;
   blockedDates?: Array<string>;
 }
-export type PracticeRunOutcome = "FAILED" | "INTERRUPTED" | "PENDING" | "SUCCEEDED" | "CAPACITY_CHECK_FAILED";
+export type PracticeRunOutcome =
+  | "FAILED"
+  | "INTERRUPTED"
+  | "PENDING"
+  | "SUCCEEDED"
+  | "CAPACITY_CHECK_FAILED";
 export type ResourceArn = string;
 
 export type ResourceIdentifier = string;
@@ -266,7 +391,11 @@ export declare class ResourceNotFoundException extends EffectData.TaggedError(
 )<{
   readonly message: string;
 }> {}
-export type ShiftType = "ZONAL_SHIFT" | "PRACTICE_RUN" | "FIS_EXPERIMENT" | "ZONAL_AUTOSHIFT";
+export type ShiftType =
+  | "ZONAL_SHIFT"
+  | "PRACTICE_RUN"
+  | "FIS_EXPERIMENT"
+  | "ZONAL_AUTOSHIFT";
 export interface StartPracticeRunRequest {
   resourceIdentifier: string;
   awayFrom: string;
@@ -332,7 +461,20 @@ export declare class ValidationException extends EffectData.TaggedError(
   readonly message: string;
   readonly reason: ValidationExceptionReason;
 }> {}
-export type ValidationExceptionReason = "InvalidExpiresIn" | "InvalidStatus" | "MissingValue" | "InvalidToken" | "InvalidResourceIdentifier" | "InvalidAz" | "UnsupportedAz" | "InvalidAlarmCondition" | "InvalidConditionType" | "InvalidPracticeBlocker" | "FISExperimentUpdateNotAllowed" | "AutoshiftUpdateNotAllowed" | "UnsupportedPracticeCancelShiftType";
+export type ValidationExceptionReason =
+  | "InvalidExpiresIn"
+  | "InvalidStatus"
+  | "MissingValue"
+  | "InvalidToken"
+  | "InvalidResourceIdentifier"
+  | "InvalidAz"
+  | "UnsupportedAz"
+  | "InvalidAlarmCondition"
+  | "InvalidConditionType"
+  | "InvalidPracticeBlocker"
+  | "FISExperimentUpdateNotAllowed"
+  | "AutoshiftUpdateNotAllowed"
+  | "UnsupportedPracticeCancelShiftType";
 export type Weight = number;
 
 export type ZonalAutoshiftStatus = "ENABLED" | "DISABLED";
@@ -556,4 +698,3 @@ export declare namespace UpdateZonalShift {
     | ValidationException
     | CommonAwsError;
 }
-
