@@ -194,24 +194,7 @@ export function createServiceProxy<T>(
               }),
             ).pipe(Effect.timeout("30 seconds")); //FIXME: why a 30-second timeout?
 
-            // const responseText = yield* Effect.promise(() => response.text());
-
             const statusCode = response.status;
-
-            // Log the AWS response
-            // yield* Effect.logDebug("AWS Response", {
-            //   service: metadata.sdkId,
-            //   operation,
-            //   statusCode,
-            //   headers: (() => {
-            //     const headersObj: Record<string, string> = {};
-            //     response.headers.forEach((value, key) => {
-            //       headersObj[key] = value;
-            //     });
-            //     return headersObj;
-            //   })(),
-            //   // responseText,
-            // });
 
             if (statusCode >= 200 && statusCode < 300) {
               // Success
