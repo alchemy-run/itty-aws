@@ -1407,3 +1407,12 @@ export declare namespace ValidateSolNetworkPackageContent {
     | ValidationException
     | CommonAwsError;
 }
+
+export type tnbErrors =
+  | AccessDeniedException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

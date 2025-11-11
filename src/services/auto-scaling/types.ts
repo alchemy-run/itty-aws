@@ -646,12 +646,15 @@ export interface BlockDeviceMapping {
   NoDevice?: boolean;
 }
 export type BlockDeviceMappings = Array<BlockDeviceMapping>;
+export type BooleanType = boolean;
+
 export type BurstablePerformance = "included" | "excluded" | "required";
 export interface CancelInstanceRefreshAnswer {
   InstanceRefreshId?: string;
 }
 export interface CancelInstanceRefreshType {
   AutoScalingGroupName: string;
+  WaitForTransitioningInstances?: boolean;
 }
 export type CapacityDistributionStrategy =
   | "balanced-only"
@@ -2436,3 +2439,16 @@ export declare namespace UpdateAutoScalingGroup {
     | ServiceLinkedRoleFailure
     | CommonAwsError;
 }
+
+export type AutoScalingErrors =
+  | ActiveInstanceRefreshNotFoundFault
+  | AlreadyExistsFault
+  | InstanceRefreshInProgressFault
+  | InvalidNextToken
+  | IrreversibleInstanceRefreshFault
+  | LimitExceededFault
+  | ResourceContentionFault
+  | ResourceInUseFault
+  | ScalingActivityInProgressFault
+  | ServiceLinkedRoleFailure
+  | CommonAwsError;

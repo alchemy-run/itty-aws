@@ -48,6 +48,11 @@ const metadata = {
         VocabularyFilterName: "x-amzn-transcribe-vocabulary-filter-name",
         VocabularyFilterMethod: "x-amzn-transcribe-vocabulary-filter-method",
         LanguageModelName: "x-amzn-transcribe-language-model-name",
+        IdentifyLanguage: "x-amzn-transcribe-identify-language",
+        LanguageOptions: "x-amzn-transcribe-language-options",
+        PreferredLanguage: "x-amzn-transcribe-preferred-language",
+        VocabularyNames: "x-amzn-transcribe-vocabulary-names",
+        VocabularyFilterNames: "x-amzn-transcribe-vocabulary-filter-names",
         EnablePartialResultsStabilization:
           "x-amzn-transcribe-enable-partial-results-stabilization",
         PartialResultsStability: "x-amzn-transcribe-partial-results-stability",

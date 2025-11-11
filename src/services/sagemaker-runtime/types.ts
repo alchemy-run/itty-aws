@@ -259,3 +259,14 @@ export declare namespace InvokeEndpointWithResponseStream {
     | ValidationError
     | CommonAwsError;
 }
+
+export type SageMakerRuntimeErrors =
+  | InternalDependencyException
+  | InternalFailure
+  | InternalStreamFailure
+  | ModelError
+  | ModelNotReadyException
+  | ModelStreamError
+  | ServiceUnavailable
+  | ValidationError
+  | CommonAwsError;

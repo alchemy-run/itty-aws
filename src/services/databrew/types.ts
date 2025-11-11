@@ -1847,3 +1847,12 @@ export declare namespace UpdateSchedule {
     | ValidationException
     | CommonAwsError;
 }
+
+export type DataBrewErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ValidationException
+  | CommonAwsError;

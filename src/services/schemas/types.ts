@@ -1185,3 +1185,16 @@ export declare namespace UpdateSchema {
     | ServiceUnavailableException
     | CommonAwsError;
 }
+
+export type schemasErrors =
+  | BadRequestException
+  | ConflictException
+  | ForbiddenException
+  | GoneException
+  | InternalServerErrorException
+  | NotFoundException
+  | PreconditionFailedException
+  | ServiceUnavailableException
+  | TooManyRequestsException
+  | UnauthorizedException
+  | CommonAwsError;

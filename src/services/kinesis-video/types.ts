@@ -1270,3 +1270,21 @@ export declare namespace UpdateStream {
     | VersionMismatchException
     | CommonAwsError;
 }
+
+export type KinesisVideoErrors =
+  | AccessDeniedException
+  | AccountChannelLimitExceededException
+  | AccountStreamLimitExceededException
+  | ClientLimitExceededException
+  | DeviceStreamLimitExceededException
+  | InvalidArgumentException
+  | InvalidDeviceException
+  | InvalidResourceFormatException
+  | NoDataRetentionException
+  | NotAuthorizedException
+  | ResourceInUseException
+  | ResourceNotFoundException
+  | StreamEdgeConfigurationNotFoundException
+  | TagsPerResourceExceededLimitException
+  | VersionMismatchException
+  | CommonAwsError;

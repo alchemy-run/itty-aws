@@ -1065,3 +1065,30 @@ export declare namespace UploadLayerPart {
     | UploadNotFoundException
     | CommonAwsError;
 }
+
+export type ECRPUBLICErrors =
+  | EmptyUploadException
+  | ImageAlreadyExistsException
+  | ImageDigestDoesNotMatchException
+  | ImageNotFoundException
+  | ImageTagAlreadyExistsException
+  | InvalidLayerException
+  | InvalidLayerPartException
+  | InvalidParameterException
+  | InvalidTagParameterException
+  | LayerAlreadyExistsException
+  | LayerPartTooSmallException
+  | LayersNotFoundException
+  | LimitExceededException
+  | ReferencedImagesNotFoundException
+  | RegistryNotFoundException
+  | RepositoryAlreadyExistsException
+  | RepositoryCatalogDataNotFoundException
+  | RepositoryNotEmptyException
+  | RepositoryNotFoundException
+  | RepositoryPolicyNotFoundException
+  | ServerException
+  | TooManyTagsException
+  | UnsupportedCommandException
+  | UploadNotFoundException
+  | CommonAwsError;

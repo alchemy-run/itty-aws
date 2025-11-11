@@ -148,3 +148,15 @@ export declare namespace AssumeRoleForPodIdentity {
     | ThrottlingException
     | CommonAwsError;
 }
+
+export type EKSAuthErrors =
+  | AccessDeniedException
+  | ExpiredTokenException
+  | InternalServerException
+  | InvalidParameterException
+  | InvalidRequestException
+  | InvalidTokenException
+  | ResourceNotFoundException
+  | ServiceUnavailableException
+  | ThrottlingException
+  | CommonAwsError;

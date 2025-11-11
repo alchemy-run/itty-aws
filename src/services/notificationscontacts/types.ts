@@ -398,3 +398,13 @@ export declare namespace SendActivationCode {
     | ValidationException
     | CommonAwsError;
 }
+
+export type NotificationsContactsErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

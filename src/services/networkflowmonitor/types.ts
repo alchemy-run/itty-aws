@@ -101,6 +101,7 @@ export declare class NetworkFlowMonitor extends AWSServiceClient {
   ): Effect.Effect<
     DeleteMonitorOutput,
     | AccessDeniedException
+    | ConflictException
     | InternalServerException
     | ResourceNotFoundException
     | ThrottlingException
@@ -392,7 +393,8 @@ export type DestinationCategory =
   | "INTER_VPC"
   | "UNCLASSIFIED"
   | "AMAZON_S3"
-  | "AMAZON_DYNAMODB";
+  | "AMAZON_DYNAMODB"
+  | "INTER_REGION";
 export interface GetMonitorInput {
   monitorName: string;
 }
@@ -554,7 +556,8 @@ export type MonitorLocalResources = Array<MonitorLocalResource>;
 export type MonitorLocalResourceType =
   | "AWS::EC2::VPC"
   | "AWS::AvailabilityZone"
-  | "AWS::EC2::Subnet";
+  | "AWS::EC2::Subnet"
+  | "AWS::Region";
 export type MonitorMetric =
   | "ROUND_TRIP_TIME"
   | "TIMEOUTS"
@@ -569,7 +572,8 @@ export type MonitorRemoteResourceType =
   | "AWS::EC2::VPC"
   | "AWS::AvailabilityZone"
   | "AWS::EC2::Subnet"
-  | "AWS::AWSService";
+  | "AWS::AWSService"
+  | "AWS::Region";
 export type MonitorStatus =
   | "PENDING"
   | "ACTIVE"
@@ -873,6 +877,7 @@ export declare namespace DeleteMonitor {
   export type Output = DeleteMonitorOutput;
   export type Error =
     | AccessDeniedException
+    | ConflictException
     | InternalServerException
     | ResourceNotFoundException
     | ThrottlingException
@@ -1114,3 +1119,13 @@ export declare namespace UpdateScope {
     | ValidationException
     | CommonAwsError;
 }
+
+export type NetworkFlowMonitorErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

@@ -1794,3 +1794,15 @@ export declare namespace UpdateEnvironment {
     | ValidationException
     | CommonAwsError;
 }
+
+export type m2Errors =
+  | AccessDeniedException
+  | ConflictException
+  | ExecutionTimeoutException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ServiceUnavailableException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

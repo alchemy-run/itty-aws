@@ -960,3 +960,15 @@ export declare namespace WriteRecords {
     | ValidationException
     | CommonAwsError;
 }
+
+export type TimestreamWriteErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | InvalidEndpointException
+  | RejectedRecordsException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

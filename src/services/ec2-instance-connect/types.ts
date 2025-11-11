@@ -200,3 +200,18 @@ export declare namespace SendSSHPublicKey {
     | ThrottlingException
     | CommonAwsError;
 }
+
+export type EC2InstanceConnectErrors =
+  | AuthException
+  | EC2InstanceNotFoundException
+  | EC2InstanceStateInvalidException
+  | EC2InstanceTypeInvalidException
+  | EC2InstanceUnavailableException
+  | InvalidArgsException
+  | SerialConsoleAccessDisabledException
+  | SerialConsoleSessionLimitExceededException
+  | SerialConsoleSessionUnavailableException
+  | SerialConsoleSessionUnsupportedException
+  | ServiceException
+  | ThrottlingException
+  | CommonAwsError;

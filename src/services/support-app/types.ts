@@ -375,3 +375,12 @@ export declare namespace UpdateSlackChannelConfiguration {
     | ValidationException
     | CommonAwsError;
 }
+
+export type SupportAppErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ValidationException
+  | CommonAwsError;

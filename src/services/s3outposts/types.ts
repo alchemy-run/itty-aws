@@ -308,3 +308,13 @@ export declare namespace ListSharedEndpoints {
     | ValidationException
     | CommonAwsError;
 }
+
+export type S3OutpostsErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | OutpostOfflineException
+  | ResourceNotFoundException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

@@ -2491,3 +2491,47 @@ export declare namespace UpdatePipeline {
     | ValidationException
     | CommonAwsError;
 }
+
+export type CodePipelineErrors =
+  | ActionExecutionNotFoundException
+  | ActionNotFoundException
+  | ActionTypeNotFoundException
+  | ApprovalAlreadyCompletedException
+  | ConcurrentModificationException
+  | ConcurrentPipelineExecutionsLimitExceededException
+  | ConditionNotOverridableException
+  | ConflictException
+  | DuplicatedStopRequestException
+  | InvalidActionDeclarationException
+  | InvalidApprovalTokenException
+  | InvalidArnException
+  | InvalidBlockerDeclarationException
+  | InvalidClientTokenException
+  | InvalidJobException
+  | InvalidJobStateException
+  | InvalidNextTokenException
+  | InvalidNonceException
+  | InvalidStageDeclarationException
+  | InvalidStructureException
+  | InvalidTagsException
+  | InvalidWebhookAuthenticationParametersException
+  | InvalidWebhookFilterPatternException
+  | JobNotFoundException
+  | LimitExceededException
+  | NotLatestPipelineExecutionException
+  | OutputVariablesSizeExceededException
+  | PipelineExecutionNotFoundException
+  | PipelineExecutionNotStoppableException
+  | PipelineExecutionOutdatedException
+  | PipelineNameInUseException
+  | PipelineNotFoundException
+  | PipelineVersionNotFoundException
+  | RequestFailedException
+  | ResourceNotFoundException
+  | StageNotFoundException
+  | StageNotRetryableException
+  | TooManyTagsException
+  | UnableToRollbackStageException
+  | ValidationException
+  | WebhookNotFoundException
+  | CommonAwsError;

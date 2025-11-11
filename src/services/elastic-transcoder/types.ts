@@ -1049,3 +1049,13 @@ export declare namespace UpdatePipelineStatus {
     | ValidationException
     | CommonAwsError;
 }
+
+export type ElasticTranscoderErrors =
+  | AccessDeniedException
+  | IncompatibleVersionException
+  | InternalServiceException
+  | LimitExceededException
+  | ResourceInUseException
+  | ResourceNotFoundException
+  | ValidationException
+  | CommonAwsError;

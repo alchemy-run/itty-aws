@@ -318,3 +318,14 @@ export declare namespace ListPriceLists {
     | ThrottlingException
     | CommonAwsError;
 }
+
+export type PricingErrors =
+  | AccessDeniedException
+  | ExpiredNextTokenException
+  | InternalErrorException
+  | InvalidNextTokenException
+  | InvalidParameterException
+  | NotFoundException
+  | ResourceNotFoundException
+  | ThrottlingException
+  | CommonAwsError;

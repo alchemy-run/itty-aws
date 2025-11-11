@@ -559,3 +559,12 @@ export declare namespace StartPrimaryEmailUpdate {
     | ValidationException
     | CommonAwsError;
 }
+
+export type AccountErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | TooManyRequestsException
+  | ValidationException
+  | CommonAwsError;

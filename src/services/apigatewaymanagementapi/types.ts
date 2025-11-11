@@ -98,3 +98,10 @@ export declare namespace PostToConnection {
     | PayloadTooLargeException
     | CommonAwsError;
 }
+
+export type ApiGatewayManagementApiErrors =
+  | ForbiddenException
+  | GoneException
+  | LimitExceededException
+  | PayloadTooLargeException
+  | CommonAwsError;

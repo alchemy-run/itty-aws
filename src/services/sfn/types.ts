@@ -1934,3 +1934,39 @@ export declare namespace ValidateStateMachineDefinition {
   export type Output = ValidateStateMachineDefinitionOutput;
   export type Error = ValidationException | CommonAwsError;
 }
+
+export type SFNErrors =
+  | ActivityAlreadyExists
+  | ActivityDoesNotExist
+  | ActivityLimitExceeded
+  | ActivityWorkerLimitExceeded
+  | ConflictException
+  | ExecutionAlreadyExists
+  | ExecutionDoesNotExist
+  | ExecutionLimitExceeded
+  | ExecutionNotRedrivable
+  | InvalidArn
+  | InvalidDefinition
+  | InvalidEncryptionConfiguration
+  | InvalidExecutionInput
+  | InvalidLoggingConfiguration
+  | InvalidName
+  | InvalidOutput
+  | InvalidToken
+  | InvalidTracingConfiguration
+  | KmsAccessDeniedException
+  | KmsInvalidStateException
+  | KmsThrottlingException
+  | MissingRequiredParameter
+  | ResourceNotFound
+  | ServiceQuotaExceededException
+  | StateMachineAlreadyExists
+  | StateMachineDeleting
+  | StateMachineDoesNotExist
+  | StateMachineLimitExceeded
+  | StateMachineTypeNotSupported
+  | TaskDoesNotExist
+  | TaskTimedOut
+  | TooManyTags
+  | ValidationException
+  | CommonAwsError;

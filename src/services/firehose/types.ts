@@ -1501,3 +1501,14 @@ export declare namespace UpdateDestination {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+
+export type FirehoseErrors =
+  | ConcurrentModificationException
+  | InvalidArgumentException
+  | InvalidKMSResourceException
+  | InvalidSourceException
+  | LimitExceededException
+  | ResourceInUseException
+  | ResourceNotFoundException
+  | ServiceUnavailableException
+  | CommonAwsError;

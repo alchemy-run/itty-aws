@@ -2853,3 +2853,11 @@ export declare namespace UpdateVpcLink {
     | TooManyRequestsException
     | CommonAwsError;
 }
+
+export type ApiGatewayV2Errors =
+  | AccessDeniedException
+  | BadRequestException
+  | ConflictException
+  | NotFoundException
+  | TooManyRequestsException
+  | CommonAwsError;

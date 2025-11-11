@@ -200,3 +200,9 @@ export declare namespace PutUsers {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+
+export type PersonalizeEventsErrors =
+  | InvalidInputException
+  | ResourceInUseException
+  | ResourceNotFoundException
+  | CommonAwsError;

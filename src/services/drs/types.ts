@@ -2316,3 +2316,14 @@ export declare namespace UpdateReplicationConfigurationTemplate {
     | ValidationException
     | CommonAwsError;
 }
+
+export type drsErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | UninitializedAccountException
+  | ValidationException
+  | CommonAwsError;

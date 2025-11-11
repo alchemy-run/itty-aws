@@ -2133,3 +2133,13 @@ export declare namespace UpdateRepository {
     | ValidationException
     | CommonAwsError;
 }
+
+export type codeartifactErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

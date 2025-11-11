@@ -839,3 +839,13 @@ export declare namespace UpdateSpace {
     | ValidationException
     | CommonAwsError;
 }
+
+export type repostspaceErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

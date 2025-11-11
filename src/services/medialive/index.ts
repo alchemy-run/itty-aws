@@ -126,12 +126,14 @@ const metadata = {
     GetEventBridgeRuleTemplateGroup:
       "GET /prod/eventbridge-rule-template-groups/{Identifier}",
     GetSignalMap: "GET /prod/signal-maps/{Identifier}",
+    ListAlerts: "GET /prod/channels/{ChannelId}/alerts",
     ListChannelPlacementGroups:
       "GET /prod/clusters/{ClusterId}/channelplacementgroups",
     ListChannels: "GET /prod/channels",
     ListCloudWatchAlarmTemplateGroups:
       "GET /prod/cloudwatch-alarm-template-groups",
     ListCloudWatchAlarmTemplates: "GET /prod/cloudwatch-alarm-templates",
+    ListClusterAlerts: "GET /prod/clusters/{ClusterId}/alerts",
     ListClusters: "GET /prod/clusters",
     ListEventBridgeRuleTemplateGroups:
       "GET /prod/eventbridge-rule-template-groups",
@@ -140,6 +142,7 @@ const metadata = {
     ListInputDeviceTransfers: "GET /prod/inputDeviceTransfers",
     ListInputs: "GET /prod/inputs",
     ListInputSecurityGroups: "GET /prod/inputSecurityGroups",
+    ListMultiplexAlerts: "GET /prod/multiplexes/{MultiplexId}/alerts",
     ListMultiplexes: "GET /prod/multiplexes",
     ListMultiplexPrograms: "GET /prod/multiplexes/{MultiplexId}/programs",
     ListNetworks: "GET /prod/networks",

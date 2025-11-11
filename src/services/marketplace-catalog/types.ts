@@ -333,7 +333,8 @@ export type ContainerProductSortBy =
   | "EntityId"
   | "LastModifiedDate"
   | "ProductTitle"
-  | "Visibility";
+  | "Visibility"
+  | "CompatibleAWSServices";
 export interface ContainerProductSummary {
   ProductTitle?: string;
   Visibility?: ContainerProductVisibilityString;
@@ -964,7 +965,8 @@ export type SaaSProductSortBy =
   | "EntityId"
   | "ProductTitle"
   | "Visibility"
-  | "LastModifiedDate";
+  | "LastModifiedDate"
+  | "DeliveryOptionTypes";
 export interface SaaSProductSummary {
   ProductTitle?: string;
   Visibility?: SaaSProductVisibilityString;
@@ -1200,3 +1202,14 @@ export declare namespace UntagResource {
     | ValidationException
     | CommonAwsError;
 }
+
+export type MarketplaceCatalogErrors =
+  | AccessDeniedException
+  | InternalServiceException
+  | ResourceInUseException
+  | ResourceNotFoundException
+  | ResourceNotSupportedException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

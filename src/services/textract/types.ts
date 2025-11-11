@@ -1594,3 +1594,24 @@ export declare namespace UpdateAdapter {
     | ValidationException
     | CommonAwsError;
 }
+
+export type TextractErrors =
+  | AccessDeniedException
+  | BadDocumentException
+  | ConflictException
+  | DocumentTooLargeException
+  | HumanLoopQuotaExceededException
+  | IdempotentParameterMismatchException
+  | InternalServerError
+  | InvalidJobIdException
+  | InvalidKMSKeyException
+  | InvalidParameterException
+  | InvalidS3ObjectException
+  | LimitExceededException
+  | ProvisionedThroughputExceededException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | UnsupportedDocumentException
+  | ValidationException
+  | CommonAwsError;

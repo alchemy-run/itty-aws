@@ -923,3 +923,13 @@ export declare namespace UpdateSafetyRule {
     | ValidationException
     | CommonAwsError;
 }
+
+export type Route53RecoveryControlConfigErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

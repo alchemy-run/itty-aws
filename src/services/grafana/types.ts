@@ -1160,3 +1160,13 @@ export declare namespace UpdateWorkspaceConfiguration {
     | ValidationException
     | CommonAwsError;
 }
+
+export type grafanaErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

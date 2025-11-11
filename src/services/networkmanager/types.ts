@@ -3806,3 +3806,14 @@ export declare namespace UpdateVpcAttachment {
     | ValidationException
     | CommonAwsError;
 }
+
+export type NetworkManagerErrors =
+  | AccessDeniedException
+  | ConflictException
+  | CoreNetworkPolicyException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

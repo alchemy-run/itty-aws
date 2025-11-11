@@ -319,3 +319,11 @@ export declare namespace UntagResource {
     | ValidationException
     | CommonAwsError;
 }
+
+export type CostandUsageReportServiceErrors =
+  | DuplicateReportNameException
+  | InternalErrorException
+  | ReportLimitReachedException
+  | ResourceNotFoundException
+  | ValidationException
+  | CommonAwsError;

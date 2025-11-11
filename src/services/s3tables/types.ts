@@ -1234,3 +1234,13 @@ export declare namespace UpdateTableMetadataLocation {
     | TooManyRequestsException
     | CommonAwsError;
 }
+
+export type S3TablesErrors =
+  | AccessDeniedException
+  | BadRequestException
+  | ConflictException
+  | ForbiddenException
+  | InternalServerErrorException
+  | NotFoundException
+  | TooManyRequestsException
+  | CommonAwsError;

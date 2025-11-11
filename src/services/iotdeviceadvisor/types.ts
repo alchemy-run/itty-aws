@@ -599,3 +599,10 @@ export declare namespace UpdateSuiteDefinition {
     | ValidationException
     | CommonAwsError;
 }
+
+export type IotDeviceAdvisorErrors =
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ValidationException
+  | CommonAwsError;

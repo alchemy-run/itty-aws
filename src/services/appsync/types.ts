@@ -2987,3 +2987,19 @@ export declare namespace UpdateType {
     | UnauthorizedException
     | CommonAwsError;
 }
+
+export type AppSyncErrors =
+  | AccessDeniedException
+  | ApiKeyLimitExceededException
+  | ApiKeyValidityOutOfBoundsException
+  | ApiLimitExceededException
+  | BadRequestException
+  | ConcurrentModificationException
+  | ConflictException
+  | GraphQLSchemaException
+  | InternalFailureException
+  | LimitExceededException
+  | NotFoundException
+  | ServiceQuotaExceededException
+  | UnauthorizedException
+  | CommonAwsError;

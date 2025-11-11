@@ -3876,3 +3876,19 @@ export declare namespace UpgradeDomain {
     | ValidationException
     | CommonAwsError;
 }
+
+export type OpenSearchErrors =
+  | AccessDeniedException
+  | BaseException
+  | ConflictException
+  | DependencyFailureException
+  | DisabledOperationException
+  | InternalException
+  | InvalidPaginationTokenException
+  | InvalidTypeException
+  | LimitExceededException
+  | ResourceAlreadyExistsException
+  | ResourceNotFoundException
+  | SlotNotAvailableException
+  | ValidationException
+  | CommonAwsError;

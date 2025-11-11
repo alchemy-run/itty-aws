@@ -401,6 +401,17 @@ export declare class SSOAdmin extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
+  getApplicationSessionConfiguration(
+    input: GetApplicationSessionConfigurationRequest,
+  ): Effect.Effect<
+    GetApplicationSessionConfigurationResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
   getInlinePolicyForPermissionSet(
     input: GetInlinePolicyForPermissionSetRequest,
   ): Effect.Effect<
@@ -630,6 +641,18 @@ export declare class SSOAdmin extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
+  putApplicationSessionConfiguration(
+    input: PutApplicationSessionConfigurationRequest,
+  ): Effect.Effect<
+    PutApplicationSessionConfigurationResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
   putInlinePolicyToPermissionSet(
     input: PutInlinePolicyToPermissionSetRequest,
   ): Effect.Effect<
@@ -699,6 +722,7 @@ export declare class SSOAdmin extends AWSServiceClient {
     | AccessDeniedException
     | ConflictException
     | InternalServerException
+    | ResourceNotFoundException
     | ThrottlingException
     | ValidationException
     | CommonAwsError
@@ -898,9 +922,11 @@ export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",
 )<{
   readonly Message?: string;
+  readonly Reason?: AccessDeniedExceptionReason;
 }> {}
 export type AccessDeniedExceptionMessage = string;
 
+export type AccessDeniedExceptionReason = "KMS_AccessDeniedException";
 export interface AccountAssignment {
   AccountId?: string;
   PermissionSetArn?: string;
@@ -1230,6 +1256,8 @@ export interface DescribeInstanceResponse {
   Name?: string;
   CreatedDate?: Date | string;
   Status?: InstanceStatus;
+  StatusReason?: string;
+  EncryptionConfigurationDetails?: EncryptionConfigurationDetails;
 }
 export interface DescribePermissionSetProvisioningStatusRequest {
   InstanceArn: string;
@@ -1275,6 +1303,16 @@ export interface DisplayData {
 }
 export type Duration = string;
 
+export interface EncryptionConfiguration {
+  KeyType: KmsKeyType;
+  KmsKeyArn?: string;
+}
+export interface EncryptionConfigurationDetails {
+  KeyType?: KmsKeyType;
+  KmsKeyArn?: string;
+  EncryptionStatus?: KmsKeyStatus;
+  EncryptionStatusReason?: string;
+}
 export type FederationProtocol = "SAML" | "OAUTH";
 export interface GetApplicationAccessScopeRequest {
   ApplicationArn: string;
@@ -1303,6 +1341,12 @@ export interface GetApplicationGrantRequest {
 }
 export interface GetApplicationGrantResponse {
   Grant: Grant;
+}
+export interface GetApplicationSessionConfigurationRequest {
+  ApplicationArn: string;
+}
+export interface GetApplicationSessionConfigurationResponse {
+  UserBackgroundSessionApplicationStatus?: UserBackgroundSessionApplicationStatus;
 }
 export interface GetInlinePolicyForPermissionSetRequest {
   InstanceArn: string;
@@ -1366,9 +1410,11 @@ export interface InstanceMetadata {
   Name?: string;
   CreatedDate?: Date | string;
   Status?: InstanceStatus;
+  StatusReason?: string;
 }
 export type InstanceStatus =
   | "CREATE_IN_PROGRESS"
+  | "CREATE_FAILED"
   | "DELETE_IN_PROGRESS"
   | "ACTIVE";
 export type InternalFailureMessage = string;
@@ -1384,6 +1430,10 @@ export type JwksRetrievalOption = "OPEN_ID_DISCOVERY";
 export interface JwtBearerGrant {
   AuthorizedTokenIssuers?: Array<AuthorizedTokenIssuer>;
 }
+export type KmsKeyArn = string;
+
+export type KmsKeyStatus = "UPDATING" | "ENABLED" | "UPDATE_FAILED";
+export type KmsKeyType = "AWS_OWNED_KMS_KEY" | "CUSTOMER_MANAGED_KEY";
 export interface ListAccountAssignmentCreationStatusRequest {
   InstanceArn: string;
   MaxResults?: number;
@@ -1690,6 +1740,11 @@ export interface PutApplicationGrantRequest {
   GrantType: GrantType;
   Grant: Grant;
 }
+export interface PutApplicationSessionConfigurationRequest {
+  ApplicationArn: string;
+  UserBackgroundSessionApplicationStatus?: UserBackgroundSessionApplicationStatus;
+}
+export interface PutApplicationSessionConfigurationResponse {}
 export interface PutInlinePolicyToPermissionSetRequest {
   InstanceArn: string;
   PermissionSetArn: string;
@@ -1712,7 +1767,9 @@ export declare class ResourceNotFoundException extends EffectData.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly Message?: string;
+  readonly Reason?: ResourceNotFoundExceptionReason;
 }> {}
+export type ResourceNotFoundExceptionReason = "KMS_NotFoundException";
 export type ResourceNotFoundMessage = string;
 
 export interface ResourceServerConfig {
@@ -1773,9 +1830,11 @@ export declare class ThrottlingException extends EffectData.TaggedError(
   "ThrottlingException",
 )<{
   readonly Message?: string;
+  readonly Reason?: ThrottlingExceptionReason;
 }> {}
 export type ThrottlingExceptionMessage = string;
 
+export type ThrottlingExceptionReason = "KMS_ThrottlingException";
 export type Token = string;
 
 export interface TokenExchangeGrant {}
@@ -1834,8 +1893,9 @@ export interface UpdateInstanceAccessControlAttributeConfigurationRequest {
 }
 export interface UpdateInstanceAccessControlAttributeConfigurationResponse {}
 export interface UpdateInstanceRequest {
-  Name: string;
+  Name?: string;
   InstanceArn: string;
+  EncryptionConfiguration?: EncryptionConfiguration;
 }
 export interface UpdateInstanceResponse {}
 export interface UpdatePermissionSetRequest {
@@ -1854,15 +1914,21 @@ export interface UpdateTrustedTokenIssuerRequest {
 export interface UpdateTrustedTokenIssuerResponse {}
 export type URI = string;
 
+export type UserBackgroundSessionApplicationStatus = "ENABLED" | "DISABLED";
 export type UUId = string;
 
 export declare class ValidationException extends EffectData.TaggedError(
   "ValidationException",
 )<{
   readonly Message?: string;
+  readonly Reason?: ValidationExceptionReason;
 }> {}
 export type ValidationExceptionMessage = string;
 
+export type ValidationExceptionReason =
+  | "KMS_InvalidKeyUsageException"
+  | "KMS_InvalidStateException"
+  | "KMS_DisabledException";
 export declare namespace AttachCustomerManagedPolicyReferenceToPermissionSet {
   export type Input =
     AttachCustomerManagedPolicyReferenceToPermissionSetRequest;
@@ -2267,6 +2333,18 @@ export declare namespace GetApplicationAssignmentConfiguration {
     | CommonAwsError;
 }
 
+export declare namespace GetApplicationSessionConfiguration {
+  export type Input = GetApplicationSessionConfigurationRequest;
+  export type Output = GetApplicationSessionConfigurationResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
 export declare namespace GetInlinePolicyForPermissionSet {
   export type Input = GetInlinePolicyForPermissionSetRequest;
   export type Output = GetInlinePolicyForPermissionSetResponse;
@@ -2518,6 +2596,19 @@ export declare namespace PutApplicationAssignmentConfiguration {
     | CommonAwsError;
 }
 
+export declare namespace PutApplicationSessionConfiguration {
+  export type Input = PutApplicationSessionConfigurationRequest;
+  export type Output = PutApplicationSessionConfigurationResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
 export declare namespace PutInlinePolicyToPermissionSet {
   export type Input = PutInlinePolicyToPermissionSetRequest;
   export type Output = PutInlinePolicyToPermissionSetResponse;
@@ -2592,6 +2683,7 @@ export declare namespace UpdateInstance {
     | AccessDeniedException
     | ConflictException
     | InternalServerException
+    | ResourceNotFoundException
     | ThrottlingException
     | ValidationException
     | CommonAwsError;
@@ -2786,3 +2878,13 @@ export declare namespace PutApplicationGrant {
     | ValidationException
     | CommonAwsError;
 }
+
+export type SSOAdminErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

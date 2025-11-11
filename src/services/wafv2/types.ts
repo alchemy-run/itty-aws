@@ -10,6 +10,7 @@ export declare class WAFV2 extends AWSServiceClient {
     | WAFInternalErrorException
     | WAFInvalidOperationException
     | WAFInvalidParameterException
+    | WAFLimitsExceededException
     | WAFNonexistentItemException
     | WAFUnavailableEntityException
     | CommonAwsError
@@ -2352,6 +2353,7 @@ export interface UpdateWebACLRequest {
   TokenDomains?: Array<string>;
   AssociationConfig?: AssociationConfig;
   OnSourceDDoSProtectionConfig?: OnSourceDDoSProtectionConfig;
+  ApplicationConfig?: ApplicationConfig;
 }
 export interface UpdateWebACLResponse {
   NextLockToken?: string;
@@ -2521,6 +2523,7 @@ export declare namespace AssociateWebACL {
     | WAFInternalErrorException
     | WAFInvalidOperationException
     | WAFInvalidParameterException
+    | WAFLimitsExceededException
     | WAFNonexistentItemException
     | WAFUnavailableEntityException
     | CommonAwsError;
@@ -3182,3 +3185,25 @@ export declare namespace UpdateWebACL {
     | WAFUnavailableEntityException
     | CommonAwsError;
 }
+
+export type WAFV2Errors =
+  | WAFAssociatedItemException
+  | WAFConfigurationWarningException
+  | WAFDuplicateItemException
+  | WAFExpiredManagedRuleGroupVersionException
+  | WAFInternalErrorException
+  | WAFInvalidOperationException
+  | WAFInvalidParameterException
+  | WAFInvalidPermissionPolicyException
+  | WAFInvalidResourceException
+  | WAFLimitsExceededException
+  | WAFLogDestinationPermissionIssueException
+  | WAFNonexistentItemException
+  | WAFOptimisticLockException
+  | WAFServiceLinkedRoleErrorException
+  | WAFSubscriptionNotFoundException
+  | WAFTagOperationException
+  | WAFTagOperationInternalErrorException
+  | WAFUnavailableEntityException
+  | WAFUnsupportedAggregateKeyTypeException
+  | CommonAwsError;

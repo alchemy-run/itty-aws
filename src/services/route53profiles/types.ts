@@ -687,3 +687,16 @@ export declare namespace UpdateProfileResourceAssociation {
     | ValidationException
     | CommonAwsError;
 }
+
+export type Route53ProfilesErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServiceErrorException
+  | InvalidNextTokenException
+  | InvalidParameterException
+  | LimitExceededException
+  | ResourceExistsException
+  | ResourceNotFoundException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

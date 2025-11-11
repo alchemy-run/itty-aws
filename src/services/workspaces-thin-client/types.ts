@@ -796,3 +796,13 @@ export declare namespace UpdateSoftwareSet {
     | ValidationException
     | CommonAwsError;
 }
+
+export type WorkSpacesThinClientErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

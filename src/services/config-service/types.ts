@@ -2702,7 +2702,8 @@ export type RemediationExecutionState =
   | "QUEUED"
   | "IN_PROGRESS"
   | "SUCCEEDED"
-  | "FAILED";
+  | "FAILED"
+  | "UNKNOWN";
 export interface RemediationExecutionStatus {
   ResourceKey?: ResourceKey;
   State?: RemediationExecutionState;
@@ -2719,7 +2720,13 @@ export interface RemediationExecutionStep {
   StopTime?: Date | string;
 }
 export type RemediationExecutionSteps = Array<RemediationExecutionStep>;
-export type RemediationExecutionStepState = "SUCCEEDED" | "PENDING" | "FAILED";
+export type RemediationExecutionStepState =
+  | "SUCCEEDED"
+  | "PENDING"
+  | "FAILED"
+  | "IN_PROGRESS"
+  | "EXITED"
+  | "UNKNOWN";
 export declare class RemediationInProgressException extends EffectData.TaggedError(
   "RemediationInProgressException",
 )<{
@@ -4412,3 +4419,62 @@ export declare namespace UntagResource {
     | ValidationException
     | CommonAwsError;
 }
+
+export type ConfigServiceErrors =
+  | ConflictException
+  | ConformancePackTemplateValidationException
+  | IdempotentParameterMismatch
+  | InsufficientDeliveryPolicyException
+  | InsufficientPermissionsException
+  | InvalidConfigurationRecorderNameException
+  | InvalidDeliveryChannelNameException
+  | InvalidExpressionException
+  | InvalidLimitException
+  | InvalidNextTokenException
+  | InvalidParameterValueException
+  | InvalidRecordingGroupException
+  | InvalidResultTokenException
+  | InvalidRoleException
+  | InvalidS3KeyPrefixException
+  | InvalidS3KmsKeyArnException
+  | InvalidSNSTopicARNException
+  | InvalidTimeRangeException
+  | LastDeliveryChannelDeleteFailedException
+  | LimitExceededException
+  | MaxActiveResourcesExceededException
+  | MaxNumberOfConfigRulesExceededException
+  | MaxNumberOfConfigurationRecordersExceededException
+  | MaxNumberOfConformancePacksExceededException
+  | MaxNumberOfDeliveryChannelsExceededException
+  | MaxNumberOfOrganizationConfigRulesExceededException
+  | MaxNumberOfOrganizationConformancePacksExceededException
+  | MaxNumberOfRetentionConfigurationsExceededException
+  | NoAvailableConfigurationRecorderException
+  | NoAvailableDeliveryChannelException
+  | NoAvailableOrganizationException
+  | NoRunningConfigurationRecorderException
+  | NoSuchBucketException
+  | NoSuchConfigRuleException
+  | NoSuchConfigRuleInConformancePackException
+  | NoSuchConfigurationAggregatorException
+  | NoSuchConfigurationRecorderException
+  | NoSuchConformancePackException
+  | NoSuchDeliveryChannelException
+  | NoSuchOrganizationConfigRuleException
+  | NoSuchOrganizationConformancePackException
+  | NoSuchRemediationConfigurationException
+  | NoSuchRemediationExceptionException
+  | NoSuchRetentionConfigurationException
+  | OrganizationAccessDeniedException
+  | OrganizationAllFeaturesNotEnabledException
+  | OrganizationConformancePackTemplateValidationException
+  | OversizedConfigurationItemException
+  | RemediationInProgressException
+  | ResourceConcurrentModificationException
+  | ResourceInUseException
+  | ResourceNotDiscoveredException
+  | ResourceNotFoundException
+  | TooManyTagsException
+  | UnmodifiableEntityException
+  | ValidationException
+  | CommonAwsError;

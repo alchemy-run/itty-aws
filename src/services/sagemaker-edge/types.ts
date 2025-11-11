@@ -152,3 +152,5 @@ export declare namespace SendHeartbeat {
   export type Output = {};
   export type Error = InternalServiceException | CommonAwsError;
 }
+
+export type SagemakerEdgeErrors = InternalServiceException | CommonAwsError;

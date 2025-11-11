@@ -114,3 +114,10 @@ export declare namespace JoinStorageSessionAsViewer {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+
+export type KinesisVideoWebRTCStorageErrors =
+  | AccessDeniedException
+  | ClientLimitExceededException
+  | InvalidArgumentException
+  | ResourceNotFoundException
+  | CommonAwsError;

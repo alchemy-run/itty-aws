@@ -1283,3 +1283,10 @@ export declare namespace UpdateTargetAccountConfiguration {
     | ValidationException
     | CommonAwsError;
 }
+
+export type fisErrors =
+  | ConflictException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ValidationException
+  | CommonAwsError;

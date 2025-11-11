@@ -2127,3 +2127,17 @@ export declare namespace UpdateWorkspace {
     | ValidationException
     | CommonAwsError;
 }
+
+export type IoTTwinMakerErrors =
+  | AccessDeniedException
+  | ConflictException
+  | ConnectorFailureException
+  | ConnectorTimeoutException
+  | InternalServerException
+  | QueryTimeoutException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | TooManyTagsException
+  | ValidationException
+  | CommonAwsError;

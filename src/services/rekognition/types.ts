@@ -4262,3 +4262,29 @@ export declare namespace UpdateStreamProcessor {
     | ThrottlingException
     | CommonAwsError;
 }
+
+export type RekognitionErrors =
+  | AccessDeniedException
+  | ConflictException
+  | HumanLoopQuotaExceededException
+  | IdempotentParameterMismatchException
+  | ImageTooLargeException
+  | InternalServerError
+  | InvalidImageFormatException
+  | InvalidManifestException
+  | InvalidPaginationTokenException
+  | InvalidParameterException
+  | InvalidPolicyRevisionIdException
+  | InvalidS3ObjectException
+  | LimitExceededException
+  | MalformedPolicyDocumentException
+  | ProvisionedThroughputExceededException
+  | ResourceAlreadyExistsException
+  | ResourceInUseException
+  | ResourceNotFoundException
+  | ResourceNotReadyException
+  | ServiceQuotaExceededException
+  | SessionNotFoundException
+  | ThrottlingException
+  | VideoTooLargeException
+  | CommonAwsError;

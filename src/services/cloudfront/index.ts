@@ -762,6 +762,11 @@ const metadata = {
         DistributionIdList: "httpPayload",
       },
     },
+    ListDistributionsByOwnedResource: {
+      traits: {
+        DistributionList: "httpPayload",
+      },
+    },
     ListDistributionsByRealtimeLogConfig: {
       http: "POST /2020-05-31/distributionsByRealtimeLogConfig",
       outputTraits: {
@@ -913,6 +918,12 @@ const metadata = {
       http: "POST /2020-05-31/tagging?Operation=Untag",
       inputTraits: {
         TagKeys: "httpPayload",
+      },
+    },
+    UpdateAnycastIpList: {
+      traits: {
+        AnycastIpList: "httpPayload",
+        ETag: "ETag",
       },
     },
     UpdateCachePolicy: {

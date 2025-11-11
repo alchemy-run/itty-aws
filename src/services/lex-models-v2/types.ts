@@ -5898,3 +5898,13 @@ export declare namespace UpdateTestSet {
     | ValidationException
     | CommonAwsError;
 }
+
+export type LexModelsV2Errors =
+  | ConflictException
+  | InternalServerException
+  | PreconditionFailedException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

@@ -2795,3 +2795,23 @@ export declare namespace UpdateResolverRule {
     | ThrottlingException
     | CommonAwsError;
 }
+
+export type Route53ResolverErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServiceErrorException
+  | InvalidNextTokenException
+  | InvalidParameterException
+  | InvalidPolicyDocument
+  | InvalidRequestException
+  | InvalidTagException
+  | LimitExceededException
+  | ResourceExistsException
+  | ResourceInUseException
+  | ResourceNotFoundException
+  | ResourceUnavailableException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | UnknownResourceException
+  | ValidationException
+  | CommonAwsError;

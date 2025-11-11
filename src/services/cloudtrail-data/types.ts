@@ -97,3 +97,12 @@ export declare namespace PutAuditEvents {
     | UnsupportedOperationException
     | CommonAwsError;
 }
+
+export type CloudTrailDataErrors =
+  | ChannelInsufficientPermission
+  | ChannelNotFound
+  | ChannelUnsupportedSchema
+  | DuplicatedAuditEventId
+  | InvalidChannelARN
+  | UnsupportedOperationException
+  | CommonAwsError;

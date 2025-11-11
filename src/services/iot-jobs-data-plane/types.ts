@@ -382,3 +382,17 @@ export declare namespace UpdateJobExecution {
     | ThrottlingException
     | CommonAwsError;
 }
+
+export type IoTJobsDataPlaneErrors =
+  | CertificateValidationException
+  | ConflictException
+  | InternalServerException
+  | InvalidRequestException
+  | InvalidStateTransitionException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ServiceUnavailableException
+  | TerminalStateException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

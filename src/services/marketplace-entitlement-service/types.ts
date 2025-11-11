@@ -127,3 +127,9 @@ export declare namespace GetEntitlements {
     | ThrottlingException
     | CommonAwsError;
 }
+
+export type MarketplaceEntitlementServiceErrors =
+  | InternalServiceErrorException
+  | InvalidParameterException
+  | ThrottlingException
+  | CommonAwsError;

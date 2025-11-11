@@ -934,3 +934,17 @@ export declare namespace UpdateIdentityPool {
     | TooManyRequestsException
     | CommonAwsError;
 }
+
+export type CognitoIdentityErrors =
+  | ConcurrentModificationException
+  | DeveloperUserAlreadyRegisteredException
+  | ExternalServiceException
+  | InternalErrorException
+  | InvalidIdentityPoolConfigurationException
+  | InvalidParameterException
+  | LimitExceededException
+  | NotAuthorizedException
+  | ResourceConflictException
+  | ResourceNotFoundException
+  | TooManyRequestsException
+  | CommonAwsError;

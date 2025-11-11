@@ -1429,3 +1429,13 @@ export declare namespace UpdateTimelineEvent {
     | ValidationException
     | CommonAwsError;
 }
+
+export type SSMIncidentsErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

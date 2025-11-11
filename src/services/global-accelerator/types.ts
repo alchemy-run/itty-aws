@@ -2046,3 +2046,26 @@ export declare namespace WithdrawByoipCidr {
     | InvalidArgumentException
     | CommonAwsError;
 }
+
+export type GlobalAcceleratorErrors =
+  | AcceleratorNotDisabledException
+  | AcceleratorNotFoundException
+  | AccessDeniedException
+  | AssociatedEndpointGroupFoundException
+  | AssociatedListenerFoundException
+  | AttachmentNotFoundException
+  | ByoipCidrNotFoundException
+  | ConflictException
+  | EndpointAlreadyExistsException
+  | EndpointGroupAlreadyExistsException
+  | EndpointGroupNotFoundException
+  | EndpointNotFoundException
+  | IncorrectCidrStateException
+  | InternalServiceErrorException
+  | InvalidArgumentException
+  | InvalidNextTokenException
+  | InvalidPortRangeException
+  | LimitExceededException
+  | ListenerNotFoundException
+  | TransactionInProgressException
+  | CommonAwsError;

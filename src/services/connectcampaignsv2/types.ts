@@ -447,6 +447,9 @@ export declare class AccessDeniedException extends EffectData.TaggedError(
   readonly message: string;
   readonly xAmzErrorType?: string;
 }> {}
+export type AgentAction = string;
+
+export type AgentActions = Array<string>;
 export interface AgentlessConfig {}
 export interface AnswerMachineDetectionConfig {
   enableAnswerMachineDetection: boolean;
@@ -862,6 +865,11 @@ export interface PauseCampaignRequest {
 export interface PredictiveConfig {
   bandwidthAllocation: number;
 }
+export interface PreviewConfig {
+  bandwidthAllocation: number;
+  timeoutConfig: TimeoutConfig;
+  agentActions?: Array<string>;
+}
 export type ProfileId = string;
 
 export interface ProfileOutboundRequest {
@@ -1040,18 +1048,25 @@ interface _TelephonyOutboundMode {
   progressive?: ProgressiveConfig;
   predictive?: PredictiveConfig;
   agentless?: AgentlessConfig;
+  preview?: PreviewConfig;
 }
 
 export type TelephonyOutboundMode =
   | (_TelephonyOutboundMode & { progressive: ProgressiveConfig })
   | (_TelephonyOutboundMode & { predictive: PredictiveConfig })
-  | (_TelephonyOutboundMode & { agentless: AgentlessConfig });
+  | (_TelephonyOutboundMode & { agentless: AgentlessConfig })
+  | (_TelephonyOutboundMode & { preview: PreviewConfig });
 export declare class ThrottlingException extends EffectData.TaggedError(
   "ThrottlingException",
 )<{
   readonly message: string;
   readonly xAmzErrorType?: string;
 }> {}
+export interface TimeoutConfig {
+  durationInSeconds: number;
+}
+export type TimeoutDuration = number;
+
 export interface TimeRange {
   startTime: string;
   endTime: string;
@@ -1540,3 +1555,15 @@ export declare namespace UpdateCampaignSource {
     | ValidationException
     | CommonAwsError;
 }
+
+export type ConnectCampaignsV2Errors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | InvalidCampaignStateException
+  | InvalidStateException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

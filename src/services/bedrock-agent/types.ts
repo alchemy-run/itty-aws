@@ -1678,6 +1678,8 @@ export interface FixedSizeChunkingConfiguration {
   maxTokens: number;
   overlapPercentage: number;
 }
+export type FlowAgentAliasArn = string;
+
 export type FlowAliasArn = string;
 
 export interface FlowAliasConcurrencyConfiguration {
@@ -1755,6 +1757,14 @@ export type FlowExecutionRoleArn = string;
 export type FlowId = string;
 
 export type FlowIdentifier = string;
+
+export type FlowKnowledgeBaseId = string;
+
+export type FlowLambdaArn = string;
+
+export type FlowLexBotAliasArn = string;
+
+export type FlowLexBotLocaleId = string;
 
 export type FlowName = string;
 
@@ -1855,6 +1865,12 @@ export type FlowNodeType =
   | "Loop"
   | "LoopInput"
   | "LoopController";
+export type FlowPromptArn = string;
+
+export type FlowPromptModelIdentifier = string;
+
+export type FlowS3BucketName = string;
+
 export type FlowStatus = "Failed" | "Prepared" | "Preparing" | "NotPrepared";
 export type FlowSummaries = Array<FlowSummary>;
 export interface FlowSummary {
@@ -2393,8 +2409,6 @@ export interface KnowledgeBaseFlowNodeConfiguration {
   rerankingConfiguration?: VectorSearchRerankingConfiguration;
   orchestrationConfiguration?: KnowledgeBaseOrchestrationConfiguration;
 }
-export type KnowledgeBaseId = string;
-
 export type KnowledgeBaseModelIdentifier = string;
 
 export interface KnowledgeBaseOrchestrationConfiguration {
@@ -2441,10 +2455,6 @@ export type LambdaArn = string;
 export interface LambdaFunctionFlowNodeConfiguration {
   lambdaArn: string;
 }
-export type LexBotAliasArn = string;
-
-export type LexBotLocaleId = string;
-
 export interface LexFlowNodeConfiguration {
   botAliasArn: string;
   localeId: string;
@@ -4564,3 +4574,13 @@ export declare namespace UpdatePrompt {
     | ValidationException
     | CommonAwsError;
 }
+
+export type BedrockAgentErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

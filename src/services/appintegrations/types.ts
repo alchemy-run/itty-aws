@@ -1016,3 +1016,14 @@ export declare namespace UpdateEventIntegration {
     | ThrottlingException
     | CommonAwsError;
 }
+
+export type AppIntegrationsErrors =
+  | AccessDeniedException
+  | DuplicateResourceException
+  | InternalServiceError
+  | InvalidRequestException
+  | ResourceNotFoundException
+  | ResourceQuotaExceededException
+  | ThrottlingException
+  | UnsupportedOperationException
+  | CommonAwsError;

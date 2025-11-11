@@ -1420,3 +1420,15 @@ export declare namespace UpdateInput {
     | ThrottlingException
     | CommonAwsError;
 }
+
+export type IoTEventsErrors =
+  | InternalFailureException
+  | InvalidRequestException
+  | LimitExceededException
+  | ResourceAlreadyExistsException
+  | ResourceInUseException
+  | ResourceNotFoundException
+  | ServiceUnavailableException
+  | ThrottlingException
+  | UnsupportedOperationException
+  | CommonAwsError;

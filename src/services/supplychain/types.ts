@@ -1360,3 +1360,13 @@ export declare namespace UpdateInstance {
     | ValidationException
     | CommonAwsError;
 }
+
+export type SupplyChainErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

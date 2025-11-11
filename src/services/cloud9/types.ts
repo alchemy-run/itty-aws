@@ -586,3 +586,14 @@ export declare namespace UpdateEnvironmentMembership {
     | TooManyRequestsException
     | CommonAwsError;
 }
+
+export type Cloud9Errors =
+  | BadRequestException
+  | ConcurrentAccessException
+  | ConflictException
+  | ForbiddenException
+  | InternalServerErrorException
+  | LimitExceededException
+  | NotFoundException
+  | TooManyRequestsException
+  | CommonAwsError;

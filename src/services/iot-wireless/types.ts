@@ -4976,3 +4976,13 @@ export declare namespace UpdateWirelessGateway {
     | ValidationException
     | CommonAwsError;
 }
+
+export type IoTWirelessErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ThrottlingException
+  | TooManyTagsException
+  | ValidationException
+  | CommonAwsError;

@@ -107,3 +107,7 @@ export declare namespace StartSupportDataExport {
   export type Output = StartSupportDataExportResult;
   export type Error = MarketplaceCommerceAnalyticsException | CommonAwsError;
 }
+
+export type MarketplaceCommerceAnalyticsErrors =
+  | MarketplaceCommerceAnalyticsException
+  | CommonAwsError;

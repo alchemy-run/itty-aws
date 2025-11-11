@@ -1288,6 +1288,8 @@ export type HandlerErrorCode =
 export type HookFailureMode = "FAIL" | "WARN";
 export type HookInvocationCount = number;
 
+export type HookInvocationId = string;
+
 export type HookInvocationPoint = "PRE_PROVISION";
 export type HookResultId = string;
 
@@ -1298,6 +1300,7 @@ export declare class HookResultNotFoundException extends EffectData.TaggedError(
 }> {}
 export type HookResultSummaries = Array<HookResultSummary>;
 export interface HookResultSummary {
+  HookResultId?: string;
   InvocationPoint?: HookInvocationPoint;
   FailureMode?: HookFailureMode;
   TypeName?: string;
@@ -1305,6 +1308,11 @@ export interface HookResultSummary {
   TypeConfigurationVersionId?: string;
   Status?: HookStatus;
   HookStatusReason?: string;
+  InvokedAt?: Date | string;
+  TargetType?: ListHookResultsTargetType;
+  TargetId?: string;
+  TypeArn?: string;
+  HookExecutionTarget?: string;
 }
 export type HookStatus =
   | "HOOK_IN_PROGRESS"
@@ -1317,6 +1325,8 @@ export type HookTargetType = "RESOURCE";
 export type HookTargetTypeName = string;
 
 export type HookType = string;
+
+export type HookTypeArn = string;
 
 export type HookTypeConfigurationVersionId = string;
 
@@ -1417,8 +1427,10 @@ export interface ListGeneratedTemplatesOutput {
   NextToken?: string;
 }
 export interface ListHookResultsInput {
-  TargetType: ListHookResultsTargetType;
-  TargetId: string;
+  TargetType?: ListHookResultsTargetType;
+  TargetId?: string;
+  TypeArn?: string;
+  Status?: HookStatus;
   NextToken?: string;
 }
 export interface ListHookResultsOutput {
@@ -2182,6 +2194,7 @@ export interface StackEvent {
   HookStatus?: HookStatus;
   HookStatusReason?: string;
   HookInvocationPoint?: HookInvocationPoint;
+  HookInvocationId?: string;
   HookFailureMode?: HookFailureMode;
   DetailedStatus?: DetailedStatus;
 }
@@ -2901,7 +2914,8 @@ export type WarningType =
   | "MUTUALLY_EXCLUSIVE_PROPERTIES"
   | "UNSUPPORTED_PROPERTIES"
   | "MUTUALLY_EXCLUSIVE_TYPES"
-  | "EXCLUDED_PROPERTIES";
+  | "EXCLUDED_PROPERTIES"
+  | "EXCLUDED_RESOURCES";
 export declare namespace ActivateOrganizationsAccess {
   export type Input = ActivateOrganizationsAccessInput;
   export type Output = ActivateOrganizationsAccessOutput;
@@ -3568,3 +3582,35 @@ export declare namespace ValidateTemplate {
   export type Output = ValidateTemplateOutput;
   export type Error = CommonAwsError;
 }
+
+export type CloudFormationErrors =
+  | AlreadyExistsException
+  | CFNRegistryException
+  | ChangeSetNotFoundException
+  | ConcurrentResourcesLimitExceededException
+  | CreatedButModifiedException
+  | GeneratedTemplateNotFoundException
+  | HookResultNotFoundException
+  | InsufficientCapabilitiesException
+  | InvalidChangeSetStatusException
+  | InvalidOperationException
+  | InvalidStateTransitionException
+  | LimitExceededException
+  | NameAlreadyExistsException
+  | OperationIdAlreadyExistsException
+  | OperationInProgressException
+  | OperationNotFoundException
+  | OperationStatusCheckFailedException
+  | ResourceScanInProgressException
+  | ResourceScanLimitExceededException
+  | ResourceScanNotFoundException
+  | StackInstanceNotFoundException
+  | StackNotFoundException
+  | StackRefactorNotFoundException
+  | StackSetNotEmptyException
+  | StackSetNotFoundException
+  | StaleRequestException
+  | TokenAlreadyExistsException
+  | TypeConfigurationNotFoundException
+  | TypeNotFoundException
+  | CommonAwsError;

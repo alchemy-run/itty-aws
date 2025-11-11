@@ -886,3 +886,15 @@ export declare namespace UpdateScheduledQuery {
     | ValidationException
     | CommonAwsError;
 }
+
+export type TimestreamQueryErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | InvalidEndpointException
+  | QueryExecutionException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

@@ -1583,3 +1583,14 @@ export declare namespace UpdateWorkloadEstimate {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+
+export type BCMPricingCalculatorErrors =
+  | AccessDeniedException
+  | ConflictException
+  | DataUnavailableException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

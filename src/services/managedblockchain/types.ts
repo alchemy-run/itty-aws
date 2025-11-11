@@ -1287,3 +1287,16 @@ export declare namespace VoteOnProposal {
     | ThrottlingException
     | CommonAwsError;
 }
+
+export type ManagedBlockchainErrors =
+  | AccessDeniedException
+  | IllegalActionException
+  | InternalServiceErrorException
+  | InvalidRequestException
+  | ResourceAlreadyExistsException
+  | ResourceLimitExceededException
+  | ResourceNotFoundException
+  | ResourceNotReadyException
+  | ThrottlingException
+  | TooManyTagsException
+  | CommonAwsError;

@@ -777,3 +777,13 @@ export declare namespace UntagResource {
     | CloudHsmTagException
     | CommonAwsError;
 }
+
+export type CloudHSMV2Errors =
+  | CloudHsmAccessDeniedException
+  | CloudHsmInternalFailureException
+  | CloudHsmInvalidRequestException
+  | CloudHsmResourceLimitExceededException
+  | CloudHsmResourceNotFoundException
+  | CloudHsmServiceException
+  | CloudHsmTagException
+  | CommonAwsError;

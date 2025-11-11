@@ -279,7 +279,7 @@ export interface ActionRequired {
   ActionRequiredCode?: string;
   ActionRequiredInfo?: string;
 }
-export type AuthenticationStrategy = "SIMPLE" | "LDAP";
+export type AuthenticationStrategy = "SIMPLE" | "LDAP" | "CONFIG_MANAGED";
 export interface AvailabilityZone {
   Name?: string;
 }
@@ -377,7 +377,7 @@ export interface CreateBrokerRequest {
   StorageType?: BrokerStorageType;
   SubnetIds?: Array<string>;
   Tags?: Record<string, string>;
-  Users: Array<User>;
+  Users?: Array<User>;
   DataReplicationMode?: DataReplicationMode;
   DataReplicationPrimaryBrokerArn?: string;
 }
@@ -1029,3 +1029,12 @@ export declare namespace UpdateUser {
     | NotFoundException
     | CommonAwsError;
 }
+
+export type mqErrors =
+  | BadRequestException
+  | ConflictException
+  | ForbiddenException
+  | InternalServerErrorException
+  | NotFoundException
+  | UnauthorizedException
+  | CommonAwsError;

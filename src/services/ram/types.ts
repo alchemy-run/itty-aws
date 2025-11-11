@@ -1668,3 +1668,34 @@ export declare namespace UpdateResourceShare {
     | UnknownResourceException
     | CommonAwsError;
 }
+
+export type RAMErrors =
+  | IdempotentParameterMismatchException
+  | InvalidClientTokenException
+  | InvalidMaxResultsException
+  | InvalidNextTokenException
+  | InvalidParameterException
+  | InvalidPolicyException
+  | InvalidResourceTypeException
+  | InvalidStateTransitionException
+  | MalformedArnException
+  | MalformedPolicyTemplateException
+  | MissingRequiredParameterException
+  | OperationNotPermittedException
+  | PermissionAlreadyExistsException
+  | PermissionLimitExceededException
+  | PermissionVersionsLimitExceededException
+  | ResourceArnNotFoundException
+  | ResourceShareInvitationAlreadyAcceptedException
+  | ResourceShareInvitationAlreadyRejectedException
+  | ResourceShareInvitationArnNotFoundException
+  | ResourceShareInvitationExpiredException
+  | ResourceShareLimitExceededException
+  | ServerInternalException
+  | ServiceUnavailableException
+  | TagLimitExceededException
+  | TagPolicyViolationException
+  | ThrottlingException
+  | UnknownResourceException
+  | UnmatchedPolicyPermissionException
+  | CommonAwsError;

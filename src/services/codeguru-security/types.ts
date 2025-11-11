@@ -656,3 +656,12 @@ export declare namespace UpdateAccountConfiguration {
     | ValidationException
     | CommonAwsError;
 }
+
+export type CodeGuruSecurityErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

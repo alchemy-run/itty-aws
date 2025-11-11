@@ -1316,3 +1316,13 @@ export declare namespace UpdateDomain {
     | ValidationException
     | CommonAwsError;
 }
+
+export type VoiceIDErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

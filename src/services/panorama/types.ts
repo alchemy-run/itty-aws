@@ -1620,3 +1620,12 @@ export declare namespace UpdateDeviceMetadata {
     | ValidationException
     | CommonAwsError;
 }
+
+export type PanoramaErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ValidationException
+  | CommonAwsError;

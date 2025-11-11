@@ -604,6 +604,26 @@ export declare class CleanRoomsML extends AWSServiceClient {
 
 export declare class Cleanroomsml extends CleanRoomsML {}
 
+export interface AccessBudget {
+  resourceArn: string;
+  details: Array<AccessBudgetDetails>;
+  aggregateRemainingBudget: number;
+}
+export interface AccessBudgetDetails {
+  startTime: Date | string;
+  endTime?: Date | string;
+  remainingBudget: number;
+  budget: number;
+  budgetType: AccessBudgetType;
+  autoRefresh?: AutoRefreshMode;
+}
+export type AccessBudgetDetailsList = Array<AccessBudgetDetails>;
+export type AccessBudgets = Array<AccessBudget>;
+export type AccessBudgetType =
+  | "CALENDAR_DAY"
+  | "CALENDAR_MONTH"
+  | "CALENDAR_WEEK"
+  | "LIFETIME";
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",
 )<{
@@ -701,6 +721,11 @@ export interface AudienceSizeConfig {
 }
 export type AudienceSizeType = "ABSOLUTE" | "PERCENTAGE";
 export type AudienceSizeValue = number;
+
+export type AutoRefreshMode = "ENABLED" | "DISABLED";
+export type Budget = number;
+
+export type BudgetedResourceArn = string;
 
 export interface CancelTrainedModelInferenceJobRequest {
   membershipIdentifier: string;
@@ -963,6 +988,12 @@ export interface CreateTrainingDatasetRequest {
 export interface CreateTrainingDatasetResponse {
   trainingDatasetArn: string;
 }
+export type CustomDataIdentifier = string;
+
+export type CustomDataIdentifierList = Array<string>;
+export interface CustomEntityConfig {
+  customDataIdentifiers: Array<string>;
+}
 export interface Dataset {
   type: DatasetType;
   inputConfig: DatasetInputConfig;
@@ -1014,6 +1045,11 @@ export interface DeleteTrainingDatasetRequest {
 export interface Destination {
   s3Destination: S3ConfigMap;
 }
+export type EntityType =
+  | "ALL_PERSONALLY_IDENTIFIABLE_INFORMATION"
+  | "NUMBERS"
+  | "CUSTOM";
+export type EntityTypeList = Array<EntityType>;
 export type Environment = Record<string, string>;
 export interface GetAudienceGenerationJobRequest {
   audienceGenerationJobArn: string;
@@ -1073,9 +1109,6 @@ export interface GetCollaborationMLInputChannelRequest {
   collaborationIdentifier: string;
 }
 export interface GetCollaborationMLInputChannelResponse {
-  createTime: Date | string;
-  updateTime: Date | string;
-  creatorAccountId: string;
   membershipIdentifier: string;
   collaborationIdentifier: string;
   mlInputChannelArn: string;
@@ -1085,7 +1118,11 @@ export interface GetCollaborationMLInputChannelResponse {
   statusDetails?: StatusDetails;
   retentionInDays: number;
   numberOfRecords?: number;
+  privacyBudgets?: PrivacyBudgets;
   description?: string;
+  createTime: Date | string;
+  updateTime: Date | string;
+  creatorAccountId: string;
 }
 export interface GetCollaborationTrainedModelRequest {
   trainedModelArn: string;
@@ -1186,12 +1223,8 @@ export interface GetMLInputChannelRequest {
   membershipIdentifier: string;
 }
 export interface GetMLInputChannelResponse {
-  createTime: Date | string;
-  updateTime: Date | string;
   membershipIdentifier: string;
   collaborationIdentifier: string;
-  inputChannel: InputChannel;
-  protectedQueryIdentifier?: string;
   mlInputChannelArn: string;
   name: string;
   configuredModelAlgorithmAssociations: Array<string>;
@@ -1199,9 +1232,14 @@ export interface GetMLInputChannelResponse {
   statusDetails?: StatusDetails;
   retentionInDays: number;
   numberOfRecords?: number;
+  privacyBudgets?: PrivacyBudgets;
+  description?: string;
+  createTime: Date | string;
+  updateTime: Date | string;
+  inputChannel: InputChannel;
+  protectedQueryIdentifier?: string;
   numberOfFiles?: number;
   sizeInGb?: number;
-  description?: string;
   kmsKeyArn?: string;
   tags?: Record<string, string>;
 }
@@ -1334,7 +1372,6 @@ export type InferenceInstanceType =
   | "ml.r6i.large"
   | "ml.g5.2xlarge"
   | "ml.m5.large"
-  | "ml.p3.16xlarge"
   | "ml.m7i.48xlarge"
   | "ml.m6i.16xlarge"
   | "ml.p2.16xlarge"
@@ -1382,7 +1419,6 @@ export type InferenceInstanceType =
   | "ml.m6i.2xlarge"
   | "ml.g5.16xlarge"
   | "ml.m7i.4xlarge"
-  | "ml.p3.2xlarge"
   | "ml.r6i.32xlarge"
   | "ml.m6i.4xlarge"
   | "ml.m5.xlarge"
@@ -1408,8 +1444,10 @@ export type InferenceInstanceType =
   | "ml.p2.8xlarge"
   | "ml.r6i.4xlarge"
   | "ml.m6i.32xlarge"
-  | "ml.p3.8xlarge"
-  | "ml.m4.4xlarge";
+  | "ml.m4.4xlarge"
+  | "ml.p3.16xlarge"
+  | "ml.p3.2xlarge"
+  | "ml.p3.8xlarge";
 export interface InferenceOutputConfiguration {
   accept?: string;
   members: Array<InferenceReceiverMember>;
@@ -1458,10 +1496,6 @@ export type InstanceType =
   | "ml.p2.xlarge"
   | "ml.p2.8xlarge"
   | "ml.p2.16xlarge"
-  | "ml.p3.2xlarge"
-  | "ml.p3.8xlarge"
-  | "ml.p3.16xlarge"
-  | "ml.p3dn.24xlarge"
   | "ml.p4d.24xlarge"
   | "ml.p4de.24xlarge"
   | "ml.p5.48xlarge"
@@ -1522,7 +1556,55 @@ export type InstanceType =
   | "ml.r5.8xlarge"
   | "ml.r5.12xlarge"
   | "ml.r5.16xlarge"
-  | "ml.r5.24xlarge";
+  | "ml.r5.24xlarge"
+  | "ml.c7i.large"
+  | "ml.c7i.xlarge"
+  | "ml.c7i.2xlarge"
+  | "ml.c7i.4xlarge"
+  | "ml.c7i.8xlarge"
+  | "ml.c7i.12xlarge"
+  | "ml.c7i.16xlarge"
+  | "ml.c7i.24xlarge"
+  | "ml.c7i.48xlarge"
+  | "ml.m7i.large"
+  | "ml.m7i.xlarge"
+  | "ml.m7i.2xlarge"
+  | "ml.m7i.4xlarge"
+  | "ml.m7i.8xlarge"
+  | "ml.m7i.12xlarge"
+  | "ml.m7i.16xlarge"
+  | "ml.m7i.24xlarge"
+  | "ml.m7i.48xlarge"
+  | "ml.r7i.large"
+  | "ml.r7i.xlarge"
+  | "ml.r7i.2xlarge"
+  | "ml.r7i.4xlarge"
+  | "ml.r7i.8xlarge"
+  | "ml.r7i.12xlarge"
+  | "ml.r7i.16xlarge"
+  | "ml.r7i.24xlarge"
+  | "ml.r7i.48xlarge"
+  | "ml.g6.xlarge"
+  | "ml.g6.2xlarge"
+  | "ml.g6.4xlarge"
+  | "ml.g6.8xlarge"
+  | "ml.g6.12xlarge"
+  | "ml.g6.16xlarge"
+  | "ml.g6.24xlarge"
+  | "ml.g6.48xlarge"
+  | "ml.g6e.xlarge"
+  | "ml.g6e.2xlarge"
+  | "ml.g6e.4xlarge"
+  | "ml.g6e.8xlarge"
+  | "ml.g6e.12xlarge"
+  | "ml.g6e.16xlarge"
+  | "ml.g6e.24xlarge"
+  | "ml.g6e.48xlarge"
+  | "ml.p5en.48xlarge"
+  | "ml.p3.2xlarge"
+  | "ml.p3.8xlarge"
+  | "ml.p3.16xlarge"
+  | "ml.p3dn.24xlarge";
 export declare class InternalServiceException extends EffectData.TaggedError(
   "InternalServiceException",
 )<{
@@ -1685,12 +1767,19 @@ export interface ListTrainingDatasetsResponse {
   nextToken?: string;
   trainingDatasets: Array<TrainingDatasetSummary>;
 }
+export interface LogRedactionConfiguration {
+  entitiesToRedact: Array<EntityType>;
+  customEntityConfig?: CustomEntityConfig;
+}
 export interface LogsConfigurationPolicy {
   allowedAccountIds: Array<string>;
   filterPattern?: string;
+  logType?: LogType;
+  logRedactionConfiguration?: LogRedactionConfiguration;
 }
 export type LogsConfigurationPolicyList = Array<LogsConfigurationPolicy>;
 export type LogsStatus = "PUBLISH_SUCCEEDED" | "PUBLISH_FAILED";
+export type LogType = "ALL" | "ERROR_SUMMARY";
 export type MaxResults = number;
 
 export interface MetricDefinition {
@@ -1761,6 +1850,13 @@ export type ParameterValue = string;
 export type PolicyExistenceCondition =
   | "POLICY_MUST_EXIST"
   | "POLICY_MUST_NOT_EXIST";
+interface _PrivacyBudgets {
+  accessBudgets?: Array<AccessBudget>;
+}
+
+export type PrivacyBudgets = _PrivacyBudgets & {
+  accessBudgets: Array<AccessBudget>;
+};
 export interface PrivacyConfiguration {
   policies: PrivacyConfigurationPolicies;
 }
@@ -2687,3 +2783,13 @@ export declare namespace UpdateConfiguredAudienceModel {
     | ValidationException
     | CommonAwsError;
 }
+
+export type CleanRoomsMLErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServiceException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

@@ -1664,3 +1664,13 @@ export declare namespace UpdateWebhook {
     | UnauthorizedException
     | CommonAwsError;
 }
+
+export type AmplifyErrors =
+  | BadRequestException
+  | DependentServiceFailureException
+  | InternalFailureException
+  | LimitExceededException
+  | NotFoundException
+  | ResourceNotFoundException
+  | UnauthorizedException
+  | CommonAwsError;

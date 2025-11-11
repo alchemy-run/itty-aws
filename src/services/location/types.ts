@@ -705,6 +705,13 @@ export declare class AccessDeniedException extends EffectData.TaggedError(
 )<{
   readonly Message: string;
 }> {}
+export interface AndroidApp {
+  Package: string;
+  CertificateFingerprint: string;
+}
+export type AndroidAppList = Array<AndroidApp>;
+export type AndroidPackageName = string;
+
 export type ApiKey = string;
 
 export type ApiKeyAction = string;
@@ -717,7 +724,15 @@ export interface ApiKeyRestrictions {
   AllowActions: Array<string>;
   AllowResources: Array<string>;
   AllowReferers?: Array<string>;
+  AllowAndroidApps?: Array<AndroidApp>;
+  AllowAppleApps?: Array<AppleApp>;
 }
+export interface AppleApp {
+  BundleId: string;
+}
+export type AppleAppList = Array<AppleApp>;
+export type AppleBundleId = string;
+
 export type Arn = string;
 
 export type ArnList = Array<string>;
@@ -1683,7 +1698,11 @@ export interface SearchPlaceIndexForTextSummary {
   Language?: string;
   FilterCategories?: Array<string>;
 }
+export type SensitiveBoolean = boolean;
+
 export type SensitiveDouble = number;
+
+export type SensitiveInteger = number;
 
 export type SensitiveString = string;
 
@@ -1692,6 +1711,8 @@ export declare class ServiceQuotaExceededException extends EffectData.TaggedErro
 )<{
   readonly Message: string;
 }> {}
+export type Sha1CertificateFingerprint = string;
+
 export type SpeedUnit = string;
 
 export type Status = string;
@@ -2575,3 +2596,13 @@ export declare namespace VerifyDevicePosition {
     | ValidationException
     | CommonAwsError;
 }
+
+export type LocationErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

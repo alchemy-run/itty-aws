@@ -1046,3 +1046,14 @@ export declare namespace UpdateConnector {
     | UnauthorizedException
     | CommonAwsError;
 }
+
+export type KafkaConnectErrors =
+  | BadRequestException
+  | ConflictException
+  | ForbiddenException
+  | InternalServerErrorException
+  | NotFoundException
+  | ServiceUnavailableException
+  | TooManyRequestsException
+  | UnauthorizedException
+  | CommonAwsError;

@@ -2497,3 +2497,24 @@ export declare namespace UpdateTableStorageOptimizer {
     | InvalidInputException
     | CommonAwsError;
 }
+
+export type LakeFormationErrors =
+  | AccessDeniedException
+  | AlreadyExistsException
+  | ConcurrentModificationException
+  | EntityNotFoundException
+  | ExpiredException
+  | GlueEncryptionException
+  | InternalServiceException
+  | InvalidInputException
+  | OperationTimeoutException
+  | PermissionTypeMismatchException
+  | ResourceNotReadyException
+  | ResourceNumberLimitExceededException
+  | StatisticsNotReadyYetException
+  | ThrottledException
+  | TransactionCanceledException
+  | TransactionCommitInProgressException
+  | TransactionCommittedException
+  | WorkUnitsNotReadyYetException
+  | CommonAwsError;

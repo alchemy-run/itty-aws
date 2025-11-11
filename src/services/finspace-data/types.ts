@@ -1441,3 +1441,13 @@ export declare namespace UpdateUser {
     | ValidationException
     | CommonAwsError;
 }
+
+export type finspacedataErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | LimitExceededException
+  | ResourceNotFoundException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

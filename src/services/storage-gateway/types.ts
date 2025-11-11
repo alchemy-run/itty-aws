@@ -3065,3 +3065,9 @@ export declare namespace UpdateVTLDeviceType {
     | InvalidGatewayRequestException
     | CommonAwsError;
 }
+
+export type StorageGatewayErrors =
+  | InternalServerError
+  | InvalidGatewayRequestException
+  | ServiceUnavailableError
+  | CommonAwsError;

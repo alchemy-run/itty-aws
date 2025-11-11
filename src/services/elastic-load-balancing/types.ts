@@ -1064,3 +1064,28 @@ export declare namespace SetLoadBalancerPoliciesOfListener {
     | PolicyNotFoundException
     | CommonAwsError;
 }
+
+export type ElasticLoadBalancingErrors =
+  | AccessPointNotFoundException
+  | CertificateNotFoundException
+  | DependencyThrottleException
+  | DuplicateAccessPointNameException
+  | DuplicateListenerException
+  | DuplicatePolicyNameException
+  | DuplicateTagKeysException
+  | InvalidConfigurationRequestException
+  | InvalidEndPointException
+  | InvalidSchemeException
+  | InvalidSecurityGroupException
+  | InvalidSubnetException
+  | ListenerNotFoundException
+  | LoadBalancerAttributeNotFoundException
+  | OperationNotPermittedException
+  | PolicyNotFoundException
+  | PolicyTypeNotFoundException
+  | SubnetNotFoundException
+  | TooManyAccessPointsException
+  | TooManyPoliciesException
+  | TooManyTagsException
+  | UnsupportedProtocolException
+  | CommonAwsError;

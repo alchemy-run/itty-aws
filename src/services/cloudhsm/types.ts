@@ -647,3 +647,9 @@ export declare namespace RemoveTagsFromResource {
     | InvalidRequestException
     | CommonAwsError;
 }
+
+export type CloudHSMErrors =
+  | CloudHsmInternalException
+  | CloudHsmServiceException
+  | InvalidRequestException
+  | CommonAwsError;

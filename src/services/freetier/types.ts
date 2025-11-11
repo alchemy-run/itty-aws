@@ -314,3 +314,11 @@ export declare namespace UpgradeAccountPlan {
     | ValidationException
     | CommonAwsError;
 }
+
+export type FreeTierErrors =
+  | AccessDeniedException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

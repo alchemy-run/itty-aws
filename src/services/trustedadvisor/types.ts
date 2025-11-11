@@ -665,3 +665,12 @@ export declare namespace UpdateRecommendationLifecycle {
     | ValidationException
     | CommonAwsError;
 }
+
+export type TrustedAdvisorErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

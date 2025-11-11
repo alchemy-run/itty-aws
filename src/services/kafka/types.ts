@@ -2366,3 +2366,14 @@ export declare namespace UpdateStorage {
     | UnauthorizedException
     | CommonAwsError;
 }
+
+export type KafkaErrors =
+  | BadRequestException
+  | ConflictException
+  | ForbiddenException
+  | InternalServerErrorException
+  | NotFoundException
+  | ServiceUnavailableException
+  | TooManyRequestsException
+  | UnauthorizedException
+  | CommonAwsError;

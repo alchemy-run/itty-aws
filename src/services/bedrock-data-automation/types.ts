@@ -207,11 +207,15 @@ export declare class AccessDeniedException extends EffectData.TaggedError(
 export interface AudioExtractionCategory {
   state: State;
   types?: Array<AudioExtractionCategoryType>;
+  typeConfiguration?: AudioExtractionCategoryTypeConfiguration;
 }
 export type AudioExtractionCategoryType =
   | "AUDIO_CONTENT_MODERATION"
   | "TRANSCRIPT"
   | "TOPIC_CONTENT_MODERATION";
+export interface AudioExtractionCategoryTypeConfiguration {
+  transcript?: TranscriptConfiguration;
+}
 export type AudioExtractionCategoryTypes = Array<AudioExtractionCategoryType>;
 export interface AudioOverrideConfiguration {
   modalityProcessing?: ModalityProcessingConfiguration;
@@ -275,6 +279,9 @@ export interface BlueprintSummary {
 }
 export type BlueprintVersion = string;
 
+export interface ChannelLabelingConfiguration {
+  state: State;
+}
 export type ClientToken = string;
 
 export declare class ConflictException extends EffectData.TaggedError(
@@ -542,6 +549,9 @@ export declare class ServiceQuotaExceededException extends EffectData.TaggedErro
 )<{
   readonly message?: string;
 }> {}
+export interface SpeakerLabelingConfiguration {
+  state: State;
+}
 export interface SplitterConfiguration {
   state?: State;
 }
@@ -574,6 +584,10 @@ export declare class ThrottlingException extends EffectData.TaggedError(
 )<{
   readonly message?: string;
 }> {}
+export interface TranscriptConfiguration {
+  speakerLabeling?: SpeakerLabelingConfiguration;
+  channelLabeling?: ChannelLabelingConfiguration;
+}
 export type Type = "DOCUMENT" | "IMAGE" | "AUDIO" | "VIDEO";
 export interface UntagResourceRequest {
   resourceARN: string;
@@ -822,3 +836,13 @@ export declare namespace UpdateDataAutomationProject {
     | ValidationException
     | CommonAwsError;
 }
+
+export type BedrockDataAutomationErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

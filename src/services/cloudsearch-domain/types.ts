@@ -192,3 +192,8 @@ export declare namespace UploadDocuments {
   export type Output = UploadDocumentsResponse;
   export type Error = DocumentServiceException | CommonAwsError;
 }
+
+export type CloudSearchDomainErrors =
+  | DocumentServiceException
+  | SearchException
+  | CommonAwsError;

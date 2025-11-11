@@ -116,6 +116,12 @@ export type CallAnalyticsLanguageCode =
   | "it-IT"
   | "de-DE"
   | "pt-BR";
+export type CallAnalyticsLanguageIdentification =
+  Array<CallAnalyticsLanguageWithScore>;
+export interface CallAnalyticsLanguageWithScore {
+  LanguageCode?: CallAnalyticsLanguageCode;
+  Score?: number;
+}
 interface _CallAnalyticsTranscriptResultStream {
   UtteranceEvent?: UtteranceEvent;
   CategoryEvent?: CategoryEvent;
@@ -359,6 +365,10 @@ export interface MedicalScribeConfigurationEvent {
   ChannelDefinitions?: Array<MedicalScribeChannelDefinition>;
   EncryptionSettings?: MedicalScribeEncryptionSettings;
   PostStreamAnalyticsSettings: MedicalScribePostStreamAnalyticsSettings;
+  MedicalScribeContext?: MedicalScribeContext;
+}
+export interface MedicalScribeContext {
+  PatientContext?: MedicalScribePatientContext;
 }
 export interface MedicalScribeEncryptionSettings {
   KmsEncryptionContext?: Record<string, string>;
@@ -391,6 +401,9 @@ export type MedicalScribeNoteTemplate =
   | "BEHAVIORAL_SOAP"
   | "PHYSICAL_SOAP";
 export type MedicalScribeParticipantRole = "PATIENT" | "CLINICIAN";
+export interface MedicalScribePatientContext {
+  Pronouns?: Pronouns;
+}
 export interface MedicalScribePostStreamAnalyticsResult {
   ClinicalNoteGenerationResult?: ClinicalNoteGenerationResult;
 }
@@ -441,6 +454,7 @@ export interface MedicalScribeStreamDetails {
   StreamStatus?: MedicalScribeStreamStatus;
   PostStreamAnalyticsSettings?: MedicalScribePostStreamAnalyticsSettings;
   PostStreamAnalyticsResult?: MedicalScribePostStreamAnalyticsResult;
+  MedicalScribeContextProvided?: boolean;
 }
 export type MedicalScribeStreamStatus =
   | "IN_PROGRESS"
@@ -524,6 +538,7 @@ export interface PostCallAnalyticsSettings {
   ContentRedactionOutput?: ContentRedactionOutput;
   OutputEncryptionKMSKeyId?: string;
 }
+export type Pronouns = "HE_HIM" | "SHE_HER" | "THEY_THEM";
 export type RequestId = string;
 
 export declare class ResourceNotFoundException extends EffectData.TaggedError(
@@ -560,7 +575,7 @@ export type Specialty =
 export type Stable = boolean;
 
 export interface StartCallAnalyticsStreamTranscriptionRequest {
-  LanguageCode: CallAnalyticsLanguageCode;
+  LanguageCode?: CallAnalyticsLanguageCode;
   MediaSampleRateHertz: number;
   MediaEncoding: MediaEncoding;
   VocabularyName?: string;
@@ -569,6 +584,11 @@ export interface StartCallAnalyticsStreamTranscriptionRequest {
   VocabularyFilterName?: string;
   VocabularyFilterMethod?: VocabularyFilterMethod;
   LanguageModelName?: string;
+  IdentifyLanguage?: boolean;
+  LanguageOptions?: string;
+  PreferredLanguage?: CallAnalyticsLanguageCode;
+  VocabularyNames?: string;
+  VocabularyFilterNames?: string;
   EnablePartialResultsStabilization?: boolean;
   PartialResultsStability?: PartialResultsStability;
   ContentIdentificationType?: ContentIdentificationType;
@@ -586,6 +606,11 @@ export interface StartCallAnalyticsStreamTranscriptionResponse {
   VocabularyFilterName?: string;
   VocabularyFilterMethod?: VocabularyFilterMethod;
   LanguageModelName?: string;
+  IdentifyLanguage?: boolean;
+  LanguageOptions?: string;
+  PreferredLanguage?: CallAnalyticsLanguageCode;
+  VocabularyNames?: string;
+  VocabularyFilterNames?: string;
   EnablePartialResultsStabilization?: boolean;
   PartialResultsStability?: PartialResultsStability;
   ContentIdentificationType?: ContentIdentificationType;
@@ -737,6 +762,8 @@ export interface UtteranceEvent {
   Entities?: Array<CallAnalyticsEntity>;
   Sentiment?: Sentiment;
   IssuesDetected?: Array<IssueDetected>;
+  LanguageCode?: CallAnalyticsLanguageCode;
+  LanguageIdentification?: Array<CallAnalyticsLanguageWithScore>;
 }
 export type VocabularyFilterMethod = "remove" | "mask" | "tag";
 export type VocabularyFilterName = string;
@@ -805,3 +832,12 @@ export declare namespace StartStreamTranscription {
     | ServiceUnavailableException
     | CommonAwsError;
 }
+
+export type TranscribeStreamingErrors =
+  | BadRequestException
+  | ConflictException
+  | InternalFailureException
+  | LimitExceededException
+  | ResourceNotFoundException
+  | ServiceUnavailableException
+  | CommonAwsError;

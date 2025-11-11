@@ -1177,3 +1177,13 @@ export declare namespace UpdateOrganizationConfiguration {
     | ValidationException
     | CommonAwsError;
 }
+
+export type DetectiveErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | TooManyRequestsException
+  | ValidationException
+  | CommonAwsError;

@@ -1271,3 +1271,15 @@ export declare namespace UpdateAppInstanceUserEndpoint {
     | UnauthorizedClientException
     | CommonAwsError;
 }
+
+export type ChimeSDKIdentityErrors =
+  | BadRequestException
+  | ConflictException
+  | ForbiddenException
+  | NotFoundException
+  | ResourceLimitExceededException
+  | ServiceFailureException
+  | ServiceUnavailableException
+  | ThrottledClientException
+  | UnauthorizedClientException
+  | CommonAwsError;

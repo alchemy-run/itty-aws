@@ -322,3 +322,12 @@ export declare namespace UpdateConfigurationSetEventDestination {
     | TooManyRequestsException
     | CommonAwsError;
 }
+
+export type PinpointSMSVoiceErrors =
+  | AlreadyExistsException
+  | BadRequestException
+  | InternalServiceErrorException
+  | LimitExceededException
+  | NotFoundException
+  | TooManyRequestsException
+  | CommonAwsError;
