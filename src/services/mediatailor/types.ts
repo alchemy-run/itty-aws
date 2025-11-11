@@ -853,7 +853,6 @@ export interface PrefetchRetrieval {
   StartTime?: Date | string;
   TrafficShapingType?: TrafficShapingType;
   TrafficShapingRetrievalWindow?: TrafficShapingRetrievalWindow;
-  TrafficShapingTpsConfiguration?: TrafficShapingTpsConfiguration;
 }
 export interface PrefetchSchedule {
   Arn: string;
@@ -927,7 +926,6 @@ export interface RecurringRetrieval {
   DelayAfterAvailEndSeconds?: number;
   TrafficShapingType?: TrafficShapingType;
   TrafficShapingRetrievalWindow?: TrafficShapingRetrievalWindow;
-  TrafficShapingTpsConfiguration?: TrafficShapingTpsConfiguration;
 }
 export type RelativePosition = "BEFORE_PROGRAM" | "AFTER_PROGRAM";
 export interface RequestOutputItem {
@@ -1033,11 +1031,7 @@ export interface TimeSignalMessage {
 export interface TrafficShapingRetrievalWindow {
   RetrievalWindowDurationSeconds?: number;
 }
-export interface TrafficShapingTpsConfiguration {
-  PeakTps?: number;
-  PeakConcurrentUsers?: number;
-}
-export type TrafficShapingType = "RETRIEVAL_WINDOW" | "TPS";
+export type TrafficShapingType = "RETRIEVAL_WINDOW";
 export interface Transition {
   DurationMillis?: number;
   RelativePosition: RelativePosition;

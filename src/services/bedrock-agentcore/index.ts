@@ -31,7 +31,6 @@ const metadata = {
   sigV4ServiceName: "bedrock-agentcore",
   endpointPrefix: "bedrock-agentcore",
   operations: {
-    CompleteResourceTokenAuth: "POST /identities/CompleteResourceTokenAuth",
     GetResourceApiKey: "POST /identities/api-key",
     GetResourceOauth2Token: "POST /identities/oauth2/token",
     GetWorkloadAccessToken: "POST /identities/GetWorkloadAccessToken",
@@ -46,25 +45,11 @@ const metadata = {
         stream: "httpPayload",
       },
     },
-    BatchCreateMemoryRecords:
-      "POST /memories/{memoryId}/memoryRecords/batchCreate",
-    BatchDeleteMemoryRecords:
-      "POST /memories/{memoryId}/memoryRecords/batchDelete",
-    BatchUpdateMemoryRecords:
-      "POST /memories/{memoryId}/memoryRecords/batchUpdate",
     CreateEvent: "POST /memories/{memoryId}/events",
     DeleteEvent:
       "DELETE /memories/{memoryId}/actor/{actorId}/sessions/{sessionId}/events/{eventId}",
     DeleteMemoryRecord:
       "DELETE /memories/{memoryId}/memoryRecords/{memoryRecordId}",
-    GetAgentCard: {
-      http: "GET /runtimes/{agentRuntimeArn}/invocations/.well-known/agent-card.json",
-      traits: {
-        runtimeSessionId: "X-Amzn-Bedrock-AgentCore-Runtime-Session-Id",
-        agentCard: "httpPayload",
-        statusCode: "httpResponseCode",
-      },
-    },
     GetBrowserSession: "GET /browsers/{browserIdentifier}/sessions/get",
     GetCodeInterpreterSession:
       "GET /code-interpreters/{codeInterpreterIdentifier}/sessions/get",
@@ -101,13 +86,6 @@ const metadata = {
     StopBrowserSession: "PUT /browsers/{browserIdentifier}/sessions/stop",
     StopCodeInterpreterSession:
       "PUT /code-interpreters/{codeInterpreterIdentifier}/sessions/stop",
-    StopRuntimeSession: {
-      http: "POST /runtimes/{agentRuntimeArn}/stopruntimesession",
-      traits: {
-        runtimeSessionId: "X-Amzn-Bedrock-AgentCore-Runtime-Session-Id",
-        statusCode: "httpResponseCode",
-      },
-    },
     UpdateBrowserStream:
       "PUT /browsers/{browserIdentifier}/sessions/streams/update",
   },

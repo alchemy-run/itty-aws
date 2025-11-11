@@ -214,7 +214,6 @@ export declare class QBusiness extends AWSServiceClient {
   ): Effect.Effect<
     DeleteConversationResponse,
     | AccessDeniedException
-    | ConflictException
     | InternalServerException
     | LicenseNotFoundException
     | ResourceNotFoundException
@@ -273,17 +272,6 @@ export declare class QBusiness extends AWSServiceClient {
     input: GetChatResponseConfigurationRequest,
   ): Effect.Effect<
     GetChatResponseConfigurationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
-  >;
-  getDocumentContent(
-    input: GetDocumentContentRequest,
-  ): Effect.Effect<
-    GetDocumentContentResponse,
     | AccessDeniedException
     | InternalServerException
     | ResourceNotFoundException
@@ -2140,17 +2128,6 @@ export interface GetDataSourceResponse {
   documentEnrichmentConfiguration?: DocumentEnrichmentConfiguration;
   mediaExtractionConfiguration?: MediaExtractionConfiguration;
 }
-export interface GetDocumentContentRequest {
-  applicationId: string;
-  indexId: string;
-  dataSourceId?: string;
-  documentId: string;
-  outputFormat?: OutputFormat;
-}
-export interface GetDocumentContentResponse {
-  presignedUrl: string;
-  mimeType: string;
-}
 export interface GetGroupRequest {
   applicationId: string;
   indexId: string;
@@ -2739,7 +2716,6 @@ export interface OrchestrationConfiguration {
 export type OrchestrationControl = "ENABLED" | "DISABLED";
 export type Origin = string;
 
-export type OutputFormat = "RAW" | "EXTRACTED";
 export type Payload = string;
 
 export interface PermissionCondition {
@@ -3034,9 +3010,6 @@ export interface SourceAttribution {
   citationNumber?: number;
   updatedAt?: Date | string;
   textMessageSegments?: Array<TextSegment>;
-  documentId?: string;
-  indexId?: string;
-  datasourceId?: string;
 }
 export type SourceAttributionMediaId = string;
 
@@ -3578,7 +3551,6 @@ export declare namespace DeleteConversation {
   export type Output = DeleteConversationResponse;
   export type Error =
     | AccessDeniedException
-    | ConflictException
     | InternalServerException
     | LicenseNotFoundException
     | ResourceNotFoundException
@@ -3641,18 +3613,6 @@ export declare namespace GetChatControlsConfiguration {
 export declare namespace GetChatResponseConfiguration {
   export type Input = GetChatResponseConfigurationRequest;
   export type Output = GetChatResponseConfigurationResponse;
-  export type Error =
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError;
-}
-
-export declare namespace GetDocumentContent {
-  export type Input = GetDocumentContentRequest;
-  export type Output = GetDocumentContentResponse;
   export type Error =
     | AccessDeniedException
     | InternalServerException

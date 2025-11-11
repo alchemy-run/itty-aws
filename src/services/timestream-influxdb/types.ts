@@ -237,8 +237,7 @@ export type ClusterStatus =
   | "DELETING"
   | "AVAILABLE"
   | "FAILED"
-  | "DELETED"
-  | "MAINTENANCE";
+  | "DELETED";
 export declare class ConflictException extends EffectData.TaggedError(
   "ConflictException",
 )<{
@@ -249,19 +248,19 @@ export declare class ConflictException extends EffectData.TaggedError(
 export interface CreateDbClusterInput {
   name: string;
   username?: string;
-  password?: string;
+  password: string;
   organization?: string;
   bucket?: string;
   port?: number;
   dbParameterGroupIdentifier?: string;
   dbInstanceType: DbInstanceType;
   dbStorageType?: DbStorageType;
-  allocatedStorage?: number;
+  allocatedStorage: number;
   networkType?: NetworkType;
   publiclyAccessible?: boolean;
   vpcSubnetIds: Array<string>;
   vpcSecurityGroupIds: Array<string>;
-  deploymentType?: ClusterDeploymentType;
+  deploymentType: ClusterDeploymentType;
   failoverMode?: FailoverMode;
   logDeliveryConfiguration?: LogDeliveryConfiguration;
   tags?: Record<string, string>;
@@ -311,7 +310,6 @@ export interface CreateDbInstanceOutput {
   influxAuthParametersSecretArn?: string;
   dbClusterId?: string;
   instanceMode?: InstanceMode;
-  instanceModes?: Array<InstanceMode>;
 }
 export interface CreateDbParameterGroupInput {
   name: string;
@@ -326,7 +324,6 @@ export interface CreateDbParameterGroupOutput {
   description?: string;
   parameters?: Parameters;
 }
-export type DataFusionRuntimeType = "multi-thread" | "multi-thread-alt";
 export type DbClusterId = string;
 
 export type DbClusterName = string;
@@ -344,7 +341,6 @@ export interface DbClusterSummary {
   networkType?: NetworkType;
   dbStorageType?: DbStorageType;
   allocatedStorage?: number;
-  engineType?: EngineType;
 }
 export type DbClusterSummaryList = Array<DbClusterSummary>;
 export interface DbInstanceForClusterSummary {
@@ -360,7 +356,6 @@ export interface DbInstanceForClusterSummary {
   allocatedStorage?: number;
   deploymentType?: DeploymentType;
   instanceMode?: InstanceMode;
-  instanceModes?: Array<InstanceMode>;
 }
 export type DbInstanceForClusterSummaryList =
   Array<DbInstanceForClusterSummary>;
@@ -442,23 +437,13 @@ export interface DeleteDbInstanceOutput {
   influxAuthParametersSecretArn?: string;
   dbClusterId?: string;
   instanceMode?: InstanceMode;
-  instanceModes?: Array<InstanceMode>;
 }
 export type DeploymentType = "SINGLE_AZ" | "WITH_MULTIAZ_STANDBY";
 export interface Duration {
   durationType: DurationType;
   value: number;
 }
-export type DurationType =
-  | "hours"
-  | "minutes"
-  | "seconds"
-  | "milliseconds"
-  | "days";
-export type EngineType =
-  | "INFLUXDB_V2"
-  | "INFLUXDB_V3_CORE"
-  | "INFLUXDB_V3_ENTERPRISE";
+export type DurationType = "hours" | "minutes" | "seconds" | "milliseconds";
 export type FailoverMode = "AUTOMATIC" | "NO_FAILOVER";
 export interface GetDbClusterInput {
   dbClusterId: string;
@@ -476,7 +461,6 @@ export interface GetDbClusterOutput {
   networkType?: NetworkType;
   dbStorageType?: DbStorageType;
   allocatedStorage?: number;
-  engineType?: EngineType;
   publiclyAccessible?: boolean;
   dbParameterGroupIdentifier?: string;
   logDeliveryConfiguration?: LogDeliveryConfiguration;
@@ -510,7 +494,6 @@ export interface GetDbInstanceOutput {
   influxAuthParametersSecretArn?: string;
   dbClusterId?: string;
   instanceMode?: InstanceMode;
-  instanceModes?: Array<InstanceMode>;
 }
 export interface GetDbParameterGroupInput {
   identifier: string;
@@ -558,110 +541,7 @@ export interface InfluxDBv2Parameters {
   storageWalMaxWriteDelay?: Duration;
   uiDisabled?: boolean;
 }
-export interface InfluxDBv3CoreParameters {
-  queryFileLimit?: number;
-  queryLogSize?: number;
-  logFilter?: string;
-  logFormat?: LogFormats;
-  dataFusionNumThreads?: number;
-  dataFusionRuntimeType?: DataFusionRuntimeType;
-  dataFusionRuntimeDisableLifoSlot?: boolean;
-  dataFusionRuntimeEventInterval?: number;
-  dataFusionRuntimeGlobalQueueInterval?: number;
-  dataFusionRuntimeMaxBlockingThreads?: number;
-  dataFusionRuntimeMaxIoEventsPerTick?: number;
-  dataFusionRuntimeThreadKeepAlive?: Duration;
-  dataFusionRuntimeThreadPriority?: number;
-  dataFusionMaxParquetFanout?: number;
-  dataFusionUseCachedParquetLoader?: boolean;
-  dataFusionConfig?: string;
-  maxHttpRequestSize?: number;
-  forceSnapshotMemThreshold?: PercentOrAbsoluteLong;
-  walSnapshotSize?: number;
-  walMaxWriteBufferSize?: number;
-  snapshottedWalFilesToKeep?: number;
-  preemptiveCacheAge?: Duration;
-  parquetMemCachePrunePercentage?: number;
-  parquetMemCachePruneInterval?: Duration;
-  disableParquetMemCache?: boolean;
-  parquetMemCacheQueryPathDuration?: Duration;
-  lastCacheEvictionInterval?: Duration;
-  distinctCacheEvictionInterval?: Duration;
-  gen1Duration?: Duration;
-  execMemPoolBytes?: PercentOrAbsoluteLong;
-  parquetMemCacheSize?: PercentOrAbsoluteLong;
-  walReplayFailOnError?: boolean;
-  walReplayConcurrencyLimit?: number;
-  tableIndexCacheMaxEntries?: number;
-  tableIndexCacheConcurrencyLimit?: number;
-  gen1LookbackDuration?: Duration;
-  retentionCheckInterval?: Duration;
-  deleteGracePeriod?: Duration;
-  hardDeleteDefaultDuration?: Duration;
-}
-export interface InfluxDBv3EnterpriseParameters {
-  queryFileLimit?: number;
-  queryLogSize?: number;
-  logFilter?: string;
-  logFormat?: LogFormats;
-  dataFusionNumThreads?: number;
-  dataFusionRuntimeType?: DataFusionRuntimeType;
-  dataFusionRuntimeDisableLifoSlot?: boolean;
-  dataFusionRuntimeEventInterval?: number;
-  dataFusionRuntimeGlobalQueueInterval?: number;
-  dataFusionRuntimeMaxBlockingThreads?: number;
-  dataFusionRuntimeMaxIoEventsPerTick?: number;
-  dataFusionRuntimeThreadKeepAlive?: Duration;
-  dataFusionRuntimeThreadPriority?: number;
-  dataFusionMaxParquetFanout?: number;
-  dataFusionUseCachedParquetLoader?: boolean;
-  dataFusionConfig?: string;
-  maxHttpRequestSize?: number;
-  forceSnapshotMemThreshold?: PercentOrAbsoluteLong;
-  walSnapshotSize?: number;
-  walMaxWriteBufferSize?: number;
-  snapshottedWalFilesToKeep?: number;
-  preemptiveCacheAge?: Duration;
-  parquetMemCachePrunePercentage?: number;
-  parquetMemCachePruneInterval?: Duration;
-  disableParquetMemCache?: boolean;
-  parquetMemCacheQueryPathDuration?: Duration;
-  lastCacheEvictionInterval?: Duration;
-  distinctCacheEvictionInterval?: Duration;
-  gen1Duration?: Duration;
-  execMemPoolBytes?: PercentOrAbsoluteLong;
-  parquetMemCacheSize?: PercentOrAbsoluteLong;
-  walReplayFailOnError?: boolean;
-  walReplayConcurrencyLimit?: number;
-  tableIndexCacheMaxEntries?: number;
-  tableIndexCacheConcurrencyLimit?: number;
-  gen1LookbackDuration?: Duration;
-  retentionCheckInterval?: Duration;
-  deleteGracePeriod?: Duration;
-  hardDeleteDefaultDuration?: Duration;
-  ingestQueryInstances: number;
-  queryOnlyInstances: number;
-  dedicatedCompactor: boolean;
-  compactionRowLimit?: number;
-  compactionMaxNumFilesPerPlan?: number;
-  compactionGen2Duration?: Duration;
-  compactionMultipliers?: string;
-  compactionCleanupWait?: Duration;
-  compactionCheckInterval?: Duration;
-  lastValueCacheDisableFromHistory?: boolean;
-  distinctValueCacheDisableFromHistory?: boolean;
-  replicationInterval?: Duration;
-  catalogSyncInterval?: Duration;
-}
-export type InstanceMode =
-  | "PRIMARY"
-  | "STANDBY"
-  | "REPLICA"
-  | "INGEST"
-  | "QUERY"
-  | "COMPACT"
-  | "PROCESS";
-export type InstanceModeList = Array<InstanceMode>;
+export type InstanceMode = "PRIMARY" | "STANDBY" | "REPLICA";
 export declare class InternalServerException extends EffectData.TaggedError(
   "InternalServerException",
 )<{
@@ -709,7 +589,6 @@ export interface ListTagsForResourceResponse {
 export interface LogDeliveryConfiguration {
   s3Configuration: S3Configuration;
 }
-export type LogFormats = "full";
 export type LogLevel = "debug" | "info" | "error";
 export type MaxResults = number;
 
@@ -720,24 +599,11 @@ export type Organization = string;
 
 interface _Parameters {
   InfluxDBv2?: InfluxDBv2Parameters;
-  InfluxDBv3Core?: InfluxDBv3CoreParameters;
-  InfluxDBv3Enterprise?: InfluxDBv3EnterpriseParameters;
 }
 
-export type Parameters =
-  | (_Parameters & { InfluxDBv2: InfluxDBv2Parameters })
-  | (_Parameters & { InfluxDBv3Core: InfluxDBv3CoreParameters })
-  | (_Parameters & { InfluxDBv3Enterprise: InfluxDBv3EnterpriseParameters });
+export type Parameters = _Parameters & { InfluxDBv2: InfluxDBv2Parameters };
 export type Password = string;
 
-interface _PercentOrAbsoluteLong {
-  percent?: string;
-  absolute?: number;
-}
-
-export type PercentOrAbsoluteLong =
-  | (_PercentOrAbsoluteLong & { percent: string })
-  | (_PercentOrAbsoluteLong & { absolute: number });
 export type Port = number;
 
 export type RequestTagMap = Record<string, string>;
@@ -767,8 +633,7 @@ export type Status =
   | "DELETED"
   | "FAILED"
   | "UPDATING_DEPLOYMENT_TYPE"
-  | "UPDATING_INSTANCE_TYPE"
-  | "MAINTENANCE";
+  | "UPDATING_INSTANCE_TYPE";
 export type TagKey = string;
 
 export type TagKeys = Array<string>;
@@ -784,7 +649,7 @@ export declare class ThrottlingException extends EffectData.TaggedError(
   readonly message: string;
   readonly retryAfterSeconds?: number;
 }> {}
-export type TracingType = "log" | "jaeger" | "disabled";
+export type TracingType = "log" | "jaeger";
 export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
@@ -832,7 +697,6 @@ export interface UpdateDbInstanceOutput {
   influxAuthParametersSecretArn?: string;
   dbClusterId?: string;
   instanceMode?: InstanceMode;
-  instanceModes?: Array<InstanceMode>;
 }
 export type Username = string;
 

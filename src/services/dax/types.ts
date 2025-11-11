@@ -44,7 +44,6 @@ export declare class DAX extends AWSServiceClient {
     | ServiceLinkedRoleNotFoundFault
     | SubnetGroupAlreadyExistsFault
     | SubnetGroupQuotaExceededFault
-    | SubnetNotAllowedFault
     | SubnetQuotaExceededFault
     | CommonAwsError
   >;
@@ -242,7 +241,6 @@ export declare class DAX extends AWSServiceClient {
     | ServiceLinkedRoleNotFoundFault
     | SubnetGroupNotFoundFault
     | SubnetInUse
-    | SubnetNotAllowedFault
     | SubnetQuotaExceededFault
     | CommonAwsError
   >;
@@ -273,7 +271,6 @@ export interface Cluster {
   ParameterGroup?: ParameterGroupStatus;
   SSEDescription?: SSEDescription;
   ClusterEndpointEncryptionType?: ClusterEndpointEncryptionType;
-  NetworkType?: NetworkType;
 }
 export declare class ClusterAlreadyExistsFault extends EffectData.TaggedError(
   "ClusterAlreadyExistsFault",
@@ -308,7 +305,6 @@ export interface CreateClusterRequest {
   Tags?: Array<Tag>;
   SSESpecification?: SSESpecification;
   ClusterEndpointEncryptionType?: ClusterEndpointEncryptionType;
-  NetworkType?: NetworkType;
 }
 export interface CreateClusterResponse {
   Cluster?: Cluster;
@@ -489,8 +485,6 @@ export interface ListTagsResponse {
   Tags?: Array<Tag>;
   NextToken?: string;
 }
-export type NetworkType = "ipv4" | "ipv6" | "dual_stack";
-export type NetworkTypeList = Array<NetworkType>;
 export interface Node {
   NodeId?: string;
   Endpoint?: Endpoint;
@@ -606,14 +600,12 @@ export type DaxString = string;
 export interface Subnet {
   SubnetIdentifier?: string;
   SubnetAvailabilityZone?: string;
-  SupportedNetworkTypes?: Array<NetworkType>;
 }
 export interface SubnetGroup {
   SubnetGroupName?: string;
   Description?: string;
   VpcId?: string;
   Subnets?: Array<Subnet>;
-  SupportedNetworkTypes?: Array<NetworkType>;
 }
 export declare class SubnetGroupAlreadyExistsFault extends EffectData.TaggedError(
   "SubnetGroupAlreadyExistsFault",
@@ -642,11 +634,6 @@ export declare class SubnetInUse extends EffectData.TaggedError("SubnetInUse")<{
   readonly message?: string;
 }> {}
 export type SubnetList = Array<Subnet>;
-export declare class SubnetNotAllowedFault extends EffectData.TaggedError(
-  "SubnetNotAllowedFault",
-)<{
-  readonly message?: string;
-}> {}
 export declare class SubnetQuotaExceededFault extends EffectData.TaggedError(
   "SubnetQuotaExceededFault",
 )<{
@@ -753,7 +740,6 @@ export declare namespace CreateSubnetGroup {
     | ServiceLinkedRoleNotFoundFault
     | SubnetGroupAlreadyExistsFault
     | SubnetGroupQuotaExceededFault
-    | SubnetNotAllowedFault
     | SubnetQuotaExceededFault
     | CommonAwsError;
 }
@@ -971,7 +957,6 @@ export declare namespace UpdateSubnetGroup {
     | ServiceLinkedRoleNotFoundFault
     | SubnetGroupNotFoundFault
     | SubnetInUse
-    | SubnetNotAllowedFault
     | SubnetQuotaExceededFault
     | CommonAwsError;
 }
@@ -1001,7 +986,6 @@ export type DAXErrors =
   | SubnetGroupNotFoundFault
   | SubnetGroupQuotaExceededFault
   | SubnetInUse
-  | SubnetNotAllowedFault
   | SubnetQuotaExceededFault
   | TagNotFoundFault
   | TagQuotaPerResourceExceeded

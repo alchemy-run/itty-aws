@@ -69,8 +69,6 @@ const metadata = {
       "GET /applications/{applicationId}/chatcontrols",
     GetChatResponseConfiguration:
       "GET /applications/{applicationId}/chatresponseconfigurations/{chatResponseConfigurationId}",
-    GetDocumentContent:
-      "GET /applications/{applicationId}/index/{indexId}/documents/{documentId}/content",
     GetGroup:
       "GET /applications/{applicationId}/indices/{indexId}/groups/{groupName}",
     GetMedia:

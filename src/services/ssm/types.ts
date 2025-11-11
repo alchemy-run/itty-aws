@@ -3112,7 +3112,6 @@ export interface GetDeployablePatchSnapshotForInstanceRequest {
   InstanceId: string;
   SnapshotId: string;
   BaselineOverride?: BaselineOverride;
-  UseS3DualStackEndpoint?: boolean;
 }
 export interface GetDeployablePatchSnapshotForInstanceResult {
   InstanceId?: string;

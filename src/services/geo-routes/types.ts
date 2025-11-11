@@ -1337,12 +1337,6 @@ export type RouteZoneCategory = string;
 export type RouteZoneList = Array<RouteZone>;
 export type RoutingObjective = string;
 
-export type SensitiveBoolean = boolean;
-
-export type SensitiveDouble = number;
-
-export type SensitiveInteger = number;
-
 export type SensitiveString = string;
 
 export type SideOfStreetMatchingStrategy = string;

@@ -31,26 +31,17 @@ const metadata = {
   protocol: "restJson1",
   sigV4ServiceName: "observabilityadmin",
   operations: {
-    CreateCentralizationRuleForOrganization:
-      "POST /CreateCentralizationRuleForOrganization",
     CreateTelemetryRule: "POST /CreateTelemetryRule",
     CreateTelemetryRuleForOrganization:
       "POST /CreateTelemetryRuleForOrganization",
-    DeleteCentralizationRuleForOrganization:
-      "POST /DeleteCentralizationRuleForOrganization",
     DeleteTelemetryRule: "POST /DeleteTelemetryRule",
     DeleteTelemetryRuleForOrganization:
       "POST /DeleteTelemetryRuleForOrganization",
-    GetCentralizationRuleForOrganization:
-      "POST /GetCentralizationRuleForOrganization",
-    GetTelemetryEnrichmentStatus: "POST /GetTelemetryEnrichmentStatus",
     GetTelemetryEvaluationStatus: "POST /GetTelemetryEvaluationStatus",
     GetTelemetryEvaluationStatusForOrganization:
       "POST /GetTelemetryEvaluationStatusForOrganization",
     GetTelemetryRule: "POST /GetTelemetryRule",
     GetTelemetryRuleForOrganization: "POST /GetTelemetryRuleForOrganization",
-    ListCentralizationRulesForOrganization:
-      "POST /ListCentralizationRulesForOrganization",
     ListResourceTelemetry: "POST /ListResourceTelemetry",
     ListResourceTelemetryForOrganization:
       "POST /ListResourceTelemetryForOrganization",
@@ -58,18 +49,14 @@ const metadata = {
     ListTelemetryRules: "POST /ListTelemetryRules",
     ListTelemetryRulesForOrganization:
       "POST /ListTelemetryRulesForOrganization",
-    StartTelemetryEnrichment: "POST /StartTelemetryEnrichment",
     StartTelemetryEvaluation: "POST /StartTelemetryEvaluation",
     StartTelemetryEvaluationForOrganization:
       "POST /StartTelemetryEvaluationForOrganization",
-    StopTelemetryEnrichment: "POST /StopTelemetryEnrichment",
     StopTelemetryEvaluation: "POST /StopTelemetryEvaluation",
     StopTelemetryEvaluationForOrganization:
       "POST /StopTelemetryEvaluationForOrganization",
     TagResource: "POST /TagResource",
     UntagResource: "POST /UntagResource",
-    UpdateCentralizationRuleForOrganization:
-      "POST /UpdateCentralizationRuleForOrganization",
     UpdateTelemetryRule: "POST /UpdateTelemetryRule",
     UpdateTelemetryRuleForOrganization:
       "POST /UpdateTelemetryRuleForOrganization",

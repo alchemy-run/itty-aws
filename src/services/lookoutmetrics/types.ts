@@ -1571,3 +1571,13 @@ export declare namespace UpdateMetricSet {
     | ValidationException
     | CommonAwsError;
 }
+
+export type LookoutMetricsErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | TooManyRequestsException
+  | ValidationException
+  | CommonAwsError;

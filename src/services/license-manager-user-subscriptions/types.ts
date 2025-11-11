@@ -249,12 +249,10 @@ export interface ActiveDirectoryIdentityProvider {
   DirectoryId?: string;
   ActiveDirectorySettings?: ActiveDirectorySettings;
   ActiveDirectoryType?: string;
-  IsSharedActiveDirectory?: boolean;
 }
 export interface ActiveDirectorySettings {
   DomainName?: string;
   DomainIpv4List?: Array<string>;
-  DomainIpv6List?: Array<string>;
   DomainCredentialsProvider?: CredentialsProvider;
   DomainNetworkSettings?: DomainNetworkSettings;
 }
@@ -345,7 +343,6 @@ export interface IdentityProviderSummary {
   Status: string;
   IdentityProviderArn?: string;
   FailureMessage?: string;
-  OwnerAccountId?: string;
 }
 export type IdentityProviderSummaryList = Array<IdentityProviderSummary>;
 export interface InstanceSummary {
@@ -354,8 +351,6 @@ export interface InstanceSummary {
   Products: Array<string>;
   LastStatusCheckDate?: string;
   StatusMessage?: string;
-  OwnerAccountId?: string;
-  IdentityProvider?: IdentityProvider;
 }
 export type InstanceSummaryList = Array<InstanceSummary>;
 export interface InstanceUserSummary {
@@ -378,14 +373,10 @@ export declare class InternalServerException extends EffectData.TaggedError(
 export type IpV4 = string;
 
 export type IpV4List = Array<string>;
-export type IpV6 = string;
-
-export type IpV6List = Array<string>;
 export interface LicenseServer {
   ProvisioningStatus?: string;
   HealthStatus?: string;
   Ipv4Address?: string;
-  Ipv6Address?: string;
 }
 export interface LicenseServerEndpoint {
   IdentityProviderArn?: string;

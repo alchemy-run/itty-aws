@@ -71,7 +71,6 @@ const metadata = {
     DescribeIdentityProviderConfig:
       "POST /clusters/{clusterName}/identity-provider-configs/describe",
     DescribeInsight: "GET /clusters/{clusterName}/insights/{id}",
-    DescribeInsightsRefresh: "GET /clusters/{clusterName}/insights-refresh",
     DescribeNodegroup:
       "GET /clusters/{clusterName}/node-groups/{nodegroupName}",
     DescribePodIdentityAssociation:
@@ -98,7 +97,6 @@ const metadata = {
     ListTagsForResource: "GET /tags/{resourceArn}",
     ListUpdates: "GET /clusters/{name}/updates",
     RegisterCluster: "POST /cluster-registrations",
-    StartInsightsRefresh: "POST /clusters/{clusterName}/insights-refresh",
     TagResource: "POST /tags/{resourceArn}",
     UntagResource: "DELETE /tags/{resourceArn}",
     UpdateAccessEntry:

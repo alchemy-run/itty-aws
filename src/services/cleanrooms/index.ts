@@ -42,8 +42,6 @@ const metadata = {
     CreateAnalysisTemplate:
       "POST /memberships/{membershipIdentifier}/analysistemplates",
     CreateCollaboration: "POST /collaborations",
-    CreateCollaborationChangeRequest:
-      "POST /collaborations/{collaborationIdentifier}/changeRequests",
     CreateConfiguredAudienceModelAssociation:
       "POST /memberships/{membershipIdentifier}/configuredaudiencemodelassociations",
     CreateConfiguredTable: "POST /configuredTables",
@@ -87,8 +85,6 @@ const metadata = {
     GetCollaboration: "GET /collaborations/{collaborationIdentifier}",
     GetCollaborationAnalysisTemplate:
       "GET /collaborations/{collaborationIdentifier}/analysistemplates/{analysisTemplateArn}",
-    GetCollaborationChangeRequest:
-      "GET /collaborations/{collaborationIdentifier}/changeRequests/{changeRequestIdentifier}",
     GetCollaborationConfiguredAudienceModelAssociation:
       "GET /collaborations/{collaborationIdentifier}/configuredaudiencemodelassociations/{configuredAudienceModelAssociationIdentifier}",
     GetCollaborationIdNamespaceAssociation:
@@ -122,8 +118,6 @@ const metadata = {
       "GET /memberships/{membershipIdentifier}/analysistemplates",
     ListCollaborationAnalysisTemplates:
       "GET /collaborations/{collaborationIdentifier}/analysistemplates",
-    ListCollaborationChangeRequests:
-      "GET /collaborations/{collaborationIdentifier}/changeRequests",
     ListCollaborationConfiguredAudienceModelAssociations:
       "GET /collaborations/{collaborationIdentifier}/configuredaudiencemodelassociations",
     ListCollaborationIdNamespaceAssociations:

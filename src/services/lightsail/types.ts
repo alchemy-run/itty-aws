@@ -2391,7 +2391,6 @@ export interface Bucket {
   resourcesReceivingAccess?: Array<ResourceReceivingAccess>;
   state?: BucketState;
   accessLogConfig?: BucketAccessLogConfig;
-  cors?: BucketCorsConfig;
 }
 export interface BucketAccessLogConfig {
   enabled: boolean;
@@ -2409,26 +2408,6 @@ export interface BucketBundle {
   isActive?: boolean;
 }
 export type BucketBundleList = Array<BucketBundle>;
-export type BucketCorsAllowedHeaders = Array<string>;
-export type BucketCorsAllowedMethod = string;
-
-export type BucketCorsAllowedMethods = Array<string>;
-export type BucketCorsAllowedOrigins = Array<string>;
-export interface BucketCorsConfig {
-  rules?: Array<BucketCorsRule>;
-}
-export type BucketCorsExposeHeaders = Array<string>;
-export interface BucketCorsRule {
-  id?: string;
-  allowedMethods: Array<string>;
-  allowedOrigins: Array<string>;
-  allowedHeaders?: Array<string>;
-  exposeHeaders?: Array<string>;
-  maxAgeSeconds?: number;
-}
-export type BucketCorsRuleId = string;
-
-export type BucketCorsRules = Array<BucketCorsRule>;
 export type BucketList = Array<Bucket>;
 export type BucketMetricName = "BucketSizeBytes" | "NumberOfObjects";
 export type BucketName = string;
@@ -3390,7 +3369,6 @@ export interface GetBucketsRequest {
   bucketName?: string;
   pageToken?: string;
   includeConnectedResources?: boolean;
-  includeCors?: boolean;
 }
 export interface GetBucketsResult {
   buckets?: Array<Bucket>;
@@ -5038,7 +5016,6 @@ export interface UpdateBucketRequest {
   versioning?: string;
   readonlyAccessAccounts?: Array<string>;
   accessLogConfig?: BucketAccessLogConfig;
-  cors?: BucketCorsConfig;
 }
 export interface UpdateBucketResult {
   bucket?: Bucket;

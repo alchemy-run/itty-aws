@@ -1032,11 +1032,6 @@ export type AmiNameString = string;
 
 export type Arn = string;
 
-export type AutoDisableFailureCount = number;
-
-export interface AutoDisablePolicy {
-  failureCount: number;
-}
 export type ImagebuilderBoolean = boolean;
 
 export type BuildType =
@@ -1165,8 +1160,6 @@ export type ComponentVersionArn = string;
 export type ComponentVersionArnOrBuildVersionArn = string;
 
 export type ComponentVersionList = Array<ComponentVersion>;
-export type ConsecutiveFailures = number;
-
 export interface Container {
   region?: string;
   imageUris?: Array<string>;
@@ -1206,7 +1199,6 @@ export interface ContainerRecipeSummary {
   owner?: string;
   parentImage?: string;
   dateCreated?: string;
-  instanceImage?: string;
   tags?: Record<string, string>;
 }
 export type ContainerRecipeSummaryList = Array<ContainerRecipeSummary>;
@@ -1281,7 +1273,6 @@ export interface CreateImagePipelineRequest {
   imageScanningConfiguration?: ImageScanningConfiguration;
   workflows?: Array<WorkflowConfiguration>;
   executionRole?: string;
-  loggingConfiguration?: PipelineLoggingConfiguration;
 }
 export interface CreateImagePipelineResponse {
   requestId?: string;
@@ -1298,7 +1289,6 @@ export interface CreateImageRecipeRequest {
   tags?: Record<string, string>;
   workingDirectory?: string;
   additionalInstanceConfiguration?: AdditionalInstanceConfiguration;
-  amiTags?: Record<string, string>;
   clientToken: string;
 }
 export interface CreateImageRecipeResponse {
@@ -1318,7 +1308,6 @@ export interface CreateImageRequest {
   imageScanningConfiguration?: ImageScanningConfiguration;
   workflows?: Array<WorkflowConfiguration>;
   executionRole?: string;
-  loggingConfiguration?: ImageLoggingConfiguration;
 }
 export interface CreateImageResponse {
   requestId?: string;
@@ -1747,7 +1736,6 @@ export interface Image {
   lifecycleExecutionId?: string;
   executionRole?: string;
   workflows?: Array<WorkflowConfiguration>;
-  loggingConfiguration?: ImageLoggingConfiguration;
 }
 export interface ImageAggregation {
   imageBuildVersionArn?: string;
@@ -1759,9 +1747,6 @@ export type ImageBuildMessage = string;
 
 export type ImageBuildVersionArn = string;
 
-export interface ImageLoggingConfiguration {
-  logGroupName?: string;
-}
 export interface ImagePackage {
   packageName?: string;
   packageVersion?: string;
@@ -1783,14 +1768,11 @@ export interface ImagePipeline {
   dateCreated?: string;
   dateUpdated?: string;
   dateLastRun?: string;
-  lastRunStatus?: ImageStatus;
   dateNextRun?: string;
   tags?: Record<string, string>;
   imageScanningConfiguration?: ImageScanningConfiguration;
   executionRole?: string;
   workflows?: Array<WorkflowConfiguration>;
-  loggingConfiguration?: PipelineLoggingConfiguration;
-  consecutiveFailures?: number;
 }
 export interface ImagePipelineAggregation {
   imagePipelineArn?: string;
@@ -1814,7 +1796,6 @@ export interface ImageRecipe {
   tags?: Record<string, string>;
   workingDirectory?: string;
   additionalInstanceConfiguration?: AdditionalInstanceConfiguration;
-  amiTags?: Record<string, string>;
 }
 export type ImageRecipeArn = string;
 
@@ -1913,7 +1894,6 @@ export interface ImageSummary {
   imageSource?: ImageSource;
   deprecationTime?: Date | string;
   lifecycleExecutionId?: string;
-  loggingConfiguration?: ImageLoggingConfiguration;
 }
 export type ImageSummaryList = Array<ImageSummary>;
 export interface ImageTestsConfiguration {
@@ -1968,7 +1948,6 @@ export interface ImportDiskImageRequest {
   executionRole?: string;
   infrastructureConfigurationArn: string;
   uri: string;
-  loggingConfiguration?: ImageLoggingConfiguration;
   tags?: Record<string, string>;
   clientToken: string;
 }
@@ -1983,7 +1962,6 @@ export interface ImportVmImageRequest {
   platform: Platform;
   osVersion?: string;
   vmImportTaskId: string;
-  loggingConfiguration?: ImageLoggingConfiguration;
   tags?: Record<string, string>;
   clientToken: string;
 }
@@ -2255,7 +2233,7 @@ export interface LifecyclePolicySummary {
 export type LifecyclePolicySummaryList = Array<LifecyclePolicySummary>;
 export type LifecyclePolicyTimeUnit = "DAYS" | "WEEKS" | "MONTHS" | "YEARS";
 export interface ListComponentBuildVersionsRequest {
-  componentVersionArn?: string;
+  componentVersionArn: string;
   maxResults?: number;
   nextToken?: string;
 }
@@ -2298,7 +2276,7 @@ export interface ListDistributionConfigurationsResponse {
   nextToken?: string;
 }
 export interface ListImageBuildVersionsRequest {
-  imageVersionArn?: string;
+  imageVersionArn: string;
   filters?: Array<Filter>;
   maxResults?: number;
   nextToken?: string;
@@ -2438,7 +2416,7 @@ export interface ListWaitingWorkflowStepsResponse {
   nextToken?: string;
 }
 export interface ListWorkflowBuildVersionsRequest {
-  workflowVersionArn?: string;
+  workflowVersionArn: string;
   maxResults?: number;
   nextToken?: string;
 }
@@ -2486,8 +2464,6 @@ export interface ListWorkflowStepExecutionsResponse {
 export interface Logging {
   s3Logs?: S3Logs;
 }
-export type LogGroupName = string;
-
 export type MarketplaceResourceLocation = string;
 
 export type MarketplaceResourceType = "COMPONENT_DATA" | "COMPONENT_ARTIFACT";
@@ -2543,10 +2519,6 @@ export type ParallelGroup = string;
 export type PipelineExecutionStartCondition =
   | "EXPRESSION_MATCH_ONLY"
   | "EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE";
-export interface PipelineLoggingConfiguration {
-  imageLogGroupName?: string;
-  pipelineLogGroupName?: string;
-}
 export type PipelineStatus = "DISABLED" | "ENABLED";
 export interface Placement {
   availabilityZone?: string;
@@ -2662,7 +2634,6 @@ export interface Schedule {
   scheduleExpression?: string;
   timezone?: string;
   pipelineExecutionStartCondition?: PipelineExecutionStartCondition;
-  autoDisablePolicy?: AutoDisablePolicy;
 }
 export type SecurityGroupIds = Array<string>;
 export interface SendWorkflowStepActionRequest {
@@ -2716,7 +2687,6 @@ export type SsmParameterName = string;
 export interface StartImagePipelineExecutionRequest {
   imagePipelineArn: string;
   clientToken: string;
-  tags?: Record<string, string>;
 }
 export interface StartImagePipelineExecutionResponse {
   requestId?: string;
@@ -2790,7 +2760,6 @@ export interface UpdateImagePipelineRequest {
   clientToken: string;
   imageScanningConfiguration?: ImageScanningConfiguration;
   workflows?: Array<WorkflowConfiguration>;
-  loggingConfiguration?: PipelineLoggingConfiguration;
   executionRole?: string;
 }
 export interface UpdateImagePipelineResponse {

@@ -255,7 +255,6 @@ export declare class QConnect extends AWSServiceClient {
     CreateSessionResponse,
     | AccessDeniedException
     | ConflictException
-    | DependencyFailedException
     | ResourceNotFoundException
     | UnauthorizedException
     | ValidationException
@@ -1023,9 +1022,6 @@ interface _AIAgentConfiguration {
   manualSearchAIAgentConfiguration?: ManualSearchAIAgentConfiguration;
   answerRecommendationAIAgentConfiguration?: AnswerRecommendationAIAgentConfiguration;
   selfServiceAIAgentConfiguration?: SelfServiceAIAgentConfiguration;
-  emailResponseAIAgentConfiguration?: EmailResponseAIAgentConfiguration;
-  emailOverviewAIAgentConfiguration?: EmailOverviewAIAgentConfiguration;
-  emailGenerativeAnswerAIAgentConfiguration?: EmailGenerativeAnswerAIAgentConfiguration;
 }
 
 export type AIAgentConfiguration =
@@ -1037,15 +1033,6 @@ export type AIAgentConfiguration =
     })
   | (_AIAgentConfiguration & {
       selfServiceAIAgentConfiguration: SelfServiceAIAgentConfiguration;
-    })
-  | (_AIAgentConfiguration & {
-      emailResponseAIAgentConfiguration: EmailResponseAIAgentConfiguration;
-    })
-  | (_AIAgentConfiguration & {
-      emailOverviewAIAgentConfiguration: EmailOverviewAIAgentConfiguration;
-    })
-  | (_AIAgentConfiguration & {
-      emailGenerativeAnswerAIAgentConfiguration: EmailGenerativeAnswerAIAgentConfiguration;
     });
 export interface AIAgentConfigurationData {
   aiAgentId: string;
@@ -1657,7 +1644,6 @@ export interface CreateSessionRequest {
   tags?: Record<string, string>;
   tagFilter?: TagFilter;
   aiAgentConfiguration?: Record<string, AIAgentConfigurationData>;
-  contactArn?: string;
 }
 export interface CreateSessionResponse {
   session?: SessionData;
@@ -1729,9 +1715,6 @@ interface _DataDetails {
   intentDetectedData?: IntentDetectedDataDetails;
   sourceContentData?: SourceContentDataDetails;
   generativeChunkData?: GenerativeChunkDataDetails;
-  emailResponseChunkData?: EmailResponseChunkDataDetails;
-  emailOverviewChunkData?: EmailOverviewChunkDataDetails;
-  emailGenerativeAnswerChunkData?: EmailGenerativeAnswerChunkDataDetails;
 }
 
 export type DataDetails =
@@ -1739,12 +1722,7 @@ export type DataDetails =
   | (_DataDetails & { generativeData: GenerativeDataDetails })
   | (_DataDetails & { intentDetectedData: IntentDetectedDataDetails })
   | (_DataDetails & { sourceContentData: SourceContentDataDetails })
-  | (_DataDetails & { generativeChunkData: GenerativeChunkDataDetails })
-  | (_DataDetails & { emailResponseChunkData: EmailResponseChunkDataDetails })
-  | (_DataDetails & { emailOverviewChunkData: EmailOverviewChunkDataDetails })
-  | (_DataDetails & {
-      emailGenerativeAnswerChunkData: EmailGenerativeAnswerChunkDataDetails;
-    });
+  | (_DataDetails & { generativeChunkData: GenerativeChunkDataDetails });
 interface _DataReference {
   contentReference?: ContentReference;
   generativeReference?: GenerativeReference;
@@ -1846,11 +1824,6 @@ export interface DeleteQuickResponseRequest {
   quickResponseId: string;
 }
 export interface DeleteQuickResponseResponse {}
-export declare class DependencyFailedException extends EffectData.TaggedError(
-  "DependencyFailedException",
-)<{
-  readonly message?: string;
-}> {}
 export type Description = string;
 
 export interface Document {
@@ -1861,17 +1834,6 @@ export interface Document {
 export interface DocumentText {
   text?: string;
   highlights?: Array<Highlight>;
-}
-export interface EmailGenerativeAnswerAIAgentConfiguration {
-  emailGenerativeAnswerAIPromptId?: string;
-  emailQueryReformulationAIPromptId?: string;
-  locale?: string;
-  associationConfigurations?: Array<AssociationConfiguration>;
-}
-export interface EmailGenerativeAnswerChunkDataDetails {
-  completion?: string;
-  references?: Array<DataSummary>;
-  nextChunkToken?: string;
 }
 export interface EmailHeader {
   name?: string;
@@ -1890,24 +1852,6 @@ export interface EmailMessageTemplateContent {
 export interface EmailMessageTemplateContentBody {
   plainText?: MessageTemplateBodyContentProvider;
   html?: MessageTemplateBodyContentProvider;
-}
-export interface EmailOverviewAIAgentConfiguration {
-  emailOverviewAIPromptId?: string;
-  locale?: string;
-}
-export interface EmailOverviewChunkDataDetails {
-  completion?: string;
-  nextChunkToken?: string;
-}
-export interface EmailResponseAIAgentConfiguration {
-  emailResponseAIPromptId?: string;
-  emailQueryReformulationAIPromptId?: string;
-  locale?: string;
-  associationConfigurations?: Array<AssociationConfiguration>;
-}
-export interface EmailResponseChunkDataDetails {
-  completion?: string;
-  nextChunkToken?: string;
 }
 export interface ExtendedMessageTemplateData {
   messageTemplateArn: string;
@@ -3217,7 +3161,6 @@ export interface UpdateAIPromptRequest {
   visibilityStatus: string;
   templateConfiguration?: AIPromptTemplateConfiguration;
   description?: string;
-  modelId?: string;
 }
 export interface UpdateAIPromptResponse {
   aiPrompt?: AIPromptData;
@@ -3599,7 +3542,6 @@ export declare namespace CreateSession {
   export type Error =
     | AccessDeniedException
     | ConflictException
-    | DependencyFailedException
     | ResourceNotFoundException
     | UnauthorizedException
     | ValidationException
@@ -4417,7 +4359,6 @@ export declare namespace UpdateSessionData {
 export type QConnectErrors =
   | AccessDeniedException
   | ConflictException
-  | DependencyFailedException
   | PreconditionFailedException
   | RequestTimeoutException
   | ResourceNotFoundException

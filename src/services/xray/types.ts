@@ -298,8 +298,6 @@ export interface AnomalousService {
   ServiceId?: ServiceId;
 }
 export type AnomalousServiceList = Array<AnomalousService>;
-export type AnomalyCount = number;
-
 export type AttributeKey = string;
 
 export type AttributeMap = Record<string, string>;
@@ -334,8 +332,6 @@ export interface CancelTraceRetrievalRequest {
 }
 export interface CancelTraceRetrievalResult {}
 export type ClientID = string;
-
-export type CooldownWindowMinutes = number;
 
 export interface CreateGroupRequest {
   GroupName: string;
@@ -563,13 +559,11 @@ export interface GetSamplingStatisticSummariesResult {
 }
 export interface GetSamplingTargetsRequest {
   SamplingStatisticsDocuments: Array<SamplingStatisticsDocument>;
-  SamplingBoostStatisticsDocuments?: Array<SamplingBoostStatisticsDocument>;
 }
 export interface GetSamplingTargetsResult {
   SamplingTargetDocuments?: Array<SamplingTargetDocument>;
   LastRuleModification?: Date | string;
   UnprocessedStatistics?: Array<UnprocessedStatistics>;
-  UnprocessedBoostStatistics?: Array<UnprocessedStatistics>;
 }
 export interface GetServiceGraphRequest {
   StartTime: Date | string;
@@ -803,8 +797,6 @@ export declare class MalformedPolicyDocumentException extends EffectData.TaggedE
 )<{
   readonly Message?: string;
 }> {}
-export type MaxRate = number;
-
 export type NullableBoolean = boolean;
 
 export type NullableDouble = number;
@@ -948,28 +940,8 @@ export declare class RuleLimitExceededException extends EffectData.TaggedError(
 }> {}
 export type RuleName = string;
 
-export type SampledAnomalyCount = number;
-
 export type SampledCount = number;
 
-export interface SamplingBoost {
-  BoostRate: number;
-  BoostRateTTL: Date | string;
-}
-export interface SamplingBoostStatisticsDocument {
-  RuleName: string;
-  ServiceName: string;
-  Timestamp: Date | string;
-  AnomalyCount: number;
-  TotalCount: number;
-  SampledAnomalyCount: number;
-}
-export type SamplingBoostStatisticsDocumentList =
-  Array<SamplingBoostStatisticsDocument>;
-export interface SamplingRateBoost {
-  MaxRate: number;
-  CooldownWindowMinutes: number;
-}
 export interface SamplingRule {
   RuleName?: string;
   RuleARN?: string;
@@ -984,7 +956,6 @@ export interface SamplingRule {
   URLPath: string;
   Version: number;
   Attributes?: Record<string, string>;
-  SamplingRateBoost?: SamplingRateBoost;
 }
 export interface SamplingRuleRecord {
   SamplingRule?: SamplingRule;
@@ -1005,7 +976,6 @@ export interface SamplingRuleUpdate {
   HTTPMethod?: string;
   URLPath?: string;
   Attributes?: Record<string, string>;
-  SamplingRateBoost?: SamplingRateBoost;
 }
 export interface SamplingStatisticsDocument {
   RuleName: string;
@@ -1035,7 +1005,6 @@ export interface SamplingTargetDocument {
   ReservoirQuota?: number;
   ReservoirQuotaTTL?: Date | string;
   Interval?: number;
-  SamplingBoost?: SamplingBoost;
 }
 export type SamplingTargetDocumentList = Array<SamplingTargetDocument>;
 export interface Segment {
@@ -1150,8 +1119,6 @@ export declare class TooManyTagsException extends EffectData.TaggedError(
   readonly Message?: string;
   readonly ResourceName?: string;
 }> {}
-export type TotalCount = number;
-
 export interface Trace {
   Id?: string;
   Duration?: number;

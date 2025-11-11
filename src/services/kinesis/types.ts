@@ -55,7 +55,6 @@ export declare class Kinesis extends AWSServiceClient {
     | InvalidArgumentException
     | LimitExceededException
     | ResourceInUseException
-    | ValidationException
     | CommonAwsError
   >;
   decreaseStreamRetentionPeriod(
@@ -99,12 +98,6 @@ export declare class Kinesis extends AWSServiceClient {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
-  >;
-  describeAccountSettings(
-    input: DescribeAccountSettingsInput,
-  ): Effect.Effect<
-    DescribeAccountSettingsOutput,
-    LimitExceededException | CommonAwsError
   >;
   describeLimits(
     input: DescribeLimitsInput,
@@ -418,27 +411,6 @@ export declare class Kinesis extends AWSServiceClient {
     | ResourceNotFoundException
     | CommonAwsError
   >;
-  updateAccountSettings(
-    input: UpdateAccountSettingsInput,
-  ): Effect.Effect<
-    UpdateAccountSettingsOutput,
-    | InvalidArgumentException
-    | LimitExceededException
-    | ValidationException
-    | CommonAwsError
-  >;
-  updateMaxRecordSize(
-    input: UpdateMaxRecordSizeInput,
-  ): Effect.Effect<
-    {},
-    | AccessDeniedException
-    | InvalidArgumentException
-    | LimitExceededException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
-  >;
   updateShardCount(
     input: UpdateShardCountInput,
   ): Effect.Effect<
@@ -459,19 +431,6 @@ export declare class Kinesis extends AWSServiceClient {
     | LimitExceededException
     | ResourceInUseException
     | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
-  >;
-  updateStreamWarmThroughput(
-    input: UpdateStreamWarmThroughputInput,
-  ): Effect.Effect<
-    UpdateStreamWarmThroughputOutput,
-    | AccessDeniedException
-    | InvalidArgumentException
-    | LimitExceededException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | ValidationException
     | CommonAwsError
   >;
 }
@@ -520,8 +479,6 @@ export interface CreateStreamInput {
   ShardCount?: number;
   StreamModeDetails?: StreamModeDetails;
   Tags?: Record<string, string>;
-  WarmThroughputMiBps?: number;
-  MaxRecordSizeInKiB?: number;
 }
 export type Data = Uint8Array | string;
 
@@ -542,10 +499,6 @@ export interface DeregisterStreamConsumerInput {
   StreamARN?: string;
   ConsumerName?: string;
   ConsumerARN?: string;
-}
-export interface DescribeAccountSettingsInput {}
-export interface DescribeAccountSettingsOutput {
-  MinimumThroughputBillingCommitment?: MinimumThroughputBillingCommitmentOutput;
 }
 export interface DescribeLimitsInput {}
 export interface DescribeLimitsOutput {
@@ -761,8 +714,6 @@ export interface ListTagsForStreamOutput {
   Tags: Array<Tag>;
   HasMoreTags: boolean;
 }
-export type MaxRecordSizeInKiB = number;
-
 export interface MergeShardsInput {
   StreamName?: string;
   ShardToMerge: string;
@@ -780,24 +731,6 @@ export type MetricsName =
   | "ALL";
 export type MetricsNameList = Array<MetricsName>;
 export type MillisBehindLatest = number;
-
-export interface MinimumThroughputBillingCommitmentInput {
-  Status: MinimumThroughputBillingCommitmentInputStatus;
-}
-export type MinimumThroughputBillingCommitmentInputStatus =
-  | "ENABLED"
-  | "DISABLED";
-export interface MinimumThroughputBillingCommitmentOutput {
-  Status: MinimumThroughputBillingCommitmentOutputStatus;
-  StartedAt?: Date | string;
-  EndedAt?: Date | string;
-  EarliestAllowedEndAt?: Date | string;
-}
-export type MinimumThroughputBillingCommitmentOutputStatus =
-  | "ENABLED"
-  | "DISABLED"
-  | "ENABLED_UNTIL_EARLIEST_ALLOWED_END";
-export type NaturalIntegerObject = number;
 
 export type NextToken = string;
 
@@ -981,8 +914,6 @@ export interface StreamDescriptionSummary {
   KeyId?: string;
   OpenShardCount: number;
   ConsumerCount?: number;
-  WarmThroughput?: WarmThroughputObject;
-  MaxRecordSizeInKiB?: number;
 }
 export type StreamMode = "PROVISIONED" | "ON_DEMAND";
 export interface StreamModeDetails {
@@ -1077,16 +1008,6 @@ export interface UntagResourceInput {
   TagKeys: Array<string>;
   ResourceARN: string;
 }
-export interface UpdateAccountSettingsInput {
-  MinimumThroughputBillingCommitment: MinimumThroughputBillingCommitmentInput;
-}
-export interface UpdateAccountSettingsOutput {
-  MinimumThroughputBillingCommitment?: MinimumThroughputBillingCommitmentOutput;
-}
-export interface UpdateMaxRecordSizeInput {
-  StreamARN?: string;
-  MaxRecordSizeInKiB: number;
-}
 export interface UpdateShardCountInput {
   StreamName?: string;
   TargetShardCount: number;
@@ -1102,27 +1023,12 @@ export interface UpdateShardCountOutput {
 export interface UpdateStreamModeInput {
   StreamARN: string;
   StreamModeDetails: StreamModeDetails;
-  WarmThroughputMiBps?: number;
-}
-export interface UpdateStreamWarmThroughputInput {
-  StreamARN?: string;
-  StreamName?: string;
-  WarmThroughputMiBps: number;
-}
-export interface UpdateStreamWarmThroughputOutput {
-  StreamARN?: string;
-  StreamName?: string;
-  WarmThroughput?: WarmThroughputObject;
 }
 export declare class ValidationException extends EffectData.TaggedError(
   "ValidationException",
 )<{
   readonly message?: string;
 }> {}
-export interface WarmThroughputObject {
-  TargetMiBps?: number;
-  CurrentMiBps?: number;
-}
 export declare namespace AddTagsToStream {
   export type Input = AddTagsToStreamInput;
   export type Output = {};
@@ -1142,7 +1048,6 @@ export declare namespace CreateStream {
     | InvalidArgumentException
     | LimitExceededException
     | ResourceInUseException
-    | ValidationException
     | CommonAwsError;
 }
 
@@ -1190,12 +1095,6 @@ export declare namespace DeregisterStreamConsumer {
     | LimitExceededException
     | ResourceNotFoundException
     | CommonAwsError;
-}
-
-export declare namespace DescribeAccountSettings {
-  export type Input = DescribeAccountSettingsInput;
-  export type Output = DescribeAccountSettingsOutput;
-  export type Error = LimitExceededException | CommonAwsError;
 }
 
 export declare namespace DescribeLimits {
@@ -1536,29 +1435,6 @@ export declare namespace UntagResource {
     | CommonAwsError;
 }
 
-export declare namespace UpdateAccountSettings {
-  export type Input = UpdateAccountSettingsInput;
-  export type Output = UpdateAccountSettingsOutput;
-  export type Error =
-    | InvalidArgumentException
-    | LimitExceededException
-    | ValidationException
-    | CommonAwsError;
-}
-
-export declare namespace UpdateMaxRecordSize {
-  export type Input = UpdateMaxRecordSizeInput;
-  export type Output = {};
-  export type Error =
-    | AccessDeniedException
-    | InvalidArgumentException
-    | LimitExceededException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError;
-}
-
 export declare namespace UpdateShardCount {
   export type Input = UpdateShardCountInput;
   export type Output = UpdateShardCountOutput;
@@ -1580,20 +1456,6 @@ export declare namespace UpdateStreamMode {
     | LimitExceededException
     | ResourceInUseException
     | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError;
-}
-
-export declare namespace UpdateStreamWarmThroughput {
-  export type Input = UpdateStreamWarmThroughputInput;
-  export type Output = UpdateStreamWarmThroughputOutput;
-  export type Error =
-    | AccessDeniedException
-    | InvalidArgumentException
-    | LimitExceededException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | ValidationException
     | CommonAwsError;
 }
 

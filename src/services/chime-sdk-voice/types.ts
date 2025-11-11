@@ -1509,7 +1509,6 @@ export interface CreateVoiceConnectorRequest {
   RequireEncryption: boolean;
   Tags?: Array<Tag>;
   IntegrationType?: VoiceConnectorIntegrationType;
-  NetworkType?: NetworkType;
 }
 export interface CreateVoiceConnectorResponse {
   VoiceConnector?: VoiceConnector;
@@ -1904,7 +1903,6 @@ export interface MediaInsightsConfiguration {
   Disabled?: boolean;
   ConfigurationArn?: string;
 }
-export type NetworkType = "IPV4_ONLY" | "DUAL_STACK";
 export type NextTokenString = string;
 
 export type NonEmptyString = string;
@@ -2479,7 +2477,6 @@ export interface VoiceConnector {
   UpdatedTimestamp?: Date | string;
   VoiceConnectorArn?: string;
   IntegrationType?: VoiceConnectorIntegrationType;
-  NetworkType?: NetworkType;
 }
 export type VoiceConnectorAwsRegion =
   | "us-east-1"

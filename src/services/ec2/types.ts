@@ -198,12 +198,6 @@ export declare class EC2 extends AWSServiceClient {
   copySnapshot(
     input: CopySnapshotRequest,
   ): Effect.Effect<CopySnapshotResult, CommonAwsError>;
-  copyVolumes(
-    input: CopyVolumesRequest,
-  ): Effect.Effect<CopyVolumesResult, CommonAwsError>;
-  createCapacityManagerDataExport(
-    input: CreateCapacityManagerDataExportRequest,
-  ): Effect.Effect<CreateCapacityManagerDataExportResult, CommonAwsError>;
   createCapacityReservation(
     input: CreateCapacityReservationRequest,
   ): Effect.Effect<CreateCapacityReservationResult, CommonAwsError>;
@@ -258,9 +252,6 @@ export declare class EC2 extends AWSServiceClient {
   createImage(
     input: CreateImageRequest,
   ): Effect.Effect<CreateImageResult, CommonAwsError>;
-  createImageUsageReport(
-    input: CreateImageUsageReportRequest,
-  ): Effect.Effect<CreateImageUsageReportResult, CommonAwsError>;
   createInstanceConnectEndpoint(
     input: CreateInstanceConnectEndpointRequest,
   ): Effect.Effect<CreateInstanceConnectEndpointResult, CommonAwsError>;
@@ -285,12 +276,6 @@ export declare class EC2 extends AWSServiceClient {
   createIpamPool(
     input: CreateIpamPoolRequest,
   ): Effect.Effect<CreateIpamPoolResult, CommonAwsError>;
-  createIpamPrefixListResolver(
-    input: CreateIpamPrefixListResolverRequest,
-  ): Effect.Effect<CreateIpamPrefixListResolverResult, CommonAwsError>;
-  createIpamPrefixListResolverTarget(
-    input: CreateIpamPrefixListResolverTargetRequest,
-  ): Effect.Effect<CreateIpamPrefixListResolverTargetResult, CommonAwsError>;
   createIpamResourceDiscovery(
     input: CreateIpamResourceDiscoveryRequest,
   ): Effect.Effect<CreateIpamResourceDiscoveryResult, CommonAwsError>;
@@ -511,9 +496,6 @@ export declare class EC2 extends AWSServiceClient {
   createVpnGateway(
     input: CreateVpnGatewayRequest,
   ): Effect.Effect<CreateVpnGatewayResult, CommonAwsError>;
-  deleteCapacityManagerDataExport(
-    input: DeleteCapacityManagerDataExportRequest,
-  ): Effect.Effect<DeleteCapacityManagerDataExportResult, CommonAwsError>;
   deleteCarrierGateway(
     input: DeleteCarrierGatewayRequest,
   ): Effect.Effect<DeleteCarrierGatewayResult, CommonAwsError>;
@@ -547,9 +529,6 @@ export declare class EC2 extends AWSServiceClient {
   deleteFpgaImage(
     input: DeleteFpgaImageRequest,
   ): Effect.Effect<DeleteFpgaImageResult, CommonAwsError>;
-  deleteImageUsageReport(
-    input: DeleteImageUsageReportRequest,
-  ): Effect.Effect<DeleteImageUsageReportResult, CommonAwsError>;
   deleteInstanceConnectEndpoint(
     input: DeleteInstanceConnectEndpointRequest,
   ): Effect.Effect<DeleteInstanceConnectEndpointResult, CommonAwsError>;
@@ -571,12 +550,6 @@ export declare class EC2 extends AWSServiceClient {
   deleteIpamPool(
     input: DeleteIpamPoolRequest,
   ): Effect.Effect<DeleteIpamPoolResult, CommonAwsError>;
-  deleteIpamPrefixListResolver(
-    input: DeleteIpamPrefixListResolverRequest,
-  ): Effect.Effect<DeleteIpamPrefixListResolverResult, CommonAwsError>;
-  deleteIpamPrefixListResolverTarget(
-    input: DeleteIpamPrefixListResolverTargetRequest,
-  ): Effect.Effect<DeleteIpamPrefixListResolverTargetResult, CommonAwsError>;
   deleteIpamResourceDiscovery(
     input: DeleteIpamResourceDiscoveryRequest,
   ): Effect.Effect<DeleteIpamResourceDiscoveryResult, CommonAwsError>;
@@ -864,9 +837,6 @@ export declare class EC2 extends AWSServiceClient {
   describeCapacityBlockStatus(
     input: DescribeCapacityBlockStatusRequest,
   ): Effect.Effect<DescribeCapacityBlockStatusResult, CommonAwsError>;
-  describeCapacityManagerDataExports(
-    input: DescribeCapacityManagerDataExportsRequest,
-  ): Effect.Effect<DescribeCapacityManagerDataExportsResult, CommonAwsError>;
   describeCapacityReservationBillingRequests(
     input: DescribeCapacityReservationBillingRequestsRequest,
   ): Effect.Effect<
@@ -879,9 +849,6 @@ export declare class EC2 extends AWSServiceClient {
   describeCapacityReservations(
     input: DescribeCapacityReservationsRequest,
   ): Effect.Effect<DescribeCapacityReservationsResult, CommonAwsError>;
-  describeCapacityReservationTopology(
-    input: DescribeCapacityReservationTopologyRequest,
-  ): Effect.Effect<DescribeCapacityReservationTopologyResult, CommonAwsError>;
   describeCarrierGateways(
     input: DescribeCarrierGatewaysRequest,
   ): Effect.Effect<DescribeCarrierGatewaysResult, CommonAwsError>;
@@ -978,18 +945,9 @@ export declare class EC2 extends AWSServiceClient {
   describeImageAttribute(
     input: DescribeImageAttributeRequest,
   ): Effect.Effect<ImageAttribute, CommonAwsError>;
-  describeImageReferences(
-    input: DescribeImageReferencesRequest,
-  ): Effect.Effect<DescribeImageReferencesResult, CommonAwsError>;
   describeImages(
     input: DescribeImagesRequest,
   ): Effect.Effect<DescribeImagesResult, CommonAwsError>;
-  describeImageUsageReportEntries(
-    input: DescribeImageUsageReportEntriesRequest,
-  ): Effect.Effect<DescribeImageUsageReportEntriesResult, CommonAwsError>;
-  describeImageUsageReports(
-    input: DescribeImageUsageReportsRequest,
-  ): Effect.Effect<DescribeImageUsageReportsResult, CommonAwsError>;
   describeImportImageTasks(
     input: DescribeImportImageTasksRequest,
   ): Effect.Effect<DescribeImportImageTasksResult, CommonAwsError>;
@@ -1047,12 +1005,6 @@ export declare class EC2 extends AWSServiceClient {
   describeIpamPools(
     input: DescribeIpamPoolsRequest,
   ): Effect.Effect<DescribeIpamPoolsResult, CommonAwsError>;
-  describeIpamPrefixListResolvers(
-    input: DescribeIpamPrefixListResolversRequest,
-  ): Effect.Effect<DescribeIpamPrefixListResolversResult, CommonAwsError>;
-  describeIpamPrefixListResolverTargets(
-    input: DescribeIpamPrefixListResolverTargetsRequest,
-  ): Effect.Effect<DescribeIpamPrefixListResolverTargetsResult, CommonAwsError>;
   describeIpamResourceDiscoveries(
     input: DescribeIpamResourceDiscoveriesRequest,
   ): Effect.Effect<DescribeIpamResourceDiscoveriesResult, CommonAwsError>;
@@ -1431,9 +1383,6 @@ export declare class EC2 extends AWSServiceClient {
     DisableAwsNetworkPerformanceMetricSubscriptionResult,
     CommonAwsError
   >;
-  disableCapacityManager(
-    input: DisableCapacityManagerRequest,
-  ): Effect.Effect<DisableCapacityManagerResult, CommonAwsError>;
   disableEbsEncryptionByDefault(
     input: DisableEbsEncryptionByDefaultRequest,
   ): Effect.Effect<DisableEbsEncryptionByDefaultResult, CommonAwsError>;
@@ -1554,9 +1503,6 @@ export declare class EC2 extends AWSServiceClient {
     EnableAwsNetworkPerformanceMetricSubscriptionResult,
     CommonAwsError
   >;
-  enableCapacityManager(
-    input: EnableCapacityManagerRequest,
-  ): Effect.Effect<EnableCapacityManagerResult, CommonAwsError>;
   enableEbsEncryptionByDefault(
     input: EnableEbsEncryptionByDefaultRequest,
   ): Effect.Effect<EnableEbsEncryptionByDefaultResult, CommonAwsError>;
@@ -1653,15 +1599,6 @@ export declare class EC2 extends AWSServiceClient {
   getAwsNetworkPerformanceData(
     input: GetAwsNetworkPerformanceDataRequest,
   ): Effect.Effect<GetAwsNetworkPerformanceDataResult, CommonAwsError>;
-  getCapacityManagerAttributes(
-    input: GetCapacityManagerAttributesRequest,
-  ): Effect.Effect<GetCapacityManagerAttributesResult, CommonAwsError>;
-  getCapacityManagerMetricData(
-    input: GetCapacityManagerMetricDataRequest,
-  ): Effect.Effect<GetCapacityManagerMetricDataResult, CommonAwsError>;
-  getCapacityManagerMetricDimensions(
-    input: GetCapacityManagerMetricDimensionsRequest,
-  ): Effect.Effect<GetCapacityManagerMetricDimensionsResult, CommonAwsError>;
   getCapacityReservationUsage(
     input: GetCapacityReservationUsageRequest,
   ): Effect.Effect<GetCapacityReservationUsageResult, CommonAwsError>;
@@ -1731,18 +1668,6 @@ export declare class EC2 extends AWSServiceClient {
   getIpamPoolCidrs(
     input: GetIpamPoolCidrsRequest,
   ): Effect.Effect<GetIpamPoolCidrsResult, CommonAwsError>;
-  getIpamPrefixListResolverRules(
-    input: GetIpamPrefixListResolverRulesRequest,
-  ): Effect.Effect<GetIpamPrefixListResolverRulesResult, CommonAwsError>;
-  getIpamPrefixListResolverVersionEntries(
-    input: GetIpamPrefixListResolverVersionEntriesRequest,
-  ): Effect.Effect<
-    GetIpamPrefixListResolverVersionEntriesResult,
-    CommonAwsError
-  >;
-  getIpamPrefixListResolverVersions(
-    input: GetIpamPrefixListResolverVersionsRequest,
-  ): Effect.Effect<GetIpamPrefixListResolverVersionsResult, CommonAwsError>;
   getIpamResourceCidrs(
     input: GetIpamResourceCidrsRequest,
   ): Effect.Effect<GetIpamResourceCidrsResult, CommonAwsError>;
@@ -1929,9 +1854,6 @@ export declare class EC2 extends AWSServiceClient {
     ModifyInstanceCapacityReservationAttributesResult,
     CommonAwsError
   >;
-  modifyInstanceConnectEndpoint(
-    input: ModifyInstanceConnectEndpointRequest,
-  ): Effect.Effect<ModifyInstanceConnectEndpointResult, CommonAwsError>;
   modifyInstanceCpuOptions(
     input: ModifyInstanceCpuOptionsRequest,
   ): Effect.Effect<ModifyInstanceCpuOptionsResult, CommonAwsError>;
@@ -1965,12 +1887,6 @@ export declare class EC2 extends AWSServiceClient {
   modifyIpamPool(
     input: ModifyIpamPoolRequest,
   ): Effect.Effect<ModifyIpamPoolResult, CommonAwsError>;
-  modifyIpamPrefixListResolver(
-    input: ModifyIpamPrefixListResolverRequest,
-  ): Effect.Effect<ModifyIpamPrefixListResolverResult, CommonAwsError>;
-  modifyIpamPrefixListResolverTarget(
-    input: ModifyIpamPrefixListResolverTargetRequest,
-  ): Effect.Effect<ModifyIpamPrefixListResolverTargetResult, CommonAwsError>;
   modifyIpamResourceCidr(
     input: ModifyIpamResourceCidrRequest,
   ): Effect.Effect<ModifyIpamResourceCidrResult, CommonAwsError>;
@@ -2359,12 +2275,6 @@ export declare class EC2 extends AWSServiceClient {
   unmonitorInstances(
     input: UnmonitorInstancesRequest,
   ): Effect.Effect<UnmonitorInstancesResult, CommonAwsError>;
-  updateCapacityManagerOrganizationsAccess(
-    input: UpdateCapacityManagerOrganizationsAccessRequest,
-  ): Effect.Effect<
-    UpdateCapacityManagerOrganizationsAccessResult,
-    CommonAwsError
-  >;
   updateSecurityGroupRuleDescriptionsEgress(
     input: UpdateSecurityGroupRuleDescriptionsEgressRequest,
   ): Effect.Effect<
@@ -2972,7 +2882,6 @@ export interface AssociateRouteServerResult {
 }
 export interface AssociateRouteTableRequest {
   GatewayId?: string;
-  PublicIpv4Pool?: string;
   DryRun?: boolean;
   SubnetId?: string;
   RouteTableId: string;
@@ -3092,7 +3001,6 @@ export interface AttachmentEnaSrdSpecification {
 export interface AttachmentEnaSrdUdpSpecification {
   EnaSrdUdpEnabled?: boolean;
 }
-export type AttachmentLimitType = "shared" | "dedicated";
 export type AttachmentStatus =
   | "attaching"
   | "attached"
@@ -3224,7 +3132,6 @@ export interface AvailabilityZone {
 }
 export type AvailabilityZoneId = string;
 
-export type AvailabilityZoneIdStringList = Array<string>;
 export type AvailabilityZoneList = Array<AvailabilityZone>;
 export interface AvailabilityZoneMessage {
   Message?: string;
@@ -3317,8 +3224,6 @@ export type Ec2Boolean = boolean;
 export type BootModeType = "legacy-bios" | "uefi";
 export type BootModeTypeList = Array<BootModeType>;
 export type BootModeValues = "legacy-bios" | "uefi" | "uefi-preferred";
-export type BoxedBoolean = boolean;
-
 export type BoxedDouble = number;
 
 export type BoxedInteger = number;
@@ -3601,53 +3506,6 @@ export interface CapacityBlockStatus {
   CapacityReservationStatuses?: Array<CapacityReservationStatus>;
 }
 export type CapacityBlockStatusSet = Array<CapacityBlockStatus>;
-export interface CapacityManagerCondition {
-  DimensionCondition?: DimensionCondition;
-}
-export type CapacityManagerConditionSet = Array<CapacityManagerCondition>;
-export type CapacityManagerDataExportId = string;
-
-export type CapacityManagerDataExportIdSet = Array<string>;
-export interface CapacityManagerDataExportResponse {
-  CapacityManagerDataExportId?: string;
-  S3BucketName?: string;
-  S3BucketPrefix?: string;
-  Schedule?: Schedule;
-  OutputFormat?: OutputFormat;
-  CreateTime?: Date | string;
-  LatestDeliveryStatus?: CapacityManagerDataExportStatus;
-  LatestDeliveryStatusMessage?: string;
-  LatestDeliveryS3LocationUri?: string;
-  LatestDeliveryTime?: Date | string;
-  Tags?: Array<Tag>;
-}
-export type CapacityManagerDataExportResponseSet =
-  Array<CapacityManagerDataExportResponse>;
-export type CapacityManagerDataExportStatus =
-  | "pending"
-  | "in-progress"
-  | "delivered"
-  | "failed";
-export interface CapacityManagerDimension {
-  ResourceRegion?: string;
-  AvailabilityZoneId?: string;
-  AccountId?: string;
-  InstanceFamily?: string;
-  InstanceType?: string;
-  InstancePlatform?: string;
-  ReservationArn?: string;
-  ReservationId?: string;
-  ReservationType?: ReservationType;
-  ReservationCreateTimestamp?: Date | string;
-  ReservationStartTimestamp?: Date | string;
-  ReservationEndTimestamp?: Date | string;
-  ReservationEndDateType?: ReservationEndDateType;
-  Tenancy?: CapacityTenancy;
-  ReservationState?: ReservationState;
-  ReservationInstanceMatchCriteria?: string;
-  ReservationUnusedFinancialOwner?: string;
-}
-export type CapacityManagerStatus = "enabled" | "disabled";
 export interface CapacityReservation {
   CapacityReservationId?: string;
   OwnerId?: string;
@@ -3819,19 +3677,7 @@ export interface CapacityReservationTargetResponse {
   CapacityReservationResourceGroupArn?: string;
 }
 export type CapacityReservationTenancy = "default" | "dedicated";
-export interface CapacityReservationTopology {
-  CapacityReservationId?: string;
-  CapacityBlockId?: string;
-  State?: string;
-  InstanceType?: string;
-  GroupName?: string;
-  NetworkNodes?: Array<string>;
-  AvailabilityZoneId?: string;
-  AvailabilityZone?: string;
-}
-export type CapacityReservationTopologySet = Array<CapacityReservationTopology>;
 export type CapacityReservationType = "default" | "capacity-block";
-export type CapacityTenancy = "default" | "dedicated";
 export interface CarrierGateway {
   CarrierGatewayId?: string;
   VpcId?: string;
@@ -3962,7 +3808,6 @@ export interface ClientVpnConnection {
   IngressPackets?: string;
   EgressPackets?: string;
   ClientIp?: string;
-  ClientIpv6Address?: string;
   CommonName?: string;
   Status?: ClientVpnConnectionStatus;
   ConnectionEndTime?: string;
@@ -4004,8 +3849,6 @@ export interface ClientVpnEndpoint {
   ClientLoginBannerOptions?: ClientLoginBannerResponseOptions;
   ClientRouteEnforcementOptions?: ClientRouteEnforcementResponseOptions;
   DisconnectOnSessionTimeout?: boolean;
-  EndpointIpAddressType?: EndpointIpAddressType;
-  TrafficIpAddressType?: TrafficIpAddressType;
 }
 export interface ClientVpnEndpointAttributeStatus {
   Code?: ClientVpnEndpointAttributeStatusCode;
@@ -4081,12 +3924,10 @@ export type CoipPoolIdSet = Array<string>;
 export type CoipPoolMaxResults = number;
 
 export type CoipPoolSet = Array<CoipPool>;
-export type Comparison = "equals" | "in";
 export type ComponentAccount = string;
 
 export type ComponentRegion = string;
 
-export type ConditionValueList = Array<string>;
 export interface ConfirmProductInstanceRequest {
   InstanceId: string;
   ProductCode: string;
@@ -4188,8 +4029,6 @@ export interface CopyImageRequest {
   CopyImageTags?: boolean;
   TagSpecifications?: Array<TagSpecification>;
   SnapshotCopyCompletionDurationMinutes?: number;
-  DestinationAvailabilityZone?: string;
-  DestinationAvailabilityZoneId?: string;
   DryRun?: boolean;
 }
 export interface CopyImageResult {
@@ -4206,7 +4045,6 @@ export interface CopySnapshotRequest {
   SourceSnapshotId: string;
   TagSpecifications?: Array<TagSpecification>;
   CompletionDurationMinutes?: number;
-  DestinationAvailabilityZone?: string;
   DryRun?: boolean;
 }
 export type CopySnapshotRequestPSU = string;
@@ -4216,20 +4054,6 @@ export interface CopySnapshotResult {
   SnapshotId?: string;
 }
 export type CopyTagsFromSource = "volume";
-export interface CopyVolumesRequest {
-  SourceVolumeId: string;
-  Iops?: number;
-  Size?: number;
-  VolumeType?: VolumeType;
-  DryRun?: boolean;
-  TagSpecifications?: Array<TagSpecification>;
-  MultiAttachEnabled?: boolean;
-  Throughput?: number;
-  ClientToken?: string;
-}
-export interface CopyVolumesResult {
-  Volumes?: Array<Volume>;
-}
 export type CoreCount = number;
 
 export type CoreCountList = Array<number>;
@@ -4254,18 +4078,6 @@ export interface CpuPerformanceFactor {
 }
 export interface CpuPerformanceFactorRequest {
   References?: Array<PerformanceFactorReferenceRequest>;
-}
-export interface CreateCapacityManagerDataExportRequest {
-  S3BucketName: string;
-  S3BucketPrefix?: string;
-  Schedule: Schedule;
-  OutputFormat: OutputFormat;
-  ClientToken?: string;
-  DryRun?: boolean;
-  TagSpecifications?: Array<TagSpecification>;
-}
-export interface CreateCapacityManagerDataExportResult {
-  CapacityManagerDataExportId?: string;
 }
 export interface CreateCapacityReservationBySplittingRequest {
   DryRun?: boolean;
@@ -4337,7 +4149,7 @@ export interface CreateCarrierGatewayResult {
   CarrierGateway?: CarrierGateway;
 }
 export interface CreateClientVpnEndpointRequest {
-  ClientCidrBlock?: string;
+  ClientCidrBlock: string;
   ServerCertificateArn: string;
   AuthenticationOptions: Array<ClientVpnAuthenticationRequest>;
   ConnectionLogOptions: ConnectionLogOptions;
@@ -4357,8 +4169,6 @@ export interface CreateClientVpnEndpointRequest {
   ClientLoginBannerOptions?: ClientLoginBannerOptions;
   ClientRouteEnforcementOptions?: ClientRouteEnforcementOptions;
   DisconnectOnSessionTimeout?: boolean;
-  EndpointIpAddressType?: EndpointIpAddressType;
-  TrafficIpAddressType?: TrafficIpAddressType;
 }
 export interface CreateClientVpnEndpointResult {
   ClientVpnEndpointId?: string;
@@ -4407,10 +4217,9 @@ export interface CreateCustomerGatewayResult {
   CustomerGateway?: CustomerGateway;
 }
 export interface CreateDefaultSubnetRequest {
-  AvailabilityZone?: string;
+  AvailabilityZone: string;
   DryRun?: boolean;
   Ipv6Native?: boolean;
-  AvailabilityZoneId?: string;
 }
 export interface CreateDefaultSubnetResult {
   Subnet?: Subnet;
@@ -4532,17 +4341,6 @@ export interface CreateImageRequest {
 export interface CreateImageResult {
   ImageId?: string;
 }
-export interface CreateImageUsageReportRequest {
-  ImageId: string;
-  DryRun?: boolean;
-  ResourceTypes: Array<ImageUsageResourceTypeRequest>;
-  AccountIds?: Array<string>;
-  ClientToken?: string;
-  TagSpecifications?: Array<TagSpecification>;
-}
-export interface CreateImageUsageReportResult {
-  ReportId?: string;
-}
 export interface CreateInstanceConnectEndpointRequest {
   DryRun?: boolean;
   SubnetId: string;
@@ -4613,31 +4411,6 @@ export interface CreateIpamPoolRequest {
 }
 export interface CreateIpamPoolResult {
   IpamPool?: IpamPool;
-}
-export interface CreateIpamPrefixListResolverRequest {
-  DryRun?: boolean;
-  IpamId: string;
-  Description?: string;
-  AddressFamily: AddressFamily;
-  Rules?: Array<IpamPrefixListResolverRuleRequest>;
-  TagSpecifications?: Array<TagSpecification>;
-  ClientToken?: string;
-}
-export interface CreateIpamPrefixListResolverResult {
-  IpamPrefixListResolver?: IpamPrefixListResolver;
-}
-export interface CreateIpamPrefixListResolverTargetRequest {
-  DryRun?: boolean;
-  IpamPrefixListResolverId: string;
-  PrefixListId: string;
-  PrefixListRegion: string;
-  DesiredVersion?: number;
-  TrackLatestVersion: boolean;
-  TagSpecifications?: Array<TagSpecification>;
-  ClientToken?: string;
-}
-export interface CreateIpamPrefixListResolverTargetResult {
-  IpamPrefixListResolverTarget?: IpamPrefixListResolverTarget;
 }
 export interface CreateIpamRequest {
   DryRun?: boolean;
@@ -5402,8 +5175,7 @@ export interface CreateVolumePermissionModifications {
   Remove?: Array<CreateVolumePermission>;
 }
 export interface CreateVolumeRequest {
-  AvailabilityZone?: string;
-  AvailabilityZoneId?: string;
+  AvailabilityZone: string;
   Encrypted?: boolean;
   Iops?: number;
   KmsKeyId?: string;
@@ -5534,12 +5306,6 @@ export interface CreateVpnGatewayRequest {
 export interface CreateVpnGatewayResult {
   VpnGateway?: VpnGateway;
 }
-export interface CreationDateCondition {
-  MaximumDaysSinceCreated?: number;
-}
-export interface CreationDateConditionRequest {
-  MaximumDaysSinceCreated?: number;
-}
 export interface CreditSpecification {
   CpuCredits?: string;
 }
@@ -5625,13 +5391,6 @@ export type DefaultNetworkCardIndex = number;
 export type DefaultRouteTableAssociationValue = "enable" | "disable";
 export type DefaultRouteTablePropagationValue = "enable" | "disable";
 export type DefaultTargetCapacityType = "spot" | "on-demand" | "capacity-block";
-export interface DeleteCapacityManagerDataExportRequest {
-  CapacityManagerDataExportId: string;
-  DryRun?: boolean;
-}
-export interface DeleteCapacityManagerDataExportResult {
-  CapacityManagerDataExportId?: string;
-}
 export interface DeleteCarrierGatewayRequest {
   CarrierGatewayId: string;
   DryRun?: boolean;
@@ -5728,13 +5487,6 @@ export interface DeleteFpgaImageRequest {
 export interface DeleteFpgaImageResult {
   Return?: boolean;
 }
-export interface DeleteImageUsageReportRequest {
-  ReportId: string;
-  DryRun?: boolean;
-}
-export interface DeleteImageUsageReportResult {
-  Return?: boolean;
-}
 export interface DeleteInstanceConnectEndpointRequest {
   DryRun?: boolean;
   InstanceConnectEndpointId: string;
@@ -5768,20 +5520,6 @@ export interface DeleteIpamPoolRequest {
 }
 export interface DeleteIpamPoolResult {
   IpamPool?: IpamPool;
-}
-export interface DeleteIpamPrefixListResolverRequest {
-  DryRun?: boolean;
-  IpamPrefixListResolverId: string;
-}
-export interface DeleteIpamPrefixListResolverResult {
-  IpamPrefixListResolver?: IpamPrefixListResolver;
-}
-export interface DeleteIpamPrefixListResolverTargetRequest {
-  DryRun?: boolean;
-  IpamPrefixListResolverTargetId: string;
-}
-export interface DeleteIpamPrefixListResolverTargetResult {
-  IpamPrefixListResolverTarget?: IpamPrefixListResolverTarget;
 }
 export interface DeleteIpamRequest {
   DryRun?: boolean;
@@ -6247,12 +5985,6 @@ export interface DeleteVpnGatewayRequest {
   VpnGatewayId: string;
   DryRun?: boolean;
 }
-export interface DeprecationTimeCondition {
-  MaximumDaysSinceDeprecated?: number;
-}
-export interface DeprecationTimeConditionRequest {
-  MaximumDaysSinceDeprecated?: number;
-}
 export interface DeprovisionByoipCidrRequest {
   Cidr: string;
   DryRun?: boolean;
@@ -6477,19 +6209,6 @@ export interface DescribeCapacityBlockStatusResult {
   CapacityBlockStatuses?: Array<CapacityBlockStatus>;
   NextToken?: string;
 }
-export interface DescribeCapacityManagerDataExportsRequest {
-  CapacityManagerDataExportIds?: Array<string>;
-  MaxResults?: number;
-  NextToken?: string;
-  DryRun?: boolean;
-  Filters?: Array<Filter>;
-}
-export type DescribeCapacityManagerDataExportsRequestMaxResults = number;
-
-export interface DescribeCapacityManagerDataExportsResult {
-  CapacityManagerDataExports?: Array<CapacityManagerDataExportResponse>;
-  NextToken?: string;
-}
 export interface DescribeCapacityReservationBillingRequestsRequest {
   CapacityReservationIds?: Array<string>;
   Role: CallerRole;
@@ -6530,19 +6249,6 @@ export interface DescribeCapacityReservationsRequest {
 export interface DescribeCapacityReservationsResult {
   NextToken?: string;
   CapacityReservations?: Array<CapacityReservation>;
-}
-export type DescribeCapacityReservationTopologyMaxResults = number;
-
-export interface DescribeCapacityReservationTopologyRequest {
-  DryRun?: boolean;
-  NextToken?: string;
-  MaxResults?: number;
-  CapacityReservationIds?: Array<string>;
-  Filters?: Array<Filter>;
-}
-export interface DescribeCapacityReservationTopologyResult {
-  NextToken?: string;
-  CapacityReservations?: Array<CapacityReservationTopology>;
 }
 export interface DescribeCarrierGatewaysRequest {
   CarrierGatewayIds?: Array<string>;
@@ -6772,7 +6478,6 @@ export interface DescribeFastSnapshotRestoresResult {
 export interface DescribeFastSnapshotRestoreSuccessItem {
   SnapshotId?: string;
   AvailabilityZone?: string;
-  AvailabilityZoneId?: string;
   State?: FastSnapshotRestoreStateCode;
   StateTransitionReason?: string;
   OwnerId?: string;
@@ -6937,21 +6642,6 @@ export interface DescribeImageAttributeRequest {
   ImageId: string;
   DryRun?: boolean;
 }
-export type DescribeImageReferencesImageIdStringList = Array<string>;
-export type DescribeImageReferencesMaxResults = number;
-
-export interface DescribeImageReferencesRequest {
-  ImageIds: Array<string>;
-  IncludeAllResourceTypes?: boolean;
-  ResourceTypes?: Array<ResourceTypeRequest>;
-  NextToken?: string;
-  DryRun?: boolean;
-  MaxResults?: number;
-}
-export interface DescribeImageReferencesResult {
-  NextToken?: string;
-  ImageReferences?: Array<ImageReference>;
-}
 export interface DescribeImagesRequest {
   ExecutableUsers?: Array<string>;
   ImageIds?: Array<string>;
@@ -6966,35 +6656,6 @@ export interface DescribeImagesRequest {
 export interface DescribeImagesResult {
   NextToken?: string;
   Images?: Array<Image>;
-}
-export type DescribeImageUsageReportEntriesMaxResults = number;
-
-export interface DescribeImageUsageReportEntriesRequest {
-  ImageIds?: Array<string>;
-  ReportIds?: Array<string>;
-  NextToken?: string;
-  Filters?: Array<Filter>;
-  DryRun?: boolean;
-  MaxResults?: number;
-}
-export interface DescribeImageUsageReportEntriesResult {
-  NextToken?: string;
-  ImageUsageReportEntries?: Array<ImageUsageReportEntry>;
-}
-export type DescribeImageUsageReportsImageIdStringList = Array<string>;
-export type DescribeImageUsageReportsMaxResults = number;
-
-export interface DescribeImageUsageReportsRequest {
-  ImageIds?: Array<string>;
-  ReportIds?: Array<string>;
-  NextToken?: string;
-  Filters?: Array<Filter>;
-  DryRun?: boolean;
-  MaxResults?: number;
-}
-export interface DescribeImageUsageReportsResult {
-  NextToken?: string;
-  ImageUsageReports?: Array<ImageUsageReport>;
 }
 export interface DescribeImportImageTasksRequest {
   DryRun?: boolean;
@@ -7183,29 +6844,6 @@ export interface DescribeIpamPoolsRequest {
 export interface DescribeIpamPoolsResult {
   NextToken?: string;
   IpamPools?: Array<IpamPool>;
-}
-export interface DescribeIpamPrefixListResolversRequest {
-  DryRun?: boolean;
-  Filters?: Array<Filter>;
-  MaxResults?: number;
-  NextToken?: string;
-  IpamPrefixListResolverIds?: Array<string>;
-}
-export interface DescribeIpamPrefixListResolversResult {
-  NextToken?: string;
-  IpamPrefixListResolvers?: Array<IpamPrefixListResolver>;
-}
-export interface DescribeIpamPrefixListResolverTargetsRequest {
-  DryRun?: boolean;
-  Filters?: Array<Filter>;
-  MaxResults?: number;
-  NextToken?: string;
-  IpamPrefixListResolverTargetIds?: Array<string>;
-  IpamPrefixListResolverId?: string;
-}
-export interface DescribeIpamPrefixListResolverTargetsResult {
-  NextToken?: string;
-  IpamPrefixListResolverTargets?: Array<IpamPrefixListResolverTarget>;
 }
 export interface DescribeIpamResourceDiscoveriesRequest {
   DryRun?: boolean;
@@ -7892,7 +7530,6 @@ export interface DescribeSpotInstanceRequestsResult {
   NextToken?: string;
 }
 export interface DescribeSpotPriceHistoryRequest {
-  AvailabilityZoneId?: string;
   DryRun?: boolean;
   StartTime?: Date | string;
   EndTime?: Date | string;
@@ -8482,11 +8119,6 @@ export type DhcpOptionsId = string;
 
 export type DhcpOptionsIdStringList = Array<string>;
 export type DhcpOptionsList = Array<DhcpOptions>;
-export interface DimensionCondition {
-  Dimension?: FilterByDimension;
-  Comparison?: Comparison;
-  Values?: Array<string>;
-}
 export interface DirectoryServiceAuthentication {
   DirectoryId?: string;
 }
@@ -8515,14 +8147,6 @@ export interface DisableAwsNetworkPerformanceMetricSubscriptionRequest {
 }
 export interface DisableAwsNetworkPerformanceMetricSubscriptionResult {
   Output?: boolean;
-}
-export interface DisableCapacityManagerRequest {
-  DryRun?: boolean;
-  ClientToken?: string;
-}
-export interface DisableCapacityManagerResult {
-  CapacityManagerStatus?: CapacityManagerStatus;
-  OrganizationsAccess?: boolean;
 }
 export interface DisableEbsEncryptionByDefaultRequest {
   DryRun?: boolean;
@@ -8553,8 +8177,7 @@ export interface DisableFastSnapshotRestoreErrorItem {
 export type DisableFastSnapshotRestoreErrorSet =
   Array<DisableFastSnapshotRestoreErrorItem>;
 export interface DisableFastSnapshotRestoresRequest {
-  AvailabilityZones?: Array<string>;
-  AvailabilityZoneIds?: Array<string>;
+  AvailabilityZones: Array<string>;
   SourceSnapshotIds: Array<string>;
   DryRun?: boolean;
 }
@@ -8568,7 +8191,6 @@ export interface DisableFastSnapshotRestoreStateError {
 }
 export interface DisableFastSnapshotRestoreStateErrorItem {
   AvailabilityZone?: string;
-  AvailabilityZoneId?: string;
   Error?: DisableFastSnapshotRestoreStateError;
 }
 export type DisableFastSnapshotRestoreStateErrorSet =
@@ -8576,7 +8198,6 @@ export type DisableFastSnapshotRestoreStateErrorSet =
 export interface DisableFastSnapshotRestoreSuccessItem {
   SnapshotId?: string;
   AvailabilityZone?: string;
-  AvailabilityZoneId?: string;
   State?: FastSnapshotRestoreStateCode;
   StateTransitionReason?: string;
   OwnerId?: string;
@@ -8905,8 +8526,6 @@ export interface EbsInfo {
   EncryptionSupport?: EbsEncryptionSupport;
   EbsOptimizedInfo?: EbsOptimizedInfo;
   NvmeSupport?: EbsNvmeSupport;
-  MaximumEbsAttachments?: number;
-  AttachmentLimitType?: AttachmentLimitType;
 }
 export interface EbsInstanceBlockDevice {
   AttachTime?: Date | string;
@@ -8958,7 +8577,6 @@ export interface Ec2InstanceConnectEndpoint {
   SecurityGroupIds?: Array<string>;
   Tags?: Array<Tag>;
   IpAddressType?: IpAddressType;
-  PublicDnsNames?: InstanceConnectEndpointPublicDnsNames;
 }
 export type Ec2InstanceConnectEndpointState =
   | "create-in-progress"
@@ -8966,10 +8584,7 @@ export type Ec2InstanceConnectEndpointState =
   | "create-failed"
   | "delete-in-progress"
   | "delete-complete"
-  | "delete-failed"
-  | "update-in-progress"
-  | "update-complete"
-  | "update-failed";
+  | "delete-failed";
 export interface EfaInfo {
   MaximumEfaInterfaces?: number;
 }
@@ -9068,15 +8683,6 @@ export interface EnableAwsNetworkPerformanceMetricSubscriptionRequest {
 export interface EnableAwsNetworkPerformanceMetricSubscriptionResult {
   Output?: boolean;
 }
-export interface EnableCapacityManagerRequest {
-  OrganizationsAccess?: boolean;
-  DryRun?: boolean;
-  ClientToken?: string;
-}
-export interface EnableCapacityManagerResult {
-  CapacityManagerStatus?: CapacityManagerStatus;
-  OrganizationsAccess?: boolean;
-}
 export interface EnableEbsEncryptionByDefaultRequest {
   DryRun?: boolean;
 }
@@ -9109,8 +8715,7 @@ export interface EnableFastSnapshotRestoreErrorItem {
 export type EnableFastSnapshotRestoreErrorSet =
   Array<EnableFastSnapshotRestoreErrorItem>;
 export interface EnableFastSnapshotRestoresRequest {
-  AvailabilityZones?: Array<string>;
-  AvailabilityZoneIds?: Array<string>;
+  AvailabilityZones: Array<string>;
   SourceSnapshotIds: Array<string>;
   DryRun?: boolean;
 }
@@ -9124,7 +8729,6 @@ export interface EnableFastSnapshotRestoreStateError {
 }
 export interface EnableFastSnapshotRestoreStateErrorItem {
   AvailabilityZone?: string;
-  AvailabilityZoneId?: string;
   Error?: EnableFastSnapshotRestoreStateError;
 }
 export type EnableFastSnapshotRestoreStateErrorSet =
@@ -9132,7 +8736,6 @@ export type EnableFastSnapshotRestoreStateErrorSet =
 export interface EnableFastSnapshotRestoreSuccessItem {
   SnapshotId?: string;
   AvailabilityZone?: string;
-  AvailabilityZoneId?: string;
   State?: FastSnapshotRestoreStateCode;
   StateTransitionReason?: string;
   OwnerId?: string;
@@ -9266,7 +8869,6 @@ export interface EnclaveOptionsRequest {
 export type EncryptionInTransitSupported = boolean;
 
 export type EndDateType = "unlimited" | "limited";
-export type EndpointIpAddressType = "ipv4" | "ipv6" | "dual-stack";
 export type EndpointSet = Array<ClientVpnEndpoint>;
 export type EphemeralNvmeSupport = "unsupported" | "supported" | "required";
 export type ErrorSet = Array<_ValidationError>;
@@ -9516,24 +9118,6 @@ export interface Filter {
   Name?: string;
   Values?: Array<string>;
 }
-export type FilterByDimension =
-  | "resource-region"
-  | "availability-zone-id"
-  | "account-id"
-  | "instance-family"
-  | "instance-type"
-  | "instance-platform"
-  | "reservation-arn"
-  | "reservation-id"
-  | "reservation-type"
-  | "reservation-create-timestamp"
-  | "reservation-start-timestamp"
-  | "reservation-end-timestamp"
-  | "reservation-end-date-type"
-  | "tenancy"
-  | "reservation-state"
-  | "reservation-instance-match-criteria"
-  | "reservation-unused-financial-owner";
 export type FilterList = Array<Filter>;
 export interface FilterPortRange {
   FromPort?: number;
@@ -9859,47 +9443,6 @@ export interface GetAwsNetworkPerformanceDataResult {
   DataResponses?: Array<DataResponse>;
   NextToken?: string;
 }
-export interface GetCapacityManagerAttributesRequest {
-  DryRun?: boolean;
-}
-export interface GetCapacityManagerAttributesResult {
-  CapacityManagerStatus?: CapacityManagerStatus;
-  OrganizationsAccess?: boolean;
-  DataExportCount?: number;
-  IngestionStatus?: IngestionStatus;
-  IngestionStatusMessage?: string;
-  EarliestDatapointTimestamp?: Date | string;
-  LatestDatapointTimestamp?: Date | string;
-}
-export interface GetCapacityManagerMetricDataRequest {
-  MetricNames: Array<Metric>;
-  StartTime: Date | string;
-  EndTime: Date | string;
-  Period: number;
-  GroupBy?: Array<GroupBy>;
-  FilterBy?: Array<CapacityManagerCondition>;
-  MaxResults?: number;
-  NextToken?: string;
-  DryRun?: boolean;
-}
-export interface GetCapacityManagerMetricDataResult {
-  MetricDataResults?: Array<MetricDataResult>;
-  NextToken?: string;
-}
-export interface GetCapacityManagerMetricDimensionsRequest {
-  GroupBy: Array<GroupBy>;
-  FilterBy?: Array<CapacityManagerCondition>;
-  StartTime: Date | string;
-  EndTime: Date | string;
-  MetricNames: Array<Metric>;
-  MaxResults?: number;
-  NextToken?: string;
-  DryRun?: boolean;
-}
-export interface GetCapacityManagerMetricDimensionsResult {
-  MetricDimensionResults?: Array<CapacityManagerDimension>;
-  NextToken?: string;
-}
 export interface GetCapacityReservationUsageRequest {
   CapacityReservationId: string;
   NextToken?: string;
@@ -10135,40 +9678,6 @@ export interface GetIpamPoolCidrsRequest {
 }
 export interface GetIpamPoolCidrsResult {
   IpamPoolCidrs?: Array<IpamPoolCidr>;
-  NextToken?: string;
-}
-export interface GetIpamPrefixListResolverRulesRequest {
-  DryRun?: boolean;
-  IpamPrefixListResolverId: string;
-  Filters?: Array<Filter>;
-  MaxResults?: number;
-  NextToken?: string;
-}
-export interface GetIpamPrefixListResolverRulesResult {
-  Rules?: Array<IpamPrefixListResolverRule>;
-  NextToken?: string;
-}
-export interface GetIpamPrefixListResolverVersionEntriesRequest {
-  DryRun?: boolean;
-  IpamPrefixListResolverId: string;
-  IpamPrefixListResolverVersion: number;
-  MaxResults?: number;
-  NextToken?: string;
-}
-export interface GetIpamPrefixListResolverVersionEntriesResult {
-  Entries?: Array<IpamPrefixListResolverVersionEntry>;
-  NextToken?: string;
-}
-export interface GetIpamPrefixListResolverVersionsRequest {
-  DryRun?: boolean;
-  IpamPrefixListResolverId: string;
-  IpamPrefixListResolverVersions?: Array<number>;
-  MaxResults?: number;
-  Filters?: Array<Filter>;
-  NextToken?: string;
-}
-export interface GetIpamPrefixListResolverVersionsResult {
-  IpamPrefixListResolverVersions?: Array<IpamPrefixListResolverVersion>;
   NextToken?: string;
 }
 export interface GetIpamResourceCidrsRequest {
@@ -10504,25 +10013,6 @@ export interface GpuInfo {
   Gpus?: Array<GpuDeviceInfo>;
   TotalGpuMemoryInMiB?: number;
 }
-export type GroupBy =
-  | "resource-region"
-  | "availability-zone-id"
-  | "account-id"
-  | "instance-family"
-  | "instance-type"
-  | "instance-platform"
-  | "reservation-arn"
-  | "reservation-id"
-  | "reservation-type"
-  | "reservation-create-timestamp"
-  | "reservation-start-timestamp"
-  | "reservation-end-timestamp"
-  | "reservation-end-date-type"
-  | "tenancy"
-  | "reservation-state"
-  | "reservation-instance-match-criteria"
-  | "reservation-unused-financial-owner";
-export type GroupBySet = Array<GroupBy>;
 export interface GroupIdentifier {
   GroupId?: string;
   GroupName?: string;
@@ -10744,18 +10234,10 @@ export type ImageBlockPublicAccessDisabledState = "unblocked";
 export type ImageBlockPublicAccessEnabledState = "block-new-sharing";
 export interface ImageCriterion {
   ImageProviders?: Array<string>;
-  MarketplaceProductCodes?: Array<string>;
-  ImageNames?: Array<string>;
-  DeprecationTimeCondition?: DeprecationTimeCondition;
-  CreationDateCondition?: CreationDateCondition;
 }
 export type ImageCriterionList = Array<ImageCriterion>;
 export interface ImageCriterionRequest {
   ImageProviders?: Array<string>;
-  MarketplaceProductCodes?: Array<string>;
-  ImageNames?: Array<string>;
-  DeprecationTimeCondition?: DeprecationTimeConditionRequest;
-  CreationDateCondition?: CreationDateConditionRequest;
 }
 export type ImageCriterionRequestList = Array<ImageCriterionRequest>;
 export interface ImageDiskContainer {
@@ -10783,12 +10265,6 @@ export interface ImageMetadata {
   ImageAllowed?: boolean;
   IsPublic?: boolean;
 }
-export type ImageName = string;
-
-export type ImageNameList = Array<string>;
-export type ImageNameRequest = string;
-
-export type ImageNameRequestList = Array<string>;
 export type ImageProvider = string;
 
 export type ImageProviderList = Array<string>;
@@ -10803,19 +10279,6 @@ export interface ImageRecycleBinInfo {
   RecycleBinExitTime?: Date | string;
 }
 export type ImageRecycleBinInfoList = Array<ImageRecycleBinInfo>;
-export interface ImageReference {
-  ImageId?: string;
-  ResourceType?: ImageReferenceResourceType;
-  Arn?: string;
-}
-export type ImageReferenceList = Array<ImageReference>;
-export type ImageReferenceOptionName = "state-name" | "version-depth";
-export type ImageReferenceResourceType =
-  | "ec2:Instance"
-  | "ec2:LaunchTemplate"
-  | "ssm:Parameter"
-  | "imagebuilder:ImageRecipe"
-  | "imagebuilder:ContainerRecipe";
 export type ImageState =
   | "pending"
   | "available"
@@ -10826,63 +10289,6 @@ export type ImageState =
   | "error"
   | "disabled";
 export type ImageTypeValues = "machine" | "kernel" | "ramdisk";
-export interface ImageUsageReport {
-  ImageId?: string;
-  ReportId?: string;
-  ResourceTypes?: Array<ImageUsageResourceType>;
-  AccountIds?: Array<string>;
-  State?: string;
-  StateReason?: string;
-  CreationTime?: Date | string;
-  ExpirationTime?: Date | string;
-  Tags?: Array<Tag>;
-}
-export interface ImageUsageReportEntry {
-  ResourceType?: string;
-  ReportId?: string;
-  UsageCount?: number;
-  AccountId?: string;
-  ImageId?: string;
-  ReportCreationTime?: Date | string;
-}
-export type ImageUsageReportEntryList = Array<ImageUsageReportEntry>;
-export type ImageUsageReportId = string;
-
-export type ImageUsageReportIdStringList = Array<string>;
-export type ImageUsageReportList = Array<ImageUsageReport>;
-export type ImageUsageReportState = string;
-
-export type ImageUsageReportStateReason = string;
-
-export type ImageUsageReportUserIdStringList = Array<string>;
-export interface ImageUsageResourceType {
-  ResourceType?: string;
-  ResourceTypeOptions?: Array<ImageUsageResourceTypeOption>;
-}
-export type ImageUsageResourceTypeList = Array<ImageUsageResourceType>;
-export type ImageUsageResourceTypeName = string;
-
-export interface ImageUsageResourceTypeOption {
-  OptionName?: string;
-  OptionValues?: Array<string>;
-}
-export type ImageUsageResourceTypeOptionList =
-  Array<ImageUsageResourceTypeOption>;
-export interface ImageUsageResourceTypeOptionRequest {
-  OptionName?: string;
-  OptionValues?: Array<string>;
-}
-export type ImageUsageResourceTypeOptionRequestList =
-  Array<ImageUsageResourceTypeOptionRequest>;
-export type ImageUsageResourceTypeOptionValue = string;
-
-export type ImageUsageResourceTypeOptionValuesList = Array<string>;
-export interface ImageUsageResourceTypeRequest {
-  ResourceType?: string;
-  ResourceTypeOptions?: Array<ImageUsageResourceTypeOptionRequest>;
-}
-export type ImageUsageResourceTypeRequestList =
-  Array<ImageUsageResourceTypeRequest>;
 export type ImdsSupportValues = "v2.0";
 export interface ImportClientVpnClientCertificateRevocationListRequest {
   ClientVpnEndpointId: string;
@@ -10991,7 +10397,6 @@ export interface ImportInstanceTaskDetails {
 }
 export interface ImportInstanceVolumeDetailItem {
   AvailabilityZone?: string;
-  AvailabilityZoneId?: string;
   BytesConverted?: number;
   Description?: string;
   Image?: DiskImageDescription;
@@ -11046,9 +10451,8 @@ export type ImportTaskId = string;
 
 export type ImportTaskIdList = Array<string>;
 export interface ImportVolumeRequest {
-  AvailabilityZoneId?: string;
   DryRun?: boolean;
-  AvailabilityZone?: string;
+  AvailabilityZone: string;
   Image: DiskImageDetail;
   Description?: string;
   Volume: VolumeDetail;
@@ -11058,7 +10462,6 @@ export interface ImportVolumeResult {
 }
 export interface ImportVolumeTaskDetails {
   AvailabilityZone?: string;
-  AvailabilityZoneId?: string;
   BytesConverted?: number;
   Description?: string;
   Image?: DiskImageDescription;
@@ -11086,16 +10489,12 @@ export type InferenceDeviceMemorySize = number;
 
 export type InferenceDeviceName = string;
 
-export type IngestionStatus =
-  | "initial-ingestion-in-progress"
-  | "ingestion-complete"
-  | "ingestion-failed";
 export interface InitializationStatusDetails {
   InitializationType?: InitializationType;
   Progress?: number;
   EstimatedTimeToCompleteInSeconds?: number;
 }
-export type InitializationType = "default" | "provisioned-rate" | "volume-copy";
+export type InitializationType = "default" | "provisioned-rate";
 export type InsideCidrBlocksStringList = Array<string>;
 export interface Instance {
   Architecture?: ArchitectureValues;
@@ -11223,18 +10622,10 @@ export interface InstanceCapacity {
   InstanceType?: string;
   TotalCapacity?: number;
 }
-export interface InstanceConnectEndpointDnsNames {
-  DnsName?: string;
-  FipsDnsName?: string;
-}
 export type InstanceConnectEndpointId = string;
 
 export type InstanceConnectEndpointMaxResults = number;
 
-export interface InstanceConnectEndpointPublicDnsNames {
-  Ipv4?: InstanceConnectEndpointDnsNames;
-  Dualstack?: InstanceConnectEndpointDnsNames;
-}
 export type InstanceConnectEndpointSet = Array<Ec2InstanceConnectEndpoint>;
 export interface InstanceCount {
   InstanceCount?: number;
@@ -11574,7 +10965,6 @@ export type InstanceStateName =
   | "stopped";
 export interface InstanceStatus {
   AvailabilityZone?: string;
-  AvailabilityZoneId?: string;
   OutpostArn?: string;
   Operator?: OperatorResponse;
   Events?: Array<InstanceStatusEvent>;
@@ -12586,121 +11976,7 @@ export type InstanceType =
   | "c8gn.metal-24xl"
   | "c8gn.metal-48xl"
   | "f2.6xlarge"
-  | "p6e-gb200.36xlarge"
-  | "g6f.large"
-  | "g6f.xlarge"
-  | "g6f.2xlarge"
-  | "g6f.4xlarge"
-  | "gr6f.4xlarge"
-  | "p5.4xlarge"
-  | "r8i.large"
-  | "r8i.xlarge"
-  | "r8i.2xlarge"
-  | "r8i.4xlarge"
-  | "r8i.8xlarge"
-  | "r8i.12xlarge"
-  | "r8i.16xlarge"
-  | "r8i.24xlarge"
-  | "r8i.32xlarge"
-  | "r8i.48xlarge"
-  | "r8i.96xlarge"
-  | "r8i.metal-48xl"
-  | "r8i.metal-96xl"
-  | "r8i-flex.large"
-  | "r8i-flex.xlarge"
-  | "r8i-flex.2xlarge"
-  | "r8i-flex.4xlarge"
-  | "r8i-flex.8xlarge"
-  | "r8i-flex.12xlarge"
-  | "r8i-flex.16xlarge"
-  | "m8i.large"
-  | "m8i.xlarge"
-  | "m8i.2xlarge"
-  | "m8i.4xlarge"
-  | "m8i.8xlarge"
-  | "m8i.12xlarge"
-  | "m8i.16xlarge"
-  | "m8i.24xlarge"
-  | "m8i.32xlarge"
-  | "m8i.48xlarge"
-  | "m8i.96xlarge"
-  | "m8i.metal-48xl"
-  | "m8i.metal-96xl"
-  | "m8i-flex.large"
-  | "m8i-flex.xlarge"
-  | "m8i-flex.2xlarge"
-  | "m8i-flex.4xlarge"
-  | "m8i-flex.8xlarge"
-  | "m8i-flex.12xlarge"
-  | "m8i-flex.16xlarge"
-  | "i8ge.large"
-  | "i8ge.xlarge"
-  | "i8ge.2xlarge"
-  | "i8ge.3xlarge"
-  | "i8ge.6xlarge"
-  | "i8ge.12xlarge"
-  | "i8ge.18xlarge"
-  | "i8ge.24xlarge"
-  | "i8ge.48xlarge"
-  | "i8ge.metal-24xl"
-  | "i8ge.metal-48xl"
-  | "mac-m4.metal"
-  | "mac-m4pro.metal"
-  | "r8gn.medium"
-  | "r8gn.large"
-  | "r8gn.xlarge"
-  | "r8gn.2xlarge"
-  | "r8gn.4xlarge"
-  | "r8gn.8xlarge"
-  | "r8gn.12xlarge"
-  | "r8gn.16xlarge"
-  | "r8gn.24xlarge"
-  | "r8gn.48xlarge"
-  | "r8gn.metal-24xl"
-  | "r8gn.metal-48xl"
-  | "c8i.large"
-  | "c8i.xlarge"
-  | "c8i.2xlarge"
-  | "c8i.4xlarge"
-  | "c8i.8xlarge"
-  | "c8i.12xlarge"
-  | "c8i.16xlarge"
-  | "c8i.24xlarge"
-  | "c8i.32xlarge"
-  | "c8i.48xlarge"
-  | "c8i.96xlarge"
-  | "c8i.metal-48xl"
-  | "c8i.metal-96xl"
-  | "c8i-flex.large"
-  | "c8i-flex.xlarge"
-  | "c8i-flex.2xlarge"
-  | "c8i-flex.4xlarge"
-  | "c8i-flex.8xlarge"
-  | "c8i-flex.12xlarge"
-  | "c8i-flex.16xlarge"
-  | "r8gb.medium"
-  | "r8gb.large"
-  | "r8gb.xlarge"
-  | "r8gb.2xlarge"
-  | "r8gb.4xlarge"
-  | "r8gb.8xlarge"
-  | "r8gb.12xlarge"
-  | "r8gb.16xlarge"
-  | "r8gb.24xlarge"
-  | "r8gb.metal-24xl"
-  | "m8a.medium"
-  | "m8a.large"
-  | "m8a.xlarge"
-  | "m8a.2xlarge"
-  | "m8a.4xlarge"
-  | "m8a.8xlarge"
-  | "m8a.12xlarge"
-  | "m8a.16xlarge"
-  | "m8a.24xlarge"
-  | "m8a.48xlarge"
-  | "m8a.metal-24xl"
-  | "m8a.metal-48xl"
-  | "trn2.3xlarge";
+  | "p6e-gb200.36xlarge";
 export type InstanceTypeHypervisor = "nitro" | "xen";
 export interface InstanceTypeInfo {
   InstanceType?: InstanceType;
@@ -13043,131 +12319,6 @@ export type IpamPoolState =
   | "isolate-in-progress"
   | "isolate-complete"
   | "restore-in-progress";
-export interface IpamPrefixListResolver {
-  OwnerId?: string;
-  IpamPrefixListResolverId?: string;
-  IpamPrefixListResolverArn?: string;
-  IpamArn?: string;
-  IpamRegion?: string;
-  Description?: string;
-  AddressFamily?: AddressFamily;
-  State?: IpamPrefixListResolverState;
-  Tags?: Array<Tag>;
-  LastVersionCreationStatus?: IpamPrefixListResolverVersionCreationStatus;
-  LastVersionCreationStatusMessage?: string;
-}
-export type IpamPrefixListResolverId = string;
-
-export interface IpamPrefixListResolverRule {
-  RuleType?: IpamPrefixListResolverRuleType;
-  StaticCidr?: string;
-  IpamScopeId?: string;
-  ResourceType?: IpamResourceType;
-  Conditions?: Array<IpamPrefixListResolverRuleCondition>;
-}
-export interface IpamPrefixListResolverRuleCondition {
-  Operation?: IpamPrefixListResolverRuleConditionOperation;
-  IpamPoolId?: string;
-  ResourceId?: string;
-  ResourceOwner?: string;
-  ResourceRegion?: string;
-  ResourceTag?: IpamResourceTag;
-  Cidr?: string;
-}
-export type IpamPrefixListResolverRuleConditionOperation =
-  | "equals"
-  | "not-equals"
-  | "subnet-of";
-export interface IpamPrefixListResolverRuleConditionRequest {
-  Operation: IpamPrefixListResolverRuleConditionOperation;
-  IpamPoolId?: string;
-  ResourceId?: string;
-  ResourceOwner?: string;
-  ResourceRegion?: string;
-  ResourceTag?: RequestIpamResourceTag;
-  Cidr?: string;
-}
-export type IpamPrefixListResolverRuleConditionRequestSet =
-  Array<IpamPrefixListResolverRuleConditionRequest>;
-export type IpamPrefixListResolverRuleConditionSet =
-  Array<IpamPrefixListResolverRuleCondition>;
-export interface IpamPrefixListResolverRuleRequest {
-  RuleType: IpamPrefixListResolverRuleType;
-  StaticCidr?: string;
-  IpamScopeId?: string;
-  ResourceType?: IpamResourceType;
-  Conditions?: Array<IpamPrefixListResolverRuleConditionRequest>;
-}
-export type IpamPrefixListResolverRuleRequestSet =
-  Array<IpamPrefixListResolverRuleRequest>;
-export type IpamPrefixListResolverRuleSet = Array<IpamPrefixListResolverRule>;
-export type IpamPrefixListResolverRuleType =
-  | "static-cidr"
-  | "ipam-resource-cidr"
-  | "ipam-pool-cidr";
-export type IpamPrefixListResolverSet = Array<IpamPrefixListResolver>;
-export type IpamPrefixListResolverState =
-  | "create-in-progress"
-  | "create-complete"
-  | "create-failed"
-  | "modify-in-progress"
-  | "modify-complete"
-  | "modify-failed"
-  | "delete-in-progress"
-  | "delete-complete"
-  | "delete-failed"
-  | "isolate-in-progress"
-  | "isolate-complete"
-  | "restore-in-progress";
-export interface IpamPrefixListResolverTarget {
-  IpamPrefixListResolverTargetId?: string;
-  IpamPrefixListResolverTargetArn?: string;
-  IpamPrefixListResolverId?: string;
-  OwnerId?: string;
-  PrefixListId?: string;
-  PrefixListRegion?: string;
-  DesiredVersion?: number;
-  LastSyncedVersion?: number;
-  TrackLatestVersion?: boolean;
-  StateMessage?: string;
-  State?: IpamPrefixListResolverTargetState;
-  Tags?: Array<Tag>;
-}
-export type IpamPrefixListResolverTargetId = string;
-
-export type IpamPrefixListResolverTargetSet =
-  Array<IpamPrefixListResolverTarget>;
-export type IpamPrefixListResolverTargetState =
-  | "create-in-progress"
-  | "create-complete"
-  | "create-failed"
-  | "modify-in-progress"
-  | "modify-complete"
-  | "modify-failed"
-  | "sync-in-progress"
-  | "sync-complete"
-  | "sync-failed"
-  | "delete-in-progress"
-  | "delete-complete"
-  | "delete-failed"
-  | "isolate-in-progress"
-  | "isolate-complete"
-  | "restore-in-progress";
-export interface IpamPrefixListResolverVersion {
-  Version?: number;
-}
-export type IpamPrefixListResolverVersionCreationStatus =
-  | "pending"
-  | "success"
-  | "failure";
-export interface IpamPrefixListResolverVersionEntry {
-  Cidr?: string;
-}
-export type IpamPrefixListResolverVersionEntrySet =
-  Array<IpamPrefixListResolverVersionEntry>;
-export type IpamPrefixListResolverVersionNumberSet = Array<number>;
-export type IpamPrefixListResolverVersionSet =
-  Array<IpamPrefixListResolverVersion>;
 export type IpamPublicAddressAssociationStatus = "associated" | "disassociated";
 export type IpamPublicAddressAwsService =
   | "nat-gateway"
@@ -13726,7 +12877,6 @@ export interface LaunchTemplateOverrides {
 export type LaunchTemplateOverridesList = Array<LaunchTemplateOverrides>;
 export interface LaunchTemplatePlacement {
   AvailabilityZone?: string;
-  AvailabilityZoneId?: string;
   Affinity?: string;
   GroupName?: string;
   HostId?: string;
@@ -13738,7 +12888,6 @@ export interface LaunchTemplatePlacement {
 }
 export interface LaunchTemplatePlacementRequest {
   AvailabilityZone?: string;
-  AvailabilityZoneId?: string;
   Affinity?: string;
   GroupName?: string;
   HostId?: string;
@@ -14108,24 +13257,10 @@ export interface ManagedPrefixList {
   Version?: number;
   Tags?: Array<Tag>;
   OwnerId?: string;
-  IpamPrefixListResolverTargetId?: string;
-  IpamPrefixListResolverSyncEnabled?: boolean;
 }
 export type ManagedPrefixListSet = Array<ManagedPrefixList>;
-export type MarketplaceProductCode = string;
-
-export type MarketplaceProductCodeList = Array<string>;
-export type MarketplaceProductCodeRequest = string;
-
-export type MarketplaceProductCodeRequestList = Array<string>;
 export type MarketType = "spot" | "capacity-block";
 export type MaximumBandwidthInMbps = number;
-
-export type MaximumDaysSinceCreatedValue = number;
-
-export type MaximumDaysSinceDeprecatedValue = number;
-
-export type MaximumEbsAttachments = number;
 
 export type MaximumEfaInterfaces = number;
 
@@ -14199,57 +13334,6 @@ export type MetadataDefaultHttpTokensState =
   | "optional"
   | "required"
   | "no-preference";
-export type Metric =
-  | "reservation-total-capacity-hrs-vcpu"
-  | "reservation-total-capacity-hrs-inst"
-  | "reservation-max-size-vcpu"
-  | "reservation-max-size-inst"
-  | "reservation-min-size-vcpu"
-  | "reservation-min-size-inst"
-  | "reservation-unused-total-capacity-hrs-vcpu"
-  | "reservation-unused-total-capacity-hrs-inst"
-  | "reservation-unused-total-estimated-cost"
-  | "reservation-max-unused-size-vcpu"
-  | "reservation-max-unused-size-inst"
-  | "reservation-min-unused-size-vcpu"
-  | "reservation-min-unused-size-inst"
-  | "reservation-max-utilization"
-  | "reservation-min-utilization"
-  | "reservation-avg-utilization-vcpu"
-  | "reservation-avg-utilization-inst"
-  | "reservation-total-count"
-  | "reservation-total-estimated-cost"
-  | "reservation-avg-future-size-vcpu"
-  | "reservation-avg-future-size-inst"
-  | "reservation-min-future-size-vcpu"
-  | "reservation-min-future-size-inst"
-  | "reservation-max-future-size-vcpu"
-  | "reservation-max-future-size-inst"
-  | "reservation-avg-committed-size-vcpu"
-  | "reservation-avg-committed-size-inst"
-  | "reservation-max-committed-size-vcpu"
-  | "reservation-max-committed-size-inst"
-  | "reservation-min-committed-size-vcpu"
-  | "reservation-min-committed-size-inst"
-  | "reserved-total-usage-hrs-vcpu"
-  | "reserved-total-usage-hrs-inst"
-  | "reserved-total-estimated-cost"
-  | "unreserved-total-usage-hrs-vcpu"
-  | "unreserved-total-usage-hrs-inst"
-  | "unreserved-total-estimated-cost"
-  | "spot-total-usage-hrs-vcpu"
-  | "spot-total-usage-hrs-inst"
-  | "spot-total-estimated-cost"
-  | "spot-avg-run-time-before-interruption-inst"
-  | "spot-max-run-time-before-interruption-inst"
-  | "spot-min-run-time-before-interruption-inst";
-export interface MetricDataResult {
-  Dimension?: CapacityManagerDimension;
-  Timestamp?: Date | string;
-  MetricValues?: Array<MetricValue>;
-}
-export type MetricDataResultSet = Array<MetricDataResult>;
-export type MetricDimensionResultSet = Array<CapacityManagerDimension>;
 export interface MetricPoint {
   StartDate?: Date | string;
   EndDate?: Date | string;
@@ -14257,13 +13341,7 @@ export interface MetricPoint {
   Status?: string;
 }
 export type MetricPoints = Array<MetricPoint>;
-export type MetricSet = Array<Metric>;
 export type MetricType = "aggregate-latency";
-export interface MetricValue {
-  Metric?: Metric;
-  Value?: number;
-}
-export type MetricValueSet = Array<MetricValue>;
 export type MillisecondDateTime = Date | string;
 
 export interface ModifyAddressAttributeRequest {
@@ -14431,16 +13509,6 @@ export interface ModifyInstanceCapacityReservationAttributesRequest {
 export interface ModifyInstanceCapacityReservationAttributesResult {
   Return?: boolean;
 }
-export interface ModifyInstanceConnectEndpointRequest {
-  DryRun?: boolean;
-  InstanceConnectEndpointId: string;
-  IpAddressType?: IpAddressType;
-  SecurityGroupIds?: Array<string>;
-  PreserveClientIp?: boolean;
-}
-export interface ModifyInstanceConnectEndpointResult {
-  Return?: boolean;
-}
 export interface ModifyInstanceCpuOptionsRequest {
   InstanceId: string;
   CoreCount: number;
@@ -14551,25 +13619,6 @@ export interface ModifyIpamPoolRequest {
 export interface ModifyIpamPoolResult {
   IpamPool?: IpamPool;
 }
-export interface ModifyIpamPrefixListResolverRequest {
-  DryRun?: boolean;
-  IpamPrefixListResolverId: string;
-  Description?: string;
-  Rules?: Array<IpamPrefixListResolverRuleRequest>;
-}
-export interface ModifyIpamPrefixListResolverResult {
-  IpamPrefixListResolver?: IpamPrefixListResolver;
-}
-export interface ModifyIpamPrefixListResolverTargetRequest {
-  DryRun?: boolean;
-  IpamPrefixListResolverTargetId: string;
-  DesiredVersion?: number;
-  TrackLatestVersion?: boolean;
-  ClientToken?: string;
-}
-export interface ModifyIpamPrefixListResolverTargetResult {
-  IpamPrefixListResolverTarget?: IpamPrefixListResolverTarget;
-}
 export interface ModifyIpamRequest {
   DryRun?: boolean;
   IpamId: string;
@@ -14644,7 +13693,6 @@ export interface ModifyManagedPrefixListRequest {
   AddEntries?: Array<AddPrefixListEntry>;
   RemoveEntries?: Array<RemovePrefixListEntry>;
   MaxEntries?: number;
-  IpamPrefixListResolverSyncEnabled?: boolean;
 }
 export interface ModifyManagedPrefixListResult {
   PrefixList?: ManagedPrefixList;
@@ -15431,7 +14479,6 @@ export interface NetworkInterface {
   Ipv6Address?: string;
   Operator?: OperatorResponse;
   AssociatedSubnets?: Array<string>;
-  AvailabilityZoneId?: string;
 }
 export interface NetworkInterfaceAssociation {
   AllocationId?: string;
@@ -15547,7 +14594,6 @@ export type NetworkInterfaceType =
   | "gateway_load_balancer_endpoint"
   | "iot_rules_managed"
   | "aws_codestar_connections_managed";
-export type NetworkNodeSet = Array<string>;
 export type NetworkNodesList = Array<string>;
 export type NetworkPerformance = string;
 
@@ -15661,7 +14707,6 @@ export type OutpostLagIdSet = Array<string>;
 export type OutpostLagMaxResults = number;
 
 export type OutpostLagSet = Array<OutpostLag>;
-export type OutputFormat = "csv" | "parquet";
 export type OwnerStringList = Array<string>;
 export interface PacketHeaderStatement {
   SourceAddresses?: Array<string>;
@@ -15766,8 +14811,6 @@ export interface PerformanceFactorReferenceRequest {
 export type PerformanceFactorReferenceSet = Array<PerformanceFactorReference>;
 export type PerformanceFactorReferenceSetRequest =
   Array<PerformanceFactorReferenceRequest>;
-export type Period = number;
-
 export type PeriodType =
   | "five-minutes"
   | "fifteen-minutes"
@@ -15836,7 +14879,6 @@ export interface Phase2IntegrityAlgorithmsRequestListValue {
 }
 export type PhcSupport = "unsupported" | "supported";
 export interface Placement {
-  AvailabilityZoneId?: string;
   Affinity?: string;
   GroupName?: string;
   PartitionNumber?: number;
@@ -16587,7 +15629,6 @@ export interface Reservation {
   Groups?: Array<GroupIdentifier>;
   Instances?: Array<Instance>;
 }
-export type ReservationEndDateType = "limited" | "unlimited";
 export interface ReservationFleetInstanceSpecification {
   InstanceType?: InstanceType;
   InstancePlatform?: CapacityReservationInstancePlatform;
@@ -16603,18 +15644,10 @@ export type ReservationId = string;
 
 export type ReservationList = Array<Reservation>;
 export type ReservationState =
-  | "active"
-  | "expired"
-  | "cancelled"
-  | "scheduled"
-  | "pending"
-  | "failed"
-  | "delayed"
-  | "unsupported"
   | "payment-pending"
   | "payment-failed"
+  | "active"
   | "retired";
-export type ReservationType = "capacity-block" | "odcr";
 export interface ReservationValue {
   HourlyPrice?: string;
   RemainingTotalValue?: string;
@@ -16810,7 +15843,6 @@ export type ResourceType =
   | "fpga-image"
   | "host-reservation"
   | "image"
-  | "image-usage-report"
   | "import-image-task"
   | "import-snapshot-task"
   | "instance"
@@ -16889,23 +15921,7 @@ export type ResourceType =
   | "verified-access-endpoint-target"
   | "ipam-external-resource-verification-token"
   | "capacity-block"
-  | "mac-modification-task"
-  | "ipam-prefix-list-resolver"
-  | "ipam-prefix-list-resolver-target"
-  | "capacity-manager-data-export";
-export interface ResourceTypeOption {
-  OptionName?: ImageReferenceOptionName;
-  OptionValues?: Array<string>;
-}
-export type ResourceTypeOptionList = Array<ResourceTypeOption>;
-export type ResourceTypeOptionValue = string;
-
-export type ResourceTypeOptionValuesList = Array<string>;
-export interface ResourceTypeRequest {
-  ResourceType?: ImageReferenceResourceType;
-  ResourceTypeOptions?: Array<ResourceTypeOption>;
-}
-export type ResourceTypeRequestList = Array<ResourceTypeRequest>;
+  | "mac-modification-task";
 export interface ResponseError {
   Code?: LaunchTemplateErrorCode;
   Message?: string;
@@ -17103,8 +16119,7 @@ export type RouteList = Array<Route>;
 export type RouteOrigin =
   | "CreateRouteTable"
   | "CreateRoute"
-  | "EnableVgwRoutePropagation"
-  | "Advertisement";
+  | "EnableVgwRoutePropagation";
 export interface RouteServer {
   RouteServerId?: string;
   AmazonSideAsn?: number;
@@ -17239,7 +16254,7 @@ export type RouteServerState =
   | "modifying"
   | "deleting"
   | "deleted";
-export type RouteState = "active" | "blackhole" | "filtered";
+export type RouteState = "active" | "blackhole";
 export interface RouteTable {
   Associations?: Array<RouteTableAssociation>;
   PropagatingVgws?: Array<PropagatingVgw>;
@@ -17255,7 +16270,6 @@ export interface RouteTableAssociation {
   RouteTableId?: string;
   SubnetId?: string;
   GatewayId?: string;
-  PublicIpv4Pool?: string;
   AssociationState?: RouteTableAssociationState;
 }
 export type RouteTableAssociationId = string;
@@ -17365,7 +16379,6 @@ export interface S3Storage {
 }
 export type S3StorageUploadPolicySignature = string;
 
-export type Schedule = "hourly";
 export interface ScheduledInstance {
   AvailabilityZone?: string;
   CreateDate?: Date | string;
@@ -17636,7 +16649,6 @@ export interface ServiceConfiguration {
   ServiceId?: string;
   ServiceName?: string;
   ServiceState?: ServiceState;
-  AvailabilityZoneIds?: Array<string>;
   AvailabilityZones?: Array<string>;
   AcceptanceRequired?: boolean;
   ManagesVpcEndpoints?: boolean;
@@ -17658,7 +16670,6 @@ export interface ServiceDetail {
   ServiceId?: string;
   ServiceType?: Array<ServiceTypeDetail>;
   ServiceRegion?: string;
-  AvailabilityZoneIds?: Array<string>;
   AvailabilityZones?: Array<string>;
   Owner?: string;
   BaseEndpointDnsNames?: Array<string>;
@@ -17943,7 +16954,6 @@ export interface SpotInstanceRequest {
   LaunchGroup?: string;
   LaunchSpecification?: LaunchSpecification;
   LaunchedAvailabilityZone?: string;
-  LaunchedAvailabilityZoneId?: string;
   ProductDescription?: RIProductDescription;
   SpotInstanceRequestId?: string;
   SpotPrice?: string;
@@ -18023,7 +17033,6 @@ export type SpotPlacementScoresTargetCapacity = number;
 
 export interface SpotPrice {
   AvailabilityZone?: string;
-  AvailabilityZoneId?: string;
   InstanceType?: InstanceType;
   ProductDescription?: RIProductDescription;
   SpotPrice?: string;
@@ -18408,7 +17417,6 @@ export type TotalNeuronMemory = number;
 
 export type TpmSupportValues = "v2.0";
 export type TrafficDirection = "ingress" | "egress";
-export type TrafficIpAddressType = "ipv4" | "ipv6" | "dual-stack";
 export interface TrafficMirrorFilter {
   TrafficMirrorFilterId?: string;
   IngressFilterRules?: Array<TrafficMirrorFilterRule>;
@@ -19059,15 +18067,6 @@ export interface UnsuccessfulItemError {
 }
 export type UnsuccessfulItemList = Array<UnsuccessfulItem>;
 export type UnsuccessfulItemSet = Array<UnsuccessfulItem>;
-export interface UpdateCapacityManagerOrganizationsAccessRequest {
-  OrganizationsAccess: boolean;
-  DryRun?: boolean;
-  ClientToken?: string;
-}
-export interface UpdateCapacityManagerOrganizationsAccessResult {
-  CapacityManagerStatus?: CapacityManagerStatus;
-  OrganizationsAccess?: boolean;
-}
 export interface UpdateSecurityGroupRuleDescriptionsEgressRequest {
   DryRun?: boolean;
   GroupId?: string;
@@ -19113,7 +18112,6 @@ export interface UserIdGroupPair {
 }
 export type UserIdGroupPairList = Array<UserIdGroupPair>;
 export type UserIdGroupPairSet = Array<UserIdGroupPair>;
-export type UserIdList = Array<string>;
 export type UserIdStringList = Array<string>;
 export type UserTrustProviderType = "iam-identity-center" | "oidc";
 export interface _ValidationError {
@@ -19396,9 +18394,7 @@ export type VirtualizationType = "hvm" | "paravirtual";
 export type VirtualizationTypeList = Array<VirtualizationType>;
 export type VirtualizationTypeSet = Array<VirtualizationType>;
 export interface Volume {
-  AvailabilityZoneId?: string;
   OutpostArn?: string;
-  SourceVolumeId?: string;
   Iops?: number;
   Tags?: Array<Tag>;
   VolumeType?: VolumeType;
@@ -19507,11 +18503,7 @@ export interface VolumeStatusInfo {
   Details?: Array<VolumeStatusDetails>;
   Status?: VolumeStatusInfoStatus;
 }
-export type VolumeStatusInfoStatus =
-  | "ok"
-  | "impaired"
-  | "insufficient-data"
-  | "warning";
+export type VolumeStatusInfoStatus = "ok" | "impaired" | "insufficient-data";
 export interface VolumeStatusItem {
   Actions?: Array<VolumeStatusAction>;
   AvailabilityZone?: string;
@@ -19646,9 +18638,6 @@ export interface VpcEncryptionControlExclusions {
   NatGateway?: VpcEncryptionControlExclusion;
   VirtualPrivateGateway?: VpcEncryptionControlExclusion;
   VpcPeering?: VpcEncryptionControlExclusion;
-  Lambda?: VpcEncryptionControlExclusion;
-  VpcLattice?: VpcEncryptionControlExclusion;
-  ElasticFileSystem?: VpcEncryptionControlExclusion;
 }
 export type VpcEncryptionControlExclusionState =
   | "enabling"
@@ -20289,18 +19278,6 @@ export declare namespace CopySnapshot {
   export type Error = CommonAwsError;
 }
 
-export declare namespace CopyVolumes {
-  export type Input = CopyVolumesRequest;
-  export type Output = CopyVolumesResult;
-  export type Error = CommonAwsError;
-}
-
-export declare namespace CreateCapacityManagerDataExport {
-  export type Input = CreateCapacityManagerDataExportRequest;
-  export type Output = CreateCapacityManagerDataExportResult;
-  export type Error = CommonAwsError;
-}
-
 export declare namespace CreateCapacityReservation {
   export type Input = CreateCapacityReservationRequest;
   export type Output = CreateCapacityReservationResult;
@@ -20409,12 +19386,6 @@ export declare namespace CreateImage {
   export type Error = CommonAwsError;
 }
 
-export declare namespace CreateImageUsageReport {
-  export type Input = CreateImageUsageReportRequest;
-  export type Output = CreateImageUsageReportResult;
-  export type Error = CommonAwsError;
-}
-
 export declare namespace CreateInstanceConnectEndpoint {
   export type Input = CreateInstanceConnectEndpointRequest;
   export type Output = CreateInstanceConnectEndpointResult;
@@ -20454,18 +19425,6 @@ export declare namespace CreateIpamExternalResourceVerificationToken {
 export declare namespace CreateIpamPool {
   export type Input = CreateIpamPoolRequest;
   export type Output = CreateIpamPoolResult;
-  export type Error = CommonAwsError;
-}
-
-export declare namespace CreateIpamPrefixListResolver {
-  export type Input = CreateIpamPrefixListResolverRequest;
-  export type Output = CreateIpamPrefixListResolverResult;
-  export type Error = CommonAwsError;
-}
-
-export declare namespace CreateIpamPrefixListResolverTarget {
-  export type Input = CreateIpamPrefixListResolverTargetRequest;
-  export type Output = CreateIpamPrefixListResolverTargetResult;
   export type Error = CommonAwsError;
 }
 
@@ -20873,12 +19832,6 @@ export declare namespace CreateVpnGateway {
   export type Error = CommonAwsError;
 }
 
-export declare namespace DeleteCapacityManagerDataExport {
-  export type Input = DeleteCapacityManagerDataExportRequest;
-  export type Output = DeleteCapacityManagerDataExportResult;
-  export type Error = CommonAwsError;
-}
-
 export declare namespace DeleteCarrierGateway {
   export type Input = DeleteCarrierGatewayRequest;
   export type Output = DeleteCarrierGatewayResult;
@@ -20945,12 +19898,6 @@ export declare namespace DeleteFpgaImage {
   export type Error = CommonAwsError;
 }
 
-export declare namespace DeleteImageUsageReport {
-  export type Input = DeleteImageUsageReportRequest;
-  export type Output = DeleteImageUsageReportResult;
-  export type Error = CommonAwsError;
-}
-
 export declare namespace DeleteInstanceConnectEndpoint {
   export type Input = DeleteInstanceConnectEndpointRequest;
   export type Output = DeleteInstanceConnectEndpointResult;
@@ -20984,18 +19931,6 @@ export declare namespace DeleteIpamExternalResourceVerificationToken {
 export declare namespace DeleteIpamPool {
   export type Input = DeleteIpamPoolRequest;
   export type Output = DeleteIpamPoolResult;
-  export type Error = CommonAwsError;
-}
-
-export declare namespace DeleteIpamPrefixListResolver {
-  export type Input = DeleteIpamPrefixListResolverRequest;
-  export type Output = DeleteIpamPrefixListResolverResult;
-  export type Error = CommonAwsError;
-}
-
-export declare namespace DeleteIpamPrefixListResolverTarget {
-  export type Input = DeleteIpamPrefixListResolverTargetRequest;
-  export type Output = DeleteIpamPrefixListResolverTargetResult;
   export type Error = CommonAwsError;
 }
 
@@ -21517,12 +20452,6 @@ export declare namespace DescribeCapacityBlockStatus {
   export type Error = CommonAwsError;
 }
 
-export declare namespace DescribeCapacityManagerDataExports {
-  export type Input = DescribeCapacityManagerDataExportsRequest;
-  export type Output = DescribeCapacityManagerDataExportsResult;
-  export type Error = CommonAwsError;
-}
-
 export declare namespace DescribeCapacityReservationBillingRequests {
   export type Input = DescribeCapacityReservationBillingRequestsRequest;
   export type Output = DescribeCapacityReservationBillingRequestsResult;
@@ -21538,12 +20467,6 @@ export declare namespace DescribeCapacityReservationFleets {
 export declare namespace DescribeCapacityReservations {
   export type Input = DescribeCapacityReservationsRequest;
   export type Output = DescribeCapacityReservationsResult;
-  export type Error = CommonAwsError;
-}
-
-export declare namespace DescribeCapacityReservationTopology {
-  export type Input = DescribeCapacityReservationTopologyRequest;
-  export type Output = DescribeCapacityReservationTopologyResult;
   export type Error = CommonAwsError;
 }
 
@@ -21733,27 +20656,9 @@ export declare namespace DescribeImageAttribute {
   export type Error = CommonAwsError;
 }
 
-export declare namespace DescribeImageReferences {
-  export type Input = DescribeImageReferencesRequest;
-  export type Output = DescribeImageReferencesResult;
-  export type Error = CommonAwsError;
-}
-
 export declare namespace DescribeImages {
   export type Input = DescribeImagesRequest;
   export type Output = DescribeImagesResult;
-  export type Error = CommonAwsError;
-}
-
-export declare namespace DescribeImageUsageReportEntries {
-  export type Input = DescribeImageUsageReportEntriesRequest;
-  export type Output = DescribeImageUsageReportEntriesResult;
-  export type Error = CommonAwsError;
-}
-
-export declare namespace DescribeImageUsageReports {
-  export type Input = DescribeImageUsageReportsRequest;
-  export type Output = DescribeImageUsageReportsResult;
   export type Error = CommonAwsError;
 }
 
@@ -21856,18 +20761,6 @@ export declare namespace DescribeIpamExternalResourceVerificationTokens {
 export declare namespace DescribeIpamPools {
   export type Input = DescribeIpamPoolsRequest;
   export type Output = DescribeIpamPoolsResult;
-  export type Error = CommonAwsError;
-}
-
-export declare namespace DescribeIpamPrefixListResolvers {
-  export type Input = DescribeIpamPrefixListResolversRequest;
-  export type Output = DescribeIpamPrefixListResolversResult;
-  export type Error = CommonAwsError;
-}
-
-export declare namespace DescribeIpamPrefixListResolverTargets {
-  export type Input = DescribeIpamPrefixListResolverTargetsRequest;
-  export type Output = DescribeIpamPrefixListResolverTargetsResult;
   export type Error = CommonAwsError;
 }
 
@@ -22547,12 +21440,6 @@ export declare namespace DisableAwsNetworkPerformanceMetricSubscription {
   export type Error = CommonAwsError;
 }
 
-export declare namespace DisableCapacityManager {
-  export type Input = DisableCapacityManagerRequest;
-  export type Output = DisableCapacityManagerResult;
-  export type Error = CommonAwsError;
-}
-
 export declare namespace DisableEbsEncryptionByDefault {
   export type Input = DisableEbsEncryptionByDefaultRequest;
   export type Output = DisableEbsEncryptionByDefaultResult;
@@ -22769,12 +21656,6 @@ export declare namespace EnableAwsNetworkPerformanceMetricSubscription {
   export type Error = CommonAwsError;
 }
 
-export declare namespace EnableCapacityManager {
-  export type Input = EnableCapacityManagerRequest;
-  export type Output = EnableCapacityManagerResult;
-  export type Error = CommonAwsError;
-}
-
 export declare namespace EnableEbsEncryptionByDefault {
   export type Input = EnableEbsEncryptionByDefaultRequest;
   export type Output = EnableEbsEncryptionByDefaultResult;
@@ -22937,24 +21818,6 @@ export declare namespace GetAwsNetworkPerformanceData {
   export type Error = CommonAwsError;
 }
 
-export declare namespace GetCapacityManagerAttributes {
-  export type Input = GetCapacityManagerAttributesRequest;
-  export type Output = GetCapacityManagerAttributesResult;
-  export type Error = CommonAwsError;
-}
-
-export declare namespace GetCapacityManagerMetricData {
-  export type Input = GetCapacityManagerMetricDataRequest;
-  export type Output = GetCapacityManagerMetricDataResult;
-  export type Error = CommonAwsError;
-}
-
-export declare namespace GetCapacityManagerMetricDimensions {
-  export type Input = GetCapacityManagerMetricDimensionsRequest;
-  export type Output = GetCapacityManagerMetricDimensionsResult;
-  export type Error = CommonAwsError;
-}
-
 export declare namespace GetCapacityReservationUsage {
   export type Input = GetCapacityReservationUsageRequest;
   export type Output = GetCapacityReservationUsageResult;
@@ -23084,24 +21947,6 @@ export declare namespace GetIpamPoolAllocations {
 export declare namespace GetIpamPoolCidrs {
   export type Input = GetIpamPoolCidrsRequest;
   export type Output = GetIpamPoolCidrsResult;
-  export type Error = CommonAwsError;
-}
-
-export declare namespace GetIpamPrefixListResolverRules {
-  export type Input = GetIpamPrefixListResolverRulesRequest;
-  export type Output = GetIpamPrefixListResolverRulesResult;
-  export type Error = CommonAwsError;
-}
-
-export declare namespace GetIpamPrefixListResolverVersionEntries {
-  export type Input = GetIpamPrefixListResolverVersionEntriesRequest;
-  export type Output = GetIpamPrefixListResolverVersionEntriesResult;
-  export type Error = CommonAwsError;
-}
-
-export declare namespace GetIpamPrefixListResolverVersions {
-  export type Input = GetIpamPrefixListResolverVersionsRequest;
-  export type Output = GetIpamPrefixListResolverVersionsResult;
   export type Error = CommonAwsError;
 }
 
@@ -23423,12 +22268,6 @@ export declare namespace ModifyInstanceCapacityReservationAttributes {
   export type Error = CommonAwsError;
 }
 
-export declare namespace ModifyInstanceConnectEndpoint {
-  export type Input = ModifyInstanceConnectEndpointRequest;
-  export type Output = ModifyInstanceConnectEndpointResult;
-  export type Error = CommonAwsError;
-}
-
 export declare namespace ModifyInstanceCpuOptions {
   export type Input = ModifyInstanceCpuOptionsRequest;
   export type Output = ModifyInstanceCpuOptionsResult;
@@ -23492,18 +22331,6 @@ export declare namespace ModifyIpam {
 export declare namespace ModifyIpamPool {
   export type Input = ModifyIpamPoolRequest;
   export type Output = ModifyIpamPoolResult;
-  export type Error = CommonAwsError;
-}
-
-export declare namespace ModifyIpamPrefixListResolver {
-  export type Input = ModifyIpamPrefixListResolverRequest;
-  export type Output = ModifyIpamPrefixListResolverResult;
-  export type Error = CommonAwsError;
-}
-
-export declare namespace ModifyIpamPrefixListResolverTarget {
-  export type Input = ModifyIpamPrefixListResolverTargetRequest;
-  export type Output = ModifyIpamPrefixListResolverTargetResult;
   export type Error = CommonAwsError;
 }
 
@@ -24206,12 +23033,6 @@ export declare namespace UnlockSnapshot {
 export declare namespace UnmonitorInstances {
   export type Input = UnmonitorInstancesRequest;
   export type Output = UnmonitorInstancesResult;
-  export type Error = CommonAwsError;
-}
-
-export declare namespace UpdateCapacityManagerOrganizationsAccess {
-  export type Input = UpdateCapacityManagerOrganizationsAccessRequest;
-  export type Output = UpdateCapacityManagerOrganizationsAccessResult;
   export type Error = CommonAwsError;
 }
 

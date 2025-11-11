@@ -93,8 +93,6 @@ const metadata = {
       "GET /domains/{DomainName}/identity-resolution-jobs/{JobId}",
     GetIntegration: "POST /domains/{DomainName}/integrations",
     GetMatches: "GET /domains/{DomainName}/matches",
-    GetProfileHistoryRecord:
-      "GET /domains/{DomainName}/profiles/{ProfileId}/history-records/{Id}",
     GetProfileObjectType:
       "GET /domains/{DomainName}/object-types/{ObjectTypeName}",
     GetProfileObjectTypeTemplate: "GET /templates/{TemplateId}",
@@ -135,8 +133,6 @@ const metadata = {
         StatusCode: "httpResponseCode",
       },
     },
-    ListProfileHistoryRecords:
-      "POST /domains/{DomainName}/profiles/history-records",
     ListProfileObjects: "POST /domains/{DomainName}/profiles/objects",
     ListProfileObjectTypes: "GET /domains/{DomainName}/object-types",
     ListProfileObjectTypeTemplates: "GET /templates",

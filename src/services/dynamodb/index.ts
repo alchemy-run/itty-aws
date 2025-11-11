@@ -18,6 +18,7 @@ export {
   RequestExpired,
   RequestTimeoutException,
   ServiceUnavailable,
+  ThrottlingException,
   UnrecognizedClientException,
   UnknownOperationException,
   ValidationError,

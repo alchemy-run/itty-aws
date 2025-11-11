@@ -412,7 +412,6 @@ export interface CreateStreamGroupOutput {
   StatusReason?: StreamGroupStatusReason;
   LastUpdatedAt?: Date | string;
   CreatedAt?: Date | string;
-  ExpiresAt?: Date | string;
   AssociatedApplications?: Array<string>;
 }
 export interface CreateStreamSessionConnectionInput {
@@ -500,7 +499,6 @@ export interface GetStreamGroupOutput {
   StatusReason?: StreamGroupStatusReason;
   LastUpdatedAt?: Date | string;
   CreatedAt?: Date | string;
-  ExpiresAt?: Date | string;
   AssociatedApplications?: Array<string>;
 }
 export interface GetStreamSessionInput {
@@ -698,8 +696,7 @@ export type StreamGroupStatus =
   | "ACTIVE"
   | "ACTIVE_WITH_ERRORS"
   | "ERROR"
-  | "DELETING"
-  | "EXPIRED";
+  | "DELETING";
 export type StreamGroupStatusReason = "internalError" | "noAvailableInstances";
 export interface StreamGroupSummary {
   Arn: string;
@@ -710,7 +707,6 @@ export interface StreamGroupSummary {
   Status?: StreamGroupStatus;
   CreatedAt?: Date | string;
   LastUpdatedAt?: Date | string;
-  ExpiresAt?: Date | string;
 }
 export type StreamGroupSummaryList = Array<StreamGroupSummary>;
 export type StreamSessionStatus =
@@ -726,13 +722,7 @@ export type StreamSessionStatusReason =
   | "internalError"
   | "invalidSignalRequest"
   | "placementTimeout"
-  | "applicationLogS3DestinationError"
-  | "applicationExit"
-  | "connectionTimeout"
-  | "reconnectionTimeout"
-  | "maxSessionLengthTimeout"
-  | "idleTimeout"
-  | "apiTerminated";
+  | "applicationLogS3DestinationError";
 export interface StreamSessionSummary {
   Arn?: string;
   UserId?: string;
@@ -796,7 +786,6 @@ export interface UpdateStreamGroupInput {
   Identifier: string;
   LocationConfigurations?: Array<LocationConfiguration>;
   Description?: string;
-  DefaultApplicationIdentifier?: string;
 }
 export interface UpdateStreamGroupOutput {
   Arn: string;
@@ -809,7 +798,6 @@ export interface UpdateStreamGroupOutput {
   StatusReason?: StreamGroupStatusReason;
   LastUpdatedAt?: Date | string;
   CreatedAt?: Date | string;
-  ExpiresAt?: Date | string;
   AssociatedApplications?: Array<string>;
 }
 export type UserId = string;

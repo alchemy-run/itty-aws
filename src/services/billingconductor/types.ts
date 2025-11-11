@@ -447,14 +447,10 @@ export interface AssociatePricingRulesOutput {
 }
 export interface AssociateResourceError {
   Message?: string;
-  Reason?: AssociateResourceErrorReason;
+  Reason?: string;
 }
-export type AssociateResourceErrorReason =
-  | "INVALID_ARN"
-  | "SERVICE_LIMIT_EXCEEDED"
-  | "ILLEGAL_CUSTOMLINEITEM"
-  | "INTERNAL_SERVER_EXCEPTION"
-  | "INVALID_BILLING_PERIOD_RANGE";
+export type AssociateResourceErrorReason = string;
+
 export interface AssociateResourceResponseElement {
   Arn?: string;
   Error?: AssociateResourceError;
@@ -527,14 +523,15 @@ export interface BillingGroupListElement {
   Size?: number;
   CreationTime?: number;
   LastModifiedTime?: number;
-  Status?: BillingGroupStatus;
+  Status?: string;
   StatusReason?: string;
   AccountGrouping?: ListBillingGroupAccountGrouping;
 }
 export type BillingGroupName = string;
 
-export type BillingGroupStatus = "ACTIVE" | "PRIMARY_ACCOUNT_MISSING";
-export type BillingGroupStatusList = Array<BillingGroupStatus>;
+export type BillingGroupStatus = string;
+
+export type BillingGroupStatusList = Array<string>;
 export type BillingGroupStatusReason = string;
 
 export type BillingPeriod = string;
@@ -548,21 +545,16 @@ export type ClientToken = string;
 export interface ComputationPreference {
   PricingPlanArn: string;
 }
-export type ComputationRuleEnum = "CONSOLIDATED";
 export declare class ConflictException extends EffectData.TaggedError(
   "ConflictException",
 )<{
   readonly Message: string;
   readonly ResourceId: string;
   readonly ResourceType: string;
-  readonly Reason?: ConflictExceptionReason;
+  readonly Reason?: string;
 }> {}
-export type ConflictExceptionReason =
-  | "RESOURCE_NAME_CONFLICT"
-  | "PRICING_RULE_IN_PRICING_PLAN_CONFLICT"
-  | "PRICING_PLAN_ATTACHED_TO_BILLING_GROUP_DELETE_CONFLICT"
-  | "PRICING_RULE_ATTACHED_TO_PRICING_PLAN_DELETE_CONFLICT"
-  | "WRITE_CONFLICT_RETRY";
+export type ConflictExceptionReason = string;
+
 export interface CreateBillingGroupInput {
   ClientToken?: string;
   Name: string;
@@ -584,8 +576,6 @@ export interface CreateCustomLineItemInput {
   Tags?: Record<string, string>;
   ChargeDetails: CustomLineItemChargeDetails;
   AccountId?: string;
-  ComputationRule?: ComputationRuleEnum;
-  PresentationDetails?: PresentationObject;
 }
 export interface CreateCustomLineItemOutput {
   Arn?: string;
@@ -607,8 +597,8 @@ export interface CreatePricingRuleInput {
   ClientToken?: string;
   Name: string;
   Description?: string;
-  Scope: PricingRuleScope;
-  Type: PricingRuleType;
+  Scope: string;
+  Type: string;
   ModifierPercentage?: number;
   Service?: string;
   Tags?: Record<string, string>;
@@ -625,7 +615,8 @@ export interface CreateTieringInput {
 }
 export type Currency = string;
 
-export type CurrencyCode = "USD" | "CNY";
+export type CurrencyCode = string;
+
 export type CustomLineItemArn = string;
 
 export type CustomLineItemArns = Array<string>;
@@ -641,7 +632,7 @@ export interface CustomLineItemBillingPeriodRange {
 export interface CustomLineItemChargeDetails {
   Flat?: CustomLineItemFlatChargeDetails;
   Percentage?: CustomLineItemPercentageChargeDetails;
-  Type: CustomLineItemType;
+  Type: string;
   LineItemFilters?: Array<LineItemFilter>;
 }
 export type CustomLineItemChargeValue = number;
@@ -656,7 +647,7 @@ export interface CustomLineItemListElement {
   Arn?: string;
   Name?: string;
   ChargeDetails?: ListCustomLineItemChargeDetails;
-  CurrencyCode?: CurrencyCode;
+  CurrencyCode?: string;
   Description?: string;
   ProductCode?: string;
   BillingGroupArn?: string;
@@ -664,8 +655,6 @@ export interface CustomLineItemListElement {
   LastModifiedTime?: number;
   AssociationSize?: number;
   AccountId?: string;
-  ComputationRule?: ComputationRuleEnum;
-  PresentationDetails?: PresentationObject;
 }
 export type CustomLineItemName = string;
 
@@ -678,13 +667,15 @@ export type CustomLineItemPercentageChargeValue = number;
 
 export type CustomLineItemProductCode = string;
 
-export type CustomLineItemRelationship = "PARENT" | "CHILD";
-export type CustomLineItemType = "CREDIT" | "FEE";
+export type CustomLineItemRelationship = string;
+
+export type CustomLineItemType = string;
+
 export type CustomLineItemVersionList = Array<CustomLineItemVersionListElement>;
 export interface CustomLineItemVersionListElement {
   Name?: string;
   ChargeDetails?: ListCustomLineItemChargeDetails;
-  CurrencyCode?: CurrencyCode;
+  CurrencyCode?: string;
   Description?: string;
   ProductCode?: string;
   BillingGroupArn?: string;
@@ -696,8 +687,6 @@ export interface CustomLineItemVersionListElement {
   Arn?: string;
   StartTime?: number;
   AccountId?: string;
-  ComputationRule?: ComputationRuleEnum;
-  PresentationDetails?: PresentationObject;
 }
 export interface DeleteBillingGroupInput {
   Arn: string;
@@ -750,7 +739,7 @@ export interface FreeTierConfig {
 export interface GetBillingGroupCostReportInput {
   Arn: string;
   BillingPeriodRange?: BillingPeriodRange;
-  GroupBy?: Array<GroupByAttributeName>;
+  GroupBy?: Array<string>;
   MaxResults?: number;
   NextToken?: string;
 }
@@ -758,8 +747,9 @@ export interface GetBillingGroupCostReportOutput {
   BillingGroupCostReportResults?: Array<BillingGroupCostReportResultElement>;
   NextToken?: string;
 }
-export type GroupByAttributeName = "PRODUCT_NAME" | "BILLING_PERIOD";
-export type GroupByAttributesList = Array<GroupByAttributeName>;
+export type GroupByAttributeName = string;
+
+export type GroupByAttributesList = Array<string>;
 export type Instant = number;
 
 export declare class InternalServerException extends EffectData.TaggedError(
@@ -769,14 +759,16 @@ export declare class InternalServerException extends EffectData.TaggedError(
   readonly RetryAfterSeconds?: number;
 }> {}
 export interface LineItemFilter {
-  Attribute: LineItemFilterAttributeName;
-  MatchOption: MatchOption;
-  Values: Array<LineItemFilterValue>;
+  Attribute: string;
+  MatchOption: string;
+  Values: Array<string>;
 }
-export type LineItemFilterAttributeName = "LINE_ITEM_TYPE";
+export type LineItemFilterAttributeName = string;
+
 export type LineItemFiltersList = Array<LineItemFilter>;
-export type LineItemFilterValue = "SAVINGS_PLAN_NEGATION";
-export type LineItemFilterValuesList = Array<LineItemFilterValue>;
+export type LineItemFilterValue = string;
+
+export type LineItemFilterValuesList = Array<string>;
 export interface ListAccountAssociationsFilter {
   Association?: string;
   AccountId?: string;
@@ -810,7 +802,7 @@ export interface ListBillingGroupCostReportsOutput {
 export interface ListBillingGroupsFilter {
   Arns?: Array<string>;
   PricingPlan?: string;
-  Statuses?: Array<BillingGroupStatus>;
+  Statuses?: Array<string>;
   AutoAssociate?: boolean;
 }
 export interface ListBillingGroupsInput {
@@ -826,7 +818,7 @@ export interface ListBillingGroupsOutput {
 export interface ListCustomLineItemChargeDetails {
   Flat?: ListCustomLineItemFlatChargeDetails;
   Percentage?: ListCustomLineItemPercentageChargeDetails;
-  Type: CustomLineItemType;
+  Type: string;
   LineItemFilters?: Array<LineItemFilter>;
 }
 export interface ListCustomLineItemFlatChargeDetails {
@@ -921,7 +913,7 @@ export interface ListPricingRulesOutput {
   NextToken?: string;
 }
 export interface ListResourcesAssociatedToCustomLineItemFilter {
-  Relationship?: CustomLineItemRelationship;
+  Relationship?: string;
 }
 export interface ListResourcesAssociatedToCustomLineItemInput {
   BillingPeriod?: string;
@@ -937,7 +929,7 @@ export interface ListResourcesAssociatedToCustomLineItemOutput {
 }
 export interface ListResourcesAssociatedToCustomLineItemResponseElement {
   Arn?: string;
-  Relationship?: CustomLineItemRelationship;
+  Relationship?: string;
   EndBillingPeriod?: string;
 }
 export type ListResourcesAssociatedToCustomLineItemResponseList =
@@ -952,7 +944,8 @@ export type Margin = string;
 
 export type MarginPercentage = string;
 
-export type MatchOption = "NOT_EQUAL";
+export type MatchOption = string;
+
 export type MaxBillingGroupCostReportResults = number;
 
 export type MaxBillingGroupResults = number;
@@ -975,9 +968,6 @@ export type NumberOfPricingPlansAssociatedWith = number;
 
 export type Operation = string;
 
-export interface PresentationObject {
-  Service: string;
-}
 export type PricingPlanArn = string;
 
 export type PricingPlanArns = Array<string>;
@@ -1008,8 +998,8 @@ export interface PricingRuleListElement {
   Name?: string;
   Arn?: string;
   Description?: string;
-  Scope?: PricingRuleScope;
-  Type?: PricingRuleType;
+  Scope?: string;
+  Type?: string;
   ModifierPercentage?: number;
   Service?: string;
   AssociatedPricingPlanCount?: number;
@@ -1022,8 +1012,10 @@ export interface PricingRuleListElement {
 }
 export type PricingRuleName = string;
 
-export type PricingRuleScope = "GLOBAL" | "SERVICE" | "BILLING_ENTITY" | "SKU";
-export type PricingRuleType = "MARKUP" | "DISCOUNT" | "TIERING";
+export type PricingRuleScope = string;
+
+export type PricingRuleType = string;
+
 export type ProformaCost = string;
 
 export declare class ResourceNotFoundException extends EffectData.TaggedError(
@@ -1083,7 +1075,7 @@ export interface UpdateBillingGroupAccountGrouping {
 export interface UpdateBillingGroupInput {
   Arn: string;
   Name?: string;
-  Status?: BillingGroupStatus;
+  Status?: string;
   ComputationPreference?: ComputationPreference;
   Description?: string;
   AccountGrouping?: UpdateBillingGroupAccountGrouping;
@@ -1096,7 +1088,7 @@ export interface UpdateBillingGroupOutput {
   PricingPlanArn?: string;
   Size?: number;
   LastModifiedTime?: number;
-  Status?: BillingGroupStatus;
+  Status?: string;
   StatusReason?: string;
   AccountGrouping?: UpdateBillingGroupAccountGrouping;
 }
@@ -1146,7 +1138,7 @@ export interface UpdatePricingRuleInput {
   Arn: string;
   Name?: string;
   Description?: string;
-  Type?: PricingRuleType;
+  Type?: string;
   ModifierPercentage?: number;
   Tiering?: UpdateTieringInput;
 }
@@ -1154,8 +1146,8 @@ export interface UpdatePricingRuleOutput {
   Arn?: string;
   Name?: string;
   Description?: string;
-  Scope?: PricingRuleScope;
-  Type?: PricingRuleType;
+  Scope?: string;
+  Type?: string;
   ModifierPercentage?: number;
   Service?: string;
   AssociatedPricingPlanCount?: number;
@@ -1174,7 +1166,7 @@ export declare class ValidationException extends EffectData.TaggedError(
   "ValidationException",
 )<{
   readonly Message: string;
-  readonly Reason?: ValidationExceptionReason;
+  readonly Reason?: string;
   readonly Fields?: Array<ValidationExceptionField>;
 }> {}
 export interface ValidationExceptionField {
@@ -1182,71 +1174,8 @@ export interface ValidationExceptionField {
   Message: string;
 }
 export type ValidationExceptionFieldList = Array<ValidationExceptionField>;
-export type ValidationExceptionReason =
-  | "UNKNOWN_OPERATION"
-  | "CANNOT_PARSE"
-  | "FIELD_VALIDATION_FAILED"
-  | "OTHER"
-  | "PRIMARY_NOT_ASSOCIATED"
-  | "PRIMARY_CANNOT_DISASSOCIATE"
-  | "ACCOUNTS_NOT_ASSOCIATED"
-  | "ACCOUNTS_ALREADY_ASSOCIATED"
-  | "ILLEGAL_PRIMARY_ACCOUNT"
-  | "ILLEGAL_ACCOUNTS"
-  | "MISMATCHED_BILLINGGROUP_ARN"
-  | "MISSING_BILLINGGROUP"
-  | "MISMATCHED_CUSTOMLINEITEM_ARN"
-  | "ILLEGAL_BILLING_PERIOD"
-  | "ILLEGAL_BILLING_PERIOD_RANGE"
-  | "TOO_MANY_ACCOUNTS_IN_REQUEST"
-  | "DUPLICATE_ACCOUNT"
-  | "INVALID_BILLING_GROUP_STATUS"
-  | "MISMATCHED_PRICINGPLAN_ARN"
-  | "MISSING_PRICINGPLAN"
-  | "MISMATCHED_PRICINGRULE_ARN"
-  | "DUPLICATE_PRICINGRULE_ARNS"
-  | "MISSING_COSTCATEGORY"
-  | "ILLEGAL_EXPRESSION"
-  | "ILLEGAL_SCOPE"
-  | "ILLEGAL_SERVICE"
-  | "PRICINGRULES_NOT_EXIST"
-  | "PRICINGRULES_ALREADY_ASSOCIATED"
-  | "PRICINGRULES_NOT_ASSOCIATED"
-  | "INVALID_TIME_RANGE"
-  | "INVALID_BILLINGVIEW_ARN"
-  | "MISMATCHED_BILLINGVIEW_ARN"
-  | "ILLEGAL_CUSTOMLINEITEM"
-  | "MISSING_CUSTOMLINEITEM"
-  | "ILLEGAL_CUSTOMLINEITEM_UPDATE"
-  | "TOO_MANY_CUSTOMLINEITEMS_IN_REQUEST"
-  | "ILLEGAL_CHARGE_DETAILS"
-  | "ILLEGAL_UPDATE_CHARGE_DETAILS"
-  | "INVALID_ARN"
-  | "ILLEGAL_RESOURCE_ARNS"
-  | "ILLEGAL_CUSTOMLINEITEM_MODIFICATION"
-  | "MISSING_LINKED_ACCOUNT_IDS"
-  | "MULTIPLE_LINKED_ACCOUNT_IDS"
-  | "MISSING_PRICING_PLAN_ARN"
-  | "MULTIPLE_PRICING_PLAN_ARN"
-  | "ILLEGAL_CHILD_ASSOCIATE_RESOURCE"
-  | "CUSTOM_LINE_ITEM_ASSOCIATION_EXISTS"
-  | "INVALID_BILLING_GROUP"
-  | "INVALID_BILLING_PERIOD_FOR_OPERATION"
-  | "ILLEGAL_BILLING_ENTITY"
-  | "ILLEGAL_MODIFIER_PERCENTAGE"
-  | "ILLEGAL_TYPE"
-  | "ILLEGAL_ENDED_BILLINGGROUP"
-  | "ILLEGAL_TIERING_INPUT"
-  | "ILLEGAL_OPERATION"
-  | "ILLEGAL_USAGE_TYPE"
-  | "INVALID_SKU_COMBO"
-  | "INVALID_FILTER"
-  | "TOO_MANY_AUTO_ASSOCIATE_BILLING_GROUPS"
-  | "CANNOT_DELETE_AUTO_ASSOCIATE_BILLING_GROUP"
-  | "ILLEGAL_ACCOUNT_ID"
-  | "BILLING_GROUP_ALREADY_EXIST_IN_CURRENT_BILLING_PERIOD"
-  | "ILLEGAL_COMPUTATION_RULE"
-  | "ILLEGAL_LINE_ITEM_FILTER";
+export type ValidationExceptionReason = string;
+
 export declare namespace GetBillingGroupCostReport {
   export type Input = GetBillingGroupCostReportInput;
   export type Output = GetBillingGroupCostReportOutput;

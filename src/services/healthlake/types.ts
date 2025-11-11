@@ -310,7 +310,6 @@ export interface ImportJobProperties {
   JobProgressReport?: JobProgressReport;
   DataAccessRoleArn?: string;
   Message?: string;
-  ValidationLevel?: ValidationLevel;
 }
 export type ImportJobPropertiesList = Array<ImportJobProperties>;
 interface _InputDataConfig {
@@ -445,7 +444,6 @@ export interface StartFHIRImportJobRequest {
   DatastoreId: string;
   DataAccessRoleArn: string;
   ClientToken?: string;
-  ValidationLevel?: ValidationLevel;
 }
 export interface StartFHIRImportJobResponse {
   JobId: string;
@@ -486,7 +484,6 @@ export declare class ValidationException extends EffectData.TaggedError(
 )<{
   readonly Message?: string;
 }> {}
-export type ValidationLevel = "strict" | "structure-only" | "minimal";
 export declare namespace CreateFHIRDatastore {
   export type Input = CreateFHIRDatastoreRequest;
   export type Output = CreateFHIRDatastoreResponse;

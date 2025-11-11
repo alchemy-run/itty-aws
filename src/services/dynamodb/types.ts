@@ -1,40 +1,5 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  AccessDeniedException,
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-  ValidationException,
-} from "../../error.ts";
-type CommonAwsError =
-  | AccessDeniedException
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | ValidationException
-  | ThrottlingException;
+import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class DynamoDB extends AWSServiceClient {
@@ -42,10 +7,7 @@ export declare class DynamoDB extends AWSServiceClient {
     input: BatchExecuteStatementInput,
   ): Effect.Effect<
     BatchExecuteStatementOutput,
-    | InternalServerError
-    | RequestLimitExceeded
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | RequestLimitExceeded | CommonAwsError
   >;
   batchGetItem(
     input: BatchGetItemInput,
@@ -56,7 +18,6 @@ export declare class DynamoDB extends AWSServiceClient {
     | ProvisionedThroughputExceededException
     | RequestLimitExceeded
     | ResourceNotFoundException
-    | ThrottlingException
     | CommonAwsError
   >;
   batchWriteItem(
@@ -70,7 +31,6 @@ export declare class DynamoDB extends AWSServiceClient {
     | ReplicatedWriteConflictException
     | RequestLimitExceeded
     | ResourceNotFoundException
-    | ThrottlingException
     | CommonAwsError
   >;
   createBackup(
@@ -130,7 +90,6 @@ export declare class DynamoDB extends AWSServiceClient {
     | ReplicatedWriteConflictException
     | RequestLimitExceeded
     | ResourceNotFoundException
-    | ThrottlingException
     | TransactionConflictException
     | CommonAwsError
   >;
@@ -289,7 +248,6 @@ export declare class DynamoDB extends AWSServiceClient {
     | ProvisionedThroughputExceededException
     | RequestLimitExceeded
     | ResourceNotFoundException
-    | ThrottlingException
     | TransactionConflictException
     | CommonAwsError
   >;
@@ -302,7 +260,6 @@ export declare class DynamoDB extends AWSServiceClient {
     | ProvisionedThroughputExceededException
     | RequestLimitExceeded
     | ResourceNotFoundException
-    | ThrottlingException
     | TransactionCanceledException
     | TransactionInProgressException
     | CommonAwsError
@@ -328,7 +285,6 @@ export declare class DynamoDB extends AWSServiceClient {
     | ProvisionedThroughputExceededException
     | RequestLimitExceeded
     | ResourceNotFoundException
-    | ThrottlingException
     | CommonAwsError
   >;
   getResourcePolicy(
@@ -404,7 +360,6 @@ export declare class DynamoDB extends AWSServiceClient {
     | ReplicatedWriteConflictException
     | RequestLimitExceeded
     | ResourceNotFoundException
-    | ThrottlingException
     | TransactionConflictException
     | CommonAwsError
   >;
@@ -429,7 +384,6 @@ export declare class DynamoDB extends AWSServiceClient {
     | ProvisionedThroughputExceededException
     | RequestLimitExceeded
     | ResourceNotFoundException
-    | ThrottlingException
     | CommonAwsError
   >;
   restoreTableFromBackup(
@@ -468,7 +422,6 @@ export declare class DynamoDB extends AWSServiceClient {
     | ProvisionedThroughputExceededException
     | RequestLimitExceeded
     | ResourceNotFoundException
-    | ThrottlingException
     | CommonAwsError
   >;
   tagResource(
@@ -491,7 +444,6 @@ export declare class DynamoDB extends AWSServiceClient {
     | ProvisionedThroughputExceededException
     | RequestLimitExceeded
     | ResourceNotFoundException
-    | ThrottlingException
     | TransactionCanceledException
     | CommonAwsError
   >;
@@ -505,7 +457,6 @@ export declare class DynamoDB extends AWSServiceClient {
     | ProvisionedThroughputExceededException
     | RequestLimitExceeded
     | ResourceNotFoundException
-    | ThrottlingException
     | TransactionCanceledException
     | TransactionInProgressException
     | CommonAwsError
@@ -574,7 +525,6 @@ export declare class DynamoDB extends AWSServiceClient {
     | ReplicatedWriteConflictException
     | RequestLimitExceeded
     | ResourceNotFoundException
-    | ThrottlingException
     | TransactionConflictException
     | CommonAwsError
   >;
@@ -713,8 +663,6 @@ export interface AutoScalingTargetTrackingScalingPolicyConfigurationUpdate {
   ScaleOutCooldown?: number;
   TargetValue: number;
 }
-export type AvailabilityErrorMessage = string;
-
 export type Backfilling = boolean;
 
 export type BackupArn = string;
@@ -923,9 +871,6 @@ export declare class ContinuousBackupsUnavailableException extends EffectData.Ta
   readonly message?: string;
 }> {}
 export type ContributorInsightsAction = "ENABLE" | "DISABLE";
-export type ContributorInsightsMode =
-  | "ACCESSED_AND_THROTTLED_KEYS"
-  | "THROTTLED_KEYS";
 export type ContributorInsightsRule = string;
 
 export type ContributorInsightsRuleList = Array<string>;
@@ -940,7 +885,6 @@ export interface ContributorInsightsSummary {
   TableName?: string;
   IndexName?: string;
   ContributorInsightsStatus?: ContributorInsightsStatus;
-  ContributorInsightsMode?: ContributorInsightsMode;
 }
 export interface CreateBackupInput {
   TableName: string;
@@ -1094,7 +1038,6 @@ export interface DescribeContributorInsightsOutput {
   ContributorInsightsStatus?: ContributorInsightsStatus;
   LastUpdateDateTime?: Date | string;
   FailureException?: FailureException;
-  ContributorInsightsMode?: ContributorInsightsMode;
 }
 export interface DescribeEndpointsRequest {}
 export interface DescribeEndpointsResponse {
@@ -1801,7 +1744,6 @@ export declare class ProvisionedThroughputExceededException extends EffectData.T
   "ProvisionedThroughputExceededException",
 )<{
   readonly message?: string;
-  readonly ThrottlingReasons?: Array<ThrottlingReason>;
 }> {}
 export interface ProvisionedThroughputOverride {
   ReadCapacityUnits?: number;
@@ -1871,8 +1813,6 @@ export interface QueryOutput {
   LastEvaluatedKey?: Record<string, AttributeValue>;
   ConsumedCapacity?: ConsumedCapacity;
 }
-export type Reason = string;
-
 export type RecoveryPeriodInDays = number;
 
 export type RegionName = string;
@@ -2021,10 +1961,7 @@ export declare class RequestLimitExceeded extends EffectData.TaggedError(
   "RequestLimitExceeded",
 )<{
   readonly message?: string;
-  readonly ThrottlingReasons?: Array<ThrottlingReason>;
 }> {}
-export type Resource = string;
-
 export type ResourceArnString = string;
 
 export declare class ResourceInUseException extends EffectData.TaggedError(
@@ -2293,17 +2230,6 @@ export interface TagResourceInput {
 }
 export type TagValueString = string;
 
-export declare class ThrottlingException extends EffectData.TaggedError(
-  "ThrottlingException",
-)<{
-  readonly message?: string;
-  readonly throttlingReasons?: Array<ThrottlingReason>;
-}> {}
-export interface ThrottlingReason {
-  reason?: string;
-  resource?: string;
-}
-export type ThrottlingReasonList = Array<ThrottlingReason>;
 export type TimeRangeLowerBound = Date | string;
 
 export type TimeRangeUpperBound = Date | string;
@@ -2394,13 +2320,11 @@ export interface UpdateContributorInsightsInput {
   TableName: string;
   IndexName?: string;
   ContributorInsightsAction: ContributorInsightsAction;
-  ContributorInsightsMode?: ContributorInsightsMode;
 }
 export interface UpdateContributorInsightsOutput {
   TableName?: string;
   IndexName?: string;
   ContributorInsightsStatus?: ContributorInsightsStatus;
-  ContributorInsightsMode?: ContributorInsightsMode;
 }
 export type UpdateExpression = string;
 
@@ -2522,7 +2446,6 @@ export declare namespace BatchExecuteStatement {
   export type Error =
     | InternalServerError
     | RequestLimitExceeded
-    | ThrottlingException
     | CommonAwsError;
 }
 
@@ -2535,7 +2458,6 @@ export declare namespace BatchGetItem {
     | ProvisionedThroughputExceededException
     | RequestLimitExceeded
     | ResourceNotFoundException
-    | ThrottlingException
     | CommonAwsError;
 }
 
@@ -2550,7 +2472,6 @@ export declare namespace BatchWriteItem {
     | ReplicatedWriteConflictException
     | RequestLimitExceeded
     | ResourceNotFoundException
-    | ThrottlingException
     | CommonAwsError;
 }
 
@@ -2615,7 +2536,6 @@ export declare namespace DeleteItem {
     | ReplicatedWriteConflictException
     | RequestLimitExceeded
     | ResourceNotFoundException
-    | ThrottlingException
     | TransactionConflictException
     | CommonAwsError;
 }
@@ -2799,7 +2719,6 @@ export declare namespace ExecuteStatement {
     | ProvisionedThroughputExceededException
     | RequestLimitExceeded
     | ResourceNotFoundException
-    | ThrottlingException
     | TransactionConflictException
     | CommonAwsError;
 }
@@ -2813,7 +2732,6 @@ export declare namespace ExecuteTransaction {
     | ProvisionedThroughputExceededException
     | RequestLimitExceeded
     | ResourceNotFoundException
-    | ThrottlingException
     | TransactionCanceledException
     | TransactionInProgressException
     | CommonAwsError;
@@ -2841,7 +2759,6 @@ export declare namespace GetItem {
     | ProvisionedThroughputExceededException
     | RequestLimitExceeded
     | ResourceNotFoundException
-    | ThrottlingException
     | CommonAwsError;
 }
 
@@ -2939,7 +2856,6 @@ export declare namespace PutItem {
     | ReplicatedWriteConflictException
     | RequestLimitExceeded
     | ResourceNotFoundException
-    | ThrottlingException
     | TransactionConflictException
     | CommonAwsError;
 }
@@ -2966,7 +2882,6 @@ export declare namespace Query {
     | ProvisionedThroughputExceededException
     | RequestLimitExceeded
     | ResourceNotFoundException
-    | ThrottlingException
     | CommonAwsError;
 }
 
@@ -3008,7 +2923,6 @@ export declare namespace Scan {
     | ProvisionedThroughputExceededException
     | RequestLimitExceeded
     | ResourceNotFoundException
-    | ThrottlingException
     | CommonAwsError;
 }
 
@@ -3033,7 +2947,6 @@ export declare namespace TransactGetItems {
     | ProvisionedThroughputExceededException
     | RequestLimitExceeded
     | ResourceNotFoundException
-    | ThrottlingException
     | TransactionCanceledException
     | CommonAwsError;
 }
@@ -3048,7 +2961,6 @@ export declare namespace TransactWriteItems {
     | ProvisionedThroughputExceededException
     | RequestLimitExceeded
     | ResourceNotFoundException
-    | ThrottlingException
     | TransactionCanceledException
     | TransactionInProgressException
     | CommonAwsError;
@@ -3125,7 +3037,6 @@ export declare namespace UpdateItem {
     | ReplicatedWriteConflictException
     | RequestLimitExceeded
     | ResourceNotFoundException
-    | ThrottlingException
     | TransactionConflictException
     | CommonAwsError;
 }
@@ -3209,7 +3120,6 @@ export type DynamoDBErrors =
   | TableAlreadyExistsException
   | TableInUseException
   | TableNotFoundException
-  | ThrottlingException
   | TransactionCanceledException
   | TransactionConflictException
   | TransactionInProgressException

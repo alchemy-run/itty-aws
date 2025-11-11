@@ -1715,15 +1715,17 @@ export interface Cvss2 {
   baseScore?: number;
   scoringVector?: string;
 }
+export type Cvss2BaseScore = number;
+
+export type Cvss2ScoringVector = string;
+
 export interface Cvss3 {
   baseScore?: number;
   scoringVector?: string;
 }
-export interface Cvss4 {
-  baseScore?: number;
-  scoringVector?: string;
-}
-export type CvssBaseScore = number;
+export type Cvss3BaseScore = number;
+
+export type Cvss3ScoringVector = string;
 
 export interface CvssScore {
   baseScore: number;
@@ -1745,8 +1747,6 @@ export interface CvssScoreDetails {
   adjustments?: Array<CvssScoreAdjustment>;
 }
 export type CvssScoreList = Array<CvssScore>;
-export type CvssScoringVector = string;
-
 export type Cwe = string;
 
 export type CweList = Array<string>;
@@ -3295,7 +3295,6 @@ export interface Vulnerability {
   description?: string;
   atigData?: AtigData;
   vendorSeverity?: string;
-  cvss4?: Cvss4;
   cvss3?: Cvss3;
   relatedVulnerabilities?: Array<string>;
   cvss2?: Cvss2;

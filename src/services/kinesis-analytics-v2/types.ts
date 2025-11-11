@@ -445,7 +445,6 @@ export interface ApplicationConfiguration {
   ApplicationSystemRollbackConfiguration?: ApplicationSystemRollbackConfiguration;
   VpcConfigurations?: Array<VpcConfiguration>;
   ZeppelinApplicationConfiguration?: ZeppelinApplicationConfiguration;
-  ApplicationEncryptionConfiguration?: ApplicationEncryptionConfiguration;
 }
 export interface ApplicationConfigurationDescription {
   SqlApplicationConfigurationDescription?: SqlApplicationConfigurationDescription;
@@ -457,7 +456,6 @@ export interface ApplicationConfigurationDescription {
   ApplicationSystemRollbackConfigurationDescription?: ApplicationSystemRollbackConfigurationDescription;
   VpcConfigurationDescriptions?: Array<VpcConfigurationDescription>;
   ZeppelinApplicationConfigurationDescription?: ZeppelinApplicationConfigurationDescription;
-  ApplicationEncryptionConfigurationDescription?: ApplicationEncryptionConfigurationDescription;
 }
 export interface ApplicationConfigurationUpdate {
   SqlApplicationConfigurationUpdate?: SqlApplicationConfigurationUpdate;
@@ -468,7 +466,6 @@ export interface ApplicationConfigurationUpdate {
   ApplicationSystemRollbackConfigurationUpdate?: ApplicationSystemRollbackConfigurationUpdate;
   VpcConfigurationUpdates?: Array<VpcConfigurationUpdate>;
   ZeppelinApplicationConfigurationUpdate?: ZeppelinApplicationConfigurationUpdate;
-  ApplicationEncryptionConfigurationUpdate?: ApplicationEncryptionConfigurationUpdate;
 }
 export type ApplicationDescription = string;
 
@@ -491,18 +488,6 @@ export interface ApplicationDetail {
   ConditionalToken?: string;
   ApplicationVersionRolledBackTo?: number;
   ApplicationMode?: ApplicationMode;
-}
-export interface ApplicationEncryptionConfiguration {
-  KeyId?: string;
-  KeyType: KeyType;
-}
-export interface ApplicationEncryptionConfigurationDescription {
-  KeyId?: string;
-  KeyType: KeyType;
-}
-export interface ApplicationEncryptionConfigurationUpdate {
-  KeyIdUpdate?: string;
-  KeyTypeUpdate: KeyType;
 }
 export interface ApplicationMaintenanceConfigurationDescription {
   ApplicationMaintenanceWindowStartTime: string;
@@ -984,9 +969,6 @@ export type JobPlanDescription = string;
 export interface JSONMappingParameters {
   RecordRowPath: string;
 }
-export type KeyId = string;
-
-export type KeyType = "AWS_OWNED_KEY" | "CUSTOMER_MANAGED_KEY";
 export type KinesisAnalyticsARN = string;
 
 export interface KinesisFirehoseInput {
@@ -1376,7 +1358,6 @@ export interface SnapshotDetails {
   ApplicationVersionId: number;
   SnapshotCreationTimestamp?: Date | string;
   RuntimeEnvironment?: RuntimeEnvironment;
-  ApplicationEncryptionConfigurationDescription?: ApplicationEncryptionConfigurationDescription;
 }
 export type SnapshotName = string;
 

@@ -36,16 +36,11 @@ export declare class RDS extends AWSServiceClient {
     | BlueGreenDeploymentNotFoundFault
     | DBClusterNotFoundFault
     | DBInstanceNotFoundFault
-    | DBProxyEndpointNotFoundFault
     | DBProxyNotFoundFault
     | DBProxyTargetGroupNotFoundFault
-    | DBShardGroupNotFoundFault
     | DBSnapshotNotFoundFault
     | DBSnapshotTenantDatabaseNotFoundFault
     | IntegrationNotFoundFault
-    | InvalidDBClusterEndpointStateFault
-    | InvalidDBClusterStateFault
-    | InvalidDBInstanceStateFault
     | TenantDatabaseNotFoundFault
     | CommonAwsError
   >;
@@ -146,7 +141,6 @@ export declare class RDS extends AWSServiceClient {
     | InvalidDBInstanceStateFault
     | SourceClusterNotSupportedFault
     | SourceDatabaseNotSupportedFault
-    | StorageQuotaExceededFault
     | CommonAwsError
   >;
   createCustomDBEngineVersion(
@@ -155,10 +149,8 @@ export declare class RDS extends AWSServiceClient {
     DBEngineVersion,
     | CreateCustomDBEngineVersionFault
     | CustomDBEngineVersionAlreadyExistsFault
-    | CustomDBEngineVersionNotFoundFault
     | CustomDBEngineVersionQuotaExceededFault
     | Ec2ImagePropertiesNotSupportedFault
-    | InvalidCustomDBEngineVersionStateFault
     | KMSKeyNotAccessibleFault
     | CommonAwsError
   >;
@@ -185,10 +177,8 @@ export declare class RDS extends AWSServiceClient {
     | InvalidSubnet
     | InvalidVPCNetworkStateFault
     | KMSKeyNotAccessibleFault
-    | NetworkTypeNotSupported
     | OptionGroupNotFoundFault
     | StorageQuotaExceededFault
-    | StorageTypeNotSupportedFault
     | CommonAwsError
   >;
   createDBClusterEndpoint(
@@ -372,8 +362,6 @@ export declare class RDS extends AWSServiceClient {
     | GlobalClusterAlreadyExistsFault
     | GlobalClusterQuotaExceededFault
     | InvalidDBClusterStateFault
-    | InvalidDBShardGroupStateFault
-    | ResourceNotFoundFault
     | CommonAwsError
   >;
   createIntegration(
@@ -432,8 +420,6 @@ export declare class RDS extends AWSServiceClient {
     | DBClusterSnapshotAlreadyExistsFault
     | InvalidDBClusterSnapshotStateFault
     | InvalidDBClusterStateFault
-    | InvalidGlobalClusterStateFault
-    | KMSKeyNotAccessibleFault
     | SnapshotQuotaExceededFault
     | CommonAwsError
   >;
@@ -479,7 +465,6 @@ export declare class RDS extends AWSServiceClient {
     | DBSnapshotAlreadyExistsFault
     | InvalidDBClusterStateFault
     | InvalidDBInstanceStateFault
-    | KMSKeyNotAccessibleFault
     | SnapshotQuotaExceededFault
     | CommonAwsError
   >;
@@ -579,7 +564,6 @@ export declare class RDS extends AWSServiceClient {
   ): Effect.Effect<
     DeleteTenantDatabaseResult,
     | DBInstanceNotFoundFault
-    | DBSnapshotAlreadyExistsFault
     | InvalidDBInstanceStateFault
     | TenantDatabaseNotFoundFault
     | CommonAwsError
@@ -882,10 +866,8 @@ export declare class RDS extends AWSServiceClient {
     | BlueGreenDeploymentNotFoundFault
     | DBClusterNotFoundFault
     | DBInstanceNotFoundFault
-    | DBProxyEndpointNotFoundFault
     | DBProxyNotFoundFault
     | DBProxyTargetGroupNotFoundFault
-    | DBShardGroupNotFoundFault
     | DBSnapshotNotFoundFault
     | DBSnapshotTenantDatabaseNotFoundFault
     | IntegrationNotFoundFault
@@ -932,22 +914,17 @@ export declare class RDS extends AWSServiceClient {
     | DBClusterNotFoundFault
     | DBClusterParameterGroupNotFoundFault
     | DBInstanceAlreadyExistsFault
-    | DBParameterGroupNotFoundFault
     | DBSubnetGroupNotFoundFault
     | DomainNotFoundFault
     | InvalidDBClusterStateFault
     | InvalidDBInstanceStateFault
     | InvalidDBSecurityGroupStateFault
     | InvalidDBSubnetGroupStateFault
-    | InvalidGlobalClusterStateFault
     | InvalidSubnet
     | InvalidVPCNetworkStateFault
-    | KMSKeyNotAccessibleFault
-    | NetworkTypeNotSupported
     | OptionGroupNotFoundFault
     | StorageQuotaExceededFault
     | StorageTypeNotAvailableFault
-    | StorageTypeNotSupportedFault
     | CommonAwsError
   >;
   modifyDBClusterEndpoint(
@@ -1057,10 +1034,7 @@ export declare class RDS extends AWSServiceClient {
     input: ModifyDBSnapshotMessage,
   ): Effect.Effect<
     ModifyDBSnapshotResult,
-    | DBSnapshotNotFoundFault
-    | InvalidDBSnapshotStateFault
-    | KMSKeyNotAccessibleFault
-    | CommonAwsError
+    DBSnapshotNotFoundFault | CommonAwsError
   >;
   modifyDBSnapshotAttribute(
     input: ModifyDBSnapshotAttributeMessage,
@@ -1078,7 +1052,6 @@ export declare class RDS extends AWSServiceClient {
     | DBSubnetGroupDoesNotCoverEnoughAZs
     | DBSubnetGroupNotFoundFault
     | DBSubnetQuotaExceededFault
-    | InvalidDBSubnetGroupStateFault
     | InvalidSubnet
     | SubnetAlreadyInUse
     | CommonAwsError
@@ -1166,10 +1139,7 @@ export declare class RDS extends AWSServiceClient {
     input: RebootDBInstanceMessage,
   ): Effect.Effect<
     RebootDBInstanceResult,
-    | DBInstanceNotFoundFault
-    | InvalidDBInstanceStateFault
-    | KMSKeyNotAccessibleFault
-    | CommonAwsError
+    DBInstanceNotFoundFault | InvalidDBInstanceStateFault | CommonAwsError
   >;
   rebootDBShardGroup(
     input: RebootDBShardGroupMessage,
@@ -1198,7 +1168,6 @@ export declare class RDS extends AWSServiceClient {
     RemoveFromGlobalClusterResult,
     | DBClusterNotFoundFault
     | GlobalClusterNotFoundFault
-    | InvalidDBClusterStateFault
     | InvalidGlobalClusterStateFault
     | CommonAwsError
   >;
@@ -1233,16 +1202,11 @@ export declare class RDS extends AWSServiceClient {
     | BlueGreenDeploymentNotFoundFault
     | DBClusterNotFoundFault
     | DBInstanceNotFoundFault
-    | DBProxyEndpointNotFoundFault
     | DBProxyNotFoundFault
     | DBProxyTargetGroupNotFoundFault
-    | DBShardGroupNotFoundFault
     | DBSnapshotNotFoundFault
     | DBSnapshotTenantDatabaseNotFoundFault
     | IntegrationNotFoundFault
-    | InvalidDBClusterEndpointStateFault
-    | InvalidDBClusterStateFault
-    | InvalidDBInstanceStateFault
     | TenantDatabaseNotFoundFault
     | CommonAwsError
   >;
@@ -1279,7 +1243,6 @@ export declare class RDS extends AWSServiceClient {
     | InvalidSubnet
     | InvalidVPCNetworkStateFault
     | KMSKeyNotAccessibleFault
-    | NetworkTypeNotSupported
     | StorageQuotaExceededFault
     | StorageTypeNotSupportedFault
     | CommonAwsError
@@ -1306,10 +1269,8 @@ export declare class RDS extends AWSServiceClient {
     | InvalidSubnet
     | InvalidVPCNetworkStateFault
     | KMSKeyNotAccessibleFault
-    | NetworkTypeNotSupported
     | OptionGroupNotFoundFault
     | StorageQuotaExceededFault
-    | StorageTypeNotSupportedFault
     | CommonAwsError
   >;
   restoreDBClusterToPointInTime(
@@ -1334,10 +1295,8 @@ export declare class RDS extends AWSServiceClient {
     | InvalidSubnet
     | InvalidVPCNetworkStateFault
     | KMSKeyNotAccessibleFault
-    | NetworkTypeNotSupported
     | OptionGroupNotFoundFault
     | StorageQuotaExceededFault
-    | StorageTypeNotSupportedFault
     | CommonAwsError
   >;
   restoreDBInstanceFromDBSnapshot(
@@ -1455,7 +1414,6 @@ export declare class RDS extends AWSServiceClient {
     | InvalidDBClusterStateFault
     | InvalidDBInstanceStateFault
     | InvalidDBShardGroupStateFault
-    | KMSKeyNotAccessibleFault
     | CommonAwsError
   >;
   startDBInstance(
@@ -1481,7 +1439,6 @@ export declare class RDS extends AWSServiceClient {
     StartDBInstanceAutomatedBackupsReplicationResult,
     | DBInstanceAutomatedBackupQuotaExceededFault
     | DBInstanceNotFoundFault
-    | InvalidDBInstanceAutomatedBackupStateFault
     | InvalidDBInstanceStateFault
     | KMSKeyNotAccessibleFault
     | StorageTypeNotSupportedFault
@@ -1650,8 +1607,6 @@ export interface AuthorizeDBSecurityGroupIngressResult {
   DBSecurityGroup?: DBSecurityGroup;
 }
 export type AuthScheme = "SECRETS";
-export type AuthUserName = string;
-
 export type AutomationMode = "full" | "all-paused";
 export interface AvailabilityZone {
   Name?: string;
@@ -1774,13 +1729,13 @@ export interface ClusterPendingModifiedValues {
   IAMDatabaseAuthenticationEnabled?: boolean;
   EngineVersion?: string;
   BackupRetentionPeriod?: number;
-  StorageType?: string;
   AllocatedStorage?: number;
   RdsCustomClusterConfiguration?: RdsCustomClusterConfiguration;
   Iops?: number;
+  StorageType?: string;
   CertificateDetails?: CertificateDetails;
 }
-export type ClusterScalabilityType = "standard" | "limitless" | "scaleout";
+export type ClusterScalabilityType = "standard" | "limitless";
 export interface ConnectionPoolConfiguration {
   MaxConnectionsPercent?: number;
   MaxIdleConnectionsPercent?: number;
@@ -1838,9 +1793,9 @@ export interface CopyDBSnapshotMessage {
   PreSignedUrl?: string;
   OptionGroupName?: string;
   TargetCustomAvailabilityZone?: string;
-  SnapshotTarget?: string;
   CopyOptionGroup?: boolean;
   SnapshotAvailabilityZone?: string;
+  SnapshotTarget?: string;
 }
 export interface CopyDBSnapshotResult {
   DBSnapshot?: DBSnapshot;
@@ -1883,11 +1838,11 @@ export interface CreateCustomDBEngineVersionMessage {
   DatabaseInstallationFilesS3Prefix?: string;
   ImageId?: string;
   KMSKeyId?: string;
-  SourceCustomDbEngineVersionIdentifier?: string;
-  UseAwsProvidedLatestImage?: boolean;
   Description?: string;
   Manifest?: string;
   Tags?: Array<Tag>;
+  SourceCustomDbEngineVersionIdentifier?: string;
+  UseAwsProvidedLatestImage?: boolean;
 }
 export interface CreateDBClusterEndpointMessage {
   DBClusterIdentifier: string;
@@ -1925,12 +1880,6 @@ export interface CreateDBClusterMessage {
   EngineMode?: string;
   ScalingConfiguration?: ScalingConfiguration;
   RdsCustomClusterConfiguration?: RdsCustomClusterConfiguration;
-  DBClusterInstanceClass?: string;
-  AllocatedStorage?: number;
-  StorageType?: string;
-  Iops?: number;
-  PubliclyAccessible?: boolean;
-  AutoMinorVersionUpgrade?: boolean;
   DeletionProtection?: boolean;
   GlobalClusterIdentifier?: string;
   EnableHttpEndpoint?: boolean;
@@ -1938,8 +1887,12 @@ export interface CreateDBClusterMessage {
   Domain?: string;
   DomainIAMRoleName?: string;
   EnableGlobalWriteForwarding?: boolean;
-  NetworkType?: string;
-  ServerlessV2ScalingConfiguration?: ServerlessV2ScalingConfiguration;
+  DBClusterInstanceClass?: string;
+  AllocatedStorage?: number;
+  StorageType?: string;
+  Iops?: number;
+  PubliclyAccessible?: boolean;
+  AutoMinorVersionUpgrade?: boolean;
   MonitoringInterval?: number;
   MonitoringRoleArn?: string;
   DatabaseInsightsMode?: DatabaseInsightsMode;
@@ -1947,14 +1900,15 @@ export interface CreateDBClusterMessage {
   PerformanceInsightsKMSKeyId?: string;
   PerformanceInsightsRetentionPeriod?: number;
   EnableLimitlessDatabase?: boolean;
+  ServerlessV2ScalingConfiguration?: ServerlessV2ScalingConfiguration;
+  NetworkType?: string;
   ClusterScalabilityType?: ClusterScalabilityType;
   DBSystemId?: string;
   ManageMasterUserPassword?: boolean;
-  EnableLocalWriteForwarding?: boolean;
   MasterUserSecretKmsKeyId?: string;
+  EnableLocalWriteForwarding?: boolean;
   CACertificateIdentifier?: string;
   EngineLifecycleSupport?: string;
-  MasterUserAuthenticationType?: MasterUserAuthenticationType;
 }
 export interface CreateDBClusterParameterGroupMessage {
   DBClusterParameterGroupName: string;
@@ -1998,7 +1952,6 @@ export interface CreateDBInstanceMessage {
   AutoMinorVersionUpgrade?: boolean;
   LicenseModel?: string;
   Iops?: number;
-  StorageThroughput?: number;
   OptionGroupName?: string;
   CharacterSetName?: string;
   NcharCharacterSetName?: string;
@@ -2031,17 +1984,17 @@ export interface CreateDBInstanceMessage {
   DeletionProtection?: boolean;
   MaxAllocatedStorage?: number;
   EnableCustomerOwnedIp?: boolean;
-  NetworkType?: string;
-  BackupTarget?: string;
   CustomIamInstanceProfile?: string;
-  DBSystemId?: string;
-  CACertificateIdentifier?: string;
+  BackupTarget?: string;
+  NetworkType?: string;
+  StorageThroughput?: number;
   ManageMasterUserPassword?: boolean;
   MasterUserSecretKmsKeyId?: string;
-  MultiTenant?: boolean;
+  CACertificateIdentifier?: string;
+  DBSystemId?: string;
   DedicatedLogVolume?: boolean;
+  MultiTenant?: boolean;
   EngineLifecycleSupport?: string;
-  MasterUserAuthenticationType?: MasterUserAuthenticationType;
 }
 export interface CreateDBInstanceReadReplicaMessage {
   DBInstanceIdentifier: string;
@@ -2052,7 +2005,6 @@ export interface CreateDBInstanceReadReplicaMessage {
   MultiAZ?: boolean;
   AutoMinorVersionUpgrade?: boolean;
   Iops?: number;
-  StorageThroughput?: number;
   OptionGroupName?: string;
   DBParameterGroupName?: string;
   PubliclyAccessible?: boolean;
@@ -2081,11 +2033,12 @@ export interface CreateDBInstanceReadReplicaMessage {
   DomainAuthSecretArn?: string;
   DomainDnsIps?: Array<string>;
   ReplicaMode?: ReplicaMode;
-  EnableCustomerOwnedIp?: boolean;
-  NetworkType?: string;
   MaxAllocatedStorage?: number;
-  BackupTarget?: string;
   CustomIamInstanceProfile?: string;
+  NetworkType?: string;
+  StorageThroughput?: number;
+  EnableCustomerOwnedIp?: boolean;
+  BackupTarget?: string;
   AllocatedStorage?: number;
   SourceDBClusterIdentifier?: string;
   DedicatedLogVolume?: boolean;
@@ -2114,7 +2067,6 @@ export interface CreateDBProxyEndpointRequest {
   VpcSecurityGroupIds?: Array<string>;
   TargetRole?: DBProxyEndpointTargetRole;
   Tags?: Array<Tag>;
-  EndpointNetworkType?: EndpointNetworkType;
 }
 export interface CreateDBProxyEndpointResponse {
   DBProxyEndpoint?: DBProxyEndpoint;
@@ -2122,8 +2074,7 @@ export interface CreateDBProxyEndpointResponse {
 export interface CreateDBProxyRequest {
   DBProxyName: string;
   EngineFamily: EngineFamily;
-  DefaultAuthScheme?: DefaultAuthScheme;
-  Auth?: Array<UserAuthConfig>;
+  Auth: Array<UserAuthConfig>;
   RoleArn: string;
   VpcSubnetIds: Array<string>;
   VpcSecurityGroupIds?: Array<string>;
@@ -2131,8 +2082,6 @@ export interface CreateDBProxyRequest {
   IdleClientTimeout?: number;
   DebugLogging?: boolean;
   Tags?: Array<Tag>;
-  EndpointNetworkType?: EndpointNetworkType;
-  TargetConnectionNetworkType?: TargetConnectionNetworkType;
 }
 export interface CreateDBProxyResponse {
   DBProxy?: DBProxy;
@@ -2184,7 +2133,7 @@ export interface CreateEventSubscriptionResult {
   EventSubscription?: EventSubscription;
 }
 export interface CreateGlobalClusterMessage {
-  GlobalClusterIdentifier: string;
+  GlobalClusterIdentifier?: string;
   SourceDBClusterIdentifier?: string;
   Engine?: string;
   EngineVersion?: string;
@@ -2280,6 +2229,7 @@ export interface DBCluster {
   DBClusterParameterGroup?: string;
   DBSubnetGroup?: string;
   Status?: string;
+  AutomaticRestartTime?: Date | string;
   PercentProgress?: string;
   EarliestRestorableTime?: Date | string;
   Endpoint?: string;
@@ -2313,17 +2263,9 @@ export interface DBCluster {
   BacktrackConsumedChangeRecords?: number;
   EnabledCloudwatchLogsExports?: Array<string>;
   Capacity?: number;
-  PendingModifiedValues?: ClusterPendingModifiedValues;
   EngineMode?: string;
   ScalingConfigurationInfo?: ScalingConfigurationInfo;
   RdsCustomClusterConfiguration?: RdsCustomClusterConfiguration;
-  DBClusterInstanceClass?: string;
-  StorageType?: string;
-  Iops?: number;
-  StorageThroughput?: number;
-  IOOptimizedNextAllowedModificationTime?: Date | string;
-  PubliclyAccessible?: boolean;
-  AutoMinorVersionUpgrade?: boolean;
   DeletionProtection?: boolean;
   HttpEndpointEnabled?: boolean;
   ActivityStreamMode?: ActivityStreamMode;
@@ -2337,21 +2279,27 @@ export interface DBCluster {
   GlobalClusterIdentifier?: string;
   GlobalWriteForwardingStatus?: WriteForwardingStatus;
   GlobalWriteForwardingRequested?: boolean;
-  NetworkType?: string;
-  AutomaticRestartTime?: Date | string;
-  ServerlessV2ScalingConfiguration?: ServerlessV2ScalingConfigurationInfo;
-  ServerlessV2PlatformVersion?: string;
+  PendingModifiedValues?: ClusterPendingModifiedValues;
+  DBClusterInstanceClass?: string;
+  StorageType?: string;
+  Iops?: number;
+  PubliclyAccessible?: boolean;
+  AutoMinorVersionUpgrade?: boolean;
   MonitoringInterval?: number;
   MonitoringRoleArn?: string;
   DatabaseInsightsMode?: DatabaseInsightsMode;
   PerformanceInsightsEnabled?: boolean;
   PerformanceInsightsKMSKeyId?: string;
   PerformanceInsightsRetentionPeriod?: number;
+  ServerlessV2ScalingConfiguration?: ServerlessV2ScalingConfigurationInfo;
+  NetworkType?: string;
   DBSystemId?: string;
   MasterUserSecret?: MasterUserSecret;
+  IOOptimizedNextAllowedModificationTime?: Date | string;
   LocalWriteForwardingStatus?: LocalWriteForwardingStatus;
   AwsBackupRecoveryPointArn?: string;
   LimitlessDatabase?: LimitlessDatabase;
+  StorageThroughput?: number;
   ClusterScalabilityType?: ClusterScalabilityType;
   CertificateDetails?: CertificateDetails;
   EngineLifecycleSupport?: string;
@@ -2385,8 +2333,8 @@ export interface DBClusterAutomatedBackup {
   KmsKeyId?: string;
   StorageType?: string;
   Iops?: number;
-  StorageThroughput?: number;
   AwsBackupRecoveryPointArn?: string;
+  StorageThroughput?: number;
 }
 export type DBClusterAutomatedBackupList = Array<DBClusterAutomatedBackup>;
 export interface DBClusterAutomatedBackupMessage {
@@ -2556,10 +2504,10 @@ export interface DBClusterSnapshot {
   SourceDBClusterSnapshotArn?: string;
   IAMDatabaseAuthenticationEnabled?: boolean;
   TagList?: Array<Tag>;
-  StorageType?: string;
-  StorageThroughput?: number;
-  DbClusterResourceId?: string;
   DBSystemId?: string;
+  StorageType?: string;
+  DbClusterResourceId?: string;
+  StorageThroughput?: number;
 }
 export declare class DBClusterSnapshotAlreadyExistsFault extends EffectData.TaggedError(
   "DBClusterSnapshotAlreadyExistsFault",
@@ -2594,20 +2542,13 @@ export interface DBClusterStatusInfo {
 export type DBClusterStatusInfoList = Array<DBClusterStatusInfo>;
 export interface DBEngineVersion {
   Engine?: string;
-  MajorEngineVersion?: string;
   EngineVersion?: string;
-  DatabaseInstallationFilesS3BucketName?: string;
-  DatabaseInstallationFilesS3Prefix?: string;
-  CustomDBEngineVersionManifest?: string;
   DBParameterGroupFamily?: string;
   DBEngineDescription?: string;
-  DBEngineVersionArn?: string;
   DBEngineVersionDescription?: string;
   DefaultCharacterSet?: CharacterSet;
   Image?: CustomDBEngineVersionAMI;
   DBEngineMediaType?: string;
-  KMSKeyId?: string;
-  CreateTime?: Date | string;
   SupportedCharacterSets?: Array<CharacterSet>;
   SupportedNcharCharacterSets?: Array<CharacterSet>;
   ValidUpgradeTarget?: Array<UpgradeTarget>;
@@ -2620,8 +2561,15 @@ export interface DBEngineVersion {
   Status?: string;
   SupportsParallelQuery?: boolean;
   SupportsGlobalDatabases?: boolean;
+  MajorEngineVersion?: string;
+  DatabaseInstallationFilesS3BucketName?: string;
+  DatabaseInstallationFilesS3Prefix?: string;
+  DBEngineVersionArn?: string;
+  KMSKeyId?: string;
+  CreateTime?: Date | string;
   TagList?: Array<Tag>;
   SupportsBabelfish?: boolean;
+  CustomDBEngineVersionManifest?: string;
   SupportsLimitlessDatabase?: boolean;
   SupportsCertificateRotationWithoutRestart?: boolean;
   SupportedCACertificateIdentifiers?: Array<string>;
@@ -2639,6 +2587,7 @@ export interface DBInstance {
   DBInstanceClass?: string;
   Engine?: string;
   DBInstanceStatus?: string;
+  AutomaticRestartTime?: Date | string;
   MasterUsername?: string;
   DBName?: string;
   Endpoint?: Endpoint;
@@ -2663,7 +2612,6 @@ export interface DBInstance {
   ReplicaMode?: ReplicaMode;
   LicenseModel?: string;
   Iops?: number;
-  StorageThroughput?: number;
   OptionGroupMemberships?: Array<OptionGroupMembership>;
   CharacterSetName?: string;
   NcharCharacterSetName?: string;
@@ -2698,29 +2646,29 @@ export interface DBInstance {
   ListenerEndpoint?: Endpoint;
   MaxAllocatedStorage?: number;
   TagList?: Array<Tag>;
-  AutomationMode?: AutomationMode;
-  ResumeFullAutomationModeTime?: Date | string;
+  DBInstanceAutomatedBackupsReplications?: Array<DBInstanceAutomatedBackupsReplication>;
   CustomerOwnedIpEnabled?: boolean;
-  NetworkType?: string;
+  AwsBackupRecoveryPointArn?: string;
   ActivityStreamStatus?: ActivityStreamStatus;
   ActivityStreamKmsKeyId?: string;
   ActivityStreamKinesisStreamName?: string;
   ActivityStreamMode?: ActivityStreamMode;
   ActivityStreamEngineNativeAuditFieldsIncluded?: boolean;
-  AwsBackupRecoveryPointArn?: string;
-  DBInstanceAutomatedBackupsReplications?: Array<DBInstanceAutomatedBackupsReplication>;
-  BackupTarget?: string;
-  AutomaticRestartTime?: Date | string;
+  AutomationMode?: AutomationMode;
+  ResumeFullAutomationModeTime?: Date | string;
   CustomIamInstanceProfile?: string;
+  BackupTarget?: string;
+  NetworkType?: string;
   ActivityStreamPolicyStatus?: ActivityStreamPolicyStatus;
-  CertificateDetails?: CertificateDetails;
+  StorageThroughput?: number;
   DBSystemId?: string;
   MasterUserSecret?: MasterUserSecret;
+  CertificateDetails?: CertificateDetails;
   ReadReplicaSourceDBClusterIdentifier?: string;
   PercentProgress?: string;
-  MultiTenant?: boolean;
   DedicatedLogVolume?: boolean;
   IsStorageConfigUpgradeAvailable?: boolean;
+  MultiTenant?: boolean;
   EngineLifecycleSupport?: string;
 }
 export declare class DBInstanceAlreadyExistsFault extends EffectData.TaggedError(
@@ -2745,7 +2693,6 @@ export interface DBInstanceAutomatedBackup {
   EngineVersion?: string;
   LicenseModel?: string;
   Iops?: number;
-  StorageThroughput?: number;
   OptionGroupName?: string;
   TdeCredentialArn?: string;
   Encrypted?: boolean;
@@ -2757,9 +2704,10 @@ export interface DBInstanceAutomatedBackup {
   DBInstanceAutomatedBackupsArn?: string;
   DBInstanceAutomatedBackupsReplications?: Array<DBInstanceAutomatedBackupsReplication>;
   BackupTarget?: string;
-  MultiTenant?: boolean;
+  StorageThroughput?: number;
   AwsBackupRecoveryPointArn?: string;
   DedicatedLogVolume?: boolean;
+  MultiTenant?: boolean;
 }
 export type DBInstanceAutomatedBackupList = Array<DBInstanceAutomatedBackup>;
 export interface DBInstanceAutomatedBackupMessage {
@@ -2881,7 +2829,6 @@ export interface DBProxy {
   VpcId?: string;
   VpcSecurityGroupIds?: Array<string>;
   VpcSubnetIds?: Array<string>;
-  DefaultAuthScheme?: string;
   Auth?: Array<UserAuthConfigInfo>;
   RoleArn?: string;
   Endpoint?: string;
@@ -2890,8 +2837,6 @@ export interface DBProxy {
   DebugLogging?: boolean;
   CreatedDate?: Date | string;
   UpdatedDate?: Date | string;
-  EndpointNetworkType?: EndpointNetworkType;
-  TargetConnectionNetworkType?: TargetConnectionNetworkType;
 }
 export declare class DBProxyAlreadyExistsFault extends EffectData.TaggedError(
   "DBProxyAlreadyExistsFault",
@@ -2910,7 +2855,6 @@ export interface DBProxyEndpoint {
   CreatedDate?: Date | string;
   TargetRole?: DBProxyEndpointTargetRole;
   IsDefault?: boolean;
-  EndpointNetworkType?: EndpointNetworkType;
 }
 export declare class DBProxyEndpointAlreadyExistsFault extends EffectData.TaggedError(
   "DBProxyEndpointAlreadyExistsFault",
@@ -2986,8 +2930,6 @@ export interface DBProxyTargetGroup {
   CreatedDate?: Date | string;
   UpdatedDate?: Date | string;
 }
-export type DBProxyTargetGroupName = string;
-
 export declare class DBProxyTargetGroupNotFoundFault extends EffectData.TaggedError(
   "DBProxyTargetGroupNotFoundFault",
 )<{
@@ -3110,7 +3052,6 @@ export interface DBSnapshot {
   LicenseModel?: string;
   SnapshotType?: string;
   Iops?: number;
-  StorageThroughput?: number;
   OptionGroupName?: string;
   PercentProgress?: number;
   SourceRegion?: string;
@@ -3125,12 +3066,13 @@ export interface DBSnapshot {
   ProcessorFeatures?: Array<ProcessorFeature>;
   DbiResourceId?: string;
   TagList?: Array<Tag>;
-  SnapshotTarget?: string;
   OriginalSnapshotCreateTime?: Date | string;
   SnapshotDatabaseTime?: Date | string;
+  SnapshotTarget?: string;
+  StorageThroughput?: number;
   DBSystemId?: string;
-  MultiTenant?: boolean;
   DedicatedLogVolume?: boolean;
+  MultiTenant?: boolean;
   SnapshotAvailabilityZone?: string;
 }
 export declare class DBSnapshotAlreadyExistsFault extends EffectData.TaggedError(
@@ -3231,7 +3173,6 @@ export declare class DBUpgradeDependencyFailureFault extends EffectData.TaggedEr
 )<{
   readonly message?: string;
 }> {}
-export type DefaultAuthScheme = "IAM_AUTH" | "NONE";
 export interface DeleteBlueGreenDeploymentRequest {
   BlueGreenDeploymentIdentifier: string;
   DeleteTarget?: boolean;
@@ -3804,7 +3745,6 @@ export interface Endpoint {
   Port?: number;
   HostedZoneId?: string;
 }
-export type EndpointNetworkType = "IPV4" | "IPV6" | "DUAL";
 export type Engine = string;
 
 export interface EngineDefaults {
@@ -4022,10 +3962,10 @@ export interface Integration {
   AdditionalEncryptionContext?: Record<string, string>;
   Status?: IntegrationStatus;
   Tags?: Array<Tag>;
-  DataFilter?: string;
-  Description?: string;
   CreateTime?: Date | string;
   Errors?: Array<IntegrationError>;
+  DataFilter?: string;
+  Description?: string;
 }
 export declare class IntegrationAlreadyExistsFault extends EffectData.TaggedError(
   "IntegrationAlreadyExistsFault",
@@ -4270,7 +4210,6 @@ export type MajorEngineVersion = string;
 
 export type Marker = string;
 
-export type MasterUserAuthenticationType = "password" | "iam-db-auth";
 export interface MasterUserSecret {
   SecretArn?: string;
   SecretStatus?: string;
@@ -4371,24 +4310,23 @@ export interface ModifyDBClusterMessage {
   StorageType?: string;
   Iops?: number;
   AutoMinorVersionUpgrade?: boolean;
-  NetworkType?: string;
-  ServerlessV2ScalingConfiguration?: ServerlessV2ScalingConfiguration;
   MonitoringInterval?: number;
   MonitoringRoleArn?: string;
   DatabaseInsightsMode?: DatabaseInsightsMode;
   EnablePerformanceInsights?: boolean;
   PerformanceInsightsKMSKeyId?: string;
   PerformanceInsightsRetentionPeriod?: number;
+  ServerlessV2ScalingConfiguration?: ServerlessV2ScalingConfiguration;
+  NetworkType?: string;
   ManageMasterUserPassword?: boolean;
   RotateMasterUserPassword?: boolean;
-  EnableLocalWriteForwarding?: boolean;
   MasterUserSecretKmsKeyId?: string;
   EngineMode?: string;
   AllowEngineModeChange?: boolean;
+  EnableLocalWriteForwarding?: boolean;
   AwsBackupRecoveryPointArn?: string;
   EnableLimitlessDatabase?: boolean;
   CACertificateIdentifier?: string;
-  MasterUserAuthenticationType?: MasterUserAuthenticationType;
 }
 export interface ModifyDBClusterParameterGroupMessage {
   DBClusterParameterGroupName: string;
@@ -4425,7 +4363,6 @@ export interface ModifyDBInstanceMessage {
   AutoMinorVersionUpgrade?: boolean;
   LicenseModel?: string;
   Iops?: number;
-  StorageThroughput?: number;
   OptionGroupName?: string;
   NewDBInstanceIdentifier?: string;
   StorageType?: string;
@@ -4437,13 +4374,13 @@ export interface ModifyDBInstanceMessage {
   DomainOu?: string;
   DomainAuthSecretArn?: string;
   DomainDnsIps?: Array<string>;
-  DisableDomain?: boolean;
   CopyTagsToSnapshot?: boolean;
   MonitoringInterval?: number;
   DBPortNumber?: number;
   PubliclyAccessible?: boolean;
   MonitoringRoleArn?: string;
   DomainIAMRoleName?: string;
+  DisableDomain?: boolean;
   PromotionTier?: number;
   EnableIAMDatabaseAuthentication?: boolean;
   DatabaseInsightsMode?: DatabaseInsightsMode;
@@ -4457,18 +4394,18 @@ export interface ModifyDBInstanceMessage {
   MaxAllocatedStorage?: number;
   CertificateRotationRestart?: boolean;
   ReplicaMode?: ReplicaMode;
+  EnableCustomerOwnedIp?: boolean;
+  AwsBackupRecoveryPointArn?: string;
   AutomationMode?: AutomationMode;
   ResumeFullAutomationModeMinutes?: number;
-  EnableCustomerOwnedIp?: boolean;
   NetworkType?: string;
-  AwsBackupRecoveryPointArn?: string;
+  StorageThroughput?: number;
   ManageMasterUserPassword?: boolean;
   RotateMasterUserPassword?: boolean;
   MasterUserSecretKmsKeyId?: string;
-  MultiTenant?: boolean;
-  DedicatedLogVolume?: boolean;
   Engine?: string;
-  MasterUserAuthenticationType?: MasterUserAuthenticationType;
+  DedicatedLogVolume?: boolean;
+  MultiTenant?: boolean;
 }
 export interface ModifyDBInstanceResult {
   DBInstance?: DBInstance;
@@ -4488,7 +4425,6 @@ export interface ModifyDBProxyEndpointResponse {
 export interface ModifyDBProxyRequest {
   DBProxyName: string;
   NewDBProxyName?: string;
-  DefaultAuthScheme?: DefaultAuthScheme;
   Auth?: Array<UserAuthConfig>;
   RequireTLS?: boolean;
   IdleClientTimeout?: number;
@@ -4556,7 +4492,7 @@ export interface ModifyEventSubscriptionResult {
   EventSubscription?: EventSubscription;
 }
 export interface ModifyGlobalClusterMessage {
-  GlobalClusterIdentifier: string;
+  GlobalClusterIdentifier?: string;
   NewGlobalClusterIdentifier?: string;
   DeletionProtection?: boolean;
   EngineVersion?: string;
@@ -4725,7 +4661,6 @@ export interface OrderableDBInstanceOption {
   SupportsStorageEncryption?: boolean;
   StorageType?: string;
   SupportsIops?: boolean;
-  SupportsStorageThroughput?: boolean;
   SupportsEnhancedMonitoring?: boolean;
   SupportsIAMDatabaseAuthentication?: boolean;
   SupportsPerformanceInsights?: boolean;
@@ -4735,10 +4670,6 @@ export interface OrderableDBInstanceOption {
   MaxIopsPerDbInstance?: number;
   MinIopsPerGib?: number;
   MaxIopsPerGib?: number;
-  MinStorageThroughputPerDbInstance?: number;
-  MaxStorageThroughputPerDbInstance?: number;
-  MinStorageThroughputPerIops?: number;
-  MaxStorageThroughputPerIops?: number;
   AvailableProcessorFeatures?: Array<AvailableProcessorFeature>;
   SupportedEngineModes?: Array<string>;
   SupportsStorageAutoscaling?: boolean;
@@ -4746,10 +4677,14 @@ export interface OrderableDBInstanceOption {
   OutpostCapable?: boolean;
   SupportedActivityStreamModes?: Array<string>;
   SupportsGlobalDatabases?: boolean;
-  SupportedNetworkTypes?: Array<string>;
   SupportsClusters?: boolean;
+  SupportedNetworkTypes?: Array<string>;
+  SupportsStorageThroughput?: boolean;
+  MinStorageThroughputPerDbInstance?: number;
+  MaxStorageThroughputPerDbInstance?: number;
+  MinStorageThroughputPerIops?: number;
+  MaxStorageThroughputPerIops?: number;
   SupportsDedicatedLogVolume?: boolean;
-  SupportsHttpEndpoint?: boolean;
 }
 export type OrderableDBInstanceOptionsList = Array<OrderableDBInstanceOption>;
 export interface OrderableDBInstanceOptionsMessage {
@@ -4802,19 +4737,19 @@ export interface PendingModifiedValues {
   EngineVersion?: string;
   LicenseModel?: string;
   Iops?: number;
-  StorageThroughput?: number;
   DBInstanceIdentifier?: string;
   StorageType?: string;
   CACertificateIdentifier?: string;
   DBSubnetGroupName?: string;
   PendingCloudwatchLogsExports?: PendingCloudwatchLogsExports;
   ProcessorFeatures?: Array<ProcessorFeature>;
+  IAMDatabaseAuthenticationEnabled?: boolean;
   AutomationMode?: AutomationMode;
   ResumeFullAutomationModeTime?: Date | string;
-  MultiTenant?: boolean;
-  IAMDatabaseAuthenticationEnabled?: boolean;
-  DedicatedLogVolume?: boolean;
+  StorageThroughput?: number;
   Engine?: string;
+  DedicatedLogVolume?: boolean;
+  MultiTenant?: boolean;
 }
 export interface PerformanceInsightsMetricDimensionGroup {
   Dimensions?: Array<string>;
@@ -4836,10 +4771,6 @@ export declare class PointInTimeRestoreNotEnabledFault extends EffectData.Tagged
 )<{
   readonly message?: string;
 }> {}
-export type PotentiallySensitiveOptionSettingValue = string;
-
-export type PotentiallySensitiveParameterValue = string;
-
 export interface ProcessorFeature {
   Name?: string;
   Value?: string;
@@ -4944,8 +4875,8 @@ export interface RegisterDBProxyTargetsResponse {
   DBProxyTargets?: Array<DBProxyTarget>;
 }
 export interface RemoveFromGlobalClusterMessage {
-  GlobalClusterIdentifier: string;
-  DbClusterIdentifier: string;
+  GlobalClusterIdentifier?: string;
+  DbClusterIdentifier?: string;
 }
 export interface RemoveFromGlobalClusterResult {
   GlobalCluster?: GlobalCluster;
@@ -5084,11 +5015,11 @@ export interface RestoreDBClusterFromS3Message {
   CopyTagsToSnapshot?: boolean;
   Domain?: string;
   DomainIAMRoleName?: string;
-  StorageType?: string;
-  NetworkType?: string;
   ServerlessV2ScalingConfiguration?: ServerlessV2ScalingConfiguration;
+  NetworkType?: string;
   ManageMasterUserPassword?: boolean;
   MasterUserSecretKmsKeyId?: string;
+  StorageType?: string;
   EngineLifecycleSupport?: string;
 }
 export interface RestoreDBClusterFromS3Result {
@@ -5121,8 +5052,8 @@ export interface RestoreDBClusterFromSnapshotMessage {
   StorageType?: string;
   Iops?: number;
   PubliclyAccessible?: boolean;
-  NetworkType?: string;
   ServerlessV2ScalingConfiguration?: ServerlessV2ScalingConfiguration;
+  NetworkType?: string;
   RdsCustomClusterConfiguration?: RdsCustomClusterConfiguration;
   MonitoringInterval?: number;
   MonitoringRoleArn?: string;
@@ -5154,15 +5085,15 @@ export interface RestoreDBClusterToPointInTimeMessage {
   CopyTagsToSnapshot?: boolean;
   Domain?: string;
   DomainIAMRoleName?: string;
+  ScalingConfiguration?: ScalingConfiguration;
+  EngineMode?: string;
   DBClusterInstanceClass?: string;
   StorageType?: string;
   PubliclyAccessible?: boolean;
   Iops?: number;
+  ServerlessV2ScalingConfiguration?: ServerlessV2ScalingConfiguration;
   NetworkType?: string;
   SourceDbClusterResourceId?: string;
-  ServerlessV2ScalingConfiguration?: ServerlessV2ScalingConfiguration;
-  ScalingConfiguration?: ScalingConfiguration;
-  EngineMode?: string;
   RdsCustomClusterConfiguration?: RdsCustomClusterConfiguration;
   MonitoringInterval?: number;
   MonitoringRoleArn?: string;
@@ -5188,7 +5119,6 @@ export interface RestoreDBInstanceFromDBSnapshotMessage {
   DBName?: string;
   Engine?: string;
   Iops?: number;
-  StorageThroughput?: number;
   OptionGroupName?: string;
   Tags?: Array<Tag>;
   StorageType?: string;
@@ -5209,11 +5139,12 @@ export interface RestoreDBInstanceFromDBSnapshotMessage {
   DBParameterGroupName?: string;
   DeletionProtection?: boolean;
   EnableCustomerOwnedIp?: boolean;
-  NetworkType?: string;
-  BackupTarget?: string;
   CustomIamInstanceProfile?: string;
-  AllocatedStorage?: number;
+  BackupTarget?: string;
+  NetworkType?: string;
+  StorageThroughput?: number;
   DBClusterSnapshotIdentifier?: string;
+  AllocatedStorage?: number;
   DedicatedLogVolume?: boolean;
   CACertificateIdentifier?: string;
   EngineLifecycleSupport?: string;
@@ -5245,7 +5176,6 @@ export interface RestoreDBInstanceFromS3Message {
   AutoMinorVersionUpgrade?: boolean;
   LicenseModel?: string;
   Iops?: number;
-  StorageThroughput?: number;
   OptionGroupName?: string;
   PubliclyAccessible?: boolean;
   Tags?: Array<Tag>;
@@ -5271,6 +5201,7 @@ export interface RestoreDBInstanceFromS3Message {
   DeletionProtection?: boolean;
   MaxAllocatedStorage?: number;
   NetworkType?: string;
+  StorageThroughput?: number;
   ManageMasterUserPassword?: boolean;
   MasterUserSecretKmsKeyId?: string;
   DedicatedLogVolume?: boolean;
@@ -5296,7 +5227,6 @@ export interface RestoreDBInstanceToPointInTimeMessage {
   DBName?: string;
   Engine?: string;
   Iops?: number;
-  StorageThroughput?: number;
   OptionGroupName?: string;
   CopyTagsToSnapshot?: boolean;
   Tags?: Array<Tag>;
@@ -5318,11 +5248,12 @@ export interface RestoreDBInstanceToPointInTimeMessage {
   DeletionProtection?: boolean;
   SourceDbiResourceId?: string;
   MaxAllocatedStorage?: number;
-  EnableCustomerOwnedIp?: boolean;
-  NetworkType?: string;
   SourceDBInstanceAutomatedBackupsArn?: string;
-  BackupTarget?: string;
+  EnableCustomerOwnedIp?: boolean;
   CustomIamInstanceProfile?: string;
+  BackupTarget?: string;
+  NetworkType?: string;
+  StorageThroughput?: number;
   AllocatedStorage?: number;
   DedicatedLogVolume?: boolean;
   CACertificateIdentifier?: string;
@@ -5445,9 +5376,7 @@ export type SourceType =
   | "db-cluster-snapshot"
   | "custom-engine-version"
   | "db-proxy"
-  | "blue-green-deployment"
-  | "db-shard-group"
-  | "zero-etl";
+  | "blue-green-deployment";
 export interface StartActivityStreamRequest {
   ResourceArn: string;
   Mode: ActivityStreamMode;
@@ -5460,8 +5389,8 @@ export interface StartActivityStreamResponse {
   KinesisStreamName?: string;
   Status?: ActivityStreamStatus;
   Mode?: ActivityStreamMode;
-  EngineNativeAuditFieldsIncluded?: boolean;
   ApplyImmediately?: boolean;
+  EngineNativeAuditFieldsIncluded?: boolean;
 }
 export interface StartDBClusterMessage {
   DBClusterIdentifier: string;
@@ -5615,7 +5544,6 @@ export type TagList = Array<Tag>;
 export interface TagListMessage {
   TagList?: Array<Tag>;
 }
-export type TargetConnectionNetworkType = "IPV4" | "IPV6";
 export type TargetDBClusterParameterGroupName = string;
 
 export type TargetDBInstanceClass = string;
@@ -5635,15 +5563,10 @@ export type TargetHealthReason =
   | "CONNECTION_FAILED"
   | "AUTH_FAILURE"
   | "PENDING_PROXY_CAPACITY"
-  | "INVALID_REPLICATION_STATE"
-  | "PROMOTED";
+  | "INVALID_REPLICATION_STATE";
 export type TargetList = Array<DBProxyTarget>;
 export type TargetRole = "READ_WRITE" | "READ_ONLY" | "UNKNOWN";
-export type TargetState =
-  | "REGISTERING"
-  | "AVAILABLE"
-  | "UNAVAILABLE"
-  | "UNUSED";
+export type TargetState = "REGISTERING" | "AVAILABLE" | "UNAVAILABLE";
 export type TargetStorageType = string;
 
 export type TargetType =
@@ -5742,9 +5665,9 @@ export interface ValidStorageOptions {
   StorageSize?: Array<Range>;
   ProvisionedIops?: Array<Range>;
   IopsToStorageRatio?: Array<DoubleRange>;
+  SupportsStorageAutoscaling?: boolean;
   ProvisionedStorageThroughput?: Array<Range>;
   StorageThroughputToIopsRatio?: Array<DoubleRange>;
-  SupportsStorageAutoscaling?: boolean;
 }
 export type ValidStorageOptionsList = Array<ValidStorageOptions>;
 export type ValidUpgradeTargetList = Array<UpgradeTarget>;
@@ -5798,16 +5721,11 @@ export declare namespace AddTagsToResource {
     | BlueGreenDeploymentNotFoundFault
     | DBClusterNotFoundFault
     | DBInstanceNotFoundFault
-    | DBProxyEndpointNotFoundFault
     | DBProxyNotFoundFault
     | DBProxyTargetGroupNotFoundFault
-    | DBShardGroupNotFoundFault
     | DBSnapshotNotFoundFault
     | DBSnapshotTenantDatabaseNotFoundFault
     | IntegrationNotFoundFault
-    | InvalidDBClusterEndpointStateFault
-    | InvalidDBClusterStateFault
-    | InvalidDBInstanceStateFault
     | TenantDatabaseNotFoundFault
     | CommonAwsError;
 }
@@ -5922,7 +5840,6 @@ export declare namespace CreateBlueGreenDeployment {
     | InvalidDBInstanceStateFault
     | SourceClusterNotSupportedFault
     | SourceDatabaseNotSupportedFault
-    | StorageQuotaExceededFault
     | CommonAwsError;
 }
 
@@ -5932,10 +5849,8 @@ export declare namespace CreateCustomDBEngineVersion {
   export type Error =
     | CreateCustomDBEngineVersionFault
     | CustomDBEngineVersionAlreadyExistsFault
-    | CustomDBEngineVersionNotFoundFault
     | CustomDBEngineVersionQuotaExceededFault
     | Ec2ImagePropertiesNotSupportedFault
-    | InvalidCustomDBEngineVersionStateFault
     | KMSKeyNotAccessibleFault
     | CommonAwsError;
 }
@@ -5963,10 +5878,8 @@ export declare namespace CreateDBCluster {
     | InvalidSubnet
     | InvalidVPCNetworkStateFault
     | KMSKeyNotAccessibleFault
-    | NetworkTypeNotSupported
     | OptionGroupNotFoundFault
     | StorageQuotaExceededFault
-    | StorageTypeNotSupportedFault
     | CommonAwsError;
 }
 
@@ -6164,8 +6077,6 @@ export declare namespace CreateGlobalCluster {
     | GlobalClusterAlreadyExistsFault
     | GlobalClusterQuotaExceededFault
     | InvalidDBClusterStateFault
-    | InvalidDBShardGroupStateFault
-    | ResourceNotFoundFault
     | CommonAwsError;
 }
 
@@ -6230,8 +6141,6 @@ export declare namespace DeleteDBCluster {
     | DBClusterSnapshotAlreadyExistsFault
     | InvalidDBClusterSnapshotStateFault
     | InvalidDBClusterStateFault
-    | InvalidGlobalClusterStateFault
-    | KMSKeyNotAccessibleFault
     | SnapshotQuotaExceededFault
     | CommonAwsError;
 }
@@ -6282,7 +6191,6 @@ export declare namespace DeleteDBInstance {
     | DBSnapshotAlreadyExistsFault
     | InvalidDBClusterStateFault
     | InvalidDBInstanceStateFault
-    | KMSKeyNotAccessibleFault
     | SnapshotQuotaExceededFault
     | CommonAwsError;
 }
@@ -6403,7 +6311,6 @@ export declare namespace DeleteTenantDatabase {
   export type Output = DeleteTenantDatabaseResult;
   export type Error =
     | DBInstanceNotFoundFault
-    | DBSnapshotAlreadyExistsFault
     | InvalidDBInstanceStateFault
     | TenantDatabaseNotFoundFault
     | CommonAwsError;
@@ -6776,10 +6683,8 @@ export declare namespace ListTagsForResource {
     | BlueGreenDeploymentNotFoundFault
     | DBClusterNotFoundFault
     | DBInstanceNotFoundFault
-    | DBProxyEndpointNotFoundFault
     | DBProxyNotFoundFault
     | DBProxyTargetGroupNotFoundFault
-    | DBShardGroupNotFoundFault
     | DBSnapshotNotFoundFault
     | DBSnapshotTenantDatabaseNotFoundFault
     | IntegrationNotFoundFault
@@ -6830,22 +6735,17 @@ export declare namespace ModifyDBCluster {
     | DBClusterNotFoundFault
     | DBClusterParameterGroupNotFoundFault
     | DBInstanceAlreadyExistsFault
-    | DBParameterGroupNotFoundFault
     | DBSubnetGroupNotFoundFault
     | DomainNotFoundFault
     | InvalidDBClusterStateFault
     | InvalidDBInstanceStateFault
     | InvalidDBSecurityGroupStateFault
     | InvalidDBSubnetGroupStateFault
-    | InvalidGlobalClusterStateFault
     | InvalidSubnet
     | InvalidVPCNetworkStateFault
-    | KMSKeyNotAccessibleFault
-    | NetworkTypeNotSupported
     | OptionGroupNotFoundFault
     | StorageQuotaExceededFault
     | StorageTypeNotAvailableFault
-    | StorageTypeNotSupportedFault
     | CommonAwsError;
 }
 
@@ -6967,11 +6867,7 @@ export declare namespace ModifyDBShardGroup {
 export declare namespace ModifyDBSnapshot {
   export type Input = ModifyDBSnapshotMessage;
   export type Output = ModifyDBSnapshotResult;
-  export type Error =
-    | DBSnapshotNotFoundFault
-    | InvalidDBSnapshotStateFault
-    | KMSKeyNotAccessibleFault
-    | CommonAwsError;
+  export type Error = DBSnapshotNotFoundFault | CommonAwsError;
 }
 
 export declare namespace ModifyDBSnapshotAttribute {
@@ -6991,7 +6887,6 @@ export declare namespace ModifyDBSubnetGroup {
     | DBSubnetGroupDoesNotCoverEnoughAZs
     | DBSubnetGroupNotFoundFault
     | DBSubnetQuotaExceededFault
-    | InvalidDBSubnetGroupStateFault
     | InvalidSubnet
     | SubnetAlreadyInUse
     | CommonAwsError;
@@ -7097,7 +6992,6 @@ export declare namespace RebootDBInstance {
   export type Error =
     | DBInstanceNotFoundFault
     | InvalidDBInstanceStateFault
-    | KMSKeyNotAccessibleFault
     | CommonAwsError;
 }
 
@@ -7132,7 +7026,6 @@ export declare namespace RemoveFromGlobalCluster {
   export type Error =
     | DBClusterNotFoundFault
     | GlobalClusterNotFoundFault
-    | InvalidDBClusterStateFault
     | InvalidGlobalClusterStateFault
     | CommonAwsError;
 }
@@ -7173,16 +7066,11 @@ export declare namespace RemoveTagsFromResource {
     | BlueGreenDeploymentNotFoundFault
     | DBClusterNotFoundFault
     | DBInstanceNotFoundFault
-    | DBProxyEndpointNotFoundFault
     | DBProxyNotFoundFault
     | DBProxyTargetGroupNotFoundFault
-    | DBShardGroupNotFoundFault
     | DBSnapshotNotFoundFault
     | DBSnapshotTenantDatabaseNotFoundFault
     | IntegrationNotFoundFault
-    | InvalidDBClusterEndpointStateFault
-    | InvalidDBClusterStateFault
-    | InvalidDBInstanceStateFault
     | TenantDatabaseNotFoundFault
     | CommonAwsError;
 }
@@ -7222,7 +7110,6 @@ export declare namespace RestoreDBClusterFromS3 {
     | InvalidSubnet
     | InvalidVPCNetworkStateFault
     | KMSKeyNotAccessibleFault
-    | NetworkTypeNotSupported
     | StorageQuotaExceededFault
     | StorageTypeNotSupportedFault
     | CommonAwsError;
@@ -7250,10 +7137,8 @@ export declare namespace RestoreDBClusterFromSnapshot {
     | InvalidSubnet
     | InvalidVPCNetworkStateFault
     | KMSKeyNotAccessibleFault
-    | NetworkTypeNotSupported
     | OptionGroupNotFoundFault
     | StorageQuotaExceededFault
-    | StorageTypeNotSupportedFault
     | CommonAwsError;
 }
 
@@ -7279,10 +7164,8 @@ export declare namespace RestoreDBClusterToPointInTime {
     | InvalidSubnet
     | InvalidVPCNetworkStateFault
     | KMSKeyNotAccessibleFault
-    | NetworkTypeNotSupported
     | OptionGroupNotFoundFault
     | StorageQuotaExceededFault
-    | StorageTypeNotSupportedFault
     | CommonAwsError;
 }
 
@@ -7406,7 +7289,6 @@ export declare namespace StartDBCluster {
     | InvalidDBClusterStateFault
     | InvalidDBInstanceStateFault
     | InvalidDBShardGroupStateFault
-    | KMSKeyNotAccessibleFault
     | CommonAwsError;
 }
 
@@ -7434,7 +7316,6 @@ export declare namespace StartDBInstanceAutomatedBackupsReplication {
   export type Error =
     | DBInstanceAutomatedBackupQuotaExceededFault
     | DBInstanceNotFoundFault
-    | InvalidDBInstanceAutomatedBackupStateFault
     | InvalidDBInstanceStateFault
     | KMSKeyNotAccessibleFault
     | StorageTypeNotSupportedFault

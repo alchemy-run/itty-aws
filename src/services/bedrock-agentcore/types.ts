@@ -38,18 +38,6 @@ type CommonAwsError =
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class BedrockAgentCore extends AWSServiceClient {
-  completeResourceTokenAuth(
-    input: CompleteResourceTokenAuthRequest,
-  ): Effect.Effect<
-    CompleteResourceTokenAuthResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnauthorizedException
-    | ValidationException
-    | CommonAwsError
-  >;
   getResourceApiKey(
     input: GetResourceApiKeyRequest,
   ): Effect.Effect<
@@ -123,42 +111,6 @@ export declare class BedrockAgentCore extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
-  batchCreateMemoryRecords(
-    input: BatchCreateMemoryRecordsInput,
-  ): Effect.Effect<
-    BatchCreateMemoryRecordsOutput,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ServiceException
-    | ServiceQuotaExceededException
-    | ThrottledException
-    | ValidationException
-    | CommonAwsError
-  >;
-  batchDeleteMemoryRecords(
-    input: BatchDeleteMemoryRecordsInput,
-  ): Effect.Effect<
-    BatchDeleteMemoryRecordsOutput,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ServiceException
-    | ServiceQuotaExceededException
-    | ThrottledException
-    | ValidationException
-    | CommonAwsError
-  >;
-  batchUpdateMemoryRecords(
-    input: BatchUpdateMemoryRecordsInput,
-  ): Effect.Effect<
-    BatchUpdateMemoryRecordsOutput,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ServiceException
-    | ServiceQuotaExceededException
-    | ThrottledException
-    | ValidationException
-    | CommonAwsError
-  >;
   createEvent(
     input: CreateEventInput,
   ): Effect.Effect<
@@ -195,19 +147,6 @@ export declare class BedrockAgentCore extends AWSServiceClient {
     | ServiceException
     | ServiceQuotaExceededException
     | ThrottledException
-    | ValidationException
-    | CommonAwsError
-  >;
-  getAgentCard(
-    input: GetAgentCardRequest,
-  ): Effect.Effect<
-    GetAgentCardResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | RuntimeClientError
-    | ServiceQuotaExceededException
-    | ThrottlingException
     | ValidationException
     | CommonAwsError
   >;
@@ -411,21 +350,6 @@ export declare class BedrockAgentCore extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
-  stopRuntimeSession(
-    input: StopRuntimeSessionRequest,
-  ): Effect.Effect<
-    StopRuntimeSessionResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | RuntimeClientError
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | UnauthorizedException
-    | ValidationException
-    | CommonAwsError
-  >;
   updateBrowserStream(
     input: UpdateBrowserStreamRequest,
   ): Effect.Effect<
@@ -456,11 +380,7 @@ export interface ActorSummary {
   actorId: string;
 }
 export type ActorSummaryList = Array<ActorSummary>;
-export type AgentCard = unknown;
-
 export type ApiKeyType = string;
-
-export type AuthorizationUrlType = string;
 
 export interface AutomationStream {
   streamEndpoint: string;
@@ -469,31 +389,6 @@ export interface AutomationStream {
 export type AutomationStreamStatus = "ENABLED" | "DISABLED";
 export interface AutomationStreamUpdate {
   streamStatus?: AutomationStreamStatus;
-}
-export interface BatchCreateMemoryRecordsInput {
-  memoryId: string;
-  records: Array<MemoryRecordCreateInput>;
-  clientToken?: string;
-}
-export interface BatchCreateMemoryRecordsOutput {
-  successfulRecords: Array<MemoryRecordOutput>;
-  failedRecords: Array<MemoryRecordOutput>;
-}
-export interface BatchDeleteMemoryRecordsInput {
-  memoryId: string;
-  records: Array<MemoryRecordDeleteInput>;
-}
-export interface BatchDeleteMemoryRecordsOutput {
-  successfulRecords: Array<MemoryRecordOutput>;
-  failedRecords: Array<MemoryRecordOutput>;
-}
-export interface BatchUpdateMemoryRecordsInput {
-  memoryId: string;
-  records: Array<MemoryRecordUpdateInput>;
-}
-export interface BatchUpdateMemoryRecordsOutput {
-  successfulRecords: Array<MemoryRecordOutput>;
-  failedRecords: Array<MemoryRecordOutput>;
 }
 export type Body = Uint8Array | string;
 
@@ -581,11 +476,6 @@ export type CodeInterpreterStreamOutput =
   | (_CodeInterpreterStreamOutput & {
       validationException: ValidationException;
     });
-export interface CompleteResourceTokenAuthRequest {
-  userIdentifier: UserIdentifier;
-  sessionUri: string;
-}
-export interface CompleteResourceTokenAuthResponse {}
 export declare class ConflictException extends EffectData.TaggedError(
   "ConflictException",
 )<{
@@ -621,7 +511,6 @@ export interface CreateEventInput {
   payload: Array<PayloadType>;
   branch?: Branch;
   clientToken?: string;
-  metadata?: Record<string, MetadataValue>;
 }
 export interface CreateEventOutput {
   event: Event;
@@ -661,30 +550,12 @@ export interface Event {
   eventTimestamp: Date | string;
   payload: Array<PayloadType>;
   branch?: Branch;
-  metadata?: Record<string, MetadataValue>;
 }
 export type EventId = string;
 
 export type EventList = Array<Event>;
-export interface EventMetadataFilterExpression {
-  left: LeftExpression;
-  operator: OperatorType;
-  right?: RightExpression;
-}
-export type EventMetadataFilterList = Array<EventMetadataFilterExpression>;
 export interface FilterInput {
   branch?: BranchFilter;
-  eventMetadata?: Array<EventMetadataFilterExpression>;
-}
-export interface GetAgentCardRequest {
-  runtimeSessionId?: string;
-  agentRuntimeArn: string;
-  qualifier?: string;
-}
-export interface GetAgentCardResponse {
-  runtimeSessionId?: string;
-  agentCard: unknown;
-  statusCode?: number;
 }
 export interface GetBrowserSessionRequest {
   browserIdentifier: string;
@@ -739,20 +610,17 @@ export interface GetResourceApiKeyResponse {
 }
 export interface GetResourceOauth2TokenRequest {
   workloadIdentityToken: string;
+  userId?: string;
   resourceCredentialProviderName: string;
   scopes: Array<string>;
   oauth2Flow: Oauth2FlowType;
-  sessionUri?: string;
   resourceOauth2ReturnUrl?: string;
   forceAuthentication?: boolean;
   customParameters?: Record<string, string>;
-  customState?: string;
 }
 export interface GetResourceOauth2TokenResponse {
   authorizationUrl?: string;
   accessToken?: string;
-  sessionUri?: string;
-  sessionStatus?: SessionStatus;
 }
 export interface GetWorkloadAccessTokenForJWTRequest {
   workloadName: string;
@@ -805,7 +673,6 @@ export interface InvokeAgentRuntimeRequest {
   baggage?: string;
   agentRuntimeArn: string;
   qualifier?: string;
-  accountId?: string;
   payload: Uint8Array | string | Buffer | Stream.Stream<Uint8Array>;
 }
 export interface InvokeAgentRuntimeResponse {
@@ -823,8 +690,6 @@ export interface InvokeAgentRuntimeResponse {
 export interface InvokeCodeInterpreterRequest {
   codeInterpreterIdentifier: string;
   sessionId?: string;
-  traceId?: string;
-  traceParent?: string;
   name: ToolName;
   arguments?: ToolArguments;
 }
@@ -832,11 +697,6 @@ export interface InvokeCodeInterpreterResponse {
   sessionId?: string;
   stream: CodeInterpreterStreamOutput;
 }
-interface _LeftExpression {
-  metadataKey?: string;
-}
-
-export type LeftExpression = _LeftExpression & { metadataKey: string };
 export interface ListActorsInput {
   memoryId: string;
   maxResults?: number;
@@ -921,29 +781,8 @@ export interface MemoryRecord {
   namespaces: Array<string>;
   createdAt: Date | string;
 }
-export interface MemoryRecordCreateInput {
-  requestIdentifier: string;
-  namespaces: Array<string>;
-  content: MemoryContent;
-  timestamp: Date | string;
-  memoryStrategyId?: string;
-}
-export interface MemoryRecordDeleteInput {
-  memoryRecordId: string;
-}
 export type MemoryRecordId = string;
 
-export interface MemoryRecordOutput {
-  memoryRecordId: string;
-  status: MemoryRecordStatus;
-  requestIdentifier?: string;
-  errorCode?: number;
-  errorMessage?: string;
-}
-export type MemoryRecordsCreateInputList = Array<MemoryRecordCreateInput>;
-export type MemoryRecordsDeleteInputList = Array<MemoryRecordDeleteInput>;
-export type MemoryRecordsOutputList = Array<MemoryRecordOutput>;
-export type MemoryRecordStatus = "SUCCEEDED" | "FAILED";
 export interface MemoryRecordSummary {
   memoryRecordId: string;
   content: MemoryContent;
@@ -953,24 +792,8 @@ export interface MemoryRecordSummary {
   score?: number;
 }
 export type MemoryRecordSummaryList = Array<MemoryRecordSummary>;
-export type MemoryRecordsUpdateInputList = Array<MemoryRecordUpdateInput>;
-export interface MemoryRecordUpdateInput {
-  memoryRecordId: string;
-  timestamp: Date | string;
-  content?: MemoryContent;
-  namespaces?: Array<string>;
-  memoryStrategyId?: string;
-}
 export type MemoryStrategyId = string;
 
-export type MetadataKey = string;
-
-export type MetadataMap = Record<string, MetadataValue>;
-interface _MetadataValue {
-  stringValue?: string;
-}
-
-export type MetadataValue = _MetadataValue & { stringValue: string };
 export type MimeType = string;
 
 export type Name = string;
@@ -983,7 +806,6 @@ export type NextToken = string;
 export type NonBlankString = string;
 
 export type Oauth2FlowType = "USER_FEDERATION" | "M2M";
-export type OperatorType = "EQUALS_TO" | "EXISTS" | "NOT_EXISTS";
 export type PaginationToken = string;
 
 interface _PayloadType {
@@ -996,10 +818,6 @@ export type PayloadType =
   | (_PayloadType & { blob: unknown });
 export type PayloadTypeList = Array<PayloadType>;
 export type ProgrammingLanguage = "python" | "javascript" | "typescript";
-export type RequestIdentifier = string;
-
-export type RequestUri = string;
-
 export interface ResourceContent {
   type: ResourceContentType;
   uri?: string;
@@ -1028,13 +846,6 @@ export interface RetrieveMemoryRecordsOutput {
   memoryRecordSummaries: Array<MemoryRecordSummary>;
   nextToken?: string;
 }
-interface _RightExpression {
-  metadataValue?: MetadataValue;
-}
-
-export type RightExpression = _RightExpression & {
-  metadataValue: MetadataValue;
-};
 export type Role = "ASSISTANT" | "USER" | "TOOL" | "OTHER";
 export declare class RuntimeClientError extends EffectData.TaggedError(
   "RuntimeClientError",
@@ -1063,7 +874,6 @@ export declare class ServiceQuotaExceededException extends EffectData.TaggedErro
 }> {}
 export type SessionId = string;
 
-export type SessionStatus = "IN_PROGRESS" | "FAILED";
 export interface SessionSummary {
   sessionId: string;
   actorId: string;
@@ -1073,8 +883,6 @@ export type SessionSummaryList = Array<SessionSummary>;
 export type SessionType = string;
 
 export interface StartBrowserSessionRequest {
-  traceId?: string;
-  traceParent?: string;
   browserIdentifier: string;
   name?: string;
   sessionTimeoutSeconds?: number;
@@ -1088,8 +896,6 @@ export interface StartBrowserSessionResponse {
   streams?: BrowserSessionStream;
 }
 export interface StartCodeInterpreterSessionRequest {
-  traceId?: string;
-  traceParent?: string;
   codeInterpreterIdentifier: string;
   name?: string;
   sessionTimeoutSeconds?: number;
@@ -1100,11 +906,7 @@ export interface StartCodeInterpreterSessionResponse {
   sessionId: string;
   createdAt: Date | string;
 }
-export type State = string;
-
 export interface StopBrowserSessionRequest {
-  traceId?: string;
-  traceParent?: string;
   browserIdentifier: string;
   sessionId: string;
   clientToken?: string;
@@ -1115,8 +917,6 @@ export interface StopBrowserSessionResponse {
   lastUpdatedAt: Date | string;
 }
 export interface StopCodeInterpreterSessionRequest {
-  traceId?: string;
-  traceParent?: string;
   codeInterpreterIdentifier: string;
   sessionId: string;
   clientToken?: string;
@@ -1125,16 +925,6 @@ export interface StopCodeInterpreterSessionResponse {
   codeInterpreterIdentifier: string;
   sessionId: string;
   lastUpdatedAt: Date | string;
-}
-export interface StopRuntimeSessionRequest {
-  runtimeSessionId: string;
-  agentRuntimeArn: string;
-  qualifier?: string;
-  clientToken?: string;
-}
-export interface StopRuntimeSessionResponse {
-  runtimeSessionId?: string;
-  statusCode?: number;
 }
 interface _StreamUpdate {
   automationStreamUpdate?: AutomationStreamUpdate;
@@ -1208,14 +998,6 @@ export interface UpdateBrowserStreamResponse {
   streams: BrowserSessionStream;
   updatedAt: Date | string;
 }
-interface _UserIdentifier {
-  userToken?: string;
-  userId?: string;
-}
-
-export type UserIdentifier =
-  | (_UserIdentifier & { userToken: string })
-  | (_UserIdentifier & { userId: string });
 export type UserIdType = string;
 
 export type UserTokenType = string;
@@ -1249,19 +1031,6 @@ export type ViewPortWidth = number;
 export type WorkloadIdentityNameType = string;
 
 export type WorkloadIdentityTokenType = string;
-
-export declare namespace CompleteResourceTokenAuth {
-  export type Input = CompleteResourceTokenAuthRequest;
-  export type Output = CompleteResourceTokenAuthResponse;
-  export type Error =
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnauthorizedException
-    | ValidationException
-    | CommonAwsError;
-}
 
 export declare namespace GetResourceApiKey {
   export type Input = GetResourceApiKeyRequest;
@@ -1342,45 +1111,6 @@ export declare namespace InvokeCodeInterpreter {
     | CommonAwsError;
 }
 
-export declare namespace BatchCreateMemoryRecords {
-  export type Input = BatchCreateMemoryRecordsInput;
-  export type Output = BatchCreateMemoryRecordsOutput;
-  export type Error =
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ServiceException
-    | ServiceQuotaExceededException
-    | ThrottledException
-    | ValidationException
-    | CommonAwsError;
-}
-
-export declare namespace BatchDeleteMemoryRecords {
-  export type Input = BatchDeleteMemoryRecordsInput;
-  export type Output = BatchDeleteMemoryRecordsOutput;
-  export type Error =
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ServiceException
-    | ServiceQuotaExceededException
-    | ThrottledException
-    | ValidationException
-    | CommonAwsError;
-}
-
-export declare namespace BatchUpdateMemoryRecords {
-  export type Input = BatchUpdateMemoryRecordsInput;
-  export type Output = BatchUpdateMemoryRecordsOutput;
-  export type Error =
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ServiceException
-    | ServiceQuotaExceededException
-    | ThrottledException
-    | ValidationException
-    | CommonAwsError;
-}
-
 export declare namespace CreateEvent {
   export type Input = CreateEventInput;
   export type Output = CreateEventOutput;
@@ -1419,20 +1149,6 @@ export declare namespace DeleteMemoryRecord {
     | ServiceException
     | ServiceQuotaExceededException
     | ThrottledException
-    | ValidationException
-    | CommonAwsError;
-}
-
-export declare namespace GetAgentCard {
-  export type Input = GetAgentCardRequest;
-  export type Output = GetAgentCardResponse;
-  export type Error =
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | RuntimeClientError
-    | ServiceQuotaExceededException
-    | ThrottlingException
     | ValidationException
     | CommonAwsError;
 }
@@ -1649,22 +1365,6 @@ export declare namespace StopCodeInterpreterSession {
     | ResourceNotFoundException
     | ServiceQuotaExceededException
     | ThrottlingException
-    | ValidationException
-    | CommonAwsError;
-}
-
-export declare namespace StopRuntimeSession {
-  export type Input = StopRuntimeSessionRequest;
-  export type Output = StopRuntimeSessionResponse;
-  export type Error =
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | RuntimeClientError
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | UnauthorizedException
     | ValidationException
     | CommonAwsError;
 }

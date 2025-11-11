@@ -44,12 +44,6 @@ export declare class CloudWatch extends AWSServiceClient {
     | MissingRequiredParameterException
     | CommonAwsError
   >;
-  describeAlarmContributors(
-    input: DescribeAlarmContributorsInput,
-  ): Effect.Effect<
-    DescribeAlarmContributorsOutput,
-    InvalidNextToken | ResourceNotFoundException | CommonAwsError
-  >;
   describeAlarmHistory(
     input: DescribeAlarmHistoryInput,
   ): Effect.Effect<
@@ -308,24 +302,15 @@ export type ActionsSuppressedReason = string;
 
 export type AlarmArn = string;
 
-export interface AlarmContributor {
-  ContributorId: string;
-  ContributorAttributes: Record<string, string>;
-  StateReason: string;
-  StateTransitionedTimestamp?: Date | string;
-}
-export type AlarmContributors = Array<AlarmContributor>;
 export type AlarmDescription = string;
 
 export interface AlarmHistoryItem {
   AlarmName?: string;
-  AlarmContributorId?: string;
   AlarmType?: AlarmType;
   Timestamp?: Date | string;
   HistoryItemType?: HistoryItemType;
   HistorySummary?: string;
   HistoryData?: string;
-  AlarmContributorAttributes?: Record<string, string>;
 }
 export type AlarmHistoryItems = Array<AlarmHistoryItem>;
 export type AlarmName = string;
@@ -366,10 +351,6 @@ export type AnomalyDetectorStateValue =
   | "TRAINED";
 export type AnomalyDetectorType = "SINGLE_METRIC" | "METRIC_MATH";
 export type AnomalyDetectorTypes = Array<AnomalyDetectorType>;
-export type AttributeName = string;
-
-export type AttributeValue = string;
-
 export type AwsQueryErrorMessage = string;
 
 export type BatchFailures = Array<PartialFailure>;
@@ -413,9 +394,6 @@ export declare class ConflictException extends EffectData.TaggedError(
 )<{
   readonly Message?: string;
 }> {}
-export type ContributorAttributes = Record<string, string>;
-export type ContributorId = string;
-
 export type Counts = Array<number>;
 export type DashboardArn = string;
 
@@ -496,17 +474,8 @@ export interface DeleteMetricStreamInput {
   Name: string;
 }
 export interface DeleteMetricStreamOutput {}
-export interface DescribeAlarmContributorsInput {
-  AlarmName: string;
-  NextToken?: string;
-}
-export interface DescribeAlarmContributorsOutput {
-  AlarmContributors: Array<AlarmContributor>;
-  NextToken?: string;
-}
 export interface DescribeAlarmHistoryInput {
   AlarmName?: string;
-  AlarmContributorId?: string;
   AlarmTypes?: Array<AlarmType>;
   HistoryItemType?: HistoryItemType;
   StartDate?: Date | string;
@@ -722,12 +691,7 @@ export interface GetMetricWidgetImageOutput {
 }
 export type HistoryData = string;
 
-export type HistoryItemType =
-  | "ConfigurationUpdate"
-  | "StateUpdate"
-  | "Action"
-  | "AlarmContributorStateUpdate"
-  | "AlarmContributorAction";
+export type HistoryItemType = "ConfigurationUpdate" | "StateUpdate" | "Action";
 export type HistorySummary = string;
 
 export type IncludeLinkedAccounts = boolean;
@@ -1346,15 +1310,6 @@ export declare namespace DeleteMetricStream {
     | InternalServiceFault
     | InvalidParameterValueException
     | MissingRequiredParameterException
-    | CommonAwsError;
-}
-
-export declare namespace DescribeAlarmContributors {
-  export type Input = DescribeAlarmContributorsInput;
-  export type Output = DescribeAlarmContributorsOutput;
-  export type Error =
-    | InvalidNextToken
-    | ResourceNotFoundException
     | CommonAwsError;
 }
 

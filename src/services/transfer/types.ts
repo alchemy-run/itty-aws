@@ -868,16 +868,6 @@ export declare class ConflictException extends EffectData.TaggedError(
 )<{
   readonly Message: string;
 }> {}
-interface _ConnectorEgressConfig {
-  VpcLattice?: ConnectorVpcLatticeEgressConfig;
-}
-
-export type ConnectorEgressConfig = _ConnectorEgressConfig & {
-  VpcLattice: ConnectorVpcLatticeEgressConfig;
-};
-export type ConnectorEgressType = "SERVICE_MANAGED" | "VPC_LATTICE";
-export type ConnectorErrorMessage = string;
-
 export interface ConnectorFileTransferResult {
   FilePath: string;
   StatusCode: TransferTableStatus;
@@ -889,11 +879,6 @@ export type ConnectorId = string;
 
 export type ConnectorSecurityPolicyName = string;
 
-export type ConnectorStatus = "ACTIVE" | "ERRORED" | "PENDING";
-export interface ConnectorVpcLatticeEgressConfig {
-  ResourceConfigurationArn: string;
-  PortNumber?: number;
-}
 export interface CopyStepDetails {
   Name?: string;
   DestinationFileLocation?: InputFileLocation;
@@ -931,14 +916,13 @@ export interface CreateAgreementResponse {
   AgreementId: string;
 }
 export interface CreateConnectorRequest {
-  Url?: string;
+  Url: string;
   As2Config?: As2ConnectorConfig;
   AccessRole: string;
   LoggingRole?: string;
   Tags?: Array<Tag>;
   SftpConfig?: SftpConnectorConfig;
   SecurityPolicyName?: string;
-  EgressConfig?: ConnectorEgressConfig;
 }
 export interface CreateConnectorResponse {
   ConnectorId: string;
@@ -1163,21 +1147,6 @@ export interface DescribedConnector {
   SftpConfig?: SftpConnectorConfig;
   ServiceManagedEgressIpAddresses?: Array<string>;
   SecurityPolicyName?: string;
-  EgressConfig?: DescribedConnectorEgressConfig;
-  EgressType: ConnectorEgressType;
-  ErrorMessage?: string;
-  Status: ConnectorStatus;
-}
-interface _DescribedConnectorEgressConfig {
-  VpcLattice?: DescribedConnectorVpcLatticeEgressConfig;
-}
-
-export type DescribedConnectorEgressConfig = _DescribedConnectorEgressConfig & {
-  VpcLattice: DescribedConnectorVpcLatticeEgressConfig;
-};
-export interface DescribedConnectorVpcLatticeEgressConfig {
-  ResourceConfigurationArn: string;
-  PortNumber?: number;
 }
 export interface DescribedExecution {
   ExecutionId?: string;
@@ -1920,8 +1889,6 @@ export type SftpConnectorHostKey = string;
 export type SftpConnectorTrustedHostKey = string;
 
 export type SftpConnectorTrustedHostKeyList = Array<string>;
-export type SftpPort = number;
-
 export type SigningAlg = "SHA256" | "SHA384" | "SHA512" | "SHA1" | "NONE";
 export type SourceFileLocation = string;
 
@@ -2094,13 +2061,6 @@ export interface UpdateCertificateRequest {
 export interface UpdateCertificateResponse {
   CertificateId: string;
 }
-interface _UpdateConnectorEgressConfig {
-  VpcLattice?: UpdateConnectorVpcLatticeEgressConfig;
-}
-
-export type UpdateConnectorEgressConfig = _UpdateConnectorEgressConfig & {
-  VpcLattice: UpdateConnectorVpcLatticeEgressConfig;
-};
 export interface UpdateConnectorRequest {
   ConnectorId: string;
   Url?: string;
@@ -2109,14 +2069,9 @@ export interface UpdateConnectorRequest {
   LoggingRole?: string;
   SftpConfig?: SftpConnectorConfig;
   SecurityPolicyName?: string;
-  EgressConfig?: UpdateConnectorEgressConfig;
 }
 export interface UpdateConnectorResponse {
   ConnectorId: string;
-}
-export interface UpdateConnectorVpcLatticeEgressConfig {
-  ResourceConfigurationArn?: string;
-  PortNumber?: number;
 }
 export interface UpdateHostKeyRequest {
   ServerId: string;
@@ -2151,7 +2106,6 @@ export interface UpdateServerRequest {
   StructuredLogDestinations?: Array<string>;
   S3StorageOptions?: S3StorageOptions;
   IpAddressType?: IpAddressType;
-  IdentityProviderType?: IdentityProviderType;
 }
 export interface UpdateServerResponse {
   ServerId: string;
@@ -2215,8 +2169,6 @@ export type UserPassword = string;
 export type VpcEndpointId = string;
 
 export type VpcId = string;
-
-export type VpcLatticeResourceConfigurationArn = string;
 
 export type WebAppAccessEndpoint = string;
 

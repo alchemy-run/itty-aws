@@ -5324,8 +5324,6 @@ export interface CompositeFilter {
   BooleanFilters?: Array<OcsfBooleanFilter>;
   NumberFilters?: Array<OcsfNumberFilter>;
   MapFilters?: Array<OcsfMapFilter>;
-  IpFilters?: Array<OcsfIpFilter>;
-  NestedCompositeFilters?: Array<CompositeFilter>;
   Operator?: AllowedOperators;
 }
 export type CompositeFilterList = Array<CompositeFilter>;
@@ -6040,11 +6038,7 @@ export type GroupByField =
   | "severity"
   | "status"
   | "vulnerabilities.fix_coverage"
-  | "class_name"
-  | "vulnerabilities.affected_packages.name"
-  | "finding_info.analytic.name"
-  | "compliance.standards"
-  | "cloud.account.name";
+  | "class_name";
 export interface GroupByResult {
   GroupByField?: string;
   GroupByValues?: Array<GroupByValue>;
@@ -6477,10 +6471,7 @@ export type OcsfDateField =
   | "finding_info.created_time_dt"
   | "finding_info.first_seen_time_dt"
   | "finding_info.last_seen_time_dt"
-  | "finding_info.modified_time_dt"
-  | "resources.image.created_time_dt"
-  | "resources.image.last_used_time_dt"
-  | "resources.modified_time_dt";
+  | "finding_info.modified_time_dt";
 export interface OcsfDateFilter {
   FieldName?: OcsfDateField;
   Filter?: DateFilter;
@@ -6499,19 +6490,7 @@ export interface OcsfFindingIdentifier {
 }
 export type OcsfFindingIdentifierList = Array<OcsfFindingIdentifier>;
 export type OcsfFindingsList = Array<unknown>;
-export type OcsfIpField =
-  | "evidences.dst_endpoint.ip"
-  | "evidences.src_endpoint.ip";
-export interface OcsfIpFilter {
-  FieldName?: OcsfIpField;
-  Filter?: IpFilter;
-}
-export type OcsfIpFilterList = Array<OcsfIpFilter>;
-export type OcsfMapField =
-  | "resources.tags"
-  | "compliance.control_parameters"
-  | "databucket.tags"
-  | "finding_info.tags";
+export type OcsfMapField = "resources.tags";
 export interface OcsfMapFilter {
   FieldName?: OcsfMapField;
   Filter?: MapFilter;
@@ -6523,13 +6502,7 @@ export type OcsfNumberField =
   | "confidence_score"
   | "severity_id"
   | "status_id"
-  | "finding_info.related_events_count"
-  | "evidences.api.response.code"
-  | "evidences.dst_endpoint.autonomous_system.number"
-  | "evidences.dst_endpoint.port"
-  | "evidences.src_endpoint.autonomous_system.number"
-  | "evidences.src_endpoint.port"
-  | "resources.image.in_use_count";
+  | "finding_info.related_events_count";
 export interface OcsfNumberFilter {
   FieldName?: OcsfNumberField;
   Filter?: NumberFilter;
@@ -6567,44 +6540,7 @@ export type OcsfStringField =
   | "status"
   | "comment"
   | "vulnerabilities.fix_coverage"
-  | "class_name"
-  | "databucket.encryption_details.algorithm"
-  | "databucket.encryption_details.key_uid"
-  | "databucket.file.data_classifications.classifier_details.type"
-  | "evidences.actor.user.account.uid"
-  | "evidences.api.operation"
-  | "evidences.api.response.error_message"
-  | "evidences.api.service.name"
-  | "evidences.connection_info.direction"
-  | "evidences.connection_info.protocol_name"
-  | "evidences.dst_endpoint.autonomous_system.name"
-  | "evidences.dst_endpoint.location.city"
-  | "evidences.dst_endpoint.location.country"
-  | "evidences.src_endpoint.autonomous_system.name"
-  | "evidences.src_endpoint.hostname"
-  | "evidences.src_endpoint.location.city"
-  | "evidences.src_endpoint.location.country"
-  | "finding_info.analytic.name"
-  | "malware.name"
-  | "malware_scan_info.uid"
-  | "malware.severity"
-  | "resources.cloud_function.layers.uid_alt"
-  | "resources.cloud_function.runtime"
-  | "resources.cloud_function.user.uid"
-  | "resources.device.encryption_details.key_uid"
-  | "resources.device.image.uid"
-  | "resources.image.architecture"
-  | "resources.image.registry_uid"
-  | "resources.image.repository_name"
-  | "resources.image.uid"
-  | "resources.subnet_info.uid"
-  | "resources.vpc_uid"
-  | "vulnerabilities.affected_code.file.path"
-  | "vulnerabilities.affected_packages.name"
-  | "vulnerabilities.cve.epss.score"
-  | "vulnerabilities.cve.uid"
-  | "vulnerabilities.related_vulnerabilities"
-  | "cloud.account.name";
+  | "class_name";
 export interface OcsfStringFilter {
   FieldName?: OcsfStringField;
   Filter?: StringFilter;
@@ -6923,12 +6859,12 @@ export interface ResourceFindingsSummary {
 }
 export type ResourceFindingsSummaryList = Array<ResourceFindingsSummary>;
 export type ResourceGroupByField =
-  | "AccountId"
-  | "Region"
-  | "ResourceCategory"
-  | "ResourceType"
-  | "ResourceName"
-  | "FindingsSummary.FindingType";
+  | "account_id"
+  | "region"
+  | "resource_category"
+  | "resource_type"
+  | "resource_name"
+  | "findings_summary.finding_type";
 export interface ResourceGroupByRule {
   GroupByField: ResourceGroupByField;
   Filters?: ResourcesFilters;
@@ -6948,7 +6884,7 @@ export declare class ResourceNotFoundException extends EffectData.TaggedError(
   readonly Code?: string;
 }> {}
 export interface ResourceResult {
-  ResourceGuid?: string;
+  ResourceArn?: string;
   ResourceId: string;
   AccountId: string;
   Region: string;
@@ -6967,13 +6903,12 @@ export interface ResourcesCompositeFilter {
   DateFilters?: Array<ResourcesDateFilter>;
   NumberFilters?: Array<ResourcesNumberFilter>;
   MapFilters?: Array<ResourcesMapFilter>;
-  NestedCompositeFilters?: Array<ResourcesCompositeFilter>;
   Operator?: AllowedOperators;
 }
 export type ResourcesCompositeFilterList = Array<ResourcesCompositeFilter>;
 export type ResourcesDateField =
-  | "ResourceDetailCaptureTime"
-  | "ResourceCreationTime";
+  | "resource_detail_capture_time_dt"
+  | "resource_creation_time_dt";
 export interface ResourcesDateFilter {
   FieldName?: ResourcesDateField;
   Filter?: DateFilter;
@@ -6993,37 +6928,37 @@ export interface ResourcesFilters {
   CompositeFilters?: Array<ResourcesCompositeFilter>;
   CompositeOperator?: AllowedOperators;
 }
-export type ResourcesMapField = "ResourceTags";
+export type ResourcesMapField = "tags";
 export interface ResourcesMapFilter {
   FieldName?: ResourcesMapField;
   Filter?: MapFilter;
 }
 export type ResourcesMapFilterList = Array<ResourcesMapFilter>;
 export type ResourcesNumberField =
-  | "FindingsSummary.TotalFindings"
-  | "FindingsSummary.Severities.Other"
-  | "FindingsSummary.Severities.Fatal"
-  | "FindingsSummary.Severities.Critical"
-  | "FindingsSummary.Severities.High"
-  | "FindingsSummary.Severities.Medium"
-  | "FindingsSummary.Severities.Low"
-  | "FindingsSummary.Severities.Informational"
-  | "FindingsSummary.Severities.Unknown";
+  | "findings_summary.total_findings"
+  | "findings_summary.severities.other"
+  | "findings_summary.severities.fatal"
+  | "findings_summary.severities.critical"
+  | "findings_summary.severities.high"
+  | "findings_summary.severities.medium"
+  | "findings_summary.severities.low"
+  | "findings_summary.severities.informational"
+  | "findings_summary.severities.unknown";
 export interface ResourcesNumberFilter {
   FieldName?: ResourcesNumberField;
   Filter?: NumberFilter;
 }
 export type ResourcesNumberFilterList = Array<ResourcesNumberFilter>;
 export type ResourcesStringField =
-  | "ResourceGuid"
-  | "ResourceId"
-  | "AccountId"
-  | "Region"
-  | "ResourceCategory"
-  | "ResourceType"
-  | "ResourceName"
-  | "FindingsSummary.FindingType"
-  | "FindingsSummary.ProductName";
+  | "resource_arn"
+  | "resource_id"
+  | "account_id"
+  | "region"
+  | "resource_category"
+  | "resource_type"
+  | "resource_name"
+  | "findings_summary.finding_type"
+  | "findings_summary.product_name";
 export interface ResourcesStringFilter {
   FieldName?: ResourcesStringField;
   Filter?: StringFilter;
@@ -7547,7 +7482,6 @@ export type UnprocessedErrorCode =
   | "INVALID_INPUT"
   | "ACCESS_DENIED"
   | "NOT_FOUND"
-  | "RESOURCE_NOT_FOUND"
   | "LIMIT_EXCEEDED";
 export interface UnprocessedSecurityControl {
   SecurityControlId: string;

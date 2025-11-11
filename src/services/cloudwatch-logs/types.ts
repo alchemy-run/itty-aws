@@ -1470,7 +1470,6 @@ export interface DisassociateKmsKeyRequest {
 export type Distribution = "Random" | "ByLogStream";
 export type DynamicTokenPosition = number;
 
-export type EmitSystemFields = Array<string>;
 export type EncryptionKey = string;
 
 export interface Entity {
@@ -1578,8 +1577,6 @@ export type FieldIndexName = string;
 export interface FieldsData {
   data?: Uint8Array | string;
 }
-export type FieldSelectionCriteria = string;
-
 export type FilterCount = number;
 
 export interface FilteredLogEvent {
@@ -2024,8 +2021,6 @@ export interface MetricFilter {
   creationTime?: number;
   logGroupName?: string;
   applyOnTransformedLogs?: boolean;
-  fieldSelectionCriteria?: string;
-  emitSystemFieldDimensions?: Array<string>;
 }
 export type MetricFilterMatches = Array<MetricFilterMatchRecord>;
 export interface MetricFilterMatchRecord {
@@ -2334,8 +2329,6 @@ export interface PutMetricFilterRequest {
   filterPattern: string;
   metricTransformations: Array<MetricTransformation>;
   applyOnTransformedLogs?: boolean;
-  fieldSelectionCriteria?: string;
-  emitSystemFieldDimensions?: Array<string>;
 }
 export interface PutQueryDefinitionRequest {
   queryLanguage?: QueryLanguage;
@@ -2370,8 +2363,6 @@ export interface PutSubscriptionFilterRequest {
   roleArn?: string;
   distribution?: Distribution;
   applyOnTransformedLogs?: boolean;
-  fieldSelectionCriteria?: string;
-  emitSystemFields?: Array<string>;
 }
 export interface PutTransformerRequest {
   logGroupIdentifier: string;
@@ -2641,8 +2632,6 @@ export interface SubscriptionFilter {
   distribution?: Distribution;
   applyOnTransformedLogs?: boolean;
   creationTime?: number;
-  fieldSelectionCriteria?: string;
-  emitSystemFields?: Array<string>;
 }
 export type SubscriptionFilters = Array<SubscriptionFilter>;
 export interface SubstituteString {
@@ -2663,8 +2652,6 @@ export interface SuppressionPeriod {
 export type SuppressionState = "SUPPRESSED" | "UNSUPPRESSED";
 export type SuppressionType = "LIMITED" | "INFINITE";
 export type SuppressionUnit = "SECONDS" | "MINUTES" | "HOURS";
-export type SystemField = string;
-
 export type TagKey = string;
 
 export type TagKeyList = Array<string>;

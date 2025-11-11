@@ -1288,8 +1288,6 @@ export type HandlerErrorCode =
 export type HookFailureMode = "FAIL" | "WARN";
 export type HookInvocationCount = number;
 
-export type HookInvocationId = string;
-
 export type HookInvocationPoint = "PRE_PROVISION";
 export type HookResultId = string;
 
@@ -1300,7 +1298,6 @@ export declare class HookResultNotFoundException extends EffectData.TaggedError(
 }> {}
 export type HookResultSummaries = Array<HookResultSummary>;
 export interface HookResultSummary {
-  HookResultId?: string;
   InvocationPoint?: HookInvocationPoint;
   FailureMode?: HookFailureMode;
   TypeName?: string;
@@ -1308,11 +1305,6 @@ export interface HookResultSummary {
   TypeConfigurationVersionId?: string;
   Status?: HookStatus;
   HookStatusReason?: string;
-  InvokedAt?: Date | string;
-  TargetType?: ListHookResultsTargetType;
-  TargetId?: string;
-  TypeArn?: string;
-  HookExecutionTarget?: string;
 }
 export type HookStatus =
   | "HOOK_IN_PROGRESS"
@@ -1325,8 +1317,6 @@ export type HookTargetType = "RESOURCE";
 export type HookTargetTypeName = string;
 
 export type HookType = string;
-
-export type HookTypeArn = string;
 
 export type HookTypeConfigurationVersionId = string;
 
@@ -1427,10 +1417,8 @@ export interface ListGeneratedTemplatesOutput {
   NextToken?: string;
 }
 export interface ListHookResultsInput {
-  TargetType?: ListHookResultsTargetType;
-  TargetId?: string;
-  TypeArn?: string;
-  Status?: HookStatus;
+  TargetType: ListHookResultsTargetType;
+  TargetId: string;
   NextToken?: string;
 }
 export interface ListHookResultsOutput {
@@ -2194,7 +2182,6 @@ export interface StackEvent {
   HookStatus?: HookStatus;
   HookStatusReason?: string;
   HookInvocationPoint?: HookInvocationPoint;
-  HookInvocationId?: string;
   HookFailureMode?: HookFailureMode;
   DetailedStatus?: DetailedStatus;
 }
@@ -2914,8 +2901,7 @@ export type WarningType =
   | "MUTUALLY_EXCLUSIVE_PROPERTIES"
   | "UNSUPPORTED_PROPERTIES"
   | "MUTUALLY_EXCLUSIVE_TYPES"
-  | "EXCLUDED_PROPERTIES"
-  | "EXCLUDED_RESOURCES";
+  | "EXCLUDED_PROPERTIES";
 export declare namespace ActivateOrganizationsAccess {
   export type Input = ActivateOrganizationsAccessInput;
   export type Output = ActivateOrganizationsAccessOutput;

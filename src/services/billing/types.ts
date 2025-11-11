@@ -36,29 +36,13 @@ type CommonAwsError =
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class Billing extends AWSServiceClient {
-  associateSourceViews(
-    input: AssociateSourceViewsRequest,
-  ): Effect.Effect<
-    AssociateSourceViewsResponse,
-    | AccessDeniedException
-    | BillingViewHealthStatusException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
-  >;
   createBillingView(
     input: CreateBillingViewRequest,
   ): Effect.Effect<
     CreateBillingViewResponse,
     | AccessDeniedException
-    | BillingViewHealthStatusException
     | ConflictException
     | InternalServerException
-    | ResourceNotFoundException
     | ServiceQuotaExceededException
     | ThrottlingException
     | ValidationException
@@ -71,19 +55,6 @@ export declare class Billing extends AWSServiceClient {
     | AccessDeniedException
     | ConflictException
     | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
-  >;
-  disassociateSourceViews(
-    input: DisassociateSourceViewsRequest,
-  ): Effect.Effect<
-    DisassociateSourceViewsResponse,
-    | AccessDeniedException
-    | BillingViewHealthStatusException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
     | ThrottlingException
     | ValidationException
     | CommonAwsError
@@ -169,7 +140,6 @@ export declare class Billing extends AWSServiceClient {
   ): Effect.Effect<
     UpdateBillingViewResponse,
     | AccessDeniedException
-    | BillingViewHealthStatusException
     | ConflictException
     | InternalServerException
     | ResourceNotFoundException
@@ -191,13 +161,6 @@ export interface ActiveTimeRange {
   activeAfterInclusive: Date | string;
   activeBeforeInclusive: Date | string;
 }
-export interface AssociateSourceViewsRequest {
-  arn: string;
-  sourceViews: Array<string>;
-}
-export interface AssociateSourceViewsResponse {
-  arn: string;
-}
 export type BillingViewArn = string;
 
 export type BillingViewArnList = Array<string>;
@@ -209,54 +172,23 @@ export interface BillingViewElement {
   description?: string;
   billingViewType?: BillingViewType;
   ownerAccountId?: string;
-  sourceAccountId?: string;
   dataFilterExpression?: Expression;
   createdAt?: Date | string;
   updatedAt?: Date | string;
-  derivedViewCount?: number;
-  sourceViewCount?: number;
-  viewDefinitionLastUpdatedAt?: Date | string;
-  healthStatus?: BillingViewHealthStatus;
 }
-export interface BillingViewHealthStatus {
-  statusCode?: BillingViewStatus;
-  statusReasons?: Array<BillingViewStatusReason>;
-}
-export declare class BillingViewHealthStatusException extends EffectData.TaggedError(
-  "BillingViewHealthStatusException",
-)<{
-  readonly message: string;
-}> {}
 export type BillingViewList = Array<BillingViewListElement>;
 export interface BillingViewListElement {
   arn?: string;
   name?: string;
   description?: string;
   ownerAccountId?: string;
-  sourceAccountId?: string;
   billingViewType?: BillingViewType;
-  healthStatus?: BillingViewHealthStatus;
 }
 export type BillingViewName = string;
 
 export type BillingViewsMaxResults = number;
 
 export type BillingViewSourceViewsList = Array<string>;
-export type BillingViewStatus =
-  | "HEALTHY"
-  | "UNHEALTHY"
-  | "CREATING"
-  | "UPDATING";
-export type BillingViewStatusReason =
-  | "SOURCE_VIEW_UNHEALTHY"
-  | "SOURCE_VIEW_UPDATING"
-  | "SOURCE_VIEW_ACCESS_DENIED"
-  | "SOURCE_VIEW_NOT_FOUND"
-  | "CYCLIC_DEPENDENCY"
-  | "SOURCE_VIEW_DEPTH_EXCEEDED"
-  | "AGGREGATE_SOURCE"
-  | "VIEW_OWNER_NOT_MANAGEMENT_ACCOUNT";
-export type BillingViewStatusReasons = Array<BillingViewStatusReason>;
 export type BillingViewType = "PRIMARY" | "BILLING_GROUP" | "CUSTOM";
 export type BillingViewTypeList = Array<BillingViewType>;
 export type ClientToken = string;
@@ -282,7 +214,6 @@ export interface CreateBillingViewResponse {
 }
 export interface DeleteBillingViewRequest {
   arn: string;
-  force?: boolean;
 }
 export interface DeleteBillingViewResponse {
   arn: string;
@@ -292,19 +223,11 @@ export interface DimensionValues {
   key: Dimension;
   values: Array<string>;
 }
-export interface DisassociateSourceViewsRequest {
-  arn: string;
-  sourceViews: Array<string>;
-}
-export interface DisassociateSourceViewsResponse {
-  arn: string;
-}
 export type ErrorMessage = string;
 
 export interface Expression {
   dimensions?: DimensionValues;
   tags?: TagValues;
-  timeRange?: TimeRange;
 }
 export type FieldName = string;
 
@@ -331,7 +254,6 @@ export interface ListBillingViewsRequest {
   arns?: Array<string>;
   billingViewTypes?: Array<BillingViewType>;
   ownerAccountId?: string;
-  sourceAccountId?: string;
   maxResults?: number;
   nextToken?: string;
 }
@@ -410,10 +332,6 @@ export declare class ThrottlingException extends EffectData.TaggedError(
 )<{
   readonly message: string;
 }> {}
-export interface TimeRange {
-  beginDateInclusive?: Date | string;
-  endDateInclusive?: Date | string;
-}
 export interface UntagResourceRequest {
   resourceArn: string;
   resourceTagKeys: Array<string>;
@@ -449,30 +367,13 @@ export type ValidationExceptionReason =
 export type Value = string;
 
 export type Values = Array<string>;
-export declare namespace AssociateSourceViews {
-  export type Input = AssociateSourceViewsRequest;
-  export type Output = AssociateSourceViewsResponse;
-  export type Error =
-    | AccessDeniedException
-    | BillingViewHealthStatusException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError;
-}
-
 export declare namespace CreateBillingView {
   export type Input = CreateBillingViewRequest;
   export type Output = CreateBillingViewResponse;
   export type Error =
     | AccessDeniedException
-    | BillingViewHealthStatusException
     | ConflictException
     | InternalServerException
-    | ResourceNotFoundException
     | ServiceQuotaExceededException
     | ThrottlingException
     | ValidationException
@@ -486,20 +387,6 @@ export declare namespace DeleteBillingView {
     | AccessDeniedException
     | ConflictException
     | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError;
-}
-
-export declare namespace DisassociateSourceViews {
-  export type Input = DisassociateSourceViewsRequest;
-  export type Output = DisassociateSourceViewsResponse;
-  export type Error =
-    | AccessDeniedException
-    | BillingViewHealthStatusException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
     | ThrottlingException
     | ValidationException
     | CommonAwsError;
@@ -593,7 +480,6 @@ export declare namespace UpdateBillingView {
   export type Output = UpdateBillingViewResponse;
   export type Error =
     | AccessDeniedException
-    | BillingViewHealthStatusException
     | ConflictException
     | InternalServerException
     | ResourceNotFoundException
@@ -605,7 +491,6 @@ export declare namespace UpdateBillingView {
 
 export type BillingErrors =
   | AccessDeniedException
-  | BillingViewHealthStatusException
   | ConflictException
   | InternalServerException
   | ResourceNotFoundException

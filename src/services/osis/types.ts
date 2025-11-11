@@ -50,18 +50,6 @@ export declare class OSIS extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
-  createPipelineEndpoint(
-    input: CreatePipelineEndpointRequest,
-  ): Effect.Effect<
-    CreatePipelineEndpointResponse,
-    | AccessDeniedException
-    | DisabledOperationException
-    | InternalException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
-  >;
   deletePipeline(
     input: DeletePipelineRequest,
   ): Effect.Effect<
@@ -70,28 +58,6 @@ export declare class OSIS extends AWSServiceClient {
     | ConflictException
     | DisabledOperationException
     | InternalException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
-  >;
-  deletePipelineEndpoint(
-    input: DeletePipelineEndpointRequest,
-  ): Effect.Effect<
-    DeletePipelineEndpointResponse,
-    | AccessDeniedException
-    | DisabledOperationException
-    | InternalException
-    | ValidationException
-    | CommonAwsError
-  >;
-  deleteResourcePolicy(
-    input: DeleteResourcePolicyRequest,
-  ): Effect.Effect<
-    DeleteResourcePolicyResponse,
-    | AccessDeniedException
-    | DisabledOperationException
-    | InternalException
-    | LimitExceededException
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
@@ -129,18 +95,6 @@ export declare class OSIS extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
-  getResourcePolicy(
-    input: GetResourcePolicyRequest,
-  ): Effect.Effect<
-    GetResourcePolicyResponse,
-    | AccessDeniedException
-    | DisabledOperationException
-    | InternalException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
-  >;
   listPipelineBlueprints(
     input: ListPipelineBlueprintsRequest,
   ): Effect.Effect<
@@ -149,28 +103,6 @@ export declare class OSIS extends AWSServiceClient {
     | DisabledOperationException
     | InternalException
     | InvalidPaginationTokenException
-    | ValidationException
-    | CommonAwsError
-  >;
-  listPipelineEndpointConnections(
-    input: ListPipelineEndpointConnectionsRequest,
-  ): Effect.Effect<
-    ListPipelineEndpointConnectionsResponse,
-    | AccessDeniedException
-    | DisabledOperationException
-    | InternalException
-    | LimitExceededException
-    | ValidationException
-    | CommonAwsError
-  >;
-  listPipelineEndpoints(
-    input: ListPipelineEndpointsRequest,
-  ): Effect.Effect<
-    ListPipelineEndpointsResponse,
-    | AccessDeniedException
-    | DisabledOperationException
-    | InternalException
-    | LimitExceededException
     | ValidationException
     | CommonAwsError
   >;
@@ -193,29 +125,6 @@ export declare class OSIS extends AWSServiceClient {
     | DisabledOperationException
     | InternalException
     | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
-  >;
-  putResourcePolicy(
-    input: PutResourcePolicyRequest,
-  ): Effect.Effect<
-    PutResourcePolicyResponse,
-    | AccessDeniedException
-    | DisabledOperationException
-    | InternalException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
-  >;
-  revokePipelineEndpointConnections(
-    input: RevokePipelineEndpointConnectionsRequest,
-  ): Effect.Effect<
-    RevokePipelineEndpointConnectionsResponse,
-    | AccessDeniedException
-    | DisabledOperationException
-    | InternalException
-    | LimitExceededException
     | ValidationException
     | CommonAwsError
   >;
@@ -297,8 +206,6 @@ export declare class AccessDeniedException extends EffectData.TaggedError(
 )<{
   readonly message?: string;
 }> {}
-export type AwsAccountId = string;
-
 export type BlueprintFormat = string;
 
 export type OsisBoolean = boolean;
@@ -340,16 +247,6 @@ export declare class ConflictException extends EffectData.TaggedError(
 )<{
   readonly message?: string;
 }> {}
-export interface CreatePipelineEndpointRequest {
-  PipelineArn: string;
-  VpcOptions: PipelineEndpointVpcOptions;
-}
-export interface CreatePipelineEndpointResponse {
-  PipelineArn?: string;
-  EndpointId?: string;
-  Status?: PipelineEndpointStatus;
-  VpcId?: string;
-}
 export interface CreatePipelineRequest {
   PipelineName: string;
   MinUnits: number;
@@ -365,18 +262,10 @@ export interface CreatePipelineRequest {
 export interface CreatePipelineResponse {
   Pipeline?: Pipeline;
 }
-export interface DeletePipelineEndpointRequest {
-  EndpointId: string;
-}
-export interface DeletePipelineEndpointResponse {}
 export interface DeletePipelineRequest {
   PipelineName: string;
 }
 export interface DeletePipelineResponse {}
-export interface DeleteResourcePolicyRequest {
-  ResourceArn: string;
-}
-export interface DeleteResourcePolicyResponse {}
 export declare class DisabledOperationException extends EffectData.TaggedError(
   "DisabledOperationException",
 )<{
@@ -407,13 +296,6 @@ export interface GetPipelineRequest {
 export interface GetPipelineResponse {
   Pipeline?: Pipeline;
 }
-export interface GetResourcePolicyRequest {
-  ResourceArn: string;
-}
-export interface GetResourcePolicyResponse {
-  ResourceArn?: string;
-  Policy?: string;
-}
 export type IngestEndpointUrlsList = Array<string>;
 export type Integer = number;
 
@@ -437,22 +319,6 @@ export declare class LimitExceededException extends EffectData.TaggedError(
 export interface ListPipelineBlueprintsRequest {}
 export interface ListPipelineBlueprintsResponse {
   Blueprints?: Array<PipelineBlueprintSummary>;
-}
-export interface ListPipelineEndpointConnectionsRequest {
-  MaxResults?: number;
-  NextToken?: string;
-}
-export interface ListPipelineEndpointConnectionsResponse {
-  NextToken?: string;
-  PipelineEndpointConnections?: Array<PipelineEndpointConnection>;
-}
-export interface ListPipelineEndpointsRequest {
-  MaxResults?: number;
-  NextToken?: string;
-}
-export interface ListPipelineEndpointsResponse {
-  NextToken?: string;
-  PipelineEndpoints?: Array<PipelineEndpoint>;
 }
 export interface ListPipelinesRequest {
   MaxResults?: number;
@@ -524,37 +390,6 @@ export interface PipelineDestination {
   Endpoint?: string;
 }
 export type PipelineDestinationList = Array<PipelineDestination>;
-export interface PipelineEndpoint {
-  PipelineArn?: string;
-  EndpointId?: string;
-  Status?: PipelineEndpointStatus;
-  VpcId?: string;
-  VpcOptions?: PipelineEndpointVpcOptions;
-  IngestEndpointUrl?: string;
-}
-export interface PipelineEndpointConnection {
-  PipelineArn?: string;
-  EndpointId?: string;
-  Status?: PipelineEndpointStatus;
-  VpcEndpointOwner?: string;
-}
-export type PipelineEndpointConnectionsSummaryList =
-  Array<PipelineEndpointConnection>;
-export type PipelineEndpointId = string;
-
-export type PipelineEndpointIdsList = Array<string>;
-export type PipelineEndpointsSummaryList = Array<PipelineEndpoint>;
-export type PipelineEndpointStatus =
-  | "CREATING"
-  | "ACTIVE"
-  | "CREATE_FAILED"
-  | "DELETING"
-  | "REVOKING"
-  | "REVOKED";
-export interface PipelineEndpointVpcOptions {
-  SubnetIds?: Array<string>;
-  SecurityGroupIds?: Array<string>;
-}
 export type PipelineName = string;
 
 export type PipelineRoleArn = string;
@@ -588,14 +423,6 @@ export interface PipelineSummary {
 export type PipelineSummaryList = Array<PipelineSummary>;
 export type PipelineUnits = number;
 
-export interface PutResourcePolicyRequest {
-  ResourceArn: string;
-  Policy: string;
-}
-export interface PutResourcePolicyResponse {
-  ResourceArn?: string;
-  Policy?: string;
-}
 export declare class ResourceAlreadyExistsException extends EffectData.TaggedError(
   "ResourceAlreadyExistsException",
 )<{
@@ -606,15 +433,6 @@ export declare class ResourceNotFoundException extends EffectData.TaggedError(
 )<{
   readonly message?: string;
 }> {}
-export type ResourcePolicy = string;
-
-export interface RevokePipelineEndpointConnectionsRequest {
-  PipelineArn: string;
-  EndpointIds: Array<string>;
-}
-export interface RevokePipelineEndpointConnectionsResponse {
-  PipelineArn?: string;
-}
 export type SecurityGroupId = string;
 
 export type SecurityGroupIds = Array<string>;
@@ -723,19 +541,6 @@ export declare namespace CreatePipeline {
     | CommonAwsError;
 }
 
-export declare namespace CreatePipelineEndpoint {
-  export type Input = CreatePipelineEndpointRequest;
-  export type Output = CreatePipelineEndpointResponse;
-  export type Error =
-    | AccessDeniedException
-    | DisabledOperationException
-    | InternalException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError;
-}
-
 export declare namespace DeletePipeline {
   export type Input = DeletePipelineRequest;
   export type Output = DeletePipelineResponse;
@@ -744,30 +549,6 @@ export declare namespace DeletePipeline {
     | ConflictException
     | DisabledOperationException
     | InternalException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError;
-}
-
-export declare namespace DeletePipelineEndpoint {
-  export type Input = DeletePipelineEndpointRequest;
-  export type Output = DeletePipelineEndpointResponse;
-  export type Error =
-    | AccessDeniedException
-    | DisabledOperationException
-    | InternalException
-    | ValidationException
-    | CommonAwsError;
-}
-
-export declare namespace DeleteResourcePolicy {
-  export type Input = DeleteResourcePolicyRequest;
-  export type Output = DeleteResourcePolicyResponse;
-  export type Error =
-    | AccessDeniedException
-    | DisabledOperationException
-    | InternalException
-    | LimitExceededException
     | ResourceNotFoundException
     | ValidationException
     | CommonAwsError;
@@ -809,19 +590,6 @@ export declare namespace GetPipelineChangeProgress {
     | CommonAwsError;
 }
 
-export declare namespace GetResourcePolicy {
-  export type Input = GetResourcePolicyRequest;
-  export type Output = GetResourcePolicyResponse;
-  export type Error =
-    | AccessDeniedException
-    | DisabledOperationException
-    | InternalException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError;
-}
-
 export declare namespace ListPipelineBlueprints {
   export type Input = ListPipelineBlueprintsRequest;
   export type Output = ListPipelineBlueprintsResponse;
@@ -830,30 +598,6 @@ export declare namespace ListPipelineBlueprints {
     | DisabledOperationException
     | InternalException
     | InvalidPaginationTokenException
-    | ValidationException
-    | CommonAwsError;
-}
-
-export declare namespace ListPipelineEndpointConnections {
-  export type Input = ListPipelineEndpointConnectionsRequest;
-  export type Output = ListPipelineEndpointConnectionsResponse;
-  export type Error =
-    | AccessDeniedException
-    | DisabledOperationException
-    | InternalException
-    | LimitExceededException
-    | ValidationException
-    | CommonAwsError;
-}
-
-export declare namespace ListPipelineEndpoints {
-  export type Input = ListPipelineEndpointsRequest;
-  export type Output = ListPipelineEndpointsResponse;
-  export type Error =
-    | AccessDeniedException
-    | DisabledOperationException
-    | InternalException
-    | LimitExceededException
     | ValidationException
     | CommonAwsError;
 }
@@ -878,31 +622,6 @@ export declare namespace ListTagsForResource {
     | DisabledOperationException
     | InternalException
     | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError;
-}
-
-export declare namespace PutResourcePolicy {
-  export type Input = PutResourcePolicyRequest;
-  export type Output = PutResourcePolicyResponse;
-  export type Error =
-    | AccessDeniedException
-    | DisabledOperationException
-    | InternalException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError;
-}
-
-export declare namespace RevokePipelineEndpointConnections {
-  export type Input = RevokePipelineEndpointConnectionsRequest;
-  export type Output = RevokePipelineEndpointConnectionsResponse;
-  export type Error =
-    | AccessDeniedException
-    | DisabledOperationException
-    | InternalException
-    | LimitExceededException
     | ValidationException
     | CommonAwsError;
 }

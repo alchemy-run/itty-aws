@@ -322,17 +322,6 @@ export declare class Outposts extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
-  startOutpostDecommission(
-    input: StartOutpostDecommissionInput,
-  ): Effect.Effect<
-    StartOutpostDecommissionOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | NotFoundException
-    | ValidationException
-    | CommonAwsError
-  >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -478,15 +467,6 @@ export interface BlockingInstance {
   AwsServiceName?: AWSServiceName;
 }
 export type BlockingInstancesList = Array<BlockingInstance>;
-export type BlockingResourceType =
-  | "EC2_INSTANCE"
-  | "OUTPOST_RAM_SHARE"
-  | "LGW_ROUTING_DOMAIN"
-  | "LGW_ROUTE_TABLE"
-  | "LGW_VIRTUAL_INTERFACE_GROUP"
-  | "OUTPOST_ORDER_CANCELLABLE"
-  | "OUTPOST_ORDER_INTERVENTION_REQUIRED";
-export type BlockingResourceTypeList = Array<BlockingResourceType>;
 export interface CancelCapacityTaskInput {
   CapacityTaskId: string;
   OutpostIdentifier: string;
@@ -587,7 +567,7 @@ export type CountryCode = string;
 export type CountryCodeList = Array<string>;
 export interface CreateOrderInput {
   OutpostIdentifier: string;
-  LineItems?: Array<LineItemRequest>;
+  LineItems: Array<LineItemRequest>;
   PaymentOption: PaymentOption;
   PaymentTerm?: PaymentTerm;
 }
@@ -618,7 +598,6 @@ export interface CreateSiteInput {
 export interface CreateSiteOutput {
   Site?: Site;
 }
-export type DecommissionRequestStatus = "SKIPPED" | "BLOCKED" | "REQUESTED";
 export interface DeleteOutpostInput {
   OutpostId: string;
 }
@@ -1118,14 +1097,6 @@ export interface StartConnectionResponse {
   ConnectionId?: string;
   UnderlayIpAddress?: string;
 }
-export interface StartOutpostDecommissionInput {
-  OutpostIdentifier: string;
-  ValidateOnly?: boolean;
-}
-export interface StartOutpostDecommissionOutput {
-  Status?: DecommissionRequestStatus;
-  BlockingResourceTypes?: Array<BlockingResourceType>;
-}
 export type StateOrRegion = string;
 
 export type StateOrRegionList = Array<string>;
@@ -1232,8 +1203,6 @@ export type UplinkGbps =
   | "UPLINK_10G"
   | "UPLINK_40G"
   | "UPLINK_100G";
-export type ValidateOnly = boolean;
-
 export declare class ValidationException extends EffectData.TaggedError(
   "ValidationException",
 )<{
@@ -1550,18 +1519,6 @@ export declare namespace StartConnection {
   export type Output = StartConnectionResponse;
   export type Error =
     | AccessDeniedException
-    | InternalServerException
-    | NotFoundException
-    | ValidationException
-    | CommonAwsError;
-}
-
-export declare namespace StartOutpostDecommission {
-  export type Input = StartOutpostDecommissionInput;
-  export type Output = StartOutpostDecommissionOutput;
-  export type Error =
-    | AccessDeniedException
-    | ConflictException
     | InternalServerException
     | NotFoundException
     | ValidationException

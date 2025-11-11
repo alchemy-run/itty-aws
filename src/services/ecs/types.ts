@@ -43,11 +43,9 @@ export declare class ECS extends AWSServiceClient {
   ): Effect.Effect<
     CreateCapacityProviderResponse,
     | ClientException
-    | ClusterNotFoundException
     | InvalidParameterException
     | LimitExceededException
     | ServerException
-    | UnsupportedFeatureException
     | UpdateInProgressException
     | CommonAwsError
   >;
@@ -116,10 +114,8 @@ export declare class ECS extends AWSServiceClient {
   ): Effect.Effect<
     DeleteCapacityProviderResponse,
     | ClientException
-    | ClusterNotFoundException
     | InvalidParameterException
     | ServerException
-    | UnsupportedFeatureException
     | CommonAwsError
   >;
   deleteCluster(
@@ -127,7 +123,6 @@ export declare class ECS extends AWSServiceClient {
   ): Effect.Effect<
     DeleteClusterResponse,
     | ClientException
-    | ClusterContainsCapacityProviderException
     | ClusterContainsContainerInstancesException
     | ClusterContainsServicesException
     | ClusterContainsTasksException
@@ -197,10 +192,8 @@ export declare class ECS extends AWSServiceClient {
   ): Effect.Effect<
     DescribeCapacityProvidersResponse,
     | ClientException
-    | ClusterNotFoundException
     | InvalidParameterException
     | ServerException
-    | UnsupportedFeatureException
     | CommonAwsError
   >;
   describeClusters(
@@ -588,10 +581,8 @@ export declare class ECS extends AWSServiceClient {
   ): Effect.Effect<
     UpdateCapacityProviderResponse,
     | ClientException
-    | ClusterNotFoundException
     | InvalidParameterException
     | ServerException
-    | UnsupportedFeatureException
     | CommonAwsError
   >;
   updateCluster(
@@ -702,37 +693,6 @@ export declare class ECS extends AWSServiceClient {
 
 export declare class Ecs extends ECS {}
 
-export interface AcceleratorCountRequest {
-  min?: number;
-  max?: number;
-}
-export type AcceleratorManufacturer =
-  | "amazon-web-services"
-  | "amd"
-  | "nvidia"
-  | "xilinx"
-  | "habana";
-export type AcceleratorManufacturerSet = Array<AcceleratorManufacturer>;
-export type AcceleratorName =
-  | "a100"
-  | "inferentia"
-  | "k520"
-  | "k80"
-  | "m60"
-  | "radeon-pro-v520"
-  | "t4"
-  | "vu9p"
-  | "v100"
-  | "a10g"
-  | "h100"
-  | "t4g";
-export type AcceleratorNameSet = Array<AcceleratorName>;
-export interface AcceleratorTotalMemoryMiBRequest {
-  min?: number;
-  max?: number;
-}
-export type AcceleratorType = "gpu" | "fpga" | "inference";
-export type AcceleratorTypeSet = Array<AcceleratorType>;
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",
 )<{
@@ -751,9 +711,6 @@ export type AgentUpdateStatus =
   | "UPDATING"
   | "UPDATED"
   | "FAILED";
-export type AllowedInstanceType = string;
-
-export type AllowedInstanceTypeSet = Array<string>;
 export type ApplicationProtocol = "http" | "http2" | "grpc";
 export type AssignPublicIp = "ENABLED" | "DISABLED";
 export interface Attachment {
@@ -798,11 +755,6 @@ export interface AwsVpcConfiguration {
   securityGroups?: Array<string>;
   assignPublicIp?: AssignPublicIp;
 }
-export type BareMetal = "included" | "required" | "excluded";
-export interface BaselineEbsBandwidthMbpsRequest {
-  min?: number;
-  max?: number;
-}
 export declare class BlockedException extends EffectData.TaggedError(
   "BlockedException",
 )<{
@@ -812,35 +764,21 @@ export type EcsBoolean = boolean;
 
 export type BoxedBoolean = boolean;
 
-export type BoxedDouble = number;
-
 export type BoxedInteger = number;
 
-export type BurstablePerformance = "included" | "required" | "excluded";
-export interface CanaryConfiguration {
-  canaryPercent?: number;
-  canaryBakeTimeInMinutes?: number;
-}
 export interface CapacityProvider {
   capacityProviderArn?: string;
   name?: string;
-  cluster?: string;
   status?: CapacityProviderStatus;
   autoScalingGroupProvider?: AutoScalingGroupProvider;
-  managedInstancesProvider?: ManagedInstancesProvider;
   updateStatus?: CapacityProviderUpdateStatus;
   updateStatusReason?: string;
   tags?: Array<Tag>;
-  type?: CapacityProviderType;
 }
 export type CapacityProviderField = "TAGS";
 export type CapacityProviderFieldList = Array<CapacityProviderField>;
 export type CapacityProviders = Array<CapacityProvider>;
-export type CapacityProviderStatus =
-  | "PROVISIONING"
-  | "ACTIVE"
-  | "DEPROVISIONING"
-  | "INACTIVE";
+export type CapacityProviderStatus = "ACTIVE" | "INACTIVE";
 export type CapacityProviderStrategy = Array<CapacityProviderStrategyItem>;
 export interface CapacityProviderStrategyItem {
   capacityProvider: string;
@@ -851,15 +789,7 @@ export type CapacityProviderStrategyItemBase = number;
 
 export type CapacityProviderStrategyItemWeight = number;
 
-export type CapacityProviderType =
-  | "EC2_AUTOSCALING"
-  | "MANAGED_INSTANCES"
-  | "FARGATE"
-  | "FARGATE_SPOT";
 export type CapacityProviderUpdateStatus =
-  | "CREATE_IN_PROGRESS"
-  | "CREATE_COMPLETE"
-  | "CREATE_FAILED"
   | "DELETE_IN_PROGRESS"
   | "DELETE_COMPLETE"
   | "DELETE_FAILED"
@@ -893,11 +823,6 @@ export interface ClusterConfiguration {
   executeCommandConfiguration?: ExecuteCommandConfiguration;
   managedStorageConfiguration?: ManagedStorageConfiguration;
 }
-export declare class ClusterContainsCapacityProviderException extends EffectData.TaggedError(
-  "ClusterContainsCapacityProviderException",
-)<{
-  readonly message?: string;
-}> {}
 export declare class ClusterContainsContainerInstancesException extends EffectData.TaggedError(
   "ClusterContainsContainerInstancesException",
 )<{
@@ -938,11 +863,7 @@ export interface ClusterSetting {
 }
 export type ClusterSettingName = "containerInsights";
 export type ClusterSettings = Array<ClusterSetting>;
-export type Compatibility =
-  | "EC2"
-  | "FARGATE"
-  | "EXTERNAL"
-  | "MANAGED_INSTANCES";
+export type Compatibility = "EC2" | "FARGATE" | "EXTERNAL";
 export type CompatibilityList = Array<Compatibility>;
 export declare class ConflictException extends EffectData.TaggedError(
   "ConflictException",
@@ -1088,13 +1009,9 @@ export interface ContainerStateChange {
 }
 export type ContainerStateChanges = Array<ContainerStateChange>;
 export type CPUArchitecture = "X86_64" | "ARM64";
-export type CpuManufacturer = "intel" | "amd" | "amazon-web-services";
-export type CpuManufacturerSet = Array<CpuManufacturer>;
 export interface CreateCapacityProviderRequest {
   name: string;
-  cluster?: string;
-  autoScalingGroupProvider?: AutoScalingGroupProvider;
-  managedInstancesProvider?: CreateManagedInstancesProviderConfiguration;
+  autoScalingGroupProvider: AutoScalingGroupProvider;
   tags?: Array<Tag>;
 }
 export interface CreateCapacityProviderResponse {
@@ -1115,11 +1032,6 @@ export interface CreateClusterResponse {
 export interface CreatedAt {
   before?: Date | string;
   after?: Date | string;
-}
-export interface CreateManagedInstancesProviderConfiguration {
-  infrastructureRoleArn: string;
-  instanceLaunchTemplate: InstanceLaunchTemplate;
-  propagateTags?: PropagateMITags;
 }
 export interface CreateServiceRequest {
   cluster?: string;
@@ -1186,7 +1098,6 @@ export interface DeleteAttributesResponse {
 }
 export interface DeleteCapacityProviderRequest {
   capacityProvider: string;
-  cluster?: string;
 }
 export interface DeleteCapacityProviderResponse {
   capacityProvider?: CapacityProvider;
@@ -1261,8 +1172,6 @@ export interface DeploymentConfiguration {
   strategy?: DeploymentStrategy;
   bakeTimeInMinutes?: number;
   lifecycleHooks?: Array<DeploymentLifecycleHook>;
-  linearConfiguration?: LinearConfiguration;
-  canaryConfiguration?: CanaryConfiguration;
 }
 export interface DeploymentController {
   type: DeploymentControllerType;
@@ -1275,7 +1184,6 @@ export interface DeploymentLifecycleHook {
   hookTargetArn?: string;
   roleArn?: string;
   lifecycleStages?: Array<DeploymentLifecycleHookStage>;
-  hookDetails?: unknown;
 }
 export type DeploymentLifecycleHookList = Array<DeploymentLifecycleHook>;
 export type DeploymentLifecycleHookStage =
@@ -1290,7 +1198,7 @@ export type DeploymentLifecycleHookStageList =
   Array<DeploymentLifecycleHookStage>;
 export type DeploymentRolloutState = "COMPLETED" | "FAILED" | "IN_PROGRESS";
 export type Deployments = Array<Deployment>;
-export type DeploymentStrategy = "ROLLING" | "BLUE_GREEN" | "LINEAR" | "CANARY";
+export type DeploymentStrategy = "ROLLING" | "BLUE_GREEN";
 export interface DeregisterContainerInstanceRequest {
   cluster?: string;
   containerInstance: string;
@@ -1307,7 +1215,6 @@ export interface DeregisterTaskDefinitionResponse {
 }
 export interface DescribeCapacityProvidersRequest {
   capacityProviders?: Array<string>;
-  cluster?: string;
   include?: Array<CapacityProviderField>;
   maxResults?: number;
   nextToken?: string;
@@ -1452,9 +1359,6 @@ export type EnvironmentVariables = Array<KeyValuePair>;
 export interface EphemeralStorage {
   sizeInGiB: number;
 }
-export type ExcludedInstanceType = string;
-
-export type ExcludedInstanceTypeSet = Array<string>;
 export interface ExecuteCommandConfiguration {
   kmsKeyId?: string;
   logging?: ExecuteCommandLogging;
@@ -1521,8 +1425,6 @@ export interface HealthCheck {
   startPeriod?: number;
 }
 export type HealthStatus = "HEALTHY" | "UNHEALTHY" | "UNKNOWN";
-export type HookDetails = unknown;
-
 export interface HostEntry {
   hostname: string;
   ipAddress: string;
@@ -1543,8 +1445,6 @@ export interface InferenceAcceleratorOverride {
 }
 export type InferenceAcceleratorOverrides = Array<InferenceAcceleratorOverride>;
 export type InferenceAccelerators = Array<InferenceAccelerator>;
-export type InstanceGeneration = "current" | "previous";
-export type InstanceGenerationSet = Array<InstanceGeneration>;
 export interface InstanceHealthCheckResult {
   type?: InstanceHealthCheckType;
   status?: InstanceHealthCheckState;
@@ -1558,46 +1458,6 @@ export type InstanceHealthCheckState =
   | "INSUFFICIENT_DATA"
   | "INITIALIZING";
 export type InstanceHealthCheckType = "CONTAINER_RUNTIME";
-export interface InstanceLaunchTemplate {
-  ec2InstanceProfileArn: string;
-  networkConfiguration: ManagedInstancesNetworkConfiguration;
-  storageConfiguration?: ManagedInstancesStorageConfiguration;
-  monitoring?: ManagedInstancesMonitoringOptions;
-  instanceRequirements?: InstanceRequirementsRequest;
-}
-export interface InstanceLaunchTemplateUpdate {
-  ec2InstanceProfileArn?: string;
-  networkConfiguration?: ManagedInstancesNetworkConfiguration;
-  storageConfiguration?: ManagedInstancesStorageConfiguration;
-  monitoring?: ManagedInstancesMonitoringOptions;
-  instanceRequirements?: InstanceRequirementsRequest;
-}
-export interface InstanceRequirementsRequest {
-  vCpuCount: VCpuCountRangeRequest;
-  memoryMiB: MemoryMiBRequest;
-  cpuManufacturers?: Array<CpuManufacturer>;
-  memoryGiBPerVCpu?: MemoryGiBPerVCpuRequest;
-  excludedInstanceTypes?: Array<string>;
-  instanceGenerations?: Array<InstanceGeneration>;
-  spotMaxPricePercentageOverLowestPrice?: number;
-  onDemandMaxPricePercentageOverLowestPrice?: number;
-  bareMetal?: BareMetal;
-  burstablePerformance?: BurstablePerformance;
-  requireHibernateSupport?: boolean;
-  networkInterfaceCount?: NetworkInterfaceCountRequest;
-  localStorage?: LocalStorage;
-  localStorageTypes?: Array<LocalStorageType>;
-  totalLocalStorageGB?: TotalLocalStorageGBRequest;
-  baselineEbsBandwidthMbps?: BaselineEbsBandwidthMbpsRequest;
-  acceleratorTypes?: Array<AcceleratorType>;
-  acceleratorCount?: AcceleratorCountRequest;
-  acceleratorManufacturers?: Array<AcceleratorManufacturer>;
-  acceleratorNames?: Array<AcceleratorName>;
-  acceleratorTotalMemoryMiB?: AcceleratorTotalMemoryMiBRequest;
-  networkBandwidthGbps?: NetworkBandwidthGbpsRequest;
-  allowedInstanceTypes?: Array<string>;
-  maxSpotPriceAsPercentageOfOptimalOnDemandPrice?: number;
-}
 export type Integer = number;
 
 export type IntegerList = Array<number>;
@@ -1615,16 +1475,12 @@ export interface KeyValuePair {
   name?: string;
   value?: string;
 }
-export type LaunchType = "EC2" | "FARGATE" | "EXTERNAL" | "MANAGED_INSTANCES";
+export type LaunchType = "EC2" | "FARGATE" | "EXTERNAL";
 export declare class LimitExceededException extends EffectData.TaggedError(
   "LimitExceededException",
 )<{
   readonly message?: string;
 }> {}
-export interface LinearConfiguration {
-  stepPercent?: number;
-  stepBakeTimeInMinutes?: number;
-}
 export interface LinuxParameters {
   capabilities?: KernelCapabilities;
   devices?: Array<Device>;
@@ -1759,9 +1615,6 @@ export interface LoadBalancer {
   advancedConfiguration?: AdvancedConfiguration;
 }
 export type LoadBalancers = Array<LoadBalancer>;
-export type LocalStorage = "included" | "required" | "excluded";
-export type LocalStorageType = "hdd" | "ssd";
-export type LocalStorageTypeSet = Array<LocalStorageType>;
 export interface LogConfiguration {
   logDriver: LogDriver;
   options?: Record<string, string>;
@@ -1795,19 +1648,6 @@ export interface ManagedAgentStateChange {
 }
 export type ManagedAgentStateChanges = Array<ManagedAgentStateChange>;
 export type ManagedDraining = "ENABLED" | "DISABLED";
-export type ManagedInstancesMonitoringOptions = "BASIC" | "DETAILED";
-export interface ManagedInstancesNetworkConfiguration {
-  subnets?: Array<string>;
-  securityGroups?: Array<string>;
-}
-export interface ManagedInstancesProvider {
-  infrastructureRoleArn?: string;
-  instanceLaunchTemplate?: InstanceLaunchTemplate;
-  propagateTags?: PropagateMITags;
-}
-export interface ManagedInstancesStorageConfiguration {
-  storageSizeGiB?: number;
-}
 export interface ManagedScaling {
   status?: ManagedScalingStatus;
   targetCapacity?: number;
@@ -1827,14 +1667,6 @@ export interface ManagedStorageConfiguration {
   fargateEphemeralStorageKmsKeyId?: string;
 }
 export type ManagedTerminationProtection = "ENABLED" | "DISABLED";
-export interface MemoryGiBPerVCpuRequest {
-  min?: number;
-  max?: number;
-}
-export interface MemoryMiBRequest {
-  min: number;
-  max?: number;
-}
 export declare class MissingVersionException extends EffectData.TaggedError(
   "MissingVersionException",
 )<{
@@ -1851,10 +1683,6 @@ export declare class NamespaceNotFoundException extends EffectData.TaggedError(
 )<{
   readonly message?: string;
 }> {}
-export interface NetworkBandwidthGbpsRequest {
-  min?: number;
-  max?: number;
-}
 export interface NetworkBinding {
   bindIP?: string;
   containerPort?: number;
@@ -1871,10 +1699,6 @@ export interface NetworkInterface {
   attachmentId?: string;
   privateIpv4Address?: string;
   ipv6Address?: string;
-}
-export interface NetworkInterfaceCountRequest {
-  min?: number;
-  max?: number;
 }
 export type NetworkInterfaces = Array<NetworkInterface>;
 export type NetworkMode = "bridge" | "host" | "awsvpc" | "none";
@@ -1934,7 +1758,6 @@ export interface PortMapping {
 export type PortMappingList = Array<PortMapping>;
 export type PortNumber = number;
 
-export type PropagateMITags = "CAPACITY_PROVIDER" | "NONE";
 export type PropagateTags = "TASK_DEFINITION" | "SERVICE" | "NONE";
 export interface ProtectedTask {
   taskArn?: string;
@@ -2137,11 +1960,6 @@ export interface Service {
   enableExecuteCommand?: boolean;
   availabilityZoneRebalancing?: AvailabilityZoneRebalancing;
 }
-export interface ServiceConnectAccessLogConfiguration {
-  format: ServiceConnectAccessLoggingFormat;
-  includeQueryParameters?: ServiceConnectIncludeQueryParameters;
-}
-export type ServiceConnectAccessLoggingFormat = "TEXT" | "JSON";
 export interface ServiceConnectClientAlias {
   port: number;
   dnsName?: string;
@@ -2153,9 +1971,7 @@ export interface ServiceConnectConfiguration {
   namespace?: string;
   services?: Array<ServiceConnectService>;
   logConfiguration?: LogConfiguration;
-  accessLogConfiguration?: ServiceConnectAccessLogConfiguration;
 }
-export type ServiceConnectIncludeQueryParameters = "DISABLED" | "ENABLED";
 export interface ServiceConnectService {
   portName: string;
   discoveryName?: string;
@@ -2334,8 +2150,6 @@ export interface ServiceRevisionSummary {
   requestedTaskCount?: number;
   runningTaskCount?: number;
   pendingTaskCount?: number;
-  requestedTestTrafficWeight?: number;
-  requestedProductionTrafficWeight?: number;
 }
 export type Services = Array<Service>;
 export interface ServiceVolumeConfiguration {
@@ -2634,8 +2448,6 @@ export interface TaskVolumeConfiguration {
   managedEBSVolume?: TaskManagedEBSVolumeConfiguration;
 }
 export type TaskVolumeConfigurations = Array<TaskVolumeConfiguration>;
-export type TaskVolumeStorageGiB = number;
-
 export interface TimeoutConfiguration {
   idleTimeoutSeconds?: number;
   perRequestTimeoutSeconds?: number;
@@ -2648,10 +2460,6 @@ export interface Tmpfs {
   mountOptions?: Array<string>;
 }
 export type TmpfsList = Array<Tmpfs>;
-export interface TotalLocalStorageGBRequest {
-  min?: number;
-  max?: number;
-}
 export type TransportProtocol = "tcp" | "udp";
 export interface Ulimit {
   name: UlimitName;
@@ -2687,9 +2495,7 @@ export interface UntagResourceRequest {
 export interface UntagResourceResponse {}
 export interface UpdateCapacityProviderRequest {
   name: string;
-  cluster?: string;
-  autoScalingGroupProvider?: AutoScalingGroupProviderUpdate;
-  managedInstancesProvider?: UpdateManagedInstancesProviderConfiguration;
+  autoScalingGroupProvider: AutoScalingGroupProviderUpdate;
 }
 export interface UpdateCapacityProviderResponse {
   capacityProvider?: CapacityProvider;
@@ -2731,11 +2537,6 @@ export declare class UpdateInProgressException extends EffectData.TaggedError(
 )<{
   readonly message?: string;
 }> {}
-export interface UpdateManagedInstancesProviderConfiguration {
-  infrastructureRoleArn: string;
-  instanceLaunchTemplate: InstanceLaunchTemplateUpdate;
-  propagateTags?: PropagateMITags;
-}
 export interface UpdateServicePrimaryTaskSetRequest {
   cluster: string;
   service: string;
@@ -2790,10 +2591,6 @@ export interface UpdateTaskSetRequest {
 export interface UpdateTaskSetResponse {
   taskSet?: TaskSet;
 }
-export interface VCpuCountRangeRequest {
-  min: number;
-  max?: number;
-}
 export type VersionConsistency = "enabled" | "disabled";
 export interface VersionInfo {
   agentVersion?: string;
@@ -2825,11 +2622,9 @@ export declare namespace CreateCapacityProvider {
   export type Output = CreateCapacityProviderResponse;
   export type Error =
     | ClientException
-    | ClusterNotFoundException
     | InvalidParameterException
     | LimitExceededException
     | ServerException
-    | UnsupportedFeatureException
     | UpdateInProgressException
     | CommonAwsError;
 }
@@ -2904,10 +2699,8 @@ export declare namespace DeleteCapacityProvider {
   export type Output = DeleteCapacityProviderResponse;
   export type Error =
     | ClientException
-    | ClusterNotFoundException
     | InvalidParameterException
     | ServerException
-    | UnsupportedFeatureException
     | CommonAwsError;
 }
 
@@ -2916,7 +2709,6 @@ export declare namespace DeleteCluster {
   export type Output = DeleteClusterResponse;
   export type Error =
     | ClientException
-    | ClusterContainsCapacityProviderException
     | ClusterContainsContainerInstancesException
     | ClusterContainsServicesException
     | ClusterContainsTasksException
@@ -2992,10 +2784,8 @@ export declare namespace DescribeCapacityProviders {
   export type Output = DescribeCapacityProvidersResponse;
   export type Error =
     | ClientException
-    | ClusterNotFoundException
     | InvalidParameterException
     | ServerException
-    | UnsupportedFeatureException
     | CommonAwsError;
 }
 
@@ -3425,10 +3215,8 @@ export declare namespace UpdateCapacityProvider {
   export type Output = UpdateCapacityProviderResponse;
   export type Error =
     | ClientException
-    | ClusterNotFoundException
     | InvalidParameterException
     | ServerException
-    | UnsupportedFeatureException
     | CommonAwsError;
 }
 
@@ -3549,7 +3337,6 @@ export type ECSErrors =
   | AttributeLimitExceededException
   | BlockedException
   | ClientException
-  | ClusterContainsCapacityProviderException
   | ClusterContainsContainerInstancesException
   | ClusterContainsServicesException
   | ClusterContainsTasksException

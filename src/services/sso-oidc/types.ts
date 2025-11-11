@@ -81,7 +81,6 @@ export declare class SSOOIDC extends AWSServiceClient {
     | InvalidRedirectUriException
     | InvalidRequestException
     | InvalidScopeException
-    | SlowDownException
     | UnsupportedGrantTypeException
     | CommonAwsError
   >;
@@ -104,10 +103,8 @@ export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",
 )<{
   readonly error?: string;
-  readonly reason?: AccessDeniedExceptionReason;
   readonly error_description?: string;
 }> {}
-export type AccessDeniedExceptionReason = "KMS_AccessDeniedException";
 export type AccessToken = string;
 
 export type ArnType = string;
@@ -233,14 +230,8 @@ export declare class InvalidRequestException extends EffectData.TaggedError(
   "InvalidRequestException",
 )<{
   readonly error?: string;
-  readonly reason?: InvalidRequestExceptionReason;
   readonly error_description?: string;
 }> {}
-export type InvalidRequestExceptionReason =
-  | "KMS_NotFoundException"
-  | "KMS_InvalidKeyUsageException"
-  | "KMS_InvalidStateException"
-  | "KMS_DisabledException";
 export declare class InvalidRequestRegionException extends EffectData.TaggedError(
   "InvalidRequestRegionException",
 )<{
@@ -371,7 +362,6 @@ export declare namespace RegisterClient {
     | InvalidRedirectUriException
     | InvalidRequestException
     | InvalidScopeException
-    | SlowDownException
     | UnsupportedGrantTypeException
     | CommonAwsError;
 }

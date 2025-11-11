@@ -116,7 +116,6 @@ export declare class IoTManagedIntegrations extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | ThrottlingException
-    | UnauthorizedException
     | ValidationException
     | CommonAwsError
   >;
@@ -138,9 +137,7 @@ export declare class IoTManagedIntegrations extends AWSServiceClient {
     | AccessDeniedException
     | ConflictException
     | InternalServerException
-    | ResourceNotFoundException
     | ThrottlingException
-    | UnauthorizedException
     | ValidationException
     | CommonAwsError
   >;
@@ -263,7 +260,6 @@ export declare class IoTManagedIntegrations extends AWSServiceClient {
     | InternalServerException
     | ResourceNotFoundException
     | ThrottlingException
-    | UnauthorizedException
     | ValidationException
     | CommonAwsError
   >;
@@ -507,19 +503,6 @@ export declare class IoTManagedIntegrations extends AWSServiceClient {
     input: GetManagedThingCapabilitiesRequest,
   ): Effect.Effect<
     GetManagedThingCapabilitiesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | ValidationException
-    | CommonAwsError
-  >;
-  getManagedThingCertificate(
-    input: GetManagedThingCertificateRequest,
-  ): Effect.Effect<
-    GetManagedThingCertificateResponse,
     | AccessDeniedException
     | InternalServerException
     | ResourceNotFoundException
@@ -945,7 +928,6 @@ export declare class IoTManagedIntegrations extends AWSServiceClient {
     | InternalServerException
     | ResourceNotFoundException
     | ThrottlingException
-    | UnauthorizedException
     | ValidationException
     | CommonAwsError
   >;
@@ -1150,8 +1132,6 @@ export interface CapabilitySchemaItem {
 }
 export type CapabilitySchemas = Array<CapabilitySchemaItem>;
 export type CapabilityVersion = string;
-
-export type CertificatePem = string;
 
 export type ClaimCertificate = string;
 
@@ -1704,13 +1684,6 @@ export interface GetManagedThingCapabilitiesResponse {
   ManagedThingId?: string;
   Capabilities?: string;
   CapabilityReport?: CapabilityReport;
-}
-export interface GetManagedThingCertificateRequest {
-  Identifier: string;
-}
-export interface GetManagedThingCertificateResponse {
-  ManagedThingId?: string;
-  CertificatePem?: string;
 }
 export interface GetManagedThingConnectivityDataRequest {
   Identifier: string;
@@ -2738,7 +2711,6 @@ export declare namespace CreateAccountAssociation {
     | ResourceNotFoundException
     | ServiceUnavailableException
     | ThrottlingException
-    | UnauthorizedException
     | ValidationException
     | CommonAwsError;
 }
@@ -2762,9 +2734,7 @@ export declare namespace CreateConnectorDestination {
     | AccessDeniedException
     | ConflictException
     | InternalServerException
-    | ResourceNotFoundException
     | ThrottlingException
-    | UnauthorizedException
     | ValidationException
     | CommonAwsError;
 }
@@ -2897,7 +2867,6 @@ export declare namespace DeleteCloudConnector {
     | InternalServerException
     | ResourceNotFoundException
     | ThrottlingException
-    | UnauthorizedException
     | ValidationException
     | CommonAwsError;
 }
@@ -3161,20 +3130,6 @@ export declare namespace GetManagedThing {
 export declare namespace GetManagedThingCapabilities {
   export type Input = GetManagedThingCapabilitiesRequest;
   export type Output = GetManagedThingCapabilitiesResponse;
-  export type Error =
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | ValidationException
-    | CommonAwsError;
-}
-
-export declare namespace GetManagedThingCertificate {
-  export type Input = GetManagedThingCertificateRequest;
-  export type Output = GetManagedThingCertificateResponse;
   export type Error =
     | AccessDeniedException
     | InternalServerException
@@ -3637,7 +3592,6 @@ export declare namespace UpdateCloudConnector {
     | InternalServerException
     | ResourceNotFoundException
     | ThrottlingException
-    | UnauthorizedException
     | ValidationException
     | CommonAwsError;
 }

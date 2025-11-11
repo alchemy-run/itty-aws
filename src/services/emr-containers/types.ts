@@ -311,7 +311,6 @@ export interface CreateManagedEndpointResponse {
 export interface CreateSecurityConfigurationRequest {
   clientToken: string;
   name: string;
-  containerProvider?: ContainerProvider;
   securityConfigurationData: SecurityConfigurationData;
   tags?: Record<string, string>;
 }
@@ -395,7 +394,6 @@ export interface DescribeVirtualClusterResponse {
 }
 export interface EksInfo {
   namespace?: string;
-  nodeLabel?: string;
 }
 export declare class EKSRequestThrottledException extends EffectData.TaggedError(
   "EKSRequestThrottledException",

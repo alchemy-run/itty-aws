@@ -36,7 +36,6 @@ const metadata = {
     UntagResource: "DELETE /tags/{resourceArn}",
     CreateAlertManagerDefinition:
       "POST /workspaces/{workspaceId}/alertmanager/definition",
-    CreateAnomalyDetector: "POST /workspaces/{workspaceId}/anomalydetectors",
     CreateLoggingConfiguration: "POST /workspaces/{workspaceId}/logging",
     CreateQueryLoggingConfiguration:
       "POST /workspaces/{workspaceId}/logging/query",
@@ -46,52 +45,36 @@ const metadata = {
     CreateWorkspace: "POST /workspaces",
     DeleteAlertManagerDefinition:
       "DELETE /workspaces/{workspaceId}/alertmanager/definition",
-    DeleteAnomalyDetector:
-      "DELETE /workspaces/{workspaceId}/anomalydetectors/{anomalyDetectorId}",
     DeleteLoggingConfiguration: "DELETE /workspaces/{workspaceId}/logging",
     DeleteQueryLoggingConfiguration:
       "DELETE /workspaces/{workspaceId}/logging/query",
-    DeleteResourcePolicy: "DELETE /workspaces/{workspaceId}/policy",
     DeleteRuleGroupsNamespace:
       "DELETE /workspaces/{workspaceId}/rulegroupsnamespaces/{name}",
     DeleteScraper: "DELETE /scrapers/{scraperId}",
-    DeleteScraperLoggingConfiguration:
-      "DELETE /scrapers/{scraperId}/logging-configuration",
     DeleteWorkspace: "DELETE /workspaces/{workspaceId}",
     DescribeAlertManagerDefinition:
       "GET /workspaces/{workspaceId}/alertmanager/definition",
-    DescribeAnomalyDetector:
-      "GET /workspaces/{workspaceId}/anomalydetectors/{anomalyDetectorId}",
     DescribeLoggingConfiguration: "GET /workspaces/{workspaceId}/logging",
     DescribeQueryLoggingConfiguration:
       "GET /workspaces/{workspaceId}/logging/query",
-    DescribeResourcePolicy: "GET /workspaces/{workspaceId}/policy",
     DescribeRuleGroupsNamespace:
       "GET /workspaces/{workspaceId}/rulegroupsnamespaces/{name}",
     DescribeScraper: "GET /scrapers/{scraperId}",
-    DescribeScraperLoggingConfiguration:
-      "GET /scrapers/{scraperId}/logging-configuration",
     DescribeWorkspace: "GET /workspaces/{workspaceId}",
     DescribeWorkspaceConfiguration:
       "GET /workspaces/{workspaceId}/configuration",
-    ListAnomalyDetectors: "GET /workspaces/{workspaceId}/anomalydetectors",
     ListRuleGroupsNamespaces:
       "GET /workspaces/{workspaceId}/rulegroupsnamespaces",
     ListScrapers: "GET /scrapers",
     ListWorkspaces: "GET /workspaces",
     PutAlertManagerDefinition:
       "PUT /workspaces/{workspaceId}/alertmanager/definition",
-    PutAnomalyDetector:
-      "PUT /workspaces/{workspaceId}/anomalydetectors/{anomalyDetectorId}",
-    PutResourcePolicy: "PUT /workspaces/{workspaceId}/policy",
     PutRuleGroupsNamespace:
       "PUT /workspaces/{workspaceId}/rulegroupsnamespaces/{name}",
     UpdateLoggingConfiguration: "PUT /workspaces/{workspaceId}/logging",
     UpdateQueryLoggingConfiguration:
       "PUT /workspaces/{workspaceId}/logging/query",
     UpdateScraper: "PUT /scrapers/{scraperId}",
-    UpdateScraperLoggingConfiguration:
-      "PUT /scrapers/{scraperId}/logging-configuration",
     UpdateWorkspaceAlias: "POST /workspaces/{workspaceId}/alias",
     UpdateWorkspaceConfiguration:
       "PATCH /workspaces/{workspaceId}/configuration",

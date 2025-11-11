@@ -183,7 +183,6 @@ export declare class EKS extends AWSServiceClient {
   ): Effect.Effect<
     DeleteClusterResponse,
     | ClientException
-    | InvalidRequestException
     | ResourceInUseException
     | ResourceNotFoundException
     | ServerException
@@ -336,16 +335,6 @@ export declare class EKS extends AWSServiceClient {
     input: DescribeInsightRequest,
   ): Effect.Effect<
     DescribeInsightResponse,
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServerException
-    | CommonAwsError
-  >;
-  describeInsightsRefresh(
-    input: DescribeInsightsRefreshRequest,
-  ): Effect.Effect<
-    DescribeInsightsRefreshResponse,
     | InvalidParameterException
     | InvalidRequestException
     | ResourceNotFoundException
@@ -543,16 +532,6 @@ export declare class EKS extends AWSServiceClient {
     | ServiceUnavailableException
     | CommonAwsError
   >;
-  startInsightsRefresh(
-    input: StartInsightsRefreshRequest,
-  ): Effect.Effect<
-    StartInsightsRefreshResponse,
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServerException
-    | CommonAwsError
-  >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -710,7 +689,6 @@ export interface Addon {
   marketplaceInformation?: MarketplaceInformation;
   configurationValues?: string;
   podIdentityAssociations?: Array<string>;
-  namespaceConfig?: AddonNamespaceConfigResponse;
 }
 export interface AddonCompatibilityDetail {
   name?: string;
@@ -727,7 +705,6 @@ export interface AddonInfo {
   publisher?: string;
   owner?: string;
   marketplaceInformation?: MarketplaceInformation;
-  defaultNamespace?: string;
 }
 export interface AddonIssue {
   code?: AddonIssueCode;
@@ -746,12 +723,6 @@ export type AddonIssueCode =
   | "AddonSubscriptionNeeded"
   | "AddonPermissionFailure";
 export type AddonIssueList = Array<AddonIssue>;
-export interface AddonNamespaceConfigRequest {
-  namespace?: string;
-}
-export interface AddonNamespaceConfigResponse {
-  namespace?: string;
-}
 export interface AddonPodIdentityAssociations {
   serviceAccount: string;
   roleArn: string;
@@ -908,7 +879,6 @@ export interface Cluster {
   remoteNetworkConfig?: RemoteNetworkConfigResponse;
   computeConfig?: ComputeConfigResponse;
   storageConfig?: StorageConfigResponse;
-  deletionProtection?: boolean;
 }
 export interface ClusterHealth {
   issues?: Array<ClusterIssue>;
@@ -1035,7 +1005,6 @@ export interface CreateAddonRequest {
   tags?: Record<string, string>;
   configurationValues?: string;
   podIdentityAssociations?: Array<AddonPodIdentityAssociations>;
-  namespaceConfig?: AddonNamespaceConfigRequest;
 }
 export interface CreateAddonResponse {
   addon?: Addon;
@@ -1058,7 +1027,6 @@ export interface CreateClusterRequest {
   remoteNetworkConfig?: RemoteNetworkConfigRequest;
   computeConfig?: ComputeConfigRequest;
   storageConfig?: StorageConfigRequest;
-  deletionProtection?: boolean;
 }
 export interface CreateClusterResponse {
   cluster?: Cluster;
@@ -1272,15 +1240,6 @@ export interface DescribeInsightRequest {
 export interface DescribeInsightResponse {
   insight?: Insight;
 }
-export interface DescribeInsightsRefreshRequest {
-  clusterName: string;
-}
-export interface DescribeInsightsRefreshResponse {
-  message?: string;
-  status?: InsightsRefreshStatus;
-  startedAt?: Date | string;
-  endedAt?: Date | string;
-}
 export interface DescribeNodegroupRequest {
   clusterName: string;
   nodegroupName: string;
@@ -1464,7 +1423,6 @@ export interface InsightsFilter {
   kubernetesVersions?: Array<string>;
   statuses?: Array<InsightStatusValue>;
 }
-export type InsightsRefreshStatus = "IN_PROGRESS" | "FAILED" | "COMPLETED";
 export interface InsightStatus {
   status?: InsightStatusValue;
   reason?: string;
@@ -1706,8 +1664,6 @@ export interface MarketplaceInformation {
   productId?: string;
   productUrl?: string;
 }
-export type Eksnamespace = string;
-
 export interface Nodegroup {
   nodegroupName?: string;
   nodegroupArn?: string;
@@ -1799,19 +1755,7 @@ export interface NodegroupUpdateConfig {
 export type NodegroupUpdateStrategies = "DEFAULT" | "MINIMAL";
 export interface NodeRepairConfig {
   enabled?: boolean;
-  maxUnhealthyNodeThresholdCount?: number;
-  maxUnhealthyNodeThresholdPercentage?: number;
-  maxParallelNodesRepairedCount?: number;
-  maxParallelNodesRepairedPercentage?: number;
-  nodeRepairConfigOverrides?: Array<NodeRepairConfigOverrides>;
 }
-export interface NodeRepairConfigOverrides {
-  nodeMonitoringCondition?: string;
-  nodeUnhealthyReason?: string;
-  minRepairWaitTimeMins?: number;
-  repairAction?: RepairAction;
-}
-export type NodeRepairConfigOverridesList = Array<NodeRepairConfigOverrides>;
 export type NonZeroInteger = number;
 
 export declare class NotFoundException extends EffectData.TaggedError(
@@ -1915,7 +1859,6 @@ export interface RemotePodNetwork {
   cidrs?: Array<string>;
 }
 export type RemotePodNetworkList = Array<RemotePodNetwork>;
-export type RepairAction = "Replace" | "Reboot" | "NoAction";
 export type requiredClaimsKey = string;
 
 export type requiredClaimsMap = Record<string, string>;
@@ -1969,13 +1912,6 @@ export declare class ServiceUnavailableException extends EffectData.TaggedError(
 )<{
   readonly message?: string;
 }> {}
-export interface StartInsightsRefreshRequest {
-  clusterName: string;
-}
-export interface StartInsightsRefreshResponse {
-  message?: string;
-  status?: InsightsRefreshStatus;
-}
 export interface StorageConfigRequest {
   blockStorage?: BlockStorage;
 }
@@ -2075,7 +2011,6 @@ export interface UpdateClusterConfigRequest {
   kubernetesNetworkConfig?: KubernetesNetworkConfigRequest;
   storageConfig?: StorageConfigRequest;
   remoteNetworkConfig?: RemoteNetworkConfigRequest;
-  deletionProtection?: boolean;
 }
 export interface UpdateClusterConfigResponse {
   update?: Update;
@@ -2167,9 +2102,7 @@ export type UpdateParamType =
   | "ComputeConfig"
   | "StorageConfig"
   | "KubernetesNetworkConfig"
-  | "RemoteNetworkConfig"
-  | "DeletionProtection"
-  | "NodeRepairConfig";
+  | "RemoteNetworkConfig";
 export interface UpdatePodIdentityAssociationRequest {
   clusterName: string;
   associationId: string;
@@ -2200,8 +2133,7 @@ export type UpdateType =
   | "UpgradePolicyUpdate"
   | "ZonalShiftConfigUpdate"
   | "AutoModeUpdate"
-  | "RemoteNetworkConfigUpdate"
-  | "DeletionProtectionUpdate";
+  | "RemoteNetworkConfigUpdate";
 export interface UpgradePolicyRequest {
   supportType?: SupportType;
 }
@@ -2394,7 +2326,6 @@ export declare namespace DeleteCluster {
   export type Output = DeleteClusterResponse;
   export type Error =
     | ClientException
-    | InvalidRequestException
     | ResourceInUseException
     | ResourceNotFoundException
     | ServerException
@@ -2561,17 +2492,6 @@ export declare namespace DescribeIdentityProviderConfig {
 export declare namespace DescribeInsight {
   export type Input = DescribeInsightRequest;
   export type Output = DescribeInsightResponse;
-  export type Error =
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServerException
-    | CommonAwsError;
-}
-
-export declare namespace DescribeInsightsRefresh {
-  export type Input = DescribeInsightsRefreshRequest;
-  export type Output = DescribeInsightsRefreshResponse;
   export type Error =
     | InvalidParameterException
     | InvalidRequestException
@@ -2785,17 +2705,6 @@ export declare namespace RegisterCluster {
     | ResourcePropagationDelayException
     | ServerException
     | ServiceUnavailableException
-    | CommonAwsError;
-}
-
-export declare namespace StartInsightsRefresh {
-  export type Input = StartInsightsRefreshRequest;
-  export type Output = StartInsightsRefreshResponse;
-  export type Error =
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServerException
     | CommonAwsError;
 }
 

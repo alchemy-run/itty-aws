@@ -57,8 +57,6 @@ const metadata = {
     DeleteAssetModel: "DELETE /asset-models/{assetModelId}",
     DeleteAssetModelCompositeModel:
       "DELETE /asset-models/{assetModelId}/composite-models/{assetModelCompositeModelId}",
-    DeleteAssetModelInterfaceRelationship:
-      "DELETE /asset-models/{assetModelId}/interface/{interfaceAssetModelId}/asset-model-interface-relationship",
     DeleteComputationModel: "DELETE /computation-models/{computationModelId}",
     DeleteDashboard: "DELETE /dashboards/{dashboardId}",
     DeleteDataset: "DELETE /datasets/{datasetId}",
@@ -79,8 +77,6 @@ const metadata = {
     },
     DescribeAssetModelCompositeModel:
       "GET /asset-models/{assetModelId}/composite-models/{assetModelCompositeModelId}",
-    DescribeAssetModelInterfaceRelationship:
-      "GET /asset-models/{assetModelId}/interface/{interfaceAssetModelId}/asset-model-interface-relationship",
     DescribeAssetProperty: "GET /assets/{assetId}/properties/{propertyId}",
     DescribeBulkImportJob: "GET /jobs/{jobId}",
     DescribeComputationModel: "GET /computation-models/{computationModelId}",
@@ -136,15 +132,11 @@ const metadata = {
     ListDatasets: "GET /datasets",
     ListExecutions: "GET /executions",
     ListGateways: "GET /20200301/gateways",
-    ListInterfaceRelationships:
-      "GET /interface/{interfaceAssetModelId}/asset-models",
     ListPortals: "GET /portals",
     ListProjectAssets: "GET /projects/{projectId}/assets",
     ListProjects: "GET /projects",
     ListTagsForResource: "GET /tags",
     ListTimeSeries: "GET /timeseries",
-    PutAssetModelInterfaceRelationship:
-      "PUT /asset-models/{assetModelId}/interface/{interfaceAssetModelId}/asset-model-interface-relationship",
     PutDefaultEncryptionConfiguration: "POST /configuration/account/encryption",
     PutLoggingOptions: "PUT /logging",
     PutStorageConfiguration: "POST /configuration/account/storage",

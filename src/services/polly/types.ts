@@ -301,7 +301,7 @@ export type MaxResults = number;
 
 export type NextToken = string;
 
-export type OutputFormat = "json" | "mp3" | "ogg_opus" | "ogg_vorbis" | "pcm";
+export type OutputFormat = "json" | "mp3" | "ogg_vorbis" | "pcm";
 export type OutputS3BucketName = string;
 
 export type OutputS3KeyPrefix = string;

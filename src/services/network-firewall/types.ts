@@ -1076,8 +1076,6 @@ export type EnabledAnalysisType = "TLS_SNI" | "HTTP_HOST";
 export type EnabledAnalysisTypes = Array<EnabledAnalysisType>;
 export type EnableMonitoringDashboard = boolean;
 
-export type EnableTLSSessionHolding = boolean;
-
 export interface EncryptionConfiguration {
   KeyId?: string;
   Type: EncryptionType;
@@ -1125,7 +1123,6 @@ export interface FirewallPolicy {
   StatefulEngineOptions?: StatefulEngineOptions;
   TLSInspectionConfigurationArn?: string;
   PolicyVariables?: PolicyVariables;
-  EnableTLSSessionHolding?: boolean;
 }
 export interface FirewallPolicyMetadata {
   Name?: string;
@@ -1199,11 +1196,7 @@ export type Flows = Array<Flow>;
 export interface FlowTimeouts {
   TcpIdleTimeoutSeconds?: number;
 }
-export type GeneratedRulesType =
-  | "ALLOWLIST"
-  | "DENYLIST"
-  | "REJECTLIST"
-  | "ALERTLIST";
+export type GeneratedRulesType = "ALLOWLIST" | "DENYLIST";
 export interface GetAnalysisReportResultsRequest {
   FirewallName?: string;
   AnalysisReportId: string;

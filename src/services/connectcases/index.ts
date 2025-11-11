@@ -68,7 +68,6 @@ const metadata = {
     ListTemplates: "POST /domains/{domainId}/templates-list",
     PutCaseEventConfiguration:
       "PUT /domains/{domainId}/case-event-configuration",
-    SearchAllRelatedItems: "POST /domains/{domainId}/related-items-search",
     SearchCases: "POST /domains/{domainId}/cases-search",
     SearchRelatedItems:
       "POST /domains/{domainId}/cases/{caseId}/related-items-search",

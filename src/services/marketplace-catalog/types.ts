@@ -333,8 +333,7 @@ export type ContainerProductSortBy =
   | "EntityId"
   | "LastModifiedDate"
   | "ProductTitle"
-  | "Visibility"
-  | "CompatibleAWSServices";
+  | "Visibility";
 export interface ContainerProductSummary {
   ProductTitle?: string;
   Visibility?: ContainerProductVisibilityString;
@@ -965,8 +964,7 @@ export type SaaSProductSortBy =
   | "EntityId"
   | "ProductTitle"
   | "Visibility"
-  | "LastModifiedDate"
-  | "DeliveryOptionTypes";
+  | "LastModifiedDate";
 export interface SaaSProductSummary {
   ProductTitle?: string;
   Visibility?: SaaSProductVisibilityString;

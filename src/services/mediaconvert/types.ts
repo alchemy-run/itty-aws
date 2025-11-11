@@ -12,7 +12,6 @@ export declare class MediaConvert extends AWSServiceClient {
     | ForbiddenException
     | InternalServerErrorException
     | NotFoundException
-    | ServiceQuotaExceededException
     | TooManyRequestsException
     | CommonAwsError
   >;
@@ -25,7 +24,6 @@ export declare class MediaConvert extends AWSServiceClient {
     | ForbiddenException
     | InternalServerErrorException
     | NotFoundException
-    | ServiceQuotaExceededException
     | TooManyRequestsException
     | CommonAwsError
   >;
@@ -38,7 +36,6 @@ export declare class MediaConvert extends AWSServiceClient {
     | ForbiddenException
     | InternalServerErrorException
     | NotFoundException
-    | ServiceQuotaExceededException
     | TooManyRequestsException
     | CommonAwsError
   >;
@@ -51,7 +48,6 @@ export declare class MediaConvert extends AWSServiceClient {
     | ForbiddenException
     | InternalServerErrorException
     | NotFoundException
-    | ServiceQuotaExceededException
     | TooManyRequestsException
     | CommonAwsError
   >;
@@ -64,7 +60,6 @@ export declare class MediaConvert extends AWSServiceClient {
     | ForbiddenException
     | InternalServerErrorException
     | NotFoundException
-    | ServiceQuotaExceededException
     | TooManyRequestsException
     | CommonAwsError
   >;
@@ -77,20 +72,6 @@ export declare class MediaConvert extends AWSServiceClient {
     | ForbiddenException
     | InternalServerErrorException
     | NotFoundException
-    | ServiceQuotaExceededException
-    | TooManyRequestsException
-    | CommonAwsError
-  >;
-  createResourceShare(
-    input: CreateResourceShareRequest,
-  ): Effect.Effect<
-    CreateResourceShareResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceQuotaExceededException
     | TooManyRequestsException
     | CommonAwsError
   >;
@@ -103,7 +84,6 @@ export declare class MediaConvert extends AWSServiceClient {
     | ForbiddenException
     | InternalServerErrorException
     | NotFoundException
-    | ServiceQuotaExceededException
     | TooManyRequestsException
     | CommonAwsError
   >;
@@ -116,7 +96,6 @@ export declare class MediaConvert extends AWSServiceClient {
     | ForbiddenException
     | InternalServerErrorException
     | NotFoundException
-    | ServiceQuotaExceededException
     | TooManyRequestsException
     | CommonAwsError
   >;
@@ -129,7 +108,6 @@ export declare class MediaConvert extends AWSServiceClient {
     | ForbiddenException
     | InternalServerErrorException
     | NotFoundException
-    | ServiceQuotaExceededException
     | TooManyRequestsException
     | CommonAwsError
   >;
@@ -142,7 +120,6 @@ export declare class MediaConvert extends AWSServiceClient {
     | ForbiddenException
     | InternalServerErrorException
     | NotFoundException
-    | ServiceQuotaExceededException
     | TooManyRequestsException
     | CommonAwsError
   >;
@@ -155,7 +132,6 @@ export declare class MediaConvert extends AWSServiceClient {
     | ForbiddenException
     | InternalServerErrorException
     | NotFoundException
-    | ServiceQuotaExceededException
     | TooManyRequestsException
     | CommonAwsError
   >;
@@ -168,7 +144,6 @@ export declare class MediaConvert extends AWSServiceClient {
     | ForbiddenException
     | InternalServerErrorException
     | NotFoundException
-    | ServiceQuotaExceededException
     | TooManyRequestsException
     | CommonAwsError
   >;
@@ -181,20 +156,6 @@ export declare class MediaConvert extends AWSServiceClient {
     | ForbiddenException
     | InternalServerErrorException
     | NotFoundException
-    | ServiceQuotaExceededException
-    | TooManyRequestsException
-    | CommonAwsError
-  >;
-  getJobsQueryResults(
-    input: GetJobsQueryResultsRequest,
-  ): Effect.Effect<
-    GetJobsQueryResultsResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceQuotaExceededException
     | TooManyRequestsException
     | CommonAwsError
   >;
@@ -207,7 +168,6 @@ export declare class MediaConvert extends AWSServiceClient {
     | ForbiddenException
     | InternalServerErrorException
     | NotFoundException
-    | ServiceQuotaExceededException
     | TooManyRequestsException
     | CommonAwsError
   >;
@@ -220,7 +180,6 @@ export declare class MediaConvert extends AWSServiceClient {
     | ForbiddenException
     | InternalServerErrorException
     | NotFoundException
-    | ServiceQuotaExceededException
     | TooManyRequestsException
     | CommonAwsError
   >;
@@ -233,7 +192,6 @@ export declare class MediaConvert extends AWSServiceClient {
     | ForbiddenException
     | InternalServerErrorException
     | NotFoundException
-    | ServiceQuotaExceededException
     | TooManyRequestsException
     | CommonAwsError
   >;
@@ -246,7 +204,6 @@ export declare class MediaConvert extends AWSServiceClient {
     | ForbiddenException
     | InternalServerErrorException
     | NotFoundException
-    | ServiceQuotaExceededException
     | TooManyRequestsException
     | CommonAwsError
   >;
@@ -259,7 +216,6 @@ export declare class MediaConvert extends AWSServiceClient {
     | ForbiddenException
     | InternalServerErrorException
     | NotFoundException
-    | ServiceQuotaExceededException
     | TooManyRequestsException
     | CommonAwsError
   >;
@@ -272,7 +228,6 @@ export declare class MediaConvert extends AWSServiceClient {
     | ForbiddenException
     | InternalServerErrorException
     | NotFoundException
-    | ServiceQuotaExceededException
     | TooManyRequestsException
     | CommonAwsError
   >;
@@ -285,7 +240,6 @@ export declare class MediaConvert extends AWSServiceClient {
     | ForbiddenException
     | InternalServerErrorException
     | NotFoundException
-    | ServiceQuotaExceededException
     | TooManyRequestsException
     | CommonAwsError
   >;
@@ -298,7 +252,6 @@ export declare class MediaConvert extends AWSServiceClient {
     | ForbiddenException
     | InternalServerErrorException
     | NotFoundException
-    | ServiceQuotaExceededException
     | TooManyRequestsException
     | CommonAwsError
   >;
@@ -311,7 +264,6 @@ export declare class MediaConvert extends AWSServiceClient {
     | ForbiddenException
     | InternalServerErrorException
     | NotFoundException
-    | ServiceQuotaExceededException
     | TooManyRequestsException
     | CommonAwsError
   >;
@@ -324,7 +276,6 @@ export declare class MediaConvert extends AWSServiceClient {
     | ForbiddenException
     | InternalServerErrorException
     | NotFoundException
-    | ServiceQuotaExceededException
     | TooManyRequestsException
     | CommonAwsError
   >;
@@ -337,7 +288,6 @@ export declare class MediaConvert extends AWSServiceClient {
     | ForbiddenException
     | InternalServerErrorException
     | NotFoundException
-    | ServiceQuotaExceededException
     | TooManyRequestsException
     | CommonAwsError
   >;
@@ -350,7 +300,6 @@ export declare class MediaConvert extends AWSServiceClient {
     | ForbiddenException
     | InternalServerErrorException
     | NotFoundException
-    | ServiceQuotaExceededException
     | TooManyRequestsException
     | CommonAwsError
   >;
@@ -363,20 +312,6 @@ export declare class MediaConvert extends AWSServiceClient {
     | ForbiddenException
     | InternalServerErrorException
     | NotFoundException
-    | ServiceQuotaExceededException
-    | TooManyRequestsException
-    | CommonAwsError
-  >;
-  startJobsQuery(
-    input: StartJobsQueryRequest,
-  ): Effect.Effect<
-    StartJobsQueryResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceQuotaExceededException
     | TooManyRequestsException
     | CommonAwsError
   >;
@@ -389,7 +324,6 @@ export declare class MediaConvert extends AWSServiceClient {
     | ForbiddenException
     | InternalServerErrorException
     | NotFoundException
-    | ServiceQuotaExceededException
     | TooManyRequestsException
     | CommonAwsError
   >;
@@ -402,7 +336,6 @@ export declare class MediaConvert extends AWSServiceClient {
     | ForbiddenException
     | InternalServerErrorException
     | NotFoundException
-    | ServiceQuotaExceededException
     | TooManyRequestsException
     | CommonAwsError
   >;
@@ -415,7 +348,6 @@ export declare class MediaConvert extends AWSServiceClient {
     | ForbiddenException
     | InternalServerErrorException
     | NotFoundException
-    | ServiceQuotaExceededException
     | TooManyRequestsException
     | CommonAwsError
   >;
@@ -428,7 +360,6 @@ export declare class MediaConvert extends AWSServiceClient {
     | ForbiddenException
     | InternalServerErrorException
     | NotFoundException
-    | ServiceQuotaExceededException
     | TooManyRequestsException
     | CommonAwsError
   >;
@@ -441,7 +372,6 @@ export declare class MediaConvert extends AWSServiceClient {
     | ForbiddenException
     | InternalServerErrorException
     | NotFoundException
-    | ServiceQuotaExceededException
     | TooManyRequestsException
     | CommonAwsError
   >;
@@ -689,7 +619,6 @@ export type __listOf__integerMin1Max2147483647 = Array<number>;
 export type __listOf__integerMin32Max8182 = Array<number>;
 export type __listOf__integerMinNegative60Max6 = Array<number>;
 export type __listOf__string = Array<string>;
-export type __listOf__stringMax100 = Array<string>;
 export type __listOf__stringMin1 = Array<string>;
 export type __listOf__stringMin36Max36Pattern09aFAF809aFAF409aFAF409aFAF409aFAF12 =
   Array<string>;
@@ -722,7 +651,6 @@ export type __listOfInputTemplate = Array<InputTemplate>;
 export type __listOfInsertableImage = Array<InsertableImage>;
 export type __listOfJob = Array<Job>;
 export type __listOfJobEngineVersion = Array<JobEngineVersion>;
-export type __listOfJobsQueryFilter = Array<JobsQueryFilter>;
 export type __listOfJobTemplate = Array<JobTemplate>;
 export type __listOfMsSmoothAdditionalManifest =
   Array<MsSmoothAdditionalManifest>;
@@ -753,8 +681,6 @@ export type __mapOfAudioSelectorGroup = Record<string, AudioSelectorGroup>;
 export type __mapOfCaptionSelector = Record<string, CaptionSelector>;
 export type __mapOfDynamicAudioSelector = Record<string, DynamicAudioSelector>;
 export type __string = string;
-
-export type __stringMax100 = string;
 
 export type __stringMax1000 = string;
 
@@ -1054,7 +980,6 @@ export type AudioDefaultSelection = "DEFAULT" | "NOT_DEFAULT";
 export interface AudioDescription {
   AudioChannelTaggingSettings?: AudioChannelTaggingSettings;
   AudioNormalizationSettings?: AudioNormalizationSettings;
-  AudioPitchCorrectionSettings?: AudioPitchCorrectionSettings;
   AudioSourceName?: string;
   AudioType?: number;
   AudioTypeControl?: AudioTypeControl;
@@ -1091,9 +1016,6 @@ export interface AudioNormalizationSettings {
   TargetLkfs?: number;
   TruePeakLimiterThreshold?: number;
 }
-export interface AudioPitchCorrectionSettings {
-  SlowPalPitchCorrection?: SlowPalPitchCorrection;
-}
 export interface AudioProperties {
   BitDepth?: number;
   BitRate?: number;
@@ -1114,7 +1036,6 @@ export interface AudioSelector {
   ProgramSelection?: number;
   RemixSettings?: RemixSettings;
   SelectorType?: AudioSelectorType;
-  Streams?: Array<number>;
   Tracks?: Array<number>;
 }
 export interface AudioSelectorGroup {
@@ -1125,8 +1046,7 @@ export type AudioSelectorType =
   | "TRACK"
   | "LANGUAGE_CODE"
   | "HLS_RENDITION_GROUP"
-  | "ALL_PCM"
-  | "STREAM";
+  | "ALL_PCM";
 export type AudioTypeControl = "FOLLOW_INPUT" | "USE_CONFIGURED";
 export interface AutomatedAbrRule {
   AllowedRenditions?: Array<AllowedRenditionSize>;
@@ -1518,31 +1438,15 @@ export type Codec =
   | "HEVC"
   | "JPEG2000"
   | "MJPEG"
-  | "MPEG1"
   | "MP4V"
   | "MPEG2"
   | "PRORES"
   | "THEORA"
-  | "VFW"
   | "VP8"
   | "VP9"
-  | "QTRLE"
   | "C608"
   | "C708"
   | "WEBVTT";
-export interface CodecMetadata {
-  BitDepth?: number;
-  ChromaSubsampling?: string;
-  CodedFrameRate?: FrameRate;
-  ColorPrimaries?: ColorPrimaries;
-  Height?: number;
-  Level?: string;
-  MatrixCoefficients?: MatrixCoefficients;
-  Profile?: string;
-  ScanType?: string;
-  TransferCharacteristics?: TransferCharacteristics;
-  Width?: number;
-}
 export interface ColorConversion3DLUTSetting {
   FileInput?: string;
   InputColorSpace?: ColorSpace;
@@ -1694,11 +1598,6 @@ export interface CreateQueueRequest {
 export interface CreateQueueResponse {
   Queue?: Queue;
 }
-export interface CreateResourceShareRequest {
-  JobId: string;
-  SupportCaseId: string;
-}
-export interface CreateResourceShareResponse {}
 export interface DashAdditionalManifest {
   ManifestNameModifier?: string;
   SelectedOutputs?: Array<string>;
@@ -1761,7 +1660,7 @@ export type DashIsoVideoCompositionOffsets = "SIGNED" | "UNSIGNED";
 export type DashIsoWriteSegmentTimelineInRepresentation =
   | "ENABLED"
   | "DISABLED";
-export type DashManifestStyle = "BASIC" | "COMPACT" | "DISTINCT" | "FULL";
+export type DashManifestStyle = "BASIC" | "COMPACT" | "DISTINCT";
 export interface DataProperties {
   LanguageCode?: string;
 }
@@ -2113,8 +2012,7 @@ export type FrameMetricType =
   | "MS_SSIM"
   | "PSNR_HVS"
   | "VMAF"
-  | "QVBR"
-  | "SHOT_CHANGE";
+  | "QVBR";
 export interface FrameRate {
   Denominator?: number;
   Numerator?: number;
@@ -2124,14 +2022,6 @@ export interface GetJobRequest {
 }
 export interface GetJobResponse {
   Job?: Job;
-}
-export interface GetJobsQueryResultsRequest {
-  Id: string;
-}
-export interface GetJobsQueryResultsResponse {
-  Jobs?: Array<Job>;
-  NextToken?: string;
-  Status?: JobsQueryStatus;
 }
 export interface GetJobTemplateRequest {
   Name: string;
@@ -2500,7 +2390,7 @@ export interface HlsGroupSettings {
   TimedMetadataId3Period?: number;
   TimestampDeltaMilliseconds?: number;
 }
-export type HlsIFrameOnlyManifest = "INCLUDE" | "INCLUDE_AS_TS" | "EXCLUDE";
+export type HlsIFrameOnlyManifest = "INCLUDE" | "EXCLUDE";
 export type HlsImageBasedTrickPlay =
   | "NONE"
   | "THUMBNAIL"
@@ -2649,9 +2539,7 @@ export interface InputVideoGenerator {
   Duration?: number;
   FramerateDenominator?: number;
   FramerateNumerator?: number;
-  Height?: number;
   SampleRate?: number;
-  Width?: number;
 }
 export interface InsertableImage {
   Duration?: number;
@@ -2687,7 +2575,6 @@ export interface Job {
   JobEngineVersionUsed?: string;
   JobPercentComplete?: number;
   JobTemplate?: string;
-  LastShareDetails?: string;
   Messages?: JobMessages;
   OutputGroupDetails?: Array<OutputGroupDetail>;
   Priority?: number;
@@ -2696,7 +2583,6 @@ export interface Job {
   RetryCount?: number;
   Role: string;
   Settings: JobSettings;
-  ShareStatus?: ShareStatus;
   SimulateReservedQueue?: SimulateReservedQueue;
   Status?: JobStatus;
   StatusUpdateInterval?: StatusUpdateInterval;
@@ -2729,23 +2615,6 @@ export interface JobSettings {
   TimecodeConfig?: TimecodeConfig;
   TimedMetadataInsertion?: TimedMetadataInsertion;
 }
-export interface JobsQueryFilter {
-  Key?: JobsQueryFilterKey;
-  Values?: Array<string>;
-}
-export type JobsQueryFilterKey =
-  | "queue"
-  | "status"
-  | "fileInput"
-  | "jobEngineVersionRequested"
-  | "jobEngineVersionUsed"
-  | "audioCodec"
-  | "videoCodec";
-export type JobsQueryStatus =
-  | "SUBMITTED"
-  | "PROGRESSING"
-  | "COMPLETE"
-  | "ERROR";
 export type JobStatus =
   | "SUBMITTED"
   | "PROGRESSING"
@@ -3219,9 +3088,7 @@ export interface MovSettings {
   PaddingControl?: MovPaddingControl;
   Reference?: MovReference;
 }
-export type Mp2AudioDescriptionMix = "BROADCASTER_MIXED_AD" | "NONE";
 export interface Mp2Settings {
-  AudioDescriptionMix?: Mp2AudioDescriptionMix;
   Bitrate?: number;
   Channels?: number;
   SampleRate?: number;
@@ -3508,9 +3375,6 @@ export type PadVideo = "DISABLED" | "BLACK";
 export interface PartnerWatermarking {
   NexguardFileMarkerSettings?: NexGuardFileMarkerSettings;
 }
-export interface PassthroughSettings {
-  VideoSelectorMode?: VideoSelectorMode;
-}
 export interface Policy {
   HttpInputs?: InputPolicy;
   HttpsInputs?: InputPolicy;
@@ -3739,14 +3603,7 @@ export interface ServiceOverride {
   OverrideValue?: string;
   Value?: string;
 }
-export declare class ServiceQuotaExceededException extends EffectData.TaggedError(
-  "ServiceQuotaExceededException",
-)<{
-  readonly Message?: string;
-}> {}
-export type ShareStatus = "NOT_SHARED" | "INITIATED" | "SHARED";
 export type SimulateReservedQueue = "DISABLED" | "ENABLED";
-export type SlowPalPitchCorrection = "DISABLED" | "ENABLED";
 export interface SpekeKeyProvider {
   CertificateArn?: string;
   EncryptionContractConfiguration?: EncryptionContractConfiguration;
@@ -3766,15 +3623,6 @@ export interface SrtDestinationSettings {
   StylePassthrough?: SrtStylePassthrough;
 }
 export type SrtStylePassthrough = "ENABLED" | "DISABLED";
-export interface StartJobsQueryRequest {
-  FilterList?: Array<JobsQueryFilter>;
-  MaxResults?: number;
-  NextToken?: string;
-  Order?: Order;
-}
-export interface StartJobsQueryResponse {
-  Id?: string;
-}
 export interface StaticKeyProvider {
   KeyFormat?: string;
   KeyFormatVersions?: string;
@@ -3871,7 +3719,6 @@ export interface TrackMapping {
   VideoTrackIndexes?: Array<number>;
 }
 export interface TrackSourceSettings {
-  StreamNumber?: number;
   TrackNumber?: number;
 }
 export type TrackType = "video" | "audio" | "data";
@@ -4012,7 +3859,6 @@ export interface VideoCodecSettings {
   H264Settings?: H264Settings;
   H265Settings?: H265Settings;
   Mpeg2Settings?: Mpeg2Settings;
-  PassthroughSettings?: PassthroughSettings;
   ProresSettings?: ProresSettings;
   UncompressedSettings?: UncompressedSettings;
   Vc3Settings?: Vc3Settings;
@@ -4072,7 +3918,6 @@ export interface VideoOverlayInputClipping {
 export type VideoOverlayPlayBackMode = "ONCE" | "REPEAT";
 export interface VideoOverlayPosition {
   Height?: number;
-  Opacity?: number;
   Unit?: VideoOverlayUnit;
   Width?: number;
   XPosition?: number;
@@ -4097,7 +3942,6 @@ export interface VideoPreprocessor {
 export interface VideoProperties {
   BitDepth?: number;
   BitRate?: number;
-  CodecMetadata?: CodecMetadata;
   ColorPrimaries?: ColorPrimaries;
   FrameRate?: FrameRate;
   Height?: number;
@@ -4117,11 +3961,7 @@ export interface VideoSelector {
   ProgramNumber?: number;
   Rotate?: InputRotate;
   SampleRange?: InputSampleRange;
-  SelectorType?: VideoSelectorType;
-  Streams?: Array<number>;
 }
-export type VideoSelectorMode = "AUTO" | "REMUX_ALL";
-export type VideoSelectorType = "AUTO" | "STREAM";
 export type VideoTimecodeInsertion = "DISABLED" | "PIC_TIMING_SEI";
 export interface VorbisSettings {
   Channels?: number;
@@ -4325,7 +4165,6 @@ export declare namespace AssociateCertificate {
     | ForbiddenException
     | InternalServerErrorException
     | NotFoundException
-    | ServiceQuotaExceededException
     | TooManyRequestsException
     | CommonAwsError;
 }
@@ -4339,7 +4178,6 @@ export declare namespace CancelJob {
     | ForbiddenException
     | InternalServerErrorException
     | NotFoundException
-    | ServiceQuotaExceededException
     | TooManyRequestsException
     | CommonAwsError;
 }
@@ -4353,7 +4191,6 @@ export declare namespace CreateJob {
     | ForbiddenException
     | InternalServerErrorException
     | NotFoundException
-    | ServiceQuotaExceededException
     | TooManyRequestsException
     | CommonAwsError;
 }
@@ -4367,7 +4204,6 @@ export declare namespace CreateJobTemplate {
     | ForbiddenException
     | InternalServerErrorException
     | NotFoundException
-    | ServiceQuotaExceededException
     | TooManyRequestsException
     | CommonAwsError;
 }
@@ -4381,7 +4217,6 @@ export declare namespace CreatePreset {
     | ForbiddenException
     | InternalServerErrorException
     | NotFoundException
-    | ServiceQuotaExceededException
     | TooManyRequestsException
     | CommonAwsError;
 }
@@ -4395,21 +4230,6 @@ export declare namespace CreateQueue {
     | ForbiddenException
     | InternalServerErrorException
     | NotFoundException
-    | ServiceQuotaExceededException
-    | TooManyRequestsException
-    | CommonAwsError;
-}
-
-export declare namespace CreateResourceShare {
-  export type Input = CreateResourceShareRequest;
-  export type Output = CreateResourceShareResponse;
-  export type Error =
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceQuotaExceededException
     | TooManyRequestsException
     | CommonAwsError;
 }
@@ -4423,7 +4243,6 @@ export declare namespace DeleteJobTemplate {
     | ForbiddenException
     | InternalServerErrorException
     | NotFoundException
-    | ServiceQuotaExceededException
     | TooManyRequestsException
     | CommonAwsError;
 }
@@ -4437,7 +4256,6 @@ export declare namespace DeletePolicy {
     | ForbiddenException
     | InternalServerErrorException
     | NotFoundException
-    | ServiceQuotaExceededException
     | TooManyRequestsException
     | CommonAwsError;
 }
@@ -4451,7 +4269,6 @@ export declare namespace DeletePreset {
     | ForbiddenException
     | InternalServerErrorException
     | NotFoundException
-    | ServiceQuotaExceededException
     | TooManyRequestsException
     | CommonAwsError;
 }
@@ -4465,7 +4282,6 @@ export declare namespace DeleteQueue {
     | ForbiddenException
     | InternalServerErrorException
     | NotFoundException
-    | ServiceQuotaExceededException
     | TooManyRequestsException
     | CommonAwsError;
 }
@@ -4479,7 +4295,6 @@ export declare namespace DescribeEndpoints {
     | ForbiddenException
     | InternalServerErrorException
     | NotFoundException
-    | ServiceQuotaExceededException
     | TooManyRequestsException
     | CommonAwsError;
 }
@@ -4493,7 +4308,6 @@ export declare namespace DisassociateCertificate {
     | ForbiddenException
     | InternalServerErrorException
     | NotFoundException
-    | ServiceQuotaExceededException
     | TooManyRequestsException
     | CommonAwsError;
 }
@@ -4507,21 +4321,6 @@ export declare namespace GetJob {
     | ForbiddenException
     | InternalServerErrorException
     | NotFoundException
-    | ServiceQuotaExceededException
-    | TooManyRequestsException
-    | CommonAwsError;
-}
-
-export declare namespace GetJobsQueryResults {
-  export type Input = GetJobsQueryResultsRequest;
-  export type Output = GetJobsQueryResultsResponse;
-  export type Error =
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceQuotaExceededException
     | TooManyRequestsException
     | CommonAwsError;
 }
@@ -4535,7 +4334,6 @@ export declare namespace GetJobTemplate {
     | ForbiddenException
     | InternalServerErrorException
     | NotFoundException
-    | ServiceQuotaExceededException
     | TooManyRequestsException
     | CommonAwsError;
 }
@@ -4549,7 +4347,6 @@ export declare namespace GetPolicy {
     | ForbiddenException
     | InternalServerErrorException
     | NotFoundException
-    | ServiceQuotaExceededException
     | TooManyRequestsException
     | CommonAwsError;
 }
@@ -4563,7 +4360,6 @@ export declare namespace GetPreset {
     | ForbiddenException
     | InternalServerErrorException
     | NotFoundException
-    | ServiceQuotaExceededException
     | TooManyRequestsException
     | CommonAwsError;
 }
@@ -4577,7 +4373,6 @@ export declare namespace GetQueue {
     | ForbiddenException
     | InternalServerErrorException
     | NotFoundException
-    | ServiceQuotaExceededException
     | TooManyRequestsException
     | CommonAwsError;
 }
@@ -4591,7 +4386,6 @@ export declare namespace ListJobs {
     | ForbiddenException
     | InternalServerErrorException
     | NotFoundException
-    | ServiceQuotaExceededException
     | TooManyRequestsException
     | CommonAwsError;
 }
@@ -4605,7 +4399,6 @@ export declare namespace ListJobTemplates {
     | ForbiddenException
     | InternalServerErrorException
     | NotFoundException
-    | ServiceQuotaExceededException
     | TooManyRequestsException
     | CommonAwsError;
 }
@@ -4619,7 +4412,6 @@ export declare namespace ListPresets {
     | ForbiddenException
     | InternalServerErrorException
     | NotFoundException
-    | ServiceQuotaExceededException
     | TooManyRequestsException
     | CommonAwsError;
 }
@@ -4633,7 +4425,6 @@ export declare namespace ListQueues {
     | ForbiddenException
     | InternalServerErrorException
     | NotFoundException
-    | ServiceQuotaExceededException
     | TooManyRequestsException
     | CommonAwsError;
 }
@@ -4647,7 +4438,6 @@ export declare namespace ListTagsForResource {
     | ForbiddenException
     | InternalServerErrorException
     | NotFoundException
-    | ServiceQuotaExceededException
     | TooManyRequestsException
     | CommonAwsError;
 }
@@ -4661,7 +4451,6 @@ export declare namespace ListVersions {
     | ForbiddenException
     | InternalServerErrorException
     | NotFoundException
-    | ServiceQuotaExceededException
     | TooManyRequestsException
     | CommonAwsError;
 }
@@ -4675,7 +4464,6 @@ export declare namespace Probe {
     | ForbiddenException
     | InternalServerErrorException
     | NotFoundException
-    | ServiceQuotaExceededException
     | TooManyRequestsException
     | CommonAwsError;
 }
@@ -4689,7 +4477,6 @@ export declare namespace PutPolicy {
     | ForbiddenException
     | InternalServerErrorException
     | NotFoundException
-    | ServiceQuotaExceededException
     | TooManyRequestsException
     | CommonAwsError;
 }
@@ -4703,21 +4490,6 @@ export declare namespace SearchJobs {
     | ForbiddenException
     | InternalServerErrorException
     | NotFoundException
-    | ServiceQuotaExceededException
-    | TooManyRequestsException
-    | CommonAwsError;
-}
-
-export declare namespace StartJobsQuery {
-  export type Input = StartJobsQueryRequest;
-  export type Output = StartJobsQueryResponse;
-  export type Error =
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceQuotaExceededException
     | TooManyRequestsException
     | CommonAwsError;
 }
@@ -4731,7 +4503,6 @@ export declare namespace TagResource {
     | ForbiddenException
     | InternalServerErrorException
     | NotFoundException
-    | ServiceQuotaExceededException
     | TooManyRequestsException
     | CommonAwsError;
 }
@@ -4745,7 +4516,6 @@ export declare namespace UntagResource {
     | ForbiddenException
     | InternalServerErrorException
     | NotFoundException
-    | ServiceQuotaExceededException
     | TooManyRequestsException
     | CommonAwsError;
 }
@@ -4759,7 +4529,6 @@ export declare namespace UpdateJobTemplate {
     | ForbiddenException
     | InternalServerErrorException
     | NotFoundException
-    | ServiceQuotaExceededException
     | TooManyRequestsException
     | CommonAwsError;
 }
@@ -4773,7 +4542,6 @@ export declare namespace UpdatePreset {
     | ForbiddenException
     | InternalServerErrorException
     | NotFoundException
-    | ServiceQuotaExceededException
     | TooManyRequestsException
     | CommonAwsError;
 }
@@ -4787,7 +4555,6 @@ export declare namespace UpdateQueue {
     | ForbiddenException
     | InternalServerErrorException
     | NotFoundException
-    | ServiceQuotaExceededException
     | TooManyRequestsException
     | CommonAwsError;
 }
@@ -4798,6 +4565,5 @@ export type MediaConvertErrors =
   | ForbiddenException
   | InternalServerErrorException
   | NotFoundException
-  | ServiceQuotaExceededException
   | TooManyRequestsException
   | CommonAwsError;

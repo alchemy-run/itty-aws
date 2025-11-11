@@ -40,7 +40,6 @@ const metadata = {
         stream: "httpPayload",
       },
     },
-    CountTokens: "POST /model/{modelId}/count-tokens",
     GetAsyncInvoke: "GET /async-invoke/{invocationArn}",
     InvokeModel: {
       http: "POST /model/{modelId}/invoke",

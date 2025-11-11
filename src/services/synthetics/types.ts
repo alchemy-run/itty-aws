@@ -273,16 +273,8 @@ export type BaseScreenshotIgnoreCoordinates = Array<string>;
 export type BaseScreenshots = Array<BaseScreenshot>;
 export type Blob = Uint8Array | string;
 
-export type BlueprintType = string;
-
-export type BlueprintTypes = Array<string>;
 export type Syntheticsboolean = boolean;
 
-export interface BrowserConfig {
-  BrowserType?: BrowserType;
-}
-export type BrowserConfigs = Array<BrowserConfig>;
-export type BrowserType = "CHROME" | "FIREFOX";
 export type Canaries = Array<Canary>;
 export type CanariesLastRun = Array<CanaryLastRun>;
 export interface Canary {
@@ -302,9 +294,6 @@ export interface Canary {
   VpcConfig?: VpcConfigOutput;
   VisualReference?: VisualReferenceOutput;
   ProvisionedResourceCleanup?: ProvisionedResourceCleanupSetting;
-  BrowserConfigs?: Array<BrowserConfig>;
-  EngineConfigs?: Array<EngineConfig>;
-  VisualReferences?: Array<VisualReferenceOutput>;
   Tags?: Record<string, string>;
   ArtifactConfig?: ArtifactConfigOutput;
   DryRunConfig?: DryRunConfigOutput;
@@ -316,14 +305,12 @@ export interface CanaryCodeInput {
   S3Key?: string;
   S3Version?: string;
   ZipFile?: Uint8Array | string;
-  Handler?: string;
-  BlueprintTypes?: Array<string>;
+  Handler: string;
   Dependencies?: Array<Dependency>;
 }
 export interface CanaryCodeOutput {
   SourceLocationArn?: string;
   Handler?: string;
-  BlueprintTypes?: Array<string>;
   Dependencies?: Array<Dependency>;
 }
 export interface CanaryDryRunConfigOutput {
@@ -344,7 +331,6 @@ export interface CanaryRun {
   Timeline?: CanaryRunTimeline;
   ArtifactS3Location?: string;
   DryRunConfig?: CanaryDryRunConfigOutput;
-  BrowserType?: BrowserType;
 }
 export interface CanaryRunConfigInput {
   TimeoutInSeconds?: number;
@@ -438,7 +424,6 @@ export interface CreateCanaryRequest {
   VpcConfig?: VpcConfigInput;
   ResourcesToReplicateTags?: Array<ResourceToTag>;
   ProvisionedResourceCleanup?: ProvisionedResourceCleanupSetting;
-  BrowserConfigs?: Array<BrowserConfig>;
   Tags?: Record<string, string>;
   ArtifactConfig?: ArtifactConfigInput;
 }
@@ -472,7 +457,6 @@ export interface DescribeCanariesLastRunRequest {
   NextToken?: string;
   MaxResults?: number;
   Names?: Array<string>;
-  BrowserType?: BrowserType;
 }
 export interface DescribeCanariesLastRunResponse {
   CanariesLastRun?: Array<CanaryLastRun>;
@@ -506,11 +490,6 @@ export interface DryRunConfigOutput {
   LastDryRunExecutionStatus?: string;
 }
 export type EncryptionMode = "SSE_S3" | "SSE_KMS";
-export interface EngineConfig {
-  EngineArn?: string;
-  BrowserType?: BrowserType;
-}
-export type EngineConfigs = Array<EngineConfig>;
 export type EnvironmentVariableName = string;
 
 export type EnvironmentVariablesMap = Record<string, string>;
@@ -693,8 +672,6 @@ export interface StartCanaryDryRunRequest {
   ArtifactS3Location?: string;
   ArtifactConfig?: ArtifactConfigInput;
   ProvisionedResourceCleanup?: ProvisionedResourceCleanupSetting;
-  BrowserConfigs?: Array<BrowserConfig>;
-  VisualReferences?: Array<VisualReferenceInput>;
 }
 export interface StartCanaryDryRunResponse {
   DryRunConfig?: DryRunConfigOutput;
@@ -753,8 +730,6 @@ export interface UpdateCanaryRequest {
   ArtifactConfig?: ArtifactConfigInput;
   ProvisionedResourceCleanup?: ProvisionedResourceCleanupSetting;
   DryRunId?: string;
-  VisualReferences?: Array<VisualReferenceInput>;
-  BrowserConfigs?: Array<BrowserConfig>;
 }
 export interface UpdateCanaryResponse {}
 export type UUID = string;
@@ -767,15 +742,11 @@ export declare class ValidationException extends EffectData.TaggedError(
 export interface VisualReferenceInput {
   BaseScreenshots?: Array<BaseScreenshot>;
   BaseCanaryRunId: string;
-  BrowserType?: BrowserType;
 }
 export interface VisualReferenceOutput {
   BaseScreenshots?: Array<BaseScreenshot>;
   BaseCanaryRunId?: string;
-  BrowserType?: BrowserType;
 }
-export type VisualReferences = Array<VisualReferenceInput>;
-export type VisualReferencesOutput = Array<VisualReferenceOutput>;
 export interface VpcConfigInput {
   SubnetIds?: Array<string>;
   SecurityGroupIds?: Array<string>;

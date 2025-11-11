@@ -139,7 +139,6 @@ export type AWSAccountIds = Array<string>;
 export type AwsRegion =
   | "af-south-1"
   | "ap-east-1"
-  | "ap-east-2"
   | "ap-northeast-1"
   | "ap-northeast-2"
   | "ap-northeast-3"
@@ -280,7 +279,6 @@ export interface CreateMembershipRequest {
   incidentResponseTeam: Array<IncidentResponder>;
   optInFeatures?: Array<OptInFeature>;
   tags?: Record<string, string>;
-  coverEntireOrganization?: boolean;
 }
 export interface CreateMembershipResponse {
   membershipId: string;
@@ -361,7 +359,6 @@ export interface GetMembershipResponse {
   numberOfAccountsCovered?: number;
   incidentResponseTeam?: Array<IncidentResponder>;
   optInFeatures?: Array<OptInFeature>;
-  membershipAccountsConfigurations?: MembershipAccountsConfigurations;
 }
 export type ImpactedAccounts = Array<string>;
 export interface ImpactedAwsRegion {
@@ -467,18 +464,8 @@ export interface ListTagsForResourceOutput {
 }
 export type MembershipAccountRelationshipStatus =
   | "Associated"
-  | "Disassociated"
-  | "Unassociated";
-export type MembershipAccountRelationshipType = "Organization" | "Unrelated";
-export interface MembershipAccountsConfigurations {
-  coverEntireOrganization?: boolean;
-  organizationalUnits?: Array<string>;
-}
-export interface MembershipAccountsConfigurationsUpdate {
-  coverEntireOrganization?: boolean;
-  organizationalUnitsToAdd?: Array<string>;
-  organizationalUnitsToRemove?: Array<string>;
-}
+  | "Disassociated";
+export type MembershipAccountRelationshipType = "Organization";
 export type MembershipArn = string;
 
 export type MembershipId = string;
@@ -492,9 +479,6 @@ export interface OptInFeature {
 }
 export type OptInFeatureName = "Triage";
 export type OptInFeatures = Array<OptInFeature>;
-export type OrganizationalUnitId = string;
-
-export type OrganizationalUnits = Array<string>;
 export type PendingAction = "Customer" | "None";
 export type PersonName = string;
 
@@ -594,8 +578,6 @@ export interface UpdateMembershipRequest {
   membershipName?: string;
   incidentResponseTeam?: Array<IncidentResponder>;
   optInFeatures?: Array<OptInFeature>;
-  membershipAccountsConfigurationsUpdate?: MembershipAccountsConfigurationsUpdate;
-  undoMembershipCancellation?: boolean;
 }
 export interface UpdateMembershipResponse {}
 export interface UpdateResolverTypeRequest {

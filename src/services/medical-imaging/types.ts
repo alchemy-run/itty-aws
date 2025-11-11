@@ -211,7 +211,6 @@ export declare class MedicalImaging extends AWSServiceClient {
     | AccessDeniedException
     | ConflictException
     | InternalServerException
-    | ResourceNotFoundException
     | ServiceQuotaExceededException
     | ThrottlingException
     | ValidationException
@@ -317,7 +316,6 @@ export interface CreateDatastoreRequest {
   clientToken: string;
   tags?: Record<string, string>;
   kmsKeyArn?: string;
-  lambdaAuthorizerArn?: string;
 }
 export interface CreateDatastoreResponse {
   datastoreId: string;
@@ -332,7 +330,6 @@ export interface DatastoreProperties {
   datastoreName: string;
   datastoreStatus: DatastoreStatus;
   kmsKeyArn?: string;
-  lambdaAuthorizerArn?: string;
   datastoreArn?: string;
   createdAt?: Date | string;
   updatedAt?: Date | string;
@@ -549,10 +546,7 @@ export type ImageSetWorkflowStatus =
   | "UPDATED"
   | "UPDATE_FAILED"
   | "DELETING"
-  | "DELETED"
-  | "IMPORTING"
-  | "IMPORTED"
-  | "IMPORT_FAILED";
+  | "DELETED";
 export declare class InternalServerException extends EffectData.TaggedError(
   "InternalServerException",
 )<{
@@ -564,8 +558,6 @@ export type JobName = string;
 
 export type JobStatus = "SUBMITTED" | "IN_PROGRESS" | "COMPLETED" | "FAILED";
 export type KmsKeyArn = string;
-
-export type LambdaArn = string;
 
 export interface ListDatastoresRequest {
   datastoreStatus?: DatastoreStatus;
@@ -933,7 +925,6 @@ export declare namespace CreateDatastore {
     | AccessDeniedException
     | ConflictException
     | InternalServerException
-    | ResourceNotFoundException
     | ServiceQuotaExceededException
     | ThrottlingException
     | ValidationException

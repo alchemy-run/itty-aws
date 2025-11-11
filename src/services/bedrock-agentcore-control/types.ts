@@ -48,17 +48,6 @@ export declare class BedrockAgentCoreControl extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
-  listTagsForResource(
-    input: ListTagsForResourceRequest,
-  ): Effect.Effect<
-    ListTagsForResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
-  >;
   setTokenVaultCMK(
     input: SetTokenVaultCMKRequest,
   ): Effect.Effect<
@@ -69,29 +58,6 @@ export declare class BedrockAgentCoreControl extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | UnauthorizedException
-    | ValidationException
-    | CommonAwsError
-  >;
-  tagResource(
-    input: TagResourceRequest,
-  ): Effect.Effect<
-    TagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
-  >;
-  untagResource(
-    input: UntagResourceRequest,
-  ): Effect.Effect<
-    UntagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
     | ValidationException
     | CommonAwsError
   >;
@@ -580,19 +546,6 @@ export declare class BedrockAgentCoreControl extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
-  synchronizeGatewayTargets(
-    input: SynchronizeGatewayTargetsRequest,
-  ): Effect.Effect<
-    SynchronizeGatewayTargetsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
-  >;
   updateAgentRuntime(
     input: UpdateAgentRuntimeRequest,
   ): Effect.Effect<
@@ -711,70 +664,64 @@ export declare class AccessDeniedException extends EffectData.TaggedError(
 )<{
   readonly message?: string;
 }> {}
-export type AgentEndpointDescription = string;
-
-export type AgentManagedRuntimeType =
-  | "PYTHON_3_10"
-  | "PYTHON_3_11"
-  | "PYTHON_3_12"
-  | "PYTHON_3_13";
-export interface AgentRuntime {
+export interface Agent {
   agentRuntimeArn: string;
   agentRuntimeId: string;
   agentRuntimeVersion: string;
   agentRuntimeName: string;
   description: string;
   lastUpdatedAt: Date | string;
-  status: AgentRuntimeStatus;
+  status: AgentStatus;
 }
-export type AgentRuntimeArn = string;
-
-interface _AgentRuntimeArtifact {
+interface _AgentArtifact {
   containerConfiguration?: ContainerConfiguration;
-  codeConfiguration?: CodeConfiguration;
 }
 
-export type AgentRuntimeArtifact =
-  | (_AgentRuntimeArtifact & { containerConfiguration: ContainerConfiguration })
-  | (_AgentRuntimeArtifact & { codeConfiguration: CodeConfiguration });
-export interface AgentRuntimeEndpoint {
+export type AgentArtifact = _AgentArtifact & {
+  containerConfiguration: ContainerConfiguration;
+};
+export interface AgentEndpoint {
   name: string;
   liveVersion?: string;
   targetVersion?: string;
   agentRuntimeEndpointArn: string;
   agentRuntimeArn: string;
-  status: AgentRuntimeEndpointStatus;
+  status: AgentEndpointStatus;
   id: string;
   description?: string;
   createdAt: Date | string;
   lastUpdatedAt: Date | string;
 }
+export type AgentEndpointDescription = string;
+
+export type AgentEndpoints = Array<AgentEndpoint>;
+export type AgentEndpointStatus =
+  | "CREATING"
+  | "CREATE_FAILED"
+  | "UPDATING"
+  | "UPDATE_FAILED"
+  | "READY"
+  | "DELETING";
+export type AgentRuntimeArn = string;
+
 export type AgentRuntimeEndpointArn = string;
 
 export type AgentRuntimeEndpointId = string;
 
-export type AgentRuntimeEndpoints = Array<AgentRuntimeEndpoint>;
-export type AgentRuntimeEndpointStatus =
-  | "CREATING"
-  | "CREATE_FAILED"
-  | "UPDATING"
-  | "UPDATE_FAILED"
-  | "READY"
-  | "DELETING";
 export type AgentRuntimeId = string;
 
 export type AgentRuntimeName = string;
 
-export type AgentRuntimes = Array<AgentRuntime>;
-export type AgentRuntimeStatus =
+export type AgentRuntimeVersion = string;
+
+export type Agents = Array<Agent>;
+export type AgentStatus =
   | "CREATING"
   | "CREATE_FAILED"
   | "UPDATING"
   | "UPDATE_FAILED"
   | "READY"
   | "DELETING";
-export type AgentRuntimeVersion = string;
-
 export type AllowedAudience = string;
 
 export type AllowedAudienceList = Array<string>;
@@ -809,14 +756,6 @@ export type ApiSchemaConfiguration =
   | (_ApiSchemaConfiguration & { inlinePayload: string });
 export type Arn = string;
 
-export interface AtlassianOauth2ProviderConfigInput {
-  clientId: string;
-  clientSecret: string;
-}
-export interface AtlassianOauth2ProviderConfigOutput {
-  oauthDiscovery: Oauth2Discovery;
-  clientId?: string;
-}
 export type AuthorizationEndpointType = string;
 
 interface _AuthorizerConfiguration {
@@ -826,7 +765,7 @@ interface _AuthorizerConfiguration {
 export type AuthorizerConfiguration = _AuthorizerConfiguration & {
   customJWTAuthorizer: CustomJWTAuthorizerConfiguration;
 };
-export type AuthorizerType = "CUSTOM_JWT" | "AWS_IAM";
+export type AuthorizerType = "CUSTOM_JWT";
 export type AwsAccountId = string;
 
 export type BrowserArn = string;
@@ -835,15 +774,8 @@ export type BrowserId = string;
 
 export interface BrowserNetworkConfiguration {
   networkMode: BrowserNetworkMode;
-  vpcConfig?: VpcConfig;
 }
-export type BrowserNetworkMode = "PUBLIC" | "VPC";
-export interface BrowserSigningConfigInput {
-  enabled: boolean;
-}
-export interface BrowserSigningConfigOutput {
-  enabled: boolean;
-}
+export type BrowserNetworkMode = "PUBLIC";
 export type BrowserStatus =
   | "CREATING"
   | "CREATE_FAILED"
@@ -867,25 +799,14 @@ export type ClientSecretType = string;
 
 export type ClientToken = string;
 
-interface _Code {
-  s3?: S3Location;
-}
-
-export type Code = _Code & { s3: S3Location };
-export interface CodeConfiguration {
-  code: Code;
-  runtime: AgentManagedRuntimeType;
-  entryPoint: Array<string>;
-}
 export type CodeInterpreterArn = string;
 
 export type CodeInterpreterId = string;
 
 export interface CodeInterpreterNetworkConfiguration {
   networkMode: CodeInterpreterNetworkMode;
-  vpcConfig?: VpcConfig;
 }
-export type CodeInterpreterNetworkMode = "PUBLIC" | "SANDBOX" | "VPC";
+export type CodeInterpreterNetworkMode = "PUBLIC" | "SANDBOX";
 export type CodeInterpreterStatus =
   | "CREATING"
   | "CREATE_FAILED"
@@ -929,30 +850,24 @@ export interface CreateAgentRuntimeEndpointRequest {
   agentRuntimeVersion?: string;
   description?: string;
   clientToken?: string;
-  tags?: Record<string, string>;
 }
 export interface CreateAgentRuntimeEndpointResponse {
   targetVersion: string;
   agentRuntimeEndpointArn: string;
   agentRuntimeArn: string;
-  agentRuntimeId?: string;
-  endpointName?: string;
-  status: AgentRuntimeEndpointStatus;
+  status: AgentEndpointStatus;
   createdAt: Date | string;
 }
 export interface CreateAgentRuntimeRequest {
   agentRuntimeName: string;
-  agentRuntimeArtifact: AgentRuntimeArtifact;
+  description?: string;
+  agentRuntimeArtifact: AgentArtifact;
   roleArn: string;
   networkConfiguration: NetworkConfiguration;
-  clientToken?: string;
-  description?: string;
-  authorizerConfiguration?: AuthorizerConfiguration;
-  requestHeaderConfiguration?: RequestHeaderConfiguration;
   protocolConfiguration?: ProtocolConfiguration;
-  lifecycleConfiguration?: LifecycleConfiguration;
+  clientToken?: string;
   environmentVariables?: Record<string, string>;
-  tags?: Record<string, string>;
+  authorizerConfiguration?: AuthorizerConfiguration;
 }
 export interface CreateAgentRuntimeResponse {
   agentRuntimeArn: string;
@@ -960,12 +875,11 @@ export interface CreateAgentRuntimeResponse {
   agentRuntimeId: string;
   agentRuntimeVersion: string;
   createdAt: Date | string;
-  status: AgentRuntimeStatus;
+  status: AgentStatus;
 }
 export interface CreateApiKeyCredentialProviderRequest {
   name: string;
   apiKey: string;
-  tags?: Record<string, string>;
 }
 export interface CreateApiKeyCredentialProviderResponse {
   apiKeySecretArn: Secret;
@@ -978,9 +892,7 @@ export interface CreateBrowserRequest {
   executionRoleArn?: string;
   networkConfiguration: BrowserNetworkConfiguration;
   recording?: RecordingConfig;
-  browserSigning?: BrowserSigningConfigInput;
   clientToken?: string;
-  tags?: Record<string, string>;
 }
 export interface CreateBrowserResponse {
   browserId: string;
@@ -994,7 +906,6 @@ export interface CreateCodeInterpreterRequest {
   executionRoleArn?: string;
   networkConfiguration: CodeInterpreterNetworkConfiguration;
   clientToken?: string;
-  tags?: Record<string, string>;
 }
 export interface CreateCodeInterpreterResponse {
   codeInterpreterId: string;
@@ -1010,10 +921,9 @@ export interface CreateGatewayRequest {
   protocolType: GatewayProtocolType;
   protocolConfiguration?: GatewayProtocolConfiguration;
   authorizerType: AuthorizerType;
-  authorizerConfiguration?: AuthorizerConfiguration;
+  authorizerConfiguration: AuthorizerConfiguration;
   kmsKeyArn?: string;
   exceptionLevel?: ExceptionLevel;
-  tags?: Record<string, string>;
 }
 export interface CreateGatewayResponse {
   gatewayArn: string;
@@ -1040,7 +950,7 @@ export interface CreateGatewayTargetRequest {
   description?: string;
   clientToken?: string;
   targetConfiguration: TargetConfiguration;
-  credentialProviderConfigurations?: Array<CredentialProviderConfiguration>;
+  credentialProviderConfigurations: Array<CredentialProviderConfiguration>;
 }
 export interface CreateGatewayTargetResponse {
   gatewayArn: string;
@@ -1053,7 +963,6 @@ export interface CreateGatewayTargetResponse {
   description?: string;
   targetConfiguration: TargetConfiguration;
   credentialProviderConfigurations: Array<CredentialProviderConfiguration>;
-  lastSynchronizedAt?: Date | string;
 }
 export interface CreateMemoryInput {
   clientToken?: string;
@@ -1063,7 +972,6 @@ export interface CreateMemoryInput {
   memoryExecutionRoleArn?: string;
   eventExpiryDuration: number;
   memoryStrategies?: Array<MemoryStrategyInput>;
-  tags?: Record<string, string>;
 }
 export interface CreateMemoryOutput {
   memory?: Memory;
@@ -1072,19 +980,15 @@ export interface CreateOauth2CredentialProviderRequest {
   name: string;
   credentialProviderVendor: CredentialProviderVendorType;
   oauth2ProviderConfigInput: Oauth2ProviderConfigInput;
-  tags?: Record<string, string>;
 }
 export interface CreateOauth2CredentialProviderResponse {
   clientSecretArn: Secret;
   name: string;
   credentialProviderArn: string;
-  callbackUrl?: string;
-  oauth2ProviderConfigOutput?: Oauth2ProviderConfigOutput;
 }
 export interface CreateWorkloadIdentityRequest {
   name: string;
   allowedResourceOauth2ReturnUrls?: Array<string>;
-  tags?: Record<string, string>;
 }
 export interface CreateWorkloadIdentityResponse {
   name: string;
@@ -1118,31 +1022,11 @@ export type CredentialProviderVendorType =
   | "SlackOauth2"
   | "SalesforceOauth2"
   | "MicrosoftOauth2"
-  | "CustomOauth2"
-  | "AtlassianOauth2"
-  | "LinkedinOauth2"
-  | "XOauth2"
-  | "OktaOauth2"
-  | "OneLoginOauth2"
-  | "PingOneOauth2"
-  | "FacebookOauth2"
-  | "YandexOauth2"
-  | "RedditOauth2"
-  | "ZoomOauth2"
-  | "TwitchOauth2"
-  | "SpotifyOauth2"
-  | "DropboxOauth2"
-  | "NotionOauth2"
-  | "HubspotOauth2"
-  | "CyberArkOauth2"
-  | "FusionAuthOauth2"
-  | "Auth0Oauth2"
-  | "CognitoOauth2";
+  | "CustomOauth2";
 interface _CustomConfigurationInput {
   semanticOverride?: SemanticOverrideConfigurationInput;
   summaryOverride?: SummaryOverrideConfigurationInput;
   userPreferenceOverride?: UserPreferenceOverrideConfigurationInput;
-  selfManagedConfiguration?: SelfManagedConfigurationInput;
 }
 
 export type CustomConfigurationInput =
@@ -1154,9 +1038,6 @@ export type CustomConfigurationInput =
     })
   | (_CustomConfigurationInput & {
       userPreferenceOverride: UserPreferenceOverrideConfigurationInput;
-    })
-  | (_CustomConfigurationInput & {
-      selfManagedConfiguration: SelfManagedConfigurationInput;
     });
 interface _CustomConsolidationConfiguration {
   semanticConsolidationOverride?: SemanticConsolidationOverride;
@@ -1232,7 +1113,6 @@ export interface CustomOauth2ProviderConfigInput {
 }
 export interface CustomOauth2ProviderConfigOutput {
   oauthDiscovery: Oauth2Discovery;
-  clientId?: string;
 }
 export type DateTimestamp = Date | string;
 
@@ -1247,17 +1127,13 @@ export interface DeleteAgentRuntimeEndpointRequest {
   clientToken?: string;
 }
 export interface DeleteAgentRuntimeEndpointResponse {
-  status: AgentRuntimeEndpointStatus;
-  agentRuntimeId?: string;
-  endpointName?: string;
+  status: AgentEndpointStatus;
 }
 export interface DeleteAgentRuntimeRequest {
   agentRuntimeId: string;
-  clientToken?: string;
 }
 export interface DeleteAgentRuntimeResponse {
-  status: AgentRuntimeStatus;
-  agentRuntimeId?: string;
+  status: AgentStatus;
 }
 export interface DeleteApiKeyCredentialProviderRequest {
   name: string;
@@ -1332,9 +1208,6 @@ export declare class EncryptionFailure extends EffectData.TaggedError(
 }> {}
 export type EndpointName = string;
 
-export type entryPoint = string;
-
-export type EntryPoints = Array<string>;
 export type EnvironmentVariableKey = string;
 
 export type EnvironmentVariablesMap = Record<string, string>;
@@ -1394,20 +1267,6 @@ export interface GatewaySummary {
   authorizerType: AuthorizerType;
   protocolType: GatewayProtocolType;
 }
-export interface GatewayTarget {
-  gatewayArn: string;
-  targetId: string;
-  createdAt: Date | string;
-  updatedAt: Date | string;
-  status: TargetStatus;
-  statusReasons?: Array<string>;
-  name: string;
-  description?: string;
-  targetConfiguration: TargetConfiguration;
-  credentialProviderConfigurations: Array<CredentialProviderConfiguration>;
-  lastSynchronizedAt?: Date | string;
-}
-export type GatewayTargetList = Array<GatewayTarget>;
 export type GatewayUrl = string;
 
 export interface GetAgentRuntimeEndpointRequest {
@@ -1420,7 +1279,7 @@ export interface GetAgentRuntimeEndpointResponse {
   agentRuntimeEndpointArn: string;
   agentRuntimeArn: string;
   description?: string;
-  status: AgentRuntimeEndpointStatus;
+  status: AgentEndpointStatus;
   createdAt: Date | string;
   lastUpdatedAt: Date | string;
   failureReason?: string;
@@ -1433,22 +1292,20 @@ export interface GetAgentRuntimeRequest {
 }
 export interface GetAgentRuntimeResponse {
   agentRuntimeArn: string;
+  workloadIdentityDetails?: WorkloadIdentityDetails;
   agentRuntimeName: string;
+  description?: string;
   agentRuntimeId: string;
   agentRuntimeVersion: string;
   createdAt: Date | string;
   lastUpdatedAt: Date | string;
   roleArn: string;
+  agentRuntimeArtifact?: AgentArtifact;
   networkConfiguration: NetworkConfiguration;
-  status: AgentRuntimeStatus;
-  lifecycleConfiguration: LifecycleConfiguration;
-  description?: string;
-  workloadIdentityDetails?: WorkloadIdentityDetails;
-  agentRuntimeArtifact?: AgentRuntimeArtifact;
   protocolConfiguration?: ProtocolConfiguration;
   environmentVariables?: Record<string, string>;
   authorizerConfiguration?: AuthorizerConfiguration;
-  requestHeaderConfiguration?: RequestHeaderConfiguration;
+  status: AgentStatus;
 }
 export interface GetApiKeyCredentialProviderRequest {
   name: string;
@@ -1471,9 +1328,7 @@ export interface GetBrowserResponse {
   executionRoleArn?: string;
   networkConfiguration: BrowserNetworkConfiguration;
   recording?: RecordingConfig;
-  browserSigning?: BrowserSigningConfigOutput;
   status: BrowserStatus;
-  failureReason?: string;
   createdAt: Date | string;
   lastUpdatedAt: Date | string;
 }
@@ -1488,7 +1343,6 @@ export interface GetCodeInterpreterResponse {
   executionRoleArn?: string;
   networkConfiguration: CodeInterpreterNetworkConfiguration;
   status: CodeInterpreterStatus;
-  failureReason?: string;
   createdAt: Date | string;
   lastUpdatedAt: Date | string;
 }
@@ -1529,7 +1383,6 @@ export interface GetGatewayTargetResponse {
   description?: string;
   targetConfiguration: TargetConfiguration;
   credentialProviderConfigurations: Array<CredentialProviderConfiguration>;
-  lastSynchronizedAt?: Date | string;
 }
 export interface GetMemoryInput {
   memoryId: string;
@@ -1545,7 +1398,6 @@ export interface GetOauth2CredentialProviderResponse {
   name: string;
   credentialProviderArn: string;
   credentialProviderVendor: CredentialProviderVendorType;
-  callbackUrl?: string;
   oauth2ProviderConfigOutput: Oauth2ProviderConfigOutput;
   createdTime: Date | string;
   lastUpdatedTime: Date | string;
@@ -1574,7 +1426,6 @@ export interface GithubOauth2ProviderConfigInput {
 }
 export interface GithubOauth2ProviderConfigOutput {
   oauthDiscovery: Oauth2Discovery;
-  clientId?: string;
 }
 export interface GoogleOauth2ProviderConfigInput {
   clientId: string;
@@ -1582,20 +1433,6 @@ export interface GoogleOauth2ProviderConfigInput {
 }
 export interface GoogleOauth2ProviderConfigOutput {
   oauthDiscovery: Oauth2Discovery;
-  clientId?: string;
-}
-export type HeaderName = string;
-
-export interface IncludedOauth2ProviderConfigInput {
-  clientId: string;
-  clientSecret: string;
-  issuer?: string;
-  authorizationEndpoint?: string;
-  tokenEndpoint?: string;
-}
-export interface IncludedOauth2ProviderConfigOutput {
-  oauthDiscovery: Oauth2Discovery;
-  clientId?: string;
 }
 export type InlinePayload = string;
 
@@ -1604,14 +1441,6 @@ export declare class InternalServerException extends EffectData.TaggedError(
 )<{
   readonly message?: string;
 }> {}
-export interface InvocationConfiguration {
-  topicArn: string;
-  payloadDeliveryBucketName: string;
-}
-export interface InvocationConfigurationInput {
-  topicArn: string;
-  payloadDeliveryBucketName: string;
-}
 export type IssuerUrlType = string;
 
 export type KeyType = "CustomerManagedKey" | "ServiceManagedKey";
@@ -1623,25 +1452,13 @@ export type KmsKeyArn = string;
 
 export type LambdaFunctionArn = string;
 
-export interface LifecycleConfiguration {
-  idleRuntimeSessionTimeout?: number;
-  maxLifetime?: number;
-}
-export interface LinkedinOauth2ProviderConfigInput {
-  clientId: string;
-  clientSecret: string;
-}
-export interface LinkedinOauth2ProviderConfigOutput {
-  oauthDiscovery: Oauth2Discovery;
-  clientId?: string;
-}
 export interface ListAgentRuntimeEndpointsRequest {
   agentRuntimeId: string;
   maxResults?: number;
   nextToken?: string;
 }
 export interface ListAgentRuntimeEndpointsResponse {
-  runtimeEndpoints: Array<AgentRuntimeEndpoint>;
+  runtimeEndpoints: Array<AgentEndpoint>;
   nextToken?: string;
 }
 export interface ListAgentRuntimesRequest {
@@ -1649,7 +1466,7 @@ export interface ListAgentRuntimesRequest {
   nextToken?: string;
 }
 export interface ListAgentRuntimesResponse {
-  agentRuntimes: Array<AgentRuntime>;
+  agentRuntimes: Array<Agent>;
   nextToken?: string;
 }
 export interface ListAgentRuntimeVersionsRequest {
@@ -1658,7 +1475,7 @@ export interface ListAgentRuntimeVersionsRequest {
   nextToken?: string;
 }
 export interface ListAgentRuntimeVersionsResponse {
-  agentRuntimes: Array<AgentRuntime>;
+  agentRuntimes: Array<Agent>;
   nextToken?: string;
 }
 export interface ListApiKeyCredentialProvidersRequest {
@@ -1720,12 +1537,6 @@ export interface ListOauth2CredentialProvidersResponse {
   credentialProviders: Array<Oauth2CredentialProviderItem>;
   nextToken?: string;
 }
-export interface ListTagsForResourceRequest {
-  resourceArn: string;
-}
-export interface ListTagsForResourceResponse {
-  tags?: Record<string, string>;
-}
 export interface ListWorkloadIdentitiesRequest {
   nextToken?: string;
   maxResults?: number;
@@ -1747,22 +1558,17 @@ export interface McpLambdaTargetConfiguration {
   lambdaArn: string;
   toolSchema: ToolSchema;
 }
-export interface McpServerTargetConfiguration {
-  endpoint: string;
-}
 export type McpSupportedVersions = Array<string>;
 interface _McpTargetConfiguration {
   openApiSchema?: ApiSchemaConfiguration;
   smithyModel?: ApiSchemaConfiguration;
   lambda?: McpLambdaTargetConfiguration;
-  mcpServer?: McpServerTargetConfiguration;
 }
 
 export type McpTargetConfiguration =
   | (_McpTargetConfiguration & { openApiSchema: ApiSchemaConfiguration })
   | (_McpTargetConfiguration & { smithyModel: ApiSchemaConfiguration })
-  | (_McpTargetConfiguration & { lambda: McpLambdaTargetConfiguration })
-  | (_McpTargetConfiguration & { mcpServer: McpServerTargetConfiguration });
+  | (_McpTargetConfiguration & { lambda: McpLambdaTargetConfiguration });
 export type McpVersion = string;
 
 export interface Memory {
@@ -1837,20 +1643,12 @@ export interface MemorySummary {
   updatedAt: Date | string;
 }
 export type MemorySummaryList = Array<MemorySummary>;
-export interface MessageBasedTrigger {
-  messageCount?: number;
-}
-export interface MessageBasedTriggerInput {
-  messageCount?: number;
-}
 export interface MicrosoftOauth2ProviderConfigInput {
   clientId: string;
   clientSecret: string;
-  tenantId?: string;
 }
 export interface MicrosoftOauth2ProviderConfigOutput {
   oauthDiscovery: Oauth2Discovery;
-  clientId?: string;
 }
 interface _ModifyConsolidationConfiguration {
   customConsolidationConfiguration?: CustomConsolidationConfigurationInput;
@@ -1867,10 +1665,6 @@ interface _ModifyExtractionConfiguration {
 export type ModifyExtractionConfiguration = _ModifyExtractionConfiguration & {
   customExtractionConfiguration: CustomExtractionConfigurationInput;
 };
-export interface ModifyInvocationConfigurationInput {
-  topicArn?: string;
-  payloadDeliveryBucketName?: string;
-}
 export interface ModifyMemoryStrategies {
   addMemoryStrategies?: Array<MemoryStrategyInput>;
   modifyMemoryStrategies?: Array<ModifyMemoryStrategyInput>;
@@ -1883,15 +1677,9 @@ export interface ModifyMemoryStrategyInput {
   namespaces?: Array<string>;
   configuration?: ModifyStrategyConfiguration;
 }
-export interface ModifySelfManagedConfiguration {
-  triggerConditions?: Array<TriggerConditionInput>;
-  invocationConfiguration?: ModifyInvocationConfigurationInput;
-  historicalContextWindowSize?: number;
-}
 export interface ModifyStrategyConfiguration {
   extraction?: ModifyExtractionConfiguration;
   consolidation?: ModifyConsolidationConfiguration;
-  selfManagedConfiguration?: ModifySelfManagedConfiguration;
 }
 export type Name = string;
 
@@ -1900,9 +1688,8 @@ export type Namespace = string;
 export type NamespacesList = Array<string>;
 export interface NetworkConfiguration {
   networkMode: NetworkMode;
-  networkModeConfig?: VpcConfig;
 }
-export type NetworkMode = "PUBLIC" | "VPC";
+export type NetworkMode = "PUBLIC";
 export type NextToken = string;
 
 export type NonBlankString = string;
@@ -1914,7 +1701,6 @@ export interface Oauth2AuthorizationServerMetadata {
   authorizationEndpoint: string;
   tokenEndpoint: string;
   responseTypes?: Array<string>;
-  tokenEndpointAuthMethods?: Array<string>;
 }
 export interface Oauth2CredentialProviderItem {
   name: string;
@@ -1941,9 +1727,6 @@ interface _Oauth2ProviderConfigInput {
   slackOauth2ProviderConfig?: SlackOauth2ProviderConfigInput;
   salesforceOauth2ProviderConfig?: SalesforceOauth2ProviderConfigInput;
   microsoftOauth2ProviderConfig?: MicrosoftOauth2ProviderConfigInput;
-  atlassianOauth2ProviderConfig?: AtlassianOauth2ProviderConfigInput;
-  linkedinOauth2ProviderConfig?: LinkedinOauth2ProviderConfigInput;
-  includedOauth2ProviderConfig?: IncludedOauth2ProviderConfigInput;
 }
 
 export type Oauth2ProviderConfigInput =
@@ -1964,15 +1747,6 @@ export type Oauth2ProviderConfigInput =
     })
   | (_Oauth2ProviderConfigInput & {
       microsoftOauth2ProviderConfig: MicrosoftOauth2ProviderConfigInput;
-    })
-  | (_Oauth2ProviderConfigInput & {
-      atlassianOauth2ProviderConfig: AtlassianOauth2ProviderConfigInput;
-    })
-  | (_Oauth2ProviderConfigInput & {
-      linkedinOauth2ProviderConfig: LinkedinOauth2ProviderConfigInput;
-    })
-  | (_Oauth2ProviderConfigInput & {
-      includedOauth2ProviderConfig: IncludedOauth2ProviderConfigInput;
     });
 interface _Oauth2ProviderConfigOutput {
   customOauth2ProviderConfig?: CustomOauth2ProviderConfigOutput;
@@ -1981,9 +1755,6 @@ interface _Oauth2ProviderConfigOutput {
   slackOauth2ProviderConfig?: SlackOauth2ProviderConfigOutput;
   salesforceOauth2ProviderConfig?: SalesforceOauth2ProviderConfigOutput;
   microsoftOauth2ProviderConfig?: MicrosoftOauth2ProviderConfigOutput;
-  atlassianOauth2ProviderConfig?: AtlassianOauth2ProviderConfigOutput;
-  linkedinOauth2ProviderConfig?: LinkedinOauth2ProviderConfigOutput;
-  includedOauth2ProviderConfig?: IncludedOauth2ProviderConfigOutput;
 }
 
 export type Oauth2ProviderConfigOutput =
@@ -2004,15 +1775,6 @@ export type Oauth2ProviderConfigOutput =
     })
   | (_Oauth2ProviderConfigOutput & {
       microsoftOauth2ProviderConfig: MicrosoftOauth2ProviderConfigOutput;
-    })
-  | (_Oauth2ProviderConfigOutput & {
-      atlassianOauth2ProviderConfig: AtlassianOauth2ProviderConfigOutput;
-    })
-  | (_Oauth2ProviderConfigOutput & {
-      linkedinOauth2ProviderConfig: LinkedinOauth2ProviderConfigOutput;
-    })
-  | (_Oauth2ProviderConfigOutput & {
-      includedOauth2ProviderConfig: IncludedOauth2ProviderConfigOutput;
     });
 export interface OAuthCredentialProvider {
   providerArn: string;
@@ -2032,8 +1794,7 @@ export type OAuthScopes = Array<string>;
 export type OverrideType =
   | "SEMANTIC_OVERRIDE"
   | "SUMMARY_OVERRIDE"
-  | "USER_PREFERENCE_OVERRIDE"
-  | "SELF_MANAGED";
+  | "USER_PREFERENCE_OVERRIDE";
 export type Prompt = string;
 
 export interface ProtocolConfiguration {
@@ -2043,14 +1804,6 @@ export interface RecordingConfig {
   enabled?: boolean;
   s3Location?: S3Location;
 }
-export type RequestHeaderAllowlist = Array<string>;
-interface _RequestHeaderConfiguration {
-  requestHeaderAllowlist?: Array<string>;
-}
-
-export type RequestHeaderConfiguration = _RequestHeaderConfiguration & {
-  requestHeaderAllowlist: Array<string>;
-};
 export type RequiredProperties = Array<string>;
 export declare class ResourceLimitExceededException extends EffectData.TaggedError(
   "ResourceLimitExceededException",
@@ -2082,7 +1835,6 @@ export interface S3Configuration {
 export interface S3Location {
   bucket: string;
   prefix: string;
-  versionId?: string;
 }
 export interface SalesforceOauth2ProviderConfigInput {
   clientId: string;
@@ -2090,7 +1842,6 @@ export interface SalesforceOauth2ProviderConfigInput {
 }
 export interface SalesforceOauth2ProviderConfigOutput {
   oauthDiscovery: Oauth2Discovery;
-  clientId?: string;
 }
 export type SandboxName = string;
 
@@ -2115,19 +1866,6 @@ export interface Secret {
 }
 export type SecretArn = string;
 
-export type SecurityGroupId = string;
-
-export type SecurityGroups = Array<string>;
-export interface SelfManagedConfiguration {
-  triggerConditions: Array<TriggerCondition>;
-  invocationConfiguration: InvocationConfiguration;
-  historicalContextWindowSize: number;
-}
-export interface SelfManagedConfigurationInput {
-  triggerConditions?: Array<TriggerConditionInput>;
-  invocationConfiguration: InvocationConfigurationInput;
-  historicalContextWindowSize?: number;
-}
 export interface SemanticConsolidationOverride {
   appendToPrompt: string;
   modelId: string;
@@ -2153,7 +1891,7 @@ export interface SemanticOverrideExtractionConfigurationInput {
   appendToPrompt: string;
   modelId: string;
 }
-export type ServerProtocol = "MCP" | "HTTP" | "A2A";
+export type ServerProtocol = "MCP" | "HTTP";
 export declare class ServiceException extends EffectData.TaggedError(
   "ServiceException",
 )<{
@@ -2179,7 +1917,6 @@ export interface SlackOauth2ProviderConfigInput {
 }
 export interface SlackOauth2ProviderConfigOutput {
   oauthDiscovery: Oauth2Discovery;
-  clientId?: string;
 }
 export type StatusReason = string;
 
@@ -2188,11 +1925,7 @@ export interface StrategyConfiguration {
   type?: OverrideType;
   extraction?: ExtractionConfiguration;
   consolidation?: ConsolidationConfiguration;
-  selfManagedConfiguration?: SelfManagedConfiguration;
 }
-export type SubnetId = string;
-
-export type Subnets = Array<string>;
 export interface SummaryConsolidationOverride {
   appendToPrompt: string;
   modelId: string;
@@ -2209,26 +1942,6 @@ export interface SummaryOverrideConsolidationConfigurationInput {
   appendToPrompt: string;
   modelId: string;
 }
-export interface SynchronizeGatewayTargetsRequest {
-  gatewayIdentifier: string;
-  targetIdList: Array<string>;
-}
-export interface SynchronizeGatewayTargetsResponse {
-  targets?: Array<GatewayTarget>;
-}
-export type TaggableResourcesArn = string;
-
-export type TagKey = string;
-
-export type TagKeyList = Array<string>;
-export interface TagResourceRequest {
-  resourceArn: string;
-  tags: Record<string, string>;
-}
-export interface TagResourceResponse {}
-export type TagsMap = Record<string, string>;
-export type TagValue = string;
-
 interface _TargetConfiguration {
   mcp?: McpTargetConfiguration;
 }
@@ -2240,7 +1953,6 @@ export type TargetDescription = string;
 
 export type TargetId = string;
 
-export type TargetIdList = Array<string>;
 export type TargetMaxResults = number;
 
 export type TargetName = string;
@@ -2253,9 +1965,7 @@ export type TargetStatus =
   | "UPDATE_UNSUCCESSFUL"
   | "DELETING"
   | "READY"
-  | "FAILED"
-  | "SYNCHRONIZING"
-  | "SYNCHRONIZE_UNSUCCESSFUL";
+  | "FAILED";
 export type TargetSummaries = Array<TargetSummary>;
 export interface TargetSummary {
   targetId: string;
@@ -2265,8 +1975,6 @@ export interface TargetSummary {
   createdAt: Date | string;
   updatedAt: Date | string;
 }
-export type TenantIdType = string;
-
 export declare class ThrottledException extends EffectData.TaggedError(
   "ThrottledException",
 )<{
@@ -2277,21 +1985,6 @@ export declare class ThrottlingException extends EffectData.TaggedError(
 )<{
   readonly message?: string;
 }> {}
-export interface TimeBasedTrigger {
-  idleSessionTimeout?: number;
-}
-export interface TimeBasedTriggerInput {
-  idleSessionTimeout?: number;
-}
-export type TokenAuthMethod = string;
-
-export interface TokenBasedTrigger {
-  tokenCount?: number;
-}
-export interface TokenBasedTriggerInput {
-  tokenCount?: number;
-}
-export type TokenEndpointAuthMethodsType = Array<string>;
 export type TokenEndpointType = string;
 
 export type TokenVaultIdType = string;
@@ -2311,38 +2004,11 @@ interface _ToolSchema {
 export type ToolSchema =
   | (_ToolSchema & { s3: S3Configuration })
   | (_ToolSchema & { inlinePayload: Array<ToolDefinition> });
-interface _TriggerCondition {
-  messageBasedTrigger?: MessageBasedTrigger;
-  tokenBasedTrigger?: TokenBasedTrigger;
-  timeBasedTrigger?: TimeBasedTrigger;
-}
-
-export type TriggerCondition =
-  | (_TriggerCondition & { messageBasedTrigger: MessageBasedTrigger })
-  | (_TriggerCondition & { tokenBasedTrigger: TokenBasedTrigger })
-  | (_TriggerCondition & { timeBasedTrigger: TimeBasedTrigger });
-interface _TriggerConditionInput {
-  messageBasedTrigger?: MessageBasedTriggerInput;
-  tokenBasedTrigger?: TokenBasedTriggerInput;
-  timeBasedTrigger?: TimeBasedTriggerInput;
-}
-
-export type TriggerConditionInput =
-  | (_TriggerConditionInput & { messageBasedTrigger: MessageBasedTriggerInput })
-  | (_TriggerConditionInput & { tokenBasedTrigger: TokenBasedTriggerInput })
-  | (_TriggerConditionInput & { timeBasedTrigger: TimeBasedTriggerInput });
-export type TriggerConditionInputList = Array<TriggerConditionInput>;
-export type TriggerConditionsList = Array<TriggerCondition>;
 export declare class UnauthorizedException extends EffectData.TaggedError(
   "UnauthorizedException",
 )<{
   readonly message?: string;
 }> {}
-export interface UntagResourceRequest {
-  resourceArn: string;
-  tagKeys: Array<string>;
-}
-export interface UntagResourceResponse {}
 export interface UpdateAgentRuntimeEndpointRequest {
   agentRuntimeId: string;
   endpointName: string;
@@ -2355,22 +2021,20 @@ export interface UpdateAgentRuntimeEndpointResponse {
   targetVersion?: string;
   agentRuntimeEndpointArn: string;
   agentRuntimeArn: string;
-  status: AgentRuntimeEndpointStatus;
+  status: AgentEndpointStatus;
   createdAt: Date | string;
   lastUpdatedAt: Date | string;
 }
 export interface UpdateAgentRuntimeRequest {
   agentRuntimeId: string;
-  agentRuntimeArtifact: AgentRuntimeArtifact;
+  description?: string;
+  agentRuntimeArtifact: AgentArtifact;
   roleArn: string;
   networkConfiguration: NetworkConfiguration;
-  description?: string;
-  authorizerConfiguration?: AuthorizerConfiguration;
-  requestHeaderConfiguration?: RequestHeaderConfiguration;
   protocolConfiguration?: ProtocolConfiguration;
-  lifecycleConfiguration?: LifecycleConfiguration;
-  environmentVariables?: Record<string, string>;
   clientToken?: string;
+  environmentVariables?: Record<string, string>;
+  authorizerConfiguration?: AuthorizerConfiguration;
 }
 export interface UpdateAgentRuntimeResponse {
   agentRuntimeArn: string;
@@ -2379,7 +2043,7 @@ export interface UpdateAgentRuntimeResponse {
   agentRuntimeVersion: string;
   createdAt: Date | string;
   lastUpdatedAt: Date | string;
-  status: AgentRuntimeStatus;
+  status: AgentStatus;
 }
 export interface UpdateApiKeyCredentialProviderRequest {
   name: string;
@@ -2400,7 +2064,7 @@ export interface UpdateGatewayRequest {
   protocolType: GatewayProtocolType;
   protocolConfiguration?: GatewayProtocolConfiguration;
   authorizerType: AuthorizerType;
-  authorizerConfiguration?: AuthorizerConfiguration;
+  authorizerConfiguration: AuthorizerConfiguration;
   kmsKeyArn?: string;
   exceptionLevel?: ExceptionLevel;
 }
@@ -2429,7 +2093,7 @@ export interface UpdateGatewayTargetRequest {
   name: string;
   description?: string;
   targetConfiguration: TargetConfiguration;
-  credentialProviderConfigurations?: Array<CredentialProviderConfiguration>;
+  credentialProviderConfigurations: Array<CredentialProviderConfiguration>;
 }
 export interface UpdateGatewayTargetResponse {
   gatewayArn: string;
@@ -2442,7 +2106,6 @@ export interface UpdateGatewayTargetResponse {
   description?: string;
   targetConfiguration: TargetConfiguration;
   credentialProviderConfigurations: Array<CredentialProviderConfiguration>;
-  lastSynchronizedAt?: Date | string;
 }
 export interface UpdateMemoryInput {
   clientToken?: string;
@@ -2465,7 +2128,6 @@ export interface UpdateOauth2CredentialProviderResponse {
   name: string;
   credentialProviderVendor: CredentialProviderVendorType;
   credentialProviderArn: string;
-  callbackUrl?: string;
   oauth2ProviderConfigOutput: Oauth2ProviderConfigOutput;
   createdTime: Date | string;
   lastUpdatedTime: Date | string;
@@ -2524,10 +2186,6 @@ export type ValidationExceptionReason =
   | "IdempotentParameterMismatchException"
   | "EventInOtherSession"
   | "ResourceConflict";
-export interface VpcConfig {
-  securityGroups: Array<string>;
-  subnets: Array<string>;
-}
 export type WorkloadIdentityArn = string;
 
 export type WorkloadIdentityArnType = string;
@@ -2555,18 +2213,6 @@ export declare namespace GetTokenVault {
     | CommonAwsError;
 }
 
-export declare namespace ListTagsForResource {
-  export type Input = ListTagsForResourceRequest;
-  export type Output = ListTagsForResourceResponse;
-  export type Error =
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError;
-}
-
 export declare namespace SetTokenVaultCMK {
   export type Input = SetTokenVaultCMKRequest;
   export type Output = SetTokenVaultCMKResponse;
@@ -2577,31 +2223,6 @@ export declare namespace SetTokenVaultCMK {
     | ResourceNotFoundException
     | ThrottlingException
     | UnauthorizedException
-    | ValidationException
-    | CommonAwsError;
-}
-
-export declare namespace TagResource {
-  export type Input = TagResourceRequest;
-  export type Output = TagResourceResponse;
-  export type Error =
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError;
-}
-
-export declare namespace UntagResource {
-  export type Input = UntagResourceRequest;
-  export type Output = UntagResourceResponse;
-  export type Error =
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
     | ValidationException
     | CommonAwsError;
 }
@@ -3128,20 +2749,6 @@ export declare namespace ListWorkloadIdentities {
     | ResourceNotFoundException
     | ThrottlingException
     | UnauthorizedException
-    | ValidationException
-    | CommonAwsError;
-}
-
-export declare namespace SynchronizeGatewayTargets {
-  export type Input = SynchronizeGatewayTargetsRequest;
-  export type Output = SynchronizeGatewayTargetsResponse;
-  export type Error =
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
     | ValidationException
     | CommonAwsError;
 }

@@ -89,7 +89,6 @@ export declare class CostExplorer extends AWSServiceClient {
   ): Effect.Effect<
     GetCostAndUsageResponse,
     | BillExpirationException
-    | BillingViewHealthStatusException
     | DataUnavailableException
     | InvalidNextTokenException
     | LimitExceededException
@@ -101,7 +100,6 @@ export declare class CostExplorer extends AWSServiceClient {
     input: GetCostAndUsageComparisonsRequest,
   ): Effect.Effect<
     GetCostAndUsageComparisonsResponse,
-    | BillingViewHealthStatusException
     | DataUnavailableException
     | InvalidNextTokenException
     | LimitExceededException
@@ -113,7 +111,6 @@ export declare class CostExplorer extends AWSServiceClient {
   ): Effect.Effect<
     GetCostAndUsageWithResourcesResponse,
     | BillExpirationException
-    | BillingViewHealthStatusException
     | DataUnavailableException
     | InvalidNextTokenException
     | LimitExceededException
@@ -126,7 +123,6 @@ export declare class CostExplorer extends AWSServiceClient {
   ): Effect.Effect<
     GetCostCategoriesResponse,
     | BillExpirationException
-    | BillingViewHealthStatusException
     | DataUnavailableException
     | InvalidNextTokenException
     | LimitExceededException
@@ -138,7 +134,6 @@ export declare class CostExplorer extends AWSServiceClient {
     input: GetCostComparisonDriversRequest,
   ): Effect.Effect<
     GetCostComparisonDriversResponse,
-    | BillingViewHealthStatusException
     | DataUnavailableException
     | InvalidNextTokenException
     | LimitExceededException
@@ -149,7 +144,6 @@ export declare class CostExplorer extends AWSServiceClient {
     input: GetCostForecastRequest,
   ): Effect.Effect<
     GetCostForecastResponse,
-    | BillingViewHealthStatusException
     | DataUnavailableException
     | LimitExceededException
     | ResourceNotFoundException
@@ -160,7 +154,6 @@ export declare class CostExplorer extends AWSServiceClient {
   ): Effect.Effect<
     GetDimensionValuesResponse,
     | BillExpirationException
-    | BillingViewHealthStatusException
     | DataUnavailableException
     | InvalidNextTokenException
     | LimitExceededException
@@ -242,7 +235,6 @@ export declare class CostExplorer extends AWSServiceClient {
   ): Effect.Effect<
     GetTagsResponse,
     | BillExpirationException
-    | BillingViewHealthStatusException
     | DataUnavailableException
     | InvalidNextTokenException
     | LimitExceededException
@@ -254,7 +246,6 @@ export declare class CostExplorer extends AWSServiceClient {
     input: GetUsageForecastRequest,
   ): Effect.Effect<
     GetUsageForecastResponse,
-    | BillingViewHealthStatusException
     | DataUnavailableException
     | LimitExceededException
     | ResourceNotFoundException
@@ -478,11 +469,6 @@ export declare class BillExpirationException extends EffectData.TaggedError(
 }> {}
 export type BillingViewArn = string;
 
-export declare class BillingViewHealthStatusException extends EffectData.TaggedError(
-  "BillingViewHealthStatusException",
-)<{
-  readonly Message?: string;
-}> {}
 export interface CommitmentPurchaseAnalysisConfiguration {
   SavingsPlansPurchaseAnalysisConfiguration?: SavingsPlansPurchaseAnalysisConfiguration;
 }
@@ -728,7 +714,6 @@ export type Dimension =
   | "AZ"
   | "INSTANCE_TYPE"
   | "LINKED_ACCOUNT"
-  | "PAYER_ACCOUNT"
   | "LINKED_ACCOUNT_NAME"
   | "OPERATION"
   | "PURCHASE_TYPE"
@@ -2105,7 +2090,6 @@ export declare namespace GetCostAndUsage {
   export type Output = GetCostAndUsageResponse;
   export type Error =
     | BillExpirationException
-    | BillingViewHealthStatusException
     | DataUnavailableException
     | InvalidNextTokenException
     | LimitExceededException
@@ -2118,7 +2102,6 @@ export declare namespace GetCostAndUsageComparisons {
   export type Input = GetCostAndUsageComparisonsRequest;
   export type Output = GetCostAndUsageComparisonsResponse;
   export type Error =
-    | BillingViewHealthStatusException
     | DataUnavailableException
     | InvalidNextTokenException
     | LimitExceededException
@@ -2131,7 +2114,6 @@ export declare namespace GetCostAndUsageWithResources {
   export type Output = GetCostAndUsageWithResourcesResponse;
   export type Error =
     | BillExpirationException
-    | BillingViewHealthStatusException
     | DataUnavailableException
     | InvalidNextTokenException
     | LimitExceededException
@@ -2145,7 +2127,6 @@ export declare namespace GetCostCategories {
   export type Output = GetCostCategoriesResponse;
   export type Error =
     | BillExpirationException
-    | BillingViewHealthStatusException
     | DataUnavailableException
     | InvalidNextTokenException
     | LimitExceededException
@@ -2158,7 +2139,6 @@ export declare namespace GetCostComparisonDrivers {
   export type Input = GetCostComparisonDriversRequest;
   export type Output = GetCostComparisonDriversResponse;
   export type Error =
-    | BillingViewHealthStatusException
     | DataUnavailableException
     | InvalidNextTokenException
     | LimitExceededException
@@ -2170,7 +2150,6 @@ export declare namespace GetCostForecast {
   export type Input = GetCostForecastRequest;
   export type Output = GetCostForecastResponse;
   export type Error =
-    | BillingViewHealthStatusException
     | DataUnavailableException
     | LimitExceededException
     | ResourceNotFoundException
@@ -2182,7 +2161,6 @@ export declare namespace GetDimensionValues {
   export type Output = GetDimensionValuesResponse;
   export type Error =
     | BillExpirationException
-    | BillingViewHealthStatusException
     | DataUnavailableException
     | InvalidNextTokenException
     | LimitExceededException
@@ -2282,7 +2260,6 @@ export declare namespace GetTags {
   export type Output = GetTagsResponse;
   export type Error =
     | BillExpirationException
-    | BillingViewHealthStatusException
     | DataUnavailableException
     | InvalidNextTokenException
     | LimitExceededException
@@ -2295,7 +2272,6 @@ export declare namespace GetUsageForecast {
   export type Input = GetUsageForecastRequest;
   export type Output = GetUsageForecastResponse;
   export type Error =
-    | BillingViewHealthStatusException
     | DataUnavailableException
     | LimitExceededException
     | ResourceNotFoundException
@@ -2452,7 +2428,6 @@ export type CostExplorerErrors =
   | AnalysisNotFoundException
   | BackfillLimitExceededException
   | BillExpirationException
-  | BillingViewHealthStatusException
   | DataUnavailableException
   | GenerationExistsException
   | InvalidNextTokenException

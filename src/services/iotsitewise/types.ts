@@ -303,17 +303,6 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ThrottlingException
     | CommonAwsError
   >;
-  deleteAssetModelInterfaceRelationship(
-    input: DeleteAssetModelInterfaceRelationshipRequest,
-  ): Effect.Effect<
-    DeleteAssetModelInterfaceRelationshipResponse,
-    | ConflictingOperationException
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
-  >;
   deleteComputationModel(
     input: DeleteComputationModelRequest,
   ): Effect.Effect<
@@ -443,16 +432,6 @@ export declare class IoTSiteWise extends AWSServiceClient {
     input: DescribeAssetModelCompositeModelRequest,
   ): Effect.Effect<
     DescribeAssetModelCompositeModelResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
-  >;
-  describeAssetModelInterfaceRelationship(
-    input: DescribeAssetModelInterfaceRelationshipRequest,
-  ): Effect.Effect<
-    DescribeAssetModelInterfaceRelationshipResponse,
     | InternalFailureException
     | InvalidRequestException
     | ResourceNotFoundException
@@ -887,16 +866,6 @@ export declare class IoTSiteWise extends AWSServiceClient {
     | ThrottlingException
     | CommonAwsError
   >;
-  listInterfaceRelationships(
-    input: ListInterfaceRelationshipsRequest,
-  ): Effect.Effect<
-    ListInterfaceRelationshipsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
-  >;
   listPortals(
     input: ListPortalsRequest,
   ): Effect.Effect<
@@ -943,18 +912,6 @@ export declare class IoTSiteWise extends AWSServiceClient {
     ListTimeSeriesResponse,
     | InternalFailureException
     | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
-  >;
-  putAssetModelInterfaceRelationship(
-    input: PutAssetModelInterfaceRelationshipRequest,
-  ): Effect.Effect<
-    PutAssetModelInterfaceRelationshipResponse,
-    | ConflictingOperationException
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
@@ -1374,7 +1331,6 @@ export interface AssetModelPropertySummary {
   type: PropertyType;
   assetModelCompositeModelId?: string;
   path?: Array<AssetModelPropertyPathSegment>;
-  interfaceSummaries?: Array<InterfaceSummary>;
 }
 export type AssetModelState =
   | "CREATING"
@@ -1400,7 +1356,7 @@ export interface AssetModelSummary {
   status: AssetModelStatus;
   version?: string;
 }
-export type AssetModelType = "ASSET_MODEL" | "COMPONENT_MODEL" | "INTERFACE";
+export type AssetModelType = "ASSET_MODEL" | "COMPONENT_MODEL";
 export type AssetModelVersionFilter = string;
 
 export type AssetModelVersionType = "LATEST" | "ACTIVE";
@@ -1827,8 +1783,6 @@ export interface ComputationModelSummary {
   version: string;
 }
 export type ComputationModelType = "ANOMALY_DETECTION";
-export type ComputationModelVersionFilter = string;
-
 export type ComputeLocation = "EDGE" | "CLOUD";
 export interface ConfigurationErrorDetails {
   code: ErrorCode;
@@ -1984,8 +1938,6 @@ export interface CreateGatewayResponse {
   gatewayId: string;
   gatewayArn: string;
 }
-export type CreateMissingProperty = boolean;
-
 export interface CreatePortalRequest {
   portalName: string;
   portalDescription?: string;
@@ -2101,17 +2053,6 @@ export interface DeleteAssetModelCompositeModelRequest {
   matchForVersionType?: AssetModelVersionType;
 }
 export interface DeleteAssetModelCompositeModelResponse {
-  assetModelStatus: AssetModelStatus;
-}
-export interface DeleteAssetModelInterfaceRelationshipRequest {
-  assetModelId: string;
-  interfaceAssetModelId: string;
-  clientToken?: string;
-}
-export interface DeleteAssetModelInterfaceRelationshipResponse {
-  assetModelId: string;
-  interfaceAssetModelId: string;
-  assetModelArn: string;
   assetModelStatus: AssetModelStatus;
 }
 export interface DeleteAssetModelRequest {
@@ -2230,16 +2171,6 @@ export interface DescribeAssetModelCompositeModelResponse {
   assetModelCompositeModelSummaries: Array<AssetModelCompositeModelSummary>;
   actionDefinitions?: Array<ActionDefinition>;
 }
-export interface DescribeAssetModelInterfaceRelationshipRequest {
-  assetModelId: string;
-  interfaceAssetModelId: string;
-}
-export interface DescribeAssetModelInterfaceRelationshipResponse {
-  assetModelId: string;
-  interfaceAssetModelId: string;
-  propertyMappings: Array<PropertyMapping>;
-  hierarchyMappings: Array<HierarchyMapping>;
-}
 export interface DescribeAssetModelRequest {
   assetModelId: string;
   excludeProperties?: boolean;
@@ -2260,7 +2191,6 @@ export interface DescribeAssetModelResponse {
   assetModelLastUpdateDate: Date | string;
   assetModelStatus: AssetModelStatus;
   assetModelVersion?: string;
-  interfaceDetails?: Array<InterfaceRelationship>;
   eTag?: string;
 }
 export interface DescribeAssetPropertyRequest {
@@ -2322,7 +2252,6 @@ export interface DescribeComputationModelExecutionSummaryResponse {
 }
 export interface DescribeComputationModelRequest {
   computationModelId: string;
-  computationModelVersion?: string;
 }
 export interface DescribeComputationModelResponse {
   computationModelId: string;
@@ -2698,11 +2627,6 @@ export interface GreengrassV2 {
 export interface GroupIdentity {
   id: string;
 }
-export interface HierarchyMapping {
-  assetModelHierarchyId: string;
-  interfaceAssetModelHierarchyId: string;
-}
-export type HierarchyMappings = Array<HierarchyMapping>;
 export type IamArn = string;
 
 export interface IAMRoleIdentity {
@@ -2740,20 +2664,6 @@ export interface ImageLocation {
 }
 export type InputProperties = string;
 
-export type InterfaceDetails = Array<InterfaceRelationship>;
-export interface InterfaceRelationship {
-  id: string;
-}
-export type InterfaceRelationshipSummaries =
-  Array<InterfaceRelationshipSummary>;
-export interface InterfaceRelationshipSummary {
-  id: string;
-}
-export type InterfaceSummaries = Array<InterfaceSummary>;
-export interface InterfaceSummary {
-  interfaceAssetModelId: string;
-  interfaceAssetModelPropertyId: string;
-}
 export declare class InternalFailureException extends EffectData.TaggedError(
   "InternalFailureException",
 )<{
@@ -3013,15 +2923,6 @@ export interface ListGatewaysResponse {
   gatewaySummaries: Array<GatewaySummary>;
   nextToken?: string;
 }
-export interface ListInterfaceRelationshipsRequest {
-  interfaceAssetModelId: string;
-  nextToken?: string;
-  maxResults?: number;
-}
-export interface ListInterfaceRelationshipsResponse {
-  interfaceRelationshipSummaries: Array<InterfaceRelationshipSummary>;
-  nextToken?: string;
-}
 export interface ListPortalsRequest {
   nextToken?: string;
   maxResults?: number;
@@ -3075,8 +2976,6 @@ export interface LoggingOptions {
 }
 export type Macro = string;
 
-export type MatchByPropertyName = boolean;
-
 export interface MatchedDataBinding {
   value: DataBindingValue;
 }
@@ -3093,8 +2992,8 @@ export interface MeasurementProcessingConfig {
 export type MessageInput = string;
 
 export interface Metric {
-  expression?: string;
-  variables?: Array<ExpressionVariable>;
+  expression: string;
+  variables: Array<ExpressionVariable>;
   window: MetricWindow;
   processingConfig?: MetricProcessingConfig;
 }
@@ -3204,16 +3103,6 @@ export type PropertyDataType =
   | "DOUBLE"
   | "BOOLEAN"
   | "STRUCT";
-export interface PropertyMapping {
-  assetModelPropertyId: string;
-  interfaceAssetModelPropertyId: string;
-}
-export interface PropertyMappingConfiguration {
-  matchByPropertyName?: boolean;
-  createMissingProperty?: boolean;
-  overrides?: Array<PropertyMapping>;
-}
-export type PropertyMappings = Array<PropertyMapping>;
 export interface PropertyNotification {
   topic: string;
   state: PropertyNotificationState;
@@ -3240,18 +3129,6 @@ export interface PropertyValueNullValue {
 }
 export type PropertyValueStringValue = string;
 
-export interface PutAssetModelInterfaceRelationshipRequest {
-  assetModelId: string;
-  interfaceAssetModelId: string;
-  propertyMappingConfiguration: PropertyMappingConfiguration;
-  clientToken?: string;
-}
-export interface PutAssetModelInterfaceRelationshipResponse {
-  assetModelId: string;
-  interfaceAssetModelId: string;
-  assetModelArn: string;
-  assetModelStatus: AssetModelStatus;
-}
 export type PutAssetPropertyValueEntries = Array<PutAssetPropertyValueEntry>;
 export interface PutAssetPropertyValueEntry {
   entryId: string;
@@ -3922,18 +3799,6 @@ export declare namespace DeleteAssetModelCompositeModel {
     | CommonAwsError;
 }
 
-export declare namespace DeleteAssetModelInterfaceRelationship {
-  export type Input = DeleteAssetModelInterfaceRelationshipRequest;
-  export type Output = DeleteAssetModelInterfaceRelationshipResponse;
-  export type Error =
-    | ConflictingOperationException
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError;
-}
-
 export declare namespace DeleteComputationModel {
   export type Input = DeleteComputationModelRequest;
   export type Output = DeleteComputationModelResponse;
@@ -4074,17 +3939,6 @@ export declare namespace DescribeAssetModel {
 export declare namespace DescribeAssetModelCompositeModel {
   export type Input = DescribeAssetModelCompositeModelRequest;
   export type Output = DescribeAssetModelCompositeModelResponse;
-  export type Error =
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError;
-}
-
-export declare namespace DescribeAssetModelInterfaceRelationship {
-  export type Input = DescribeAssetModelInterfaceRelationshipRequest;
-  export type Output = DescribeAssetModelInterfaceRelationshipResponse;
   export type Error =
     | InternalFailureException
     | InvalidRequestException
@@ -4563,17 +4417,6 @@ export declare namespace ListGateways {
     | CommonAwsError;
 }
 
-export declare namespace ListInterfaceRelationships {
-  export type Input = ListInterfaceRelationshipsRequest;
-  export type Output = ListInterfaceRelationshipsResponse;
-  export type Error =
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError;
-}
-
 export declare namespace ListPortals {
   export type Input = ListPortalsRequest;
   export type Output = ListPortalsResponse;
@@ -4624,19 +4467,6 @@ export declare namespace ListTimeSeries {
   export type Error =
     | InternalFailureException
     | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError;
-}
-
-export declare namespace PutAssetModelInterfaceRelationship {
-  export type Input = PutAssetModelInterfaceRelationshipRequest;
-  export type Output = PutAssetModelInterfaceRelationshipResponse;
-  export type Error =
-    | ConflictingOperationException
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError;

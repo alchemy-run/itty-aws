@@ -71,12 +71,6 @@ export declare class SsmSap extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
-  getConfigurationCheckOperation(
-    input: GetConfigurationCheckOperationInput,
-  ): Effect.Effect<
-    GetConfigurationCheckOperationOutput,
-    InternalServerException | ValidationException | CommonAwsError
-  >;
   getDatabase(
     input: GetDatabaseInput,
   ): Effect.Effect<
@@ -117,21 +111,6 @@ export declare class SsmSap extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
-  listConfigurationCheckDefinitions(
-    input: ListConfigurationCheckDefinitionsInput,
-  ): Effect.Effect<
-    ListConfigurationCheckDefinitionsOutput,
-    InternalServerException | ValidationException | CommonAwsError
-  >;
-  listConfigurationCheckOperations(
-    input: ListConfigurationCheckOperationsInput,
-  ): Effect.Effect<
-    ListConfigurationCheckOperationsOutput,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
-  >;
   listDatabases(
     input: ListDatabasesInput,
   ): Effect.Effect<
@@ -151,18 +130,6 @@ export declare class SsmSap extends AWSServiceClient {
     input: ListOperationsInput,
   ): Effect.Effect<
     ListOperationsOutput,
-    InternalServerException | ValidationException | CommonAwsError
-  >;
-  listSubCheckResults(
-    input: ListSubCheckResultsInput,
-  ): Effect.Effect<
-    ListSubCheckResultsOutput,
-    InternalServerException | ValidationException | CommonAwsError
-  >;
-  listSubCheckRuleResults(
-    input: ListSubCheckRuleResultsInput,
-  ): Effect.Effect<
-    ListSubCheckRuleResultsOutput,
     InternalServerException | ValidationException | CommonAwsError
   >;
   listTagsForResource(
@@ -211,16 +178,6 @@ export declare class SsmSap extends AWSServiceClient {
     | InternalServerException
     | ResourceNotFoundException
     | UnauthorizedException
-    | ValidationException
-    | CommonAwsError
-  >;
-  startConfigurationChecks(
-    input: StartConfigurationChecksInput,
-  ): Effect.Effect<
-    StartConfigurationChecksOutput,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
   >;
@@ -315,7 +272,6 @@ export interface ApplicationSummary {
 }
 export type ApplicationSummaryList = Array<ApplicationSummary>;
 export type ApplicationType = "HANA" | "SAP_ABAP";
-export type ApplicationTypeList = Array<ApplicationType>;
 export type AppRegistryArn = string;
 
 export type Arn = string;
@@ -394,36 +350,6 @@ export type ComponentType =
   | "WEBDISP"
   | "WD"
   | "ERS";
-export interface ConfigurationCheckDefinition {
-  Id?: ConfigurationCheckType;
-  Name?: string;
-  Description?: string;
-  ApplicableApplicationTypes?: Array<ApplicationType>;
-}
-export type ConfigurationCheckDefinitionList =
-  Array<ConfigurationCheckDefinition>;
-export interface ConfigurationCheckOperation {
-  Id?: string;
-  ApplicationId?: string;
-  Status?: OperationStatus;
-  StatusMessage?: string;
-  ConfigurationCheckId?: ConfigurationCheckType;
-  ConfigurationCheckName?: string;
-  ConfigurationCheckDescription?: string;
-  StartTime?: Date | string;
-  EndTime?: Date | string;
-  RuleStatusCounts?: RuleStatusCounts;
-}
-export type ConfigurationCheckOperationList =
-  Array<ConfigurationCheckOperation>;
-export type ConfigurationCheckOperationListingMode =
-  | "ALL_OPERATIONS"
-  | "LATEST_PER_CHECK";
-export type ConfigurationCheckType =
-  | "SAP_CHECK_01"
-  | "SAP_CHECK_02"
-  | "SAP_CHECK_03";
-export type ConfigurationCheckTypeList = Array<ConfigurationCheckType>;
 export declare class ConflictException extends EffectData.TaggedError(
   "ConflictException",
 )<{
@@ -516,12 +442,6 @@ export interface GetComponentOutput {
   Component?: Component;
   Tags?: Record<string, string>;
 }
-export interface GetConfigurationCheckOperationInput {
-  OperationId: string;
-}
-export interface GetConfigurationCheckOperationOutput {
-  ConfigurationCheckOperation?: ConfigurationCheckOperation;
-}
 export interface GetDatabaseInput {
   ApplicationId?: string;
   ComponentId?: string;
@@ -587,25 +507,6 @@ export interface ListComponentsOutput {
   Components?: Array<ComponentSummary>;
   NextToken?: string;
 }
-export interface ListConfigurationCheckDefinitionsInput {
-  MaxResults?: number;
-  NextToken?: string;
-}
-export interface ListConfigurationCheckDefinitionsOutput {
-  ConfigurationChecks?: Array<ConfigurationCheckDefinition>;
-  NextToken?: string;
-}
-export interface ListConfigurationCheckOperationsInput {
-  ApplicationId: string;
-  ListMode?: ConfigurationCheckOperationListingMode;
-  MaxResults?: number;
-  NextToken?: string;
-  Filters?: Array<Filter>;
-}
-export interface ListConfigurationCheckOperationsOutput {
-  ConfigurationCheckOperations?: Array<ConfigurationCheckOperation>;
-  NextToken?: string;
-}
 export interface ListDatabasesInput {
   ApplicationId?: string;
   ComponentId?: string;
@@ -634,24 +535,6 @@ export interface ListOperationsInput {
 }
 export interface ListOperationsOutput {
   Operations?: Array<Operation>;
-  NextToken?: string;
-}
-export interface ListSubCheckResultsInput {
-  OperationId: string;
-  MaxResults?: number;
-  NextToken?: string;
-}
-export interface ListSubCheckResultsOutput {
-  SubCheckResults?: Array<SubCheckResult>;
-  NextToken?: string;
-}
-export interface ListSubCheckRuleResultsInput {
-  SubCheckResultId: string;
-  MaxResults?: number;
-  NextToken?: string;
-}
-export interface ListSubCheckRuleResultsOutput {
-  RuleResults?: Array<RuleResult>;
   NextToken?: string;
 }
 export interface ListTagsForResourceRequest {
@@ -747,34 +630,6 @@ export declare class ResourceNotFoundException extends EffectData.TaggedError(
 }> {}
 export type ResourceType = string;
 
-export interface RuleResult {
-  Id?: string;
-  Description?: string;
-  Status?: RuleResultStatus;
-  Message?: string;
-  Metadata?: Record<string, string>;
-}
-export type RuleResultId = string;
-
-export type RuleResultList = Array<RuleResult>;
-export type RuleResultMetadata = Record<string, string>;
-export type RuleResultMetadataKey = string;
-
-export type RuleResultMetadataValue = string;
-
-export type RuleResultStatus =
-  | "PASSED"
-  | "FAILED"
-  | "WARNING"
-  | "INFO"
-  | "UNKNOWN";
-export interface RuleStatusCounts {
-  Failed?: number;
-  Warning?: number;
-  Info?: number;
-  Passed?: number;
-  Unknown?: number;
-}
 export type SAPInstanceNumber = string;
 
 export type SecretId = string;
@@ -795,13 +650,6 @@ export interface StartApplicationRefreshInput {
 export interface StartApplicationRefreshOutput {
   OperationId?: string;
 }
-export interface StartConfigurationChecksInput {
-  ApplicationId: string;
-  ConfigurationCheckIds?: Array<ConfigurationCheckType>;
-}
-export interface StartConfigurationChecksOutput {
-  ConfigurationCheckOperations?: Array<ConfigurationCheckOperation>;
-}
 export interface StopApplicationInput {
   ApplicationId: string;
   StopConnectedEntity?: ConnectedEntityType;
@@ -810,16 +658,6 @@ export interface StopApplicationInput {
 export interface StopApplicationOutput {
   OperationId?: string;
 }
-export type SubCheckReferencesList = Array<string>;
-export interface SubCheckResult {
-  Id?: string;
-  Name?: string;
-  Description?: string;
-  References?: Array<string>;
-}
-export type SubCheckResultId = string;
-
-export type SubCheckResultList = Array<SubCheckResult>;
 export type TagKey = string;
 
 export type TagKeyList = Array<string>;
@@ -896,15 +734,6 @@ export declare namespace GetComponent {
     | CommonAwsError;
 }
 
-export declare namespace GetConfigurationCheckOperation {
-  export type Input = GetConfigurationCheckOperationInput;
-  export type Output = GetConfigurationCheckOperationOutput;
-  export type Error =
-    | InternalServerException
-    | ValidationException
-    | CommonAwsError;
-}
-
 export declare namespace GetDatabase {
   export type Input = GetDatabaseInput;
   export type Output = GetDatabaseOutput;
@@ -954,25 +783,6 @@ export declare namespace ListComponents {
     | CommonAwsError;
 }
 
-export declare namespace ListConfigurationCheckDefinitions {
-  export type Input = ListConfigurationCheckDefinitionsInput;
-  export type Output = ListConfigurationCheckDefinitionsOutput;
-  export type Error =
-    | InternalServerException
-    | ValidationException
-    | CommonAwsError;
-}
-
-export declare namespace ListConfigurationCheckOperations {
-  export type Input = ListConfigurationCheckOperationsInput;
-  export type Output = ListConfigurationCheckOperationsOutput;
-  export type Error =
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError;
-}
-
 export declare namespace ListDatabases {
   export type Input = ListDatabasesInput;
   export type Output = ListDatabasesOutput;
@@ -995,24 +805,6 @@ export declare namespace ListOperationEvents {
 export declare namespace ListOperations {
   export type Input = ListOperationsInput;
   export type Output = ListOperationsOutput;
-  export type Error =
-    | InternalServerException
-    | ValidationException
-    | CommonAwsError;
-}
-
-export declare namespace ListSubCheckResults {
-  export type Input = ListSubCheckResultsInput;
-  export type Output = ListSubCheckResultsOutput;
-  export type Error =
-    | InternalServerException
-    | ValidationException
-    | CommonAwsError;
-}
-
-export declare namespace ListSubCheckRuleResults {
-  export type Input = ListSubCheckRuleResultsInput;
-  export type Output = ListSubCheckRuleResultsOutput;
   export type Error =
     | InternalServerException
     | ValidationException
@@ -1069,17 +861,6 @@ export declare namespace StartApplicationRefresh {
     | InternalServerException
     | ResourceNotFoundException
     | UnauthorizedException
-    | ValidationException
-    | CommonAwsError;
-}
-
-export declare namespace StartConfigurationChecks {
-  export type Input = StartConfigurationChecksInput;
-  export type Output = StartConfigurationChecksOutput;
-  export type Error =
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
     | ValidationException
     | CommonAwsError;
 }

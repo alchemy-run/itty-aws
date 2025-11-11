@@ -42,12 +42,10 @@ export declare class BudgetsClient extends AWSServiceClient {
   ): Effect.Effect<
     CreateBudgetResponse,
     | AccessDeniedException
-    | BillingViewHealthStatusException
     | CreationLimitExceededException
     | DuplicateRecordException
     | InternalErrorException
     | InvalidParameterException
-    | NotFoundException
     | ServiceQuotaExceededException
     | ThrottlingException
     | CommonAwsError
@@ -310,7 +308,6 @@ export declare class BudgetsClient extends AWSServiceClient {
   ): Effect.Effect<
     UpdateBudgetResponse,
     | AccessDeniedException
-    | BillingViewHealthStatusException
     | InternalErrorException
     | InvalidParameterException
     | NotFoundException
@@ -419,13 +416,6 @@ export interface AutoAdjustData {
   LastAutoAdjustTime?: Date | string;
 }
 export type AutoAdjustType = "HISTORICAL" | "FORECAST";
-export type BillingViewArn = string;
-
-export declare class BillingViewHealthStatusException extends EffectData.TaggedError(
-  "BillingViewHealthStatusException",
-)<{
-  readonly Message?: string;
-}> {}
 export interface Budget {
   BudgetName: string;
   BudgetLimit?: Spend;
@@ -440,8 +430,6 @@ export interface Budget {
   AutoAdjustData?: AutoAdjustData;
   FilterExpression?: Expression;
   Metrics?: Array<Metric>;
-  BillingViewArn?: string;
-  HealthStatus?: HealthStatus;
 }
 export interface BudgetedAndActualAmounts {
   BudgetedAmount?: Spend;
@@ -463,7 +451,6 @@ export interface BudgetPerformanceHistory {
   CostFilters?: Record<string, Array<string>>;
   CostTypes?: CostTypes;
   TimeUnit?: TimeUnit;
-  BillingViewArn?: string;
   BudgetedAndActualAmountsList?: Array<BudgetedAndActualAmounts>;
 }
 export type Budgets = Array<Budget>;
@@ -769,17 +756,6 @@ export type GenericTimestamp = Date | string;
 export type Group = string;
 
 export type Groups = Array<string>;
-export interface HealthStatus {
-  Status?: HealthStatusValue;
-  StatusReason?: HealthStatusReason;
-  LastUpdatedTime?: Date | string;
-}
-export type HealthStatusReason =
-  | "BILLING_VIEW_NO_ACCESS"
-  | "BILLING_VIEW_UNHEALTHY"
-  | "FILTER_INVALID"
-  | "MULTI_YEAR_HISTORICAL_DATA_DISABLED";
-export type HealthStatusValue = "HEALTHY" | "UNHEALTHY";
 export interface HistoricalOptions {
   BudgetAdjustmentPeriod: number;
   LookBackAvailablePeriods?: number;
@@ -945,12 +921,7 @@ export interface TimePeriod {
   Start?: Date | string;
   End?: Date | string;
 }
-export type TimeUnit =
-  | "DAILY"
-  | "MONTHLY"
-  | "QUARTERLY"
-  | "ANNUALLY"
-  | "CUSTOM";
+export type TimeUnit = "DAILY" | "MONTHLY" | "QUARTERLY" | "ANNUALLY";
 export type UnitValue = string;
 
 export interface UntagResourceRequest {
@@ -1006,12 +977,10 @@ export declare namespace CreateBudget {
   export type Output = CreateBudgetResponse;
   export type Error =
     | AccessDeniedException
-    | BillingViewHealthStatusException
     | CreationLimitExceededException
     | DuplicateRecordException
     | InternalErrorException
     | InvalidParameterException
-    | NotFoundException
     | ServiceQuotaExceededException
     | ThrottlingException
     | CommonAwsError;
@@ -1296,7 +1265,6 @@ export declare namespace UpdateBudget {
   export type Output = UpdateBudgetResponse;
   export type Error =
     | AccessDeniedException
-    | BillingViewHealthStatusException
     | InternalErrorException
     | InvalidParameterException
     | NotFoundException
@@ -1345,7 +1313,6 @@ export declare namespace UpdateSubscriber {
 
 export type BudgetsClientErrors =
   | AccessDeniedException
-  | BillingViewHealthStatusException
   | CreationLimitExceededException
   | DuplicateRecordException
   | ExpiredNextTokenException

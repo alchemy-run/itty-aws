@@ -203,18 +203,6 @@ export declare class PCS extends AWSServiceClient {
     RegisterComputeNodeGroupInstanceResponse,
     AccessDeniedException | InternalServerException | CommonAwsError
   >;
-  updateCluster(
-    input: UpdateClusterRequest,
-  ): Effect.Effect<
-    UpdateClusterResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
-  >;
   updateComputeNodeGroup(
     input: UpdateComputeNodeGroupRequest,
   ): Effect.Effect<
@@ -251,13 +239,13 @@ export declare class AccessDeniedException extends EffectData.TaggedError(
   readonly message: string;
 }> {}
 export interface Accounting {
-  defaultPurgeTimeInDays?: number;
   mode: AccountingMode;
+  defaultPurgeTimeInDays?: number;
 }
 export type AccountingMode = "STANDARD" | "NONE";
 export interface AccountingRequest {
-  defaultPurgeTimeInDays?: number;
   mode: AccountingMode;
+  defaultPurgeTimeInDays?: number;
 }
 export type AmiId = string;
 
@@ -409,7 +397,6 @@ export interface CreateQueueRequest {
   clusterIdentifier: string;
   queueName: string;
   computeNodeGroupConfigurations?: Array<ComputeNodeGroupConfiguration>;
-  slurmConfiguration?: QueueSlurmConfigurationRequest;
   clientToken?: string;
   tags?: Record<string, string>;
 }
@@ -527,7 +514,7 @@ export interface NetworkingRequest {
   networkType?: NetworkType;
 }
 export type NetworkType = "IPV4" | "IPV6";
-export type PurchaseOption = "ONDEMAND" | "SPOT" | "CAPACITY_BLOCK";
+export type PurchaseOption = "ONDEMAND" | "SPOT";
 export interface Queue {
   name: string;
   id: string;
@@ -537,7 +524,6 @@ export interface Queue {
   modifiedAt: Date | string;
   status: QueueStatus;
   computeNodeGroupConfigurations: Array<ComputeNodeGroupConfiguration>;
-  slurmConfiguration?: QueueSlurmConfiguration;
   errorInfo?: Array<ErrorInfo>;
 }
 export type QueueIdentifier = string;
@@ -545,12 +531,6 @@ export type QueueIdentifier = string;
 export type QueueList = Array<QueueSummary>;
 export type QueueName = string;
 
-export interface QueueSlurmConfiguration {
-  slurmCustomSettings?: Array<SlurmCustomSetting>;
-}
-export interface QueueSlurmConfigurationRequest {
-  slurmCustomSettings?: Array<SlurmCustomSetting>;
-}
 export type QueueStatus =
   | "CREATING"
   | "ACTIVE"
@@ -661,23 +641,6 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UpdateAccountingRequest {
-  defaultPurgeTimeInDays?: number;
-  mode?: AccountingMode;
-}
-export interface UpdateClusterRequest {
-  clusterIdentifier: string;
-  clientToken?: string;
-  slurmConfiguration?: UpdateClusterSlurmConfigurationRequest;
-}
-export interface UpdateClusterResponse {
-  cluster?: Cluster;
-}
-export interface UpdateClusterSlurmConfigurationRequest {
-  scaleDownIdleTimeInSeconds?: number;
-  slurmCustomSettings?: Array<SlurmCustomSetting>;
-  accounting?: UpdateAccountingRequest;
-}
 export interface UpdateComputeNodeGroupRequest {
   clusterIdentifier: string;
   computeNodeGroupIdentifier: string;
@@ -701,14 +664,10 @@ export interface UpdateQueueRequest {
   clusterIdentifier: string;
   queueIdentifier: string;
   computeNodeGroupConfigurations?: Array<ComputeNodeGroupConfiguration>;
-  slurmConfiguration?: UpdateQueueSlurmConfigurationRequest;
   clientToken?: string;
 }
 export interface UpdateQueueResponse {
   queue?: Queue;
-}
-export interface UpdateQueueSlurmConfigurationRequest {
-  slurmCustomSettings?: Array<SlurmCustomSetting>;
 }
 export declare class ValidationException extends EffectData.TaggedError(
   "ValidationException",
@@ -912,19 +871,6 @@ export declare namespace RegisterComputeNodeGroupInstance {
   export type Error =
     | AccessDeniedException
     | InternalServerException
-    | CommonAwsError;
-}
-
-export declare namespace UpdateCluster {
-  export type Input = UpdateClusterRequest;
-  export type Output = UpdateClusterResponse;
-  export type Error =
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
     | CommonAwsError;
 }
 

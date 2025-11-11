@@ -567,8 +567,7 @@ export type ProviderType =
   | "GitHub"
   | "GitHubEnterpriseServer"
   | "GitLab"
-  | "GitLabSelfManaged"
-  | "AzureDevOps";
+  | "GitLabSelfManaged";
 export type PublishDeploymentStatus = "ENABLED" | "DISABLED";
 export type PullRequestComment = "ENABLED" | "DISABLED";
 export type RepositoryLinkArn = string;

@@ -32,13 +32,6 @@ const metadata = {
   endpointPrefix: "bedrock",
   operations: {
     BatchDeleteEvaluationJob: "POST /evaluation-jobs/batch-delete",
-    CancelAutomatedReasoningPolicyBuildWorkflow:
-      "POST /automated-reasoning-policies/{policyArn}/build-workflows/{buildWorkflowId}/cancel",
-    CreateAutomatedReasoningPolicy: "POST /automated-reasoning-policies",
-    CreateAutomatedReasoningPolicyTestCase:
-      "POST /automated-reasoning-policies/{policyArn}/test-cases",
-    CreateAutomatedReasoningPolicyVersion:
-      "POST /automated-reasoning-policies/{policyArn}/versions",
     CreateCustomModel: "POST /custom-models/create-custom-model",
     CreateCustomModelDeployment:
       "POST /model-customization/custom-model-deployments",
@@ -54,12 +47,6 @@ const metadata = {
     CreateModelInvocationJob: "POST /model-invocation-job",
     CreatePromptRouter: "POST /prompt-routers",
     CreateProvisionedModelThroughput: "POST /provisioned-model-throughput",
-    DeleteAutomatedReasoningPolicy:
-      "DELETE /automated-reasoning-policies/{policyArn}",
-    DeleteAutomatedReasoningPolicyBuildWorkflow:
-      "DELETE /automated-reasoning-policies/{policyArn}/build-workflows/{buildWorkflowId}",
-    DeleteAutomatedReasoningPolicyTestCase:
-      "DELETE /automated-reasoning-policies/{policyArn}/test-cases/{testCaseId}",
     DeleteCustomModel: "DELETE /custom-models/{modelIdentifier}",
     DeleteCustomModelDeployment:
       "DELETE /model-customization/custom-model-deployments/{customModelDeploymentIdentifier}",
@@ -77,26 +64,6 @@ const metadata = {
       "DELETE /provisioned-model-throughput/{provisionedModelId}",
     DeregisterMarketplaceModelEndpoint:
       "DELETE /marketplace-model/endpoints/{endpointArn}/registration",
-    ExportAutomatedReasoningPolicyVersion: {
-      http: "GET /automated-reasoning-policies/{policyArn}/export",
-      traits: {
-        policyDefinition: "httpPayload",
-      },
-    },
-    GetAutomatedReasoningPolicy:
-      "GET /automated-reasoning-policies/{policyArn}",
-    GetAutomatedReasoningPolicyAnnotations:
-      "GET /automated-reasoning-policies/{policyArn}/build-workflows/{buildWorkflowId}/annotations",
-    GetAutomatedReasoningPolicyBuildWorkflow:
-      "GET /automated-reasoning-policies/{policyArn}/build-workflows/{buildWorkflowId}",
-    GetAutomatedReasoningPolicyBuildWorkflowResultAssets:
-      "GET /automated-reasoning-policies/{policyArn}/build-workflows/{buildWorkflowId}/result-assets",
-    GetAutomatedReasoningPolicyNextScenario:
-      "GET /automated-reasoning-policies/{policyArn}/build-workflows/{buildWorkflowId}/scenarios",
-    GetAutomatedReasoningPolicyTestCase:
-      "GET /automated-reasoning-policies/{policyArn}/test-cases/{testCaseId}",
-    GetAutomatedReasoningPolicyTestResult:
-      "GET /automated-reasoning-policies/{policyArn}/build-workflows/{buildWorkflowId}/test-cases/{testCaseId}/test-results",
     GetCustomModel: "GET /custom-models/{modelIdentifier}",
     GetCustomModelDeployment:
       "GET /model-customization/custom-model-deployments/{customModelDeploymentIdentifier}",
@@ -118,13 +85,6 @@ const metadata = {
     GetProvisionedModelThroughput:
       "GET /provisioned-model-throughput/{provisionedModelId}",
     GetUseCaseForModelAccess: "GET /use-case-for-model-access",
-    ListAutomatedReasoningPolicies: "GET /automated-reasoning-policies",
-    ListAutomatedReasoningPolicyBuildWorkflows:
-      "GET /automated-reasoning-policies/{policyArn}/build-workflows",
-    ListAutomatedReasoningPolicyTestCases:
-      "GET /automated-reasoning-policies/{policyArn}/test-cases",
-    ListAutomatedReasoningPolicyTestResults:
-      "GET /automated-reasoning-policies/{policyArn}/build-workflows/{buildWorkflowId}/test-results",
     ListCustomModelDeployments:
       "GET /model-customization/custom-model-deployments",
     ListCustomModels: "GET /custom-models",
@@ -147,22 +107,12 @@ const metadata = {
     PutUseCaseForModelAccess: "POST /use-case-for-model-access",
     RegisterMarketplaceModelEndpoint:
       "POST /marketplace-model/endpoints/{endpointIdentifier}/registration",
-    StartAutomatedReasoningPolicyBuildWorkflow:
-      "POST /automated-reasoning-policies/{policyArn}/build-workflows/{buildWorkflowType}/start",
-    StartAutomatedReasoningPolicyTestWorkflow:
-      "POST /automated-reasoning-policies/{policyArn}/build-workflows/{buildWorkflowId}/test-workflows",
     StopEvaluationJob: "POST /evaluation-job/{jobIdentifier}/stop",
     StopModelCustomizationJob:
       "POST /model-customization-jobs/{jobIdentifier}/stop",
     StopModelInvocationJob: "POST /model-invocation-job/{jobIdentifier}/stop",
     TagResource: "POST /tagResource",
     UntagResource: "POST /untagResource",
-    UpdateAutomatedReasoningPolicy:
-      "PATCH /automated-reasoning-policies/{policyArn}",
-    UpdateAutomatedReasoningPolicyAnnotations:
-      "PATCH /automated-reasoning-policies/{policyArn}/build-workflows/{buildWorkflowId}/annotations",
-    UpdateAutomatedReasoningPolicyTestCase:
-      "PATCH /automated-reasoning-policies/{policyArn}/test-cases/{testCaseId}",
     UpdateGuardrail: "PUT /guardrails/{guardrailIdentifier}",
     UpdateMarketplaceModelEndpoint:
       "PATCH /marketplace-model/endpoints/{endpointArn}",

@@ -85,18 +85,6 @@ export declare class Connect extends AWSServiceClient {
     | ThrottlingException
     | CommonAwsError
   >;
-  associateContactWithUser(
-    input: AssociateContactWithUserRequest,
-  ): Effect.Effect<
-    AssociateContactWithUserResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
-  >;
   associateDefaultVocabulary(
     input: AssociateDefaultVocabularyRequest,
   ): Effect.Effect<
@@ -104,20 +92,6 @@ export declare class Connect extends AWSServiceClient {
     | AccessDeniedException
     | InternalServiceException
     | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
-  >;
-  associateEmailAddressAlias(
-    input: AssociateEmailAddressAliasRequest,
-  ): Effect.Effect<
-    AssociateEmailAddressAliasResponse,
-    | AccessDeniedException
-    | IdempotencyException
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceConflictException
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
@@ -473,7 +447,6 @@ export declare class Connect extends AWSServiceClient {
     input: CreateParticipantRequest,
   ): Effect.Effect<
     CreateParticipantResponse,
-    | ConflictException
     | InternalServiceException
     | InvalidRequestException
     | ResourceNotFoundException
@@ -1349,19 +1322,6 @@ export declare class Connect extends AWSServiceClient {
     | ThrottlingException
     | CommonAwsError
   >;
-  disassociateEmailAddressAlias(
-    input: DisassociateEmailAddressAliasRequest,
-  ): Effect.Effect<
-    DisassociateEmailAddressAliasResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceConflictException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
-  >;
   disassociateFlow(
     input: DisassociateFlowRequest,
   ): Effect.Effect<
@@ -1504,18 +1464,6 @@ export declare class Connect extends AWSServiceClient {
     | InternalServiceException
     | InvalidRequestException
     | ResourceNotFoundException
-    | CommonAwsError
-  >;
-  getContactMetrics(
-    input: GetContactMetricsRequest,
-  ): Effect.Effect<
-    GetContactMetricsResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
     | CommonAwsError
   >;
   getCurrentMetricData(
@@ -1983,17 +1931,6 @@ export declare class Connect extends AWSServiceClient {
     | InternalServiceException
     | InvalidRequestException
     | OutputTypeNotFoundException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
-  >;
-  listRoutingProfileManualAssignmentQueues(
-    input: ListRoutingProfileManualAssignmentQueuesRequest,
-  ): Effect.Effect<
-    ListRoutingProfileManualAssignmentQueuesResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
@@ -3399,9 +3336,6 @@ export interface AgentContactReference {
   Queue?: QueueReference;
 }
 export type AgentContactReferenceList = Array<AgentContactReference>;
-export interface AgentFirst {
-  Preview?: Preview;
-}
 export type AgentFirstName = string;
 
 export interface AgentHierarchyGroup {
@@ -3419,8 +3353,6 @@ export type AgentId = string;
 export type AgentIds = Array<string>;
 export interface AgentInfo {
   Id?: string;
-  AcceptedByAgentTimestamp?: Date | string;
-  PreviewEndTimestamp?: Date | string;
   ConnectedToAgentTimestamp?: Date | string;
   AgentPauseDurationInSeconds?: number;
   HierarchyGroups?: HierarchyGroups;
@@ -3460,13 +3392,8 @@ export interface AgentStatus {
 }
 export type AgentStatusDescription = string;
 
-export type AgentStatuses = Array<string>;
 export type AgentStatusId = string;
 
-export interface AgentStatusIdentifier {
-  Arn?: string;
-  Id?: string;
-}
 export type AgentStatusList = Array<AgentStatus>;
 export type AgentStatusName = string;
 
@@ -3502,18 +3429,12 @@ export type AgentUsername = string;
 
 export type AliasArn = string;
 
-export interface AliasConfiguration {
-  EmailAddressId: string;
-}
-export type AliasConfigurationList = Array<AliasConfiguration>;
 export type AllowedAccessControlTags = Record<string, string>;
 export interface AllowedCapabilities {
   Customer?: ParticipantCapabilities;
   Agent?: ParticipantCapabilities;
 }
 export type AllowedMonitorCapabilities = Array<MonitorCapability>;
-export type AllowedUserAction = "CALL" | "DISCARD";
-export type AllowedUserActions = Array<AllowedUserAction>;
 export interface AnalyticsDataAssociationResult {
   DataSetId?: string;
   TargetAccountId?: string;
@@ -3587,12 +3508,6 @@ export interface AssociateBotRequest {
   LexV2Bot?: LexV2Bot;
   ClientToken?: string;
 }
-export interface AssociateContactWithUserRequest {
-  InstanceId: string;
-  ContactId: string;
-  UserId: string;
-}
-export interface AssociateContactWithUserResponse {}
 export interface AssociatedContactSummary {
   ContactId?: string;
   ContactArn?: string;
@@ -3612,13 +3527,6 @@ export interface AssociateDefaultVocabularyRequest {
 }
 export interface AssociateDefaultVocabularyResponse {}
 export type AssociatedQueueIdList = Array<string>;
-export interface AssociateEmailAddressAliasRequest {
-  EmailAddressId: string;
-  InstanceId: string;
-  AliasConfiguration: AliasConfiguration;
-  ClientToken?: string;
-}
-export interface AssociateEmailAddressAliasResponse {}
 export interface AssociateFlowRequest {
   InstanceId: string;
   ResourceId: string;
@@ -3658,8 +3566,7 @@ export interface AssociateQueueQuickConnectsRequest {
 export interface AssociateRoutingProfileQueuesRequest {
   InstanceId: string;
   RoutingProfileId: string;
-  QueueConfigs?: Array<RoutingProfileQueueConfig>;
-  ManualAssignmentQueueConfigs?: Array<RoutingProfileManualAssignmentQueueConfig>;
+  QueueConfigs: Array<RoutingProfileQueueConfig>;
 }
 export interface AssociateSecurityKeyRequest {
   InstanceId: string;
@@ -4021,9 +3928,7 @@ export interface Contact {
   Recordings?: Array<RecordingInfo>;
   DisconnectReason?: string;
   ContactEvaluations?: Record<string, ContactEvaluation>;
-  TaskTemplateInfo?: TaskTemplateInfoV2;
   ContactDetails?: ContactDetails;
-  OutboundStrategy?: OutboundStrategy;
   Attributes?: Record<string, string>;
 }
 export interface ContactAnalysis {
@@ -4041,7 +3946,6 @@ export interface ContactDataRequest {
   QueueId?: string;
   Attributes?: Record<string, string>;
   Campaign?: Campaign;
-  OutboundStrategy?: OutboundStrategy;
 }
 export type ContactDataRequestList = Array<ContactDataRequest>;
 export type ContactDetailDescription = string;
@@ -4191,21 +4095,6 @@ export type ContactInitiationMethod =
   | "WEBRTC_API"
   | "AGENT_REPLY"
   | "FLOW";
-export interface ContactMetricInfo {
-  Name: ContactMetricName;
-}
-export type ContactMetricName = "POSITION_IN_QUEUE";
-export interface ContactMetricResult {
-  Name: ContactMetricName;
-  Value: ContactMetricValue;
-}
-export type ContactMetricResults = Array<ContactMetricResult>;
-export type ContactMetrics = Array<ContactMetricInfo>;
-interface _ContactMetricValue {
-  Number?: number;
-}
-
-export type ContactMetricValue = _ContactMetricValue & { Number: number };
 export declare class ContactNotFoundException extends EffectData.TaggedError(
   "ContactNotFoundException",
 )<{
@@ -4227,8 +4116,6 @@ export interface ContactSearchSummary {
   DisconnectTimestamp?: Date | string;
   ScheduledTimestamp?: Date | string;
   SegmentAttributes?: Record<string, ContactSearchSummarySegmentAttributeValue>;
-  Name?: string;
-  RoutingCriteria?: RoutingCriteria;
 }
 export interface ContactSearchSummaryAgentInfo {
   Id?: string;
@@ -4244,7 +4131,6 @@ export type ContactSearchSummarySegmentAttributes = Record<
 >;
 export interface ContactSearchSummarySegmentAttributeValue {
   ValueString?: string;
-  ValueMap?: Record<string, SegmentAttributeValue>;
 }
 export type ContactState =
   | "INCOMING"
@@ -4465,9 +4351,7 @@ export interface CreatePersistentContactAssociationResponse {
 export interface CreatePredefinedAttributeRequest {
   InstanceId: string;
   Name: string;
-  Values?: PredefinedAttributeValues;
-  Purposes?: Array<string>;
-  AttributeConfiguration?: InputPredefinedAttributeConfiguration;
+  Values: PredefinedAttributeValues;
 }
 export interface CreatePromptRequest {
   InstanceId: string;
@@ -4523,7 +4407,6 @@ export interface CreateRoutingProfileRequest {
   Description: string;
   DefaultOutboundQueueId: string;
   QueueConfigs?: Array<RoutingProfileQueueConfig>;
-  ManualAssignmentQueueConfigs?: Array<RoutingProfileManualAssignmentQueueConfig>;
   MediaConcurrencies: Array<MediaConcurrency>;
   Tags?: Record<string, string>;
   AgentAvailabilityTimer?: AgentAvailabilityTimer;
@@ -4943,7 +4826,6 @@ export interface DescribeEmailAddressResponse {
   Description?: string;
   CreateTimestamp?: string;
   ModifiedTimestamp?: string;
-  AliasConfigurations?: Array<AliasConfiguration>;
   Tags?: Record<string, string>;
 }
 export interface DescribeEvaluationFormRequest {
@@ -5110,7 +4992,6 @@ export interface Dimensions {
   Channel?: Channel;
   RoutingProfile?: RoutingProfileReference;
   RoutingStepExpression?: string;
-  AgentStatus?: AgentStatusIdentifier;
 }
 export type DimensionsV2Key = string;
 
@@ -5140,13 +5021,6 @@ export interface DisassociateBotRequest {
   LexV2Bot?: LexV2Bot;
   ClientToken?: string;
 }
-export interface DisassociateEmailAddressAliasRequest {
-  EmailAddressId: string;
-  InstanceId: string;
-  AliasConfiguration: AliasConfiguration;
-  ClientToken?: string;
-}
-export interface DisassociateEmailAddressAliasResponse {}
 export interface DisassociateFlowRequest {
   InstanceId: string;
   ResourceId: string;
@@ -5182,8 +5056,7 @@ export interface DisassociateQueueQuickConnectsRequest {
 export interface DisassociateRoutingProfileQueuesRequest {
   InstanceId: string;
   RoutingProfileId: string;
-  QueueReferences?: Array<RoutingProfileQueueReference>;
-  ManualAssignmentQueueReferences?: Array<RoutingProfileQueueReference>;
+  QueueReferences: Array<RoutingProfileQueueReference>;
 }
 export interface DisassociateSecurityKeyRequest {
   InstanceId: string;
@@ -5265,7 +5138,6 @@ export interface EmailAddressMetadata {
   EmailAddress?: string;
   Description?: string;
   DisplayName?: string;
-  AliasConfigurations?: Array<AliasConfiguration>;
 }
 export type EmailAddressRecipientList = Array<EmailAddressInfo>;
 export type EmailAddressSearchConditionList = Array<EmailAddressSearchCriteria>;
@@ -5307,8 +5179,6 @@ export interface EmailReference {
   Value?: string;
 }
 export interface EmptyFieldValue {}
-export type EnableValueValidationOnAssociation = boolean;
-
 export interface EncryptionConfig {
   EncryptionType: EncryptionType;
   KeyId: string;
@@ -5628,7 +5498,6 @@ export type FailureReasonCode =
   | "INVALID_CUSTOMER_ENDPOINT"
   | "INVALID_SYSTEM_ENDPOINT"
   | "INVALID_QUEUE"
-  | "INVALID_OUTBOUND_STRATEGY"
   | "MISSING_CAMPAIGN"
   | "MISSING_CUSTOMER_ENDPOINT"
   | "MISSING_QUEUE_ID_AND_SYSTEM_ENDPOINT"
@@ -5664,7 +5533,6 @@ export interface Filters {
   Channels?: Array<Channel>;
   RoutingProfiles?: Array<string>;
   RoutingStepExpressions?: Array<string>;
-  AgentStatuses?: Array<string>;
 }
 export type FiltersV2List = Array<FilterV2>;
 export interface FilterV2 {
@@ -5718,16 +5586,6 @@ export interface GetContactAttributesRequest {
 }
 export interface GetContactAttributesResponse {
   Attributes?: Record<string, string>;
-}
-export interface GetContactMetricsRequest {
-  InstanceId: string;
-  ContactId: string;
-  Metrics: Array<ContactMetricInfo>;
-}
-export interface GetContactMetricsResponse {
-  MetricResults?: Array<ContactMetricResult>;
-  Id?: string;
-  Arn?: string;
 }
 export interface GetCurrentMetricDataRequest {
   InstanceId: string;
@@ -5859,8 +5717,7 @@ export type Grouping =
   | "QUEUE"
   | "CHANNEL"
   | "ROUTING_PROFILE"
-  | "ROUTING_STEP_EXPRESSION"
-  | "AGENT_STATUS";
+  | "ROUTING_STEP_EXPRESSION";
 export type Groupings = Array<Grouping>;
 export type GroupingsV2 = Array<string>;
 export type GroupingV2 = string;
@@ -6121,9 +5978,6 @@ export type Index = number;
 
 export type InitiateAs = "CONNECTED_TO_USER" | "COMPLETED";
 export type InitiationMethodList = Array<ContactInitiationMethod>;
-export interface InputPredefinedAttributeConfiguration {
-  EnableValueValidationOnAssociation?: boolean;
-}
 export interface Instance {
   Id?: string;
   Arn?: string;
@@ -6294,8 +6148,6 @@ export type IpCidr = string;
 
 export type IpCidrList = Array<string>;
 export type ISO8601Datetime = string;
-
-export type IsReadOnly = boolean;
 
 export type IvrRecordingTrack = "ALL";
 export type JoinToken = string;
@@ -6680,18 +6532,6 @@ export interface ListRealtimeContactAnalysisSegmentsV2Response {
   Segments: Array<RealtimeContactAnalysisSegment>;
   NextToken?: string;
 }
-export interface ListRoutingProfileManualAssignmentQueuesRequest {
-  InstanceId: string;
-  RoutingProfileId: string;
-  NextToken?: string;
-  MaxResults?: number;
-}
-export interface ListRoutingProfileManualAssignmentQueuesResponse {
-  NextToken?: string;
-  RoutingProfileManualAssignmentQueueConfigSummaryList?: Array<RoutingProfileManualAssignmentQueueConfigSummary>;
-  LastModifiedTime?: Date | string;
-  LastModifiedRegion?: string;
-}
 export interface ListRoutingProfileQueuesRequest {
   InstanceId: string;
   RoutingProfileId: string;
@@ -6974,10 +6814,6 @@ export type Name = string;
 
 export type Name128 = string;
 
-export interface NameCriteria {
-  SearchText: Array<string>;
-  MatchType: SearchContactsMatchType;
-}
 export type Namespace = string;
 
 export type NewChatCreated = boolean;
@@ -7077,14 +6913,6 @@ export interface OutboundRawMessage {
 }
 export type OutboundRequestId = string;
 
-export interface OutboundStrategy {
-  Type: OutboundStrategyType;
-  Config?: OutboundStrategyConfig;
-}
-export interface OutboundStrategyConfig {
-  AgentFirst?: AgentFirst;
-}
-export type OutboundStrategyType = "AGENT_FIRST";
 export type OutboundSubject = string;
 
 export declare class OutputTypeNotFoundException extends EffectData.TaggedError(
@@ -7114,7 +6942,6 @@ export interface ParticipantDetails {
 export interface ParticipantDetailsToAdd {
   ParticipantRole?: ParticipantRole;
   DisplayName?: string;
-  ParticipantCapabilities?: ParticipantCapabilities;
 }
 export type ParticipantId = string;
 
@@ -7191,8 +7018,6 @@ export interface PersistentChat {
   RehydrationType?: RehydrationType;
   SourceContactId?: string;
 }
-export type PersistentConnection = boolean;
-
 export type PhoneNumber = string;
 
 export type PhoneNumberCountryCode =
@@ -7472,11 +7297,6 @@ export type PlatformName = string;
 
 export type PlatformVersion = string;
 
-export type PostAcceptPreviewTimeoutDurationInSeconds = number;
-
-export interface PostAcceptTimeoutConfig {
-  DurationInSeconds: number;
-}
 export type PotentialAudioQualityIssue = string;
 
 export type PotentialAudioQualityIssues = Array<string>;
@@ -7485,20 +7305,11 @@ export type PotentialDisconnectIssue = string;
 export interface PredefinedAttribute {
   Name?: string;
   Values?: PredefinedAttributeValues;
-  Purposes?: Array<string>;
-  AttributeConfiguration?: PredefinedAttributeConfiguration;
   LastModifiedTime?: Date | string;
   LastModifiedRegion?: string;
 }
-export interface PredefinedAttributeConfiguration {
-  EnableValueValidationOnAssociation?: boolean;
-  IsReadOnly?: boolean;
-}
 export type PredefinedAttributeName = string;
 
-export type PredefinedAttributePurposeName = string;
-
-export type PredefinedAttributePurposeNameList = Array<string>;
 export type PredefinedAttributeSearchConditionList =
   Array<PredefinedAttributeSearchCriteria>;
 export interface PredefinedAttributeSearchCriteria {
@@ -7527,10 +7338,6 @@ export type Prefix = string;
 
 export type PreSignedAttachmentUrl = string;
 
-export interface Preview {
-  PostAcceptTimeoutConfig: PostAcceptTimeoutConfig;
-  AllowedUserActions: Array<AllowedUserAction>;
-}
 export type Priority = number;
 
 export interface ProblemDetail {
@@ -8091,33 +7898,18 @@ export interface RoutingProfile {
   DefaultOutboundQueueId?: string;
   Tags?: Record<string, string>;
   NumberOfAssociatedQueues?: number;
-  NumberOfAssociatedManualAssignmentQueues?: number;
   NumberOfAssociatedUsers?: number;
   AgentAvailabilityTimer?: AgentAvailabilityTimer;
   LastModifiedTime?: Date | string;
   LastModifiedRegion?: string;
   IsDefault?: boolean;
   AssociatedQueueIds?: Array<string>;
-  AssociatedManualAssignmentQueueIds?: Array<string>;
 }
 export type RoutingProfileDescription = string;
 
 export type RoutingProfileId = string;
 
 export type RoutingProfileList = Array<RoutingProfile>;
-export interface RoutingProfileManualAssignmentQueueConfig {
-  QueueReference: RoutingProfileQueueReference;
-}
-export type RoutingProfileManualAssignmentQueueConfigList =
-  Array<RoutingProfileManualAssignmentQueueConfig>;
-export interface RoutingProfileManualAssignmentQueueConfigSummary {
-  QueueId: string;
-  QueueArn: string;
-  QueueName: string;
-  Channel: Channel;
-}
-export type RoutingProfileManualAssignmentQueueConfigSummaryList =
-  Array<RoutingProfileManualAssignmentQueueConfigSummary>;
 export type RoutingProfileName = string;
 
 export interface RoutingProfileQueueConfig {
@@ -8221,10 +8013,6 @@ export interface S3Config {
 export type S3Uri = string;
 
 export type ScreenShareCapability = "SEND";
-export interface SearchableAgentCriteriaStep {
-  AgentIds?: Array<string>;
-  MatchType?: SearchContactsMatchType;
-}
 export type SearchableContactAttributeKey = string;
 
 export interface SearchableContactAttributes {
@@ -8241,14 +8029,6 @@ export type SearchableContactAttributeValue = string;
 
 export type SearchableContactAttributeValueList = Array<string>;
 export type SearchableQueueType = "STANDARD";
-export interface SearchableRoutingCriteria {
-  Steps?: Array<SearchableRoutingCriteriaStep>;
-}
-export interface SearchableRoutingCriteriaStep {
-  AgentCriteria?: SearchableAgentCriteriaStep;
-}
-export type SearchableRoutingCriteriaStepList =
-  Array<SearchableRoutingCriteriaStep>;
 export type SearchableSegmentAttributeKey = string;
 
 export interface SearchableSegmentAttributes {
@@ -8313,21 +8093,7 @@ export interface SearchContactFlowsResponse {
   NextToken?: string;
   ApproximateTotalCount?: number;
 }
-export interface SearchContactsAdditionalTimeRange {
-  Criteria: Array<SearchContactsAdditionalTimeRangeCriteria>;
-  MatchType: SearchContactsMatchType;
-}
-export interface SearchContactsAdditionalTimeRangeCriteria {
-  TimeRange?: SearchContactsTimeRange;
-  TimestampCondition?: SearchContactsTimestampCondition;
-}
-export type SearchContactsAdditionalTimeRangeCriteriaList =
-  Array<SearchContactsAdditionalTimeRangeCriteria>;
-export type SearchContactsMatchType =
-  | "MATCH_ALL"
-  | "MATCH_ANY"
-  | "MATCH_EXACT"
-  | "MATCH_NONE";
+export type SearchContactsMatchType = "MATCH_ALL" | "MATCH_ANY";
 export interface SearchContactsRequest {
   InstanceId: string;
   TimeRange: SearchContactsTimeRange;
@@ -8346,27 +8112,18 @@ export interface SearchContactsTimeRange {
   StartTime: Date | string;
   EndTime: Date | string;
 }
-export type SearchContactsTimeRangeConditionType = "NOT_EXISTS";
 export type SearchContactsTimeRangeType =
   | "INITIATION_TIMESTAMP"
   | "SCHEDULED_TIMESTAMP"
   | "CONNECTED_TO_AGENT_TIMESTAMP"
-  | "DISCONNECT_TIMESTAMP"
-  | "ENQUEUE_TIMESTAMP";
-export interface SearchContactsTimestampCondition {
-  Type: SearchContactsTimeRangeType;
-  ConditionType: SearchContactsTimeRangeConditionType;
-}
+  | "DISCONNECT_TIMESTAMP";
 export interface SearchCriteria {
-  Name?: NameCriteria;
   AgentIds?: Array<string>;
   AgentHierarchyGroups?: AgentHierarchyGroups;
   Channels?: Array<Channel>;
   ContactAnalysis?: ContactAnalysis;
   InitiationMethods?: Array<ContactInitiationMethod>;
   QueueIds?: Array<string>;
-  RoutingCriteria?: SearchableRoutingCriteria;
-  AdditionalTimeRange?: SearchContactsAdditionalTimeRange;
   SearchableContactAttributes?: SearchableContactAttributes;
   SearchableSegmentAttributes?: SearchableSegmentAttributes;
 }
@@ -8597,12 +8354,9 @@ export interface SegmentAttributeValue {
   ValueString?: string;
   ValueMap?: Record<string, SegmentAttributeValue>;
   ValueInteger?: number;
-  ValueList?: Array<SegmentAttributeValue>;
-  ValueArn?: string;
 }
 export type SegmentAttributeValueInteger = number;
 
-export type SegmentAttributeValueList = Array<SegmentAttributeValue>;
 export type SegmentAttributeValueMap = Record<string, SegmentAttributeValue>;
 export type SegmentAttributeValueString = string;
 
@@ -8685,8 +8439,7 @@ export type SortableFieldName =
   | "CONNECTED_TO_AGENT_TIMESTAMP"
   | "DISCONNECT_TIMESTAMP"
   | "INITIATION_METHOD"
-  | "CHANNEL"
-  | "EXPIRY_TIMESTAMP";
+  | "CHANNEL";
 export type SortOrder = "ASCENDING" | "DESCENDING";
 export type SourceApplicationName = string;
 
@@ -8825,7 +8578,6 @@ export interface StartOutboundVoiceContactRequest {
   AnswerMachineDetectionConfig?: AnswerMachineDetectionConfig;
   CampaignId?: string;
   TrafficType?: TrafficType;
-  OutboundStrategy?: OutboundStrategy;
 }
 export interface StartOutboundVoiceContactResponse {
   ContactId?: string;
@@ -9059,10 +8811,6 @@ export type TaskTemplateFieldValue = string;
 
 export type TaskTemplateId = string;
 
-export interface TaskTemplateInfoV2 {
-  Arn?: string;
-  Name?: string;
-}
 export type TaskTemplateList = Array<TaskTemplateMetadata>;
 export interface TaskTemplateMetadata {
   Id?: string;
@@ -9396,8 +9144,6 @@ export interface UpdatePredefinedAttributeRequest {
   InstanceId: string;
   Name: string;
   Values?: PredefinedAttributeValues;
-  Purposes?: Array<string>;
-  AttributeConfiguration?: InputPredefinedAttributeConfiguration;
 }
 export interface UpdatePromptRequest {
   InstanceId: string;
@@ -9689,7 +9435,6 @@ export interface UserPhoneConfig {
   AutoAccept?: boolean;
   AfterContactWorkTimeLimit?: number;
   DeskPhoneNumber?: string;
-  PersistentConnection?: boolean;
 }
 export interface UserProficiency {
   AttributeName: string;
@@ -9950,19 +9695,6 @@ export declare namespace AssociateBot {
     | CommonAwsError;
 }
 
-export declare namespace AssociateContactWithUser {
-  export type Input = AssociateContactWithUserRequest;
-  export type Output = AssociateContactWithUserResponse;
-  export type Error =
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError;
-}
-
 export declare namespace AssociateDefaultVocabulary {
   export type Input = AssociateDefaultVocabularyRequest;
   export type Output = AssociateDefaultVocabularyResponse;
@@ -9970,21 +9702,6 @@ export declare namespace AssociateDefaultVocabulary {
     | AccessDeniedException
     | InternalServiceException
     | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError;
-}
-
-export declare namespace AssociateEmailAddressAlias {
-  export type Input = AssociateEmailAddressAliasRequest;
-  export type Output = AssociateEmailAddressAliasResponse;
-  export type Error =
-    | AccessDeniedException
-    | IdempotencyException
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceConflictException
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError;
@@ -10369,7 +10086,6 @@ export declare namespace CreateParticipant {
   export type Input = CreateParticipantRequest;
   export type Output = CreateParticipantResponse;
   export type Error =
-    | ConflictException
     | InternalServiceException
     | InvalidRequestException
     | ResourceNotFoundException
@@ -11321,20 +11037,6 @@ export declare namespace DisassociateBot {
     | CommonAwsError;
 }
 
-export declare namespace DisassociateEmailAddressAlias {
-  export type Input = DisassociateEmailAddressAliasRequest;
-  export type Output = DisassociateEmailAddressAliasResponse;
-  export type Error =
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceConflictException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError;
-}
-
 export declare namespace DisassociateFlow {
   export type Input = DisassociateFlowRequest;
   export type Output = DisassociateFlowResponse;
@@ -11489,19 +11191,6 @@ export declare namespace GetContactAttributes {
     | InternalServiceException
     | InvalidRequestException
     | ResourceNotFoundException
-    | CommonAwsError;
-}
-
-export declare namespace GetContactMetrics {
-  export type Input = GetContactMetricsRequest;
-  export type Output = GetContactMetricsResponse;
-  export type Error =
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
     | CommonAwsError;
 }
 
@@ -12014,18 +11703,6 @@ export declare namespace ListRealtimeContactAnalysisSegmentsV2 {
     | InternalServiceException
     | InvalidRequestException
     | OutputTypeNotFoundException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError;
-}
-
-export declare namespace ListRoutingProfileManualAssignmentQueues {
-  export type Input = ListRoutingProfileManualAssignmentQueuesRequest;
-  export type Output = ListRoutingProfileManualAssignmentQueuesResponse;
-  export type Error =
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
     | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError;

@@ -773,7 +773,6 @@ export interface AddMediaStreamRequest {
   MediaStreamName: string;
   MediaStreamType: MediaStreamType;
   VideoFormat?: string;
-  MediaStreamTags?: Record<string, string>;
 }
 export interface AddOutputRequest {
   CidrAllowList?: Array<string>;
@@ -785,7 +784,7 @@ export interface AddOutputRequest {
   MinLatency?: number;
   Name?: string;
   Port?: number;
-  Protocol?: Protocol;
+  Protocol: Protocol;
   RemoteId?: string;
   SenderControlPort?: number;
   SmoothingLatency?: number;
@@ -794,7 +793,6 @@ export interface AddOutputRequest {
   OutputStatus?: OutputStatus;
   NdiSpeedHqQuality?: number;
   NdiProgramName?: string;
-  OutputTags?: Record<string, string>;
 }
 export type Algorithm = "aes128" | "aes192" | "aes256";
 export interface AudioMonitoringSetting {
@@ -923,7 +921,6 @@ export interface CreateFlowRequest {
   SourceMonitoringConfig?: MonitoringConfig;
   FlowSize?: FlowSize;
   NdiConfig?: NdiConfig;
-  FlowTags?: Record<string, string>;
 }
 export interface CreateFlowResponse {
   Flow?: Flow;
@@ -1172,7 +1169,6 @@ export interface GrantEntitlementRequest {
   EntitlementStatus?: EntitlementStatus;
   Name?: string;
   Subscribers: Array<string>;
-  EntitlementTags?: Record<string, string>;
 }
 export declare class GrantFlowEntitlements420Exception extends EffectData.TaggedError(
   "GrantFlowEntitlements420Exception",
@@ -1575,7 +1571,6 @@ export interface SetSourceRequest {
   VpcInterfaceName?: string;
   WhitelistCidr?: string;
   GatewayBridgeSource?: SetGatewayBridgeSourceRequest;
-  SourceTags?: Record<string, string>;
 }
 export interface SilentAudio {
   State?: State;
@@ -1825,7 +1820,6 @@ export interface UpdateFlowRequest {
   Maintenance?: UpdateMaintenance;
   SourceMonitoringConfig?: MonitoringConfig;
   NdiConfig?: NdiConfig;
-  FlowSize?: FlowSize;
 }
 export interface UpdateFlowResponse {
   Flow?: Flow;
@@ -1898,7 +1892,6 @@ export interface VpcInterfaceRequest {
   RoleArn: string;
   SecurityGroupIds: Array<string>;
   SubnetId: string;
-  VpcInterfaceTags?: Record<string, string>;
 }
 export declare namespace ListEntitlements {
   export type Input = ListEntitlementsRequest;

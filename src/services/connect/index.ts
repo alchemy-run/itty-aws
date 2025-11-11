@@ -38,12 +38,8 @@ const metadata = {
       "PUT /analytics-data/instance/{InstanceId}/association",
     AssociateApprovedOrigin: "PUT /instance/{InstanceId}/approved-origin",
     AssociateBot: "PUT /instance/{InstanceId}/bot",
-    AssociateContactWithUser:
-      "POST /contacts/{InstanceId}/{ContactId}/associate-user",
     AssociateDefaultVocabulary:
       "PUT /default-vocabulary/{InstanceId}/{LanguageCode}",
-    AssociateEmailAddressAlias:
-      "POST /email-addresses/{InstanceId}/{EmailAddressId}/associate-alias",
     AssociateFlow: "PUT /flow-associations/{InstanceId}",
     AssociateInstanceStorageConfig: "PUT /instance/{InstanceId}/storage-config",
     AssociateLambdaFunction: "PUT /instance/{InstanceId}/lambda-function",
@@ -193,8 +189,6 @@ const metadata = {
       "POST /analytics-data/instance/{InstanceId}/association",
     DisassociateApprovedOrigin: "DELETE /instance/{InstanceId}/approved-origin",
     DisassociateBot: "POST /instance/{InstanceId}/bot",
-    DisassociateEmailAddressAlias:
-      "POST /email-addresses/{InstanceId}/{EmailAddressId}/disassociate-alias",
     DisassociateFlow:
       "DELETE /flow-associations/{InstanceId}/{ResourceId}/{ResourceType}",
     DisassociateInstanceStorageConfig:
@@ -217,7 +211,6 @@ const metadata = {
     GetAttachedFile: "GET /attached-files/{InstanceId}/{FileId}",
     GetContactAttributes:
       "GET /contact/attributes/{InstanceId}/{InitialContactId}",
-    GetContactMetrics: "POST /metrics/contact",
     GetCurrentMetricData: "POST /metrics/current/{InstanceId}",
     GetCurrentUserData: "POST /metrics/userdata/{InstanceId}",
     GetEffectiveHoursOfOperations:
@@ -272,8 +265,6 @@ const metadata = {
     ListQuickConnects: "GET /quick-connects/{InstanceId}",
     ListRealtimeContactAnalysisSegmentsV2:
       "POST /contact/list-real-time-analysis-segments-v2/{InstanceId}/{ContactId}",
-    ListRoutingProfileManualAssignmentQueues:
-      "GET /routing-profiles/{InstanceId}/{RoutingProfileId}/manual-assignment-queues",
     ListRoutingProfileQueues:
       "GET /routing-profiles/{InstanceId}/{RoutingProfileId}/queues",
     ListRoutingProfiles: "GET /routing-profiles-summary/{InstanceId}",

@@ -518,14 +518,6 @@ export type CallerAccessGrantsList = Array<ListCallerAccessGrantsEntry>;
 export interface CloudWatchMetrics {
   IsEnabled: boolean;
 }
-export type ComputeObjectChecksumAlgorithm =
-  | "CRC32"
-  | "CRC32C"
-  | "CRC64NVME"
-  | "MD5"
-  | "SHA1"
-  | "SHA256";
-export type ComputeObjectChecksumType = "FULL_OBJECT" | "COMPOSITE";
 export type ConfigId = string;
 
 export type ConfirmationRequired = boolean;
@@ -795,9 +787,6 @@ export interface DetailedStatusCodesMetrics {
 }
 export interface DissociateAccessGrantsIdentityCenterRequest {
   AccountId: string;
-}
-export interface DSSEKMSFilter {
-  KmsKeyArn?: string;
 }
 export type DurationSeconds = number;
 
@@ -1200,7 +1189,6 @@ export interface JobManifestGeneratorFilter {
   ObjectSizeGreaterThanBytes?: number;
   ObjectSizeLessThanBytes?: number;
   MatchAnyStorageClass?: Array<S3StorageClass>;
-  MatchAnyObjectEncryption?: Array<ObjectEncryptionFilter>;
 }
 export interface JobManifestLocation {
   ObjectArn: string;
@@ -1225,7 +1213,6 @@ export interface JobOperation {
   S3PutObjectLegalHold?: S3SetObjectLegalHoldOperation;
   S3PutObjectRetention?: S3SetObjectRetentionOperation;
   S3ReplicateObject?: S3ReplicateObjectOperation;
-  S3ComputeObjectChecksum?: S3ComputeObjectChecksumOperation;
 }
 export type JobPriority = number;
 
@@ -1241,7 +1228,6 @@ export interface JobReport {
   Enabled: boolean;
   Prefix?: string;
   ReportScope?: JobReportScope;
-  ExpectedBucketOwner?: string;
 }
 export type JobReportFormat = "Report_CSV_20180820";
 export type JobReportScope = "AllTasks" | "FailedTasksOnly";
@@ -1577,8 +1563,6 @@ export interface NoncurrentVersionTransition {
 }
 export type NoncurrentVersionTransitionList =
   Array<NoncurrentVersionTransition>;
-export type NonEmptyKmsKeyArnString = string;
-
 export type NonEmptyMaxLength1024String = string;
 
 export type NonEmptyMaxLength1024StringList = Array<string>;
@@ -1600,26 +1584,10 @@ export declare class NotFoundException extends EffectData.TaggedError(
 )<{
   readonly Message?: string;
 }> {}
-export interface NotSSEFilter {}
 export type ObjectAgeValue = number;
 
 export type ObjectCreationTime = Date | string;
 
-interface _ObjectEncryptionFilter {
-  SSES3?: SSES3Filter;
-  SSEKMS?: SSEKMSFilter;
-  DSSEKMS?: DSSEKMSFilter;
-  SSEC?: SSECFilter;
-  NOTSSE?: NotSSEFilter;
-}
-
-export type ObjectEncryptionFilter =
-  | (_ObjectEncryptionFilter & { SSES3: SSES3Filter })
-  | (_ObjectEncryptionFilter & { SSEKMS: SSEKMSFilter })
-  | (_ObjectEncryptionFilter & { DSSEKMS: DSSEKMSFilter })
-  | (_ObjectEncryptionFilter & { SSEC: SSECFilter })
-  | (_ObjectEncryptionFilter & { NOTSSE: NotSSEFilter });
-export type ObjectEncryptionFilterList = Array<ObjectEncryptionFilter>;
 export interface ObjectLambdaAccessPoint {
   Name: string;
   ObjectLambdaAccessPointArn?: string;
@@ -1689,8 +1657,7 @@ export type OperationName =
   | "S3InitiateRestoreObject"
   | "S3PutObjectLegalHold"
   | "S3PutObjectRetention"
-  | "S3ReplicateObject"
-  | "S3ComputeObjectChecksum";
+  | "S3ReplicateObject";
 export type Organization = string;
 
 export type OutputSchemaVersion = "V_1";
@@ -1935,10 +1902,6 @@ export type S3ChecksumAlgorithm =
   | "SHA1"
   | "SHA256"
   | "CRC64NVME";
-export interface S3ComputeObjectChecksumOperation {
-  ChecksumAlgorithm?: ComputeObjectChecksumAlgorithm;
-  ChecksumType?: ComputeObjectChecksumType;
-}
 export type S3ContentLength = number;
 
 export interface S3CopyObjectOperation {
@@ -2103,7 +2066,6 @@ export interface SourceSelectionCriteria {
   SseKmsEncryptedObjects?: SseKmsEncryptedObjects;
   ReplicaModifications?: ReplicaModifications;
 }
-export interface SSECFilter {}
 export interface SSEKMS {
   KeyId: string;
 }
@@ -2114,15 +2076,10 @@ export type SseKmsEncryptedObjectsStatus = "Enabled" | "Disabled";
 export interface SSEKMSEncryption {
   KeyId: string;
 }
-export interface SSEKMSFilter {
-  KmsKeyArn?: string;
-  BucketKeyEnabled?: boolean;
-}
 export type SSEKMSKeyId = string;
 
 export interface SSES3 {}
 export interface SSES3Encryption {}
-export interface SSES3Filter {}
 export type StorageClassList = Array<S3StorageClass>;
 export type StorageLensArn = string;
 

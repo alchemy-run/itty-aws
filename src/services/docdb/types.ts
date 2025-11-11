@@ -68,7 +68,6 @@ export declare class DocDB extends AWSServiceClient {
     | InvalidSubnet
     | InvalidVPCNetworkStateFault
     | KMSKeyNotAccessibleFault
-    | NetworkTypeNotSupported
     | StorageQuotaExceededFault
     | CommonAwsError
   >;
@@ -327,7 +326,6 @@ export declare class DocDB extends AWSServiceClient {
     | InvalidDBSubnetGroupStateFault
     | InvalidSubnet
     | InvalidVPCNetworkStateFault
-    | NetworkTypeNotSupported
     | StorageQuotaExceededFault
     | CommonAwsError
   >;
@@ -451,7 +449,6 @@ export declare class DocDB extends AWSServiceClient {
     | InvalidSubnet
     | InvalidVPCNetworkStateFault
     | KMSKeyNotAccessibleFault
-    | NetworkTypeNotSupported
     | StorageQuotaExceededFault
     | CommonAwsError
   >;
@@ -473,7 +470,6 @@ export declare class DocDB extends AWSServiceClient {
     | InvalidSubnet
     | InvalidVPCNetworkStateFault
     | KMSKeyNotAccessibleFault
-    | NetworkTypeNotSupported
     | StorageQuotaExceededFault
     | CommonAwsError
   >;
@@ -621,7 +617,6 @@ export interface CreateDBClusterMessage {
   ServerlessV2ScalingConfiguration?: ServerlessV2ScalingConfiguration;
   ManageMasterUserPassword?: boolean;
   MasterUserSecretKmsKeyId?: string;
-  NetworkType?: string;
 }
 export interface CreateDBClusterParameterGroupMessage {
   DBClusterParameterGroupName: string;
@@ -727,11 +722,9 @@ export interface DBCluster {
   ClusterCreateTime?: Date | string;
   EnabledCloudwatchLogsExports?: Array<string>;
   DeletionProtection?: boolean;
-  IOOptimizedNextAllowedModificationTime?: Date | string;
   StorageType?: string;
   ServerlessV2ScalingConfiguration?: ServerlessV2ScalingConfigurationInfo;
   MasterUserSecret?: ClusterMasterUserSecret;
-  NetworkType?: string;
 }
 export declare class DBClusterAlreadyExistsFault extends EffectData.TaggedError(
   "DBClusterAlreadyExistsFault",
@@ -943,7 +936,6 @@ export interface DBSubnetGroup {
   SubnetGroupStatus?: string;
   Subnets?: Array<Subnet>;
   DBSubnetGroupArn?: string;
-  SupportedNetworkTypes?: Array<string>;
 }
 export declare class DBSubnetGroupAlreadyExistsFault extends EffectData.TaggedError(
   "DBSubnetGroupAlreadyExistsFault",
@@ -1208,13 +1200,6 @@ export interface FailoverGlobalClusterMessage {
 export interface FailoverGlobalClusterResult {
   GlobalCluster?: GlobalCluster;
 }
-export interface FailoverState {
-  Status?: FailoverStatus;
-  FromDbClusterArn?: string;
-  ToDbClusterArn?: string;
-  IsDataLossAllowed?: boolean;
-}
-export type FailoverStatus = "pending" | "failing-over" | "cancelling";
 export interface Filter {
   Name: string;
   Values: Array<string>;
@@ -1232,8 +1217,6 @@ export interface GlobalCluster {
   StorageEncrypted?: boolean;
   DeletionProtection?: boolean;
   GlobalClusterMembers?: Array<GlobalClusterMember>;
-  FailoverState?: FailoverState;
-  TagList?: Array<Tag>;
 }
 export declare class GlobalClusterAlreadyExistsFault extends EffectData.TaggedError(
   "GlobalClusterAlreadyExistsFault",
@@ -1247,12 +1230,8 @@ export interface GlobalClusterMember {
   DBClusterArn?: string;
   Readers?: Array<string>;
   IsWriter?: boolean;
-  SynchronizationStatus?: GlobalClusterMemberSynchronizationStatus;
 }
 export type GlobalClusterMemberList = Array<GlobalClusterMember>;
-export type GlobalClusterMemberSynchronizationStatus =
-  | "connected"
-  | "pending-resync";
 export declare class GlobalClusterNotFoundFault extends EffectData.TaggedError(
   "GlobalClusterNotFoundFault",
 )<{
@@ -1387,7 +1366,6 @@ export interface ModifyDBClusterMessage {
   ManageMasterUserPassword?: boolean;
   MasterUserSecretKmsKeyId?: string;
   RotateMasterUserPassword?: boolean;
-  NetworkType?: string;
 }
 export interface ModifyDBClusterParameterGroupMessage {
   DBClusterParameterGroupName: string;
@@ -1448,12 +1426,6 @@ export interface ModifyGlobalClusterMessage {
 export interface ModifyGlobalClusterResult {
   GlobalCluster?: GlobalCluster;
 }
-export type NetworkTypeList = Array<string>;
-export declare class NetworkTypeNotSupported extends EffectData.TaggedError(
-  "NetworkTypeNotSupported",
-)<{
-  readonly message?: string;
-}> {}
 export interface OrderableDBInstanceOption {
   Engine?: string;
   EngineVersion?: string;
@@ -1573,7 +1545,6 @@ export interface RestoreDBClusterFromSnapshotMessage {
   DBClusterParameterGroupName?: string;
   ServerlessV2ScalingConfiguration?: ServerlessV2ScalingConfiguration;
   StorageType?: string;
-  NetworkType?: string;
 }
 export interface RestoreDBClusterFromSnapshotResult {
   DBCluster?: DBCluster;
@@ -1593,7 +1564,6 @@ export interface RestoreDBClusterToPointInTimeMessage {
   DeletionProtection?: boolean;
   ServerlessV2ScalingConfiguration?: ServerlessV2ScalingConfiguration;
   StorageType?: string;
-  NetworkType?: string;
 }
 export interface RestoreDBClusterToPointInTimeResult {
   DBCluster?: DBCluster;
@@ -1802,7 +1772,6 @@ export declare namespace CreateDBCluster {
     | InvalidSubnet
     | InvalidVPCNetworkStateFault
     | KMSKeyNotAccessibleFault
-    | NetworkTypeNotSupported
     | StorageQuotaExceededFault
     | CommonAwsError;
 }
@@ -2098,7 +2067,6 @@ export declare namespace ModifyDBCluster {
     | InvalidDBSubnetGroupStateFault
     | InvalidSubnet
     | InvalidVPCNetworkStateFault
-    | NetworkTypeNotSupported
     | StorageQuotaExceededFault
     | CommonAwsError;
 }
@@ -2240,7 +2208,6 @@ export declare namespace RestoreDBClusterFromSnapshot {
     | InvalidSubnet
     | InvalidVPCNetworkStateFault
     | KMSKeyNotAccessibleFault
-    | NetworkTypeNotSupported
     | StorageQuotaExceededFault
     | CommonAwsError;
 }
@@ -2263,7 +2230,6 @@ export declare namespace RestoreDBClusterToPointInTime {
     | InvalidSubnet
     | InvalidVPCNetworkStateFault
     | KMSKeyNotAccessibleFault
-    | NetworkTypeNotSupported
     | StorageQuotaExceededFault
     | CommonAwsError;
 }
@@ -2344,7 +2310,6 @@ export type DocDBErrors =
   | InvalidSubnet
   | InvalidVPCNetworkStateFault
   | KMSKeyNotAccessibleFault
-  | NetworkTypeNotSupported
   | ResourceNotFoundFault
   | SNSInvalidTopicFault
   | SNSNoAuthorizationFault

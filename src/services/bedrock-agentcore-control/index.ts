@@ -32,10 +32,7 @@ const metadata = {
   endpointPrefix: "bedrock-agentcore-control",
   operations: {
     GetTokenVault: "POST /identities/get-token-vault",
-    ListTagsForResource: "GET /tags/{resourceArn}",
     SetTokenVaultCMK: "POST /identities/set-token-vault-cmk",
-    TagResource: "POST /tags/{resourceArn}",
-    UntagResource: "DELETE /tags/{resourceArn}",
     CreateAgentRuntime: "PUT /runtimes/",
     CreateAgentRuntimeEndpoint:
       "PUT /runtimes/{agentRuntimeId}/runtime-endpoints/",
@@ -88,8 +85,6 @@ const metadata = {
     ListOauth2CredentialProviders:
       "POST /identities/ListOauth2CredentialProviders",
     ListWorkloadIdentities: "POST /identities/ListWorkloadIdentities",
-    SynchronizeGatewayTargets:
-      "PUT /gateways/{gatewayIdentifier}/synchronizeTargets",
     UpdateAgentRuntime: "PUT /runtimes/{agentRuntimeId}/",
     UpdateAgentRuntimeEndpoint:
       "PUT /runtimes/{agentRuntimeId}/runtime-endpoints/{endpointName}/",

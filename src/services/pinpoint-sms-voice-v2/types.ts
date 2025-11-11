@@ -61,17 +61,6 @@ export declare class PinpointSMSVoiceV2 extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
-  carrierLookup(
-    input: CarrierLookupRequest,
-  ): Effect.Effect<
-    CarrierLookupResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
-  >;
   createConfigurationSet(
     input: CreateConfigurationSetRequest,
   ): Effect.Effect<
@@ -1137,21 +1126,6 @@ export type AttachmentUploadErrorReason = string;
 
 export type AttachmentUrl = string;
 
-export type CarrierLookupInputPhoneNumberType = string;
-
-export interface CarrierLookupRequest {
-  PhoneNumber: string;
-}
-export interface CarrierLookupResult {
-  E164PhoneNumber: string;
-  DialingCountryCode?: string;
-  IsoCountryCode?: string;
-  Country?: string;
-  MCC?: string;
-  MNC?: string;
-  Carrier?: string;
-  PhoneNumberType: string;
-}
 export type ClientToken = string;
 
 export interface CloudWatchLogsDestination {
@@ -1724,8 +1698,6 @@ export type DestinationCountryParameters = Record<string, string>;
 export type DestinationCountryParameterValue = string;
 
 export type DestinationPhoneNumberList = Array<string>;
-export type DialingCountryCodeType = string;
-
 export interface DisassociateOriginationIdentityRequest {
   PoolId: string;
   OriginationIdentity: string;
@@ -1759,8 +1731,6 @@ export interface DiscardRegistrationVersionResult {
   RegistrationVersionStatus: string;
   RegistrationVersionStatusHistory: RegistrationVersionStatusHistory;
 }
-export type E164PhoneNumberType = string;
-
 export interface EventDestination {
   EventDestinationName: string;
   Enabled: boolean;
@@ -1891,8 +1861,6 @@ export type MaxPrice = string;
 
 export type MaxResults = number;
 
-export type MCCType = string;
-
 export type MediaMessageOriginationIdentity = string;
 
 export type MediaUrlList = Array<string>;
@@ -1905,8 +1873,6 @@ export type MessageId = string;
 export type MessageType = string;
 
 export type MessageTypeList = Array<string>;
-export type MNCType = string;
-
 export type MonthlyLimit = number;
 
 export type NextToken = string;
@@ -1982,15 +1948,12 @@ export interface PhoneNumberInformation {
   TwoWayChannelRole?: string;
   SelfManagedOptOutsEnabled: boolean;
   OptOutListName: string;
-  InternationalSendingEnabled?: boolean;
   DeletionProtectionEnabled: boolean;
   PoolId?: string;
   RegistrationId?: string;
   CreatedTimestamp: Date | string;
 }
 export type PhoneNumberInformationList = Array<PhoneNumberInformation>;
-export type PhoneNumberType = string;
-
 export type PhoneOrPoolIdOrArn = string;
 
 export type PhoneOrSenderIdOrArn = string;
@@ -2367,7 +2330,6 @@ export interface RequestPhoneNumberRequest {
   OptOutListName?: string;
   PoolId?: string;
   RegistrationId?: string;
-  InternationalSendingEnabled?: boolean;
   DeletionProtectionEnabled?: boolean;
   Tags?: Array<Tag>;
   ClientToken?: string;
@@ -2387,7 +2349,6 @@ export interface RequestPhoneNumberResult {
   TwoWayChannelRole?: string;
   SelfManagedOptOutsEnabled?: boolean;
   OptOutListName?: string;
-  InternationalSendingEnabled?: boolean;
   DeletionProtectionEnabled?: boolean;
   PoolId?: string;
   RegistrationId?: string;
@@ -2686,7 +2647,6 @@ export interface UpdatePhoneNumberRequest {
   TwoWayChannelRole?: string;
   SelfManagedOptOutsEnabled?: boolean;
   OptOutListName?: string;
-  InternationalSendingEnabled?: boolean;
   DeletionProtectionEnabled?: boolean;
 }
 export interface UpdatePhoneNumberResult {
@@ -2704,7 +2664,6 @@ export interface UpdatePhoneNumberResult {
   TwoWayChannelRole?: string;
   SelfManagedOptOutsEnabled?: boolean;
   OptOutListName?: string;
-  InternationalSendingEnabled?: boolean;
   DeletionProtectionEnabled?: boolean;
   RegistrationId?: string;
   CreatedTimestamp?: Date | string;
@@ -2856,18 +2815,6 @@ export declare namespace AssociateProtectConfiguration {
     | ConflictException
     | InternalServerException
     | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError;
-}
-
-export declare namespace CarrierLookup {
-  export type Input = CarrierLookupRequest;
-  export type Output = CarrierLookupResult;
-  export type Error =
-    | AccessDeniedException
-    | InternalServerException
-    | ServiceQuotaExceededException
     | ThrottlingException
     | ValidationException
     | CommonAwsError;

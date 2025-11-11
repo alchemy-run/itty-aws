@@ -3,15 +3,6 @@ import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class GroundStation extends AWSServiceClient {
-  getAgentTaskResponseUrl(
-    input: GetAgentTaskResponseUrlRequest,
-  ): Effect.Effect<
-    GetAgentTaskResponseUrlResponse,
-    | DependencyException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | CommonAwsError
-  >;
   getMinuteUsage(
     input: GetMinuteUsageRequest,
   ): Effect.Effect<
@@ -76,16 +67,6 @@ export declare class GroundStation extends AWSServiceClient {
     | ResourceNotFoundException
     | CommonAwsError
   >;
-  createDataflowEndpointGroupV2(
-    input: CreateDataflowEndpointGroupV2Request,
-  ): Effect.Effect<
-    CreateDataflowEndpointGroupV2Response,
-    | DependencyException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | CommonAwsError
-  >;
   createEphemeris(
     input: CreateEphemerisRequest,
   ): Effect.Effect<
@@ -128,7 +109,6 @@ export declare class GroundStation extends AWSServiceClient {
     EphemerisIdResponse,
     | DependencyException
     | InvalidParameterException
-    | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError
   >;
@@ -282,7 +262,6 @@ export declare class GroundStation extends AWSServiceClient {
     ContactIdResponse,
     | DependencyException
     | InvalidParameterException
-    | ResourceLimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
   >;
@@ -369,34 +348,6 @@ export interface AwsGroundStationAgentEndpoint {
 }
 export type AWSRegion = string;
 
-export interface AzElEphemeris {
-  groundStation: string;
-  data: AzElSegmentsData;
-}
-export interface AzElEphemerisFilter {
-  id: string;
-}
-export interface AzElProgramTrackSettings {
-  ephemerisId: string;
-}
-export interface AzElSegment {
-  referenceEpoch: Date | string;
-  validTimeRange: ISO8601TimeRange;
-  azElList: Array<TimeAzEl>;
-}
-export type AzElSegmentList = Array<AzElSegment>;
-export interface AzElSegments {
-  angleUnit: AngleUnits;
-  azElSegmentList: Array<AzElSegment>;
-}
-interface _AzElSegmentsData {
-  s3Object?: S3Object;
-  azElData?: AzElSegments;
-}
-
-export type AzElSegmentsData =
-  | (_AzElSegmentsData & { s3Object: S3Object })
-  | (_AzElSegmentsData & { azElData: AzElSegments });
 export type BandwidthUnits = "GHz" | "MHz" | "kHz";
 export type BucketArn = string;
 
@@ -505,7 +456,6 @@ export interface ContactData {
   tags?: Record<string, string>;
   visibilityStartTime?: Date | string;
   visibilityEndTime?: Date | string;
-  ephemeris?: EphemerisResponseData;
 }
 export interface ContactIdResponse {
   contactId?: string;
@@ -536,30 +486,8 @@ export interface CreateDataflowEndpointGroupRequest {
   contactPrePassDurationSeconds?: number;
   contactPostPassDurationSeconds?: number;
 }
-export interface CreateDataflowEndpointGroupV2Request {
-  endpoints: Array<CreateEndpointDetails>;
-  contactPrePassDurationSeconds?: number;
-  contactPostPassDurationSeconds?: number;
-  tags?: Record<string, string>;
-}
-export interface CreateDataflowEndpointGroupV2Response {
-  dataflowEndpointGroupId?: string;
-}
-interface _CreateEndpointDetails {
-  uplinkAwsGroundStationAgentEndpoint?: UplinkAwsGroundStationAgentEndpoint;
-  downlinkAwsGroundStationAgentEndpoint?: DownlinkAwsGroundStationAgentEndpoint;
-}
-
-export type CreateEndpointDetails =
-  | (_CreateEndpointDetails & {
-      uplinkAwsGroundStationAgentEndpoint: UplinkAwsGroundStationAgentEndpoint;
-    })
-  | (_CreateEndpointDetails & {
-      downlinkAwsGroundStationAgentEndpoint: DownlinkAwsGroundStationAgentEndpoint;
-    });
-export type CreateEndpointDetailsList = Array<CreateEndpointDetails>;
 export interface CreateEphemerisRequest {
-  satelliteId?: string;
+  satelliteId: string;
   enabled?: boolean;
   priority?: number;
   expirationTime?: Date | string;
@@ -657,8 +585,6 @@ export interface DescribeContactResponse {
   dataflowList?: Array<DataflowDetail>;
   visibilityStartTime?: Date | string;
   visibilityEndTime?: Date | string;
-  trackingOverrides?: TrackingOverrides;
-  ephemeris?: EphemerisResponseData;
 }
 export interface DescribeEphemerisRequest {
   ephemerisId: string;
@@ -674,7 +600,6 @@ export interface DescribeEphemerisResponse {
   tags?: Record<string, string>;
   suppliedData?: EphemerisTypeDescription;
   invalidReason?: EphemerisInvalidReason;
-  errorReasons?: Array<EphemerisErrorReason>;
 }
 export interface Destination {
   configType?: ConfigCapabilityType;
@@ -687,27 +612,6 @@ export interface DiscoveryData {
   privateIpAddresses: Array<string>;
   capabilityArns: Array<string>;
 }
-export interface DownlinkAwsGroundStationAgentEndpoint {
-  name: string;
-  dataflowDetails: DownlinkDataflowDetails;
-}
-export interface DownlinkAwsGroundStationAgentEndpointDetails {
-  name: string;
-  dataflowDetails: DownlinkDataflowDetails;
-  agentStatus?: AgentStatus;
-  auditResults?: AuditResults;
-}
-export interface DownlinkConnectionDetails {
-  agentIpAndPortAddress: RangedConnectionDetails;
-  egressAddressAndPort: ConnectionDetails;
-}
-interface _DownlinkDataflowDetails {
-  agentConnectionDetails?: DownlinkConnectionDetails;
-}
-
-export type DownlinkDataflowDetails = _DownlinkDataflowDetails & {
-  agentConnectionDetails: DownlinkConnectionDetails;
-};
 export type DurationInSeconds = number;
 
 export interface Eirp {
@@ -723,8 +627,6 @@ export interface EndpointDetails {
   securityDetails?: SecurityDetails;
   endpoint?: DataflowEndpoint;
   awsGroundStationAgentEndpoint?: AwsGroundStationAgentEndpoint;
-  uplinkAwsGroundStationAgentEndpoint?: UplinkAwsGroundStationAgentEndpointDetails;
-  downlinkAwsGroundStationAgentEndpoint?: DownlinkAwsGroundStationAgentEndpointDetails;
   healthStatus?: CapabilityHealth;
   healthReasons?: Array<CapabilityHealthReason>;
 }
@@ -739,66 +641,15 @@ export type EphemeridesList = Array<EphemerisItem>;
 interface _EphemerisData {
   tle?: TLEEphemeris;
   oem?: OEMEphemeris;
-  azEl?: AzElEphemeris;
 }
 
 export type EphemerisData =
   | (_EphemerisData & { tle: TLEEphemeris })
-  | (_EphemerisData & { oem: OEMEphemeris })
-  | (_EphemerisData & { azEl: AzElEphemeris });
+  | (_EphemerisData & { oem: OEMEphemeris });
 export interface EphemerisDescription {
   sourceS3Object?: S3Object;
   ephemerisData?: string;
 }
-export type EphemerisErrorCode =
-  | "INTERNAL_ERROR"
-  | "MISMATCHED_SATCAT_ID"
-  | "OEM_VERSION_UNSUPPORTED"
-  | "ORIGINATOR_MISSING"
-  | "CREATION_DATE_MISSING"
-  | "OBJECT_NAME_MISSING"
-  | "OBJECT_ID_MISSING"
-  | "REF_FRAME_UNSUPPORTED"
-  | "REF_FRAME_EPOCH_UNSUPPORTED"
-  | "TIME_SYSTEM_UNSUPPORTED"
-  | "CENTER_BODY_UNSUPPORTED"
-  | "INTERPOLATION_MISSING"
-  | "INTERPOLATION_DEGREE_INVALID"
-  | "AZ_EL_SEGMENT_LIST_MISSING"
-  | "INSUFFICIENT_TIME_AZ_EL"
-  | "START_TIME_IN_FUTURE"
-  | "END_TIME_IN_PAST"
-  | "EXPIRATION_TIME_TOO_EARLY"
-  | "START_TIME_METADATA_TOO_EARLY"
-  | "STOP_TIME_METADATA_TOO_LATE"
-  | "AZ_EL_SEGMENT_END_TIME_BEFORE_START_TIME"
-  | "AZ_EL_SEGMENT_TIMES_OVERLAP"
-  | "AZ_EL_SEGMENTS_OUT_OF_ORDER"
-  | "TIME_AZ_EL_ITEMS_OUT_OF_ORDER"
-  | "MEAN_MOTION_INVALID"
-  | "TIME_AZ_EL_AZ_RADIAN_RANGE_INVALID"
-  | "TIME_AZ_EL_EL_RADIAN_RANGE_INVALID"
-  | "TIME_AZ_EL_AZ_DEGREE_RANGE_INVALID"
-  | "TIME_AZ_EL_EL_DEGREE_RANGE_INVALID"
-  | "TIME_AZ_EL_ANGLE_UNITS_INVALID"
-  | "INSUFFICIENT_KMS_PERMISSIONS"
-  | "FILE_FORMAT_INVALID"
-  | "AZ_EL_SEGMENT_REFERENCE_EPOCH_INVALID"
-  | "AZ_EL_SEGMENT_START_TIME_INVALID"
-  | "AZ_EL_SEGMENT_END_TIME_INVALID"
-  | "AZ_EL_SEGMENT_VALID_TIME_RANGE_INVALID"
-  | "AZ_EL_SEGMENT_END_TIME_TOO_LATE"
-  | "AZ_EL_TOTAL_DURATION_EXCEEDED";
-export interface EphemerisErrorReason {
-  errorCode: EphemerisErrorCode;
-  errorMessage: string;
-}
-export type EphemerisErrorReasonList = Array<EphemerisErrorReason>;
-interface _EphemerisFilter {
-  azEl?: AzElEphemerisFilter;
-}
-
-export type EphemerisFilter = _EphemerisFilter & { azEl: AzElEphemerisFilter };
 export interface EphemerisIdResponse {
   ephemerisId?: string;
 }
@@ -810,7 +661,6 @@ export type EphemerisInvalidReason =
   | "VALIDATION_ERROR";
 export interface EphemerisItem {
   ephemerisId?: string;
-  ephemerisType?: EphemerisType;
   status?: EphemerisStatus;
   priority?: number;
   enabled?: boolean;
@@ -826,10 +676,6 @@ export interface EphemerisMetaData {
 }
 export type EphemerisPriority = number;
 
-export interface EphemerisResponseData {
-  ephemerisId?: string;
-  ephemerisType: EphemerisType;
-}
 export type EphemerisSource = "CUSTOMER_PROVIDED" | "SPACE_TRACK";
 export type EphemerisStatus =
   | "VALIDATING"
@@ -839,19 +685,14 @@ export type EphemerisStatus =
   | "DISABLED"
   | "EXPIRED";
 export type EphemerisStatusList = Array<EphemerisStatus>;
-export type EphemerisType = "TLE" | "OEM" | "AZ_EL" | "SERVICE_MANAGED";
 interface _EphemerisTypeDescription {
   tle?: EphemerisDescription;
   oem?: EphemerisDescription;
-  azEl?: EphemerisDescription;
 }
 
 export type EphemerisTypeDescription =
   | (_EphemerisTypeDescription & { tle: EphemerisDescription })
-  | (_EphemerisTypeDescription & { oem: EphemerisDescription })
-  | (_EphemerisTypeDescription & { azEl: EphemerisDescription });
-export type ErrorString = string;
-
+  | (_EphemerisTypeDescription & { oem: EphemerisDescription });
 export interface Frequency {
   value: number;
   units: FrequencyUnits;
@@ -867,15 +708,6 @@ export interface GetAgentConfigurationRequest {
 export interface GetAgentConfigurationResponse {
   agentId?: string;
   taskingDocument?: string;
-}
-export interface GetAgentTaskResponseUrlRequest {
-  agentId: string;
-  taskId: string;
-}
-export interface GetAgentTaskResponseUrlResponse {
-  agentId: string;
-  taskId: string;
-  presignedLogUrl: string;
 }
 export interface GetConfigRequest {
   configId: string;
@@ -964,10 +796,6 @@ export declare class InvalidParameterException extends EffectData.TaggedError(
 export type IpAddressList = Array<string>;
 export type IpV4Address = string;
 
-export interface ISO8601TimeRange {
-  startTime: Date | string;
-  endTime: Date | string;
-}
 export type JsonString = string;
 
 export type KeyAliasArn = string;
@@ -1003,7 +831,6 @@ export interface ListContactsRequest {
   groundStation?: string;
   satelliteArn?: string;
   missionProfileArn?: string;
-  ephemeris?: EphemerisFilter;
 }
 export interface ListContactsResponse {
   nextToken?: string;
@@ -1018,8 +845,7 @@ export interface ListDataflowEndpointGroupsResponse {
   dataflowEndpointGroupList?: Array<DataflowEndpointListItem>;
 }
 export interface ListEphemeridesRequest {
-  satelliteId?: string;
-  ephemerisType?: EphemerisType;
+  satelliteId: string;
   startTime: Date | string;
   endTime: Date | string;
   statusList?: Array<EphemerisStatus>;
@@ -1088,13 +914,6 @@ export type PaginationToken = string;
 export type Polarization = "RIGHT_HAND" | "LEFT_HAND" | "NONE";
 export type PositiveDurationInSeconds = number;
 
-interface _ProgramTrackSettings {
-  azEl?: AzElProgramTrackSettings;
-}
-
-export type ProgramTrackSettings = _ProgramTrackSettings & {
-  azEl: AzElProgramTrackSettings;
-};
 export interface RangedConnectionDetails {
   socketAddress: RangedSocketAddress;
   mtu?: number;
@@ -1113,18 +932,12 @@ export interface RegisterAgentResponse {
 }
 export interface ReserveContactRequest {
   missionProfileArn: string;
-  satelliteArn?: string;
+  satelliteArn: string;
   startTime: Date | string;
   endTime: Date | string;
   groundStation: string;
   tags?: Record<string, string>;
-  trackingOverrides?: TrackingOverrides;
 }
-export declare class ResourceInUseException extends EffectData.TaggedError(
-  "ResourceInUseException",
-)<{
-  readonly message?: string;
-}> {}
 export declare class ResourceLimitExceededException extends EffectData.TaggedError(
   "ResourceLimitExceededException",
 )<{
@@ -1178,12 +991,6 @@ export interface SecurityDetails {
   roleArn: string;
 }
 export type SecurityGroupIdList = Array<string>;
-export declare class ServiceQuotaExceededException extends EffectData.TaggedError(
-  "ServiceQuotaExceededException",
-)<{
-  readonly message?: string;
-  readonly parameterName?: string;
-}> {}
 export type SignatureMap = Record<string, boolean>;
 export interface SocketAddress {
   name: string;
@@ -1209,12 +1016,6 @@ export interface TagResourceRequest {
 }
 export interface TagResourceResponse {}
 export type TagsMap = Record<string, string>;
-export interface TimeAzEl {
-  dt: number;
-  az: number;
-  el: number;
-}
-export type TimeAzElList = Array<TimeAzEl>;
 export interface TimeRange {
   startTime: Date | string;
   endTime: Date | string;
@@ -1235,9 +1036,6 @@ export type TleLineTwo = string;
 
 export interface TrackingConfig {
   autotrack: Criticality;
-}
-export interface TrackingOverrides {
-  programTrackSettings: ProgramTrackSettings;
 }
 export type UnboundedString = string;
 
@@ -1278,27 +1076,6 @@ export interface UpdateMissionProfileRequest {
   streamsKmsKey?: KmsKey;
   streamsKmsRole?: string;
 }
-export interface UplinkAwsGroundStationAgentEndpoint {
-  name: string;
-  dataflowDetails: UplinkDataflowDetails;
-}
-export interface UplinkAwsGroundStationAgentEndpointDetails {
-  name: string;
-  dataflowDetails: UplinkDataflowDetails;
-  agentStatus?: AgentStatus;
-  auditResults?: AuditResults;
-}
-export interface UplinkConnectionDetails {
-  ingressAddressAndPort: ConnectionDetails;
-  agentIpAndPortAddress: RangedConnectionDetails;
-}
-interface _UplinkDataflowDetails {
-  agentConnectionDetails?: UplinkConnectionDetails;
-}
-
-export type UplinkDataflowDetails = _UplinkDataflowDetails & {
-  agentConnectionDetails: UplinkConnectionDetails;
-};
 export interface UplinkEchoConfig {
   enabled: boolean;
   antennaUplinkConfigArn: string;
@@ -1313,16 +1090,6 @@ export type VersionString = string;
 
 export type VersionStringList = Array<string>;
 export type Year = number;
-
-export declare namespace GetAgentTaskResponseUrl {
-  export type Input = GetAgentTaskResponseUrlRequest;
-  export type Output = GetAgentTaskResponseUrlResponse;
-  export type Error =
-    | DependencyException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | CommonAwsError;
-}
 
 export declare namespace GetMinuteUsage {
   export type Input = GetMinuteUsageRequest;
@@ -1395,17 +1162,6 @@ export declare namespace CreateDataflowEndpointGroup {
     | CommonAwsError;
 }
 
-export declare namespace CreateDataflowEndpointGroupV2 {
-  export type Input = CreateDataflowEndpointGroupV2Request;
-  export type Output = CreateDataflowEndpointGroupV2Response;
-  export type Error =
-    | DependencyException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | CommonAwsError;
-}
-
 export declare namespace CreateEphemeris {
   export type Input = CreateEphemerisRequest;
   export type Output = EphemerisIdResponse;
@@ -1452,7 +1208,6 @@ export declare namespace DeleteEphemeris {
   export type Error =
     | DependencyException
     | InvalidParameterException
-    | ResourceInUseException
     | ResourceNotFoundException
     | CommonAwsError;
 }
@@ -1623,7 +1378,6 @@ export declare namespace ReserveContact {
   export type Error =
     | DependencyException
     | InvalidParameterException
-    | ResourceLimitExceededException
     | ResourceNotFoundException
     | CommonAwsError;
 }
@@ -1671,8 +1425,6 @@ export declare namespace UpdateMissionProfile {
 export type GroundStationErrors =
   | DependencyException
   | InvalidParameterException
-  | ResourceInUseException
   | ResourceLimitExceededException
   | ResourceNotFoundException
-  | ServiceQuotaExceededException
   | CommonAwsError;

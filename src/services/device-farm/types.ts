@@ -826,7 +826,6 @@ export type ArtifactType =
   | "CUSTOMER_ARTIFACT"
   | "CUSTOMER_ARTIFACT_LOG"
   | "TESTSPEC_OUTPUT";
-export type AuxiliaryAppArnList = Array<string>;
 export type AWSAccountNumber = string;
 
 export type BillingMethod = "METERED" | "UNMETERED";
@@ -901,7 +900,6 @@ export interface CreateProjectResult {
   project?: Project;
 }
 export interface CreateRemoteAccessSessionConfiguration {
-  auxiliaryApps?: Array<string>;
   billingMethod?: BillingMethod;
   vpceConfigurationArns?: Array<string>;
   deviceProxy?: DeviceProxy;
@@ -909,7 +907,6 @@ export interface CreateRemoteAccessSessionConfiguration {
 export interface CreateRemoteAccessSessionRequest {
   projectArn: string;
   deviceArn: string;
-  appArn?: string;
   instanceArn?: string;
   sshPublicKey?: string;
   remoteDebugEnabled?: boolean;
@@ -1695,7 +1692,6 @@ export interface RemoteAccessSession {
   skipAppResign?: boolean;
   vpcConfig?: VpcConfig;
   deviceProxy?: DeviceProxy;
-  appUpload?: string;
 }
 export type RemoteAccessSessions = Array<RemoteAccessSession>;
 export interface RenewOfferingRequest {

@@ -62,12 +62,6 @@ const metadata = {
         Status: "httpResponseCode",
       },
     },
-    CreateActionConnector: {
-      http: "POST /accounts/{AwsAccountId}/action-connectors",
-      traits: {
-        Status: "httpResponseCode",
-      },
-    },
     CreateAnalysis: {
       http: "POST /accounts/{AwsAccountId}/analyses/{AnalysisId}",
       traits: {
@@ -192,16 +186,8 @@ const metadata = {
         Status: "httpResponseCode",
       },
     },
-    DeleteAccountCustomPermission:
-      "DELETE /accounts/{AwsAccountId}/custom-permission",
     DeleteAccountSubscription: {
       http: "DELETE /account/{AwsAccountId}",
-      traits: {
-        Status: "httpResponseCode",
-      },
-    },
-    DeleteActionConnector: {
-      http: "DELETE /accounts/{AwsAccountId}/action-connectors/{ActionConnectorId}",
       traits: {
         Status: "httpResponseCode",
       },
@@ -364,8 +350,6 @@ const metadata = {
         Status: "httpResponseCode",
       },
     },
-    DescribeAccountCustomPermission:
-      "GET /accounts/{AwsAccountId}/custom-permission",
     DescribeAccountSettings: {
       http: "GET /accounts/{AwsAccountId}/settings",
       traits: {
@@ -374,18 +358,6 @@ const metadata = {
     },
     DescribeAccountSubscription: {
       http: "GET /account/{AwsAccountId}",
-      traits: {
-        Status: "httpResponseCode",
-      },
-    },
-    DescribeActionConnector: {
-      http: "GET /accounts/{AwsAccountId}/action-connectors/{ActionConnectorId}",
-      traits: {
-        Status: "httpResponseCode",
-      },
-    },
-    DescribeActionConnectorPermissions: {
-      http: "GET /accounts/{AwsAccountId}/action-connectors/{ActionConnectorId}/permissions",
       traits: {
         Status: "httpResponseCode",
       },
@@ -667,26 +639,8 @@ const metadata = {
         Status: "httpResponseCode",
       },
     },
-    GetFlowMetadata: {
-      http: "GET /accounts/{AwsAccountId}/flows/{FlowId}/metadata",
-      traits: {
-        Status: "httpResponseCode",
-      },
-    },
-    GetFlowPermissions: {
-      http: "GET /accounts/{AwsAccountId}/flows/{FlowId}/permissions",
-      traits: {
-        Status: "httpResponseCode",
-      },
-    },
     GetSessionEmbedUrl: {
       http: "GET /accounts/{AwsAccountId}/session-embed-url",
-      traits: {
-        Status: "httpResponseCode",
-      },
-    },
-    ListActionConnectors: {
-      http: "GET /accounts/{AwsAccountId}/action-connectors",
       traits: {
         Status: "httpResponseCode",
       },
@@ -736,12 +690,6 @@ const metadata = {
     },
     ListDataSources: {
       http: "GET /accounts/{AwsAccountId}/data-sources",
-      traits: {
-        Status: "httpResponseCode",
-      },
-    },
-    ListFlows: {
-      http: "GET /accounts/{AwsAccountId}/flows",
       traits: {
         Status: "httpResponseCode",
       },
@@ -920,12 +868,6 @@ const metadata = {
         Status: "httpResponseCode",
       },
     },
-    SearchActionConnectors: {
-      http: "POST /accounts/{AwsAccountId}/search/action-connectors",
-      traits: {
-        Status: "httpResponseCode",
-      },
-    },
     SearchAnalyses: {
       http: "POST /accounts/{AwsAccountId}/search/analyses",
       traits: {
@@ -946,12 +888,6 @@ const metadata = {
     },
     SearchDataSources: {
       http: "POST /accounts/{AwsAccountId}/search/data-sources",
-      traits: {
-        Status: "httpResponseCode",
-      },
-    },
-    SearchFlows: {
-      http: "POST /accounts/{AwsAccountId}/flows/searchFlows",
       traits: {
         Status: "httpResponseCode",
       },
@@ -1016,22 +952,8 @@ const metadata = {
         Status: "httpResponseCode",
       },
     },
-    UpdateAccountCustomPermission:
-      "PUT /accounts/{AwsAccountId}/custom-permission",
     UpdateAccountSettings: {
       http: "PUT /accounts/{AwsAccountId}/settings",
-      traits: {
-        Status: "httpResponseCode",
-      },
-    },
-    UpdateActionConnector: {
-      http: "PUT /accounts/{AwsAccountId}/action-connectors/{ActionConnectorId}",
-      traits: {
-        Status: "httpResponseCode",
-      },
-    },
-    UpdateActionConnectorPermissions: {
-      http: "POST /accounts/{AwsAccountId}/action-connectors/{ActionConnectorId}/permissions",
       traits: {
         Status: "httpResponseCode",
       },
@@ -1111,12 +1033,6 @@ const metadata = {
     },
     UpdateDefaultQBusinessApplication: {
       http: "PUT /accounts/{AwsAccountId}/default-qbusiness-application",
-      traits: {
-        Status: "httpResponseCode",
-      },
-    },
-    UpdateFlowPermissions: {
-      http: "PUT /accounts/{AwsAccountId}/flows/{FlowId}/permissions",
       traits: {
         Status: "httpResponseCode",
       },

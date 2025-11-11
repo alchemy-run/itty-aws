@@ -40,19 +40,14 @@ const metadata = {
       "POST /v2/domains/{domainIdentifier}/policies/managed/{entityType}/{entityIdentifier}/addGrant",
     AssociateEnvironmentRole:
       "PUT /v2/domains/{domainIdentifier}/environments/{environmentIdentifier}/roles/{environmentRoleArn}",
-    AssociateGovernedTerms:
-      "PATCH /v2/domains/{domainIdentifier}/entities/{entityType}/{entityIdentifier}/associate-governed-terms",
     CancelSubscription:
       "PUT /v2/domains/{domainIdentifier}/subscriptions/{identifier}/cancel",
-    CreateAccountPool: "POST /v2/domains/{domainIdentifier}/account-pools",
     CreateAssetFilter:
       "POST /v2/domains/{domainIdentifier}/assets/{assetIdentifier}/filters",
     CreateConnection: "POST /v2/domains/{domainIdentifier}/connections",
     CreateEnvironment: "POST /v2/domains/{domainIdentifier}/environments",
     CreateEnvironmentAction:
       "POST /v2/domains/{domainIdentifier}/environments/{environmentIdentifier}/actions",
-    CreateEnvironmentBlueprint:
-      "POST /v2/domains/{domainIdentifier}/environment-blueprints",
     CreateEnvironmentProfile:
       "POST /v2/domains/{domainIdentifier}/environment-profiles",
     CreateGroupProfile: "POST /v2/domains/{domainIdentifier}/group-profiles",
@@ -70,8 +65,6 @@ const metadata = {
     CreateSubscriptionTarget:
       "POST /v2/domains/{domainIdentifier}/environments/{environmentIdentifier}/subscription-targets",
     CreateUserProfile: "POST /v2/domains/{domainIdentifier}/user-profiles",
-    DeleteAccountPool:
-      "DELETE /v2/domains/{domainIdentifier}/account-pools/{identifier}",
     DeleteAssetFilter:
       "DELETE /v2/domains/{domainIdentifier}/assets/{assetIdentifier}/filters/{identifier}",
     DeleteConnection:
@@ -80,8 +73,6 @@ const metadata = {
       "DELETE /v2/domains/{domainIdentifier}/environments/{identifier}",
     DeleteEnvironmentAction:
       "DELETE /v2/domains/{domainIdentifier}/environments/{environmentIdentifier}/actions/{identifier}",
-    DeleteEnvironmentBlueprint:
-      "DELETE /v2/domains/{domainIdentifier}/environment-blueprints/{identifier}",
     DeleteEnvironmentProfile:
       "DELETE /v2/domains/{domainIdentifier}/environment-profiles/{identifier}",
     DeleteProject:
@@ -100,10 +91,6 @@ const metadata = {
       "DELETE /v2/domains/{domainIdentifier}/entities/{entityType}/{entityIdentifier}/time-series-data-points",
     DisassociateEnvironmentRole:
       "DELETE /v2/domains/{domainIdentifier}/environments/{environmentIdentifier}/roles/{environmentRoleArn}",
-    DisassociateGovernedTerms:
-      "PATCH /v2/domains/{domainIdentifier}/entities/{entityType}/{entityIdentifier}/disassociate-governed-terms",
-    GetAccountPool:
-      "GET /v2/domains/{domainIdentifier}/account-pools/{identifier}",
     GetAssetFilter:
       "GET /v2/domains/{domainIdentifier}/assets/{assetIdentifier}/filters/{identifier}",
     GetConnection:
@@ -152,9 +139,6 @@ const metadata = {
       "GET /v2/domains/{domainIdentifier}/entities/{entityType}/{entityIdentifier}/time-series-data-points/{identifier}",
     GetUserProfile:
       "GET /v2/domains/{domainIdentifier}/user-profiles/{userIdentifier}",
-    ListAccountPools: "GET /v2/domains/{domainIdentifier}/account-pools",
-    ListAccountsInAccountPool:
-      "GET /v2/domains/{domainIdentifier}/account-pools/{identifier}/accounts",
     ListAssetFilters:
       "GET /v2/domains/{domainIdentifier}/assets/{assetIdentifier}/filters",
     ListAssetRevisions:
@@ -216,8 +200,6 @@ const metadata = {
       "POST /v2/domains/{domainIdentifier}/search-user-profiles",
     TagResource: "POST /tags/{resourceArn}",
     UntagResource: "DELETE /tags/{resourceArn}",
-    UpdateAccountPool:
-      "PATCH /v2/domains/{domainIdentifier}/account-pools/{identifier}",
     UpdateAssetFilter:
       "PATCH /v2/domains/{domainIdentifier}/assets/{assetIdentifier}/filters/{identifier}",
     UpdateConnection:
@@ -226,8 +208,6 @@ const metadata = {
       "PATCH /v2/domains/{domainIdentifier}/environments/{identifier}",
     UpdateEnvironmentAction:
       "PATCH /v2/domains/{domainIdentifier}/environments/{environmentIdentifier}/actions/{identifier}",
-    UpdateEnvironmentBlueprint:
-      "PATCH /v2/domains/{domainIdentifier}/environment-blueprints/{identifier}",
     UpdateEnvironmentProfile:
       "PATCH /v2/domains/{domainIdentifier}/environment-profiles/{identifier}",
     UpdateGroupProfile:

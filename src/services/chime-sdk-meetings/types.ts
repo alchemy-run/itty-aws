@@ -357,7 +357,6 @@ export interface CreateMeetingRequest {
   PrimaryMeetingId?: string;
   TenantIds?: Array<string>;
   Tags?: Array<Tag>;
-  MediaPlacementNetworkType?: MediaPlacementNetworkType;
 }
 export interface CreateMeetingResponse {
   Meeting?: Meeting;
@@ -373,7 +372,6 @@ export interface CreateMeetingWithAttendeesRequest {
   PrimaryMeetingId?: string;
   TenantIds?: Array<string>;
   Tags?: Array<Tag>;
-  MediaPlacementNetworkType?: MediaPlacementNetworkType;
 }
 export type CreateMeetingWithAttendeesRequestItemList =
   Array<CreateAttendeeRequestItem>;
@@ -476,7 +474,6 @@ export interface MediaPlacement {
   ScreenSharingUrl?: string;
   EventIngestionUrl?: string;
 }
-export type MediaPlacementNetworkType = "Ipv4Only" | "DualStack";
 export type MediaRegion = string;
 
 export interface Meeting {

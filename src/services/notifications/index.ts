@@ -33,7 +33,6 @@ const metadata = {
   operations: {
     ListManagedNotificationChannelAssociations:
       "GET /channels/list-managed-notification-channel-associations",
-    ListMemberAccounts: "GET /list-member-accounts",
     ListTagsForResource: "GET /tags/{arn}",
     TagResource: "POST /tags/{arn}",
     UntagResource: "DELETE /tags/{arn}",
@@ -42,8 +41,6 @@ const metadata = {
       "PUT /contacts/associate-managed-notification/{contactIdentifier}",
     AssociateManagedNotificationAdditionalChannel:
       "PUT /channels/associate-managed-notification/{channelArn}",
-    AssociateOrganizationalUnit:
-      "POST /organizational-units/associate/{organizationalUnitId}",
     CreateEventRule: "POST /event-rules",
     CreateNotificationConfiguration: "POST /notification-configurations",
     DeleteEventRule: "DELETE /event-rules/{arn}",
@@ -57,8 +54,6 @@ const metadata = {
       "PUT /contacts/disassociate-managed-notification/{contactIdentifier}",
     DisassociateManagedNotificationAdditionalChannel:
       "PUT /channels/disassociate-managed-notification/{channelArn}",
-    DisassociateOrganizationalUnit:
-      "POST /organizational-units/disassociate/{organizationalUnitId}",
     EnableNotificationsAccessForOrganization: "POST /organization/access",
     GetEventRule: "GET /event-rules/{arn}",
     GetManagedNotificationChildEvent:
@@ -79,7 +74,6 @@ const metadata = {
     ListNotificationConfigurations: "GET /notification-configurations",
     ListNotificationEvents: "GET /notification-events",
     ListNotificationHubs: "GET /notification-hubs",
-    ListOrganizationalUnits: "GET /organizational-units",
     RegisterNotificationHub: "POST /notification-hubs",
     UpdateEventRule: "PUT /event-rules/{arn}",
     UpdateNotificationConfiguration: "PUT /notification-configurations/{arn}",

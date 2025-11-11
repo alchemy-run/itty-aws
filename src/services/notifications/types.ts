@@ -47,17 +47,6 @@ export declare class Notifications extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
-  listMemberAccounts(
-    input: ListMemberAccountsRequest,
-  ): Effect.Effect<
-    ListMemberAccountsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
-  >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -121,19 +110,6 @@ export declare class Notifications extends AWSServiceClient {
     input: AssociateManagedNotificationAdditionalChannelRequest,
   ): Effect.Effect<
     AssociateManagedNotificationAdditionalChannelResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
-  >;
-  associateOrganizationalUnit(
-    input: AssociateOrganizationalUnitRequest,
-  ): Effect.Effect<
-    AssociateOrganizationalUnitResponse,
     | AccessDeniedException
     | ConflictException
     | InternalServerException
@@ -244,17 +220,6 @@ export declare class Notifications extends AWSServiceClient {
     input: DisassociateManagedNotificationAdditionalChannelRequest,
   ): Effect.Effect<
     DisassociateManagedNotificationAdditionalChannelResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
-  >;
-  disassociateOrganizationalUnit(
-    input: DisassociateOrganizationalUnitRequest,
-  ): Effect.Effect<
-    DisassociateOrganizationalUnitResponse,
     | AccessDeniedException
     | InternalServerException
     | ResourceNotFoundException
@@ -433,17 +398,6 @@ export declare class Notifications extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
-  listOrganizationalUnits(
-    input: ListOrganizationalUnitsRequest,
-  ): Effect.Effect<
-    ListOrganizationalUnitsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
-  >;
   registerNotificationHub(
     input: RegisterNotificationHubRequest,
   ): Effect.Effect<
@@ -487,7 +441,7 @@ export declare class AccessDeniedException extends EffectData.TaggedError(
 )<{
   readonly message: string;
 }> {}
-export type AccessStatus = "ENABLED" | "DISABLED" | "PENDING" | "FAILED";
+export type AccessStatus = "ENABLED" | "DISABLED" | "PENDING";
 export type AccountContactType = string;
 
 export type AccountId = string;
@@ -530,11 +484,6 @@ export interface AssociateManagedNotificationAdditionalChannelRequest {
   managedNotificationConfigurationArn: string;
 }
 export interface AssociateManagedNotificationAdditionalChannelResponse {}
-export interface AssociateOrganizationalUnitRequest {
-  organizationalUnitId: string;
-  notificationConfigurationArn: string;
-}
-export interface AssociateOrganizationalUnitResponse {}
 export type ChannelArn = string;
 
 export type ChannelAssociationOverrideOption = string;
@@ -611,11 +560,6 @@ export interface DisassociateManagedNotificationAdditionalChannelRequest {
   managedNotificationConfigurationArn: string;
 }
 export interface DisassociateManagedNotificationAdditionalChannelResponse {}
-export interface DisassociateOrganizationalUnitRequest {
-  organizationalUnitId: string;
-  notificationConfigurationArn: string;
-}
-export interface DisassociateOrganizationalUnitResponse {}
 export interface EnableNotificationsAccessForOrganizationRequest {}
 export interface EnableNotificationsAccessForOrganizationResponse {}
 export type ErrorMessage = string;
@@ -702,7 +646,6 @@ export interface GetNotificationConfigurationResponse {
   status: string;
   creationTime: Date | string;
   aggregationDuration?: string;
-  subtype?: string;
 }
 export interface GetNotificationEventRequest {
   arn: string;
@@ -789,23 +732,10 @@ export interface ListManagedNotificationEventsResponse {
   nextToken?: string;
   managedNotificationEvents: Array<ManagedNotificationEventOverview>;
 }
-export interface ListMemberAccountsRequest {
-  notificationConfigurationArn: string;
-  maxResults?: number;
-  nextToken?: string;
-  memberAccount?: string;
-  status?: string;
-  organizationalUnitId?: string;
-}
-export interface ListMemberAccountsResponse {
-  memberAccounts: Array<MemberAccount>;
-  nextToken?: string;
-}
 export interface ListNotificationConfigurationsRequest {
   eventRuleSource?: string;
   channelArn?: string;
   status?: string;
-  subtype?: string;
   maxResults?: number;
   nextToken?: string;
 }
@@ -822,7 +752,6 @@ export interface ListNotificationEventsRequest {
   aggregateNotificationEventArn?: string;
   maxResults?: number;
   nextToken?: string;
-  organizationalUnitId?: string;
 }
 export interface ListNotificationEventsResponse {
   nextToken?: string;
@@ -834,15 +763,6 @@ export interface ListNotificationHubsRequest {
 }
 export interface ListNotificationHubsResponse {
   notificationHubs: Array<NotificationHubOverview>;
-  nextToken?: string;
-}
-export interface ListOrganizationalUnitsRequest {
-  notificationConfigurationArn: string;
-  maxResults?: number;
-  nextToken?: string;
-}
-export interface ListOrganizationalUnitsResponse {
-  organizationalUnits: Array<string>;
   nextToken?: string;
 }
 export interface ListTagsForResourceRequest {
@@ -964,16 +884,6 @@ export type MediaElementType = string;
 
 export type MediaId = string;
 
-export interface MemberAccount {
-  notificationConfigurationArn?: string;
-  accountId: string;
-  status: string;
-  statusReason: string;
-  organizationalUnitId: string;
-}
-export type MemberAccountNotificationConfigurationStatus = string;
-
-export type MemberAccounts = Array<MemberAccount>;
 export interface MessageComponents {
   headline?: string;
   paragraphSummary?: string;
@@ -1002,10 +912,7 @@ export interface NotificationConfigurationStructure {
   status: string;
   creationTime: Date | string;
   aggregationDuration?: string;
-  subtype?: string;
 }
-export type NotificationConfigurationSubtype = string;
-
 export type NotificationEventArn = string;
 
 export type NotificationEventId = string;
@@ -1019,7 +926,6 @@ export interface NotificationEventOverview {
   aggregationEventType?: string;
   aggregateNotificationEventArn?: string;
   aggregationSummary?: AggregationSummary;
-  organizationalUnitId?: string;
 }
 export type NotificationEvents = Array<NotificationEventOverview>;
 export interface NotificationEventSchema {
@@ -1038,7 +944,6 @@ export interface NotificationEventSchema {
   endTime?: Date | string;
   textParts: Record<string, TextPartValue>;
   media: Array<MediaElement>;
-  organizationalUnitId?: string;
 }
 export interface NotificationEventSummary {
   schemaVersion: string;
@@ -1069,7 +974,6 @@ export type NotificationType = string;
 
 export type OrganizationalUnitId = string;
 
-export type OrganizationalUnits = Array<string>;
 export type QuotaCode = string;
 
 export type Region = string;
@@ -1231,18 +1135,6 @@ export declare namespace ListManagedNotificationChannelAssociations {
     | CommonAwsError;
 }
 
-export declare namespace ListMemberAccounts {
-  export type Input = ListMemberAccountsRequest;
-  export type Output = ListMemberAccountsResponse;
-  export type Error =
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError;
-}
-
 export declare namespace ListTagsForResource {
   export type Input = ListTagsForResourceRequest;
   export type Output = ListTagsForResourceResponse;
@@ -1310,20 +1202,6 @@ export declare namespace AssociateManagedNotificationAccountContact {
 export declare namespace AssociateManagedNotificationAdditionalChannel {
   export type Input = AssociateManagedNotificationAdditionalChannelRequest;
   export type Output = AssociateManagedNotificationAdditionalChannelResponse;
-  export type Error =
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError;
-}
-
-export declare namespace AssociateOrganizationalUnit {
-  export type Input = AssociateOrganizationalUnitRequest;
-  export type Output = AssociateOrganizationalUnitResponse;
   export type Error =
     | AccessDeniedException
     | ConflictException
@@ -1443,18 +1321,6 @@ export declare namespace DisassociateManagedNotificationAccountContact {
 export declare namespace DisassociateManagedNotificationAdditionalChannel {
   export type Input = DisassociateManagedNotificationAdditionalChannelRequest;
   export type Output = DisassociateManagedNotificationAdditionalChannelResponse;
-  export type Error =
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError;
-}
-
-export declare namespace DisassociateOrganizationalUnit {
-  export type Input = DisassociateOrganizationalUnitRequest;
-  export type Output = DisassociateOrganizationalUnitResponse;
   export type Error =
     | AccessDeniedException
     | InternalServerException
@@ -1646,18 +1512,6 @@ export declare namespace ListNotificationHubs {
   export type Error =
     | AccessDeniedException
     | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError;
-}
-
-export declare namespace ListOrganizationalUnits {
-  export type Input = ListOrganizationalUnitsRequest;
-  export type Output = ListOrganizationalUnitsResponse;
-  export type Error =
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
     | ThrottlingException
     | ValidationException
     | CommonAwsError;

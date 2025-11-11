@@ -725,3 +725,12 @@ export declare namespace UpdateServerEngineAttributes {
     | ValidationException
     | CommonAwsError;
 }
+
+export type OpsWorksCMErrors =
+  | InvalidNextTokenException
+  | InvalidStateException
+  | LimitExceededException
+  | ResourceAlreadyExistsException
+  | ResourceNotFoundException
+  | ValidationException
+  | CommonAwsError;

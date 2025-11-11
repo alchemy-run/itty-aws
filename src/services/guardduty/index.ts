@@ -44,9 +44,7 @@ const metadata = {
     CreatePublishingDestination:
       "POST /detector/{DetectorId}/publishingDestination",
     CreateSampleFindings: "POST /detector/{DetectorId}/findings/create",
-    CreateThreatEntitySet: "POST /detector/{DetectorId}/threatentityset",
     CreateThreatIntelSet: "POST /detector/{DetectorId}/threatintelset",
-    CreateTrustedEntitySet: "POST /detector/{DetectorId}/trustedentityset",
     DeclineInvitations: "POST /invitation/decline",
     DeleteDetector: "DELETE /detector/{DetectorId}",
     DeleteFilter: "DELETE /detector/{DetectorId}/filter/{FilterName}",
@@ -57,12 +55,8 @@ const metadata = {
     DeleteMembers: "POST /detector/{DetectorId}/member/delete",
     DeletePublishingDestination:
       "DELETE /detector/{DetectorId}/publishingDestination/{DestinationId}",
-    DeleteThreatEntitySet:
-      "DELETE /detector/{DetectorId}/threatentityset/{ThreatEntitySetId}",
     DeleteThreatIntelSet:
       "DELETE /detector/{DetectorId}/threatintelset/{ThreatIntelSetId}",
-    DeleteTrustedEntitySet:
-      "DELETE /detector/{DetectorId}/trustedentityset/{TrustedEntitySetId}",
     DescribeMalwareScans: "POST /detector/{DetectorId}/malware-scans",
     DescribeOrganizationConfiguration: "GET /detector/{DetectorId}/admin",
     DescribePublishingDestination:
@@ -91,12 +85,8 @@ const metadata = {
     GetOrganizationStatistics: "GET /organization/statistics",
     GetRemainingFreeTrialDays:
       "POST /detector/{DetectorId}/freeTrial/daysRemaining",
-    GetThreatEntitySet:
-      "GET /detector/{DetectorId}/threatentityset/{ThreatEntitySetId}",
     GetThreatIntelSet:
       "GET /detector/{DetectorId}/threatintelset/{ThreatIntelSetId}",
-    GetTrustedEntitySet:
-      "GET /detector/{DetectorId}/trustedentityset/{TrustedEntitySetId}",
     GetUsageStatistics: "POST /detector/{DetectorId}/usage/statistics",
     InviteMembers: "POST /detector/{DetectorId}/member/invite",
     ListCoverage: "POST /detector/{DetectorId}/coverage",
@@ -111,9 +101,7 @@ const metadata = {
     ListPublishingDestinations:
       "GET /detector/{DetectorId}/publishingDestination",
     ListTagsForResource: "GET /tags/{ResourceArn}",
-    ListThreatEntitySets: "GET /detector/{DetectorId}/threatentityset",
     ListThreatIntelSets: "GET /detector/{DetectorId}/threatintelset",
-    ListTrustedEntitySets: "GET /detector/{DetectorId}/trustedentityset",
     StartMalwareScan: "POST /malware-scan/start",
     StartMonitoringMembers: "POST /detector/{DetectorId}/member/start",
     StopMonitoringMembers: "POST /detector/{DetectorId}/member/stop",
@@ -132,12 +120,8 @@ const metadata = {
     UpdateOrganizationConfiguration: "POST /detector/{DetectorId}/admin",
     UpdatePublishingDestination:
       "POST /detector/{DetectorId}/publishingDestination/{DestinationId}",
-    UpdateThreatEntitySet:
-      "POST /detector/{DetectorId}/threatentityset/{ThreatEntitySetId}",
     UpdateThreatIntelSet:
       "POST /detector/{DetectorId}/threatintelset/{ThreatIntelSetId}",
-    UpdateTrustedEntitySet:
-      "POST /detector/{DetectorId}/trustedentityset/{TrustedEntitySetId}",
   },
 } as const satisfies ServiceMetadata;
 

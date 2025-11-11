@@ -10,7 +10,6 @@ export declare class WAFV2 extends AWSServiceClient {
     | WAFInternalErrorException
     | WAFInvalidOperationException
     | WAFInvalidParameterException
-    | WAFLimitsExceededException
     | WAFNonexistentItemException
     | WAFUnavailableEntityException
     | CommonAwsError
@@ -2353,7 +2352,6 @@ export interface UpdateWebACLRequest {
   TokenDomains?: Array<string>;
   AssociationConfig?: AssociationConfig;
   OnSourceDDoSProtectionConfig?: OnSourceDDoSProtectionConfig;
-  ApplicationConfig?: ApplicationConfig;
 }
 export interface UpdateWebACLResponse {
   NextLockToken?: string;
@@ -2523,7 +2521,6 @@ export declare namespace AssociateWebACL {
     | WAFInternalErrorException
     | WAFInvalidOperationException
     | WAFInvalidParameterException
-    | WAFLimitsExceededException
     | WAFNonexistentItemException
     | WAFUnavailableEntityException
     | CommonAwsError;

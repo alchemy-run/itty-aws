@@ -842,19 +842,6 @@ export declare class MediaLive extends AWSServiceClient {
     | TooManyRequestsException
     | CommonAwsError
   >;
-  listAlerts(
-    input: ListAlertsRequest,
-  ): Effect.Effect<
-    ListAlertsResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
-  >;
   listChannelPlacementGroups(
     input: ListChannelPlacementGroupsRequest,
   ): Effect.Effect<
@@ -896,19 +883,6 @@ export declare class MediaLive extends AWSServiceClient {
     ListCloudWatchAlarmTemplatesResponse,
     | BadRequestException
     | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
-  >;
-  listClusterAlerts(
-    input: ListClusterAlertsRequest,
-  ): Effect.Effect<
-    ListClusterAlertsResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ForbiddenException
-    | GatewayTimeoutException
     | InternalServerErrorException
     | NotFoundException
     | TooManyRequestsException
@@ -994,19 +968,6 @@ export declare class MediaLive extends AWSServiceClient {
     | ForbiddenException
     | GatewayTimeoutException
     | InternalServerErrorException
-    | TooManyRequestsException
-    | CommonAwsError
-  >;
-  listMultiplexAlerts(
-    input: ListMultiplexAlertsRequest,
-  ): Effect.Effect<
-    ListMultiplexAlertsResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | NotFoundException
     | TooManyRequestsException
     | CommonAwsError
   >;
@@ -1635,15 +1596,11 @@ export type __integerMin0Max2000 = number;
 
 export type __integerMin0Max255 = number;
 
-export type __integerMin0Max3 = number;
-
 export type __integerMin0Max30 = number;
 
 export type __integerMin0Max32768 = number;
 
 export type __integerMin0Max3600 = number;
-
-export type __integerMin0Max40000000 = number;
 
 export type __integerMin0Max500 = number;
 
@@ -1654,8 +1611,6 @@ export type __integerMin0Max65535 = number;
 export type __integerMin0Max65536 = number;
 
 export type __integerMin0Max7 = number;
-
-export type __integerMin0Max8000000 = number;
 
 export type __integerMin0Max8191 = number;
 
@@ -1721,9 +1676,9 @@ export type __integerMin40Max16000 = number;
 
 export type __integerMin4Max20 = number;
 
-export type __integerMin50000Max12000000 = number;
+export type __integerMin50000Max16000000 = number;
 
-export type __integerMin50000Max24000000 = number;
+export type __integerMin50000Max8000000 = number;
 
 export type __integerMin64Max2160 = number;
 
@@ -1745,7 +1700,6 @@ export type __listOf__integer = Array<number>;
 export type __listOf__string = Array<string>;
 export type __listOf__stringMin7Max11PatternAws097 = Array<string>;
 export type __listOf__stringPatternS = Array<string>;
-export type __listOfAdditionalDestinations = Array<AdditionalDestinations>;
 export type __listOfAudioChannelMapping = Array<AudioChannelMapping>;
 export type __listOfAudioDescription = Array<AudioDescription>;
 export type __listOfAudioSelector = Array<AudioSelector>;
@@ -1756,7 +1710,6 @@ export type __listOfBatchSuccessfulResultModel =
 export type __listOfCaptionDescription = Array<CaptionDescription>;
 export type __listOfCaptionLanguageMapping = Array<CaptionLanguageMapping>;
 export type __listOfCaptionSelector = Array<CaptionSelector>;
-export type __listOfChannelAlert = Array<ChannelAlert>;
 export type __listOfChannelEgressEndpoint = Array<ChannelEgressEndpoint>;
 export type __listOfChannelEngineVersionResponse =
   Array<ChannelEngineVersionResponse>;
@@ -1767,7 +1720,6 @@ export type __listOfCloudWatchAlarmTemplateGroupSummary =
   Array<CloudWatchAlarmTemplateGroupSummary>;
 export type __listOfCloudWatchAlarmTemplateSummary =
   Array<CloudWatchAlarmTemplateSummary>;
-export type __listOfClusterAlert = Array<ClusterAlert>;
 export type __listOfCmafIngestCaptionLanguageMapping =
   Array<CmafIngestCaptionLanguageMapping>;
 export type __listOfColorCorrection = Array<ColorCorrection>;
@@ -1825,7 +1777,6 @@ export type __listOfMulticastSourceCreateRequest =
   Array<MulticastSourceCreateRequest>;
 export type __listOfMulticastSourceUpdateRequest =
   Array<MulticastSourceUpdateRequest>;
-export type __listOfMultiplexAlert = Array<MultiplexAlert>;
 export type __listOfMultiplexOutputDestination =
   Array<MultiplexOutputDestination>;
 export type __listOfMultiplexProgramPipelineDetail =
@@ -2001,9 +1952,6 @@ export type AccessibilityType =
   | "IMPLEMENTS_ACCESSIBILITY_FEATURES";
 export interface AccountConfiguration {
   KmsKeyId?: string;
-}
-export interface AdditionalDestinations {
-  Destination: OutputLocationRef;
 }
 export type AfdSignaling = "AUTO" | "FIXED" | "NONE";
 export type Algorithm = "AES128" | "AES192" | "AES256";
@@ -2186,7 +2134,6 @@ export interface Av1Settings {
   TimecodeBurninSettings?: TimecodeBurninSettings;
   Bitrate?: number;
   RateControlMode?: Av1RateControlMode;
-  MinBitrate?: number;
 }
 export interface AvailBlanking {
   AvailBlankingImage?: InputLocation;
@@ -2314,9 +2261,7 @@ export interface BurnInDestinationSettings {
   TeletextGridControl?: BurnInTeletextGridControl;
   XPosition?: number;
   YPosition?: number;
-  SubtitleRows?: BurnInDestinationSubtitleRows;
 }
-export type BurnInDestinationSubtitleRows = "ROWS_16" | "ROWS_20" | "ROWS_24";
 export type BurnInFontColor =
   | "BLACK"
   | "BLUE"
@@ -2413,16 +2358,6 @@ export interface Channel {
   AnywhereSettings?: DescribeAnywhereSettings;
   ChannelEngineVersion?: ChannelEngineVersionResponse;
 }
-export interface ChannelAlert {
-  AlertType?: string;
-  ClearedTimestamp?: Date | string;
-  Id?: string;
-  Message?: string;
-  PipelineId?: string;
-  SetTimestamp?: Date | string;
-  State?: ChannelAlertState;
-}
-export type ChannelAlertState = "SET" | "CLEARED";
 export type ChannelClass = "STANDARD" | "SINGLE_PIPELINE";
 export interface ChannelEgressEndpoint {
   SourceIp?: string;
@@ -2535,17 +2470,6 @@ export type CloudWatchAlarmTemplateTreatMissingData =
   | "breaching"
   | "ignore"
   | "missing";
-export interface ClusterAlert {
-  AlertType?: string;
-  ChannelId?: string;
-  ClearedTimestamp?: Date | string;
-  Id?: string;
-  Message?: string;
-  NodeId?: string;
-  SetTimestamp?: Date | string;
-  State?: ClusterAlertState;
-}
-export type ClusterAlertState = "SET" | "CLEARED";
 export interface ClusterNetworkSettings {
   DefaultRoute?: string;
   InterfaceMappings?: Array<InterfaceMapping>;
@@ -2588,7 +2512,6 @@ export interface CmafIngestGroupSettings {
   TimedMetadataId3Frame?: CmafTimedMetadataId3Frame;
   TimedMetadataId3Period?: number;
   TimedMetadataPassthrough?: CmafTimedMetadataPassthrough;
-  AdditionalDestinations?: Array<AdditionalDestinations>;
 }
 export interface CmafIngestOutputSettings {
   NameModifier?: string;
@@ -3452,10 +3375,8 @@ export interface DvbSubDestinationSettings {
   TeletextGridControl?: DvbSubDestinationTeletextGridControl;
   XPosition?: number;
   YPosition?: number;
-  SubtitleRows?: DvbSubDestinationSubtitleRows;
 }
 export type DvbSubDestinationShadowColor = "BLACK" | "NONE" | "WHITE";
-export type DvbSubDestinationSubtitleRows = "ROWS_16" | "ROWS_20" | "ROWS_24";
 export type DvbSubDestinationTeletextGridControl = "FIXED" | "SCALED";
 export type DvbSubOcrLanguage = "DEU" | "ENG" | "FRA" | "NLD" | "POR" | "SPA";
 export interface DvbSubSourceSettings {
@@ -3920,7 +3841,6 @@ export interface H264Settings {
   TimecodeInsertion?: H264TimecodeInsertionBehavior;
   TimecodeBurninSettings?: TimecodeBurninSettings;
   MinQp?: number;
-  MinBitrate?: number;
 }
 export type H264SpatialAq = "DISABLED" | "ENABLED";
 export type H264SubGopLength = "DYNAMIC" | "FIXED";
@@ -3950,7 +3870,6 @@ export interface H265FilterSettings {
   BandwidthReductionFilterSettings?: BandwidthReductionFilterSettings;
 }
 export type H265FlickerAq = "DISABLED" | "ENABLED";
-export type H265GopBReference = "DISABLED" | "ENABLED";
 export type H265GopSizeUnits = "FRAMES" | "SECONDS";
 export type H265Level =
   | "H265_LEVEL_1"
@@ -4013,12 +3932,7 @@ export interface H265Settings {
   TreeblockSize?: H265TreeblockSize;
   MinQp?: number;
   Deblocking?: H265Deblocking;
-  GopBReference?: H265GopBReference;
-  GopNumBFrames?: number;
-  MinBitrate?: number;
-  SubgopLength?: H265SubGopLength;
 }
-export type H265SubGopLength = "DYNAMIC" | "FIXED";
 export type H265Tier = "HIGH" | "MAIN";
 export type H265TilePadding = "NONE" | "PADDED";
 export type H265TimecodeInsertionBehavior = "DISABLED" | "PIC_TIMING_SEI";
@@ -4038,7 +3952,6 @@ export interface HlsAkamaiSettings {
   Salt?: string;
   Token?: string;
 }
-export type HlsAutoSelect = "NO" | "OMIT" | "YES";
 export interface HlsBasicPutSettings {
   ConnectionRetryInterval?: number;
   FilecacheDuration?: number;
@@ -4055,7 +3968,6 @@ export interface HlsCdnSettings {
 }
 export type HlsClientCache = "DISABLED" | "ENABLED";
 export type HlsCodecSpecification = "RFC_4281" | "RFC_6381";
-export type HlsDefault = "NO" | "OMIT" | "YES";
 export type HlsDirectoryStructure =
   | "SINGLE_DIRECTORY"
   | "SUBDIRECTORY_PER_STREAM";
@@ -4523,16 +4435,6 @@ export interface KeyProviderSettings {
 export type LastFrameClippingBehavior =
   | "EXCLUDE_LAST_FRAME"
   | "INCLUDE_LAST_FRAME";
-export interface ListAlertsRequest {
-  ChannelId: string;
-  MaxResults?: number;
-  NextToken?: string;
-  StateFilter?: string;
-}
-export interface ListAlertsResponse {
-  Alerts?: Array<ChannelAlert>;
-  NextToken?: string;
-}
 export interface ListChannelPlacementGroupsRequest {
   ClusterId: string;
   MaxResults?: number;
@@ -4569,16 +4471,6 @@ export interface ListCloudWatchAlarmTemplatesRequest {
 }
 export interface ListCloudWatchAlarmTemplatesResponse {
   CloudWatchAlarmTemplates?: Array<CloudWatchAlarmTemplateSummary>;
-  NextToken?: string;
-}
-export interface ListClusterAlertsRequest {
-  ClusterId: string;
-  MaxResults?: number;
-  NextToken?: string;
-  StateFilter?: string;
-}
-export interface ListClusterAlertsResponse {
-  Alerts?: Array<ClusterAlert>;
   NextToken?: string;
 }
 export interface ListClustersRequest {
@@ -4639,16 +4531,6 @@ export interface ListInputsRequest {
 }
 export interface ListInputsResponse {
   Inputs?: Array<Input>;
-  NextToken?: string;
-}
-export interface ListMultiplexAlertsRequest {
-  MaxResults?: number;
-  MultiplexId: string;
-  NextToken?: string;
-  StateFilter?: string;
-}
-export interface ListMultiplexAlertsResponse {
-  Alerts?: Array<MultiplexAlert>;
   NextToken?: string;
 }
 export interface ListMultiplexesRequest {
@@ -4882,34 +4764,13 @@ export interface MediaConnectFlowRequest {
 }
 export interface MediaPackageGroupSettings {
   Destination: OutputLocationRef;
-  MediapackageV2GroupSettings?: MediaPackageV2GroupSettings;
 }
 export interface MediaPackageOutputDestinationSettings {
   ChannelId?: string;
   ChannelGroup?: string;
   ChannelName?: string;
 }
-export interface MediaPackageOutputSettings {
-  MediaPackageV2DestinationSettings?: MediaPackageV2DestinationSettings;
-}
-export interface MediaPackageV2DestinationSettings {
-  AudioGroupId?: string;
-  AudioRenditionSets?: string;
-  HlsAutoSelect?: HlsAutoSelect;
-  HlsDefault?: HlsDefault;
-}
-export interface MediaPackageV2GroupSettings {
-  CaptionLanguageMappings?: Array<CaptionLanguageMapping>;
-  Id3Behavior?: CmafId3Behavior;
-  KlvBehavior?: CmafKLVBehavior;
-  NielsenId3Behavior?: CmafNielsenId3Behavior;
-  Scte35Type?: Scte35Type;
-  SegmentLength?: number;
-  SegmentLengthUnits?: CmafIngestSegmentLengthUnits;
-  TimedMetadataId3Frame?: CmafTimedMetadataId3Frame;
-  TimedMetadataId3Period?: number;
-  TimedMetadataPassthrough?: CmafTimedMetadataPassthrough;
-}
+export interface MediaPackageOutputSettings {}
 export interface MediaResource {
   Destinations?: Array<MediaResourceNeighbor>;
   Name?: string;
@@ -5043,16 +4904,6 @@ export interface Multiplex {
   State?: MultiplexState;
   Tags?: Record<string, string>;
 }
-export interface MultiplexAlert {
-  AlertType?: string;
-  ClearedTimestamp?: Date | string;
-  Id?: string;
-  Message?: string;
-  PipelineId?: string;
-  SetTimestamp?: Date | string;
-  State?: MultiplexAlertState;
-}
-export type MultiplexAlertState = "SET" | "CLEARED";
 export interface MultiplexContainerSettings {
   MultiplexM2tsSettings?: MultiplexM2tsSettings;
 }
@@ -7373,20 +7224,6 @@ export declare namespace GetSignalMap {
     | CommonAwsError;
 }
 
-export declare namespace ListAlerts {
-  export type Input = ListAlertsRequest;
-  export type Output = ListAlertsResponse;
-  export type Error =
-    | BadGatewayException
-    | BadRequestException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError;
-}
-
 export declare namespace ListChannelPlacementGroups {
   export type Input = ListChannelPlacementGroupsRequest;
   export type Output = ListChannelPlacementGroupsResponse;
@@ -7431,20 +7268,6 @@ export declare namespace ListCloudWatchAlarmTemplates {
   export type Error =
     | BadRequestException
     | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError;
-}
-
-export declare namespace ListClusterAlerts {
-  export type Input = ListClusterAlertsRequest;
-  export type Output = ListClusterAlertsResponse;
-  export type Error =
-    | BadGatewayException
-    | BadRequestException
-    | ForbiddenException
-    | GatewayTimeoutException
     | InternalServerErrorException
     | NotFoundException
     | TooManyRequestsException
@@ -7537,20 +7360,6 @@ export declare namespace ListInputSecurityGroups {
     | ForbiddenException
     | GatewayTimeoutException
     | InternalServerErrorException
-    | TooManyRequestsException
-    | CommonAwsError;
-}
-
-export declare namespace ListMultiplexAlerts {
-  export type Input = ListMultiplexAlertsRequest;
-  export type Output = ListMultiplexAlertsResponse;
-  export type Error =
-    | BadGatewayException
-    | BadRequestException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | NotFoundException
     | TooManyRequestsException
     | CommonAwsError;
 }

@@ -2702,8 +2702,7 @@ export type RemediationExecutionState =
   | "QUEUED"
   | "IN_PROGRESS"
   | "SUCCEEDED"
-  | "FAILED"
-  | "UNKNOWN";
+  | "FAILED";
 export interface RemediationExecutionStatus {
   ResourceKey?: ResourceKey;
   State?: RemediationExecutionState;
@@ -2720,13 +2719,7 @@ export interface RemediationExecutionStep {
   StopTime?: Date | string;
 }
 export type RemediationExecutionSteps = Array<RemediationExecutionStep>;
-export type RemediationExecutionStepState =
-  | "SUCCEEDED"
-  | "PENDING"
-  | "FAILED"
-  | "IN_PROGRESS"
-  | "EXITED"
-  | "UNKNOWN";
+export type RemediationExecutionStepState = "SUCCEEDED" | "PENDING" | "FAILED";
 export declare class RemediationInProgressException extends EffectData.TaggedError(
   "RemediationInProgressException",
 )<{
