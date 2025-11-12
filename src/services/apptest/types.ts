@@ -1427,3 +1427,13 @@ export declare namespace UpdateTestSuite {
     | ValidationException
     | CommonAwsError;
 }
+
+export type AppTestErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

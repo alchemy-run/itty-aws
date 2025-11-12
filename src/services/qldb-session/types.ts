@@ -174,3 +174,12 @@ export declare namespace SendCommand {
     | RateExceededException
     | CommonAwsError;
 }
+
+export type QLDBSessionErrors =
+  | BadRequestException
+  | CapacityExceededException
+  | InvalidSessionException
+  | LimitExceededException
+  | OccConflictException
+  | RateExceededException
+  | CommonAwsError;

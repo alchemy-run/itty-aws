@@ -56,7 +56,7 @@ const metadata = {
     GetCodeBindingSource: {
       http: "GET /v1/registries/name/{RegistryName}/schemas/name/{SchemaName}/language/{Language}/source",
       traits: {
-        Body: "httpPayload",
+        Body: "httpStreaming",
       },
     },
     GetDiscoveredSchema: "POST /v1/discover",

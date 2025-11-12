@@ -42,6 +42,8 @@ export interface ServiceMetadata {
     | {
         readonly http?: string;
         readonly traits?: Record<string, string>;
+        readonly inputTraits?: Record<string, string>;
+        readonly outputTraits?: Record<string, string>;
       }
   >; // Operation mappings for restJson1 and trait mappings
 }
@@ -192,29 +194,12 @@ export function createServiceProxy<T>(
               }),
             ).pipe(Effect.timeout("30 seconds")); //FIXME: why a 30-second timeout?
 
-            const responseText = yield* Effect.promise(() => response.text());
-
             const statusCode = response.status;
-
-            // Log the AWS response
-            yield* Effect.logDebug("AWS Response", {
-              service: metadata.sdkId,
-              operation,
-              statusCode,
-              headers: (() => {
-                const headersObj: Record<string, string> = {};
-                response.headers.forEach((value, key) => {
-                  headersObj[key] = value;
-                });
-                return headersObj;
-              })(),
-              responseText,
-            });
 
             if (statusCode >= 200 && statusCode < 300) {
               // Success
               const result = protocolHandler.parseResponse(
-                responseText,
+                response,
                 statusCode,
                 metadata,
                 response.headers,
@@ -223,10 +208,12 @@ export function createServiceProxy<T>(
               return yield* Effect.promise(() => result);
             } else {
               // Error handling - now standardized across all protocols
-              const parsedError = protocolHandler.parseError(
-                responseText,
-                statusCode,
-                response.headers,
+              const parsedError = yield* Effect.promise(() =>
+                protocolHandler.parseError(
+                  response,
+                  statusCode,
+                  response.headers,
+                ),
               );
 
               const errorMeta: AwsErrorMeta = {

@@ -649,3 +649,12 @@ export declare namespace UpdateLedgerPermissionsMode {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+
+export type QLDBErrors =
+  | InvalidParameterException
+  | LimitExceededException
+  | ResourceAlreadyExistsException
+  | ResourceInUseException
+  | ResourceNotFoundException
+  | ResourcePreconditionNotMetException
+  | CommonAwsError;

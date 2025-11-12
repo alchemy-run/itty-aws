@@ -981,3 +981,12 @@ export declare namespace UpdateNetworkSitePlan {
     | ValidationException
     | CommonAwsError;
 }
+
+export type PrivateNetworksErrors =
+  | AccessDeniedException
+  | InternalServerException
+  | LimitExceededException
+  | ResourceNotFoundException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

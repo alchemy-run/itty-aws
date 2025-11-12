@@ -1536,3 +1536,18 @@ export declare namespace UpdateReplicationJob {
     | UnauthorizedOperationException
     | CommonAwsError;
 }
+
+export type SMSErrors =
+  | DryRunOperationException
+  | InternalError
+  | InvalidParameterException
+  | MissingRequiredParameterException
+  | NoConnectorsAvailableException
+  | OperationNotPermittedException
+  | ReplicationJobAlreadyExistsException
+  | ReplicationJobNotFoundException
+  | ReplicationRunLimitExceededException
+  | ServerCannotBeReplicatedException
+  | TemporarilyUnavailableException
+  | UnauthorizedOperationException
+  | CommonAwsError;

@@ -1,6 +1,6 @@
 import { FileSystem } from "@effect/platform";
 import { Effect, Schema } from "effect";
-import { join } from "node:path";
+import { join } from "pathe";
 
 // Base trait schema for common Smithy traits
 const TraitValue = Schema.Union(

@@ -75,7 +75,7 @@ const metadata = {
     GetReadSet: {
       http: "GET /sequencestore/{sequenceStoreId}/readset/{id}",
       traits: {
-        payload: "httpPayload",
+        payload: "httpStreaming",
       },
     },
     GetReadSetActivationJob:
@@ -87,7 +87,7 @@ const metadata = {
     GetReference: {
       http: "GET /referencestore/{referenceStoreId}/reference/{id}",
       traits: {
-        payload: "httpPayload",
+        payload: "httpStreaming",
       },
     },
     GetReferenceImportJob:

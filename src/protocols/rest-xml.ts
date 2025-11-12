@@ -1,56 +1,129 @@
+import * as FastCheck from "effect/FastCheck";
 import type { ServiceMetadata } from "../client.ts";
 import type {
   ParsedError,
   ProtocolHandler,
   ProtocolRequest,
 } from "./interface.ts";
+import { XMLBuilder, XMLParser } from "fast-xml-parser";
+import * as Stream from "effect/Stream";
+
+type Writeable<T> = { -readonly [P in keyof T]: T[P] };
 
 export class RestXmlHandler implements ProtocolHandler {
   readonly name = "restXml";
   readonly contentType = "application/xml";
 
   buildHttpRequest(
-    input: unknown,
-    _operation: string,
-    _metadata: ServiceMetadata,
+    input: Record<string, unknown>,
+    operation: string,
+    metadata: ServiceMetadata,
   ): Promise<ProtocolRequest> {
-    // Placeholder: serialize as JSON until full XML and traits are supported
-    const body = JSON.stringify(input ?? {});
-    return Promise.resolve({
-      method: "POST",
-      path: "/",
-      headers: { "Content-Type": this.contentType, "User-Agent": "itty-aws" },
-      body,
-    });
+    const builder = new XMLBuilder();
+
+    const operationMeta = metadata?.operations?.[operation];
+    if (operationMeta == null || typeof operationMeta === "string") {
+      throw new Error("idk man?");
+    }
+
+    const [method, urlTemplate] = operationMeta.http?.split?.(/ (.+)/) as [
+      string,
+      string,
+    ];
+
+    const request: Writeable<ProtocolRequest> = {
+      path: urlTemplate,
+      method,
+      headers: {
+        "Content-Type":
+          operationMeta?.inputTraits?.Body === "httpStreaming"
+            ? "application/octet-stream"
+            : this.contentType,
+        "User-Agent": "itty-aws",
+      },
+    };
+
+    let body: Record<string, unknown> = {};
+    let streamingBody = false;
+
+    for (const [key, value] of Object.entries(input)) {
+      const type = operationMeta.inputTraits?.[key];
+      if (type == null) {
+        request.path = request.path.replace(
+          new RegExp(`\\{${key}\\+?\\}`, "g"),
+          value as string,
+        );
+      } else if (type === "httpPayload") {
+        body[key] = value;
+      } else if (type === "httpStreaming") {
+        streamingBody = true;
+        request.body = value as any;
+      } else {
+        request.headers[type] = value as string;
+      }
+    }
+
+    if (!streamingBody) {
+      request.body = builder.build(body);
+    }
+
+    return Promise.resolve(request);
   }
 
-  parseResponse(
-    responseText: string,
+  async parseResponse(
+    response: Response,
     _statusCode: number,
-    _metadata?: ServiceMetadata,
-    _headers?: Headers,
-    _operation?: string,
+    metadata?: ServiceMetadata,
+    headers?: Headers,
+    operation?: string,
   ): Promise<unknown> {
-    if (!responseText) return Promise.resolve({});
-    // TODO: Implement proper XML parsing for S3 responses
-    // For now, fall back to JSON parsing
+    const operationMeta = metadata?.operations?.[operation!];
+    if (operationMeta == null || typeof operationMeta === "string") {
+      throw new Error("idk man?");
+    }
+
+    let headerData: Record<string, unknown> = {};
+
+    for (const [key, value] of Object.entries(
+      operationMeta.outputTraits ?? {},
+    )) {
+      if (value !== "httpPayload" && value !== "httpStreaming") {
+        headerData[key] = headers?.get(value.toLowerCase());
+      }
+    }
+
     try {
-      return Promise.resolve(JSON.parse(responseText));
+      if (operationMeta?.outputTraits?.Body === "httpStreaming") {
+        return {
+          ...headerData,
+          Body: Stream.fromReadableStream(
+            () => response.body!,
+            (error) => new Error(`Stream error: ${error}`),
+          ),
+        };
+      } else {
+        const parser = new XMLParser();
+        return {
+          ...headerData,
+          ...parser.parse(await response.text()),
+        };
+      }
     } catch {
-      return Promise.resolve({ data: responseText });
+      return { data: await response.text() };
     }
   }
 
-  parseError(
-    responseText: string,
-    _statusCode: number,
+  async parseError(
+    response: Response,
+    statusCode: number,
     headers?: Headers,
-  ): ParsedError {
-    // TODO: Implement proper XML error parsing for S3
-    // For now, return a basic error structure
+  ): Promise<ParsedError> {
+    const responseText = await response.text();
+    const parser = new XMLParser();
+    const error = responseText != null ? parser.parse(responseText) : null;
     return {
-      errorType: "UnknownError",
-      message: responseText || "Unknown error",
+      errorType: error?.Error?.Code ?? "UnknownError",
+      message: error?.Error?.Message ?? "Unknown error",
       requestId:
         headers?.get("x-amzn-requestid") ||
         headers?.get("x-amz-request-id") ||

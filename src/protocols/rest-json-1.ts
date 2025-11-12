@@ -72,13 +72,15 @@ export class RestJson1Handler implements ProtocolHandler {
     return { method: httpMethod, path: uriPath, headers, body };
   }
 
-  parseResponse(
-    responseText: string,
+  async parseResponse(
+    response: Response,
     statusCode: number,
     metadata?: ServiceMetadata,
     headers?: Headers,
     operation?: string,
   ): Promise<unknown> {
+    const responseText = await response.text();
+
     // Check if this operation has special HTTP trait mappings
     const operationTraits =
       metadata &&
@@ -123,12 +125,13 @@ export class RestJson1Handler implements ProtocolHandler {
     }
   }
 
-  parseError(
-    responseText: string,
+  async parseError(
+    response: Response,
     _statusCode: number,
     headers?: Headers,
-  ): ParsedError {
+  ): Promise<ParsedError> {
     let errorData: any;
+    const responseText = await response.text();
 
     try {
       errorData = JSON.parse(responseText);

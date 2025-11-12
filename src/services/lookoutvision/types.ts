@@ -1125,3 +1125,13 @@ export declare namespace UpdateDatasetEntries {
     | ValidationException
     | CommonAwsError;
 }
+
+export type LookoutVisionErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

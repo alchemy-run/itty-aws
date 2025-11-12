@@ -43,7 +43,7 @@ const metadata = {
         sessionState: "x-amz-lex-session-state",
         requestAttributes: "x-amz-lex-request-attributes",
         sessionId: "x-amz-lex-session-id",
-        audioStream: "httpPayload",
+        audioStream: "httpStreaming",
       },
     },
     RecognizeText:
@@ -59,7 +59,7 @@ const metadata = {
         requestAttributes: "x-amz-lex-request-attributes",
         sessionId: "x-amz-lex-session-id",
         inputTranscript: "x-amz-lex-input-transcript",
-        audioStream: "httpPayload",
+        audioStream: "httpStreaming",
         recognizedBotMember: "x-amz-lex-recognized-bot-member",
       },
     },

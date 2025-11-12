@@ -2589,3 +2589,15 @@ export declare namespace UpdateWorldTemplate {
     | ThrottlingException
     | CommonAwsError;
 }
+
+export type RoboMakerErrors =
+  | ConcurrentDeploymentException
+  | IdempotentParameterMismatchException
+  | InternalServerException
+  | InvalidParameterException
+  | LimitExceededException
+  | ResourceAlreadyExistsException
+  | ResourceNotFoundException
+  | ServiceUnavailableException
+  | ThrottlingException
+  | CommonAwsError;

@@ -340,3 +340,12 @@ export declare namespace UpdateApplication {
     | ThrottlingException
     | CommonAwsError;
 }
+
+export type IoTFleetHubErrors =
+  | ConflictException
+  | InternalFailureException
+  | InvalidRequestException
+  | LimitExceededException
+  | ResourceNotFoundException
+  | ThrottlingException
+  | CommonAwsError;

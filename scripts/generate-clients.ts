@@ -13,6 +13,7 @@ const STREAMING_FIELDS = new Set([
   "Body", // S3 GetObject response
   "body", // Bedrock and other services use lowercase
   "StreamingBody", // Some AWS services use this name
+  "StreamingBlob", // Some AWS services use this name
   "BlobStream", // Some services use this pattern
   "ReadSetPartStreamingBlob", // Omics service
   "ReadSetStreamingBlob", // Omics service
@@ -938,6 +939,24 @@ const generateServiceIndex = (
           );
           code += "      },\n";
         }
+        if ((opSpec as any).inputTraits) {
+          code += "      inputTraits: {\n";
+          Object.entries((opSpec as any).inputTraits).forEach(
+            ([fieldName, inputTrait]) => {
+              code += `        "${fieldName}": "${inputTrait}",\n`;
+            },
+          );
+          code += "      },\n";
+        }
+        if ((opSpec as any).outputTraits) {
+          code += "      outputTraits: {\n";
+          Object.entries((opSpec as any).outputTraits).forEach(
+            ([fieldName, outputTrait]) => {
+              code += `        "${fieldName}": "${outputTrait}",\n`;
+            },
+          );
+          code += "      },\n";
+        }
         code += "    },\n";
       }
     });
@@ -1529,11 +1548,24 @@ const generateServiceTypes = (serviceName: string, manifest: Manifest) =>
             const t = member?.traits;
             if (!t) return [];
 
-            if (t["smithy.api#httpPayload"]) return [[field, "httpPayload"]];
+            if (t["smithy.api#httpPayload"]) {
+              if (
+                shouldSupportStreaming(member.target.split("#")?.[1], shapeId)
+              ) {
+                return [[field, "httpStreaming"]];
+              } else {
+                return [[field, "httpPayload"]];
+              }
+            }
             if (t["smithy.api#httpResponseCode"])
               return [[field, "httpResponseCode"]];
             if (t["smithy.api#httpHeader"])
               return [[field, t["smithy.api#httpHeader"]]];
+            if (
+              field === "Body" &&
+              shouldSupportStreaming(member.target.split("#")?.[1], shapeId)
+            ) {
+            }
 
             return [];
           },
@@ -1563,6 +1595,36 @@ const generateServiceTypes = (serviceName: string, manifest: Manifest) =>
             // Store just HTTP mapping (existing behavior)
             operationMappings[operation.name] = httpMapping;
           }
+        }
+      }
+    } else if (protocol === "restXml") {
+      for (const operation of operations) {
+        const httpTrait = operation.shape.traits?.["smithy.api#http"];
+        let httpMapping;
+        if (httpTrait) {
+          const { method, uri } = httpTrait;
+          httpMapping = `${method} ${uri}`;
+        }
+        const outputTraits = operation.shape.output
+          ? extractHttpTraits(operation.shape.output.target)
+          : {};
+
+        const inputTraits = operation.shape.input
+          ? extractHttpTraits(operation.shape.input.target)
+          : {};
+
+        operationMappings[operation.name] = {};
+
+        if (Object.keys(inputTraits).length > 0) {
+          operationMappings[operation.name].inputTraits = inputTraits;
+        }
+
+        if (Object.keys(outputTraits).length > 0) {
+          operationMappings[operation.name].outputTraits = outputTraits;
+        }
+
+        if (httpMapping != null) {
+          operationMappings[operation.name].http = httpMapping;
         }
       }
     } else {
@@ -1683,6 +1745,7 @@ const program = Effect.gen(function* () {
         serviceName,
         manifest,
       );
+
       servicesMetadata[serviceName] = metadata;
 
       // Store export info with sdkId

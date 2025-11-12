@@ -2308,3 +2308,8 @@ export declare namespace UpdateVolume {
     | ValidationException
     | CommonAwsError;
 }
+
+export type OpsWorksErrors =
+  | ResourceNotFoundException
+  | ValidationException
+  | CommonAwsError;

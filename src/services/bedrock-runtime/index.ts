@@ -45,7 +45,7 @@ const metadata = {
     InvokeModel: {
       http: "POST /model/{modelId}/invoke",
       traits: {
-        body: "httpPayload",
+        body: "httpStreaming",
         contentType: "Content-Type",
         performanceConfigLatency: "X-Amzn-Bedrock-PerformanceConfig-Latency",
       },
@@ -59,7 +59,7 @@ const metadata = {
     InvokeModelWithResponseStream: {
       http: "POST /model/{modelId}/invoke-with-response-stream",
       traits: {
-        body: "httpPayload",
+        body: "httpStreaming",
         contentType: "X-Amzn-Bedrock-Content-Type",
         performanceConfigLatency: "X-Amzn-Bedrock-PerformanceConfig-Latency",
       },
