@@ -109,6 +109,17 @@ export declare class ServiceQuotas extends AWSServiceClient {
     | TooManyRequestsException
     | CommonAwsError
   >;
+  getAutoManagementConfiguration(
+    input: GetAutoManagementConfigurationRequest,
+  ): Effect.Effect<
+    GetAutoManagementConfigurationResponse,
+    | AccessDeniedException
+    | IllegalArgumentException
+    | NoSuchResourceException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
   getAWSDefaultServiceQuota(
     input: GetAWSDefaultServiceQuotaRequest,
   ): Effect.Effect<
@@ -272,6 +283,28 @@ export declare class ServiceQuotas extends AWSServiceClient {
     | TooManyRequestsException
     | CommonAwsError
   >;
+  startAutoManagement(
+    input: StartAutoManagementRequest,
+  ): Effect.Effect<
+    StartAutoManagementResponse,
+    | AccessDeniedException
+    | IllegalArgumentException
+    | NoSuchResourceException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  stopAutoManagement(
+    input: StopAutoManagementRequest,
+  ): Effect.Effect<
+    StopAutoManagementResponse,
+    | AccessDeniedException
+    | IllegalArgumentException
+    | NoSuchResourceException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
@@ -289,6 +322,17 @@ export declare class ServiceQuotas extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
+    | AccessDeniedException
+    | IllegalArgumentException
+    | NoSuchResourceException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
+  >;
+  updateAutoManagement(
+    input: UpdateAutoManagementRequest,
+  ): Effect.Effect<
+    UpdateAutoManagementResponse,
     | AccessDeniedException
     | IllegalArgumentException
     | NoSuchResourceException
@@ -349,9 +393,24 @@ export interface ErrorReason {
 }
 export type ExceptionMessage = string;
 
+export type ExcludedLimit = string;
+
+export type ExcludedQuotaList = Array<string>;
+export type ExcludedService = string;
+
+export type ExclusionList = Record<string, Array<string>>;
+export type ExclusionQuotaList = Record<string, Array<QuotaInfo>>;
 export interface GetAssociationForServiceQuotaTemplateRequest {}
 export interface GetAssociationForServiceQuotaTemplateResponse {
   ServiceQuotaTemplateAssociationStatus?: ServiceQuotaTemplateAssociationStatus;
+}
+export interface GetAutoManagementConfigurationRequest {}
+export interface GetAutoManagementConfigurationResponse {
+  OptInLevel?: OptInLevel;
+  OptInType?: OptInType;
+  NotificationArn?: string;
+  OptInStatus?: OptInStatus;
+  ExclusionList?: Record<string, Array<QuotaInfo>>;
 }
 export interface GetAWSDefaultServiceQuotaRequest {
   ServiceCode: string;
@@ -493,6 +552,9 @@ export declare class NoSuchResourceException extends EffectData.TaggedError(
 )<{
   readonly Message?: string;
 }> {}
+export type OptInLevel = "ACCOUNT";
+export type OptInStatus = "ENABLED" | "DISABLED";
+export type OptInType = "NotifyOnly" | "NotifyAndAdjust";
 export declare class OrganizationNotInAllFeaturesModeException extends EffectData.TaggedError(
   "OrganizationNotInAllFeaturesModeException",
 )<{
@@ -541,6 +603,11 @@ export declare class QuotaExceededException extends EffectData.TaggedError(
 )<{
   readonly Message?: string;
 }> {}
+export interface QuotaInfo {
+  QuotaCode?: string;
+  QuotaName?: string;
+}
+export type QuotaInfoList = Array<QuotaInfo>;
 export type QuotaMetricName = string;
 
 export type QuotaMetricNamespace = string;
@@ -654,8 +721,17 @@ export declare class ServiceQuotaTemplateNotInUseException extends EffectData.Ta
 )<{
   readonly Message?: string;
 }> {}
+export interface StartAutoManagementRequest {
+  OptInLevel: OptInLevel;
+  OptInType: OptInType;
+  NotificationArn?: string;
+  ExclusionList?: Record<string, Array<string>>;
+}
+export interface StartAutoManagementResponse {}
 export type Statistic = string;
 
+export interface StopAutoManagementRequest {}
+export interface StopAutoManagementResponse {}
 export type SupportCaseAllowed = boolean;
 
 export interface Tag {
@@ -696,6 +772,12 @@ export interface UntagResourceRequest {
   TagKeys: Array<string>;
 }
 export interface UntagResourceResponse {}
+export interface UpdateAutoManagementRequest {
+  OptInType?: OptInType;
+  NotificationArn?: string;
+  ExclusionList?: Record<string, Array<string>>;
+}
+export interface UpdateAutoManagementResponse {}
 export declare namespace AssociateServiceQuotaTemplate {
   export type Input = AssociateServiceQuotaTemplateRequest;
   export type Output = AssociateServiceQuotaTemplateResponse;
@@ -768,6 +850,18 @@ export declare namespace GetAssociationForServiceQuotaTemplate {
     | ServiceException
     | ServiceQuotaTemplateNotInUseException
     | TemplatesNotAvailableInRegionException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace GetAutoManagementConfiguration {
+  export type Input = GetAutoManagementConfigurationRequest;
+  export type Output = GetAutoManagementConfigurationResponse;
+  export type Error =
+    | AccessDeniedException
+    | IllegalArgumentException
+    | NoSuchResourceException
+    | ServiceException
     | TooManyRequestsException
     | CommonAwsError;
 }
@@ -948,6 +1042,30 @@ export declare namespace RequestServiceQuotaIncrease {
     | CommonAwsError;
 }
 
+export declare namespace StartAutoManagement {
+  export type Input = StartAutoManagementRequest;
+  export type Output = StartAutoManagementResponse;
+  export type Error =
+    | AccessDeniedException
+    | IllegalArgumentException
+    | NoSuchResourceException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace StopAutoManagement {
+  export type Input = StopAutoManagementRequest;
+  export type Output = StopAutoManagementResponse;
+  export type Error =
+    | AccessDeniedException
+    | IllegalArgumentException
+    | NoSuchResourceException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
 export declare namespace TagResource {
   export type Input = TagResourceRequest;
   export type Output = TagResourceResponse;
@@ -965,6 +1083,18 @@ export declare namespace TagResource {
 export declare namespace UntagResource {
   export type Input = UntagResourceRequest;
   export type Output = UntagResourceResponse;
+  export type Error =
+    | AccessDeniedException
+    | IllegalArgumentException
+    | NoSuchResourceException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateAutoManagement {
+  export type Input = UpdateAutoManagementRequest;
+  export type Output = UpdateAutoManagementResponse;
   export type Error =
     | AccessDeniedException
     | IllegalArgumentException

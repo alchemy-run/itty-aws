@@ -444,6 +444,17 @@ export declare class CustomerProfiles extends AWSServiceClient {
     | ThrottlingException
     | CommonAwsError
   >;
+  getProfileHistoryRecord(
+    input: GetProfileHistoryRecordRequest,
+  ): Effect.Effect<
+    GetProfileHistoryRecordResponse,
+    | AccessDeniedException
+    | BadRequestException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
+  >;
   getProfileObjectType(
     input: GetProfileObjectTypeRequest,
   ): Effect.Effect<
@@ -679,6 +690,17 @@ export declare class CustomerProfiles extends AWSServiceClient {
     input: ProfileAttributeValuesRequest,
   ): Effect.Effect<
     ProfileAttributeValuesResponse,
+    | AccessDeniedException
+    | BadRequestException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
+  >;
+  listProfileHistoryRecords(
+    input: ListProfileHistoryRecordsRequest,
+  ): Effect.Effect<
+    ListProfileHistoryRecordsResponse,
     | AccessDeniedException
     | BadRequestException
     | InternalServerException
@@ -928,6 +950,16 @@ export declare class AccessDeniedException extends EffectData.TaggedError(
 )<{
   readonly Message?: string;
 }> {}
+export type ActionType =
+  | "ADDED_PROFILE_KEY"
+  | "DELETED_PROFILE_KEY"
+  | "CREATED"
+  | "UPDATED"
+  | "INGESTED"
+  | "DELETED_BY_CUSTOMER"
+  | "EXPIRED"
+  | "MERGED"
+  | "DELETED_BY_MERGE";
 export interface AdditionalSearchKey {
   KeyName: string;
   Values: Array<string>;
@@ -1797,6 +1829,21 @@ export interface GetMatchesResponse {
   PotentialMatches?: number;
   Matches?: Array<MatchItem>;
 }
+export interface GetProfileHistoryRecordRequest {
+  DomainName: string;
+  ProfileId: string;
+  Id: string;
+}
+export interface GetProfileHistoryRecordResponse {
+  Id: string;
+  ObjectTypeName: string;
+  CreatedAt: Date | string;
+  LastUpdatedAt?: Date | string;
+  ActionType: ActionType;
+  ProfileObjectUniqueKey?: string;
+  Content?: string;
+  PerformedBy?: string;
+}
 export interface GetProfileObjectTypeRequest {
   DomainName: string;
   ObjectTypeName: string;
@@ -2157,6 +2204,19 @@ export interface ListObjectTypeAttributesResponse {
   Items?: Array<ListObjectTypeAttributeItem>;
   NextToken?: string;
 }
+export interface ListProfileHistoryRecordsRequest {
+  DomainName: string;
+  ProfileId: string;
+  ObjectTypeName?: string;
+  NextToken?: string;
+  MaxResults?: number;
+  ActionType?: ActionType;
+  PerformedBy?: string;
+}
+export interface ListProfileHistoryRecordsResponse {
+  ProfileHistoryRecords?: Array<ProfileHistoryRecord>;
+  NextToken?: string;
+}
 export interface ListProfileObjectsItem {
   ObjectTypeName?: string;
   ProfileObjectUniqueKey?: string;
@@ -2471,6 +2531,16 @@ export interface ProfileDimension {
   DimensionType: StringDimensionType;
   Values: Array<string>;
 }
+export interface ProfileHistoryRecord {
+  Id: string;
+  ObjectTypeName: string;
+  CreatedAt: Date | string;
+  LastUpdatedAt?: Date | string;
+  ActionType: ActionType;
+  ProfileObjectUniqueKey?: string;
+  PerformedBy?: string;
+}
+export type ProfileHistoryRecords = Array<ProfileHistoryRecord>;
 export type ProfileId = string;
 
 export type ProfileIdList = Array<string>;
@@ -3560,6 +3630,18 @@ export declare namespace GetMatches {
     | CommonAwsError;
 }
 
+export declare namespace GetProfileHistoryRecord {
+  export type Input = GetProfileHistoryRecordRequest;
+  export type Output = GetProfileHistoryRecordResponse;
+  export type Error =
+    | AccessDeniedException
+    | BadRequestException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError;
+}
+
 export declare namespace GetProfileObjectType {
   export type Input = GetProfileObjectTypeRequest;
   export type Output = GetProfileObjectTypeResponse;
@@ -3815,6 +3897,18 @@ export declare namespace ListObjectTypeAttributes {
 export declare namespace ListProfileAttributeValues {
   export type Input = ProfileAttributeValuesRequest;
   export type Output = ProfileAttributeValuesResponse;
+  export type Error =
+    | AccessDeniedException
+    | BadRequestException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError;
+}
+
+export declare namespace ListProfileHistoryRecords {
+  export type Input = ListProfileHistoryRecordsRequest;
+  export type Output = ListProfileHistoryRecordsResponse;
   export type Error =
     | AccessDeniedException
     | BadRequestException

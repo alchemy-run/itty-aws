@@ -365,9 +365,11 @@ export type IdentityCenterApplicationArn = string;
 export interface IdentityCenterConfiguration {
   identityCenterInstanceArn?: string;
   identityCenterApplicationArn?: string;
+  userBackgroundSessionsEnabled?: boolean;
 }
 export interface IdentityCenterConfigurationInput {
   identityCenterInstanceArn?: string;
+  userBackgroundSessionsEnabled?: boolean;
 }
 export type IdentityCenterInstanceArn = string;
 

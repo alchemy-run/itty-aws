@@ -58,6 +58,7 @@ export declare class MarketplaceMetering extends AWSServiceClient {
     MeterUsageResult,
     | CustomerNotEntitledException
     | DuplicateRequestException
+    | IdempotencyConflictException
     | InternalServiceErrorException
     | InvalidEndpointRegionException
     | InvalidProductCodeException
@@ -107,6 +108,8 @@ export interface BatchMeterUsageResult {
 }
 export type MarketplaceMeteringBoolean = boolean;
 
+export type ClientToken = string;
+
 export type CustomerAWSAccountId = string;
 
 export type CustomerIdentifier = string;
@@ -130,6 +133,11 @@ export type errorMessage = string;
 
 export declare class ExpiredTokenException extends EffectData.TaggedError(
   "ExpiredTokenException",
+)<{
+  readonly message?: string;
+}> {}
+export declare class IdempotencyConflictException extends EffectData.TaggedError(
+  "IdempotencyConflictException",
 )<{
   readonly message?: string;
 }> {}
@@ -190,6 +198,7 @@ export interface MeterUsageRequest {
   UsageQuantity?: number;
   DryRun?: boolean;
   UsageAllocations?: Array<UsageAllocation>;
+  ClientToken?: string;
 }
 export interface MeterUsageResult {
   MeteringRecordId?: string;
@@ -297,6 +306,7 @@ export declare namespace MeterUsage {
   export type Error =
     | CustomerNotEntitledException
     | DuplicateRequestException
+    | IdempotencyConflictException
     | InternalServiceErrorException
     | InvalidEndpointRegionException
     | InvalidProductCodeException
@@ -340,6 +350,7 @@ export type MarketplaceMeteringErrors =
   | DisabledApiException
   | DuplicateRequestException
   | ExpiredTokenException
+  | IdempotencyConflictException
   | InternalServiceErrorException
   | InvalidCustomerIdentifierException
   | InvalidEndpointRegionException

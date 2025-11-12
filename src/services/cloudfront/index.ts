@@ -394,6 +394,9 @@ const metadata = {
     DeleteRealtimeLogConfig: {
       http: "POST /2020-05-31/delete-realtime-log-config",
     },
+    DeleteResourcePolicy: {
+      http: "POST /2020-05-31/delete-resource-policy",
+    },
     DeleteResponseHeadersPolicy: {
       http: "DELETE /2020-05-31/response-headers-policy/{Id}",
       inputTraits: {
@@ -658,6 +661,9 @@ const metadata = {
     GetRealtimeLogConfig: {
       http: "POST /2020-05-31/get-realtime-log-config",
     },
+    GetResourcePolicy: {
+      http: "POST /2020-05-31/get-resource-policy",
+    },
     GetResponseHeadersPolicy: {
       http: "GET /2020-05-31/response-headers-policy/{Id}",
       outputTraits: {
@@ -760,6 +766,12 @@ const metadata = {
       http: "GET /2020-05-31/distributionsByOriginRequestPolicyId/{OriginRequestPolicyId}",
       outputTraits: {
         DistributionIdList: "httpPayload",
+      },
+    },
+    ListDistributionsByOwnedResource: {
+      http: "GET /2020-05-31/distributionsByOwnedResource/{ResourceArn}",
+      outputTraits: {
+        DistributionList: "httpPayload",
       },
     },
     ListDistributionsByRealtimeLogConfig: {
@@ -894,6 +906,9 @@ const metadata = {
         FunctionSummary: "httpPayload",
       },
     },
+    PutResourcePolicy: {
+      http: "POST /2020-05-31/put-resource-policy",
+    },
     TagResource: {
       http: "POST /2020-05-31/tagging?Operation=Tag",
       inputTraits: {
@@ -913,6 +928,16 @@ const metadata = {
       http: "POST /2020-05-31/tagging?Operation=Untag",
       inputTraits: {
         TagKeys: "httpPayload",
+      },
+    },
+    UpdateAnycastIpList: {
+      http: "PUT /2020-05-31/anycast-ip-list/{Id}",
+      inputTraits: {
+        IfMatch: "If-Match",
+      },
+      outputTraits: {
+        AnycastIpList: "httpPayload",
+        ETag: "ETag",
       },
     },
     UpdateCachePolicy: {

@@ -184,6 +184,11 @@ export declare class AccessDeniedException extends EffectData.TaggedError(
 )<{
   readonly message?: string;
 }> {}
+export interface ActionMetadata {
+  actionType: string;
+  programCount?: number;
+  executableCount?: number;
+}
 export interface AlgorithmSpecification {
   scriptModeConfig?: ScriptModeConfig;
   containerImage?: ContainerImage;
@@ -351,6 +356,8 @@ export interface GetQuantumTaskResponse {
   jobArn?: string;
   queueInfo?: QuantumTaskQueueInfo;
   associations?: Array<Association>;
+  numSuccessfulShots?: number;
+  actionMetadata?: ActionMetadata;
 }
 export type HybridJobAdditionalAttributeName = string;
 
@@ -423,6 +430,14 @@ export interface ListTagsForResourceRequest {
 export interface ListTagsForResourceResponse {
   tags?: Record<string, string>;
 }
+export interface ProgramSetValidationFailure {
+  programIndex: number;
+  inputsIndex?: number;
+  errors?: Array<string>;
+}
+export type ProgramSetValidationFailuresList =
+  Array<ProgramSetValidationFailure>;
+export type ProgramValidationFailuresList = Array<string>;
 export type QuantumTaskAdditionalAttributeName = string;
 
 export type QuantumTaskAdditionalAttributeNamesList = Array<string>;
@@ -556,7 +571,11 @@ export declare class ValidationException extends EffectData.TaggedError(
   "ValidationException",
 )<{
   readonly message?: string;
+  readonly reason?: string;
+  readonly programSetValidationFailures?: Array<ProgramSetValidationFailure>;
 }> {}
+export type ValidationExceptionReason = string;
+
 export declare namespace ListTagsForResource {
   export type Input = ListTagsForResourceRequest;
   export type Output = ListTagsForResourceResponse;

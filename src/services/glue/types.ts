@@ -388,6 +388,18 @@ export declare class Glue extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
+  createGlueIdentityCenterConfiguration(
+    input: CreateGlueIdentityCenterConfigurationRequest,
+  ): Effect.Effect<
+    CreateGlueIdentityCenterConfigurationResponse,
+    | AccessDeniedException
+    | AlreadyExistsException
+    | ConcurrentModificationException
+    | InternalServiceException
+    | InvalidInputException
+    | OperationTimeoutException
+    | CommonAwsError
+  >;
   createIntegration(
     input: CreateIntegrationRequest,
   ): Effect.Effect<
@@ -739,6 +751,18 @@ export declare class Glue extends AWSServiceClient {
     input: DeleteDevEndpointRequest,
   ): Effect.Effect<
     DeleteDevEndpointResponse,
+    | EntityNotFoundException
+    | InternalServiceException
+    | InvalidInputException
+    | OperationTimeoutException
+    | CommonAwsError
+  >;
+  deleteGlueIdentityCenterConfiguration(
+    input: DeleteGlueIdentityCenterConfigurationRequest,
+  ): Effect.Effect<
+    DeleteGlueIdentityCenterConfigurationResponse,
+    | AccessDeniedException
+    | ConcurrentModificationException
     | EntityNotFoundException
     | InternalServiceException
     | InvalidInputException
@@ -1310,6 +1334,18 @@ export declare class Glue extends AWSServiceClient {
     | InvalidInputException
     | OperationTimeoutException
     | ValidationException
+    | CommonAwsError
+  >;
+  getGlueIdentityCenterConfiguration(
+    input: GetGlueIdentityCenterConfigurationRequest,
+  ): Effect.Effect<
+    GetGlueIdentityCenterConfigurationResponse,
+    | AccessDeniedException
+    | ConcurrentModificationException
+    | EntityNotFoundException
+    | InternalServiceException
+    | InvalidInputException
+    | OperationTimeoutException
     | CommonAwsError
   >;
   getIntegrationResourceProperty(
@@ -2591,6 +2627,18 @@ export declare class Glue extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
+  updateGlueIdentityCenterConfiguration(
+    input: UpdateGlueIdentityCenterConfigurationRequest,
+  ): Effect.Effect<
+    UpdateGlueIdentityCenterConfigurationResponse,
+    | AccessDeniedException
+    | ConcurrentModificationException
+    | EntityNotFoundException
+    | InternalServiceException
+    | InvalidInputException
+    | OperationTimeoutException
+    | CommonAwsError
+  >;
   updateIntegrationResourceProperty(
     input: UpdateIntegrationResourcePropertyRequest,
   ): Effect.Effect<
@@ -2894,6 +2942,8 @@ export type AnnotationErrorList = Array<AnnotationError>;
 export type AnnotationList = Array<StatisticAnnotation>;
 export type ApiVersion = string;
 
+export type ApplicationArn = string;
+
 export interface ApplyMapping {
   Name: string;
   Inputs: Array<string>;
@@ -2930,6 +2980,7 @@ export interface AuthConfiguration {
 export interface AuthenticationConfiguration {
   AuthenticationType?: AuthenticationType;
   SecretArn?: string;
+  KmsKeyArn?: string;
   OAuth2Properties?: OAuth2Properties;
 }
 export interface AuthenticationConfigurationInput {
@@ -3368,10 +3419,12 @@ export type CatalogNameString = string;
 
 export interface CatalogProperties {
   DataLakeAccessProperties?: DataLakeAccessProperties;
+  IcebergOptimizationProperties?: IcebergOptimizationProperties;
   CustomProperties?: Record<string, string>;
 }
 export interface CatalogPropertiesOutput {
   DataLakeAccessProperties?: DataLakeAccessPropertiesOutput;
+  IcebergOptimizationProperties?: IcebergOptimizationPropertiesOutput;
   CustomProperties?: Record<string, string>;
 }
 export interface CatalogSchemaChangePolicy {
@@ -3732,6 +3785,7 @@ export interface ConfigurationObject {
   MinValue?: string;
   MaxValue?: string;
 }
+export type ConfigurationSource = "catalog" | "table";
 export type ConfigValueString = string;
 
 export declare class ConflictException extends EffectData.TaggedError(
@@ -3873,10 +3927,73 @@ export type ConnectionType =
   | "ZOHOCRM"
   | "SALESFORCEPARDOT"
   | "SALESFORCEMARKETINGCLOUD"
+  | "ADOBEANALYTICS"
   | "SLACK"
+  | "LINKEDIN"
+  | "MIXPANEL"
+  | "ASANA"
   | "STRIPE"
+  | "SMARTSHEET"
+  | "DATADOG"
+  | "WOOCOMMERCE"
   | "INTERCOM"
-  | "SNAPCHATADS";
+  | "SNAPCHATADS"
+  | "PAYPAL"
+  | "QUICKBOOKS"
+  | "FACEBOOKPAGEINSIGHTS"
+  | "FRESHDESK"
+  | "TWILIO"
+  | "DOCUSIGNMONITOR"
+  | "FRESHSALES"
+  | "ZOOM"
+  | "GOOGLESEARCHCONSOLE"
+  | "SALESFORCECOMMERCECLOUD"
+  | "SAPCONCUR"
+  | "DYNATRACE"
+  | "MICROSOFTDYNAMIC365FINANCEANDOPS"
+  | "MICROSOFTTEAMS"
+  | "BLACKBAUDRAISEREDGENXT"
+  | "MAILCHIMP"
+  | "GITLAB"
+  | "PENDO"
+  | "PRODUCTBOARD"
+  | "CIRCLECI"
+  | "PIPEDIVE"
+  | "SENDGRID"
+  | "AZURECOSMOS"
+  | "AZURESQL"
+  | "BIGQUERY"
+  | "BLACKBAUD"
+  | "CLOUDERAHIVE"
+  | "CLOUDERAIMPALA"
+  | "CLOUDWATCH"
+  | "CLOUDWATCHMETRICS"
+  | "CMDB"
+  | "DATALAKEGEN2"
+  | "DB2"
+  | "DB2AS400"
+  | "DOCUMENTDB"
+  | "DOMO"
+  | "DYNAMODB"
+  | "GOOGLECLOUDSTORAGE"
+  | "HBASE"
+  | "KUSTOMER"
+  | "MICROSOFTDYNAMICS365CRM"
+  | "MONDAY"
+  | "MYSQL"
+  | "OKTA"
+  | "OPENSEARCH"
+  | "ORACLE"
+  | "PIPEDRIVE"
+  | "POSTGRESQL"
+  | "SAPHANA"
+  | "SQLSERVER"
+  | "SYNAPSE"
+  | "TERADATA"
+  | "TERADATANOS"
+  | "TIMESTREAM"
+  | "TPCDS"
+  | "VERTICA";
 export interface ConnectionTypeBrief {
   ConnectionType?: ConnectionType;
   DisplayName?: string;
@@ -3913,6 +4030,8 @@ export type ContextKey = string;
 export type ContextValue = string;
 
 export type ContextWords = Array<string>;
+export type ContinuousSync = boolean;
+
 export interface Crawl {
   State?: CrawlState;
   StartedOn?: Date | string;
@@ -4163,6 +4282,14 @@ export interface CreateDevEndpointResponse {
 }
 export type CreatedTimestamp = string;
 
+export interface CreateGlueIdentityCenterConfigurationRequest {
+  InstanceArn: string;
+  Scopes?: Array<string>;
+  UserBackgroundSessionsEnabled?: boolean;
+}
+export interface CreateGlueIdentityCenterConfigurationResponse {
+  ApplicationArn?: string;
+}
 export interface CreateGrokClassifierRequest {
   Classification: string;
   Name: string;
@@ -4481,7 +4608,7 @@ export interface Database {
   CatalogId?: string;
   FederatedDatabase?: FederatedDatabase;
 }
-export type DatabaseAttributes = "NAME";
+export type DatabaseAttributes = "NAME" | "TARGET_DATABASE";
 export type DatabaseAttributesList = Array<DatabaseAttributes>;
 export interface DatabaseIdentifier {
   CatalogId?: string;
@@ -4564,6 +4691,14 @@ export interface DataQualityEvaluationRunAdditionalRunOptions {
   ResultsS3Prefix?: string;
   CompositeRuleEvaluationMethod?: DQCompositeRuleEvaluationMethod;
 }
+export interface DataQualityGlueTable {
+  DatabaseName: string;
+  TableName: string;
+  CatalogId?: string;
+  ConnectionName?: string;
+  AdditionalOptions?: Record<string, string>;
+  PreProcessingQuery?: string;
+}
 export interface DataQualityMetricValues {
   ActualValue?: number;
   ExpectedValue?: number;
@@ -4635,6 +4770,7 @@ export interface DataQualityRuleResult {
   EvaluatedMetrics?: Record<string, number>;
   EvaluatedRule?: string;
   RuleMetrics?: Record<string, number>;
+  Labels?: Record<string, string>;
 }
 export type DataQualityRuleResultDescription = string;
 
@@ -4680,7 +4816,8 @@ export interface DataQualityTargetTable {
   CatalogId?: string;
 }
 export interface DataSource {
-  GlueTable: GlueTable;
+  GlueTable?: GlueTable;
+  DataQualityGlueTable?: DataQualityGlueTable;
 }
 export type DataSourceMap = Record<string, DataSource>;
 export interface Datatype {
@@ -4784,6 +4921,8 @@ export interface DeleteDevEndpointRequest {
   EndpointName: string;
 }
 export interface DeleteDevEndpointResponse {}
+export interface DeleteGlueIdentityCenterConfigurationRequest {}
+export interface DeleteGlueIdentityCenterConfigurationResponse {}
 export interface DeleteIntegrationRequest {
   IntegrationIdentifier: string;
 }
@@ -5716,6 +5855,13 @@ export interface GetEntityRecordsResponse {
   Records?: Array<unknown>;
   NextToken?: string;
 }
+export interface GetGlueIdentityCenterConfigurationRequest {}
+export interface GetGlueIdentityCenterConfigurationResponse {
+  ApplicationArn?: string;
+  InstanceArn?: string;
+  Scopes?: Array<string>;
+  UserBackgroundSessionsEnabled?: boolean;
+}
 export interface GetIntegrationResourcePropertyRequest {
   ResourceArn: string;
 }
@@ -6016,6 +6162,7 @@ export interface GetTableRequest {
   Name: string;
   TransactionId?: string;
   QueryAsOfTime?: Date | string;
+  AuditContext?: AuditContext;
   IncludeStatusDetails?: boolean;
 }
 export interface GetTableResponse {
@@ -6029,6 +6176,7 @@ export interface GetTablesRequest {
   MaxResults?: number;
   TransactionId?: string;
   QueryAsOfTime?: Date | string;
+  AuditContext?: AuditContext;
   IncludeStatusDetails?: boolean;
   AttributesToGet?: Array<TableAttributes>;
 }
@@ -6297,6 +6445,8 @@ export type IAMRoleArn = string;
 
 export interface IcebergCompactionConfiguration {
   strategy?: CompactionStrategy;
+  minInputFiles?: number;
+  deleteFileThreshold?: number;
 }
 export interface IcebergCompactionMetrics {
   NumberOfBytesCompacted?: number;
@@ -6313,9 +6463,23 @@ export interface IcebergInput {
   CreateIcebergTableInput?: CreateIcebergTableInput;
 }
 export type IcebergNullOrder = "nulls-first" | "nulls-last";
+export interface IcebergOptimizationProperties {
+  RoleArn?: string;
+  Compaction?: Record<string, string>;
+  Retention?: Record<string, string>;
+  OrphanFileDeletion?: Record<string, string>;
+}
+export interface IcebergOptimizationPropertiesOutput {
+  RoleArn?: string;
+  Compaction?: Record<string, string>;
+  Retention?: Record<string, string>;
+  OrphanFileDeletion?: Record<string, string>;
+  LastUpdatedTime?: Date | string;
+}
 export interface IcebergOrphanFileDeletionConfiguration {
   orphanFileRetentionPeriodInDays?: number;
   location?: string;
+  runRateInHours?: number;
 }
 export interface IcebergOrphanFileDeletionMetrics {
   NumberOfOrphanFilesDeleted?: number;
@@ -6338,6 +6502,7 @@ export interface IcebergRetentionConfiguration {
   snapshotRetentionPeriodInDays?: number;
   numberOfSnapshotsToRetain?: number;
   cleanExpiredFiles?: boolean;
+  runRateInHours?: number;
 }
 export interface IcebergRetentionMetrics {
   NumberOfDataFilesDeleted?: number;
@@ -6401,6 +6566,11 @@ export declare class IdempotentParameterMismatchException extends EffectData.Tag
 )<{
   readonly Message?: string;
 }> {}
+export type IdentityCenterInstanceArn = string;
+
+export type IdentityCenterScope = string;
+
+export type IdentityCenterScopesList = Array<string>;
 export type IdleTimeout = number;
 
 export type IdString = string;
@@ -6466,6 +6636,7 @@ export type IntegrationAdditionalEncryptionContextMap = Record<string, string>;
 export interface IntegrationConfig {
   RefreshInterval?: string;
   SourceProperties?: Record<string, string>;
+  ContinuousSync?: boolean;
 }
 export declare class IntegrationConflictOperationFault extends EffectData.TaggedError(
   "IntegrationConflictOperationFault",
@@ -6859,6 +7030,7 @@ export type LabelCount = number;
 export interface LabelingSetGenerationTaskRunProperties {
   OutputS3Path?: string;
 }
+export type Labels = Record<string, string>;
 export interface LakeFormationConfiguration {
   UseLakeFormationCredentials?: boolean;
   AccountId?: string;
@@ -7275,6 +7447,7 @@ export interface ModifyIntegrationRequest {
   IntegrationIdentifier: string;
   Description?: string;
   DataFilter?: string;
+  IntegrationConfig?: IntegrationConfig;
   IntegrationName?: string;
 }
 export interface ModifyIntegrationResponse {
@@ -7290,6 +7463,7 @@ export interface ModifyIntegrationResponse {
   CreateTime: Date | string;
   Errors?: Array<IntegrationError>;
   DataFilter?: string;
+  IntegrationConfig?: IntegrationConfig;
 }
 export interface MongoDBTarget {
   ConnectionName?: string;
@@ -7631,6 +7805,8 @@ export interface Predicate {
   Conditions?: Array<Condition>;
 }
 export type PredicateString = string;
+
+export type PreProcessingQueryString = string;
 
 export type PrimaryKeyList = Array<string>;
 export interface PrincipalPermissions {
@@ -8804,6 +8980,7 @@ export interface TableOptimizer {
   type?: TableOptimizerType;
   configuration?: TableOptimizerConfiguration;
   lastRun?: TableOptimizerRun;
+  configurationSource?: ConfigurationSource;
 }
 export interface TableOptimizerConfiguration {
   roleArn?: string;
@@ -9226,6 +9403,11 @@ export interface UpdateDevEndpointRequest {
 export interface UpdateDevEndpointResponse {}
 export type UpdatedTimestamp = string;
 
+export interface UpdateGlueIdentityCenterConfigurationRequest {
+  Scopes?: Array<string>;
+  UserBackgroundSessionsEnabled?: boolean;
+}
+export interface UpdateGlueIdentityCenterConfigurationResponse {}
 export interface UpdateGrokClassifierRequest {
   Name: string;
   Classification?: string;
@@ -9962,6 +10144,19 @@ export declare namespace CreateDevEndpoint {
     | CommonAwsError;
 }
 
+export declare namespace CreateGlueIdentityCenterConfiguration {
+  export type Input = CreateGlueIdentityCenterConfigurationRequest;
+  export type Output = CreateGlueIdentityCenterConfigurationResponse;
+  export type Error =
+    | AccessDeniedException
+    | AlreadyExistsException
+    | ConcurrentModificationException
+    | InternalServiceException
+    | InvalidInputException
+    | OperationTimeoutException
+    | CommonAwsError;
+}
+
 export declare namespace CreateIntegration {
   export type Input = CreateIntegrationRequest;
   export type Output = CreateIntegrationResponse;
@@ -10346,6 +10541,19 @@ export declare namespace DeleteDevEndpoint {
   export type Input = DeleteDevEndpointRequest;
   export type Output = DeleteDevEndpointResponse;
   export type Error =
+    | EntityNotFoundException
+    | InternalServiceException
+    | InvalidInputException
+    | OperationTimeoutException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteGlueIdentityCenterConfiguration {
+  export type Input = DeleteGlueIdentityCenterConfigurationRequest;
+  export type Output = DeleteGlueIdentityCenterConfigurationResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConcurrentModificationException
     | EntityNotFoundException
     | InternalServiceException
     | InvalidInputException
@@ -10974,6 +11182,19 @@ export declare namespace GetEntityRecords {
     | InvalidInputException
     | OperationTimeoutException
     | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetGlueIdentityCenterConfiguration {
+  export type Input = GetGlueIdentityCenterConfigurationRequest;
+  export type Output = GetGlueIdentityCenterConfigurationResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConcurrentModificationException
+    | EntityNotFoundException
+    | InternalServiceException
+    | InvalidInputException
+    | OperationTimeoutException
     | CommonAwsError;
 }
 
@@ -12377,6 +12598,19 @@ export declare namespace UpdateDevEndpoint {
     | InvalidInputException
     | OperationTimeoutException
     | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateGlueIdentityCenterConfiguration {
+  export type Input = UpdateGlueIdentityCenterConfigurationRequest;
+  export type Output = UpdateGlueIdentityCenterConfigurationResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConcurrentModificationException
+    | EntityNotFoundException
+    | InternalServiceException
+    | InvalidInputException
+    | OperationTimeoutException
     | CommonAwsError;
 }
 

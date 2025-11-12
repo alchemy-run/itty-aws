@@ -47,6 +47,28 @@ export declare class ResourceExplorer2 extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
+  createResourceExplorerSetup(
+    input: CreateResourceExplorerSetupInput,
+  ): Effect.Effect<
+    CreateResourceExplorerSetupOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteResourceExplorerSetup(
+    input: DeleteResourceExplorerSetupInput,
+  ): Effect.Effect<
+    DeleteResourceExplorerSetupOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
   disassociateDefaultView(input: {}): Effect.Effect<
     {},
     | AccessDeniedException
@@ -94,6 +116,37 @@ export declare class ResourceExplorer2 extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
+  getResourceExplorerSetup(
+    input: GetResourceExplorerSetupInput,
+  ): Effect.Effect<
+    GetResourceExplorerSetupOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getServiceIndex(input: {}): Effect.Effect<
+    GetServiceIndexOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getServiceView(
+    input: GetServiceViewInput,
+  ): Effect.Effect<
+    GetServiceViewOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
   listIndexesForMembers(
     input: ListIndexesForMembersInput,
   ): Effect.Effect<
@@ -124,6 +177,35 @@ export declare class ResourceExplorer2 extends AWSServiceClient {
     | ResourceNotFoundException
     | ThrottlingException
     | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listServiceIndexes(
+    input: ListServiceIndexesInput,
+  ): Effect.Effect<
+    ListServiceIndexesOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listServiceViews(
+    input: ListServiceViewsInput,
+  ): Effect.Effect<
+    ListServiceViewsOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listStreamingAccessForServices(
+    input: ListStreamingAccessForServicesInput,
+  ): Effect.Effect<
+    ListStreamingAccessForServicesOutput,
+    | AccessDeniedException
+    | InternalServerException
     | ValidationException
     | CommonAwsError
   >;
@@ -344,6 +426,14 @@ export interface CreateIndexOutput {
   State?: string;
   CreatedAt?: Date | string;
 }
+export interface CreateResourceExplorerSetupInput {
+  RegionList: Array<string>;
+  AggregatorRegions?: Array<string>;
+  ViewName: string;
+}
+export interface CreateResourceExplorerSetupOutput {
+  TaskId: string;
+}
 export interface CreateViewInput {
   ClientToken?: string;
   ViewName: string;
@@ -363,11 +453,22 @@ export interface DeleteIndexOutput {
   State?: string;
   LastUpdatedAt?: Date | string;
 }
+export interface DeleteResourceExplorerSetupInput {
+  RegionList?: Array<string>;
+  DeleteInAllRegions?: boolean;
+}
+export interface DeleteResourceExplorerSetupOutput {
+  TaskId: string;
+}
 export interface DeleteViewInput {
   ViewArn: string;
 }
 export interface DeleteViewOutput {
   ViewArn?: string;
+}
+export interface ErrorDetails {
+  Code?: string;
+  Message?: string;
 }
 export interface GetAccountLevelServiceConfigurationOutput {
   OrgConfiguration?: OrgConfiguration;
@@ -391,6 +492,25 @@ export interface GetManagedViewInput {
 export interface GetManagedViewOutput {
   ManagedView?: ManagedView;
 }
+export interface GetResourceExplorerSetupInput {
+  TaskId: string;
+  MaxResults?: number;
+  NextToken?: string;
+}
+export interface GetResourceExplorerSetupOutput {
+  Regions?: Array<RegionStatus>;
+  NextToken?: string;
+}
+export interface GetServiceIndexOutput {
+  Arn?: string;
+  Type?: string;
+}
+export interface GetServiceViewInput {
+  ServiceViewArn: string;
+}
+export interface GetServiceViewOutput {
+  View: ServiceView;
+}
 export interface GetViewInput {
   ViewArn: string;
 }
@@ -410,6 +530,11 @@ export interface Index {
 export type IndexList = Array<Index>;
 export type IndexState = string;
 
+export interface IndexStatus {
+  Status?: string;
+  Index?: Index;
+  ErrorDetails?: ErrorDetails;
+}
 export type IndexType = string;
 
 export declare class InternalServerException extends EffectData.TaggedError(
@@ -456,6 +581,31 @@ export interface ListResourcesOutput {
   NextToken?: string;
   ViewArn?: string;
 }
+export interface ListServiceIndexesInput {
+  Regions?: Array<string>;
+  MaxResults?: number;
+  NextToken?: string;
+}
+export interface ListServiceIndexesOutput {
+  Indexes?: Array<Index>;
+  NextToken?: string;
+}
+export interface ListServiceViewsInput {
+  MaxResults?: number;
+  NextToken?: string;
+}
+export interface ListServiceViewsOutput {
+  NextToken?: string;
+  ServiceViews?: Array<string>;
+}
+export interface ListStreamingAccessForServicesInput {
+  MaxResults?: number;
+  NextToken?: string;
+}
+export interface ListStreamingAccessForServicesOutput {
+  StreamingAccessForServices: Array<StreamingAccessDetails>;
+  NextToken?: string;
+}
 export interface ListSupportedResourceTypesInput {
   NextToken?: string;
   MaxResults?: number;
@@ -498,6 +648,8 @@ export interface MemberIndex {
   Type?: string;
 }
 export type MemberIndexList = Array<MemberIndex>;
+export type OperationStatus = string;
+
 export interface OrgConfiguration {
   AWSServiceAccessStatus: string;
   ServiceLinkedRole?: string;
@@ -505,6 +657,12 @@ export interface OrgConfiguration {
 export type QueryString = string;
 
 export type RegionList = Array<string>;
+export interface RegionStatus {
+  Region?: string;
+  Index?: IndexStatus;
+  View?: ViewStatus;
+}
+export type RegionStatusList = Array<RegionStatus>;
 export interface Resource {
   Arn?: string;
   OwningAccountId?: string;
@@ -553,6 +711,19 @@ export declare class ServiceQuotaExceededException extends EffectData.TaggedErro
   readonly Name: string;
   readonly Value: string;
 }> {}
+export interface ServiceView {
+  ServiceViewArn: string;
+  Filters?: SearchFilter;
+  IncludedProperties?: Array<IncludedProperty>;
+  StreamingAccessForService?: string;
+  ScopeType?: string;
+}
+export type ServiceViewArnList = Array<string>;
+export interface StreamingAccessDetails {
+  ServicePrincipal: string;
+  CreatedAt: Date | string;
+}
+export type StreamingAccessDetailsList = Array<StreamingAccessDetails>;
 export type StringList = Array<string>;
 export interface SupportedResourceType {
   Service?: string;
@@ -620,6 +791,11 @@ export type ViewArnList = Array<string>;
 export type ViewList = Array<View>;
 export type ViewName = string;
 
+export interface ViewStatus {
+  Status?: string;
+  View?: View;
+  ErrorDetails?: ErrorDetails;
+}
 export declare namespace BatchGetView {
   export type Input = BatchGetViewInput;
   export type Output = BatchGetViewOutput;
@@ -628,6 +804,30 @@ export declare namespace BatchGetView {
     | InternalServerException
     | ThrottlingException
     | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateResourceExplorerSetup {
+  export type Input = CreateResourceExplorerSetupInput;
+  export type Output = CreateResourceExplorerSetupOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteResourceExplorerSetup {
+  export type Input = DeleteResourceExplorerSetupInput;
+  export type Output = DeleteResourceExplorerSetupOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
     | ValidationException
     | CommonAwsError;
 }
@@ -692,6 +892,42 @@ export declare namespace GetManagedView {
     | CommonAwsError;
 }
 
+export declare namespace GetResourceExplorerSetup {
+  export type Input = GetResourceExplorerSetupInput;
+  export type Output = GetResourceExplorerSetupOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetServiceIndex {
+  export type Input = {};
+  export type Output = GetServiceIndexOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetServiceView {
+  export type Input = GetServiceViewInput;
+  export type Output = GetServiceViewOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
 export declare namespace ListIndexesForMembers {
   export type Input = ListIndexesForMembersInput;
   export type Output = ListIndexesForMembersOutput;
@@ -724,6 +960,38 @@ export declare namespace ListResources {
     | ResourceNotFoundException
     | ThrottlingException
     | UnauthorizedException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListServiceIndexes {
+  export type Input = ListServiceIndexesInput;
+  export type Output = ListServiceIndexesOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListServiceViews {
+  export type Input = ListServiceViewsInput;
+  export type Output = ListServiceViewsOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListStreamingAccessForServices {
+  export type Input = ListStreamingAccessForServicesInput;
+  export type Output = ListStreamingAccessForServicesOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
     | ValidationException
     | CommonAwsError;
 }

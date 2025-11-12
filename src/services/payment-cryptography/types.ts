@@ -36,6 +36,32 @@ type CommonAwsError =
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class PaymentCryptography extends AWSServiceClient {
+  disableDefaultKeyReplicationRegions(
+    input: DisableDefaultKeyReplicationRegionsInput,
+  ): Effect.Effect<
+    DisableDefaultKeyReplicationRegionsOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  enableDefaultKeyReplicationRegions(
+    input: EnableDefaultKeyReplicationRegionsInput,
+  ): Effect.Effect<
+    EnableDefaultKeyReplicationRegionsOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
   exportKey(
     input: ExportKeyInput,
   ): Effect.Effect<
@@ -45,6 +71,31 @@ export declare class PaymentCryptography extends AWSServiceClient {
     | InternalServerException
     | ResourceNotFoundException
     | ServiceUnavailableException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getCertificateSigningRequest(
+    input: GetCertificateSigningRequestInput,
+  ): Effect.Effect<
+    GetCertificateSigningRequestOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getDefaultKeyReplicationRegions(
+    input: GetDefaultKeyReplicationRegionsInput,
+  ): Effect.Effect<
+    GetDefaultKeyReplicationRegionsOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
     | ThrottlingException
     | ValidationException
     | CommonAwsError
@@ -138,6 +189,19 @@ export declare class PaymentCryptography extends AWSServiceClient {
     | InternalServerException
     | ResourceNotFoundException
     | ServiceUnavailableException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  addKeyReplicationRegions(
+    input: AddKeyReplicationRegionsInput,
+  ): Effect.Effect<
+    AddKeyReplicationRegionsOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
     | ThrottlingException
     | ValidationException
     | CommonAwsError
@@ -244,6 +308,19 @@ export declare class PaymentCryptography extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
+  removeKeyReplicationRegions(
+    input: RemoveKeyReplicationRegionsInput,
+  ): Effect.Effect<
+    RemoveKeyReplicationRegionsOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
   restoreKey(
     input: RestoreKeyInput,
   ): Effect.Effect<
@@ -306,6 +383,13 @@ export declare class AccessDeniedException extends EffectData.TaggedError(
 )<{
   readonly Message?: string;
 }> {}
+export interface AddKeyReplicationRegionsInput {
+  KeyIdentifier: string;
+  ReplicationRegions: Array<string>;
+}
+export interface AddKeyReplicationRegionsOutput {
+  Key: Key;
+}
 export interface Alias {
   AliasName: string;
   KeyArn?: string;
@@ -313,6 +397,17 @@ export interface Alias {
 export type Aliases = Array<Alias>;
 export type AliasName = string;
 
+export type CertificateSigningRequestType = string;
+
+export interface CertificateSubjectType {
+  CommonName: string;
+  OrganizationUnit?: string;
+  Organization?: string;
+  City?: string;
+  Country?: string;
+  StateOrProvince?: string;
+  EmailAddress?: string;
+}
 export type CertificateType = string;
 
 export declare class ConflictException extends EffectData.TaggedError(
@@ -334,6 +429,7 @@ export interface CreateKeyInput {
   Enabled?: boolean;
   Tags?: Array<Tag>;
   DeriveKeyUsage?: string;
+  ReplicationRegions?: Array<string>;
 }
 export interface CreateKeyOutput {
   Key: Key;
@@ -358,6 +454,18 @@ interface _DiffieHellmanDerivationData {
 export type DiffieHellmanDerivationData = _DiffieHellmanDerivationData & {
   SharedInformation: string;
 };
+export interface DisableDefaultKeyReplicationRegionsInput {
+  ReplicationRegions: Array<string>;
+}
+export interface DisableDefaultKeyReplicationRegionsOutput {
+  EnabledReplicationRegions: Array<string>;
+}
+export interface EnableDefaultKeyReplicationRegionsInput {
+  ReplicationRegions: Array<string>;
+}
+export interface EnableDefaultKeyReplicationRegionsOutput {
+  EnabledReplicationRegions: Array<string>;
+}
 export type EvenHexLengthBetween16And32 = string;
 
 export interface ExportAttributes {
@@ -413,7 +521,9 @@ export interface ExportTr31KeyBlock {
 export interface ExportTr34KeyBlock {
   CertificateAuthorityPublicKeyIdentifier: string;
   WrappingKeyCertificate: string;
-  ExportToken: string;
+  ExportToken?: string;
+  SigningKeyIdentifier?: string;
+  SigningKeyCertificate?: string;
   KeyBlockFormat: string;
   RandomNonce?: string;
   KeyBlockHeaders?: KeyBlockHeaders;
@@ -423,6 +533,18 @@ export interface GetAliasInput {
 }
 export interface GetAliasOutput {
   Alias: Alias;
+}
+export interface GetCertificateSigningRequestInput {
+  KeyIdentifier: string;
+  SigningAlgorithm: string;
+  CertificateSubject: CertificateSubjectType;
+}
+export interface GetCertificateSigningRequestOutput {
+  CertificateSigningRequest: string;
+}
+export interface GetDefaultKeyReplicationRegionsInput {}
+export interface GetDefaultKeyReplicationRegionsOutput {
+  EnabledReplicationRegions: Array<string>;
 }
 export interface GetKeyInput {
   KeyIdentifier: string;
@@ -483,6 +605,7 @@ export interface ImportKeyInput {
   KeyCheckValueAlgorithm?: string;
   Enabled?: boolean;
   Tags?: Array<Tag>;
+  ReplicationRegions?: Array<string>;
 }
 interface _ImportKeyMaterial {
   RootCertificatePublicKey?: RootCertificatePublicKey;
@@ -518,7 +641,9 @@ export interface ImportTr31KeyBlock {
 export interface ImportTr34KeyBlock {
   CertificateAuthorityPublicKeyIdentifier: string;
   SigningKeyCertificate: string;
-  ImportToken: string;
+  ImportToken?: string;
+  WrappingKeyIdentifier?: string;
+  WrappingKeyCertificate?: string;
   WrappedKeyBlock: string;
   KeyBlockFormat: string;
   RandomNonce?: string;
@@ -543,6 +668,10 @@ export interface Key {
   DeletePendingTimestamp?: Date | string;
   DeleteTimestamp?: Date | string;
   DeriveKeyUsage?: string;
+  MultiRegionKeyType?: string;
+  PrimaryRegion?: string;
+  ReplicationStatus?: Record<string, ReplicationStatusType>;
+  UsingDefaultReplicationRegions?: boolean;
 }
 export type KeyAlgorithm = string;
 
@@ -589,6 +718,8 @@ export interface KeyModesOfUse {
 }
 export type KeyOrigin = string;
 
+export type KeyReplicationState = string;
+
 export type KeyState = string;
 
 export interface KeySummary {
@@ -598,6 +729,8 @@ export interface KeySummary {
   KeyCheckValue: string;
   Exportable: boolean;
   Enabled: boolean;
+  MultiRegionKeyType?: string;
+  PrimaryRegion?: string;
 }
 export type KeySummaryList = Array<KeySummary>;
 export type KeyUsage = string;
@@ -633,6 +766,8 @@ export interface ListTagsForResourceOutput {
 }
 export type MaxResults = number;
 
+export type MultiRegionKeyType = string;
+
 export type NextToken = string;
 
 export type OptionalBlockId = string;
@@ -640,6 +775,21 @@ export type OptionalBlockId = string;
 export type OptionalBlocks = Record<string, string>;
 export type OptionalBlockValue = string;
 
+export type Region = string;
+
+export type Regions = Array<string>;
+export interface RemoveKeyReplicationRegionsInput {
+  KeyIdentifier: string;
+  ReplicationRegions: Array<string>;
+}
+export interface RemoveKeyReplicationRegionsOutput {
+  Key: Key;
+}
+export type ReplicationStatus = Record<string, ReplicationStatusType>;
+export interface ReplicationStatusType {
+  Status: string;
+  StatusMessage?: string;
+}
 export type ResourceArn = string;
 
 export declare class ResourceNotFoundException extends EffectData.TaggedError(
@@ -668,6 +818,8 @@ export declare class ServiceUnavailableException extends EffectData.TaggedError(
   readonly Message?: string;
 }> {}
 export type SharedInformation = string;
+
+export type SigningAlgorithmType = string;
 
 export interface StartKeyUsageInput {
   KeyIdentifier: string;
@@ -754,6 +906,34 @@ export type WrappedKeyMaterialFormat = string;
 
 export type WrappingKeySpec = string;
 
+export declare namespace DisableDefaultKeyReplicationRegions {
+  export type Input = DisableDefaultKeyReplicationRegionsInput;
+  export type Output = DisableDefaultKeyReplicationRegionsOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace EnableDefaultKeyReplicationRegions {
+  export type Input = EnableDefaultKeyReplicationRegionsInput;
+  export type Output = EnableDefaultKeyReplicationRegionsOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
 export declare namespace ExportKey {
   export type Input = ExportKeyInput;
   export type Output = ExportKeyOutput;
@@ -763,6 +943,33 @@ export declare namespace ExportKey {
     | InternalServerException
     | ResourceNotFoundException
     | ServiceUnavailableException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetCertificateSigningRequest {
+  export type Input = GetCertificateSigningRequestInput;
+  export type Output = GetCertificateSigningRequestOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetDefaultKeyReplicationRegions {
+  export type Input = GetDefaultKeyReplicationRegionsInput;
+  export type Output = GetDefaultKeyReplicationRegionsOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
     | ThrottlingException
     | ValidationException
     | CommonAwsError;
@@ -863,6 +1070,20 @@ export declare namespace UntagResource {
     | InternalServerException
     | ResourceNotFoundException
     | ServiceUnavailableException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace AddKeyReplicationRegions {
+  export type Input = AddKeyReplicationRegionsInput;
+  export type Output = AddKeyReplicationRegionsOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
     | ThrottlingException
     | ValidationException
     | CommonAwsError;
@@ -973,6 +1194,20 @@ export declare namespace ListKeys {
     | InternalServerException
     | ResourceNotFoundException
     | ServiceUnavailableException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace RemoveKeyReplicationRegions {
+  export type Input = RemoveKeyReplicationRegionsInput;
+  export type Output = RemoveKeyReplicationRegionsOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
     | ThrottlingException
     | ValidationException
     | CommonAwsError;

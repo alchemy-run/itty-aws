@@ -749,6 +749,7 @@ export interface CreateWebhookInput {
   buildType?: WebhookBuildType;
   manualCreation?: boolean;
   scopeConfiguration?: ScopeConfiguration;
+  pullRequestBuildPolicy?: PullRequestBuildPolicy;
 }
 export interface CreateWebhookOutput {
   webhook?: Webhook;
@@ -1297,6 +1298,30 @@ export interface ProxyConfiguration {
   defaultBehavior?: FleetProxyRuleBehavior;
   orderedProxyRules?: Array<FleetProxyRule>;
 }
+export type PullRequestBuildApproverRole =
+  | "GITHUB_READ"
+  | "GITHUB_TRIAGE"
+  | "GITHUB_WRITE"
+  | "GITHUB_MAINTAIN"
+  | "GITHUB_ADMIN"
+  | "GITLAB_GUEST"
+  | "GITLAB_PLANNER"
+  | "GITLAB_REPORTER"
+  | "GITLAB_DEVELOPER"
+  | "GITLAB_MAINTAINER"
+  | "GITLAB_OWNER"
+  | "BITBUCKET_READ"
+  | "BITBUCKET_WRITE"
+  | "BITBUCKET_ADMIN";
+export type PullRequestBuildApproverRoles = Array<PullRequestBuildApproverRole>;
+export type PullRequestBuildCommentApproval =
+  | "DISABLED"
+  | "ALL_PULL_REQUESTS"
+  | "FORK_PULL_REQUESTS";
+export interface PullRequestBuildPolicy {
+  requiresCommentApproval: PullRequestBuildCommentApproval;
+  approverRoles?: Array<PullRequestBuildApproverRole>;
+}
 export interface PutResourcePolicyInput {
   policy: string;
   resourceArn: string;
@@ -1756,6 +1781,7 @@ export interface UpdateWebhookInput {
   rotateSecret?: boolean;
   filterGroups?: Array<Array<WebhookFilter>>;
   buildType?: WebhookBuildType;
+  pullRequestBuildPolicy?: PullRequestBuildPolicy;
 }
 export interface UpdateWebhookOutput {
   webhook?: Webhook;
@@ -1779,6 +1805,7 @@ export interface Webhook {
   scopeConfiguration?: ScopeConfiguration;
   status?: WebhookStatus;
   statusMessage?: string;
+  pullRequestBuildPolicy?: PullRequestBuildPolicy;
 }
 export type WebhookBuildType =
   | "BUILD"

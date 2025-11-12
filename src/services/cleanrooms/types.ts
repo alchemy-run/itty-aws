@@ -111,6 +111,19 @@ export declare class CleanRooms extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
+  createCollaborationChangeRequest(
+    input: CreateCollaborationChangeRequestInput,
+  ): Effect.Effect<
+    CreateCollaborationChangeRequestOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
   createConfiguredAudienceModelAssociation(
     input: CreateConfiguredAudienceModelAssociationInput,
   ): Effect.Effect<
@@ -222,6 +235,7 @@ export declare class CleanRooms extends AWSServiceClient {
     | ConflictException
     | InternalServerException
     | ResourceNotFoundException
+    | ServiceQuotaExceededException
     | ThrottlingException
     | ValidationException
     | CommonAwsError
@@ -388,6 +402,17 @@ export declare class CleanRooms extends AWSServiceClient {
     input: GetCollaborationAnalysisTemplateInput,
   ): Effect.Effect<
     GetCollaborationAnalysisTemplateOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getCollaborationChangeRequest(
+    input: GetCollaborationChangeRequestInput,
+  ): Effect.Effect<
+    GetCollaborationChangeRequestOutput,
     | AccessDeniedException
     | InternalServerException
     | ResourceNotFoundException
@@ -586,6 +611,17 @@ export declare class CleanRooms extends AWSServiceClient {
     input: ListCollaborationAnalysisTemplatesInput,
   ): Effect.Effect<
     ListCollaborationAnalysisTemplatesOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listCollaborationChangeRequests(
+    input: ListCollaborationChangeRequestsInput,
+  ): Effect.Effect<
+    ListCollaborationChangeRequestsOutput,
     | AccessDeniedException
     | InternalServerException
     | ResourceNotFoundException
@@ -980,6 +1016,36 @@ export declare class CleanRooms extends AWSServiceClient {
 
 export declare class Cleanrooms extends CleanRooms {}
 
+export interface AccessBudget {
+  resourceArn: string;
+  details: Array<AccessBudgetDetails>;
+  aggregateRemainingBudget: number;
+}
+export interface AccessBudgetDetails {
+  startTime: Date | string;
+  endTime?: Date | string;
+  remainingBudget: number;
+  budget: number;
+  budgetType: AccessBudgetType;
+  autoRefresh?: AutoRefreshMode;
+}
+export type AccessBudgetDetailsList = Array<AccessBudgetDetails>;
+export interface AccessBudgetsPrivacyTemplateParametersInput {
+  budgetParameters: Array<BudgetParameter>;
+  resourceArn: string;
+}
+export interface AccessBudgetsPrivacyTemplateParametersOutput {
+  budgetParameters: Array<BudgetParameter>;
+  resourceArn: string;
+}
+export interface AccessBudgetsPrivacyTemplateUpdateParameters {
+  budgetParameters: Array<BudgetParameter>;
+}
+export type AccessBudgetType =
+  | "CALENDAR_DAY"
+  | "CALENDAR_MONTH"
+  | "CALENDAR_WEEK"
+  | "LIFETIME";
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",
 )<{
@@ -1013,6 +1079,7 @@ export type AllowedAnalysesList = Array<string>;
 export type AllowedAnalysisProviderList = Array<string>;
 export type AllowedColumnList = Array<string>;
 export type AllowedResultReceivers = Array<string>;
+export type AllowedResultRegions = Array<SupportedS3Region>;
 export type AnalysisFormat = "SQL" | "PYSPARK_1_0";
 export type AnalysisMethod = "DIRECT_QUERY" | "DIRECT_JOB" | "MULTIPLE";
 export interface AnalysisParameter {
@@ -1123,6 +1190,7 @@ export interface AnalysisTemplate {
   sourceMetadata?: AnalysisSourceMetadata;
   analysisParameters?: Array<AnalysisParameter>;
   validations?: Array<AnalysisTemplateValidationStatusDetail>;
+  errorMessageConfiguration?: ErrorMessageConfiguration;
 }
 export type AnalysisTemplateArn = string;
 
@@ -1185,6 +1253,7 @@ export type AthenaOutputLocation = string;
 export type AthenaTableName = string;
 
 export interface AthenaTableReference {
+  region?: CommercialRegion;
   workGroup: string;
   outputLocation?: string;
   databaseName: string;
@@ -1192,6 +1261,9 @@ export interface AthenaTableReference {
 }
 export type AthenaWorkGroup = string;
 
+export type AutoApprovedChangeType = "ADD_MEMBER";
+export type AutoApprovedChangeTypeList = Array<AutoApprovedChangeType>;
+export type AutoRefreshMode = "ENABLED" | "DISABLED";
 export interface BatchGetCollaborationAnalysisTemplateError {
   arn: string;
   code: string;
@@ -1243,6 +1315,43 @@ export interface BilledJobResourceUtilization {
 export interface BilledResourceUtilization {
   units: number;
 }
+export type Budget = number;
+
+export type BudgetedResourceArn = string;
+
+export interface BudgetParameter {
+  type: AccessBudgetType;
+  budget: number;
+  autoRefresh?: AutoRefreshMode;
+}
+export type BudgetParameters = Array<BudgetParameter>;
+export interface Change {
+  specificationType: ChangeSpecificationType;
+  specification: ChangeSpecification;
+  types: Array<ChangeType>;
+}
+export interface ChangeInput {
+  specificationType: ChangeSpecificationType;
+  specification: ChangeSpecification;
+}
+export type ChangeInputList = Array<ChangeInput>;
+export type ChangeList = Array<Change>;
+export type ChangeRequestStatus =
+  | "PENDING"
+  | "APPROVED"
+  | "CANCELLED"
+  | "DENIED"
+  | "COMMITTED";
+interface _ChangeSpecification {
+  member?: MemberChangeSpecification;
+}
+
+export type ChangeSpecification = _ChangeSpecification & {
+  member: MemberChangeSpecification;
+};
+export type ChangeSpecificationType = "MEMBER";
+export type ChangeType = "ADD_MEMBER";
+export type ChangeTypeList = Array<ChangeType>;
 export type CleanroomsArn = string;
 
 export interface Collaboration {
@@ -1261,6 +1370,8 @@ export interface Collaboration {
   queryLogStatus: CollaborationQueryLogStatus;
   jobLogStatus?: CollaborationJobLogStatus;
   analyticsEngine?: AnalyticsEngine;
+  autoApprovedChangeTypes?: Array<AutoApprovedChangeType>;
+  allowedResultRegions?: Array<SupportedS3Region>;
 }
 export interface CollaborationAnalysisTemplate {
   id: string;
@@ -1278,6 +1389,7 @@ export interface CollaborationAnalysisTemplate {
   sourceMetadata?: AnalysisSourceMetadata;
   analysisParameters?: Array<AnalysisParameter>;
   validations?: Array<AnalysisTemplateValidationStatusDetail>;
+  errorMessageConfiguration?: ErrorMessageConfiguration;
 }
 export type CollaborationAnalysisTemplateList =
   Array<CollaborationAnalysisTemplate>;
@@ -1296,6 +1408,28 @@ export type CollaborationAnalysisTemplateSummaryList =
   Array<CollaborationAnalysisTemplateSummary>;
 export type CollaborationArn = string;
 
+export interface CollaborationChangeRequest {
+  id: string;
+  collaborationId: string;
+  createTime: Date | string;
+  updateTime: Date | string;
+  status: ChangeRequestStatus;
+  isAutoApproved: boolean;
+  changes: Array<Change>;
+}
+export type CollaborationChangeRequestIdentifier = string;
+
+export interface CollaborationChangeRequestSummary {
+  id: string;
+  collaborationId: string;
+  createTime: Date | string;
+  updateTime: Date | string;
+  status: ChangeRequestStatus;
+  isAutoApproved: boolean;
+  changes: Array<Change>;
+}
+export type CollaborationChangeRequestSummaryList =
+  Array<CollaborationChangeRequestSummary>;
 export interface CollaborationConfiguredAudienceModelAssociation {
   id: string;
   arn: string;
@@ -1419,6 +1553,40 @@ export type ColumnName = string;
 
 export type ColumnTypeString = string;
 
+export type CommercialRegion =
+  | "us-west-1"
+  | "us-west-2"
+  | "us-east-1"
+  | "us-east-2"
+  | "af-south-1"
+  | "ap-east-1"
+  | "ap-south-2"
+  | "ap-southeast-1"
+  | "ap-southeast-2"
+  | "ap-southeast-3"
+  | "ap-southeast-5"
+  | "ap-southeast-4"
+  | "ap-southeast-7"
+  | "ap-south-1"
+  | "ap-northeast-3"
+  | "ap-northeast-1"
+  | "ap-northeast-2"
+  | "ca-central-1"
+  | "ca-west-1"
+  | "eu-south-1"
+  | "eu-west-3"
+  | "eu-south-2"
+  | "eu-central-2"
+  | "eu-central-1"
+  | "eu-north-1"
+  | "eu-west-1"
+  | "eu-west-2"
+  | "me-south-1"
+  | "me-central-1"
+  | "il-central-1"
+  | "sa-east-1"
+  | "mx-central-1"
+  | "ap-east-2";
 interface _ComputeConfiguration {
   worker?: WorkerComputeConfiguration;
 }
@@ -1676,9 +1844,17 @@ export interface CreateAnalysisTemplateInput {
   tags?: Record<string, string>;
   analysisParameters?: Array<AnalysisParameter>;
   schema?: AnalysisSchema;
+  errorMessageConfiguration?: ErrorMessageConfiguration;
 }
 export interface CreateAnalysisTemplateOutput {
   analysisTemplate: AnalysisTemplate;
+}
+export interface CreateCollaborationChangeRequestInput {
+  collaborationIdentifier: string;
+  changes: Array<ChangeInput>;
+}
+export interface CreateCollaborationChangeRequestOutput {
+  collaborationChangeRequest: CollaborationChangeRequest;
 }
 export interface CreateCollaborationInput {
   members: Array<MemberSpecification>;
@@ -1693,6 +1869,8 @@ export interface CreateCollaborationInput {
   tags?: Record<string, string>;
   creatorPaymentConfiguration?: PaymentConfiguration;
   analyticsEngine?: AnalyticsEngine;
+  autoApprovedChangeRequestTypes?: Array<AutoApprovedChangeType>;
+  allowedResultRegions?: Array<SupportedS3Region>;
 }
 export interface CreateCollaborationOutput {
   collaboration: Collaboration;
@@ -1784,7 +1962,7 @@ export interface CreateMembershipOutput {
 }
 export interface CreatePrivacyBudgetTemplateInput {
   membershipIdentifier: string;
-  autoRefresh: PrivacyBudgetTemplateAutoRefresh;
+  autoRefresh?: PrivacyBudgetTemplateAutoRefresh;
   privacyBudgetType: PrivacyBudgetType;
   parameters: PrivacyBudgetTemplateParametersInput;
   tags?: Record<string, string>;
@@ -1930,6 +2108,10 @@ export type DisplayName = string;
 
 export type Epsilon = number;
 
+export interface ErrorMessageConfiguration {
+  type: ErrorMessageType;
+}
+export type ErrorMessageType = "DETAILED";
 export type FilterableMemberStatus = string;
 
 export type GenericResourceName = string;
@@ -1947,6 +2129,13 @@ export interface GetCollaborationAnalysisTemplateInput {
 }
 export interface GetCollaborationAnalysisTemplateOutput {
   collaborationAnalysisTemplate: CollaborationAnalysisTemplate;
+}
+export interface GetCollaborationChangeRequestInput {
+  collaborationIdentifier: string;
+  changeRequestIdentifier: string;
+}
+export interface GetCollaborationChangeRequestOutput {
+  collaborationChangeRequest: CollaborationChangeRequest;
 }
 export interface GetCollaborationConfiguredAudienceModelAssociationInput {
   collaborationIdentifier: string;
@@ -2071,6 +2260,7 @@ export type GlueDatabaseName = string;
 export type GlueTableName = string;
 
 export interface GlueTableReference {
+  region?: CommercialRegion;
   tableName: string;
   databaseName: string;
 }
@@ -2187,6 +2377,7 @@ export declare class InternalServerException extends EffectData.TaggedError(
 export interface JobComputePaymentConfig {
   isResponsible: boolean;
 }
+export type JobType = "BATCH" | "INCREMENTAL" | "DELETE_ONLY";
 export type JoinOperator = string;
 
 export type JoinOperatorsList = Array<string>;
@@ -2214,6 +2405,16 @@ export interface ListCollaborationAnalysisTemplatesOutput {
   nextToken?: string;
   collaborationAnalysisTemplateSummaries: Array<CollaborationAnalysisTemplateSummary>;
 }
+export interface ListCollaborationChangeRequestsInput {
+  collaborationIdentifier: string;
+  status?: ChangeRequestStatus;
+  nextToken?: string;
+  maxResults?: number;
+}
+export interface ListCollaborationChangeRequestsOutput {
+  collaborationChangeRequestSummaries: Array<CollaborationChangeRequestSummary>;
+  nextToken?: string;
+}
 export interface ListCollaborationConfiguredAudienceModelAssociationsInput {
   collaborationIdentifier: string;
   nextToken?: string;
@@ -2237,6 +2438,7 @@ export interface ListCollaborationPrivacyBudgetsInput {
   privacyBudgetType: PrivacyBudgetType;
   maxResults?: number;
   nextToken?: string;
+  accessBudgetResourceArn?: string;
 }
 export interface ListCollaborationPrivacyBudgetsOutput {
   collaborationPrivacyBudgetSummaries: Array<CollaborationPrivacyBudgetSummary>;
@@ -2327,6 +2529,7 @@ export interface ListPrivacyBudgetsInput {
   privacyBudgetType: PrivacyBudgetType;
   nextToken?: string;
   maxResults?: number;
+  accessBudgetResourceArn?: string;
 }
 export interface ListPrivacyBudgetsOutput {
   privacyBudgetSummaries: Array<PrivacyBudgetSummary>;
@@ -2381,6 +2584,11 @@ export type MaxResults = number;
 
 export type MemberAbilities = Array<MemberAbility>;
 export type MemberAbility = "CAN_QUERY" | "CAN_RECEIVE_RESULTS" | "CAN_RUN_JOB";
+export interface MemberChangeSpecification {
+  accountId: string;
+  memberAbilities: Array<MemberAbility>;
+  displayName?: string;
+}
 export type MemberList = Array<MemberSpecification>;
 export interface Membership {
   id: string;
@@ -2549,6 +2757,7 @@ export interface PaymentConfiguration {
 export interface PopulateIdMappingTableInput {
   idMappingTableIdentifier: string;
   membershipIdentifier: string;
+  jobType?: JobType;
 }
 export interface PopulateIdMappingTableOutput {
   idMappingJobId: string;
@@ -2570,11 +2779,12 @@ export type PreviewPrivacyImpactParametersInput =
   };
 interface _PrivacyBudget {
   differentialPrivacy?: DifferentialPrivacyPrivacyBudget;
+  accessBudget?: AccessBudget;
 }
 
-export type PrivacyBudget = _PrivacyBudget & {
-  differentialPrivacy: DifferentialPrivacyPrivacyBudget;
-};
+export type PrivacyBudget =
+  | (_PrivacyBudget & { differentialPrivacy: DifferentialPrivacyPrivacyBudget })
+  | (_PrivacyBudget & { accessBudget: AccessBudget });
 export interface PrivacyBudgetSummary {
   id: string;
   privacyBudgetTemplateId: string;
@@ -2609,20 +2819,28 @@ export type PrivacyBudgetTemplateIdentifier = string;
 
 interface _PrivacyBudgetTemplateParametersInput {
   differentialPrivacy?: DifferentialPrivacyTemplateParametersInput;
+  accessBudget?: AccessBudgetsPrivacyTemplateParametersInput;
 }
 
 export type PrivacyBudgetTemplateParametersInput =
-  _PrivacyBudgetTemplateParametersInput & {
-    differentialPrivacy: DifferentialPrivacyTemplateParametersInput;
-  };
+  | (_PrivacyBudgetTemplateParametersInput & {
+      differentialPrivacy: DifferentialPrivacyTemplateParametersInput;
+    })
+  | (_PrivacyBudgetTemplateParametersInput & {
+      accessBudget: AccessBudgetsPrivacyTemplateParametersInput;
+    });
 interface _PrivacyBudgetTemplateParametersOutput {
   differentialPrivacy?: DifferentialPrivacyTemplateParametersOutput;
+  accessBudget?: AccessBudgetsPrivacyTemplateParametersOutput;
 }
 
 export type PrivacyBudgetTemplateParametersOutput =
-  _PrivacyBudgetTemplateParametersOutput & {
-    differentialPrivacy: DifferentialPrivacyTemplateParametersOutput;
-  };
+  | (_PrivacyBudgetTemplateParametersOutput & {
+      differentialPrivacy: DifferentialPrivacyTemplateParametersOutput;
+    })
+  | (_PrivacyBudgetTemplateParametersOutput & {
+      accessBudget: AccessBudgetsPrivacyTemplateParametersOutput;
+    });
 export interface PrivacyBudgetTemplateSummary {
   id: string;
   arn: string;
@@ -2638,13 +2856,17 @@ export type PrivacyBudgetTemplateSummaryList =
   Array<PrivacyBudgetTemplateSummary>;
 interface _PrivacyBudgetTemplateUpdateParameters {
   differentialPrivacy?: DifferentialPrivacyTemplateUpdateParameters;
+  accessBudget?: AccessBudgetsPrivacyTemplateUpdateParameters;
 }
 
 export type PrivacyBudgetTemplateUpdateParameters =
-  _PrivacyBudgetTemplateUpdateParameters & {
-    differentialPrivacy: DifferentialPrivacyTemplateUpdateParameters;
-  };
-export type PrivacyBudgetType = "DIFFERENTIAL_PRIVACY";
+  | (_PrivacyBudgetTemplateUpdateParameters & {
+      differentialPrivacy: DifferentialPrivacyTemplateUpdateParameters;
+    })
+  | (_PrivacyBudgetTemplateUpdateParameters & {
+      accessBudget: AccessBudgetsPrivacyTemplateUpdateParameters;
+    });
+export type PrivacyBudgetType = "DIFFERENTIAL_PRIVACY" | "ACCESS_BUDGET";
 interface _PrivacyImpact {
   differentialPrivacy?: DifferentialPrivacyPrivacyImpact;
 }
@@ -2663,8 +2885,17 @@ export interface ProtectedJob {
   statistics?: ProtectedJobStatistics;
   result?: ProtectedJobResult;
   error?: ProtectedJobError;
+  computeConfiguration?: ProtectedJobComputeConfiguration;
 }
 export type ProtectedJobAnalysisType = "DIRECT_ANALYSIS";
+interface _ProtectedJobComputeConfiguration {
+  worker?: ProtectedJobWorkerComputeConfiguration;
+}
+
+export type ProtectedJobComputeConfiguration =
+  _ProtectedJobComputeConfiguration & {
+    worker: ProtectedJobWorkerComputeConfiguration;
+  };
 interface _ProtectedJobConfigurationDetails {
   directAnalysisConfigurationDetails?: ProtectedJobDirectAnalysisConfigurationDetails;
 }
@@ -2774,6 +3005,11 @@ export interface ProtectedJobSummary {
 }
 export type ProtectedJobSummaryList = Array<ProtectedJobSummary>;
 export type ProtectedJobType = "PYSPARK";
+export interface ProtectedJobWorkerComputeConfiguration {
+  type: ProtectedJobWorkerComputeType;
+  number: number;
+}
+export type ProtectedJobWorkerComputeType = "CR.1X" | "CR.4X";
 export interface ProtectedQuery {
   id: string;
   membershipId: string;
@@ -2909,6 +3145,8 @@ export interface ReceiverConfiguration {
   configurationDetails?: ConfigurationDetails;
 }
 export type ReceiverConfigurationsList = Array<ReceiverConfiguration>;
+export type RemainingBudget = number;
+
 export type ResourceAlias = string;
 
 export type ResourceDescription = string;
@@ -2948,6 +3186,7 @@ export interface Schema {
   updateTime: Date | string;
   type: SchemaType;
   schemaStatusDetails: Array<SchemaStatusDetail>;
+  resourceArn?: string;
   schemaTypeProperties?: SchemaTypeProperties;
 }
 export type SchemaAnalysisRuleList = Array<AnalysisRule>;
@@ -2959,6 +3198,8 @@ export type SchemaAnalysisRuleRequestList = Array<SchemaAnalysisRuleRequest>;
 export type SchemaConfiguration = "DIFFERENTIAL_PRIVACY";
 export type SchemaConfigurationList = Array<SchemaConfiguration>;
 export type SchemaList = Array<Schema>;
+export type SchemaResourceArn = string;
+
 export type SchemaStatus = "READY" | "NOT_READY";
 export interface SchemaStatusDetail {
   status: SchemaStatus;
@@ -2995,6 +3236,7 @@ export interface SchemaSummary {
   collaborationArn: string;
   analysisRuleTypes: Array<AnalysisRuleType>;
   analysisMethod?: AnalysisMethod;
+  resourceArn?: string;
   selectedAnalysisMethods?: Array<SelectedAnalysisMethod>;
 }
 export type SchemaSummaryList = Array<SchemaSummary>;
@@ -3045,11 +3287,17 @@ export interface SnowflakeTableSchemaV1 {
   columnName: string;
   columnType: string;
 }
+export type SparkProperties = Record<string, string>;
+export type SparkPropertyKey = string;
+
+export type SparkPropertyValue = string;
+
 export interface StartProtectedJobInput {
   type: ProtectedJobType;
   membershipIdentifier: string;
   jobParameters: ProtectedJobParameters;
   resultConfiguration?: ProtectedJobResultConfigurationInput;
+  computeConfiguration?: ProtectedJobComputeConfiguration;
 }
 export interface StartProtectedJobOutput {
   protectedJob: ProtectedJob;
@@ -3064,6 +3312,40 @@ export interface StartProtectedQueryInput {
 export interface StartProtectedQueryOutput {
   protectedQuery: ProtectedQuery;
 }
+export type SupportedS3Region =
+  | "us-west-1"
+  | "us-west-2"
+  | "us-east-1"
+  | "us-east-2"
+  | "af-south-1"
+  | "ap-east-1"
+  | "ap-east-2"
+  | "ap-south-2"
+  | "ap-southeast-1"
+  | "ap-southeast-2"
+  | "ap-southeast-3"
+  | "ap-southeast-5"
+  | "ap-southeast-4"
+  | "ap-southeast-7"
+  | "ap-south-1"
+  | "ap-northeast-3"
+  | "ap-northeast-1"
+  | "ap-northeast-2"
+  | "ca-central-1"
+  | "ca-west-1"
+  | "eu-south-1"
+  | "eu-west-3"
+  | "eu-south-2"
+  | "eu-central-2"
+  | "eu-central-1"
+  | "eu-north-1"
+  | "eu-west-1"
+  | "eu-west-2"
+  | "me-south-1"
+  | "me-central-1"
+  | "il-central-1"
+  | "sa-east-1"
+  | "mx-central-1";
 export type TableAlias = string;
 
 export type TableAliasList = Array<string>;
@@ -3242,7 +3524,14 @@ export type ValidationExceptionReason = string;
 export interface WorkerComputeConfiguration {
   type?: WorkerComputeType;
   number?: number;
+  properties?: WorkerComputeConfigurationProperties;
 }
+interface _WorkerComputeConfigurationProperties {
+  spark?: Record<string, string>;
+}
+
+export type WorkerComputeConfigurationProperties =
+  _WorkerComputeConfigurationProperties & { spark: Record<string, string> };
 export type WorkerComputeType = "CR.1X" | "CR.4X";
 export declare namespace ListTagsForResource {
   export type Input = ListTagsForResourceInput;
@@ -3327,6 +3616,20 @@ export declare namespace CreateCollaboration {
   export type Error =
     | AccessDeniedException
     | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateCollaborationChangeRequest {
+  export type Input = CreateCollaborationChangeRequestInput;
+  export type Output = CreateCollaborationChangeRequestOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
     | ServiceQuotaExceededException
     | ThrottlingException
     | ValidationException
@@ -3452,6 +3755,7 @@ export declare namespace CreatePrivacyBudgetTemplate {
     | ConflictException
     | InternalServerException
     | ResourceNotFoundException
+    | ServiceQuotaExceededException
     | ThrottlingException
     | ValidationException
     | CommonAwsError;
@@ -3632,6 +3936,18 @@ export declare namespace GetCollaboration {
 export declare namespace GetCollaborationAnalysisTemplate {
   export type Input = GetCollaborationAnalysisTemplateInput;
   export type Output = GetCollaborationAnalysisTemplateOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetCollaborationChangeRequest {
+  export type Input = GetCollaborationChangeRequestInput;
+  export type Output = GetCollaborationChangeRequestOutput;
   export type Error =
     | AccessDeniedException
     | InternalServerException
@@ -3848,6 +4164,18 @@ export declare namespace ListAnalysisTemplates {
 export declare namespace ListCollaborationAnalysisTemplates {
   export type Input = ListCollaborationAnalysisTemplatesInput;
   export type Output = ListCollaborationAnalysisTemplatesOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListCollaborationChangeRequests {
+  export type Input = ListCollaborationChangeRequestsInput;
+  export type Output = ListCollaborationChangeRequestsOutput;
   export type Error =
     | AccessDeniedException
     | InternalServerException

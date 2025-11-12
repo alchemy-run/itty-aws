@@ -356,10 +356,32 @@ export declare class NeptuneGraph extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
+  startGraph(
+    input: StartGraphInput,
+  ): Effect.Effect<
+    StartGraphOutput,
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
   startImportTask(
     input: StartImportTaskInput,
   ): Effect.Effect<
     StartImportTaskOutput,
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  stopGraph(
+    input: StopGraphInput,
+  ): Effect.Effect<
+    StopGraphOutput,
     | ConflictException
     | InternalServerException
     | ResourceNotFoundException
@@ -760,7 +782,10 @@ export type GraphStatus =
   | "UPDATING"
   | "SNAPSHOTTING"
   | "FAILED"
-  | "IMPORTING";
+  | "IMPORTING"
+  | "STARTING"
+  | "STOPPING"
+  | "STOPPED";
 export interface GraphSummary {
   id: string;
   name: string;
@@ -1025,6 +1050,26 @@ export interface StartExportTaskOutput {
   statusReason?: string;
   exportFilter?: ExportFilter;
 }
+export interface StartGraphInput {
+  graphIdentifier: string;
+}
+export interface StartGraphOutput {
+  id: string;
+  name: string;
+  arn: string;
+  status?: GraphStatus;
+  statusReason?: string;
+  createTime?: Date | string;
+  provisionedMemory?: number;
+  endpoint?: string;
+  publicConnectivity?: boolean;
+  vectorSearchConfiguration?: VectorSearchConfiguration;
+  replicaCount?: number;
+  kmsKeyIdentifier?: string;
+  sourceSnapshotId?: string;
+  deletionProtection?: boolean;
+  buildNumber?: string;
+}
 export interface StartImportTaskInput {
   importOptions?: ImportOptions;
   failOnError?: boolean;
@@ -1044,6 +1089,26 @@ export interface StartImportTaskOutput {
   roleArn: string;
   status: ImportTaskStatus;
   importOptions?: ImportOptions;
+}
+export interface StopGraphInput {
+  graphIdentifier: string;
+}
+export interface StopGraphOutput {
+  id: string;
+  name: string;
+  arn: string;
+  status?: GraphStatus;
+  statusReason?: string;
+  createTime?: Date | string;
+  provisionedMemory?: number;
+  endpoint?: string;
+  publicConnectivity?: boolean;
+  vectorSearchConfiguration?: VectorSearchConfiguration;
+  replicaCount?: number;
+  kmsKeyIdentifier?: string;
+  sourceSnapshotId?: string;
+  deletionProtection?: boolean;
+  buildNumber?: string;
 }
 export type SubnetId = string;
 
@@ -1478,9 +1543,33 @@ export declare namespace StartExportTask {
     | CommonAwsError;
 }
 
+export declare namespace StartGraph {
+  export type Input = StartGraphInput;
+  export type Output = StartGraphOutput;
+  export type Error =
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
 export declare namespace StartImportTask {
   export type Input = StartImportTaskInput;
   export type Output = StartImportTaskOutput;
+  export type Error =
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace StopGraph {
+  export type Input = StopGraphInput;
+  export type Output = StopGraphOutput;
   export type Error =
     | ConflictException
     | InternalServerException

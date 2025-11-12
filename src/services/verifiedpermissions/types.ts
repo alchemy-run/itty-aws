@@ -261,6 +261,8 @@ interface _AttributeValue {
   record?: Record<string, AttributeValue>;
   ipaddr?: string;
   decimal?: string;
+  datetime?: string;
+  duration?: string;
 }
 
 export type AttributeValue =
@@ -271,7 +273,9 @@ export type AttributeValue =
   | (_AttributeValue & { set: Array<AttributeValue> })
   | (_AttributeValue & { record: Record<string, AttributeValue> })
   | (_AttributeValue & { ipaddr: string })
-  | (_AttributeValue & { decimal: string });
+  | (_AttributeValue & { decimal: string })
+  | (_AttributeValue & { datetime: string })
+  | (_AttributeValue & { duration: string });
 export type Audience = string;
 
 export type Audiences = Array<string>;
@@ -494,6 +498,8 @@ export interface CreatePolicyTemplateOutput {
   createdDate: Date | string;
   lastUpdatedDate: Date | string;
 }
+export type DatetimeAttribute = string;
+
 export type Decimal = string;
 
 export type Decision = "ALLOW" | "DENY";
@@ -522,6 +528,8 @@ export interface DeterminingPolicyItem {
 }
 export type DeterminingPolicyList = Array<DeterminingPolicyItem>;
 export type DiscoveryUrl = string;
+
+export type Duration = string;
 
 interface _EntitiesDefinition {
   entityList?: Array<EntityItem>;

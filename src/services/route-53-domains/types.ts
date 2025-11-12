@@ -755,7 +755,10 @@ export type ExtraParamName =
   | "UK_CONTACT_TYPE"
   | "UK_COMPANY_NUMBER"
   | "EU_COUNTRY_OF_CITIZENSHIP"
-  | "AU_PRIORITY_TOKEN";
+  | "AU_PRIORITY_TOKEN"
+  | "AU_ELIGIBILITY_TYPE"
+  | "AU_POLICY_REASON"
+  | "AU_REGISTRANT_NAME";
 export type ExtraParamValue = string;
 
 export type FIAuthKey = string;

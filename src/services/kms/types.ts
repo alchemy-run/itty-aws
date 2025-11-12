@@ -712,6 +712,8 @@ export declare class KMS extends AWSServiceClient {
 
 export declare class Kms extends KMS {}
 
+export type AccountIdType = string;
+
 export type AlgorithmSpec =
   | "RSAES_PKCS1_V1_5"
   | "RSAES_OAEP_SHA_1"
@@ -828,6 +830,7 @@ export interface CreateCustomKeyStoreRequest {
   XksProxyUriEndpoint?: string;
   XksProxyUriPath?: string;
   XksProxyVpcEndpointServiceName?: string;
+  XksProxyVpcEndpointServiceOwner?: string;
   XksProxyAuthenticationCredential?: XksProxyAuthenticationCredentialType;
   XksProxyConnectivity?: XksProxyConnectivityType;
 }
@@ -1678,6 +1681,7 @@ export interface UpdateCustomKeyStoreRequest {
   XksProxyUriEndpoint?: string;
   XksProxyUriPath?: string;
   XksProxyVpcEndpointServiceName?: string;
+  XksProxyVpcEndpointServiceOwner?: string;
   XksProxyAuthenticationCredential?: XksProxyAuthenticationCredentialType;
   XksProxyConnectivity?: XksProxyConnectivityType;
 }
@@ -1752,6 +1756,7 @@ export interface XksProxyConfigurationType {
   UriEndpoint?: string;
   UriPath?: string;
   VpcEndpointServiceName?: string;
+  VpcEndpointServiceOwner?: string;
 }
 export type XksProxyConnectivityType =
   | "PUBLIC_ENDPOINT"

@@ -66,7 +66,9 @@ const metadata = {
     ResetGraph: "PUT /graphs/{graphIdentifier}",
     RestoreGraphFromSnapshot: "POST /snapshots/{snapshotIdentifier}/restore",
     StartExportTask: "POST /exporttasks",
+    StartGraph: "POST /graphs/{graphIdentifier}/start",
     StartImportTask: "POST /graphs/{graphIdentifier}/importtasks",
+    StopGraph: "POST /graphs/{graphIdentifier}/stop",
     UpdateGraph: "PATCH /graphs/{graphIdentifier}",
   },
 } as const satisfies ServiceMetadata;

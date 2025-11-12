@@ -97,6 +97,18 @@ export declare class DataZone extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
+  associateGovernedTerms(
+    input: AssociateGovernedTermsInput,
+  ): Effect.Effect<
+    AssociateGovernedTermsOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
   cancelSubscription(
     input: CancelSubscriptionInput,
   ): Effect.Effect<
@@ -105,6 +117,19 @@ export declare class DataZone extends AWSServiceClient {
     | ConflictException
     | InternalServerException
     | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createAccountPool(
+    input: CreateAccountPoolInput,
+  ): Effect.Effect<
+    CreateAccountPoolOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
     | ThrottlingException
     | ValidationException
     | CommonAwsError
@@ -155,6 +180,19 @@ export declare class DataZone extends AWSServiceClient {
     | ConflictException
     | InternalServerException
     | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  createEnvironmentBlueprint(
+    input: CreateEnvironmentBlueprintInput,
+  ): Effect.Effect<
+    CreateEnvironmentBlueprintOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
     | ThrottlingException
     | ValidationException
     | CommonAwsError
@@ -277,6 +315,17 @@ export declare class DataZone extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
+  deleteAccountPool(
+    input: DeleteAccountPoolInput,
+  ): Effect.Effect<
+    DeleteAccountPoolOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
   deleteAssetFilter(
     input: DeleteAssetFilterInput,
   ): Effect.Effect<
@@ -313,6 +362,18 @@ export declare class DataZone extends AWSServiceClient {
   >;
   deleteEnvironmentAction(
     input: DeleteEnvironmentActionInput,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteEnvironmentBlueprint(
+    input: DeleteEnvironmentBlueprintInput,
   ): Effect.Effect<
     {},
     | AccessDeniedException
@@ -421,6 +482,29 @@ export declare class DataZone extends AWSServiceClient {
     DisassociateEnvironmentRoleOutput,
     | AccessDeniedException
     | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  disassociateGovernedTerms(
+    input: DisassociateGovernedTermsInput,
+  ): Effect.Effect<
+    DisassociateGovernedTermsOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  getAccountPool(
+    input: GetAccountPoolInput,
+  ): Effect.Effect<
+    GetAccountPoolOutput,
+    | AccessDeniedException
     | InternalServerException
     | ResourceNotFoundException
     | ThrottlingException
@@ -643,6 +727,27 @@ export declare class DataZone extends AWSServiceClient {
     | AccessDeniedException
     | InternalServerException
     | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listAccountPools(
+    input: ListAccountPoolsInput,
+  ): Effect.Effect<
+    ListAccountPoolsOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listAccountsInAccountPool(
+    input: ListAccountsInAccountPoolInput,
+  ): Effect.Effect<
+    ListAccountsInAccountPoolOutput,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
     | ValidationException
     | CommonAwsError
   >;
@@ -1048,6 +1153,19 @@ export declare class DataZone extends AWSServiceClient {
     UntagResourceResponse,
     InternalServerException | ResourceNotFoundException | CommonAwsError
   >;
+  updateAccountPool(
+    input: UpdateAccountPoolInput,
+  ): Effect.Effect<
+    UpdateAccountPoolOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
   updateAssetFilter(
     input: UpdateAssetFilterInput,
   ): Effect.Effect<
@@ -1093,6 +1211,19 @@ export declare class DataZone extends AWSServiceClient {
     | ConflictException
     | InternalServerException
     | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateEnvironmentBlueprint(
+    input: UpdateEnvironmentBlueprintInput,
+  ): Effect.Effect<
+    UpdateEnvironmentBlueprintOutput,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
     | ThrottlingException
     | ValidationException
     | CommonAwsError
@@ -1907,6 +2038,35 @@ export declare class AccessDeniedException extends EffectData.TaggedError(
 )<{
   readonly message: string;
 }> {}
+export interface AccountInfo {
+  awsAccountId: string;
+  supportedRegions: Array<string>;
+  awsAccountName?: string;
+}
+export type AccountInfoList = Array<AccountInfo>;
+export type AccountPoolId = string;
+
+export type AccountPoolList = Array<string>;
+export type AccountPoolName = string;
+
+export type AccountPoolSummaries = Array<AccountPoolSummary>;
+export interface AccountPoolSummary {
+  domainId?: string;
+  id?: string;
+  name?: string;
+  resolutionStrategy?: ResolutionStrategy;
+  domainUnitId?: string;
+  createdBy?: string;
+  updatedBy?: string;
+}
+interface _AccountSource {
+  accounts?: Array<AccountInfo>;
+  customAccountPoolHandler?: CustomAccountPoolHandler;
+}
+
+export type AccountSource =
+  | (_AccountSource & { accounts: Array<AccountInfo> })
+  | (_AccountSource & { customAccountPoolHandler: CustomAccountPoolHandler });
 export type ActionLink = string;
 
 interface _ActionParameters {
@@ -1933,7 +2093,9 @@ export interface AddPolicyGrantInput {
   detail: PolicyGrantDetail;
   clientToken?: string;
 }
-export interface AddPolicyGrantOutput {}
+export interface AddPolicyGrantOutput {
+  grantId?: string;
+}
 export interface AddToProjectMemberPoolPolicyGrantDetail {
   includeChildDomainUnits?: boolean;
 }
@@ -1962,6 +2124,21 @@ export type AggregationOutputItems = Array<AggregationOutputItem>;
 export type AggregationOutputList = Array<AggregationOutput>;
 export interface AllDomainUnitsGrantFilter {}
 export interface AllUsersGrantFilter {}
+export interface AmazonQPropertiesInput {
+  isEnabled: boolean;
+  profileArn?: string;
+  authMode?: string;
+}
+export interface AmazonQPropertiesOutput {
+  isEnabled: boolean;
+  profileArn?: string;
+  authMode?: string;
+}
+export interface AmazonQPropertiesPatch {
+  isEnabled: boolean;
+  profileArn?: string;
+  authMode?: string;
+}
 export type ApplicableAssetTypes = Array<string>;
 interface _AssetFilterConfiguration {
   columnConfiguration?: ColumnFilterConfiguration;
@@ -2012,6 +2189,7 @@ export interface AssetItem {
   glossaryTerms?: Array<string>;
   owningProjectId: string;
   additionalAttributes?: AssetItemAdditionalAttributes;
+  governedGlossaryTerms?: Array<string>;
 }
 export interface AssetItemAdditionalAttributes {
   formsOutput?: Array<FormOutput>;
@@ -2027,6 +2205,7 @@ export interface AssetListing {
   forms?: string;
   latestTimeSeriesDataPointForms?: Array<TimeSeriesDataPointSummaryFormOutput>;
   glossaryTerms?: Array<DetailedGlossaryTerm>;
+  governedGlossaryTerms?: Array<DetailedGlossaryTerm>;
   owningProjectId?: string;
 }
 export interface AssetListingDetails {
@@ -2045,6 +2224,7 @@ export interface AssetListingItem {
   listingCreatedBy?: string;
   listingUpdatedBy?: string;
   glossaryTerms?: Array<DetailedGlossaryTerm>;
+  governedGlossaryTerms?: Array<DetailedGlossaryTerm>;
   owningProjectId?: string;
   additionalAttributes?: AssetListingItemAdditionalAttributes;
 }
@@ -2101,6 +2281,13 @@ export interface AssociateEnvironmentRoleInput {
   environmentRoleArn: string;
 }
 export interface AssociateEnvironmentRoleOutput {}
+export interface AssociateGovernedTermsInput {
+  domainIdentifier: string;
+  entityIdentifier: string;
+  entityType: GovernedEntityType;
+  governedGlossaryTerms: Array<string>;
+}
+export interface AssociateGovernedTermsOutput {}
 export interface AthenaPropertiesInput {
   workgroupName?: string;
 }
@@ -2148,6 +2335,8 @@ export type AwsAccount =
   | (_AwsAccount & { awsAccountIdPath: string });
 export type AwsAccountId = string;
 
+export type AwsAccountName = string;
+
 export interface AwsConsoleLinkParameters {
   uri?: string;
 }
@@ -2159,6 +2348,7 @@ export interface AwsLocation {
 }
 export type AwsRegion = string;
 
+export type AwsRegionList = Array<string>;
 export interface BasicAuthenticationCredentials {
   userName?: string;
   password?: string;
@@ -2237,6 +2427,8 @@ interface _ConnectionPropertiesInput {
   sparkEmrProperties?: SparkEmrPropertiesInput;
   sparkGlueProperties?: SparkGluePropertiesInput;
   s3Properties?: S3PropertiesInput;
+  amazonQProperties?: AmazonQPropertiesInput;
+  mlflowProperties?: MlflowPropertiesInput;
 }
 
 export type ConnectionPropertiesInput =
@@ -2255,7 +2447,9 @@ export type ConnectionPropertiesInput =
   | (_ConnectionPropertiesInput & {
       sparkGlueProperties: SparkGluePropertiesInput;
     })
-  | (_ConnectionPropertiesInput & { s3Properties: S3PropertiesInput });
+  | (_ConnectionPropertiesInput & { s3Properties: S3PropertiesInput })
+  | (_ConnectionPropertiesInput & { amazonQProperties: AmazonQPropertiesInput })
+  | (_ConnectionPropertiesInput & { mlflowProperties: MlflowPropertiesInput });
 interface _ConnectionPropertiesOutput {
   athenaProperties?: AthenaPropertiesOutput;
   glueProperties?: GluePropertiesOutput;
@@ -2265,6 +2459,8 @@ interface _ConnectionPropertiesOutput {
   sparkEmrProperties?: SparkEmrPropertiesOutput;
   sparkGlueProperties?: SparkGluePropertiesOutput;
   s3Properties?: S3PropertiesOutput;
+  amazonQProperties?: AmazonQPropertiesOutput;
+  mlflowProperties?: MlflowPropertiesOutput;
 }
 
 export type ConnectionPropertiesOutput =
@@ -2283,7 +2479,13 @@ export type ConnectionPropertiesOutput =
   | (_ConnectionPropertiesOutput & {
       sparkGlueProperties: SparkGluePropertiesOutput;
     })
-  | (_ConnectionPropertiesOutput & { s3Properties: S3PropertiesOutput });
+  | (_ConnectionPropertiesOutput & { s3Properties: S3PropertiesOutput })
+  | (_ConnectionPropertiesOutput & {
+      amazonQProperties: AmazonQPropertiesOutput;
+    })
+  | (_ConnectionPropertiesOutput & {
+      mlflowProperties: MlflowPropertiesOutput;
+    });
 interface _ConnectionPropertiesPatch {
   athenaProperties?: AthenaPropertiesPatch;
   glueProperties?: GluePropertiesPatch;
@@ -2291,6 +2493,8 @@ interface _ConnectionPropertiesPatch {
   redshiftProperties?: RedshiftPropertiesPatch;
   sparkEmrProperties?: SparkEmrPropertiesPatch;
   s3Properties?: S3PropertiesPatch;
+  amazonQProperties?: AmazonQPropertiesPatch;
+  mlflowProperties?: MlflowPropertiesPatch;
 }
 
 export type ConnectionPropertiesPatch =
@@ -2303,7 +2507,10 @@ export type ConnectionPropertiesPatch =
   | (_ConnectionPropertiesPatch & {
       sparkEmrProperties: SparkEmrPropertiesPatch;
     })
-  | (_ConnectionPropertiesPatch & { s3Properties: S3PropertiesPatch });
+  | (_ConnectionPropertiesPatch & { s3Properties: S3PropertiesPatch })
+  | (_ConnectionPropertiesPatch & { amazonQProperties: AmazonQPropertiesPatch })
+  | (_ConnectionPropertiesPatch & { mlflowProperties: MlflowPropertiesPatch });
+export type ConnectionScope = "DOMAIN" | "PROJECT";
 export type ConnectionStatus =
   | "CREATING"
   | "CREATE_FAILED"
@@ -2324,6 +2531,7 @@ export interface ConnectionSummary {
   projectId?: string;
   props?: ConnectionPropertiesOutput;
   type: ConnectionType;
+  scope?: ConnectionScope;
 }
 export type ConnectionType =
   | "ATHENA"
@@ -2345,7 +2553,29 @@ export type ConnectionType =
   | "SQLSERVER"
   | "TERADATA"
   | "VERTICA"
-  | "WORKFLOWS_MWAA";
+  | "WORKFLOWS_MWAA"
+  | "AMAZON_Q"
+  | "MLFLOW";
+export interface CreateAccountPoolInput {
+  domainIdentifier: string;
+  name: string;
+  description?: string;
+  resolutionStrategy: ResolutionStrategy;
+  accountSource: AccountSource;
+}
+export interface CreateAccountPoolOutput {
+  domainId?: string;
+  name?: string;
+  id?: string;
+  description?: string;
+  resolutionStrategy?: ResolutionStrategy;
+  accountSource: AccountSource;
+  createdBy: string;
+  createdAt?: Date | string;
+  lastUpdatedAt?: Date | string;
+  updatedBy?: string;
+  domainUnitId?: string;
+}
 export interface CreateAssetFilterInput {
   domainIdentifier: string;
   assetIdentifier: string;
@@ -2393,6 +2623,7 @@ export interface CreateAssetOutput {
   firstRevisionCreatedAt?: Date | string;
   firstRevisionCreatedBy?: string;
   glossaryTerms?: Array<string>;
+  governedGlossaryTerms?: Array<string>;
   owningProjectId: string;
   domainId: string;
   listing?: AssetListingDetails;
@@ -2425,6 +2656,7 @@ export interface CreateAssetRevisionOutput {
   firstRevisionCreatedAt?: Date | string;
   firstRevisionCreatedBy?: string;
   glossaryTerms?: Array<string>;
+  governedGlossaryTerms?: Array<string>;
   owningProjectId: string;
   domainId: string;
   listing?: AssetListingDetails;
@@ -2462,9 +2694,11 @@ export interface CreateConnectionInput {
   clientToken?: string;
   description?: string;
   domainIdentifier: string;
-  environmentIdentifier: string;
+  environmentIdentifier?: string;
   name: string;
   props?: ConnectionPropertiesInput;
+  enableTrustedIdentityPropagation?: boolean;
+  scope?: ConnectionScope;
 }
 export interface CreateConnectionOutput {
   connectionId: string;
@@ -2477,6 +2711,7 @@ export interface CreateConnectionOutput {
   projectId?: string;
   props?: ConnectionPropertiesOutput;
   type: ConnectionType;
+  scope?: ConnectionScope;
 }
 export type CreatedAt = Date | string;
 
@@ -2635,6 +2870,25 @@ export interface CreateEnvironmentActionOutput {
   parameters: ActionParameters;
   description?: string;
 }
+export interface CreateEnvironmentBlueprintInput {
+  domainIdentifier: string;
+  name: string;
+  description?: string;
+  provisioningProperties: ProvisioningProperties;
+  userParameters?: Array<CustomParameter>;
+}
+export interface CreateEnvironmentBlueprintOutput {
+  id: string;
+  name: string;
+  description?: string;
+  provider: string;
+  provisioningProperties: ProvisioningProperties;
+  deploymentProperties?: DeploymentProperties;
+  userParameters?: Array<CustomParameter>;
+  glossaryTerms?: Array<string>;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+}
 export interface CreateEnvironmentInput {
   projectIdentifier: string;
   domainIdentifier: string;
@@ -2726,6 +2980,7 @@ export interface CreateGlossaryInput {
   owningProjectIdentifier: string;
   description?: string;
   status?: GlossaryStatus;
+  usageRestrictions?: Array<GlossaryUsageRestriction>;
   clientToken?: string;
 }
 export interface CreateGlossaryOutput {
@@ -2735,6 +2990,7 @@ export interface CreateGlossaryOutput {
   owningProjectId: string;
   description?: string;
   status?: GlossaryStatus;
+  usageRestrictions?: Array<GlossaryUsageRestriction>;
 }
 export interface CreateGlossaryPolicyGrantDetail {
   includeChildDomainUnits?: boolean;
@@ -2758,6 +3014,7 @@ export interface CreateGlossaryTermOutput {
   shortDescription?: string;
   longDescription?: string;
   termRelations?: TermRelations;
+  usageRestrictions?: Array<GlossaryUsageRestriction>;
 }
 export interface CreateGroupProfileInput {
   domainIdentifier: string;
@@ -2791,6 +3048,7 @@ export interface CreateProjectInput {
   domainIdentifier: string;
   name: string;
   description?: string;
+  resourceTags?: Record<string, string>;
   glossaryTerms?: Array<string>;
   domainUnitId?: string;
   projectProfileId?: string;
@@ -2813,6 +3071,7 @@ export interface CreateProjectOutput {
   createdBy: string;
   createdAt?: Date | string;
   lastUpdatedAt?: Date | string;
+  resourceTags?: Array<ResourceTag>;
   glossaryTerms?: Array<string>;
   domainUnitId?: string;
   projectProfileId?: string;
@@ -2827,6 +3086,9 @@ export interface CreateProjectProfileInput {
   name: string;
   description?: string;
   status?: Status;
+  projectResourceTags?: Array<ResourceTagParameter>;
+  allowCustomProjectResourceTags?: boolean;
+  projectResourceTagsDescription?: string;
   environmentConfigurations?: Array<EnvironmentConfiguration>;
   domainUnitIdentifier?: string;
 }
@@ -2836,6 +3098,9 @@ export interface CreateProjectProfileOutput {
   name: string;
   description?: string;
   status?: Status;
+  projectResourceTags?: Array<ResourceTagParameter>;
+  allowCustomProjectResourceTags?: boolean;
+  projectResourceTagsDescription?: string;
   environmentConfigurations?: Array<EnvironmentConfiguration>;
   createdBy: string;
   createdAt?: Date | string;
@@ -2955,6 +3220,10 @@ export interface CreateUserProfileOutput {
 export type CredentialMap = Record<string, string>;
 export type CronString = string;
 
+export interface CustomAccountPoolHandler {
+  lambdaFunctionArn: string;
+  lambdaExecutionRoleArn?: string;
+}
 export interface CustomParameter {
   keyName: string;
   description?: string;
@@ -2962,6 +3231,7 @@ export interface CustomParameter {
   defaultValue?: string;
   isEditable?: boolean;
   isOptional?: boolean;
+  isUpdateSupported?: boolean;
 }
 export type CustomParameterList = Array<CustomParameter>;
 export type DataAssetActivityStatus =
@@ -3164,6 +3434,11 @@ export type DateTime = Date | string;
 
 export type DecisionComment = string;
 
+export interface DeleteAccountPoolInput {
+  domainIdentifier: string;
+  identifier: string;
+}
+export interface DeleteAccountPoolOutput {}
 export interface DeleteAssetFilterInput {
   domainIdentifier: string;
   assetIdentifier: string;
@@ -3244,6 +3519,10 @@ export interface DeleteEnvironmentBlueprintConfigurationInput {
   environmentBlueprintIdentifier: string;
 }
 export interface DeleteEnvironmentBlueprintConfigurationOutput {}
+export interface DeleteEnvironmentBlueprintInput {
+  domainIdentifier: string;
+  identifier: string;
+}
 export interface DeleteEnvironmentInput {
   domainIdentifier: string;
   identifier: string;
@@ -3365,6 +3644,13 @@ export interface DisassociateEnvironmentRoleInput {
   environmentRoleArn: string;
 }
 export interface DisassociateEnvironmentRoleOutput {}
+export interface DisassociateGovernedTermsInput {
+  domainIdentifier: string;
+  entityIdentifier: string;
+  entityType: GovernedEntityType;
+  governedGlossaryTerms: Array<string>;
+}
+export interface DisassociateGovernedTermsOutput {}
 export type DomainDescription = string;
 
 export type DomainId = string;
@@ -3497,8 +3783,9 @@ export interface EnvironmentConfiguration {
   description?: string;
   deploymentMode?: DeploymentMode;
   configurationParameters?: EnvironmentConfigurationParametersDetails;
-  awsAccount: AwsAccount;
-  awsRegion: Region;
+  awsAccount?: AwsAccount;
+  accountPools?: Array<string>;
+  awsRegion?: Region;
   deploymentOrder?: number;
 }
 export type EnvironmentConfigurationId = string;
@@ -3522,6 +3809,7 @@ export type EnvironmentConfigurationParametersList =
 export type EnvironmentConfigurationsList = Array<EnvironmentConfiguration>;
 export interface EnvironmentConfigurationUserParameter {
   environmentId?: string;
+  environmentResolvedAccount?: EnvironmentResolvedAccount;
   environmentConfigurationName?: string;
   environmentParameters?: Array<EnvironmentParameter>;
 }
@@ -3563,6 +3851,11 @@ export interface EnvironmentProfileSummary {
   description?: string;
   environmentBlueprintId: string;
   projectId?: string;
+}
+export interface EnvironmentResolvedAccount {
+  awsAccountId: string;
+  regionName: string;
+  sourceAccountPoolId?: string;
 }
 export type EnvironmentStatus =
   | "ACTIVE"
@@ -3693,6 +3986,23 @@ export type FormTypeIdentifier = string;
 export type FormTypeName = string;
 
 export type FormTypeStatus = "ENABLED" | "DISABLED";
+export interface GetAccountPoolInput {
+  domainIdentifier: string;
+  identifier: string;
+}
+export interface GetAccountPoolOutput {
+  domainId?: string;
+  name?: string;
+  id?: string;
+  description?: string;
+  resolutionStrategy?: ResolutionStrategy;
+  accountSource: AccountSource;
+  createdBy: string;
+  createdAt?: Date | string;
+  lastUpdatedAt?: Date | string;
+  updatedBy?: string;
+  domainUnitId?: string;
+}
 export interface GetAssetFilterInput {
   domainIdentifier: string;
   assetIdentifier: string;
@@ -3729,6 +4039,7 @@ export interface GetAssetOutput {
   firstRevisionCreatedAt?: Date | string;
   firstRevisionCreatedBy?: string;
   glossaryTerms?: Array<string>;
+  governedGlossaryTerms?: Array<string>;
   owningProjectId: string;
   domainId: string;
   listing?: AssetListingDetails;
@@ -3773,6 +4084,7 @@ export interface GetConnectionOutput {
   projectId?: string;
   props?: ConnectionPropertiesOutput;
   type: ConnectionType;
+  scope?: ConnectionScope;
 }
 export interface GetDataProductInput {
   domainIdentifier: string;
@@ -4015,6 +4327,7 @@ export interface GetGlossaryOutput {
   createdBy?: string;
   updatedAt?: Date | string;
   updatedBy?: string;
+  usageRestrictions?: Array<GlossaryUsageRestriction>;
 }
 export interface GetGlossaryTermInput {
   domainIdentifier: string;
@@ -4033,6 +4346,7 @@ export interface GetGlossaryTermOutput {
   createdBy?: string;
   updatedAt?: Date | string;
   updatedBy?: string;
+  usageRestrictions?: Array<GlossaryUsageRestriction>;
 }
 export interface GetGroupProfileInput {
   domainIdentifier: string;
@@ -4150,6 +4464,7 @@ export interface GetProjectOutput {
   createdBy: string;
   createdAt?: Date | string;
   lastUpdatedAt?: Date | string;
+  resourceTags?: Array<ResourceTag>;
   glossaryTerms?: Array<string>;
   domainUnitId?: string;
   projectProfileId?: string;
@@ -4166,6 +4481,9 @@ export interface GetProjectProfileOutput {
   name: string;
   description?: string;
   status?: Status;
+  projectResourceTags?: Array<ResourceTagParameter>;
+  allowCustomProjectResourceTags?: boolean;
+  projectResourceTagsDescription?: string;
   environmentConfigurations?: Array<EnvironmentConfiguration>;
   createdBy: string;
   createdAt?: Date | string;
@@ -4295,6 +4613,7 @@ export interface GetUserProfileOutput {
   status?: UserProfileStatus;
   details?: UserProfileDetails;
 }
+export type GlobalParameterMap = Record<string, string>;
 export type GlossaryDescription = string;
 
 export type GlossaryId = string;
@@ -4306,6 +4625,7 @@ export interface GlossaryItem {
   owningProjectId: string;
   description?: string;
   status: GlossaryStatus;
+  usageRestrictions?: Array<GlossaryUsageRestriction>;
   createdAt?: Date | string;
   createdBy?: string;
   updatedAt?: Date | string;
@@ -4326,6 +4646,7 @@ export interface GlossaryTermItem {
   id: string;
   name: string;
   shortDescription?: string;
+  usageRestrictions?: Array<GlossaryUsageRestriction>;
   longDescription?: string;
   termRelations?: TermRelations;
   status: GlossaryTermStatus;
@@ -4342,6 +4663,8 @@ export type GlossaryTermName = string;
 
 export type GlossaryTerms = Array<string>;
 export type GlossaryTermStatus = "ENABLED" | "DISABLED";
+export type GlossaryUsageRestriction = "ASSET_GOVERNED_TERMS";
+export type GlossaryUsageRestrictions = Array<GlossaryUsageRestriction>;
 export interface GlueConnection {
   name?: string;
   description?: string;
@@ -4429,6 +4752,8 @@ export interface GlueSelfGrantStatusOutput {
   selfGrantStatusDetails: Array<SelfGrantStatusDetail>;
 }
 export type GovernanceType = "AWS_MANAGED" | "USER_MANAGED";
+export type GovernedEntityType = "ASSET";
+export type GovernedGlossaryTerms = Array<string>;
 interface _GrantedEntity {
   listing?: ListingRevision;
 }
@@ -4441,6 +4766,8 @@ interface _GrantedEntityInput {
 export type GrantedEntityInput = _GrantedEntityInput & {
   listing: ListingRevisionInput;
 };
+export type GrantIdentifier = string;
+
 export interface GreaterThanExpression {
   columnName: string;
   value: string;
@@ -4499,6 +4826,7 @@ export type IamRoleArn = string;
 
 export interface IamUserProfileDetails {
   arn?: string;
+  principalId?: string;
 }
 export interface Import {
   name: string;
@@ -4567,6 +4895,10 @@ export interface LakeFormationConfiguration {
   locationRegistrationRole?: string;
   locationRegistrationExcludeS3Locations?: Array<string>;
 }
+export type LambdaExecutionRoleArn = string;
+
+export type LambdaFunctionArn = string;
+
 export type LastName = string;
 
 export interface LessThanExpression {
@@ -4660,6 +4992,28 @@ export interface LineageSqlQueryRunDetails {
 export interface LineageSyncSchedule {
   schedule?: string;
 }
+export interface ListAccountPoolsInput {
+  domainIdentifier: string;
+  name?: string;
+  sortBy?: SortFieldAccountPool;
+  sortOrder?: SortOrder;
+  nextToken?: string;
+  maxResults?: number;
+}
+export interface ListAccountPoolsOutput {
+  items?: Array<AccountPoolSummary>;
+  nextToken?: string;
+}
+export interface ListAccountsInAccountPoolInput {
+  domainIdentifier: string;
+  identifier: string;
+  nextToken?: string;
+  maxResults?: number;
+}
+export interface ListAccountsInAccountPoolOutput {
+  items?: Array<AccountInfo>;
+  nextToken?: string;
+}
 export interface ListAssetFiltersInput {
   domainIdentifier: string;
   assetIdentifier: string;
@@ -4689,8 +5043,9 @@ export interface ListConnectionsInput {
   sortOrder?: SortOrder;
   name?: string;
   environmentIdentifier?: string;
-  projectIdentifier: string;
+  projectIdentifier?: string;
   type?: ConnectionType;
+  scope?: ConnectionScope;
 }
 export interface ListConnectionsOutput {
   items: Array<ConnectionSummary>;
@@ -5078,6 +5433,10 @@ export interface ListTimeSeriesDataPointsOutput {
 }
 export type LongDescription = string;
 
+export interface ManagedEndpointCredentials {
+  id?: string;
+  token?: string;
+}
 export type ManagedPolicyType =
   | "CREATE_DOMAIN_UNIT"
   | "OVERRIDE_DOMAIN_UNIT_OWNERS"
@@ -5171,6 +5530,18 @@ export interface MetadataGenerationRunTarget {
 export type MetadataGenerationRunType = "BUSINESS_DESCRIPTIONS";
 export type MetadataGenerationTargetType = "ASSET";
 export type MetadataMap = Record<string, string>;
+export interface MlflowPropertiesInput {
+  trackingServerName?: string;
+  trackingServerArn?: string;
+}
+export interface MlflowPropertiesOutput {
+  trackingServerName?: string;
+  trackingServerArn?: string;
+}
+export interface MlflowPropertiesPatch {
+  trackingServerName?: string;
+  trackingServerArn?: string;
+}
 interface _Model {
   smithy?: string;
 }
@@ -5309,6 +5680,7 @@ export interface PhysicalEndpoint {
   awsLocation?: AwsLocation;
   glueConnectionName?: string;
   glueConnection?: GlueConnection;
+  enableTrustedIdentityPropagation?: boolean;
   host?: string;
   port?: number;
   protocol?: Protocol;
@@ -5367,6 +5739,7 @@ export interface PolicyGrantMember {
   detail?: PolicyGrantDetail;
   createdAt?: Date | string;
   createdBy?: string;
+  grantId?: string;
 }
 interface _PolicyGrantPrincipal {
   user?: UserPolicyGrantPrincipal;
@@ -5453,6 +5826,7 @@ export interface ProjectProfileSummary {
   lastUpdatedAt?: Date | string;
   domainUnitId?: string;
 }
+export type ProjectResourceTagParameters = Array<ResourceTagParameter>;
 export interface ProjectsForRule {
   selectionMode: RuleScopeSelectionMode;
   specificProjects?: Array<string>;
@@ -5462,7 +5836,8 @@ export type ProjectStatus =
   | "DELETING"
   | "DELETE_FAILED"
   | "UPDATING"
-  | "UPDATE_FAILED";
+  | "UPDATE_FAILED"
+  | "MOVING";
 export type ProjectSummaries = Array<ProjectSummary>;
 export interface ProjectSummary {
   domainId: string;
@@ -5508,6 +5883,7 @@ export interface PutEnvironmentBlueprintConfigurationInput {
   environmentRolePermissionBoundary?: string;
   enabledRegions: Array<string>;
   regionalParameters?: Record<string, Record<string, string>>;
+  globalParameters?: Record<string, string>;
   provisioningConfigurations?: Array<ProvisioningConfiguration>;
 }
 export interface PutEnvironmentBlueprintConfigurationOutput {
@@ -5690,12 +6066,14 @@ export interface RemovePolicyGrantInput {
   entityIdentifier: string;
   policyType: ManagedPolicyType;
   principal: PolicyGrantPrincipal;
+  grantIdentifier?: string;
   clientToken?: string;
 }
 export interface RemovePolicyGrantOutput {}
 export type RequestReason = string;
 
 export type RequiredMetadataFormList = Array<MetadataFormReference>;
+export type ResolutionStrategy = "MANUAL";
 export interface Resource {
   provider?: string;
   name?: string;
@@ -5708,6 +6086,18 @@ export declare class ResourceNotFoundException extends EffectData.TaggedError(
 )<{
   readonly message: string;
 }> {}
+export interface ResourceTag {
+  key: string;
+  value: string;
+  source: ResourceTagSource;
+}
+export interface ResourceTagParameter {
+  key: string;
+  value: string;
+  isValueEditable: boolean;
+}
+export type ResourceTags = Array<ResourceTag>;
+export type ResourceTagSource = "PROJECT" | "PROJECT_PROFILE";
 export type Revision = string;
 
 export type RevisionInput = string;
@@ -6028,6 +6418,7 @@ export interface SingleSignOn {
 }
 export type Smithy = string;
 
+export type SortFieldAccountPool = "NAME";
 export type SortFieldConnection = "NAME";
 export type SortFieldProject = "NAME";
 export type SortKey = "CREATED_AT" | "UPDATED_AT";
@@ -6040,6 +6431,7 @@ export interface SparkEmrPropertiesInput {
   pythonVirtualEnv?: string;
   runtimeRole?: string;
   trustedCertificatesS3Uri?: string;
+  managedEndpointArn?: string;
 }
 export interface SparkEmrPropertiesOutput {
   computeArn?: string;
@@ -6053,6 +6445,9 @@ export interface SparkEmrPropertiesOutput {
   pythonVirtualEnv?: string;
   runtimeRole?: string;
   trustedCertificatesS3Uri?: string;
+  certificateData?: string;
+  managedEndpointArn?: string;
+  managedEndpointCredentials?: ManagedEndpointCredentials;
 }
 export interface SparkEmrPropertiesPatch {
   computeArn?: string;
@@ -6062,6 +6457,7 @@ export interface SparkEmrPropertiesPatch {
   pythonVirtualEnv?: string;
   runtimeRole?: string;
   trustedCertificatesS3Uri?: string;
+  managedEndpointArn?: string;
 }
 export interface SparkGlueArgs {
   connection?: string;
@@ -6458,6 +6854,27 @@ export interface UntagResourceRequest {
   tagKeys: Array<string>;
 }
 export interface UntagResourceResponse {}
+export interface UpdateAccountPoolInput {
+  domainIdentifier: string;
+  identifier: string;
+  name?: string;
+  description?: string;
+  resolutionStrategy?: ResolutionStrategy;
+  accountSource?: AccountSource;
+}
+export interface UpdateAccountPoolOutput {
+  domainId?: string;
+  name?: string;
+  id?: string;
+  description?: string;
+  resolutionStrategy?: ResolutionStrategy;
+  accountSource: AccountSource;
+  createdBy: string;
+  createdAt?: Date | string;
+  lastUpdatedAt?: Date | string;
+  updatedBy?: string;
+  domainUnitId?: string;
+}
 export interface UpdateAssetFilterInput {
   domainIdentifier: string;
   assetIdentifier: string;
@@ -6497,6 +6914,7 @@ export interface UpdateConnectionOutput {
   projectId?: string;
   props?: ConnectionPropertiesOutput;
   type: ConnectionType;
+  scope?: ConnectionScope;
 }
 export type UpdatedAt = Date | string;
 
@@ -6593,6 +7011,25 @@ export interface UpdateEnvironmentActionOutput {
   parameters: ActionParameters;
   description?: string;
 }
+export interface UpdateEnvironmentBlueprintInput {
+  domainIdentifier: string;
+  identifier: string;
+  description?: string;
+  provisioningProperties?: ProvisioningProperties;
+  userParameters?: Array<CustomParameter>;
+}
+export interface UpdateEnvironmentBlueprintOutput {
+  id: string;
+  name: string;
+  description?: string;
+  provider: string;
+  provisioningProperties: ProvisioningProperties;
+  deploymentProperties?: DeploymentProperties;
+  userParameters?: Array<CustomParameter>;
+  glossaryTerms?: Array<string>;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+}
 export interface UpdateEnvironmentInput {
   domainIdentifier: string;
   identifier: string;
@@ -6664,6 +7101,7 @@ export interface UpdateGlossaryOutput {
   owningProjectId: string;
   description?: string;
   status?: GlossaryStatus;
+  usageRestrictions?: Array<GlossaryUsageRestriction>;
 }
 export interface UpdateGlossaryTermInput {
   domainIdentifier: string;
@@ -6684,6 +7122,7 @@ export interface UpdateGlossaryTermOutput {
   shortDescription?: string;
   longDescription?: string;
   termRelations?: TermRelations;
+  usageRestrictions?: Array<GlossaryUsageRestriction>;
 }
 export interface UpdateGroupProfileInput {
   domainIdentifier: string;
@@ -6701,6 +7140,7 @@ export interface UpdateProjectInput {
   identifier: string;
   name?: string;
   description?: string;
+  resourceTags?: Record<string, string>;
   glossaryTerms?: Array<string>;
   domainUnitId?: string;
   environmentDeploymentDetails?: EnvironmentDeploymentDetails;
@@ -6717,6 +7157,7 @@ export interface UpdateProjectOutput {
   createdBy: string;
   createdAt?: Date | string;
   lastUpdatedAt?: Date | string;
+  resourceTags?: Array<ResourceTag>;
   glossaryTerms?: Array<string>;
   domainUnitId?: string;
   projectProfileId?: string;
@@ -6729,6 +7170,9 @@ export interface UpdateProjectProfileInput {
   name?: string;
   description?: string;
   status?: Status;
+  projectResourceTags?: Array<ResourceTagParameter>;
+  allowCustomProjectResourceTags?: boolean;
+  projectResourceTagsDescription?: string;
   environmentConfigurations?: Array<EnvironmentConfiguration>;
   domainUnitIdentifier?: string;
 }
@@ -6738,6 +7182,9 @@ export interface UpdateProjectProfileOutput {
   name: string;
   description?: string;
   status?: Status;
+  projectResourceTags?: Array<ResourceTagParameter>;
+  allowCustomProjectResourceTags?: boolean;
+  projectResourceTagsDescription?: string;
   environmentConfigurations?: Array<EnvironmentConfiguration>;
   createdBy: string;
   createdAt?: Date | string;
@@ -6985,6 +7432,19 @@ export declare namespace AssociateEnvironmentRole {
     | CommonAwsError;
 }
 
+export declare namespace AssociateGovernedTerms {
+  export type Input = AssociateGovernedTermsInput;
+  export type Output = AssociateGovernedTermsOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
 export declare namespace CancelSubscription {
   export type Input = CancelSubscriptionInput;
   export type Output = CancelSubscriptionOutput;
@@ -6993,6 +7453,20 @@ export declare namespace CancelSubscription {
     | ConflictException
     | InternalServerException
     | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateAccountPool {
+  export type Input = CreateAccountPoolInput;
+  export type Output = CreateAccountPoolOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
     | ThrottlingException
     | ValidationException
     | CommonAwsError;
@@ -7047,6 +7521,20 @@ export declare namespace CreateEnvironmentAction {
     | ConflictException
     | InternalServerException
     | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateEnvironmentBlueprint {
+  export type Input = CreateEnvironmentBlueprintInput;
+  export type Output = CreateEnvironmentBlueprintOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
     | ThrottlingException
     | ValidationException
     | CommonAwsError;
@@ -7180,6 +7668,18 @@ export declare namespace CreateUserProfile {
     | CommonAwsError;
 }
 
+export declare namespace DeleteAccountPool {
+  export type Input = DeleteAccountPoolInput;
+  export type Output = DeleteAccountPoolOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
 export declare namespace DeleteAssetFilter {
   export type Input = DeleteAssetFilterInput;
   export type Output = {};
@@ -7219,6 +7719,19 @@ export declare namespace DeleteEnvironment {
 
 export declare namespace DeleteEnvironmentAction {
   export type Input = DeleteEnvironmentActionInput;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteEnvironmentBlueprint {
+  export type Input = DeleteEnvironmentBlueprintInput;
   export type Output = {};
   export type Error =
     | AccessDeniedException
@@ -7336,6 +7849,31 @@ export declare namespace DisassociateEnvironmentRole {
   export type Error =
     | AccessDeniedException
     | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DisassociateGovernedTerms {
+  export type Input = DisassociateGovernedTermsInput;
+  export type Output = DisassociateGovernedTermsOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace GetAccountPool {
+  export type Input = GetAccountPoolInput;
+  export type Output = GetAccountPoolOutput;
+  export type Error =
+    | AccessDeniedException
     | InternalServerException
     | ResourceNotFoundException
     | ThrottlingException
@@ -7578,6 +8116,29 @@ export declare namespace GetUserProfile {
     | AccessDeniedException
     | InternalServerException
     | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListAccountPools {
+  export type Input = ListAccountPoolsInput;
+  export type Output = ListAccountPoolsOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListAccountsInAccountPool {
+  export type Input = ListAccountsInAccountPoolInput;
+  export type Output = ListAccountsInAccountPoolOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
     | ValidationException
     | CommonAwsError;
 }
@@ -8024,6 +8585,20 @@ export declare namespace UntagResource {
     | CommonAwsError;
 }
 
+export declare namespace UpdateAccountPool {
+  export type Input = UpdateAccountPoolInput;
+  export type Output = UpdateAccountPoolOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
 export declare namespace UpdateAssetFilter {
   export type Input = UpdateAssetFilterInput;
   export type Output = UpdateAssetFilterOutput;
@@ -8072,6 +8647,20 @@ export declare namespace UpdateEnvironmentAction {
     | ConflictException
     | InternalServerException
     | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateEnvironmentBlueprint {
+  export type Input = UpdateEnvironmentBlueprintInput;
+  export type Output = UpdateEnvironmentBlueprintOutput;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
     | ThrottlingException
     | ValidationException
     | CommonAwsError;

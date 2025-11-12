@@ -1090,7 +1090,9 @@ export interface GetChannelMessageStatusRequest {
 export interface GetChannelMessageStatusResponse {
   Status?: ChannelMessageStatusStructure;
 }
-export interface GetMessagingSessionEndpointRequest {}
+export interface GetMessagingSessionEndpointRequest {
+  NetworkType?: NetworkType;
+}
 export interface GetMessagingSessionEndpointResponse {
   Endpoint?: MessagingSessionEndpoint;
 }
@@ -1255,6 +1257,7 @@ export type Metadata = string;
 
 export type MinimumMembershipPercentage = number;
 
+export type NetworkType = "IPV4_ONLY" | "DUAL_STACK";
 export type NextToken = string;
 
 export type NonEmptyContent = string;

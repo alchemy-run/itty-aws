@@ -420,6 +420,7 @@ export interface CapabilitySummary {
   modifiedAt?: Date | string;
 }
 export type CapabilityType = "edi";
+export type CodeList = Array<string>;
 export declare class ConflictException extends EffectData.TaggedError(
   "ConflictException",
 )<{
@@ -434,6 +435,7 @@ export interface ConversionTarget {
   fileFormat: ConversionTargetFormat;
   formatDetails?: ConversionTargetFormatDetails;
   outputSampleFile?: OutputSampleFileSource;
+  advancedOptions?: AdvancedOptions;
 }
 export type ConversionTargetFormat = "X12";
 interface _ConversionTargetFormatDetails {
@@ -564,6 +566,11 @@ interface _EdiType {
 }
 
 export type EdiType = _EdiType & { x12Details: X12Details };
+export type ElementId = string;
+
+export type ElementPosition = string;
+
+export type ElementRequirement = "OPTIONAL" | "MANDATORY";
 export type Email = string;
 
 export type ErrorMessage = string;
@@ -748,6 +755,7 @@ export type OutboundEdiOptions = _OutboundEdiOptions & { x12: X12Envelope };
 export interface OutputConversion {
   toFormat: ToFormat;
   formatOptions?: FormatOptions;
+  advancedOptions?: AdvancedOptions;
 }
 interface _OutputSampleFileSource {
   fileLocation?: S3Location;
@@ -883,6 +891,7 @@ export interface TestParsingRequest {
 export interface TestParsingResponse {
   parsedFileContent: string;
   parsedSplitFileContents?: Array<string>;
+  validationMessages?: Array<string>;
 }
 export declare class ThrottlingException extends EffectData.TaggedError(
   "ThrottlingException",
@@ -1024,11 +1033,17 @@ export type X12AcknowledgmentRequestedCode = string;
 
 export interface X12AdvancedOptions {
   splitOptions?: X12SplitOptions;
+  validationOptions?: X12ValidationOptions;
 }
 export type X12ApplicationReceiverCode = string;
 
 export type X12ApplicationSenderCode = string;
 
+export interface X12CodeListValidationRule {
+  elementId: string;
+  codesToAdd?: Array<string>;
+  codesToRemove?: Array<string>;
+}
 export type X12ComponentSeparator = string;
 
 export interface X12ControlNumbers {
@@ -1046,6 +1061,15 @@ export interface X12Delimiters {
 export interface X12Details {
   transactionSet?: X12TransactionSet;
   version?: X12Version;
+}
+export interface X12ElementLengthValidationRule {
+  elementId: string;
+  maxLength: number;
+  minLength: number;
+}
+export interface X12ElementRequirementValidationRule {
+  elementPosition: string;
+  requirement: ElementRequirement;
 }
 export interface X12Envelope {
   common?: X12OutboundEdiHeaders;
@@ -1447,6 +1471,24 @@ export type X12UsageIndicatorCode = string;
 
 export type X12ValidateEdi = boolean;
 
+export interface X12ValidationOptions {
+  validationRules?: Array<X12ValidationRule>;
+}
+interface _X12ValidationRule {
+  codeListValidationRule?: X12CodeListValidationRule;
+  elementLengthValidationRule?: X12ElementLengthValidationRule;
+  elementRequirementValidationRule?: X12ElementRequirementValidationRule;
+}
+
+export type X12ValidationRule =
+  | (_X12ValidationRule & { codeListValidationRule: X12CodeListValidationRule })
+  | (_X12ValidationRule & {
+      elementLengthValidationRule: X12ElementLengthValidationRule;
+    })
+  | (_X12ValidationRule & {
+      elementRequirementValidationRule: X12ElementRequirementValidationRule;
+    });
+export type X12ValidationRules = Array<X12ValidationRule>;
 export type X12Version =
   | "VERSION_4010"
   | "VERSION_4030"

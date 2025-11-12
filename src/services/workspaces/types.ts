@@ -421,6 +421,12 @@ export declare class WorkSpaces extends AWSServiceClient {
     | ResourceNotFoundException
     | CommonAwsError
   >;
+  describeCustomWorkspaceImageImport(
+    input: DescribeCustomWorkspaceImageImportRequest,
+  ): Effect.Effect<
+    DescribeCustomWorkspaceImageImportResult,
+    AccessDeniedException | ResourceNotFoundException | CommonAwsError
+  >;
   describeImageAssociations(
     input: DescribeImageAssociationsRequest,
   ): Effect.Effect<
@@ -570,6 +576,18 @@ export declare class WorkSpaces extends AWSServiceClient {
     ImportClientBrandingResult,
     | AccessDeniedException
     | InvalidParameterValuesException
+    | ResourceLimitExceededException
+    | ResourceNotFoundException
+    | CommonAwsError
+  >;
+  importCustomWorkspaceImage(
+    input: ImportCustomWorkspaceImageRequest,
+  ): Effect.Effect<
+    ImportCustomWorkspaceImageResult,
+    | AccessDeniedException
+    | InvalidParameterValuesException
+    | OperationNotSupportedException
+    | ResourceAlreadyExistsException
     | ResourceLimitExceededException
     | ResourceNotFoundException
     | CommonAwsError
@@ -1307,6 +1325,18 @@ export interface CreateWorkspacesResult {
   FailedRequests?: Array<FailedCreateWorkspaceRequest>;
   PendingRequests?: Array<Workspace>;
 }
+export type CustomImageProtocol = "PCOIP" | "DCV" | "BYOP";
+export interface CustomWorkspaceImageImportErrorDetails {
+  ErrorCode?: string;
+  ErrorMessage?: string;
+}
+export type CustomWorkspaceImageImportErrorDetailsList =
+  Array<CustomWorkspaceImageImportErrorDetails>;
+export type CustomWorkspaceImageImportState =
+  | "PENDING"
+  | "IN_PROGRESS"
+  | "COMPLETED"
+  | "ERROR";
 export type DataReplication = "NO_REPLICATION" | "PRIMARY_AS_SOURCE";
 export interface DataReplicationSettings {
   DataReplication?: DataReplication;
@@ -1417,6 +1447,7 @@ export interface DescribeAccountResult {
   DedicatedTenancySupport?: DedicatedTenancySupportResultEnum;
   DedicatedTenancyManagementCidrRange?: string;
   DedicatedTenancyAccountType?: DedicatedTenancyAccountType;
+  Message?: string;
 }
 export interface DescribeApplicationAssociationsRequest {
   MaxResults?: number;
@@ -1493,6 +1524,19 @@ export interface DescribeConnectionAliasPermissionsResult {
   AliasId?: string;
   ConnectionAliasPermissions?: Array<ConnectionAliasPermission>;
   NextToken?: string;
+}
+export interface DescribeCustomWorkspaceImageImportRequest {
+  ImageId: string;
+}
+export interface DescribeCustomWorkspaceImageImportResult {
+  ImageId?: string;
+  InfrastructureConfigurationArn?: string;
+  State?: CustomWorkspaceImageImportState;
+  Created?: Date | string;
+  LastUpdatedTime?: Date | string;
+  ImageSource?: ImageSourceIdentifier;
+  ImageBuilderInstanceId?: string;
+  ErrorDetails?: Array<CustomWorkspaceImageImportErrorDetails>;
 }
 export interface DescribeImageAssociationsRequest {
   ImageId: string;
@@ -1668,11 +1712,16 @@ export interface DisassociateWorkspaceApplicationResult {
 export type DisconnectTimeoutInSeconds = number;
 
 export type DnsIpAddresses = Array<string>;
+export type DnsIpv6Addresses = Array<string>;
 export type DomainName = string;
 
 export type Ec2ImageId = string;
 
+export type Ec2ImportTaskId = string;
+
 export type EndpointEncryptionMode = "STANDARD_TLS" | "FIPS_VALIDATED";
+export type ErrorCode = string;
+
 export interface ErrorDetails {
   ErrorCode?: WorkspaceImageErrorDetailCode;
   ErrorMessage?: string;
@@ -1735,6 +1784,11 @@ export type IdleDisconnectTimeoutInSeconds = number;
 export type ImageAssociatedResourceType = "APPLICATION";
 export type ImageAssociatedResourceTypeList =
   Array<ImageAssociatedResourceType>;
+export type ImageBuildVersionArn = string;
+
+export type ImageComputeType = "BASE" | "GRAPHICS_G4DN";
+export type ImageErrorMessage = string;
+
 export interface ImagePermission {
   SharedAccountId?: string;
 }
@@ -1749,6 +1803,16 @@ export interface ImageResourceAssociation {
   StateReason?: AssociationStateReason;
 }
 export type ImageResourceAssociationList = Array<ImageResourceAssociation>;
+interface _ImageSourceIdentifier {
+  Ec2ImportTaskId?: string;
+  ImageBuildVersionArn?: string;
+  Ec2ImageId?: string;
+}
+
+export type ImageSourceIdentifier =
+  | (_ImageSourceIdentifier & { Ec2ImportTaskId: string })
+  | (_ImageSourceIdentifier & { ImageBuildVersionArn: string })
+  | (_ImageSourceIdentifier & { Ec2ImageId: string });
 export type ImageType = "OWNED" | "SHARED";
 export interface ImportClientBrandingRequest {
   ResourceId: string;
@@ -1767,6 +1831,21 @@ export interface ImportClientBrandingResult {
   DeviceTypeLinux?: DefaultClientBrandingAttributes;
   DeviceTypeWeb?: DefaultClientBrandingAttributes;
 }
+export interface ImportCustomWorkspaceImageRequest {
+  ImageName: string;
+  ImageDescription: string;
+  ComputeType: ImageComputeType;
+  Protocol: CustomImageProtocol;
+  ImageSource: ImageSourceIdentifier;
+  InfrastructureConfigurationArn: string;
+  Platform: Platform;
+  OsVersion: OSVersion;
+  Tags?: Array<Tag>;
+}
+export interface ImportCustomWorkspaceImageResult {
+  ImageId?: string;
+  State?: CustomWorkspaceImageImportState;
+}
 export interface ImportWorkspaceImageRequest {
   Ec2ImageId: string;
   IngestionProcess: WorkspaceImageIngestionProcess;
@@ -1781,6 +1860,8 @@ export interface ImportWorkspaceImageResult {
 export declare class IncompatibleApplicationsException extends EffectData.TaggedError(
   "IncompatibleApplicationsException",
 )<{}> {}
+export type InfrastructureConfigurationArn = string;
+
 export declare class InternalServerException extends EffectData.TaggedError(
   "InternalServerException",
 )<{
@@ -1846,6 +1927,8 @@ export interface IpRuleItem {
   ruleDesc?: string;
 }
 export type IpRuleList = Array<IpRuleItem>;
+export type Ipv6Address = string;
+
 export type Limit = number;
 
 export type Limit50 = number;
@@ -1881,6 +1964,8 @@ export type MaximumLength = number;
 
 export type MaxUserDurationInSeconds = number;
 
+export type Message = string;
+
 export interface MicrosoftEntraConfig {
   TenantId?: string;
   ApplicationConfigSecretArn?: string;
@@ -1909,7 +1994,9 @@ export interface ModifyAccountRequest {
   DedicatedTenancySupport?: DedicatedTenancySupportEnum;
   DedicatedTenancyManagementCidrRange?: string;
 }
-export interface ModifyAccountResult {}
+export interface ModifyAccountResult {
+  Message?: string;
+}
 export interface ModifyCertificateBasedAuthPropertiesRequest {
   ResourceId: string;
   CertificateBasedAuthProperties?: CertificateBasedAuthProperties;
@@ -2002,6 +2089,7 @@ export declare class OperationNotSupportedException extends EffectData.TaggedErr
   readonly message?: string;
   readonly reason?: string;
 }> {}
+export type OSVersion = "Windows_10" | "Windows_11";
 export type PaginationToken = string;
 
 export interface PendingCreateStandbyWorkspacesRequest {
@@ -2012,6 +2100,7 @@ export interface PendingCreateStandbyWorkspacesRequest {
 }
 export type PendingCreateStandbyWorkspacesRequestList =
   Array<PendingCreateStandbyWorkspacesRequest>;
+export type Platform = "WINDOWS";
 export type PoolsRunningMode = "AUTO_STOP" | "ALWAYS_ON";
 export type Protocol = "PCOIP" | "WSP";
 export type ProtocolList = Array<Protocol>;
@@ -2353,6 +2442,7 @@ export interface Workspace {
   DirectoryId?: string;
   UserName?: string;
   IpAddress?: string;
+  Ipv6Address?: string;
   State?: WorkspaceState;
   BundleId?: string;
   SubnetId?: string;
@@ -2451,6 +2541,7 @@ export interface WorkspaceDirectory {
   RegistrationCode?: string;
   SubnetIds?: Array<string>;
   DnsIpAddresses?: Array<string>;
+  DnsIpv6Addresses?: Array<string>;
   CustomerUserName?: string;
   IamRoleId?: string;
   DirectoryType?: WorkspaceDirectoryType;
@@ -2602,6 +2693,7 @@ export interface WorkspaceRequest {
   WorkspaceProperties?: WorkspaceProperties;
   Tags?: Array<Tag>;
   WorkspaceName?: string;
+  Ipv6Address?: string;
 }
 export type WorkspaceRequestList = Array<WorkspaceRequest>;
 export interface WorkspaceResourceAssociation {
@@ -3156,6 +3248,15 @@ export declare namespace DescribeConnectionAliasPermissions {
     | CommonAwsError;
 }
 
+export declare namespace DescribeCustomWorkspaceImageImport {
+  export type Input = DescribeCustomWorkspaceImageImportRequest;
+  export type Output = DescribeCustomWorkspaceImageImportResult;
+  export type Error =
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | CommonAwsError;
+}
+
 export declare namespace DescribeImageAssociations {
   export type Input = DescribeImageAssociationsRequest;
   export type Output = DescribeImageAssociationsResult;
@@ -3319,6 +3420,19 @@ export declare namespace ImportClientBranding {
   export type Error =
     | AccessDeniedException
     | InvalidParameterValuesException
+    | ResourceLimitExceededException
+    | ResourceNotFoundException
+    | CommonAwsError;
+}
+
+export declare namespace ImportCustomWorkspaceImage {
+  export type Input = ImportCustomWorkspaceImageRequest;
+  export type Output = ImportCustomWorkspaceImageResult;
+  export type Error =
+    | AccessDeniedException
+    | InvalidParameterValuesException
+    | OperationNotSupportedException
+    | ResourceAlreadyExistsException
     | ResourceLimitExceededException
     | ResourceNotFoundException
     | CommonAwsError;

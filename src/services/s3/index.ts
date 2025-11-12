@@ -93,6 +93,8 @@ const metadata = {
         GrantRead: "x-amz-grant-read",
         GrantReadACP: "x-amz-grant-read-acp",
         GrantWriteACP: "x-amz-grant-write-acp",
+        IfMatch: "If-Match",
+        IfNoneMatch: "If-None-Match",
         MetadataDirective: "x-amz-metadata-directive",
         TaggingDirective: "x-amz-tagging-directive",
         ServerSideEncryption: "x-amz-server-side-encryption",

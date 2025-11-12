@@ -32,6 +32,7 @@ const metadata = {
   sigV4ServiceName: "iotdata",
   endpointPrefix: "data-ats.iot",
   operations: {
+    DeleteConnection: "DELETE /connections/{clientId}",
     DeleteThingShadow: {
       http: "DELETE /things/{thingName}/shadow",
       traits: {

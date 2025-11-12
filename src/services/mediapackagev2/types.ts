@@ -370,7 +370,7 @@ export declare class AccessDeniedException extends EffectData.TaggedError(
   readonly Message?: string;
 }> {}
 export type AdMarkerDash = "BINARY" | "XML";
-export type AdMarkerHls = "DATERANGE";
+export type AdMarkerHls = "DATERANGE" | "SCTE35_ENHANCED";
 export interface CancelHarvestJobRequest {
   ChannelGroupName: string;
   ChannelName: string;

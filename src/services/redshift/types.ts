@@ -276,8 +276,10 @@ export declare class Redshift extends AWSServiceClient {
     CreateRedshiftIdcApplicationResult,
     | DependentServiceAccessDeniedFault
     | DependentServiceUnavailableFault
+    | InvalidTagFault
     | RedshiftIdcApplicationAlreadyExistsFault
     | RedshiftIdcApplicationQuotaExceededFault
+    | TagLimitExceededFault
     | UnsupportedOperationFault
     | CommonAwsError
   >;
@@ -1920,6 +1922,8 @@ export interface CreateRedshiftIdcApplicationMessage {
   IamRoleArn: string;
   AuthorizedTokenIssuerList?: Array<AuthorizedTokenIssuer>;
   ServiceIntegrations?: Array<ServiceIntegrationsUnion>;
+  Tags?: Array<Tag>;
+  SsoTagKeys?: Array<string>;
 }
 export interface CreateRedshiftIdcApplicationResult {
   RedshiftIdcApplication?: RedshiftIdcApplication;
@@ -3421,6 +3425,8 @@ export interface RedshiftIdcApplication {
   IdcOnboardStatus?: string;
   AuthorizedTokenIssuerList?: Array<AuthorizedTokenIssuer>;
   ServiceIntegrations?: Array<ServiceIntegrationsUnion>;
+  Tags?: Array<Tag>;
+  SsoTagKeys?: Array<string>;
 }
 export declare class RedshiftIdcApplicationAlreadyExistsFault extends EffectData.TaggedError(
   "RedshiftIdcApplicationAlreadyExistsFault",
@@ -4472,8 +4478,10 @@ export declare namespace CreateRedshiftIdcApplication {
   export type Error =
     | DependentServiceAccessDeniedFault
     | DependentServiceUnavailableFault
+    | InvalidTagFault
     | RedshiftIdcApplicationAlreadyExistsFault
     | RedshiftIdcApplicationQuotaExceededFault
+    | TagLimitExceededFault
     | UnsupportedOperationFault
     | CommonAwsError;
 }

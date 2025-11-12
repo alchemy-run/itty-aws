@@ -251,6 +251,8 @@ export type AttrKey = string;
 
 export type AttrValue = string;
 
+export type AWSAccountId = string;
+
 export type Code = string;
 
 export interface CreateHttpNamespaceRequest {
@@ -332,6 +334,7 @@ export interface DiscoverInstancesRequest {
   QueryParameters?: Record<string, string>;
   OptionalParameters?: Record<string, string>;
   HealthStatus?: HealthStatusFilter;
+  OwnerAccount?: string;
 }
 export interface DiscoverInstancesResponse {
   Instances?: Array<HttpInstanceSummary>;
@@ -340,6 +343,7 @@ export interface DiscoverInstancesResponse {
 export interface DiscoverInstancesRevisionRequest {
   NamespaceName: string;
   ServiceName: string;
+  OwnerAccount?: string;
 }
 export interface DiscoverInstancesRevisionResponse {
   InstancesRevision?: number;
@@ -382,6 +386,7 @@ export interface GetInstanceRequest {
   InstanceId: string;
 }
 export interface GetInstanceResponse {
+  ResourceOwner?: string;
   Instance?: Instance;
 }
 export interface GetInstancesHealthStatusRequest {
@@ -402,6 +407,7 @@ export interface GetNamespaceResponse {
 }
 export interface GetOperationRequest {
   OperationId: string;
+  OwnerAccount?: string;
 }
 export interface GetOperationResponse {
   Operation?: Operation;
@@ -451,6 +457,7 @@ export interface Instance {
   Id: string;
   CreatorRequestId?: string;
   Attributes?: Record<string, string>;
+  CreatedByAccount?: string;
 }
 export type InstanceHealthStatusMap = Record<string, HealthStatus>;
 export type InstanceId = string;
@@ -464,6 +471,7 @@ export declare class InstanceNotFound extends EffectData.TaggedError(
 export interface InstanceSummary {
   Id?: string;
   Attributes?: Record<string, string>;
+  CreatedByAccount?: string;
 }
 export type InstanceSummaryList = Array<InstanceSummary>;
 export declare class InvalidInput extends EffectData.TaggedError(
@@ -477,6 +485,7 @@ export interface ListInstancesRequest {
   MaxResults?: number;
 }
 export interface ListInstancesResponse {
+  ResourceOwner?: string;
   Instances?: Array<InstanceSummary>;
   NextToken?: string;
 }
@@ -520,6 +529,7 @@ export type Message = string;
 export interface Namespace {
   Id?: string;
   Arn?: string;
+  ResourceOwner?: string;
   Name?: string;
   Type?: NamespaceType;
   Description?: string;
@@ -540,7 +550,11 @@ export interface NamespaceFilter {
   Values: Array<string>;
   Condition?: FilterCondition;
 }
-export type NamespaceFilterName = "TYPE" | "NAME" | "HTTP_NAME";
+export type NamespaceFilterName =
+  | "TYPE"
+  | "NAME"
+  | "HTTP_NAME"
+  | "RESOURCE_OWNER";
 export type NamespaceFilters = Array<NamespaceFilter>;
 export type NamespaceName = string;
 
@@ -563,6 +577,7 @@ export type NamespaceSummariesList = Array<NamespaceSummary>;
 export interface NamespaceSummary {
   Id?: string;
   Arn?: string;
+  ResourceOwner?: string;
   Name?: string;
   Type?: NamespaceType;
   Description?: string;
@@ -575,6 +590,7 @@ export type NextToken = string;
 
 export interface Operation {
   Id?: string;
+  OwnerAccount?: string;
   Type?: OperationType;
   Status?: OperationStatus;
   ErrorMessage?: string;
@@ -695,6 +711,7 @@ export type RoutingPolicy = "MULTIVALUE" | "WEIGHTED";
 export interface Service {
   Id?: string;
   Arn?: string;
+  ResourceOwner?: string;
   Name?: string;
   NamespaceId?: string;
   Description?: string;
@@ -705,6 +722,7 @@ export interface Service {
   HealthCheckCustomConfig?: HealthCheckCustomConfig;
   CreateDate?: Date | string;
   CreatorRequestId?: string;
+  CreatedByAccount?: string;
 }
 export declare class ServiceAlreadyExists extends EffectData.TaggedError(
   "ServiceAlreadyExists",
@@ -712,12 +730,14 @@ export declare class ServiceAlreadyExists extends EffectData.TaggedError(
   readonly Message?: string;
   readonly CreatorRequestId?: string;
   readonly ServiceId?: string;
+  readonly ServiceArn?: string;
 }> {}
 export type ServiceAttributeKey = string;
 
 export type ServiceAttributeKeyList = Array<string>;
 export interface ServiceAttributes {
   ServiceArn?: string;
+  ResourceOwner?: string;
   Attributes?: Record<string, string>;
 }
 export declare class ServiceAttributesLimitExceededException extends EffectData.TaggedError(
@@ -738,7 +758,7 @@ export interface ServiceFilter {
   Values: Array<string>;
   Condition?: FilterCondition;
 }
-export type ServiceFilterName = "NAMESPACE_ID";
+export type ServiceFilterName = "NAMESPACE_ID" | "RESOURCE_OWNER";
 export type ServiceFilters = Array<ServiceFilter>;
 export type ServiceName = string;
 
@@ -751,6 +771,7 @@ export type ServiceSummariesList = Array<ServiceSummary>;
 export interface ServiceSummary {
   Id?: string;
   Arn?: string;
+  ResourceOwner?: string;
   Name?: string;
   Type?: ServiceType;
   Description?: string;
@@ -759,6 +780,7 @@ export interface ServiceSummary {
   HealthCheckConfig?: HealthCheckConfig;
   HealthCheckCustomConfig?: HealthCheckCustomConfig;
   CreateDate?: Date | string;
+  CreatedByAccount?: string;
 }
 export type ServiceType = "HTTP" | "DNS_HTTP" | "DNS";
 export type ServiceTypeOption = "HTTP";

@@ -38,6 +38,7 @@ const metadata = {
     GenerateMacEmvPinChange: "POST /macemvpinchange/generate",
     GeneratePinData: "POST /pindata/generate",
     ReEncryptData: "POST /keys/{IncomingKeyIdentifier}/reencrypt",
+    TranslateKeyMaterial: "POST /keymaterial/translate",
     TranslatePinData: "POST /pindata/translate",
     VerifyAuthRequestCryptogram: "POST /cryptogram/verify",
     VerifyCardValidationData: "POST /cardvalidationdata/verify",

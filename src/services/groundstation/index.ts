@@ -33,6 +33,7 @@ const metadata = {
   protocol: "restJson1",
   sigV4ServiceName: "groundstation",
   operations: {
+    GetAgentTaskResponseUrl: "GET /agentResponseUrl/{agentId}/{taskId}",
     GetMinuteUsage: "POST /minute-usage",
     ListTagsForResource: "GET /tags/{resourceArn}",
     TagResource: "POST /tags/{resourceArn}",
@@ -40,6 +41,7 @@ const metadata = {
     CancelContact: "DELETE /contact/{contactId}",
     CreateConfig: "POST /config",
     CreateDataflowEndpointGroup: "POST /dataflowEndpointGroup",
+    CreateDataflowEndpointGroupV2: "POST /dataflowEndpointGroupV2",
     CreateEphemeris: "POST /ephemeris",
     CreateMissionProfile: "POST /missionprofile",
     DeleteConfig: "DELETE /config/{configType}/{configId}",

@@ -521,6 +521,7 @@ export type BGPAuthKey = string;
 export interface BGPPeer {
   bgpPeerId?: string;
   asn?: number;
+  asnLong?: number;
   authKey?: string;
   addressFamily?: AddressFamily;
   amazonAddress?: string;
@@ -614,6 +615,7 @@ export type ConnectionName = string;
 
 export interface Connections {
   connections?: Array<Connection>;
+  nextToken?: string;
 }
 export type ConnectionState =
   | "ordering"
@@ -718,6 +720,7 @@ export interface CustomerAgreement {
 export interface DeleteBGPPeerRequest {
   virtualInterfaceId?: string;
   asn?: number;
+  asnLong?: number;
   customerAddress?: string;
   bgpPeerId?: string;
 }
@@ -775,6 +778,8 @@ export interface DescribeConnectionsOnInterconnectRequest {
 }
 export interface DescribeConnectionsRequest {
   connectionId?: string;
+  maxResults?: number;
+  nextToken?: string;
 }
 export interface DescribeCustomerMetadataResponse {
   agreements?: Array<CustomerAgreement>;
@@ -824,6 +829,8 @@ export interface DescribeDirectConnectGatewaysResult {
 }
 export interface DescribeHostedConnectionsRequest {
   connectionId: string;
+  maxResults?: number;
+  nextToken?: string;
 }
 export interface DescribeInterconnectLoaRequest {
   interconnectId: string;
@@ -835,9 +842,13 @@ export interface DescribeInterconnectLoaResponse {
 }
 export interface DescribeInterconnectsRequest {
   interconnectId?: string;
+  maxResults?: number;
+  nextToken?: string;
 }
 export interface DescribeLagsRequest {
   lagId?: string;
+  maxResults?: number;
+  nextToken?: string;
 }
 export interface DescribeLoaRequest {
   connectionId: string;
@@ -863,6 +874,8 @@ export interface DescribeTagsResponse {
 export interface DescribeVirtualInterfacesRequest {
   connectionId?: string;
   virtualInterfaceId?: string;
+  maxResults?: number;
+  nextToken?: string;
 }
 export declare class DirectConnectClientException extends EffectData.TaggedError(
   "DirectConnectClientException",
@@ -1013,6 +1026,7 @@ export type InterconnectName = string;
 
 export interface Interconnects {
   interconnects?: Array<Interconnect>;
+  nextToken?: string;
 }
 export type InterconnectState =
   | "requested"
@@ -1054,6 +1068,7 @@ export type LagName = string;
 
 export interface Lags {
   lags?: Array<Lag>;
+  nextToken?: string;
 }
 export type LagState =
   | "requested"
@@ -1117,6 +1132,7 @@ export type MTU = number;
 
 export interface NewBGPPeer {
   asn?: number;
+  asnLong?: number;
   authKey?: string;
   addressFamily?: AddressFamily;
   amazonAddress?: string;
@@ -1125,7 +1141,8 @@ export interface NewBGPPeer {
 export interface NewPrivateVirtualInterface {
   virtualInterfaceName: string;
   vlan: number;
-  asn: number;
+  asn?: number;
+  asnLong?: number;
   mtu?: number;
   authKey?: string;
   amazonAddress?: string;
@@ -1139,7 +1156,8 @@ export interface NewPrivateVirtualInterface {
 export interface NewPrivateVirtualInterfaceAllocation {
   virtualInterfaceName: string;
   vlan: number;
-  asn: number;
+  asn?: number;
+  asnLong?: number;
   mtu?: number;
   authKey?: string;
   amazonAddress?: string;
@@ -1150,7 +1168,8 @@ export interface NewPrivateVirtualInterfaceAllocation {
 export interface NewPublicVirtualInterface {
   virtualInterfaceName: string;
   vlan: number;
-  asn: number;
+  asn?: number;
+  asnLong?: number;
   authKey?: string;
   amazonAddress?: string;
   customerAddress?: string;
@@ -1161,7 +1180,8 @@ export interface NewPublicVirtualInterface {
 export interface NewPublicVirtualInterfaceAllocation {
   virtualInterfaceName: string;
   vlan: number;
-  asn: number;
+  asn?: number;
+  asnLong?: number;
   authKey?: string;
   amazonAddress?: string;
   customerAddress?: string;
@@ -1173,6 +1193,7 @@ export interface NewTransitVirtualInterface {
   virtualInterfaceName?: string;
   vlan?: number;
   asn?: number;
+  asnLong?: number;
   mtu?: number;
   authKey?: string;
   amazonAddress?: string;
@@ -1186,6 +1207,7 @@ export interface NewTransitVirtualInterfaceAllocation {
   virtualInterfaceName?: string;
   vlan?: number;
   asn?: number;
+  asnLong?: number;
   mtu?: number;
   authKey?: string;
   amazonAddress?: string;
@@ -1355,6 +1377,7 @@ export interface VirtualInterface {
   virtualInterfaceName?: string;
   vlan?: number;
   asn?: number;
+  asnLong?: number;
   amazonSideAsn?: number;
   authKey?: string;
   amazonAddress?: string;
@@ -1383,6 +1406,7 @@ export type VirtualInterfaceRegion = string;
 
 export interface VirtualInterfaces {
   virtualInterfaces?: Array<VirtualInterface>;
+  nextToken?: string;
 }
 export type VirtualInterfaceState =
   | "confirming"

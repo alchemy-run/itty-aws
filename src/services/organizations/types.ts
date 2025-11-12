@@ -508,6 +508,20 @@ export declare class Organizations extends AWSServiceClient {
     | TooManyRequestsException
     | CommonAwsError
   >;
+  listAccountsWithInvalidEffectivePolicy(
+    input: ListAccountsWithInvalidEffectivePolicyRequest,
+  ): Effect.Effect<
+    ListAccountsWithInvalidEffectivePolicyResponse,
+    | AccessDeniedException
+    | AWSOrganizationsNotInUseException
+    | ConstraintViolationException
+    | EffectivePolicyNotFoundException
+    | InvalidInputException
+    | ServiceException
+    | TooManyRequestsException
+    | UnsupportedAPIEndpointException
+    | CommonAwsError
+  >;
   listAWSServiceAccessForOrganization(
     input: ListAWSServiceAccessForOrganizationRequest,
   ): Effect.Effect<
@@ -567,6 +581,21 @@ export declare class Organizations extends AWSServiceClient {
     | AccountNotRegisteredException
     | AWSOrganizationsNotInUseException
     | ConstraintViolationException
+    | InvalidInputException
+    | ServiceException
+    | TooManyRequestsException
+    | UnsupportedAPIEndpointException
+    | CommonAwsError
+  >;
+  listEffectivePolicyValidationErrors(
+    input: ListEffectivePolicyValidationErrorsRequest,
+  ): Effect.Effect<
+    ListEffectivePolicyValidationErrorsResponse,
+    | AccessDeniedException
+    | AccountNotFoundException
+    | AWSOrganizationsNotInUseException
+    | ConstraintViolationException
+    | EffectivePolicyNotFoundException
     | InvalidInputException
     | ServiceException
     | TooManyRequestsException
@@ -829,6 +858,7 @@ export interface Account {
   Email?: string;
   Name?: string;
   Status?: AccountStatus;
+  State?: AccountState;
   JoinedMethod?: AccountJoinedMethod;
   JoinedTimestamp?: Date | string;
 }
@@ -865,6 +895,12 @@ export declare class AccountOwnerNotVerifiedException extends EffectData.TaggedE
   readonly Message?: string;
 }> {}
 export type Accounts = Array<Account>;
+export type AccountState =
+  | "PENDING_ACTIVATION"
+  | "ACTIVE"
+  | "SUSPENDED"
+  | "PENDING_CLOSURE"
+  | "CLOSED";
 export type AccountStatus = "ACTIVE" | "SUSPENDED" | "PENDING_CLOSURE";
 export type ActionType =
   | "INVITE"
@@ -1057,6 +1093,7 @@ export interface DelegatedAdministrator {
   Email?: string;
   Name?: string;
   Status?: AccountStatus;
+  State?: AccountState;
   JoinedMethod?: AccountJoinedMethod;
   JoinedTimestamp?: Date | string;
   DelegationEnabledDate?: Date | string;
@@ -1182,6 +1219,14 @@ export type EffectivePolicyType =
   | "CHATBOT_POLICY"
   | "DECLARATIVE_POLICY_EC2"
   | "SECURITYHUB_POLICY";
+export interface EffectivePolicyValidationError {
+  ErrorCode?: string;
+  ErrorMessage?: string;
+  PathToError?: string;
+  ContributingPolicies?: Array<string>;
+}
+export type EffectivePolicyValidationErrors =
+  Array<EffectivePolicyValidationError>;
 export type Email = string;
 
 export interface EnableAllFeaturesRequest {}
@@ -1203,6 +1248,10 @@ export interface EnablePolicyTypeRequest {
 export interface EnablePolicyTypeResponse {
   Root?: Root;
 }
+export type ErrorCode = string;
+
+export type ErrorMessage = string;
+
 export type ExceptionMessage = string;
 
 export type ExceptionType = string;
@@ -1362,6 +1411,16 @@ export interface ListAccountsResponse {
   Accounts?: Array<Account>;
   NextToken?: string;
 }
+export interface ListAccountsWithInvalidEffectivePolicyRequest {
+  PolicyType: EffectivePolicyType;
+  NextToken?: string;
+  MaxResults?: number;
+}
+export interface ListAccountsWithInvalidEffectivePolicyResponse {
+  Accounts?: Array<Account>;
+  PolicyType?: EffectivePolicyType;
+  NextToken?: string;
+}
 export interface ListAWSServiceAccessForOrganizationRequest {
   NextToken?: string;
   MaxResults?: number;
@@ -1406,6 +1465,20 @@ export interface ListDelegatedServicesForAccountRequest {
 export interface ListDelegatedServicesForAccountResponse {
   DelegatedServices?: Array<DelegatedService>;
   NextToken?: string;
+}
+export interface ListEffectivePolicyValidationErrorsRequest {
+  AccountId: string;
+  PolicyType: EffectivePolicyType;
+  NextToken?: string;
+  MaxResults?: number;
+}
+export interface ListEffectivePolicyValidationErrorsResponse {
+  AccountId?: string;
+  PolicyType?: EffectivePolicyType;
+  Path?: string;
+  EvaluationTimestamp?: Date | string;
+  NextToken?: string;
+  EffectivePolicyValidationErrors?: Array<EffectivePolicyValidationError>;
 }
 export interface ListHandshakesForAccountRequest {
   Filter?: HandshakeFilter;
@@ -1560,6 +1633,10 @@ export declare class ParentNotFoundException extends EffectData.TaggedError(
 }> {}
 export type Parents = Array<Parent>;
 export type ParentType = "ROOT" | "ORGANIZATIONAL_UNIT";
+export type Path = string;
+
+export type PathToError = string;
+
 export type Policies = Array<PolicySummary>;
 export interface Policy {
   PolicySummary?: PolicySummary;
@@ -1578,6 +1655,7 @@ export type PolicyDescription = string;
 
 export type PolicyId = string;
 
+export type PolicyIds = Array<string>;
 export declare class PolicyInUseException extends EffectData.TaggedError(
   "PolicyInUseException",
 )<{
@@ -2277,6 +2355,21 @@ export declare namespace ListAccountsForParent {
     | CommonAwsError;
 }
 
+export declare namespace ListAccountsWithInvalidEffectivePolicy {
+  export type Input = ListAccountsWithInvalidEffectivePolicyRequest;
+  export type Output = ListAccountsWithInvalidEffectivePolicyResponse;
+  export type Error =
+    | AccessDeniedException
+    | AWSOrganizationsNotInUseException
+    | ConstraintViolationException
+    | EffectivePolicyNotFoundException
+    | InvalidInputException
+    | ServiceException
+    | TooManyRequestsException
+    | UnsupportedAPIEndpointException
+    | CommonAwsError;
+}
+
 export declare namespace ListAWSServiceAccessForOrganization {
   export type Input = ListAWSServiceAccessForOrganizationRequest;
   export type Output = ListAWSServiceAccessForOrganizationResponse;
@@ -2340,6 +2433,22 @@ export declare namespace ListDelegatedServicesForAccount {
     | AccountNotRegisteredException
     | AWSOrganizationsNotInUseException
     | ConstraintViolationException
+    | InvalidInputException
+    | ServiceException
+    | TooManyRequestsException
+    | UnsupportedAPIEndpointException
+    | CommonAwsError;
+}
+
+export declare namespace ListEffectivePolicyValidationErrors {
+  export type Input = ListEffectivePolicyValidationErrorsRequest;
+  export type Output = ListEffectivePolicyValidationErrorsResponse;
+  export type Error =
+    | AccessDeniedException
+    | AccountNotFoundException
+    | AWSOrganizationsNotInUseException
+    | ConstraintViolationException
+    | EffectivePolicyNotFoundException
     | InvalidInputException
     | ServiceException
     | TooManyRequestsException

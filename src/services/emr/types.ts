@@ -883,6 +883,7 @@ export type InstanceFleetState =
   | "BOOTSTRAPPING"
   | "RUNNING"
   | "RESIZING"
+  | "RECONFIGURING"
   | "SUSPENDED"
   | "TERMINATING"
   | "TERMINATED";

@@ -61,6 +61,7 @@ export declare class GeoMaps extends AWSServiceClient {
     GetTileResponse,
     | AccessDeniedException
     | InternalServerException
+    | ResourceNotFoundException
     | ThrottlingException
     | ValidationException
     | CommonAwsError
@@ -77,6 +78,8 @@ export type ApiKey = string;
 export type ColorScheme = string;
 
 export type CompactOverlay = string;
+
+export type ContourDensity = string;
 
 export type CountryCode = string;
 
@@ -139,6 +142,10 @@ export interface GetStyleDescriptorRequest {
   Style: string;
   ColorScheme?: string;
   PoliticalView?: string;
+  Terrain?: string;
+  ContourDensity?: string;
+  Traffic?: string;
+  TravelModes?: Array<string>;
   Key?: string;
 }
 export interface GetStyleDescriptorResponse {
@@ -148,6 +155,7 @@ export interface GetStyleDescriptorResponse {
   ETag?: string;
 }
 export interface GetTileRequest {
+  AdditionalFeatures?: Array<string>;
   Tileset: string;
   Z: string;
   X: string;
@@ -178,17 +186,38 @@ export type PositionListString = string;
 
 export type PositionString = string;
 
+export declare class ResourceNotFoundException extends EffectData.TaggedError(
+  "ResourceNotFoundException",
+)<{
+  readonly Message: string;
+}> {}
 export type ScaleBarUnit = string;
 
+export type SensitiveFloat = number;
+
+export type SensitiveInteger = number;
+
+export type SensitiveString = string;
+
 export type StaticMapStyle = string;
+
+export type Terrain = string;
 
 export declare class ThrottlingException extends EffectData.TaggedError(
   "ThrottlingException",
 )<{
   readonly Message: string;
 }> {}
+export type TileAdditionalFeature = string;
+
+export type TileAdditionalFeatureList = Array<string>;
 export type Tileset = string;
 
+export type Traffic = string;
+
+export type TravelMode = string;
+
+export type TravelModeList = Array<string>;
 export declare class ValidationException extends EffectData.TaggedError(
   "ValidationException",
 )<{
@@ -240,6 +269,7 @@ export declare namespace GetTile {
   export type Error =
     | AccessDeniedException
     | InternalServerException
+    | ResourceNotFoundException
     | ThrottlingException
     | ValidationException
     | CommonAwsError;
@@ -248,6 +278,7 @@ export declare namespace GetTile {
 export type GeoMapsErrors =
   | AccessDeniedException
   | InternalServerException
+  | ResourceNotFoundException
   | ThrottlingException
   | ValidationException
   | CommonAwsError;

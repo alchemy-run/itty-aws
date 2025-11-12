@@ -102,6 +102,18 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | CommonAwsError
   >;
+  createActionConnector(
+    input: CreateActionConnectorRequest,
+  ): Effect.Effect<
+    CreateActionConnectorResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalFailureException
+    | InvalidParameterValueException
+    | ResourceExistsException
+    | ThrottlingException
+    | CommonAwsError
+  >;
   createAnalysis(
     input: CreateAnalysisRequest,
   ): Effect.Effect<
@@ -427,6 +439,17 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | CommonAwsError
   >;
+  deleteAccountCustomPermission(
+    input: DeleteAccountCustomPermissionRequest,
+  ): Effect.Effect<
+    DeleteAccountCustomPermissionResponse,
+    | AccessDeniedException
+    | InternalFailureException
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
+  >;
   deleteAccountSubscription(
     input: DeleteAccountSubscriptionRequest,
   ): Effect.Effect<
@@ -437,6 +460,17 @@ export declare class QuickSight extends AWSServiceClient {
     | PreconditionNotMetException
     | ResourceNotFoundException
     | ResourceUnavailableException
+    | ThrottlingException
+    | CommonAwsError
+  >;
+  deleteActionConnector(
+    input: DeleteActionConnectorRequest,
+  ): Effect.Effect<
+    DeleteActionConnectorResponse,
+    | AccessDeniedException
+    | InternalFailureException
+    | InvalidParameterValueException
+    | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
   >;
@@ -816,6 +850,17 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | CommonAwsError
   >;
+  describeAccountCustomPermission(
+    input: DescribeAccountCustomPermissionRequest,
+  ): Effect.Effect<
+    DescribeAccountCustomPermissionResponse,
+    | AccessDeniedException
+    | InternalFailureException
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
+  >;
   describeAccountSettings(
     input: DescribeAccountSettingsRequest,
   ): Effect.Effect<
@@ -837,6 +882,28 @@ export declare class QuickSight extends AWSServiceClient {
     | InvalidParameterValueException
     | ResourceNotFoundException
     | ResourceUnavailableException
+    | ThrottlingException
+    | CommonAwsError
+  >;
+  describeActionConnector(
+    input: DescribeActionConnectorRequest,
+  ): Effect.Effect<
+    DescribeActionConnectorResponse,
+    | AccessDeniedException
+    | InternalFailureException
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
+  >;
+  describeActionConnectorPermissions(
+    input: DescribeActionConnectorPermissionsRequest,
+  ): Effect.Effect<
+    DescribeActionConnectorPermissionsResponse,
+    | AccessDeniedException
+    | InternalFailureException
+    | InvalidParameterValueException
+    | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError
   >;
@@ -1476,6 +1543,26 @@ export declare class QuickSight extends AWSServiceClient {
     | UnsupportedUserEditionException
     | CommonAwsError
   >;
+  getFlowMetadata(
+    input: GetFlowMetadataInput,
+  ): Effect.Effect<
+    GetFlowMetadataOutput,
+    | AccessDeniedException
+    | InternalFailureException
+    | InvalidParameterValueException
+    | ThrottlingException
+    | CommonAwsError
+  >;
+  getFlowPermissions(
+    input: GetFlowPermissionsInput,
+  ): Effect.Effect<
+    GetFlowPermissionsOutput,
+    | AccessDeniedException
+    | InternalFailureException
+    | InvalidParameterValueException
+    | ThrottlingException
+    | CommonAwsError
+  >;
   getSessionEmbedUrl(
     input: GetSessionEmbedUrlRequest,
   ): Effect.Effect<
@@ -1489,6 +1576,17 @@ export declare class QuickSight extends AWSServiceClient {
     | SessionLifetimeInMinutesInvalidException
     | ThrottlingException
     | UnsupportedUserEditionException
+    | CommonAwsError
+  >;
+  listActionConnectors(
+    input: ListActionConnectorsRequest,
+  ): Effect.Effect<
+    ListActionConnectorsResponse,
+    | AccessDeniedException
+    | InternalFailureException
+    | InvalidNextTokenException
+    | InvalidParameterValueException
+    | ThrottlingException
     | CommonAwsError
   >;
   listAnalyses(
@@ -1586,6 +1684,16 @@ export declare class QuickSight extends AWSServiceClient {
     | AccessDeniedException
     | InternalFailureException
     | InvalidNextTokenException
+    | InvalidParameterValueException
+    | ThrottlingException
+    | CommonAwsError
+  >;
+  listFlows(
+    input: ListFlowsInput,
+  ): Effect.Effect<
+    ListFlowsOutput,
+    | AccessDeniedException
+    | InternalFailureException
     | InvalidParameterValueException
     | ThrottlingException
     | CommonAwsError
@@ -1960,6 +2068,16 @@ export declare class QuickSight extends AWSServiceClient {
     | UnsupportedUserEditionException
     | CommonAwsError
   >;
+  searchActionConnectors(
+    input: SearchActionConnectorsRequest,
+  ): Effect.Effect<
+    SearchActionConnectorsResponse,
+    | AccessDeniedException
+    | InvalidNextTokenException
+    | InvalidParameterValueException
+    | ThrottlingException
+    | CommonAwsError
+  >;
   searchAnalyses(
     input: SearchAnalysesRequest,
   ): Effect.Effect<
@@ -2005,6 +2123,16 @@ export declare class QuickSight extends AWSServiceClient {
     | InvalidNextTokenException
     | InvalidParameterValueException
     | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
+  >;
+  searchFlows(
+    input: SearchFlowsInput,
+  ): Effect.Effect<
+    SearchFlowsOutput,
+    | AccessDeniedException
+    | InternalFailureException
+    | InvalidParameterValueException
     | ThrottlingException
     | CommonAwsError
   >;
@@ -2138,6 +2266,17 @@ export declare class QuickSight extends AWSServiceClient {
     | ThrottlingException
     | CommonAwsError
   >;
+  updateAccountCustomPermission(
+    input: UpdateAccountCustomPermissionRequest,
+  ): Effect.Effect<
+    UpdateAccountCustomPermissionResponse,
+    | AccessDeniedException
+    | InternalFailureException
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
+  >;
   updateAccountSettings(
     input: UpdateAccountSettingsRequest,
   ): Effect.Effect<
@@ -2148,6 +2287,32 @@ export declare class QuickSight extends AWSServiceClient {
     | ResourceNotFoundException
     | ResourceUnavailableException
     | ThrottlingException
+    | CommonAwsError
+  >;
+  updateActionConnector(
+    input: UpdateActionConnectorRequest,
+  ): Effect.Effect<
+    UpdateActionConnectorResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalFailureException
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
+  >;
+  updateActionConnectorPermissions(
+    input: UpdateActionConnectorPermissionsRequest,
+  ): Effect.Effect<
+    UpdateActionConnectorPermissionsResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalFailureException
+    | InvalidParameterValueException
+    | LimitExceededException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnsupportedUserEditionException
     | CommonAwsError
   >;
   updateAnalysis(
@@ -2362,6 +2527,16 @@ export declare class QuickSight extends AWSServiceClient {
     | InternalFailureException
     | InvalidParameterValueException
     | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
+  >;
+  updateFlowPermissions(
+    input: UpdateFlowPermissionsInput,
+  ): Effect.Effect<
+    UpdateFlowPermissionsOutput,
+    | AccessDeniedException
+    | InternalFailureException
+    | InvalidParameterValueException
     | ThrottlingException
     | CommonAwsError
   >;
@@ -2700,6 +2875,8 @@ export interface AccountCustomization {
   DefaultTheme?: string;
   DefaultEmailCustomizationTemplate?: string;
 }
+export type AccountId = string;
+
 export interface AccountInfo {
   AccountName?: string;
   Edition?: Edition;
@@ -2718,7 +2895,94 @@ export interface AccountSettings {
   PublicSharingEnabled?: boolean;
   TerminationProtectionEnabled?: boolean;
 }
+export interface ActionConnector {
+  Arn: string;
+  ActionConnectorId: string;
+  Type: ActionConnectorType;
+  Name: string;
+  CreatedTime?: Date | string;
+  LastUpdatedTime: Date | string;
+  Status?: ResourceStatus;
+  Error?: ActionConnectorError;
+  Description?: string;
+  AuthenticationConfig?: ReadAuthConfig;
+  EnabledActions?: Array<string>;
+  VpcConnectionArn?: string;
+}
+export type ActionConnectorDescription = string;
+
+export interface ActionConnectorError {
+  Message?: string;
+  Type?: ActionConnectorErrorType;
+}
+export type ActionConnectorErrorType = "INTERNAL_FAILURE";
+export type ActionConnectorName = string;
+
+export interface ActionConnectorSearchFilter {
+  Name: ActionConnectorSearchFilterNameEnum;
+  Operator: FilterOperator;
+  Value: string;
+}
+export type ActionConnectorSearchFilterList =
+  Array<ActionConnectorSearchFilter>;
+export type ActionConnectorSearchFilterNameEnum =
+  | "ACTION_CONNECTOR_NAME"
+  | "ACTION_CONNECTOR_TYPE"
+  | "QUICKSIGHT_OWNER"
+  | "QUICKSIGHT_VIEWER_OR_OWNER"
+  | "DIRECT_QUICKSIGHT_SOLE_OWNER"
+  | "DIRECT_QUICKSIGHT_OWNER"
+  | "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER";
+export interface ActionConnectorSummary {
+  Arn: string;
+  ActionConnectorId: string;
+  Type: ActionConnectorType;
+  Name: string;
+  CreatedTime?: Date | string;
+  LastUpdatedTime: Date | string;
+  Status?: ResourceStatus;
+  Error?: ActionConnectorError;
+}
+export type ActionConnectorSummaryList = Array<ActionConnectorSummary>;
+export type ActionConnectorType =
+  | "GENERIC_HTTP"
+  | "SERVICENOW_NOW_PLATFORM"
+  | "SALESFORCE_CRM"
+  | "MICROSOFT_OUTLOOK"
+  | "PAGERDUTY_ADVANCE"
+  | "JIRA_CLOUD"
+  | "ATLASSIAN_CONFLUENCE"
+  | "AMAZON_S3"
+  | "AMAZON_BEDROCK_AGENT_RUNTIME"
+  | "AMAZON_BEDROCK_RUNTIME"
+  | "AMAZON_BEDROCK_DATA_AUTOMATION_RUNTIME"
+  | "AMAZON_TEXTRACT"
+  | "AMAZON_COMPREHEND"
+  | "AMAZON_COMPREHEND_MEDICAL"
+  | "MICROSOFT_ONEDRIVE"
+  | "MICROSOFT_SHAREPOINT"
+  | "MICROSOFT_TEAMS"
+  | "SAP_BUSINESSPARTNER"
+  | "SAP_PRODUCTMASTERDATA"
+  | "SAP_PHYSICALINVENTORY"
+  | "SAP_BILLOFMATERIALS"
+  | "SAP_MATERIALSTOCK"
+  | "ZENDESK_SUITE"
+  | "SMARTSHEET"
+  | "SLACK"
+  | "ASANA"
+  | "BAMBOO_HR";
+export type ActionId = string;
+
+export type ActionIdList = Array<string>;
 export type ActionList = Array<string>;
+export type ActionPassword = string;
+
+export type ActionsList = Array<string>;
+export type ActionsListMemberString = string;
+
+export type ActionUserName = string;
+
 export interface ActiveIAMPolicyAssignment {
   AssignmentName?: string;
   PolicyArn?: string;
@@ -2926,8 +3190,18 @@ export type AnonymousUserSnapshotJobResultList =
 export type AnswerId = string;
 
 export type AnswerIds = Array<string>;
+export type APIKey = string;
+
+export interface APIKeyConnectionMetadata {
+  BaseEndpoint: string;
+  ApiKey: string;
+  Email?: string;
+}
+export type ApplicationArn = string;
+
 export interface ApplicationTheme {
   BrandColorPalette?: BrandColorPalette;
+  ContextualAccentPalette?: ContextualAccentPalette;
   BrandElementStyle?: BrandElementStyle;
 }
 export interface ArcAxisConfiguration {
@@ -3354,12 +3628,65 @@ export interface AuroraPostgreSqlParameters {
   Port: number;
   Database: string;
 }
+export interface AuthConfig {
+  AuthenticationType: ConnectionAuthType;
+  AuthenticationMetadata: AuthenticationMetadata;
+}
+interface _AuthenticationMetadata {
+  AuthorizationCodeGrantMetadata?: AuthorizationCodeGrantMetadata;
+  ClientCredentialsGrantMetadata?: ClientCredentialsGrantMetadata;
+  BasicAuthConnectionMetadata?: BasicAuthConnectionMetadata;
+  ApiKeyConnectionMetadata?: APIKeyConnectionMetadata;
+  NoneConnectionMetadata?: NoneConnectionMetadata;
+  IamConnectionMetadata?: IAMConnectionMetadata;
+}
+
+export type AuthenticationMetadata =
+  | (_AuthenticationMetadata & {
+      AuthorizationCodeGrantMetadata: AuthorizationCodeGrantMetadata;
+    })
+  | (_AuthenticationMetadata & {
+      ClientCredentialsGrantMetadata: ClientCredentialsGrantMetadata;
+    })
+  | (_AuthenticationMetadata & {
+      BasicAuthConnectionMetadata: BasicAuthConnectionMetadata;
+    })
+  | (_AuthenticationMetadata & {
+      ApiKeyConnectionMetadata: APIKeyConnectionMetadata;
+    })
+  | (_AuthenticationMetadata & {
+      NoneConnectionMetadata: NoneConnectionMetadata;
+    })
+  | (_AuthenticationMetadata & {
+      IamConnectionMetadata: IAMConnectionMetadata;
+    });
 export type AuthenticationMethodOption =
   | "IAM_AND_QUICKSIGHT"
   | "IAM_ONLY"
   | "ACTIVE_DIRECTORY"
   | "IAM_IDENTITY_CENTER";
 export type AuthenticationType = "PASSWORD" | "TOKEN" | "X509";
+interface _AuthorizationCodeGrantCredentialsDetails {
+  AuthorizationCodeGrantDetails?: AuthorizationCodeGrantDetails;
+}
+
+export type AuthorizationCodeGrantCredentialsDetails =
+  _AuthorizationCodeGrantCredentialsDetails & {
+    AuthorizationCodeGrantDetails: AuthorizationCodeGrantDetails;
+  };
+export type AuthorizationCodeGrantCredentialsSource = "PLAIN_CREDENTIALS";
+export interface AuthorizationCodeGrantDetails {
+  ClientId: string;
+  ClientSecret: string;
+  TokenEndpoint: string;
+  AuthorizationEndpoint: string;
+}
+export interface AuthorizationCodeGrantMetadata {
+  BaseEndpoint: string;
+  RedirectUrl: string;
+  AuthorizationCodeGrantCredentialsSource?: AuthorizationCodeGrantCredentialsSource;
+  AuthorizationCodeGrantCredentialsDetails?: AuthorizationCodeGrantCredentialsDetails;
+}
 export interface AuthorizedTargetsByService {
   Service?: ServiceType;
   AuthorizedTargets?: Array<string>;
@@ -3486,6 +3813,11 @@ export type BaseMapStyleType =
   | "DARK_GRAY"
   | "STREET"
   | "IMAGERY";
+export interface BasicAuthConnectionMetadata {
+  BaseEndpoint: string;
+  Username: string;
+  Password: string;
+}
 export interface BatchCreateTopicReviewedAnswerRequest {
   AwsAccountId: string;
   TopicId: string;
@@ -3728,6 +4060,20 @@ export interface Capabilities {
   ExportToCsvInScheduledReports?: CapabilityState;
   ExportToExcelInScheduledReports?: CapabilityState;
   IncludeContentInScheduledReportsEmail?: CapabilityState;
+  Dashboard?: CapabilityState;
+  Analysis?: CapabilityState;
+  Automate?: CapabilityState;
+  Flow?: CapabilityState;
+  PublishWithoutApproval?: CapabilityState;
+  UseBedrockModels?: CapabilityState;
+  PerformFlowUiTask?: CapabilityState;
+  UseAgentWebSearch?: CapabilityState;
+  KnowledgeBase?: CapabilityState;
+  Action?: CapabilityState;
+  Space?: CapabilityState;
+  ChatAgent?: CapabilityState;
+  CreateChatAgents?: CapabilityState;
+  Research?: CapabilityState;
 }
 export type CapabilityState = "DENY";
 export interface CascadingControlConfiguration {
@@ -3806,6 +4152,28 @@ export interface ChartAxisLabelOptions {
   AxisLabelOptions?: Array<AxisLabelOptions>;
 }
 export type CIDR = string;
+
+interface _ClientCredentialsDetails {
+  ClientCredentialsGrantDetails?: ClientCredentialsGrantDetails;
+}
+
+export type ClientCredentialsDetails = _ClientCredentialsDetails & {
+  ClientCredentialsGrantDetails: ClientCredentialsGrantDetails;
+};
+export interface ClientCredentialsGrantDetails {
+  ClientId: string;
+  ClientSecret: string;
+  TokenEndpoint: string;
+}
+export interface ClientCredentialsGrantMetadata {
+  BaseEndpoint: string;
+  ClientCredentialsSource?: ClientCredentialsSource;
+  ClientCredentialsDetails?: ClientCredentialsDetails;
+}
+export type ClientCredentialsSource = "PLAIN_CREDENTIALS";
+export type ClientId = string;
+
+export type ClientSecret = string;
 
 export type ClusterId = string;
 
@@ -4056,11 +4424,27 @@ export declare class ConflictException extends EffectData.TaggedError(
   readonly Message?: string;
   readonly RequestId?: string;
 }> {}
+export interface ConfluenceParameters {
+  ConfluenceUrl: string;
+}
+export type ConnectionAuthType =
+  | "BASIC"
+  | "API_KEY"
+  | "OAUTH2_CLIENT_CREDENTIALS"
+  | "NONE"
+  | "IAM"
+  | "OAUTH2_AUTHORIZATION_CODE";
 export type ConstantType = "SINGULAR" | "RANGE" | "COLLECTIVE";
 export type ConstantValueString = string;
 
 export interface ContextMenuOption {
   AvailabilityStatus?: DashboardBehavior;
+}
+export interface ContextualAccentPalette {
+  Connection?: Palette;
+  Visualization?: Palette;
+  Insight?: Palette;
+  Automation?: Palette;
 }
 export interface ContributionAnalysisDefault {
   MeasureFieldId: string;
@@ -4124,6 +4508,24 @@ export interface CreateAccountSubscriptionResponse {
   SignupResponse?: SignupResponse;
   Status?: number;
   RequestId?: string;
+}
+export interface CreateActionConnectorRequest {
+  AwsAccountId: string;
+  ActionConnectorId: string;
+  Name: string;
+  Type: ActionConnectorType;
+  AuthenticationConfig: AuthConfig;
+  Description?: string;
+  Permissions?: Array<ResourcePermission>;
+  VpcConnectionArn?: string;
+  Tags?: Array<Tag>;
+}
+export interface CreateActionConnectorResponse {
+  Arn?: string;
+  CreationStatus?: ResourceStatus;
+  ActionConnectorId?: string;
+  RequestId?: string;
+  Status?: number;
 }
 export interface CreateAnalysisRequest {
   AwsAccountId: string;
@@ -4512,6 +4914,9 @@ export interface CustomColor {
   SpecialValue?: SpecialValue;
 }
 export type CustomColorsList = Array<CustomColor>;
+export interface CustomConnectionParameters {
+  ConnectionType?: string;
+}
 export interface CustomContentConfiguration {
   ContentUrl?: string;
   ContentType?: CustomContentType;
@@ -4639,6 +5044,9 @@ export interface DashboardPublishOptions {
   DataPointMenuLabelOption?: DataPointMenuLabelOption;
   DataPointTooltipOption?: DataPointTooltipOption;
   DataQAEnabledOption?: DataQAEnabledOption;
+  QuickSuiteActionsOption?: QuickSuiteActionsOption;
+  ExecutiveSummaryOption?: ExecutiveSummaryOption;
+  DataStoriesSharingOption?: DataStoriesSharingOption;
 }
 export interface DashboardSearchFilter {
   Operator: FilterOperator;
@@ -4949,6 +5357,7 @@ export interface DataSourceCredentials {
   CredentialPair?: CredentialPair;
   CopySourceArn?: string;
   SecretArn?: string;
+  WebProxyCredentials?: WebProxyCredentials;
 }
 export interface DataSourceErrorInfo {
   Type?: DataSourceErrorInfoType;
@@ -4984,6 +5393,7 @@ interface _DataSourceParameters {
   RdsParameters?: RdsParameters;
   RedshiftParameters?: RedshiftParameters;
   S3Parameters?: S3Parameters;
+  S3KnowledgeBaseParameters?: S3KnowledgeBaseParameters;
   ServiceNowParameters?: ServiceNowParameters;
   SnowflakeParameters?: SnowflakeParameters;
   SparkParameters?: SparkParameters;
@@ -4997,6 +5407,10 @@ interface _DataSourceParameters {
   TrinoParameters?: TrinoParameters;
   BigQueryParameters?: BigQueryParameters;
   ImpalaParameters?: ImpalaParameters;
+  CustomConnectionParameters?: CustomConnectionParameters;
+  WebCrawlerParameters?: WebCrawlerParameters;
+  ConfluenceParameters?: ConfluenceParameters;
+  QBusinessParameters?: QBusinessParameters;
 }
 
 export type DataSourceParameters =
@@ -5020,6 +5434,9 @@ export type DataSourceParameters =
   | (_DataSourceParameters & { RdsParameters: RdsParameters })
   | (_DataSourceParameters & { RedshiftParameters: RedshiftParameters })
   | (_DataSourceParameters & { S3Parameters: S3Parameters })
+  | (_DataSourceParameters & {
+      S3KnowledgeBaseParameters: S3KnowledgeBaseParameters;
+    })
   | (_DataSourceParameters & { ServiceNowParameters: ServiceNowParameters })
   | (_DataSourceParameters & { SnowflakeParameters: SnowflakeParameters })
   | (_DataSourceParameters & { SparkParameters: SparkParameters })
@@ -5034,7 +5451,13 @@ export type DataSourceParameters =
   | (_DataSourceParameters & { StarburstParameters: StarburstParameters })
   | (_DataSourceParameters & { TrinoParameters: TrinoParameters })
   | (_DataSourceParameters & { BigQueryParameters: BigQueryParameters })
-  | (_DataSourceParameters & { ImpalaParameters: ImpalaParameters });
+  | (_DataSourceParameters & { ImpalaParameters: ImpalaParameters })
+  | (_DataSourceParameters & {
+      CustomConnectionParameters: CustomConnectionParameters;
+    })
+  | (_DataSourceParameters & { WebCrawlerParameters: WebCrawlerParameters })
+  | (_DataSourceParameters & { ConfluenceParameters: ConfluenceParameters })
+  | (_DataSourceParameters & { QBusinessParameters: QBusinessParameters });
 export type DataSourceParametersList = Array<DataSourceParameters>;
 export interface DataSourceSearchFilter {
   Operator: FilterOperator;
@@ -5080,9 +5503,20 @@ export type DataSourceType =
   | "DATABRICKS"
   | "STARBURST"
   | "TRINO"
-  | "BIGQUERY";
+  | "BIGQUERY"
+  | "GOOGLESHEETS"
+  | "GOOGLE_DRIVE"
+  | "CONFLUENCE"
+  | "SHAREPOINT"
+  | "ONE_DRIVE"
+  | "WEB_CRAWLER"
+  | "S3_KNOWLEDGE_BASE"
+  | "QBUSINESS";
 export interface DataStoriesConfigurations {
   Enabled: boolean;
+}
+export interface DataStoriesSharingOption {
+  AvailabilityStatus?: DashboardBehavior;
 }
 export type DateAggregationFunction =
   | "COUNT"
@@ -5308,10 +5742,27 @@ export interface DeleteAccountCustomizationResponse {
   RequestId?: string;
   Status?: number;
 }
+export interface DeleteAccountCustomPermissionRequest {
+  AwsAccountId: string;
+}
+export interface DeleteAccountCustomPermissionResponse {
+  RequestId?: string;
+  Status?: number;
+}
 export interface DeleteAccountSubscriptionRequest {
   AwsAccountId: string;
 }
 export interface DeleteAccountSubscriptionResponse {
+  RequestId?: string;
+  Status?: number;
+}
+export interface DeleteActionConnectorRequest {
+  AwsAccountId: string;
+  ActionConnectorId: string;
+}
+export interface DeleteActionConnectorResponse {
+  Arn?: string;
+  ActionConnectorId?: string;
   RequestId?: string;
   Status?: number;
 }
@@ -5614,6 +6065,14 @@ export interface DescribeAccountCustomizationResponse {
   RequestId?: string;
   Status?: number;
 }
+export interface DescribeAccountCustomPermissionRequest {
+  AwsAccountId: string;
+}
+export interface DescribeAccountCustomPermissionResponse {
+  CustomPermissionsName?: string;
+  RequestId?: string;
+  Status?: number;
+}
 export interface DescribeAccountSettingsRequest {
   AwsAccountId: string;
 }
@@ -5629,6 +6088,26 @@ export interface DescribeAccountSubscriptionResponse {
   AccountInfo?: AccountInfo;
   Status?: number;
   RequestId?: string;
+}
+export interface DescribeActionConnectorPermissionsRequest {
+  AwsAccountId: string;
+  ActionConnectorId: string;
+}
+export interface DescribeActionConnectorPermissionsResponse {
+  Arn?: string;
+  ActionConnectorId?: string;
+  Permissions?: Array<ResourcePermission>;
+  RequestId?: string;
+  Status?: number;
+}
+export interface DescribeActionConnectorRequest {
+  AwsAccountId: string;
+  ActionConnectorId: string;
+}
+export interface DescribeActionConnectorResponse {
+  ActionConnector?: ActionConnector;
+  RequestId?: string;
+  Status?: number;
 }
 export interface DescribeAnalysisDefinitionRequest {
   AwsAccountId: string;
@@ -5984,6 +6463,7 @@ export interface DescribeKeyRegistrationRequest {
 export interface DescribeKeyRegistrationResponse {
   AwsAccountId?: string;
   KeyRegistration?: Array<RegisteredCustomerManagedKey>;
+  QDataKey?: QDataKey;
   RequestId?: string;
   Status?: number;
 }
@@ -6250,6 +6730,8 @@ export interface DynamicDefaultValue {
   DefaultValueColumn: ColumnIdentifier;
 }
 export type Edition = "STANDARD" | "ENTERPRISE" | "ENTERPRISE_AND_Q";
+export type Email = string;
+
 export type EmbeddingIdentityType = "IAM" | "QUICKSIGHT" | "ANONYMOUS";
 export type EmbeddingUrl = string;
 
@@ -6258,6 +6740,8 @@ export interface EmptyVisual {
   DataSetIdentifier: string;
   Actions?: Array<VisualCustomAction>;
 }
+export type Endpoint = string;
+
 export interface Entity {
   Path?: string;
 }
@@ -6294,6 +6778,9 @@ export interface ExcludePeriodConfiguration {
 }
 export interface ExecutiveSummaryConfigurations {
   Enabled: boolean;
+}
+export interface ExecutiveSummaryOption {
+  AvailabilityStatus?: DashboardBehavior;
 }
 export interface ExplicitHierarchy {
   HierarchyId: string;
@@ -6339,6 +6826,12 @@ export interface FieldLabelType {
   FieldId?: string;
   Visibility?: Visibility;
 }
+export type FieldName =
+  | "assetName"
+  | "assetDescription"
+  | "DIRECT_QUICKSIGHT_OWNER"
+  | "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER"
+  | "DIRECT_QUICKSIGHT_SOLE_OWNER";
 export type FieldOrderList = Array<string>;
 export interface FieldSeriesItem {
   FieldId: string;
@@ -6536,6 +7029,29 @@ export interface FilterTextFieldControl {
   DisplayOptions?: TextFieldControlDisplayOptions;
 }
 export type FilterVisualScope = "ALL_VISUALS" | "SELECTED_VISUALS";
+export type FlowDescription = string;
+
+export type FlowId = string;
+
+export type FlowMaxResults = number;
+
+export type FlowPublishState = "PUBLISHED" | "DRAFT" | "PENDING_APPROVAL";
+export interface FlowSummary {
+  Arn: string;
+  FlowId: string;
+  Name: string;
+  Description?: string;
+  CreatedTime: Date | string;
+  CreatedBy?: string;
+  LastUpdatedTime?: Date | string;
+  LastUpdatedBy?: string;
+  PublishState?: FlowPublishState;
+  RunCount?: number;
+  UserCount?: number;
+  LastPublishedBy?: string;
+  LastPublishedAt?: Date | string;
+}
+export type FlowSummaryList = Array<FlowSummary>;
 export interface Folder {
   FolderId?: string;
   Arn?: string;
@@ -7044,6 +7560,34 @@ export interface GetDashboardEmbedUrlResponse {
   Status?: number;
   RequestId?: string;
 }
+export interface GetFlowMetadataInput {
+  AwsAccountId: string;
+  FlowId: string;
+}
+export interface GetFlowMetadataOutput {
+  Arn: string;
+  FlowId: string;
+  Name: string;
+  Description?: string;
+  PublishState?: FlowPublishState;
+  UserCount?: number;
+  RunCount?: number;
+  CreatedTime: Date | string;
+  LastUpdatedTime?: Date | string;
+  RequestId?: string;
+  Status?: number;
+}
+export interface GetFlowPermissionsInput {
+  AwsAccountId: string;
+  FlowId: string;
+}
+export interface GetFlowPermissionsOutput {
+  Arn: string;
+  FlowId: string;
+  Permissions: Array<Permission>;
+  RequestId?: string;
+  Status?: number;
+}
 export interface GetSessionEmbedUrlRequest {
   AwsAccountId: string;
   EntryPoint?: string;
@@ -7150,7 +7694,9 @@ export interface HeatMapAggregatedFieldWells {
 export interface HeatMapConfiguration {
   FieldWells?: HeatMapFieldWells;
   SortConfiguration?: HeatMapSortConfiguration;
+  RowAxisDisplayOptions?: AxisDisplayOptions;
   RowLabelOptions?: ChartAxisLabelOptions;
+  ColumnAxisDisplayOptions?: AxisDisplayOptions;
   ColumnLabelOptions?: ChartAxisLabelOptions;
   ColorScale?: ColorScale;
   Legend?: LegendOptions;
@@ -7220,6 +7766,9 @@ export interface HistogramVisual {
 export type HorizontalTextAlignment = "LEFT" | "CENTER" | "RIGHT" | "AUTO";
 export type Host = string;
 
+export interface IAMConnectionMetadata {
+  RoleArn: string;
+}
 export interface IAMPolicyAssignment {
   AwsAccountId?: string;
   AssignmentId?: string;
@@ -7780,6 +8329,17 @@ export type LinkEntityArnList = Array<string>;
 export interface LinkSharingConfiguration {
   Permissions?: Array<ResourcePermission>;
 }
+export interface ListActionConnectorsRequest {
+  AwsAccountId: string;
+  MaxResults?: number;
+  NextToken?: string;
+}
+export interface ListActionConnectorsResponse {
+  ActionConnectorSummaries: Array<ActionConnectorSummary>;
+  NextToken?: string;
+  RequestId?: string;
+  Status?: number;
+}
 export interface ListAnalysesRequest {
   AwsAccountId: string;
   NextToken?: string;
@@ -7886,6 +8446,17 @@ export interface ListDataSourcesRequest {
 }
 export interface ListDataSourcesResponse {
   DataSources?: Array<DataSource>;
+  NextToken?: string;
+  RequestId?: string;
+  Status?: number;
+}
+export interface ListFlowsInput {
+  AwsAccountId: string;
+  NextToken?: string;
+  MaxResults?: number;
+}
+export interface ListFlowsOutput {
+  FlowSummaryList?: Array<FlowSummary>;
   NextToken?: string;
   RequestId?: string;
   Status?: number;
@@ -8287,6 +8858,8 @@ export type MemberType =
   | "DATASET"
   | "DATASOURCE"
   | "TOPIC";
+export type MetadataFilesLocation = string;
+
 export interface MetricComparisonComputation {
   ComputationId: string;
   Name?: string;
@@ -8359,7 +8932,8 @@ export type NamedFilterType =
   | "NUMERIC_EQUALITY_FILTER"
   | "NUMERIC_RANGE_FILTER"
   | "DATE_RANGE_FILTER"
-  | "RELATIVE_DATE_FILTER";
+  | "RELATIVE_DATE_FILTER"
+  | "NULL_FILTER";
 export type Namespace = string;
 
 export interface NamespaceError {
@@ -8431,12 +9005,16 @@ export interface NewDefaultValues {
   DateTimeStaticValues?: Array<Date | string>;
   IntegerStaticValues?: Array<number>;
 }
+export interface NoneConnectionMetadata {
+  BaseEndpoint: string;
+}
 export type NonEmptyString = string;
 
 export type NonRepeatingVisualsList = Array<string>;
 export type NullableBoolean = boolean;
 
 export type NullFilterOption = "ALL_VALUES" | "NON_NULLS_ONLY" | "NULLS_ONLY";
+export type NullFilterType = "ALL_VALUES" | "NON_NULLS_ONLY" | "NULLS_ONLY";
 export type NullString = string;
 
 export interface NullValueFormatConfiguration {
@@ -8719,6 +9297,13 @@ export interface PeriodToDateComputation {
   Value?: MeasureField;
   PeriodTimeGranularity?: TimeGranularity;
 }
+export interface Permission {
+  Actions: Array<string>;
+  Principal: string;
+}
+export type PermissionPrincipalString = string;
+
+export type PermissionsList = Array<Permission>;
 export type PersonalizationMode = "ENABLED" | "DISABLED";
 interface _PhysicalTable {
   RelationalTable?: RelationalTable;
@@ -8923,6 +9508,7 @@ export interface PluginVisual {
   Title?: VisualTitleLabelOptions;
   Subtitle?: VisualSubtitleLabelOptions;
   ChartConfiguration?: PluginVisualConfiguration;
+  Actions?: Array<VisualCustomAction>;
   VisualContentAltText?: string;
 }
 export type PluginVisualAxisName = "GROUP_BY" | "VALUE";
@@ -9041,6 +9627,14 @@ export type QAResultType =
 export type QAUrl = string;
 
 export type QBusinessInsightsStatus = "ENABLED" | "DISABLED";
+export interface QBusinessParameters {
+  ApplicationArn: string;
+}
+export interface QDataKey {
+  QDataKeyArn?: string;
+  QDataKeyType?: QDataKeyType;
+}
+export type QDataKeyType = "AWS_OWNED" | "CMK";
 export type QSearchStatus = "ENABLED" | "DISABLED";
 export type Query = string;
 
@@ -9060,6 +9654,9 @@ export declare class QuickSightUserNotFoundException extends EffectData.TaggedEr
   readonly Message?: string;
   readonly RequestId?: string;
 }> {}
+export interface QuickSuiteActionsOption {
+  AvailabilityStatus?: DashboardBehavior;
+}
 export interface RadarChartAggregatedFieldWells {
   Category?: Array<DimensionField>;
   Color?: Array<DimensionField>;
@@ -9124,6 +9721,88 @@ export interface RangeEndsLabelType {
 export interface RdsParameters {
   InstanceId: string;
   Database: string;
+}
+export interface ReadAPIKeyConnectionMetadata {
+  BaseEndpoint: string;
+  Email?: string;
+}
+export interface ReadAuthConfig {
+  AuthenticationType: ConnectionAuthType;
+  AuthenticationMetadata: ReadAuthenticationMetadata;
+}
+interface _ReadAuthenticationMetadata {
+  AuthorizationCodeGrantMetadata?: ReadAuthorizationCodeGrantMetadata;
+  ClientCredentialsGrantMetadata?: ReadClientCredentialsGrantMetadata;
+  BasicAuthConnectionMetadata?: ReadBasicAuthConnectionMetadata;
+  ApiKeyConnectionMetadata?: ReadAPIKeyConnectionMetadata;
+  NoneConnectionMetadata?: ReadNoneConnectionMetadata;
+  IamConnectionMetadata?: ReadIamConnectionMetadata;
+}
+
+export type ReadAuthenticationMetadata =
+  | (_ReadAuthenticationMetadata & {
+      AuthorizationCodeGrantMetadata: ReadAuthorizationCodeGrantMetadata;
+    })
+  | (_ReadAuthenticationMetadata & {
+      ClientCredentialsGrantMetadata: ReadClientCredentialsGrantMetadata;
+    })
+  | (_ReadAuthenticationMetadata & {
+      BasicAuthConnectionMetadata: ReadBasicAuthConnectionMetadata;
+    })
+  | (_ReadAuthenticationMetadata & {
+      ApiKeyConnectionMetadata: ReadAPIKeyConnectionMetadata;
+    })
+  | (_ReadAuthenticationMetadata & {
+      NoneConnectionMetadata: ReadNoneConnectionMetadata;
+    })
+  | (_ReadAuthenticationMetadata & {
+      IamConnectionMetadata: ReadIamConnectionMetadata;
+    });
+interface _ReadAuthorizationCodeGrantCredentialsDetails {
+  ReadAuthorizationCodeGrantDetails?: ReadAuthorizationCodeGrantDetails;
+}
+
+export type ReadAuthorizationCodeGrantCredentialsDetails =
+  _ReadAuthorizationCodeGrantCredentialsDetails & {
+    ReadAuthorizationCodeGrantDetails: ReadAuthorizationCodeGrantDetails;
+  };
+export interface ReadAuthorizationCodeGrantDetails {
+  ClientId: string;
+  TokenEndpoint: string;
+  AuthorizationEndpoint: string;
+}
+export interface ReadAuthorizationCodeGrantMetadata {
+  BaseEndpoint: string;
+  RedirectUrl: string;
+  ReadAuthorizationCodeGrantCredentialsDetails?: ReadAuthorizationCodeGrantCredentialsDetails;
+  AuthorizationCodeGrantCredentialsSource?: AuthorizationCodeGrantCredentialsSource;
+}
+export interface ReadBasicAuthConnectionMetadata {
+  BaseEndpoint: string;
+  Username: string;
+}
+interface _ReadClientCredentialsDetails {
+  ReadClientCredentialsGrantDetails?: ReadClientCredentialsGrantDetails;
+}
+
+export type ReadClientCredentialsDetails = _ReadClientCredentialsDetails & {
+  ReadClientCredentialsGrantDetails: ReadClientCredentialsGrantDetails;
+};
+export interface ReadClientCredentialsGrantDetails {
+  ClientId: string;
+  TokenEndpoint: string;
+}
+export interface ReadClientCredentialsGrantMetadata {
+  BaseEndpoint: string;
+  ReadClientCredentialsDetails?: ReadClientCredentialsDetails;
+  ClientCredentialsSource?: ClientCredentialsSource;
+}
+export interface ReadIamConnectionMetadata {
+  RoleArn: string;
+  SourceArn: string;
+}
+export interface ReadNoneConnectionMetadata {
+  BaseEndpoint: string;
 }
 export interface RecentSnapshotsConfigurations {
   Enabled: boolean;
@@ -9331,6 +10010,8 @@ export interface RenameColumnOperation {
   NewColumnName: string;
 }
 export type ResizeOption = "FIXED" | "RESPONSIVE";
+export type ResourceArn = string;
+
 export declare class ResourceExistsException extends EffectData.TaggedError(
   "ResourceExistsException",
 )<{
@@ -9454,6 +10135,11 @@ export interface S3BucketConfiguration {
 }
 export type S3Key = string;
 
+export interface S3KnowledgeBaseParameters {
+  RoleArn?: string;
+  BucketUrl: string;
+  MetadataFilesLocation?: string;
+}
 export interface S3Parameters {
   ManifestFileLocation: ManifestFileLocation;
   RoleArn?: string;
@@ -9550,6 +10236,20 @@ export interface ScrollBarOptions {
   Visibility?: Visibility;
   VisibleRange?: VisibleRangeOptions;
 }
+export interface SearchActionConnectorsRequest {
+  AwsAccountId: string;
+  MaxResults?: number;
+  NextToken?: string;
+  Filters: Array<ActionConnectorSearchFilter>;
+}
+export type SearchActionConnectorsRequestMaxResultsInteger = number;
+
+export interface SearchActionConnectorsResponse {
+  NextToken?: string;
+  RequestId?: string;
+  Status?: number;
+  ActionConnectorSummaries?: Array<ActionConnectorSummary>;
+}
 export interface SearchAnalysesRequest {
   AwsAccountId: string;
   Filters: Array<AnalysisSearchFilter>;
@@ -9597,6 +10297,25 @@ export interface SearchDataSourcesResponse {
   NextToken?: string;
   Status?: number;
   RequestId?: string;
+}
+export type SearchFilterOperator = "StringEquals" | "StringLike";
+export interface SearchFlowsFilter {
+  Name: FieldName;
+  Operator: SearchFilterOperator;
+  Value: string;
+}
+export type SearchFlowsFilterList = Array<SearchFlowsFilter>;
+export interface SearchFlowsInput {
+  AwsAccountId: string;
+  Filters: Array<SearchFlowsFilter>;
+  NextToken?: string;
+  MaxResults?: number;
+}
+export interface SearchFlowsOutput {
+  FlowSummaryList: Array<FlowSummary>;
+  NextToken?: string;
+  RequestId?: string;
+  Status?: number;
 }
 export interface SearchFoldersRequest {
   AwsAccountId: string;
@@ -10612,6 +11331,8 @@ export interface TimeRangeFilterValue {
 }
 export type Timestamp = Date | string;
 
+export type Title = string;
+
 export type TokenProviderUrl = string;
 
 export interface TooltipItem {
@@ -10743,6 +11464,7 @@ export interface TopicFilter {
   NumericRangeFilter?: TopicNumericRangeFilter;
   DateRangeFilter?: TopicDateRangeFilter;
   RelativeDateFilter?: TopicRelativeDateFilter;
+  NullFilter?: TopicNullFilter;
 }
 export type TopicFilterAttribute =
   | "QUICKSIGHT_USER"
@@ -10846,6 +11568,11 @@ export interface TopicNamedEntity {
   EntitySynonyms?: Array<string>;
   SemanticEntityType?: SemanticEntityType;
   Definition?: Array<NamedEntityDefinition>;
+}
+export interface TopicNullFilter {
+  NullFilterType?: NullFilterType;
+  Constant?: TopicSingularFilterConstant;
+  Inverse?: boolean;
 }
 export interface TopicNumericEqualityFilter {
   Constant?: TopicSingularFilterConstant;
@@ -11134,6 +11861,14 @@ export interface UpdateAccountCustomizationResponse {
   RequestId?: string;
   Status?: number;
 }
+export interface UpdateAccountCustomPermissionRequest {
+  CustomPermissionsName: string;
+  AwsAccountId: string;
+}
+export interface UpdateAccountCustomPermissionResponse {
+  RequestId?: string;
+  Status?: number;
+}
 export interface UpdateAccountSettingsRequest {
   AwsAccountId: string;
   DefaultNamespace: string;
@@ -11142,6 +11877,34 @@ export interface UpdateAccountSettingsRequest {
 }
 export interface UpdateAccountSettingsResponse {
   RequestId?: string;
+  Status?: number;
+}
+export interface UpdateActionConnectorPermissionsRequest {
+  AwsAccountId: string;
+  ActionConnectorId: string;
+  GrantPermissions?: Array<ResourcePermission>;
+  RevokePermissions?: Array<ResourcePermission>;
+}
+export interface UpdateActionConnectorPermissionsResponse {
+  Arn?: string;
+  ActionConnectorId?: string;
+  RequestId?: string;
+  Status?: number;
+  Permissions?: Array<ResourcePermission>;
+}
+export interface UpdateActionConnectorRequest {
+  AwsAccountId: string;
+  ActionConnectorId: string;
+  Name: string;
+  AuthenticationConfig: AuthConfig;
+  Description?: string;
+  VpcConnectionArn?: string;
+}
+export interface UpdateActionConnectorResponse {
+  Arn?: string;
+  ActionConnectorId?: string;
+  RequestId?: string;
+  UpdateStatus?: ResourceStatus;
   Status?: number;
 }
 export interface UpdateAnalysisPermissionsRequest {
@@ -11358,6 +12121,21 @@ export interface UpdateDefaultQBusinessApplicationRequest {
 export interface UpdateDefaultQBusinessApplicationResponse {
   RequestId?: string;
   Status?: number;
+}
+export interface UpdateFlowPermissionsInput {
+  AwsAccountId: string;
+  FlowId: string;
+  GrantPermissions?: Array<Permission>;
+  RevokePermissions?: Array<Permission>;
+}
+export type UpdateFlowPermissionsInputGrantPermissionsList = Array<Permission>;
+export type UpdateFlowPermissionsInputRevokePermissionsList = Array<Permission>;
+export interface UpdateFlowPermissionsOutput {
+  Status?: number;
+  Arn: string;
+  Permissions: Array<Permission>;
+  RequestId: string;
+  FlowId: string;
 }
 export interface UpdateFolderPermissionsRequest {
   AwsAccountId: string;
@@ -11915,6 +12693,21 @@ export interface WaterfallVisual {
   ColumnHierarchies?: Array<ColumnHierarchy>;
   VisualContentAltText?: string;
 }
+export type WebCrawlerAuthType = "NO_AUTH" | "BASIC_AUTH" | "FORM" | "SAML";
+export interface WebCrawlerParameters {
+  WebCrawlerAuthType: WebCrawlerAuthType;
+  UsernameFieldXpath?: string;
+  PasswordFieldXpath?: string;
+  UsernameButtonXpath?: string;
+  PasswordButtonXpath?: string;
+  LoginPageUrl?: string;
+  WebProxyHostName?: string;
+  WebProxyPortNumber?: number;
+}
+export interface WebProxyCredentials {
+  WebProxyUsername: string;
+  WebProxyPassword: string;
+}
 export interface WhatIfPointScenario {
   Date: Date | string;
   Value: number;
@@ -11970,6 +12763,8 @@ export type WordCloudWordOrientation = "HORIZONTAL" | "HORIZONTAL_AND_VERTICAL";
 export type WordCloudWordPadding = "NONE" | "SMALL" | "MEDIUM" | "LARGE";
 export type WordCloudWordScaling = "EMPHASIZE" | "NORMAL";
 export type WorkGroup = string;
+
+export type XpathFields = string;
 
 export interface YAxisOptions {
   YAxis: SingleYAxisOption;
@@ -12039,6 +12834,19 @@ export declare namespace CreateAccountSubscription {
     | ResourceExistsException
     | ResourceNotFoundException
     | ResourceUnavailableException
+    | ThrottlingException
+    | CommonAwsError;
+}
+
+export declare namespace CreateActionConnector {
+  export type Input = CreateActionConnectorRequest;
+  export type Output = CreateActionConnectorResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalFailureException
+    | InvalidParameterValueException
+    | ResourceExistsException
     | ThrottlingException
     | CommonAwsError;
 }
@@ -12391,6 +13199,18 @@ export declare namespace DeleteAccountCustomization {
     | CommonAwsError;
 }
 
+export declare namespace DeleteAccountCustomPermission {
+  export type Input = DeleteAccountCustomPermissionRequest;
+  export type Output = DeleteAccountCustomPermissionResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalFailureException
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError;
+}
+
 export declare namespace DeleteAccountSubscription {
   export type Input = DeleteAccountSubscriptionRequest;
   export type Output = DeleteAccountSubscriptionResponse;
@@ -12401,6 +13221,18 @@ export declare namespace DeleteAccountSubscription {
     | PreconditionNotMetException
     | ResourceNotFoundException
     | ResourceUnavailableException
+    | ThrottlingException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteActionConnector {
+  export type Input = DeleteActionConnectorRequest;
+  export type Output = DeleteActionConnectorResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalFailureException
+    | InvalidParameterValueException
+    | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError;
 }
@@ -12811,6 +13643,18 @@ export declare namespace DescribeAccountCustomization {
     | CommonAwsError;
 }
 
+export declare namespace DescribeAccountCustomPermission {
+  export type Input = DescribeAccountCustomPermissionRequest;
+  export type Output = DescribeAccountCustomPermissionResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalFailureException
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError;
+}
+
 export declare namespace DescribeAccountSettings {
   export type Input = DescribeAccountSettingsRequest;
   export type Output = DescribeAccountSettingsResponse;
@@ -12833,6 +13677,30 @@ export declare namespace DescribeAccountSubscription {
     | InvalidParameterValueException
     | ResourceNotFoundException
     | ResourceUnavailableException
+    | ThrottlingException
+    | CommonAwsError;
+}
+
+export declare namespace DescribeActionConnector {
+  export type Input = DescribeActionConnectorRequest;
+  export type Output = DescribeActionConnectorResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalFailureException
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError;
+}
+
+export declare namespace DescribeActionConnectorPermissions {
+  export type Input = DescribeActionConnectorPermissionsRequest;
+  export type Output = DescribeActionConnectorPermissionsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalFailureException
+    | InvalidParameterValueException
+    | ResourceNotFoundException
     | ThrottlingException
     | CommonAwsError;
 }
@@ -13525,6 +14393,28 @@ export declare namespace GetDashboardEmbedUrl {
     | CommonAwsError;
 }
 
+export declare namespace GetFlowMetadata {
+  export type Input = GetFlowMetadataInput;
+  export type Output = GetFlowMetadataOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalFailureException
+    | InvalidParameterValueException
+    | ThrottlingException
+    | CommonAwsError;
+}
+
+export declare namespace GetFlowPermissions {
+  export type Input = GetFlowPermissionsInput;
+  export type Output = GetFlowPermissionsOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalFailureException
+    | InvalidParameterValueException
+    | ThrottlingException
+    | CommonAwsError;
+}
+
 export declare namespace GetSessionEmbedUrl {
   export type Input = GetSessionEmbedUrlRequest;
   export type Output = GetSessionEmbedUrlResponse;
@@ -13538,6 +14428,18 @@ export declare namespace GetSessionEmbedUrl {
     | SessionLifetimeInMinutesInvalidException
     | ThrottlingException
     | UnsupportedUserEditionException
+    | CommonAwsError;
+}
+
+export declare namespace ListActionConnectors {
+  export type Input = ListActionConnectorsRequest;
+  export type Output = ListActionConnectorsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalFailureException
+    | InvalidNextTokenException
+    | InvalidParameterValueException
+    | ThrottlingException
     | CommonAwsError;
 }
 
@@ -13644,6 +14546,17 @@ export declare namespace ListDataSources {
     | AccessDeniedException
     | InternalFailureException
     | InvalidNextTokenException
+    | InvalidParameterValueException
+    | ThrottlingException
+    | CommonAwsError;
+}
+
+export declare namespace ListFlows {
+  export type Input = ListFlowsInput;
+  export type Output = ListFlowsOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalFailureException
     | InvalidParameterValueException
     | ThrottlingException
     | CommonAwsError;
@@ -14048,6 +14961,17 @@ export declare namespace RestoreAnalysis {
     | CommonAwsError;
 }
 
+export declare namespace SearchActionConnectors {
+  export type Input = SearchActionConnectorsRequest;
+  export type Output = SearchActionConnectorsResponse;
+  export type Error =
+    | AccessDeniedException
+    | InvalidNextTokenException
+    | InvalidParameterValueException
+    | ThrottlingException
+    | CommonAwsError;
+}
+
 export declare namespace SearchAnalyses {
   export type Input = SearchAnalysesRequest;
   export type Output = SearchAnalysesResponse;
@@ -14096,6 +15020,17 @@ export declare namespace SearchDataSources {
     | InvalidNextTokenException
     | InvalidParameterValueException
     | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError;
+}
+
+export declare namespace SearchFlows {
+  export type Input = SearchFlowsInput;
+  export type Output = SearchFlowsOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalFailureException
+    | InvalidParameterValueException
     | ThrottlingException
     | CommonAwsError;
 }
@@ -14240,6 +15175,18 @@ export declare namespace UpdateAccountCustomization {
     | CommonAwsError;
 }
 
+export declare namespace UpdateAccountCustomPermission {
+  export type Input = UpdateAccountCustomPermissionRequest;
+  export type Output = UpdateAccountCustomPermissionResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalFailureException
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError;
+}
+
 export declare namespace UpdateAccountSettings {
   export type Input = UpdateAccountSettingsRequest;
   export type Output = UpdateAccountSettingsResponse;
@@ -14250,6 +15197,34 @@ export declare namespace UpdateAccountSettings {
     | ResourceNotFoundException
     | ResourceUnavailableException
     | ThrottlingException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateActionConnector {
+  export type Input = UpdateActionConnectorRequest;
+  export type Output = UpdateActionConnectorResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalFailureException
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateActionConnectorPermissions {
+  export type Input = UpdateActionConnectorPermissionsRequest;
+  export type Output = UpdateActionConnectorPermissionsResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalFailureException
+    | InvalidParameterValueException
+    | LimitExceededException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnsupportedUserEditionException
     | CommonAwsError;
 }
 
@@ -14481,6 +15456,17 @@ export declare namespace UpdateDefaultQBusinessApplication {
     | InternalFailureException
     | InvalidParameterValueException
     | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateFlowPermissions {
+  export type Input = UpdateFlowPermissionsInput;
+  export type Output = UpdateFlowPermissionsOutput;
+  export type Error =
+    | AccessDeniedException
+    | InternalFailureException
+    | InvalidParameterValueException
     | ThrottlingException
     | CommonAwsError;
 }

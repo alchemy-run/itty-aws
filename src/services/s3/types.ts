@@ -646,11 +646,13 @@ export interface CopyObjectRequest {
   CopySourceIfModifiedSince?: Date | string;
   CopySourceIfNoneMatch?: string;
   CopySourceIfUnmodifiedSince?: Date | string;
-  Expires?: Date | string;
+  Expires?: string;
   GrantFullControl?: string;
   GrantRead?: string;
   GrantReadACP?: string;
   GrantWriteACP?: string;
+  IfMatch?: string;
+  IfNoneMatch?: string;
   Key: string;
   Metadata?: Record<string, string>;
   MetadataDirective?: MetadataDirective;
@@ -786,7 +788,7 @@ export interface CreateMultipartUploadRequest {
   ContentEncoding?: string;
   ContentLanguage?: string;
   ContentType?: string;
-  Expires?: Date | string;
+  Expires?: string;
   GrantFullControl?: string;
   GrantRead?: string;
   GrantReadACP?: string;
@@ -1092,7 +1094,7 @@ export type ExpirationState = "ENABLED" | "DISABLED";
 export type ExpirationStatus = "Enabled" | "Disabled";
 export type ExpiredObjectDeleteMarker = boolean;
 
-export type Expires = Date | string;
+export type Expires = string;
 
 export type ExposeHeader = string;
 
@@ -1368,7 +1370,7 @@ export interface GetObjectOutput {
   ContentLanguage?: string;
   ContentRange?: string;
   ContentType?: string;
-  Expires?: Date | string;
+  Expires?: string;
   WebsiteRedirectLocation?: string;
   ServerSideEncryption?: ServerSideEncryption;
   Metadata?: Record<string, string>;
@@ -1507,7 +1509,7 @@ export interface HeadObjectOutput {
   ContentLanguage?: string;
   ContentType?: string;
   ContentRange?: string;
-  Expires?: Date | string;
+  Expires?: string;
   WebsiteRedirectLocation?: string;
   ServerSideEncryption?: ServerSideEncryption;
   Metadata?: Record<string, string>;
@@ -2541,7 +2543,7 @@ export interface PutObjectRequest {
   ChecksumCRC64NVME?: string;
   ChecksumSHA1?: string;
   ChecksumSHA256?: string;
-  Expires?: Date | string;
+  Expires?: string;
   IfMatch?: string;
   IfNoneMatch?: string;
   GrantFullControl?: string;
@@ -3139,7 +3141,7 @@ export interface WriteGetObjectResponseRequest {
   ChecksumSHA256?: string;
   DeleteMarker?: boolean;
   ETag?: string;
-  Expires?: Date | string;
+  Expires?: string;
   Expiration?: string;
   LastModified?: Date | string;
   MissingMeta?: number;

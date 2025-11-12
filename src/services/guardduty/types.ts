@@ -105,6 +105,12 @@ export declare class GuardDuty extends AWSServiceClient {
     CreateSampleFindingsResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
   >;
+  createThreatEntitySet(
+    input: CreateThreatEntitySetRequest,
+  ): Effect.Effect<
+    CreateThreatEntitySetResponse,
+    BadRequestException | InternalServerErrorException | CommonAwsError
+  >;
   createThreatIntelSet(
     input: CreateThreatIntelSetRequest,
   ): Effect.Effect<
@@ -113,6 +119,12 @@ export declare class GuardDuty extends AWSServiceClient {
     | BadRequestException
     | InternalServerErrorException
     | CommonAwsError
+  >;
+  createTrustedEntitySet(
+    input: CreateTrustedEntitySetRequest,
+  ): Effect.Effect<
+    CreateTrustedEntitySetResponse,
+    BadRequestException | InternalServerErrorException | CommonAwsError
   >;
   declineInvitations(
     input: DeclineInvitationsRequest,
@@ -166,10 +178,22 @@ export declare class GuardDuty extends AWSServiceClient {
     DeletePublishingDestinationResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
   >;
+  deleteThreatEntitySet(
+    input: DeleteThreatEntitySetRequest,
+  ): Effect.Effect<
+    DeleteThreatEntitySetResponse,
+    BadRequestException | InternalServerErrorException | CommonAwsError
+  >;
   deleteThreatIntelSet(
     input: DeleteThreatIntelSetRequest,
   ): Effect.Effect<
     DeleteThreatIntelSetResponse,
+    BadRequestException | InternalServerErrorException | CommonAwsError
+  >;
+  deleteTrustedEntitySet(
+    input: DeleteTrustedEntitySetRequest,
+  ): Effect.Effect<
+    DeleteTrustedEntitySetResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
   >;
   describeMalwareScans(
@@ -312,10 +336,22 @@ export declare class GuardDuty extends AWSServiceClient {
     GetRemainingFreeTrialDaysResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
   >;
+  getThreatEntitySet(
+    input: GetThreatEntitySetRequest,
+  ): Effect.Effect<
+    GetThreatEntitySetResponse,
+    BadRequestException | InternalServerErrorException | CommonAwsError
+  >;
   getThreatIntelSet(
     input: GetThreatIntelSetRequest,
   ): Effect.Effect<
     GetThreatIntelSetResponse,
+    BadRequestException | InternalServerErrorException | CommonAwsError
+  >;
+  getTrustedEntitySet(
+    input: GetTrustedEntitySetRequest,
+  ): Effect.Effect<
+    GetTrustedEntitySetResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
   >;
   getUsageStatistics(
@@ -402,10 +438,22 @@ export declare class GuardDuty extends AWSServiceClient {
     | InternalServerErrorException
     | CommonAwsError
   >;
+  listThreatEntitySets(
+    input: ListThreatEntitySetsRequest,
+  ): Effect.Effect<
+    ListThreatEntitySetsResponse,
+    BadRequestException | InternalServerErrorException | CommonAwsError
+  >;
   listThreatIntelSets(
     input: ListThreatIntelSetsRequest,
   ): Effect.Effect<
     ListThreatIntelSetsResponse,
+    BadRequestException | InternalServerErrorException | CommonAwsError
+  >;
+  listTrustedEntitySets(
+    input: ListTrustedEntitySetsRequest,
+  ): Effect.Effect<
+    ListTrustedEntitySetsResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
   >;
   startMalwareScan(
@@ -514,6 +562,12 @@ export declare class GuardDuty extends AWSServiceClient {
     UpdatePublishingDestinationResponse,
     BadRequestException | InternalServerErrorException | CommonAwsError
   >;
+  updateThreatEntitySet(
+    input: UpdateThreatEntitySetRequest,
+  ): Effect.Effect<
+    UpdateThreatEntitySetResponse,
+    BadRequestException | InternalServerErrorException | CommonAwsError
+  >;
   updateThreatIntelSet(
     input: UpdateThreatIntelSetRequest,
   ): Effect.Effect<
@@ -522,6 +576,12 @@ export declare class GuardDuty extends AWSServiceClient {
     | BadRequestException
     | InternalServerErrorException
     | CommonAwsError
+  >;
+  updateTrustedEntitySet(
+    input: UpdateTrustedEntitySetRequest,
+  ): Effect.Effect<
+    UpdateTrustedEntitySetResponse,
+    BadRequestException | InternalServerErrorException | CommonAwsError
   >;
 }
 
@@ -919,6 +979,19 @@ export interface CreateSampleFindingsRequest {
   FindingTypes?: Array<string>;
 }
 export interface CreateSampleFindingsResponse {}
+export interface CreateThreatEntitySetRequest {
+  DetectorId: string;
+  Name: string;
+  Format: ThreatEntitySetFormat;
+  Location: string;
+  ExpectedBucketOwner?: string;
+  Activate: boolean;
+  ClientToken?: string;
+  Tags?: Record<string, string>;
+}
+export interface CreateThreatEntitySetResponse {
+  ThreatEntitySetId: string;
+}
 export interface CreateThreatIntelSetRequest {
   DetectorId: string;
   Name: string;
@@ -931,6 +1004,19 @@ export interface CreateThreatIntelSetRequest {
 }
 export interface CreateThreatIntelSetResponse {
   ThreatIntelSetId: string;
+}
+export interface CreateTrustedEntitySetRequest {
+  DetectorId: string;
+  Name: string;
+  Format: TrustedEntitySetFormat;
+  Location: string;
+  ExpectedBucketOwner?: string;
+  Activate: boolean;
+  ClientToken?: string;
+  Tags?: Record<string, string>;
+}
+export interface CreateTrustedEntitySetResponse {
+  TrustedEntitySetId: string;
 }
 export type Criterion = Record<string, Condition>;
 export type CriterionKey =
@@ -1025,11 +1111,21 @@ export interface DeletePublishingDestinationRequest {
   DestinationId: string;
 }
 export interface DeletePublishingDestinationResponse {}
+export interface DeleteThreatEntitySetRequest {
+  DetectorId: string;
+  ThreatEntitySetId: string;
+}
+export interface DeleteThreatEntitySetResponse {}
 export interface DeleteThreatIntelSetRequest {
   DetectorId: string;
   ThreatIntelSetId: string;
 }
 export interface DeleteThreatIntelSetResponse {}
+export interface DeleteTrustedEntitySetRequest {
+  DetectorId: string;
+  TrustedEntitySetId: string;
+}
+export interface DeleteTrustedEntitySetResponse {}
 export interface DescribeMalwareScansRequest {
   DetectorId: string;
   NextToken?: string;
@@ -1157,6 +1253,7 @@ export interface DnsRequestAction {
   Protocol?: string;
   Blocked?: boolean;
   DomainWithSuffix?: string;
+  VpcOwnerAccountId?: string;
 }
 export interface DomainDetails {
   Domain?: string;
@@ -1254,6 +1351,8 @@ export type Equals = Array<string>;
 export interface Evidence {
   ThreatIntelligenceDetails?: Array<ThreatIntelligenceDetail>;
 }
+export type ExpectedBucketOwner = string;
+
 export interface FargateDetails {
   Issues?: Array<string>;
   ManagementType?: ManagementType;
@@ -1496,6 +1595,21 @@ export interface GetRemainingFreeTrialDaysResponse {
   Accounts?: Array<AccountFreeTrialInfo>;
   UnprocessedAccounts?: Array<UnprocessedAccount>;
 }
+export interface GetThreatEntitySetRequest {
+  DetectorId: string;
+  ThreatEntitySetId: string;
+}
+export interface GetThreatEntitySetResponse {
+  Name: string;
+  Format: ThreatEntitySetFormat;
+  Location: string;
+  ExpectedBucketOwner?: string;
+  Status: ThreatEntitySetStatus;
+  Tags?: Record<string, string>;
+  CreatedAt?: Date | string;
+  UpdatedAt?: Date | string;
+  ErrorDetails?: string;
+}
 export interface GetThreatIntelSetRequest {
   DetectorId: string;
   ThreatIntelSetId: string;
@@ -1507,6 +1621,21 @@ export interface GetThreatIntelSetResponse {
   Status: ThreatIntelSetStatus;
   Tags?: Record<string, string>;
   ExpectedBucketOwner?: string;
+}
+export interface GetTrustedEntitySetRequest {
+  DetectorId: string;
+  TrustedEntitySetId: string;
+}
+export interface GetTrustedEntitySetResponse {
+  Name: string;
+  Format: TrustedEntitySetFormat;
+  Location: string;
+  ExpectedBucketOwner?: string;
+  Status: TrustedEntitySetStatus;
+  Tags?: Record<string, string>;
+  CreatedAt?: Date | string;
+  UpdatedAt?: Date | string;
+  ErrorDetails?: string;
 }
 export interface GetUsageStatisticsRequest {
   DetectorId: string;
@@ -1846,6 +1975,15 @@ export interface ListTagsForResourceRequest {
 export interface ListTagsForResourceResponse {
   Tags?: Record<string, string>;
 }
+export interface ListThreatEntitySetsRequest {
+  DetectorId: string;
+  MaxResults?: number;
+  NextToken?: string;
+}
+export interface ListThreatEntitySetsResponse {
+  ThreatEntitySetIds: Array<string>;
+  NextToken?: string;
+}
 export interface ListThreatIntelSetsRequest {
   DetectorId: string;
   MaxResults?: number;
@@ -1853,6 +1991,15 @@ export interface ListThreatIntelSetsRequest {
 }
 export interface ListThreatIntelSetsResponse {
   ThreatIntelSetIds: Array<string>;
+  NextToken?: string;
+}
+export interface ListTrustedEntitySetsRequest {
+  DetectorId: string;
+  MaxResults?: number;
+  NextToken?: string;
+}
+export interface ListTrustedEntitySetsResponse {
+  TrustedEntitySetIds: Array<string>;
   NextToken?: string;
 }
 export interface LocalIpDetails {
@@ -2590,6 +2737,22 @@ export interface ThreatDetectedByName {
   Shortened?: boolean;
   ThreatNames?: Array<ScanThreatName>;
 }
+export type ThreatEntitySetFormat =
+  | "TXT"
+  | "STIX"
+  | "OTX_CSV"
+  | "ALIEN_VAULT"
+  | "PROOF_POINT"
+  | "FIRE_EYE";
+export type ThreatEntitySetIds = Array<string>;
+export type ThreatEntitySetStatus =
+  | "INACTIVE"
+  | "ACTIVATING"
+  | "ACTIVE"
+  | "DEACTIVATING"
+  | "ERROR"
+  | "DELETE_PENDING"
+  | "DELETED";
 export interface ThreatIntelligenceDetail {
   ThreatListName?: string;
   ThreatNames?: Array<string>;
@@ -2627,6 +2790,22 @@ export interface TriggerDetails {
   GuardDutyFindingId?: string;
   Description?: string;
 }
+export type TrustedEntitySetFormat =
+  | "TXT"
+  | "STIX"
+  | "OTX_CSV"
+  | "ALIEN_VAULT"
+  | "PROOF_POINT"
+  | "FIRE_EYE";
+export type TrustedEntitySetIds = Array<string>;
+export type TrustedEntitySetStatus =
+  | "INACTIVE"
+  | "ACTIVATING"
+  | "ACTIVE"
+  | "DEACTIVATING"
+  | "ERROR"
+  | "DELETE_PENDING"
+  | "DELETED";
 export interface UnarchiveFindingsRequest {
   DetectorId: string;
   FindingIds: Array<string>;
@@ -2721,6 +2900,15 @@ export interface UpdatePublishingDestinationResponse {}
 export interface UpdateS3BucketResource {
   ObjectPrefixes?: Array<string>;
 }
+export interface UpdateThreatEntitySetRequest {
+  DetectorId: string;
+  ThreatEntitySetId: string;
+  Name?: string;
+  Location?: string;
+  ExpectedBucketOwner?: string;
+  Activate?: boolean;
+}
+export interface UpdateThreatEntitySetResponse {}
 export interface UpdateThreatIntelSetRequest {
   DetectorId: string;
   ThreatIntelSetId: string;
@@ -2730,6 +2918,15 @@ export interface UpdateThreatIntelSetRequest {
   ExpectedBucketOwner?: string;
 }
 export interface UpdateThreatIntelSetResponse {}
+export interface UpdateTrustedEntitySetRequest {
+  DetectorId: string;
+  TrustedEntitySetId: string;
+  Name?: string;
+  Location?: string;
+  ExpectedBucketOwner?: string;
+  Activate?: boolean;
+}
+export interface UpdateTrustedEntitySetResponse {}
 export interface UsageAccountResult {
   AccountId?: string;
   Total?: Total;
@@ -2921,11 +3118,29 @@ export declare namespace CreateSampleFindings {
     | CommonAwsError;
 }
 
+export declare namespace CreateThreatEntitySet {
+  export type Input = CreateThreatEntitySetRequest;
+  export type Output = CreateThreatEntitySetResponse;
+  export type Error =
+    | BadRequestException
+    | InternalServerErrorException
+    | CommonAwsError;
+}
+
 export declare namespace CreateThreatIntelSet {
   export type Input = CreateThreatIntelSetRequest;
   export type Output = CreateThreatIntelSetResponse;
   export type Error =
     | AccessDeniedException
+    | BadRequestException
+    | InternalServerErrorException
+    | CommonAwsError;
+}
+
+export declare namespace CreateTrustedEntitySet {
+  export type Input = CreateTrustedEntitySetRequest;
+  export type Output = CreateTrustedEntitySetResponse;
+  export type Error =
     | BadRequestException
     | InternalServerErrorException
     | CommonAwsError;
@@ -3005,9 +3220,27 @@ export declare namespace DeletePublishingDestination {
     | CommonAwsError;
 }
 
+export declare namespace DeleteThreatEntitySet {
+  export type Input = DeleteThreatEntitySetRequest;
+  export type Output = DeleteThreatEntitySetResponse;
+  export type Error =
+    | BadRequestException
+    | InternalServerErrorException
+    | CommonAwsError;
+}
+
 export declare namespace DeleteThreatIntelSet {
   export type Input = DeleteThreatIntelSetRequest;
   export type Output = DeleteThreatIntelSetResponse;
+  export type Error =
+    | BadRequestException
+    | InternalServerErrorException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteTrustedEntitySet {
+  export type Input = DeleteTrustedEntitySetRequest;
+  export type Output = DeleteTrustedEntitySetResponse;
   export type Error =
     | BadRequestException
     | InternalServerErrorException
@@ -3223,9 +3456,27 @@ export declare namespace GetRemainingFreeTrialDays {
     | CommonAwsError;
 }
 
+export declare namespace GetThreatEntitySet {
+  export type Input = GetThreatEntitySetRequest;
+  export type Output = GetThreatEntitySetResponse;
+  export type Error =
+    | BadRequestException
+    | InternalServerErrorException
+    | CommonAwsError;
+}
+
 export declare namespace GetThreatIntelSet {
   export type Input = GetThreatIntelSetRequest;
   export type Output = GetThreatIntelSetResponse;
+  export type Error =
+    | BadRequestException
+    | InternalServerErrorException
+    | CommonAwsError;
+}
+
+export declare namespace GetTrustedEntitySet {
+  export type Input = GetTrustedEntitySetRequest;
+  export type Output = GetTrustedEntitySetResponse;
   export type Error =
     | BadRequestException
     | InternalServerErrorException
@@ -3351,9 +3602,27 @@ export declare namespace ListTagsForResource {
     | CommonAwsError;
 }
 
+export declare namespace ListThreatEntitySets {
+  export type Input = ListThreatEntitySetsRequest;
+  export type Output = ListThreatEntitySetsResponse;
+  export type Error =
+    | BadRequestException
+    | InternalServerErrorException
+    | CommonAwsError;
+}
+
 export declare namespace ListThreatIntelSets {
   export type Input = ListThreatIntelSetsRequest;
   export type Output = ListThreatIntelSetsResponse;
+  export type Error =
+    | BadRequestException
+    | InternalServerErrorException
+    | CommonAwsError;
+}
+
+export declare namespace ListTrustedEntitySets {
+  export type Input = ListTrustedEntitySetsRequest;
+  export type Output = ListTrustedEntitySetsResponse;
   export type Error =
     | BadRequestException
     | InternalServerErrorException
@@ -3501,11 +3770,29 @@ export declare namespace UpdatePublishingDestination {
     | CommonAwsError;
 }
 
+export declare namespace UpdateThreatEntitySet {
+  export type Input = UpdateThreatEntitySetRequest;
+  export type Output = UpdateThreatEntitySetResponse;
+  export type Error =
+    | BadRequestException
+    | InternalServerErrorException
+    | CommonAwsError;
+}
+
 export declare namespace UpdateThreatIntelSet {
   export type Input = UpdateThreatIntelSetRequest;
   export type Output = UpdateThreatIntelSetResponse;
   export type Error =
     | AccessDeniedException
+    | BadRequestException
+    | InternalServerErrorException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateTrustedEntitySet {
+  export type Input = UpdateTrustedEntitySetRequest;
+  export type Output = UpdateTrustedEntitySetResponse;
+  export type Error =
     | BadRequestException
     | InternalServerErrorException
     | CommonAwsError;

@@ -7,6 +7,7 @@ export declare class IAM extends AWSServiceClient {
     input: AddClientIDToOpenIDConnectProviderRequest,
   ): Effect.Effect<
     {},
+    | ConcurrentModificationException
     | InvalidInputException
     | LimitExceededException
     | NoSuchEntityException
@@ -1008,6 +1009,7 @@ export declare class IAM extends AWSServiceClient {
     input: RemoveClientIDFromOpenIDConnectProviderRequest,
   ): Effect.Effect<
     {},
+    | ConcurrentModificationException
     | InvalidInputException
     | NoSuchEntityException
     | ServiceFailureException
@@ -1299,6 +1301,7 @@ export declare class IAM extends AWSServiceClient {
     input: UpdateOpenIDConnectProviderThumbprintRequest,
   ): Effect.Effect<
     {},
+    | ConcurrentModificationException
     | InvalidInputException
     | NoSuchEntityException
     | ServiceFailureException
@@ -1326,6 +1329,7 @@ export declare class IAM extends AWSServiceClient {
     input: UpdateSAMLProviderRequest,
   ): Effect.Effect<
     UpdateSAMLProviderResponse,
+    | ConcurrentModificationException
     | InvalidInputException
     | LimitExceededException
     | NoSuchEntityException
@@ -3165,7 +3169,14 @@ export type summaryKeyType =
   | "PolicyVersionsInUse"
   | "PolicyVersionsInUseQuota"
   | "VersionsPerPolicyQuota"
-  | "GlobalEndpointTokenVersion";
+  | "GlobalEndpointTokenVersion"
+  | "AssumeRolePolicySizeQuota"
+  | "InstanceProfiles"
+  | "InstanceProfilesQuota"
+  | "Providers"
+  | "RolePolicySizeQuota"
+  | "Roles"
+  | "RolesQuota";
 export type summaryMapType = Record<summaryKeyType, number>;
 export type summaryValueType = number;
 
@@ -3416,6 +3427,7 @@ export declare namespace AddClientIDToOpenIDConnectProvider {
   export type Input = AddClientIDToOpenIDConnectProviderRequest;
   export type Output = {};
   export type Error =
+    | ConcurrentModificationException
     | InvalidInputException
     | LimitExceededException
     | NoSuchEntityException
@@ -4610,6 +4622,7 @@ export declare namespace RemoveClientIDFromOpenIDConnectProvider {
   export type Input = RemoveClientIDFromOpenIDConnectProviderRequest;
   export type Output = {};
   export type Error =
+    | ConcurrentModificationException
     | InvalidInputException
     | NoSuchEntityException
     | ServiceFailureException
@@ -4934,6 +4947,7 @@ export declare namespace UpdateOpenIDConnectProviderThumbprint {
   export type Input = UpdateOpenIDConnectProviderThumbprintRequest;
   export type Output = {};
   export type Error =
+    | ConcurrentModificationException
     | InvalidInputException
     | NoSuchEntityException
     | ServiceFailureException
@@ -4964,6 +4978,7 @@ export declare namespace UpdateSAMLProvider {
   export type Input = UpdateSAMLProviderRequest;
   export type Output = UpdateSAMLProviderResponse;
   export type Error =
+    | ConcurrentModificationException
     | InvalidInputException
     | LimitExceededException
     | NoSuchEntityException

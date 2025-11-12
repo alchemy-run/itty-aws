@@ -414,6 +414,7 @@ export declare class Lambda extends AWSServiceClient {
     | ResourceConflictException
     | ResourceNotFoundException
     | ResourceNotReadyException
+    | SerializedRequestEntityTooLargeException
     | ServiceException
     | SnapStartException
     | SnapStartNotReadyException
@@ -461,6 +462,7 @@ export declare class Lambda extends AWSServiceClient {
     | ResourceConflictException
     | ResourceNotFoundException
     | ResourceNotReadyException
+    | SerializedRequestEntityTooLargeException
     | ServiceException
     | SnapStartException
     | SnapStartNotReadyException
@@ -815,6 +817,7 @@ export interface AddPermissionRequest {
   RevisionId?: string;
   PrincipalOrgID?: string;
   FunctionUrlAuthType?: FunctionUrlAuthType;
+  InvokedViaFunctionUrl?: boolean;
 }
 export interface AddPermissionResponse {
   Statement?: string;
@@ -1499,6 +1502,8 @@ export interface InvokeAsyncRequest {
 export interface InvokeAsyncResponse {
   Status?: number;
 }
+export type InvokedViaFunctionUrl = boolean;
+
 export type InvokeMode = "BUFFERED" | "RESPONSE_STREAM";
 export interface InvokeResponseStreamUpdate {
   Payload?: Uint8Array | string;
@@ -2061,7 +2066,10 @@ export type Runtime =
   | "python3.12"
   | "java21"
   | "python3.13"
-  | "nodejs22.x";
+  | "nodejs22.x"
+  | "java25"
+  | "nodejs24.x"
+  | "python3.14";
 export type RuntimeVersionArn = string;
 
 export interface RuntimeVersionConfig {
@@ -2096,6 +2104,12 @@ export interface SelfManagedKafkaEventSourceConfig {
 }
 export type SensitiveString = string;
 
+export declare class SerializedRequestEntityTooLargeException extends EffectData.TaggedError(
+  "SerializedRequestEntityTooLargeException",
+)<{
+  readonly Type?: string;
+  readonly message?: string;
+}> {}
 export declare class ServiceException extends EffectData.TaggedError(
   "ServiceException",
 )<{
@@ -2825,6 +2839,7 @@ export declare namespace Invoke {
     | ResourceConflictException
     | ResourceNotFoundException
     | ResourceNotReadyException
+    | SerializedRequestEntityTooLargeException
     | ServiceException
     | SnapStartException
     | SnapStartNotReadyException
@@ -2874,6 +2889,7 @@ export declare namespace InvokeWithResponseStream {
     | ResourceConflictException
     | ResourceNotFoundException
     | ResourceNotReadyException
+    | SerializedRequestEntityTooLargeException
     | ServiceException
     | SnapStartException
     | SnapStartNotReadyException
@@ -3248,6 +3264,7 @@ export type LambdaErrors =
   | ResourceInUseException
   | ResourceNotFoundException
   | ResourceNotReadyException
+  | SerializedRequestEntityTooLargeException
   | ServiceException
   | SnapStartException
   | SnapStartNotReadyException

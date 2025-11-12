@@ -91,6 +91,18 @@ export declare class amp extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
+  createAnomalyDetector(
+    input: CreateAnomalyDetectorRequest,
+  ): Effect.Effect<
+    CreateAnomalyDetectorResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
   createLoggingConfiguration(
     input: CreateLoggingConfigurationRequest,
   ): Effect.Effect<
@@ -161,6 +173,18 @@ export declare class amp extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
+  deleteAnomalyDetector(
+    input: DeleteAnomalyDetectorRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
   deleteLoggingConfiguration(
     input: DeleteLoggingConfigurationRequest,
   ): Effect.Effect<
@@ -180,6 +204,18 @@ export declare class amp extends AWSServiceClient {
     | ConflictException
     | InternalServerException
     | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
+  deleteResourcePolicy(
+    input: DeleteResourcePolicyRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
     | ValidationException
     | CommonAwsError
   >;
@@ -207,6 +243,17 @@ export declare class amp extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
+  deleteScraperLoggingConfiguration(
+    input: DeleteScraperLoggingConfigurationRequest,
+  ): Effect.Effect<
+    {},
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
   deleteWorkspace(
     input: DeleteWorkspaceRequest,
   ): Effect.Effect<
@@ -223,6 +270,17 @@ export declare class amp extends AWSServiceClient {
     input: DescribeAlertManagerDefinitionRequest,
   ): Effect.Effect<
     DescribeAlertManagerDefinitionResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  describeAnomalyDetector(
+    input: DescribeAnomalyDetectorRequest,
+  ): Effect.Effect<
+    DescribeAnomalyDetectorResponse,
     | AccessDeniedException
     | InternalServerException
     | ResourceNotFoundException
@@ -250,6 +308,17 @@ export declare class amp extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
+  describeResourcePolicy(
+    input: DescribeResourcePolicyRequest,
+  ): Effect.Effect<
+    DescribeResourcePolicyResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
   describeRuleGroupsNamespace(
     input: DescribeRuleGroupsNamespaceRequest,
   ): Effect.Effect<
@@ -272,6 +341,16 @@ export declare class amp extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
+  describeScraperLoggingConfiguration(
+    input: DescribeScraperLoggingConfigurationRequest,
+  ): Effect.Effect<
+    DescribeScraperLoggingConfigurationResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
+  >;
   describeWorkspace(
     input: DescribeWorkspaceRequest,
   ): Effect.Effect<
@@ -287,6 +366,17 @@ export declare class amp extends AWSServiceClient {
     input: DescribeWorkspaceConfigurationRequest,
   ): Effect.Effect<
     DescribeWorkspaceConfigurationResponse,
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  listAnomalyDetectors(
+    input: ListAnomalyDetectorsRequest,
+  ): Effect.Effect<
+    ListAnomalyDetectorsResponse,
     | AccessDeniedException
     | InternalServerException
     | ResourceNotFoundException
@@ -338,6 +428,30 @@ export declare class amp extends AWSServiceClient {
     | ValidationException
     | CommonAwsError
   >;
+  putAnomalyDetector(
+    input: PutAnomalyDetectorRequest,
+  ): Effect.Effect<
+    PutAnomalyDetectorResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  putResourcePolicy(
+    input: PutResourcePolicyRequest,
+  ): Effect.Effect<
+    PutResourcePolicyResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
   putRuleGroupsNamespace(
     input: PutRuleGroupsNamespaceRequest,
   ): Effect.Effect<
@@ -383,6 +497,17 @@ export declare class amp extends AWSServiceClient {
     | ResourceNotFoundException
     | ServiceQuotaExceededException
     | ThrottlingException
+    | ValidationException
+    | CommonAwsError
+  >;
+  updateScraperLoggingConfiguration(
+    input: UpdateScraperLoggingConfigurationRequest,
+  ): Effect.Effect<
+    UpdateScraperLoggingConfigurationResponse,
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
     | ValidationException
     | CommonAwsError
   >;
@@ -438,11 +563,72 @@ export type AlertManagerDefinitionStatusCode = string;
 export interface AmpConfiguration {
   workspaceArn: string;
 }
+export type AnomalyDetectorAlias = string;
+
+export type AnomalyDetectorArn = string;
+
+interface _AnomalyDetectorConfiguration {
+  randomCutForest?: RandomCutForestConfiguration;
+}
+
+export type AnomalyDetectorConfiguration = _AnomalyDetectorConfiguration & {
+  randomCutForest: RandomCutForestConfiguration;
+};
+export interface AnomalyDetectorDescription {
+  arn: string;
+  anomalyDetectorId: string;
+  alias: string;
+  evaluationIntervalInSeconds?: number;
+  missingDataAction?: AnomalyDetectorMissingDataAction;
+  configuration?: AnomalyDetectorConfiguration;
+  labels?: Record<string, string>;
+  status: AnomalyDetectorStatus;
+  createdAt: Date | string;
+  modifiedAt: Date | string;
+  tags?: Record<string, string>;
+}
+export type AnomalyDetectorEvaluationInterval = number;
+
+export type AnomalyDetectorId = string;
+
+interface _AnomalyDetectorMissingDataAction {
+  markAsAnomaly?: boolean;
+  skip?: boolean;
+}
+
+export type AnomalyDetectorMissingDataAction =
+  | (_AnomalyDetectorMissingDataAction & { markAsAnomaly: boolean })
+  | (_AnomalyDetectorMissingDataAction & { skip: boolean });
+export interface AnomalyDetectorStatus {
+  statusCode: AnomalyDetectorStatusCode;
+  statusReason?: string;
+}
+export type AnomalyDetectorStatusCode =
+  | "CREATING"
+  | "ACTIVE"
+  | "UPDATING"
+  | "DELETING"
+  | "CREATION_FAILED"
+  | "UPDATE_FAILED"
+  | "DELETION_FAILED";
+export interface AnomalyDetectorSummary {
+  arn: string;
+  anomalyDetectorId: string;
+  alias: string;
+  status: AnomalyDetectorStatus;
+  createdAt: Date | string;
+  modifiedAt: Date | string;
+  tags?: Record<string, string>;
+}
+export type AnomalyDetectorSummaryList = Array<AnomalyDetectorSummary>;
 export interface CloudWatchLogDestination {
   logGroupArn: string;
 }
 export type ClusterArn = string;
 
+export interface ComponentConfig {
+  options?: Record<string, string>;
+}
 export declare class ConflictException extends EffectData.TaggedError(
   "ConflictException",
 )<{
@@ -457,6 +643,22 @@ export interface CreateAlertManagerDefinitionRequest {
 }
 export interface CreateAlertManagerDefinitionResponse {
   status: AlertManagerDefinitionStatus;
+}
+export interface CreateAnomalyDetectorRequest {
+  workspaceId: string;
+  alias: string;
+  evaluationIntervalInSeconds?: number;
+  missingDataAction?: AnomalyDetectorMissingDataAction;
+  configuration: AnomalyDetectorConfiguration;
+  labels?: Record<string, string>;
+  clientToken?: string;
+  tags?: Record<string, string>;
+}
+export interface CreateAnomalyDetectorResponse {
+  anomalyDetectorId: string;
+  arn: string;
+  status: AnomalyDetectorStatus;
+  tags?: Record<string, string>;
 }
 export interface CreateLoggingConfigurationRequest {
   workspaceId: string;
@@ -519,6 +721,11 @@ export interface DeleteAlertManagerDefinitionRequest {
   workspaceId: string;
   clientToken?: string;
 }
+export interface DeleteAnomalyDetectorRequest {
+  workspaceId: string;
+  anomalyDetectorId: string;
+  clientToken?: string;
+}
 export interface DeleteLoggingConfigurationRequest {
   workspaceId: string;
   clientToken?: string;
@@ -527,9 +734,18 @@ export interface DeleteQueryLoggingConfigurationRequest {
   workspaceId: string;
   clientToken?: string;
 }
+export interface DeleteResourcePolicyRequest {
+  workspaceId: string;
+  clientToken?: string;
+  revisionId?: string;
+}
 export interface DeleteRuleGroupsNamespaceRequest {
   workspaceId: string;
   name: string;
+  clientToken?: string;
+}
+export interface DeleteScraperLoggingConfigurationRequest {
+  scraperId: string;
   clientToken?: string;
 }
 export interface DeleteScraperRequest {
@@ -550,6 +766,13 @@ export interface DescribeAlertManagerDefinitionRequest {
 export interface DescribeAlertManagerDefinitionResponse {
   alertManagerDefinition: AlertManagerDefinitionDescription;
 }
+export interface DescribeAnomalyDetectorRequest {
+  workspaceId: string;
+  anomalyDetectorId: string;
+}
+export interface DescribeAnomalyDetectorResponse {
+  anomalyDetector: AnomalyDetectorDescription;
+}
 export interface DescribeLoggingConfigurationRequest {
   workspaceId: string;
 }
@@ -562,12 +785,30 @@ export interface DescribeQueryLoggingConfigurationRequest {
 export interface DescribeQueryLoggingConfigurationResponse {
   queryLoggingConfiguration: QueryLoggingConfigurationMetadata;
 }
+export interface DescribeResourcePolicyRequest {
+  workspaceId: string;
+}
+export interface DescribeResourcePolicyResponse {
+  policyDocument: string;
+  policyStatus: string;
+  revisionId: string;
+}
 export interface DescribeRuleGroupsNamespaceRequest {
   workspaceId: string;
   name: string;
 }
 export interface DescribeRuleGroupsNamespaceResponse {
   ruleGroupsNamespace: RuleGroupsNamespaceDescription;
+}
+export interface DescribeScraperLoggingConfigurationRequest {
+  scraperId: string;
+}
+export interface DescribeScraperLoggingConfigurationResponse {
+  status: ScraperLoggingConfigurationStatus;
+  scraperId: string;
+  loggingDestination: ScraperLoggingDestination;
+  scraperComponents: Array<ScraperComponent>;
+  modifiedAt: Date | string;
 }
 export interface DescribeScraperRequest {
   scraperId: string;
@@ -610,6 +851,14 @@ export type IamRoleArn = string;
 
 export type IdempotencyToken = string;
 
+interface _IgnoreNearExpected {
+  amount?: number;
+  ratio?: number;
+}
+
+export type IgnoreNearExpected =
+  | (_IgnoreNearExpected & { amount: number })
+  | (_IgnoreNearExpected & { ratio: number });
 export declare class InternalServerException extends EffectData.TaggedError(
   "InternalServerException",
 )<{
@@ -631,6 +880,16 @@ export interface LimitsPerLabelSetEntry {
   maxSeries?: number;
 }
 export type LimitsPerLabelSetList = Array<LimitsPerLabelSet>;
+export interface ListAnomalyDetectorsRequest {
+  workspaceId: string;
+  alias?: string;
+  maxResults?: number;
+  nextToken?: string;
+}
+export interface ListAnomalyDetectorsResponse {
+  anomalyDetectors: Array<AnomalyDetectorSummary>;
+  nextToken?: string;
+}
 export interface ListRuleGroupsNamespacesRequest {
   workspaceId: string;
   name?: string;
@@ -690,6 +949,11 @@ export type LogGroupArn = string;
 
 export type PaginationToken = string;
 
+export type PrometheusMetricLabelKey = string;
+
+export type PrometheusMetricLabelMap = Record<string, string>;
+export type PrometheusMetricLabelValue = string;
+
 export interface PutAlertManagerDefinitionRequest {
   workspaceId: string;
   data: Uint8Array | string;
@@ -697,6 +961,31 @@ export interface PutAlertManagerDefinitionRequest {
 }
 export interface PutAlertManagerDefinitionResponse {
   status: AlertManagerDefinitionStatus;
+}
+export interface PutAnomalyDetectorRequest {
+  workspaceId: string;
+  anomalyDetectorId: string;
+  evaluationIntervalInSeconds?: number;
+  missingDataAction?: AnomalyDetectorMissingDataAction;
+  configuration: AnomalyDetectorConfiguration;
+  labels?: Record<string, string>;
+  clientToken?: string;
+}
+export interface PutAnomalyDetectorResponse {
+  anomalyDetectorId: string;
+  arn: string;
+  status: AnomalyDetectorStatus;
+  tags?: Record<string, string>;
+}
+export interface PutResourcePolicyRequest {
+  workspaceId: string;
+  policyDocument: string;
+  clientToken?: string;
+  revisionId?: string;
+}
+export interface PutResourcePolicyResponse {
+  policyStatus: string;
+  revisionId: string;
 }
 export interface PutRuleGroupsNamespaceRequest {
   workspaceId: string;
@@ -722,6 +1011,15 @@ export interface QueryLoggingConfigurationStatus {
   statusReason?: string;
 }
 export type QueryLoggingConfigurationStatusCode = string;
+
+export interface RandomCutForestConfiguration {
+  query: string;
+  shingleSize?: number;
+  sampleSize?: number;
+  ignoreNearExpectedFromAbove?: IgnoreNearExpected;
+  ignoreNearExpectedFromBelow?: IgnoreNearExpected;
+}
+export type RandomCutForestQuery = string;
 
 export declare class ResourceNotFoundException extends EffectData.TaggedError(
   "ResourceNotFoundException",
@@ -775,6 +1073,13 @@ export type ScraperAlias = string;
 
 export type ScraperArn = string;
 
+export interface ScraperComponent {
+  type: string;
+  config?: ComponentConfig;
+}
+export type ScraperComponents = Array<ScraperComponent>;
+export type ScraperComponentType = string;
+
 export interface ScraperDescription {
   alias?: string;
   scraperId: string;
@@ -793,6 +1098,19 @@ export interface ScraperDescription {
 export type ScraperFilters = Record<string, Array<string>>;
 export type ScraperId = string;
 
+export interface ScraperLoggingConfigurationStatus {
+  statusCode: string;
+  statusReason?: string;
+}
+export type ScraperLoggingConfigurationStatusCode = string;
+
+interface _ScraperLoggingDestination {
+  cloudWatchLogs?: CloudWatchLogDestination;
+}
+
+export type ScraperLoggingDestination = _ScraperLoggingDestination & {
+  cloudWatchLogs: CloudWatchLogDestination;
+};
 export interface ScraperStatus {
   statusCode: string;
 }
@@ -832,6 +1150,7 @@ interface _Source {
 export type Source = _Source & { eksConfiguration: EksConfiguration };
 export type StatusReason = string;
 
+export type StringMap = Record<string, string>;
 export type SubnetId = string;
 
 export type SubnetIds = Array<string>;
@@ -874,6 +1193,14 @@ export interface UpdateQueryLoggingConfigurationRequest {
 }
 export interface UpdateQueryLoggingConfigurationResponse {
   status: QueryLoggingConfigurationStatus;
+}
+export interface UpdateScraperLoggingConfigurationRequest {
+  scraperId: string;
+  loggingDestination: ScraperLoggingDestination;
+  scraperComponents?: Array<ScraperComponent>;
+}
+export interface UpdateScraperLoggingConfigurationResponse {
+  status: ScraperLoggingConfigurationStatus;
 }
 export interface UpdateScraperRequest {
   scraperId: string;
@@ -946,6 +1273,8 @@ export interface WorkspaceDescription {
 }
 export type WorkspaceId = string;
 
+export type WorkspacePolicyStatusCode = string;
+
 export interface WorkspaceStatus {
   statusCode: string;
 }
@@ -1015,6 +1344,19 @@ export declare namespace CreateAlertManagerDefinition {
     | ConflictException
     | InternalServerException
     | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace CreateAnomalyDetector {
+  export type Input = CreateAnomalyDetectorRequest;
+  export type Output = CreateAnomalyDetectorResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
     | ServiceQuotaExceededException
     | ThrottlingException
     | ValidationException
@@ -1097,6 +1439,19 @@ export declare namespace DeleteAlertManagerDefinition {
     | CommonAwsError;
 }
 
+export declare namespace DeleteAnomalyDetector {
+  export type Input = DeleteAnomalyDetectorRequest;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
 export declare namespace DeleteLoggingConfiguration {
   export type Input = DeleteLoggingConfigurationRequest;
   export type Output = {};
@@ -1117,6 +1472,19 @@ export declare namespace DeleteQueryLoggingConfiguration {
     | ConflictException
     | InternalServerException
     | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DeleteResourcePolicy {
+  export type Input = DeleteResourcePolicyRequest;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
     | ValidationException
     | CommonAwsError;
 }
@@ -1147,6 +1515,18 @@ export declare namespace DeleteScraper {
     | CommonAwsError;
 }
 
+export declare namespace DeleteScraperLoggingConfiguration {
+  export type Input = DeleteScraperLoggingConfigurationRequest;
+  export type Output = {};
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
 export declare namespace DeleteWorkspace {
   export type Input = DeleteWorkspaceRequest;
   export type Output = {};
@@ -1163,6 +1543,18 @@ export declare namespace DeleteWorkspace {
 export declare namespace DescribeAlertManagerDefinition {
   export type Input = DescribeAlertManagerDefinitionRequest;
   export type Output = DescribeAlertManagerDefinitionResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace DescribeAnomalyDetector {
+  export type Input = DescribeAnomalyDetectorRequest;
+  export type Output = DescribeAnomalyDetectorResponse;
   export type Error =
     | AccessDeniedException
     | InternalServerException
@@ -1194,6 +1586,18 @@ export declare namespace DescribeQueryLoggingConfiguration {
     | CommonAwsError;
 }
 
+export declare namespace DescribeResourcePolicy {
+  export type Input = DescribeResourcePolicyRequest;
+  export type Output = DescribeResourcePolicyResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
 export declare namespace DescribeRuleGroupsNamespace {
   export type Input = DescribeRuleGroupsNamespaceRequest;
   export type Output = DescribeRuleGroupsNamespaceResponse;
@@ -1218,6 +1622,17 @@ export declare namespace DescribeScraper {
     | CommonAwsError;
 }
 
+export declare namespace DescribeScraperLoggingConfiguration {
+  export type Input = DescribeScraperLoggingConfigurationRequest;
+  export type Output = DescribeScraperLoggingConfigurationResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError;
+}
+
 export declare namespace DescribeWorkspace {
   export type Input = DescribeWorkspaceRequest;
   export type Output = DescribeWorkspaceResponse;
@@ -1233,6 +1648,18 @@ export declare namespace DescribeWorkspace {
 export declare namespace DescribeWorkspaceConfiguration {
   export type Input = DescribeWorkspaceConfigurationRequest;
   export type Output = DescribeWorkspaceConfigurationResponse;
+  export type Error =
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace ListAnomalyDetectors {
+  export type Input = ListAnomalyDetectorsRequest;
+  export type Output = ListAnomalyDetectorsResponse;
   export type Error =
     | AccessDeniedException
     | InternalServerException
@@ -1290,6 +1717,32 @@ export declare namespace PutAlertManagerDefinition {
     | CommonAwsError;
 }
 
+export declare namespace PutAnomalyDetector {
+  export type Input = PutAnomalyDetectorRequest;
+  export type Output = PutAnomalyDetectorResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace PutResourcePolicy {
+  export type Input = PutResourcePolicyRequest;
+  export type Output = PutResourcePolicyResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
 export declare namespace PutRuleGroupsNamespace {
   export type Input = PutRuleGroupsNamespaceRequest;
   export type Output = PutRuleGroupsNamespaceResponse;
@@ -1338,6 +1791,18 @@ export declare namespace UpdateScraper {
     | ResourceNotFoundException
     | ServiceQuotaExceededException
     | ThrottlingException
+    | ValidationException
+    | CommonAwsError;
+}
+
+export declare namespace UpdateScraperLoggingConfiguration {
+  export type Input = UpdateScraperLoggingConfigurationRequest;
+  export type Output = UpdateScraperLoggingConfigurationResponse;
+  export type Error =
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
     | ValidationException
     | CommonAwsError;
 }
