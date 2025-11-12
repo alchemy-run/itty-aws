@@ -6,6 +6,16 @@ import { Credentials, fromStaticCredentials } from "./credentials.ts";
 import type { AwsErrorMeta } from "./error.ts";
 import { DefaultFetch, Fetch } from "./fetch.service.ts";
 import type { ProtocolHandler } from "./protocols/interface.ts";
+import * as Schedule from "effect/Schedule";
+
+export const retryableErrorTags = [
+  "InternalFailure",
+  "RequestExpired",
+  "ServiceException",
+  "ServiceUnavailable",
+  "ThrottlingException",
+  "TooManyRequestsException",
+];
 
 const errorTags: {
   [serviceName: string]: {
@@ -247,7 +257,21 @@ export function createServiceProxy<T>(
               );
             }
           });
-          return program;
+
+          return program.pipe(
+            Effect.tapError((e) =>
+              Effect.logDebug("AWS Request Failed, Retrying...", {
+                error: e,
+              }),
+            ),
+            Effect.retry({
+              schedule: Schedule.intersect(
+                Schedule.exponential("100 millis"),
+                Schedule.recurs(5),
+              ),
+              while: (e) => retryableErrorTags.includes(e._tag),
+            }),
+          );
         };
       },
     },
