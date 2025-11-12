@@ -1,3 +1,14 @@
+## v0.5.0
+
+### &nbsp;&nbsp;&nbsp;🚀 Features
+
+- Generate service-specific errors union type &nbsp;-&nbsp; by **StackOps** and **stackops-ngin** in https://github.com/sam-goodwin/itty-aws/issues/74 [<samp>(38ef9)</samp>](https://github.com/sam-goodwin/itty-aws/commit/38ef9929)
+- S3 restxml-1.0 and streaming endpoints &nbsp;-&nbsp; by **Michael K** in https://github.com/sam-goodwin/itty-aws/issues/76 [<samp>(b5cb0)</samp>](https://github.com/sam-goodwin/itty-aws/commit/b5cb0a0d)
+
+##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/sam-goodwin/itty-aws/compare/v0.4.1...v0.5.0)
+
+---
+
 ## v0.4.1
 
 ### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes
