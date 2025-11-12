@@ -47,6 +47,10 @@ describe("S3 Smoke Tests", () => {
       expect(rawInput).toEqual(rawOutput);
 
       yield* Console.log("Step 5: clean up");
+      yield* client.deleteObject({
+        Bucket: BUCKET_NAME,
+        Key: FILE_KEY,
+      });
       yield* client.deleteBucket({ Bucket: BUCKET_NAME });
       yield* fs.remove(outputFilePath);
     }).pipe(Effect.provide(NodeFileSystem.layer)),
