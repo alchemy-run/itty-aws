@@ -48,14 +48,12 @@
     "generate-service-support-table": "bun scripts/generate-service-support-table.ts",
     "gen": "bun generate",
     "bundle:compare": "bun scripts/bundle-compare.ts",
-    "test:smoke": "bun vitest test/smoke/*.test.ts",
+    "test:smoke": "bun vitest run test/smoke/*.test.ts",
     "bump": "bun ./scripts/bump.ts",
     "publish:npm": "bun publish"
   },
   "dependencies": {
-    "aws4fetch": "^1.0.20",
-    "itty-aws": ".",
-    "pathe": "^2.0.3"
+    "aws4fetch": "^1.0.20"
   },
   "peerDependencies": {
     "@aws-sdk/credential-providers": "^3",
@@ -78,6 +76,7 @@
     "changelogithub": "^13.16.0",
     "effect": "^3.16.12",
     "esbuild": "^0.25.9",
+    "pathe": "^2.0.3",
     "ts-patch": "^3.3.0",
     "typescript": "^5.9.2",
     "vitest": "3"
