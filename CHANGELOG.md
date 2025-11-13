@@ -1,3 +1,13 @@
+## v0.7.2
+
+### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes
+
+- Remove itty-aws and pathe as deps &nbsp;-&nbsp; by **Sam Goodwin** in https://github.com/sam-goodwin/itty-aws/issues/81 [<samp>(959c1)</samp>](https://github.com/sam-goodwin/itty-aws/commit/959c1fed)
+
+##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/sam-goodwin/itty-aws/compare/v0.7.1...v0.7.2)
+
+---
+
 ## v0.7.1
 
 ### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes
