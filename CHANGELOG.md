@@ -1,3 +1,13 @@
+## v0.6.0
+
+### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes
+
+- Extract additional errors from waitable traits &nbsp;-&nbsp; by **Sam Goodwin** in https://github.com/sam-goodwin/itty-aws/issues/79 [<samp>(6f6f2)</samp>](https://github.com/sam-goodwin/itty-aws/commit/6f6f28aa)
+
+##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/sam-goodwin/itty-aws/compare/v0.5.0...v0.6.0)
+
+---
+
 ## v0.5.0
 
 ### &nbsp;&nbsp;&nbsp;🚀 Features
