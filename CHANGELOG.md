@@ -1,3 +1,13 @@
+## v0.6.1
+
+### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes
+
+- Patch DeleteVpc with InvalidVpcID.NotFound error &nbsp;-&nbsp; by **Sam Goodwin** in https://github.com/sam-goodwin/itty-aws/issues/80 [<samp>(0a9c7)</samp>](https://github.com/sam-goodwin/itty-aws/commit/0a9c7c39)
+
+##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/sam-goodwin/itty-aws/compare/v0.6.0...v0.6.1)
+
+---
+
 ## v0.6.0
 
 ### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes
