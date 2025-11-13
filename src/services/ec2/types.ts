@@ -752,7 +752,9 @@ export declare class EC2 extends AWSServiceClient {
     input: DeleteVerifiedAccessTrustProviderRequest,
   ): Effect.Effect<DeleteVerifiedAccessTrustProviderResult, CommonAwsError>;
   deleteVolume(input: DeleteVolumeRequest): Effect.Effect<{}, CommonAwsError>;
-  deleteVpc(input: DeleteVpcRequest): Effect.Effect<{}, CommonAwsError>;
+  deleteVpc(
+    input: DeleteVpcRequest,
+  ): Effect.Effect<{}, InvalidVpcIDNotFound | CommonAwsError>;
   deleteVpcBlockPublicAccessExclusion(
     input: DeleteVpcBlockPublicAccessExclusionRequest,
   ): Effect.Effect<DeleteVpcBlockPublicAccessExclusionResult, CommonAwsError>;
@@ -19959,6 +19961,10 @@ export interface WithdrawByoipCidrResult {
 }
 export type ZoneIdStringList = Array<string>;
 export type ZoneNameStringList = Array<string>;
+export declare class InvalidVpcIDNotFound extends EffectData.TaggedError(
+  "InvalidVpcID.NotFound",
+)<{}> {}
+
 export declare class InvalidAMIIDNotFound extends EffectData.TaggedError(
   "InvalidAMIID.NotFound",
 )<{}> {}
@@ -19997,10 +20003,6 @@ export declare class InvalidVolumeNotFound extends EffectData.TaggedError(
 
 export declare class InvalidVpcPeeringConnectionIDNotFound extends EffectData.TaggedError(
   "InvalidVpcPeeringConnectionID.NotFound",
-)<{}> {}
-
-export declare class InvalidVpcIDNotFound extends EffectData.TaggedError(
-  "InvalidVpcID.NotFound",
 )<{}> {}
 
 export declare namespace AcceptAddressTransfer {
@@ -21408,7 +21410,7 @@ export declare namespace DeleteVolume {
 export declare namespace DeleteVpc {
   export type Input = DeleteVpcRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error = InvalidVpcIDNotFound | CommonAwsError;
 }
 
 export declare namespace DeleteVpcBlockPublicAccessExclusion {
@@ -24308,6 +24310,7 @@ export declare namespace WithdrawByoipCidr {
 }
 
 export type EC2Errors =
+  | InvalidVpcIDNotFound
   | InvalidAMIIDNotFound
   | InvalidInstanceIDNotFound
   | InvalidInternetGatewayNotFound
@@ -24318,5 +24321,4 @@ export type EC2Errors =
   | InvalidSpotInstanceRequestIDNotFound
   | InvalidVolumeNotFound
   | InvalidVpcPeeringConnectionIDNotFound
-  | InvalidVpcIDNotFound
   | CommonAwsError;

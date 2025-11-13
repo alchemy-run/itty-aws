@@ -4,6 +4,7 @@ import { Effect } from "effect";
 import { commonAwsErrorNames, isCommonAwsErrorName } from "../src/error.ts";
 import type { Manifest, Shape } from "./manifest.ts";
 import { loadAllLocalManifests } from "./manifest.ts";
+import { servicePatches } from "./service-patches.ts";
 
 // Configuration flags
 const INCLUDE_DOCUMENTATION = false; // Set to false to disable JSDoc comments
@@ -170,6 +171,23 @@ const extractWaitableErrors = (
   }
 
   return Array.from(errors).map((errorType) => ({
+    original: errorType,
+    sanitized: sanitizeWaitableErrorName(errorType),
+  }));
+};
+
+// Helper to get patched errors for an operation
+const getPatchedErrors = (
+  serviceName: string,
+  operationName: string,
+): Array<{ original: string; sanitized: string }> => {
+  const patches = servicePatches[serviceName];
+  if (!patches) return [];
+
+  const operationPatch = patches[operationName];
+  if (!operationPatch?.errors) return [];
+
+  return operationPatch.errors.map((errorType) => ({
     original: errorType,
     sanitized: sanitizeWaitableErrorName(errorType),
   }));
@@ -1194,6 +1212,12 @@ const generateServiceTypes = (serviceName: string, manifest: Manifest) =>
       for (const { original, sanitized } of waitableErrors) {
         allWaitableErrors.set(sanitized, original);
       }
+
+      // Also collect patched errors
+      const patchedErrors = getPatchedErrors(serviceName, operation.name);
+      for (const { original, sanitized } of patchedErrors) {
+        allWaitableErrors.set(sanitized, original);
+      }
     }
 
     // Identify waitable errors that don't have existing shape definitions
@@ -1403,6 +1427,9 @@ const generateServiceTypes = (serviceName: string, manifest: Manifest) =>
       // Extract errors from waitable traits
       const waitableErrors = extractWaitableErrors(operation.shape.traits);
 
+      // Extract patched errors
+      const patchedErrors = getPatchedErrors(serviceName, operation.name);
+
       const errorTypes = errors.map(
         (error) =>
           typeNameMapping.get(extractShapeName(error.target)) ||
@@ -1411,6 +1438,19 @@ const generateServiceTypes = (serviceName: string, manifest: Manifest) =>
 
       // Add waitable errors (excluding common AWS errors that are already included)
       for (const { original, sanitized } of waitableErrors) {
+        if (
+          !isCommonAwsErrorName(sanitized) &&
+          !isCommonAwsErrorName(original)
+        ) {
+          const mappedName = typeNameMapping.get(sanitized) || sanitized;
+          if (!errorTypes.includes(mappedName)) {
+            errorTypes.push(mappedName);
+          }
+        }
+      }
+
+      // Add patched errors (excluding common AWS errors that are already included)
+      for (const { original, sanitized } of patchedErrors) {
         if (
           !isCommonAwsErrorName(sanitized) &&
           !isCommonAwsErrorName(original)
@@ -1611,6 +1651,9 @@ const generateServiceTypes = (serviceName: string, manifest: Manifest) =>
       // Extract errors from waitable traits
       const waitableErrors = extractWaitableErrors(operation.shape.traits);
 
+      // Extract patched errors
+      const patchedErrors = getPatchedErrors(serviceName, operation.name);
+
       const errorTypes = errors.map(
         (error) =>
           typeNameMapping.get(extractShapeName(error.target)) ||
@@ -1619,6 +1662,19 @@ const generateServiceTypes = (serviceName: string, manifest: Manifest) =>
 
       // Add waitable errors (excluding common AWS errors that are already included)
       for (const { original, sanitized } of waitableErrors) {
+        if (
+          !isCommonAwsErrorName(sanitized) &&
+          !isCommonAwsErrorName(original)
+        ) {
+          const mappedName = typeNameMapping.get(sanitized) || sanitized;
+          if (!errorTypes.includes(mappedName)) {
+            errorTypes.push(mappedName);
+          }
+        }
+      }
+
+      // Add patched errors (excluding common AWS errors that are already included)
+      for (const { original, sanitized } of patchedErrors) {
         if (
           !isCommonAwsErrorName(sanitized) &&
           !isCommonAwsErrorName(original)
