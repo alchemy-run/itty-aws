@@ -688,7 +688,7 @@ export declare class EC2 extends AWSServiceClient {
   ): Effect.Effect<{}, CommonAwsError>;
   deleteSubnet(
     input: DeleteSubnetRequest,
-  ): Effect.Effect<{}, InvalidSubnetNotFound | CommonAwsError>;
+  ): Effect.Effect<{}, InvalidSubnetIDNotFound | CommonAwsError>;
   deleteSubnetCidrReservation(
     input: DeleteSubnetCidrReservationRequest,
   ): Effect.Effect<DeleteSubnetCidrReservationResult, CommonAwsError>;
@@ -1296,7 +1296,7 @@ export declare class EC2 extends AWSServiceClient {
     input: DescribeSubnetsRequest,
   ): Effect.Effect<
     DescribeSubnetsResult,
-    InvalidSubnetNotFound | CommonAwsError
+    InvalidSubnetIDNotFound | CommonAwsError
   >;
   describeTags(
     input: DescribeTagsRequest,
@@ -1446,16 +1446,10 @@ export declare class EC2 extends AWSServiceClient {
   ): Effect.Effect<DescribeVpcsResult, InvalidVpcIDNotFound | CommonAwsError>;
   describeVpnConnections(
     input: DescribeVpnConnectionsRequest,
-  ): Effect.Effect<
-    DescribeVpnConnectionsResult,
-    InvalidVpnConnectionNotFound | CommonAwsError
-  >;
+  ): Effect.Effect<DescribeVpnConnectionsResult, CommonAwsError>;
   describeVpnGateways(
     input: DescribeVpnGatewaysRequest,
-  ): Effect.Effect<
-    DescribeVpnGatewaysResult,
-    InvalidVpnGatewayNotFound | CommonAwsError
-  >;
+  ): Effect.Effect<DescribeVpnGatewaysResult, CommonAwsError>;
   detachClassicLinkVpc(
     input: DetachClassicLinkVpcRequest,
   ): Effect.Effect<DetachClassicLinkVpcResult, CommonAwsError>;
@@ -19996,8 +19990,8 @@ export declare class InvalidNetworkInterfaceNotFound extends EffectData.TaggedEr
   "InvalidNetworkInterface.NotFound",
 )<{}> {}
 
-export declare class InvalidSubnetNotFound extends EffectData.TaggedError(
-  "InvalidSubnet.NotFound",
+export declare class InvalidSubnetIDNotFound extends EffectData.TaggedError(
+  "InvalidSubnetID.NotFound",
 )<{}> {}
 
 export declare class InvalidVolumeNotFound extends EffectData.TaggedError(
@@ -21315,7 +21309,7 @@ export declare namespace DeleteSpotDatafeedSubscription {
 export declare namespace DeleteSubnet {
   export type Input = DeleteSubnetRequest;
   export type Output = {};
-  export type Error = InvalidSubnetNotFound | CommonAwsError;
+  export type Error = InvalidSubnetIDNotFound | CommonAwsError;
 }
 
 export declare namespace DeleteSubnetCidrReservation {
@@ -22364,7 +22358,7 @@ export declare namespace DescribeStoreImageTasks {
 export declare namespace DescribeSubnets {
   export type Input = DescribeSubnetsRequest;
   export type Output = DescribeSubnetsResult;
-  export type Error = InvalidSubnetNotFound | CommonAwsError;
+  export type Error = InvalidSubnetIDNotFound | CommonAwsError;
 }
 
 export declare namespace DescribeTags {
@@ -22609,13 +22603,13 @@ export declare namespace DescribeVpcs {
 export declare namespace DescribeVpnConnections {
   export type Input = DescribeVpnConnectionsRequest;
   export type Output = DescribeVpnConnectionsResult;
-  export type Error = InvalidVpnConnectionNotFound | CommonAwsError;
+  export type Error = CommonAwsError;
 }
 
 export declare namespace DescribeVpnGateways {
   export type Input = DescribeVpnGatewaysRequest;
   export type Output = DescribeVpnGatewaysResult;
-  export type Error = InvalidVpnGatewayNotFound | CommonAwsError;
+  export type Error = CommonAwsError;
 }
 
 export declare namespace DetachClassicLinkVpc {
@@ -24362,7 +24356,7 @@ export type EC2Errors =
   | InvalidInternetGatewayNotFound
   | InvalidKeyPairNotFound
   | InvalidNetworkInterfaceNotFound
-  | InvalidSubnetNotFound
+  | InvalidSubnetIDNotFound
   | InvalidVolumeNotFound
   | InvalidVpcIDNotFound
   | InvalidVpcPeeringConnectionNotFound

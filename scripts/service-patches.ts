@@ -33,10 +33,10 @@ export const servicePatches: Record<string, ServicePatches> = {
       errors: ["InvalidVpcID.NotFound"],
     },
     DeleteSubnet: {
-      errors: ["InvalidSubnet.NotFound"],
+      errors: ["InvalidSubnetID.NotFound"],
     },
     DescribeSubnets: {
-      errors: ["InvalidSubnet.NotFound"],
+      errors: ["InvalidSubnetID.NotFound"],
     },
     DescribeNetworkInterfaces: {
       errors: ["InvalidNetworkInterface.NotFound"],
@@ -52,12 +52,6 @@ export const servicePatches: Record<string, ServicePatches> = {
     },
     DescribeVpcPeeringConnections: {
       errors: ["InvalidVpcPeeringConnection.NotFound"],
-    },
-    DescribeVpnConnections: {
-      errors: ["InvalidVpnConnection.NotFound"],
-    },
-    DescribeVpnGateways: {
-      errors: ["InvalidVpnGateway.NotFound"],
     },
     DeleteNetworkInterface: {
       errors: ["InvalidNetworkInterface.NotFound"],
